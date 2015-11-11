@@ -2,6 +2,7 @@
 #define HOMESCREEN_H
 
 #include "modulemetadata.h"
+#include "pluginsmanager.h"
 
 #include <QFrame>
 #include <QPropertyAnimation>
@@ -13,23 +14,19 @@ class HomeScreen : public QFrame
 {
     Q_OBJECT
 public:
-    explicit HomeScreen(QList<ModuleMetaData> modules, QWidget *parent = 0);
+    explicit HomeScreen(QWidget *parent = 0);
     ~HomeScreen();
 
     void hide();
     void show();
 
 signals:
-    void moduleSelected(ModuleMetaData);
+    void moduleSelected(const QString pluginId) const;
     void showAniFinished();
     void powerBtnClicked();
 
 public slots:
     void powerButtonClicked();
-
-private slots:
-    void buttonClicked();
-    void userAvatarClicked();
 
 private:
     QGridLayout *m_grid;
@@ -44,7 +41,7 @@ private:
     QWidget *m_centerWidget;
     QWidget *m_bottomWidget;
 
-    QList<ModuleMetaData> modules;
+    PluginsManager *m_pluginsManager;
 
     int m_moduleCount = 0;
 };
@@ -55,17 +52,14 @@ class ModuleButton : public QFrame
 {
     Q_OBJECT
 public:
-    ModuleButton(ModuleMetaData metaData, QWidget *parent = 0);
+    ModuleButton(const ModuleMetaData &metaData, QWidget *parent = 0);
 
     void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
     void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
     void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-
-    ModuleMetaData metaData();
 
 signals:
-    void clicked();
+    void clicked(const QString pluginId) const;
 
 private:
     enum State { Normal, Hover };
@@ -74,7 +68,7 @@ private:
     void setState(State state);
 
 private:
-    ModuleMetaData m_meta;
+    QString m_pluginId;
 
     QLabel *m_icon;
     QLabel *m_text;

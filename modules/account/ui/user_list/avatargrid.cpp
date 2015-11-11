@@ -93,7 +93,7 @@ void AvatarGrid::onRequestDelete()
 {
     UserAvatar * icon = qobject_cast<UserAvatar *>(sender());
     if (icon && m_user->isValid()){
-        this->window()->setProperty("canNotHide", true);
+        this->window()->setProperty("autoHide", false);
         QDBusPendingReply<bool> reply = m_user->DeleteIconFile(icon->iconPath());
         reply.waitForFinished();
         if (reply.error().isValid())

@@ -6,26 +6,29 @@
 #include <QTimer>
 #include <QElapsedTimer>
 
-#include "interfaces.h"
 #include "contentview.h"
 #include "sidebar.h"
 #include "constants.h"
 
-ContentView::ContentView(QList<ModuleMetaData> modules, bool hideInLeft, QWidget *parent)
-    : QFrame(parent),
-      m_hideInLeft(hideInLeft)
+ContentView::ContentView(QWidget *parent)
+    : QFrame(parent)
 {
     m_pluginLoader = new QPluginLoader(this);
+#ifdef QT_DEBUG
+    m_pluginLoader->setLoadHints(QLibrary::ResolveAllSymbolsHint);
+#else
+#endif
+    m_pluginsManager = PluginsManager::getInstance(this);
 
-    m_sideBar = new SideBar(modules, parent);
+    m_sideBar = new SideBar(parent);
 
     m_leftSeparator = new DSeparatorVertical;
     m_rightSeparator = new DSeparatorVertical;
 
-    if(hideInLeft){
+    if(m_hideInLeft) {
         m_rightSeparator->hide();
         m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowLeft);
-    }else{
+    } else {
         m_leftSeparator->hide();
         m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowRight);
     }
@@ -63,39 +66,39 @@ ContentView::~ContentView()
     m_hideAni->deleteLater();
 }
 
-void ContentView::setModule(ModuleMetaData module)
+void ContentView::switchToModule(ModuleMetaData module)
 {
-    QElapsedTimer timer;
+    qDebug() << "load plugin: " << module.path;
 
-#ifdef QT_DEBUG
-    timer.start();
-#endif
+    unloadPlugin();
 
-    // unload old plugin
-    m_pluginLoader->unload();
-
-    qDebug() << "unload finished:" << timer.elapsed();
-
+    // load new plugin
     m_pluginLoader->setFileName(module.path);
-    m_sideBar->switchToModule(module);
+    m_sideBar->switchToModule(module.id);
 
     QObject *instance = m_pluginLoader->instance();
+    ModuleInterface *interface = qobject_cast<ModuleInterface *>(instance);
 
-    qDebug() << "get instance finished:" << timer.elapsed();
+    do {
+        if (!interface)
+            break;
+        m_lastPluginInterface = interface;
 
-    if (instance) {
-        ModuleInterface *interface = qobject_cast<ModuleInterface *>(instance);
-        if(m_hideInLeft)
-            m_layout->insertWidget(0, interface->getContent());
+        QWidget *content = interface->getContent();
+        if (!content)
+            break;
+        m_lastPluginWidget = content;
+
+        if (m_hideInLeft)
+            m_layout->insertWidget(0, m_lastPluginWidget);
         else
-            m_layout->addWidget(interface->getContent());
+            m_layout->addWidget(m_lastPluginWidget);
 
-        qDebug() << "loaded file name: " << m_pluginLoader->fileName();
-    } else {
-        qDebug() << m_pluginLoader->errorString();
-    }
+        return;
+    } while (false);
 
-    qDebug() << "load module finished. The time spent:" << timer.elapsed();
+    // error
+    qDebug() << m_pluginLoader->errorString();
 }
 
 void ContentView::hide()
@@ -144,21 +147,67 @@ void ContentView::reLayout(bool hideInLeft)
     }
 }
 
+void ContentView::switchToModule(const QString pluginId)
+{
+    // unload old plugin
+    m_pluginLoader->unload();
+    // load new plugin
+    m_pluginLoader->setFileName(m_pluginsManager->pluginPath(pluginId));
+    m_sideBar->switchToModule(pluginId);
+
+    QObject *instance = m_pluginLoader->instance();
+
+    if (instance) {
+        ModuleInterface *interface = qobject_cast<ModuleInterface *>(instance);
+        if(m_hideInLeft)
+            m_layout->insertWidget(0, interface->getContent());
+        else
+            m_layout->addWidget(interface->getContent());
+    } else {
+        qDebug() << m_pluginLoader->errorString();
+    }
+}
+
 void ContentView::onModuleSelected(ModuleMetaData meta)
 {
-    // switch to another plugin
-    if (!meta.path.isEmpty()) {
-        return setModule(meta);
+    qDebug() << meta.id;
+
+    if (meta.id == "home")
+    {
+        // when goto home screen, notify plugin know.
+        if (m_lastPluginInterface)
+            m_lastPluginInterface->preUnload();
+
+        emit backToHome();
+        return;
     }
 
-    // when goto home screen, notify plugin know.
-    ModuleInterface *inter = qobject_cast<ModuleInterface *>(m_pluginLoader->instance());
-    if (inter)
-        inter->preUnload();
-
-    emit homeSelected();
-
-    if (meta.id == "shutdown") {
+    if (meta.id == "shutdown")
+    {
         emit shutdownSelected();
+        return;
     }
+
+    // switch to another plugin
+    return switchToModule(meta);
+}
+
+void ContentView::unloadPlugin()
+{
+    if (m_lastPluginWidget)
+    {
+        m_lastPluginWidget->setParent(nullptr);
+        m_lastPluginWidget->deleteLater();
+        m_lastPluginWidget = nullptr;
+    }
+
+    if (m_lastPluginInterface)
+    {
+        m_lastPluginInterface->preUnload();
+        delete m_lastPluginInterface;
+        m_lastPluginInterface = nullptr;
+    }
+
+    // !!!
+//    m_pluginLoader->unload();
 }

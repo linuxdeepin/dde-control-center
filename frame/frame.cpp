@@ -29,9 +29,8 @@ Frame::Frame(QWidget *parent) :
     m_centeralWidget->setPalette(palette);
     m_centeralWidget->setAutoFillBackground(true);
 
-    listPlugins();
-    m_contentView = new ContentView(m_modules, m_hideInLeft, m_centeralWidget);
-    m_homeScreen = new HomeScreen(m_modules, m_centeralWidget);
+    m_contentView = new ContentView(m_centeralWidget);
+    m_homeScreen = new HomeScreen(m_centeralWidget);
 
     m_leftShadow = new QWidget;
     m_leftShadow->setFixedWidth(DCC::FrameShadowWidth);
@@ -73,12 +72,12 @@ Frame::Frame(QWidget *parent) :
     connect(m_hideAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged);
     connect(m_showAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged);
     connect(m_showAni, &QPropertyAnimation::finished, m_centeralWarpper, static_cast<void (QWidget::*)()>(&QWidget::update), Qt::QueuedConnection);
-    connect(m_homeScreen, SIGNAL(moduleSelected(ModuleMetaData)), this, SLOT(selectModule(ModuleMetaData)));
-    connect(m_contentView, &ContentView::homeSelected, [ = ] {this->selectModule(ModuleMetaData());});
+    connect(m_homeScreen, &HomeScreen::moduleSelected, this, &Frame::selectModule);
     connect(m_contentView, &ContentView::shutdownSelected, m_homeScreen, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
     connect(m_contentView, &ContentView::shutdownSelected, [this]() -> void {hide();});
-    connect(m_homeScreen, &HomeScreen::showAniFinished, m_contentView, &ContentView::unloadOldPlugin);
+    connect(m_homeScreen, &HomeScreen::showAniFinished, m_contentView, &ContentView::unloadPlugin);
     connect(this, &Frame::hideInLeftChanged, m_contentView, &ContentView::reLayout);
+    connect(m_contentView, &ContentView::backToHome, [this] {selectModule("home");});
 
     setFixedSize(frameWidth, frameHeight);
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
@@ -128,7 +127,7 @@ void Frame::show(bool imme)
 
 void Frame::hide(bool imme)
 {
-    if (m_canNotHide || !m_visible || m_showAni->state() == QPropertyAnimation::Running) {
+    if (!m_autoHide || !m_visible || m_showAni->state() == QPropertyAnimation::Running) {
         return;
     }
     m_visible = false;
@@ -137,11 +136,12 @@ void Frame::hide(bool imme)
         QFrame::hide();
     } else {
         int endX = m_hideInLeft ? -DCC::ControlCenterWidth : DCC::ControlCenterWidth;
+        int startX = m_hideInLeft ? -DCC::FrameShadowWidth : 0;
 
         m_hideAni->stop();
         m_showAni->stop();
         m_hideAni->setEndValue(QPoint(endX, 0));
-        m_hideAni->setStartValue(QPoint(0, 0));
+        m_hideAni->setStartValue(QPoint(startX, 0));
         m_hideAni->start();
     }
 
@@ -150,60 +150,22 @@ void Frame::hide(bool imme)
     emit xChanged();
 }
 
-// private methods
-void Frame::listPlugins()
-{
-#ifndef QT_DEBUG
-    QDir pluginsDir("../lib/dde-control-center/modules");
-#else
-    QDir pluginsDir("modules");
-#endif
-
-    // TODO: make this QStringList dynamic in the future to allow 3rd party modules.
-    QStringList moduleOrder;
-    moduleOrder << "account" << "display" << "defaultapps" << "personalization";
-    moduleOrder << "network" << "bluetooth" << "sound" << "datetime" << "power";
-    moduleOrder << "mouse" << "wacom" << "keyboard" << "shortcuts" << "grub" << "system_info";
-
-    foreach(QString fileName, pluginsDir.entryList(QDir::Files)) {
-        if (!QLibrary::isLibrary(fileName)) {
-            continue;
-        }
-        QString filePath = pluginsDir.absoluteFilePath(fileName);
-        QPluginLoader pluginLoader(filePath);
-        QJsonObject metaData = pluginLoader.metaData().value("MetaData").toObject();
-
-        ModuleMetaData meta = {
-            filePath,
-            metaData.value("id").toString(),
-            metaData.value("name").toString()
-        };
-
-        m_modules << meta;
-    }
-
-    qSort(m_modules.begin(), m_modules.end(), [&](const ModuleMetaData & data1, const ModuleMetaData & data2) {
-        return moduleOrder.indexOf(data1.id) < moduleOrder.indexOf(data2.id);
-    });
-}
-
 // private slots
-void Frame::selectModule(ModuleMetaData metaData)
+void Frame::selectModule(const QString &pluginId)
 {
-    qWarning() << metaData.path;
+    qDebug() << pluginId;
 
-    if (!metaData.path.isNull() && !metaData.path.isEmpty()) {
-        m_contentView->setModule(metaData);
-        m_contentView->show();
-        m_homeScreen->hide();
-    } else {
+    if (pluginId == "home") {
         m_homeScreen->show();
         m_contentView->hide();
+    } else {
+        m_homeScreen->hide();
+        m_contentView->show();
+        m_contentView->switchToModule(pluginId);
     }
 
-    if (!m_visible) {
+    if (!m_visible)
         show();
-    }
 }
 
 void Frame::globalMouseReleaseEvent(int button, int x, int y)
@@ -228,23 +190,14 @@ void Frame::hideAndShowAnotherSideFinish()
     show();
 }
 
-void Frame::selectModule(const QString &moduleId)
-{
-    qDebug() << "select to" << moduleId;
-    for (const ModuleMetaData &data : m_modules)
-        if (data.id == moduleId) {
-            selectModule(data);
-        }
-}
-
 int Frame::visibleFrameXPos()
 {
     return pos().x() + m_centeralWidget->pos().x();
 }
 
-bool Frame::canNotHide() const
+bool Frame::autoHide() const
 {
-    return m_canNotHide;
+    return m_autoHide;
 }
 
 void Frame::setHideInLeft(bool hideInLeft)
@@ -289,13 +242,13 @@ void Frame::updateGeometry()
     QFrame::updateGeometry();
 }
 
-void Frame::setCanNotHide(bool canNotHide)
+void Frame::setAutoHide(bool autoHide)
 {
-    if (m_canNotHide == canNotHide)
+    if (m_autoHide == autoHide)
         return;
 
-    m_canNotHide = canNotHide;
-    emit canNotHideChanged(canNotHide);
+    m_autoHide = autoHide;
+    emit autoHideChanged(autoHide);
 }
 
 void Frame::toggle(bool inLeft)

@@ -57,7 +57,7 @@ void UserExpandHeader::onConfirmDeleteUser()
 {
     DBusAccount *account = new DBusAccount(this);
     if (account->isValid()) {
-        this->window()->setProperty("canNotHide", true);
+        this->window()->setProperty("autoHide", false);
         QDBusPendingReply<bool> reply = account->DeleteUser(m_accountUser->userName(), m_folderControl->currentIndex() != 0);
         reply.waitForFinished();
         if (reply.error().isValid())

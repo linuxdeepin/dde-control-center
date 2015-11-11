@@ -41,7 +41,7 @@ public slots:
     void showWidget(int index);
     void hideWidget(int index);
     void setChecked(int index, bool checked);
-    void setCheckMode(CheckMode checkMode);
+//    void setCheckMode(CheckMode checkMode);
     void setCheckable(bool checkable);
     void setEnableUncheck(bool enableUncheck);
     void setEnableVerticalScroll(bool enableVerticalScroll);

@@ -41,7 +41,7 @@ public slots:
     void delayShowLabel(int duration);
     void delayHideLabel(int duration);
     void setColor(QColor color);
-    void setDisappearDuration(int duration);
+//    void setDisappearDuration(int duration);
     void setHideDuration(int hideDuration);
     void setHideEasingTyp(QEasingCurve::Type hideEasingType);
     void setShowDuration(int showDuration);

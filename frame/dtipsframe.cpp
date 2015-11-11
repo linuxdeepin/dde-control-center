@@ -4,6 +4,7 @@
 #include <QHBoxLayout>
 #include <QCoreApplication>
 #include <QPropertyAnimation>
+#include <QDebug>
 
 DTipsFrame::DTipsFrame()
     : QWidget(0)
@@ -80,8 +81,8 @@ void DTipsFrame::followTheSender()
 
     const int wHeight = widget->height();
     const int wWidth = arrowDirection() == ArrowLeft
-            ? widget->window()->geometry().right() + 8
-            : widget->window()->geometry().left() - width() - 8;
+            ? widget->window()->geometry().right() - 12
+            : widget->window()->geometry().left() - width() + 12;
 
     QPoint pos;
     do {
@@ -92,6 +93,7 @@ void DTipsFrame::followTheSender()
     int y = pos.y() + (wHeight - height()) / 2;
 
     move(x, y);
+    show();
 }
 
 void DTipsFrame::setTipsText(const QString &text)

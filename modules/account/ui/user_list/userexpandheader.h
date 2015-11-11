@@ -58,7 +58,7 @@ protected:
     void mousePressEvent(QMouseEvent *);
 
 private slots:
-    void onCanHideControlCenter() {this->window()->setProperty("canNotHide", false);}
+    void onCanHideControlCenter() {this->window()->setProperty("autoHide", true);}
 
 private:
     void initData();

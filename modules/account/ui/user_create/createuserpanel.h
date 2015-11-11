@@ -47,7 +47,7 @@ private slots:
     void onNameChanged(const QString &name);
     void onPasswdChanged(const QString &);
     void onPasswdRepeatChanged(const QString &passwd);
-    void onCanHideControlCenter() {this->window()->setProperty("canNotHide", false);}
+    void onCanHideControlCenter() {this->window()->setProperty("autoHide", true);}
 
 private:
     QString m_oldName = "";

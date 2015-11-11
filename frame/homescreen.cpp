@@ -19,23 +19,25 @@
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dimagebutton.h>
 
-HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
-    QFrame(parent),
-    modules(modules)
+HomeScreen::HomeScreen(QWidget *parent) :
+    QFrame(parent)
 {
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
+    m_pluginsManager = PluginsManager::getInstance(this);
+
     m_grid = new QGridLayout;
     m_grid->setContentsMargins(1, 0, 1, 0);
     m_grid->setSpacing(2);
-    foreach(ModuleMetaData meta, modules) {
+
+    for (const ModuleMetaData &meta : m_pluginsManager->pluginsList()) {
         ModuleButton *button = new ModuleButton(meta, this);
 
         m_grid->addWidget(button, m_moduleCount / 3, m_moduleCount % 3);
         ++m_moduleCount;
 
-        connect(button, &ModuleButton::clicked, this, &HomeScreen::buttonClicked);
+        connect(button, &ModuleButton::clicked, this, &HomeScreen::moduleSelected);
     }
 
     QVBoxLayout *centerVLayout = new QVBoxLayout;
@@ -148,7 +150,7 @@ HomeScreen::HomeScreen(QList<ModuleMetaData> modules, QWidget *parent) :
     m_botAni->setDuration(DCC::FrameAnimationDuration);
 
     connect(bottomButton, &DImageButton::clicked, this, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
-    connect(topButton, &UserAvatar::clicked, this, &HomeScreen::userAvatarClicked);
+    connect(topButton, &UserAvatar::clicked, [this] {emit moduleSelected("account");});
     connect(m_ctrHideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
     connect(m_ctrShowAni, &QPropertyAnimation::finished, this, &HomeScreen::showAniFinished, Qt::QueuedConnection);
 }
@@ -206,15 +208,8 @@ void HomeScreen::show()
     m_ctrShowAni->start();
     m_botAni->start();
     m_topAni->start();
+
     QFrame::show();
-}
-
-void HomeScreen::buttonClicked()
-{
-    ModuleButton *btn = qobject_cast<ModuleButton *>(sender());
-    this->moduleSelected(btn->metaData());
-
-    qDebug() << btn->metaData().name;
 }
 
 void HomeScreen::powerButtonClicked()
@@ -226,18 +221,10 @@ void HomeScreen::powerButtonClicked()
     proc->start("dde-shutdown");
 }
 
-void HomeScreen::userAvatarClicked()
-{
-    for (const ModuleMetaData &data : modules)
-        if (data.id == "account") {
-            return moduleSelected(data);
-        }
-}
-
 // class ModuleButton
-ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget *parent) :
+ModuleButton::ModuleButton(const ModuleMetaData &metaData, QWidget *parent) :
     QFrame(parent),
-    m_meta(metaData)
+    m_pluginId(metaData.id)
 {
     setFixedSize(118, 110);
     setMouseTracking(true);
@@ -249,7 +236,7 @@ ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget *parent) :
     m_icon = new QLabel(this);
     m_text = new QLabel(this);
     m_text->setFont(font);
-    m_text->setText(QCoreApplication::translate("ModuleName", m_meta.name.toLatin1()));
+    m_text->setText(QCoreApplication::translate("ModuleName", metaData.name.toLatin1()));
     m_text->setWordWrap(true);
     m_text->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
     m_text->setFixedWidth(90);
@@ -267,29 +254,19 @@ ModuleButton::ModuleButton(ModuleMetaData metaData, QWidget *parent) :
     setState(Normal);
 }
 
-ModuleMetaData ModuleButton::metaData()
-{
-    return m_meta;
-}
-
 void ModuleButton::enterEvent(QEvent *)
 {
-    this->setState(Hover);
+    setState(Hover);
 }
 
 void ModuleButton::leaveEvent(QEvent *)
 {
-    this->setState(Normal);
+    setState(Normal);
 }
 
 void ModuleButton::mousePressEvent(QMouseEvent *)
 {
-    this->clicked();
-}
-
-void ModuleButton::mouseReleaseEvent(QMouseEvent *)
-{
-//    this->setState(Hover);
+    emit clicked(m_pluginId);
 }
 
 void ModuleButton::setState(State state)
@@ -303,12 +280,12 @@ void ModuleButton::setState(State state)
     switch (state) {
     case Normal:
         this->setStyleSheet("QFrame { background-color: transparent; border-radius: 3 }");
-        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.id).arg("normal")));
+        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_pluginId).arg("normal")));
         m_text->setStyleSheet(QString("QLabel { color: %1 }").arg(DCC::TextNormalColor.name()));
         break;
     case Hover:
         this->setStyleSheet(QString("QFrame { background-color: %1; border-radius: 3 }").arg(DCC::BgDarkColor.name()));
-        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_meta.id).arg("hover")));
+        m_icon->setPixmap(QPixmap(moduleIconsDir.arg(m_pluginId).arg("hover")));
         m_text->setStyleSheet(QString("QLabel { color: %1 }").arg(DCC::TextHoverColor.name()));
         break;
     default:

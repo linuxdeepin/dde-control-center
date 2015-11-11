@@ -208,7 +208,7 @@ void CreateUserPanel::onCancel()
 void CreateUserPanel::onConfirm()
 {
     if (validate()){
-        this->window()->setProperty("canNotHide", true);
+        this->window()->setProperty("autoHide", false);
         QDBusPendingReply<> reply = m_account->CreateUser(m_nameLine->text().toLower(), "", m_accountType->currentIndex());
         reply.waitForFinished();
         if (!reply.error().isValid())

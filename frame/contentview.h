@@ -10,6 +10,8 @@
 #include <libdui/libdui_global.h>
 
 #include "modulemetadata.h"
+#include "pluginsmanager.h"
+#include "interfaces.h"
 
 DUI_USE_NAMESPACE
 
@@ -19,19 +21,20 @@ class ContentView : public QFrame
 {
     Q_OBJECT
 public:
-    explicit ContentView(QList<ModuleMetaData> modules, bool hideInLeft = false, QWidget *parent = 0);
+    explicit ContentView(QWidget *parent = 0);
     ~ContentView();
 
-    void setModule(ModuleMetaData module);
+    void switchToModule(ModuleMetaData module);
     void hide();
     void show();
 
 public slots:
-    inline void unloadOldPlugin() {m_pluginLoader->unload();}
     void reLayout(bool hideInLeft);
+    void switchToModule(const QString pluginId);
+    void unloadPlugin();
 
 signals:
-    void homeSelected();
+    void backToHome();
     void shutdownSelected();
 
 private:
@@ -48,7 +51,11 @@ private:
     QPropertyAnimation *m_hideAni;
     DSeparatorVertical *m_leftSeparator;
     DSeparatorVertical *m_rightSeparator;
-    bool m_hideInLeft;
+    PluginsManager *m_pluginsManager;
+    QWidget *m_lastPluginWidget = nullptr;
+    ModuleInterface *m_lastPluginInterface = nullptr;
+
+    bool m_hideInLeft = false;
 };
 
 #endif // CONTENTVIEW_H

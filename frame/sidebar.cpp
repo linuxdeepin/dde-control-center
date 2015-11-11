@@ -6,50 +6,44 @@
 #include "sidebar.h"
 #include "constants.h"
 
-SideBar::SideBar(QList<ModuleMetaData> modules, QWidget *parent)
+SideBar::SideBar(QWidget *parent)
     : QFrame(parent)
 {
+    m_pluginsManager = PluginsManager::getInstance(this);
+
     setFixedWidth(DCC::SideBarWidth);
 
     //setStyleSheet("SideBar { background-color: rgba(100, 0, 0, 50%) }");
 
     m_tips = new DTipsFrame;
 
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setContentsMargins(0, 24, 0, 0);
-    layout->setSpacing(24);
+    m_sidebarLayout = new QVBoxLayout;
+    m_sidebarLayout->setContentsMargins(0, 24, 0, 0);
+    m_sidebarLayout->setSpacing(24);
 
     // meta for home button
     ModuleMetaData home {
-        "",
+        "home",
         "home",
         "Home"
     };
-    modules.insert(0, home);
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Home"));
+
     // meta for power button
     ModuleMetaData power {
-        "",
+        "power",
         "shutdown",
         "Power"
     };
-    modules.append(power);
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Power"));
 
-    foreach(ModuleMetaData meta, modules) {
-        SideBarButton *button = new SideBarButton(meta, this);
-        layout->addWidget(button);
-        layout->setAlignment(button, Qt::AlignHCenter);
+    addSideBarButton(home);
+    for (const ModuleMetaData &meta : m_pluginsManager->pluginsList())
+        addSideBarButton(meta);
+    addSideBarButton(power);
 
-        connect(button, &SideBarButton::clicked, this, &SideBar::onSideBarButtonClicked);
-        connect(button, &SideBarButton::hovered, [this, button]() -> void {m_tips->setTipsText(button->metaData().name);});
-        connect(button, &SideBarButton::hovered, m_tips, &DTipsFrame::show, Qt::DirectConnection);
-        connect(button, &SideBarButton::hovered, m_tips, &DTipsFrame::followTheSender);
-    }
-
-    layout->addStretch();
-
-    this->setLayout(layout);
+    m_sidebarLayout->addStretch();
+    setLayout(m_sidebarLayout);
 }
 
 void SideBar::enterEvent(QEvent *e)
@@ -65,19 +59,15 @@ void SideBar::leaveEvent(QEvent *e)
     QFrame::leaveEvent(e);
 }
 
-void SideBar::switchToSideBarButton(SideBarButton *btn)
+void SideBar::addSideBarButton(const ModuleMetaData &meta)
 {
-    qDebug() << "switchToSideBarButton: " << btn->metaData().name;
+    SideBarButton *button = new SideBarButton(meta, this);
+    m_sidebarLayout->addWidget(button);
+    m_sidebarLayout->setAlignment(button, Qt::AlignHCenter);
 
-    if (m_selectedBtn) {
-        m_selectedBtn->release();
-    }
-
-    m_selectedBtn = btn;
-
-    if (!m_selectedBtn->metaData().path.isNull() && !m_selectedBtn->metaData().path.isEmpty()) {
-        m_selectedBtn->presse();
-    }
+    connect(button, &SideBarButton::clicked, this, &SideBar::onSideBarButtonClicked);
+    connect(button, &SideBarButton::hovered, m_tips, &DTipsFrame::followTheSender, Qt::QueuedConnection);
+    connect(button, &SideBarButton::hovered, [this, button] {m_tips->setTipsText(button->metaData().name);});
 }
 
 // private slots
@@ -85,25 +75,33 @@ void SideBar::onSideBarButtonClicked()
 {
     SideBarButton *button = qobject_cast<SideBarButton *>(sender());
 
-    if (!button || button == m_selectedBtn) {
+    if (!button || button == m_selectedBtn)
         return;
-    }
 
-    ModuleMetaData meta = button->metaData();
-    switchToSideBarButton(button);
-
-    emit moduleSelected(meta);
+    switchToModule(button->metaData().id);
 }
 
-void SideBar::switchToModule(const ModuleMetaData &meta)
+void SideBar::switchToModule(const QString &pluginId)
 {
-    SideBarButton *btn = findChild<SideBarButton *>(meta.name);
+    SideBarButton *btn = findChild<SideBarButton *>(pluginId);
 
-    if (!btn) {
+    if (!btn)
         return;
+
+    if (m_selectedBtn)
+    {
+        if (m_selectedBtn->metaData().id == pluginId)
+            return;
+        else
+            m_selectedBtn->release();
     }
 
-    switchToSideBarButton(btn);
+    m_selectedBtn = btn;
+
+    if (m_selectedBtn->metaData().id != "home" && m_selectedBtn->metaData().id != "shutdown")
+        m_selectedBtn->presse();
+
+    emit moduleSelected(m_selectedBtn->metaData());
 }
 
 DTipsFrame *SideBar::getTipFrame() const
@@ -130,15 +128,9 @@ SideBarButton::SideBarButton(ModuleMetaData metaData, QWidget *parent) :
     layout->setSpacing(0);
 
     setState(Normal);
-//    setStyleSheet("background-color:red;");
 
-    setObjectName(metaData.name);
-    setAccessibleName(metaData.name);
-}
-
-ModuleMetaData SideBarButton::metaData()
-{
-    return m_meta;
+    setObjectName(metaData.id);
+    setAccessibleName(metaData.id);
 }
 
 void SideBarButton::enterEvent(QEvent *)
@@ -160,11 +152,6 @@ void SideBarButton::leaveEvent(QEvent *)
 void SideBarButton::mousePressEvent(QMouseEvent *)
 {
     emit clicked();
-}
-
-void SideBarButton::mouseReleaseEvent(QMouseEvent *)
-{
-    //    this->setState(Hover);
 }
 
 void SideBarButton::paintEvent(QPaintEvent *e)

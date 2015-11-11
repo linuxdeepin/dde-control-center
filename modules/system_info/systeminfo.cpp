@@ -174,14 +174,14 @@ SystemInfo::SystemInfo()
 
 SystemInfo::~SystemInfo()
 {
-    m_centeralFrame->setParent(nullptr);
+//    m_centeralFrame->setParent(nullptr);
 
     /* TODO: 如果使用下面的 deleteLater 方法来析构，
         当这个插件被卸载的时候程序会崩溃，似乎是由于析构方法没有执行
         完而 .so 文件已经被 QPluginLoader 卸载
     */
-    delete m_centeralFrame;
-//    m_centeralFrame->deleteLater();
+//    delete m_centeralFrame;
+    m_centeralFrame->deleteLater();
 }
 
 QFrame *SystemInfo::getContent()

@@ -128,7 +128,7 @@ void UserExpandContent::initAutoLogin()
         if (m_accountUser->automaticLogin() == s)//just record the valid value(configure file just has single line record,set invalid value will cause error)
             return;
 
-        this->window()->setProperty("canNotHide", true);
+        this->window()->setProperty("autoHide", false);
         QDBusPendingReply<bool> reply = m_accountUser->SetAutomaticLogin(s);
         reply.waitForFinished();
         if (reply.error().isValid()) {
@@ -155,7 +155,7 @@ void UserExpandContent::initUserEnable()
         if (!m_accountUser->locked() == s)
             return;
 
-        this->window()->setProperty("canNotHide", true);
+        this->window()->setProperty("autoHide", false);
         QDBusPendingReply<bool> reply = m_accountUser->SetLocked(!s);
         reply.waitForFinished();
         if (reply.error().isValid()) {
@@ -187,7 +187,7 @@ void UserExpandContent::initAccountType()
         if (type == m_accountUser->accountType())
             return;
 
-        this->window()->setProperty("canNotHide", true);
+        this->window()->setProperty("autoHide", false);
         QDBusPendingReply<bool> reply = m_accountUser->SetAccountType(type);
         reply.waitForFinished();
         if (reply.error().isValid()) {
@@ -215,7 +215,7 @@ void UserExpandContent::initPassword()
         updateSize();
     });
     connect(m_passwordFrame, &PasswordFrame::changePassword, [=](QString password){
-        this->window()->setProperty("canNotHide", true);
+        this->window()->setProperty("autoHide", false);
         QDBusPendingReply<bool> reply = m_accountUser->SetPassword(password);
         reply.waitForFinished();
         if (reply.error().isValid())
@@ -229,7 +229,7 @@ void UserExpandContent::initPassword()
 
 void UserExpandContent::onAvatarSelected(const QString &avatar)
 {
-    this->window()->setProperty("canNotHide", true);
+    this->window()->setProperty("autoHide", false);
     QString fileName = "";
     if (avatar == ADD_AVATAR_ICON){
         QFileDialog dl(this);
@@ -247,7 +247,7 @@ void UserExpandContent::onAvatarSelected(const QString &avatar)
         fileName = avatar;
 
     if (!fileName.isEmpty()) {
-        this->window()->setProperty("canNotHide", true);
+        this->window()->setProperty("autoHide", false);
         QDBusPendingReply<bool> reply = m_accountUser->SetIconFile(fileName);
         reply.waitForFinished();
         if (reply.error().isValid())
