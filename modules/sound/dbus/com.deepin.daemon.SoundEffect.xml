@@ -1,0 +1,31 @@
+     <interface name="com.deepin.daemon.SoundEffect">
+          <method name="PlaySystemSound">
+               <arg type="s" direction="in"></arg>
+          </method>
+          <method name="PlaySystemSoundSync">
+               <arg type="s" direction="in"></arg>
+          </method>
+          <method name="PlayThemeSound">
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="in"></arg>
+          </method>
+          <method name="PlayThemeSoundSync">
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="in"></arg>
+          </method>
+          <property name="Login" type="b" access="readwrite"></property>
+          <property name="Shutdown" type="b" access="readwrite"></property>
+          <property name="Logout" type="b" access="readwrite"></property>
+          <property name="Wakeup" type="b" access="readwrite"></property>
+          <property name="Notification" type="b" access="readwrite"></property>
+          <property name="UnableOperate" type="b" access="readwrite"></property>
+          <property name="EmptyTrash" type="b" access="readwrite"></property>
+          <property name="VolumeChange" type="b" access="readwrite"></property>
+          <property name="BatteryLow" type="b" access="readwrite"></property>
+          <property name="PowerPlug" type="b" access="readwrite"></property>
+          <property name="PowerUnplug" type="b" access="readwrite"></property>
+          <property name="DevicePlug" type="b" access="readwrite"></property>
+          <property name="DeviceUnplug" type="b" access="readwrite"></property>
+          <property name="IconToDesktop" type="b" access="readwrite"></property>
+          <property name="Screenshot" type="b" access="readwrite"></property>
+     </interface>

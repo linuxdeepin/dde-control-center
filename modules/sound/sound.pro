@@ -11,13 +11,17 @@ HEADERS         = sound.h \
     dbus/dbusaudiosink.h \
     headerline.h \
     dbus/dbusaudiosinkinput.h \
-    dbus/dbusaudiosource.h
+    dbus/dbusaudiosource.h \
+    soundeffectswitchwidget.h \
+    dbus/dbussoundeffects.h
 SOURCES         = sound.cpp \
     dbus/dbusaudio.cpp \
     dbus/dbusaudiosink.cpp \
     headerline.cpp \
     dbus/dbusaudiosinkinput.cpp \
-    dbus/dbusaudiosource.cpp
+    dbus/dbusaudiosource.cpp \
+    soundeffectswitchwidget.cpp \
+    dbus/dbussoundeffects.cpp
 TARGET          = $$qtLibraryTarget(sound)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

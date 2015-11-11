@@ -3,17 +3,21 @@
 
 #include <QObject>
 #include <QtPlugin>
-#include "interfaces.h"
 
 #include <libdui/dswitchlineexpand.h>
 #include <libdui/dslider.h>
 #include <libdui/dbuttonlist.h>
 #include <libdui/dbaseexpand.h>
 #include <libdui/dscrollarea.h>
+#include <libdui/darrowlineexpand.h>
 
+
+#include "interfaces.h"
+#include "soundeffectswitchwidget.h"
 #include "dbus/dbusaudio.h"
 #include "dbus/dbusaudiosink.h"
 #include "dbus/dbusaudiosource.h"
+#include "dbus/dbussoundeffects.h"
 
 DUI_USE_NAMESPACE
 
@@ -44,6 +48,12 @@ private:
     DButtonList * m_inputPortsList;
     QFrame *m_mainWidget;
     DScrollArea *m_scrollArea;
+    DArrowLineExpand *m_soundEffectsExpand;
+    SoundEffectSwitchWidget *m_loginSoundSwitch;
+    SoundEffectSwitchWidget *m_logoutSoundSwitch;
+    SoundEffectSwitchWidget *m_shutdownSoundSwitch;
+    SoundEffectSwitchWidget *m_restoreSoundSwitch;
+    DBusSoundEffects *m_soundEffectsInter;
 
 
     DBusAudio * m_dbusAudio;
