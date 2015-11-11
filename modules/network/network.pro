@@ -25,7 +25,9 @@ HEADERS         += network.h \
     addvpnpage.h \
     connecttohiddenappage.h \
     editlineinput.h \
-    editlinecombobox.h
+    editlinecombobox.h \
+    modemnetworklistitem.h \
+    listwidgetcontainer.h
 SOURCES         += network.cpp \
     networkmainwidget.cpp \
     dbus/dbusnetwork.cpp \
@@ -43,7 +45,9 @@ SOURCES         += network.cpp \
     addvpnpage.cpp \
     connecttohiddenappage.cpp \
     editlineinput.cpp \
-    editlinecombobox.cpp
+    editlinecombobox.cpp \
+    modemnetworklistitem.cpp \
+    listwidgetcontainer.cpp
 TARGET          = $$qtLibraryTarget(network)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

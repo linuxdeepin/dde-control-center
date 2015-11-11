@@ -1,8 +1,6 @@
 #ifndef NETWORKBASEEDITLINE_H
 #define NETWORKBASEEDITLINE_H
 
-#include <functional>
-
 #include <QWidget>
 
 #include "dbus/dbusconnectionsession.h"

@@ -18,9 +18,9 @@
 
 #include "wirednetworklistitem.h"
 #include "wirelessnetworklistitem.h"
+#include "modemnetworklistitem.h"
 #include "vpnconnectswidget.h"
 #include "networkmainwidget.h"
-#include "networkglobal.h"
 #include "addconnectpage.h"
 
 namespace DCCNetwork {
@@ -55,6 +55,37 @@ DBusNetwork *NetworkMainWidget::dbusNetwork() const
     return m_dbusNetwork;
 }
 
+void NetworkMainWidget::updateDeviceByMap(const QString &type, const QVariantMap &map,
+                                          int index, QList<AbstractDeviceWidget *> &tmp_list)
+{
+    const QString &path = map["Path"].toString();
+    AbstractDeviceWidget *item = m_mapPathToObject.value(path, nullptr);
+
+    if(item) {
+        item->updateInfoByMap(map);
+        tmp_list.removeOne(item);
+    } else {
+
+        if(type == DeviceType::Wired) {
+            item = new WiredNetworkListItem(m_dbusNetwork, this);
+        } else if(type == DeviceType::Wireless){
+            item = new WirelessNetworkListItem(m_dbusNetwork, this);
+        } else if(type == DeviceType::Modem) {
+            item = new ModemNetworkListItem(m_dbusNetwork, this);
+        } else {
+            return;
+        }
+
+        item->updateInfoByMap(map);
+
+        m_mapPathToObject[path] = item;
+
+        mainLayout()->insertWidget(index, item);
+
+        qDebug() << "new device: type = " << type << path << map["Vendor"];
+    }
+}
+
 void NetworkMainWidget::updateUI()
 {
     QJsonDocument json_doc = QJsonDocument::fromJson(m_dbusNetwork->devices().toUtf8());
@@ -72,46 +103,24 @@ void NetworkMainWidget::updateUI()
 
         ++m_wiredCount;
 
-        const QString &path = map["Path"].toString();
-        AbstractDeviceWidget *item = m_mapPathToObject.value(path, nullptr);
-
-        if(item) {
-            item->updateInfoByMap(map);
-            tmp_list.removeOne(item);
-        } else {
-            item = new WiredNetworkListItem(m_dbusNetwork, this);
-            item->updateInfoByMap(map);
-
-            m_mapPathToObject[path] = item;
-
-            mainLayout()->insertWidget(m_wiredCount - 1, item);
-            qDebug() << "new wired:" << path << item << item->hwAddress() << item->uniqueUuid();
-        }
+        updateDeviceByMap(DeviceType::Wired, map, m_wiredCount - 1, tmp_list);
     }
 
     for(const QJsonValue &value : json_obj[DeviceType::Modem].toArray()) {
-        qDebug() << "add device:" << DeviceType::Modem << value.toVariant();
+        ++m_modemCount;
+
+        const QVariantMap &map = value.toObject().toVariantMap();
+
+        updateDeviceByMap(DeviceType::Modem, map, m_wiredCount + m_modemCount - 1, tmp_list);
     }
 
     for(const QJsonValue &value : json_obj[DeviceType::Wireless].toArray()) {
         ++m_wirelessCount;
 
         const QVariantMap &map = value.toObject().toVariantMap();
-        const QString &path = map["Path"].toString();
 
-        AbstractDeviceWidget *item = m_mapPathToObject.value(path, nullptr);
-        if(item) {
-            item->updateInfoByMap(map);
-            tmp_list.removeOne(item);
-        } else {
-            item = new WirelessNetworkListItem(m_dbusNetwork, this);
-            item->updateInfoByMap(value.toObject().toVariantMap());
-            m_mapPathToObject[path] = item;
-
-            mainLayout()->insertWidget(m_wiredCount + m_modemCount + m_wirelessCount - 1, item);
-
-            qDebug() << "new wireless:" << path << item << item->hwAddress() << item->uniqueUuid();
-        }
+        updateDeviceByMap(DeviceType::Wireless, map,
+                          m_wiredCount + m_modemCount + m_wirelessCount - 1, tmp_list);
     }
 
     for(AbstractDeviceWidget *widget : tmp_list) {
@@ -126,13 +135,13 @@ void NetworkMainWidget::initUI()
     QWidget *header_right_widget = new QWidget;
     QHBoxLayout *header_right_widget_layout = new QHBoxLayout(header_right_widget);
     GeneralAddButton *add_button = new GeneralAddButton;
-    ImageNameButton *info_button = new ImageNameButton("info");
+    //ImageNameButton *info_button = new ImageNameButton("info");
 
     header->setFixedSize(DCC::ModuleContentWidth, DUI::CONTENT_HEADER_HEIGHT);
     header_right_widget_layout->setMargin(0);
     header_right_widget_layout->setSpacing(5);
     header_right_widget_layout->addWidget(add_button);
-    header_right_widget_layout->addWidget(info_button);
+    //header_right_widget_layout->addWidget(info_button);
     header->setRightContent(header_right_widget);
 
     headerLayout()->addWidget(header);

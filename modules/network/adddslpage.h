@@ -1,14 +1,10 @@
 #ifndef ADDDSLPAGE_H
 #define ADDDSLPAGE_H
 
-#include <libdui/dboxwidget.h>
-#include <libdui/libdui_global.h>
-
+#include "listwidgetcontainer.h"
 #include "dbus/dbusconnectionsession.h"
 
-DUI_USE_NAMESPACE
-
-class AddDslPage : public DVBoxWidget
+class AddDslPage : public ListWidgetContainer
 {
     Q_OBJECT
 public:

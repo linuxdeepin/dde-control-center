@@ -1,12 +1,9 @@
 #ifndef ADDCONNECTPAGE_H
 #define ADDCONNECTPAGE_H
 
-#include <libdui/dboxwidget.h>
-#include <libdui/libdui_global.h>
+#include "listwidgetcontainer.h"
 
-DUI_USE_NAMESPACE
-
-class AddConnectPage : public DVBoxWidget
+class AddConnectPage : public ListWidgetContainer
 {
     Q_OBJECT
 public:

@@ -11,7 +11,7 @@ public:
 
 private slots:
     void onItemClicked();
-    void onDbusConnectsChanged();
+    void onConnectsChanged();
     void updateItemIndex(int strength);
     NetworkGenericListItem *addAccessPoint(const QVariantMap &map);
 

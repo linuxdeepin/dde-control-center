@@ -3,6 +3,7 @@
 
 #include "scrollframe.h"
 #include "dbus/dbusnetwork.h"
+#include "networkglobal.h"
 
 class QVBoxLayout;
 class WiredNetworkListItem;
@@ -18,6 +19,8 @@ public:
     DBusNetwork *dbusNetwork() const;
 
 private:
+    void updateDeviceByMap(const QString &type, const QVariantMap &map,
+                           int index, QList<AbstractDeviceWidget*> &tmp_list);
     void updateUI();
     void initUI();
 

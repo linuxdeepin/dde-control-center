@@ -11,65 +11,42 @@
 #include "addvpnpage.h"
 #include "genericlistitem.h"
 #include "networkglobal.h"
+#include "networkmainwidget.h"
 
 DUI_USE_NAMESPACE
 
 AddConnectPage::AddConnectPage(QWidget *parent) :
-    DVBoxWidget(parent)
+    ListWidgetContainer(tr("Add Network Connection"), parent)
 {
-    D_THEME_INIT_WIDGET(AddConnectPage)
-
     init();
 }
 
 void AddConnectPage::init()
 {
-    DHeaderLine *title = new DHeaderLine;
+    setRightButtonText(tr("Next"));
+    setCheckable(true);
 
-    title->setTitle("Add Network Connection");
-    title->setFixedWidth(DCC::ModuleContentWidth);
-
-    QHBoxLayout *button_layout = new QHBoxLayout;
-    DTextButton *button_cancel = new DTextButton(tr("Cancel"));
-    DTextButton *button_next = new DTextButton(tr("Next"));
-
-    button_layout->setMargin(0);
-    button_layout->setSpacing(5);
-    button_layout->addStretch(1);
-    button_layout->addWidget(button_cancel);
-    button_layout->addWidget(button_next);
-    button_layout->addSpacing(15);
-
-    DListWidget *list = new DListWidget;
     GenericListItem *item_pppoe = new GenericListItem;
     GenericListItem *item_vpn = new GenericListItem;
 
     item_pppoe->setTitle(tr("PPPoE"));
+    item_pppoe->setFixedSize(DCC::ModuleContentWidth - 30, DUI::BUTTON_HEIGHT);
     item_vpn->setTitle(tr("VPN"));
-    list->setCheckable(true);
-    list->setStyleSheet(styleSheet());
-    list->setItemSize(DCC::ModuleContentWidth, DUI::BUTTON_HEIGHT);
-    list->addWidget(item_pppoe);
+
+    addWidget(item_pppoe);
     //list->addWidget(item_vpn);
-    list->setChecked(0, true);
+    widgetChecke(0);
 
-    addWidget(title);
-    addWidget(new DSeparatorHorizontal);
-    addWidget(list);
-    addWidget(new DSeparatorHorizontal);
-    layout()->addSpacing(10);
-    layout()->addLayout(button_layout);
-
-    connect(button_cancel, &DTextButton::clicked, this, [this] {
+    connect(this, &AddConnectPage::leftButtonClicked, this, [this] {
         ScrollFrame *frame = DCCNetwork::parentNetworkMainWidget(this);
 
         if(frame)
             frame->popAllWidget();
     });
-    connect(button_next, &DTextButton::clicked, this, [this, list] {
+    connect(this, &AddConnectPage::rightButtonClicked, this, [this] {
         NetworkMainWidget *widget = DCCNetwork::parentNetworkMainWidget(this);
 
-        switch (list->firstChecked()) {
+        switch (checkedWidgetIndex()) {
         case 0:{
             if(widget) {
                 ASYN_CALL(widget->dbusNetwork()->CreateConnection(ConnectionType::Pppoe, QDBusObjectPath("/")), {

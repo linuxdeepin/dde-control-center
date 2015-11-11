@@ -7,8 +7,6 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-#include "networkmainwidget.h"
-
 #define ASYN_CALL(Fun, Code, captured...) { \
     QDBusPendingCallWatcher * watcher = new QDBusPendingCallWatcher(Fun, this); \
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, captured]{ \
@@ -16,6 +14,12 @@
         Code \
         watcher->deleteLater(); \
     }); }
+
+//class AsynGetProperty : public QObject
+//{
+//public:
+//    AsynGetProperty(QObject *parent = 0);
+//};
 
 //// device type
 namespace DeviceType {
@@ -96,6 +100,8 @@ namespace ConnectionType {
     const QString VpnOpenvpn = "vpn-openvpn";
     const QString VpnOpenconnect = "vpn-openconnect";
 }
+
+class NetworkMainWidget;
 
 namespace DCCNetwork {
     NetworkMainWidget* parentNetworkMainWidget(const QObject *obj);

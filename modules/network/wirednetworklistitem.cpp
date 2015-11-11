@@ -33,8 +33,19 @@ void WiredNetworkListItem::init()
         const QJsonDocument &json_doc = QJsonDocument::fromJson(m_dbusNetwork->activeConnections().toUtf8());
 
         for(const QJsonValue &value : json_doc.object()) {
-            if(value.toObject()["Uuid"] == item->uuid()) {
-                item->setChecked(value.toObject()["State"].toInt() == ActiveConnectionState::Activated);
+            const QJsonObject &json_obj = value.toObject();
+
+            if(json_obj["Uuid"] == item->uuid()) {
+                item->setChecked(json_obj["State"].toInt() == ActiveConnectionState::Activated);
+            } else {
+                const QJsonArray &array = json_obj["Devices"].toArray();
+
+                if(array.toVariantList().indexOf(path()) >= 0) {
+                    for(NetworkGenericListItem *item : m_mapPppoePathToItem.values()) {
+                        if(item->uuid() == json_obj["Uuid"].toString())
+                            item->setChecked(json_obj["State"].toInt() == ActiveConnectionState::Activated);
+                    }
+                }
             }
         }
     };
@@ -48,6 +59,8 @@ void WiredNetworkListItem::init()
 void WiredNetworkListItem::onConnectsChanged()
 {
     QJsonDocument json_doc = QJsonDocument::fromJson(m_dbusNetwork->connections().toUtf8());
+
+    QList<NetworkGenericListItem*> tmp_list = m_mapPppoePathToItem.values();
 
     for(const QJsonValue &value : json_doc.object()[ConnectionType::Pppoe].toArray()) {
         const QJsonObject &json_object = value.toObject();
@@ -64,6 +77,8 @@ void WiredNetworkListItem::onConnectsChanged()
                 m_mapPppoePathToItem[item->path()] = item;
 
                 connect(item, &NetworkGenericListItem::clicked, this, &WiredNetworkListItem::onItemClicked);
+            } else {
+                tmp_list.removeOne(item);
             }
 
             item->updateInfoByMap(json_object.toVariantMap());
@@ -71,6 +86,8 @@ void WiredNetworkListItem::onConnectsChanged()
             item->setTitle(json_object["Id"].toString());
         }
     }
+
+    qDeleteAll(tmp_list);
 }
 
 void WiredNetworkListItem::onItemClicked()

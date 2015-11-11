@@ -34,7 +34,6 @@
         <file>dark/images/info_focus.png</file>
         <file>dark/AbstractDeviceWidget.theme</file>
         <file>dark/InputPasswordDialog.theme</file>
-        <file>dark/ConnectToHiddenApPage.theme</file>
-        <file>dark/AddConnectPage.theme</file>
+        <file>dark/ListWidgetContainer.theme</file>
     </qresource>
 </RCC>

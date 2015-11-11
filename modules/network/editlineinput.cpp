@@ -3,6 +3,8 @@
 
 #include "editlineinput.h"
 
+DUI_USE_NAMESPACE
+
 EditLineInput::EditLineInput(const QString &section, const QString &key,
                              DBusConnectionSession *dbus, const QString &title,
                              BaseLineEditType::BaseLineEditType type,

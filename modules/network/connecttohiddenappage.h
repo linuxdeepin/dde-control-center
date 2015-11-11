@@ -1,16 +1,12 @@
 #ifndef CONNECTTOHIDDENAPPAGE_H
 #define CONNECTTOHIDDENAPPAGE_H
 
-#include <libdui/dboxwidget.h>
-#include <libdui/libdui_global.h>
-
 #include "dbus/dbusconnectionsession.h"
 #include "networkglobal.h"
-
-DUI_USE_NAMESPACE
+#include "listwidgetcontainer.h"
 
 class NetworkBaseEditLine;
-class ConnectToHiddenApPage : public DVBoxWidget
+class ConnectToHiddenApPage : public ListWidgetContainer
 {
     Q_OBJECT
 public:

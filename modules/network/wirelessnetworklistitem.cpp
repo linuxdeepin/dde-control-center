@@ -7,6 +7,7 @@
 #include "networkglobal.h"
 #include "inputpassworddialog.h"
 #include "connecttohiddenappage.h"
+#include "networkmainwidget.h"
 
 WirelessNetworkListItem::WirelessNetworkListItem(DBusNetwork *dbus, QWidget *parent) :
     AbstractDeviceWidget(tr("Wireless Network"), dbus, parent)
@@ -50,7 +51,7 @@ void WirelessNetworkListItem::onItemClicked()
     }
 }
 
-void WirelessNetworkListItem::onDbusConnectsChanged()
+void WirelessNetworkListItem::onConnectsChanged()
 {
     QJsonDocument json_doc = QJsonDocument::fromJson(m_dbusNetwork->connections().toUtf8());
 
@@ -106,7 +107,7 @@ NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMa
         listWidget()->addWidget(item);
         connect(item, &NetworkGenericListItem::strengthChanged, this, &WirelessNetworkListItem::updateItemIndex);
         connect(item, &NetworkGenericListItem::clicked, this, &WirelessNetworkListItem::onItemClicked);
-    } else if(item->strength() < map["Strength"].toInt()) {
+    } else if(item->strength() < map["Strength"].toInt() || map["Path"] == activeAp()) {
         item->updateInfoByMap(map);
     }
 
@@ -143,7 +144,7 @@ void WirelessNetworkListItem::init()
                       connect(hidden_ap, &NetworkGenericListItem::clicked,
                               this, &WirelessNetworkListItem::onItemClicked);
 
-                      onDbusConnectsChanged();
+                      onConnectsChanged();
                   }, this)
     });
 
@@ -181,17 +182,14 @@ void WirelessNetworkListItem::init()
     });
 
     connect(this, &WirelessNetworkListItem::activeApChanged, this, [this](const QString &path){
-        qDebug() << "activeApChanged:" << path;
-
         if(m_activeItem) {
             m_activeItem->setChecked(false);
-            m_activeItem = nullptr;
         }
 
-        NetworkGenericListItem *item = m_mapApPathToItem.value(path, nullptr);
-        if(item) {
-            item->setChecked(true);
-            m_activeItem = item;
+        m_activeItem = m_mapApPathToItem.value(path, nullptr);
+
+        if(m_activeItem) {
+            m_activeItem->setChecked(true);
         }
     });
 
@@ -205,7 +203,7 @@ void WirelessNetworkListItem::init()
         }
     });
 
-    connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &WirelessNetworkListItem::onDbusConnectsChanged);
+    connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &WirelessNetworkListItem::onConnectsChanged);
 
     connect(m_dbusNetwork, &DBusNetwork::NeedSecrets,
             this, [this](const QString &in0, const QString &in1, const QString &in2, bool in3){
