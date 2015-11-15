@@ -24,7 +24,9 @@ VPNConnectsWidget::VPNConnectsWidget(DBusNetwork *dbus, QWidget *parent) :
             if(json_obj["Vpn"].toBool()) {
                 for(NetworkGenericListItem *item : m_mapVpnPathToItem.values()) {
                     if(item->uuid() == json_obj["Uuid"].toString()) {
-                        item->setChecked(json_obj["State"].toInt() == ActiveConnectionState::Activated);
+                        if(item->uuid() == json_obj["Uuid"].toString()) {
+                            item->setState(json_obj["State"].toInt());
+                        }
                     }
                 }
             }

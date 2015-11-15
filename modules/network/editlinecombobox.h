@@ -5,7 +5,6 @@
 
 class EditLineComboBox : public NetworkBaseEditLine
 {
-    Q_OBJECT
 public:
     explicit EditLineComboBox(const QString &section, const QString &key,
                               DBusConnectionSession *dbus, const QString &title,

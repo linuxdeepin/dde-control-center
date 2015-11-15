@@ -30,7 +30,7 @@ AbstractDeviceWidget::AbstractDeviceWidget(const QString &title, DBusNetwork *db
     m_listWidget = new DListWidget;
     m_listWidget->setStyleSheet(this->styleSheet());
     m_listWidget->setItemSize(DCC::ModuleContentWidth, DUI::RADIO_ITEM_HEIGHT);
-    //m_listWidget->hide();
+    m_listWidget->hide();
 
     m_bottomSeparator = new DSeparatorHorizontal;
     m_bottomSeparator->hide();
@@ -40,7 +40,7 @@ AbstractDeviceWidget::AbstractDeviceWidget(const QString &title, DBusNetwork *db
         emit enabledChanged(enabled);
     });
     connect(m_listWidget, &DListWidget::countChanged, this, [this](int count) {
-        //m_bottomSeparator->setVisible(count > 1 && enabled());
+        m_bottomSeparator->setVisible(count > 0 && enabled());
         setVisible(count > 0);
     });
     connect(this, &AbstractDeviceWidget::enabledChanged, this, [this](bool enabled){

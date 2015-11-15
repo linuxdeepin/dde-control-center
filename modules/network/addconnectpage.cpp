@@ -3,6 +3,7 @@
 #include <libdui/dlistwidget.h>
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dthememanager.h>
+#include <libdui/dbuttonlist.h>
 
 #include "constants.h"
 
@@ -24,18 +25,19 @@ AddConnectPage::AddConnectPage(QWidget *parent) :
 void AddConnectPage::init()
 {
     setRightButtonText(tr("Next"));
-    setCheckable(true);
+    setBoxWidgetContentsMargins(0, 5, 0, 5);
 
-    GenericListItem *item_pppoe = new GenericListItem;
-    GenericListItem *item_vpn = new GenericListItem;
+    DButtonList *m_button_list = new DButtonList;
 
-    item_pppoe->setTitle(tr("PPPoE"));
-    item_pppoe->setFixedSize(DCC::ModuleContentWidth - 30, DUI::BUTTON_HEIGHT);
-    item_vpn->setTitle(tr("VPN"));
+    m_button_list->addButtons(QStringList() << tr("PPPoE") << tr("VPN"));
+    m_button_list->checkButtonByIndex(0);
+    m_button_list->setFixedSize(DCC::ModuleContentWidth, m_button_list->count() * DUI::BUTTON_HEIGHT);
 
-    addWidget(item_pppoe);
-    //list->addWidget(item_vpn);
-    widgetChecke(0);
+    addWidget(m_button_list);
+
+    connect(m_button_list, &DButtonList::buttonCheckedIndexChanged, this, [this](int index) {
+        m_currentIndex = index;
+    });
 
     connect(this, &AddConnectPage::leftButtonClicked, this, [this] {
         ScrollFrame *frame = DCCNetwork::parentNetworkMainWidget(this);
@@ -43,15 +45,27 @@ void AddConnectPage::init()
         if(frame)
             frame->popAllWidget();
     });
-    connect(this, &AddConnectPage::rightButtonClicked, this, [this] {
+
+    connect(this, &AddConnectPage::rightButtonClicked, this, [this, m_button_list] {
         NetworkMainWidget *widget = DCCNetwork::parentNetworkMainWidget(this);
 
-        switch (checkedWidgetIndex()) {
+        switch (m_currentIndex) {
         case 0:{
             if(widget) {
-                ASYN_CALL(widget->dbusNetwork()->CreateConnection(ConnectionType::Pppoe, QDBusObjectPath("/")), {
+                ASYN_CALL(widget->dbusNetwork()->CreateConnection(ConnectionType::Pppoe,
+                                                                  QDBusObjectPath("/")), {
                               const QString &path = qvariant_cast<QDBusObjectPath>(args[0]).path();
                               widget->pushWidget(new AddDslPage(path));
+                          }, widget)
+            }
+            break;
+        }
+        case 1:{
+            if(widget) {
+                ASYN_CALL(widget->dbusNetwork()->CreateConnection(ConnectionType::Vpn,
+                                                                  QDBusObjectPath("/")), {
+                              const QString &path = qvariant_cast<QDBusObjectPath>(args[0]).path();
+                              widget->pushWidget(new AddVpnPage(path));
                           }, widget)
             }
             break;

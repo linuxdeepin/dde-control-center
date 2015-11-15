@@ -183,13 +183,14 @@ void WirelessNetworkListItem::init()
 
     connect(this, &WirelessNetworkListItem::activeApChanged, this, [this](const QString &path){
         if(m_activeItem) {
+            m_activeItem->setLoading(false);
             m_activeItem->setChecked(false);
         }
 
         m_activeItem = m_mapApPathToItem.value(path, nullptr);
 
         if(m_activeItem) {
-            m_activeItem->setChecked(true);
+            m_activeItem->setLoading(true);
         }
     });
 
@@ -207,12 +208,11 @@ void WirelessNetworkListItem::init()
 
     connect(m_dbusNetwork, &DBusNetwork::NeedSecrets,
             this, [this](const QString &in0, const QString &in1, const QString &in2, bool in3){
-        qDebug() << in0 << in1 << in2 << in3;
+
+        Q_UNUSED(in3)
+
         if(!m_inputPasswording) {
             NetworkGenericListItem *item = m_mapApSsidToItem.value(in2, nullptr);
-
-            if(item)
-                qDebug() << item->connectPath() << in0 << item->ssid();
 
             if(!item || item->connectPath() != in0)
                 return;
@@ -250,6 +250,21 @@ void WirelessNetworkListItem::init()
                 listWidget()->getWidget(i)->setEnabled(true);
 
             m_inputPasswording = false;
+        }
+    });
+
+    connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, [this] {
+        if(!m_activeItem)
+            return;
+
+        const QJsonDocument &json_doc = QJsonDocument::fromJson(m_dbusNetwork->activeConnections().toUtf8());
+
+        for(const QJsonValue &value : json_doc.object()) {
+            const QJsonObject &json_obj = value.toObject();
+
+            if(json_obj["Uuid"] == m_activeItem->uuid()) {
+                m_activeItem->setState(json_obj["State"].toInt());
+            }
         }
     });
 }

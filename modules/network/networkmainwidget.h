@@ -13,6 +13,7 @@ class AbstractDeviceWidget;
 class NetworkMainWidget : public ScrollFrame
 {
     Q_OBJECT
+
 public:
     explicit NetworkMainWidget(QWidget *parent = 0);
 

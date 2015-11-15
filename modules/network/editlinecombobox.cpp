@@ -24,6 +24,8 @@ EditLineComboBox::EditLineComboBox(const QString &section, const QString &key,
             combo_box->setCurrentIndex(index);
     };
 
+    combo_box->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
+
     connect(this, &NetworkBaseEditLine::widgetShown, this, updateComboData);
     connect(this, &NetworkBaseEditLine::cacheValueChanged, this, updateComboData);
     connect(combo_box, static_cast<void (DComboBox::*)(int)>(&DComboBox::activated),

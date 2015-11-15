@@ -35,5 +35,6 @@
         <file>dark/AbstractDeviceWidget.theme</file>
         <file>dark/InputPasswordDialog.theme</file>
         <file>dark/ListWidgetContainer.theme</file>
+        <file>dark/DTextAction.theme</file>
     </qresource>
 </RCC>

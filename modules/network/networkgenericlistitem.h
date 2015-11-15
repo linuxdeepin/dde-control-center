@@ -2,6 +2,7 @@
 #define NETWORKGENERICLISTITEM_H
 
 #include "genericlistitem.h"
+#include "networkglobal.h"
 
 class DBusNetwork;
 class NetworkGenericListItem : public GenericListItem
@@ -15,6 +16,7 @@ class NetworkGenericListItem : public GenericListItem
     Q_PROPERTY(bool secured READ secured WRITE setSecured NOTIFY securedChanged)
     Q_PROPERTY(bool securedInEap READ securedInEap WRITE setSecuredInEap NOTIFY securedInEapChanged)
     Q_PROPERTY(int strength READ strength WRITE setStrength NOTIFY strengthChanged)
+    Q_PROPERTY(int state READ state WRITE setState NOTIFY stateChanged)
 
 public:
     explicit NetworkGenericListItem(DBusNetwork *dbus, QWidget *parent = 0);
@@ -26,6 +28,7 @@ public:
     bool secured() const;
     bool securedInEap() const;
     int strength() const;
+    int state() const;
 
     void updateInfoByMap(const QVariantMap &map);
 
@@ -37,6 +40,7 @@ public slots:
     void setSecured(bool secured);
     void setSecuredInEap(bool securedInEap);
     void setStrength(int strength);
+    void setState(int state);
 
 signals:
     void uuidChanged(QString uuid);
@@ -45,6 +49,8 @@ signals:
     void securedInEapChanged(bool securedInEap);
     void strengthChanged(int strength);
 
+    void stateChanged(int state);
+
 private:
     DBusNetwork *m_dbusNetwork;
     QString m_path;
@@ -52,6 +58,7 @@ private:
     bool m_secured = false;
     bool m_securedInEap = true;
     int m_strength = -1;
+    int m_state = ActiveConnectionState::Unknown;
     QString m_connectPath;
 };
 

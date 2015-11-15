@@ -23,13 +23,16 @@ NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &
     QHBoxLayout *layout = new QHBoxLayout;
     DLabel *label = new DLabel(title);
 
-    layout->setMargin(0);
+    label->setWordWrap(true);
+
+    layout->setContentsMargins(15, 0, 15, 0);
     layout->setSpacing(15);
-    layout->addWidget(label, 0, Qt::AlignRight);
+    layout->addWidget(label, 0, Qt::AlignLeft);
 
     setLayout(layout);
     updateVisible();
 
+    connect(this, &NetworkBaseEditLine::setTitle, label, &DLabel::setText);
     connect(dbus, &DBusConnectionSession::AvailableKeysChanged, this, &NetworkBaseEditLine::updateVisible);
     connect(dbus, &DBusConnectionSession::AvailableSectionsChanged, this, &NetworkBaseEditLine::updateVisible);
     connect(dbus, &DBusConnectionSession::ConnectionDataChanged, this, [this]{
@@ -37,6 +40,8 @@ NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &
             setCacheValue(dbusKey());
         }
     });
+
+    setFixedWidth(DCC::ModuleContentWidth);
 }
 
 QString NetworkBaseEditLine::section() const
@@ -166,7 +171,7 @@ int NetworkBaseEditLine::getAvailableValuesIndex()
 
 void NetworkBaseEditLine::setRightWidget(QWidget *widget)
 {
-    widget->setFixedSize(DCC::ModuleContentWidth / 1.6, DUI::MENU_ITEM_HEIGHT);
+    //widget->setFixedSize(DCC::ModuleContentWidth / 1.6, DUI::MENU_ITEM_HEIGHT);
     QBoxLayout *layout = qobject_cast<QBoxLayout*>(this->layout());
     layout->addWidget(widget, 0, Qt::AlignRight);
 }

@@ -67,6 +67,11 @@ int NetworkGenericListItem::strength() const
     return m_strength;
 }
 
+int NetworkGenericListItem::state() const
+{
+    return m_state;
+}
+
 void NetworkGenericListItem::updateInfoByMap(const QVariantMap &map)
 {
     for(QString str : map.keys()) {
@@ -132,5 +137,27 @@ void NetworkGenericListItem::setStrength(int strength)
 
     m_strength = strength;
     emit strengthChanged(strength);
+}
+
+void NetworkGenericListItem::setState(int state)
+{
+    if (m_state == state)
+        return;
+
+    m_state = state;
+
+    switch (state) {
+    case ActiveConnectionState::Activated:
+        setChecked(true);
+        break;
+    case ActiveConnectionState::Activating:
+        setLoading(true);
+        break;
+    default:
+        qDebug() << state << this;
+        break;
+    }
+
+    emit stateChanged(state);
 }
 

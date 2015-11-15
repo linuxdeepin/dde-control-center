@@ -17,22 +17,24 @@ ListWidgetContainer::ListWidgetContainer(const QString &title, QWidget *parent) 
 
 void ListWidgetContainer::addWidget(QWidget *widget)
 {
-    m_listWidget->addWidget(widget, Qt::AlignRight);
+    m_boxWidget->layout()->addWidget(widget, 0, Qt::AlignRight);
 }
 
-void ListWidgetContainer::widgetChecke(int index)
+void ListWidgetContainer::setBoxWidgetContentsMargins(int left, int top, int right, int bottom)
 {
-    m_listWidget->setChecked(index, true);
+    m_boxWidget->layout()->setContentsMargins(left, top, right, bottom);
 }
 
-int ListWidgetContainer::checkedWidgetIndex() const
+void ListWidgetContainer::setButtonsVisible(bool visible)
 {
-    return m_listWidget->firstChecked();
-}
+    emit setLeftButtonVisible(visible);
+    emit setRightButtonVisible(visible);
 
-void ListWidgetContainer::setCheckable(bool checkable)
-{
-    m_listWidget->setCheckable(checkable);
+    if(visible) {
+        m_buttonLayout->setContentsMargins(0, 10, 0, 0);
+    } else {
+        m_buttonLayout->setContentsMargins(0, 0, 0, 0);
+    }
 }
 
 void ListWidgetContainer::init(const QString &text)
@@ -42,37 +44,40 @@ void ListWidgetContainer::init(const QString &text)
     title->setFixedWidth(DCC::ModuleContentWidth);
     title->setTitle(text);
 
-    QHBoxLayout *button_layout = new QHBoxLayout;
+    m_buttonLayout = new QHBoxLayout;
     DTextButton *button_cancel = new DTextButton(tr("Cancel"));
     DTextButton *button_connect = new DTextButton(tr("Connect"));
 
-    button_layout->setMargin(0);
-    button_layout->setSpacing(5);
-    button_layout->addStretch(1);
-    button_layout->addWidget(button_cancel);
-    button_layout->addWidget(button_connect);
-    button_layout->setContentsMargins(0, 10, 15, 0);
+    m_buttonLayout->setMargin(0);
+    m_buttonLayout->setSpacing(5);
+    m_buttonLayout->addStretch(1);
+    m_buttonLayout->addWidget(button_cancel);
+    m_buttonLayout->addWidget(button_connect);
+    m_buttonLayout->setContentsMargins(0, 10, 15, 0);
 
     DSeparatorHorizontal *separator_bottom = new DSeparatorHorizontal;
-    separator_bottom->hide();
+    //separator_bottom->hide();
 
-    m_listWidget = new DListWidget;
-    m_listWidget->setContentsMargins(15, 5, 15, 5);
-    m_listWidget->setSpacing(5);
-    m_listWidget->setStyleSheet(styleSheet());
+    m_boxWidget = new DVBoxWidget;
+    m_boxWidget->setObjectName("MainBoxWidget");
+    m_boxWidget->layout()->setContentsMargins(0, 5, 0, 5);
+    m_boxWidget->layout()->setSpacing(5);
+    m_boxWidget->setStyleSheet(styleSheet());
 
     DBoxWidget::addWidget(title);
     DBoxWidget::addWidget(new DSeparatorHorizontal);
-    DBoxWidget::addWidget(m_listWidget);
+    DBoxWidget::addWidget(m_boxWidget);
     DBoxWidget::addWidget(separator_bottom);
-    layout()->addLayout(button_layout);
+    layout()->addLayout(m_buttonLayout);
 
     connect(this, &ListWidgetContainer::setTitle, title, &DHeaderLine::setTitle);
     connect(button_cancel, &DTextButton::clicked, this, &ListWidgetContainer::leftButtonClicked);
     connect(this, &ListWidgetContainer::setLeftButtonText, button_cancel, &DTextButton::setText);
+    connect(this, &ListWidgetContainer::setLeftButtonVisible, button_cancel, &DTextButton::setVisible);
     connect(button_connect, &DTextButton::clicked, this, &ListWidgetContainer::rightButtonClicked);
     connect(this, &ListWidgetContainer::setRightButtonText, button_connect, &DTextButton::setText);
-    connect(m_listWidget, &DListWidget::countChanged, this, [this, separator_bottom](int count) {
-        separator_bottom->setVisible(count > 0);
-    });
+    connect(this, &ListWidgetContainer::setRightButtonVisible, button_connect, &DTextButton::setVisible);
+//    connect(m_boxWidget, &DVBoxWidget::countChanged, this, [this, separator_bottom](int count) {
+//        separator_bottom->setVisible(count > 0);
+//    });
 }

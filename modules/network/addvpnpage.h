@@ -1,13 +1,23 @@
 #ifndef ADDVPNPAGE_H
 #define ADDVPNPAGE_H
 
-#include <QWidget>
+#include <libdui/dboxwidget.h>
+#include <libdui/libdui_global.h>
 
-class AddVpnPage : public QWidget
+#include "dbus/dbusconnectionsession.h"
+
+DUI_USE_NAMESPACE
+
+class AddVpnPage : public DVBoxWidget
 {
-    Q_OBJECT
 public:
-    explicit AddVpnPage(QWidget *parent = 0);
+    explicit AddVpnPage(const QString &dbusPath, QWidget *parent = 0);
+
+private:
+    void init();
+
+    DBusConnectionSession *m_dbus;
+    QMap<QString,QString> m_mapVpnNameToType;
 };
 
 #endif // ADDVPNPAGE_H

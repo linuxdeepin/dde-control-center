@@ -10,8 +10,7 @@
 WiredNetworkListItem::WiredNetworkListItem(DBusNetwork *dbus, QWidget *parent) :
     AbstractDeviceWidget(tr("Wired Network"), dbus, parent)
 {
-    ///show later
-    QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
+    init();
 }
 
 void WiredNetworkListItem::init()
@@ -23,9 +22,11 @@ void WiredNetworkListItem::init()
 
     listWidget()->addWidget(item);
 
-    ASYN_CALL(m_dbusNetwork->GetWiredConnectionUuid(QDBusObjectPath(path())), {
-                  item->setUuid(args[0].toString());
-              }, item)
+    connect(this, &WiredNetworkListItem::pathChanged, this, [this, item] {
+        ASYN_CALL(m_dbusNetwork->GetWiredConnectionUuid(QDBusObjectPath(path())), {
+                      item->setUuid(args[0].toString());
+                  }, item)
+    });
 
     onConnectsChanged();
 
@@ -43,7 +44,7 @@ void WiredNetworkListItem::init()
                 if(array.toVariantList().indexOf(path()) >= 0) {
                     for(NetworkGenericListItem *item : m_mapPppoePathToItem.values()) {
                         if(item->uuid() == json_obj["Uuid"].toString())
-                            item->setChecked(json_obj["State"].toInt() == ActiveConnectionState::Activated);
+                            item->setState(json_obj["State"].toInt());
                     }
                 }
             }

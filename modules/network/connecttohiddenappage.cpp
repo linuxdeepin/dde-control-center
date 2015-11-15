@@ -48,10 +48,10 @@ void ConnectToHiddenApPage::init()
     addWidget(line80211WirelessSecurityVkKeyMgmt);
     addWidget(new EditLineInput("802-11-wireless-security",
                                                        "wep-key0", m_dbus,
-                                                       tr("Key"), BaseLineEditType::Password));
+                                                       tr("Key"), EditLineInput::Password));
     addWidget(new EditLineInput("802-11-wireless-security",
                                                        "psk", m_dbus,
-                                                       tr("Password"), BaseLineEditType::Password));
+                                                       tr("Password"), EditLineInput::Password));
     addWidget(new EditLineComboBox("802-1x", "vk-eap",
                                                           m_dbus, tr("EAP Auth")));
     addWidget(new EditLineInput("802-1x", "identity",
@@ -59,26 +59,26 @@ void ConnectToHiddenApPage::init()
     addWidget(new EditLineInput("802-1x", "anonymous-identity",
                                                        m_dbus, tr("Anonymous ID")));
     addWidget(new EditLineInput("802-1x", "vk-ca-cert", m_dbus,
-                                                       tr("CA Cert"), BaseLineEditType::FileChooser));
+                                                       tr("CA Cert"), EditLineInput::FileChooser));
     addWidget(new EditLineInput("802-1x", "vk-client-cert", m_dbus,
-                                                       tr("User Cert"), BaseLineEditType::FileChooser));
+                                                       tr("User Cert"), EditLineInput::FileChooser));
     addWidget(new EditLineComboBox("802-1x", "phase1-fast-provisioning",
                                                           m_dbus, tr("Provisioning")));
     addWidget(new EditLineInput("802-1x", "vk-pac-file", m_dbus,
-                                                       tr("PAC file"), BaseLineEditType::FileChooser));
+                                                       tr("PAC file"), EditLineInput::FileChooser));
     addWidget(new EditLineComboBox("802-1x", "phase1-peapver",
                                                           m_dbus, tr("PEAP Version")));
     addWidget(line8021xPhase2Auth);
     addWidget(new EditLineInput("802-1x", "vk-private-key", m_dbus,
-                                                       tr("Private Key"), BaseLineEditType::FileChooser));
+                                                       tr("Private Key"), EditLineInput::FileChooser));
     addWidget(line8021xPasswordFlags);
     addWidget(new EditLineInput("802-1x", "password", m_dbus,
-                                                       tr("Password"), BaseLineEditType::Password));
+                                                       tr("Password"), EditLineInput::Password));
     addWidget(new EditLineComboBox("802-1x", "private-key-password-flags",
                                                           m_dbus, tr("Ask for Pwd")));
     addWidget(new EditLineInput("802-1x", "private-key-password",
                                                        m_dbus, tr("Private Pwd"),
-                                                       BaseLineEditType::Password));
+                                                       EditLineInput::Password));
 
     if(line80211WirelessSecurityVkKeyMgmt->dbusKey() == "none") {
         line80211WirelessSecurityVkKeyMgmt->setDBusKey(QJsonValue("wpa-psk"));

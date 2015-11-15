@@ -7,9 +7,15 @@
 class EditLineInput : public NetworkBaseEditLine
 {
 public:
+    enum EditLineInputType {
+        Normal,
+        Password,
+        FileChooser
+    };
+
     explicit EditLineInput(const QString &section, const QString &key,
                            DBusConnectionSession *dbus, const QString &title,
-                           BaseLineEditType::BaseLineEditType type = BaseLineEditType::Normal,
+                           EditLineInputType type = Normal,
                            QWidget *parent = 0);
 };
 

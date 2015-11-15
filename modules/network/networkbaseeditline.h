@@ -45,6 +45,7 @@ public slots:
     void setSetKeyAlways(bool setKeyAlways);
 
 signals:
+    void setTitle(const QString &title);
     void widgetShown();
     void cacheValueChanged();
     void showed();

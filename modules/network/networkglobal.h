@@ -15,12 +15,6 @@
         watcher->deleteLater(); \
     }); }
 
-//class AsynGetProperty : public QObject
-//{
-//public:
-//    AsynGetProperty(QObject *parent = 0);
-//};
-
 //// device type
 namespace DeviceType {
     const QString Unknown = "unknown";
@@ -105,14 +99,6 @@ class NetworkMainWidget;
 
 namespace DCCNetwork {
     NetworkMainWidget* parentNetworkMainWidget(const QObject *obj);
-}
-
-namespace BaseLineEditType {
-enum BaseLineEditType {
-    Normal,
-    Password,
-    FileChooser
-};
 }
 
 #endif // NETWORKGLOBAL
