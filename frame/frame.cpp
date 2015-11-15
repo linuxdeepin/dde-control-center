@@ -192,7 +192,7 @@ void Frame::hideAndShowAnotherSideFinish()
 
 int Frame::visibleFrameXPos()
 {
-    return pos().x() + m_centeralWidget->pos().x();
+    return pos().x() + m_centeralWarpper->pos().x() - DCC::FrameShadowWidth;
 }
 
 bool Frame::autoHide() const
