@@ -1,6 +1,5 @@
 #include "homescreen.h"
 #include "constants.h"
-#include "useravatar.h"
 
 #include <QDebug>
 #include <QGridLayout>
@@ -26,6 +25,8 @@ HomeScreen::HomeScreen(QWidget *parent) :
     Q_INIT_RESOURCE(widgets_theme_light);
 
     m_pluginsManager = PluginsManager::getInstance(this);
+    const QString userName(getlogin());
+    m_settings = new QSettings("/var/lib/AccountsService/users/" + userName, QSettings::IniFormat, this);
 
     m_grid = new QGridLayout;
     m_grid->setContentsMargins(1, 0, 1, 0);
@@ -54,14 +55,9 @@ HomeScreen::HomeScreen(QWidget *parent) :
     topOuterWidget->setFixedHeight(DCC::HomeScreen_TopWidgetHeight);
     topOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
 
-    // TODO/FIXME: 为了优化神威机器上的启动速度，这里不用D-Bus而是直接读取配置文件
-    const QString userName(getlogin());
-    QSettings setting("/var/lib/AccountsService/users/" + userName, QSettings::IniFormat);
-
-    UserAvatar *topButton = new UserAvatar;
-    topButton->setIcon(setting.value("User/Icon").toString());
-    topButton->setFixedSize(80, 80);
-    topButton->setAvatarSize(UserAvatar::AvatarLargeSize);
+    m_userAvatar = new UserAvatar;
+    m_userAvatar->setFixedSize(80, 80);
+    m_userAvatar->setAvatarSize(UserAvatar::AvatarLargeSize);
 
     QLabel *topLabel = new QLabel;
     topLabel->setFixedHeight(30);
@@ -70,8 +66,8 @@ HomeScreen::HomeScreen(QWidget *parent) :
     topLabel->setText(userName);
 
     QVBoxLayout *topWidgetLayout = new QVBoxLayout;
-    topWidgetLayout->addWidget(topButton);
-    topWidgetLayout->setAlignment(topButton, Qt::AlignCenter);
+    topWidgetLayout->addWidget(m_userAvatar);
+    topWidgetLayout->setAlignment(m_userAvatar, Qt::AlignCenter);
     topWidgetLayout->addWidget(topLabel);
     topWidgetLayout->addStretch();
     topWidgetLayout->setSpacing(20);
@@ -150,9 +146,11 @@ HomeScreen::HomeScreen(QWidget *parent) :
     m_botAni->setDuration(DCC::FrameAnimationDuration);
 
     connect(bottomButton, &DImageButton::clicked, this, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
-    connect(topButton, &UserAvatar::clicked, [this] {emit moduleSelected("account");});
+    connect(m_userAvatar, &UserAvatar::clicked, [this] {emit moduleSelected("account");});
     connect(m_ctrHideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
     connect(m_ctrShowAni, &QPropertyAnimation::finished, this, &HomeScreen::showAniFinished, Qt::QueuedConnection);
+
+    loadUserAvatar();
 }
 
 HomeScreen::~HomeScreen()
@@ -209,6 +207,9 @@ void HomeScreen::show()
     m_botAni->start();
     m_topAni->start();
 
+    // reload user avatar
+    loadUserAvatar();
+
     QFrame::show();
 }
 
@@ -219,6 +220,15 @@ void HomeScreen::powerButtonClicked()
     QProcess *proc = new QProcess;
     QObject::connect(proc, static_cast<void (QProcess::*)(int)>(&QProcess::finished), proc, &QProcess::deleteLater, Qt::QueuedConnection);
     proc->start("dde-shutdown");
+}
+
+void HomeScreen::loadUserAvatar()
+{
+    // clear QSettings cache,
+    m_settings->sync();
+
+    const QString &file = m_settings->value("User/Icon").toString();
+    m_userAvatar->setIcon(file);
 }
 
 // class ModuleButton

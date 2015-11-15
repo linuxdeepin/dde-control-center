@@ -3,10 +3,12 @@
 
 #include "modulemetadata.h"
 #include "pluginsmanager.h"
+#include "useravatar.h"
 
 #include <QFrame>
 #include <QPropertyAnimation>
 #include <QGraphicsOpacityEffect>
+#include <QSettings>
 
 class QLabel;
 class QGridLayout;
@@ -28,7 +30,11 @@ signals:
 public slots:
     void powerButtonClicked();
 
+private slots:
+    void loadUserAvatar();
+
 private:
+    UserAvatar *m_userAvatar;
     QGridLayout *m_grid;
 
     QGraphicsOpacityEffect *m_opacityEffect;
@@ -42,6 +48,7 @@ private:
     QWidget *m_bottomWidget;
 
     PluginsManager *m_pluginsManager;
+    QSettings *m_settings;
 
     int m_moduleCount = 0;
 };
