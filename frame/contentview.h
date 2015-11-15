@@ -54,6 +54,8 @@ private:
     PluginsManager *m_pluginsManager;
     QWidget *m_lastPluginWidget = nullptr;
     ModuleInterface *m_lastPluginInterface = nullptr;
+    QWidget *m_lastPluginWidgetContainer;
+    QHBoxLayout *m_lastPluginWidgetContainerLayout;
 
     bool m_hideInLeft = false;
 };

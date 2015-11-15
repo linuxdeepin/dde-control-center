@@ -25,13 +25,11 @@ ContentView::ContentView(QWidget *parent)
     m_leftSeparator = new DSeparatorVertical;
     m_rightSeparator = new DSeparatorVertical;
 
-    if(m_hideInLeft) {
-        m_rightSeparator->hide();
-        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowLeft);
-    } else {
-        m_leftSeparator->hide();
-        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowRight);
-    }
+    m_lastPluginWidgetContainer = new QWidget;
+    m_lastPluginWidgetContainerLayout = new QHBoxLayout(m_lastPluginWidgetContainer);
+
+    m_lastPluginWidgetContainerLayout->setMargin(0);
+    m_lastPluginWidgetContainerLayout->setSpacing(0);
 
     m_layout = new QHBoxLayout(this);
     m_layout->addWidget(m_leftSeparator);
@@ -39,6 +37,16 @@ ContentView::ContentView(QWidget *parent)
     m_layout->addWidget(m_rightSeparator);
     m_layout->setSpacing(0);
     m_layout->setMargin(0);
+
+    if(m_hideInLeft) {
+        m_rightSeparator->hide();
+        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowLeft);
+        m_layout->insertWidget(0, m_lastPluginWidgetContainer);
+    } else {
+        m_leftSeparator->hide();
+        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowRight);
+        m_layout->addWidget(m_lastPluginWidgetContainer);
+    }
 
     QFrame::hide();
     m_opacityEffect = new QGraphicsOpacityEffect;
@@ -88,11 +96,8 @@ void ContentView::switchToModule(ModuleMetaData module)
         if (!content)
             break;
         m_lastPluginWidget = content;
-
-        if (m_hideInLeft)
-            m_layout->insertWidget(0, m_lastPluginWidget);
-        else
-            m_layout->addWidget(m_lastPluginWidget);
+        m_lastPluginWidget->setFixedWidth(DCC::ModuleContentWidth);
+        m_lastPluginWidgetContainerLayout->addWidget(m_lastPluginWidget);
 
         return;
     } while (false);
