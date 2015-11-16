@@ -20,7 +20,9 @@ DUI_USE_NAMESPACE
 
 Sound::Sound() :
     QObject(),
-    m_frame(new QFrame)
+    m_frame(new QFrame),
+    m_mainWidget(new QFrame),
+    m_inputFeedbackSlider(NULL)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Sound"));
 
@@ -44,37 +46,12 @@ void Sound::initBackend()
 {
     m_dbusAudio = new DBusAudio(this);
 
-    QList<QDBusObjectPath> sinkPaths = m_dbusAudio->sinks();
-    foreach (QDBusObjectPath path, sinkPaths) {
-        m_sinks << new DBusAudioSink(path.path(), this);
-    }
-
-    QList<QDBusObjectPath> sourcePaths = m_dbusAudio->sources();
-    foreach (QDBusObjectPath path, sourcePaths) {
-        m_sources << new DBusAudioSource(path.path(), this);
-    }
-
-    m_sink = getDefaultSink();
-    m_source = getDefaultSource();
-
-    QString meterPath = m_source->GetMeter().value().path();
-    QString meterName = meterPath;
-    meterName = meterName.replace("/", ".").mid(1);
-    m_dbusMeter = new QDBusInterface("com.deepin.daemon.Audio", meterPath, meterName);
-    m_dbusMeter->setParent(this);
-    connect(&m_meterTimer, &QTimer::timeout, [&]{
-        m_dbusMeter->call("Tick");
-    });
-    QDBusConnection::sessionBus().connect(m_dbusMeter->service(), m_dbusMeter->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged","sa{sv}as", this, SLOT(meterVolumeChanged(QDBusMessage)));
-    m_meterTimer.start(2000);
-    m_dbusMeter->call("Tick");
+    updateSinks();
+    updateSources();
 }
 
 void Sound::initUI()
 {
-    m_mainWidget = new QFrame;
-    m_mainWidget->setFixedWidth(DCC::ModuleContentWidth);
-
     QVBoxLayout *mainWidgetVLayout = new QVBoxLayout(m_mainWidget);
     mainWidgetVLayout->setSpacing(0);
     mainWidgetVLayout->setMargin(0);
@@ -161,7 +138,7 @@ void Sound::initUI()
     // microphone volume line
     microphoneForm->addWidget(new NormalLabel(tr("Input Volume")), 0, 0, Qt::AlignVCenter);
     m_inputVolumeSlider = new DSlider(Qt::Horizontal);
-    m_inputVolumeSlider->setRange(0, 150);
+    m_inputVolumeSlider->setRange(0, 150);    qDebug() << "Sound module" << "getContent" << m_mainWidget;
     m_inputVolumeSlider->setLeftTip("-");
     m_inputVolumeSlider->setRightTip("+");
     m_inputVolumeSlider->addScale(100);
@@ -230,36 +207,18 @@ void Sound::initUI()
     advanced_layout->addWidget(m_outputPortsExpand);
 
     // Output devices
-    DBaseExpand * outputDevicesExpand = new DBaseExpand;
-    outputDevicesExpand->setExpand(true);
+    m_outputDevicesExpand = new DBaseExpand;
+    m_outputDevicesExpand->setExpand(true);
 
-    HeaderLine * outputDevicesLine = new HeaderLine(tr("Output device"), outputDevicesExpand);
-    outputDevicesExpand->setHeader(outputDevicesLine);
+    HeaderLine * outputDevicesLine = new HeaderLine(tr("Output device"), m_outputDevicesExpand);
+    m_outputDevicesExpand->setHeader(outputDevicesLine);
 
-    QStringList outputDevices;
-    foreach (DBusAudioSink * sink, m_sinks) {
-        outputDevices << sink->description();
-    }
+    m_outputDevicesList = new DButtonList(m_outputDevicesExpand);
+    m_outputDevicesExpand->setContent(m_outputDevicesList);
+    updateOutputDevices();
+    connect(m_dbusAudio, &DBusAudio::SinksChanged, this, &Sound::updateOutputDevices);
 
-    DButtonList * outputDevicesList = new DButtonList(outputDevicesExpand);
-    outputDevicesList->addButtons(outputDevices);
-    outputDevicesList->setFixedSize(DCC::ModuleContentWidth, outputDevices.length() * outputDevicesList->itemWidget(outputDevicesList->item(0))->height());
-    outputDevicesList->checkButtonByIndex(m_sinks.indexOf(m_sink));
-
-    connect(outputDevicesList, &DButtonList::buttonCheckedIndexChanged, [=](int index) {
-        DBusAudioSink * sink = m_sinks.at(index);
-        m_dbusAudio->SetDefaultSink(sink->name());
-    });
-    connect(m_dbusAudio, &DBusAudio::DefaultSinkChanged, [=]{
-        m_sink = getDefaultSink();
-        outputDevicesList->checkButtonByIndex(m_sinks.indexOf(m_sink));
-
-        updateSpeakerUI();
-    });
-
-    outputDevicesExpand->setContent(outputDevicesList);
-
-    advanced_layout->addWidget(outputDevicesExpand);
+    advanced_layout->addWidget(m_outputDevicesExpand);
     advanced_layout->addWidget(new DBaseLine);
 
     // Input ports
@@ -276,34 +235,19 @@ void Sound::initUI()
     advanced_layout->addWidget(m_inputPortsExpand);
 
     // Input devices
-    DBaseExpand * inputDevicesExpand = new DBaseExpand;
-    inputDevicesExpand->setExpandedSeparatorVisible(false);
-    inputDevicesExpand->setExpand(true);
+    m_inputDevicesExpand = new DBaseExpand;
+    m_inputDevicesExpand->setExpandedSeparatorVisible(false);
+    m_inputDevicesExpand->setExpand(true);
 
-    HeaderLine * inputDevicesLine = new HeaderLine(tr("Input device"), inputDevicesExpand);
-    inputDevicesExpand->setHeader(inputDevicesLine);
+    HeaderLine * inputDevicesLine = new HeaderLine(tr("Input device"), m_inputDevicesExpand);
+    m_inputDevicesExpand->setHeader(inputDevicesLine);
 
-    QStringList inputDevices;
-    foreach (DBusAudioSource * source, m_sources) {
-        inputDevices << source->description();
-    }
+    m_inputDevicesList = new DButtonList(m_inputDevicesExpand);
+    m_inputDevicesExpand->setContent(m_inputDevicesList);
+    updateInputDevices();
+    connect(m_dbusAudio, &DBusAudio::SourcesChanged, this, &Sound::updateInputDevices);
 
-    DButtonList * inputDevicesList = new DButtonList(inputDevicesExpand);
-    inputDevicesList->addButtons(inputDevices);
-    inputDevicesList->setFixedSize(DCC::ModuleContentWidth, inputDevices.length() * inputDevicesList->itemWidget(inputDevicesList->item(0))->height());
-    inputDevicesList->checkButtonByIndex(m_sources.indexOf(m_source));
-
-    connect(inputDevicesList, &DButtonList::buttonCheckedIndexChanged, [=](int index) {
-        DBusAudioSource * source = m_sources.at(index);
-        m_dbusAudio->SetDefaultSource(source->name());
-    });
-    connect(m_dbusAudio, &DBusAudio::DefaultSourceChanged, [=]{
-        m_source = getDefaultSource();
-        inputDevicesList->checkButtonByIndex(m_sources.indexOf(m_source));
-    });
-
-    inputDevicesExpand->setContent(inputDevicesList);
-
+    // show advanced
     DLinkButton *advanced_button = new DLinkButton(tr("Show Advanced...") + "      ");
     advanced_button->setStyleSheet(advanced_button->styleSheet() + "DUI--DLinkButton:pressed{color:#0188FF;}");
     connect(advanced_button, &DLinkButton::clicked, [this, advanced_button, advanced_expand]{
@@ -321,7 +265,9 @@ void Sound::initUI()
         }
     });
 
-    m_soundEffectsInter = new DBusSoundEffects("com.deepin.daemon.SoundEffect", "/com/deepin/daemon/SoundEffect", QDBusConnection::sessionBus(), this);
+    m_soundEffectsInter = new DBusSoundEffects("com.deepin.daemon.SoundEffect",
+                                               "/com/deepin/daemon/SoundEffect",
+                                               QDBusConnection::sessionBus(), this);
 
     m_loginSoundSwitch = new SoundEffectSwitchWidget;
     m_loginSoundSwitch->setSwitched(m_soundEffectsInter->login());
@@ -351,6 +297,7 @@ void Sound::initUI()
     m_soundEffectsExpand = new DArrowLineExpand;
     m_soundEffectsExpand->setContent(soundEffectsWidget);
     m_soundEffectsExpand->setTitle(tr("Sound Effects"));
+    m_soundEffectsExpand->setExpandedSeparatorVisible(false);
 
     connect(m_loginSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
         m_soundEffectsInter->setLogin(e);
@@ -369,7 +316,7 @@ void Sound::initUI()
             advanced_expand->setExpand(false);
     });
 
-    advanced_layout->addWidget(inputDevicesExpand);
+    advanced_layout->addWidget(m_inputDevicesExpand);
     advanced_layout->addWidget(new DSeparatorHorizontal);
     mainLayout->addWidget(advanced_expand);
     mainLayout->addSpacing(10);
@@ -382,7 +329,6 @@ void Sound::initUI()
 
 QFrame* Sound::getContent()
 {
-    qDebug() << "Sound module" << "getContent";
     return m_mainWidget;
 }
 
@@ -406,6 +352,46 @@ DBusAudioSource * Sound::getDefaultSource()
     }
 
     return NULL;
+}
+
+void Sound::updateSinks()
+{
+    qDebug() << "updateSinks";
+    m_sinks.clear();
+
+    QList<QDBusObjectPath> sinkPaths = m_dbusAudio->sinks();
+    foreach (QDBusObjectPath path, sinkPaths) {
+        m_sinks << new DBusAudioSink(path.path(), this);
+    }
+
+    m_sink = getDefaultSink();
+}
+
+void Sound::updateSources()
+{
+    qDebug() << "updateSources";
+
+    m_sources.clear();
+
+    QList<QDBusObjectPath> sourcePaths = m_dbusAudio->sources();
+    foreach (QDBusObjectPath path, sourcePaths) {
+        m_sources << new DBusAudioSource(path.path(), this);
+    }
+
+    m_source = getDefaultSource();
+
+    // init meter
+    QString meterPath = m_source->GetMeter().value().path();
+    QString meterName = meterPath;
+    meterName = meterName.replace("/", ".").mid(1);
+    m_dbusMeter = new QDBusInterface("com.deepin.daemon.Audio", meterPath, meterName);
+    m_dbusMeter->setParent(this);
+    connect(&m_meterTimer, &QTimer::timeout, [&]{
+        m_dbusMeter->call("Tick");
+    });
+    QDBusConnection::sessionBus().connect(m_dbusMeter->service(), m_dbusMeter->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged","sa{sv}as", this, SLOT(meterVolumeChanged(QDBusMessage)));
+    m_meterTimer.start(2000);
+    m_dbusMeter->call("Tick");
 }
 
 void Sound::updateSpeakerUI()
@@ -462,6 +448,8 @@ void Sound::updateMicrophoneUI()
 
 void Sound::updateOutputPorts()
 {
+    qDebug() << "updateOutputPorts";
+
     SinkPortStruct sinkActivePort = m_sink->activePort();
     SinkPortList sinkPorts = m_sink->ports();
 
@@ -472,8 +460,10 @@ void Sound::updateOutputPorts()
 
     if (outputPorts.length() > 0) {
         m_outputPortsList->addButtons(outputPorts);
-        m_outputPortsList->checkButtonByIndex(outputPorts.indexOf(sinkActivePort.name));
         m_outputPortsList->setFixedSize(DCC::ModuleContentWidth, outputPorts.length() * m_outputPortsList->itemWidget(m_outputPortsList->item(0))->height());
+        if (outputPorts.contains(sinkActivePort.name)) {
+            m_outputPortsList->checkButtonByIndex(outputPorts.indexOf(sinkActivePort.name));
+        }
 
         m_outputPortsExpand->updateContentHeight();
 
@@ -483,13 +473,19 @@ void Sound::updateOutputPorts()
         });
         connect(m_sink, &DBusAudioSink::ActivePortChanged, [=]{
             SinkPortStruct activePort = m_sink->activePort();
-            m_outputPortsList->checkButtonByIndex(outputPorts.indexOf(activePort.name));
+            if (outputPorts.contains(activePort.name)) {
+                m_outputPortsList->checkButtonByIndex(outputPorts.indexOf(activePort.name));
+            }
+
+            updateSpeakerUI();
         });
     }
 }
 
 void Sound::updateInputPorts()
 {
+    qDebug() << "updateInputPorts";
+
     SourcePortStruct sourceActivePort = m_source->activePort();
     SourcePortList sourcePorts = m_source->ports();
 
@@ -500,10 +496,11 @@ void Sound::updateInputPorts()
 
     if (inputPorts.length() > 0) {
         m_inputPortsList->addButtons(inputPorts);
-        m_inputPortsList->checkButtonByIndex(inputPorts.indexOf(sourceActivePort.name));
         m_inputPortsList->setFixedSize(DCC::ModuleContentWidth, inputPorts.length() * m_inputPortsList->itemWidget(m_inputPortsList->item(0))->height());
-
         m_inputPortsExpand->updateContentHeight();
+        if (inputPorts.contains(sourceActivePort.name)) {
+            m_inputPortsList->checkButtonByIndex(inputPorts.indexOf(sourceActivePort.name));
+        }
 
         connect(m_inputPortsList, &DButtonList::buttonCheckedIndexChanged, [=](int index){
             SourcePortStruct port = sourcePorts.at(index);
@@ -511,9 +508,87 @@ void Sound::updateInputPorts()
         });
         connect(m_source, &DBusAudioSource::ActivePortChanged, [=]{
             SourcePortStruct activePort = m_source->activePort();
-            m_inputPortsList->checkButtonByIndex(inputPorts.indexOf(activePort.name));
+            if (inputPorts.contains(activePort.name)) {
+                m_inputPortsList->checkButtonByIndex(inputPorts.indexOf(activePort.name));
+            }
 
             updateMicrophoneUI();
+        });
+    }
+}
+
+void Sound::updateOutputDevices()
+{
+    qDebug() << "updateOutputDevices";
+
+    updateSinks();
+
+    QStringList outputDevices;
+    foreach (DBusAudioSink * sink, m_sinks) {
+        outputDevices << sink->description();
+    }
+
+    if (outputDevices.length() > 0) {
+        m_outputDevicesList->clear();
+        m_outputDevicesList->addButtons(outputDevices);
+        m_outputDevicesList->setFixedSize(DCC::ModuleContentWidth, outputDevices.length() * m_outputDevicesList->itemWidget(m_outputDevicesList->item(0))->height());
+        m_outputDevicesExpand->updateContentHeight();
+
+        if (m_sinks.contains(m_sink)) {
+            m_outputDevicesList->checkButtonByIndex(m_sinks.indexOf(m_sink));
+        }
+
+        connect(m_outputDevicesList, &DButtonList::buttonCheckedIndexChanged, [=](int index) {
+            DBusAudioSink * sink = m_sinks.at(index);
+            // important, otherwise there will be bounding loop.
+            if (sink->name() != getDefaultSink()->name()) {
+                m_dbusAudio->SetDefaultSink(sink->name());
+            }
+        });
+        connect(m_dbusAudio, &DBusAudio::DefaultSinkChanged, [=]{
+            m_sink = getDefaultSink();
+            if (m_sinks.contains(m_sink)) {
+                m_outputDevicesList->checkButtonByIndex(m_sinks.indexOf(m_sink));
+            }
+
+            updateOutputPorts();
+        });
+    }
+}
+
+void Sound::updateInputDevices()
+{
+    qDebug() << "updateInputDevices";
+
+    updateSources();
+
+    QStringList inputDevices;
+    foreach (DBusAudioSource * source, m_sources) {
+        inputDevices << source->description();
+    }
+
+    if (inputDevices.length() > 0) {
+        m_inputDevicesList->clear();
+        m_inputDevicesList->addButtons(inputDevices);
+        m_inputDevicesList->setFixedSize(DCC::ModuleContentWidth, inputDevices.length() * m_inputDevicesList->itemWidget(m_inputDevicesList->item(0))->height());
+        m_inputDevicesExpand->updateContentHeight();
+        if (m_sources.contains(m_source)) {
+            m_inputDevicesList->checkButtonByIndex(m_sources.indexOf(m_source));
+        }
+
+        connect(m_inputDevicesList, &DButtonList::buttonCheckedIndexChanged, [=](int index) {
+            DBusAudioSource * source = m_sources.at(index);
+            if (source->name() != getDefaultSource()->name()) {
+                m_dbusAudio->SetDefaultSource(source->name());
+            }
+        });
+        connect(m_dbusAudio, &DBusAudio::DefaultSourceChanged, [=]{
+            m_source = getDefaultSource();
+            if (m_sources.contains(m_source)) {
+                m_inputDevicesList->checkButtonByIndex(m_sources.indexOf(m_source));
+            }
+
+            updateInputPorts();
         });
     }
 }
@@ -525,7 +600,7 @@ void Sound::meterVolumeChanged(const QDBusMessage &msg)
     QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
     QStringList keys = changedProps.keys();
     foreach(const QString &prop, keys) {
-        if(prop == "Volume"){
+        if(prop == "Volume" && m_inputFeedbackSlider){
             m_inputFeedbackSlider->setValue(changedProps[prop].toDouble() * 100);
         }
     }

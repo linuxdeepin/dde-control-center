@@ -46,6 +46,10 @@ private:
     DButtonList * m_outputPortsList;
     DBaseExpand * m_inputPortsExpand;
     DButtonList * m_inputPortsList;
+    DBaseExpand * m_outputDevicesExpand;
+    DButtonList * m_outputDevicesList;
+    DBaseExpand * m_inputDevicesExpand;
+    DButtonList * m_inputDevicesList;
     QFrame *m_mainWidget;
     DScrollArea *m_scrollArea;
     DArrowLineExpand *m_soundEffectsExpand;
@@ -70,10 +74,14 @@ private:
     com::deepin::daemon::Audio::Sink * getDefaultSink();
     com::deepin::daemon::Audio::Source * getDefaultSource();
 
+    void updateSinks();
+    void updateSources();
     void updateSpeakerUI();
     void updateMicrophoneUI();
     void updateOutputPorts();
     void updateInputPorts();
+    void updateOutputDevices();
+    void updateInputDevices();
     Q_SLOT void meterVolumeChanged(const QDBusMessage& msg);
 };
 
