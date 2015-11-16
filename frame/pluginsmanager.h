@@ -21,10 +21,17 @@ signals:
 
 private:
     explicit PluginsManager(QObject *parent = 0);
+    void checkDevices();
+    bool checkDeviceDependent(const QString &condition);
+    int getPluginInsertIndex(const QString &id);
+    void insertPlugin(const ModuleMetaData &meta);
     void loadPlugins();
 
 private:
     QList<ModuleMetaData> m_pluginsList;
+
+    bool m_bluetoothExist = false;
+    bool m_wacomExist = false;
 };
 
 #endif // PLUGINSMANAGER_H

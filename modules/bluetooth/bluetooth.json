@@ -1,4 +1,5 @@
 {
     "id": "bluetooth",
-    "name": "Bluetooth"
+    "name": "Bluetooth",
+    "display_condition": "bluetooth"
 }

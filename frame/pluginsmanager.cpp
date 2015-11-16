@@ -6,6 +6,7 @@
 #include <QDir>
 #include <QLibrary>
 #include <QPluginLoader>
+#include <QDebug>
 
 static PluginsManager *m_self = nullptr;
 
@@ -52,6 +53,43 @@ PluginsManager::PluginsManager(QObject *parent)
     loadPlugins();
 }
 
+void PluginsManager::checkDevices()
+{
+    // TODO: check device exist.
+    m_wacomExist = true;
+    m_bluetoothExist = false;
+}
+
+bool PluginsManager::checkDeviceDependent(const QString &condition)
+{
+    qDebug() << condition;
+
+    return true;
+}
+
+int PluginsManager::getPluginInsertIndex(const QString &id)
+{
+    // TODO: make this QStringList dynamic in the future to allow 3rd party modules.
+    static QStringList pluginsOrder;
+    pluginsOrder << "account" << "display" << "defaultapps" << "personalization";
+    pluginsOrder << "network" << "bluetooth" << "sound" << "datetime" << "power";
+    pluginsOrder << "mouse" << "wacom" << "keyboard" << "shortcuts" << "grub" << "system_info";
+
+    const int pluginOrder = pluginsOrder.indexOf(id);
+    for (const ModuleMetaData &p : m_pluginsList)
+        if (pluginsOrder.indexOf(p.id) > pluginOrder)
+            return pluginIndex(p.id);
+
+    return m_pluginsList.size();
+}
+
+void PluginsManager::insertPlugin(const ModuleMetaData &meta)
+{
+    const int insertIndex = getPluginInsertIndex(meta.id);
+
+    m_pluginsList.insert(insertIndex, meta);
+}
+
 void PluginsManager::loadPlugins()
 {
 #ifndef QT_DEBUG
@@ -60,13 +98,8 @@ void PluginsManager::loadPlugins()
     QDir pluginsDir("modules");
 #endif
 
-    // TODO: make this QStringList dynamic in the future to allow 3rd party modules.
-    QStringList moduleOrder;
-    moduleOrder << "account" << "display" << "defaultapps" << "personalization";
-    moduleOrder << "network" << "bluetooth" << "sound" << "datetime" << "power";
-    moduleOrder << "mouse" << "wacom" << "keyboard" << "shortcuts" << "grub" << "system_info";
-
-    foreach(QString fileName, pluginsDir.entryList(QDir::Files)) {
+    const QStringList files = pluginsDir.entryList(QDir::Files);
+    for (QString fileName : files) {
         if (!QLibrary::isLibrary(fileName)) {
             continue;
         }
@@ -80,10 +113,8 @@ void PluginsManager::loadPlugins()
             metaData.value("name").toString()
         };
 
-        m_pluginsList << meta;
+        const QString &condition = metaData.value("display_condition").toString();
+        if (checkDeviceDependent(condition))
+            insertPlugin(meta);
     }
-
-    qSort(m_pluginsList.begin(), m_pluginsList.end(), [&](const ModuleMetaData & data1, const ModuleMetaData & data2) {
-        return moduleOrder.indexOf(data1.id) < moduleOrder.indexOf(data2.id);
-    });
 }
