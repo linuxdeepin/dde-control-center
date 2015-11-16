@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>images/switch-dark-off.svg</file>
-        <file>images/switch-dark-on.svg</file>
-    </qresource>
-</RCC>

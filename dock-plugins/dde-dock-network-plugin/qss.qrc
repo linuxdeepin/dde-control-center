@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>qss/SwitchButton.qss</file>
-    </qresource>
-</RCC>
