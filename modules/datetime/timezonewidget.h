@@ -40,7 +40,7 @@ public slots:
     inline void normalMode() {m_removeBtn->setVisible(false); m_selectedBtn->setVisible(m_selected);}
 
 private:
-    inline void mouseReleaseEvent(QMouseEvent *e) {if (!m_selected) emit clicked(); e->accept();}
+    inline void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE {if (!m_selected) emit clicked(); e->accept();}
     QStringList keyWords() const Q_DECL_OVERRIDE {return QStringList();}
     void setData(const QVariant&) Q_DECL_OVERRIDE {}
     QVariant getData() Q_DECL_OVERRIDE {return QVariant();}

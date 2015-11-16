@@ -20,7 +20,7 @@ public:
     QFrame* getContent() Q_DECL_OVERRIDE;
 
 private slots:
-    void preUnload();
+    void preUnload() Q_DECL_OVERRIDE;
 
 private:
     QLabel * m_label;

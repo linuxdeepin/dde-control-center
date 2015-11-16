@@ -1,0 +1,17 @@
+QWidget{
+background-color: #1a1b1b;
+}
+
+QLabel#msg{
+font-size:10px;
+color: #7c7c7c;
+}
+
+QWidget#separator{
+background-color: rgba(255,255,255,0.15);
+}
+
+QLabel#waitingText{
+color: #525252;
+font-size: 10px;
+}

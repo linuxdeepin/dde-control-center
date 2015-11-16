@@ -1,0 +1,54 @@
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QMouseEvent>
+#include <libdui/dseparatorhorizontal.h>
+
+#include "constants.h"
+#include "moduleheader.h"
+
+#include "mainpanel.h"
+#include "buttongroup.h"
+#include "button.h"
+#include "helper.h"
+
+DUI_USE_NAMESPACE
+
+MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p): AbstractPanel(tr("Remote Assistance"), p), m_buttongroup(new ButtonGroup(tr("Remote Assistance")))
+{
+    setObjectName("MainPanel");
+    m_manager = manager;
+
+    addWidget(new DSeparatorHorizontal);
+    addWidget(m_buttongroup->addSeparator());
+
+    Button* button = nullptr;
+
+    button = new Button(tr("Share"), tr("Share your desktop to get remote assistance from other users"));
+    button->setNormalIcon(getThemeImage("assistant_share_normal.svg"));
+    button->setHoverIcon(getThemeImage("assistant_share_hover.svg"));
+    button->setPressedIcon(getThemeImage("assistant_share_press.svg"));
+    connect(button, SIGNAL(clicked()), this, SLOT(changeToSharePanel()));
+    m_buttongroup->addItem(button)->addSeparator();
+
+    button = new Button(tr("Access"), tr("Access to the desktop shared by other users"));
+    button->setNormalIcon(getThemeImage("assistant_access_normal.svg"));
+    button->setHoverIcon(getThemeImage("assistant_access_hover.svg"));
+    button->setPressedIcon(getThemeImage("assistant_access_press.svg"));
+    connect(button, SIGNAL(clicked()), this, SLOT(changeToAccessPanel()));
+    m_buttongroup->addItem(button);
+}
+
+void MainPanel::emitPanelChanged(ViewPanel v)
+{
+    emit changePanel(v);
+}
+
+void MainPanel::changeToAccessPanel()
+{
+    emitPanelChanged(ViewPanel::Access);
+}
+
+void MainPanel::changeToSharePanel()
+{
+    emitPanelChanged(ViewPanel::Share);
+}

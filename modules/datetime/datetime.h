@@ -43,7 +43,7 @@ private:
     void showTimezoneList();
     void toRemoveTimezoneMode();
     void adjustItemHeight();
-    bool eventFilter(QObject *o, QEvent *e);
+    bool eventFilter(QObject *o, QEvent *e) Q_DECL_OVERRIDE;
 
 private slots:
     void toggleTimeZone(TimezoneWidget *zone);

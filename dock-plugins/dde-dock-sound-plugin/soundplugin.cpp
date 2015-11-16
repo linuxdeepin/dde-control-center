@@ -43,7 +43,7 @@ QString SoundPlugin::getCommand(QString)
     return "dde-control-center sound";
 }
 
-QPixmap SoundPlugin::getIcon(QString id)
+QPixmap SoundPlugin::getIcon(QString )
 {
      return SoundIcon::getDefaultSinkDockIcon(Dock::EfficientMode, 100);
 }

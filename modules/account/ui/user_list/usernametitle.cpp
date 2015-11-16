@@ -33,7 +33,7 @@ void UserNameTitle::setIsCurrentUser(bool v)
 }
 
 
-HeaderNameLabel::HeaderNameLabel(QWidget *parent)
+HeaderNameLabel::HeaderNameLabel(QWidget *)
 {
 
 }

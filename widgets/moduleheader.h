@@ -23,6 +23,7 @@ public:
     ~ModuleHeader();
 public slots:
     void initUI(bool addResetButton);
+    void setTitle(const QString&);
 signals:
     void resetButtonClicked();
 private:

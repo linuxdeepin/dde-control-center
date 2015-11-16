@@ -51,7 +51,7 @@ signals:
     void hideFinished();
 
 protected:
-    void resizeEvent(QResizeEvent *e);
+    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
 
 private:
     QLabel *m_label;

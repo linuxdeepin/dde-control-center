@@ -2,6 +2,53 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
+    <name>AbstractPanel</name>
+    <message>
+        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="57"/>
+        <source>Remote Accessitance</source>
+        <translation type="unfinished">远程协助</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="60"/>
+        <source>Ok</source>
+        <translation type="unfinished">确认</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="66"/>
+        <source>No network connections are available, please retry after connected</source>
+        <translation type="unfinished">当前没有网络连接，请您联网后重试</translation>
+    </message>
+</context>
+<context>
+    <name>AccessPanel</name>
+    <message>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="15"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="44"/>
+        <source>Accessing</source>
+        <translation>正在访问</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="63"/>
+        <source>Remote Assistance</source>
+        <translation>远程协助</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="73"/>
+        <source>Failed to establish the connection, you can retry to connect</source>
+        <translation type="unfinished">建立链接失败，您可以重新尝试链接</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="74"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="79"/>
+        <source>Retry</source>
+        <translation type="unfinished">重试</translation>
+    </message>
+</context>
+<context>
     <name>AccountConfirmButtonLine</name>
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="98"/>
@@ -482,6 +529,32 @@
     </message>
 </context>
 <context>
+    <name>ConnectedView</name>
+    <message>
+        <location filename="../modules/remote_assistance/view/connectedview.cpp" line="23"/>
+        <source>Disconnect</source>
+        <translation type="unfinished">断开</translation>
+    </message>
+</context>
+<context>
+    <name>ConnectingView</name>
+    <message>
+        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="22"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="58"/>
+        <source>Establishing connection, please wait...</source>
+        <translation type="unfinished">正在建立链接，请稍候……</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="75"/>
+        <source>This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully</source>
+        <translation type="unfinished">成功建立后会自动隐藏此面板并在桌面打开远程会话窗口</translation>
+    </message>
+</context>
+<context>
     <name>CreateUserPanel</name>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="51"/>
@@ -948,6 +1021,42 @@
     </message>
 </context>
 <context>
+    <name>GeneratedView</name>
+    <message>
+        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="33"/>
+        <source>Copy Code</source>
+        <translation type="unfinished">复制验证码</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="44"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="71"/>
+        <source>Copied to clipboard successfully</source>
+        <translation type="unfinished">复制验证码成功</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="81"/>
+        <source>To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input</source>
+        <translation type="unfinished">要开始共享您的桌面，请将上面的验证码提供给协助您的人员，他们输入验证码后，您的共享会话会立即开始</translation>
+    </message>
+</context>
+<context>
+    <name>GeneratingView</name>
+    <message>
+        <location filename="../modules/remote_assistance/view/generatingview.cpp" line="23"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/generatingview.cpp" line="56"/>
+        <source>Generating the verification code, please wait...</source>
+        <translation type="unfinished">正在生成请求验证码，请稍候……</translation>
+    </message>
+</context>
+<context>
     <name>GrubWidget</name>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="21"/>
@@ -1023,6 +1132,31 @@
     </message>
 </context>
 <context>
+    <name>InputView</name>
+    <message>
+        <location filename="../modules/remote_assistance/view/inputview.cpp" line="23"/>
+        <source>Connect</source>
+        <translation type="unfinished">连接</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/inputview.cpp" line="32"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/inputview.cpp" line="64"/>
+        <location filename="../modules/remote_assistance/view/inputview.cpp" line="65"/>
+        <source>Start remote access after clicking on &quot;Connect&quot;</source>
+        <translation type="unfinished">点击“连接”后开始远程访问</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/inputview.cpp" line="66"/>
+        <location filename="../modules/remote_assistance/view/inputview.cpp" line="78"/>
+        <source>Please enter the verification code in the input field above</source>
+        <translation type="unfinished">请在上方输入远程访问验证码</translation>
+    </message>
+</context>
+<context>
     <name>Keyboard</name>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="129"/>
@@ -1091,6 +1225,34 @@
         <location filename="../modules/network/listwidgetcontainer.cpp" line="49"/>
         <source>Connect</source>
         <translation>连接</translation>
+    </message>
+</context>
+<context>
+    <name>MainPanel</name>
+    <message>
+        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="16"/>
+        <source>Remote Assistance</source>
+        <translation type="unfinished">远程协助</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="26"/>
+        <source>Share</source>
+        <translation type="unfinished">共享</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="26"/>
+        <source>Share your desktop to get remote assistance from other users</source>
+        <translation type="unfinished">共享您的桌面，让其他用户对您进行远程协助</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="33"/>
+        <source>Access</source>
+        <translation type="unfinished">访问</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="33"/>
+        <source>Access to the desktop shared by other users</source>
+        <translation type="unfinished">访问其他用户共享给您的桌面</translation>
     </message>
 </context>
 <context>
@@ -1209,7 +1371,7 @@
 <context>
     <name>ModuleName</name>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="25"/>
+        <location filename="../modules/sound/sound.cpp" line="27"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
@@ -1712,12 +1874,12 @@
 <context>
     <name>RightContentWidget</name>
     <message>
-        <location filename="../widgets/moduleheader.cpp" line="45"/>
+        <location filename="../widgets/moduleheader.cpp" line="50"/>
         <source>Reset Successfully</source>
         <translation>重置成功</translation>
     </message>
     <message>
-        <location filename="../widgets/moduleheader.cpp" line="47"/>
+        <location filename="../widgets/moduleheader.cpp" line="52"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
@@ -1733,6 +1895,35 @@
         <location filename="../modules/shortcuts/selectdialog.cpp" line="29"/>
         <source>Cancel</source>
         <translation>取消</translation>
+    </message>
+</context>
+<context>
+    <name>SharePanel</name>
+    <message>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="17"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="77"/>
+        <source>Sharing</source>
+        <translation type="unfinished">正在共享</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="67"/>
+        <source>Remote Assistance</source>
+        <translation type="unfinished">远程协助</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="70"/>
+        <source>Cancel</source>
+        <translation type="unfinished">取消</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="75"/>
+        <source>Retry</source>
+        <translation type="unfinished">重试</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="81"/>
+        <source>Failed to establish the connection, you can retry to connect</source>
+        <translation type="unfinished">建立链接失败，您可以尝试重新链接</translation>
     </message>
 </context>
 <context>
@@ -1761,103 +1952,103 @@
 <context>
     <name>Sound</name>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="99"/>
+        <location filename="../modules/sound/sound.cpp" line="76"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="109"/>
+        <location filename="../modules/sound/sound.cpp" line="86"/>
         <source>Speaker</source>
         <translation>扬声器</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="119"/>
+        <location filename="../modules/sound/sound.cpp" line="96"/>
         <source>Output Volume</source>
         <translation>输出音量</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="131"/>
+        <location filename="../modules/sound/sound.cpp" line="108"/>
         <source>Left/Right Balance</source>
         <translation>左/右平衡</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="135"/>
+        <location filename="../modules/sound/sound.cpp" line="112"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="136"/>
+        <location filename="../modules/sound/sound.cpp" line="113"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="152"/>
+        <location filename="../modules/sound/sound.cpp" line="129"/>
         <source>Microphone</source>
         <translation>麦克风</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="162"/>
+        <location filename="../modules/sound/sound.cpp" line="139"/>
         <source>Input Volume</source>
         <translation>输入音量</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="173"/>
+        <location filename="../modules/sound/sound.cpp" line="150"/>
         <source>Feedback Volume</source>
         <translation>输入反馈</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="223"/>
+        <location filename="../modules/sound/sound.cpp" line="200"/>
         <source>Output Port</source>
         <translation>输出端口</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="236"/>
+        <location filename="../modules/sound/sound.cpp" line="213"/>
         <source>Output device</source>
         <translation>输出设备</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="269"/>
+        <location filename="../modules/sound/sound.cpp" line="228"/>
         <source>Input Port</source>
         <translation>输入端口</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="283"/>
+        <location filename="../modules/sound/sound.cpp" line="242"/>
         <source>Input device</source>
         <translation>输入设备</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="307"/>
-        <location filename="../modules/sound/sound.cpp" line="314"/>
+        <location filename="../modules/sound/sound.cpp" line="251"/>
+        <location filename="../modules/sound/sound.cpp" line="258"/>
         <source>Show Advanced...</source>
         <translation>显示高级设置...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="320"/>
+        <location filename="../modules/sound/sound.cpp" line="264"/>
         <source>Hide Advanced...</source>
         <translation>隐藏高级设置...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="328"/>
+        <location filename="../modules/sound/sound.cpp" line="274"/>
         <source>Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="331"/>
+        <location filename="../modules/sound/sound.cpp" line="277"/>
         <source>Logout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="334"/>
+        <location filename="../modules/sound/sound.cpp" line="280"/>
         <source>Shutdown</source>
         <translation type="unfinished">关机</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="337"/>
+        <location filename="../modules/sound/sound.cpp" line="283"/>
         <source>Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="353"/>
+        <location filename="../modules/sound/sound.cpp" line="299"/>
         <source>Sound Effects</source>
         <translation type="unfinished"></translation>
     </message>

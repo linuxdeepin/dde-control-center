@@ -18,6 +18,11 @@ ModuleHeader::ModuleHeader(QString title, bool addResetButton, QWidget * parent)
     initUI(addResetButton);
 }
 
+void ModuleHeader::setTitle(const QString& title)
+{
+    m_title->setText(title);
+}
+
 ModuleHeader::ModuleHeader(QWidget *leftContent, bool addResetButton, QWidget *parent):
       DBaseLine(parent)
 {

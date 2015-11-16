@@ -11,6 +11,7 @@ SUBDIRS  = sound \
            personalization\
            keyboard \
            datetime \
+           remote_assistance \
            wacom
 
 isEmpty(WITH_MODULE_GRUB){

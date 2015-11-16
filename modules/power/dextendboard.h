@@ -28,7 +28,7 @@ public:
 
     void setWidth(int ex_width);
     void setHeight(int ex_height);
-    void resizeEvent(QResizeEvent *e);
+    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
     DButtonGrid* m_suspendButtonGrid;
     DButtonGrid* m_poweroffButtonGrid;
 

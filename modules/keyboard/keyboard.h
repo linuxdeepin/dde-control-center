@@ -54,7 +54,7 @@ private:
     void updateKeyboardLayout(SearchList *button_list, AddRmDoneLine *line, bool showRemoveButton = false);
     void initBackend();
     void initUI();
-    void run();
+    void run() Q_DECL_OVERRIDE;
 };
 
 #endif //   KEYBOARD_H

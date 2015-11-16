@@ -1,0 +1,5 @@
+QLabel{
+background-color: #1a1b1b;
+color: #ff8000;
+font-size: 12px;
+}
