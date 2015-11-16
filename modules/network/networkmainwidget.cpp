@@ -8,6 +8,7 @@
 #include <libdui/dtextbutton.h>
 #include <libdui/dheaderline.h>
 #include <libdui/dlistwidget.h>
+#include <libdui/darrowlineexpand.h>
 
 #include "moduleheader.h"
 #include "constants.h"
@@ -22,6 +23,7 @@
 #include "vpnconnectswidget.h"
 #include "networkmainwidget.h"
 #include "addconnectpage.h"
+#include "systemproxywidget.h"
 
 namespace DCCNetwork {
     NetworkMainWidget *parentNetworkMainWidget(const QObject *obj)
@@ -149,7 +151,14 @@ void NetworkMainWidget::initUI()
 
     m_vpnConnectsWidget = new VPNConnectsWidget(m_dbusNetwork, this);
 
+    DArrowLineExpand *expand_proxy = new DArrowLineExpand;
+    SystemProxyWidget *widget_proxy = new SystemProxyWidget(m_dbusNetwork);
+
+    expand_proxy->setTitle(tr("System Proxy"));
+    expand_proxy->setContent(widget_proxy);
+
     mainLayout()->addWidget(m_vpnConnectsWidget);
+    mainLayout()->addWidget(expand_proxy);
 
     connect(this, &NetworkMainWidget::currentMainWidgetChanged,
             this, [header_right_widget, this](const QWidget *w){

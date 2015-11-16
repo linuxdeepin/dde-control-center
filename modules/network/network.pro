@@ -30,7 +30,8 @@ HEADERS         += network.h \
     listwidgetcontainer.h \
     dtextaction.h \
     editlinemissingpackage.h \
-    editlineswitchbutton.h
+    editlineswitchbutton.h \
+    systemproxyline.h
 SOURCES         += network.cpp \
     networkmainwidget.cpp \
     dbus/dbusnetwork.cpp \
@@ -53,7 +54,8 @@ SOURCES         += network.cpp \
     listwidgetcontainer.cpp \
     dtextaction.cpp \
     editlinemissingpackage.cpp \
-    editlineswitchbutton.cpp
+    editlineswitchbutton.cpp \
+    systemproxyline.cpp
 TARGET          = $$qtLibraryTarget(network)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

@@ -95,6 +95,19 @@ namespace ConnectionType {
     const QString VpnOpenconnect = "vpn-openconnect";
 }
 
+namespace ProxyMethod {
+    const QString None = "none";
+    const QString Manual = "manual";
+    const QString Auto = "auto";
+}
+
+namespace ProxyType {
+    const QString HTTP = "http";
+    const QString HTTPS = "https";
+    const QString FTP = "ftp";
+    const QString SOCKS = "socks";
+}
+
 class NetworkMainWidget;
 
 namespace DCCNetwork {

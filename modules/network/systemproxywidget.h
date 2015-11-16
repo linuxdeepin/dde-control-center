@@ -1,17 +1,19 @@
 #ifndef SYSTEMPROXYWIDGET_H
 #define SYSTEMPROXYWIDGET_H
 
-#include <QWidget>
+#include <libdui/dboxwidget.h>
 
-class SystemProxyWidget : public QWidget
+#include "dbus/dbusnetwork.h"
+
+DUI_USE_NAMESPACE
+
+class SystemProxyWidget : public DVBoxWidget
 {
-    Q_OBJECT
 public:
-    explicit SystemProxyWidget(QWidget *parent = 0);
+    explicit SystemProxyWidget(DBusNetwork *dbus, QWidget *parent = 0);
 
-signals:
-
-public slots:
+private:
+    int m_currentIndex = 0;
 };
 
 #endif // SYSTEMPROXYWIDGET_H
