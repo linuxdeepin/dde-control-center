@@ -44,6 +44,9 @@ SideBar::SideBar(QWidget *parent)
 
     m_sidebarLayout->addStretch();
     setLayout(m_sidebarLayout);
+
+    connect(m_pluginsManager, &PluginsManager::pluginInserted, this, &SideBar::insertPlugin);
+    connect(m_pluginsManager, &PluginsManager::pluginRemoved, this, &SideBar::removePlugin);
 }
 
 void SideBar::enterEvent(QEvent *e)
@@ -68,6 +71,39 @@ void SideBar::addSideBarButton(const ModuleMetaData &meta)
     connect(button, &SideBarButton::clicked, this, &SideBar::onSideBarButtonClicked);
     connect(button, &SideBarButton::hovered, m_tips, &DTipsFrame::followTheSender, Qt::QueuedConnection);
     connect(button, &SideBarButton::hovered, [this, button] {m_tips->setTipsText(button->metaData().name);});
+}
+
+void SideBar::insertPlugin(const int position, const ModuleMetaData &meta)
+{
+    SideBarButton *button = new SideBarButton(meta, this);
+    m_sidebarLayout->insertWidget(position, button);
+    m_sidebarLayout->setAlignment(button, Qt::AlignHCenter);
+
+    connect(button, &SideBarButton::clicked, this, &SideBar::onSideBarButtonClicked);
+    connect(button, &SideBarButton::hovered, m_tips, &DTipsFrame::followTheSender, Qt::QueuedConnection);
+    connect(button, &SideBarButton::hovered, [this, button] {m_tips->setTipsText(button->metaData().name);});
+}
+
+void SideBar::removePlugin(const ModuleMetaData &meta)
+{
+    const int count = m_sidebarLayout->count();
+    for (int i(0); i != count; ++i)
+    {
+        SideBarButton *btn = qobject_cast<SideBarButton *>(m_sidebarLayout->itemAt(i)->widget());
+        if (!btn)
+            continue;
+
+        if (btn->metaData().id == meta.id)
+        {
+            // go back to home screen if removed is current selected
+            if (m_selectedBtn == btn)
+                switchToModule("home");
+
+            m_sidebarLayout->removeWidget(btn);
+            btn->deleteLater();
+            break;
+        }
+    }
 }
 
 // private slots

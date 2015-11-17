@@ -7,6 +7,8 @@
 #include <QLibrary>
 #include <QPluginLoader>
 #include <QDebug>
+#include <QDBusInterface>
+#include <QDBusReply>
 
 static PluginsManager *m_self = nullptr;
 
@@ -51,29 +53,32 @@ PluginsManager::PluginsManager(QObject *parent)
     : QObject(parent)
 {
     loadPlugins();
+
+    m_deviceMoniter = new DeviceMoniter(this);
+
+    connect(m_deviceMoniter, &DeviceMoniter::deviceChanged, this, &PluginsManager::loadPlugins);
+
+    // set low priority
+    m_deviceMoniter->start(QThread::IdlePriority);
 }
 
-void PluginsManager::checkDevices()
+bool PluginsManager::checkDependentCondition(const QString &condition)
 {
-    // TODO: check device exist.
-    m_wacomExist = true;
-    m_bluetoothExist = false;
-}
+    if (condition.isEmpty())
+        return true;
+    if (!m_deviceMoniter)
+        return false;
 
-bool PluginsManager::checkDeviceDependent(const QString &condition)
-{
-    qDebug() << condition;
-
-    return true;
+    return m_deviceMoniter->property(condition.toStdString().c_str()).toBool();
 }
 
 int PluginsManager::getPluginInsertIndex(const QString &id)
 {
     // TODO: make this QStringList dynamic in the future to allow 3rd party modules.
-    static QStringList pluginsOrder;
-    pluginsOrder << "account" << "display" << "defaultapps" << "personalization";
-    pluginsOrder << "network" << "bluetooth" << "sound" << "datetime" << "power";
-    pluginsOrder << "mouse" << "wacom" << "keyboard" << "shortcuts" << "grub" << "system_info";
+    static QStringList pluginsOrder({"account", "display", "defaultapps", "personalization",
+                                     "network", "bluetooth", "sound", "datetime",
+                                     "power", "mouse", "wacom", "keyboard", "shortcuts",
+                                     "grub", "system_info"});
 
     const int pluginOrder = pluginsOrder.indexOf(id);
     for (const ModuleMetaData &p : m_pluginsList)
@@ -85,9 +90,32 @@ int PluginsManager::getPluginInsertIndex(const QString &id)
 
 void PluginsManager::insertPlugin(const ModuleMetaData &meta)
 {
-    const int insertIndex = getPluginInsertIndex(meta.id);
+    if (pluginIndex(meta.id) != -1)
+        return;
 
+    const int insertIndex = getPluginInsertIndex(meta.id);
     m_pluginsList.insert(insertIndex, meta);
+
+    emit pluginInserted(insertIndex, meta);
+    qDebug() << "insert" << meta.id;
+}
+
+void PluginsManager::removePlugin(const ModuleMetaData &meta)
+{
+    if (pluginIndex(meta.id) == -1)
+        return;
+
+    for (auto it(m_pluginsList.begin()); it != m_pluginsList.end(); ++it)
+    {
+        if (it->id == meta.id)
+        {
+            m_pluginsList.erase(it);
+            break;
+        }
+    }
+
+    emit pluginRemoved(meta);
+    qDebug() << "remove" << meta.id;
 }
 
 void PluginsManager::loadPlugins()
@@ -103,6 +131,7 @@ void PluginsManager::loadPlugins()
         if (!QLibrary::isLibrary(fileName)) {
             continue;
         }
+
         QString filePath = pluginsDir.absoluteFilePath(fileName);
         QPluginLoader pluginLoader(filePath);
         QJsonObject metaData = pluginLoader.metaData().value("MetaData").toObject();
@@ -114,7 +143,44 @@ void PluginsManager::loadPlugins()
         };
 
         const QString &condition = metaData.value("display_condition").toString();
-        if (checkDeviceDependent(condition))
+        if (checkDependentCondition(condition))
             insertPlugin(meta);
+        else
+            removePlugin(meta);
+    }
+}
+
+DeviceMoniter::DeviceMoniter(QObject *parent)
+    : QThread(parent)
+{
+    m_wacomInter = new DBusWacom("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Wacom", QDBusConnection::sessionBus(), this);
+    m_bluetoothInter = new DBusBluetooth("com.deepin.daemon.InputDevices", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this);
+}
+
+void DeviceMoniter::run()
+{
+    while (true)
+    {
+        bool changed = false;
+
+        const bool wacom = m_wacomInter->exist();
+        if (wacom != m_wacomExist)
+        {
+            m_wacomExist = wacom;
+            changed = true;
+        }
+
+        const int bluetoothState = m_bluetoothInter->state();
+        const bool bluetooth = bluetoothState != 0;
+        if (bluetooth != m_bluetoothExist)
+        {
+            m_bluetoothExist = bluetooth;
+            changed = true;
+        }
+
+        if (changed)
+            emit deviceChanged();
+
+        QThread::sleep(1);
     }
 }

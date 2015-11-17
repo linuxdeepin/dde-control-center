@@ -32,14 +32,10 @@ HomeScreen::HomeScreen(QWidget *parent) :
     m_grid->setContentsMargins(1, 0, 1, 0);
     m_grid->setSpacing(2);
 
-    for (const ModuleMetaData &meta : m_pluginsManager->pluginsList()) {
-        ModuleButton *button = new ModuleButton(meta, this);
-
-        m_grid->addWidget(button, m_moduleCount / 3, m_moduleCount % 3);
-        ++m_moduleCount;
-
-        connect(button, &ModuleButton::clicked, this, &HomeScreen::moduleSelected);
-    }
+    const QList<ModuleMetaData> pluginsList = m_pluginsManager->pluginsList();
+    const int pluginsCount = pluginsList.count();
+    for (int i(0); i != pluginsCount; ++i)
+        insertPlugin(i, pluginsList.at(i));
 
     QVBoxLayout *centerVLayout = new QVBoxLayout;
     QSpacerItem *vSpace = new QSpacerItem(1, 1, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
@@ -149,6 +145,8 @@ HomeScreen::HomeScreen(QWidget *parent) :
     connect(m_userAvatar, &UserAvatar::clicked, [this] {emit moduleSelected("account");});
     connect(m_ctrHideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
     connect(m_ctrShowAni, &QPropertyAnimation::finished, this, &HomeScreen::showAniFinished, Qt::QueuedConnection);
+    connect(m_pluginsManager, &PluginsManager::pluginInserted, this, &HomeScreen::insertPlugin);
+    connect(m_pluginsManager, &PluginsManager::pluginRemoved, this, &HomeScreen::removePlugin);
 
     loadUserAvatar();
 }
@@ -229,6 +227,56 @@ void HomeScreen::loadUserAvatar()
 
     const QString &file = m_settings->value("User/Icon").toString();
     m_userAvatar->setIcon(file);
+}
+
+void HomeScreen::insertPlugin(const int position, const ModuleMetaData &meta)
+{
+    ModuleButton *button = new ModuleButton(meta, this);
+
+    QList<QWidget *> plugins;
+    QLayoutItem *plugin;
+    while ((plugin = m_grid->takeAt(0)) != nullptr)
+        plugins.append(plugin->widget());
+
+    plugins.insert(position, button);
+
+    const int count = plugins.count();
+    for (int i(0); i != count; ++i)
+        m_grid->addWidget(plugins.at(i), i / 3, i % 3);
+
+    connect(button, &ModuleButton::clicked, this, &HomeScreen::moduleSelected);
+}
+
+void HomeScreen::removePlugin(const ModuleMetaData &meta)
+{
+    for (int r(0); r != m_grid->count(); ++r)
+    {
+        QLayoutItem *item = m_grid->itemAt(r);
+        ModuleButton *btn = qobject_cast<ModuleButton *>(item->widget());
+        if (!btn)
+            continue;
+
+        if (btn->pluginId() != meta.id)
+            continue;
+
+        m_grid->removeWidget(btn);
+        delete btn;
+        break;
+    }
+
+    relayoutPlugins();
+}
+
+void HomeScreen::relayoutPlugins()
+{
+    QList<QLayoutItem *> plugins;
+    QLayoutItem *plugin;
+    while ((plugin = m_grid->takeAt(0)) != nullptr)
+        plugins.append(plugin);
+
+    const int count = plugins.count();
+    for (int i(0); i != count; ++i)
+        m_grid->addItem(plugins.at(i), i / 3, i % 3);
 }
 
 // class ModuleButton

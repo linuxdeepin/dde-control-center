@@ -1,4 +1,5 @@
 {
     "id": "wacom",
-    "name": "Wacom"
+    "name": "Wacom",
+    "display_condition": "wacom"
 }

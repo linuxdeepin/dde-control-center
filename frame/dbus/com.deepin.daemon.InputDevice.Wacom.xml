@@ -1,0 +1,3 @@
+     <interface name="com.deepin.daemon.InputDevice.Wacom">
+          <property name="Exist" type="b" access="read"></property>
+     </interface>

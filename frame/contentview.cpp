@@ -212,7 +212,4 @@ void ContentView::unloadPlugin()
         delete m_lastPluginInterface;
         m_lastPluginInterface = nullptr;
     }
-
-    // !!!
-//    m_pluginLoader->unload();
 }

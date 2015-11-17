@@ -12,7 +12,9 @@ HEADERS    = frame.h \
     dbus/dbusxmousearea.h \
     ../modules/display/dbus/displayinterface.h \
     dbus/dbuscontrolcenterservice.h \
-    pluginsmanager.h
+    pluginsmanager.h \
+    dbus/dbusbluetooth.h \
+    dbus/dbuswacom.h
 SOURCES    = frame.cpp \
              main.cpp \
     homescreen.cpp \
@@ -23,7 +25,9 @@ SOURCES    = frame.cpp \
     dbus/dbusxmousearea.cpp \
     ../modules/display/dbus/displayinterface.cpp \
     dbus/dbuscontrolcenterservice.cpp \
-    pluginsmanager.cpp
+    pluginsmanager.cpp \
+    dbus/dbuswacom.cpp \
+    dbus/dbusbluetooth.cpp
 
 include(../cutelogger/cutelogger.pri)
 TARGET     = dde-control-center

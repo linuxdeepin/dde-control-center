@@ -3,9 +3,13 @@
 
 #include <QObject>
 #include <QList>
+#include <QThread>
 
 #include "modulemetadata.h"
+#include "dbus/dbuswacom.h"
+#include "dbus/dbusbluetooth.h"
 
+class DeviceMoniter;
 class PluginsManager : public QObject
 {
     Q_OBJECT
@@ -18,20 +22,42 @@ public:
     const QList<ModuleMetaData>&& pluginsList() const;
 
 signals:
+    void pluginInserted(const int position, const ModuleMetaData &meta) const;
+    void pluginRemoved(const ModuleMetaData &meta) const;
 
 private:
     explicit PluginsManager(QObject *parent = 0);
-    void checkDevices();
-    bool checkDeviceDependent(const QString &condition);
+    bool checkDependentCondition(const QString &condition);
     int getPluginInsertIndex(const QString &id);
     void insertPlugin(const ModuleMetaData &meta);
+    void removePlugin(const ModuleMetaData &meta);
     void loadPlugins();
 
 private:
+    DeviceMoniter *m_deviceMoniter = nullptr;
     QList<ModuleMetaData> m_pluginsList;
+};
 
+class DeviceMoniter : public QThread
+{
+    Q_OBJECT
+    Q_PROPERTY(bool bluetooth MEMBER m_bluetoothExist)
+    Q_PROPERTY(bool wacom MEMBER m_wacomExist)
+
+public:
+    DeviceMoniter(QObject *parent = nullptr);
+
+    void run() Q_DECL_OVERRIDE;
+
+signals:
+    void deviceChanged();
+
+private:
     bool m_bluetoothExist = false;
     bool m_wacomExist = false;
+
+    DBusWacom *m_wacomInter;
+    DBusBluetooth *m_bluetoothInter;
 };
 
 #endif // PLUGINSMANAGER_H

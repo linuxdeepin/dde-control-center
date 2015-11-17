@@ -1,0 +1,4 @@
+     <interface name="com.deepin.daemon.Bluetooth">
+          <property name="State" type="u" access="read"></property>
+     </interface>
+     

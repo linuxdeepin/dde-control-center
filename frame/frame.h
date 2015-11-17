@@ -44,9 +44,6 @@ signals:
     void xChanged();
     void autoHideChanged(bool autoHide);
 
-private:
-    void listPlugins();
-
 private slots:
     void globalMouseReleaseEvent(int button, int x, int y);
     void hideAndShowAnotherSide();

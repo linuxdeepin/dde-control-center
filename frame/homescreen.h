@@ -32,6 +32,9 @@ public slots:
 
 private slots:
     void loadUserAvatar();
+    void insertPlugin(const int position, const ModuleMetaData &meta);
+    void removePlugin(const ModuleMetaData &meta);
+    void relayoutPlugins();
 
 private:
     UserAvatar *m_userAvatar;
@@ -49,8 +52,6 @@ private:
 
     PluginsManager *m_pluginsManager;
     QSettings *m_settings;
-
-    int m_moduleCount = 0;
 };
 
 class QEvent;
@@ -61,6 +62,7 @@ class ModuleButton : public QFrame
 public:
     ModuleButton(const ModuleMetaData &metaData, QWidget *parent = 0);
 
+    const QString pluginId() const{return m_pluginId;}
     void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
     void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
     void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;

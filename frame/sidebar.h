@@ -24,6 +24,8 @@ private:
     void leaveEvent(QEvent *e);
     void switchToSideBarButton(SideBarButton *btn);
     void addSideBarButton(const ModuleMetaData& meta);
+    void insertPlugin(const int position, const ModuleMetaData &meta);
+    void removePlugin(const ModuleMetaData &meta);
 
 signals:
     void moduleSelected(ModuleMetaData meta);
