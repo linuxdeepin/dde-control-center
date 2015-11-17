@@ -56,8 +56,10 @@ SystemProxyWidget::SystemProxyWidget(DBusNetwork *dbus, QWidget *parent) :
                  edit_autoVbox->setText(args[0].toString());
               }, edit_autoVbox)
 
+    if(line_autoVbox->layout() && line_autoVbox->layout()->count() > 1)
+        delete line_autoVbox->layout()->takeAt(1);
     line_autoVbox->setTitle(tr("Configuration URL"));
-    line_autoVbox->setContent(edit_autoVbox, 0);
+    line_autoVbox->setContent(edit_autoVbox);
     line_autoVbox->setLeftMargin(15);
     line_autoVbox->setRightMargin(15);
     line_autoVbox->setStyleSheet(line_autoVbox->styleSheet() + styleSheet());
