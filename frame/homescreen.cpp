@@ -289,7 +289,7 @@ ModuleButton::ModuleButton(const ModuleMetaData &metaData, QWidget *parent) :
 
     // text font
     QFont font(QFont().family());
-    font.setPixelSize(11);
+    font.setPixelSize(12);
 
     m_icon = new QLabel(this);
     m_text = new QLabel(this);
