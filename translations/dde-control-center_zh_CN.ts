@@ -51,12 +51,12 @@
 <context>
     <name>AccountConfirmButtonLine</name>
     <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="98"/>
+        <location filename="../modules/account/ui/controlline.cpp" line="99"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="100"/>
+        <location filename="../modules/account/ui/controlline.cpp" line="101"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
@@ -87,12 +87,12 @@
 <context>
     <name>AccountTypeLine</name>
     <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="75"/>
+        <location filename="../modules/account/ui/controlline.cpp" line="76"/>
         <source>Normal User</source>
         <translation>普通用户</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="76"/>
+        <location filename="../modules/account/ui/controlline.cpp" line="77"/>
         <source>Administrator</source>
         <translation>管理员</translation>
     </message>
@@ -387,7 +387,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="30"/>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
 </context>
 <context>
@@ -533,7 +533,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/connectedview.cpp" line="23"/>
         <source>Disconnect</source>
-        <translation type="unfinished">断开</translation>
+        <translation>断开</translation>
     </message>
 </context>
 <context>
@@ -541,17 +541,17 @@
     <message>
         <location filename="../modules/remote_assistance/view/connectingview.cpp" line="22"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/connectingview.cpp" line="58"/>
         <source>Establishing connection, please wait...</source>
-        <translation type="unfinished">正在建立链接，请稍候……</translation>
+        <translation>正在建立链接，请稍候……</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/connectingview.cpp" line="75"/>
         <source>This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully</source>
-        <translation type="unfinished">成功建立后会自动隐藏此面板并在桌面打开远程会话窗口</translation>
+        <translation>成功建立后会自动隐藏此面板并在桌面打开远程会话窗口</translation>
     </message>
 </context>
 <context>
@@ -921,22 +921,22 @@
         <translation>重试</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="93"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="95"/>
         <source>removable disk</source>
         <translation>可移动磁盘</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="95"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="97"/>
         <source>network disk</source>
         <translation>网络磁盘</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="97"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="99"/>
         <source>local disk</source>
         <translation>本地磁盘</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="100"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="102"/>
         <source>Failed to uninstall %1 &quot;%2&quot;, please retry.</source>
         <translation>%1 \&quot;%2\&quot; 卸载失败，请重试。</translation>
     </message>
@@ -1030,7 +1030,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="44"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="71"/>
@@ -1048,7 +1048,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/generatingview.cpp" line="23"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatingview.cpp" line="56"/>
@@ -1103,7 +1103,7 @@
 <context>
     <name>HomeScreen</name>
     <message>
-        <location filename="../frame/homescreen.cpp" line="95"/>
+        <location filename="../frame/homescreen.cpp" line="91"/>
         <source>Power</source>
         <translation>电源</translation>
     </message>
@@ -1136,12 +1136,12 @@
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="23"/>
         <source>Connect</source>
-        <translation type="unfinished">连接</translation>
+        <translation>连接</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="32"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="64"/>
@@ -1337,22 +1337,22 @@
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="15"/>
         <source>Change</source>
-        <translation type="unfinished"></translation>
+        <translation>更改</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="16"/>
         <source>Complete</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="31"/>
         <source>Auto check update</source>
-        <translation type="unfinished"></translation>
+        <translation>自动检查更新</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="34"/>
         <source>Update server</source>
-        <translation type="unfinished"></translation>
+        <translation>更新源</translation>
     </message>
 </context>
 <context>
@@ -1448,7 +1448,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="13"/>
         <source>Wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>数位板</translation>
     </message>
     <message>
         <location filename="../modules/network/network.cpp" line="9"/>
@@ -1903,22 +1903,22 @@
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="17"/>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="77"/>
         <source>Sharing</source>
-        <translation type="unfinished">正在共享</translation>
+        <translation>正在共享</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="67"/>
         <source>Remote Assistance</source>
-        <translation type="unfinished">远程协助</translation>
+        <translation>远程协助</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="70"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="75"/>
         <source>Retry</source>
-        <translation type="unfinished">重试</translation>
+        <translation>重试</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="81"/>
@@ -2030,27 +2030,27 @@
     <message>
         <location filename="../modules/sound/sound.cpp" line="274"/>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>登录</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="277"/>
         <source>Logout</source>
-        <translation type="unfinished"></translation>
+        <translation>注销</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="280"/>
         <source>Shutdown</source>
-        <translation type="unfinished">关机</translation>
+        <translation>关机</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="283"/>
         <source>Restore</source>
-        <translation type="unfinished"></translation>
+        <translation>唤醒</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="299"/>
         <source>Sound Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>音效</translation>
     </message>
 </context>
 <context>
@@ -2198,25 +2198,25 @@
     <message>
         <location filename="../modules/system_info/updatearrowexpand.cpp" line="23"/>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
 </context>
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="143"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="147"/>
         <source>No update avaliable.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="146"/>
-        <source>You have %1 softwares need update</source>
-        <translation type="unfinished"></translation>
+        <translation>无可用更新</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="150"/>
+        <source>You have %1 softwares need update</source>
+        <translation>当前有%1个软件需要更新</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="154"/>
         <source>Total download size: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>总下载大小：%1</translation>
     </message>
 </context>
 <context>
