@@ -33,6 +33,7 @@ public:
     DButtonGrid* m_poweroffButtonGrid;
 
 private:
+    bool isExpand = false;
     QHBoxLayout* customPowerOffLayout;
     QHBoxLayout* powerOffLayout;
     QHBoxLayout* suspendLayout;

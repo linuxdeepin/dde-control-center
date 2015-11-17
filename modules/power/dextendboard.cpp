@@ -94,34 +94,39 @@ void DExtendBoard::setHeight(int ex_height) {
 }
 
 void DExtendBoard::setExpand(bool expand) {
-    if (expand) {
-        m_animation->setDuration(200);
-        m_animation->setEasingCurve(QEasingCurve::InCubic);
-        m_guideExtendTriangle->show();
-        m_customChooseLabel->show();
-        m_poweroffLabel->show();
-        m_suspendLabel->show();
-        m_suspendButtonGrid->show();
-        m_poweroffButtonGrid->show();
-        this->setFixedHeight(200);
-        m_animation->setStartValue(2);
-        m_animation->setEndValue(155);
+    if (isExpand != expand) {
+        isExpand = expand;
+        if (expand) {
+            m_animation->setDuration(200);
+            m_animation->setEasingCurve(QEasingCurve::InCubic);
+            m_guideExtendTriangle->show();
+            m_customChooseLabel->show();
+            m_poweroffLabel->show();
+            m_suspendLabel->show();
+            m_suspendButtonGrid->show();
+            m_poweroffButtonGrid->show();
+            this->setFixedHeight(200);
+            m_animation->setStartValue(2);
+            m_animation->setEndValue(155);
 
+        } else {
+            m_animation->setDuration(100);
+
+            m_animation->setStartValue(155);
+            m_animation->setEndValue(2);
+            m_guideExtendTriangle->hide();
+            m_customChooseLabel->hide();
+            m_poweroffLabel->hide();
+            m_suspendLabel->hide();
+            m_suspendButtonGrid->hide();
+            m_poweroffButtonGrid->hide();
+            m_bottomSeparator->move(1, 1);
+        }
+        m_animation->stop();
+        m_animation->start();
     } else {
-        m_animation->setDuration(100);
-
-        m_animation->setStartValue(155);
-        m_animation->setEndValue(2);
-        m_guideExtendTriangle->hide();
-        m_customChooseLabel->hide();
-        m_poweroffLabel->hide();
-        m_suspendLabel->hide();
-        m_suspendButtonGrid->hide();
-        m_poweroffButtonGrid->hide();
-        m_bottomSeparator->move(1, 1);
+        return;
     }
-    m_animation->stop();
-    m_animation->start();
 }
 void DExtendBoard::resizeEvent(QResizeEvent *e) {
     setFixedHeight(e->size().height());
