@@ -32,7 +32,7 @@ void Wacom::initUI(){
     const int labelWidth(105);
     const int segmentedCtrlAndComBoxWidth(160);
     const int dsliderWidth(170);
-    const int pressureSliderRangeMaxValue(2047);
+    const int pressureSliderRangeMaxValue(10);
     const int doubleClickSpaceRangeMaxValue(100);
     QStringList keylist;
     keylist.append(tr("Page Up"));
@@ -151,7 +151,8 @@ void Wacom::initUI(){
     m_pressureSlider->setLeftTip(tr("Soft"));
     m_pressureSlider->setRightTip(tr("Hard"));
     m_pressureSlider->setFixedWidth(dsliderWidth);
-    m_pressureSlider->setRange(0,pressureSliderRangeMaxValue);
+    m_pressureSlider->setHoverShowValue(true);
+    m_pressureSlider->setRange(1,pressureSliderRangeMaxValue);
 
     // to display prssureSlider contents horizontally
     pressureSliderHLayout->addWidget(pressureLabel);
@@ -170,6 +171,7 @@ void Wacom::initUI(){
     m_doubleClickSpaceSlider->setLeftTip(tr("Narrow"));
     m_doubleClickSpaceSlider->setRightTip(tr("Wide"));
     m_doubleClickSpaceSlider->setFixedWidth(dsliderWidth);
+    m_doubleClickSpaceSlider->setHoverShowValue(true);
     m_doubleClickSpaceSlider->setRange(0,doubleClickSpaceRangeMaxValue);
 
     // to display them horizontally
@@ -247,12 +249,12 @@ void Wacom::initConnects(){
     connect(m_wacomModuleHeader,&ModuleHeader::resetButtonClicked,this,&Wacom::reset);
 
     connect(m_tabletOriSCtrl,SIGNAL(currentChanged(int)),this,SLOT(setTabletOrientation(int)));
-    connect(m_wacomInterface,&DBusInputWacom::LeftHandedChanged,[=](bool isChanged){
+    connect(m_wacomInterface,&DBusInputWacom::LeftHandedChanged,[=](){
         m_tabletOriSCtrl->setCurrentIndex(m_wacomInterface->leftHanded() == 0);
     });
 
     connect(m_digitalPenModesSCtrl,SIGNAL(currentChanged(int)),this,SLOT(setDigitalPenModes(int)));
-    connect(m_wacomInterface,&DBusInputWacom::CursorModeChanged,[=](bool isChanged){
+    connect(m_wacomInterface,&DBusInputWacom::CursorModeChanged,[=](){
         m_digitalPenModesSCtrl->setCurrentIndex(m_wacomInterface->cursorMode() == 1);
     });
 
