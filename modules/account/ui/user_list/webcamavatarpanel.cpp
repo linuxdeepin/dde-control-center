@@ -156,7 +156,7 @@ void WebcamAvatarPanel::onSliderValueChanged(int value)
         m_cameraView->setScale(value / 10.0);
 }
 
-void WebcamAvatarPanel::onCameraError(QCamera::Error )
+void WebcamAvatarPanel::onCameraError(QCamera::Error)
 {
     m_stackWidget->setCurrentIndex(0);
 }

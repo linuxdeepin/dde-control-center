@@ -546,6 +546,7 @@ static void qtLoggerMessageHandler(QtMsgType type, const QMessageLogContext& con
   Logger::LogLevel level;
   switch (type)
   {
+    case QtInfoMsg:
     case QtDebugMsg:
       level = Logger::Debug;
       break;

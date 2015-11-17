@@ -11,6 +11,7 @@
     QDBusPendingCallWatcher * watcher = new QDBusPendingCallWatcher(Fun, this); \
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, captured]{ \
         const QVariantList & args = watcher->reply().arguments(); \
+        Q_UNUSED(args);\
         Code \
         watcher->deleteLater(); \
     }); }

@@ -10,7 +10,7 @@ class HeaderNameLabel : public QLabel
     Q_OBJECT
     Q_PROPERTY(bool isCurrentUser READ isCurrentUser WRITE setIsCurrentUser)
 public:
-    explicit HeaderNameLabel(QWidget * parent = 0);
+    explicit HeaderNameLabel(QWidget * = 0);
 
     void setIsCurrentUser(bool value);
     bool isCurrentUser() const;

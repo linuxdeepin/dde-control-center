@@ -29,7 +29,8 @@ void AccountPasswdLine::showWarning(const QString &msg)
 
 void AccountPasswdLine::setText(const QString &text)
 {
-    m_passwordEdit->setPassword(text);
+    m_passwordEdit->setText(text);
+//    m_passwordEdit->setPassword(text);
 }
 
 DPasswordEdit *AccountPasswdLine::passwordEdit() const

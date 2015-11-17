@@ -33,7 +33,8 @@ void PasswdLine::showWarning(const QString &msg)
 
 void PasswdLine::setText(const QString &text)
 {
-    m_passwordEdit->setPassword(text);
+    m_passwordEdit->setText(text);
+//    m_passwordEdit->setPassword(text);
 }
 
 DPasswordEdit *PasswdLine::passwordEdit() const

@@ -30,5 +30,5 @@ UpdateArrowExpand::UpdateArrowExpand(QWidget *parent) :
     headerRightLayout->setSpacing(10);
 
     connect(m_configBtn, &DImageButton::clicked, this, &UpdateArrowExpand::configButtonClicked);
-    connect(m_configBtn, &DImageButton::clicked, [this] {setExpand(true);updateContentHeight();});
+    connect(m_configBtn, &DImageButton::clicked, [this] {setExpand(true);});
 }

@@ -34,6 +34,9 @@ public:
     ~Datetime() Q_DECL_OVERRIDE;
     QFrame* getContent() Q_DECL_OVERRIDE;
 
+protected:
+    bool eventFilter(QObject *o, QEvent *e) Q_DECL_OVERRIDE;
+
 private:
     static const QString getUTCOffset(int offset);
     const QString getZoneCityListByOffset(int zoneOffset);
@@ -43,7 +46,6 @@ private:
     void showTimezoneList();
     void toRemoveTimezoneMode();
     void adjustItemHeight();
-    bool eventFilter(QObject *o, QEvent *e) Q_DECL_OVERRIDE;
 
 private slots:
     void toggleTimeZone(TimezoneWidget *zone);

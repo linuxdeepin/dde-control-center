@@ -21,8 +21,8 @@ DUI_USE_NAMESPACE
 Sound::Sound() :
     QObject(),
     m_frame(new QFrame),
-    m_mainWidget(new QFrame),
-    m_inputFeedbackSlider(NULL)
+    m_inputFeedbackSlider(NULL),
+    m_mainWidget(new QFrame)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Sound"));
 
@@ -465,8 +465,6 @@ void Sound::updateOutputPorts()
             m_outputPortsList->checkButtonByIndex(outputPorts.indexOf(sinkActivePort.name));
         }
 
-        m_outputPortsExpand->updateContentHeight();
-
         connect(m_outputPortsList, &DButtonList::buttonCheckedIndexChanged, [=](int index){
             SinkPortStruct port = sinkPorts.at(index);
             m_sink->SetPort(port.id);
@@ -497,7 +495,6 @@ void Sound::updateInputPorts()
     if (inputPorts.length() > 0) {
         m_inputPortsList->addButtons(inputPorts);
         m_inputPortsList->setFixedSize(DCC::ModuleContentWidth, inputPorts.length() * m_inputPortsList->itemWidget(m_inputPortsList->item(0))->height());
-        m_inputPortsExpand->updateContentHeight();
         if (inputPorts.contains(sourceActivePort.name)) {
             m_inputPortsList->checkButtonByIndex(inputPorts.indexOf(sourceActivePort.name));
         }
@@ -532,7 +529,6 @@ void Sound::updateOutputDevices()
         m_outputDevicesList->clear();
         m_outputDevicesList->addButtons(outputDevices);
         m_outputDevicesList->setFixedSize(DCC::ModuleContentWidth, outputDevices.length() * m_outputDevicesList->itemWidget(m_outputDevicesList->item(0))->height());
-        m_outputDevicesExpand->updateContentHeight();
 
         if (m_sinks.contains(m_sink)) {
             m_outputDevicesList->checkButtonByIndex(m_sinks.indexOf(m_sink));
@@ -571,7 +567,6 @@ void Sound::updateInputDevices()
         m_inputDevicesList->clear();
         m_inputDevicesList->addButtons(inputDevices);
         m_inputDevicesList->setFixedSize(DCC::ModuleContentWidth, inputDevices.length() * m_inputDevicesList->itemWidget(m_inputDevicesList->item(0))->height());
-        m_inputDevicesExpand->updateContentHeight();
         if (m_sources.contains(m_source)) {
             m_inputDevicesList->checkButtonByIndex(m_sources.indexOf(m_source));
         }

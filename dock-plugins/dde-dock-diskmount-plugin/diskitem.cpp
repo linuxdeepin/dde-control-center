@@ -82,6 +82,8 @@ void DiskItem::updateUnMountButtonState(bool normal)
 
 void DiskItem::umountDiskFailed(const QString &uuid, const QString &reason)
 {
+    Q_UNUSED(reason);
+
     if (m_id != uuid)
         return;
 

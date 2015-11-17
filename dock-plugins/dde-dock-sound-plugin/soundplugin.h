@@ -38,7 +38,7 @@ public:
     QString getName(QString id) Q_DECL_OVERRIDE;
     QString getTitle(QString id) Q_DECL_OVERRIDE;
     QString getCommand(QString id) Q_DECL_OVERRIDE;
-    QPixmap getIcon(QString id) Q_DECL_OVERRIDE;
+    QPixmap getIcon(QString) Q_DECL_OVERRIDE;
     bool canDisable(QString) Q_DECL_OVERRIDE;
     bool isDisabled(QString id) Q_DECL_OVERRIDE;
     void setDisabled(QString id, bool disabled) Q_DECL_OVERRIDE;

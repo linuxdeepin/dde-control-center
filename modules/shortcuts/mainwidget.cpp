@@ -420,8 +420,8 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
 
         ///获取listw所对应的expand widget在expandGroup的index
         index = m_expandGroupChildList.indexOf(listw);
-        if(index >= 0)
-            m_expandGroup->expand(index)->updateContentHeight();
+//        if(index >= 0)
+//            m_expandGroup->expand(index)->updateContentHeight();
 
         connect(dialog, &SelectDialog::replace, [=]{
             dialog->setFixedHeight(dialog_height);
@@ -432,8 +432,8 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
             }
             m_dbus->ModifyShortcut(w->id(), shortcut);
             emit setEnableEditShortcut(true);
-            if(index >= 0)
-                m_expandGroup->expand(index)->updateContentHeight();
+//            if(index >= 0)
+//                m_expandGroup->expand(index)->updateContentHeight();
         });
         connect(dialog, &SelectDialog::cancel, [=]{
             dialog->contraction();
@@ -442,8 +442,8 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
             dialog->setFixedHeight(dialog_height);
             listw->removeItem(listw->indexOf(dialog));
             emit setEnableEditShortcut(true);
-            if(index >= 0)
-                m_expandGroup->expand(index)->updateContentHeight();
+//            if(index >= 0)
+//                m_expandGroup->expand(index)->updateContentHeight();
         });
         dialog->expansion();
     }

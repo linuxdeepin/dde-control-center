@@ -391,11 +391,11 @@ void Personalization::handleDataFinished(){
         int index =  m_buttonGrids.indexOf(buttonGrid);
         if (m_contentFrames.length() > index && m_expandGroup->expands().length() > index){
             QFrame* contentFrame = m_contentFrames.at(index);
-            DBaseExpand* expand = m_expandGroup->expands().at(index);
+//            DBaseExpand* expand = m_expandGroup->expands().at(index);
             if (contentFrame->height() >= space){
                 buttonGrid->setFixedHeight(space);
                 contentFrame->setFixedHeight(space + m_margins.top() + m_margins.bottom());
-                expand->updateContentHeight();
+//                expand->updateContentHeight();
             }
         }
     }

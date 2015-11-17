@@ -28,7 +28,7 @@ signals:
     void selectedAvatar(const QString &path);
 
 private slots:
-    void onCameraError(QCamera::Error value);
+    void onCameraError(QCamera::Error);
 
 private:
     void initCameraLayout();

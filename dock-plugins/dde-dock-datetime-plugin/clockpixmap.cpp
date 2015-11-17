@@ -11,7 +11,7 @@ static const int BigNumberWidth = 8;
 static const int SmallNumberWidth = 5;
 static const int BigNumberSpacing = 1;
 static const int SmallNumberSpacing = 1;
-static const int amPmWidth = 10;
+//static const int amPmWidth = 10;
 static const int amPmHeight = 5;
 
 ClockPixmap::ClockPixmap() :
