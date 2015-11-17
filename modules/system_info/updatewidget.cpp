@@ -68,6 +68,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
     connect(m_updateButton, &DImageButton::clicked, this, &UpdateWidget::systemUpgrade);
     connect(m_updateProgress, &DCircleProgress::clicked, this, &UpdateWidget::toggleUpdateState);
+    connect(this, &UpdateWidget::updatableNumsChanged, this, &UpdateWidget::updateInfo);
 }
 
 QString UpdateWidget::formatCap(qulonglong cap)
@@ -133,28 +134,12 @@ void UpdateWidget::loadAppList()
             appItemWidget->connectToJob(jobMap.value(info.m_packageId));
 
         m_appsList->addWidget(appItemWidget);
+
+        connect(appItemWidget, &ApplictionItemWidget::jobFinished, this, &UpdateWidget::removeJob);
     }
 
     // updatable nums change
     emit updatableNumsChanged(m_appsList->count());
-
-    // updateTipsInfo  download size, download count ...
-    const QStringList &updatableApps = m_dbusUpdateInter->updatableApps();
-    const int updatableAppsNum = updatableApps.count();
-
-    if (!updatableAppsNum)
-    {
-        m_updateCountTips->setText(tr("No update avaliable."));
-        m_updateSizeTips->clear();
-    } else {
-        m_updateCountTips->setText(QString(tr("You have %1 softwares need update")).arg(updatableApps.count()));
-
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->PackagesDownloadSize(updatableApps), this);
-        connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
-            m_updateSizeTips->setText(QString(tr("Total download size: %1")).arg(watcher->reply().arguments().first().toLongLong()));
-            watcher->deleteLater();
-        });
-    }
 }
 
 void UpdateWidget::updateUpgradeProcess()
@@ -180,6 +165,33 @@ void UpdateWidget::updateUpgradeState()
 
     if (m_dbusSystemUpgrade->status() == "end")
         loadAppList();
+}
+
+void UpdateWidget::removeJob()
+{
+    ApplictionItemWidget *appItemWidget = qobject_cast<ApplictionItemWidget *>(sender());
+    if (!appItemWidget)
+        return;
+
+    m_appsList->removeWidget(m_appsList->indexOf(appItemWidget));
+    emit updatableNumsChanged(m_appsList->count());
+}
+
+void UpdateWidget::updateInfo(const int updatableAppsNum)
+{
+    if (!updatableAppsNum)
+    {
+        m_updateCountTips->setText(tr("No update avaliable."));
+        m_updateSizeTips->clear();
+    } else {
+        m_updateCountTips->setText(QString(tr("You have %1 softwares need update")).arg(updatableAppsNum));
+
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->PackagesDownloadSize(m_dbusJobManagerInter->upgradableApps()), this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
+            m_updateSizeTips->setText(QString(tr("Total download size: %1")).arg(watcher->reply().arguments().first().toLongLong()));
+            watcher->deleteLater();
+        });
+    }
 }
 
 void UpdateWidget::systemUpgrade()

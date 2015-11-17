@@ -41,6 +41,8 @@ private slots:
     void loadAppList();
     void updateUpgradeProcess();
     void updateUpgradeState();
+    void removeJob();
+    void updateInfo(const int updatableAppsNum);
 
 private:
     QLabel *m_updateCountTips;

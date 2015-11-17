@@ -106,6 +106,7 @@ void ApplictionItemWidget::connectToJob(DBusUpdateJob *dbusJob)
     connect(m_dbusJobInter, &DBusUpdateJob::ProgressChanged, this, &ApplictionItemWidget::updateJobProgress);
     connect(m_dbusJobInter, &DBusUpdateJob::StatusChanged, this, &ApplictionItemWidget::updateJobStatus);
 
+
     // update immeidately
     updateJobProgress();
     updateJobStatus();
@@ -140,9 +141,9 @@ void ApplictionItemWidget::toggleUpdateJob()
 
 void ApplictionItemWidget::startJob()
 {
-    QDBusPendingReply<QDBusObjectPath> reply = m_dbusJobManagerInter->InstallPackage(m_updateInfo.m_packageId, "");
+    qDebug() << m_updateInfo.m_packageId;
+    QDBusPendingReply<QDBusObjectPath> reply = m_dbusJobManagerInter->UpdatePackage(m_updateInfo.m_packageId);
     const QDBusObjectPath &jobPath = reply.value();
-    qDebug() << "start Job: " << jobPath.path();
 
     DBusUpdateJob *newJob = new DBusUpdateJob("com.deepin.lastore", jobPath.path(), QDBusConnection::systemBus(), this);
 
@@ -170,10 +171,11 @@ void ApplictionItemWidget::updateJobStatus()
     const QString &id = m_dbusJobInter->id();
 
     // finished
-    if (status == "success" ||
-        status == "failed") {
+    if (status == "end")
+    {
         // !!! 这里如果立即清除Job会导致Job发送其它的Update信号收不到，所以清除Job应该放在所有信号处理完成
         QMetaObject::invokeMethod(m_dbusJobManagerInter, "CleanJob", Qt::QueuedConnection, Q_ARG(QString, id));
+        emit jobFinished();
         return;
     }
 }

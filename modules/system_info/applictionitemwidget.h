@@ -41,6 +41,7 @@ signals:
     void jobStatChanged() const;
     void selectStateChanged() const;
     void hoverStateChanged() const;
+    void jobFinished() const;
 
 public:
     explicit ApplictionItemWidget(QWidget *parent = 0);
