@@ -100,11 +100,11 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("InstallPackage"), argumentList);
     }
 
-    inline QDBusPendingReply<QString> PackageCategory1(const QString &in0)
+    inline QDBusPendingReply<QString> PackageCategory(const QString &in0)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(in0);
-        return asyncCallWithArgumentList(QStringLiteral("PackageCategory1"), argumentList);
+        return asyncCallWithArgumentList(QStringLiteral("PackageCategory"), argumentList);
     }
 
     inline QDBusPendingReply<QString> PackageDesktopPath(const QString &in0)

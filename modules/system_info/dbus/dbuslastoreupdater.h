@@ -71,20 +71,20 @@ public:
     inline QString officialSource() const
     { return qvariant_cast< QString >(property("OfficialSource")); }
 
-    Q_PROPERTY(QStringList UpdatableApps1 READ updatableApps1 NOTIFY UpdatableApps1Changed)
-    inline QStringList updatableApps1() const
-    { return qvariant_cast< QStringList >(property("UpdatableApps1")); }
+    Q_PROPERTY(QStringList UpdatableApps READ updatableApps NOTIFY UpdatableAppsChanged)
+    inline QStringList updatableApps() const
+    { return qvariant_cast< QStringList >(property("UpdatableApps")); }
 
-    Q_PROPERTY(QStringList UpdatablePackages1 READ updatablePackages1 NOTIFY UpdatablePackages1Changed)
-    inline QStringList updatablePackages1() const
-    { return qvariant_cast< QStringList >(property("UpdatablePackages1")); }
+    Q_PROPERTY(QStringList UpdatablePackages READ updatablePackages NOTIFY UpdatablePackagesChanged)
+    inline QStringList updatablePackages() const
+    { return qvariant_cast< QStringList >(property("UpdatablePackages")); }
 
 public Q_SLOTS: // METHODS
-    inline QDBusPendingReply<AppUpdateInfoList> ApplicationUpdateInfos1(const QString &in0)
+    inline QDBusPendingReply<AppUpdateInfoList> ApplicationUpdateInfos(const QString &in0)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(in0);
-        return asyncCallWithArgumentList(QStringLiteral("ApplicationUpdateInfos1"), argumentList);
+        return asyncCallWithArgumentList(QStringLiteral("ApplicationUpdateInfos"), argumentList);
     }
 
     inline QDBusPendingReply<QList<MirrorInfo>> ListMirrorSources(const QString &in0)
@@ -113,8 +113,8 @@ Q_SIGNALS: // SIGNALS
 void AutoCheckUpdatesChanged();
 void MirrorSourceChanged();
 void OfficialSourceChanged();
-void UpdatableApps1Changed();
-void UpdatablePackages1Changed();
+void UpdatableAppsChanged();
+void UpdatablePackagesChanged();
 };
 
 namespace org {

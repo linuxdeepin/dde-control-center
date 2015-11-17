@@ -34,6 +34,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_updateProgress->setFixedSize(32, 32);
     m_updateProgress->setLineWidth(2);
     m_updateProgress->setValue(0);
+    m_updateProgress->hide();
     m_appsList = new DListWidget;
     m_appsList->setFixedWidth(DCC::ModuleContentWidth);
     m_appsList->setItemSize(DCC::ModuleContentWidth, 50);
@@ -61,7 +62,6 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
 
-//    loadAppList();
     QTimer::singleShot(500, this, SLOT(loadAppList()));
     setLayout(mainLayout);
     setFixedWidth(DCC::ModuleContentWidth);
@@ -93,6 +93,10 @@ void UpdateWidget::resizeEvent(QResizeEvent *e)
 
 void UpdateWidget::loadAppList()
 {
+    m_appsList->clear();
+    m_updateProgress->hide();
+    m_updateButton->show();
+
     m_dbusUpdateInter = new DBusLastoreUpdater("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
     m_dbusJobManagerInter = new DBusUpdateJobManager("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
 
@@ -118,7 +122,7 @@ void UpdateWidget::loadAppList()
     }
 
     // TODO: lang
-    QList<AppUpdateInfo> updateInfoList = m_dbusUpdateInter->ApplicationUpdateInfos1("zh_CN").value();
+    QList<AppUpdateInfo> updateInfoList = m_dbusUpdateInter->ApplicationUpdateInfos("zh_CN").value();
     ApplictionItemWidget *appItemWidget;
 
     for (const AppUpdateInfo &info : updateInfoList)
@@ -135,7 +139,7 @@ void UpdateWidget::loadAppList()
     emit updatableNumsChanged(m_appsList->count());
 
     // updateTipsInfo  download size, download count ...
-    const QStringList &updatableApps = m_dbusUpdateInter->updatableApps1();
+    const QStringList &updatableApps = m_dbusUpdateInter->updatableApps();
     const int updatableAppsNum = updatableApps.count();
 
     if (!updatableAppsNum)
@@ -172,12 +176,24 @@ void UpdateWidget::updateUpgradeState()
     if (!m_dbusSystemUpgrade || !m_dbusSystemUpgrade->isValid())
         return;
 
-    qDebug() << "state: " << m_dbusSystemUpgrade->type() << m_dbusSystemUpgrade->status();
+    qDebug() << "state: " << m_dbusSystemUpgrade->type() << m_dbusSystemUpgrade->status() << m_dbusSystemUpgrade->id();
+
+    if (m_dbusSystemUpgrade->status() == "end")
+        loadAppList();
 }
 
 void UpdateWidget::systemUpgrade()
 {
-    qDebug() << "system upgrade";
+    m_updateProgress->setValue(0);
+    m_updateProgress->show();
+    m_updateButton->hide();
+
+    const int count = m_appsList->count();
+    for (int i(0); i != count; ++i)
+    {
+        ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsList->getWidget(i));
+        item->disableUpdate();
+    }
 
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->DistUpgrade(), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
@@ -201,6 +217,9 @@ void UpdateWidget::loadUpgradeData(DBusUpdateJob *newJob)
         m_dbusSystemUpgrade->deleteLater();
 
     m_dbusSystemUpgrade = newJob;
+
+    if (m_dbusSystemUpgrade->status() == "end")
+        return;
 
     if (m_dbusSystemUpgrade->status() == "ready")
         m_dbusJobManagerInter->StartJob(m_dbusSystemUpgrade->id());

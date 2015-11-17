@@ -220,7 +220,6 @@ void SystemInfo::updateWidgetHeight()
     m_updateWidget->setFixedHeight(expandContentHeight);
     m_updateInfoWidget->setFixedHeight(expandContentHeight);
     m_mirrorsControlWidget->setFixedHeight(expandContentHeight);
-    m_updateExpand->updateContentHeight();
 }
 
 bool SystemInfo::eventFilter(QObject *o, QEvent *e)

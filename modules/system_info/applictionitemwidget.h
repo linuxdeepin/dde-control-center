@@ -48,6 +48,7 @@ public:
     inline bool hovered() const {return m_hovered;}
     inline bool selected() const {return m_selected;}
     void setAppUpdateInfo(const AppUpdateInfo &info);
+    void disableUpdate();
 
 public slots:
     void connectToJob(DBusUpdateJob *dbusJob);
@@ -73,6 +74,7 @@ private:
 
     AppUpdateInfo m_updateInfo;
 
+    bool m_disableUpdate = false;
     bool m_selected = false;
     bool m_jobRunning = false;
     bool m_hovered = false;

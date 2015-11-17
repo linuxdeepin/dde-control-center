@@ -76,15 +76,17 @@ void ApplictionItemWidget::setAppUpdateInfo(const AppUpdateInfo &info)
         qDebug() << iconPath;
         m_appIcon->setPixmap(QPixmap(iconPath).scaled(32, 32, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
 
-#       if GTK_MAJOR_VERSION >= 3
-            g_object_unref(iconInfo);
-#       elif GTK_MAJOR_VERSION == 2
-            gtk_icon_info_free(iconInfo);
-#       endif
+        g_object_unref(iconInfo);
     }
 
     m_appName->setText(info.m_name);
     m_appVersion->setText(info.m_avilableVersion);
+}
+
+void ApplictionItemWidget::disableUpdate()
+{
+    m_updateBtn->hide();
+    m_disableUpdate = true;
 }
 
 void ApplictionItemWidget::connectToJob(DBusUpdateJob *dbusJob)
@@ -111,7 +113,7 @@ void ApplictionItemWidget::connectToJob(DBusUpdateJob *dbusJob)
 
 void ApplictionItemWidget::enterEvent(QEvent *)
 {
-    if (!m_progress->isVisible())
+    if (!m_progress->isVisible() && !m_disableUpdate)
         m_updateBtn->show();
     m_hovered = true;
     emit hoverStateChanged();
