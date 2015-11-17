@@ -55,78 +55,86 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="95"/>
         <source>Default Name</source>
-        <translation type="unfinished"></translation>
+        <translation>默认名称</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="96"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="97"/>
         <source>Apply</source>
-        <translation type="unfinished">应用</translation>
+        <translation>应用</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="141"/>
         <source>Devices nearby</source>
-        <translation type="unfinished">附近的设备</translation>
+        <translation>附近的设备</translation>
     </message>
 </context>
 <context>
     <name>AddConnectPage</name>
     <message>
-        <location filename="../modules/network/addconnectpage.cpp" line="33"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation type="obsolete">取消</translation>
     </message>
     <message>
-        <location filename="../modules/network/addconnectpage.cpp" line="34"/>
+        <location filename="../modules/network/addconnectpage.cpp" line="20"/>
+        <source>Add Network Connection</source>
+        <translation>添加网络连接</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addconnectpage.cpp" line="27"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>下一步</translation>
     </message>
     <message>
-        <location filename="../modules/network/addconnectpage.cpp" line="47"/>
+        <location filename="../modules/network/addconnectpage.cpp" line="32"/>
         <source>PPPoE</source>
-        <translation type="unfinished"></translation>
+        <translation>拨号</translation>
     </message>
     <message>
-        <location filename="../modules/network/addconnectpage.cpp" line="48"/>
+        <location filename="../modules/network/addconnectpage.cpp" line="32"/>
         <source>VPN</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN</translation>
     </message>
 </context>
 <context>
     <name>AddDslPage</name>
     <message>
-        <location filename="../modules/network/adddslpage.cpp" line="21"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation type="obsolete">取消</translation>
     </message>
     <message>
-        <location filename="../modules/network/adddslpage.cpp" line="22"/>
+        <location filename="../modules/network/adddslpage.cpp" line="14"/>
+        <source>Add PPPoE Connection</source>
+        <translation>添加拨号连接</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/adddslpage.cpp" line="17"/>
         <source>Add</source>
-        <translation type="unfinished">添加</translation>
+        <translation>添加</translation>
     </message>
     <message>
-        <location filename="../modules/network/adddslpage.cpp" line="35"/>
+        <location filename="../modules/network/adddslpage.cpp" line="19"/>
         <source>Name</source>
-        <translation type="unfinished">名称</translation>
+        <translation>名称</translation>
     </message>
     <message>
-        <location filename="../modules/network/adddslpage.cpp" line="36"/>
+        <location filename="../modules/network/adddslpage.cpp" line="20"/>
         <source>Username</source>
-        <translation type="unfinished">用户名</translation>
+        <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../modules/network/adddslpage.cpp" line="37"/>
+        <location filename="../modules/network/adddslpage.cpp" line="21"/>
         <source>Service</source>
-        <translation type="unfinished"></translation>
+        <translation>服务</translation>
     </message>
     <message>
-        <location filename="../modules/network/adddslpage.cpp" line="39"/>
+        <location filename="../modules/network/adddslpage.cpp" line="23"/>
         <source>Password</source>
-        <translation type="unfinished">密码</translation>
+        <translation>密码</translation>
     </message>
 </context>
 <context>
@@ -135,6 +143,188 @@
         <location filename="../widgets/addrmdoneline.cpp" line="16"/>
         <source>Done</source>
         <translation>完成</translation>
+    </message>
+</context>
+<context>
+    <name>AddVpnPage</name>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="25"/>
+        <source>VPN Type</source>
+        <translation>VPN类型</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="42"/>
+        <source>Basic Information</source>
+        <translation>基本信息</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="45"/>
+        <source>Need VPN Plugin</source>
+        <translation>需要VPN插件</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="59"/>
+        <source>Add</source>
+        <translation>添加</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="64"/>
+        <source>Name</source>
+        <translation>名称</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="65"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="72"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="86"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="113"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="119"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="66"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="90"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="114"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="120"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="68"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="92"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="102"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="116"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="122"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="127"/>
+        <source>Ask for Pwd</source>
+        <translation>询问密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="70"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="94"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="118"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="74"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="96"/>
+        <source>CA Cert</source>
+        <translation>CA证书</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="75"/>
+        <source>Proxy</source>
+        <translation>代理</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="77"/>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation>允许思科安全桌面木马</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="79"/>
+        <source>CSD Script</source>
+        <translation>CSD 脚本</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="81"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="98"/>
+        <source>User Cert</source>
+        <translation>用户证书</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="83"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="100"/>
+        <source>Private Key</source>
+        <translation>私钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="85"/>
+        <source>Use FSID for Key Passphrase</source>
+        <translation>为秘钥口令句使用FSID</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="88"/>
+        <source>Auth Type</source>
+        <translation>认证类型</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="104"/>
+        <source>Private Pwd</source>
+        <translation>私钥密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="106"/>
+        <source>Static Key</source>
+        <translation>静态秘钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="108"/>
+        <source>Customize Key Direction</source>
+        <translation>自定义秘钥方向</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="110"/>
+        <source>Key Direction</source>
+        <translation>秘钥方向</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="111"/>
+        <source>Remote IP</source>
+        <translation>远程IP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="112"/>
+        <source>Local IP</source>
+        <translation>本地IP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="124"/>
+        <source>User Pwd</source>
+        <translation>用户密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="125"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="137"/>
+        <source>Group Name</source>
+        <translation>组名</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="129"/>
+        <source>Group Pwd</source>
+        <translation>组密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="131"/>
+        <source>Use Hybrid Authentication</source>
+        <translation>使用混合认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="133"/>
+        <source>CA File</source>
+        <translation>CA文件</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="135"/>
+        <source>Enable IPsec</source>
+        <translation>启用IPsec</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="139"/>
+        <source>Group ID</source>
+        <translation>组ID</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="141"/>
+        <source>Pre-Shared Key</source>
+        <translation>预共享秘钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="143"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="145"/>
+        <source>Use MPPE</source>
+        <translation>使用MPPE点到点加密</translation>
     </message>
 </context>
 <context>
@@ -189,96 +379,95 @@
 <context>
     <name>ConnectToHiddenApPage</name>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="40"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation type="obsolete">取消</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="41"/>
-        <source>Connect</source>
-        <translation type="unfinished"></translation>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="25"/>
+        <source>Connect to hidden access point</source>
+        <translation>连接到隐藏网络</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="53"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="34"/>
         <source>SSID</source>
-        <translation type="unfinished"></translation>
+        <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="57"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="38"/>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>安全</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="59"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="40"/>
         <source>Inner Auth</source>
-        <translation type="unfinished"></translation>
+        <translation>内部认证</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="61"/>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="101"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="42"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="78"/>
         <source>Ask for Pwd</source>
-        <translation type="unfinished"></translation>
+        <translation>询问密码</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="74"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="51"/>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>秘钥</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="77"/>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="99"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="54"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="76"/>
         <source>Password</source>
-        <translation type="unfinished">密码</translation>
+        <translation>密码</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="79"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="56"/>
         <source>EAP Auth</source>
-        <translation type="unfinished"></translation>
+        <translation>EAP认证</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="81"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="58"/>
         <source>Identity</source>
-        <translation type="unfinished"></translation>
+        <translation>身份</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="83"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="60"/>
         <source>Anonymous ID</source>
-        <translation type="unfinished"></translation>
+        <translation>匿名身份</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="85"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="62"/>
         <source>CA Cert</source>
-        <translation type="unfinished"></translation>
+        <translation>CA证书</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="87"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="64"/>
         <source>User Cert</source>
-        <translation type="unfinished"></translation>
+        <translation>用户证书</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="89"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="66"/>
         <source>Provisioning</source>
-        <translation type="unfinished"></translation>
+        <translation>自动PAC配置</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="91"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="68"/>
         <source>PAC file</source>
-        <translation type="unfinished"></translation>
+        <translation>PAC文件</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="93"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="70"/>
         <source>PEAP Version</source>
-        <translation type="unfinished"></translation>
+        <translation>PEAP版本</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="96"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="73"/>
         <source>Private Key</source>
-        <translation type="unfinished"></translation>
+        <translation>私钥</translation>
     </message>
     <message>
-        <location filename="../modules/network/connecttohiddenappage.cpp" line="103"/>
+        <location filename="../modules/network/connecttohiddenappage.cpp" line="80"/>
         <source>Private Pwd</source>
-        <translation type="unfinished"></translation>
+        <translation>私钥密码</translation>
     </message>
 </context>
 <context>
@@ -659,22 +848,22 @@
         <translation>重试</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="80"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="93"/>
         <source>removable disk</source>
         <translation>可移动磁盘</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="82"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="95"/>
         <source>network disk</source>
         <translation>网络磁盘</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="84"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="97"/>
         <source>local disk</source>
         <translation>本地磁盘</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="87"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="100"/>
         <source>Failed to uninstall %1 &quot;%2&quot;, please retry.</source>
         <translation>%1 \&quot;%2\&quot; 卸载失败，请重试。</translation>
     </message>
@@ -730,6 +919,19 @@
         <location filename="../modules/display/display.cpp" line="185"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>仅在%1上显示屏幕内容，其他屏幕不显示</translation>
+    </message>
+</context>
+<context>
+    <name>EditLineMissingPackage</name>
+    <message>
+        <location filename="../modules/network/editlinemissingpackage.cpp" line="23"/>
+        <source>Click to install</source>
+        <translation>点击安装</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/editlinemissingpackage.cpp" line="52"/>
+        <source>Current system lacks component for %1</source>
+        <translation>当前系统缺少 %1 组件</translation>
     </message>
 </context>
 <context>
@@ -792,7 +994,7 @@
 <context>
     <name>HomeScreen</name>
     <message>
-        <location filename="../frame/homescreen.cpp" line="99"/>
+        <location filename="../frame/homescreen.cpp" line="95"/>
         <source>Power</source>
         <translation>电源</translation>
     </message>
@@ -802,22 +1004,22 @@
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="18"/>
         <source>Password</source>
-        <translation type="unfinished">密码</translation>
+        <translation>密码</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="20"/>
         <source>Auto-connect</source>
-        <translation type="unfinished"></translation>
+        <translation>自动连接</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="27"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="28"/>
         <source>Connect</source>
-        <translation type="unfinished"></translation>
+        <translation>连接</translation>
     </message>
 </context>
 <context>
@@ -875,7 +1077,20 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="311"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索</translation>
+    </message>
+</context>
+<context>
+    <name>ListWidgetContainer</name>
+    <message>
+        <location filename="../modules/network/listwidgetcontainer.cpp" line="48"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/listwidgetcontainer.cpp" line="49"/>
+        <source>Connect</source>
+        <translation>连接</translation>
     </message>
 </context>
 <context>
@@ -932,7 +1147,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="260"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>搜索</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="371"/>
@@ -976,6 +1191,19 @@
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="34"/>
         <source>Update server</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ModemNetworkListItem</name>
+    <message>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="7"/>
+        <source>Modem Network</source>
+        <translation>调制解调器网络</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="31"/>
+        <source>Restore the connect</source>
+        <translation>恢复连接</translation>
     </message>
 </context>
 <context>
@@ -1063,7 +1291,7 @@
     <message>
         <location filename="../modules/network/network.cpp" line="9"/>
         <source>Network</source>
-        <translation type="unfinished"></translation>
+        <translation>网络</translation>
     </message>
 </context>
 <context>
@@ -1160,9 +1388,14 @@
 <context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="125"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="136"/>
         <source>Network</source>
-        <translation type="unfinished"></translation>
+        <translation>网络</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmainwidget.cpp" line="157"/>
+        <source>System Proxy</source>
+        <translation>系统代理</translation>
     </message>
 </context>
 <context>
@@ -1599,9 +1832,34 @@
         <translation>显示高级设置...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="319"/>
+        <location filename="../modules/sound/sound.cpp" line="320"/>
         <source>Hide Advanced...</source>
         <translation>隐藏高级设置...</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="328"/>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="331"/>
+        <source>Logout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="334"/>
+        <source>Shutdown</source>
+        <translation type="unfinished">关机</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="337"/>
+        <source>Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="353"/>
+        <source>Sound Effects</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1658,6 +1916,62 @@
         <location filename="../modules/system_info/systeminfo.cpp" line="126"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
         <translation>GNU通用公共许可协议</translation>
+    </message>
+</context>
+<context>
+    <name>SystemProxyLine</name>
+    <message>
+        <location filename="../modules/network/systemproxyline.cpp" line="18"/>
+        <source>Port</source>
+        <translation>端口</translation>
+    </message>
+</context>
+<context>
+    <name>SystemProxyWidget</name>
+    <message>
+        <location filename="../modules/network/systemproxywidget.cpp" line="21"/>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/systemproxywidget.cpp" line="21"/>
+        <source>Manual</source>
+        <translation>手动</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/systemproxywidget.cpp" line="21"/>
+        <source>Auto</source>
+        <translation>自动</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/systemproxywidget.cpp" line="38"/>
+        <source>Apply system wide</source>
+        <translation>应用到整个系统</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/systemproxywidget.cpp" line="47"/>
+        <source>HTTP Proxy</source>
+        <translation>HTTP代理</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/systemproxywidget.cpp" line="48"/>
+        <source>HTTPS Proxy</source>
+        <translation>HTTPS代理</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/systemproxywidget.cpp" line="49"/>
+        <source>FTP Proxy</source>
+        <translation>FTP代理</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/systemproxywidget.cpp" line="50"/>
+        <source>Socks Proxy</source>
+        <translation>Socks代理</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/systemproxywidget.cpp" line="61"/>
+        <source>Configuration URL</source>
+        <translation>配置URL</translation>
     </message>
 </context>
 <context>
@@ -1795,7 +2109,7 @@
     <message>
         <location filename="../modules/network/vpnconnectswidget.cpp" line="7"/>
         <source>VPN Connections</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN连接</translation>
     </message>
 </context>
 <context>
@@ -1886,17 +2200,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="165"/>
+        <location filename="../modules/wacom/wacom.cpp" line="166"/>
         <source>Double-click Space</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="170"/>
+        <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Narrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="171"/>
+        <location filename="../modules/wacom/wacom.cpp" line="172"/>
         <source>Wide</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1930,25 +2244,25 @@
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="11"/>
         <source>Wired Network</source>
-        <translation type="unfinished"></translation>
+        <translation>有线网络</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirednetworklistitem.cpp" line="21"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="20"/>
         <source>Wired Connection</source>
-        <translation type="unfinished"></translation>
+        <translation>有线连接</translation>
     </message>
 </context>
 <context>
     <name>WirelessNetworkListItem</name>
     <message>
-        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="12"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="13"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"></translation>
+        <translation>无线网络</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="140"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="141"/>
         <source>Connect to hidden access point</source>
-        <translation type="unfinished"></translation>
+        <translation>连接到隐藏网络</translation>
     </message>
 </context>
 </TS>
