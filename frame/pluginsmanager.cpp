@@ -78,7 +78,7 @@ int PluginsManager::getPluginInsertIndex(const QString &id)
     static QStringList pluginsOrder({"account", "display", "defaultapps", "personalization",
                                      "network", "bluetooth", "sound", "datetime",
                                      "power", "mouse", "wacom", "keyboard", "shortcuts",
-                                     "grub", "system_info"});
+                                     "grub", "remoting", "system_info"});
 
     const int pluginOrder = pluginsOrder.indexOf(id);
     for (const ModuleMetaData &p : m_pluginsList)
