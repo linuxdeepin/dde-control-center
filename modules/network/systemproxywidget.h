@@ -9,6 +9,8 @@ DUI_USE_NAMESPACE
 
 class SystemProxyWidget : public DVBoxWidget
 {
+    Q_OBJECT
+
 public:
     explicit SystemProxyWidget(DBusNetwork *dbus, QWidget *parent = 0);
 

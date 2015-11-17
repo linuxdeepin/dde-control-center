@@ -10,6 +10,8 @@ DUI_USE_NAMESPACE
 
 class SystemProxyLine : public DHeaderLine
 {
+    Q_OBJECT
+
 public:
     explicit SystemProxyLine(const QString &title, const QString &proxyType,
                              DBusNetwork *dbus, QWidget *parent = 0);

@@ -5,6 +5,8 @@
 
 class AddConnectPage : public ListWidgetContainer
 {
+    Q_OBJECT
+
 public:
     explicit AddConnectPage(QWidget *parent = 0);
 

@@ -10,6 +10,8 @@ DUI_USE_NAMESPACE
 
 class AddVpnPage : public DVBoxWidget
 {
+    Q_OBJECT
+
 public:
     explicit AddVpnPage(const QString &dbusPath, QWidget *parent = 0);
 

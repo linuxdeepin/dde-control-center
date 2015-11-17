@@ -6,6 +6,8 @@
 
 class AddDslPage : public ListWidgetContainer
 {
+    Q_OBJECT
+
 public:
     explicit AddDslPage(const QString &dbusPath, QWidget *parent = 0);
 
