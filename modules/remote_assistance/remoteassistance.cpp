@@ -67,16 +67,19 @@ void RemoteAssistance::Impl::initPanel()
 
 QWidget* RemoteAssistance::Impl::getPanel(ViewPanel v)
 {
-    static QWidget* m_mainPanel = nullptr;
+    static QWidget* m_mainPanel;
     switch (v) {
     case ViewPanel::Main: {
         if (m_mainPanel == nullptr) {
+            qDebug() << "create Main Panel";
             m_mainPanel = new MainPanel(m_manager);
             QObject::connect(m_mainPanel, SIGNAL(changePanel(ViewPanel)), m_pub, SLOT(changePanel(ViewPanel)));
         }
+        qDebug() << "return Main Panel";
         return m_mainPanel;
     }
     case ViewPanel::Access: {
+        qDebug() << "create Access Panel";
         auto client = new com::deepin::daemon::Remoting::Client("com.deepin.daemon.Remoting.Client", "/com/deepin/daemon/Remoting/Client", QDBusConnection::sessionBus());
         auto controller = new AccessController(m_manager, client);
         QWidget* m_accessPanel = new AccessPanel(controller);
@@ -84,6 +87,7 @@ QWidget* RemoteAssistance::Impl::getPanel(ViewPanel v)
         return m_accessPanel;
     }
     case ViewPanel::Share: {
+        qDebug() << "create Share Panel";
         auto server = new com::deepin::daemon::Remoting::Server("com.deepin.daemon.Remoting.Server", "/com/deepin/daemon/Remoting/Server", QDBusConnection::sessionBus());
         auto controller  = new ShareController(m_manager, server);
         QWidget* m_sharePanel = new SharePanel(controller);
@@ -91,6 +95,7 @@ QWidget* RemoteAssistance::Impl::getPanel(ViewPanel v)
         return m_sharePanel;
     }
     }
+    throw "[RemoteAssistance::Impl::getPanel] should not reach here";
 }
 
 void RemoteAssistance::Impl::changePanel(ViewPanel v)

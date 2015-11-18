@@ -31,9 +31,7 @@ void ShareController::checkNetworkConnectivity()
 
 int ShareController::doCheckNetworkConnectivity()
 {
-    m_manager->CheckNetworkConnectivity();
-
-    auto reply = m_server->GetStatus();
+    auto reply = m_manager->CheckNetworkConnectivity();
     reply.waitForFinished();
     return reply.value();
 }
@@ -47,12 +45,12 @@ int ShareController::getStatus()
 
 void ShareController::onStatusChanged(int status)
 {
-    if (NetworkConnectivity::Disconnected == doCheckNetworkConnectivity()) {
+    int networkState = doCheckNetworkConnectivity();
+    if (NetworkConnectivity::Disconnected == networkState ) {
         emit noNetwork();
         return;
     }
 
-    // FIXME: the final code. stoped or uninitialized.
     switch (status) {
     case ServerStatus::Uninitialized:
         return;
@@ -91,6 +89,7 @@ void ShareController::startGenAccessToken()
         onStatusChanged(status);
     }
 
+    qDebug() << "listen StatusChanged signal";
     QObject::connect(m_server, SIGNAL(StatusChanged(int)), this, SLOT(onStatusChanged(int)));
     m_server->Start();
 }

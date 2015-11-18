@@ -23,7 +23,7 @@ GeneratedView::GeneratedView(const QString& token, QWidget* p)
     setObjectName("GeneratedView");
     m_copyTipVisableTimer->setInterval(3000);
     QObject::connect(m_copyTipVisableTimer, &QTimer::timeout, [this] {
-        m_copyTip->setWindowOpacity(0);
+        m_copyTip->setText("");
     });
 
     initialize();
@@ -32,7 +32,7 @@ GeneratedView::GeneratedView(const QString& token, QWidget* p)
 
     auto button = new DTextButton(tr("Copy Code"));
     connect(button, &DTextButton::clicked, [this] {
-        m_copyTip->setWindowOpacity(1);
+        m_copyTip->setText(tr("Copied to clipboard successfully"));
         QString token = m_token->text();
         QApplication::clipboard()->setText(token);
         qDebug() << "Copy Code button on GeneratedView is clicked.";
@@ -67,12 +67,11 @@ QWidget* GeneratedView::createMainWidget()
 
     m_copyTip = new QLabel;
     m_copyTip->setObjectName("copyTip");
-    m_copyTip->setWindowOpacity(0);
     m_copyTip->setText(tr("Copied to clipboard successfully"));
     m_copyTip->setAlignment(Qt::AlignCenter);
     m_copyTip->setFixedWidth(DCC::ModuleContentWidth);
     layout->addWidget(m_copyTip);
-    layout->addSpacing(15);
+    m_copyTip->setText("");
 
     auto tip = new QLabel;
     tip->setObjectName("tip");
