@@ -92,7 +92,6 @@ void AdapterWidget::initUI()
     QVBoxLayout *editWidget_vLayout = new QVBoxLayout(edit_name_widget);
     QHBoxLayout *editWidget_hLayout = new QHBoxLayout;
     DLineEdit *name_lineEdit = new DLineEdit;
-    DTextButton *reset_name_button = new DTextButton(tr("Default Name"));
     DTextButton *cancel_button = new DTextButton(tr("Cancel"));
     DTextButton *apply_button = new DTextButton(tr("Apply"));
 
@@ -100,9 +99,7 @@ void AdapterWidget::initUI()
     editWidget_vLayout->setContentsMargins(10, 5, 10, 5);
     editWidget_hLayout->setMargin(0);
     editWidget_vLayout->addWidget(name_lineEdit);
-    editWidget_vLayout->addSpacing(5);
     editWidget_vLayout->addLayout(editWidget_hLayout);
-    editWidget_hLayout->addWidget(reset_name_button);
     editWidget_hLayout->addStretch(1);
     editWidget_hLayout->addWidget(cancel_button);
     editWidget_hLayout->addWidget(apply_button);
