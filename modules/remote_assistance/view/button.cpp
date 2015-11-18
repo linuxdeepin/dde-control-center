@@ -67,9 +67,9 @@ Button::Button(const QString& title, const QString& tip, QWidget* p)
 
     m_arrow->setObjectName("arrow");
     m_arrow->setAlignment(Qt::AlignVCenter);
-    m_arrow->setNormalPic(getThemeImage("assistant_access_normal.svg"));
-    m_arrow->setHoverPic(getThemeImage("assistant_access_hover.svg"));
-    m_arrow->setPressPic(getThemeImage("assistant_access_press.svg"));
+    m_arrow->setNormalPic(getThemeImage("right-arrow-normal.png"));
+    m_arrow->setHoverPic(getThemeImage("right-arrow-hover.png"));
+    m_arrow->setPressPic(getThemeImage("right-arrow-press.png"));
     m_hlayout->addWidget(m_arrow);
 
     contentWrap->setLayout(m_hlayout);

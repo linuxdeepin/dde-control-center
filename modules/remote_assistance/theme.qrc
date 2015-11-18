@@ -14,5 +14,8 @@
         <file>dark/generatedview.theme</file>
         <file>dark/errorview.theme</file>
         <file>dark/connectingview.theme</file>
+        <file>dark/images/right-arrow-press.png</file>
+        <file>dark/images/right-arrow-normal.png</file>
+        <file>dark/images/right-arrow-hover.png</file>
     </qresource>
 </RCC>
