@@ -216,7 +216,7 @@ void PowerPlugin::initSettings()
     m_settings = new QSettings("deepin", "dde-dock-power-plugin", this);
 
     if (!QFile::exists(m_settings->fileName())) {
-        m_settings->setValue(settingDisabledKey(), true);
+        m_settings->setValue(settingDisabledKey(), false);
     }
 }
 
