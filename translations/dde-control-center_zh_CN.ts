@@ -2313,102 +2313,102 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="38"/>
         <source>Page Up</source>
-        <translation type="unfinished"></translation>
+        <translation>向上翻页</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="39"/>
         <source>Page Down</source>
-        <translation type="unfinished"></translation>
+        <translation>向下翻页</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="40"/>
         <source>Left Click</source>
-        <translation type="unfinished"></translation>
+        <translation>左键单击</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="41"/>
         <source>Right Click</source>
-        <translation type="unfinished"></translation>
+        <translation>右键单击</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="42"/>
         <source>Middle Click</source>
-        <translation type="unfinished"></translation>
+        <translation>中键单击</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="60"/>
         <source>Tablet</source>
-        <translation type="unfinished"></translation>
+        <translation>数位板</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="74"/>
         <source>Tablet Orientation</source>
-        <translation type="unfinished"></translation>
+        <translation>数位板方向</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="79"/>
         <source>Left Hand</source>
-        <translation type="unfinished"></translation>
+        <translation>左手</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="80"/>
         <source>Right Hand</source>
-        <translation type="unfinished"></translation>
+        <translation>右手</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="92"/>
         <source>Digital Pen Modes</source>
-        <translation type="unfinished"></translation>
+        <translation>数位笔模式</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Pen Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>笔模式</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="98"/>
         <source>Mouse Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>鼠标模式</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="110"/>
         <source>Down Key</source>
-        <translation type="unfinished"></translation>
+        <translation>下键</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="128"/>
         <source>Up Key</source>
-        <translation type="unfinished"></translation>
+        <translation>上键</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="146"/>
         <source>Pressure</source>
-        <translation type="unfinished"></translation>
+        <translation>压感</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="151"/>
         <source>Soft</source>
-        <translation type="unfinished"></translation>
+        <translation>轻</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="152"/>
         <source>Hard</source>
-        <translation type="unfinished"></translation>
+        <translation>重</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="166"/>
         <source>Double-click Space</source>
-        <translation type="unfinished"></translation>
+        <translation>双击间距</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Narrow</source>
-        <translation type="unfinished"></translation>
+        <translation>小</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="172"/>
         <source>Wide</source>
-        <translation type="unfinished"></translation>
+        <translation>大</translation>
     </message>
 </context>
 <context>
