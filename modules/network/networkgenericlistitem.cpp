@@ -28,6 +28,14 @@ NetworkGenericListItem::NetworkGenericListItem(DBusNetwork *dbus, QWidget *paren
 
     connect(this, &NetworkGenericListItem::strengthChanged, this, updateStrengthIcon);
     connect(this, &NetworkGenericListItem::securedChanged, this, updateStrengthIcon);
+    connect(this, &NetworkGenericListItem::mouseEnter, this, [this] {
+        if(loading() || checked()) {
+            setShowClearButton(true);
+        }
+    });
+    connect(this, &NetworkGenericListItem::mouseLeave, this, [this] {
+        setShowClearButton(false);
+    });
 
     rightLayout()->addSpacing(10);
 }
@@ -145,19 +153,6 @@ void NetworkGenericListItem::setState(int state)
         return;
 
     m_state = state;
-
-    switch (state) {
-    case ActiveConnectionState::Activated:
-        setChecked(true);
-        break;
-    case ActiveConnectionState::Activating:
-        setLoading(true);
-        break;
-    default:
-        qDebug() << state << this;
-        break;
-    }
-
     emit stateChanged(state);
 }
 

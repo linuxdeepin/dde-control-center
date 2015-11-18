@@ -25,7 +25,7 @@ void AddVpnPage::init()
     ListWidgetContainer *container_vpn_type = new ListWidgetContainer(tr("VPN Type"));
     DButtonList *list_vpn_type = new DButtonList;
 
-    m_mapVpnNameToType["L2TOP"] = ConnectionType::VpnL2tp;
+    m_mapVpnNameToType["L2TP"] = ConnectionType::VpnL2tp;
     m_mapVpnNameToType["PPTP"] = ConnectionType::VpnPptp;
     m_mapVpnNameToType["OpenVPN"] = ConnectionType::VpnOpenvpn;
     m_mapVpnNameToType["OpenConnect"] = ConnectionType::VpnOpenconnect;

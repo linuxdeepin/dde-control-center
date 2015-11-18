@@ -20,7 +20,6 @@ void ModemNetworkListItem::onConnectsChanged()
             m_item->updateInfoByMap(json_object.toVariantMap());
             m_item->setConnectPath(m_item->path());
             m_item->setTitle(json_object["Id"].toString());
-            m_item->setLoading(false);
         }
     }
 }
@@ -29,7 +28,6 @@ void ModemNetworkListItem::init()
 {
     m_item = new NetworkGenericListItem(m_dbusNetwork);
     m_item->setTitle(tr("Restore the connect"));
-    m_item->setChecked(state() == DeviceState::Activated);
     m_item->setLoading(true);
 
     listWidget()->addWidget(m_item);
@@ -41,6 +39,17 @@ void ModemNetworkListItem::init()
     connect(this, &ModemNetworkListItem::uniqueUuidChanged, this, &ModemNetworkListItem::onConnectsChanged);
     connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &ModemNetworkListItem::onConnectsChanged);
     connect(this, &ModemNetworkListItem::stateChanged, this, [this](int state) {
-        m_item->setChecked(state == DeviceState::Activated);
+        if(state >= DeviceState::Prepare && state <= DeviceState::Secondaries) {
+            m_item->setLoading(true);
+        } else if(state == DeviceState::Activated) {
+            m_item->setChecked(true);
+        } else {
+            m_item->setLoading(false);
+            m_item->setChecked(false);
+        }
+    });
+    connect(m_item, &NetworkGenericListItem::clearButtonClicked,
+            this, [this] {
+        m_dbusNetwork->DisconnectDevice(QDBusObjectPath(path()));
     });
 }

@@ -18,6 +18,10 @@ VPNConnectsWidget::VPNConnectsWidget(DBusNetwork *dbus, QWidget *parent) :
     connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, [this] {
         const QJsonDocument &json_doc = QJsonDocument::fromJson(m_dbusNetwork->activeConnections().toUtf8());
 
+        for(NetworkGenericListItem *item : m_mapVpnPathToItem.values()) {
+            item->setState(ActiveConnectionState::Unknown);
+        }
+
         for(const QJsonValue &value : json_doc.object()) {
             const QJsonObject &json_obj = value.toObject();
 
@@ -44,21 +48,39 @@ void VPNConnectsWidget::onConnectsChanged()
         const QJsonObject &json_object = value.toObject();
 
         NetworkGenericListItem *item = m_mapVpnPathToItem.value(json_object["Path"].toString(), nullptr);
+
         if(!item) {
             item = new NetworkGenericListItem(m_dbusNetwork);
+            item->updateInfoByMap(json_object.toVariantMap());
 
             listWidget()->addWidget(item);
 
             m_mapVpnPathToItem[item->path()] = item;
+
+            connect(item, &NetworkGenericListItem::clicked, item, [this, item] {
+                m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath("/"));
+            });
+            connect(item, &NetworkGenericListItem::clearButtonClicked, item, [this, item] {
+                m_dbusNetwork->DeactivateConnection(item->uuid());
+            });
+            connect(item, &NetworkGenericListItem::stateChanged, item, [item](int state) {
+                if(state == ActiveConnectionState::Activating) {
+                    item->setLoading(true);
+                } else if(state == ActiveConnectionState::Activated) {
+                    item->setChecked(true)  ;
+                } else {
+                    item->setChecked(false);
+                    item->setLoading(false);
+                }
+            });
         } else {
             tmp_list.removeOne(item);
+            item->updateInfoByMap(json_object.toVariantMap());
         }
 
-        item->updateInfoByMap(json_object.toVariantMap());
         item->setConnectPath(item->path());
         item->setTitle(json_object["Id"].toString());
     }
 
     qDeleteAll(tmp_list);
 }
-

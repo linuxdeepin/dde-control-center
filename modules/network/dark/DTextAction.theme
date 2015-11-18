@@ -3,9 +3,9 @@ DUI--DLinkButton{
 }
 
 DUI--DLinkButton:hover{
-    color: blue;
+    color: #2CA7F8;
 }
 
 DUI--DLinkButton:pressed{
-    color: darkblue;
+    color: #0188FF;
 }

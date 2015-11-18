@@ -18,7 +18,6 @@ void WiredNetworkListItem::init()
     NetworkGenericListItem *item = new NetworkGenericListItem(m_dbusNetwork);
 
     item->setTitle(tr("Wired Connection"));
-    item->setChecked(state() == ActiveConnectionState::Activated);
 
     listWidget()->addWidget(item);
 
@@ -33,11 +32,17 @@ void WiredNetworkListItem::init()
     auto onActiveConnectsChanged = [this, item] {
         const QJsonDocument &json_doc = QJsonDocument::fromJson(m_dbusNetwork->activeConnections().toUtf8());
 
+        item->setState(ActiveConnectionState::Unknown);
+
+        for(NetworkGenericListItem *item : m_mapPppoePathToItem.values()) {
+            item->setState(ActiveConnectionState::Unknown);
+        }
+
         for(const QJsonValue &value : json_doc.object()) {
             const QJsonObject &json_obj = value.toObject();
 
             if(json_obj["Uuid"] == item->uuid()) {
-                item->setChecked(json_obj["State"].toInt() == ActiveConnectionState::Activated);
+                item->setState(json_obj["State"].toInt());
             } else {
                 const QJsonArray &array = json_obj["Devices"].toArray();
 
@@ -53,8 +58,23 @@ void WiredNetworkListItem::init()
 
     connect(item, &NetworkGenericListItem::clicked, this, &WiredNetworkListItem::onItemClicked);
     connect(item, &NetworkGenericListItem::uuidChanged, item, onActiveConnectsChanged);
-    connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &WiredNetworkListItem::onConnectsChanged);
+    connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged,
+            this, &WiredNetworkListItem::onConnectsChanged);
     connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, item, onActiveConnectsChanged);
+    connect(item, &NetworkGenericListItem::clearButtonClicked,
+            this, [this] {
+        m_dbusNetwork->DisconnectDevice(QDBusObjectPath(path()));
+    });
+    connect(item, &NetworkGenericListItem::stateChanged, item, [item](int state) {
+        if(state == ActiveConnectionState::Activating) {
+            item->setLoading(true);
+        } else if(state == ActiveConnectionState::Activated) {
+            item->setChecked(true)  ;
+        } else {
+            item->setChecked(false);
+            item->setLoading(false);
+        }
+    });
 }
 
 void WiredNetworkListItem::onConnectsChanged()
@@ -77,7 +97,22 @@ void WiredNetworkListItem::onConnectsChanged()
 
                 m_mapPppoePathToItem[item->path()] = item;
 
-                connect(item, &NetworkGenericListItem::clicked, this, &WiredNetworkListItem::onItemClicked);
+                connect(item, &NetworkGenericListItem::clicked,
+                        this, &WiredNetworkListItem::onItemClicked);
+                connect(item, &NetworkGenericListItem::clearButtonClicked,
+                        this, [this] {
+                    m_dbusNetwork->DisconnectDevice(QDBusObjectPath(path()));
+                });
+                connect(item, &NetworkGenericListItem::stateChanged, item, [item](int state) {
+                    if(state == ActiveConnectionState::Activating) {
+                        item->setLoading(true);
+                    } else if(state == ActiveConnectionState::Activated) {
+                        item->setChecked(true)  ;
+                    } else {
+                        item->setChecked(false);
+                        item->setLoading(false);
+                    }
+                });
             } else {
                 tmp_list.removeOne(item);
             }
