@@ -22,6 +22,12 @@ AbstractDeviceWidget::AbstractDeviceWidget(const QString &title, DBusNetwork *db
     m_headerLine = new DHeaderLine;
     m_switchButton = new DSwitchButton;
 
+    /// 默认为false，设置为true的原因是：如果设备是默认开启的，此时switch button的checked为false
+    /// 则当设置switch button的checked为true后会收到m_switcheButton的checkedChanged的信号
+    /// 然后会调用m_dbusNetwork->EnableDevice，这样会导致后端再次开启此设备（后端未判断当前设备是否开启）
+    /// 然后就会导致此设备自动连接到一个默认连接
+    m_switchButton->setChecked(true);
+
     m_headerLine->setTitle(title);
     m_headerLine->setFixedWidth(DCC::ModuleContentWidth);
     m_headerLine->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
