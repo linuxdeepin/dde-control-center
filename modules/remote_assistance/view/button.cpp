@@ -38,6 +38,7 @@ Button::Button(const QString& title, const QString& tip, QWidget* p)
     auto mousearea = new MouseArea(this);
     mousearea->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     mousearea->setFixedHeight(70);
+    mousearea->setFixedWidth(DCC::ModuleContentWidth);
     connect(mousearea, SIGNAL(pressed(QMouseEvent*)), this, SLOT(onMousePressed(QMouseEvent*)));
     connect(mousearea, SIGNAL(released(QMouseEvent*)), this, SLOT(onMouseReleased(QMouseEvent*)));
 
