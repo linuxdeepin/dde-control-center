@@ -6,17 +6,17 @@
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="57"/>
         <source>Remote Accessitance</source>
-        <translation type="unfinished">远程协助</translation>
+        <translation>远程协助</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="60"/>
         <source>Ok</source>
-        <translation type="unfinished">确认</translation>
+        <translation>确认</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="66"/>
         <source>No network connections are available, please retry after connected</source>
-        <translation type="unfinished">当前没有网络连接，请您联网后重试</translation>
+        <translation>当前没有网络连接，请您联网后重试</translation>
     </message>
 </context>
 <context>
@@ -35,17 +35,17 @@
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="73"/>
         <source>Failed to establish the connection, you can retry to connect</source>
-        <translation type="unfinished">建立链接失败，您可以重新尝试链接</translation>
+        <translation>建立链接失败，您可以重新尝试链接</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="74"/>
         <source>Cancel</source>
-        <translation type="unfinished">取消</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="79"/>
         <source>Retry</source>
-        <translation type="unfinished">重试</translation>
+        <translation>重试</translation>
     </message>
 </context>
 <context>
@@ -1025,7 +1025,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="33"/>
         <source>Copy Code</source>
-        <translation type="unfinished">复制验证码</translation>
+        <translation>复制验证码</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="44"/>
@@ -1035,12 +1035,12 @@
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="71"/>
         <source>Copied to clipboard successfully</source>
-        <translation type="unfinished">复制验证码成功</translation>
+        <translation>复制验证码成功</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="81"/>
         <source>To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input</source>
-        <translation type="unfinished">要开始共享您的桌面，请将上面的验证码提供给协助您的人员，他们输入验证码后，您的共享会话会立即开始</translation>
+        <translation>要开始共享您的桌面，请将上面的验证码提供给协助您的人员，他们输入验证码后，您的共享会话会立即开始</translation>
     </message>
 </context>
 <context>
@@ -1053,7 +1053,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/generatingview.cpp" line="56"/>
         <source>Generating the verification code, please wait...</source>
-        <translation type="unfinished">正在生成请求验证码，请稍候……</translation>
+        <translation>正在生成请求验证码，请稍候……</translation>
     </message>
 </context>
 <context>
@@ -1147,13 +1147,13 @@
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="64"/>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="65"/>
         <source>Start remote access after clicking on &quot;Connect&quot;</source>
-        <translation type="unfinished">点击“连接”后开始远程访问</translation>
+        <translation>点击“连接”后开始远程访问</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="66"/>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="78"/>
         <source>Please enter the verification code in the input field above</source>
-        <translation type="unfinished">请在上方输入远程访问验证码</translation>
+        <translation>请在上方输入远程访问验证码</translation>
     </message>
 </context>
 <context>
@@ -1232,27 +1232,27 @@
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="16"/>
         <source>Remote Assistance</source>
-        <translation type="unfinished">远程协助</translation>
+        <translation>远程协助</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="26"/>
         <source>Share</source>
-        <translation type="unfinished">共享</translation>
+        <translation>共享</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="26"/>
         <source>Share your desktop to get remote assistance from other users</source>
-        <translation type="unfinished">共享您的桌面，让其他用户对您进行远程协助</translation>
+        <translation>共享您的桌面，让其他用户对您进行远程协助</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="33"/>
         <source>Access</source>
-        <translation type="unfinished">访问</translation>
+        <translation>访问</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="33"/>
         <source>Access to the desktop shared by other users</source>
-        <translation type="unfinished">访问其他用户共享给您的桌面</translation>
+        <translation>访问其他用户共享给您的桌面</translation>
     </message>
 </context>
 <context>
@@ -1454,6 +1454,11 @@
         <location filename="../modules/network/network.cpp" line="9"/>
         <source>Network</source>
         <translation>网络</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/remoteassistance.cpp" line="32"/>
+        <source>Remote Assistance</source>
+        <translation>远程协助</translation>
     </message>
 </context>
 <context>
@@ -1923,7 +1928,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="81"/>
         <source>Failed to establish the connection, you can retry to connect</source>
-        <translation type="unfinished">建立链接失败，您可以尝试重新链接</translation>
+        <translation>建立链接失败，您可以尝试重新链接</translation>
     </message>
 </context>
 <context>

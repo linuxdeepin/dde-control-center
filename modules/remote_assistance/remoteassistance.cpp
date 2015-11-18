@@ -29,6 +29,8 @@ RemoteAssistance::Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remotin
       m_view(new QFrame),
       m_stackWidget(new DStackWidget(m_view))
 {
+    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Remote Assistance"));
+
     connect(m_stackWidget->transition()->animation(), SIGNAL(finished()), pub, SLOT(onAnimationEnd()));
     m_stackWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     m_stackWidget->setFixedWidth(DCC::ModuleContentWidth);
