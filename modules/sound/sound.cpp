@@ -272,27 +272,28 @@ void Sound::initUI()
     m_loginSoundSwitch = new SoundEffectSwitchWidget;
     m_loginSoundSwitch->setSwitched(m_soundEffectsInter->login());
     m_loginSoundSwitch->setTitle(tr("Login"));
-    m_logoutSoundSwitch = new SoundEffectSwitchWidget;
-    m_logoutSoundSwitch->setSwitched(m_soundEffectsInter->logout());
-    m_logoutSoundSwitch->setTitle(tr("Logout"));
-    m_shutdownSoundSwitch = new SoundEffectSwitchWidget;
-    m_shutdownSoundSwitch->setSwitched(m_soundEffectsInter->shutdown());
-    m_shutdownSoundSwitch->setTitle(tr("Shutdown"));
+//    m_logoutSoundSwitch = new SoundEffectSwitchWidget;
+//    m_logoutSoundSwitch->setSwitched(m_soundEffectsInter->logout());
+//    m_logoutSoundSwitch->setTitle(tr("Logout"));
+//    m_shutdownSoundSwitch = new SoundEffectSwitchWidget;
+//    m_shutdownSoundSwitch->setSwitched(m_soundEffectsInter->shutdown());
+//    m_shutdownSoundSwitch->setTitle(tr("Shutdown"));
     m_restoreSoundSwitch = new SoundEffectSwitchWidget;
     m_restoreSoundSwitch->setSwitched(m_soundEffectsInter->wakeup());
     m_restoreSoundSwitch->setTitle(tr("Restore"));
 
     QVBoxLayout *soundEffectsLayout = new QVBoxLayout;
     soundEffectsLayout->addWidget(m_loginSoundSwitch);
-    soundEffectsLayout->addWidget(m_logoutSoundSwitch);
-    soundEffectsLayout->addWidget(m_shutdownSoundSwitch);
+//    soundEffectsLayout->addWidget(m_logoutSoundSwitch);
+//    soundEffectsLayout->addWidget(m_shutdownSoundSwitch);
     soundEffectsLayout->addWidget(m_restoreSoundSwitch);
     soundEffectsLayout->setSpacing(0);
     soundEffectsLayout->setMargin(0);
 
     QWidget *soundEffectsWidget = new QWidget;
     soundEffectsWidget->setLayout(soundEffectsLayout);
-    soundEffectsWidget->setFixedHeight(50 * 4);
+//    soundEffectsWidget->setFixedHeight(50 * 4);
+    soundEffectsWidget->setFixedHeight(50 * 2);
 
     m_soundEffectsExpand = new DArrowLineExpand;
     m_soundEffectsExpand->setContent(soundEffectsWidget);
@@ -302,12 +303,12 @@ void Sound::initUI()
     connect(m_loginSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
         m_soundEffectsInter->setLogin(e);
     });
-    connect(m_logoutSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
-        m_soundEffectsInter->setLogout(e);
-    });
-    connect(m_shutdownSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
-        m_soundEffectsInter->setShutdown(e);
-    });
+//    connect(m_logoutSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+//        m_soundEffectsInter->setLogout(e);
+//    });
+//    connect(m_shutdownSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+//        m_soundEffectsInter->setShutdown(e);
+//    });
     connect(m_restoreSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
         m_soundEffectsInter->setWakeup(e);
     });

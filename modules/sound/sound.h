@@ -54,8 +54,8 @@ private:
     DScrollArea *m_scrollArea;
     DArrowLineExpand *m_soundEffectsExpand;
     SoundEffectSwitchWidget *m_loginSoundSwitch;
-    SoundEffectSwitchWidget *m_logoutSoundSwitch;
-    SoundEffectSwitchWidget *m_shutdownSoundSwitch;
+//    SoundEffectSwitchWidget *m_logoutSoundSwitch;
+//    SoundEffectSwitchWidget *m_shutdownSoundSwitch;
     SoundEffectSwitchWidget *m_restoreSoundSwitch;
     DBusSoundEffects *m_soundEffectsInter;
 
