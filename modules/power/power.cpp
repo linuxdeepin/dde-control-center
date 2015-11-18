@@ -168,7 +168,21 @@ void Power::initBatteryUsedUI() {
     batteryUsedLayout->addWidget(m_batterySettingExpand);
     batteryUsedLayout->addWidget(m_batteryCustomExtendBoard);
 
+
+    QTimer* t=new QTimer;
+    t->setSingleShot(true);
+    t->setInterval(100);
+    connect(t,SIGNAL(timeout()), this, SLOT(handleTestTimer()));
+    t->start();
+
 }
+
+void Power::handleTestTimer(){
+    int index = m_batteryButtonGrid->getCurrentCheckedIndex();
+    m_batteryButtonGrid->checkButtonByIndex(3-index);
+    m_batteryButtonGrid->checkButtonByIndex(index);
+}
+
 void Power::initUI() {
 
     linePowerAction  << tr("Shutdown") << tr("Suspend") << tr("Ask");
@@ -200,8 +214,8 @@ void Power::updatePowerManagermentUI() {
     m_batteryIsPresent = m_powerInterfaceManagement->getBatteryIsPresent();
     m_onBattery = m_powerInterfaceManagement->getBatteryon();
     m_batteryPercentage = m_powerInterfaceManagement->getBatteryPresent();
-//    m_batteryIsPresent = true; //for testing
-//    m_batteryPercentage = 60;
+    m_batteryIsPresent = true; //for testing
+    m_batteryPercentage = 60;
     m_powerManagementFrame->setElectricQuantity(m_batteryPercentage);
     m_powerManagementFrame->batteryReservedControl(m_batteryIsPresent);
 }

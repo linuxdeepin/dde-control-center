@@ -101,6 +101,7 @@ public slots:
     void initBatteryUsedUI();
 
     void initData();
+    void handleTestTimer();
 
 // update the UI after get the Initialize data
     void updatePowerManagermentUI();
