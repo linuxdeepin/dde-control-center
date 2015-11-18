@@ -225,8 +225,13 @@ void CreateUserPanel::onUserAdded(const QString &path)
         if (!m_randIcon.isEmpty())
             user->SetIconFile(m_randIcon);
         if (!m_passwdNew->text().isEmpty() && m_passwdNew->text() == m_passwdRepeat->text())
-            user->SetPassword(m_passwdNew->text());
-        user->SetAutomaticLogin(m_autoLogin->check());
+        {
+            QDBusPendingReply<> reply = user->SetPassword(m_passwdNew->text());
+            reply.waitForFinished();
+
+            if (m_autoLogin->check())
+                user->SetAutomaticLogin(m_autoLogin->check());
+        }
 
         resetData();
     }
