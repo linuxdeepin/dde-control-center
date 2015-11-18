@@ -100,22 +100,21 @@
 <context>
     <name>AdapterWidget</name>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="95"/>
         <source>Default Name</source>
-        <translation>默认名称</translation>
+        <translation type="vanished">默认名称</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="96"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="95"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="97"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="96"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="141"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="138"/>
         <source>Devices nearby</source>
         <translation>附近的设备</translation>
     </message>
@@ -372,6 +371,11 @@
         <location filename="../modules/network/addvpnpage.cpp" line="145"/>
         <source>Use MPPE</source>
         <translation>使用MPPE点到点加密</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="147"/>
+        <source>Automatically connect</source>
+        <translation>自动连接</translation>
     </message>
 </context>
 <context>
@@ -1033,12 +1037,13 @@
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="71"/>
+        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="35"/>
+        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="70"/>
         <source>Copied to clipboard successfully</source>
         <translation>复制验证码成功</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="81"/>
+        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="80"/>
         <source>To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input</source>
         <translation>要开始共享您的桌面，请将上面的验证码提供给协助您的人员，他们输入验证码后，您的共享会话会立即开始</translation>
     </message>
@@ -1335,12 +1340,12 @@
 <context>
     <name>MirrorsControlWidget</name>
     <message>
-        <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="15"/>
+        <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="18"/>
         <source>Change</source>
         <translation>更改</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="16"/>
+        <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="19"/>
         <source>Complete</source>
         <translation>完成</translation>
     </message>
@@ -1363,7 +1368,7 @@
         <translation>调制解调器网络</translation>
     </message>
     <message>
-        <location filename="../modules/network/modemnetworklistitem.cpp" line="31"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="30"/>
         <source>Restore the connect</source>
         <translation>恢复连接</translation>
     </message>
@@ -2209,17 +2214,17 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="147"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="182"/>
         <source>No update avaliable.</source>
         <translation>无可用更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="150"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="185"/>
         <source>You have %1 softwares need update</source>
         <translation>当前有%1个软件需要更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="154"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="189"/>
         <source>Total download size: %1</source>
         <translation>总下载大小：%1</translation>
     </message>
@@ -2456,7 +2461,7 @@
         <translation>无线网络</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="141"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="184"/>
         <source>Connect to hidden access point</source>
         <translation>连接到隐藏网络</translation>
     </message>
