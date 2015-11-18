@@ -5,6 +5,9 @@
 #include <QGridLayout>
 #include <QVBoxLayout>
 #include <QResizeEvent>
+#include <QPalette>
+
+#include <libdui/dseparatorhorizontal.h>
 
 MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     : QWidget(parent)
@@ -17,14 +20,11 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     m_mirrorsList = new DListWidget;
     m_mirrorsList->setEnableVerticalScroll(true);
     m_mirrorsList->setCheckable(true);
-    m_mirrorsList->setItemSize(DCC::ModuleContentWidth, 50);
-    m_mirrorsList->setStyleSheet(QString("background-color:#252627;"));
+    m_mirrorsList->setItemSize(DCC::ModuleContentWidth, 40);
+    m_mirrorsList->setStyleSheet("background-color:#252627;");
     m_mirrorsList->hide();
 
     loadMirrorList();
-    // TODO: max height
-//    m_mirrorsList->setMaximumHeight(/*50 * m_mirrorsList->count()*/200);
-
 
     qDebug() << m_mirrorsList->count() << m_mirrorsList->height();
 
@@ -42,7 +42,7 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     gridLayout->addWidget(updateServer, 1, 0);
     gridLayout->addWidget(m_changeMirrorBtn, 1, 1);
     gridLayout->setSpacing(10);
-    gridLayout->setContentsMargins(15, 15, 10, 15);
+    gridLayout->setContentsMargins(15, 15, 10, 13);
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addStretch();
@@ -52,13 +52,25 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(gridLayout);
+    mainLayout->addWidget(new DSeparatorHorizontal);
     mainLayout->addWidget(m_mirrorsList);
     mainLayout->addLayout(btnsLayout);
-    mainLayout->addStretch(0);
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    setLayout(mainLayout);
+    QWidget *internalWidget = new QWidget;
+    internalWidget->setLayout(mainLayout);
+    QPalette p(QColor("#1a1b1b"));
+    internalWidget->setPalette(p);
+    internalWidget->setAutoFillBackground(true);
+
+    QVBoxLayout *mainVLayout = new QVBoxLayout;
+    mainVLayout->addWidget(internalWidget);
+    mainVLayout->addStretch(0);
+    mainVLayout->setSpacing(0);
+    mainVLayout->setMargin(0);
+
+    setLayout(mainVLayout);
     setFixedWidth(DCC::ModuleContentWidth);
 
     connect(m_updateSwitchBtn, &DSwitchButton::checkedChanged, m_dbusLastoreInter, &DBusLastoreUpdater::SetAutoCheckUpdates);
@@ -100,7 +112,6 @@ void MirrorsControlWidget::loadMirrorList()
         mirrorItem = new MirrorItemWidget;
 
         mirrorItem->setMirrorName(mirror.m_name);
-        mirrorItem->setMirrorUrl(mirror.m_url);
 
         m_mirrorsList->addWidget(mirrorItem);
         if (mirror.m_id == currentMirror)

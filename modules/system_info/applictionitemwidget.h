@@ -9,6 +9,7 @@
 #include <libdui/dimagebutton.h>
 #include <libdui/dcircleprogress.h>
 
+#include "separatorwidget.h"
 #include "dbus/appupdateinfo.h"
 #include "dbus/dbusupdatejobmanager.h"
 #include "dbus/dbusupdatejob.h"
@@ -53,6 +54,7 @@ public:
 
 public slots:
     void connectToJob(DBusUpdateJob *dbusJob);
+    inline void hideSeparator() {m_separator->hide();}
 
 protected:
     void enterEvent(QEvent *);
@@ -72,6 +74,7 @@ private:
     QPushButton *m_updateBtn;
     DBusUpdateJobManager *m_dbusJobManagerInter;
     DBusUpdateJob *m_dbusJobInter = nullptr;
+    HSeparatorWidget *m_separator;
 
     AppUpdateInfo m_updateInfo;
 

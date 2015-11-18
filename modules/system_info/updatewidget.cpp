@@ -16,6 +16,7 @@
 UpdateWidget::UpdateWidget(QWidget *parent)
     : QWidget(parent)
 {
+
     D_THEME_INIT_WIDGET(UpdateWidget);
 
     MirrorInfo::registerMetaType();
@@ -40,6 +41,10 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_appsList->setItemSize(DCC::ModuleContentWidth, 50);
     m_appsList->setEnableVerticalScroll(true);
     m_appsList->setObjectName("AppList");
+    m_appsList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
+    m_dbusUpdateInter = new DBusLastoreUpdater("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_dbusJobManagerInter = new DBusUpdateJobManager("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
 
     QVBoxLayout *tipsLayout = new QVBoxLayout;
     tipsLayout->addWidget(m_updateCountTips);
@@ -53,38 +58,35 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     updateInfoLayout->addWidget(m_updateButton);
     updateInfoLayout->addWidget(m_updateProgress);
     updateInfoLayout->setSpacing(0);
-    updateInfoLayout->setContentsMargins(10, 8, 10, 8);
+    updateInfoLayout->setContentsMargins(15, 8, 18, 8);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(updateInfoLayout);
+    mainLayout->addWidget(new DSeparatorHorizontal);
     mainLayout->addWidget(m_appsList);
-    mainLayout->addStretch();
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
 
+    QWidget *interalWidget = new QWidget;
+    interalWidget->setLayout(mainLayout);
+    QPalette p(QColor("#1a1b1b"));
+    interalWidget->setPalette(p);
+    interalWidget->setAutoFillBackground(true);
+
+    QVBoxLayout *mainVLayout = new QVBoxLayout;
+    mainVLayout->addWidget(interalWidget);
+    mainVLayout->addWidget(new DSeparatorHorizontal);
+    mainVLayout->addStretch();
+    mainVLayout->setSpacing(0);
+    mainVLayout->setMargin(0);
+
     QTimer::singleShot(500, this, SLOT(loadAppList()));
-    setLayout(mainLayout);
+    setLayout(mainVLayout);
     setFixedWidth(DCC::ModuleContentWidth);
 
     connect(m_updateButton, &DImageButton::clicked, this, &UpdateWidget::systemUpgrade);
     connect(m_updateProgress, &DCircleProgress::clicked, this, &UpdateWidget::toggleUpdateState);
     connect(this, &UpdateWidget::updatableNumsChanged, this, &UpdateWidget::updateInfo);
-}
-
-QString UpdateWidget::formatCap(qulonglong cap)
-{
-    QString type[] = {"B", "KB", "MB", "GB", "TB"};
-
-    if (cap < qulonglong(1024))
-        return QString::number(cap) + type[0];
-    if (cap < qulonglong(1024) * 1024)
-        return QString::number(double(cap) / 1024, 'f', 2) + type[1];
-    if (cap < qulonglong(1024) * 1024 * 1024)
-        return QString::number(double(cap) / 1024 / 1024, 'f', 2) + type[2];
-    if (cap < qulonglong(1024) * 1024 * 1024 * 1024)
-        return QString::number(double(cap) / 1024 / 1024 / 1024, 'f', 2) + type[3];
-
-    return QString::number(double(cap) / 1024 / 1024 / 1024 / 1024, 'f', 2) + type[4];
 }
 
 void UpdateWidget::resizeEvent(QResizeEvent *e)
@@ -98,9 +100,6 @@ void UpdateWidget::loadAppList()
     m_updateProgress->hide();
     m_updateButton->show();
 
-    m_dbusUpdateInter = new DBusLastoreUpdater("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
-    m_dbusJobManagerInter = new DBusUpdateJobManager("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
-
     // load JobList
     QMap<QString, DBusUpdateJob *> jobMap;
     QList<QDBusObjectPath> jobList = m_dbusJobManagerInter->jobList();
@@ -110,8 +109,7 @@ void UpdateWidget::loadAppList()
         dbusJob = new DBusUpdateJob("com.deepin.lastore", job.path(), QDBusConnection::systemBus(), this);
         qDebug() << "fond job: " << dbusJob->packageId() << dbusJob->status() << dbusJob->type();
 
-        if (dbusJob->type() == "install") {
-            // TODO: 将来后端接口会把升级任务类型改为"update"
+        if (dbusJob->type() == "update") {
             jobMap.insert(dbusJob->packageId(), dbusJob);
         } else if (dbusJob->type() == "dist_upgrade") {
             // system upgrade job
@@ -188,10 +186,16 @@ void UpdateWidget::updateInfo(const int updatableAppsNum)
 
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->PackagesDownloadSize(m_dbusJobManagerInter->upgradableApps()), this);
         connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
-            m_updateSizeTips->setText(QString(tr("Total download size: %1")).arg(watcher->reply().arguments().first().toLongLong()));
+            m_updateSizeTips->setText(QString(tr("Total download size: %1")).arg(formatCap(watcher->reply().arguments().first().toLongLong(), 1000)));
             watcher->deleteLater();
         });
     }
+
+    ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsList->getWidget(m_appsList->count() - 1));
+    if (item)
+        item->hideSeparator();
+
+    qDebug() << m_appsList->sizeHint() << m_appsList->count() << m_appsList->size()<< m_appsList->maximumSize();
 }
 
 void UpdateWidget::systemUpgrade()

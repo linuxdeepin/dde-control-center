@@ -1,17 +1,17 @@
 MirrorItemWidget[checked="true"] {
-    background-color:#1a1b1b;
+    background-color:#66000000;
 }
 
 MirrorItemWidget[checked="false"] {
-    background-color:#252627;
+    background-color:#1a1b1b;
 }
 
 QLabel {
-    color:white;
+    color:#b2b2b2;
     font-size:13px;
     background-color:transparent;
 }
 
 MirrorItemWidget[checked="true"] QLabel {
-    color:cyan;
+    color:#2ca7f8;
 }

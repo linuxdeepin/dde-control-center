@@ -15,32 +15,21 @@ MirrorItemWidget::MirrorItemWidget(QWidget *parent)
     m_mirrorName = new QLabel;
     m_mirrorName->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     m_mirrorName->setObjectName("MirrorName");
-    m_mirrorUrl = new QLabel;
-    m_mirrorUrl->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-
-    // TODO: remove
-    m_mirrorName->setText("官方稳定源");
-    m_mirrorUrl->setText("http://packages.linuxdeepin.com");
 
     QBoxLayout *iconLayout = new QHBoxLayout;
     iconLayout->addWidget(m_selectedBtn);
     iconLayout->setAlignment(m_selectedBtn, Qt::AlignCenter);
+    iconLayout->setSpacing(0);
+    iconLayout->setMargin(0);
 
     QWidget *iconWidget = new QWidget;
     iconWidget->setLayout(iconLayout);
-    iconWidget->setFixedWidth(45);
+    iconWidget->setFixedWidth(30);
     iconWidget->setAttribute(Qt::WA_TranslucentBackground);
-
-    QVBoxLayout *vLayout = new QVBoxLayout;
-    vLayout->addStretch();
-    vLayout->addWidget(m_mirrorName);
-    vLayout->addWidget(m_mirrorUrl);
-    vLayout->addStretch();
-    vLayout->setMargin(0);
 
     QHBoxLayout *hLayout = new QHBoxLayout;
     hLayout->addWidget(iconWidget);
-    hLayout->addLayout(vLayout);
+    hLayout->addWidget(m_mirrorName);
     hLayout->setMargin(0);
     hLayout->setSpacing(0);
 
@@ -54,7 +43,6 @@ MirrorItemWidget::MirrorItemWidget(QWidget *parent)
 
     setLayout(mainLayout);
     setFixedWidth(DCC::ModuleContentWidth);
-    setFixedHeight(50);
 
     D_THEME_INIT_WIDGET(MirrorItemWidget, checked);
 }

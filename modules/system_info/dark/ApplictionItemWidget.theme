@@ -1,5 +1,5 @@
 ApplictionItemWidget[hovered="true"] {
-    background-color:#1a1b1b;
+    background-color:#66000000;
 }
 
 ApplictionItemWidget #AppName {

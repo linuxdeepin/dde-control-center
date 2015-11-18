@@ -30,11 +30,7 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     m_updateBtn->setText(tr("Update"));
     m_updateBtn->setObjectName("UpdateButton");
     m_updateBtn->hide();
-
-    // TODO: remove
-    m_appIcon->setPixmap(QPixmap(":/images/images/select_active.png"));
-    m_appName->setText("app name");
-    m_appVersion->setText("app version");
+    m_separator = new HSeparatorWidget;
 
     QVBoxLayout *infoLayout = new QVBoxLayout;
     infoLayout->addStretch();
@@ -45,20 +41,31 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     infoLayout->setMargin(0);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->addSpacing(10);
-    mainLayout->addWidget(m_appIcon);
-    mainLayout->addSpacing(10);
+//    mainLayout->addSpacing(10);
     mainLayout->addLayout(infoLayout);
     mainLayout->addStretch();
     mainLayout->addWidget(m_progress);
     mainLayout->addWidget(m_updateBtn);
-    mainLayout->addSpacing(25);
+//    mainLayout->addSpacing(15);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
 
+    QVBoxLayout *rightLayout = new QVBoxLayout;
+    rightLayout->addLayout(mainLayout);
+    rightLayout->addWidget(m_separator);
+    rightLayout->setSpacing(0);
+    rightLayout->setContentsMargins(10, 0, 12, 0);
+
+    QHBoxLayout *mLayout = new QHBoxLayout;
+    mLayout->addSpacing(13);
+    mLayout->addWidget(m_appIcon);
+    mLayout->addLayout(rightLayout);
+    mLayout->setSpacing(0);
+    mLayout->setMargin(0);
+
     setFixedHeight(50);
     setFixedWidth(DCC::ModuleContentWidth);
-    setLayout(mainLayout);
+    setLayout(mLayout);
 
     connect(m_updateBtn, &QPushButton::clicked, this, &ApplictionItemWidget::toggleUpdateJob);
 }

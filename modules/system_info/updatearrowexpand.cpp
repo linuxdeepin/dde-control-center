@@ -32,3 +32,12 @@ UpdateArrowExpand::UpdateArrowExpand(QWidget *parent) :
     connect(m_configBtn, &DImageButton::clicked, this, &UpdateArrowExpand::configButtonClicked);
     connect(m_configBtn, &DImageButton::clicked, [this] {setExpand(true);});
 }
+
+void UpdateArrowExpand::setUpdatableNums(int nums)
+{
+    if (!nums)
+        return m_updateCountLabel->hide();
+
+    m_updateCountLabel->show();
+    m_updateCountLabel->setText(QString::number(nums));
+}
