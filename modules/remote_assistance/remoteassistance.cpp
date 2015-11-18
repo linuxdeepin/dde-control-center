@@ -67,15 +67,11 @@ void RemoteAssistance::Impl::initPanel()
 
 QWidget* RemoteAssistance::Impl::getPanel(ViewPanel v)
 {
-    static QWidget* m_mainPanel;
     switch (v) {
     case ViewPanel::Main: {
-        if (m_mainPanel == nullptr) {
-            qDebug() << "create Main Panel";
-            m_mainPanel = new MainPanel(m_manager);
-            QObject::connect(m_mainPanel, SIGNAL(changePanel(ViewPanel)), m_pub, SLOT(changePanel(ViewPanel)));
-        }
-        qDebug() << "return Main Panel";
+        qDebug() << "create Main Panel";
+        QWidget* m_mainPanel = new MainPanel(m_manager);
+        QObject::connect(m_mainPanel, SIGNAL(changePanel(ViewPanel)), m_pub, SLOT(changePanel(ViewPanel)));
         return m_mainPanel;
     }
     case ViewPanel::Access: {
