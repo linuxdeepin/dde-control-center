@@ -79,7 +79,12 @@ void AccessPanel::onConnectFailed(AccessErrors e)
     button = new DTextButton(tr("Retry"));
     button->setEnabled(false);
     // waiting the remoting window to be closed.
-    QTimer::singleShot(2000, [=]{
+    // NB: QTimer::singleShot not support lambda in Qt5.3.
+    auto timer = new QTimer;
+    timer->setInterval(2000);
+    timer->setSingleShot(true);
+    QObject::connect(timer, &QTimer::timeout, [=]{
+        timer->deleteLater();
         qDebug() << "enable retry button";
         button->setEnabled(true);
     });
