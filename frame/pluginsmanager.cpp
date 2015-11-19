@@ -153,24 +153,26 @@ void PluginsManager::loadPlugins()
 DeviceMoniter::DeviceMoniter(QObject *parent)
     : QThread(parent)
 {
-    m_wacomInter = new DBusWacom("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Wacom", QDBusConnection::sessionBus(), this);
-    m_bluetoothInter = new DBusBluetooth("com.deepin.daemon.InputDevices", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this);
+
 }
 
 void DeviceMoniter::run()
 {
+    DBusWacom wacomInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Wacom", QDBusConnection::sessionBus());
+    DBusBluetooth bluetoothInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus());
+
     while (true)
     {
         bool changed = false;
 
-        const bool wacom = m_wacomInter->exist();
+        const bool wacom = wacomInter.exist();
         if (wacom != m_wacomExist)
         {
             m_wacomExist = wacom;
             changed = true;
         }
 
-        const int bluetoothState = m_bluetoothInter->state();
+        const int bluetoothState = bluetoothInter.state();
         const bool bluetooth = bluetoothState != 0;
         if (bluetooth != m_bluetoothExist)
         {

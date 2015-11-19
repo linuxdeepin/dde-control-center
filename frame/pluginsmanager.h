@@ -55,9 +55,6 @@ signals:
 private:
     bool m_bluetoothExist = false;
     bool m_wacomExist = false;
-
-    DBusWacom *m_wacomInter;
-    DBusBluetooth *m_bluetoothInter;
 };
 
 #endif // PLUGINSMANAGER_H

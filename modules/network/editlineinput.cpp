@@ -1,6 +1,7 @@
 #include <libdui/dlineedit.h>
 #include <libdui/dpasswordedit.h>
 #include <libdui/dconstants.h>
+#include <libdui/dfilechooseredit.h>
 
 #include "editlineinput.h"
 
@@ -22,7 +23,7 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         line_edit = new DPasswordEdit;
         break;
     case EditLineInputType::FileChooser:
-        line_edit = new DLineEdit;
+        line_edit = new DFileChooserEdit;
         break;
     default:
         break;
