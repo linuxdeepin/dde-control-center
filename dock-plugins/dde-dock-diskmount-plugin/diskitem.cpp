@@ -47,7 +47,7 @@ void DiskItem::sendNotification(const QString &title, const QString &msg)
                            "diskmount",
                            title,
                            msg,
-                           QStringList() << "diskmount_retry" << tr("Retry"),
+                           QStringList() << m_diskUuid << tr("Retry"),
                            QVariantMap(),
                            0);
 }
@@ -67,7 +67,7 @@ void DiskItem::umountDisk()
 
 void DiskItem::slotRetry(uint, QString id)
 {
-    if(id == "diskmount_retry"){
+    if(id == m_diskUuid){
         umountDisk();
     }
 }
@@ -99,7 +99,7 @@ void DiskItem::umountDiskFailed(const QString &uuid, const QString &reason)
         disk_type_name = tr("local disk");
     }
 
-    sendNotification("", QString(tr("Failed to uninstall %1 \"%2\", please retry."))
+    sendNotification("", QString(tr("Failed to uninstall %1 \" %2 \", please retry."))
                      .arg(disk_type_name)
                      .arg(m_titleLabel->text()));
 }
