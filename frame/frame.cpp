@@ -64,9 +64,14 @@ Frame::Frame(QWidget *parent) :
     m_homeScreen->setFixedSize(DCC::ControlCenterWidth, frameHeight);
 
     DisplayInterface *display_dbus = new DisplayInterface(this);
-    connect(display_dbus, &DisplayInterface::PrimaryChanged, this, &Frame::updateGeometry);
+
+    auto updateGeometry = [display_dbus, this] {
+        this->updateGeometry(display_dbus->primaryRect());
+    };
+
+    connect(display_dbus, &DisplayInterface::PrimaryRectChanged, this, updateGeometry);
     connect(m_homeScreen, &HomeScreen::powerBtnClicked, [this] {hide(true);});
-    connect(this, &Frame::hideInLeftChanged, this, &Frame::updateGeometry);
+    connect(this, &Frame::hideInLeftChanged, this, updateGeometry);
     connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
     connect(m_hideAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged);
@@ -210,34 +215,20 @@ void Frame::setHideInLeft(bool hideInLeft)
     emit hideInLeftChanged(hideInLeft);
 }
 
-void Frame::updateGeometry()
+void Frame::updateGeometry(const QRect &primaryRect)
 {
-    DisplayInterface *inter = qobject_cast<DisplayInterface *>(sender());
-    QScreen *primaryScreen = qApp->primaryScreen();
-
-    if (inter)
-    {
-        for (QScreen *screen : qApp->screens())
-        {
-            if (screen->name() == inter->primary())
-            {
-                primaryScreen = screen;
-                break;
-            }
-        }
-    }
-
     int posX;
     if (m_hideInLeft)
-        posX = primaryScreen->geometry().left();
+        posX = primaryRect.left();
     else
-        posX = primaryScreen->geometry().right() - DCC::ControlCenterWidth - DCC::FrameShadowWidth + 1;
+        posX = primaryRect.right() - DCC::ControlCenterWidth - DCC::FrameShadowWidth + 1;
 
-    move(posX, primaryScreen->geometry().y());
-    setFixedHeight(primaryScreen->size().height());
-    m_centeralWarpper->setFixedHeight(primaryScreen->size().height());
-    m_contentView->setFixedHeight(primaryScreen->size().height());
-    m_homeScreen->setFixedHeight(primaryScreen->size().height());
+    move(posX, primaryRect.y());
+    setFixedHeight(primaryRect.height());
+    m_centeralWarpper->setFixedHeight(primaryRect.height());
+    m_centeralWidget->setFixedHeight(primaryRect.height());
+    m_contentView->setFixedHeight(primaryRect.height());
+    m_homeScreen->setFixedHeight(primaryRect.height());
 
     QFrame::updateGeometry();
 }

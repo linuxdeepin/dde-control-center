@@ -34,7 +34,7 @@ public:
 
 public slots:
     void setHideInLeft(bool hideInLeft);
-    void updateGeometry();
+    void updateGeometry(const QRect &primaryRect);
     void setAutoHide(bool autoHide);
     void toggle(bool inLeft);
     void selectModule(const QString &pluginId);
