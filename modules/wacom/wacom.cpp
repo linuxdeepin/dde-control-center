@@ -113,6 +113,7 @@ void Wacom::initUI(){
     downKeyLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     m_downKeySimpleComboBox = new DSimpleComboBox(downKeyItem);
     m_downKeySimpleComboBox->addItems(keylist);
+    m_downKeySimpleComboBox->setCurrentIndex(-1);
     m_downKeySimpleComboBox->setFixedSize(segmentedCtrlAndComBoxWidth, BUTTON_HEIGHT);
 
 
@@ -131,6 +132,7 @@ void Wacom::initUI(){
     upKeyLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     m_upKeySimpleComboBox = new DSimpleComboBox(upKeyItem);
     m_upKeySimpleComboBox->addItems(keylist);
+    m_upKeySimpleComboBox->setCurrentIndex(-1);
     m_upKeySimpleComboBox->setFixedSize(segmentedCtrlAndComBoxWidth,BUTTON_HEIGHT);
 
     // to display them horizontally
