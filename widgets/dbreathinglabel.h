@@ -18,13 +18,14 @@ public:
     ~DBreathingLabel();
     void setColor(QColor color);
 
+    int alpha() const;
 public slots:
     void showLabel();
     void hideLabel();
     void setDuration(int duration);
 private:
     int alpha_;
-    int alpha() const;
+
     void setAlpha(int alpha);
     QPropertyAnimation* m_showAnimation;
     QPropertyAnimation* m_hideAnimation;

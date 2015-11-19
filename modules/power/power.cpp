@@ -214,8 +214,10 @@ void Power::updatePowerManagermentUI() {
     m_batteryIsPresent = m_powerInterfaceManagement->getBatteryIsPresent();
     m_onBattery = m_powerInterfaceManagement->getBatteryon();
     m_batteryPercentage = m_powerInterfaceManagement->getBatteryPresent();
-    m_batteryIsPresent = true; //for testing
-    m_batteryPercentage = 60;
+
+//    m_batteryIsPresent = true; //for testing
+//    m_batteryPercentage = 100;
+
     m_powerManagementFrame->setElectricQuantity(m_batteryPercentage);
     m_powerManagementFrame->batteryReservedControl(m_batteryIsPresent);
 }

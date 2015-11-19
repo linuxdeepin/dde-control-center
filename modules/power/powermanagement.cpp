@@ -30,7 +30,7 @@ PowerManagement::PowerManagement(QWidget *parent)
     m_powerManagerLayout->addWidget(m_powerPercentageLabel);
     m_powerManagerLayout->addStretch();
     m_powerManagerViewLabel->setLayout(m_powerManagerLayout);
-
+    m_powerManagerViewLabel->setFixedWidth(170);
 
     m_topHeaderLine = new ModuleHeader(m_powerManagerViewLabel);
 

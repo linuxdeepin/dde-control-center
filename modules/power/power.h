@@ -178,9 +178,17 @@ public slots:
     }
     inline void  hidePowerTooltip(QString itemId) {
         Q_UNUSED(itemId);
-        if (m_powerConnectionBreathingLabel->isHidden()) {
+        qDebug() << "ItemId:" << itemId << m_powerConnectionBreathingLabel->isHidden()
+                 << m_powerConnectionBreathingLabel->alpha();
+
+        QFont labelFont; QFontMetrics fm(labelFont);
+        QString tips = m_powerInterfaceManagement->setPowerTooltipText(itemId, "power");
+
+        if (fm.width(tips) > 240) {
+            m_powerConnectionBreathingLabel->show();
             m_powerConnectionBreathingLabel->showLabel();
         }
+
         m_powerDynamicLabel->hideLabel();
     }
     inline void  setBatteryDynamicTooltip(QString itemId) {
@@ -200,7 +208,12 @@ public slots:
     }
     inline void  hideBatteryTooltip(QString itemId) {
         Q_UNUSED(itemId);
-        if (m_batteryBreathingLabel->isHidden()) {
+
+        QFont labelFont; QFontMetrics fm(labelFont);
+        QString tips = m_powerInterfaceManagement->setPowerTooltipText(itemId, "battery");
+
+        if (fm.width(tips) > 240) {
+            m_batteryBreathingLabel->show();
             m_batteryBreathingLabel->showLabel();
         }
         m_batteryDynamicLabel->hideLabel();

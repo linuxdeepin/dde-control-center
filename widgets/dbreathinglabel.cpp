@@ -40,13 +40,15 @@ void DBreathingLabel::setAlpha(int opa) {
 
 
 void DBreathingLabel::hideLabel() {
-    m_showAnimation->setStartValue(255);
-    m_showAnimation->setEndValue(0);
-    m_showAnimation->start();
+//    m_showAnimation->stop();
+    m_hideAnimation->setStartValue(255);
+    m_hideAnimation->setEndValue(0);
+    m_hideAnimation->start();
 }
 
 void DBreathingLabel::showLabel() {
-    m_hideAnimation->setStartValue(0);
-    m_hideAnimation->setEndValue(255);
-    m_hideAnimation->start();
+
+    m_showAnimation->setStartValue(0);
+    m_showAnimation->setEndValue(255);
+    m_showAnimation->start();
 }
