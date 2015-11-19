@@ -133,6 +133,8 @@ void NetworkMainWidget::updateUI()
 
 void NetworkMainWidget::initUI()
 {
+    setFixedWidth(DCC::ModuleContentWidth);
+
     ModuleHeader *header = new ModuleHeader(tr("Network"), false);
     QWidget *header_right_widget = new QWidget;
     QHBoxLayout *header_right_widget_layout = new QHBoxLayout(header_right_widget);
