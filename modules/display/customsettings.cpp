@@ -266,10 +266,14 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         m_cancelButton->setVisible(m_dbusDisplay->hasChanged());
         m_applyButton->setVisible(m_cancelButton->isVisible());
 
-        connect(m_dbusDisplay, &DisplayInterface::HasChangedChanged, buttonLayout, [this]{
-            m_cancelButton->setVisible(m_dbusDisplay->hasChanged());
-            m_applyButton->setVisible(m_cancelButton->isVisible());
-        });
+        connect(m_dbusDisplay, &DisplayInterface::HasChangedChanged,
+                this, &CustomSettings::onHasChangedChanged);
+    } else {
+        m_cancelButton->show();
+        m_applyButton->show();
+
+        disconnect(m_dbusDisplay, &DisplayInterface::HasChangedChanged,
+                   this, &CustomSettings::onHasChangedChanged);
     }
 
     buttonLayout->addStretch(1);
@@ -384,6 +388,12 @@ void CustomSettings::updateBrightnessLayout()
         if(m_primaryMonitor)
             m_primaryMonitor->show();
     }
+}
+
+void CustomSettings::onHasChangedChanged()
+{
+    m_cancelButton->setVisible(m_dbusDisplay->hasChanged());
+    m_applyButton->setVisible(m_cancelButton->isVisible());
 }
 
 QStringList CustomSettings::getResolutionLabels(MonitorInterface *dbus)

@@ -56,6 +56,7 @@ private slots:
     void updateRotationButtons(MonitorInterface *dbus, DButtonGrid *rotationButtons);
     void updateBrightnessSlider(const QString& name, DSlider *brightnessSlider);
     void updateBrightnessLayout();
+    void onHasChangedChanged();
 };
 
 #endif // CUSTOMSETTINGS_H
