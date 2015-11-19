@@ -272,6 +272,7 @@ void Sound::initUI()
     m_loginSoundSwitch = new SoundEffectSwitchWidget;
     m_loginSoundSwitch->setSwitched(m_soundEffectsInter->login());
     m_loginSoundSwitch->setTitle(tr("Login"));
+    m_loginSoundSwitch->setFixedWidth(DCC::ModuleContentWidth);
 //    m_logoutSoundSwitch = new SoundEffectSwitchWidget;
 //    m_logoutSoundSwitch->setSwitched(m_soundEffectsInter->logout());
 //    m_logoutSoundSwitch->setTitle(tr("Logout"));
