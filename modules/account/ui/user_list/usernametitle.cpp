@@ -1,5 +1,6 @@
 #include "usernametitle.h"
 
+const int MAX_NAME_LENGTH = 16;
 UserNameTitle::UserNameTitle(QWidget *parent) : QWidget(parent)
 {
     m_mainLayout = new QVBoxLayout(this);
@@ -19,7 +20,8 @@ UserNameTitle::UserNameTitle(QWidget *parent) : QWidget(parent)
 
 void UserNameTitle::setUserName(const QString &name)
 {
-    m_nameLabel->setText(name);
+    QString tmpName = name.length() > MAX_NAME_LENGTH ? (name.left(MAX_NAME_LENGTH) + "...") : name;
+    m_nameLabel->setText(tmpName);
 }
 
 void UserNameTitle::setUserType(const QString &type)
