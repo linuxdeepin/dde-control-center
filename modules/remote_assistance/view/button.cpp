@@ -6,6 +6,7 @@
 #include <QFile>
 #include <QMouseEvent>
 #include <QDebug>
+#include <QCoreApplication>
 
 #include <libdui/dthememanager.h>
 #include <libdui/dimagebutton.h>
@@ -106,27 +107,27 @@ void Button::setPressedIcon(const QString &icon)
 
 void Button::enterEvent(QEvent* e)
 {
-    m_icon->enterEvent(e);
-    m_arrow->enterEvent(e);
+    QCoreApplication::sendEvent(m_icon, e);
+    QCoreApplication::sendEvent(m_arrow, e);
 }
 
 
 void Button::leaveEvent(QEvent* e)
 {
-    m_icon->leaveEvent(e);
-    m_arrow->leaveEvent(e);
+    QCoreApplication::sendEvent(m_icon, e);
+    QCoreApplication::sendEvent(m_arrow, e);
 }
 
 void Button::mousePressEvent(QMouseEvent *e)
 {
-    m_icon->mousePressEvent(e);
-    m_arrow->mousePressEvent(e);
+    QCoreApplication::sendEvent(m_icon, e);
+    QCoreApplication::sendEvent(m_arrow, e);
 }
 
 void Button::mouseReleaseEvent(QMouseEvent *e)
 {
-    m_icon->mouseReleaseEvent(e);
-    m_arrow->mouseReleaseEvent(e);
+    QCoreApplication::sendEvent(m_icon, e);
+    QCoreApplication::sendEvent(m_arrow, e);
 
     emitClicked();
 }
