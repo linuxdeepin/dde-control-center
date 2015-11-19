@@ -13,12 +13,13 @@
 
 DUI_USE_NAMESPACE
 
-MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p): AbstractPanel(tr("Remote Assistance"), p), m_buttongroup(new ButtonGroup(tr("Remote Assistance")))
+MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p): AbstractPanel(tr("Remote Assistance"), p), m_buttongroup(new ButtonGroup)
 {
     setObjectName("MainPanel");
     m_manager = manager;
 
-    addWidget(new DSeparatorHorizontal);
+    // addWidget(new DSeparatorHorizontal);
+    // m_buttongroup->setGroupTitle(tr("Remote Assistance"));
     addWidget(m_buttongroup->addSeparator());
 
     Button* button = nullptr;
