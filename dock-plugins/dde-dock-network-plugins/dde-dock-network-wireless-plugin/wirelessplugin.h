@@ -38,22 +38,21 @@ public:
     bool canDisable(QString id) Q_DECL_OVERRIDE;
     void setDisabled(QString id, bool disabled) Q_DECL_OVERRIDE;
     void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
-    void invokeMenuItem(QString id, QString itemId, bool checked) Q_DECL_OVERRIDE;
+    void invokeMenuItem(QString, QString, bool) Q_DECL_OVERRIDE;
 
 private:
-    Dock::DockMode m_mode = Dock::FashionMode;
-    DockPluginProxyInterface * m_proxy;
-    com::deepin::daemon::DBusNetwork * m_dbusNetwork;
     QSettings * m_settings;
-    QMap<QString, QString> m_wirelessMap;
+    DockPluginProxyInterface * m_proxy;
     QMap<QString, WirelessItem *> m_itemMap;
+    Dock::DockMode m_mode = Dock::FashionMode;
+    com::deepin::daemon::DBusNetwork * m_dbusNetwork;
 
     void initSettings();
     void onDisableChanged(const QString &id);
     void onDevicesChanged();
 
-    QMap<QString, QString> wirelessDevices();
     QStringList wiredDevicePaths();
+    QMap<QString, QString> wirelessDevices();
     QString settingDisabledKey(const QString &id);
 };
 

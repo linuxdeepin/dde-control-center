@@ -5,6 +5,13 @@
 
 using namespace NetworkPlugin;
 
+const int FRAME_WIDTH = 220;
+const int TITLE_HEIGHT = 36;
+const int LINE_HEIGHT = 24;
+const int TITLE_LEFT_MARGIN = 20;
+const int TITLE_RIGHT_MARGIN = 15;
+const int CONTENT_MAX_HEIGHT = 300;
+
 WirelessApplet::WirelessApplet(const QString &uuid, DBusNetwork *dbusNetwork, QWidget *parent)
     : DVBoxWidget(parent), m_uuid(uuid), m_dbusNetwork(dbusNetwork)
 {
@@ -85,37 +92,34 @@ void WirelessApplet::initApListContent()
 {
     m_listWidget = new DListWidget;
     m_listWidget->setItemSize(FRAME_WIDTH, LINE_HEIGHT);
+    m_listWidget->setEnableVerticalScroll(true);
+    m_listWidget->setMaximumHeight(CONTENT_MAX_HEIGHT);
+    m_listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
     DeviceInfo info = getDeviceInfoById(m_uuid, m_dbusNetwork);
 
-    QDBusPendingCallWatcher * watcher = new QDBusPendingCallWatcher(m_dbusNetwork->GetAccessPoints(QDBusObjectPath(info.path)), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, this]{
-        const QVariantList & args = watcher->reply().arguments();
+    ASYN_CALL(m_dbusNetwork->GetAccessPoints(QDBusObjectPath(info.path)), {
+                  QJsonDocument jsonDoc = QJsonDocument::fromJson(args[0].toByteArray());
+                  QVariantList mapList = jsonDoc.array().toVariantList();
+                  qSort(mapList.begin(), mapList.end(), [](const QVariant &v1, const QVariant &v2)->bool{
+                      return v1.toMap()["Strength"].toInt() > v2.toMap()["Strength"].toInt();
+                  });
 
-        QJsonDocument jsonDoc = QJsonDocument::fromJson(args[0].toByteArray());
-        QVariantList mapList = jsonDoc.array().toVariantList();
-        qSort(mapList.begin(), mapList.end(), [](const QVariant &v1, const QVariant &v2)->bool{
-            return v1.toMap()["Strength"].toInt() > v2.toMap()["Strength"].toInt();
-        });
+                  for(const QVariant &map : mapList) {
+                      WirelessAppletItem::ApData data;
+                      data.ssid = map.toMap().value("Ssid").toString();
+                      data.apPath = map.toMap().value("Path").toString();
+                      data.secured = map.toMap().value("Secured").toBool();
+                      data.strength = map.toMap().value("Strength").toInt();
+                      data.securedInEap = map.toMap().value("SecuredInEap").toBool();
 
+                      addApToList(data);
+                  }
 
-        for(const QVariant &map : mapList) {
-            WirelessAppletItem::ApData data;
-            data.ssid = map.toMap().value("Ssid").toString();
-            data.apPath = map.toMap().value("Path").toString();
-            data.secured = map.toMap().value("Secured").toBool();
-            data.strength = map.toMap().value("Strength").toInt();
-            data.securedInEap = map.toMap().value("SecuredInEap").toBool();
-
-            addApToList(data);
-        }
-
-        emit propertiesChanged();
-        //for init activeap
-        onDevicesChanged();
-
-        watcher->deleteLater();
-    });
+                  emit propertiesChanged();
+                  //for init activeap
+                  onDevicesChanged();
+              }, this);
 
     m_listWidget->setVisible(m_dbusNetwork->IsDeviceEnabled(QDBusObjectPath(info.path)));
     connect(m_dbusNetwork, &DBusNetwork::DeviceEnabled, [=] (const QString &path, bool enable){
@@ -188,9 +192,13 @@ void WirelessApplet::onDevicesChanged()
 
 void WirelessApplet::addApToList(const WirelessAppletItem::ApData &apData)
 {
+    //TODO it should fix by backend
+    if (!removeOverlapApFromList(apData))
+        return;
+
     DeviceInfo info = getDeviceInfoById(m_uuid, m_dbusNetwork);
     WirelessAppletItem *item = new WirelessAppletItem(apData, info.path, m_dbusNetwork, this);
-    item->onActiveApChanged(info.activeAp);
+    item->onActiveApChanged();
 
     connect(item, &WirelessAppletItem::strengthChanged, this, &WirelessApplet::onApStrengthChanged);
     connect(this, &WirelessApplet::activeApChanged, item, &WirelessAppletItem::onActiveApChanged);
@@ -198,6 +206,30 @@ void WirelessApplet::addApToList(const WirelessAppletItem::ApData &apData)
     m_listWidget->addWidget(item);
 
     qWarning() << "AP Added: " << apData.apPath;
+}
+
+bool WirelessApplet::removeOverlapApFromList(const WirelessAppletItem::ApData &apData)
+{
+    DeviceInfo info = getDeviceInfoById(m_uuid, m_dbusNetwork);
+
+    QList<QWidget *> list = m_listWidget->widgetList();
+    foreach (QWidget *widget, list) {
+        WirelessAppletItem *item = qobject_cast<WirelessAppletItem *>(widget);
+        if (item && item->getApData().ssid == apData.ssid) {
+            //the new one is active ap or stronger
+            if (apData.apPath == info.activeAp || apData.strength > item->getApData().strength) {
+                m_listWidget->removeWidget(list.indexOf(widget));
+                item->deleteLater();
+
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+
+    return true;
 }
 
 void WirelessApplet::removeApFromList(const QString &apPath)

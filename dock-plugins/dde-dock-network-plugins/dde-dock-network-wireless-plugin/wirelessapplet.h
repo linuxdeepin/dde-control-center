@@ -32,8 +32,9 @@ private:
     void initStyleSheet();
     void initTitleLine();
     void initApListContent();
-    void addApToList(const WirelessAppletItem::ApData &apData);
     void removeApFromList(const QString &apPath);
+    void addApToList(const WirelessAppletItem::ApData &apData);
+    bool removeOverlapApFromList(const WirelessAppletItem::ApData &apData);
     void onAccessPointAdded(const QString &devicePath, const QString &apInfo);
     void onAccessPointRemoved(const QString &devicePath, const QString &apInfo);
     void onApStrengthChanged(int strength);
@@ -45,12 +46,6 @@ private:
     QLabel *m_titleLabel;
     DListWidget *m_listWidget;
     DSwitchButton *m_deviceSwitcher;
-
-    const int FRAME_WIDTH = 220;
-    const int TITLE_HEIGHT = 36;
-    const int LINE_HEIGHT = 24;
-    const int TITLE_LEFT_MARGIN = 20;
-    const int TITLE_RIGHT_MARGIN = 10;
 };
 
 #endif // WIRELESSAPPLET_H

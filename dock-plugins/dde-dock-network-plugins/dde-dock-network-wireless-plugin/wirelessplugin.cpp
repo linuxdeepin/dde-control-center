@@ -6,8 +6,6 @@
 #include <QDebug>
 #include <QIcon>
 #include <QFile>
-#include <QTimer>
-
 #include <QDBusConnection>
 
 WirelessPlugin::WirelessPlugin()
@@ -114,16 +112,14 @@ void WirelessPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
 
 QString WirelessPlugin::getMenuContent(QString)
 {
-    //TODO
     return "";
 }
 
-void WirelessPlugin::invokeMenuItem(QString id, QString itemId, bool checked)
+void WirelessPlugin::invokeMenuItem(QString, QString, bool)
 {
-    //TODO
+
 }
 
-// private methods
 void WirelessPlugin::initSettings()
 {
     m_settings = new QSettings("deepin", "dde-dock-network-wireless-plugin", this);

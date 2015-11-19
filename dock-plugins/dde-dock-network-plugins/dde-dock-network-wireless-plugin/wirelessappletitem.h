@@ -30,7 +30,7 @@ public:
     ApData getApData() const;
 
 public slots:
-    void onActiveApChanged(const QString &ap);
+    void onActiveApChanged();
     void onActiveConnectionsChanged();
 
 signals:
