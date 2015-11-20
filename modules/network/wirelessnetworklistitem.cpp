@@ -65,6 +65,7 @@ void WirelessNetworkListItem::onConnectsChanged()
             if(item) {
                 item->setUuid(json_object["Uuid"].toString());
                 item->setConnectPath(json_object["Path"].toString());
+                m_mapApUuidToItem[item->uuid()] = item;
             }
         }
     }
@@ -98,31 +99,40 @@ void WirelessNetworkListItem::updateItemIndex(int strength)
 
 void WirelessNetworkListItem::updateActiveApState()
 {
-    if(!m_activeItem)
+    NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
+
+    if(!item)
         return;
 
-    if(state() >= DeviceState::Prepare && state() <= DeviceState::Secondaries) {
-        m_activeItem->setLoading(true);
-    } else if(m_activeItem->state() == ActiveConnectionState::Activated) {
-        m_activeItem->setChecked(true);
+    if(item->state() == ActiveConnectionState::Activating) {
+        item->setLoading(true);
+        m_activeItem = item;
+    } else if(item->state() == ActiveConnectionState::Activated) {
+        item->setChecked(true);
+        m_activeItem = item;
     } else {
-        m_activeItem->setChecked(false);
-        m_activeItem->setLoading(false);
+        item->setChecked(false);
+        item->setLoading(false);
     }
 }
 
 void WirelessNetworkListItem::onActiveConnectionsChanged()
 {
-    if(!m_activeItem)
-        return;
+    if(m_activeItem) {
+        m_activeItem->setState(ActiveConnectionState::Unknown);
+    }
 
     const QJsonDocument &json_doc = QJsonDocument::fromJson(m_dbusNetwork->activeConnections().toUtf8());
 
     for(const QJsonValue &value : json_doc.object()) {
         const QJsonObject &json_obj = value.toObject();
 
-        if(json_obj["Uuid"] == m_activeItem->uuid()) {
-            m_activeItem->setState(ActiveConnectionState::Activated);
+        if(json_obj["Devices"].toArray().toVariantList().indexOf(path()) >= 0) {
+            NetworkGenericListItem *item = m_mapApUuidToItem.value(json_obj["Uuid"].toString(), nullptr);
+
+            if(item) {
+                item->setState(json_obj["State"].toInt());
+            }
         }
     }
 }
@@ -143,20 +153,9 @@ NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMa
                 this, [this] {
             m_dbusNetwork->DisconnectDevice(QDBusObjectPath(path()));
         });
+        connect(item, &NetworkGenericListItem::stateChanged, this, &WirelessNetworkListItem::updateActiveApState);
     } else if(item->strength() < map["Strength"].toInt() || map["Path"] == activeAp()) {
         item->updateInfoByMap(map);
-    }
-
-    if(activeAp() == item->path()) {
-        disconnect(m_activeItem, &NetworkGenericListItem::stateChanged,
-                this, &WirelessNetworkListItem::updateActiveApState);
-        disconnect(m_activeItem, &NetworkGenericListItem::uuidChanged,
-                this, &WirelessNetworkListItem::onActiveConnectionsChanged);
-        m_activeItem = item;
-        connect(m_activeItem, &NetworkGenericListItem::stateChanged,
-                this, &WirelessNetworkListItem::updateActiveApState);
-        connect(m_activeItem, &NetworkGenericListItem::uuidChanged,
-                this, &WirelessNetworkListItem::onActiveConnectionsChanged);
     }
 
     m_mapApPathToItem[item->path()] = item;
@@ -188,6 +187,7 @@ void WirelessNetworkListItem::init()
                               this, &WirelessNetworkListItem::onItemClicked);
 
                       onConnectsChanged();
+                      onActiveConnectionsChanged();
                   }, this)
     });
 
@@ -221,19 +221,6 @@ void WirelessNetworkListItem::init()
             }
 
             qDebug() << "remove access point:" << ap_path << json_doc.object().toVariantMap()["Ssid"];
-        }
-    });
-
-    connect(this, &WirelessNetworkListItem::activeApChanged, this, [this](const QString &path){
-        if(m_activeItem) {
-            m_activeItem->setLoading(false);
-            m_activeItem->setChecked(false);
-        }
-
-        m_activeItem = m_mapApPathToItem.value(path, nullptr);
-
-        if(m_activeItem) {
-            m_activeItem->setLoading(true);
         }
     });
 
@@ -298,5 +285,4 @@ void WirelessNetworkListItem::init()
 
     connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged,
             this, &WirelessNetworkListItem::onActiveConnectionsChanged);
-    connect(this, &WirelessNetworkListItem::stateChanged, this, &WirelessNetworkListItem::updateActiveApState);
 }

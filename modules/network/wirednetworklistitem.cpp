@@ -32,8 +32,6 @@ void WiredNetworkListItem::init()
     auto onActiveConnectsChanged = [this, item] {
         const QJsonDocument &json_doc = QJsonDocument::fromJson(m_dbusNetwork->activeConnections().toUtf8());
 
-        item->setState(ActiveConnectionState::Unknown);
-
         for(NetworkGenericListItem *item : m_mapPppoePathToItem.values()) {
             item->setState(ActiveConnectionState::Unknown);
         }
@@ -41,16 +39,12 @@ void WiredNetworkListItem::init()
         for(const QJsonValue &value : json_doc.object()) {
             const QJsonObject &json_obj = value.toObject();
 
-            if(json_obj["Uuid"] == item->uuid()) {
-                item->setState(json_obj["State"].toInt());
-            } else {
-                const QJsonArray &array = json_obj["Devices"].toArray();
+            const QJsonArray &array = json_obj["Devices"].toArray();
 
-                if(array.toVariantList().indexOf(path()) >= 0) {
-                    for(NetworkGenericListItem *item : m_mapPppoePathToItem.values()) {
-                        if(item->uuid() == json_obj["Uuid"].toString())
-                            item->setState(json_obj["State"].toInt());
-                    }
+            if(array.toVariantList().indexOf(path()) >= 0) {
+                for(NetworkGenericListItem *item : m_mapPppoePathToItem.values()) {
+                    if(item->uuid() == json_obj["Uuid"].toString())
+                        item->setState(json_obj["State"].toInt());
                 }
             }
         }
@@ -65,10 +59,10 @@ void WiredNetworkListItem::init()
             this, [this] {
         m_dbusNetwork->DisconnectDevice(QDBusObjectPath(path()));
     });
-    connect(item, &NetworkGenericListItem::stateChanged, item, [item](int state) {
-        if(state == ActiveConnectionState::Activating) {
+    connect(this, &WiredNetworkListItem::stateChanged, item, [item](int state) {
+        if(state >= DeviceState::Prepare && state <= DeviceState::Secondaries) {
             item->setLoading(true);
-        } else if(state == ActiveConnectionState::Activated) {
+        } else if(state == DeviceState::Activated) {
             item->setChecked(true)  ;
         } else {
             item->setChecked(false);

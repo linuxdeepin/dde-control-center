@@ -24,6 +24,7 @@ private:
     NetworkGenericListItem *m_activeItem = nullptr;
     QMap<QString, NetworkGenericListItem*> m_mapApPathToItem;
     QMap<QString, NetworkGenericListItem*> m_mapApSsidToItem;
+    QMap<QString, NetworkGenericListItem*> m_mapApUuidToItem;
 };
 
 #endif // WIRELESSNETWORKLISTITEM_H
