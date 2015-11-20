@@ -64,7 +64,7 @@ QString InputPasswordDialog::text() const
 
 void InputPasswordDialog::setInputAlert(bool alert)
 {
-    m_edit->setAlertMode(alert);
+    m_edit->setAlert(alert);
 }
 
 int InputPasswordDialog::exec()
