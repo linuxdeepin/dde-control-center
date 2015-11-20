@@ -81,10 +81,6 @@ void InputPasswordDialog::resizeEvent(QResizeEvent *e)
 {
     QFrame::resizeEvent(e);
 
-//    m_topSeparator->setFixedWidth(width());
-//    m_bottomSeparator->setFixedWidth(width());
-//    m_bottomSeparator->move(0, height() - m_bottomSeparator->height());
-
     updateMainWidgetPos();
 }
 

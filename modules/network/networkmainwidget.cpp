@@ -24,6 +24,7 @@
 #include "networkmainwidget.h"
 #include "addconnectpage.h"
 #include "systemproxywidget.h"
+#include "networkinfo.h"
 
 namespace DCCNetwork {
     NetworkMainWidget *parentNetworkMainWidget(const QObject *obj)
@@ -139,13 +140,13 @@ void NetworkMainWidget::initUI()
     QWidget *header_right_widget = new QWidget;
     QHBoxLayout *header_right_widget_layout = new QHBoxLayout(header_right_widget);
     GeneralAddButton *add_button = new GeneralAddButton;
-    //ImageNameButton *info_button = new ImageNameButton("info");
+    ImageNameButton *info_button = new ImageNameButton("info");
 
     header->setFixedSize(DCC::ModuleContentWidth, DUI::CONTENT_HEADER_HEIGHT);
     header_right_widget_layout->setMargin(0);
     header_right_widget_layout->setSpacing(5);
     header_right_widget_layout->addWidget(add_button);
-    //header_right_widget_layout->addWidget(info_button);
+    header_right_widget_layout->addWidget(info_button);
     header->setRightContent(header_right_widget);
 
     headerLayout()->addWidget(header);
@@ -169,5 +170,8 @@ void NetworkMainWidget::initUI()
     connect(add_button, &GeneralAddButton::clicked, this, [this] {
         AddConnectPage *add_connect_page = new AddConnectPage;
         pushWidget(add_connect_page);
+    });
+    connect(info_button, &ImageNameButton::clicked, this, [this] {
+        pushWidget(new NetworkInfo(m_dbusNetwork));
     });
 }

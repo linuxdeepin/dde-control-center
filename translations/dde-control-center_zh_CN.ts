@@ -567,8 +567,8 @@
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="81"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="292"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="298"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="297"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="303"/>
         <source>new user</source>
         <translation>新建用户</translation>
     </message>
@@ -611,23 +611,23 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="176"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="258"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="263"/>
         <source>Password can not be empty.</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="180"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="255"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="271"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="308"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="315"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="276"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="313"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="320"/>
         <source>The two passwords do not match.</source>
         <translation>两次输入密码不一致 </translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="243"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="253"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="268"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="248"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="258"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="273"/>
         <source>Username can not be empty.</source>
         <translation>用户名不能为空</translation>
     </message>
@@ -693,14 +693,14 @@
         <translation>显示器 %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="283"/>
-        <location filename="../modules/display/customsettings.cpp" line="289"/>
+        <location filename="../modules/display/customsettings.cpp" line="287"/>
+        <location filename="../modules/display/customsettings.cpp" line="293"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="285"/>
-        <location filename="../modules/display/customsettings.cpp" line="291"/>
+        <location filename="../modules/display/customsettings.cpp" line="289"/>
+        <location filename="../modules/display/customsettings.cpp" line="295"/>
         <location filename="../modules/display/customsettings.h" line="43"/>
         <source>Confirm</source>
         <translation>确定</translation>
@@ -725,7 +725,7 @@
     </message>
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="31"/>
-        <location filename="../modules/power/dextendboard.cpp" line="41"/>
+        <location filename="../modules/power/dextendboard.cpp" line="43"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
@@ -941,8 +941,12 @@
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="102"/>
+        <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Failed to uninstall %1 &quot;%2&quot;, please retry.</source>
-        <translation>%1 \&quot;%2\&quot; 卸载失败，请重试。</translation>
+        <translation type="vanished">%1 \&quot;%2\&quot; 卸载失败，请重试。</translation>
     </message>
 </context>
 <context>
@@ -1240,22 +1244,22 @@
         <translation>远程协助</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="26"/>
+        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="27"/>
         <source>Share</source>
         <translation>共享</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="26"/>
+        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="27"/>
         <source>Share your desktop to get remote assistance from other users</source>
         <translation>共享您的桌面，让其他用户对您进行远程协助</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="33"/>
+        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="34"/>
         <source>Access</source>
         <translation>访问</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="33"/>
+        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="34"/>
         <source>Access to the desktop shared by other users</source>
         <translation>访问其他用户共享给您的桌面</translation>
     </message>
@@ -1558,14 +1562,161 @@
     </message>
 </context>
 <context>
+    <name>NetworkInfo</name>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="36"/>
+        <source>Ethernet</source>
+        <translation>以太网</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="37"/>
+        <source>802.11 WiFi</source>
+        <translation>802.11 WiFi</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="38"/>
+        <source>802.11 WiFi AdHoc</source>
+        <translation>802.11 WiFi热点（AdHoc模式）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="39"/>
+        <source>802.11 WiFi Hotspot</source>
+        <translation>802.11 WiFi热点（Hotspot模式）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="40"/>
+        <source>PPPoE</source>
+        <translation>拨号</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="41"/>
+        <source>Mobile</source>
+        <translation>移动</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="42"/>
+        <source>Mobile GSM</source>
+        <translation>移动 GSM</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="43"/>
+        <source>Mobile CDMA</source>
+        <translation>移动 CDMA</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="44"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="45"/>
+        <source>VPN L2TP</source>
+        <translation>VPN L2TP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="46"/>
+        <source>VPN PPTP</source>
+        <translation>VPN PPTP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="47"/>
+        <source>VPN VPNC</source>
+        <translation>VPN VPNC</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="48"/>
+        <source>VPN OpenVPN</source>
+        <translation>VPN OpenVPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="49"/>
+        <source>VPN OpenConnect</source>
+        <translation>VPN OpenConnect</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="63"/>
+        <source>Not Connected</source>
+        <translation>未连接</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="65"/>
+        <source>Connected</source>
+        <translation>已连接</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="73"/>
+        <source>(default)</source>
+        <translation>（默认）</translation>
+    </message>
+    <message>
+        <source>default</source>
+        <translation type="vanished">（默认）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="81"/>
+        <source>Interface</source>
+        <translation>接口</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="98"/>
+        <source>Security</source>
+        <translation>安全</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="99"/>
+        <source>Device Addr</source>
+        <translation>设备地址</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="100"/>
+        <source>IP Address</source>
+        <translation>IP 地址</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="101"/>
+        <source>Subnet Mask</source>
+        <translation>子网掩码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="102"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="103"/>
+        <source>Primary DNS</source>
+        <translation>首选DNS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="104"/>
+        <source>Secondary DNS</source>
+        <translation>第二DNS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="105"/>
+        <source>Third DNS</source>
+        <translation>第三DNS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="106"/>
+        <source>Device Speed</source>
+        <translation>设备速度</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkinfo.cpp" line="111"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+</context>
+<context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="136"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="139"/>
         <source>Network</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="157"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="160"/>
         <source>System Proxy</source>
         <translation>系统代理</translation>
     </message>
@@ -1668,7 +1819,7 @@
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="242"/>
-        <location filename="../modules/personalization/personalization.cpp" line="564"/>
+        <location filename="../modules/personalization/personalization.cpp" line="574"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
@@ -1706,7 +1857,7 @@
     <message>
         <location filename="../modules/power/power.cpp" line="98"/>
         <location filename="../modules/power/power.cpp" line="153"/>
-        <location filename="../modules/power/power.h" line="154"/>
+        <location filename="../modules/power/power.h" line="155"/>
         <source>Custom</source>
         <translation>自定义</translation>
     </message>
@@ -1716,34 +1867,34 @@
         <translation>使用电池</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="174"/>
-        <location filename="../modules/power/power.cpp" line="178"/>
+        <location filename="../modules/power/power.cpp" line="188"/>
+        <location filename="../modules/power/power.cpp" line="192"/>
         <source>Shutdown</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="174"/>
-        <location filename="../modules/power/power.cpp" line="178"/>
+        <location filename="../modules/power/power.cpp" line="188"/>
+        <location filename="../modules/power/power.cpp" line="192"/>
         <source>Suspend</source>
         <translation>待机</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="174"/>
+        <location filename="../modules/power/power.cpp" line="188"/>
         <source>Ask</source>
         <translation>询问</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="176"/>
+        <location filename="../modules/power/power.cpp" line="190"/>
         <source>When I press the power button</source>
         <translation>按下电源按钮</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="178"/>
+        <location filename="../modules/power/power.cpp" line="192"/>
         <source>Nothing</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="180"/>
+        <location filename="../modules/power/power.cpp" line="194"/>
         <source>When I close the lid</source>
         <translation>合上笔记本盖子</translation>
     </message>
@@ -2043,22 +2194,20 @@
         <translation>登录</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="277"/>
         <source>Logout</source>
-        <translation>注销</translation>
+        <translation type="vanished">注销</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="280"/>
         <source>Shutdown</source>
-        <translation>关机</translation>
+        <translation type="vanished">关机</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="283"/>
+        <location filename="../modules/sound/sound.cpp" line="284"/>
         <source>Restore</source>
         <translation>唤醒</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="299"/>
+        <location filename="../modules/sound/sound.cpp" line="301"/>
         <source>Sound Effects</source>
         <translation>音效</translation>
     </message>
@@ -2214,17 +2363,17 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="182"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="185"/>
         <source>No update avaliable.</source>
         <translation>无可用更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="185"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="194"/>
         <source>You have %1 softwares need update</source>
         <translation>当前有%1个软件需要更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="189"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="198"/>
         <source>Total download size: %1</source>
         <translation>总下载大小：%1</translation>
     </message>
@@ -2381,37 +2530,37 @@
         <translation>下键</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="128"/>
+        <location filename="../modules/wacom/wacom.cpp" line="129"/>
         <source>Up Key</source>
         <translation>上键</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="146"/>
+        <location filename="../modules/wacom/wacom.cpp" line="148"/>
         <source>Pressure</source>
         <translation>压感</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="151"/>
+        <location filename="../modules/wacom/wacom.cpp" line="153"/>
         <source>Soft</source>
         <translation>轻</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="152"/>
+        <location filename="../modules/wacom/wacom.cpp" line="154"/>
         <source>Hard</source>
         <translation>重</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="166"/>
+        <location filename="../modules/wacom/wacom.cpp" line="168"/>
         <source>Double-click Space</source>
         <translation>双击间距</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="171"/>
+        <location filename="../modules/wacom/wacom.cpp" line="173"/>
         <source>Narrow</source>
         <translation>小</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="172"/>
+        <location filename="../modules/wacom/wacom.cpp" line="174"/>
         <source>Wide</source>
         <translation>大</translation>
     </message>
@@ -2461,7 +2610,7 @@
         <translation>无线网络</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="184"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="183"/>
         <source>Connect to hidden access point</source>
         <translation>连接到隐藏网络</translation>
     </message>
