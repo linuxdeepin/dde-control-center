@@ -16,6 +16,16 @@
         watcher->deleteLater(); \
     }); }
 
+#define TIMER_SINGLESHOT(Time, Code, captured...){ \
+    QTimer *timer = new QTimer;\
+    timer->setSingleShot(true);\
+    QObject::connect(timer, &QTimer::timeout, [timer, captured] {\
+        timer->deleteLater();\
+        Code\
+    });\
+    timer->start(Time);\
+}
+
 //// device type
 namespace DeviceType {
     const QString Unknown = "unknown";

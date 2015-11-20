@@ -2,6 +2,7 @@
 #include <libdui/dpasswordedit.h>
 #include <libdui/dconstants.h>
 #include <libdui/dfilechooseredit.h>
+#include <QTimer>
 
 #include "editlineinput.h"
 
@@ -22,9 +23,19 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
     case EditLineInputType::Password:
         line_edit = new DPasswordEdit;
         break;
-    case EditLineInputType::FileChooser:
-        line_edit = new DFileChooserEdit;
+    case EditLineInputType::FileChooser:{
+        DFileChooserEdit *file_chooser = new DFileChooserEdit;
+        line_edit = file_chooser;
+        file_chooser->setDialogDisplayPosition(DFileChooserEdit::CurrentMonitorCenter);
+
+        connect(file_chooser, &DFileChooserEdit::dialogOpened, this, [this] {
+            window()->setProperty("autoHide", false);
+        }, Qt::DirectConnection);
+        connect(file_chooser, &DFileChooserEdit::dialogClosed, this, [this] {
+            TIMER_SINGLESHOT(500, window()->setProperty("autoHide", true);, this);
+        });
         break;
+    }
     default:
         break;
     }

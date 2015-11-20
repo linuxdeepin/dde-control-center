@@ -59,7 +59,7 @@ PluginsManager::PluginsManager(QObject *parent)
     connect(m_deviceMoniter, &DeviceMoniter::deviceChanged, this, &PluginsManager::loadPlugins);
 
     // set low priority
-    m_deviceMoniter->start(QThread::IdlePriority);
+    m_deviceMoniter->start(QThread::LowestPriority);
 }
 
 bool PluginsManager::checkDependentCondition(const QString &condition)
