@@ -56,8 +56,8 @@ void SideBar::enterEvent(QEvent *e)
 
 void SideBar::leaveEvent(QEvent *e)
 {
-    m_tips->hide();
-//    QMetaObject::invokeMethod(m_tips, "hide", Qt::QueuedConnection);
+//    m_tips->hide();
+    QMetaObject::invokeMethod(m_tips, "hide", Qt::QueuedConnection);
 
     QFrame::leaveEvent(e);
 }
