@@ -6,17 +6,19 @@ INCLUDEPATH    += ../../frame/ ../../widgets
 PKGCONFIG += dui
 LIBS += -L../../widgets -lwidgets
 
-QT             += widgets
+QT             += widgets dbus
 HEADERS         += bluetooth.h \
     bluetoothmainwidget.h \
-    bluetoothlistitem.h \
     dbus/dbusbluetooth.h \
-    adapterwidget.h
+    adapterwidget.h \
+    deviceitemwidget.h \
+    confrimwidget.h
 SOURCES         += bluetooth.cpp \
     bluetoothmainwidget.cpp \
-    bluetoothlistitem.cpp \
     dbus/dbusbluetooth.cpp \
-    adapterwidget.cpp
+    adapterwidget.cpp \
+    deviceitemwidget.cpp \
+    confrimwidget.cpp
 TARGET          = $$qtLibraryTarget(bluetooth)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

@@ -10,7 +10,7 @@
 #include "normallabel.h"
 
 #include "adapterwidget.h"
-#include "bluetoothlistitem.h"
+#include "deviceitemwidget.h"
 
 DUI_USE_NAMESPACE
 
@@ -30,19 +30,48 @@ AdapterWidget::~AdapterWidget()
         delete m_info;
 }
 
+void AdapterWidget::addConfirm(ConfrimWidget *confirm, BluetoothMainWidget::DeviceInfo *info)
+{
+    int index = m_activeDeviceList->indexOf(info->item);
+
+    m_activeDeviceList->insertWidget(index + 1, confirm);
+}
+
 void AdapterWidget::addDevice(BluetoothMainWidget::DeviceInfo *info)
 {
+    qDebug() << info->name << info->trusted << info->state;
+
     info->adapterInfo = m_info;
+
     m_deviceItemList->addWidget(info->item);
 }
 
-void AdapterWidget::removeDevice(BluetoothMainWidget::DeviceInfo *info)
+void AdapterWidget::addTrustedDevice(BluetoothMainWidget::DeviceInfo *info)
+{
+    info->adapterInfo = m_info;
+
+    m_activeDeviceList->addWidget(info->item);
+}
+
+void AdapterWidget::removeDevice(BluetoothMainWidget::DeviceInfo *info, bool isDelete)
 {
     int index = m_deviceItemList->indexOf(info->item);
 
+    qDebug() << "remove" << index << info->item;
+
     if(index >= 0){
         info->adapterInfo = nullptr;
-        m_deviceItemList->removeWidget(index);
+        m_deviceItemList->removeWidget(index, isDelete);
+    }
+}
+
+void AdapterWidget::removeTrustedDevice(BluetoothMainWidget::DeviceInfo *info)
+{
+    int index = m_activeDeviceList->indexOf(info->item);
+
+    if(index >= 0){
+        info->adapterInfo = nullptr;
+        m_activeDeviceList->removeWidget(index);
     }
 }
 
@@ -86,23 +115,16 @@ void AdapterWidget::initUI()
     connect(m_bluetoothSwitch, &DSwitchButton::checkedChanged, this, [this](bool checked){
         if(m_info->powered != checked)
             m_info->bluetoothDbus->SetAdapterPowered(QDBusObjectPath(m_info->path), checked);
+        m_activeDeviceExpand->setVisible(checked);
     });
 
     QWidget *edit_name_widget = new QWidget;
     QVBoxLayout *editWidget_vLayout = new QVBoxLayout(edit_name_widget);
-    QHBoxLayout *editWidget_hLayout = new QHBoxLayout;
     DLineEdit *name_lineEdit = new DLineEdit;
-    DTextButton *cancel_button = new DTextButton(tr("Cancel"));
-    DTextButton *apply_button = new DTextButton(tr("Apply"));
 
     edit_name_widget->hide();
     editWidget_vLayout->setContentsMargins(10, 5, 10, 5);
-    editWidget_hLayout->setMargin(0);
     editWidget_vLayout->addWidget(name_lineEdit);
-    editWidget_vLayout->addLayout(editWidget_hLayout);
-    editWidget_hLayout->addStretch(1);
-    editWidget_hLayout->addWidget(cancel_button);
-    editWidget_hLayout->addWidget(apply_button);
 
     connect(edit_button, &ImageNameButton::clicked,
             this, [name_edit_switch, edit_name_widget, name_lineEdit, this]{
@@ -112,17 +134,18 @@ void AdapterWidget::initUI()
         edit_name_widget->show();
     });
 
-    connect(cancel_button, &DTextButton::clicked,
-            this, [name_edit_switch, edit_name_widget]{
+    connect(name_lineEdit, &DLineEdit::editingFinished, [this, edit_name_widget, name_lineEdit, name_edit_switch] {
+        if (name_lineEdit->text().isEmpty())
+            return;
+
+        m_info->bluetoothDbus->SetAdapterAlias(QDBusObjectPath(m_info->path), name_lineEdit->text());
+
         name_edit_switch->show();
         edit_name_widget->hide();
     });
-
-    connect(apply_button, &DTextButton::clicked,
-            this, [cancel_button, name_lineEdit, this]{
-        cancel_button->click();
-
-        m_info->bluetoothDbus->SetAdapterAlias(QDBusObjectPath(m_info->path), name_lineEdit->text());
+    connect(name_lineEdit, &DLineEdit::focusChanged, [this, edit_name_widget, name_lineEdit, name_edit_switch] (bool focus) {
+        if (!focus)
+            name_lineEdit->editingFinished();
     });
 
     DHeaderLine *headerline = new DHeaderLine;
@@ -155,12 +178,19 @@ void AdapterWidget::initUI()
         m_info->bluetoothDbus->RequestDiscovery(QDBusObjectPath(m_info->path));
     });
 
+    m_activeDeviceList = new DListWidget;
+    m_activeDeviceExpand = new DArrowLineExpand;
+    m_activeDeviceExpand->setTitle(tr("My devices"));
+    m_activeDeviceExpand->setContent(m_activeDeviceList);
+    m_activeDeviceExpand->setExpand(true);
+
     main_layout->addWidget(name_edit_switch);
     main_layout->addWidget(edit_name_widget);
     main_layout->addWidget(new DSeparatorHorizontal);
+    main_layout->addWidget(m_activeDeviceExpand);
+//    main_layout->addWidget(new DSeparatorHorizontal);
     main_layout->addWidget(headerline);
     main_layout->addWidget(new DSeparatorHorizontal);
     main_layout->addWidget(m_deviceItemList);
     main_layout->addWidget(m_listWidgetSeparator);
-    main_layout->addStretch(1);
 }

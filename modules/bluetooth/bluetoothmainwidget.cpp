@@ -8,7 +8,7 @@
 #include "moduleheader.h"
 #include "constants.h"
 
-#include "bluetoothlistitem.h"
+#include "deviceitemwidget.h"
 #include "bluetoothmainwidget.h"
 #include "adapterwidget.h"
 
@@ -77,7 +77,10 @@ BluetoothMainWidget::AdapterInfo* BluetoothMainWidget::newAdapterInfoByMap(const
                       DeviceInfo *device_info = newDeviceInfoByMap(tmp_map);
 
                       device_info->item = newDeviceListItem(device_info);
-                      info->widget->addDevice(device_info);
+                      if (device_info->paired)
+                        info->widget->addTrustedDevice(device_info);
+                      else
+                        info->widget->addDevice(device_info);
                   }
               }, this, info);
 
@@ -97,10 +100,11 @@ BluetoothMainWidget::DeviceInfo *BluetoothMainWidget::newDeviceInfoByMap(const Q
     return info;
 }
 
-DeviceListItem *BluetoothMainWidget::newDeviceListItem(DeviceInfo *device_info) const
+DeviceItemWidget *BluetoothMainWidget::newDeviceListItem(DeviceInfo *device_info) const
 {
-    DeviceListItem *item = new DeviceListItem(device_info);
+    DeviceItemWidget *item = new DeviceItemWidget(device_info);
     item->setFixedSize(DCC::ModuleContentWidth, DUI::EXPAND_HEADER_HEIGHT);
+    qDebug() << item->size();
 
     return item;
 }
@@ -121,6 +125,19 @@ void BluetoothMainWidget::updateDeviceInfoByMap(BluetoothMainWidget::DeviceInfo 
 {
     if(!info)
         return;
+
+    qDebug() << "update " << map["Paired"].toBool()  << "to " << info->trusted;
+
+    AdapterWidget *adapter = nullptr;
+    if (info->adapterInfo && info->adapterInfo->widget)
+        adapter = info->adapterInfo->widget;
+
+    if (adapter && map["Paired"].toBool())
+    {
+        qDebug() << "move ";
+        adapter->removeDevice(info, false);
+        adapter->addTrustedDevice(info);
+    }
 
     info->name = map["Alias"].toString();
     info->trusted = map["Trusted"].toBool();
@@ -174,7 +191,10 @@ void BluetoothMainWidget::intiBackend()
         if(info){
             DeviceInfo *device_info = m_pathToDeviceInfoMap.value(map["Path"].toString(), nullptr);
             if(device_info){
-                info->widget->removeDevice(device_info);
+                if (device_info->trusted)
+                    info->widget->removeTrustedDevice(device_info);
+                else
+                    info->widget->removeDevice(device_info, true);
                 m_pathToDeviceInfoMap.remove(device_info->path);
             }
         }
@@ -197,14 +217,14 @@ void BluetoothMainWidget::intiBackend()
     });
 }
 
-GenericListItem *getListItem(const QString &name)
-{
-    GenericListItem *item = new GenericListItem;
-    item->setTitle(name);
-    item->setShowBgColor(false);
+//GenericListItem *getListItem(const QString &name)
+//{
+//    GenericListItem *item = new GenericListItem;
+//    item->setTitle(name);
+//    item->setShowBgColor(false);
 
-    return item;
-}
+//    return item;
+//}
 
 void BluetoothMainWidget::initUI()
 {

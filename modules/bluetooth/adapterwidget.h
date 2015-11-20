@@ -7,8 +7,10 @@
 #include <libdui/dloadingindicator.h>
 #include <libdui/dswitchbutton.h>
 #include <libdui/dseparatorhorizontal.h>
+#include <libdui/darrowlineexpand.h>
 
 #include "bluetoothmainwidget.h"
+#include "confrimwidget.h"
 
 DUI_USE_NAMESPACE
 
@@ -21,8 +23,11 @@ public:
                            QWidget *parent = 0);
     ~AdapterWidget();
 
+    void addConfirm(ConfrimWidget *confirm, BluetoothMainWidget::DeviceInfo *info);
     void addDevice(BluetoothMainWidget::DeviceInfo *info);
-    void removeDevice(BluetoothMainWidget::DeviceInfo *info);
+    void addTrustedDevice(BluetoothMainWidget::DeviceInfo *info);
+    void removeDevice(BluetoothMainWidget::DeviceInfo *info, bool isDelete);
+    void removeTrustedDevice(BluetoothMainWidget::DeviceInfo *info);
 
 public slots:
     void updateUI();
@@ -35,6 +40,8 @@ private:
     BluetoothMainWidget::AdapterInfo *m_info = nullptr;
     NormalLabel *m_bluetoothName;
     DSwitchButton *m_bluetoothSwitch;
+    DArrowLineExpand *m_activeDeviceExpand;
+    DListWidget *m_activeDeviceList;
     DLoadingIndicator *m_refreshnndicator;
 };
 

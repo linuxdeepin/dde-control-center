@@ -11,7 +11,7 @@
 DUI_USE_NAMESPACE
 
 class AdapterWidget;
-class DeviceListItem;
+class DeviceItemWidget;
 class BluetoothMainWidget : public QFrame
 {
     Q_OBJECT
@@ -38,7 +38,7 @@ public:
         QString icon;
         QString computer;
         struct AdapterInfo *adapterInfo = nullptr;
-        DeviceListItem *item = nullptr;///
+        DeviceItemWidget *item = nullptr;///
 
         enum State{
             Disconnected = 0,
@@ -66,7 +66,7 @@ private:
 
     AdapterInfo* newAdapterInfoByMap(const QVariantMap &map);
     DeviceInfo* newDeviceInfoByMap(const QVariantMap &map);
-    DeviceListItem *newDeviceListItem(DeviceInfo* device_info) const;
+    DeviceItemWidget *newDeviceListItem(DeviceInfo* device_info) const;
 
     void updateAdapterInfoByMap(AdapterInfo *info, const QVariantMap &map);
     void updateDeviceInfoByMap(DeviceInfo *info, const QVariantMap &map);
