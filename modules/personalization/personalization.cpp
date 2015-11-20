@@ -474,16 +474,26 @@ void Personalization::updateCurrentTheme(QString themeKey){
        QString standardFont = obj.value("StandardFont").toObject().value("Id").toString();
        int sIndex = m_standardFonts.indexOf(standardFont);
 
-       ///因为DFontComboBox的bug，初始化setCurrentIndex为0时会导致标题显示为空，必须手动先设置为其他值，再设为0方可解决
-       m_standardFontCombox->setCurrentIndex((sIndex + 1) % m_standardFontCombox->count());
-       m_standardFontCombox->setCurrentIndex(sIndex);
+       if(sIndex >= 0) {
+           ///因为DFontComboBox的bug，初始化setCurrentIndex为0时会导致标题显示为空，必须手动先设置为其他值，再设为0方可解决
+           m_standardFontCombox->setCurrentIndex((sIndex + 1) % m_standardFontCombox->count());
+           m_standardFontCombox->setCurrentIndex(sIndex);
+       } else {
+           m_standardFontCombox->addFontItem(standardFont);
+           m_standardFontCombox->setCurrentIndex(m_standardFontCombox->count() - 1);
+       }
 
        QString monospaceFont = obj.value("MonospaceFont").toObject().value("Id").toString();
        int mIndex = m_monospaceFonts.indexOf(monospaceFont);
 
-       ///因为DFontComboBox的bug，初始化setCurrentIndex为0时会导致标题显示为空，必须手动先设置为其他值，再设为0方可解决
-       m_monospaceFontCombox->setCurrentIndex((mIndex + 1) % m_monospaceFontCombox->count());
-       m_monospaceFontCombox->setCurrentIndex(mIndex);
+       if(mIndex >= 0) {
+           ///因为DFontComboBox的bug，初始化setCurrentIndex为0时会导致标题显示为空，必须手动先设置为其他值，再设为0方可解决
+           m_monospaceFontCombox->setCurrentIndex((mIndex + 1) % m_monospaceFontCombox->count());
+           m_monospaceFontCombox->setCurrentIndex(mIndex);
+       } else {
+           m_monospaceFontCombox->addFontItem(monospaceFont);
+           m_monospaceFontCombox->setCurrentIndex(m_monospaceFontCombox->count() - 1);
+       }
     }
 }
 
