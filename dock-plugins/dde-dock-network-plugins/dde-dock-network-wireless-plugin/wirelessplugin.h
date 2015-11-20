@@ -51,7 +51,6 @@ private:
     void onDisableChanged(const QString &id);
     void onDevicesChanged();
 
-    QStringList wiredDevicePaths();
     QMap<QString, QString> wirelessDevices();
     QString settingDisabledKey(const QString &id);
 };

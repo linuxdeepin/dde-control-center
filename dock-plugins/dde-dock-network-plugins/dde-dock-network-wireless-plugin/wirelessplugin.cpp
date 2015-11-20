@@ -28,8 +28,9 @@ void WirelessPlugin::init(DockPluginProxyInterface *proxy)
     m_proxy = proxy;
     m_mode = proxy->dockMode();
     //for init
-    if (m_mode != Dock::FashionMode)
+    if (m_mode != Dock::FashionMode) {
         onDevicesChanged();
+    }
 }
 
 QString WirelessPlugin::getPluginName()
@@ -148,8 +149,20 @@ void WirelessPlugin::onDisableChanged(const QString &id)
     m_proxy->infoChangedEvent(DockPluginInterface::CanDisable, id);
 }
 
+int retryTimes = 10;
 void WirelessPlugin::onDevicesChanged()
 {
+    if (!m_dbusNetwork->isValid()) {
+        QTimer *retryTimer = new QTimer(this);
+        retryTimer->setSingleShot(true);
+        connect(retryTimer, &QTimer::timeout, this, &WirelessPlugin::onDevicesChanged);
+        connect(retryTimer, &QTimer::timeout, retryTimer, &QTimer::deleteLater);
+        retryTimer->start(1000);
+        return;
+    }
+    qWarning() << "Network dbus data is ready!";
+    retryTimes = 10;
+
     QJsonArray pathArray = NetworkPlugin::deviceArray(NetworkPlugin::ConnectionTypeWireless, m_dbusNetwork);
 
     QStringList idList;
@@ -187,24 +200,15 @@ void WirelessPlugin::onDevicesChanged()
 QMap<QString, QString> WirelessPlugin::wirelessDevices()
 {
     QMap<QString, QString> tmpMap;
-    QJsonArray pathArray = NetworkPlugin::deviceArray(NetworkPlugin::ConnectionTypeWireless, m_dbusNetwork);
-    foreach (QJsonValue pathValue, pathArray) {
-        tmpMap.insert(pathValue.toObject().value("UniqueUuid").toString(),
-                      pathValue.toObject().value("Vendor").toString());
+    if (m_dbusNetwork->isValid()) {
+        QJsonArray pathArray = NetworkPlugin::deviceArray(NetworkPlugin::ConnectionTypeWireless, m_dbusNetwork);
+        foreach (QJsonValue pathValue, pathArray) {
+            tmpMap.insert(pathValue.toObject().value("UniqueUuid").toString(),
+                          pathValue.toObject().value("Vendor").toString());
+        }
     }
 
     return tmpMap;
-}
-
-QStringList WirelessPlugin::wiredDevicePaths()
-{
-    QStringList tmpList;
-    QJsonArray pathArray = NetworkPlugin::deviceArray(NetworkPlugin::ConnectionTypeWired, m_dbusNetwork);
-    foreach (QJsonValue pathValue, pathArray) {
-        tmpList << pathValue.toObject().value("Path").toString();
-    }
-
-    return tmpList;
 }
 
 QString WirelessPlugin::settingDisabledKey(const QString &id)
