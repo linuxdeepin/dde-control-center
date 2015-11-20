@@ -40,7 +40,8 @@ QString WirelessPlugin::getPluginName()
 
 QStringList WirelessPlugin::ids()
 {
-    return wirelessDevices().keys();
+    QStringList list = m_mode == Dock::FashionMode ? QStringList() : wirelessDevices().keys();
+    return list;
 }
 
 QString WirelessPlugin::getName(QString id)
