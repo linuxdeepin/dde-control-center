@@ -30,9 +30,9 @@ public:
     QString getTitle(QString id) Q_DECL_OVERRIDE;
     QString getCommand(QString id) Q_DECL_OVERRIDE;
     QPixmap getIcon(QString) Q_DECL_OVERRIDE;
-    bool canDisable(QString id) Q_DECL_OVERRIDE;
-    bool isDisabled(QString id) Q_DECL_OVERRIDE;
-    void setDisabled(QString id, bool disabled) Q_DECL_OVERRIDE;
+    bool configurable(const QString &id) Q_DECL_OVERRIDE;
+    bool enabled(const QString &id) Q_DECL_OVERRIDE;
+    void setEnabled(const QString &id, bool enable) Q_DECL_OVERRIDE;
     QWidget * getItem(QString id) Q_DECL_OVERRIDE;
     QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
     void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
@@ -53,9 +53,9 @@ private:
     QSettings * m_settings;
 
     void initSettings();
-    void onDisableChanged();
+    void onEnabledChanged();
     void setMode(Dock::DockMode mode);
-    QString settingDisabledKey();
+    QString settingEnabledKey();
     QString getBatteryIcon(int percentage, bool plugged, bool symbolic = false);
 
 private slots:

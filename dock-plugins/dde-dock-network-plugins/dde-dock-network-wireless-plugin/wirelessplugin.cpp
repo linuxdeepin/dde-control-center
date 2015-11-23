@@ -65,34 +65,42 @@ QPixmap WirelessPlugin::getIcon(QString)
     return icon.scaled(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_EFFICIENT_ICON_SIZE);
 }
 
-bool WirelessPlugin::canDisable(QString)
+bool WirelessPlugin::configurable(const QString &id)
 {
-    return true;
+    return m_mode == Dock::FashionMode ? false : m_itemMap.keys().indexOf(id) != -1;
 }
 
-bool WirelessPlugin::isDisabled(QString id)
+bool WirelessPlugin::enabled(const QString &id)
 {
-    return m_settings->value(settingDisabledKey(id)).toBool();
+    QVariant value = m_settings->value(settingEnabledKey(id));
+    return !value.isValid() ? true : value.toBool();    //default enabled
 }
 
-void WirelessPlugin::setDisabled(QString id, bool disabled)
+void WirelessPlugin::setEnabled(const QString &id, bool enabled)
 {
-    m_settings->setValue(settingDisabledKey(id), disabled);
+    m_settings->setValue(settingEnabledKey(id), enabled);
 
-    onDisableChanged(id);
+    onEnabledChanged(id);
 }
 
 QWidget * WirelessPlugin::getApplet(QString id)
 {
-    return m_itemMap.value(id)->applet();
+    if (m_itemMap.value(id))
+        return m_itemMap.value(id)->applet();
+    else
+        return NULL;
 }
 
 QWidget * WirelessPlugin::getItem(QString id)
 {
     if (m_mode == Dock::FashionMode)
         return NULL;
-    else
-        return m_itemMap.value(id);
+    else {
+        if (enabled(id) && m_itemMap.value(id))
+            return m_itemMap.value(id);
+        else
+            return NULL;
+    }
 }
 
 void WirelessPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
@@ -101,12 +109,11 @@ void WirelessPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
     if (m_dbusNetwork->isValid() && (newMode != oldMode)){
         if (newMode == Dock::FashionMode) {
             foreach (QString id, m_itemMap.keys()) {
-                m_proxy->itemRemovedEvent(id);
-                m_itemMap.value(id)->deleteLater();
-                m_itemMap.remove(id);
+                removeItem(id);
+                m_itemMap.take(id)->deleteLater();
             }
         }
-        else if (oldMode == Dock::FashionMode){
+        else {
             onDevicesChanged();
         }
     }
@@ -127,27 +134,43 @@ void WirelessPlugin::initSettings()
     m_settings = new QSettings("deepin", "dde-dock-network-wireless-plugin", this);
 
     if (!QFile::exists(m_settings->fileName())) {
-        foreach (QString id, wirelessDevices()) {
-            m_settings->setValue(settingDisabledKey(id), false);
+        foreach (QString id, wirelessDevices().keys()) {
+            setEnabled(id, true);
         }
     }
 }
 
-void WirelessPlugin::onDisableChanged(const QString &id)
+void WirelessPlugin::addNewItem(const QString &id, WirelessItem *item)
+{
+    m_itemMap.insert(id, item);
+
+    m_proxy->itemAddedEvent(id);
+    //add setting line to dock plugins setting frame
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
+}
+
+void WirelessPlugin::removeItem(const QString &id)
 {
     m_proxy->itemRemovedEvent(id);
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
+}
 
-    if (!isDisabled(id)) {
+void WirelessPlugin::onEnabledChanged(const QString &id)
+{
+    if (!m_proxy)
+        return;
+
+    removeItem(id);
+
+    if (enabled(id)) {
         WirelessItem *item = new WirelessItem(id, m_dbusNetwork);
         connect(item, &WirelessItem::sizeChanged, [=]{
-            m_proxy->infoChangedEvent(DockPluginInterface::AppletSize, id);
+            m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeAppletSize, id);
         });
-        m_itemMap.insert(id, item);
-
-        m_proxy->itemAddedEvent(id);
+        addNewItem(id, item);
     }
 
-    m_proxy->infoChangedEvent(DockPluginInterface::CanDisable, id);
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
 }
 
 int retryTimes = 10;
@@ -164,24 +187,11 @@ void WirelessPlugin::onDevicesChanged()
     qWarning() << "Network dbus data is ready!";
     retryTimes = 10;
 
-    QJsonArray pathArray = NetworkPlugin::deviceArray(NetworkPlugin::ConnectionTypeWireless, m_dbusNetwork);
-
-    QStringList idList;
-    foreach (QJsonValue value, pathArray) {
-        idList << value.toObject().value("UniqueUuid").toString();
-    }
-
+    QStringList idList = wirelessDevices().keys();
     //remove old
-    QStringList oldIdList;
     foreach (QString id, m_itemMap.keys()) {
         if (idList.indexOf(id) == -1)
-            oldIdList << id;
-    }
-    foreach (QString id, oldIdList) {
-        m_proxy->itemRemovedEvent(id);
-
-        m_itemMap.value(id)->deleteLater();
-        m_itemMap.remove(id);
+            m_itemMap.take(id)->deleteLater();
     }
 
     //add new
@@ -189,12 +199,13 @@ void WirelessPlugin::onDevicesChanged()
         if (m_itemMap.keys().indexOf(id) == -1) {
             WirelessItem *item = new WirelessItem(id, m_dbusNetwork);
             connect(item, &WirelessItem::sizeChanged, [=]{
-                m_proxy->infoChangedEvent(DockPluginInterface::AppletSize, id);
+                m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeAppletSize, id);
             });
-            m_itemMap.insert(id, item);
-
-            m_proxy->itemAddedEvent(id);
+            addNewItem(id, item);
         }
+        //update setting state
+        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
+        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeTitle, id);
     }
 }
 
@@ -212,7 +223,7 @@ QMap<QString, QString> WirelessPlugin::wirelessDevices()
     return tmpMap;
 }
 
-QString WirelessPlugin::settingDisabledKey(const QString &id)
+QString WirelessPlugin::settingEnabledKey(const QString &id)
 {
-    return QString::number(m_mode) + QString("/%1_disabled").arg(id);
+    return QString::number(m_mode) + QString("/%1_enabled").arg(id);
 }

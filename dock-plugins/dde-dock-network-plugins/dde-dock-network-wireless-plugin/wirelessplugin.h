@@ -34,9 +34,9 @@ public:
     QPixmap getIcon(QString) Q_DECL_OVERRIDE;
     QWidget * getItem(QString id) Q_DECL_OVERRIDE;
     QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
-    bool isDisabled(QString id) Q_DECL_OVERRIDE;
-    bool canDisable(QString id) Q_DECL_OVERRIDE;
-    void setDisabled(QString id, bool disabled) Q_DECL_OVERRIDE;
+    bool configurable(const QString &id) Q_DECL_OVERRIDE;
+    bool enabled(const QString &id) Q_DECL_OVERRIDE;
+    void setEnabled(const QString &id, bool enabled) Q_DECL_OVERRIDE;
     void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
     void invokeMenuItem(QString, QString, bool) Q_DECL_OVERRIDE;
 
@@ -48,11 +48,13 @@ private:
     com::deepin::daemon::DBusNetwork * m_dbusNetwork;
 
     void initSettings();
-    void onDisableChanged(const QString &id);
+    void addNewItem(const QString &id, WirelessItem * item);
+    void removeItem(const QString &id);
+    void onEnabledChanged(const QString &id);
     void onDevicesChanged();
 
     QMap<QString, QString> wirelessDevices();
-    QString settingDisabledKey(const QString &id);
+    QString settingEnabledKey(const QString &id);
 };
 
 #endif // WIRELESSPLUGIN_H

@@ -93,24 +93,24 @@ QPixmap PowerPlugin::getIcon(QString)
     return icon.pixmap(QSize(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_CLASSIC_ICON_SIZE));
 }
 
-bool PowerPlugin::canDisable(QString)
+bool PowerPlugin::configurable(const QString &)
 {
     return m_dbusPower->isValid() ? m_dbusPower->batteryIsPresent() : false;
 }
 
-bool PowerPlugin::isDisabled(QString)
+bool PowerPlugin::enabled(const QString &)
 {
-    return m_settings->value(settingDisabledKey()).toBool();
+    return m_settings->value(settingEnabledKey()).toBool();
 }
 
-void PowerPlugin::setDisabled(QString id, bool disabled)
+void PowerPlugin::setEnabled(const QString & id, bool enable)
 {
     if (id != m_id)
         return;
 
-    m_settings->setValue(settingDisabledKey(), disabled);
+    m_settings->setValue(settingEnabledKey(), enable);
 
-    onDisableChanged();
+    onEnabledChanged();
 }
 
 QWidget * PowerPlugin::getApplet(QString)
@@ -123,9 +123,9 @@ QWidget * PowerPlugin::getItem(QString)
     if (!m_dbusPower->isValid())
         return NULL;
 
-    bool disable = m_settings->value(settingDisabledKey()).toBool();
+    bool enable = m_settings->value(settingEnabledKey()).toBool();
 
-    if (m_dbusPower->batteryIsPresent() && !disable) {
+    if (m_dbusPower->batteryIsPresent() && enable) {
         return m_label;
     } else {
         return NULL;
@@ -135,9 +135,9 @@ QWidget * PowerPlugin::getItem(QString)
 void PowerPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
 {
     if (m_dbusPower->isValid() && (newMode != oldMode)){
-        //make sure m_mode changed beford update disable-state
+        //make sure m_mode changed beford update enable-state
         setMode(newMode);
-        onDisableChanged();
+        onEnabledChanged();
     }
 }
 
@@ -205,7 +205,7 @@ void PowerPlugin::onInitTimerTriggered()
         t->deleteLater();
 
         setMode(m_proxy->dockMode());
-        onDisableChanged();
+        onEnabledChanged();
     }
 }
 
@@ -216,19 +216,19 @@ void PowerPlugin::initSettings()
     m_settings = new QSettings("deepin", "dde-dock-power-plugin", this);
 
     if (!QFile::exists(m_settings->fileName())) {
-        m_settings->setValue(settingDisabledKey(), false);
+        m_settings->setValue(settingEnabledKey(), true);
     }
 }
 
-void PowerPlugin::onDisableChanged()
+void PowerPlugin::onEnabledChanged()
 {
     m_proxy->itemRemovedEvent(m_id);
     m_label->setParent(NULL);
 
-    if (!isDisabled(m_id))
+    if (enabled(m_id))
         m_proxy->itemAddedEvent(m_id);
 
-    m_proxy->infoChangedEvent(DockPluginInterface::CanDisable, m_id);
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, m_id);
 }
 
 void PowerPlugin::setMode(Dock::DockMode mode)
@@ -238,9 +238,9 @@ void PowerPlugin::setMode(Dock::DockMode mode)
     updateIcon();
 }
 
-QString PowerPlugin::settingDisabledKey()
+QString PowerPlugin::settingEnabledKey()
 {
-    return QString::number(m_mode) + "/disabled";
+    return QString::number(m_mode) + "/enabled";
 }
 
 void PowerPlugin::updateIcon()
@@ -268,7 +268,7 @@ void PowerPlugin::updateIcon()
     QIcon fallback = QIcon::fromTheme("application-default-icon");
     QIcon icon = QIcon::fromTheme(iconName, fallback);
     m_label->setPixmap(icon.pixmap(m_label->size()));
-    m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeItemSize, m_id);
 }
 
 QString PowerPlugin::getBatteryIcon(int percentage, bool plugged, bool symbolic)

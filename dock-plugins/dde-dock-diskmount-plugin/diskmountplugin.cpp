@@ -45,17 +45,17 @@ QString DiskMountPlugin::getCommand(QString)
     return "";
 }
 
-bool DiskMountPlugin::canDisable(QString)
+bool DiskMountPlugin::configurable(const QString &)
 {
     return false;
 }
 
-bool DiskMountPlugin::isDisabled(QString)
+bool DiskMountPlugin::enabled(const QString &)
 {
-    return false;
+    return true;
 }
 
-void DiskMountPlugin::setDisabled(QString, bool)
+void DiskMountPlugin::setEnabled(const QString &, bool)
 {
 
 }
@@ -135,7 +135,7 @@ void DiskMountPlugin::setMode(Dock::DockMode mode)
 
     emit dockModeChanged(mode);
 
-    m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeItemSize, m_id);
 }
 
 QJsonObject DiskMountPlugin::createMenuItem(QString itemId, QString itemName, bool checkable, bool checked)

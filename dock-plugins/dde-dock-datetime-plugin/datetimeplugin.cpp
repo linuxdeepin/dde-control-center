@@ -79,17 +79,17 @@ QString DateTimePlugin::getCommand(QString)
     return "dde-control-center datetime";
 }
 
-bool DateTimePlugin::canDisable(QString)
+bool DateTimePlugin::configurable(const QString &)
 {
     return false;
 }
 
-bool DateTimePlugin::isDisabled(QString)
+bool DateTimePlugin::enabled(const QString &)
 {
-    return false;
+    return true;
 }
 
-void DateTimePlugin::setDisabled(QString, bool)
+void DateTimePlugin::setEnabled(const QString &, bool)
 {
 
 }
@@ -154,7 +154,7 @@ void DateTimePlugin::updateTime()
             int textWidth = metrics.width(newText);
             int textHeight = metrics.height();
             m_item->setFixedSize(textWidth + RIGHT_PADDING, textHeight);
-            m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
+            m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeItemSize, m_id);
         }
     }
 }
@@ -275,7 +275,7 @@ void DateTimePlugin::setMode(Dock::DockMode mode)
         m_item->setFixedSize(textWidth + RIGHT_PADDING, textHeight);
     }
 
-    m_proxy->infoChangedEvent(DockPluginInterface::ItemSize, m_id);
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeItemSize, m_id);
 }
 
 QJsonObject DateTimePlugin::createMenuItem(QString itemId, QString itemName, bool checkable, bool checked)
