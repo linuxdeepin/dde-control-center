@@ -9,9 +9,11 @@
 #include "contentview.h"
 #include "sidebar.h"
 #include "constants.h"
+#include "controlcenterproxy.h"
 
-ContentView::ContentView(QWidget *parent)
-    : QFrame(parent)
+ContentView::ContentView(ControlCenterProxy *proxy, QWidget *parent)
+    : QFrame(parent),
+    m_controlCenterProxy(proxy)
 {
     m_pluginLoader = new QPluginLoader(this);
 #ifdef QT_DEBUG
@@ -95,6 +97,7 @@ void ContentView::switchToModule(ModuleMetaData module)
         QWidget *content = interface->getContent();
         if (!content)
             break;
+        m_lastPluginInterface->setProxy(m_controlCenterProxy);
         m_lastPluginWidget = content;
         m_lastPluginWidget->setFixedWidth(DCC::ModuleContentWidth);
         m_lastPluginWidgetContainerLayout->addWidget(m_lastPluginWidget);

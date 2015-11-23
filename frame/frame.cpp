@@ -3,6 +3,7 @@
 #include "contentview.h"
 #include "constants.h"
 #include "dtipsframe.h"
+#include "controlcenterproxy.h"
 #include "dbus/displayinterface.h"
 
 #include <QDir>
@@ -21,7 +22,8 @@ DUI_USE_NAMESPACE
 
 Frame::Frame(QWidget *parent) :
     QFrame(parent),
-    m_dbusXMouseArea(new DBusXMouseArea(this))
+    m_dbusXMouseArea(new DBusXMouseArea(this)),
+    m_controlProxy(new ControlCenterProxy(this))
 {
     QPalette palette;
     palette.setColor(QPalette::Background, DCC::BgLightColor);
@@ -29,7 +31,7 @@ Frame::Frame(QWidget *parent) :
     m_centeralWidget->setPalette(palette);
     m_centeralWidget->setAutoFillBackground(true);
 
-    m_contentView = new ContentView(m_centeralWidget);
+    m_contentView = new ContentView(m_controlProxy, m_centeralWidget);
     m_homeScreen = new HomeScreen(m_centeralWidget);
 
     m_leftShadow = new QWidget;

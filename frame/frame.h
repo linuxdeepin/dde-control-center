@@ -16,6 +16,7 @@ class QKeyEvent;
 class HomeScreen;
 class ContentView;
 class DBusControlCenterService;
+class ControlCenterProxy;
 class Frame: public QFrame
 {
     Q_OBJECT
@@ -59,6 +60,7 @@ private:
     QWidget *m_centeralWarpper;
     QWidget *m_leftShadow;
     QWidget *m_rightShadow;
+    ControlCenterProxy *m_controlProxy;
 
     QString m_dbusFullScreenKey = QString();
 

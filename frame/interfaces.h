@@ -3,6 +3,7 @@
 
 #include <QFrame>
 
+class ControlCenterProxy;
 class ModuleInterface
 {
 public:
@@ -14,6 +15,10 @@ public slots:
     // TODO
     // preUnload should be executed before every unload operations.
     virtual void preUnload() {}
+    virtual inline void setProxy(ControlCenterProxy *proxy) {m_controlCenterProxy = proxy;}
+
+protected:
+    ControlCenterProxy *m_controlCenterProxy;
 };
 
 

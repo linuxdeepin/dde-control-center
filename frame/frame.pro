@@ -14,7 +14,8 @@ HEADERS    = frame.h \
     dbus/dbuscontrolcenterservice.h \
     pluginsmanager.h \
     dbus/dbusbluetooth.h \
-    dbus/dbuswacom.h
+    dbus/dbuswacom.h \
+    controlcenterproxy.h
 SOURCES    = frame.cpp \
              main.cpp \
     homescreen.cpp \
@@ -27,7 +28,8 @@ SOURCES    = frame.cpp \
     dbus/dbuscontrolcenterservice.cpp \
     pluginsmanager.cpp \
     dbus/dbuswacom.cpp \
-    dbus/dbusbluetooth.cpp
+    dbus/dbusbluetooth.cpp \
+    controlcenterproxy.cpp
 
 include(../cutelogger/cutelogger.pri)
 TARGET     = dde-control-center

@@ -15,13 +15,14 @@
 
 DUI_USE_NAMESPACE
 
+class ControlCenterProxy;
 class QHBoxLayout;
 class SideBar;
 class ContentView : public QFrame
 {
     Q_OBJECT
 public:
-    explicit ContentView(QWidget *parent = 0);
+    explicit ContentView(ControlCenterProxy *proxy, QWidget *parent = 0);
     ~ContentView();
 
     void switchToModule(ModuleMetaData module);
@@ -41,6 +42,7 @@ private:
     QHBoxLayout *m_layout;
     SideBar *m_sideBar;
     QPluginLoader *m_pluginLoader;
+    ControlCenterProxy *m_controlCenterProxy;
 
 private slots:
     void onModuleSelected(ModuleMetaData meta);
