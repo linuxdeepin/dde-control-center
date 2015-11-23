@@ -126,6 +126,7 @@ SystemInfo::SystemInfo()
     license->setTitle(tr("GNU GENERAL PUBLIC LICENSE"));
     license->setContent(m_licenseArea);
 
+#ifdef DCC_SYSINFO_UPDATE
     m_updateInfoWidget = new UpdateWidget;
     m_mirrorsControlWidget = new MirrorsControlWidget;
     m_mirrorsControlWidget->hide();
@@ -145,6 +146,7 @@ SystemInfo::SystemInfo()
     DExpandGroup *expandGrp = new DExpandGroup(this);
     expandGrp->addExpand(license);
     expandGrp->addExpand(m_updateExpand);
+#endif // DCC_SYSINFO_UPDATE
 
     QVBoxLayout *centeralLayout = new QVBoxLayout;
     centeralLayout->addWidget(m_baseLine);
@@ -152,7 +154,9 @@ SystemInfo::SystemInfo()
     centeralLayout->addWidget(m_infoWidget);
     centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(license);
+#ifdef DCC_SYSINFO_UPDATE
     centeralLayout->addWidget(m_updateExpand);
+#endif
     centeralLayout->addStretch(1);
     centeralLayout->setSpacing(0);
     centeralLayout->setMargin(0);
@@ -161,6 +165,7 @@ SystemInfo::SystemInfo()
     m_centeralFrame->installEventFilter(this);
     m_centeralFrame->setLayout(centeralLayout);
 
+#ifdef DCC_SYSINFO_UPDATE
     connect(m_updateInfoWidget, &UpdateWidget::updatableNumsChanged, this, &SystemInfo::onUpdatableNumsChange);
     connect(m_updateExpand, &UpdateArrowExpand::configButtonClicked, [this] {
         m_updateInfoWidget->hide();
@@ -170,6 +175,7 @@ SystemInfo::SystemInfo()
         m_updateInfoWidget->show();
         m_mirrorsControlWidget->hide();
     });
+#endif
 }
 
 SystemInfo::~SystemInfo()
@@ -207,12 +213,19 @@ void SystemInfo::updateWidgetHeight()
     const int expandContentHeight = m_centeralFrame->height()
                                     - m_infoWidget->height()
                                     - m_baseLine->height()
+#ifdef DCC_SYSINFO_UPDATE
                                     - 32 * 2 // 32 for DArrowLine
+#else
+                                    - 32 * 1 // 32 for DArrowLine
+#endif
                                     - 2 * 3; // 2 for DSeparatorHorizontal
     m_licenseArea->setFixedHeight(expandContentHeight);
+
+#ifdef DCC_SYSINFO_UPDATE
     m_updateWidget->setFixedHeight(expandContentHeight);
     m_updateInfoWidget->setFixedHeight(expandContentHeight);
     m_mirrorsControlWidget->setFixedHeight(expandContentHeight);
+#endif
 }
 
 bool SystemInfo::eventFilter(QObject *o, QEvent *e)

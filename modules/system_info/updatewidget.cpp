@@ -37,12 +37,13 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_updateProgress->setValue(0);
     m_updateProgress->hide();
     m_appsList = new DListWidget;
+    m_appsList->setMinimumHeight(0);
     m_appsList->setFixedWidth(DCC::ModuleContentWidth);
     m_appsList->setItemSize(DCC::ModuleContentWidth, 50);
     m_appsList->setEnableVerticalScroll(true);
     m_appsList->setObjectName("AppList");
     m_appsList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-
+    m_appSeparator = new DSeparatorHorizontal;
     m_dbusUpdateInter = new DBusLastoreUpdater("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
     m_dbusJobManagerInter = new DBusUpdateJobManager("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
 
@@ -75,8 +76,8 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
     QVBoxLayout *mainVLayout = new QVBoxLayout;
     mainVLayout->addWidget(interalWidget);
-    mainVLayout->addWidget(new DSeparatorHorizontal);
-    mainVLayout->addStretch();
+    mainVLayout->addWidget(m_appSeparator);
+    mainVLayout->addStretch(1);
     mainVLayout->setSpacing(0);
     mainVLayout->setMargin(0);
 
@@ -177,11 +178,19 @@ void UpdateWidget::removeJob()
 
 void UpdateWidget::updateInfo(const int updatableAppsNum)
 {
+    qDebug() << "updatable apps num: " << updatableAppsNum;
+
     if (!updatableAppsNum)
     {
         m_updateCountTips->setText(tr("No update avaliable."));
         m_updateSizeTips->clear();
+        m_appsList->hide();
+        m_appSeparator->hide();
+        m_updateSizeTips->hide();
     } else {
+        m_appsList->show();
+        m_appSeparator->show();
+        m_updateSizeTips->show();
         m_updateCountTips->setText(QString(tr("You have %1 softwares need update")).arg(updatableAppsNum));
 
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->PackagesDownloadSize(m_dbusJobManagerInter->upgradableApps()), this);
@@ -189,17 +198,19 @@ void UpdateWidget::updateInfo(const int updatableAppsNum)
             m_updateSizeTips->setText(QString(tr("Total download size: %1")).arg(formatCap(watcher->reply().arguments().first().toLongLong(), 1000)));
             watcher->deleteLater();
         });
+
+
+        ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsList->getWidget(m_appsList->count() - 1));
+        if (item)
+            item->hideSeparator();
     }
-
-    ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsList->getWidget(m_appsList->count() - 1));
-    if (item)
-        item->hideSeparator();
-
-    qDebug() << m_appsList->sizeHint() << m_appsList->count() << m_appsList->size()<< m_appsList->maximumSize();
 }
 
 void UpdateWidget::systemUpgrade()
 {
+    // TODO: if no system update avaliable
+//    if (m_updateSizeTips->isVisible())
+
     m_updateProgress->setValue(0);
     m_updateProgress->show();
     m_updateButton->hide();

@@ -9,6 +9,7 @@
 #include <libdui/dcircleprogress.h>
 #include <libdui/dlistwidget.h>
 #include <libdui/dimagebutton.h>
+#include <libdui/dseparatorhorizontal.h>
 
 #include "applictionitemwidget.h"
 #include "dbus/dbuslastoreupdater.h"
@@ -67,6 +68,7 @@ private:
     DBusUpdateJob *m_dbusSystemUpgrade = nullptr;
     DBusLastoreUpdater *m_dbusUpdateInter;
     DBusUpdateJobManager *m_dbusJobManagerInter;
+    DSeparatorHorizontal *m_appSeparator;
 };
 
 #endif // UPDATEWIDGET_H

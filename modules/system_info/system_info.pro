@@ -43,3 +43,11 @@ RESOURCES += \
 
 target.path = $${PREFIX}/lib/dde-control-center/modules/
 INSTALLS += target
+
+isEmpty(WITH_MODULE_SYSINFO_UPDATE) {
+    WITH_MODULE_SYSINFO_UPDATE = YES
+}
+
+isEqual(WITH_MODULE_SYSINFO_UPDATE, YES) {
+    DEFINES += DCC_SYSINFO_UPDATE
+}
