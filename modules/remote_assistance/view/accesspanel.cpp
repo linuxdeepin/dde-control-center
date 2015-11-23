@@ -52,6 +52,7 @@ void AccessPanel::onConnected()
 {
     qDebug() << "connected";
     auto view = new ConnectedView;
+    view->setText(tr("You are accessing the desktop shared by other users, you can choose to continue or disconnect"));
     connect(view, SIGNAL(disconnect()), this, SLOT(onDisconnected()));
     setWidget(view);
     connect(m_controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));

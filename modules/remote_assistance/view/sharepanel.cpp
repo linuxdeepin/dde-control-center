@@ -36,6 +36,7 @@ void SharePanel::onSharing()
 {
     qDebug() << "sharing";
     auto view = new ConnectedView;
+    view->setText(tr("Sharing your desktop, your can continue to share or choose to disconnect"));
     connect(view, SIGNAL(disconnect()), this, SLOT(onDisconnected()));
     setWidget(view);
 }

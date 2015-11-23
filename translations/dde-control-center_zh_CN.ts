@@ -28,22 +28,27 @@
         <translation>正在访问</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="63"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="55"/>
+        <source>You are accessing the desktop shared by other users, you can choose to continue or disconnect</source>
+        <translation>您正在访问其他用户共享的桌面，您可以继续操作或选择断开</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="64"/>
         <source>Remote Assistance</source>
         <translation>远程协助</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="73"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="74"/>
         <source>Failed to establish the connection, you can retry to connect</source>
         <translation>建立链接失败，您可以重新尝试链接</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="74"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="75"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="79"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="80"/>
         <source>Retry</source>
         <translation>重试</translation>
     </message>
@@ -942,7 +947,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="102"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 \&quot;%2\&quot; 卸载失败，请重试。</translation>
     </message>
     <message>
         <source>Failed to uninstall %1 &quot;%2&quot;, please retry.</source>
@@ -2062,27 +2067,32 @@
     <name>SharePanel</name>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="17"/>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="77"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="78"/>
         <source>Sharing</source>
         <translation>正在共享</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="67"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="39"/>
+        <source>Sharing your desktop, your can continue to share or choose to disconnect</source>
+        <translation>正在共享您的桌面，您可以继续共享或者选择断开</translation>
+    </message>
+    <message>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="68"/>
         <source>Remote Assistance</source>
         <translation>远程协助</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="70"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="71"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="75"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="76"/>
         <source>Retry</source>
         <translation>重试</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="81"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="82"/>
         <source>Failed to establish the connection, you can retry to connect</source>
         <translation>建立链接失败，您可以尝试重新链接</translation>
     </message>
