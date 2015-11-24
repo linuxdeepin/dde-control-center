@@ -1,5 +1,9 @@
 #include "diskcontent.h"
 
+const int DISK_ITEM_HEIGHT = 80;
+const int DISK_ITEM_WIDTH = 220;
+const int DISK_ITEM_MARGIN = 10;
+const int DISK_ITEM_SPACING = 6;
 DiskContent::DiskContent(const QString &id, DockPluginProxyInterface *proxy, QWidget *parent)
     : QWidget(parent), m_id(id), m_proxy(proxy)
 {
@@ -7,6 +11,8 @@ DiskContent::DiskContent(const QString &id, DockPluginProxyInterface *proxy, QWi
     initDiskMount();
 
     m_mainLayout = new QVBoxLayout(this);
+    m_mainLayout->setContentsMargins(DISK_ITEM_MARGIN, DISK_ITEM_MARGIN, DISK_ITEM_MARGIN, DISK_ITEM_MARGIN);
+    m_mainLayout->setSpacing(DISK_ITEM_SPACING);
     setLayout(m_mainLayout);
 
     updateMountDisks();
@@ -34,6 +40,7 @@ void DiskContent::initDiskMount()
 
 void DiskContent::updateMountDisks()
 {
+    bool infoChanged = false;
     DiskInfoList tmpList = m_diskMount->diskList();
     QStringList idList;
     foreach (DiskInfo info, tmpList)
@@ -50,6 +57,7 @@ void DiskContent::updateMountDisks()
             m_itemList.insert(info.uUID,item);
             m_mainLayout->addWidget(item);
 
+            infoChanged = true;
             qWarning() << "Disk Mounted:" << info.uUID;
         }
     }
@@ -62,13 +70,17 @@ void DiskContent::updateMountDisks()
             m_mainLayout->removeWidget(item);
             item->deleteLater();
 
+            infoChanged = true;
             qWarning() << "Disk Unmounted:" << id;
         }
     }
 
-    adjustSize();
+    int spacing = DISK_ITEM_MARGIN + DISK_ITEM_SPACING;
+    setFixedSize(DISK_ITEM_WIDTH + DISK_ITEM_MARGIN * 2,
+                 (DISK_ITEM_HEIGHT + spacing) * m_mainLayout->count() - spacing);
 
-    m_proxy->infoChangedEvent(DockPluginInterface::AppletSize, m_id);
+    if (infoChanged)
+        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeAppletSize, m_id);
 }
 
 DiskContent::~DiskContent()

@@ -1,5 +1,7 @@
 #include "diskitem.h"
 
+const int DISK_ITEM_HEIGHT = 80;
+const int DISK_ITEM_WIDTH = 220;
 DiskItem::DiskItem(const QString &id, DBusDiskMount *diskMount, QWidget *parent)
     : QLabel(parent), m_id(id)
 {
@@ -12,7 +14,7 @@ DiskItem::DiskItem(const QString &id, DBusDiskMount *diskMount, QWidget *parent)
     m_diskMount = diskMount;
     connect(diskMount, &DBusDiskMount::DiskListChanged, this, &DiskItem::updateData);
     connect(diskMount, &DBusDiskMount::Error, this, &DiskItem::umountDiskFailed);
-    this->setFixedSize(220,80);
+    this->setFixedSize(DISK_ITEM_WIDTH, DISK_ITEM_HEIGHT);
     initWidgets();
 
     updateData();
