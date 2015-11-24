@@ -111,7 +111,7 @@ void SideBar::onSideBarButtonClicked()
 {
     SideBarButton *button = qobject_cast<SideBarButton *>(sender());
 
-    if (!button || button == m_selectedBtn)
+    if (!button)
         return;
 
     switchToModule(button->metaData().id);
@@ -124,9 +124,15 @@ void SideBar::switchToModule(const QString &pluginId)
     if (!btn)
         return;
 
+    if (btn->metaData().id == "shutdown")
+    {
+        emit moduleSelected(btn->metaData());
+        return;
+    }
+
     if (m_selectedBtn)
     {
-        if (m_selectedBtn->metaData().id == pluginId)
+        if (m_selectedBtn == btn)
             return;
         else
             m_selectedBtn->release();
@@ -134,7 +140,7 @@ void SideBar::switchToModule(const QString &pluginId)
 
     m_selectedBtn = btn;
 
-    if (m_selectedBtn->metaData().id != "home" && m_selectedBtn->metaData().id != "shutdown")
+    if (m_selectedBtn->metaData().id != "home")
         m_selectedBtn->presse();
 
     emit moduleSelected(m_selectedBtn->metaData());
