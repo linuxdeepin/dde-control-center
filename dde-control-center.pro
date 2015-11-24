@@ -28,4 +28,7 @@ icons.files = modules/icons/*
 qm_files.path = $${PREFIX}/share/dde-control-center/translations/
 qm_files.files = translations/*.qm
 
-INSTALLS = binary desktop service icons qm_files
+docs.path = /usr/share/dman/dde-control-center
+docs.files = docs/*
+
+INSTALLS = binary desktop service icons qm_files docs
