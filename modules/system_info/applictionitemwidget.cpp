@@ -68,6 +68,7 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     setLayout(mLayout);
 
     connect(m_updateBtn, &QPushButton::clicked, this, &ApplictionItemWidget::toggleUpdateJob);
+    connect(m_progress, &DCircleProgress::clicked, this, &ApplictionItemWidget::progressClicked);
 }
 
 void ApplictionItemWidget::setAppUpdateInfo(const AppUpdateInfo &info)
@@ -112,7 +113,6 @@ void ApplictionItemWidget::connectToJob(DBusUpdateJob *dbusJob)
     m_dbusJobManagerInter->StartJob(m_dbusJobInter->id());
     connect(m_dbusJobInter, &DBusUpdateJob::ProgressChanged, this, &ApplictionItemWidget::updateJobProgress);
     connect(m_dbusJobInter, &DBusUpdateJob::StatusChanged, this, &ApplictionItemWidget::updateJobStatus);
-
 
     // update immeidately
     updateJobProgress();
@@ -162,6 +162,9 @@ void ApplictionItemWidget::updateJobProgress()
     if (!m_dbusJobInter || !m_dbusJobInter->isValid())
         return;
 
+    if (m_stat == Fail)
+        return;
+
     const double progress = m_dbusJobInter->progress();
     const int percent = int(100 * progress);
 
@@ -177,13 +180,52 @@ void ApplictionItemWidget::updateJobStatus()
     const QString &status = m_dbusJobInter->status();
     const QString &id = m_dbusJobInter->id();
 
-    // finished
-    if (status == "end")
+    if (status == "success")
     {
-        // !!! 这里如果立即清除Job会导致Job发送其它的Update信号收不到，所以清除Job应该放在所有信号处理完成
-        QMetaObject::invokeMethod(m_dbusJobManagerInter, "CleanJob", Qt::QueuedConnection, Q_ARG(QString, id));
+        // CleanJob 由后端处理
+//        QMetaObject::invokeMethod(m_dbusJobManagerInter, "CleanJob", Qt::QueuedConnection, Q_ARG(QString, id));
+        updateJobStat(Success);
         emit jobFinished();
         return;
     }
+
+    // faild
+    if (status == "failed")
+        updateJobStat(Fail);
+}
+
+void ApplictionItemWidget::updateJobStat(Status stat)
+{
+    if (m_stat == stat)
+        return;
+
+    m_stat = stat;
+
+    switch (m_stat)
+    {
+    case Ready:     m_progress->topLabel()->clear();        break;
+    case Fail:      m_progress->topLabel()->setPixmap(QPixmap(":/images/images/start.png"));        break;
+    default:        qDebug() << "Un handled case " << __FILE__ << __LINE__;
+    }
+}
+
+void ApplictionItemWidget::progressClicked()
+{
+    qDebug() << "process clicked, stat = " << m_stat;
+
+    switch (m_stat)
+    {
+    case Fail:      restartJob();        break;
+    default:        qDebug() << "Un handled case " << __FILE__ << __LINE__;
+    }
+}
+
+void ApplictionItemWidget::restartJob()
+{
+    qDebug() << "restart job: " << m_dbusJobInter->packageId();
+
+    m_dbusJobManagerInter->StartJob(m_dbusJobInter->id());
+
+    updateJobStat(Ready);
 }
 

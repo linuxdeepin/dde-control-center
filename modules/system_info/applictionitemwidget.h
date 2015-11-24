@@ -34,6 +34,7 @@ public:
         Updating,
         SysUpgrading,
         Fail,
+        Success,
     };
 
 signals:
@@ -65,6 +66,9 @@ private:
     void startJob();
     void updateJobProgress();
     void updateJobStatus();
+    void updateJobStat(Status stat);
+    void progressClicked();
+    void restartJob();
 
 private:
     QLabel *m_appIcon;
@@ -75,6 +79,8 @@ private:
     DBusUpdateJobManager *m_dbusJobManagerInter;
     DBusUpdateJob *m_dbusJobInter = nullptr;
     HSeparatorWidget *m_separator;
+
+    Status m_stat = Ready;
 
     AppUpdateInfo m_updateInfo;
 

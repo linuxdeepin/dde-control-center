@@ -43,6 +43,7 @@ MirrorItemWidget::MirrorItemWidget(QWidget *parent)
 
     setLayout(mainLayout);
     setFixedWidth(DCC::ModuleContentWidth);
+    setFixedHeight(45);
 
     D_THEME_INIT_WIDGET(MirrorItemWidget, checked);
 }

@@ -20,13 +20,11 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     m_mirrorsList = new DListWidget;
     m_mirrorsList->setEnableVerticalScroll(true);
     m_mirrorsList->setCheckable(true);
-    m_mirrorsList->setItemSize(DCC::ModuleContentWidth, 40);
+//    m_mirrorsList->setItemSize(DCC::ModuleContentWidth, 40);
     m_mirrorsList->setStyleSheet("background-color:#252627;");
     m_mirrorsList->hide();
 
     loadMirrorList();
-
-    qDebug() << m_mirrorsList->count() << m_mirrorsList->height();
 
     QLabel *autoCheckUpdate = new QLabel(tr("Auto check update"));
     autoCheckUpdate->setStyleSheet(QString("color:%1;").arg(DCC::TextNormalColor.name()));
@@ -47,14 +45,20 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addStretch();
     btnsLayout->addWidget(m_applyBtn);
-    btnsLayout->setSpacing(10);
+//    btnsLayout->setSpacing(10);
     btnsLayout->setContentsMargins(0, 10, 10, 10);
+
+    QWidget *btnsWidget = new QWidget;
+    btnsWidget->setLayout(btnsLayout);
+    QPalette btnsPalette(QColor("#252627"));
+    btnsWidget->setPalette(btnsPalette);
+    btnsWidget->setAutoFillBackground(true);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(gridLayout);
     mainLayout->addWidget(new DSeparatorHorizontal);
     mainLayout->addWidget(m_mirrorsList);
-    mainLayout->addLayout(btnsLayout);
+    mainLayout->addWidget(btnsWidget);
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -66,7 +70,7 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
 
     QVBoxLayout *mainVLayout = new QVBoxLayout;
     mainVLayout->addWidget(internalWidget);
-    mainVLayout->addStretch(0);
+    mainVLayout->addStretch(1);
     mainVLayout->setSpacing(0);
     mainVLayout->setMargin(0);
 

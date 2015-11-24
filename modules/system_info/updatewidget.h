@@ -49,8 +49,16 @@ protected:
 
 private:
     void systemUpgrade();
-    void loadUpgradeData(DBusUpdateJob *newJob);
+    void loadUpgradeJob(DBusUpdateJob *newJob);
     void toggleUpdateState();
+
+private:
+    enum UpgradeState {
+        NotStart,
+        Ready,
+        Running,
+        Fail,
+    };
 
 private slots:
     void loadAppList();
@@ -58,10 +66,14 @@ private slots:
     void updateUpgradeState();
     void removeJob();
     void updateInfo(const int updatableAppsNum);
+    void checkUpdate();
+    void refreshProgress(UpgradeState state);
+    void restartUpgrade();
 
 private:
     QLabel *m_updateCountTips;
     QLabel *m_updateSizeTips;
+    DImageButton *m_checkUpdateBtn;
     DImageButton *m_updateButton;
     DCircleProgress *m_updateProgress;
     DListWidget *m_appsList;
@@ -69,6 +81,8 @@ private:
     DBusLastoreUpdater *m_dbusUpdateInter;
     DBusUpdateJobManager *m_dbusJobManagerInter;
     DSeparatorHorizontal *m_appSeparator;
+
+    UpgradeState m_upgradeStatus = NotStart;
 };
 
 #endif // UPDATEWIDGET_H
