@@ -18,7 +18,6 @@ ContentView::ContentView(ControlCenterProxy *proxy, QWidget *parent)
     m_pluginLoader = new QPluginLoader(this);
 #ifdef QT_DEBUG
     m_pluginLoader->setLoadHints(QLibrary::ResolveAllSymbolsHint);
-#else
 #endif
     m_pluginsManager = PluginsManager::getInstance(this);
 
@@ -78,16 +77,19 @@ ContentView::~ContentView()
 
 void ContentView::switchToModule(ModuleMetaData module)
 {
-    qDebug() << "load plugin: " << module.path;
-
     unloadPlugin();
+
+    qDebug() << "load plugin: " << module.path;
 
     // load new plugin
     m_pluginLoader->setFileName(module.path);
+    m_sideBar->blockSignals(true);
     m_sideBar->switchToModule(module.id);
+    m_sideBar->blockSignals(false);
 
     QObject *instance = m_pluginLoader->instance();
     ModuleInterface *interface = qobject_cast<ModuleInterface *>(instance);
+    qDebug() << "get instance: " << instance << interface;
 
     do {
         if (!interface)
@@ -157,23 +159,7 @@ void ContentView::reLayout(bool hideInLeft)
 
 void ContentView::switchToModule(const QString pluginId)
 {
-    // unload old plugin
-    m_pluginLoader->unload();
-    // load new plugin
-    m_pluginLoader->setFileName(m_pluginsManager->pluginPath(pluginId));
-    m_sideBar->switchToModule(pluginId);
-
-    QObject *instance = m_pluginLoader->instance();
-
-    if (instance) {
-        ModuleInterface *interface = qobject_cast<ModuleInterface *>(instance);
-        if(m_hideInLeft)
-            m_layout->insertWidget(0, interface->getContent());
-        else
-            m_layout->addWidget(interface->getContent());
-    } else {
-        qDebug() << m_pluginLoader->errorString();
-    }
+    switchToModule(m_pluginsManager->pluginMetaData(pluginId));
 }
 
 void ContentView::onModuleSelected(ModuleMetaData meta)
@@ -202,10 +188,15 @@ void ContentView::onModuleSelected(ModuleMetaData meta)
 
 void ContentView::unloadPlugin()
 {
+//    if (m_lastPluginInterface)
+//        m_lastPluginInterface->preUnload();
+
     if (m_lastPluginWidget)
     {
+        m_lastPluginWidget->hide();
         m_lastPluginWidget->setParent(nullptr);
         m_lastPluginWidget->deleteLater();
+//        delete m_lastPluginWidget;
         m_lastPluginWidget = nullptr;
     }
 

@@ -31,8 +31,8 @@ Frame::Frame(QWidget *parent) :
     m_centeralWidget->setPalette(palette);
     m_centeralWidget->setAutoFillBackground(true);
 
-    m_contentView = new ContentView(m_controlProxy, m_centeralWidget);
     m_homeScreen = new HomeScreen(m_centeralWidget);
+    m_contentView = new ContentView(m_controlProxy, m_centeralWidget);
 
     m_leftShadow = new QWidget;
     m_leftShadow->setFixedWidth(DCC::FrameShadowWidth);

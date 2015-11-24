@@ -27,7 +27,7 @@ class RemoteAssistance: public QObject, public ModuleInterface {
     Q_INTERFACES(ModuleInterface)
 public:
     RemoteAssistance();
-    ~RemoteAssistance(){}
+    ~RemoteAssistance();
     QFrame* getContent() Q_DECL_OVERRIDE;
 
 public slots:

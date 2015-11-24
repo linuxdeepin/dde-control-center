@@ -142,6 +142,11 @@ RemoteAssistance::RemoteAssistance()
     m_impl->initPanel();
 }
 
+RemoteAssistance::~RemoteAssistance()
+{
+//    delete m_impl->m_view;
+}
+
 QFrame* RemoteAssistance::getContent()
 {
     return m_impl->m_view;

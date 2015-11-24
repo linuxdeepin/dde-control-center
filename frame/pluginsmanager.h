@@ -18,8 +18,9 @@ public:
 
     int pluginIndex(const QString pluginId) const;
     int pluginIndex(const ModuleMetaData &plugin) const;
-    const QString pluginPath(const QString pluginId) const;
+    const QString pluginPath(const QString &pluginId) const;
     const QList<ModuleMetaData>&& pluginsList() const;
+    const ModuleMetaData pluginMetaData(const QString &pluginId) const;
 
 signals:
     void pluginInserted(const int position, const ModuleMetaData &meta) const;

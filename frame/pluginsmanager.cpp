@@ -34,7 +34,7 @@ int PluginsManager::pluginIndex(const ModuleMetaData &plugin) const
     return pluginIndex(plugin.id);
 }
 
-const QString PluginsManager::pluginPath(const QString pluginId) const
+const QString PluginsManager::pluginPath(const QString &pluginId) const
 {
     int index(pluginIndex(pluginId));
 
@@ -47,6 +47,13 @@ const QString PluginsManager::pluginPath(const QString pluginId) const
 const QList<ModuleMetaData> &&PluginsManager::pluginsList() const
 {
     return std::move(m_pluginsList);
+}
+
+const ModuleMetaData PluginsManager::pluginMetaData(const QString &pluginId) const
+{
+    const int index = pluginIndex(pluginId);
+
+    return m_pluginsList.at(index);
 }
 
 PluginsManager::PluginsManager(QObject *parent)

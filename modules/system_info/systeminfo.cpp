@@ -182,6 +182,8 @@ SystemInfo::SystemInfo()
 
 SystemInfo::~SystemInfo()
 {
+    m_centeralFrame->hide();
+    m_centeralFrame->setParent(nullptr);
     m_centeralFrame->deleteLater();
 }
 
