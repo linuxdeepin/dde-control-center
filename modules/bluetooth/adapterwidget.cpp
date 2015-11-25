@@ -51,6 +51,7 @@ void AdapterWidget::addTrustedDevice(BluetoothMainWidget::DeviceInfo *info)
     info->adapterInfo = m_info;
 
     m_activeDeviceList->addWidget(info->item);
+    m_activeDeviceList->setVisible(true);
 }
 
 void AdapterWidget::removeDevice(BluetoothMainWidget::DeviceInfo *info, bool isDelete)
@@ -73,6 +74,8 @@ void AdapterWidget::removeTrustedDevice(BluetoothMainWidget::DeviceInfo *info)
         info->adapterInfo = nullptr;
         m_activeDeviceList->removeWidget(index);
     }
+
+    m_activeDeviceList->setVisible(m_activeDeviceList->count() != 0);
 }
 
 void AdapterWidget::updateUI()
@@ -115,7 +118,7 @@ void AdapterWidget::initUI()
     connect(m_bluetoothSwitch, &DSwitchButton::checkedChanged, this, [this](bool checked){
         if(m_info->powered != checked)
             m_info->bluetoothDbus->SetAdapterPowered(QDBusObjectPath(m_info->path), checked);
-        m_activeDeviceExpand->setVisible(checked);
+//        m_activeDeviceExpand->setVisible(checked);
     });
 
     QWidget *edit_name_widget = new QWidget;
@@ -183,6 +186,7 @@ void AdapterWidget::initUI()
     m_activeDeviceExpand->setTitle(tr("My devices"));
     m_activeDeviceExpand->setContent(m_activeDeviceList);
     m_activeDeviceExpand->setExpand(true);
+    m_activeDeviceExpand->setHidden(true);
 
     main_layout->addWidget(name_edit_switch);
     main_layout->addWidget(edit_name_widget);
