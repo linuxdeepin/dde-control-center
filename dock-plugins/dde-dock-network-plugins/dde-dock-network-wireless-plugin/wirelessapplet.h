@@ -19,6 +19,7 @@ class WirelessApplet : public DVBoxWidget
     Q_OBJECT
 public:
     explicit WirelessApplet(const QString &uuid, DBusNetwork *dbusNetwork, QWidget *parent = 0);
+    ~WirelessApplet();
 
     int maxStrength();
     QString uuid() const;
@@ -39,6 +40,7 @@ private:
     void onAccessPointRemoved(const QString &devicePath, const QString &apInfo);
     void onApStrengthChanged(int strength);
     void onDevicesChanged();
+    void onDeviceEnabledChanged(const QString &path, bool enable);
 
 private:
     QString m_uuid;

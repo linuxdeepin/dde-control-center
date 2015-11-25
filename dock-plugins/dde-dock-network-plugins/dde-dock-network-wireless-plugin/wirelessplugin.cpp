@@ -46,7 +46,12 @@ QStringList WirelessPlugin::ids()
 
 QString WirelessPlugin::getName(QString id)
 {
-    return wirelessDevices().count() > 1 ? wirelessDevices().value(id) : getPluginName();
+    QMap<QString, QString> tmpMap = wirelessDevices();
+    if (tmpMap.count() > 1 && !tmpMap.value(id).isEmpty()) {
+        return tmpMap.value(id);
+    }
+    else
+        return getPluginName();
 }
 
 QString WirelessPlugin::getTitle(QString id)
@@ -67,7 +72,7 @@ QPixmap WirelessPlugin::getIcon(QString)
 
 bool WirelessPlugin::configurable(const QString &id)
 {
-    return m_mode == Dock::FashionMode ? false : m_itemMap.keys().indexOf(id) != -1;
+    return m_mode == Dock::FashionMode ? false : wirelessDevices().keys().indexOf(id) != -1;
 }
 
 bool WirelessPlugin::enabled(const QString &id)
@@ -78,6 +83,9 @@ bool WirelessPlugin::enabled(const QString &id)
 
 void WirelessPlugin::setEnabled(const QString &id, bool enabled)
 {
+    if (m_mode == Dock::FashionMode)
+        return;
+
     m_settings->setValue(settingEnabledKey(id), enabled);
 
     onEnabledChanged(id);
@@ -95,12 +103,14 @@ QWidget * WirelessPlugin::getItem(QString id)
 {
     if (m_mode == Dock::FashionMode)
         return NULL;
-    else {
-        if (enabled(id) && m_itemMap.value(id))
-            return m_itemMap.value(id);
-        else
-            return NULL;
+    else if (enabled(id)){
+        if (m_itemMap.value(id) == nullptr)
+            addNewItem(id);
+
+        return m_itemMap.value(id);
     }
+    else
+        return NULL;
 }
 
 void WirelessPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
@@ -132,26 +142,34 @@ void WirelessPlugin::invokeMenuItem(QString, QString, bool)
 void WirelessPlugin::initSettings()
 {
     m_settings = new QSettings("deepin", "dde-dock-network-wireless-plugin", this);
-
-    if (!QFile::exists(m_settings->fileName())) {
-        foreach (QString id, wirelessDevices().keys()) {
-            setEnabled(id, true);
-        }
-    }
 }
 
-void WirelessPlugin::addNewItem(const QString &id, WirelessItem *item)
+void WirelessPlugin::addNewItem(const QString &id)
 {
-    m_itemMap.insert(id, item);
+    WirelessItem *item = new WirelessItem(id, m_dbusNetwork);
+    connect(item, &WirelessItem::sizeChanged, [=]{
+        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeAppletSize, id);
+    });
 
+    m_itemMap.insert(id, item);
     m_proxy->itemAddedEvent(id);
+
     //add setting line to dock plugins setting frame
     m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
+    //update setting state
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeTitle, id);
 }
 
 void WirelessPlugin::removeItem(const QString &id)
 {
+    if (m_itemMap.keys().indexOf(id) == -1)
+        return;
+
     m_proxy->itemRemovedEvent(id);
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
+    m_itemMap.take(id)->deleteLater();
+    //remove setting line from dock plugins setting frame,should delete wirelessitem first
     m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
 }
 
@@ -163,14 +181,8 @@ void WirelessPlugin::onEnabledChanged(const QString &id)
     removeItem(id);
 
     if (enabled(id)) {
-        WirelessItem *item = new WirelessItem(id, m_dbusNetwork);
-        connect(item, &WirelessItem::sizeChanged, [=]{
-            m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeAppletSize, id);
-        });
-        addNewItem(id, item);
+        addNewItem(id);
     }
-
-    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
 }
 
 int retryTimes = 10;
@@ -184,28 +196,21 @@ void WirelessPlugin::onDevicesChanged()
         retryTimer->start(1000);
         return;
     }
-    qWarning() << "Network dbus data is ready!";
+    qWarning() << "DevicesChanged,Network dbus data is ready!";
     retryTimes = 10;
 
     QStringList idList = wirelessDevices().keys();
     //remove old
     foreach (QString id, m_itemMap.keys()) {
         if (idList.indexOf(id) == -1)
-            m_itemMap.take(id)->deleteLater();
+            removeItem(id);
     }
 
     //add new
     foreach (QString id, idList) {
         if (m_itemMap.keys().indexOf(id) == -1) {
-            WirelessItem *item = new WirelessItem(id, m_dbusNetwork);
-            connect(item, &WirelessItem::sizeChanged, [=]{
-                m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeAppletSize, id);
-            });
-            addNewItem(id, item);
+            addNewItem(id);
         }
-        //update setting state
-        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
-        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeTitle, id);
     }
 }
 

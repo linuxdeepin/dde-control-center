@@ -44,11 +44,11 @@ private:
     QSettings * m_settings;
     DockPluginProxyInterface * m_proxy;
     QMap<QString, WirelessItem *> m_itemMap;
-    Dock::DockMode m_mode = Dock::FashionMode;
+    Dock::DockMode m_mode = Dock::EfficientMode;
     com::deepin::daemon::DBusNetwork * m_dbusNetwork;
 
     void initSettings();
-    void addNewItem(const QString &id, WirelessItem * item);
+    void addNewItem(const QString &id);
     void removeItem(const QString &id);
     void onEnabledChanged(const QString &id);
     void onDevicesChanged();

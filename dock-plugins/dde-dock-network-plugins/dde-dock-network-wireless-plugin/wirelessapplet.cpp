@@ -15,16 +15,26 @@ const int CONTENT_MAX_HEIGHT = 300;
 WirelessApplet::WirelessApplet(const QString &uuid, DBusNetwork *dbusNetwork, QWidget *parent)
     : DVBoxWidget(parent), m_uuid(uuid), m_dbusNetwork(dbusNetwork)
 {
-    connect(m_dbusNetwork, &DBusNetwork::AccessPointAdded, this, &WirelessApplet::onAccessPointAdded);
-    connect(m_dbusNetwork, &DBusNetwork::AccessPointRemoved, this, &WirelessApplet::onAccessPointRemoved);
-    connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &WirelessApplet::onDevicesChanged);
-    connect(m_dbusNetwork, SIGNAL(DeviceEnabled(QString,bool)), this, SIGNAL(sizeChanged()));
-
     setFixedWidth(FRAME_WIDTH);
 
     initTitleLine();
     initApListContent();
     initStyleSheet();
+
+    connect(m_dbusNetwork, &DBusNetwork::AccessPointAdded, this, &WirelessApplet::onAccessPointAdded);
+    connect(m_dbusNetwork, &DBusNetwork::AccessPointRemoved, this, &WirelessApplet::onAccessPointRemoved);
+    connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &WirelessApplet::onDevicesChanged);
+    connect(m_dbusNetwork, &DBusNetwork::DeviceEnabled, this, &WirelessApplet::onDeviceEnabledChanged);
+    connect(m_dbusNetwork, SIGNAL(DeviceEnabled(QString,bool)), this, SIGNAL(sizeChanged()));
+}
+
+WirelessApplet::~WirelessApplet()
+{
+    disconnect(m_dbusNetwork, &DBusNetwork::AccessPointAdded, this, &WirelessApplet::onAccessPointAdded);
+    disconnect(m_dbusNetwork, &DBusNetwork::AccessPointRemoved, this, &WirelessApplet::onAccessPointRemoved);
+    disconnect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &WirelessApplet::onDevicesChanged);
+    disconnect(m_dbusNetwork, &DBusNetwork::DeviceEnabled, this, &WirelessApplet::onDeviceEnabledChanged);
+    disconnect(m_dbusNetwork, SIGNAL(DeviceEnabled(QString,bool)), this, SIGNAL(sizeChanged()));
 }
 
 int WirelessApplet::maxStrength()
@@ -67,11 +77,6 @@ void WirelessApplet::initTitleLine()
     connect(m_deviceSwitcher, &DSwitchButton::checkedChanged, [=](bool checked){
         if (m_dbusNetwork->IsDeviceEnabled(QDBusObjectPath(info.path)) != checked) {
             m_dbusNetwork->EnableDevice(QDBusObjectPath(info.path), checked);
-        }
-    });
-    connect(m_dbusNetwork, &DBusNetwork::DeviceEnabled, [=](const QString &path, bool enable) {
-        if (info.path == path) {
-            m_deviceSwitcher->setChecked(enable);
         }
     });
 
@@ -122,11 +127,6 @@ void WirelessApplet::initApListContent()
               }, this);
 
     m_listWidget->setVisible(m_dbusNetwork->IsDeviceEnabled(QDBusObjectPath(info.path)));
-    connect(m_dbusNetwork, &DBusNetwork::DeviceEnabled, [=] (const QString &path, bool enable){
-        if (info.path == path) {
-            m_listWidget->setVisible(enable);
-        }
-    });
 
     addWidget(m_listWidget);
 }
@@ -190,6 +190,15 @@ void WirelessApplet::onDevicesChanged()
     emit activeApChanged(info.activeAp);
 }
 
+void WirelessApplet::onDeviceEnabledChanged(const QString &path, bool enable)
+{
+    DeviceInfo info = getDeviceInfoById(m_uuid, m_dbusNetwork);
+    if (info.path == path) {
+        m_listWidget->setVisible(enable);
+        m_deviceSwitcher->setChecked(enable);
+    }
+}
+
 void WirelessApplet::addApToList(const WirelessAppletItem::ApData &apData)
 {
     //TODO it should fix by backend
@@ -205,7 +214,7 @@ void WirelessApplet::addApToList(const WirelessAppletItem::ApData &apData)
 
     m_listWidget->addWidget(item);
 
-    qWarning() << "AP Added: " << apData.apPath;
+    qWarning() << "AP Added: " << apData.apPath << apData.ssid;
 }
 
 bool WirelessApplet::removeOverlapApFromList(const WirelessAppletItem::ApData &apData)
