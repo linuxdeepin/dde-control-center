@@ -29,7 +29,7 @@ void WiredNetworkListItem::init()
 
     onConnectsChanged();
 
-    auto onActiveConnectsChanged = [this, item] {
+    auto onActiveConnectsChanged = [this] {
         const QJsonDocument &json_doc = QJsonDocument::fromJson(m_dbusNetwork->activeConnections().toUtf8());
 
         for(NetworkGenericListItem *item : m_mapPppoePathToItem.values()) {
@@ -123,12 +123,8 @@ void WiredNetworkListItem::onConnectsChanged()
 void WiredNetworkListItem::onItemClicked()
 {
     NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
+
     if(item) {
-        ASYN_CALL(m_dbusNetwork->GetWiredConnectionUuid(QDBusObjectPath(path())), {
-                      item->setUuid(args[0].toString());
-                      ASYN_CALL(m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath(path())), {
-                                    qDebug() << "ActivateConnection Reply:" << (qvariant_cast<QDBusObjectPath>(args[0]).path());
-                                }, this)
-                  }, item, this)
+        m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath(path()));
     }
 }
