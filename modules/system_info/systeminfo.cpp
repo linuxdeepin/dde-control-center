@@ -51,6 +51,12 @@ SystemInfo::SystemInfo()
     info_sysVersionContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
     info_sysVersionContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
+    QLabel *info_sysDistro = new QLabel(tr("Distribution:"));
+    info_sysDistro->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+    QLabel *info_sysDistroContent = new QLabel(QString(tr("%1 %2")).arg(m_dbusSystemInfo.distroDesc(), m_dbusSystemInfo.distroVer()));
+    info_sysDistroContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
+    info_sysDistroContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
     QLabel *info_sysType = new QLabel(tr("System Type:"));
     info_sysType->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     QLabel *info_sysTypeContent = new QLabel(QString(tr("%1 Bit")).arg(m_dbusSystemInfo.systemType()));
@@ -75,14 +81,20 @@ SystemInfo::SystemInfo()
     QGridLayout *infoGrid = new QGridLayout;
     infoGrid->addWidget(info_sysVersion, 0, 0);
     infoGrid->addWidget(info_sysVersionContent, 0, 1);
-    infoGrid->addWidget(info_sysType, 1, 0);
-    infoGrid->addWidget(info_sysTypeContent, 1, 1);
-    infoGrid->addWidget(info_cpuType, 2, 0);
-    infoGrid->addWidget(info_cpuTypeContent, 2, 1);
-    infoGrid->addWidget(info_memory, 3, 0);
-    infoGrid->addWidget(info_memoryContent, 3, 1);
-    infoGrid->addWidget(info_hardDrive, 4, 0);
-    infoGrid->addWidget(info_hardDriveContent, 4, 1);
+
+    if (m_dbusSystemInfo.distroId() != "" && m_dbusSystemInfo.distroId() != "Deepin") {
+        infoGrid->addWidget(info_sysDistro, 1, 0);
+        infoGrid->addWidget(info_sysDistroContent, 1, 1);
+    }
+
+    infoGrid->addWidget(info_sysType, 2, 0);
+    infoGrid->addWidget(info_sysTypeContent, 2, 1);
+    infoGrid->addWidget(info_cpuType, 3, 0);
+    infoGrid->addWidget(info_cpuTypeContent, 3, 1);
+    infoGrid->addWidget(info_memory, 4, 0);
+    infoGrid->addWidget(info_memoryContent, 4, 1);
+    infoGrid->addWidget(info_hardDrive, 5, 0);
+    infoGrid->addWidget(info_hardDriveContent, 5, 1);
 
     QVBoxLayout *infoLayout = new QVBoxLayout;
     infoLayout->addWidget(deepinLogo);

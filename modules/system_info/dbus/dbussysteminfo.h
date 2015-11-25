@@ -55,6 +55,18 @@ public:
     inline QString version() const
     { return qvariant_cast< QString >(property("Version")); }
 
+    Q_PROPERTY(QString DistroID READ distroId)
+    inline QString distroId() const
+    { return qvariant_cast< QString >(property("DistroID")); }
+
+    Q_PROPERTY(QString DistroDesc READ distroDesc)
+    inline QString distroDesc() const
+    { return qvariant_cast< QString >(property("DistroDesc")); }
+
+    Q_PROPERTY(QString DistroVer READ distroVer)
+    inline QString distroVer() const
+    { return qvariant_cast< QString >(property("DistroVer")); }
+
 public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
 };
