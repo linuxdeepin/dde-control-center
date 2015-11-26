@@ -228,6 +228,9 @@ void Display::updateUI()
 
 void Display::onDisplayModeChanged()
 {
+    if(!m_widgetList)
+        return;
+
     switch (m_dbusDisplay->displayMode()) {
     case 0://custom mode
         m_widgetList->getWidget(m_monitorNameList.count() + 2)->setProperty("checked", true);
