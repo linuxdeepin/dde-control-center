@@ -36,7 +36,8 @@ CustomSettings::CustomSettings(DisplayInterface * dbusDisplay, MonitorGround *mo
 
 CustomSettings::~CustomSettings()
 {
-    m_dbusDisplay->ResetChanges();
+    if(m_dbusDisplay->hasChanged())
+        m_dbusDisplay->ResetChanges();
 }
 
 void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
