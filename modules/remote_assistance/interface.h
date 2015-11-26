@@ -23,6 +23,7 @@ public:
 signals:
     void disconnected();
     void noNetwork();
+    void stopped();
 };
 
 namespace AccessError {

@@ -91,12 +91,16 @@ void AccessController::onStatusChanged(int status)
     case ClientStatus::Connecting:
         return;
     case ClientStatus::ConnectOk:
+        emit connected();
         break;
     case ClientStatus::ConnectServerFailed:
         emit connectFailed(AccessError::ConnectServerFailed);
+        break;
     case ClientStatus::InvalidToken:
         emit connectFailed(AccessError::InvalidToken);
+        break;
     case ClientStatus::Disconnected:
         emit disconnected();
+        break;
     }
 }

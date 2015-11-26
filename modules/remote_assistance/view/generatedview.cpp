@@ -18,7 +18,7 @@ DUI_USE_NAMESPACE
 
 GeneratedView::GeneratedView(const QString& token, QWidget* p)
     : AbstractView(p),
-      m_copyTipVisableTimer(new QTimer)
+      m_copyTipVisableTimer(new QTimer(this))
 {
     setObjectName("GeneratedView");
     m_copyTipVisableTimer->setInterval(3000);

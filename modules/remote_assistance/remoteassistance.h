@@ -48,9 +48,9 @@ private:
 
         RemoteAssistance* m_pub;
         com::deepin::daemon::Remoting::Manager* m_manager;
-        QFrame* m_view;
+        QFrame* m_view; // NB: the m_view will be reparented, should not delete it in dtor.
+        DUI_NAMESPACE::DStackWidget* m_stackWidget; // this is child of m_view.
         QWidget* m_panel;
-        DUI_NAMESPACE::DStackWidget* m_stackWidget;
         ViewPanel m_viewType;
     };
 

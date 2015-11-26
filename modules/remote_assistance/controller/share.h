@@ -14,9 +14,7 @@ public:
     ShareController(com::deepin::daemon::Remoting::Manager* manager,
                     com::deepin::daemon::Remoting::Server* server,
                     QObject* p=nullptr);
-    virtual ~ShareController() {
-        m_server->deleteLater();
-    }
+    virtual ~ShareController();
 
     void checkNetworkConnectivity() Q_DECL_OVERRIDE;
     void retry() Q_DECL_OVERRIDE;
@@ -46,7 +44,7 @@ private:
             PeerIDOk,
             PeerIDFailed,
             Sharing,
-            Stoped,
+            Stopped,
             Disconnected,
         };
     };

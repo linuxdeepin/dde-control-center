@@ -11,6 +11,10 @@ ShareController::ShareController(com::deepin::daemon::Remoting::Manager* manager
 {
 }
 
+ShareController::~ShareController() {
+    m_server->deleteLater();
+}
+
 void ShareController::retry()
 {
     startGenAccessToken();
@@ -65,7 +69,8 @@ void ShareController::onStatusChanged(int status)
         return;
     case ServerStatus::Sharing:
         return;
-    case ServerStatus::Stoped:
+    case ServerStatus::Stopped:
+        emit stopped();
         return;
     case ServerStatus::Disconnected:
         emit disconnected();
@@ -80,6 +85,7 @@ bool ShareController::isSharing()
 
 void ShareController::startGenAccessToken()
 {
+    qDebug() << "startGenAccessToken";
     auto status = getStatus();
     if (status == ServerStatus::Sharing) {
         return;

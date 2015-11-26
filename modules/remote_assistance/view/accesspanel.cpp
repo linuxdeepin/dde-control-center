@@ -12,11 +12,12 @@
 DUI_USE_NAMESPACE
 
 AccessPanel::AccessPanel(IAccessController* controller, QWidget* p)
-    : AbstractPanel(tr("Accessing"), p)
+    : AbstractPanel(tr("Accessing"), p),
+      m_controller(controller)
 {
     setObjectName("AccessPanel");
-    m_controller = controller;
     connect(controller, SIGNAL(noNetwork()), this, SLOT(onNoNetwork()));
+    connect(controller, SIGNAL(connected()), this, SLOT(onConnected()));
 
     if (controller->isAlreadyConnected()) {
         onConnected();
@@ -31,6 +32,20 @@ AccessPanel::AccessPanel(IAccessController* controller, QWidget* p)
     connect(controller, SIGNAL(connecting()), this, SLOT(onConnecting()));
     connect(controller, SIGNAL(connectFailed(AccessErrors)), this, SLOT(onConnectFailed(AccessErrors)));
     controller->initStatus();
+}
+
+void AccessPanel::dtor()
+{
+    if (m_controller != nullptr) {
+        m_controller->deleteLater();
+        m_controller = nullptr;
+    }
+}
+
+void AccessPanel::emitChangePanel()
+{
+    dtor();
+    emit changePanel(ViewPanel::Main);
 }
 
 void AccessPanel::onConnect(QString token)
@@ -74,14 +89,14 @@ void AccessPanel::onConnectFailed(AccessErrors e)
     view->setText(tr("Failed to establish the connection, you can retry to connect"));
     auto button = new DTextButton(tr("Cancel"));
     connect(button, &DTextButton::clicked, [this]{
-        emit changePanel(ViewPanel::Main);
+        emitChangePanel();
     });
     view->addButton(button);
     button = new DTextButton(tr("Retry"));
     button->setEnabled(false);
     // waiting the remoting window to be closed.
     // NB: QTimer::singleShot not support lambda in Qt5.3.
-    auto timer = new QTimer;
+    auto timer = new QTimer(this);
     timer->setInterval(2000);
     timer->setSingleShot(true);
     QObject::connect(timer, &QTimer::timeout, [=]{
@@ -100,7 +115,7 @@ void AccessPanel::onDisconnected()
 {
     qDebug() << "disconnected accessing";
     m_controller->disconnect();
-    emit changePanel(ViewPanel::Main);
+    emitChangePanel();
 }
 
 void AccessPanel::focus()

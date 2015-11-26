@@ -14,11 +14,12 @@
 DUI_USE_NAMESPACE
 
 SharePanel::SharePanel(IShareController* controller, QWidget* p)
-    : AbstractPanel(tr("Sharing"), p)
+    : AbstractPanel(tr("Sharing"), p),
+      m_controller(controller)
 {
     setObjectName("SharePanel");
-    m_controller = controller;
     connect(controller, SIGNAL(noNetwork()), this, SLOT(onNoNetwork()));
+    connect(controller, SIGNAL(stopped()), this, SLOT(onStopped()));
 
     if (controller->isSharing()) {
         onSharing();
@@ -32,6 +33,26 @@ SharePanel::SharePanel(IShareController* controller, QWidget* p)
     controller->startGenAccessToken();
 }
 
+void SharePanel::dtor()
+{
+    if (m_controller != nullptr) {
+        m_controller->deleteLater();
+        m_controller = nullptr;
+    }
+}
+
+void SharePanel::emitChangePanel()
+{
+    dtor();
+    emit changePanel(ViewPanel::Main);
+}
+
+void SharePanel::onStopped()
+{
+    qDebug() << "onStopped";
+    emitChangePanel();
+}
+
 void SharePanel::onSharing()
 {
     qDebug() << "sharing";
@@ -43,7 +64,7 @@ void SharePanel::onSharing()
 
 void SharePanel::onGeneratingAccessToken()
 {
-    qDebug() << "generating";
+    qDebug() << "generating access token";
     auto view = new GeneratingView;
     connect(view, SIGNAL(cancel()), this, SLOT(onDisconnectedImmediately()));
     setWidget(view);
@@ -53,14 +74,12 @@ void SharePanel::onDisconnected()
 {
     qDebug() << "disconnect";
     m_controller->disconnect();
-    emit changePanel(ViewPanel::Main);
 }
 
 void SharePanel::onDisconnectedImmediately()
 {
     qDebug() << "disconnect immedately";
     m_controller->cancel();
-    emit changePanel(ViewPanel::Main);
 }
 
 void SharePanel::onGenAccessTokenFailed()

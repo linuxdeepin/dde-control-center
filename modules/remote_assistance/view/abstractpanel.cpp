@@ -48,6 +48,7 @@ AbstractPanel* AbstractPanel::addLayout(QLayout* l, int stretch)
 void AbstractPanel::setWidget(QWidget *w)
 {
     m_view->hide();
+    m_view->deleteLater();
     m_view = w;
     addWidget(w);
 }

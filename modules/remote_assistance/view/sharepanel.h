@@ -13,6 +13,7 @@ class SharePanel : public AbstractPanel
     Q_OBJECT
 public:
     SharePanel(IShareController*, QWidget* p=nullptr);
+    ~SharePanel() { dtor(); }
 
 public slots:
     void onGeneratingAccessToken();
@@ -21,6 +22,13 @@ public slots:
     void onDisconnected();
     void onDisconnectedImmediately();
     void onSharing();
+    void onStopped();
+
+private slots:
+    void emitChangePanel();
+
+private:
+    void dtor();
 
 private:
     IShareController* m_controller;

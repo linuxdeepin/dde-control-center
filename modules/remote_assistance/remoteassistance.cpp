@@ -69,6 +69,7 @@ QWidget* RemoteAssistance::Impl::getPanel(ViewPanel v)
 {
     switch (v) {
     case ViewPanel::Main: {
+        // MainPanel should be created only once.
         qDebug() << "create Main Panel";
         QWidget* m_mainPanel = new MainPanel(m_manager);
         QObject::connect(m_mainPanel, SIGNAL(changePanel(ViewPanel)), m_pub, SLOT(changePanel(ViewPanel)));
@@ -98,10 +99,10 @@ void RemoteAssistance::Impl::changePanel(ViewPanel v)
 {
     m_viewType = v;
     if (m_stackWidget->depth() > 1) {
-        m_stackWidget->popWidget();
-        qDebug() << "pop last widget" << m_panel->objectName() << ", depth" << m_stackWidget->depth();
+        popView();
         return;
     }
+
     QWidget* panel = getPanel(v);
     pushView(panel);
 }
@@ -131,7 +132,10 @@ inline void RemoteAssistance::Impl::pushView(QWidget* w, bool enableTransition)
 
 inline void RemoteAssistance::Impl::popView(QWidget* w, bool isDelete, int count, bool enableTransition)
 {
+    qDebug() << "pop last panel" << m_panel->objectName() << ", depth" << m_stackWidget->depth();
     m_stackWidget->popWidget(w, isDelete, count, enableTransition);
+    m_panel = m_stackWidget->currentWidget();
+    qDebug() << "current panel is" << m_panel->objectName();
 }
 
 RemoteAssistance::RemoteAssistance()
@@ -144,7 +148,6 @@ RemoteAssistance::RemoteAssistance()
 
 RemoteAssistance::~RemoteAssistance()
 {
-//    delete m_impl->m_view;
 }
 
 QFrame* RemoteAssistance::getContent()

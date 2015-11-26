@@ -6,7 +6,6 @@
 #include <libdui/libdui_global.h>
 
 #include "abstractpanel.h"
-#include "../interface.h"
 #include "../controller/access.h"
 
 DUI_BEGIN_NAMESPACE
@@ -20,6 +19,7 @@ class AccessPanel: public AbstractPanel
     Q_OBJECT
 public:
     AccessPanel(IAccessController* controller, QWidget* p=nullptr);
+    ~AccessPanel() { dtor(); }
 
 public slots:
     void focus();
@@ -30,6 +30,12 @@ private slots:
     void onConnected();
     void onConnectFailed(AccessErrors);
     void onDisconnected();
+
+private slots:
+    void emitChangePanel();
+
+private:
+    void dtor();
 
 private:
     IAccessController* m_controller;
