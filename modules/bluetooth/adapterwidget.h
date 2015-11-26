@@ -23,6 +23,7 @@ public:
                            QWidget *parent = 0);
     ~AdapterWidget();
 
+    void removeConfirm(ConfrimWidget *confrim);
     void addConfirm(ConfrimWidget *confirm, BluetoothMainWidget::DeviceInfo *info);
     void addDevice(BluetoothMainWidget::DeviceInfo *info);
     void addTrustedDevice(BluetoothMainWidget::DeviceInfo *info);

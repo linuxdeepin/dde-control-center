@@ -100,14 +100,16 @@ void DeviceItemWidget::disConnect()
     m_info->adapterInfo->widget->addConfirm(confirm, m_info);
 //    m_info->adapterInfo->bluetoothDbus->DisconnectDevice(QDBusObjectPath(m_info->path));
 
-    connect(confirm, &ConfrimWidget::ignore, confirm, &ConfrimWidget::deleteLater, Qt::QueuedConnection);
-    connect(confirm, &ConfrimWidget::disconnect, confirm, &ConfrimWidget::deleteLater, Qt::QueuedConnection);
+//    connect(confirm, &ConfrimWidget::ignore, confirm, &ConfrimWidget::deleteLater, Qt::QueuedConnection);
+//    connect(confirm, &ConfrimWidget::disconnect, confirm, &ConfrimWidget::deleteLater, Qt::QueuedConnection);
 
-    connect(confirm, &ConfrimWidget::ignore, [this] {
+    connect(confirm, &ConfrimWidget::ignore, [this, confirm] {
         m_info->adapterInfo->bluetoothDbus->RemoveDevice(QDBusObjectPath(m_info->adapterInfo->path), QDBusObjectPath(m_info->path));
+        m_info->adapterInfo->widget->removeConfirm(confirm);
 //        m_info->adapterInfo->bluetoothDbus->
     });
-    connect(confirm, &ConfrimWidget::disconnect, [this] {
+    connect(confirm, &ConfrimWidget::disconnect, [this, confirm] {
         m_info->adapterInfo->bluetoothDbus->DisconnectDevice(QDBusObjectPath(m_info->path));
+        m_info->adapterInfo->widget->removeConfirm(confirm);
     });
 }

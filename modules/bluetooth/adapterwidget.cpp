@@ -30,6 +30,11 @@ AdapterWidget::~AdapterWidget()
         delete m_info;
 }
 
+void AdapterWidget::removeConfirm(ConfrimWidget *confrim)
+{
+    m_activeDeviceList->removeWidget(m_activeDeviceList->indexOf(confrim));
+}
+
 void AdapterWidget::addConfirm(ConfrimWidget *confirm, BluetoothMainWidget::DeviceInfo *info)
 {
     int index = m_activeDeviceList->indexOf(info->item);
@@ -51,7 +56,7 @@ void AdapterWidget::addTrustedDevice(BluetoothMainWidget::DeviceInfo *info)
     info->adapterInfo = m_info;
 
     m_activeDeviceList->addWidget(info->item);
-    m_activeDeviceList->setVisible(true);
+    m_activeDeviceExpand->setVisible(true);
 }
 
 void AdapterWidget::removeDevice(BluetoothMainWidget::DeviceInfo *info, bool isDelete)
@@ -75,7 +80,9 @@ void AdapterWidget::removeTrustedDevice(BluetoothMainWidget::DeviceInfo *info)
         m_activeDeviceList->removeWidget(index);
     }
 
-    m_activeDeviceList->setVisible(m_activeDeviceList->count() != 0);
+    qDebug() << "remove trusted device: " << m_activeDeviceList->count();
+
+    m_activeDeviceExpand->setVisible(m_activeDeviceList->count() != 0);
 }
 
 void AdapterWidget::updateUI()
@@ -118,7 +125,7 @@ void AdapterWidget::initUI()
     connect(m_bluetoothSwitch, &DSwitchButton::checkedChanged, this, [this](bool checked){
         if(m_info->powered != checked)
             m_info->bluetoothDbus->SetAdapterPowered(QDBusObjectPath(m_info->path), checked);
-//        m_activeDeviceExpand->setVisible(checked);
+        m_activeDeviceExpand->setVisible(checked && m_activeDeviceList->count());
     });
 
     QWidget *edit_name_widget = new QWidget;
