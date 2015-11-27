@@ -9,9 +9,9 @@ ConfrimWidget::ConfrimWidget(QWidget *parent)
     m_ignore = new DTextButton(tr("Ignore"));
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->addWidget(m_disconnect);
-    mainLayout->setAlignment(m_disconnect, Qt::AlignVCenter);
     mainLayout->addWidget(m_ignore);
+    mainLayout->setAlignment(m_ignore, Qt::AlignVCenter);
+    mainLayout->addWidget(m_disconnect);
     mainLayout->setAlignment(m_disconnect, Qt::AlignVCenter);
     mainLayout->setSpacing(10);
     mainLayout->setContentsMargins(15, 3, 15, 3);
