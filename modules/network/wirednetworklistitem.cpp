@@ -94,19 +94,9 @@ void WiredNetworkListItem::onConnectsChanged()
                 connect(item, &NetworkGenericListItem::clicked,
                         this, &WiredNetworkListItem::onItemClicked);
                 connect(item, &NetworkGenericListItem::clearButtonClicked,
-                        this, [this] {
-                    m_dbusNetwork->DisconnectDevice(QDBusObjectPath(path()));
-                });
-                connect(item, &NetworkGenericListItem::stateChanged, item, [item](int state) {
-                    if(state == ActiveConnectionState::Activating) {
-                        item->setLoading(true);
-                    } else if(state == ActiveConnectionState::Activated) {
-                        item->setChecked(true)  ;
-                    } else {
-                        item->setChecked(false);
-                        item->setLoading(false);
-                    }
-                });
+                        this, &WiredNetworkListItem::onClearButtonClicked);
+                connect(item, &NetworkGenericListItem::stateChanged,
+                        this, &WiredNetworkListItem::onItemStateChanged);
             } else {
                 tmp_list.removeOne(item);
             }
@@ -126,5 +116,32 @@ void WiredNetworkListItem::onItemClicked()
 
     if(item) {
         m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath(path()));
+    }
+}
+
+void WiredNetworkListItem::onClearButtonClicked()
+{
+    NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
+
+    if(!item)
+        return;
+
+    m_dbusNetwork->DisconnectDevice(QDBusObjectPath(path()));
+}
+
+void WiredNetworkListItem::onItemStateChanged(int state)
+{
+    NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
+
+    if(!item)
+        return;
+
+    if(state == ActiveConnectionState::Activating) {
+        item->setLoading(true);
+    } else if(state == ActiveConnectionState::Activated) {
+        item->setChecked(true)  ;
+    } else {
+        item->setChecked(false);
+        item->setLoading(false);
     }
 }

@@ -57,22 +57,9 @@ void VPNConnectsWidget::onConnectsChanged()
 
             m_mapVpnPathToItem[item->path()] = item;
 
-            connect(item, &NetworkGenericListItem::clicked, item, [this, item] {
-                m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath("/"));
-            });
-            connect(item, &NetworkGenericListItem::clearButtonClicked, item, [this, item] {
-                m_dbusNetwork->DeactivateConnection(item->uuid());
-            });
-            connect(item, &NetworkGenericListItem::stateChanged, item, [item](int state) {
-                if(state == ActiveConnectionState::Activating) {
-                    item->setLoading(true);
-                } else if(state == ActiveConnectionState::Activated) {
-                    item->setChecked(true)  ;
-                } else {
-                    item->setChecked(false);
-                    item->setLoading(false);
-                }
-            });
+            connect(item, &NetworkGenericListItem::clicked, this, &VPNConnectsWidget::onItemClicked);
+            connect(item, &NetworkGenericListItem::clearButtonClicked, this, &VPNConnectsWidget::onClearButtonClicked);
+            connect(item, &NetworkGenericListItem::stateChanged, this, &VPNConnectsWidget::onItemStateChanged);
         } else {
             tmp_list.removeOne(item);
             item->updateInfoByMap(json_object.toVariantMap());
@@ -83,4 +70,41 @@ void VPNConnectsWidget::onConnectsChanged()
     }
 
     qDeleteAll(tmp_list);
+}
+
+void VPNConnectsWidget::onItemClicked()
+{
+    NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
+
+    if(!item)
+        return;
+
+    m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath("/"));
+}
+
+void VPNConnectsWidget::onClearButtonClicked()
+{
+    NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
+
+    if(!item)
+        return;
+
+    m_dbusNetwork->DeactivateConnection(item->uuid());
+}
+
+void VPNConnectsWidget::onItemStateChanged(int state)
+{
+    NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
+
+    if(!item)
+        return;
+
+    if(state == ActiveConnectionState::Activating) {
+        item->setLoading(true);
+    } else if(state == ActiveConnectionState::Activated) {
+        item->setChecked(true)  ;
+    } else {
+        item->setChecked(false);
+        item->setLoading(false);
+    }
 }

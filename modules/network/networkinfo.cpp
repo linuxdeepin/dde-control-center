@@ -65,6 +65,10 @@ void NetworkInfo::init(DBusNetwork *dbus)
                       header_line->setTitle(tr("Connected"));
                   }
 
+                  auto getValueByLength = [](const QJsonArray &array, int length)->QJsonValue {
+                      return array.count() > length ? array[length] : QJsonValue("");
+                  };
+
                   for(const QJsonValue &value : json_doc.array()) {
                       const QJsonObject &json_obj = value.toObject();
 
@@ -78,22 +82,20 @@ void NetworkInfo::init(DBusNetwork *dbus)
                       box_widget->setObjectName("expand_box_widget");
                       expand->setContent(box_widget);
 
-                      box_widget->addWidget(getLine(tr("Interface"), [json_obj, this] {
-                          const QString &type = json_obj["ConnectionType"].toString();
+                      QString line_value;
 
-                          if(type == ConnectionType::MobileGsm || type == ConnectionType::MobileCdma) {
-                              return m_mapConnectionTypeToName[type] + " " + json_obj["MobileNetworkType"].toString()
-                                    + " (" + json_obj["DeviceInterface"].toString() + ")";
-                          } else {
-                              return m_mapConnectionTypeToName[type] + " (" + json_obj["DeviceInterface"].toString() + ")";
-                          }
-                      }()));
+                      const QString &type = json_obj["ConnectionType"].toString();
+
+                      if(type == ConnectionType::MobileGsm || type == ConnectionType::MobileCdma) {
+                          line_value = m_mapConnectionTypeToName[type] + " " + json_obj["MobileNetworkType"].toString()
+                                + " (" + json_obj["DeviceInterface"].toString() + ")";
+                      } else {
+                          line_value = m_mapConnectionTypeToName[type] + " (" + json_obj["DeviceInterface"].toString() + ")";
+                      }
+
+                      box_widget->addWidget(getLine(tr("Interface"), line_value));
 
                       const QJsonObject &json_ipv4 = json_obj["Ip4"].toObject();
-
-                      auto getValueByLength = [](const QJsonArray &array, int length)->QJsonValue {
-                          return array.count() > length ? array[length] : QJsonValue("");
-                      };
 
                       box_widget->addWidget(getLine(tr("Security"), json_obj["Security"].toString()));
                       box_widget->addWidget(getLine(tr("Device Addr"), json_obj["HwAddress"].toString()));
