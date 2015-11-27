@@ -18,10 +18,12 @@ DeviceItemWidget::DeviceItemWidget(BluetoothMainWidget::DeviceInfo *info, QWidge
     m_statTips = new QLabel;
     m_statTips->setStyleSheet("color:#666;");
     m_removeBtn = new DImageButton;
-    m_removeBtn->setNormalPic(":/dark/images/disconnect.png");
+    m_removeBtn->setNormalPic(":/dark/images/disconnect_normal.png");
+    m_removeBtn->setHoverPic(":/dark/images/disconnect_hover.png");
+    m_removeBtn->setPressPic(":/dark/images/disconnect_press.png");
     m_removeBtn->hide();
     m_loadingIndicator = new DLoadingIndicator;
-    m_loadingIndicator->setFixedSize(16, 16);
+    m_loadingIndicator->setFixedSize(18, 18);
     m_loadingIndicator->setImageSource(QPixmap(":/dark/images/waiting.png"));
     m_loadingIndicator->setLoading(true);
     m_loadingIndicator->hide();
@@ -31,19 +33,22 @@ DeviceItemWidget::DeviceItemWidget(BluetoothMainWidget::DeviceInfo *info, QWidge
 
     QHBoxLayout *iconsLayout = new QHBoxLayout;
     iconsLayout->addWidget(m_removeBtn);
+    iconsLayout->setAlignment(m_removeBtn, Qt::AlignVCenter);
     iconsLayout->addWidget(m_loadingIndicator);
-    iconsLayout->setMargin(0);
+    iconsLayout->setAlignment(m_loadingIndicator, Qt::AlignVCenter);
+    iconsLayout->setContentsMargins(0, 5, 0, 0);
     iconsLayout->setSpacing(0);
 
     QWidget *iconsWidget = new QWidget;
     iconsWidget->setLayout(iconsLayout);
-    iconsWidget->setFixedWidth(16);
+    iconsWidget->setFixedWidth(18);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->addWidget(m_deviceName);
     mainLayout->addStretch(0);
     mainLayout->addWidget(m_statTips);
     mainLayout->addWidget(iconsWidget);
+    mainLayout->setAlignment(iconsWidget, Qt::AlignVCenter);
     mainLayout->setSpacing(10);
     mainLayout->setContentsMargins(10, 2, 10, 2);
 

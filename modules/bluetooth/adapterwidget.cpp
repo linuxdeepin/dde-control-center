@@ -162,7 +162,9 @@ void AdapterWidget::initUI()
     });
 
     DHeaderLine *headerline = new DHeaderLine;
-    ImageNameButton *refresh_button = new ImageNameButton("reload");
+//    ImageNameButton *refresh_button = new ImageNameButton("waiting");
+    DImageButton *refresh_button = new DImageButton;
+    refresh_button->setNormalPic(":/dark/images/waiting.png");
     m_refreshnndicator = new DLoadingIndicator;
 
     refresh_button->setAttribute(Qt::WA_TranslucentBackground);
@@ -171,7 +173,7 @@ void AdapterWidget::initUI()
     m_refreshnndicator->setSmooth(true);
     m_refreshnndicator->setLoading(m_info->discovering);
 
-    headerline->setTitle(tr("Devices nearby"));
+    headerline->setTitle(tr("Other devices"));
     headerline->setLeftMargin(10);
     headerline->setContent(m_refreshnndicator);
     headerline->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);

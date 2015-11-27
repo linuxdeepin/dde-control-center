@@ -12,5 +12,8 @@
         <file>dark/images/waiting.png</file>
         <file>dark/AdapterWidget.theme</file>
         <file>dark/images/clear_normal.png</file>
+        <file>dark/images/disconnect_press.png</file>
+        <file>dark/images/disconnect_normal.png</file>
+        <file>dark/images/disconnect_hover.png</file>
     </qresource>
 </RCC>
