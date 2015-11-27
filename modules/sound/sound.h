@@ -65,7 +65,7 @@ private:
     DBusAudioSource * m_source;
     QList<DBusAudioSink *> m_sinks;
     QList<DBusAudioSource *> m_sources;
-    QDBusInterface *m_dbusMeter;
+    QDBusInterface *m_dbusMeter = nullptr;
     QTimer m_meterTimer;
 
     void initBackend();

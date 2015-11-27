@@ -489,13 +489,20 @@ void Sound::updateSources()
 
     m_source = getDefaultSource();
 
+    if(!m_source)
+        return;
+
     // init meter
     QString meterPath = m_source->GetMeter().value().path();
     QString meterName = meterPath;
     meterName = meterName.replace("/", ".").mid(1);
+
+    if(m_dbusMeter)
+        m_dbusMeter->deleteLater();
+
     m_dbusMeter = new QDBusInterface("com.deepin.daemon.Audio", meterPath, meterName);
     m_dbusMeter->setParent(this);
-    connect(&m_meterTimer, &QTimer::timeout, [&]{
+    connect(&m_meterTimer, &QTimer::timeout, m_dbusMeter, [&]{
         m_dbusMeter->call("Tick");
     });
     QDBusConnection::sessionBus().connect(m_dbusMeter->service(), m_dbusMeter->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged","sa{sv}as", this, SLOT(meterVolumeChanged(QDBusMessage)));
