@@ -130,9 +130,7 @@ void Keyboard::initUI()
     m_mainLayout->addWidget(header);
     m_mainLayout->addWidget(new DSeparatorHorizontal);
     m_mainLayout->addSpacing(10);
-    connect(header, &ModuleHeader::resetButtonClicked, [=] {
-        m_dbusKeyboard->Reset();
-    });
+    connect(header, &ModuleHeader::resetButtonClicked, m_dbusKeyboard, &DBusKeyboard::Reset);
 
     /// Basic Settings
     QGridLayout * basicSettingsLayout = new QGridLayout;
@@ -148,10 +146,11 @@ void Keyboard::initUI()
     basicSettingsLayout->addWidget(repeatDelayTitle, 0, 0, Qt::AlignRight);
     basicSettingsLayout->addWidget(repeatDelaySlider, 0, 1);
 
-    connect(repeatDelaySlider, &DSlider::valueChanged, [=](int value){
+    connect(repeatDelaySlider, &DSlider::valueChanged, [this](int value){
         m_dbusKeyboard->setRepeatDelay(value);
     });
-    connect(m_dbusKeyboard, &DBusKeyboard::RepeatDelayChanged, [=]{
+    connect(m_dbusKeyboard, &DBusKeyboard::RepeatDelayChanged,
+            repeatDelaySlider, [repeatDelaySlider, this]{
         repeatDelaySlider->setValue(m_dbusKeyboard->repeatDelay());
     });
 
@@ -162,28 +161,29 @@ void Keyboard::initUI()
     basicSettingsLayout->addWidget(repeatSpeedTitle, 1, 0, Qt::AlignRight);
     basicSettingsLayout->addWidget(repeatSpeedSlider, 1, 1);
 
-    connect(repeatSpeedSlider, &DSlider::valueChanged, [=](int value){
+    connect(repeatSpeedSlider, &DSlider::valueChanged, [this](int value){
         m_dbusKeyboard->setRepeatInterval(((1000 - value) + 200) / 10);
     });
-    connect(m_dbusKeyboard, &DBusKeyboard::RepeatIntervalChanged, [=]{
+    connect(m_dbusKeyboard, &DBusKeyboard::RepeatIntervalChanged,
+            repeatSpeedSlider, [repeatSpeedSlider, this]{
         repeatSpeedSlider->setValue(1000 - (m_dbusKeyboard->repeatInterval() * 10 - 200));
     });
 
-    QApplication * application = qobject_cast<QApplication*>(QApplication::instance());
     NormalLabel * cursorBlinkIntervalTitle = new NormalLabel(tr("Cursor Blink Rate"));
     DSlider * cursorBlinkIntervalSlider = new DSlider(Qt::Horizontal);
     cursorBlinkIntervalSlider->setRange(100, 2500);
     cursorBlinkIntervalSlider->setValue(2500 - (m_dbusKeyboard->cursorBlink() - 100));
-    application->setCursorFlashTime(m_dbusKeyboard->cursorBlink());
+    qApp->setCursorFlashTime(m_dbusKeyboard->cursorBlink());
     basicSettingsLayout->addWidget(cursorBlinkIntervalTitle, 2, 0, Qt::AlignRight);
     basicSettingsLayout->addWidget(cursorBlinkIntervalSlider, 2, 1);
 
-    connect(cursorBlinkIntervalSlider, &DSlider::valueChanged, [=](int value){
+    connect(cursorBlinkIntervalSlider, &DSlider::valueChanged, [this](int value){
         m_dbusKeyboard->setCursorBlink((2500 - value) + 100);
     });
-    connect(m_dbusKeyboard, &DBusKeyboard::CursorBlinkChanged, [=]{
+    connect(m_dbusKeyboard, &DBusKeyboard::CursorBlinkChanged,
+            cursorBlinkIntervalSlider, [cursorBlinkIntervalSlider, this]{
         cursorBlinkIntervalSlider->setValue(2500 - (m_dbusKeyboard->cursorBlink() - 100));
-        application->setCursorFlashTime(m_dbusKeyboard->cursorBlink());
+        qApp->setCursorFlashTime(m_dbusKeyboard->cursorBlink());
     });
 
     NormalLabel * testAreaTitle = new NormalLabel(tr("Test Area"));
@@ -203,11 +203,12 @@ void Keyboard::initUI()
     capsLockLine->setTitle(tr("Caps Lock prompt"));
     capsLockLine->setContent(capsLockSwitch);
 
-    connect(capsLockSwitch, &DSwitchButton::checkedChanged, [=]{
+    connect(capsLockSwitch, &DSwitchButton::checkedChanged, [this, capsLockSwitch]{
         m_dbusKeyboard->setCapslockToggle(capsLockSwitch->checked());
     });
 
-    connect(m_dbusKeyboard, &DBusKeyboard::CapslockToggleChanged, [=]{
+    connect(m_dbusKeyboard, &DBusKeyboard::CapslockToggleChanged,
+            capsLockSwitch, [capsLockSwitch, this]{
         capsLockSwitch->setChecked(m_dbusKeyboard->capslockToggle());
     });
 
@@ -227,14 +228,14 @@ void Keyboard::initUI()
     updateKeyboardLayout(user_layout_list, keyboardLayoutLine);
     keyboardLayoutLine->setRemoveHidden(user_layout_list->count()<2);
 
-    connect(user_layout_list, &SearchList::countChanged, [=]{
+    connect(user_layout_list, &SearchList::countChanged,
+            [user_layout_list, keyboardLayoutLine]{
         if(user_layout_list->isVisible()&&keyboardLayoutLine->doneButton()->isHidden())
             keyboardLayoutLine->setRemoveHidden(user_layout_list->count()<2);
     });
 
-    connect(keyboardLayoutLine, &AddRmDoneLine::addClicked, [=]{
-
-
+    connect(keyboardLayoutLine, &AddRmDoneLine::addClicked,
+            [keyboardLayoutLine, this, user_layout_list, language_expand]{
         keyboardLayoutLine->setAddHidden(true);
         keyboardLayoutLine->setRemoveHidden(true);
         keyboardLayoutLine->setDoneHidden(false);
@@ -243,14 +244,16 @@ void Keyboard::initUI()
         m_letterClassifyList->show();
         language_expand->setExpand(false);
     });
-    connect(keyboardLayoutLine, &AddRmDoneLine::removeClicked, [=]{
+    connect(keyboardLayoutLine, &AddRmDoneLine::removeClicked,
+            [keyboardLayoutLine, user_layout_list]{
         keyboardLayoutLine->setAddHidden(true);
         keyboardLayoutLine->setRemoveHidden(true);
         keyboardLayoutLine->setDoneHidden(false);
 
         user_layout_list->setCheckable(false);
     });
-    connect(keyboardLayoutLine, &AddRmDoneLine::doneClicked, [=]{
+
+    auto onDoneClicked = [this, keyboardLayoutLine, user_layout_list]{
         keyboardLayoutLine->setDoneHidden(true);
         keyboardLayoutLine->setAddHidden(false);
         keyboardLayoutLine->setRemoveHidden(user_layout_list->count()<2);
@@ -261,24 +264,18 @@ void Keyboard::initUI()
         m_selectLayoutList.clear();
 
         user_layout_list->setCheckable(true);
-    });
+    };
 
-    connect(language_expand, &DArrowLineExpand::expandChange, [=](bool arg){
+    connect(keyboardLayoutLine, &AddRmDoneLine::doneClicked, onDoneClicked);
+
+    connect(language_expand, &DArrowLineExpand::expandChange,
+            [onDoneClicked, keyboardLayoutLine](bool arg){
         if(arg&&keyboardLayoutLine->doneButton()->isVisible()){
-            keyboardLayoutLine->setDoneHidden(true);
-            keyboardLayoutLine->setAddHidden(false);
-            keyboardLayoutLine->setRemoveHidden(user_layout_list->count()<2);
-
-            m_letterClassifyList->hide();
-            user_layout_list->show();
-            m_letterClassifyList->removeItems(m_selectLayoutList);
-            m_selectLayoutList.clear();
-
-            user_layout_list->setCheckable(true);
+            onDoneClicked();
         }
     });
 
-    connect(user_layout_list, &SearchList::checkedItemChanged, [=](int index){
+    connect(user_layout_list, &SearchList::checkedItemChanged, [this, user_layout_list](int index){
         if(index<0)
             return;
 
@@ -287,14 +284,15 @@ void Keyboard::initUI()
         if(m_dbusKeyboard->currentLayout() != str)
             m_dbusKeyboard->setCurrentLayout(str);
     });
-    connect(m_dbusKeyboard, &DBusKeyboard::CurrentLayoutChanged, [=]{
+    connect(m_dbusKeyboard, &DBusKeyboard::CurrentLayoutChanged, [this, user_layout_list]{
         QString str = m_dbusKeyboard->currentLayout();
         int index = m_mapUserLayoutIndex[str];
         if(index>=0&&index<user_layout_list->count())
             user_layout_list->setCheckedItem(index);
     });
 
-    connect(m_dbusKeyboard, &DBusKeyboard::UserLayoutListChanged, [=]{
+    connect(m_dbusKeyboard, &DBusKeyboard::UserLayoutListChanged,
+            [this, user_layout_list, keyboardLayoutLine]{
         user_layout_list->clear();
         updateKeyboardLayout(user_layout_list, keyboardLayoutLine,
                              user_layout_list->isVisible()
@@ -320,12 +318,14 @@ void Keyboard::initUI()
     language_searchList->setEnableVerticalScroll(true);
 
     ExtendWidget *extend_mainWidget = new ExtendWidget(m_frame, m_frame);
-    connect(extend_mainWidget, &ExtendWidget::heightChanged, [language_searchList, user_layout_list, lang_list_frame, lang_search, this]{
+    connect(extend_mainWidget, &ExtendWidget::heightChanged,
+            [language_searchList, user_layout_list, lang_list_frame, lang_search, this]{
         language_searchList->setFixedHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
         lang_list_frame->setFixedHeight(language_searchList->height() + 50);
     });
     ExtendWidget *extend_user_layoutList = new ExtendWidget(user_layout_list, user_layout_list);
-    connect(extend_user_layoutList, &ExtendWidget::heightChanged, [language_searchList, user_layout_list, lang_list_frame, lang_search, this]{
+    connect(extend_user_layoutList, &ExtendWidget::heightChanged,
+            [language_searchList, user_layout_list, lang_list_frame, lang_search, this]{
         language_searchList->setFixedHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
         lang_list_frame->setFixedHeight(language_searchList->height() + 50);
     });
@@ -376,10 +376,11 @@ void Keyboard::initUI()
 
     lang_list_frame->setMinimumHeight(lang_search->height()+language_searchList->height());
 
-    connect(lang_search, &DSearchEdit::textChanged, [=]{
+    connect(lang_search, &DSearchEdit::textChanged, [language_searchList, lang_search]{
         language_searchList->setKeyWord(lang_search->text());
     });
-    connect(language_searchList, &SearchList::checkedItemChanged, [=](int index){
+    connect(language_searchList, &SearchList::checkedItemChanged,
+            [this, language_searchList, dbusLangSelector](int index){
         if(index<0)
             return;
 
@@ -388,7 +389,8 @@ void Keyboard::initUI()
             dbusLangSelector->SetLocale(str);
         }
     });
-    connect(dbusLangSelector, &DbusLangSelector::CurrentLocaleChanged, [=]{
+    connect(dbusLangSelector, &DbusLangSelector::CurrentLocaleChanged,
+            [this, language_searchList, dbusLangSelector]{
         QString str = dbusLangSelector->currentLocale();
         int index = m_mapUserLayoutIndex[str];
         if(index>=0&&index<language_searchList->count())
@@ -453,7 +455,7 @@ void Keyboard::onAddLayoutItem(const QString &id, const QString &title, const QS
 {
     KeyboardLayoutDelegate *item = new KeyboardLayoutDelegate(title);
     item->setKeyWords(letterFirstList);
-    connect(item, &KeyboardLayoutDelegate::checkedChanged, [=](bool checked){
+    connect(item, &KeyboardLayoutDelegate::checkedChanged, [id, item, this](bool checked){
        if(checked){
            m_dbusKeyboard->AddUserLayout(id);
            m_selectLayoutList << item;
