@@ -26,6 +26,20 @@ struct DeviceInfo {
     QString mobileSignalQuality;
 };
 
+struct ActiveConnectionInfo {
+    bool isPrimaryConnection;
+    QString connectionType;
+    QString connectionName;
+    QString mobileNetworkType;
+    QString security;
+    QString deviceType;
+    QString deviceInterface;
+    QString hwAddress;
+    QString speed;
+    QJsonObject ip4;
+    QJsonObject ip6;
+};
+
 // device state
 enum DeviceState {
     DeviceStateUnknown = 0,
@@ -78,6 +92,7 @@ ConnectionState getActiveConnectionsStateByUuid(const QString &uuid, DBusNetwork
 QStringList getActiveConnectionDevices(DBusNetwork *dbusNetwork);
 
 DeviceInfo getDeviceInfoById(const QString &uuid, DBusNetwork *dbusNetwork);
+QList<ActiveConnectionInfo> getActiveConnectionsInfo(DBusNetwork *dbusNetwork);
 
 }
 

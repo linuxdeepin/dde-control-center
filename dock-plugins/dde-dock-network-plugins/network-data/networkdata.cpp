@@ -73,4 +73,31 @@ QStringList getActiveConnectionDevices(DBusNetwork *dbusNetwork)
     return list;
 }
 
+QList<ActiveConnectionInfo> getActiveConnectionsInfo(DBusNetwork *dbusNetwork)
+{
+    QList<ActiveConnectionInfo> list;
+    QJsonArray allArray = QJsonDocument::fromJson(dbusNetwork->GetActiveConnectionInfo().value().toUtf8()).array();
+
+    foreach (QJsonValue value, allArray) {
+        QJsonObject obj = value.toObject();
+        if (!value.toObject().isEmpty()) {
+            ActiveConnectionInfo info;
+            info.connectionName = obj["ConnectionName"].toString();
+            info.connectionType = obj["ConnectionType"].toString();
+            info.deviceInterface = obj["DeviceInterface"].toString();
+            info.deviceType = obj["DeviceType"].toString();
+            info.hwAddress = obj["HwAddress"].toString();
+            info.ip4 = obj["Ip4"].toObject();
+            info.ip6 = obj["Ip6"].toObject();
+            info.isPrimaryConnection = obj["IsPrimaryConnection"].toBool();
+            info.mobileNetworkType = obj["MobileNetworkType"].toString();
+            info.security = obj["Security"].toString();
+            info.speed = obj["Speed"].toString();
+            list << info;
+        }
+    }
+
+    return list;
+}
+
 }

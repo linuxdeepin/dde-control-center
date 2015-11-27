@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/network-idle.png</file>
+        <file>images/network-error.png</file>
+        <file>images/wire_on.png</file>
+        <file>images/wire_off.png</file>
+    </qresource>
+</RCC>
