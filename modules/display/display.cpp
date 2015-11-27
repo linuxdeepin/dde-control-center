@@ -65,9 +65,11 @@ void Display::init()
 
     updateUI();
 
-    connect(m_dbusDisplay, &DisplayInterface::MonitorsChanged, this, &Display::updateUI, Qt::DirectConnection);
-    connect(m_dbusDisplay, &DisplayInterface::DisplayModeChanged, this, &Display::onDisplayModeChanged, Qt::DirectConnection);
-    connect(m_dbusDisplay, &DisplayInterface::PrimaryChanged, this, [=]{
+    connect(m_dbusDisplay, &DisplayInterface::MonitorsChanged,
+            this, &Display::updateUI, Qt::DirectConnection);
+    connect(m_dbusDisplay, &DisplayInterface::DisplayModeChanged,
+            this, &Display::onDisplayModeChanged, Qt::DirectConnection);
+    connect(m_dbusDisplay, &DisplayInterface::PrimaryChanged, this, [this]{
         QString str = m_dbusDisplay->primary();
 
         for(int i=0; i<m_monitors.count(); ++i){
@@ -150,9 +152,9 @@ void Display::updateUI()
         item_copy->setTitle(tr("Copy"));
         item_copy->setText(tr("Copy the contents of your primary screen to other screens."));
         item_copy->setIconName("copy");
-        connect(item_copy, &DisplayModeItem::checkedChanged, this, [=](bool arg){
+        connect(item_copy, &DisplayModeItem::checkedChanged,
+                this, [this](bool arg){
             if(arg && m_dbusDisplay->displayMode() != 1){
-                qDebug()<<"SwitchMode(1";
                 m_dbusDisplay->SwitchMode(1, "");
             }
         }, Qt::DirectConnection);
@@ -162,9 +164,9 @@ void Display::updateUI()
         item_extend->setText(tr("Extend your screen contents to display different contents on different screens."));
         item_extend->setIconName("extend");
 
-        connect(item_extend, &DisplayModeItem::checkedChanged, this, [=](bool arg){
+        connect(item_extend, &DisplayModeItem::checkedChanged,
+                this, [this](bool arg){
             if(arg && m_dbusDisplay->displayMode() != 2){
-                qDebug()<<"SwitchMode(2";
                 m_dbusDisplay->SwitchMode(2, "");
             }
         }, Qt::DirectConnection);
@@ -187,9 +189,9 @@ void Display::updateUI()
             item_monitor->setIconText(QString::number(i + 1));
             m_widgetList->addWidget(item_monitor);
 
-            connect(item_monitor, &DisplayModeItem::checkedChanged, this, [=](bool arg){
+            connect(item_monitor, &DisplayModeItem::checkedChanged,
+                    this, [this, name](bool arg){
                 if(arg){
-                    qDebug()<<"SwitchMode(3";
                     m_dbusDisplay->SwitchMode(3, name);
                 }
             }, Qt::DirectConnection);

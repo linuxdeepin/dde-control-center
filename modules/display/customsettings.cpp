@@ -179,7 +179,8 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         resolutionList->addWidget(titleWidget_resolution);
         resolutionExpand->setContent(resolutionList);
 
-        connect(resolutionList, &ListWidget::visibleCountChanged, titleWidget_resolution, [titleWidget_resolution](int count){
+        connect(resolutionList, &ListWidget::visibleCountChanged,
+                titleWidget_resolution, [titleWidget_resolution](int count){
             titleWidget_resolution->setTitleVisible(count > 1);
         }, Qt::DirectConnection);
         titleWidget_resolution->setTitleVisible(resolutionList->visibleCount() > 1);
@@ -197,7 +198,8 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         rotationList->addWidget(titleWidget_rotation);
         rotationExpand->setContent(rotationList);
 
-        connect(rotationList, &ListWidget::visibleCountChanged, titleWidget_rotation, [titleWidget_rotation](int count){
+        connect(rotationList, &ListWidget::visibleCountChanged,
+                titleWidget_rotation, [titleWidget_rotation](int count){
             titleWidget_rotation->setTitleVisible(count > 1);
         }, Qt::DirectConnection);
         titleWidget_rotation->setTitleVisible(rotationList->visibleCount() > 1);
@@ -212,7 +214,10 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
             rotationList->hideWidget(i);
         }
 
-        connect(dbusMonitor, &MonitorInterface::OpenedChanged, this, [=]{
+        connect(dbusMonitor, &MonitorInterface::OpenedChanged,
+                titleWidget_resolution,
+                [this, titleWidget_resolution, dbusMonitor, resolutionList,
+                rotationList, enableMonitorList, titleWidget_rotation, i]{
             if(dbusMonitor->opened()){
                 resolutionList->showWidget(resolutionList->indexOf(titleWidget_resolution));
                 rotationList->showWidget(rotationList->indexOf(titleWidget_rotation));
@@ -230,12 +235,14 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         connect(dbusMonitor, &MonitorInterface::IsCompositedChanged,
                 this, &CustomSettings::updateBrightnessLayout, Qt::DirectConnection);
 
-        connect(dbusMonitor, &MonitorInterface::CurrentModeChanged, resolutionButtons, [=]{
+        connect(dbusMonitor, &MonitorInterface::CurrentModeChanged,
+                resolutionButtons, [resolutionButtons, dbusMonitor]{
             MonitorMode currentMode = dbusMonitor->currentMode();
             QString currentResolution = QString("%1x%2").arg(currentMode.width).arg(currentMode.height);
             resolutionButtons->checkButtonByText(currentResolution);
         }, Qt::DirectConnection);
-        connect(resolutionButtons, &DButtonGrid::buttonCheckedIndexChanged, this, [=](int index){
+        connect(resolutionButtons, &DButtonGrid::buttonCheckedIndexChanged,
+                this, [dbusMonitor](int index){
             QDBusPendingReply<MonitorModeList> modesReply = dbusMonitor->ListModes();
             modesReply.waitForFinished();
             MonitorModeList monitorModeList = modesReply.value();
@@ -246,11 +253,13 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
             }
         }, Qt::DirectConnection);
 
-        connect(dbusMonitor, &MonitorInterface::RotationChanged, this, [=]{
+        connect(dbusMonitor, &MonitorInterface::RotationChanged,
+                rotationButtons, [this, rotationButtons, dbusMonitor]{
             ushort currentRotation = dbusMonitor->rotation();
             rotationButtons->checkButtonByText(m_rotationMap[currentRotation]);
         }, Qt::DirectConnection);
-        connect(rotationButtons, &DButtonGrid::buttonCheckedIndexChanged, this, [=](int index){
+        connect(rotationButtons, &DButtonGrid::buttonCheckedIndexChanged,
+                this, [dbusMonitor, rotations, this](int index){
             ushort rotaion = dbusMonitor->rotation();
             foreach (ushort r, m_rotationMap.keys()) {
                 if (m_rotationMap.value(r) == rotations.at(index)) {
@@ -437,11 +446,12 @@ DSlider *CustomSettings::getBrightnessSlider(const QString &name)
 
     updateBrightnessSlider(name, brightnessSlider);
 
-    connect(brightnessSlider, &DSlider::valueChanged, this, [=](int value){
+    connect(brightnessSlider, &DSlider::valueChanged, this, [this, name](int value){
         if(!m_ignoreSliderChang)
             m_dbusDisplay->SetBrightness(name, value / 10.0);
     }, Qt::DirectConnection);
-    connect(m_dbusDisplay, &DisplayInterface::BrightnessChanged, brightnessSlider, [this, name, brightnessSlider]{
+    connect(m_dbusDisplay, &DisplayInterface::BrightnessChanged,
+            brightnessSlider, [this, name, brightnessSlider]{
         updateBrightnessSlider(name, brightnessSlider);
     }, Qt::DirectConnection);
 
