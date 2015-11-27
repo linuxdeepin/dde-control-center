@@ -327,6 +327,113 @@ void Sound::initUI()
     mainLayout->addWidget(new DSeparatorHorizontal);
     mainLayout->addWidget(m_soundEffectsExpand);
     mainLayout->addStretch(1);
+
+    connect(m_outputPortsList, &DButtonList::buttonCheckedIndexChanged, [=](int index){
+        SinkPortStruct port =  m_sink->ports().at(index);
+        m_sink->SetPort(port.id).waitForFinished();
+    });
+
+    connect(m_sink, &DBusAudioSink::ActivePortChanged, [=]{
+        QStringList outputPorts;
+        foreach (SinkPortStruct port, m_sink->ports()) {
+            outputPorts << port.name;
+        }
+
+        SinkPortStruct activePort = m_sink->activePort();
+        if (outputPorts.contains(activePort.name)) {
+            m_outputPortsList->checkButtonByIndex(outputPorts.indexOf(activePort.name));
+        }
+
+        updateSpeakerUI();
+    });
+
+    connect(m_outputVolumeSlider, &DSlider::valueChanged, [=](int value){
+        m_sink->SetVolume(value / 100.0, true).waitForFinished();
+    });
+    connect(m_sink, &DBusAudioSink::VolumeChanged, [=]{
+        if (qAbs(m_sink->volume() * 100 - m_outputVolumeSlider->value()) > 1) {
+            m_outputVolumeSlider->setValue(m_sink->volume() * 100);
+        }
+    });
+
+    connect(m_leftRightBalanceSlider, &DSlider::valueChanged, [=](int value){
+        m_sink->SetBalance(value / 100.0, true).waitForFinished();
+    });
+    connect(m_sink, &DBusAudioSink::BalanceChanged, [=]{
+        if(qAbs(m_sink->balance() * 100 - m_leftRightBalanceSlider->value()) > 1) {
+            m_leftRightBalanceSlider->setValue(m_sink->balance() * 100);
+        }
+    });
+
+    connect(m_sink, &DBusAudioSink::MuteChanged, [=]{
+        m_speakerExpand->setExpand(!m_sink->mute());
+    });
+    connect(m_speakerExpand, &DBaseExpand::expandChange, [=] (bool expanded) {
+        m_sink->SetMute(!expanded).waitForFinished();
+    });
+
+    connect(m_outputDevicesList, &DButtonList::buttonCheckedIndexChanged, [=](int index) {
+        DBusAudioSink * sink = m_sinks.at(index);
+        // important, otherwise there will be bounding loop.
+        if (sink->name() != getDefaultSink()->name()) {
+            m_dbusAudio->SetDefaultSink(sink->name());
+        }
+    });
+    connect(m_dbusAudio, &DBusAudio::DefaultSinkChanged, [=]{
+        m_sink = getDefaultSink();
+        if (m_sinks.contains(m_sink)) {
+            m_outputDevicesList->checkButtonByIndex(m_sinks.indexOf(m_sink));
+        }
+
+        updateOutputPorts();
+    });
+    connect(m_inputVolumeSlider, &DSlider::valueChanged, [=](int value){
+        m_source->SetVolume(value / 100.0, true);
+    });
+    connect(m_source, &DBusAudioSource::VolumeChanged, [=]{
+        if (qAbs(m_source->volume() * 100 - m_inputVolumeSlider->value()) > 1) {
+            m_inputVolumeSlider->setValue(m_source->volume() * 100);
+        }
+    });
+
+    connect(m_source, &DBusAudioSource::MuteChanged, [=]{
+        m_microphoneExpand->setExpand(!m_source->mute());
+    });
+    connect(m_microphoneExpand, &DBaseExpand::expandChange, [=](bool expanded){
+        m_source->SetMute(!expanded);
+    });
+
+    connect(m_inputPortsList, &DButtonList::buttonCheckedIndexChanged, [=](int index){
+        SourcePortStruct port = m_source->ports().at(index);
+        m_source->SetPort(port.id);
+    });
+    connect(m_source, &DBusAudioSource::ActivePortChanged, [=]{
+        QStringList inputPorts;
+        foreach (SourcePortStruct port, m_source->ports()) {
+            inputPorts << port.name;
+        }
+        SourcePortStruct activePort = m_source->activePort();
+        if (inputPorts.contains(activePort.name)) {
+            m_inputPortsList->checkButtonByIndex(inputPorts.indexOf(activePort.name));
+        }
+
+        updateMicrophoneUI();
+    });
+
+    connect(m_inputDevicesList, &DButtonList::buttonCheckedIndexChanged, [=](int index) {
+        DBusAudioSource * source = m_sources.at(index);
+        if (source->name() != getDefaultSource()->name()) {
+            m_dbusAudio->SetDefaultSource(source->name());
+        }
+    });
+    connect(m_dbusAudio, &DBusAudio::DefaultSourceChanged, [=]{
+        m_source = getDefaultSource();
+        if (m_sources.contains(m_source)) {
+            m_inputDevicesList->checkButtonByIndex(m_sources.indexOf(m_source));
+        }
+
+        updateInputPorts();
+    });
 }
 
 QFrame* Sound::getContent()
@@ -399,58 +506,22 @@ void Sound::updateSources()
 void Sound::updateSpeakerUI()
 {
     m_outputVolumeSlider->setValue(m_sink->volume() * 100);
-    connect(m_outputVolumeSlider, &DSlider::valueChanged, [=](int value){
-        m_sink->SetVolume(value / 100.0, true);
-    });
-    connect(m_sink, &DBusAudioSink::VolumeChanged, [=]{
-        if (qAbs(m_sink->volume() * 100 - m_outputVolumeSlider->value()) > 1) {
-            m_outputVolumeSlider->setValue(m_sink->volume() * 100);
-        }
-    });
-
     m_leftRightBalanceSlider->setValue(m_sink->balance() * 100);
-    connect(m_leftRightBalanceSlider, &DSlider::valueChanged, [=](int value){
-        m_sink->SetBalance(value / 100.0, true);
-    });
-    connect(m_sink, &DBusAudioSink::BalanceChanged, [=]{
-        if(qAbs(m_sink->balance() * 100 - m_leftRightBalanceSlider->value()) > 1) {
-            m_leftRightBalanceSlider->setValue(m_sink->balance() * 100);
-        }
-    });
-
     m_speakerExpand->setExpand(!m_sink->mute());
-    connect(m_sink, &DBusAudioSink::MuteChanged, [=]{
-        m_speakerExpand->setExpand(!m_sink->mute());
-    });
-    connect(m_speakerExpand, &DBaseExpand::expandChange, [=] (bool expanded) {
-        m_sink->SetMute(!expanded);
-    });
+
 }
 
 void Sound::updateMicrophoneUI()
 {
     m_inputVolumeSlider->setValue(m_source->volume() * 100);
-    connect(m_inputVolumeSlider, &DSlider::valueChanged, [=](int value){
-        m_source->SetVolume(value / 100.0, true);
-    });
-    connect(m_source, &DBusAudioSource::VolumeChanged, [=]{
-        if (qAbs(m_source->volume() * 100 - m_inputVolumeSlider->value()) > 1) {
-            m_inputVolumeSlider->setValue(m_source->volume() * 100);
-        }
-    });
-
     m_microphoneExpand->setExpand(!m_source->mute());
-    connect(m_source, &DBusAudioSource::MuteChanged, [=]{
-        m_microphoneExpand->setExpand(!m_source->mute());
-    });
-    connect(m_microphoneExpand, &DBaseExpand::expandChange, [=](bool expanded){
-        m_source->SetMute(!expanded);
-    });
 }
 
 void Sound::updateOutputPorts()
 {
-    qDebug() << "updateOutputPorts";
+    qDebug() << "updateOutputPorts" << m_sink;
+    if (!m_sink || m_sink->ports().isEmpty())
+        return;
 
     SinkPortStruct sinkActivePort = m_sink->activePort();
     SinkPortList sinkPorts = m_sink->ports();
@@ -461,24 +532,13 @@ void Sound::updateOutputPorts()
     }
 
     if (outputPorts.length() > 0) {
+        m_outputPortsList->clear();
         m_outputPortsList->addButtons(outputPorts);
         m_outputPortsList->setFixedSize(DCC::ModuleContentWidth, outputPorts.length() * m_outputPortsList->itemWidget(m_outputPortsList->item(0))->height());
         if (outputPorts.contains(sinkActivePort.name)) {
             m_outputPortsList->checkButtonByIndex(outputPorts.indexOf(sinkActivePort.name));
         }
 
-        connect(m_outputPortsList, &DButtonList::buttonCheckedIndexChanged, [=](int index){
-            SinkPortStruct port = sinkPorts.at(index);
-            m_sink->SetPort(port.id);
-        });
-        connect(m_sink, &DBusAudioSink::ActivePortChanged, [=]{
-            SinkPortStruct activePort = m_sink->activePort();
-            if (outputPorts.contains(activePort.name)) {
-                m_outputPortsList->checkButtonByIndex(outputPorts.indexOf(activePort.name));
-            }
-
-            updateSpeakerUI();
-        });
     }
 }
 
@@ -501,18 +561,6 @@ void Sound::updateInputPorts()
             m_inputPortsList->checkButtonByIndex(inputPorts.indexOf(sourceActivePort.name));
         }
 
-        connect(m_inputPortsList, &DButtonList::buttonCheckedIndexChanged, [=](int index){
-            SourcePortStruct port = sourcePorts.at(index);
-            m_source->SetPort(port.id);
-        });
-        connect(m_source, &DBusAudioSource::ActivePortChanged, [=]{
-            SourcePortStruct activePort = m_source->activePort();
-            if (inputPorts.contains(activePort.name)) {
-                m_inputPortsList->checkButtonByIndex(inputPorts.indexOf(activePort.name));
-            }
-
-            updateMicrophoneUI();
-        });
     }
 }
 
@@ -536,21 +584,6 @@ void Sound::updateOutputDevices()
             m_outputDevicesList->checkButtonByIndex(m_sinks.indexOf(m_sink));
         }
 
-        connect(m_outputDevicesList, &DButtonList::buttonCheckedIndexChanged, [=](int index) {
-            DBusAudioSink * sink = m_sinks.at(index);
-            // important, otherwise there will be bounding loop.
-            if (sink->name() != getDefaultSink()->name()) {
-                m_dbusAudio->SetDefaultSink(sink->name());
-            }
-        });
-        connect(m_dbusAudio, &DBusAudio::DefaultSinkChanged, [=]{
-            m_sink = getDefaultSink();
-            if (m_sinks.contains(m_sink)) {
-                m_outputDevicesList->checkButtonByIndex(m_sinks.indexOf(m_sink));
-            }
-
-            updateOutputPorts();
-        });
     }
 }
 
@@ -573,20 +606,6 @@ void Sound::updateInputDevices()
             m_inputDevicesList->checkButtonByIndex(m_sources.indexOf(m_source));
         }
 
-        connect(m_inputDevicesList, &DButtonList::buttonCheckedIndexChanged, [=](int index) {
-            DBusAudioSource * source = m_sources.at(index);
-            if (source->name() != getDefaultSource()->name()) {
-                m_dbusAudio->SetDefaultSource(source->name());
-            }
-        });
-        connect(m_dbusAudio, &DBusAudio::DefaultSourceChanged, [=]{
-            m_source = getDefaultSource();
-            if (m_sources.contains(m_source)) {
-                m_inputDevicesList->checkButtonByIndex(m_sources.indexOf(m_source));
-            }
-
-            updateInputPorts();
-        });
     }
 }
 
