@@ -13,6 +13,8 @@ class ConfrimWidget : public QWidget
 public:
     explicit ConfrimWidget(QWidget *parent = 0);
 
+    void setDisconnectVisible(bool visible);
+
 signals:
     void ignore();
     void disconnect();

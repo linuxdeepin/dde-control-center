@@ -22,3 +22,7 @@ ConfrimWidget::ConfrimWidget(QWidget *parent)
     connect(m_ignore, &DTextButton::clicked, this, &ConfrimWidget::ignore);
 }
 
+void ConfrimWidget::setDisconnectVisible(bool visible)
+{
+    m_disconnect->setVisible(visible);
+}

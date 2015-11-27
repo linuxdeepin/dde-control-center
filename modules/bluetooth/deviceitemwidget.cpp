@@ -1,7 +1,6 @@
 #include "imagenamebutton.h"
 #include "deviceitemwidget.h"
 #include "constants.h"
-#include "confrimwidget.h"
 #include "adapterwidget.h"
 
 #include <QHBoxLayout>
@@ -28,6 +27,8 @@ DeviceItemWidget::DeviceItemWidget(BluetoothMainWidget::DeviceInfo *info, QWidge
     m_loadingIndicator->hide();
 //    m_loadingIndicator->show();
 
+    m_confirmWidget = new ConfrimWidget;
+
     QHBoxLayout *iconsLayout = new QHBoxLayout;
     iconsLayout->addWidget(m_removeBtn);
     iconsLayout->addWidget(m_loadingIndicator);
@@ -49,13 +50,22 @@ DeviceItemWidget::DeviceItemWidget(BluetoothMainWidget::DeviceInfo *info, QWidge
     setLayout(mainLayout);
     updateUI();
 
-    connect(m_removeBtn, &DImageButton::clicked, this, &DeviceItemWidget::disConnect);
+    connect(m_removeBtn, &DImageButton::clicked, this, &DeviceItemWidget::showConfirm);
+    connect(m_confirmWidget, &ConfrimWidget::ignore, [this] {
+        m_info->adapterInfo->bluetoothDbus->RemoveDevice(QDBusObjectPath(m_info->adapterInfo->path), QDBusObjectPath(m_info->path));
+        m_info->adapterInfo->widget->removeConfirm(m_confirmWidget);
+    });
+    connect(m_confirmWidget, &ConfrimWidget::disconnect, [this] {
+        m_info->adapterInfo->bluetoothDbus->DisconnectDevice(QDBusObjectPath(m_info->path));
+        m_info->adapterInfo->widget->removeConfirm(m_confirmWidget);
+    });
 }
 
 DeviceItemWidget::~DeviceItemWidget()
 {
     if(m_info)
         delete m_info;
+    m_confirmWidget->deleteLater();
 }
 
 void DeviceItemWidget::updateUI()
@@ -72,6 +82,8 @@ void DeviceItemWidget::updateUI()
     case BluetoothMainWidget::DeviceInfo::Connecting:       m_statTips->clear();                            break;
     case BluetoothMainWidget::DeviceInfo::Disconnected:     m_statTips->setText(tr("Unconnect"));           break;
     }
+
+    m_confirmWidget->setDisconnectVisible(m_info->state != BluetoothMainWidget::DeviceInfo::Disconnected);
 }
 
 void DeviceItemWidget::enterEvent(QEvent *)
@@ -94,22 +106,8 @@ void DeviceItemWidget::mouseReleaseEvent(QMouseEvent *)
     }
 }
 
-void DeviceItemWidget::disConnect()
+void DeviceItemWidget::showConfirm()
 {
-    ConfrimWidget *confirm = new ConfrimWidget;
-    m_info->adapterInfo->widget->addConfirm(confirm, m_info);
-//    m_info->adapterInfo->bluetoothDbus->DisconnectDevice(QDBusObjectPath(m_info->path));
-
-//    connect(confirm, &ConfrimWidget::ignore, confirm, &ConfrimWidget::deleteLater, Qt::QueuedConnection);
-//    connect(confirm, &ConfrimWidget::disconnect, confirm, &ConfrimWidget::deleteLater, Qt::QueuedConnection);
-
-    connect(confirm, &ConfrimWidget::ignore, [this, confirm] {
-        m_info->adapterInfo->bluetoothDbus->RemoveDevice(QDBusObjectPath(m_info->adapterInfo->path), QDBusObjectPath(m_info->path));
-        m_info->adapterInfo->widget->removeConfirm(confirm);
-//        m_info->adapterInfo->bluetoothDbus->
-    });
-    connect(confirm, &ConfrimWidget::disconnect, [this, confirm] {
-        m_info->adapterInfo->bluetoothDbus->DisconnectDevice(QDBusObjectPath(m_info->path));
-        m_info->adapterInfo->widget->removeConfirm(confirm);
-    });
+    m_confirmWidget->setDisconnectVisible(m_info->state != BluetoothMainWidget::DeviceInfo::Disconnected);
+    m_info->adapterInfo->widget->addConfirm(m_confirmWidget, m_info);
 }

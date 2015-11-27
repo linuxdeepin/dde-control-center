@@ -32,13 +32,16 @@ AdapterWidget::~AdapterWidget()
 
 void AdapterWidget::removeConfirm(ConfrimWidget *confrim)
 {
-    m_activeDeviceList->removeWidget(m_activeDeviceList->indexOf(confrim));
+    m_activeDeviceList->removeWidget(m_activeDeviceList->indexOf(confrim), false);
 }
 
 void AdapterWidget::addConfirm(ConfrimWidget *confirm, BluetoothMainWidget::DeviceInfo *info)
 {
-    int index = m_activeDeviceList->indexOf(info->item);
+    // confirm widget already exists
+    if (m_activeDeviceList->indexOf(confirm) != -1)
+        return;
 
+    int index = m_activeDeviceList->indexOf(info->item);
     m_activeDeviceList->insertWidget(index + 1, confirm);
 }
 

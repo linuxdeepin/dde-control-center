@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include "bluetoothmainwidget.h"
+#include "confrimwidget.h"
 
 #include <libdui/dimagebutton.h>
 #include <dloadingindicator.h>
@@ -27,11 +28,12 @@ protected:
     void mouseReleaseEvent(QMouseEvent *);
 
 private:
-    void disConnect();
+    void showConfirm();
 
 private:
     BluetoothMainWidget::DeviceInfo *m_info = nullptr;
 
+    ConfrimWidget *m_confirmWidget;
     QLabel *m_deviceName;
     QLabel *m_statTips;
     DImageButton *m_removeBtn;
