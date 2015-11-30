@@ -68,6 +68,7 @@ void ShareController::onStatusChanged(int status)
         emit genAccessTokenFailed();
         return;
     case ServerStatus::Sharing:
+        emit sharing();
         return;
     case ServerStatus::Stopped:
         emit stopped();

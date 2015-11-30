@@ -26,6 +26,7 @@ SharePanel::SharePanel(IShareController* controller, QWidget* p)
         return;
     }
 
+    connect(controller, SIGNAL(sharing()), this, SLOT(onSharing()));
     connect(controller, SIGNAL(generatingAccessToken()), this, SLOT(onGeneratingAccessToken()));
     connect(controller, SIGNAL(disconnected()), this, SLOT(onDisconnectedImmediately()));
     connect(controller, SIGNAL(genAccessTokenFailed()), this, SLOT(onGenAccessTokenFailed()));
