@@ -257,6 +257,7 @@ void DefaultApps::setMediaOptionVisible(const bool visible)
     m_modSoftware->setVisible(visible);
 
     m_autoPlaySwitch->setChecked(visible);
+    m_dbusDefaultMedia.EnableAutoOpen(visible);
 }
 
 void DefaultApps::resetDefaults()

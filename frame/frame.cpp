@@ -152,7 +152,8 @@ void Frame::hide(bool imme)
         m_hideAni->start();
     }
 
-    m_dbusXMouseArea->UnregisterArea(m_dbusFullScreenKey).waitForFinished();
+    qDebug() << "unregister: " << m_dbusFullScreenKey;
+    m_dbusXMouseArea->UnregisterArea(m_dbusFullScreenKey);//waitForFinished();
 
     emit xChanged();
 }
