@@ -551,7 +551,10 @@ void Sound::updateOutputPorts()
 
 void Sound::updateInputPorts()
 {
-    qDebug() << "updateInputPorts";
+    qDebug() << "updateInputPorts "<<m_source;
+    if (!m_source|| m_source->ports().isEmpty()) {
+        return;
+    }
 
     SourcePortStruct sourceActivePort = m_source->activePort();
     SourcePortList sourcePorts = m_source->ports();
