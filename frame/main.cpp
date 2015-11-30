@@ -42,6 +42,9 @@ int main(int argv, char *args[])
     app.setApplicationName("DDE Control Center");
     app.setApplicationVersion("3.0");
 
+    // keep running if all window hided
+    qApp->setQuitOnLastWindowClosed(false);
+
 #ifndef QT_DEBUG
     QDir::setCurrent(QApplication::applicationDirPath());
 #endif
