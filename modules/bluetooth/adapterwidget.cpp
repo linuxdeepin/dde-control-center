@@ -90,7 +90,10 @@ void AdapterWidget::removeTrustedDevice(BluetoothMainWidget::DeviceInfo *info)
 
 void AdapterWidget::updateUI()
 {
-    m_bluetoothName->setText(m_info->name);
+    QString text = m_info->name;
+    QFontMetrics metrics(m_bluetoothName->font());
+
+    m_bluetoothName->setText(metrics.elidedText(text, Qt::ElideRight, 210));
     m_bluetoothSwitch->setChecked(m_info->powered);
     m_refreshnndicator->setLoading(m_info->discovering);
     m_deviceItemList->setVisible(m_info->powered);
@@ -108,7 +111,7 @@ void AdapterWidget::initUI()
 
     QWidget *name_edit_switch = new QWidget;
     QHBoxLayout *h_layout = new QHBoxLayout(name_edit_switch);
-    m_bluetoothName = new NormalLabel(m_info->name);
+    m_bluetoothName = new NormalLabel;
     ImageNameButton *edit_button = new ImageNameButton("edit");
     m_bluetoothSwitch = new DSwitchButton;
 
@@ -141,7 +144,7 @@ void AdapterWidget::initUI()
 
     connect(edit_button, &ImageNameButton::clicked,
             this, [name_edit_switch, edit_name_widget, name_lineEdit, this]{
-        name_lineEdit->setText(m_bluetoothName->text());
+        name_lineEdit->setText(m_info->name);
         name_lineEdit->setFocus();
         name_edit_switch->hide();
         edit_name_widget->show();
@@ -209,4 +212,6 @@ void AdapterWidget::initUI()
     main_layout->addWidget(new DSeparatorHorizontal);
     main_layout->addWidget(m_deviceItemList);
     main_layout->addWidget(m_listWidgetSeparator);
+
+    updateUI();
 }
