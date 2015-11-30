@@ -44,6 +44,9 @@ private:
     DArrowLineExpand *m_activeDeviceExpand;
     DListWidget *m_activeDeviceList;
     DLoadingIndicator *m_refreshnndicator;
+    QLabel *m_tipsLabel;
+    DHeaderLine *m_headerLine;
+    DSeparatorHorizontal *m_separator;
 };
 
 #endif // ADAPTERWIDGET_H

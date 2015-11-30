@@ -117,7 +117,6 @@ void AdapterWidget::initUI()
 
     name_edit_switch->setFixedWidth(DCC::ModuleContentWidth);
     name_edit_switch->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
-    m_bluetoothSwitch->setChecked(m_info->powered);
 
     h_layout->setSpacing(10);
     h_layout->setMargin(0);
@@ -132,6 +131,9 @@ void AdapterWidget::initUI()
         if(m_info->powered != checked)
             m_info->bluetoothDbus->SetAdapterPowered(QDBusObjectPath(m_info->path), checked);
         m_activeDeviceExpand->setVisible(checked && m_activeDeviceList->count());
+        m_tipsLabel->setVisible(!checked);
+        m_headerLine->setVisible(checked);
+//        m_separator->setVisible(checked);
     });
 
     QWidget *edit_name_widget = new QWidget;
@@ -164,7 +166,8 @@ void AdapterWidget::initUI()
             name_lineEdit->editingFinished();
     });
 
-    DHeaderLine *headerline = new DHeaderLine;
+    m_headerLine = new DHeaderLine;
+    m_headerLine->hide();
 //    ImageNameButton *refresh_button = new ImageNameButton("waiting");
     DImageButton *refresh_button = new DImageButton;
     refresh_button->setNormalPic(":/dark/images/waiting.png");
@@ -176,10 +179,10 @@ void AdapterWidget::initUI()
     m_refreshnndicator->setSmooth(true);
     m_refreshnndicator->setLoading(m_info->discovering);
 
-    headerline->setTitle(tr("Other devices"));
-    headerline->setLeftMargin(10);
-    headerline->setContent(m_refreshnndicator);
-    headerline->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
+    m_headerLine->setTitle(tr("Other devices"));
+    m_headerLine->setLeftMargin(10);
+    m_headerLine->setContent(m_refreshnndicator);
+    m_headerLine->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
 
     m_deviceItemList = new DListWidget;
     m_listWidgetSeparator = new DSeparatorHorizontal;
@@ -203,13 +206,23 @@ void AdapterWidget::initUI()
     m_activeDeviceExpand->setExpand(true);
     m_activeDeviceExpand->setHidden(true);
 
+    m_tipsLabel = new QLabel;
+    m_tipsLabel->setWordWrap(true);
+    m_tipsLabel->setText(tr("Open bluetooth to find nearby devices (loudspeaker, keyboard, mouse)"));
+    m_tipsLabel->setStyleSheet("color:#b2b2b2;"
+                             "margin:3px 5px;");
+
+    m_separator = new DSeparatorHorizontal;
+//    m_separator->hide();
+
     main_layout->addWidget(name_edit_switch);
     main_layout->addWidget(edit_name_widget);
     main_layout->addWidget(new DSeparatorHorizontal);
     main_layout->addWidget(m_activeDeviceExpand);
 //    main_layout->addWidget(new DSeparatorHorizontal);
-    main_layout->addWidget(headerline);
-    main_layout->addWidget(new DSeparatorHorizontal);
+    main_layout->addWidget(m_headerLine);
+    main_layout->addWidget(m_tipsLabel);
+    main_layout->addWidget(m_separator);
     main_layout->addWidget(m_deviceItemList);
     main_layout->addWidget(m_listWidgetSeparator);
 

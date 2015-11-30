@@ -4,17 +4,17 @@
 <context>
     <name>AbstractPanel</name>
     <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="57"/>
+        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="58"/>
         <source>Remote Accessitance</source>
         <translation>远程协助</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="60"/>
+        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="61"/>
         <source>Ok</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="66"/>
+        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="67"/>
         <source>No network connections are available, please retry after connected</source>
         <translation>当前没有网络连接，请您联网后重试</translation>
     </message>
@@ -23,32 +23,32 @@
     <name>AccessPanel</name>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="15"/>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="44"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="59"/>
         <source>Accessing</source>
         <translation>正在访问</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="55"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="70"/>
         <source>You are accessing the desktop shared by other users, you can choose to continue or disconnect</source>
         <translation>您正在访问其他用户共享的桌面，您可以继续操作或选择断开</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="64"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="79"/>
         <source>Remote Assistance</source>
         <translation>远程协助</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="74"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="89"/>
         <source>Failed to establish the connection, you can retry to connect</source>
         <translation>建立链接失败，您可以重新尝试链接</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="75"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="90"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="80"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="95"/>
         <source>Retry</source>
         <translation>重试</translation>
     </message>
@@ -109,19 +109,31 @@
         <translation type="vanished">默认名称</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="95"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="96"/>
         <source>Apply</source>
-        <translation>应用</translation>
+        <translation type="vanished">应用</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="138"/>
         <source>Devices nearby</source>
-        <translation>附近的设备</translation>
+        <translation type="vanished">附近的设备</translation>
+    </message>
+    <message>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="182"/>
+        <source>Other devices</source>
+        <translation>其它设备</translation>
+    </message>
+    <message>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="204"/>
+        <source>My devices</source>
+        <translation>我的设备</translation>
+    </message>
+    <message>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="211"/>
+        <source>Open bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
+        <translation>打开蓝牙以发现周围的蓝牙设备（音响、鼠标、键盘）</translation>
     </message>
 </context>
 <context>
@@ -415,7 +427,7 @@
 <context>
     <name>BluetoothMainWidget</name>
     <message>
-        <location filename="../modules/bluetooth/bluetoothmainwidget.cpp" line="211"/>
+        <location filename="../modules/bluetooth/bluetoothmainwidget.cpp" line="231"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
@@ -430,6 +442,19 @@
     <message>
         <source>Devices nearby</source>
         <translation type="vanished">附近的设备</translation>
+    </message>
+</context>
+<context>
+    <name>ConfrimWidget</name>
+    <message>
+        <location filename="../modules/bluetooth/confrimwidget.cpp" line="10"/>
+        <source>Disconnect</source>
+        <translation type="unfinished">断开</translation>
+    </message>
+    <message>
+        <location filename="../modules/bluetooth/confrimwidget.cpp" line="12"/>
+        <source>Ignore</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -660,52 +685,52 @@
         <translation>向左旋转</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="66"/>
-        <location filename="../modules/display/customsettings.cpp" line="73"/>
+        <location filename="../modules/display/customsettings.cpp" line="67"/>
+        <location filename="../modules/display/customsettings.cpp" line="74"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="83"/>
+        <location filename="../modules/display/customsettings.cpp" line="84"/>
         <source>Enable Monitor</source>
         <translation>启用显示器</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="96"/>
+        <location filename="../modules/display/customsettings.cpp" line="97"/>
         <source>Please select the monitor you want to enable (checkable)</source>
         <translation>请选择您要启用的显示器（可多选）</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="101"/>
+        <location filename="../modules/display/customsettings.cpp" line="102"/>
         <source>Primary</source>
         <translation>主屏幕</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="124"/>
+        <location filename="../modules/display/customsettings.cpp" line="125"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="128"/>
+        <location filename="../modules/display/customsettings.cpp" line="129"/>
         <source>Rotation</source>
         <translation>旋转</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="147"/>
-        <location filename="../modules/display/customsettings.cpp" line="176"/>
-        <location filename="../modules/display/customsettings.cpp" line="194"/>
+        <location filename="../modules/display/customsettings.cpp" line="148"/>
+        <location filename="../modules/display/customsettings.cpp" line="177"/>
+        <location filename="../modules/display/customsettings.cpp" line="195"/>
         <source>Monitor %1</source>
         <translation>显示器 %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="287"/>
-        <location filename="../modules/display/customsettings.cpp" line="293"/>
+        <location filename="../modules/display/customsettings.cpp" line="288"/>
+        <location filename="../modules/display/customsettings.cpp" line="294"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="289"/>
-        <location filename="../modules/display/customsettings.cpp" line="295"/>
+        <location filename="../modules/display/customsettings.cpp" line="290"/>
+        <location filename="../modules/display/customsettings.cpp" line="296"/>
         <location filename="../modules/display/customsettings.h" line="43"/>
         <source>Confirm</source>
         <translation>确定</translation>
@@ -923,29 +948,42 @@
     </message>
 </context>
 <context>
+    <name>DeviceItemWidget</name>
+    <message>
+        <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="86"/>
+        <source>Connected</source>
+        <translation type="unfinished">已连接</translation>
+    </message>
+    <message>
+        <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="88"/>
+        <source>Unconnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DiskItem</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="50"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="52"/>
         <source>Retry</source>
         <translation>重试</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="95"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="97"/>
         <source>removable disk</source>
         <translation>可移动磁盘</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="97"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="99"/>
         <source>network disk</source>
         <translation>网络磁盘</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="99"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="101"/>
         <source>local disk</source>
         <translation>本地磁盘</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="102"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="104"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
         <translation>%1 \&quot;%2\&quot; 卸载失败，请重试。</translation>
     </message>
@@ -1178,17 +1216,17 @@
         <translation>键盘和语言</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="144"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="142"/>
         <source>Repeat Delay</source>
         <translation>重复延迟</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="158"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="157"/>
         <source>Repeat Rate</source>
         <translation>重复速度</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="173"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="172"/>
         <source>Cursor Blink Rate</source>
         <translation>光标闪烁频率</translation>
     </message>
@@ -1203,27 +1241,27 @@
         <translation>大写键提示</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="215"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="216"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="218"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="219"/>
         <source>Keyboard Layout</source>
         <translation>键盘布局</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="219"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="220"/>
         <source>Remove Keyboard Layout</source>
         <translation>删除键盘布局</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="220"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="221"/>
         <source>Add Keyboard Layout</source>
         <translation>添加键盘布局</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="311"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="309"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
@@ -1649,7 +1687,7 @@
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="73"/>
+        <location filename="../modules/network/networkinfo.cpp" line="77"/>
         <source>(default)</source>
         <translation>（默认）</translation>
     </message>
@@ -1658,57 +1696,57 @@
         <translation type="vanished">（默认）</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="81"/>
+        <location filename="../modules/network/networkinfo.cpp" line="96"/>
         <source>Interface</source>
         <translation>接口</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="98"/>
+        <location filename="../modules/network/networkinfo.cpp" line="100"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="99"/>
+        <location filename="../modules/network/networkinfo.cpp" line="101"/>
         <source>Device Addr</source>
         <translation>设备地址</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="100"/>
+        <location filename="../modules/network/networkinfo.cpp" line="102"/>
         <source>IP Address</source>
         <translation>IP 地址</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="101"/>
+        <location filename="../modules/network/networkinfo.cpp" line="103"/>
         <source>Subnet Mask</source>
         <translation>子网掩码</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="102"/>
+        <location filename="../modules/network/networkinfo.cpp" line="104"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="103"/>
+        <location filename="../modules/network/networkinfo.cpp" line="105"/>
         <source>Primary DNS</source>
         <translation>首选DNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="104"/>
+        <location filename="../modules/network/networkinfo.cpp" line="106"/>
         <source>Secondary DNS</source>
         <translation>第二DNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="105"/>
+        <location filename="../modules/network/networkinfo.cpp" line="107"/>
         <source>Third DNS</source>
         <translation>第三DNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="106"/>
+        <location filename="../modules/network/networkinfo.cpp" line="108"/>
         <source>Device Speed</source>
         <translation>设备速度</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="111"/>
+        <location filename="../modules/network/networkinfo.cpp" line="113"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -2067,32 +2105,32 @@
     <name>SharePanel</name>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="17"/>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="78"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="97"/>
         <source>Sharing</source>
         <translation>正在共享</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="39"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="60"/>
         <source>Sharing your desktop, your can continue to share or choose to disconnect</source>
         <translation>正在共享您的桌面，您可以继续共享或者选择断开</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="68"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="87"/>
         <source>Remote Assistance</source>
         <translation>远程协助</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="71"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="90"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="76"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="95"/>
         <source>Retry</source>
         <translation>重试</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="82"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="101"/>
         <source>Failed to establish the connection, you can retry to connect</source>
         <translation>建立链接失败，您可以尝试重新链接</translation>
     </message>
@@ -2233,47 +2271,47 @@
 <context>
     <name>SystemInfo</name>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="36"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="38"/>
         <source>System Information</source>
         <translation>系统信息</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="42"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="44"/>
         <source>Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Copyright (c) 2011-2015武汉深之度科技有限公司</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="46"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="48"/>
         <source>Deepin Edition:</source>
         <translation>系统版本</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="52"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="54"/>
         <source>System Type:</source>
         <translation>系统类型</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="54"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="56"/>
         <source>%1 Bit</source>
         <translation>%1位</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="57"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="59"/>
         <source>Processor:</source>
         <translation>处理器</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="63"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="65"/>
         <source>Memory:</source>
         <translation>内存</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="68"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="70"/>
         <source>Disk:</source>
         <translation>磁盘</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="126"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="128"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
         <translation>GNU通用公共许可协议</translation>
     </message>
@@ -2613,6 +2651,28 @@
     </message>
 </context>
 <context>
+    <name>WiredPlugin</name>
+    <message>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="41"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="58"/>
+        <source>Wired network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="65"/>
+        <source>Network disconnected</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WirelessApplet</name>
+    <message>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="66"/>
+        <source>Wireless Network</source>
+        <translation type="unfinished">无线网络</translation>
+    </message>
+</context>
+<context>
     <name>WirelessNetworkListItem</name>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="13"/>
@@ -2623,6 +2683,14 @@
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="183"/>
         <source>Connect to hidden access point</source>
         <translation>连接到隐藏网络</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessPlugin</name>
+    <message>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="38"/>
+        <source>Wireless Network</source>
+        <translation type="unfinished">无线网络</translation>
     </message>
 </context>
 </TS>
