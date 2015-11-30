@@ -29,9 +29,9 @@ void WiredPlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
     m_mode = proxy->dockMode();
+    m_wiredItem = nullptr;
     //for init
     if (m_mode != Dock::FashionMode) {
-        m_wiredItem = nullptr;
         onConnectionsChanged();
     }
 }
