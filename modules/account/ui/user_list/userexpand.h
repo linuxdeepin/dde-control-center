@@ -21,12 +21,15 @@ public:
     void showNormal();
     void hide();
     QString userPath() const;
+    QString userName() const;
+    bool userLocked() const;
 
 signals:
     void requestPreDestroy();
     void changeToSetting(bool setting);
     void requestDelete(bool flag);
     void cancelDelete();
+    void userLockChanged();
 
 private:
     void setHeight(int height);

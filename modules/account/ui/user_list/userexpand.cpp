@@ -10,6 +10,7 @@ UserExpand::UserExpand(const QString &userPath, QWidget *parent)
         setExpand(!expand());
     });
     connect(m_header, &UserExpandHeader::cancelDelete, this, &UserExpand::cancelDelete);
+    connect(m_header, &UserExpandHeader::lockChanged, this, &UserExpand::userLockChanged);
     connect(this, &UserExpand::requestDelete, m_header, &UserExpandHeader::changeToDeleteState);
 
     m_content = new UserExpandContent(userPath, this);
@@ -82,6 +83,16 @@ void UserExpand::hide()
 QString UserExpand::userPath() const
 {
     return m_userPath;
+}
+
+QString UserExpand::userName() const
+{
+    return m_header->userName();
+}
+
+bool UserExpand::userLocked() const
+{
+    return m_header->userLocked();
 }
 
 void UserExpand::setHeight(int height)

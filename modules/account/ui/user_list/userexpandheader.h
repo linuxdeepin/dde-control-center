@@ -49,10 +49,13 @@ public:
     void setIsCurrentUser(bool isCurrentUser);
     void setExpand(bool value);
     void changeToDeleteState(bool value);
+    bool userLocked() const;
+    QString userName() const;
 
 signals:
     void mousePress();
     void cancelDelete();
+    void lockChanged();
 
 protected:
     void mousePressEvent(QMouseEvent *);

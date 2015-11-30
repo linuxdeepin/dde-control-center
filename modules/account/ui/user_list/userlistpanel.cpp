@@ -39,8 +39,9 @@ void UserListPanel::initAccount()
     QString currentUserPath = m_account->FindUserById(m_sessionManager->currentUid()).value();
     UserExpand *currentUser = new UserExpand(currentUserPath, this);
     currentUser->setIsCurrentUser(true);
-    m_expands.insert(currentUserPath, currentUser);
+    m_expandList.append(currentUser);
     m_mainLayout->addWidget(currentUser);
+    m_mainLayout->addStretch(1);
     connect(currentUser, &UserExpand::expandChange, this, &UserListPanel::adjustSize);
     connect(currentUser, &UserExpand::changeToSetting, this, &UserListPanel::changeToSetting);
     connect(this, &UserListPanel::requestPreDestroy, currentUser, &UserExpand::requestPreDestroy);
@@ -55,16 +56,17 @@ void UserListPanel::initAccount()
         UserExpand *userExpand = new UserExpand(path, this);
         connect(userExpand, &UserExpand::cancelDelete, this, &UserListPanel::cancelDelete);
         connect(userExpand, &UserExpand::changeToSetting, this, &UserListPanel::changeToSetting);
+        connect(userExpand, &UserExpand::userLockChanged, [=] {
+            insertToLayout(userExpand);
+        });
         connect(this, &UserListPanel::requestPreDestroy, userExpand, &UserExpand::requestPreDestroy);
         connect(this, &UserListPanel::requestDelete, userExpand, &UserExpand::requestDelete);
         connect(this, &UserListPanel::showForNormal, userExpand, &UserExpand::showNormal);
         connect(this, &UserListPanel::hideForSetting, userExpand, &UserExpand::hide);
-        m_expands.insert(path, userExpand);
-        m_mainLayout->addWidget(userExpand);
+        insertToLayout(userExpand);
         connect(userExpand, &UserExpand::expandChange, this, &UserListPanel::adjustSize);
     }
 
-    m_mainLayout->addStretch(1);
 }
 
 void UserListPanel::onUserAdded(const QString &path)
@@ -72,17 +74,44 @@ void UserListPanel::onUserAdded(const QString &path)
     UserExpand *expand = new UserExpand(path, this);
     connect(expand, &UserExpand::cancelDelete, this, &UserListPanel::cancelDelete);
     connect(expand, &UserExpand::changeToSetting, this, &UserListPanel::changeToSetting);
+    connect(expand, &UserExpand::userLockChanged, [=] {
+        insertToLayout(expand);
+    });
+    connect(this, &UserListPanel::requestPreDestroy, expand, &UserExpand::requestPreDestroy);
     connect(this, &UserListPanel::requestDelete, expand, &UserExpand::requestDelete);
     connect(this, &UserListPanel::showForNormal, expand, &UserExpand::showNormal);
     connect(this, &UserListPanel::hideForSetting, expand, &UserExpand::hide);
-    m_expands.insert(path, expand);
-    m_mainLayout->insertWidget(m_mainLayout->count() - 1, expand);
+
+    insertToLayout(expand);
+}
+
+void UserListPanel::insertToLayout(UserExpand *expand)
+{
+    //remove from old position
+    if (m_expandList.indexOf(expand) != -1) {
+        m_expandList.removeAll(expand);
+        m_mainLayout->removeWidget(expand);
+    }
+
+    if (expand->userLocked()) { //there is a Stretch in the end of the layout
+        m_mainLayout->insertWidget(m_mainLayout->count() - 1, expand);
+    }
+    else {  //there must be a current-user in the list
+        m_mainLayout->insertWidget(1, expand);
+    }
+
+    m_expandList.append(expand);
 }
 
 void UserListPanel::onUserDeleted(const QString &path)
 {
-    UserExpand *target = m_expands.value(path);
-    m_mainLayout->removeWidget(target);
-    target->deleteLater();
+    foreach (UserExpand *expand, m_expandList) {
+        if (expand->userPath() == path) {
+            m_expandList.removeAll(expand);
+            m_mainLayout->removeWidget(expand);
+            expand->deleteLater();
+            break;
+        }
+    }
 }
 

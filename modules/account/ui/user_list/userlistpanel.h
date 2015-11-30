@@ -28,6 +28,7 @@ signals:
 private:
     void initSessionManager();
     void onUserAdded(const QString &path);
+    void insertToLayout(UserExpand *expand);
     void onUserDeleted(const QString &path);
 private slots:
     void initAccount();
@@ -37,7 +38,7 @@ private:
     QVBoxLayout *m_mainLayout = NULL;
     DBusSessionManager *m_sessionManager = NULL;
 
-    QMap<QString, UserExpand *> m_expands;   //userPath expandObj
+    QList<UserExpand *> m_expandList;
 };
 
 #endif // ACCOUNTLISTPANEL_H

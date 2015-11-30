@@ -96,6 +96,16 @@ void UserExpandHeader::changeToDeleteState(bool value)
     }
 }
 
+bool UserExpandHeader::userLocked() const
+{
+    return m_accountUser->locked();
+}
+
+QString UserExpandHeader::userName() const
+{
+    return m_accountUser->userName();
+}
+
 void UserExpandHeader::mousePressEvent(QMouseEvent *)
 {
     if (!m_adminCurrentLogin && !m_isCurrentUser)
@@ -113,6 +123,7 @@ void UserExpandHeader::initData()
 
     connect(m_accountUser, &DBusAccountUser::IconFileChanged, this, &UserExpandHeader::updateIcon);
     connect(m_accountUser, &DBusAccountUser::LockedChanged, this, &UserExpandHeader::updateIcon);
+    connect(m_accountUser, &DBusAccountUser::LockedChanged, this, &UserExpandHeader::lockChanged);
     connect(m_accountUser, &DBusAccountUser::AccountTypeChanged, this, &UserExpandHeader::updateAccountType);
 }
 
