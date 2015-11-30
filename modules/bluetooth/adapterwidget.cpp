@@ -59,7 +59,7 @@ void AdapterWidget::addTrustedDevice(BluetoothMainWidget::DeviceInfo *info)
     info->adapterInfo = m_info;
 
     m_activeDeviceList->addWidget(info->item);
-    m_activeDeviceExpand->setVisible(true);
+    m_activeDeviceExpand->setVisible(m_info->powered);
 }
 
 void AdapterWidget::removeDevice(BluetoothMainWidget::DeviceInfo *info, bool isDelete)
