@@ -59,7 +59,7 @@ void AdapterWidget::addTrustedDevice(BluetoothMainWidget::DeviceInfo *info)
     info->adapterInfo = m_info;
 
     m_activeDeviceList->addWidget(info->item);
-    m_activeDeviceExpand->setVisible(m_info->powered);
+    m_activeDeviceExpand->setVisible(m_bluetoothSwitch->checked());
 }
 
 void AdapterWidget::removeDevice(BluetoothMainWidget::DeviceInfo *info, bool isDelete)
@@ -85,7 +85,7 @@ void AdapterWidget::removeTrustedDevice(BluetoothMainWidget::DeviceInfo *info)
 
     qDebug() << "remove trusted device: " << m_activeDeviceList->count();
 
-    m_activeDeviceExpand->setVisible(m_activeDeviceList->count() != 0);
+    m_activeDeviceExpand->setVisible(m_activeDeviceList->count() != 0 && m_bluetoothSwitch->checked());
 }
 
 void AdapterWidget::updateUI()
@@ -93,11 +93,15 @@ void AdapterWidget::updateUI()
     QString text = m_info->name;
     QFontMetrics metrics(m_bluetoothName->font());
 
+    const bool powered = m_info->powered;
+    qDebug() << "powered = " << powered;
+
     m_bluetoothName->setText(metrics.elidedText(text, Qt::ElideRight, 210));
-    m_bluetoothSwitch->setChecked(m_info->powered);
+    m_bluetoothSwitch->setChecked(powered);
     m_refreshnndicator->setLoading(m_info->discovering);
-    m_deviceItemList->setVisible(m_info->powered);
-    m_listWidgetSeparator->setVisible(m_deviceItemList->count() > 0 && m_info->powered);
+    m_deviceItemList->setVisible(powered);
+    m_listWidgetSeparator->setVisible(m_deviceItemList->count() > 0 && powered);
+    m_activeDeviceExpand->setVisible(powered);
 }
 
 void AdapterWidget::initUI()
@@ -128,11 +132,15 @@ void AdapterWidget::initUI()
     h_layout->addSpacing(10);
 
     connect(m_bluetoothSwitch, &DSwitchButton::checkedChanged, this, [this](bool checked){
+        qDebug() << "checked = " << checked << "powere = " << m_info->powered;
         if(m_info->powered != checked)
-            m_info->bluetoothDbus->SetAdapterPowered(QDBusObjectPath(m_info->path), checked);
+            m_info->bluetoothDbus->SetAdapterPowered(QDBusObjectPath(m_info->path), checked);//.waitForFinished();
+//        m_info->powered = checked;
         m_activeDeviceExpand->setVisible(checked && m_activeDeviceList->count());
         m_tipsLabel->setVisible(!checked);
         m_headerLine->setVisible(checked);
+        m_deviceItemList->setVisible(checked);
+        m_listWidgetSeparator->setVisible(m_deviceItemList->count() > 0 && checked);
 //        m_separator->setVisible(checked);
     });
 
@@ -192,9 +200,9 @@ void AdapterWidget::initUI()
     m_listWidgetSeparator->hide();
     m_info->widget = this;
 
-    connect(m_deviceItemList, &DListWidget::visibleCountChanged, this, [this](int count){
-        m_listWidgetSeparator->setVisible(count > 0 && m_info->powered);
-    });
+//    connect(m_deviceItemList, &DListWidget::visibleCountChanged, this, [this](int count){
+//        m_listWidgetSeparator->setVisible(count > 0 && m_bluetoothSwitch->checked());
+//    });
     connect(refresh_button, &ImageNameButton::clicked, this, [this] {
         m_info->bluetoothDbus->RequestDiscovery(QDBusObjectPath(m_info->path));
     });
