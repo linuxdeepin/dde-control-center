@@ -59,10 +59,12 @@ DeviceItemWidget::DeviceItemWidget(BluetoothMainWidget::DeviceInfo *info, QWidge
     connect(m_confirmWidget, &ConfrimWidget::ignore, [this] {
         m_info->adapterInfo->bluetoothDbus->RemoveDevice(QDBusObjectPath(m_info->adapterInfo->path), QDBusObjectPath(m_info->path));
         m_info->adapterInfo->widget->removeConfirm(m_confirmWidget);
+        m_confirmVisible = false;
     });
     connect(m_confirmWidget, &ConfrimWidget::disconnect, [this] {
         m_info->adapterInfo->bluetoothDbus->DisconnectDevice(QDBusObjectPath(m_info->path));
         m_info->adapterInfo->widget->removeConfirm(m_confirmWidget);
+        m_confirmVisible = false;
     });
 }
 
@@ -89,6 +91,9 @@ void DeviceItemWidget::updateUI()
     }
 
     m_confirmWidget->setDisconnectVisible(m_info->state != BluetoothMainWidget::DeviceInfo::Disconnected);
+
+    if (rect().contains(mapFromGlobal(QCursor::pos())))
+        enterEvent(nullptr);
 }
 
 void DeviceItemWidget::enterEvent(QEvent *)
@@ -109,10 +114,24 @@ void DeviceItemWidget::mouseReleaseEvent(QMouseEvent *)
         m_removeBtn->hide();
         m_info->adapterInfo->bluetoothDbus->ConnectDevice(QDBusObjectPath(m_info->path));
     }
+
+    if (m_info->state == BluetoothMainWidget::DeviceInfo::Connected) {
+        m_loadingIndicator->show();
+        m_removeBtn->hide();
+
+        QTimer::singleShot(500, this, SLOT(updateUI()));
+    }
+
+    if (m_confirmVisible)
+    {
+        m_confirmVisible = false;
+        m_info->adapterInfo->widget->removeConfirm(m_confirmWidget);
+    }
 }
 
 void DeviceItemWidget::showConfirm()
 {
+    m_confirmVisible = true;
     m_confirmWidget->setDisconnectVisible(m_info->state != BluetoothMainWidget::DeviceInfo::Disconnected);
     m_info->adapterInfo->widget->addConfirm(m_confirmWidget, m_info);
 }

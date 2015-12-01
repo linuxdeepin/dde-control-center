@@ -33,6 +33,7 @@ private:
 private:
     BluetoothMainWidget::DeviceInfo *m_info = nullptr;
 
+    bool m_confirmVisible = false;
     ConfrimWidget *m_confirmWidget;
     QLabel *m_deviceName;
     QLabel *m_statTips;
