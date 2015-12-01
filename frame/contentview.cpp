@@ -188,8 +188,8 @@ void ContentView::onModuleSelected(ModuleMetaData meta)
 
 void ContentView::unloadPlugin()
 {
-//    if (m_lastPluginInterface)
-//        m_lastPluginInterface->preUnload();
+    if (m_lastPluginInterface)
+        m_lastPluginInterface->preUnload();
 
     if (m_lastPluginWidget)
     {
@@ -202,7 +202,7 @@ void ContentView::unloadPlugin()
 
     if (m_lastPluginInterface)
     {
-        m_lastPluginInterface->preUnload();
+//        m_lastPluginInterface->preUnload();
         delete m_lastPluginInterface;
         m_lastPluginInterface = nullptr;
     }
