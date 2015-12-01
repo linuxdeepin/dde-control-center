@@ -156,6 +156,7 @@ public Q_SLOTS: // METHODS
 
 Q_SIGNALS: // SIGNALS
     void Error(uint in0, const QString &in1, const QString &in2);
+    void Success(uint in0, const QString &in1);
     void UserAdded(const QString &in0);
     void UserDeleted(const QString &in0);
 // begin property changed signals

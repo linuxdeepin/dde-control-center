@@ -3,6 +3,8 @@
 #include "dbus/dbusaccount.h"
 #include "dbus/dbussessionmanager.h"
 #include "userexpandcontent.h"
+#include <sys/types.h>
+#include <unistd.h>
 
 UserExpandContent::UserExpandContent(const QString &userPath, QWidget *parent)
     : QWidget(parent),m_userPath(userPath)
@@ -36,13 +38,23 @@ void UserExpandContent::initDBusData()
         timer->deleteLater();
 
         //get dbus data
-        DBusAccount da;
+        DBusAccount * da = new DBusAccount(this);
+        connect(da, &DBusAccount::Success, [=](uint id, const QString &) {
+            if (uint(getpid()) == id) {
+                //500毫秒延时是为了防止某些性能比较好的机器上dbus数据处理比较快，
+                //引起的返回比较快导致窗口焦点切换还没完成就设置控制中心为“可隐藏”状态
+                //这是比较折中的处理方案
+                //fixme
+                QTimer::singleShot(500, this, SLOT(onCanHideControlCenter()));
+            }
+        });
+
         if (!m_accountUser)
             m_accountUser = new DBusAccountUser(m_userPath, this);
 
-        if (da.isValid() && m_accountUser->isValid()) {
+        if (da->isValid() && m_accountUser->isValid()) {
             DBusSessionManager sessionManager;
-            QString currentUserPath = da.FindUserById(sessionManager.currentUid()).value();
+            QString currentUserPath = da->FindUserById(sessionManager.currentUid()).value();
             m_isCurrentUser = m_userPath == currentUserPath;
 
             initSegmentedControl();
@@ -61,6 +73,11 @@ void UserExpandContent::initDBusData()
         else
             qWarning() << "Account: dbus's data invalid!" << m_userPath;
     }
+}
+
+void UserExpandContent::onCanHideControlCenter()
+{
+    this->window()->setProperty("autoHide", true);
 }
 
 void UserExpandContent::initSegmentedControl()
@@ -136,8 +153,6 @@ void UserExpandContent::initAutoLogin()
             m_autoLoginLine->setCheck(m_accountUser->automaticLogin());
             qWarning() << "Account: set account automatic login error: " << reply.error();
         }
-        //delay to buff windows active change
-        QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
     });
     connect(m_accountUser, &DBusAccountUser::AutomaticLoginChanged, [=]{
         m_autoLoginLine->setCheck(m_accountUser->automaticLogin());
@@ -163,8 +178,6 @@ void UserExpandContent::initUserEnable()
             m_lockLine->setCheck(!m_accountUser->locked());
             qWarning()<<"Account: set account lock error: " << reply.error();
         }
-        //delay to buff windows active change
-        QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
     });
     connect(m_accountUser, &DBusAccountUser::LockedChanged, [=]{
         m_lockLine->setCheck(!m_accountUser->locked());
@@ -197,8 +210,6 @@ void UserExpandContent::initAccountType()
             m_typeLine->setType(m_accountUser->accountType());
             qWarning() << "Account: set account type error: " << reply.error();
         }
-        //delay to buff windows active change
-        QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
     });
     connect(m_accountUser, &DBusAccountUser::AccountTypeChanged, [=]{
         m_typeLine->setType(m_accountUser->accountType());
@@ -224,8 +235,6 @@ void UserExpandContent::initPassword()
         reply.waitForFinished();
         if (reply.error().isValid())
             qWarning() << "Account: set password error: " << reply.error();
-        //delay to buff windows active change
-        QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
     });
 
     m_mainLayout->addWidget(m_passwordFrame);
@@ -257,9 +266,6 @@ void UserExpandContent::onAvatarSelected(const QString &avatar)
         if (reply.error().isValid())
             qWarning()<<"Account: set icon file error: " << reply.error();
     }
-
-    //delay to buff windows active change
-    QTimer::singleShot(1000, this, SLOT(onCanHideControlCenter()));
 }
 
 void UserExpandContent::onAccountEnableChanged(bool enabled)

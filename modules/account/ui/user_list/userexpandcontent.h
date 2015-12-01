@@ -33,7 +33,7 @@ signals:
 
 private slots:
     void initDBusData();
-    void onCanHideControlCenter() {this->window()->setProperty("autoHide", true);}
+    void onCanHideControlCenter();
 
 private:
     void initSegmentedControl();
