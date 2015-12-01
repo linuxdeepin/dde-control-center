@@ -25,7 +25,6 @@ Datetime::Datetime() :
     m_dbusInter(m_frame),
     m_timezoneListWidget(new SearchList),
     m_refershClockTimer(new QTimer(m_frame)),
-    m_refershCalendarTimer(new QTimer(m_frame)),
     // config manager
     m_settings(new QSettings("deepin", "dde-control-center-datetime", this))
 {
@@ -118,7 +117,7 @@ Datetime::Datetime() :
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] {m_timeWidget->setEditable(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] () -> void {m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::reloadTimezoneList);
-    connect(m_refershCalendarTimer, &QTimer::timeout, m_timeWidget, [this] {
+    connect(m_refershClockTimer, &QTimer::timeout, m_timeWidget, [this] {
         if (QDate::currentDate() != m_calendar->getCurrentDate())
             m_calendar->setCurrentDate(QDate::currentDate());
     });
@@ -146,8 +145,6 @@ Datetime::Datetime() :
     loadTimezoneList();
     m_refershClockTimer->setInterval(1 * 1000);
     m_refershClockTimer->start();
-    m_refershCalendarTimer->setInterval(15 * 1000);
-    m_refershCalendarTimer->start();
     m_frame->installEventFilter(this);
 }
 

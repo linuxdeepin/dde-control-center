@@ -77,7 +77,6 @@ private:
     TimeWidget *m_timeWidget;
     SearchList *m_timezoneListWidget;
     QTimer *m_refershClockTimer;
-    QTimer *m_refershCalendarTimer;
     QSettings *m_settings;
 
     QList<QString> m_choosedZoneList;
