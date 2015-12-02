@@ -13,11 +13,11 @@ class AppFrame : public QWidget
     Q_OBJECT
 public:
     explicit AppFrame(QWidget *parent = 0);
+    QSize getContentSize();
+    void updateSize();
 
 signals:
     void appCountChanged(int count);
-
-public slots:
 
 private:
     void initTitle();

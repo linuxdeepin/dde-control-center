@@ -30,15 +30,10 @@ void SoundContent::initFrame()
     connect(appFrame,&AppFrame::appCountChanged,[=](int count){
         qWarning() << "SinkInput Count:" << count;
         if (count <= 0)
-        {
-            appFrame->setVisible(false);
-            appFrame->adjustSize();
-        }
+            appFrame->hide();
         else
-        {
-            appFrame->setVisible(true);
-            appFrame->adjustSize();
-        }
+            appFrame->show();
+        appFrame->updateSize();
 
         adjustSize();
 
@@ -46,6 +41,8 @@ void SoundContent::initFrame()
     });
 
     QVBoxLayout *mainLayout = new QVBoxLayout();
+    mainLayout->setContentsMargins(0, 20, 0, 10);
+    mainLayout->setSpacing(0);
     mainLayout->addWidget(deviceFrame);
     mainLayout->addWidget(appFrame);
     mainLayout->setAlignment(deviceFrame,Qt::AlignHCenter);

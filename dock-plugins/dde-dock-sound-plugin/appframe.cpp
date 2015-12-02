@@ -1,9 +1,15 @@
 #include "appframe.h"
 
+const int TITLE_HEIGHT = 35;
+const int TITLE_WIDTH = 240;
+const int SPLIT_WIDTH = 150;
+const int TITLE_LEFT_MARGIN = 20;
+const int SLIDER_HEIGHT = 40;
 AppFrame::AppFrame(QWidget *parent) : QWidget(parent)
 {
     m_mainLayout = new QVBoxLayout(this);
-    m_mainLayout->setMargin(10);
+    m_mainLayout->setContentsMargins(0, 0, 0, 0);
+    m_mainLayout->setSpacing(0);
 
     setLayout(m_mainLayout);
     initTitle();
@@ -11,25 +17,33 @@ AppFrame::AppFrame(QWidget *parent) : QWidget(parent)
     adjustSize();
 }
 
+QSize AppFrame::getContentSize()
+{
+    return QSize(TITLE_WIDTH,
+                 TITLE_HEIGHT + m_audio->sinkInputs().count() * SLIDER_HEIGHT);
+}
+
+void AppFrame::updateSize()
+{
+    setFixedSize(getContentSize());
+}
+
 void AppFrame::initTitle()
 {
     QLabel *titleLabel = new QLabel(tr("Applications"));
     QLabel *splitLabel = new QLabel();
     splitLabel->setObjectName("SplitLine");
-    splitLabel->setFixedSize(155,1);
-    QHBoxLayout *titleLayout = new QHBoxLayout();
-    titleLayout->setMargin(0);
-    titleLayout->setSpacing(10);
-    titleLayout->addWidget(titleLabel);
-    titleLayout->addWidget(splitLabel);
-    titleLayout->setAlignment(titleLabel,Qt::AlignRight);
-    titleLayout->setAlignment(splitLabel,Qt::AlignRight);
+    splitLabel->setFixedSize(SPLIT_WIDTH, 1);
+
     QWidget *titleWidget = new QWidget();
-    titleWidget->setLayout(titleLayout);
-    titleWidget->setFixedSize(240,35);
+    titleWidget->setFixedSize(TITLE_WIDTH, TITLE_HEIGHT);
+    QHBoxLayout *titleLayout = new QHBoxLayout(titleWidget);
+    titleLayout->setContentsMargins(TITLE_LEFT_MARGIN, 0, 0, 0);
+    titleLayout->setSpacing(10);
+    titleLayout->addWidget(titleLabel, 0, Qt::AlignLeft);
+    titleLayout->addWidget(splitLabel, 1, Qt::AlignLeft);
 
     m_mainLayout->addWidget(titleWidget);
-    m_mainLayout->setAlignment(titleWidget,Qt::AlignRight);
 }
 
 void AppFrame::initAppList()
@@ -42,22 +56,19 @@ void AppFrame::initAppList()
         setVisible(false);
     }
 
-    for (int i = 0; i < pathList.length(); i ++)
+    for (QDBusObjectPath objPath : pathList)
     {
-        QString path = pathList.at(i).path();
-        AppIconSlider *iconSlider = new AppIconSlider(path,this);
-        if (iconSlider->isValid())
-        {
-            iconSlider->setFixedSize(240,30);
-            m_mainLayout->addWidget(iconSlider);
-            m_mainLayout->setAlignment(iconSlider,Qt::AlignRight);
+        QString path = objPath.path();
+        AppIconSlider *iconSlider = new AppIconSlider(path, this);
+        if (iconSlider->isValid()) {
+            iconSlider->setFixedSize(TITLE_WIDTH, SLIDER_HEIGHT);
+            m_mainLayout->addWidget(iconSlider, 1 , Qt::AlignLeft);
 
             if (m_appsMap.keys().indexOf(path) == -1)
-                m_appsMap.insert(path,iconSlider);
+                m_appsMap.insert(path, iconSlider);
         }
-        else
-        {
-            delete iconSlider;
+        else {
+            iconSlider->deleteLater();
             break;
         }
 
@@ -85,7 +96,7 @@ void AppFrame::updateAppList()
             AppIconSlider *iconSlider = new AppIconSlider(tmpPath,this);
             if (iconSlider->isValid())
             {
-                iconSlider->setFixedSize(240,30);
+                iconSlider->setFixedSize(TITLE_WIDTH, SLIDER_HEIGHT);
                 m_mainLayout->addWidget(iconSlider);
                 m_mainLayout->setAlignment(iconSlider,Qt::AlignRight);
                 m_appsMap.insert(tmpPath,iconSlider);

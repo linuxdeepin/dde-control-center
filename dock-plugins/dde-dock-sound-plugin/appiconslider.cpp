@@ -1,5 +1,9 @@
 #include "appiconslider.h"
 
+const int TITLE_LEFT_MARGIN = 30;
+const int SLIDER_SPACING = 15;
+const int SLIDER_HEIGHT = 30;
+const int SLIDER_WIDTH = 140;
 AppIconSlider::AppIconSlider(const QString &interfacePath, QWidget *parent)
     : QWidget(parent),m_interfacePath(interfacePath)
 {
@@ -57,7 +61,7 @@ void AppIconSlider::initWidget()
     m_muteIcon->setVisible(m_dasi->mute());
 
     m_iSlider = new VolumeSlider(Qt::Horizontal, this);
-    m_iSlider->setFixedSize(155, 30);
+    m_iSlider->setFixedSize(SLIDER_WIDTH, SLIDER_HEIGHT);
     m_iSlider->setMaximum(100);
     m_iSlider->setMinimum(0);
     m_iSlider->setIsMute(m_dasi->mute());
@@ -71,12 +75,10 @@ void AppIconSlider::initWidget()
     volumeUpdate();
 
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
-    mainLayout->setMargin(0);
-    mainLayout->setSpacing(10);
-    mainLayout->addWidget(m_iLabel);
-    mainLayout->addWidget(m_iSlider);
-    mainLayout->setAlignment(m_iLabel,Qt::AlignRight);
-    mainLayout->setAlignment(m_iSlider,Qt::AlignRight);
+    mainLayout->setContentsMargins(TITLE_LEFT_MARGIN, 0, 0, 0);
+    mainLayout->setSpacing(SLIDER_SPACING);
+    mainLayout->addWidget(m_iLabel, 0 , Qt::AlignLeft);
+    mainLayout->addWidget(m_iSlider, 1, Qt::AlignLeft);
 
     this->setLayout(mainLayout);
     this->adjustSize();
