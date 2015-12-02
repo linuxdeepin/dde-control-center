@@ -1,4 +1,6 @@
 #include <QVBoxLayout>
+#include <QGuiApplication>
+#include <QScreen>
 
 #include <libdui/dbuttonlist.h>
 #include <libdui/dexpandgroup.h>
@@ -321,28 +323,46 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
             m_dbusDisplay->SaveChanges();
             m_dbusDisplay->SwitchMode(0, "");
         }else if(m_dbusDisplay->hasChanged()){
-            m_dbusDisplay->Apply();
-
             DDialog dialog;
             int time_left = 30;
 
-            dialog.setWindowFlags(dialog.windowFlags() | Qt::WindowStaysOnTopHint);
+            dialog.setWindowFlags(window()->windowFlags());
             dialog.setTitle(tr("Do you want to keep these display settings?"));
-            dialog.setMessage(QString("Reverting to previous display settings in "
-                                      "<font color='white'>%1</font> seconds.").arg(--time_left));
+            dialog.setMessage(QString(tr("Reverting to previous display settings in "
+                                      "<font color='white'>%1</font> seconds.")).arg(--time_left));
             dialog.addButton(tr("Revert"));
             dialog.addButton(tr("Keep Changes"));
 
             QTimer timer;
 
             connect(&timer, &QTimer::timeout, this, [&dialog, &time_left, &timer] {
-                dialog.setMessage(QString("Reverting to previous display settings in "
-                                          "<font color='white'>%1</font> seconds.").arg(--time_left));
+                dialog.setMessage(QString(tr("Reverting to previous display settings in "
+                                          "<font color='white'>%1</font> seconds.")).arg(--time_left));
                 if(time_left <=0 ) {
                     timer.stop();
                     dialog.done(0);
                 }
             });
+
+            const QScreen *screen_dialog = nullptr;
+            const QScreen *screen_mouse = nullptr;
+
+            for(const QScreen *screen : QGuiApplication::screens()) {
+                if(screen->geometry().contains(dialog.pos())) {
+                    screen_dialog = screen;
+                    break;
+                } else if(screen->geometry().contains(QCursor::pos())) {
+                    screen_mouse = screen;
+                }
+            }
+
+            const QScreen *target_screen = screen_dialog ? screen_dialog : screen_mouse;
+
+            connect(target_screen, &QScreen::geometryChanged, &dialog, [&dialog] (const QRect &rect) {
+                dialog.moveToCenterByRect(rect);
+            });
+
+            m_dbusDisplay->Apply();
 
             timer.start(1000);
 

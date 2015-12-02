@@ -121,17 +121,17 @@
         <translation type="vanished">附近的设备</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="182"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="190"/>
         <source>Other devices</source>
         <translation>其它设备</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="204"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="212"/>
         <source>My devices</source>
         <translation>我的设备</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="211"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="219"/>
         <source>Open bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
         <translation>打开蓝牙以发现周围的蓝牙设备（音响、鼠标、键盘）</translation>
     </message>
@@ -665,75 +665,96 @@
 <context>
     <name>CustomSettings</name>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="26"/>
+        <location filename="../modules/display/customsettings.cpp" line="27"/>
         <source>Normal</source>
         <translation>正常</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="27"/>
+        <location filename="../modules/display/customsettings.cpp" line="28"/>
         <source>Rotate right</source>
         <translation>向右旋转</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="28"/>
+        <location filename="../modules/display/customsettings.cpp" line="29"/>
         <source>Upside down</source>
         <translation>上下翻转</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="29"/>
+        <location filename="../modules/display/customsettings.cpp" line="30"/>
         <source>Rotate left</source>
         <translation>向左旋转</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="67"/>
-        <location filename="../modules/display/customsettings.cpp" line="74"/>
+        <location filename="../modules/display/customsettings.cpp" line="68"/>
+        <location filename="../modules/display/customsettings.cpp" line="75"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="84"/>
+        <location filename="../modules/display/customsettings.cpp" line="85"/>
         <source>Enable Monitor</source>
         <translation>启用显示器</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="97"/>
+        <location filename="../modules/display/customsettings.cpp" line="98"/>
         <source>Please select the monitor you want to enable (checkable)</source>
         <translation>请选择您要启用的显示器（可多选）</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="102"/>
+        <location filename="../modules/display/customsettings.cpp" line="103"/>
         <source>Primary</source>
         <translation>主屏幕</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="125"/>
+        <location filename="../modules/display/customsettings.cpp" line="126"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="129"/>
+        <location filename="../modules/display/customsettings.cpp" line="130"/>
         <source>Rotation</source>
         <translation>旋转</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="148"/>
-        <location filename="../modules/display/customsettings.cpp" line="177"/>
-        <location filename="../modules/display/customsettings.cpp" line="195"/>
+        <location filename="../modules/display/customsettings.cpp" line="149"/>
+        <location filename="../modules/display/customsettings.cpp" line="178"/>
+        <location filename="../modules/display/customsettings.cpp" line="197"/>
         <source>Monitor %1</source>
         <translation>显示器 %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="288"/>
-        <location filename="../modules/display/customsettings.cpp" line="294"/>
+        <location filename="../modules/display/customsettings.cpp" line="298"/>
+        <location filename="../modules/display/customsettings.cpp" line="304"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="290"/>
-        <location filename="../modules/display/customsettings.cpp" line="296"/>
+        <location filename="../modules/display/customsettings.cpp" line="300"/>
+        <location filename="../modules/display/customsettings.cpp" line="306"/>
         <location filename="../modules/display/customsettings.h" line="43"/>
         <source>Confirm</source>
         <translation>确定</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/customsettings.cpp" line="330"/>
+        <source>Do you want to keep these display settings?</source>
+        <translation>是否要保留这些显示设置？</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/customsettings.cpp" line="331"/>
+        <location filename="../modules/display/customsettings.cpp" line="339"/>
+        <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
+        <translation>&lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt;秒后恢复之前的显示设置</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/customsettings.cpp" line="333"/>
+        <source>Revert</source>
+        <translation>还原</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/customsettings.cpp" line="334"/>
+        <source>Keep Changes</source>
+        <translation>保留更改</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.h" line="42"/>
@@ -835,32 +856,32 @@
 <context>
     <name>Datetime</name>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="84"/>
+        <location filename="../modules/datetime/datetime.cpp" line="83"/>
         <source>Date and Time</source>
         <translation>日期和时间</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="45"/>
+        <location filename="../modules/datetime/datetime.cpp" line="44"/>
         <source>Date</source>
         <translation>日期</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="53"/>
+        <location filename="../modules/datetime/datetime.cpp" line="52"/>
         <source>Time Zone</source>
         <translation>时区</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="60"/>
+        <location filename="../modules/datetime/datetime.cpp" line="59"/>
         <source>Sync Automatically</source>
         <translation>自动同步</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="67"/>
+        <location filename="../modules/datetime/datetime.cpp" line="66"/>
         <source>Use 24-hour clock</source>
         <translation>24小时制</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="72"/>
+        <location filename="../modules/datetime/datetime.cpp" line="71"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
@@ -950,12 +971,12 @@
 <context>
     <name>DeviceItemWidget</name>
     <message>
-        <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="86"/>
+        <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="88"/>
         <source>Connected</source>
         <translation type="unfinished">已连接</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="88"/>
+        <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="90"/>
         <source>Unconnect</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1000,47 +1021,47 @@
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="144"/>
+        <location filename="../modules/display/display.cpp" line="146"/>
         <source>Display Mode</source>
         <translation>显示模式</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="150"/>
+        <location filename="../modules/display/display.cpp" line="152"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="151"/>
+        <location filename="../modules/display/display.cpp" line="153"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>将您的一个屏幕内容复制到其他屏幕</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="161"/>
+        <location filename="../modules/display/display.cpp" line="163"/>
         <source>Extend</source>
         <translation>扩展</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="162"/>
+        <location filename="../modules/display/display.cpp" line="164"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>将您的屏幕内容扩展，在不同屏幕显示不同内容</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="173"/>
+        <location filename="../modules/display/display.cpp" line="175"/>
         <source>Custom Settings</source>
         <translation>自定义设置</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="174"/>
+        <location filename="../modules/display/display.cpp" line="176"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>您可以对屏幕进行其他自定义设置</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="184"/>
+        <location filename="../modules/display/display.cpp" line="186"/>
         <source>Only Displayed on %1</source>
         <translation>仅在%1上显示</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="185"/>
+        <location filename="../modules/display/display.cpp" line="187"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>仅在%1上显示屏幕内容，其他屏幕不显示</translation>
     </message>
@@ -1397,12 +1418,12 @@
         <translation>完成</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="31"/>
+        <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="29"/>
         <source>Auto check update</source>
         <translation>自动检查更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="34"/>
+        <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="32"/>
         <source>Update server</source>
         <translation>更新源</translation>
     </message>
@@ -1473,7 +1494,7 @@
         <translation>键盘和语言</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="32"/>
+        <location filename="../modules/datetime/datetime.cpp" line="31"/>
         <source>Date and Time</source>
         <translation>日期和时间</translation>
     </message>
@@ -2105,32 +2126,32 @@
     <name>SharePanel</name>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="17"/>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="97"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="98"/>
         <source>Sharing</source>
         <translation>正在共享</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="60"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="61"/>
         <source>Sharing your desktop, your can continue to share or choose to disconnect</source>
         <translation>正在共享您的桌面，您可以继续共享或者选择断开</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="87"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="88"/>
         <source>Remote Assistance</source>
         <translation>远程协助</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="90"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="91"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="95"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="96"/>
         <source>Retry</source>
         <translation>重试</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="101"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="102"/>
         <source>Failed to establish the connection, you can retry to connect</source>
         <translation>建立链接失败，您可以尝试重新链接</translation>
     </message>
@@ -2287,31 +2308,41 @@
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="54"/>
+        <source>Distribution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="56"/>
+        <source>%1 %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Type:</source>
         <translation>系统类型</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="56"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="62"/>
         <source>%1 Bit</source>
         <translation>%1位</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="59"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="65"/>
         <source>Processor:</source>
         <translation>处理器</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="65"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="71"/>
         <source>Memory:</source>
         <translation>内存</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="70"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="76"/>
         <source>Disk:</source>
         <translation>磁盘</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="128"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="140"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
         <translation>GNU通用公共许可协议</translation>
     </message>
@@ -2411,19 +2442,32 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="185"/>
         <source>No update avaliable.</source>
-        <translation>无可用更新</translation>
+        <translation type="vanished">无可用更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="194"/>
         <source>You have %1 softwares need update</source>
-        <translation>当前有%1个软件需要更新</translation>
+        <translation type="vanished">当前有%1个软件需要更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="198"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="203"/>
+        <source>Click to check update.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="214"/>
+        <source>%1 softwares need to be updated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="223"/>
         <source>Total download size: %1</source>
         <translation>总下载大小：%1</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="225"/>
+        <source>Unavaliable</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2454,17 +2498,17 @@
         <translation>启用</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="184"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="186"/>
         <source>Account Type</source>
         <translation>账户类型</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="237"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="241"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>请选择一张图片作为您的头像</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="238"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="242"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>图片文件 (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -2472,32 +2516,32 @@
 <context>
     <name>UserExpandHeader</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="144"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="155"/>
         <source>Keep user&apos;s files</source>
         <translation>保留用户文件</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="145"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="156"/>
         <source>Delete user&apos;s files</source>
         <translation>删除用户文件</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="147"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="158"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="148"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="159"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="196"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="207"/>
         <source>Administrator</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="198"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="209"/>
         <source>Normal User</source>
         <translation>普通用户</translation>
     </message>
