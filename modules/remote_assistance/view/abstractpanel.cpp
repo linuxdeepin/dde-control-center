@@ -24,7 +24,7 @@ AbstractPanel::AbstractPanel(const QString& title, QWidget *parent)
 
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     setFixedWidth(DCC::ModuleContentWidth);
-    setFixedHeight(400);
+    setFixedHeight(800);
 
 }
 

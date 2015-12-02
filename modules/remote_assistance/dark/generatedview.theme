@@ -11,5 +11,6 @@ font-size: 10px;
 }
 QLabel#tip{
 color: #7c7c7c;
-margin-top: 15px;
+padding-right: 16px;
+padding-left: 16px;
 }

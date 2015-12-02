@@ -72,15 +72,13 @@ QWidget* GeneratedView::createMainWidget()
     m_copyTip->setFixedWidth(DCC::ModuleContentWidth);
     layout->addWidget(m_copyTip);
     m_copyTip->setText("");
+    layout->addSpacing(15);
 
     auto tip = new QLabel;
     tip->setObjectName("tip");
     tip->setWordWrap(true);
-    tip->setAlignment(Qt::AlignVCenter);
     tip->setText(tr("To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input"));
-    tip->setFixedWidth(DCC::ModuleContentWidth-32);
     layout->addWidget(tip);
-    layout->setAlignment(tip, Qt::AlignHCenter);
     layout->addSpacing(10);
 
     mainWidget->setLayout(layout);
