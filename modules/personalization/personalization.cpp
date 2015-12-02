@@ -3,6 +3,7 @@
 #include <libdui/dbuttongrid.h>
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dlabel.h>
+#include <libdui/dboxwidget.h>
 #include <QVBoxLayout>
 #include <QTimer>
 #include <QApplication>
@@ -10,6 +11,9 @@
 #include <QDebug>
 #include <QThread>
 #include <QFormLayout>
+#include <QScrollArea>
+#include <QScrollBar>
+#include <QScreen>
 
 #include "mousearea.h"
 
@@ -157,15 +161,25 @@ void Personalization::initIconExpand(){
     m_iconButtonGrid = new DButtonGrid(1, 2);
     m_iconButtonGrid->setItemSize(m_itemWidth, m_itemHeight + 20);
 
-    m_iconContentFrame = new QFrame;
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_iconButtonGrid, 0, Qt::AlignCenter);
+    mainLayout->addStretch();
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins(m_margins);
-    m_iconContentFrame->setLayout(mainLayout);
+
+    DVBoxWidget *widget = new DVBoxWidget;
+    widget->layout()->addLayout(mainLayout);
+    widget->setFixedHeight(m_itemHeight + 20);
+
+    m_iconContentArea = new QScrollArea;
+    m_iconContentArea->setStyleSheet("background-color:transparent;");
+    m_iconContentArea->setFrameStyle(QFrame::NoFrame);
+    m_iconContentArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_iconContentArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_iconContentArea->setWidget(widget);
 
     m_buttonGrids.append(m_iconButtonGrid);
-    m_contentFrames.append(m_iconContentFrame);
+    m_contentFrames.append(m_iconContentArea);
 
 }
 
@@ -180,15 +194,24 @@ void Personalization::initCursorExpand(){
     m_cursorButtonGrid = new DButtonGrid(1, 2);
     m_cursorButtonGrid->setItemSize(m_itemWidth, m_itemHeight + 20);
 
-    m_cursorContentFrame = new QFrame;
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_cursorButtonGrid, 0, Qt::AlignCenter);
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins(m_margins);
-    m_cursorContentFrame->setLayout(mainLayout);
+
+    DVBoxWidget *widget = new DVBoxWidget;
+    widget->layout()->addLayout(mainLayout);
+    widget->setFixedHeight(m_itemHeight + 20);
+
+    m_cursorContentArea = new QScrollArea;
+    m_cursorContentArea->setStyleSheet("background-color:transparent;");
+    m_cursorContentArea->setFrameStyle(QFrame::NoFrame);
+    m_cursorContentArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_cursorContentArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_cursorContentArea->setWidget(widget);
 
     m_buttonGrids.append(m_cursorButtonGrid);
-    m_contentFrames.append(m_cursorContentFrame);
+    m_contentFrames.append(m_cursorContentArea);
 }
 
 DArrowLineExpand* Personalization::getCursorExpand(){
@@ -327,8 +350,16 @@ void Personalization::updateIconButtons(const ImageInfoList &imageInfos){
 
     int w = m_iconButtonGrid->width() + m_margins.left() + m_margins.right();
     int h = m_iconButtonGrid->height() + m_margins.top() + m_margins.bottom();
-    m_iconContentFrame->setFixedSize(w, h);
-    m_iconExpand->setContent(m_iconContentFrame);
+
+    const int maxH = qApp->desktop()->height()
+                     - m_headerLine->height()     // header
+                     - m_iconExpand->height() * 6 // expand
+                     - 2;                         // separator
+    if (h > maxH)
+        h = maxH;
+
+    m_iconContentArea->setFixedSize(w, h);
+    m_iconExpand->setContent(m_iconContentArea);
 }
 
 void Personalization::updateCursorButtons(const ImageInfoList &imageInfos){
@@ -337,8 +368,16 @@ void Personalization::updateCursorButtons(const ImageInfoList &imageInfos){
 
     int w = m_cursorButtonGrid->width() + m_margins.left() + m_margins.right();
     int h = m_cursorButtonGrid->height() + m_margins.top() + m_margins.bottom();
-    m_cursorContentFrame->setFixedSize(w, h);
-    m_cursorExpand->setContent(m_cursorContentFrame);
+
+    const int maxH = qApp->desktop()->height()
+                     - m_headerLine->height()       // header
+                     - m_cursorExpand->height() * 6 // expand
+                     - 2;                           // separator
+    if (h > maxH)
+        h = maxH;
+
+    m_cursorContentArea->setFixedSize(w, h);
+    m_cursorExpand->setContent(m_cursorContentArea);
 }
 
 void Personalization::updateWallpaperButtons(const ImageInfoList &imageInfos){

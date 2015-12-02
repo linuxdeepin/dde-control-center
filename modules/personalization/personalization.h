@@ -6,6 +6,7 @@
 #include <QThread>
 #include <QMargins>
 #include <QJsonObject>
+#include <QScrollArea>
 #include "interfaces.h"
 #include <libdui/libdui_global.h>
 #include <libdui/darrowlineexpand.h>
@@ -118,11 +119,11 @@ private:
 
     DArrowLineExpand* m_iconExpand = NULL;
     DButtonGrid* m_iconButtonGrid = NULL;
-    QFrame* m_iconContentFrame = NULL;
+    QScrollArea* m_iconContentArea = NULL;
 
     DArrowLineExpand* m_cursorExpand = NULL;
     DButtonGrid* m_cursorButtonGrid = NULL;
-    QFrame* m_cursorContentFrame = NULL;
+    QScrollArea* m_cursorContentArea = NULL;
 
     DArrowLineExpand* m_wallpaperExpand = NULL;
     DButtonGrid* m_wallpaperButtonGrid = NULL;
