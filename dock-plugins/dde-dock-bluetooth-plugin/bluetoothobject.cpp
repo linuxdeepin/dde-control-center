@@ -16,7 +16,8 @@ DUI_USE_NAMESPACE
 BluetoothObject::BluetoothObject(QObject *parent) :
     QObject(parent)
 {
-    intiBackend();
+    /// show later
+    QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
 }
 
 BluetoothObject::~BluetoothObject()
@@ -40,6 +41,11 @@ QStringList BluetoothObject::getIds() const
 BluetoothObject::AdapterInfo* BluetoothObject::getAdapterInfoByPath(const QString &path) const
 {
     return m_pathToAdapterInfoMap.value(path, nullptr);
+}
+
+bool BluetoothObject::dbusValid() const
+{
+    return m_bluetoothDbus->isValid();
 }
 
 void BluetoothObject::addAdapter(AdapterInfo *info)
@@ -133,39 +139,43 @@ void BluetoothObject::updateDeviceInfoByMap(BluetoothObject::DeviceInfo *info, c
     info->icon = map["Icon"].toString();
 }
 
-QVariantMap getMapByJson(const QString &json)
-{
-    QJsonDocument json_doc = QJsonDocument::fromJson(json.toUtf8());
-    return json_doc.object().toVariantMap();
-}
-
-void BluetoothObject::intiBackend()
+void BluetoothObject::init()
 {
     m_bluetoothDbus = new DBusBluetooth(this);
 
     if(!m_bluetoothDbus->isValid()) {
-        QTimer timer;
-        QEventLoop loop;
+        QTimer *timer = new QTimer(this);
 
-        int timerout_count = 0;
+        static int timerout_count = 0;
 
-        connect(&timer, &QTimer::timeout, [this, &loop, &timer, &timerout_count] {
+        connect(timer, &QTimer::timeout, [this, timer] {
             if(++timerout_count > 10) {
+                timer->stop();
+                timer->deleteLater();
                 qWarning() << "DBusBluetooth is invaild.";
 
                 return;
             }
 
             if(m_bluetoothDbus->isValid()) {
-                timer.stop();
-                loop.quit();
+                timer->stop();
+                timer->deleteLater();
+                initBackend();
             }
         });
 
-        timer.start(1500);
-        loop.exec();
+        timer->start(1500);
     }
+}
 
+QVariantMap getMapByJson(const QString &json)
+{
+    QJsonDocument json_doc = QJsonDocument::fromJson(json.toUtf8());
+    return json_doc.object().toVariantMap();
+}
+
+void BluetoothObject::initBackend()
+{
     if(m_bluetoothDbus->state() > 0) {
         ASYN_CALL(m_bluetoothDbus->GetAdapters(), {
                       QJsonDocument json_doc = QJsonDocument::fromJson(args[0].toByteArray());

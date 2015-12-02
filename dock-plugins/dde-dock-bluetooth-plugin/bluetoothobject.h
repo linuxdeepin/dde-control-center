@@ -54,6 +54,8 @@ public:
     QStringList getIds() const;
     AdapterInfo* getAdapterInfoByPath(const QString &path) const;
 
+    bool dbusValid() const;
+
 signals:
     void adapterAdd(const QString &path);
     void adapterRemove(const QString &path);
@@ -76,8 +78,8 @@ private:
     void updateAdapterInfoByMap(AdapterInfo *info, const QVariantMap &map);
     void updateDeviceInfoByMap(DeviceInfo *info, const QVariantMap &map);
 
-    void intiBackend();
-    void initUI();
+    Q_SLOT void init();
+    void initBackend();
 };
 
 #endif // BLUETOOTHOBJECT_H
