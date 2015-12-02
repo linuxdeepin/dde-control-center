@@ -90,6 +90,7 @@ DExtendBoard::DExtendBoard(QFrame *parent)
 DExtendBoard::~DExtendBoard()
 {
     delete m_animation;
+    m_label->deleteLater();
 }
 void DExtendBoard::setWidth(int ex_width) {
     setFixedWidth(ex_width);

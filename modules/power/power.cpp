@@ -169,7 +169,7 @@ void Power::initBatteryUsedUI() {
     batteryUsedLayout->addWidget(m_batteryCustomExtendBoard);
 
 
-    QTimer* t=new QTimer;
+    QTimer* t=new QTimer(this);
     t->setSingleShot(true);
     t->setInterval(100);
     connect(t,SIGNAL(timeout()), this, SLOT(handleTestTimer()));
