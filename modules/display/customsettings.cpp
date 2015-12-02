@@ -3,6 +3,7 @@
 #include <libdui/dbuttonlist.h>
 #include <libdui/dexpandgroup.h>
 #include <libdui/dseparatorhorizontal.h>
+#include <libdui/ddialog.h>
 
 #include "moduleheader.h"
 #include "normallabel.h"
@@ -321,7 +322,41 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
             m_dbusDisplay->SwitchMode(0, "");
         }else if(m_dbusDisplay->hasChanged()){
             m_dbusDisplay->Apply();
-            m_dbusDisplay->SaveChanges();
+
+            DDialog dialog;
+            int time_left = 30;
+
+            dialog.setWindowFlags(dialog.windowFlags() | Qt::WindowStaysOnTopHint);
+            dialog.setTitle(tr("Do you want to keep these display settings?"));
+            dialog.setMessage(QString("Reverting to previous display settings in "
+                                      "<font color='white'>%1</font> seconds.").arg(--time_left));
+            dialog.addButton(tr("Revert"));
+            dialog.addButton(tr("Keep Changes"));
+
+            QTimer timer;
+
+            connect(&timer, &QTimer::timeout, this, [&dialog, &time_left, &timer] {
+                dialog.setMessage(QString("Reverting to previous display settings in "
+                                          "<font color='white'>%1</font> seconds.").arg(--time_left));
+                if(time_left <=0 ) {
+                    timer.stop();
+                    dialog.done(0);
+                }
+            });
+
+            timer.start(1000);
+
+            window()->setProperty("autoHide", false);
+
+            int button_index = dialog.exec();
+
+            window()->setProperty("autoHide", true);
+
+            if(button_index == 1) {
+                m_dbusDisplay->SaveChanges();
+            } else {
+                m_dbusDisplay->ResetChanges();
+            }
         }
 
         emit cancel();
