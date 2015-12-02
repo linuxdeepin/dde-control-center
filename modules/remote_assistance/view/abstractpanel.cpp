@@ -12,7 +12,7 @@
 AbstractPanel::AbstractPanel(const QString& title, QWidget *parent)
     : QWidget(parent),
       m_viewLayout(new QVBoxLayout),
-      m_view(new QWidget),
+      m_view(new QWidget(this)),
       m_headerLine(new ModuleHeader(title, false))
 {
     m_viewLayout->setSpacing(0);
