@@ -15,7 +15,7 @@
 
 AddVpnPage::AddVpnPage(const QString &dbusPath, QWidget *parent) :
     DVBoxWidget(parent),
-    m_dbus(new DBusConnectionSession(dbusPath))
+    m_dbus(new DBusConnectionSession(dbusPath, this))
 {
     init();
 }

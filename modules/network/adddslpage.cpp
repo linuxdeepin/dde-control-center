@@ -12,7 +12,7 @@
 
 AddDslPage::AddDslPage(const QString &dbusPath, QWidget *parent) :
     ListWidgetContainer(tr("Add PPPoE Connection"), parent),
-    m_dbus(new DBusConnectionSession(dbusPath))
+    m_dbus(new DBusConnectionSession(dbusPath, this))
 {
     setRightButtonText(tr("Add"));
 

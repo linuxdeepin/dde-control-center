@@ -27,7 +27,7 @@ void WirelessNetworkListItem::onItemClicked()
 
                       qDebug() << "connect to hidden access point:" << object.path();
 
-                      DBusConnectionSession *dbus = new DBusConnectionSession(object.path());
+                      DBusConnectionSession *dbus = new DBusConnectionSession(object.path(), this);
                       ConnectToHiddenApPage *connect_ap = new ConnectToHiddenApPage(dbus);
 
                       ScrollFrame *scrollWidget = DCCNetwork::parentNetworkMainWidget(this);
