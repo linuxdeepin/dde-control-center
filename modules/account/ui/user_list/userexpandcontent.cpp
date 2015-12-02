@@ -172,10 +172,12 @@ void UserExpandContent::initUserEnable()
         onAccountEnableChanged(!m_accountUser->locked());
     });
 
-    if (m_isCurrentUser)
+    m_mainLayout->addWidget(m_lockLine);
+
+    if (m_isCurrentUser) {
         m_lockLine->setFixedHeight(0);
-    else
-        m_mainLayout->addWidget(m_lockLine);
+        m_lockLine->hide();
+    }
 }
 
 void UserExpandContent::initAccountType()
@@ -202,10 +204,12 @@ void UserExpandContent::initAccountType()
         m_typeLine->setType(m_accountUser->accountType());
     });
 
-    if (m_isCurrentUser)
+    m_mainLayout->addWidget(m_typeLine);
+
+    if (m_isCurrentUser) {
         m_typeLine->setFixedHeight(0);
-    else
-        m_mainLayout->addWidget(m_typeLine);
+        m_typeLine->hide();
+    }
 }
 
 void UserExpandContent::initPassword()
