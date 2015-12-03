@@ -101,7 +101,7 @@ void AdapterWidget::updateUI()
     m_refreshnndicator->setLoading(m_info->discovering);
     m_deviceItemList->setVisible(powered);
     m_listWidgetSeparator->setVisible(m_deviceItemList->count() > 0 && powered);
-    m_activeDeviceExpand->setVisible(powered);
+    m_activeDeviceExpand->setVisible(powered && m_activeDeviceList->count());
 }
 
 void AdapterWidget::initUI()
