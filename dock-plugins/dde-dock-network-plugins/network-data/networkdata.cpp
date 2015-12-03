@@ -100,4 +100,29 @@ QList<ActiveConnectionInfo> getActiveConnectionsInfo(DBusNetwork *dbusNetwork)
     return list;
 }
 
+bool hasVpn(DBusNetwork *dbusNetwork)
+{
+    if (dbusNetwork->isValid()) {
+        QJsonArray array = connectiosArray(ConnectionTypeVpn, dbusNetwork);
+        return array.size() > 0;
+    }
+    else {
+        return false;
+    }
+}
+
+bool vpnIsConnected(DBusNetwork *dbusNetwork)
+{
+    if (dbusNetwork->isValid()) {
+        QList<ActiveConnectionInfo> infoList = getActiveConnectionsInfo(dbusNetwork);
+        for (ActiveConnectionInfo info : infoList) {
+            if (info.connectionType.startsWith("vpn"))
+                return true;
+        }
+        return false;
+    }
+    else
+        return false;
+}
+
 }

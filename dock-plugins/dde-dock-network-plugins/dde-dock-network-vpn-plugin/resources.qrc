@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/connected.png</file>
+        <file>images/disconnect.png</file>
+        <file>images/waiting.png</file>
+        <file>images/vpn_off_16.png</file>
+        <file>images/vpn_on_16.png</file>
+    </qresource>
+    <qresource prefix="/qss">
+        <file>qss/vpn.qss</file>
+    </qresource>
+</RCC>

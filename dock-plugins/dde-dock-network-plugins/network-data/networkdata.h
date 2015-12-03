@@ -94,6 +94,8 @@ QStringList getActiveConnectionDevices(DBusNetwork *dbusNetwork);
 DeviceInfo getDeviceInfoById(const QString &uuid, DBusNetwork *dbusNetwork);
 QList<ActiveConnectionInfo> getActiveConnectionsInfo(DBusNetwork *dbusNetwork);
 
+bool hasVpn(DBusNetwork *dbusNetwork);
+bool vpnIsConnected(DBusNetwork *dbusNetwork);
 }
 
 #endif // NETWORKDATA

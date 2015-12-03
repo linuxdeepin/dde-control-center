@@ -111,7 +111,7 @@ QWidget * WiredPlugin::getItem(QString id)
     if (m_mode == Dock::FashionMode)
         return NULL;
     else if (enabled(id)){
-        if (m_wiredItem != nullptr)
+        if (m_wiredItem == nullptr)
             addNewItem(id);
 
         return m_wiredItem;
@@ -170,7 +170,6 @@ void WiredPlugin::removeItem(const QString &id)
 {
     if (m_wiredItem != nullptr) {
         m_proxy->itemRemovedEvent(id);
-        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
         m_wiredItem->deleteLater();
         m_wiredItem = nullptr;
         //remove setting line from dock plugins setting frame,should delete wireditem first
@@ -199,9 +198,9 @@ void WiredPlugin::onConnectionsChanged()
         connect(retryTimer, &QTimer::timeout, this, &WiredPlugin::onConnectionsChanged);
         connect(retryTimer, &QTimer::timeout, retryTimer, &QTimer::deleteLater);
         retryTimer->start(1000);
+        qWarning() << "[WiredPlugin]Network dbus data is not ready!";
         return;
     }
-    qWarning() << "DevicesChanged,Network dbus data is ready!";
     retryTimes = 10;
 
     removeItem(WIRED_PLUGIN_ID);
