@@ -253,6 +253,8 @@ void DateTimePlugin::initCalendar()
     m_calendar->setSelectionMode(DCalendar::NoSelection);
     m_calendar->setFixedSize(300, 300);
     m_calendar->updateCurrentDate();
+
+    m_calendar->setLunarVisible(QLocale::system().name().startsWith("zh_"));
 }
 
 // private methods
