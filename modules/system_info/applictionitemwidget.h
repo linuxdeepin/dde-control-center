@@ -50,6 +50,9 @@ public:
 
     inline bool hovered() const {return m_hovered;}
     inline bool selected() const {return m_selected;}
+    inline void setAppName(const QString &name) {m_appName->setText(name);}
+    inline void setAppVer(const QString &ver) {m_appVersion->setText(ver);}
+    inline void setAppIcon(const QPixmap &icon) {m_appIcon->setPixmap(icon);}
     void setAppUpdateInfo(const AppUpdateInfo &info);
     void disableUpdate();
 

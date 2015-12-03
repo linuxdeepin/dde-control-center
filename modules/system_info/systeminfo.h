@@ -30,6 +30,7 @@ public:
     SystemInfo();
     ~SystemInfo() Q_DECL_OVERRIDE;
     QFrame* getContent() Q_DECL_OVERRIDE;
+    void preUnload() Q_DECL_OVERRIDE;
 
 private:
     QString getLicense(const QString & filePath, const QString &type) const;
@@ -37,7 +38,7 @@ private:
     bool eventFilter(QObject *, QEvent *e) Q_DECL_OVERRIDE;
 
 private slots:
-    void onUpdatableNumsChange(const int updatableNums);
+    void onUpdatableNumsChange(const int apps, const int packages);
 
 private:
     QFrame *m_centeralFrame;

@@ -2,6 +2,7 @@
 #include "separatorwidget.h"
 #include "constants.h"
 #include "dbus/appupdateinfo.h"
+#include "dbus/dbusupdatejob.h"
 
 #include <QVBoxLayout>
 #include <QResizeEvent>
@@ -10,8 +11,6 @@
 
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dthememanager.h>
-
-#include "dbus/dbusupdatejob.h"
 
 UpdateWidget::UpdateWidget(QWidget *parent)
     : QWidget(parent)
@@ -23,11 +22,19 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     AppUpdateInfo::registerMetaType();
 
     m_updateCountTips = new QLabel;
+    m_updateCountTips->setWordWrap(true);
     m_updateCountTips->setObjectName("Tips");
     m_updateSizeTips = new QLabel;
     m_updateSizeTips->setObjectName("Tips");
     m_checkUpdateBtn = new DImageButton;
-    m_checkUpdateBtn->setNormalPic(":/images/images/upgrade_press.png");
+    m_checkUpdateBtn->setNormalPic(":/images/images/check_update_normal.svg");
+    m_checkUpdateBtn->setHoverPic(":/images/images/check_update_hover.svg");
+    m_checkUpdateBtn->setPressPic(":/images/images/check_update_press.svg");
+    m_checkUpdateBtn->setStyleSheet("background-color:transparent;");
+    m_checkingIndicator = new DLoadingIndicator;
+    m_checkingIndicator->setWidgetSource(m_checkUpdateBtn);
+    m_checkingIndicator->setFixedSize(32, 32);
+    m_checkingIndicator->setSmooth(true);
     m_updateButton = new DImageButton;
     m_updateButton->setNormalPic(":/images/images/upgrade_normal.png");
     m_updateButton->setHoverPic(":/images/images/upgrade_hover.png");
@@ -52,13 +59,13 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     QVBoxLayout *tipsLayout = new QVBoxLayout;
     tipsLayout->addWidget(m_updateCountTips);
     tipsLayout->addWidget(m_updateSizeTips);
-    tipsLayout->setSpacing(0);
+    tipsLayout->setSpacing(5);
     tipsLayout->setMargin(0);
 
     QHBoxLayout *updateInfoLayout = new QHBoxLayout;
     updateInfoLayout->addLayout(tipsLayout);
     updateInfoLayout->addStretch();
-    updateInfoLayout->addWidget(m_checkUpdateBtn);
+    updateInfoLayout->addWidget(m_checkingIndicator);
     updateInfoLayout->addWidget(m_updateButton);
     updateInfoLayout->addWidget(m_updateProgress);
     updateInfoLayout->setSpacing(0);
@@ -93,6 +100,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     connect(this, &UpdateWidget::updatableNumsChanged, this, &UpdateWidget::updateInfo);
 //    connect(m_dbusJobManagerInter, &DBusUpdateJobManager::UpgradableAppsChanged, this, &UpdateWidget::loadAppList);
     connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatableAppsChanged, this, &UpdateWidget::loadAppList);
+    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatablePackagesChanged, this, &UpdateWidget::loadAppList);
 //    connect(m_checkUpdateBtn, &DImageButton::clicked, this, &UpdateWidget::loadAppList);
 //    connect(m_checkUpdateBtn, &DImageButton::clicked, m_dbusJobManagerInter, &DBusUpdateJobManager::UpdateSource);
     connect(m_checkUpdateBtn, &DImageButton::clicked, this, &UpdateWidget::checkUpdate);
@@ -147,8 +155,14 @@ void UpdateWidget::loadAppList()
         connect(appItemWidget, &ApplictionItemWidget::jobFinished, this, &UpdateWidget::removeJob);
     }
 
+    m_updatableAppsList = m_dbusUpdateInter->updatableApps();
+    m_updatablePackagesList = m_dbusUpdateInter->updatablePackages();
+
+    qDebug() << "updatableApps: " << m_updatableAppsList;
+    qDebug() << "updatablePackages: " << m_updatablePackagesList;
+
     // updatable nums change
-    emit updatableNumsChanged(m_appsList->count());
+    emit updatableNumsChanged(m_updatableAppsList.count(), m_updatablePackagesList.count());
 }
 
 void UpdateWidget::updateUpgradeProcess()
@@ -188,61 +202,101 @@ void UpdateWidget::removeJob()
         return;
 
     m_appsList->removeWidget(m_appsList->indexOf(appItemWidget));
-    emit updatableNumsChanged(m_appsList->count());
+
+    // TODO:FIXME: nums ?
+    emit updatableNumsChanged(m_appsList->count(), 1);
 }
 
-void UpdateWidget::updateInfo(const int updatableAppsNum)
+void UpdateWidget::updateInfo(const int apps, const int packages)
 {
     const bool upgrading = m_upgradeStatus != NotStart;
-    qDebug() << "updatable apps num: " << updatableAppsNum << "upgrading = " << upgrading;
+    qDebug() << "updatable apps num: " << apps << packages << "upgrading = " << upgrading << m_upgradeStatus;
 
-    if (!updatableAppsNum)
+    // no update
+    if (!apps && !packages)
     {
-        m_checkUpdateBtn->show();
+        m_checkingIndicator->show();
         m_updateButton->hide();
         m_updateCountTips->setText(tr("Click to check update."));
         m_updateSizeTips->clear();
         m_appsList->hide();
         m_appSeparator->hide();
         m_updateSizeTips->hide();
-    } else {
-        m_checkUpdateBtn->hide();
+    }
+    else
+    {
+        m_checkingIndicator->hide();
         m_updateButton->show();
         m_appsList->show();
         m_appSeparator->show();
         m_updateSizeTips->show();
-        m_updateCountTips->setText(QString(tr("%1 softwares need to be updated")).arg(updatableAppsNum));
 
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->PackagesDownloadSize(m_dbusJobManagerInter->upgradableApps()), this);
+        // have app or package update, calculate download size
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->PackagesDownloadSize(m_updatablePackagesList), this);
         connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
             qlonglong size = watcher->reply().arguments().first().toLongLong();
 
-            qDebug() << "size = " << size;
-            // TODO size
             if (size != -1)
                 m_updateSizeTips->setText(QString(tr("Total download size: %1")).arg(formatCap(size, 1000)));
             else
-                m_updateSizeTips->setText(tr("Unavaliable"));
+                m_updateSizeTips->setText(tr("Unknown"));
 
             watcher->deleteLater();
         });
-
-        // hide last separator
-        ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsList->getWidget(m_appsList->count() - 1));
-        if (item)
-            item->hideSeparator();
     }
+
+    // app update
+    if (apps)
+    {
+        m_updateCountTips->setText(QString(tr("%1 software need to be updated")).arg(apps));
+    }
+
+    // have package update, insert "Deepin system upgrade item"
+    if (packages != apps)
+    {
+        ApplictionItemWidget *sysItem = new ApplictionItemWidget;
+        sysItem->setAppName("Deepin");
+        sysItem->setAppIcon(QPixmap(":/images/images/deepin.svg"));
+        sysItem->setAppVer(tr("Patches"));
+        sysItem->disableUpdate();
+        m_appsList->insertWidget(0, sysItem);
+        m_updateCountTips->setText(tr("Some patches need to be updated"));
+    }
+
+    if (apps && packages != apps)
+        m_updateCountTips->setText(QString(tr("Some patches and %1 software need to be updated")).arg(apps));
+
+    // hide last separator
+    ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsList->getWidget(m_appsList->count() - 1));
+    if (item)
+        item->hideSeparator();
 
     // hide when upgrading
     if (!upgrading)
         return;
+    disableAppsUpgrade();
     m_updateButton->hide();
-    m_checkUpdateBtn->hide();
+    m_checkingIndicator->hide();
 }
 
 void UpdateWidget::checkUpdate()
 {
+    if (m_upgradeStatus == CheckUpdate)
+        return;
+    m_upgradeStatus = CheckUpdate;
+    m_checkingIndicator->setLoading(true);
+
+//    m_updateCountTips->setText();
+
     // TODO: check update
+    qDebug() << "check update";
+    QDBusPendingReply<QDBusObjectPath> reply = m_dbusJobManagerInter->UpdateSource();
+    reply.waitForFinished();
+
+    const QString jobPath = reply.value().path();
+
+    m_dbusCheckupdate = new DBusUpdateJob("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
+    connect(m_dbusCheckupdate, &DBusUpdateJob::StatusChanged, this, &UpdateWidget::checkUpdateStateChanged);
 }
 
 void UpdateWidget::refreshProgress(UpdateWidget::UpgradeState state)
@@ -267,6 +321,30 @@ void UpdateWidget::restartUpgrade()
     m_dbusJobManagerInter->StartJob(m_dbusSystemUpgrade->id());
 }
 
+void UpdateWidget::checkUpdateStateChanged()
+{
+    if (!m_dbusCheckupdate)
+        return;
+
+    const QString &stat = m_dbusCheckupdate->status();
+    qDebug() << stat << m_upgradeStatus;
+
+    if (stat == "end")
+    {
+        // TODO:
+        if (m_upgradeStatus == CheckUpdate)
+        {
+            m_upgradeStatus = NotStart;
+            m_checkingIndicator->setLoading(false);
+            m_checkingIndicator->setRotate(0);
+        }
+//            m_updateCountTips->setText(tr("imde"));
+
+        m_dbusCheckupdate->deleteLater();
+        m_dbusCheckupdate = nullptr;
+    }
+}
+
 void UpdateWidget::systemUpgrade()
 {
     // TODO: if no system update avaliable
@@ -277,12 +355,7 @@ void UpdateWidget::systemUpgrade()
     m_updateButton->hide();
 
     // disable apps update
-    const int count = m_appsList->count();
-    for (int i(0); i != count; ++i)
-    {
-        ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsList->getWidget(i));
-        item->disableUpdate();
-    }
+    disableAppsUpgrade();
 
     // sys upgrade
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->DistUpgrade(), this);
@@ -341,3 +414,12 @@ void UpdateWidget::toggleUpdateState()
     }
 }
 
+void UpdateWidget::disableAppsUpgrade()
+{
+    const int count = m_appsList->count();
+    for (int i(0); i != count; ++i)
+    {
+        ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsList->getWidget(i));
+        item->disableUpdate();
+    }
+}

@@ -10,6 +10,7 @@
 #include <libdui/dlistwidget.h>
 #include <libdui/dimagebutton.h>
 #include <libdui/dseparatorhorizontal.h>
+#include <libdui/dloadingindicator.h>
 
 #include "applictionitemwidget.h"
 #include "dbus/dbuslastoreupdater.h"
@@ -42,7 +43,7 @@ public:
     }
 
 signals:
-    void updatableNumsChanged(const int nums) const;
+    void updatableNumsChanged(const int apps, const int packages) const;
 
 protected:
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
@@ -51,10 +52,12 @@ private:
     void systemUpgrade();
     void loadUpgradeJob(DBusUpdateJob *newJob);
     void toggleUpdateState();
+    void disableAppsUpgrade();
 
 private:
     enum UpgradeState {
         NotStart,
+        CheckUpdate,
         Ready,
         Running,
         Fail,
@@ -65,22 +68,27 @@ private slots:
     void updateUpgradeProcess();
     void updateUpgradeState();
     void removeJob();
-    void updateInfo(const int updatableAppsNum);
+    void updateInfo(const int apps, const int packages);
     void checkUpdate();
     void refreshProgress(UpgradeState state);
     void restartUpgrade();
+    void checkUpdateStateChanged();
 
 private:
     QLabel *m_updateCountTips;
     QLabel *m_updateSizeTips;
+    DLoadingIndicator *m_checkingIndicator;
     DImageButton *m_checkUpdateBtn;
     DImageButton *m_updateButton;
     DCircleProgress *m_updateProgress;
     DListWidget *m_appsList;
     DBusUpdateJob *m_dbusSystemUpgrade = nullptr;
+    DBusUpdateJob *m_dbusCheckupdate = nullptr;
     DBusLastoreUpdater *m_dbusUpdateInter;
     DBusUpdateJobManager *m_dbusJobManagerInter;
     DSeparatorHorizontal *m_appSeparator;
+    QList<QString> m_updatableAppsList;
+    QList<QString> m_updatablePackagesList;
 
     UpgradeState m_upgradeStatus = NotStart;
 };

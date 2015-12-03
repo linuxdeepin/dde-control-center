@@ -226,6 +226,11 @@ void HomeScreen::loadUserAvatar()
     m_settings->sync();
 
     const QString &file = m_settings->value("User/Icon").toString();
+
+    qDebug() << "avatar = " << file;
+    for (const QString &k : m_settings->allKeys())
+        qDebug() << k << " = " << m_settings->value(k).toString();
+
     m_userAvatar->setIcon(file);
 }
 

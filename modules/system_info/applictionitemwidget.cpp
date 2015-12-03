@@ -178,7 +178,7 @@ void ApplictionItemWidget::updateJobStatus()
 {
     qDebug() << m_dbusJobInter->status();
     const QString &status = m_dbusJobInter->status();
-    const QString &id = m_dbusJobInter->id();
+//    const QString &id = m_dbusJobInter->id();
 
     if (status == "success")
     {

@@ -204,6 +204,12 @@ QFrame *SystemInfo::getContent()
     return m_centeralFrame;
 }
 
+void SystemInfo::preUnload()
+{
+    // TODO/FIXME: 由于 QScrollArea 的绘图Bug，在动画切换的时候会穿透到桌面，所以这里先隐藏
+    m_updateExpand->setVisible(false);
+}
+
 QString SystemInfo::getLicense(const QString &filePath, const QString &type) const
 {
     QString lang = QLocale::system().name();
@@ -252,10 +258,12 @@ bool SystemInfo::eventFilter(QObject *o, QEvent *e)
     return false;
 }
 
-void SystemInfo::onUpdatableNumsChange(const int updatableNums)
+void SystemInfo::onUpdatableNumsChange(const int apps, const int packages)
 {
-    m_updateExpand->setUpdatableNums(updatableNums);
+    const int num = apps ? apps : !!packages;
 
-    if (updatableNums && !m_updateExpand->expand())
+    m_updateExpand->setUpdatableNums(num);
+
+    if (num && !m_updateExpand->expand())
         m_updateExpand->setExpand(true);
 }

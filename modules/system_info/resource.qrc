@@ -11,6 +11,10 @@
         <file>images/upgrade_hover.png</file>
         <file>images/upgrade_normal.png</file>
         <file>images/upgrade_press.png</file>
+        <file>images/check_update_press.svg</file>
+        <file>images/check_update_normal.svg</file>
+        <file>images/check_update_hover.svg</file>
+        <file>images/deepin.svg</file>
     </qresource>
     <qresource prefix="/licenses">
         <file>gpl/gpl-3.0-zh_TW-title.txt</file>
