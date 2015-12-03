@@ -33,6 +33,8 @@ Sound::Sound() :
 
     if (m_sink && m_source) {
         initUI();
+    } else {
+        qWarning() << "m_sink = " << m_sink << "m_source = " << m_source;
     }
 }
 
@@ -449,6 +451,8 @@ DBusAudioSink * Sound::getDefaultSink()
         }
     }
 
+    qWarning() << "getDefaultSink is empty";
+
     return NULL;
 }
 
@@ -459,6 +463,8 @@ DBusAudioSource * Sound::getDefaultSource()
             return s;
         }
     }
+
+    qWarning() << "getDefaultSource is empty";
 
     return NULL;
 }
