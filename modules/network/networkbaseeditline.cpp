@@ -230,7 +230,14 @@ void NetworkBaseEditLine::setSetKeyAlways(bool setKeyAlways)
     m_setKeyAlways = setKeyAlways;
 }
 
-bool NetworkBaseEditLine::isValueError()
+void NetworkBaseEditLine::checkKey()
+{
+    if(isValueError()) {
+        emit showErrorAlert();
+    }
+}
+
+bool NetworkBaseEditLine::isValueError() const
 {
     return !m_dbus->errors().isEmpty() && !m_dbus->errors()[section()].isEmpty()
             && !m_dbus->errors()[section()][key()].isEmpty();

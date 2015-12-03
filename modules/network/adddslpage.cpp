@@ -36,6 +36,10 @@ AddDslPage::AddDslPage(const QString &dbusPath, QWidget *parent) :
 
             if(frame)
                 frame->popAllWidget();
+        } else {
+            for(NetworkBaseEditLine *line : findChildren<NetworkBaseEditLine*>()) {
+                line->checkKey();
+            }
         }
     });
 }

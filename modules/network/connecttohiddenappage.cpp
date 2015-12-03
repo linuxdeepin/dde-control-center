@@ -93,7 +93,9 @@ void ConnectToHiddenApPage::init()
         if (m_dbus->Save()) {
             emit confirm();
         } else {
-            qDebug() << m_dbus->errors();
+            for(NetworkBaseEditLine *line : findChildren<NetworkBaseEditLine*>()) {
+                line->checkKey();
+            }
         }
     });
     connect(this, &ConnectToHiddenApPage::leftButtonClicked, m_dbus, &DBusConnectionSession::Close);

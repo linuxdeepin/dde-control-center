@@ -159,8 +159,13 @@ void AddVpnPage::init()
         //checkKeysInPage()
         ScrollFrame *frame = DCCNetwork::parentNetworkMainWidget(this);
 
-        if (m_dbus->Save() && frame) {
-            frame->popAllWidget();
+        if (m_dbus->Save()) {
+            if(frame)
+                frame->popAllWidget();
+        } else {
+            for(NetworkBaseEditLine *line : findChildren<NetworkBaseEditLine*>()) {
+                line->checkKey();
+            }
         }
     });
 

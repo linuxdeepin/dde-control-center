@@ -43,12 +43,14 @@ public slots:
     void setKey(const QString &key);
     void setAlwaysUpdate(bool alwaysUpdate);
     void setSetKeyAlways(bool setKeyAlways);
+    void checkKey();
 
 signals:
     void setTitle(const QString &title);
     void widgetShown();
     void cacheValueChanged();
     void showed();
+    void showErrorAlert();
 
 protected:
     void showEvent(QShowEvent *e) Q_DECL_OVERRIDE;
@@ -56,7 +58,7 @@ protected:
 private:
     void setCacheValue(const QJsonValue &value);
     void updateVisible();
-    bool isValueError();
+    bool isValueError() const;
 
     DBusConnectionSession *m_dbus;
     QJsonValue m_cacheValue;

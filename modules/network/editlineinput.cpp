@@ -14,7 +14,7 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
                              QWidget *parent) :
     NetworkBaseEditLine(section, key, dbus, title, parent)
 {
-    QWidget *line_edit;
+    DLineEdit *line_edit;
 
     switch (type) {
     case EditLineInputType::Normal:
@@ -49,6 +49,8 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
     connect(this, &NetworkBaseEditLine::widgetShown, this, update_text);
     connect(this, &NetworkBaseEditLine::cacheValueChanged, this, update_text);
     connect(line_edit, SIGNAL(textChanged(QString)), this, SLOT(setDBusKey(QString)));
+    connect(this, &EditLineInput::showErrorAlert, line_edit, [line_edit]{line_edit->setAlert(true);});
+    connect(line_edit, &DLineEdit::textChanged, line_edit, [line_edit]{line_edit->setAlert(false);});
 
     setRightWidget(line_edit);
 }
