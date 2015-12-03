@@ -1,9 +1,9 @@
 include(../../common.pri)
 TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
-QT             += widgets dbus
+QT             += widgets dbus x11extras
 INCLUDEPATH    += ../../frame/ ../../widgets
-PKGCONFIG += dui
+PKGCONFIG += dui x11
 LIBS += -L../../widgets -lwidgets
 
 HEADERS        += display.h \

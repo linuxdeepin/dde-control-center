@@ -1,8 +1,11 @@
 #include <QPainter>
 #include <QDebug>
+#include <QX11Info>
 
 #include "fullscreentooltip.h"
 #include "dbus/monitorinterface.h"
+
+#include <X11/extensions/shape.h>
 
 FullScreenTooltip::FullScreenTooltip(MonitorInterface *dbus) :
     QFrame(nullptr),
@@ -10,6 +13,9 @@ FullScreenTooltip::FullScreenTooltip(MonitorInterface *dbus) :
 {
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::Tool | Qt::X11BypassWindowManagerHint);
     setAttribute(Qt::WA_TranslucentBackground);
+
+    // pass mouse event
+    XShapeCombineRectangles(QX11Info::display(), winId(), ShapeInput, 0, 0, nullptr, 0, ShapeSet, YXBanded);
 
     connect(m_dbusMonitor, &MonitorInterface::XChanged, [this]{
         m_monitorRect.moveLeft(m_dbusMonitor->x());
@@ -64,27 +70,33 @@ void FullScreenTooltip::paintEvent(QPaintEvent *e)
     QString name  = m_dbusMonitor->name();
 
     if(m_showCenter){
+        move(m_monitorRect.topLeft());
+        setFixedSize(m_monitorRect.size());
+
         int fontSize = m_monitorRect.height() / 5;
         QFont font;
         font.setPixelSize(fontSize);
         setFont(font);
 
-        rect = QRect(0, 0, fontMetrics().width(name), fontMetrics().height());
-        rect.moveCenter(m_monitorRect.center());
-        setGeometry(rect);
+        QPen pen;
+        pen.setWidth(1);
+        pen.setColor(Qt::black);
 
-        QPainterPathStroker pps;
-        pps.setCapStyle(Qt::RoundCap);
-        pps.setWidth(1);
+        QBrush brush;
+        brush.setColor(Qt::white);
+        brush.setStyle(Qt::SolidPattern);
 
-        pa.setPen(Qt::white);
-        pa.setOpacity(0.8);
-        pa.drawText(this->rect(), name, option);
+        const int x = m_monitorRect.center().x() - m_monitorRect.left() - fontMetrics().width(name) / 2;
+        const int y = m_monitorRect.center().y() + fontMetrics().height() / 2;
 
         QPainterPath path;
-        path.addText(0, rect.height() / 1.145, font, name);
-        path = pps.createStroke(path).united(path);
-        pa.strokePath(path, QPen(Qt::black));
+        path.addText(x, y, font, name);
+
+        pa.setRenderHint(QPainter::Antialiasing, true);
+        pa.setFont(font);
+        pa.setPen(pen);
+        pa.setBrush(brush);
+        pa.drawPath(path);
     }else{
         rect = QRect(m_monitorRect.left(), m_monitorRect.top(), 100, 50);
         setGeometry(rect);
