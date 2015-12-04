@@ -17,6 +17,7 @@
 
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dimagebutton.h>
+#include <libdui/dboxwidget.h>
 
 HomeScreen::HomeScreen(QWidget *parent) :
     QFrame(parent)
@@ -37,15 +38,15 @@ HomeScreen::HomeScreen(QWidget *parent) :
     for (int i(0); i != pluginsCount; ++i)
         insertPlugin(i, pluginsList.at(i));
 
-    QVBoxLayout *centerVLayout = new QVBoxLayout;
-    QSpacerItem *vSpace = new QSpacerItem(1, 1, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
-    centerVLayout->addLayout(m_grid);
-    centerVLayout->addSpacerItem(vSpace);
-    centerVLayout->setSpacing(0);
-    centerVLayout->setMargin(0);
+    DVBoxWidget *centerBox = new DVBoxWidget;
+    centerBox->layout()->addLayout(m_grid);
 
-    m_centerWidget = new QWidget(this);
-    m_centerWidget->setLayout(centerVLayout);
+    m_centerArea = new QScrollArea(this);
+    m_centerArea->setFrameStyle(QFrame::NoFrame);
+    m_centerArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_centerArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_centerArea->setWidget(centerBox);
+    m_centerArea->setStyleSheet("background-color:transparent;");
 
     QWidget *topOuterWidget = new QWidget(this);
     topOuterWidget->setFixedHeight(DCC::HomeScreen_TopWidgetHeight);
@@ -116,7 +117,8 @@ HomeScreen::HomeScreen(QWidget *parent) :
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(topOuterWidget);
-    mainLayout->addWidget(m_centerWidget);
+    mainLayout->addWidget(m_centerArea);
+    mainLayout->addSpacing(1);
     mainLayout->addWidget(bottomOuterWidget);
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->setSpacing(0);
@@ -125,7 +127,7 @@ HomeScreen::HomeScreen(QWidget *parent) :
 
     m_opacityEffect = new QGraphicsOpacityEffect;
     m_opacityEffect->setOpacity(1.0);
-    m_centerWidget->setGraphicsEffect(m_opacityEffect);
+    m_centerArea->setGraphicsEffect(m_opacityEffect);
 
     m_topAni = new QPropertyAnimation(m_topWidget, "geometry");
     m_topAni->setDuration(DCC::FrameAnimationDuration);

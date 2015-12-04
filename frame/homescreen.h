@@ -9,6 +9,7 @@
 #include <QPropertyAnimation>
 #include <QGraphicsOpacityEffect>
 #include <QSettings>
+#include <QScrollArea>
 
 class QLabel;
 class QGridLayout;
@@ -47,7 +48,7 @@ private:
     QPropertyAnimation *m_botAni;
 
     QWidget *m_topWidget;
-    QWidget *m_centerWidget;
+    QScrollArea *m_centerArea;
     QWidget *m_bottomWidget;
 
     PluginsManager *m_pluginsManager;
