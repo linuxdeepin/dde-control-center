@@ -449,12 +449,12 @@
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="10"/>
         <source>Disconnect</source>
-        <translation type="unfinished">断开</translation>
+        <translation>断开</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="12"/>
         <source>Ignore</source>
-        <translation type="unfinished"></translation>
+        <translation>忽略</translation>
     </message>
 </context>
 <context>
@@ -665,72 +665,72 @@
 <context>
     <name>CustomSettings</name>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="27"/>
+        <location filename="../modules/display/customsettings.cpp" line="29"/>
         <source>Normal</source>
         <translation>正常</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="28"/>
+        <location filename="../modules/display/customsettings.cpp" line="30"/>
         <source>Rotate right</source>
         <translation>向右旋转</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="29"/>
+        <location filename="../modules/display/customsettings.cpp" line="31"/>
         <source>Upside down</source>
         <translation>上下翻转</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="30"/>
+        <location filename="../modules/display/customsettings.cpp" line="32"/>
         <source>Rotate left</source>
         <translation>向左旋转</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="68"/>
-        <location filename="../modules/display/customsettings.cpp" line="75"/>
+        <location filename="../modules/display/customsettings.cpp" line="70"/>
+        <location filename="../modules/display/customsettings.cpp" line="77"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="85"/>
+        <location filename="../modules/display/customsettings.cpp" line="87"/>
         <source>Enable Monitor</source>
         <translation>启用显示器</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="98"/>
+        <location filename="../modules/display/customsettings.cpp" line="100"/>
         <source>Please select the monitor you want to enable (checkable)</source>
         <translation>请选择您要启用的显示器（可多选）</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="103"/>
+        <location filename="../modules/display/customsettings.cpp" line="105"/>
         <source>Primary</source>
         <translation>主屏幕</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="126"/>
+        <location filename="../modules/display/customsettings.cpp" line="128"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="130"/>
+        <location filename="../modules/display/customsettings.cpp" line="132"/>
         <source>Rotation</source>
         <translation>旋转</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="149"/>
-        <location filename="../modules/display/customsettings.cpp" line="178"/>
-        <location filename="../modules/display/customsettings.cpp" line="197"/>
+        <location filename="../modules/display/customsettings.cpp" line="151"/>
+        <location filename="../modules/display/customsettings.cpp" line="180"/>
+        <location filename="../modules/display/customsettings.cpp" line="199"/>
         <source>Monitor %1</source>
         <translation>显示器 %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="298"/>
-        <location filename="../modules/display/customsettings.cpp" line="304"/>
+        <location filename="../modules/display/customsettings.cpp" line="300"/>
+        <location filename="../modules/display/customsettings.cpp" line="306"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="300"/>
-        <location filename="../modules/display/customsettings.cpp" line="306"/>
+        <location filename="../modules/display/customsettings.cpp" line="302"/>
+        <location filename="../modules/display/customsettings.cpp" line="308"/>
         <location filename="../modules/display/customsettings.h" line="43"/>
         <source>Confirm</source>
         <translation>确定</translation>
@@ -818,7 +818,7 @@
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="138"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="269"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="271"/>
         <source> hh:mm A</source>
         <translation> A hh:mm</translation>
     </message>
@@ -973,12 +973,12 @@
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="88"/>
         <source>Connected</source>
-        <translation type="unfinished">已连接</translation>
+        <translation>已连接</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="90"/>
         <source>Unconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>断开</translation>
     </message>
 </context>
 <context>
@@ -1484,7 +1484,7 @@
         <translation>快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="20"/>
+        <location filename="../modules/personalization/personalization.cpp" line="24"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
@@ -1832,58 +1832,58 @@
 <context>
     <name>Personalization</name>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="36"/>
+        <location filename="../modules/personalization/personalization.cpp" line="40"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="110"/>
+        <location filename="../modules/personalization/personalization.cpp" line="114"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="131"/>
+        <location filename="../modules/personalization/personalization.cpp" line="135"/>
         <source>Window</source>
         <translation>窗口</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="155"/>
+        <location filename="../modules/personalization/personalization.cpp" line="159"/>
         <source>Icon</source>
         <translation>图标</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="178"/>
+        <location filename="../modules/personalization/personalization.cpp" line="192"/>
         <source>Cursor</source>
         <translation>光标</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="200"/>
+        <location filename="../modules/personalization/personalization.cpp" line="223"/>
         <source>Wallpaper</source>
         <translation>壁纸</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="223"/>
+        <location filename="../modules/personalization/personalization.cpp" line="246"/>
         <source>Fonts</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="225"/>
+        <location filename="../modules/personalization/personalization.cpp" line="248"/>
         <source>Standard</source>
         <translation>标准</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="226"/>
+        <location filename="../modules/personalization/personalization.cpp" line="249"/>
         <source>Monospaced</source>
         <translation>等宽</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="227"/>
+        <location filename="../modules/personalization/personalization.cpp" line="250"/>
         <source>Size</source>
         <translation>大小</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="242"/>
-        <location filename="../modules/personalization/personalization.cpp" line="574"/>
+        <location filename="../modules/personalization/personalization.cpp" line="265"/>
+        <location filename="../modules/personalization/personalization.cpp" line="613"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
@@ -2182,83 +2182,83 @@
 <context>
     <name>Sound</name>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="76"/>
+        <location filename="../modules/sound/sound.cpp" line="78"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="86"/>
+        <location filename="../modules/sound/sound.cpp" line="88"/>
         <source>Speaker</source>
         <translation>扬声器</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="96"/>
+        <location filename="../modules/sound/sound.cpp" line="98"/>
         <source>Output Volume</source>
         <translation>输出音量</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="108"/>
+        <location filename="../modules/sound/sound.cpp" line="110"/>
         <source>Left/Right Balance</source>
         <translation>左/右平衡</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="112"/>
+        <location filename="../modules/sound/sound.cpp" line="114"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="113"/>
+        <location filename="../modules/sound/sound.cpp" line="115"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="129"/>
+        <location filename="../modules/sound/sound.cpp" line="131"/>
         <source>Microphone</source>
         <translation>麦克风</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="139"/>
+        <location filename="../modules/sound/sound.cpp" line="141"/>
         <source>Input Volume</source>
         <translation>输入音量</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="150"/>
+        <location filename="../modules/sound/sound.cpp" line="152"/>
         <source>Feedback Volume</source>
         <translation>输入反馈</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="200"/>
+        <location filename="../modules/sound/sound.cpp" line="202"/>
         <source>Output Port</source>
         <translation>输出端口</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="213"/>
+        <location filename="../modules/sound/sound.cpp" line="215"/>
         <source>Output device</source>
         <translation>输出设备</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="228"/>
+        <location filename="../modules/sound/sound.cpp" line="230"/>
         <source>Input Port</source>
         <translation>输入端口</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="242"/>
+        <location filename="../modules/sound/sound.cpp" line="244"/>
         <source>Input device</source>
         <translation>输入设备</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="251"/>
-        <location filename="../modules/sound/sound.cpp" line="258"/>
+        <location filename="../modules/sound/sound.cpp" line="253"/>
+        <location filename="../modules/sound/sound.cpp" line="260"/>
         <source>Show Advanced...</source>
         <translation>显示高级设置...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="264"/>
+        <location filename="../modules/sound/sound.cpp" line="266"/>
         <source>Hide Advanced...</source>
         <translation>隐藏高级设置...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="274"/>
+        <location filename="../modules/sound/sound.cpp" line="276"/>
         <source>Login</source>
         <translation>登录</translation>
     </message>
@@ -2271,12 +2271,12 @@
         <translation type="vanished">关机</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="284"/>
+        <location filename="../modules/sound/sound.cpp" line="286"/>
         <source>Restore</source>
         <translation>唤醒</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="301"/>
+        <location filename="../modules/sound/sound.cpp" line="303"/>
         <source>Sound Effects</source>
         <translation>音效</translation>
     </message>
@@ -2309,7 +2309,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="54"/>
         <source>Distribution:</source>
-        <translation type="unfinished"></translation>
+        <translation>发行版</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="56"/>
@@ -2452,7 +2452,7 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="203"/>
         <source>Click to check update.</source>
-        <translation type="unfinished"></translation>
+        <translation>点击以检查更新</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="214"/>
@@ -2473,42 +2473,42 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="69"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="86"/>
         <source>Recently Used</source>
         <translation>最近使用</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="70"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="87"/>
         <source>Avatar</source>
         <translation>头像</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="71"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="88"/>
         <source>Webcam</source>
         <translation>拍照</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="125"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="142"/>
         <source>Auto-login</source>
         <translation>自动登录</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="152"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="167"/>
         <source>Enable</source>
         <translation>启用</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="186"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="199"/>
         <source>Account Type</source>
         <translation>账户类型</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="241"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="250"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>请选择一张图片作为您的头像</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="242"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="251"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>图片文件 (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -2552,6 +2552,23 @@
         <location filename="../modules/network/vpnconnectswidget.cpp" line="7"/>
         <source>VPN Connections</source>
         <translation>VPN连接</translation>
+    </message>
+</context>
+<context>
+    <name>VpnApplet</name>
+    <message>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnapplet.cpp" line="49"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+</context>
+<context>
+    <name>VpnPlugin</name>
+    <message>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnplugin.cpp" line="45"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnplugin.cpp" line="62"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
     </message>
 </context>
 <context>
