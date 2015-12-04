@@ -220,6 +220,8 @@ void Frame::setHideInLeft(bool hideInLeft)
 
 void Frame::updateGeometry(const QRect &primaryRect)
 {
+    qDebug() << "updateGeometry: " << primaryRect;
+
     int posX;
     if (m_hideInLeft)
         posX = primaryRect.left();

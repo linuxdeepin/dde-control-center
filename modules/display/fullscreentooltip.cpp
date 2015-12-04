@@ -71,7 +71,7 @@ void FullScreenTooltip::paintEvent(QPaintEvent *e)
 
     if(m_showCenter){
         move(m_monitorRect.topLeft());
-        setFixedSize(m_monitorRect.size());
+        resize(m_monitorRect.size());
 
         int fontSize = m_monitorRect.height() / 5;
         QFont font;
