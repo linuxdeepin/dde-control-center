@@ -28,6 +28,11 @@ ConnectToHiddenApPage::ConnectToHiddenApPage(DBusConnectionSession *dbus, QWidge
     init();
 }
 
+ConnectToHiddenApPage::~ConnectToHiddenApPage()
+{
+    m_dbus->Close();
+}
+
 void ConnectToHiddenApPage::init()
 {
     NetworkBaseEditLine *line80211WirelessSsid = new EditLineInput("802-11-wireless", "ssid",

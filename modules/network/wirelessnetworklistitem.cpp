@@ -8,6 +8,7 @@
 #include "inputpassworddialog.h"
 #include "connecttohiddenappage.h"
 #include "networkmainwidget.h"
+#include "editconnectionpage.h"
 
 WirelessNetworkListItem::WirelessNetworkListItem(DBusNetwork *dbus, QWidget *parent) :
     AbstractDeviceWidget(tr("Wireless Network"), dbus, parent)
@@ -144,8 +145,12 @@ NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMa
     if(!item) {
         item = new NetworkGenericListItem(m_dbusNetwork);
         item->updateInfoByMap(map);
+        item->setDevicePath(path());
+
         m_mapApSsidToItem[item->ssid()] = item;
+
         listWidget()->addWidget(item);
+
         connect(item, &NetworkGenericListItem::strengthChanged,
                 this, &WirelessNetworkListItem::updateItemIndex);
         connect(item, &NetworkGenericListItem::clicked, this, &WirelessNetworkListItem::onItemClicked);
@@ -154,6 +159,26 @@ NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMa
             m_dbusNetwork->DisconnectDevice(QDBusObjectPath(path()));
         });
         connect(item, &NetworkGenericListItem::stateChanged, this, &WirelessNetworkListItem::updateActiveApState);
+        connect(this, &WirelessNetworkListItem::pathChanged, item, &NetworkGenericListItem::setDevicePath);
+        item->disconnect(item, SIGNAL(rightArrowClicked()), item, SLOT(onArrowClicked()));
+        /// 改动此处代码时需注意：此代码的目的是不让右边箭头点击后调用NetworkGenericListItem::onArrowClicked
+        connect(item, &NetworkGenericListItem::rightArrowClicked, this, [item, this] {
+            if(item->uuid().isEmpty()) {
+                NetworkMainWidget *main_widget = DCCNetwork::parentNetworkMainWidget(this);
+
+                if(main_widget) {
+                    const QDBusObjectPath &path = m_dbusNetwork->CreateConnectionForAccessPoint(QDBusObjectPath(item->path()),
+                                                                                                QDBusObjectPath(this->path()));
+
+                    if(path.path().isEmpty())
+                        return;
+
+                    main_widget->pushWidget(new EditConnectionPage(path.path()));
+                }
+            } else {
+                item->onArrowClicked();
+            }
+        });
     } else if(item->strength() < map["Strength"].toInt() || map["Path"] == activeAp()) {
         item->updateInfoByMap(map);
     }
@@ -184,6 +209,8 @@ void WirelessNetworkListItem::init()
                       listWidget()->addWidget(hidden_ap);
 
                       connect(hidden_ap, &NetworkGenericListItem::clicked,
+                              this, &WirelessNetworkListItem::onItemClicked);
+                      connect(hidden_ap, &NetworkGenericListItem::rightArrowClicked,
                               this, &WirelessNetworkListItem::onItemClicked);
 
                       onConnectsChanged();

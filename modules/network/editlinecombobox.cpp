@@ -7,10 +7,12 @@ DUI_USE_NAMESPACE
 
 EditLineComboBox::EditLineComboBox(const QString &section, const QString &key,
                                    DBusConnectionSession *dbus, const QString &title,
-                                   QWidget *parent) :
+                                   bool editable, QWidget *parent) :
     NetworkBaseEditLine(section, key, dbus, title, parent)
 {
     DComboBox *combo_box = new DComboBox;
+
+    combo_box->setEditable(editable);
 
     auto updateComboData = [this, combo_box]{
         const QStringList &list = getAvailableValuesText();

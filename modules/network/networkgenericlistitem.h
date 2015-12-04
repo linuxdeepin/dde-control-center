@@ -17,6 +17,7 @@ class NetworkGenericListItem : public GenericListItem
     Q_PROPERTY(bool securedInEap READ securedInEap WRITE setSecuredInEap NOTIFY securedInEapChanged)
     Q_PROPERTY(int strength READ strength WRITE setStrength NOTIFY strengthChanged)
     Q_PROPERTY(int state READ state WRITE setState NOTIFY stateChanged)
+    Q_PROPERTY(QString devicePath READ devicePath WRITE setDevicePath NOTIFY devicePathChanged)
 
 public:
     explicit NetworkGenericListItem(DBusNetwork *dbus, QWidget *parent = 0);
@@ -29,6 +30,7 @@ public:
     bool securedInEap() const;
     int strength() const;
     int state() const;
+    QString devicePath() const;
 
     void updateInfoByMap(const QVariantMap &map);
 
@@ -41,6 +43,8 @@ public slots:
     void setSecuredInEap(bool securedInEap);
     void setStrength(int strength);
     void setState(int state);
+    void setDevicePath(QString devicePath);
+    void onArrowClicked();
 
 signals:
     void uuidChanged(QString uuid);
@@ -48,8 +52,9 @@ signals:
     void securedChanged(bool secured);
     void securedInEapChanged(bool securedInEap);
     void strengthChanged(int strength);
-
     void stateChanged(int state);
+    void devicePathChanged(QString devicePath);
+    void rightArrowClicked();
 
 private:
     DBusNetwork *m_dbusNetwork;
@@ -60,6 +65,7 @@ private:
     int m_strength = -1;
     int m_state = ActiveConnectionState::Unknown;
     QString m_connectPath;
+    QString m_devicePath;
 };
 
 #endif // NETWORKGENERICLISTITEM_H

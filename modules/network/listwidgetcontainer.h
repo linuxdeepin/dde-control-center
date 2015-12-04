@@ -5,6 +5,7 @@
 
 #include <libdui/dboxwidget.h>
 #include <libdui/libdui_global.h>
+#include <libdui/dtextbutton.h>
 
 DUI_USE_NAMESPACE
 
@@ -17,6 +18,9 @@ public:
     void addWidget(QWidget *widget);
     void setBoxWidgetContentsMargins(int left, int top, int right, int bottom);
     void setButtonsVisible(bool visible);
+    QString leftButtonText() const;
+    QString rightButtonText() const;
+    QLayout *boxWidgetLayout() const;
 
 signals:
     void setTitle(const QString &title);
@@ -32,6 +36,8 @@ private:
 
     DVBoxWidget *m_boxWidget;
     QHBoxLayout *m_buttonLayout;
+    DTextButton *m_cancelButton;
+    DTextButton *m_connectButton;
 };
 
 #endif // LISTWIDGETCONTAINER_H

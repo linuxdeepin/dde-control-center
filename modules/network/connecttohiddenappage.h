@@ -11,6 +11,7 @@ class ConnectToHiddenApPage : public ListWidgetContainer
     Q_OBJECT
 public:
     explicit ConnectToHiddenApPage(DBusConnectionSession *dbus, QWidget *parent = 0);
+    ~ConnectToHiddenApPage();
 
 signals:
     void cancel();

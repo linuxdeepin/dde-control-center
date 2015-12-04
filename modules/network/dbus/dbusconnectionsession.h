@@ -149,6 +149,12 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("SetKey"), argumentList);
     }
 
+    inline QDBusPendingReply<QString> GetAllKeys()
+    {
+        QList<QVariant> argumentList;
+        return asyncCallWithArgumentList(QStringLiteral("GetAllKeys"), argumentList);
+    }
+
 Q_SIGNALS: // SIGNALS
     void ConnectionDataChanged();
 // begin property changed signals

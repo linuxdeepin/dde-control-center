@@ -69,6 +69,7 @@ void WiredNetworkListItem::init()
             item->setLoading(false);
         }
     });
+    connect(this, &WiredNetworkListItem::pathChanged, item, &NetworkGenericListItem::setDevicePath);
 }
 
 void WiredNetworkListItem::onConnectsChanged()
@@ -91,12 +92,16 @@ void WiredNetworkListItem::onConnectsChanged()
 
                 m_mapPppoePathToItem[item->path()] = item;
 
+                item->setDevicePath(path());
+
                 connect(item, &NetworkGenericListItem::clicked,
                         this, &WiredNetworkListItem::onItemClicked);
                 connect(item, &NetworkGenericListItem::clearButtonClicked,
                         this, &WiredNetworkListItem::onClearButtonClicked);
                 connect(item, &NetworkGenericListItem::stateChanged,
                         this, &WiredNetworkListItem::onItemStateChanged);
+                connect(this, &WiredNetworkListItem::pathChanged,
+                        item, &NetworkGenericListItem::setDevicePath);
             } else {
                 tmp_list.removeOne(item);
             }

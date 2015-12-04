@@ -1,4 +1,5 @@
 #include <QVariant>
+#include <QMouseEvent>
 
 #include <libdui/libdui_global.h>
 #include <libdui/dthememanager.h>
@@ -365,6 +366,9 @@ void GenericListItem::mouseReleaseEvent(QMouseEvent *e)
 {
     QFrame::mouseReleaseEvent(e);
 
+    if(e->isAccepted())
+        return;
+
     emit clicked();
 }
 
@@ -372,12 +376,18 @@ void GenericListItem::enterEvent(QEvent *e)
 {
     QFrame::enterEvent(e);
 
+    if(e->isAccepted())
+        return;
+
     emit mouseEnter();
 }
 
 void GenericListItem::leaveEvent(QEvent *e)
 {
     QFrame::leaveEvent(e);
+
+    if(e->isAccepted())
+        return;
 
     emit mouseLeave();
 }

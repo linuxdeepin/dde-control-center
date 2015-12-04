@@ -10,6 +10,7 @@ class AddDslPage : public ListWidgetContainer
 
 public:
     explicit AddDslPage(const QString &dbusPath, QWidget *parent = 0);
+    ~AddDslPage();
 
 private:
     DBusConnectionSession *m_dbus;

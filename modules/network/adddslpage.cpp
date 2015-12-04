@@ -43,3 +43,8 @@ AddDslPage::AddDslPage(const QString &dbusPath, QWidget *parent) :
         }
     });
 }
+
+AddDslPage::~AddDslPage()
+{
+    m_dbus->Close();
+}

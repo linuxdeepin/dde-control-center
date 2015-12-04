@@ -20,6 +20,7 @@ void ModemNetworkListItem::onConnectsChanged()
             m_item->updateInfoByMap(json_object.toVariantMap());
             m_item->setConnectPath(m_item->path());
             m_item->setTitle(json_object["Id"].toString());
+            break;
         }
     }
 }
@@ -37,6 +38,8 @@ void ModemNetworkListItem::init()
     });
 
     connect(this, &ModemNetworkListItem::uniqueUuidChanged, this, &ModemNetworkListItem::onConnectsChanged);
+    connect(this, &ModemNetworkListItem::uniqueUuidChanged, m_item, &NetworkGenericListItem::setUuid);
+    connect(this, &ModemNetworkListItem::pathChanged, m_item, &NetworkGenericListItem::setDevicePath);
     connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &ModemNetworkListItem::onConnectsChanged);
     connect(this, &ModemNetworkListItem::stateChanged, this, [this](int state) {
         if(state >= DeviceState::Prepare && state <= DeviceState::Secondaries) {

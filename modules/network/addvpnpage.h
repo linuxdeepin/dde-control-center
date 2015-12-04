@@ -14,6 +14,7 @@ class AddVpnPage : public DVBoxWidget
 
 public:
     explicit AddVpnPage(const QString &dbusPath, QWidget *parent = 0);
+    ~AddVpnPage();
 
 private:
     void init();

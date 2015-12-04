@@ -2,7 +2,8 @@
 #include <libdui/dpasswordedit.h>
 #include <libdui/dconstants.h>
 #include <libdui/dfilechooseredit.h>
-#include <QTimer>
+#include <libdui/dipv4lineedit.h>
+#include <libdui/dspinbox.h>
 
 #include "editlineinput.h"
 
@@ -14,7 +15,7 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
                              QWidget *parent) :
     NetworkBaseEditLine(section, key, dbus, title, parent)
 {
-    DLineEdit *line_edit;
+    QLineEdit *line_edit = nullptr;
 
     switch (type) {
     case EditLineInputType::Normal:
@@ -36,21 +37,40 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         });
         break;
     }
+    case EditLineInputType::Ipv4Input:{
+        line_edit = new DIpv4LineEdit;
+        break;
+    }
+    case EditLineInputType::SpinBox:{
+        DSpinBox *box = new DSpinBox;
+        line_edit = box->lineEdit();
+        setRightWidget(box);
+        break;
+    }
     default:
         break;
     }
 
-    line_edit->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
+    if(line_edit) {
+        line_edit->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
 
-    auto update_text = [this, line_edit] {
-        line_edit->setProperty("text", cacheValue().toString());
-    };
+        auto update_text = [this, line_edit] {
+            int current_seek = line_edit->cursorPosition();
+            line_edit->setText(cacheValue().toString());
+            line_edit->setCursorPosition(current_seek);
+        };
 
-    connect(this, &NetworkBaseEditLine::widgetShown, this, update_text);
-    connect(this, &NetworkBaseEditLine::cacheValueChanged, this, update_text);
-    connect(line_edit, SIGNAL(textChanged(QString)), this, SLOT(setDBusKey(QString)));
-    connect(this, &EditLineInput::showErrorAlert, line_edit, [line_edit]{line_edit->setAlert(true);});
-    connect(line_edit, &DLineEdit::textChanged, line_edit, [line_edit]{line_edit->setAlert(false);});
+        connect(this, &NetworkBaseEditLine::widgetShown, this, update_text);
+        connect(this, &NetworkBaseEditLine::cacheValueChanged, this, update_text);
+        connect(line_edit, SIGNAL(textChanged(QString)), this, SLOT(setDBusKey(QString)));
+        connect(this, &EditLineInput::showErrorAlert, line_edit, [line_edit]{
+            line_edit->setProperty("alert", true);
+        });
+        connect(line_edit, &QLineEdit::textChanged, line_edit, [line_edit]{
+            line_edit->setProperty("alert", false);
+        });
 
-    setRightWidget(line_edit);
+        if(type != EditLineInputType::SpinBox)
+            setRightWidget(line_edit);
+    }
 }

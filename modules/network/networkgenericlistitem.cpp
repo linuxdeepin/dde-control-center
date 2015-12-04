@@ -5,6 +5,8 @@
 #include "imagenamebutton.h"
 #include "networkgenericlistitem.h"
 #include "abstractdevicewidget.h"
+#include "networkmainwidget.h"
+#include "editconnectionpage.h"
 
 NetworkGenericListItem::NetworkGenericListItem(DBusNetwork *dbus, QWidget *parent) :
     GenericListItem(parent),
@@ -37,7 +39,16 @@ NetworkGenericListItem::NetworkGenericListItem(DBusNetwork *dbus, QWidget *paren
         setShowClearButton(false);
     });
 
+    ImageNameButton *arrow_button = new ImageNameButton("arrow_right");
+
+    arrow_button->setFixedSize(DUI::BUTTON_HEIGHT, DUI::BUTTON_HEIGHT);
+
+    rightLayout()->addWidget(arrow_button);
     rightLayout()->addSpacing(10);
+
+    connect(arrow_button, &ImageNameButton::clicked, this, &NetworkGenericListItem::rightArrowClicked);
+    connect(this, SIGNAL(rightArrowClicked()), SLOT(onArrowClicked()));
+    /// 改动此处代码时需注意: 在WirelessNetworkListItem中调用了disconnect此连接，记得一起改。
 }
 
 QString NetworkGenericListItem::path() const
@@ -78,6 +89,11 @@ int NetworkGenericListItem::strength() const
 int NetworkGenericListItem::state() const
 {
     return m_state;
+}
+
+QString NetworkGenericListItem::devicePath() const
+{
+    return m_devicePath;
 }
 
 void NetworkGenericListItem::updateInfoByMap(const QVariantMap &map)
@@ -154,5 +170,37 @@ void NetworkGenericListItem::setState(int state)
 
     m_state = state;
     emit stateChanged(state);
+}
+
+void NetworkGenericListItem::setDevicePath(QString devicePath)
+{
+    if (m_devicePath == devicePath)
+        return;
+
+    m_devicePath = devicePath;
+    emit devicePathChanged(devicePath);
+}
+
+void NetworkGenericListItem::onArrowClicked()
+{
+    qDebug() << uuid() << devicePath();
+
+    if(uuid().isEmpty() || devicePath().isEmpty())
+        return;
+
+    NetworkMainWidget *main_widget = DCCNetwork::parentNetworkMainWidget(this);
+
+    qDebug() << main_widget;
+
+    if(main_widget) {
+        const QDBusObjectPath &path = m_dbusNetwork->EditConnection(uuid(), QDBusObjectPath(devicePath()));
+
+        qDebug() << path.path();
+
+        if(path.path().isEmpty())
+            return;
+
+        main_widget->pushWidget(new EditConnectionPage(path.path()));
+    }
 }
 

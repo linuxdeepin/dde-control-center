@@ -10,7 +10,9 @@ public:
     enum EditLineInputType {
         Normal,
         Password,
-        FileChooser
+        FileChooser,
+        Ipv4Input,
+        SpinBox
     };
 
     explicit EditLineInput(const QString &section, const QString &key,

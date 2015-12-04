@@ -20,6 +20,11 @@ AddVpnPage::AddVpnPage(const QString &dbusPath, QWidget *parent) :
     init();
 }
 
+AddVpnPage::~AddVpnPage()
+{
+    m_dbus->Close();
+}
+
 void AddVpnPage::init()
 {
     ListWidgetContainer *container_vpn_type = new ListWidgetContainer(tr("VPN Type"));

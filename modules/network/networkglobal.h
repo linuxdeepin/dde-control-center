@@ -9,12 +9,14 @@
 
 #define ASYN_CALL(Fun, Code, captured...) { \
     QDBusPendingCallWatcher * watcher = new QDBusPendingCallWatcher(Fun, this); \
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, captured]{ \
+    auto onFinished = [watcher, captured]{ \
         const QVariantList & args = watcher->reply().arguments(); \
         Q_UNUSED(args);\
         Code \
         watcher->deleteLater(); \
-    }); }
+    };\
+    if(watcher->isFinished()) onFinished();\
+    else connect(watcher, &QDBusPendingCallWatcher::finished, onFinished);}
 
 #define TIMER_SINGLESHOT(Time, Code, captured...){ \
     QTimer *timer = new QTimer;\
@@ -117,6 +119,18 @@ namespace ProxyType {
     const QString HTTPS = "https";
     const QString FTP = "ftp";
     const QString SOCKS = "socks";
+}
+
+namespace WidgetType {
+    const QString SwitchButton = "EditLineSwitchButton";
+    const QString ComboBox = "EditLineComboBox";
+    const QString EditableComboBox = "EditLineEditComboBox";
+    const QString TextInput = "EditLineTextInput";
+    const QString PasswordInput = "EditLinePasswordInput";
+    const QString FileChooser = "EditLineFileChooser";
+    const QString SpinBox = "EditLineSpinner";
+    const QString Ipv4Input = "EditLineIpv4Input";
+    const QString MissingPackage = "EditLineMissingPackage";
 }
 
 class NetworkMainWidget;

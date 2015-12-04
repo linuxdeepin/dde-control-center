@@ -7,6 +7,7 @@ VPNConnectsWidget::VPNConnectsWidget(DBusNetwork *dbus, QWidget *parent) :
     AbstractDeviceWidget(tr("VPN Connections"), dbus, parent)
 {
     setEnabled(dbus->vpnEnabled());
+    setPath("/");
 
     onConnectsChanged();
 
@@ -52,6 +53,7 @@ void VPNConnectsWidget::onConnectsChanged()
         if(!item) {
             item = new NetworkGenericListItem(m_dbusNetwork);
             item->updateInfoByMap(json_object.toVariantMap());
+            item->setDevicePath(path());
 
             listWidget()->addWidget(item);
 
@@ -60,6 +62,7 @@ void VPNConnectsWidget::onConnectsChanged()
             connect(item, &NetworkGenericListItem::clicked, this, &VPNConnectsWidget::onItemClicked);
             connect(item, &NetworkGenericListItem::clearButtonClicked, this, &VPNConnectsWidget::onClearButtonClicked);
             connect(item, &NetworkGenericListItem::stateChanged, this, &VPNConnectsWidget::onItemStateChanged);
+            connect(this, &VPNConnectsWidget::pathChanged, item, &NetworkGenericListItem::setDevicePath);
         } else {
             tmp_list.removeOne(item);
             item->updateInfoByMap(json_object.toVariantMap());
@@ -79,7 +82,7 @@ void VPNConnectsWidget::onItemClicked()
     if(!item)
         return;
 
-    m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath("/"));
+    m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath(path()));
 }
 
 void VPNConnectsWidget::onClearButtonClicked()

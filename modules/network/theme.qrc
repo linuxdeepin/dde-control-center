@@ -37,5 +37,10 @@
         <file>dark/ListWidgetContainer.theme</file>
         <file>dark/DTextAction.theme</file>
         <file>dark/SystemProxyWidget.theme</file>
+        <file>dark/images/arrow_right_normal.png</file>
+        <file>dark/images/arrow_right_hover.png</file>
+        <file>dark/images/arrow_right_press.png</file>
+        <file>dark/images/arrow_right_white.png</file>
+        <file>dark/EditConnectionPage.theme</file>
     </qresource>
 </RCC>
