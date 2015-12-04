@@ -114,7 +114,6 @@ void MirrorsControlWidget::loadMirrorList()
     for (MirrorInfo &mirror : mirrorList)
     {
         mirrorItem = new MirrorItemWidget;
-
         mirrorItem->setMirrorName(mirror.m_name);
 
         m_mirrorsList->addWidget(mirrorItem);

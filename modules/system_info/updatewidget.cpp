@@ -188,7 +188,7 @@ void UpdateWidget::updateUpgradeState()
 
     const QString status = m_dbusSystemUpgrade->status();
 
-    if (status == "success")
+    if (status == "succeed" || status == "end")
         return loadAppList();
 
     if (status == "failed")
@@ -211,6 +211,9 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
 {
     const bool upgrading = m_upgradeStatus != NotStart;
     qDebug() << "updatable apps num: " << apps << packages << "upgrading = " << upgrading << m_upgradeStatus;
+
+    if (m_upgradeStatus == CheckUpdate)
+        return;
 
     // no update
     if (!apps && !packages)
@@ -272,11 +275,16 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
         item->hideSeparator();
 
     // hide when upgrading
-    if (!upgrading)
-        return;
-    disableAppsUpgrade();
-    m_updateButton->hide();
-    m_checkingIndicator->hide();
+    if (upgrading)
+    {
+        m_updateButton->hide();
+        m_checkingIndicator->hide();
+    }
+
+//    if (m_upgradeStatus == NotStart)
+//    {
+//        m_updateButton->show();
+//    }
 }
 
 void UpdateWidget::checkUpdate()
@@ -292,6 +300,7 @@ void UpdateWidget::checkUpdate()
     qDebug() << "check update";
     QDBusPendingReply<QDBusObjectPath> reply = m_dbusJobManagerInter->UpdateSource();
     reply.waitForFinished();
+    qDebug() << "check update finished" << reply.value().path() << reply.error();
 
     const QString jobPath = reply.value().path();
 
@@ -337,6 +346,8 @@ void UpdateWidget::checkUpdateStateChanged()
             m_upgradeStatus = NotStart;
             m_checkingIndicator->setLoading(false);
             m_checkingIndicator->setRotate(0);
+
+            updateInfo(m_updatableAppsList.count(), m_updatablePackagesList.count());
         }
 //            m_updateCountTips->setText(tr("imde"));
 
@@ -353,9 +364,7 @@ void UpdateWidget::systemUpgrade()
     m_updateProgress->setValue(0);
     m_updateProgress->show();
     m_updateButton->hide();
-
-    // disable apps update
-    disableAppsUpgrade();
+    m_checkingIndicator->hide();
 
     // sys upgrade
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->DistUpgrade(), this);
@@ -363,6 +372,7 @@ void UpdateWidget::systemUpgrade()
         const QDBusPendingReply<QDBusObjectPath> &reply = *watcher;
         const QDBusObjectPath &path = reply;
 
+        qDebug() << "start upgrade job: " << path.path() << reply.error();
         DBusUpdateJob *job = new DBusUpdateJob("com.deepin.lastore", path.path(), QDBusConnection::systemBus(), this);
 
         if (job->isValid())
@@ -380,13 +390,18 @@ void UpdateWidget::loadUpgradeJob(DBusUpdateJob *newJob)
         m_dbusSystemUpgrade->deleteLater();
 
     qDebug() << "load upgrade job " << newJob->id() << newJob->status();
+
     m_dbusSystemUpgrade = newJob;
-    m_upgradeStatus = Ready;
-
     const QString &status = m_dbusSystemUpgrade->status();
-
-    if (status == "success")
+    if (status == "success" || status == "end")
+    {
+        m_upgradeStatus = NotStart;
         return;
+    }
+    m_upgradeStatus = Running;
+
+    // disable apps update
+    disableAppsUpgrade();
 
     m_updateProgress->setValue(0);
     m_updateProgress->show();
@@ -396,7 +411,10 @@ void UpdateWidget::loadUpgradeJob(DBusUpdateJob *newJob)
     connect(m_dbusSystemUpgrade, &DBusUpdateJob::StatusChanged, this, &UpdateWidget::updateUpgradeState);
 
 //    if (status == "ready")
+//    {
 //        m_dbusJobManagerInter->StartJob(m_dbusSystemUpgrade->id());
+//        refreshProgress(Running);
+//    }
 
     if (status == "failed")
         refreshProgress(Fail);

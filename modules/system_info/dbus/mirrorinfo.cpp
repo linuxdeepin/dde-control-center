@@ -18,8 +18,8 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, MirrorInfo &info)
 {
     argument.beginStructure();
     argument >> info.m_id;
-    argument >> info.m_name;
     argument >> info.m_url;
+    argument >> info.m_name;
     argument.endStructure();
 
     return argument;
@@ -29,8 +29,8 @@ QDBusArgument &operator<<(QDBusArgument &argument, const MirrorInfo &info)
 {
     argument.beginStructure();
     argument << info.m_id;
-    argument << info.m_name;
     argument << info.m_url;
+    argument << info.m_name;
     argument.endStructure();
 
     return argument;
@@ -39,8 +39,8 @@ QDBusArgument &operator<<(QDBusArgument &argument, const MirrorInfo &info)
 QDebug operator<<(QDebug argument, const MirrorInfo &info)
 {
     argument << "mirror id: " << info.m_id;
-    argument << "mirror name: " << info.m_name;
     argument << "mirror url: " << info.m_url;
+    argument << "mirror name: " << info.m_name;
 
     return argument;
 }

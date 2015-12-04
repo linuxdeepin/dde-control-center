@@ -16,8 +16,10 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
 
     m_appIcon = new QLabel;
     m_appName = new QLabel;
+    m_appName->setStyleSheet("padding:2px 0;");
     m_appName->setObjectName("AppName");
     m_appVersion = new QLabel;
+    m_appVersion->setStyleSheet("padding:2px 0;");
     m_appVersion->setObjectName("AppVersion");
     m_progress = new DCircleProgress;
     m_progress->setObjectName("AppProgress");
@@ -35,6 +37,7 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     QVBoxLayout *infoLayout = new QVBoxLayout;
     infoLayout->addStretch();
     infoLayout->addWidget(m_appName);
+    infoLayout->addSpacing(0);
     infoLayout->addWidget(m_appVersion);
     infoLayout->addStretch();
     infoLayout->setSpacing(0);
