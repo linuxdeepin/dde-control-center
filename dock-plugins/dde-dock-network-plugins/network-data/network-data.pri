@@ -3,3 +3,6 @@ HEADERS += \
 
 SOURCES += \
     $$PWD/networkdata.cpp
+
+INCLUDEPATH += ../../../modules/network
+INCLUDEPATH += ../../../modules/bluetooth

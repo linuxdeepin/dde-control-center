@@ -2,6 +2,7 @@
 #define NETWORKDATA
 #include <QString>
 #include "dbus/dbusnetwork.h"
+#include "dbus/dbusbluetooth.h"
 
 #define ASYN_CALL(Fun, Code, captured...) { \
     QDBusPendingCallWatcher * watcher = new QDBusPendingCallWatcher(Fun, this); \
@@ -12,6 +13,22 @@
     }); }
 
 namespace NetworkPlugin {
+
+struct BluetoothAdapterInfo{
+    bool powered;
+//    bool discovering;
+//    bool discoverable;
+//    uint discoverableTimeout;
+//    QString alias;
+    QString path;
+//    QString name;
+};
+
+enum BluetoothState{
+    BluetoothStateDisconnected = 0,
+    BluetoothStateConnecting = 1,
+    BluetoothStateConnected = 2
+};
 
 struct DeviceInfo {
     bool managed;
@@ -96,6 +113,15 @@ QList<ActiveConnectionInfo> getActiveConnectionsInfo(DBusNetwork *dbusNetwork);
 
 bool hasVpn(DBusNetwork *dbusNetwork);
 bool vpnIsConnected(DBusNetwork *dbusNetwork);
+int wiredDevicesCount(DBusNetwork *dbusNetwork);
+QString wiredIp4Address(DBusNetwork *dbusNetwork);
+bool wiredIsConnected(DBusNetwork *dbusNetwork);
+int wirelessDevicesCount(DBusNetwork *dbusNetwork);
+int wirelessApMaxStrength(DBusNetwork *dbusNetwork);
+QMap<QString, QString> wirelessDevices(DBusNetwork *dbusNetwork);
+
+QList<BluetoothAdapterInfo> bluetoothAdapters(DBusBluetooth *dbusBluetooth);
+bool bluetoothAdaptersActived(DBusBluetooth *dbusBluetooth);
 }
 
 #endif // NETWORKDATA

@@ -1,0 +1,4 @@
+QLabel#IndexLabel {
+    color: #ffffff;
+    font-size:8px;
+}

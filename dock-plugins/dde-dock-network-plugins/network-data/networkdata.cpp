@@ -125,4 +125,139 @@ bool vpnIsConnected(DBusNetwork *dbusNetwork)
         return false;
 }
 
+int wiredDevicesCount(DBusNetwork *dbusNetwork)
+{
+    if (dbusNetwork->isValid()) {
+        QJsonArray array = deviceArray(ConnectionTypeWired, dbusNetwork);
+        return array.size();
+    }
+    else {
+        return 0;
+    }
+}
+
+bool wiredIsConnected(DBusNetwork *dbusNetwork)
+{
+    if (!dbusNetwork->isValid())
+        return false;
+
+    QList<ActiveConnectionInfo> infoList = getActiveConnectionsInfo(dbusNetwork);
+    foreach (ActiveConnectionInfo info, infoList) {
+        if (info.connectionType == ConnectionTypeWired)
+            return true;
+    }
+
+    return false;
+}
+
+QString wiredIp4Address(DBusNetwork *dbusNetwork)
+{
+    if (dbusNetwork->isValid()) {
+        QList<NetworkPlugin::ActiveConnectionInfo> infoList = NetworkPlugin::getActiveConnectionsInfo(dbusNetwork);
+        foreach (NetworkPlugin::ActiveConnectionInfo info, infoList) {
+            if (info.connectionType == NetworkPlugin::ConnectionTypeWired)
+                return info.ip4["Address"].toString();
+        }
+
+    }
+    return QString();
+}
+
+int wirelessDevicesCount(DBusNetwork *dbusNetwork)
+{
+    if (dbusNetwork->isValid()) {
+        QJsonArray array = deviceArray(ConnectionTypeWireless, dbusNetwork);
+        return array.size();
+    }
+    else {
+        return 0;
+    }
+}
+
+
+QMap<QString, QString> wirelessDevices(DBusNetwork *dbusNetwork)
+{
+    QMap<QString, QString> tmpMap;
+    if (dbusNetwork->isValid()) {
+        QJsonArray pathArray = deviceArray(ConnectionTypeWireless, dbusNetwork);
+        foreach (QJsonValue pathValue, pathArray) {
+            tmpMap.insert(pathValue.toObject().value("UniqueUuid").toString(),
+                          pathValue.toObject().value("Vendor").toString());
+        }
+    }
+
+    return tmpMap;
+}
+
+int wirelessApMaxStrength(DBusNetwork *dbusNetwork)
+{
+    if (dbusNetwork->isValid()) {
+        int maxStrength = -1;
+        QStringList uuids = wirelessDevices(dbusNetwork).keys();
+        for (QString uuid : uuids) {
+            DeviceInfo info = getDeviceInfoById(uuid, dbusNetwork);
+            QString activeApPath = info.activeAp;
+
+            QString accessPoints = dbusNetwork->GetAccessPoints(QDBusObjectPath(info.path)).value();
+            QJsonDocument jsonDoc = QJsonDocument::fromJson(accessPoints.toUtf8());
+            QVariantList mapList = jsonDoc.array().toVariantList();
+
+            for(const QVariant &map : mapList) {
+                if (map.toMap().value("Path").toString() == activeApPath) {
+                    maxStrength = qMax(maxStrength, map.toMap().value("Strength").toInt());//fixme
+                    break;
+                }
+            }
+        }
+
+        return maxStrength;
+    }
+    else {
+        return -1;
+    }
+}
+
+QList<BluetoothAdapterInfo> bluetoothAdapters(DBusBluetooth *dbusBluetooth)
+{
+    QList<BluetoothAdapterInfo> list;
+
+    if (dbusBluetooth->isValid()) {
+        QJsonArray array = QJsonDocument::fromJson(dbusBluetooth->adapters().toUtf8()).array();
+        for (QJsonValue value : array) {
+            QJsonObject obj = value.toObject();
+            if (!obj.isEmpty()) {
+                BluetoothAdapterInfo ai;
+//                ai.alias = obj["Alias"].toString();
+//                ai.discoverable = obj["Discoverable"].toBool();
+//                ai.discoverableTimeout = obj["DiscoverableTimeout"].toInt();
+//                ai.discovering = obj["Discovering"].toBool();
+//                ai.name = obj["Name"].toString();
+                ai.path = obj["Path"].toString();
+                ai.powered = obj["Powered"].toBool();
+
+                list << ai;
+            }
+        }
+    }
+
+    return list;
+}
+
+bool bluetoothAdaptersActived(DBusBluetooth *dbusBluetooth)
+{
+    QVariantMap allObjMap = QJsonDocument::fromJson(dbusBluetooth->devices().toUtf8()).object().toVariantMap();
+    //all adapter
+    for (QVariant mv : allObjMap.values()) {
+        //all devices of the adapter
+        QVariantList list = mv.toList();
+        foreach (QVariant v, list) {
+            int state = v.toMap().value("State").toInt();
+            if (state == BluetoothStateConnected)
+                return true;
+        }
+    }
+
+    return false;
+}
+
 }
