@@ -91,13 +91,13 @@ void ScrollFrame::init()
         } else {
             m_currentWidget = nullptr;
         }
-
-        emit currentMainWidgetChanged(w);
     });
 
     connect(m_stackWidget, &DStackWidget::currentWidgetChanged, this, [this] (const QWidget *w){
         if(w && w->height() > m_stackWidget->height())
             setStackWidgetHeight(w->height());
+
+        emit currentMainWidgetChanged(w);
     });
 
     m_stackWidget->pushWidget(m_mainWidget);
