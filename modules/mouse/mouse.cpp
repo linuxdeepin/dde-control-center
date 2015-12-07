@@ -192,9 +192,6 @@ Mouse::Mouse()
     layout->addStretch(1);
 
 
-    ////////////////////////////////////////////////////////////// init those widgets state
-    setWidgetsValue();
-    ////////////////////////////////////////////////////////////// init those widgets state
     connect(m_topHeaderLine, &ModuleHeader::resetButtonClicked, this, &Mouse::reset);
     connect(m_mousePrimaryButtonSetting, SIGNAL(currentChanged(int)), this, SLOT(setMousePrimaryButton(int)));
     connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::leftHandedChanged,
@@ -271,6 +268,10 @@ Mouse::Mouse()
     });
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::existChanged,
             this, &Mouse::onTouchPadExistChanged);
+
+    ////////////////////////////////////////////////////////////// init those widgets state
+    setWidgetsValue();
+    ////////////////////////////////////////////////////////////// init those widgets state
 }
 
 void Mouse::reset() {
@@ -388,8 +389,8 @@ void Mouse::onTouchPadExistChanged()
     m_forbiddenTouchpadWhenMouseLabel->setVisible(touchpadExist);
     m_touchpadHeaderLine->setVisible(touchpadExist);
     m_thirdHSeparator->setVisible(touchpadExist);
-    m_touchpadSettingPanel->setVisible(touchpadExist);
-    m_fourthHSeparator->setVisible(touchpadExist);
+    m_touchpadSettingPanel->setVisible(touchpadExist && m_touchpadInterface->tPadEnable());
+    m_fourthHSeparator->setVisible(touchpadExist && m_touchpadInterface->tPadEnable());
 }
 
 Mouse::~Mouse()
