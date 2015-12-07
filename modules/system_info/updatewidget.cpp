@@ -297,8 +297,9 @@ void UpdateWidget::checkUpdate()
 {
     if (m_upgradeStatus == SysCheckUpdate)
         return;
-    m_upgradeStatus = SysCheckUpdate;
+    refreshProgress(SysCheckUpdate);
     m_checkingIndicator->setLoading(true);
+    m_updateCountTips->setText(tr("Checking for updates"));
 
 //    m_updateCountTips->setText();
 
@@ -349,16 +350,25 @@ void UpdateWidget::checkUpdateStateChanged()
     const QString &stat = m_dbusCheckupdate->status();
     qDebug() << stat << m_upgradeStatus;
 
-    if (stat == "end")
+    if (stat == "end" || stat == "failed")
     {
         // TODO:
         if (m_upgradeStatus == SysCheckUpdate)
         {
-            m_upgradeStatus = NotStart;
+            refreshProgress(NotStart);
             m_checkingIndicator->setLoading(false);
             m_checkingIndicator->setRotate(0);
 
             updateInfo(m_updatableAppsList.count(), m_updatablePackagesList.count());
+
+            // no updates
+            if (!m_updatableAppsList.count() && !m_updatablePackagesList.count())
+            {
+                if (stat == "end")
+                    m_updateCountTips->setText(tr("No updates avaliable"));
+                else
+                    m_updateCountTips->setText(tr("Check update failed"));
+            }
         }
 //            m_updateCountTips->setText(tr("imde"));
 
