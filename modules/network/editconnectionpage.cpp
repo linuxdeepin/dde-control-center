@@ -108,6 +108,9 @@ EditConnectionPage::EditConnectionPage(const QString &dbusPath, QWidget *parent)
         }
     }
 
+    line_remove_button->setVisible(m_dbus->allowDelete());
+    setBottomSeparatorVisible(line_remove_button->isVisible());
+
     addWidget(line_remove_button);
 }
 

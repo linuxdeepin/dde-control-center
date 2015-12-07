@@ -28,6 +28,7 @@ signals:
     void setRightButtonText(const QString &text);
     void setLeftButtonVisible(bool visible);
     void setRightButtonVisible(bool visible);
+    void setBottomSeparatorVisible(bool visible);
     void leftButtonClicked();
     void rightButtonClicked();
 

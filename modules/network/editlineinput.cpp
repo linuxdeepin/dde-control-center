@@ -46,6 +46,7 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         line_edit = box->lineEdit();
         box->setMinimum(minValue);
         box->setMaximum(maxValue);
+        box->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
         setRightWidget(box);
         break;
     }

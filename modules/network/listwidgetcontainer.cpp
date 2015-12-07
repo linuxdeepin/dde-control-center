@@ -71,7 +71,6 @@ void ListWidgetContainer::init(const QString &text)
     m_buttonLayout->setContentsMargins(0, 10, 15, 0);
 
     DSeparatorHorizontal *separator_bottom = new DSeparatorHorizontal;
-    //separator_bottom->hide();
     DSeparatorHorizontal *separator_top = new DSeparatorHorizontal;
     separator_top->setHidden(title->isHidden());
 
@@ -98,7 +97,5 @@ void ListWidgetContainer::init(const QString &text)
     connect(m_connectButton, &DTextButton::clicked, this, &ListWidgetContainer::rightButtonClicked);
     connect(this, &ListWidgetContainer::setRightButtonText, m_connectButton, &DTextButton::setText);
     connect(this, &ListWidgetContainer::setRightButtonVisible, m_connectButton, &DTextButton::setVisible);
-//    connect(m_boxWidget, &DVBoxWidget::countChanged, this, [this, separator_bottom](int count) {
-//        separator_bottom->setVisible(count > 0);
-//    });
+    connect(this, &ListWidgetContainer::setBottomSeparatorVisible, separator_bottom, &DSeparatorHorizontal::setVisible);
 }
