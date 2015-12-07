@@ -11,7 +11,7 @@ DUI_USE_NAMESPACE
 
 EditLineInput::EditLineInput(const QString &section, const QString &key,
                              DBusConnectionSession *dbus, const QString &title,
-                             EditLineInputType type,
+                             EditLineInputType type, int minValue, int maxValue,
                              QWidget *parent) :
     NetworkBaseEditLine(section, key, dbus, title, parent)
 {
@@ -44,6 +44,8 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
     case EditLineInputType::SpinBox:{
         DSpinBox *box = new DSpinBox;
         line_edit = box->lineEdit();
+        box->setMinimum(minValue);
+        box->setMaximum(maxValue);
         setRightWidget(box);
         break;
     }

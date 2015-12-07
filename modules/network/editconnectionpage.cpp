@@ -27,6 +27,7 @@ EditConnectionPage::EditConnectionPage(const QString &dbusPath, QWidget *parent)
     DLinkButton *remove_button = new DLinkButton(tr("Delete this network"), line_remove_button);
 
     line_remove_button->setFixedWidth(DCC::ModuleContentWidth);
+
     remove_button->adjustSize();
     remove_button->move(10, line_remove_button->height() / 2 - remove_button->height() / 2);
 
@@ -40,7 +41,8 @@ EditConnectionPage::EditConnectionPage(const QString &dbusPath, QWidget *parent)
 
     connect(remove_button, &DLinkButton::clicked, this, [this, remove_button, text_delete] {
         setRightButtonText(text_delete);
-        remove_button->setText(tr("<font color='yellow'>Are you sure you want to delete this network?</font>"));
+        remove_button->setText(tr("Are you sure you want to delete this network?"));
+        remove_button->adjustSize();
     });
 
     connect(this, &EditConnectionPage::rightButtonClicked, this, [this, text_delete] {
@@ -63,6 +65,7 @@ EditConnectionPage::EditConnectionPage(const QString &dbusPath, QWidget *parent)
     connect(this, &EditConnectionPage::leftButtonClicked, this, [this, remove_button, text_delete, text_save] {
         if(rightButtonText() == text_delete) {
             remove_button->setText(tr("Delete this network"));
+            remove_button->adjustSize();
             setRightButtonText(text_save);
         } else {
             m_dbus->Close();
@@ -75,40 +78,37 @@ EditConnectionPage::EditConnectionPage(const QString &dbusPath, QWidget *parent)
         }
     });
 
-    ASYN_CALL(m_dbus->GetAllKeys(), {
-                  const QJsonDocument &json_doc = QJsonDocument::fromJson(args[0].toString().toUtf8());
+    const QJsonDocument &json_doc = QJsonDocument::fromJson(QString(m_dbus->GetAllKeys()).toUtf8());
 
-                  for(const QJsonValue &value : json_doc.array()) {
-                      const QJsonObject &json_obj = value.toObject();
+    for(const QJsonValue &value : json_doc.array()) {
+        const QJsonObject &json_obj = value.toObject();
 
-                      if(!json_obj["VirtualSection"].toString().startsWith("vs-")) {
-                          DArrowLineExpand *expand = new DArrowLineExpand;
-                          DVBoxWidget *boxWidget = new DVBoxWidget;
+        if(json_obj["VirtualSection"] != "vs-general") {
+            DArrowLineExpand *expand = new DArrowLineExpand;
+            DVBoxWidget *boxWidget = new DVBoxWidget;
 
-                          expand->setTitle(json_obj["Name"].toString());
-                          expand->setContent(boxWidget);
-                          boxWidget->layout()->setSpacing(5);
-                          boxWidget->layout()->setContentsMargins(0, 5, 0, 5);
+            expand->setTitle(json_obj["Name"].toString());
+            expand->setContent(boxWidget);
+            boxWidget->layout()->setSpacing(5);
+            boxWidget->layout()->setContentsMargins(0, 5, 0, 5);
 
-                          for(const QJsonValue &value : json_obj["Keys"].toArray()) {
-                              boxWidget->addWidget(getLineByMap(value.toObject().toVariantMap()));
-                          }
+            for(const QJsonValue &value : json_obj["Keys"].toArray()) {
+                boxWidget->addWidget(getLineByMap(value.toObject().toVariantMap()));
+            }
 
-                          expand->setExpand(json_obj["Expanded"].toBool());
-                          expand->headerLine()->setObjectName("expand_headerLine");
-                          expand->headerLine()->setStyleSheet(expand->headerLine()->styleSheet() + styleSheet());
+            expand->setExpand(json_obj["Expanded"].toBool());
+            expand->headerLine()->setObjectName("expand_headerLine");
+            expand->headerLine()->setStyleSheet(expand->headerLine()->styleSheet() + styleSheet());
 
-                          addWidget(expand);
-                      } else {
-                          for(const QJsonValue &value : json_obj["Keys"].toArray()) {
-                              addWidget(getLineByMap(value.toObject().toVariantMap()));
-                          }
-                      }
-                  }
+            addWidget(expand);
+        } else {
+            for(const QJsonValue &value : json_obj["Keys"].toArray()) {
+                addWidget(getLineByMap(value.toObject().toVariantMap()));
+            }
+        }
+    }
 
-                  addWidget(line_remove_button);
-              }, this, line_remove_button)
-
+    addWidget(line_remove_button);
 }
 
 EditConnectionPage::~EditConnectionPage()
@@ -148,7 +148,8 @@ NetworkBaseEditLine *EditConnectionPage::getLineByMap(const QVariantMap &map)
                 m_dbus, map["Name"].toString());
     } else if(widget_type == WidgetType::SpinBox){
         line = new EditLineInput(map["Section"].toString(), map["Key"].toString(),
-                m_dbus, map["Name"].toString(), EditLineInput::SpinBox);
+                m_dbus, map["Name"].toString(), EditLineInput::SpinBox,
+                map["MinValue"].toInt(), map["MaxValue"].toInt());
     }
 
     if(line) {

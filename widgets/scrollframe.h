@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QBoxLayout>
+#include <QPointer>
 
 #include <libdui/dscrollarea.h>
 #include <libdui/dboxwidget.h>
@@ -35,10 +36,11 @@ protected:
 
 private:
     void init();
+    void setStackWidgetHeight(int height);
 
     DScrollArea *m_scrollArea = nullptr;
     DStackWidget *m_stackWidget = nullptr;
-    const DBoxWidget *m_currentWidget = nullptr;
+    QPointer<const DBoxWidget> m_currentWidget;
     DVBoxWidget *m_headerWidget = nullptr;
     DVBoxWidget *m_mainWidget = nullptr;
 };

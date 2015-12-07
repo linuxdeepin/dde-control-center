@@ -9,6 +9,8 @@ class VPNConnectsWidget : public AbstractDeviceWidget
 public:
     explicit VPNConnectsWidget(DBusNetwork *dbus, QWidget *parent = 0);
 
+    QString path() const;
+
 private slots:
     void onConnectsChanged();
     void onItemClicked();

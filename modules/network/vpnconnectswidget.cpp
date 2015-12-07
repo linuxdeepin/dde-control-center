@@ -7,7 +7,6 @@ VPNConnectsWidget::VPNConnectsWidget(DBusNetwork *dbus, QWidget *parent) :
     AbstractDeviceWidget(tr("VPN Connections"), dbus, parent)
 {
     setEnabled(dbus->vpnEnabled());
-    setPath("/");
 
     onConnectsChanged();
 
@@ -37,6 +36,11 @@ VPNConnectsWidget::VPNConnectsWidget(DBusNetwork *dbus, QWidget *parent) :
             }
         }
     });
+}
+
+QString VPNConnectsWidget::path() const
+{
+    return "/";
 }
 
 void VPNConnectsWidget::onConnectsChanged()
@@ -81,8 +85,10 @@ void VPNConnectsWidget::onItemClicked()
 
     if(!item)
         return;
-
-    m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath(path()));
+    if(item->checked())
+        item->onArrowClicked();
+    else
+        m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath(path()));
 }
 
 void VPNConnectsWidget::onClearButtonClicked()

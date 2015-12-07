@@ -41,7 +41,7 @@ NetworkGenericListItem::NetworkGenericListItem(DBusNetwork *dbus, QWidget *paren
 
     ImageNameButton *arrow_button = new ImageNameButton("arrow_right");
 
-    arrow_button->setFixedSize(DUI::BUTTON_HEIGHT, DUI::BUTTON_HEIGHT);
+    arrow_button->setFixedSize(arrow_button->sizeHint());
 
     rightLayout()->addWidget(arrow_button);
     rightLayout()->addSpacing(10);
@@ -183,19 +183,15 @@ void NetworkGenericListItem::setDevicePath(QString devicePath)
 
 void NetworkGenericListItem::onArrowClicked()
 {
-    qDebug() << uuid() << devicePath();
+    qDebug() << "ArrowClicked clicked";
 
     if(uuid().isEmpty() || devicePath().isEmpty())
         return;
 
     NetworkMainWidget *main_widget = DCCNetwork::parentNetworkMainWidget(this);
 
-    qDebug() << main_widget;
-
     if(main_widget) {
         const QDBusObjectPath &path = m_dbusNetwork->EditConnection(uuid(), QDBusObjectPath(devicePath()));
-
-        qDebug() << path.path();
 
         if(path.path().isEmpty())
             return;

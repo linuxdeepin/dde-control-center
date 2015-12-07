@@ -19,8 +19,14 @@ WirelessNetworkListItem::WirelessNetworkListItem(DBusNetwork *dbus, QWidget *par
 void WirelessNetworkListItem::onItemClicked()
 {
     NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
-    if(!item || item->checked())
+
+    if(!item)
         return;
+
+    if(item->checked()) {
+        item->onArrowClicked();
+        return;
+    }
 
     if(item->uuid().isEmpty() && item->securedInEap()) {
         ASYN_CALL(m_dbusNetwork->CreateConnection(ConnectionType::Wireless, QDBusObjectPath(path())), {

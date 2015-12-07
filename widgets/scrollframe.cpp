@@ -39,7 +39,7 @@ void ScrollFrame::popAllWidget()
 
 void ScrollFrame::onCurrentWidgetSizeChanged(const QSize &size)
 {
-    m_stackWidget->setFixedHeight(size.height());
+    setStackWidgetHeight(size.height());
 }
 
 void ScrollFrame::resizeEvent(QResizeEvent *e)
@@ -49,6 +49,8 @@ void ScrollFrame::resizeEvent(QResizeEvent *e)
     m_stackWidget->setFixedWidth(e->size().width());
     m_scrollArea->setFixedWidth(e->size().width());
     m_scrollArea->setFixedHeight(e->size().height() - m_headerWidget->height());
+    if(m_stackWidget->height() < m_scrollArea->height())
+        m_stackWidget->setFixedHeight(m_scrollArea->height());
 
     emit sizeChanged(e->size());
 }
@@ -71,16 +73,21 @@ void ScrollFrame::init()
         m_scrollArea->move(0, size.height());
     });
 
-    connect(m_stackWidget, &DStackWidget::currentWidgetChanged, this, [this](const QWidget *w){
-        if(m_currentWidget)
-            disconnect(m_currentWidget, &DBoxWidget::sizeChanged, this, &ScrollFrame::onCurrentWidgetSizeChanged);
+    connect(m_stackWidget, &DStackWidget::switchWidgetFinished, this, [this] {
+        const QWidget *w = m_stackWidget->currentWidget();
 
-        m_stackWidget->setFixedHeight(w->height());
+        if(m_currentWidget)
+            disconnect(m_currentWidget.data(), SIGNAL(sizeChanged(QSize)), this, SLOT(onCurrentWidgetSizeChanged(QSize)));
+
+
         const DBoxWidget *widget = qobject_cast<const DBoxWidget*>(w);
+
+        if(w)
+            setStackWidgetHeight(w->height());
 
         if(widget) {
             m_currentWidget = widget;
-            connect(widget, &DBoxWidget::sizeChanged, this, &ScrollFrame::onCurrentWidgetSizeChanged);
+            connect(widget, SIGNAL(sizeChanged(QSize)), this, SLOT(onCurrentWidgetSizeChanged(QSize)));
         } else {
             m_currentWidget = nullptr;
         }
@@ -88,5 +95,15 @@ void ScrollFrame::init()
         emit currentMainWidgetChanged(w);
     });
 
+    connect(m_stackWidget, &DStackWidget::currentWidgetChanged, this, [this] (const QWidget *w){
+        if(w && w->height() > m_stackWidget->height())
+            setStackWidgetHeight(w->height());
+    });
+
     m_stackWidget->pushWidget(m_mainWidget);
+}
+
+void ScrollFrame::setStackWidgetHeight(int height)
+{
+    m_stackWidget->setFixedHeight(qMax(height, m_scrollArea->height()));
 }

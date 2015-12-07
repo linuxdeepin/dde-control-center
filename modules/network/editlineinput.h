@@ -17,7 +17,7 @@ public:
 
     explicit EditLineInput(const QString &section, const QString &key,
                            DBusConnectionSession *dbus, const QString &title,
-                           EditLineInputType type = Normal,
+                           EditLineInputType type = Normal, int minValue = 0, int maxValue = 0,
                            QWidget *parent = 0);
 };
 

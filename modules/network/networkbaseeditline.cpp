@@ -72,20 +72,20 @@ bool NetworkBaseEditLine::setKeyAlways() const
 void NetworkBaseEditLine::setDBusKey(const QJsonValue &key)
 {
     if (key != cacheValue() || isValueError() || setKeyAlways()) {
-
-        QString json = "\"";
+        QString json;
 
         if(key.isString())
-            json.append(key.toString());
+            json.append("\"" + key.toString() + "\"");
         else if(key.isDouble())
-            json.append(QString::number(key.toInt(-1)));
-
-        json += "\"";
+            json.append(QString::number(key.toDouble(-1)));
+        else if(key.isBool())
+            json.append(key.toBool() ? "true" : "false");
+        /// TODO 此处将key转换成json的value类型，由于Qt json目前并不支持此类型，故需手动转换
+        /// 目前只处理了String int double bool类型，以后有新类型的需求记得在此处添加
 
         m_dbus->SetKey(section(), this->key(), json).waitForFinished();
+        setCacheValue(key);
     }
-
-    setCacheValue(key);
 }
 
 const QJsonValue NetworkBaseEditLine::dbusKey()
@@ -201,6 +201,9 @@ void NetworkBaseEditLine::setCacheValue(const QJsonValue &value)
 
 void NetworkBaseEditLine::updateVisible()
 {
+    if(!parentWidget())
+        return;
+
     setVisible(m_dbus->availableSections().indexOf(section()) != -1
             &&  m_dbus->availableKeys()[section()].indexOf(key()) != -1);
 }
