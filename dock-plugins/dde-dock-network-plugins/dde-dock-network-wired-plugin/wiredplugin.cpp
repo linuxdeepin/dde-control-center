@@ -131,6 +131,8 @@ void WiredPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
             onConnectionsChanged();
         }
     }
+
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, WIRED_PLUGIN_ID);
 }
 
 QString WiredPlugin::getMenuContent(QString)

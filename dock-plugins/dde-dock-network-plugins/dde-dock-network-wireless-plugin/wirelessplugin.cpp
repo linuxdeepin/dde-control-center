@@ -77,8 +77,7 @@ bool WirelessPlugin::configurable(const QString &id)
 
 bool WirelessPlugin::enabled(const QString &id)
 {
-    QVariant value = m_settings->value(settingEnabledKey(id));
-    return !value.isValid() ? true : value.toBool();    //default enabled
+    return m_settings->value(settingEnabledKey(id), true).toBool();    //default enabled
 }
 
 void WirelessPlugin::setEnabled(const QString &id, bool enabled)
@@ -127,6 +126,9 @@ void WirelessPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
             onDevicesChanged();
         }
     }
+
+    for(const QString id : m_itemMap.keys())
+        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
 }
 
 QString WirelessPlugin::getMenuContent(QString)

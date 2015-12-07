@@ -152,7 +152,7 @@ void BluetoothObject::init()
             if(++timerout_count > 10) {
                 timer->stop();
                 timer->deleteLater();
-                qWarning() << "DBusBluetooth is invaild.";
+                qWarning() << "Bluetooth: DBusBluetooth is invaild.";
 
                 return;
             }
@@ -165,6 +165,9 @@ void BluetoothObject::init()
         });
 
         timer->start(1500);
+    } else {
+        initBackend();
+        qDebug() << "Bluetooth: initBackend finished";
     }
 }
 

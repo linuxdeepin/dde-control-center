@@ -55,8 +55,7 @@ bool SoundPlugin::configurable(const QString &)
 
 bool SoundPlugin::enabled(const QString &)
 {
-    QVariant value = m_settings->value(settingEnabledKey());
-    return !value.isValid() ? true : value.toBool();   //default enable
+    return m_settings->value(settingEnabledKey(), true).toBool();    //default enabled
 }
 
 void SoundPlugin::setEnabled(const QString &id, bool enabled)

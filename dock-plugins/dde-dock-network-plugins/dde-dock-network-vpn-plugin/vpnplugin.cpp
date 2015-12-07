@@ -143,6 +143,8 @@ void VpnPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
             onConnectionsChanged();
         }
     }
+
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, VPN_PLUGIN_ID);
 }
 
 QString VpnPlugin::getMenuContent(QString)

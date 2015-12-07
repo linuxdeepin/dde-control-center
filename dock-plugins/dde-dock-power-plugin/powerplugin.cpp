@@ -100,7 +100,7 @@ bool PowerPlugin::configurable(const QString &)
 
 bool PowerPlugin::enabled(const QString &)
 {
-    return m_settings->value(settingEnabledKey()).toBool();
+    return m_settings->value(settingEnabledKey(), true).toBool();
 }
 
 void PowerPlugin::setEnabled(const QString & id, bool enable)
@@ -228,7 +228,7 @@ void PowerPlugin::onEnabledChanged()
     if (enabled(m_id))
         m_proxy->itemAddedEvent(m_id);
 
-    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, m_id);
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, m_id);
 }
 
 void PowerPlugin::setMode(Dock::DockMode mode)

@@ -11,6 +11,8 @@ BluetoothPlugin::BluetoothPlugin(QObject *parent) :
     QObject(parent)
 {
     m_settings = new QSettings("deepin", "dde-dock-bluetooth-plugin", this);
+
+    qDebug() << "Bluetooth: BluetoothPlugin created";
 }
 
 BluetoothPlugin::~BluetoothPlugin()
@@ -26,6 +28,8 @@ QString BluetoothPlugin::getPluginName()
 void BluetoothPlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
+
+    qDebug() << "Bluetooth: BluetoothPlugin init";
 
     if(!m_bluetooth) {
         m_bluetooth = new BluetoothObject(this);
@@ -103,6 +107,7 @@ void BluetoothPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
         }
 
         m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
+        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
     }
 }
 
