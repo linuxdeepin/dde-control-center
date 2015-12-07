@@ -113,6 +113,8 @@ void UpdateWidget::resizeEvent(QResizeEvent *e)
 
 void UpdateWidget::loadAppList()
 {
+    qDebug() << "reload app list";
+
     m_appsList->clear();
     m_updateProgress->hide();
     m_updateButton->show();
@@ -145,8 +147,12 @@ void UpdateWidget::loadAppList()
 
     for (const AppUpdateInfo &info : updateInfoList)
     {
+        qDebug() << "add app: " << info.m_name << m_upgradeStatus;
+
         appItemWidget = new ApplictionItemWidget;
         appItemWidget->setAppUpdateInfo(info);
+        if (m_upgradeStatus == SysUpGrading || m_upgradeStatus == SysFail)
+            appItemWidget->disableUpdate();
         if (jobMap.contains(info.m_packageId))
             appItemWidget->connectToJob(jobMap.value(info.m_packageId));
 
@@ -192,7 +198,7 @@ void UpdateWidget::updateUpgradeState()
         return loadAppList();
 
     if (status == "failed")
-        refreshProgress(Fail);
+        refreshProgress(SysFail);
 }
 
 void UpdateWidget::removeJob()
@@ -212,7 +218,7 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
     const bool upgrading = m_upgradeStatus != NotStart;
     qDebug() << "updatable apps num: " << apps << packages << "upgrading = " << upgrading << m_upgradeStatus;
 
-    if (m_upgradeStatus == CheckUpdate)
+    if (m_upgradeStatus == SysCheckUpdate)
         return;
 
     // no update
@@ -289,9 +295,9 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
 
 void UpdateWidget::checkUpdate()
 {
-    if (m_upgradeStatus == CheckUpdate)
+    if (m_upgradeStatus == SysCheckUpdate)
         return;
-    m_upgradeStatus = CheckUpdate;
+    m_upgradeStatus = SysCheckUpdate;
     m_checkingIndicator->setLoading(true);
 
 //    m_updateCountTips->setText();
@@ -318,15 +324,20 @@ void UpdateWidget::refreshProgress(UpdateWidget::UpgradeState state)
 
     switch (state)
     {
-    case Running:   m_updateProgress->topLabel()->clear();      break;
-    case Fail:      m_updateProgress->topLabel()->setPixmap(QPixmap(":/images/images/start.png"));         break;
-    default:        qDebug() << "upgrade " << __FILE__ << __LINE__;
+    case SysUpGrading:
+        m_updateProgress->topLabel()->clear();
+        disableAppsUpgrade();
+        break;
+    case SysFail:
+        m_updateProgress->topLabel()->setPixmap(QPixmap(":/images/images/start.png"));
+        break;
+    default:            qDebug() << "refresh Progress" << state << m_upgradeStatus;
     }
 }
 
 void UpdateWidget::restartUpgrade()
 {
-    refreshProgress(Running);
+    refreshProgress(SysUpGrading);
     m_dbusJobManagerInter->StartJob(m_dbusSystemUpgrade->id());
 }
 
@@ -341,7 +352,7 @@ void UpdateWidget::checkUpdateStateChanged()
     if (stat == "end")
     {
         // TODO:
-        if (m_upgradeStatus == CheckUpdate)
+        if (m_upgradeStatus == SysCheckUpdate)
         {
             m_upgradeStatus = NotStart;
             m_checkingIndicator->setLoading(false);
@@ -395,13 +406,11 @@ void UpdateWidget::loadUpgradeJob(DBusUpdateJob *newJob)
     const QString &status = m_dbusSystemUpgrade->status();
     if (status == "success" || status == "end")
     {
-        m_upgradeStatus = NotStart;
+        refreshProgress(NotStart);
         return;
     }
-    m_upgradeStatus = Running;
 
-    // disable apps update
-    disableAppsUpgrade();
+    refreshProgress(SysUpGrading);
 
     m_updateProgress->setValue(0);
     m_updateProgress->show();
@@ -417,7 +426,7 @@ void UpdateWidget::loadUpgradeJob(DBusUpdateJob *newJob)
 //    }
 
     if (status == "failed")
-        refreshProgress(Fail);
+        refreshProgress(SysFail);
 
 //    updateUpgradeProcess();
 //    updateUpgradeState();
@@ -427,13 +436,15 @@ void UpdateWidget::toggleUpdateState()
 {
     switch (m_upgradeStatus)
     {
-    case Fail:      restartUpgrade();       break;
+    case SysFail:      restartUpgrade();       break;
     default:        qDebug() << "toggleUpgrade: " << m_upgradeStatus << __FILE__ << __LINE__;
     }
 }
 
 void UpdateWidget::disableAppsUpgrade()
 {
+    qDebug() << "disable Apps upgrade, size = " << m_appsList->count();
+
     const int count = m_appsList->count();
     for (int i(0); i != count; ++i)
     {

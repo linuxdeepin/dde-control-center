@@ -96,6 +96,11 @@ void ApplictionItemWidget::setAppUpdateInfo(const AppUpdateInfo &info)
 
 void ApplictionItemWidget::disableUpdate()
 {
+    qDebug() << "disable update " << m_updateInfo.m_packageId << " = " << m_stat;
+
+    if (m_stat != Ready)
+        qWarning() << "disable update on no-ready job";
+
     m_updateBtn->hide();
     m_disableUpdate = true;
 }
@@ -139,6 +144,9 @@ void ApplictionItemWidget::leaveEvent(QEvent *)
 
 void ApplictionItemWidget::toggleUpdateJob()
 {
+    if (m_disableUpdate)
+        return;
+
     m_jobRunning = !m_jobRunning;
     qDebug() << "toggle running = " << m_jobRunning;
 

@@ -57,10 +57,9 @@ private:
 private:
     enum UpgradeState {
         NotStart,
-        CheckUpdate,
-        Ready,
-        Running,
-        Fail,
+        SysCheckUpdate,
+        SysUpGrading,
+        SysFail,
     };
 
 private slots:
