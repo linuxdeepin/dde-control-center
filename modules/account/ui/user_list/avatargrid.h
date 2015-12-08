@@ -14,7 +14,12 @@ class AvatarGrid : public QTableWidget
 {
     Q_OBJECT
 public:
-    explicit AvatarGrid(const QString &userPath = "", QWidget *parent = 0);
+    enum GridType {
+        HistoryGrid,
+        NormalGrid
+    };
+
+    explicit AvatarGrid(GridType type, const QString &userPath = "", QWidget *parent = 0);
 
     void setAvatars(const QStringList &list);
 
@@ -34,6 +39,7 @@ private slots:
     void onCanHideControlCenter() {this->window()->setProperty("autoHide", true);}
 
 private:
+    GridType m_gridType;
     QButtonGroup *m_buttonGroup = NULL;
     DBusAccountUser *m_user = NULL;
 

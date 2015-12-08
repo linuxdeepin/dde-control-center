@@ -98,8 +98,8 @@ void UserExpandContent::initSegmentedControl()
 
 void UserExpandContent::initAvatarPanel()
 {
-    m_historyAvatarGrid = new AvatarGrid("",this);
-    m_allAvatarGrid = new AvatarGrid(m_userPath, this);
+    m_historyAvatarGrid = new AvatarGrid(AvatarGrid::HistoryGrid, m_userPath, this);
+    m_allAvatarGrid = new AvatarGrid(AvatarGrid::NormalGrid, m_userPath, this);
     m_cameraPanel = new WebcamAvatarPanel(this);
     connect(m_historyAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
     connect(m_allAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
@@ -121,8 +121,12 @@ void UserExpandContent::initAvatarPanel()
             updateSize();
     });
     connect(m_accountUser, &DBusAccountUser::IconListChanged, [=]{
-        m_historyAvatarGrid->setAvatars(m_accountUser->historyIcons());
         m_allAvatarGrid->setAvatars(m_accountUser->iconList() << ADD_AVATAR_ICON);
+        updatemAvatarGridSize(m_stackWidget->currentIndex());
+        updateSize(true);
+    });
+    connect(m_accountUser, &DBusAccountUser::HistoryIconsChanged, [=] {
+        m_historyAvatarGrid->setAvatars(m_accountUser->historyIcons());
         updatemAvatarGridSize(m_stackWidget->currentIndex());
         updateSize(true);
     });

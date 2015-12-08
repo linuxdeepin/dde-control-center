@@ -1,7 +1,7 @@
 #include "avatargrid.h"
 
-AvatarGrid::AvatarGrid(const QString &userPath, QWidget *parent)
-    : QTableWidget(parent)
+AvatarGrid::AvatarGrid(GridType type, const QString &userPath, QWidget *parent)
+    : QTableWidget(parent), m_gridType(type)
 {
     m_user = new DBusAccountUser(userPath, this);
     connect(m_user, &DBusAccountUser::IconFileChanged, this, &AvatarGrid::onIconFileChanged);
@@ -33,7 +33,8 @@ void AvatarGrid::setAvatars(const QStringList &list)
                 break;
 
             QString iconName = list.at(listIndex ++);
-            UserAvatar *icon = new UserAvatar(this, m_user->IsIconDeletable(iconName).value());
+            UserAvatar *icon = new UserAvatar(this,
+                                              m_gridType == NormalGrid ? m_user->IsIconDeletable(iconName).value() : true);
             icon->setFixedSize(ICON_SIZE, ICON_SIZE);
             icon->setIcon(iconName);
             connect(icon, &UserAvatar::clicked, this, &AvatarGrid::onIconPress);
@@ -94,7 +95,18 @@ void AvatarGrid::onRequestDelete()
     UserAvatar * icon = qobject_cast<UserAvatar *>(sender());
     if (icon && m_user->isValid()){
         this->window()->setProperty("autoHide", false);
-        QDBusPendingReply<bool> reply = m_user->DeleteIconFile(icon->iconPath());
+        QDBusPendingReply<bool> reply;
+        switch (m_gridType) {
+        case NormalGrid:
+            reply = m_user->DeleteIconFile(icon->iconPath());
+            break;
+        case HistoryGrid:
+            reply = m_user->DeleteHistoryIcon(icon->iconPath());
+            break;
+        default:
+            break;
+        }
+
         reply.waitForFinished();
         if (reply.error().isValid())
             qWarning()<<"Account: delete icon file error: " << reply.error();
