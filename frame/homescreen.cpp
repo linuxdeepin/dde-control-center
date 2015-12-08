@@ -233,7 +233,11 @@ void HomeScreen::loadUserAvatar()
     for (const QString &k : m_settings->allKeys())
         qDebug() << k << " = " << m_settings->value(k).toString();
 
-    m_userAvatar->setIcon(file);
+    if (!file.isEmpty())
+        m_userAvatar->setIcon(file);
+    else
+        // use default icon
+        m_userAvatar->setIcon("/var/lib/AccountsService/icons/default.png");
 }
 
 void HomeScreen::insertPlugin(const int position, const ModuleMetaData &meta)
