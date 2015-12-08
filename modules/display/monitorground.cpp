@@ -78,15 +78,16 @@ void MonitorGround::addMonitor(Monitor *monitor)
     connect(monitor, &Monitor::mousePressed, monitor, &Monitor::raise, Qt::DirectConnection);
     connect(monitor, &Monitor::mouseMoveing, this, &MonitorGround::onMonitorMouseMove, Qt::DirectConnection);
     connect(monitor, &Monitor::mouseRelease, this, &MonitorGround::onMonitorMouseRelease, Qt::DirectConnection);
-    connect(dbus, &MonitorInterface::XChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
-    connect(dbus, &MonitorInterface::YChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
-    connect(dbus, &MonitorInterface::WidthChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
-    connect(dbus, &MonitorInterface::HeightChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
-    connect(dbus, &MonitorInterface::RotationChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
-    connect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
+//    connect(dbus, &MonitorInterface::XChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
+//    connect(dbus, &MonitorInterface::YChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
+//    connect(dbus, &MonitorInterface::WidthChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
+//    connect(dbus, &MonitorInterface::HeightChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
+//    connect(dbus, &MonitorInterface::RotationChanged, this, &MonitorGround::relayout, Qt::DirectConnection);
+    connect(monitor, &Monitor::resolutionChanged, this, &MonitorGround::relayout, Qt::UniqueConnection);
+    connect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::relayout, Qt::UniqueConnection);
     connect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::updateOpenedCount, Qt::DirectConnection);
     connect(dbus, &MonitorInterface::IsCompositedChanged, this, &MonitorGround::updateOpenedCount, Qt::DirectConnection);
-    connect(this, &MonitorGround::applyEdit, monitor, &Monitor::applyResolution);
+    connect(this, &MonitorGround::applyEdit, monitor, &Monitor::applyPostion);
 
     updateOpenedCount();
     relayout();
@@ -118,15 +119,16 @@ void MonitorGround::removeMonitor(Monitor *monitor)
     disconnect(monitor, &Monitor::mousePressed, monitor, &Monitor::raise);
     disconnect(monitor, &Monitor::mouseMoveing, this, &MonitorGround::onMonitorMouseMove);
     disconnect(monitor, &Monitor::mouseRelease, this, &MonitorGround::onMonitorMouseRelease);
-    disconnect(dbus, &MonitorInterface::XChanged, this, &MonitorGround::relayout);
-    disconnect(dbus, &MonitorInterface::YChanged, this, &MonitorGround::relayout);
-    disconnect(dbus, &MonitorInterface::WidthChanged, this, &MonitorGround::relayout);
-    disconnect(dbus, &MonitorInterface::HeightChanged, this, &MonitorGround::relayout);
-    disconnect(dbus, &MonitorInterface::RotationChanged, this, &MonitorGround::relayout);
+//    disconnect(dbus, &MonitorInterface::XChanged, this, &MonitorGround::relayout);
+//    disconnect(dbus, &MonitorInterface::YChanged, this, &MonitorGround::relayout);
+//    disconnect(dbus, &MonitorInterface::WidthChanged, this, &MonitorGround::relayout);
+//    disconnect(dbus, &MonitorInterface::HeightChanged, this, &MonitorGround::relayout);
+//    disconnect(dbus, &MonitorInterface::RotationChanged, this, &MonitorGround::relayout);
+    disconnect(monitor, &Monitor::resolutionChanged, this, &MonitorGround::relayout);
     disconnect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::relayout);
     disconnect(dbus, &MonitorInterface::OpenedChanged, this, &MonitorGround::updateOpenedCount);
     disconnect(dbus, &MonitorInterface::IsCompositedChanged, this, &MonitorGround::updateOpenedCount);
-    disconnect(this, &MonitorGround::applyEdit, monitor, &Monitor::applyResolution);
+    disconnect(this, &MonitorGround::applyEdit, monitor, &Monitor::applyPostion);
 
     updateOpenedCount();
     relayout();
@@ -225,10 +227,12 @@ void MonitorGround::relayout()
     qreal rect_scale = qMin((double)width() / max_rect.width() * 0.9,
                             (double)height() / max_rect.height() * 0.6);
 
-    max_rect.setTop(max_rect.top() * rect_scale);
-    max_rect.setBottom(max_rect.bottom() * rect_scale);
-    max_rect.setLeft(max_rect.left() * rect_scale);
-    max_rect.setRight(max_rect.right() * rect_scale);
+//    max_rect.setTop(max_rect.top() * rect_scale);
+//    max_rect.setBottom(max_rect.bottom() * rect_scale);
+//    max_rect.setLeft(max_rect.left() * rect_scale);
+//    max_rect.setRight(max_rect.right() * rect_scale);
+    max_rect.setWidth(max_rect.width() * rect_scale);
+    max_rect.setHeight(max_rect.height() * rect_scale);
     max_rect.moveCenter(this->rect().center());
 
     foreach (Monitor *monitor, m_monitors) {
@@ -289,8 +293,6 @@ void MonitorGround::onMonitorMouseRelease()
     if(!monitor)
         return;
 
-    bool tmp = true;
-
     foreach (Monitor *brother, m_monitors) {
         if(brother == monitor)
             continue;
@@ -298,37 +300,34 @@ void MonitorGround::onMonitorMouseRelease()
         if(brother->geometry().contains(monitor->geometry().center())){
             if(brother->drop(monitor)){
                 brother->setDraggable(false);
-                tmp = false;
                 m_dbusDisplay->JoinMonitor(monitor->name(), brother->name());
+                return;
             }
         }
     }
 
-    if(tmp){
+    QRect rect = monitor->resolution();
+
+    rect.moveTopLeft(monitor->mapToRealPoint());
+
+    monitor->setResolution(rect);
+
+    QPoint min_pos = rect.topLeft();
+
+    foreach (Monitor *monitor, m_monitors) {
         QRect rect = monitor->resolution();
-        double scale = rect.width() / (double)monitor->width();
-        rect.moveTopLeft(QPoint((monitor->x() - monitor->parentRect().x()) * scale,
-                (monitor->y() - monitor->parentRect().y()) * scale));
-
-        monitor->setResolution(rect);
-
-        QPoint min_pos = rect.topLeft();
-
-        foreach (Monitor *monitor, m_monitors) {
-            QRect rect = monitor->resolution();
-            if(rect.x() < min_pos.x())
-                min_pos.setX(rect.x());
-            if(rect.y() < min_pos.y())
-                min_pos.setY(rect.y());
-        }
-        foreach (Monitor *monitor, m_monitors) {
-            QRect rect = monitor->resolution();
-            rect.moveTopLeft(rect.topLeft() - min_pos);
-            monitor->setResolution(rect);
-        }
-
-        relayout();
+        if(rect.x() < min_pos.x())
+            min_pos.setX(rect.x());
+        if(rect.y() < min_pos.y())
+            min_pos.setY(rect.y());
     }
+    foreach (Monitor *monitor, m_monitors) {
+        QRect rect = monitor->resolution();
+        rect.moveTopLeft(rect.topLeft() - min_pos);
+        monitor->setResolution(rect);
+    }
+
+    relayout();
 }
 
 void MonitorGround::updateOpenedCount()

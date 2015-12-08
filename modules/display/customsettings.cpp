@@ -320,7 +320,7 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         m_monitorGround->applyEdit();
 
         if(m_dbusDisplay->displayMode() != 0){
-            m_dbusDisplay->SaveChanges();
+            m_dbusDisplay->SaveChanges().waitForFinished();
             m_dbusDisplay->SwitchMode(0, "");
         }else if(m_dbusDisplay->hasChanged()){
             DDialog dialog;
@@ -348,7 +348,7 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
             const QScreen *screen_mouse = nullptr;
 
             for(const QScreen *screen : QGuiApplication::screens()) {
-                if(screen->geometry().contains(dialog.pos())) {
+                if(screen->geometry().contains(window()->pos())) {
                     screen_dialog = screen;
                     break;
                 } else if(screen->geometry().contains(QCursor::pos())) {

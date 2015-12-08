@@ -25,13 +25,33 @@ Monitor::Monitor(MonitorInterface *dbus, QWidget *parent) :
     m_child(NULL)
 {
     D_THEME_INIT_WIDGET(Monitor, draging, eyeing);
+
     if(dbus){
         m_resolution = QRect(m_dbusInterface->x(), m_dbusInterface->y(), m_dbusInterface->width(), m_dbusInterface->height());
-        connect(m_dbusInterface, &MonitorInterface::XChanged, [this]{m_resolution.moveLeft(m_dbusInterface->x());});
-        connect(m_dbusInterface, &MonitorInterface::YChanged, [this]{m_resolution.moveTop(m_dbusInterface->y());});
-        connect(m_dbusInterface, &MonitorInterface::WidthChanged, [this]{m_resolution.setWidth(m_dbusInterface->width());});
-        connect(m_dbusInterface, &MonitorInterface::HeightChanged, [this]{m_resolution.setHeight(m_dbusInterface->height());});
+
+        connect(m_dbusInterface, &MonitorInterface::XChanged, [this] {
+            m_resolution.moveLeft(m_dbusInterface->x());
+            emit resolutionChanged(m_resolution);
+        });
+        connect(m_dbusInterface, &MonitorInterface::YChanged, [this] {
+            m_resolution.moveTop(m_dbusInterface->y());
+            emit resolutionChanged(m_resolution);
+        });
+        connect(m_dbusInterface, &MonitorInterface::WidthChanged, [this] {
+            m_resolution.setWidth(m_dbusInterface->width());
+            emit resolutionChanged(m_resolution);
+        });
+        connect(m_dbusInterface, &MonitorInterface::HeightChanged, [this] {
+            m_resolution.setHeight(m_dbusInterface->height());
+            emit resolutionChanged(m_resolution);
+        });
+        connect(m_dbusInterface, &MonitorInterface::RotationChanged, [this] {
+            m_resolution = QRect(m_dbusInterface->x(), m_dbusInterface->y(), m_dbusInterface->width(), m_dbusInterface->height());
+            emit resolutionChanged(m_resolution);
+        });
     }
+
+    connect(this, SIGNAL(resolutionChanged(QRect)), SLOT(update()));
 }
 
 
@@ -45,7 +65,7 @@ void Monitor::setName(QString name)
     update();
 }
 
-QRect Monitor::resolution()
+QRect Monitor::resolution() const
 {
     return m_resolution;
 }
@@ -58,6 +78,11 @@ MonitorInterface *Monitor::dbusInterface() const
 QColor Monitor::dockBgColor() const
 {
     return m_dockBgColor;
+}
+
+QColor Monitor::childBorderColor() const
+{
+    return m_childBorderColor;
 }
 
 bool Monitor::draggable() const
@@ -105,6 +130,12 @@ void Monitor::setParentRect(const QRect &rect)
     m_parentRect = rect;
 }
 
+QPoint Monitor::mapToRealPoint() const
+{
+    return QPoint((x() - parentRect().x()) * resolution().width() / width(),
+                  (y() - parentRect().y()) * resolution().width() / width());
+}
+
 void Monitor::setResolution(const QRect &rect)
 {
     m_resolution = rect;
@@ -120,9 +151,25 @@ void Monitor::setDockBgColor(QColor dockBgColor)
     update();
 }
 
+void Monitor::setChildBorderColor(QColor childBorderColor)
+{
+    if(m_childBorderColor == childBorderColor)
+        return;
+
+    m_childBorderColor = childBorderColor;
+
+    update();
+}
+
 void Monitor::setDraggable(bool draggable)
 {
+    if(m_draggable == draggable)
+        return;
+
     m_draggable = draggable;
+
+    if(!draggable)
+        parentWidget()->setFocus();
 }
 
 void Monitor::setAlignment(Qt::Alignment aalignment)
@@ -181,7 +228,7 @@ void Monitor::paintEvent(QPaintEvent *e)
         pa.setFont(font);
         pa.drawText(child_rect, "A", tmpOption);
         QPen tmp_pen = pa.pen();
-        pa.setPen(QColor("#4b4b4b"));
+        pa.setPen(m_childBorderColor);
         pa.drawRect(child_rect);
 
         pa.setOpacity(0.85);
@@ -205,8 +252,10 @@ void Monitor::paintEvent(QPaintEvent *e)
         nameOption.setAlignment(m_nameAlignment);
         pa.drawText(rect(), m_name, nameOption);
 
-        if(m_draging){
-            pa.drawText(10, 20, QString("(%1,%2)").arg(x() - m_parentRect.x()).arg(y() - m_parentRect.y()));
+        if(m_draging || hasFocus()){
+            const QPoint point = m_draging ? mapToRealPoint() : resolution().topLeft();
+
+            pa.drawText(10, 20, QString("(%1,%2)").arg(point.x()).arg(point.y()));
         }
 
         if(m_isPrimary){
@@ -238,7 +287,7 @@ void Monitor::mousePressEvent(QMouseEvent *e)
     m_oldPos = pos();
 
     setCursor(Qt::ClosedHandCursor);
-
+    setFocus();
     setDraging(true);
 
     emit mousePressed(e->pos());
@@ -272,6 +321,32 @@ void Monitor::mouseReleaseEvent(QMouseEvent *e)
     setDraging(false);
 
     emit mouseRelease(e->pos());
+}
+
+void Monitor::keyPressEvent(QKeyEvent *e)
+{
+    e->accept();
+
+    switch (e->key()) {
+    case Qt::Key_Left:
+        m_resolution.moveLeft(m_resolution.x() - 1);
+        emit resolutionChanged(m_resolution);
+        break;
+    case Qt::Key_Right:
+        m_resolution.moveLeft(m_resolution.x() + 1);
+        emit resolutionChanged(m_resolution);
+        break;
+    case Qt::Key_Up:
+        m_resolution.moveTop(m_resolution.y() - 1);
+        emit resolutionChanged(m_resolution);
+        break;
+    case Qt::Key_Down:
+        m_resolution.moveTop(m_resolution.y() + 1);
+        emit resolutionChanged(m_resolution);
+        break;
+    default:
+        break;
+    }
 }
 
 bool Monitor::dragEnter(Monitor *monitor)
@@ -314,9 +389,9 @@ Monitor *Monitor::split()
     return m;
 }
 
-void Monitor::applyResolution()
+void Monitor::applyPostion()
 {
-    m_dbusInterface->SetPos(m_resolution.left(), m_resolution.top());
+    m_dbusInterface->SetPos(m_resolution.left(), m_resolution.top()).waitForFinished();
 }
 
 void Monitor::resetResolution()
@@ -330,6 +405,8 @@ void Monitor::setDraging(bool arg)
         return;
 
     m_draging = arg;
+
+    update();
 
     emit dragingChanged(arg);
 }

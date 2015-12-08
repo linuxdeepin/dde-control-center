@@ -9,6 +9,7 @@ class Monitor : public QFrame
     Q_OBJECT
 
     Q_PROPERTY(QColor dockBgColor READ dockBgColor WRITE setDockBgColor)
+    Q_PROPERTY(QColor childBorderColor READ childBorderColor WRITE setChildBorderColor)
     Q_PROPERTY(QString name READ name WRITE setName)
     Q_PROPERTY(Qt::Alignment nameAlignment READ nameAlignment WRITE setNameAlignment)
     Q_PROPERTY(const Monitor* child READ child)
@@ -22,9 +23,10 @@ public:
 
     void setName(QString name);
 
-    QRect resolution();
+    QRect resolution() const;
     MonitorInterface *dbusInterface() const;
     QColor dockBgColor() const;
+    QColor childBorderColor() const;
     bool draggable() const;
     QString name() const;
     Qt::Alignment nameAlignment() const;
@@ -36,9 +38,12 @@ public:
     QRect parentRect() const;
     void setParentRect(const QRect &rect);
 
+    QPoint mapToRealPoint() const;
+
 public slots:
     void setResolution(const QRect &rect);
     void setDockBgColor(QColor dockBgColor);
+    void setChildBorderColor(QColor childBorderColor);
     void setDraggable(bool draggable);
     void setAlignment(Qt::Alignment aalignment);
     void setNameAlignment(Qt::Alignment nameAlignment);
@@ -47,7 +52,7 @@ public slots:
     void dragLeave();
     bool drop(Monitor *e);
     Monitor* split();
-    void applyResolution();
+    void applyPostion();
     void resetResolution();
 
 signals:
@@ -56,16 +61,19 @@ signals:
     void mouseMoveing(QPoint pos);
     void mouseRelease(QPoint pos);
     void eyeingChanged(bool eyeing);
+    void resolutionChanged(QRect rect);
 
 protected:
-    void paintEvent(QPaintEvent *e);
-    void mousePressEvent(QMouseEvent *e);
-    void mouseMoveEvent(QMouseEvent *e);
-    void mouseReleaseEvent(QMouseEvent *e);
+    void paintEvent(QPaintEvent *e) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
+    void mouseMoveEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
+    void keyPressEvent(QKeyEvent *e) Q_DECL_OVERRIDE;
 
 private:
     MonitorInterface *m_dbusInterface;
     QColor m_dockBgColor;
+    QColor m_childBorderColor;
     bool m_draggable;
     QPoint m_pressPos;
     QPoint m_oldPos;
