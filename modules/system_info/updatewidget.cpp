@@ -21,9 +21,14 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     MirrorInfo::registerMetaType();
     AppUpdateInfo::registerMetaType();
 
+    m_tipsWidget = new QWidget;
+    m_tipsWidget->setVisible(false);
+    m_updateStatTips = new QLabel;
+    m_updateStatTips->setObjectName("Tips");
     m_updateCountTips = new QLabel;
     m_updateCountTips->setWordWrap(true);
     m_updateCountTips->setObjectName("Tips");
+    m_updateCountTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::MinimumExpanding);
     m_updateSizeTips = new QLabel;
     m_updateSizeTips->setObjectName("Tips");
     m_checkUpdateBtn = new DImageButton;
@@ -56,6 +61,15 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_dbusUpdateInter = new DBusLastoreUpdater("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
     m_dbusJobManagerInter = new DBusUpdateJobManager("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
 
+    QVBoxLayout *tipsWidgetLayout = new QVBoxLayout;
+    tipsWidgetLayout->addSpacing(10);
+    tipsWidgetLayout->addWidget(m_updateStatTips);
+    tipsWidgetLayout->addSpacing(10);
+    tipsWidgetLayout->addWidget(new HSeparatorWidget);
+    tipsWidgetLayout->setSpacing(0);
+    tipsWidgetLayout->setContentsMargins(15, 0, 15, 0);
+    m_tipsWidget->setLayout(tipsWidgetLayout);
+
     QVBoxLayout *tipsLayout = new QVBoxLayout;
     tipsLayout->addWidget(m_updateCountTips);
     tipsLayout->addWidget(m_updateSizeTips);
@@ -72,6 +86,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     updateInfoLayout->setContentsMargins(15, 8, 18, 8);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addWidget(m_tipsWidget);
     mainLayout->addLayout(updateInfoLayout);
     mainLayout->addWidget(new DSeparatorHorizontal);
     mainLayout->addWidget(m_appsList);
@@ -224,6 +239,8 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
     // no update
     if (!apps && !packages)
     {
+        m_updateStatTips->setText(tr("Your system is up to date"));
+        m_tipsWidget->show();
         m_checkingIndicator->show();
         m_updateButton->hide();
         m_updateCountTips->setText(tr("Click to check update."));
@@ -234,6 +251,7 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
     }
     else
     {
+        m_tipsWidget->hide();
         m_checkingIndicator->hide();
         m_updateButton->show();
         m_appsList->show();
@@ -364,10 +382,10 @@ void UpdateWidget::checkUpdateStateChanged()
             // no updates
             if (!m_updatableAppsList.count() && !m_updatablePackagesList.count())
             {
-                if (stat == "end")
-                    m_updateCountTips->setText(tr("No updates avaliable"));
-                else
-                    m_updateCountTips->setText(tr("Check update failed"));
+//                if (stat == "end")
+//                    m_updateCountTips->setText(tr("No updates avaliable"));
+//                else
+//                    m_updateCountTips->setText(tr("Check update failed"));
             }
         }
 //            m_updateCountTips->setText(tr("imde"));
@@ -438,7 +456,7 @@ void UpdateWidget::loadUpgradeJob(DBusUpdateJob *newJob)
     if (status == "failed")
         refreshProgress(SysFail);
 
-//    updateUpgradeProcess();
+    updateUpgradeProcess();
 //    updateUpgradeState();
 }
 

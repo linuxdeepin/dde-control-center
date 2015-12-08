@@ -76,6 +76,8 @@ private slots:
 private:
     QLabel *m_updateCountTips;
     QLabel *m_updateSizeTips;
+    QLabel *m_updateStatTips;
+    QWidget *m_tipsWidget;
     DLoadingIndicator *m_checkingIndicator;
     DImageButton *m_checkUpdateBtn;
     DImageButton *m_updateButton;
