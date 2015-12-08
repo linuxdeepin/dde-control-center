@@ -15,7 +15,10 @@ HEADERS    = frame.h \
     pluginsmanager.h \
     dbus/dbusbluetooth.h \
     dbus/dbuswacom.h \
-    controlcenterproxy.h
+    controlcenterproxy.h \
+    sidebarview.h \
+    sidebarmodel.h \
+    sidebardelegate.h
 SOURCES    = frame.cpp \
              main.cpp \
     homescreen.cpp \
@@ -29,7 +32,10 @@ SOURCES    = frame.cpp \
     pluginsmanager.cpp \
     dbus/dbuswacom.cpp \
     dbus/dbusbluetooth.cpp \
-    controlcenterproxy.cpp
+    controlcenterproxy.cpp \
+    sidebarview.cpp \
+    sidebarmodel.cpp \
+    sidebardelegate.cpp
 
 include(../cutelogger/cutelogger.pri)
 TARGET     = dde-control-center

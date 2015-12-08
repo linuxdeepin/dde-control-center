@@ -41,11 +41,11 @@ ContentView::ContentView(ControlCenterProxy *proxy, QWidget *parent)
 
     if(m_hideInLeft) {
         m_rightSeparator->hide();
-        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowLeft);
+//        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowLeft);
         m_layout->insertWidget(0, m_lastPluginWidgetContainer);
     } else {
         m_leftSeparator->hide();
-        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowRight);
+//        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowRight);
         m_layout->addWidget(m_lastPluginWidgetContainer);
     }
 
@@ -84,7 +84,7 @@ void ContentView::switchToModule(ModuleMetaData module)
     // load new plugin
     m_pluginLoader->setFileName(module.path);
     m_sideBar->blockSignals(true);
-    m_sideBar->switchToModule(module.id);
+    m_sideBar->switchToModule(module);
     m_sideBar->blockSignals(false);
 
     QObject *instance = m_pluginLoader->instance();
@@ -139,9 +139,9 @@ void ContentView::reLayout(bool hideInLeft)
     m_hideInLeft = hideInLeft;
 
     if(m_hideInLeft){
-        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowLeft);
+//        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowLeft);
     }else{
-        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowRight);
+//        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowRight);
     }
 
     m_rightSeparator->setHidden(hideInLeft);

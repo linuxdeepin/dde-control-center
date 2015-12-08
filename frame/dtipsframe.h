@@ -29,7 +29,7 @@ private:
     void updateStyle();
 public slots:
     void followTheSender();
-    void setTipsText(const QString &text);
+    void showTipsTextAt(const QString &text, const QPoint &p);
     void show();
     void setArrowDirection(ArrowDirection arrowDirection);
 

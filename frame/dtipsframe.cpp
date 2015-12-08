@@ -96,14 +96,22 @@ void DTipsFrame::followTheSender()
     show();
 }
 
-void DTipsFrame::setTipsText(const QString &text)
+void DTipsFrame::showTipsTextAt(const QString &text, const QPoint &p)
 {
-    m_label->setText(QCoreApplication::translate("ModuleName", text.toLatin1()));
-
-    QFontMetrics metric(m_label->font());
-
     hide();
+
+    m_label->setText(QCoreApplication::translate("ModuleName", text.toLatin1()));
+    QFontMetrics metric(m_label->font());
     setFixedWidth(metric.tightBoundingRect(m_label->text()).width() + 40);
+
+    int x = p.x();
+    x += arrowDirection() == ArrowLeft ? rect().right() + 12
+                                       : rect().left() - width() - 12;
+    int y = p.y();
+    y += 3;
+    move(x, y);
+
+    show();
 }
 
 void DTipsFrame::show()

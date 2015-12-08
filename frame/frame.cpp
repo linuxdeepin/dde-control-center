@@ -4,6 +4,7 @@
 #include "constants.h"
 #include "dtipsframe.h"
 #include "controlcenterproxy.h"
+#include "sidebarview.h"
 #include "dbus/displayinterface.h"
 
 #include <QDir>
