@@ -68,10 +68,22 @@ Frame::Frame(QWidget *parent) :
     DisplayInterface *display_dbus = new DisplayInterface(this);
 
     auto updateGeometry = [display_dbus, this] {
-        this->updateGeometry(display_dbus->primaryRect());
+        QRect primaryRect = display_dbus->primaryRect();
+
+        for(const QScreen * screen: qApp->screens()) {
+            if(screen->name() == display_dbus->primary()) {
+                primaryRect = screen->geometry();
+                connect(screen, &QScreen::geometryChanged, this, &Frame::updateGeometry);
+                break;
+            } else {
+                disconnect(screen, &QScreen::geometryChanged, this, &Frame::updateGeometry);
+            }
+        }
+
+        this->updateGeometry(primaryRect);
     };
 
-    connect(display_dbus, &DisplayInterface::PrimaryRectChanged, this, updateGeometry);
+    connect(display_dbus, &DisplayInterface::PrimaryChanged, this, updateGeometry);
     connect(m_homeScreen, &HomeScreen::powerBtnClicked, [this] {hide(true);});
     connect(this, &Frame::hideInLeftChanged, this, updateGeometry);
     connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
