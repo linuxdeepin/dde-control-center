@@ -46,11 +46,6 @@ private:
     QCamera *m_camera = NULL;
     DCameraView *m_cameraView = NULL;
     bool m_captureState = false;
-
-    const int SLIDER_STEP = 1;
-    const int PANEL_HEIGHT = 240;
-    const int CAMERA_VIEW_SIZE = 120;
-    const QString IMAGE_SAVE_PATH = "/tmp/account_camera_tmp_avatar.png";
 };
 
 #endif // WEBCAMAVATARPANEL_H

@@ -1,5 +1,10 @@
 #include "webcamavatarpanel.h"
 
+const int SLIDER_STEP = 1;
+const int PANEL_HEIGHT = 240;
+const int CAMERA_VIEW_SIZE = 120;
+const QString IMAGE_SAVE_PATH = "/tmp/account_camera_tmp_avatar.png";
+
 WebcamAvatarPanel::WebcamAvatarPanel(QWidget *parent) : QWidget(parent)
 {
     setFixedHeight(PANEL_HEIGHT);
@@ -19,9 +24,12 @@ void WebcamAvatarPanel::turnOnCamera()
     m_camera = new QCamera(QCameraInfo::defaultCamera(), this);
     connect(m_camera, SIGNAL(error(QCamera::Error)), this, SLOT(onCameraError(QCamera::Error)));
 
-    if(m_camera){
+    if(m_camera && m_camera->isAvailable()){
         m_cameraView->setSource(m_camera);
         m_camera->start();
+    }
+    else {
+        m_stackWidget->setCurrentIndex(0);
     }
 }
 
