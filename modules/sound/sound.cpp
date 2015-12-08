@@ -275,28 +275,71 @@ void Sound::initUI()
     m_loginSoundSwitch->setSwitched(m_soundEffectsInter->login());
     m_loginSoundSwitch->setTitle(tr("Login"));
     m_loginSoundSwitch->setFixedWidth(DCC::ModuleContentWidth);
-//    m_logoutSoundSwitch = new SoundEffectSwitchWidget;
-//    m_logoutSoundSwitch->setSwitched(m_soundEffectsInter->logout());
-//    m_logoutSoundSwitch->setTitle(tr("Logout"));
-//    m_shutdownSoundSwitch = new SoundEffectSwitchWidget;
-//    m_shutdownSoundSwitch->setSwitched(m_soundEffectsInter->shutdown());
-//    m_shutdownSoundSwitch->setTitle(tr("Shutdown"));
+    m_logoutSoundSwitch = new SoundEffectSwitchWidget;
+    m_logoutSoundSwitch->setSwitched(m_soundEffectsInter->logout());
+    m_logoutSoundSwitch->setTitle(tr("Logout"));
+    m_shutdownSoundSwitch = new SoundEffectSwitchWidget;
+    m_shutdownSoundSwitch->setSwitched(m_soundEffectsInter->shutdown());
+    m_shutdownSoundSwitch->setTitle(tr("Shutdown"));
     m_restoreSoundSwitch = new SoundEffectSwitchWidget;
     m_restoreSoundSwitch->setSwitched(m_soundEffectsInter->wakeup());
-    m_restoreSoundSwitch->setTitle(tr("Restore"));
+    m_restoreSoundSwitch->setTitle(tr("Wakeup"));
+    m_nitifySoundSwitch = new SoundEffectSwitchWidget;
+    m_nitifySoundSwitch->setSwitched(m_soundEffectsInter->notification());
+    m_nitifySoundSwitch->setTitle(tr("Notification"));
+    m_unableOperateSoundSwitch = new SoundEffectSwitchWidget;
+    m_unableOperateSoundSwitch->setSwitched(m_soundEffectsInter->unableOperate());
+    m_unableOperateSoundSwitch->setTitle(tr("Unable to Operate"));
+    m_emptyTrashSoundSwitch = new SoundEffectSwitchWidget;
+    m_emptyTrashSoundSwitch->setSwitched(m_soundEffectsInter->emptyTrash());
+    m_emptyTrashSoundSwitch->setTitle(tr("Empty trash"));
+    m_volumeSoundSwitch = new SoundEffectSwitchWidget;
+    m_volumeSoundSwitch->setSwitched(m_soundEffectsInter->volumeChange());
+    m_volumeSoundSwitch->setTitle(tr("Adjust volume"));
+    m_batterySoundSwitch = new SoundEffectSwitchWidget;
+    m_batterySoundSwitch->setSwitched(m_soundEffectsInter->batteryLow());
+    m_batterySoundSwitch->setTitle(tr("Low battery"));
+    m_powerInSoundSwitch = new SoundEffectSwitchWidget;
+    m_powerInSoundSwitch->setSwitched(m_soundEffectsInter->powerPlug());
+    m_powerInSoundSwitch->setTitle(tr("Power plug in"));
+    m_powerOutSoundSwitch = new SoundEffectSwitchWidget;
+    m_powerOutSoundSwitch->setSwitched(m_soundEffectsInter->powerUnplug());
+    m_powerOutSoundSwitch->setTitle(tr("Power unplugged"));
+    m_deviceInSoundSwitch = new SoundEffectSwitchWidget;
+    m_deviceInSoundSwitch->setSwitched(m_soundEffectsInter->devicePlug());
+    m_deviceInSoundSwitch->setTitle(tr("Movable device plug in"));
+    m_deviceOutSoundSwitch = new SoundEffectSwitchWidget;
+    m_deviceOutSoundSwitch->setSwitched(m_soundEffectsInter->deviceUnplug());
+    m_deviceOutSoundSwitch->setTitle(tr("Movable device unplug"));
+    m_sendAppToDesktopSoundSwitch = new SoundEffectSwitchWidget;
+    m_sendAppToDesktopSoundSwitch->setSwitched(m_soundEffectsInter->iconToDesktop());
+    m_sendAppToDesktopSoundSwitch->setTitle(tr("Send app icon to desktop"));
+    m_screenshotSoundSwitch = new SoundEffectSwitchWidget;
+    m_screenshotSoundSwitch->setSwitched(m_soundEffectsInter->screenshot());
+    m_screenshotSoundSwitch->setTitle(tr("Screenshot"));
 
     QVBoxLayout *soundEffectsLayout = new QVBoxLayout;
     soundEffectsLayout->addWidget(m_loginSoundSwitch);
-//    soundEffectsLayout->addWidget(m_logoutSoundSwitch);
-//    soundEffectsLayout->addWidget(m_shutdownSoundSwitch);
+    soundEffectsLayout->addWidget(m_logoutSoundSwitch);
+    soundEffectsLayout->addWidget(m_shutdownSoundSwitch);
     soundEffectsLayout->addWidget(m_restoreSoundSwitch);
+    soundEffectsLayout->addWidget(m_nitifySoundSwitch);
+    soundEffectsLayout->addWidget(m_unableOperateSoundSwitch);
+    soundEffectsLayout->addWidget(m_emptyTrashSoundSwitch);
+    soundEffectsLayout->addWidget(m_volumeSoundSwitch);
+    soundEffectsLayout->addWidget(m_batterySoundSwitch);
+    soundEffectsLayout->addWidget(m_powerInSoundSwitch);
+    soundEffectsLayout->addWidget(m_powerOutSoundSwitch);
+    soundEffectsLayout->addWidget(m_deviceInSoundSwitch);
+    soundEffectsLayout->addWidget(m_deviceOutSoundSwitch);
+    soundEffectsLayout->addWidget(m_sendAppToDesktopSoundSwitch);
+    soundEffectsLayout->addWidget(m_screenshotSoundSwitch);
     soundEffectsLayout->setSpacing(0);
     soundEffectsLayout->setMargin(0);
 
     QWidget *soundEffectsWidget = new QWidget;
     soundEffectsWidget->setLayout(soundEffectsLayout);
-//    soundEffectsWidget->setFixedHeight(50 * 4);
-    soundEffectsWidget->setFixedHeight(50 * 2);
+    soundEffectsWidget->setFixedHeight(50 * 15);
 
     m_soundEffectsExpand = new DArrowLineExpand;
     m_soundEffectsExpand->setContent(soundEffectsWidget);
@@ -306,14 +349,47 @@ void Sound::initUI()
     connect(m_loginSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
         m_soundEffectsInter->setLogin(e);
     });
-//    connect(m_logoutSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
-//        m_soundEffectsInter->setLogout(e);
-//    });
-//    connect(m_shutdownSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
-//        m_soundEffectsInter->setShutdown(e);
-//    });
+    connect(m_logoutSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setLogout(e);
+    });
+    connect(m_shutdownSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setShutdown(e);
+    });
     connect(m_restoreSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
         m_soundEffectsInter->setWakeup(e);
+    });
+    connect(m_nitifySoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setNotification(e);
+    });
+    connect(m_unableOperateSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setUnableOperate(e);
+    });
+    connect(m_emptyTrashSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setEmptyTrash(e);
+    });
+    connect(m_volumeSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setVolumeChange(e);
+    });
+    connect(m_batterySoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setBatteryLow(e);
+    });
+    connect(m_powerInSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setPowerPlug(e);
+    });
+    connect(m_powerOutSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setPowerUnplug(e);
+    });
+    connect(m_deviceInSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setDevicePlug(e);
+    });
+    connect(m_deviceOutSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setDeviceUnplug(e);
+    });
+    connect(m_sendAppToDesktopSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setIconToDesktop(e);
+    });
+    connect(m_screenshotSoundSwitch, &SoundEffectSwitchWidget::switchToggled, [this] (bool e) {
+        m_soundEffectsInter->setScreenshot(e);
     });
     connect(m_soundEffectsExpand, &DArrowLineExpand::expandChange, [advanced_expand] (bool e) {
         if (e)

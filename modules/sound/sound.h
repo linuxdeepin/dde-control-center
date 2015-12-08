@@ -54,9 +54,20 @@ private:
     DScrollArea *m_scrollArea;
     DArrowLineExpand *m_soundEffectsExpand;
     SoundEffectSwitchWidget *m_loginSoundSwitch;
-//    SoundEffectSwitchWidget *m_logoutSoundSwitch;
-//    SoundEffectSwitchWidget *m_shutdownSoundSwitch;
+    SoundEffectSwitchWidget *m_logoutSoundSwitch;
+    SoundEffectSwitchWidget *m_shutdownSoundSwitch;
     SoundEffectSwitchWidget *m_restoreSoundSwitch;
+    SoundEffectSwitchWidget *m_nitifySoundSwitch;
+    SoundEffectSwitchWidget *m_unableOperateSoundSwitch;
+    SoundEffectSwitchWidget *m_emptyTrashSoundSwitch;
+    SoundEffectSwitchWidget *m_volumeSoundSwitch;
+    SoundEffectSwitchWidget *m_batterySoundSwitch;
+    SoundEffectSwitchWidget *m_powerInSoundSwitch;
+    SoundEffectSwitchWidget *m_powerOutSoundSwitch;
+    SoundEffectSwitchWidget *m_deviceInSoundSwitch;
+    SoundEffectSwitchWidget *m_deviceOutSoundSwitch;
+    SoundEffectSwitchWidget *m_sendAppToDesktopSoundSwitch;
+    SoundEffectSwitchWidget *m_screenshotSoundSwitch;
     DBusSoundEffects *m_soundEffectsInter;
 
 
