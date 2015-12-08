@@ -46,24 +46,24 @@ void AddVpnPage::init()
 
     ListWidgetContainer *container_vpn_info = new ListWidgetContainer(tr("Basic Information"));
 
-    EditLineMissingPackage *missing_package = new EditLineMissingPackage("vs-vpn", "vk-vpn-missing-plugin",
-                                                                         m_dbus, tr("Need VPN Plugin"));
+//    EditLineMissingPackage *missing_package = new EditLineMissingPackage("vs-vpn", "vk-vpn-missing-plugin",
+//                                                                         m_dbus, tr("Need VPN Plugin"));
 
-    missing_package->setAlwaysUpdate(true);
+//    missing_package->setAlwaysUpdate(true);
 
-    connect(list_vpn_type, &DButtonList::buttonChecked,
-            this, [this, missing_package](const QString &text) {
-        missing_package->setCurrentVpnName(text);
-        m_dbus->SetKey("vs-vpn", "vk-vpn-type", "\"" + m_mapVpnNameToType[text] + "\"");
-    });
+//    connect(list_vpn_type, &DButtonList::buttonChecked,
+//            this, [this, missing_package](const QString &text) {
+//        missing_package->setCurrentVpnName(text);
+//        m_dbus->SetKey("vs-vpn", "vk-vpn-type", "\"" + m_mapVpnNameToType[text] + "\"");
+//    });
 
     DVBoxWidget *boxWidget_vpn_info = new DVBoxWidget;
 
-    container_vpn_info->addWidget(missing_package);
+    //container_vpn_info->addWidget(missing_package);
     container_vpn_info->addWidget(boxWidget_vpn_info);
     container_vpn_info->setRightButtonText(tr("Add"));
 
-    connect(missing_package, &EditLineMissingPackage::visibleChanged, boxWidget_vpn_info, &DVBoxWidget::setHidden);
+    //connect(missing_package, &EditLineMissingPackage::visibleChanged, boxWidget_vpn_info, &DVBoxWidget::setHidden);
 
     boxWidget_vpn_info->layout()->setSpacing(5);
     boxWidget_vpn_info->addWidget(new EditLineInput("connection", "id", m_dbus, tr("Name")));

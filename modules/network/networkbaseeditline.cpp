@@ -200,9 +200,6 @@ void NetworkBaseEditLine::setCacheValue(const QJsonValue &value)
 
 void NetworkBaseEditLine::updateVisible()
 {
-    if(!parentWidget())
-        return;
-
     setVisible(m_dbus->availableSections().indexOf(section()) != -1
             &&  m_dbus->availableKeys()[section()].indexOf(key()) != -1);
 }
