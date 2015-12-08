@@ -1,5 +1,5 @@
 #include "headerline.h"
-
+#include "dthememanager.h"
 #include "highlightlabel.h"
 
 HeaderLine::HeaderLine(QString title, QWidget *parent)
@@ -8,4 +8,7 @@ HeaderLine::HeaderLine(QString title, QWidget *parent)
     HighlightLabel * _title = new HighlightLabel(title, this);
 
     this->setLeftContent(_title);
+
+    setStyleSheet(QString());
+    D_THEME_INIT_WIDGET(HeaderLine);
 }

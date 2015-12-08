@@ -36,5 +36,6 @@
         <file>dark/images/clear_normal.png</file>
         <file>dark/images/waiting.png</file>
         <file>dark/GenericListItem.theme</file>
+        <file>dark/HeaderLine.theme</file>
     </qresource>
 </RCC>

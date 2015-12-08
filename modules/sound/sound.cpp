@@ -671,7 +671,8 @@ void Sound::updateOutputDevices()
     if (outputDevices.length() > 0) {
         m_outputDevicesList->clear();
         m_outputDevicesList->addButtons(outputDevices);
-        m_outputDevicesList->setFixedSize(DCC::ModuleContentWidth, outputDevices.length() * m_outputDevicesList->itemWidget(m_outputDevicesList->item(0))->height());
+        m_outputDevicesList->setFixedSize(DCC::ModuleContentWidth, qMin(outputDevices.length() * m_outputDevicesList->itemWidget(m_outputDevicesList->item(0))->height(),
+                                                                        2 * m_outputDevicesList->itemWidget(m_outputDevicesList->item(0))->height()));
 
         if (m_sinks.contains(m_sink)) {
             m_outputDevicesList->checkButtonByIndex(m_sinks.indexOf(m_sink));
@@ -694,7 +695,8 @@ void Sound::updateInputDevices()
     if (inputDevices.length() > 0) {
         m_inputDevicesList->clear();
         m_inputDevicesList->addButtons(inputDevices);
-        m_inputDevicesList->setFixedSize(DCC::ModuleContentWidth, inputDevices.length() * m_inputDevicesList->itemWidget(m_inputDevicesList->item(0))->height());
+        m_inputDevicesList->setFixedSize(DCC::ModuleContentWidth, qMin(inputDevices.length() * m_inputDevicesList->itemWidget(m_inputDevicesList->item(0))->height(),
+                                                                       2 * m_inputDevicesList->itemWidget(m_inputDevicesList->item(0))->height()));
         if (m_sources.contains(m_source)) {
             m_inputDevicesList->checkButtonByIndex(m_sources.indexOf(m_source));
         }
