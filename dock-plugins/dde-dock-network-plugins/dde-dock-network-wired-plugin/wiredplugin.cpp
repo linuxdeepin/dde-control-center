@@ -38,7 +38,7 @@ void WiredPlugin::init(DockPluginProxyInterface *proxy)
 
 QString WiredPlugin::getPluginName()
 {
-    return tr("Wired network");
+    return tr("Wired Network");
 }
 
 QStringList WiredPlugin::ids()
@@ -55,14 +55,14 @@ QString WiredPlugin::getName(QString id)
 {
     Q_UNUSED(id);
 
-    return tr("Wired network");
+    return tr("Wired Network");
 }
 
 QString WiredPlugin::getTitle(QString id)
 {
     Q_UNUSED(id)
 
-    return isWiredConnected() ? getWiredIp() : tr("Network disconnected");
+    return isWiredConnected() ? getWiredIp() : tr("Network Not Connected");
 }
 
 QString WiredPlugin::getCommand(QString)
