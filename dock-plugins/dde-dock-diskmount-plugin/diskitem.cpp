@@ -41,7 +41,7 @@ void DiskItem::updateData()
 
 void DiskItem::sendNotification(const QString &title, const QString &msg)
 {
-    qDebug() << "send message:" << title << msg;
+    qDebug() << "[DiskMountPlugin] send message:" << title;
 
     notifyInterface->asyncCall("Notify",
                            "Disk Mount",
@@ -56,7 +56,7 @@ void DiskItem::sendNotification(const QString &title, const QString &msg)
 
 void DiskItem::umountDisk()
 {
-    qWarning() << "Umount Disk: "<< m_diskUuid;
+    qDebug() << "[DiskMountPlugin] Try to umount Disk: "<< m_diskUuid;
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_diskMount->DeviceUnmount(m_diskUuid));
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher]{
         if(!watcher->reply().arguments().first().toBool()){

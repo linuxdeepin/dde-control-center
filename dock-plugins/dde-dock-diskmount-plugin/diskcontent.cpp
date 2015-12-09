@@ -29,7 +29,7 @@ void DiskContent::initStyleSheet()
         file.close();
     }
     else
-        qWarning() << "[Error:] Open  style file errr!";
+        qWarning() << "[DiskMountPlugin] Open  style file errr!";
 }
 
 void DiskContent::initDiskMount()
@@ -43,13 +43,13 @@ void DiskContent::updateMountDisks()
     bool infoChanged = false;
     DiskInfoList tmpList = m_diskMount->diskList();
     QStringList idList;
-    foreach (DiskInfo info, tmpList)
+    for (DiskInfo info : tmpList)
     {
         if (info.canUnmount)
             idList << info.uUID;
     }
 
-    foreach (DiskInfo info, tmpList)
+    for (DiskInfo info : tmpList)
     {
         if (info.canUnmount && m_itemList.keys().indexOf(info.uUID) == -1)//New Item
         {
@@ -58,11 +58,11 @@ void DiskContent::updateMountDisks()
             m_mainLayout->addWidget(item);
 
             infoChanged = true;
-            qWarning() << "Disk Mounted:" << info.uUID;
+            qDebug() << "[DiskMountPlugin] Disk Mounted:" << info.uUID;
         }
     }
 
-    foreach (QString id, m_itemList.keys())
+    for (QString id : m_itemList.keys())
     {
         if (idList.indexOf(id) == -1)//Not in can-mount list
         {
@@ -71,13 +71,13 @@ void DiskContent::updateMountDisks()
             item->deleteLater();
 
             infoChanged = true;
-            qWarning() << "Disk Unmounted:" << id;
+            qWarning() << "[DiskMountPlugin] Disk Unmounted:" << id;
         }
     }
 
     int spacing = DISK_ITEM_MARGIN + DISK_ITEM_SPACING;
     setFixedSize(DISK_ITEM_WIDTH + DISK_ITEM_MARGIN * 2,
-                 (DISK_ITEM_HEIGHT + spacing) * m_mainLayout->count() - spacing);
+                 qMax((DISK_ITEM_HEIGHT + spacing) * m_mainLayout->count() - spacing, 0));
 
     if (infoChanged)
         m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeAppletSize, m_id);

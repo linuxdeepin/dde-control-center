@@ -89,12 +89,9 @@ void DiskMountPlugin::invokeMenuItem(QString, QString itemId, bool checked)
 
 void DiskMountPlugin::onInitTimerTriggered()
 {
-    QTimer *t = qobject_cast<QTimer *>(sender());
-
-    if (t && m_diskMount->isValid()) {
-        qWarning() << "DiskMountPlugin: DBus data is ready!";
-        t->stop();
-        t->deleteLater();
+    if (m_diskMount->isValid()) {
+        qDebug() << "DiskMountPlugin: DBus data is ready!";
+        sender()->deleteLater();
 
         m_diskContent = new DiskContent(m_id, m_proxy);
 
@@ -107,7 +104,7 @@ void DiskMountPlugin::mountableDeviceChanged()
 {
     bool hasMount = false;
     DiskInfoList tmpList = m_diskMount->diskList();
-    foreach (DiskInfo info, tmpList) {
+    for (DiskInfo info : tmpList) {
         if (info.canUnmount)
         {
             hasMount = true;
