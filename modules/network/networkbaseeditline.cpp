@@ -70,6 +70,11 @@ bool NetworkBaseEditLine::setKeyAlways() const
     return m_setKeyAlways;
 }
 
+bool NetworkBaseEditLine::readOnly() const
+{
+    return m_readOnly;
+}
+
 void NetworkBaseEditLine::setDBusKey(const QJsonValue &key)
 {
     if (key != cacheValue() || isValueError() || setKeyAlways()) {
@@ -228,6 +233,15 @@ void NetworkBaseEditLine::setAlwaysUpdate(bool alwaysUpdate)
 void NetworkBaseEditLine::setSetKeyAlways(bool setKeyAlways)
 {
     m_setKeyAlways = setKeyAlways;
+}
+
+void NetworkBaseEditLine::setReadOnly(bool readOnly)
+{
+    if (m_readOnly == readOnly)
+        return;
+
+    m_readOnly = readOnly;
+    emit readOnlyChanged(readOnly);
 }
 
 void NetworkBaseEditLine::checkKey()

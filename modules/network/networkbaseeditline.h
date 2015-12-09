@@ -16,6 +16,7 @@ class NetworkBaseEditLine : public QWidget
     Q_PROPERTY(bool alwaysUpdate READ alwaysUpdate WRITE setAlwaysUpdate)
     /// if true, don't compare cache value with backend when setting key
     Q_PROPERTY(bool setKeyAlways READ setKeyAlways WRITE setSetKeyAlways)
+    Q_PROPERTY(bool readOnly READ readOnly WRITE setReadOnly NOTIFY readOnlyChanged)
 
 public:
     explicit NetworkBaseEditLine(const QString &section, const QString &key,
@@ -27,6 +28,7 @@ public:
     QJsonValue cacheValue() const;
     bool alwaysUpdate() const;
     bool setKeyAlways() const;
+    bool readOnly() const;
 
     void setDBusKey(const QJsonValue &key);
     const QJsonValue dbusKey();
@@ -43,6 +45,7 @@ public slots:
     void setKey(const QString &key);
     void setAlwaysUpdate(bool alwaysUpdate);
     void setSetKeyAlways(bool setKeyAlways);
+    void setReadOnly(bool readOnly);
     void checkKey();
 
 signals:
@@ -51,6 +54,7 @@ signals:
     void cacheValueChanged();
     void showed();
     void showErrorAlert();
+    void readOnlyChanged(bool readOnly);
 
 protected:
     void showEvent(QShowEvent *e) Q_DECL_OVERRIDE;
@@ -66,6 +70,7 @@ private:
     QString m_key;
     bool m_alwaysUpdate = false;
     bool m_setKeyAlways = false;
+    bool m_readOnly = false;
 };
 
 #endif // NETWORKBASEEDITLINE_H

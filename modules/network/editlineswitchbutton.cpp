@@ -22,4 +22,7 @@ EditLineSwitchButton::EditLineSwitchButton(const QString &section, const QString
     });
 
     setRightWidget(switch_button);
+
+    if(cacheValue().isNull())
+        updateSwitchButtonCheckeState();
 }

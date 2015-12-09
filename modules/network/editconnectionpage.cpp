@@ -53,10 +53,16 @@ EditConnectionPage::EditConnectionPage(const QString &dbusPath, QWidget *parent)
                 main_widget->dbusNetwork()->DeleteConnection(m_dbus->uuid());
                 main_widget->popAllWidget();
             } else {
-                if(m_dbus->Save()) {
+                QDBusPendingCallWatcher watcher(m_dbus->Save());
+
+                watcher.waitForFinished();
+
+                if(watcher.reply().arguments().first().toBool()) {
                     main_widget->popAllWidget();
                 } else {
-                    qDebug() << "Network->EditConnectionPage :Save changes failed, " << m_dbus->uuid();
+                    qDebug() << "Network->EditConnectionPage :Save changes failed, ";
+                    qDebug() << "DBus error message:" << watcher.error().message();
+                    qDebug() << "DBus ErrorInfo:" << m_dbus->errors();
                 }
             }
         }
@@ -157,6 +163,7 @@ NetworkBaseEditLine *EditConnectionPage::getLineByMap(const QVariantMap &map)
 
     if(line) {
         line->setAlwaysUpdate(map["AlwaysUpdate"].toBool());
+        line->setReadOnly(map["Readonly"].toBool());
         line->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
     }
 

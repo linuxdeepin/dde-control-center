@@ -36,6 +36,10 @@ EditLineComboBox::EditLineComboBox(const QString &section, const QString &key,
         connect(this, &NetworkBaseEditLine::widgetShown, this, update_text);
         connect(this, &NetworkBaseEditLine::cacheValueChanged, this, update_text);
         connect(line_edit, SIGNAL(textChanged(QString)), this, SLOT(setDBusKey(QString)));
+        connect(this, &EditLineComboBox::readOnlyChanged, line_edit, &QLineEdit::setReadOnly);
+
+        if(cacheValue().isNull())
+            update_text();
     } else {
         auto updateComboData = [this]{
             const QStringList &list = getAvailableValuesText();

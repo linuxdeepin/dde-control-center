@@ -55,8 +55,6 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
     }
 
     if(line_edit) {
-        line_edit->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
-
         auto update_text = [this, line_edit] {
             int current_seek = line_edit->cursorPosition();
             line_edit->setText(cacheValue().toString());
@@ -72,8 +70,14 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         connect(line_edit, &QLineEdit::textChanged, line_edit, [line_edit]{
             line_edit->setProperty("alert", false);
         });
+        connect(this, &NetworkBaseEditLine::readOnlyChanged, line_edit, &QLineEdit::setReadOnly);
 
-        if(type != EditLineInputType::SpinBox)
+        if(type != EditLineInputType::SpinBox) {
+            line_edit->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
             setRightWidget(line_edit);
+        }
+
+        if(!cacheValue().isNull())
+            update_text();
     }
 }
