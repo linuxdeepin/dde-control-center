@@ -57,6 +57,7 @@ Mouse::Mouse()
     m_mousePrimaryButtonSetting->addSegmented(tr("Right Button"));
 
     m_primaryButtonContainerLayout->addWidget(m_primaryButtonSetting);
+    m_primaryButtonContainerLayout->addStretch();
     m_primaryButtonContainerLayout->addWidget(m_mousePrimaryButtonSetting);
     /// point speed setting part
     m_pointSpeedContainer = new QWidget(m_mouseSettingPanel);
@@ -441,7 +442,9 @@ void ContainerWidget::addRow(const QString & text, QWidget * widget)
     label->setFixedWidth(m_labelWidth);
 
     containerLayout->addWidget(label);
+    containerLayout->addStretch();
     containerLayout->addWidget(widget);
+    containerLayout->setMargin(0);
 }
 
 void ContainerWidget::addRow(const QString & text, int stretch, QWidget * widget, int spacing)
