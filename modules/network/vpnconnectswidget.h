@@ -16,6 +16,7 @@ private slots:
     void onItemClicked();
     void onClearButtonClicked();
     void onItemStateChanged(int state);
+    void onActiveConnectionsChanged();
 
 private:
     QMap<QString, NetworkGenericListItem*> m_mapVpnPathToItem;

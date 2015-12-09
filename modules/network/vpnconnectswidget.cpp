@@ -9,33 +9,14 @@ VPNConnectsWidget::VPNConnectsWidget(DBusNetwork *dbus, QWidget *parent) :
     setEnabled(dbus->vpnEnabled());
 
     onConnectsChanged();
+    onActiveConnectionsChanged();
 
     connect(dbus, &DBusNetwork::VpnEnabledChanged, this, [this, dbus]{
         setEnabled(dbus->vpnEnabled());
     });
     connect(this, &VPNConnectsWidget::enabledChanged, dbus, &DBusNetwork::setVpnEnabled);
     connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &VPNConnectsWidget::onConnectsChanged);
-    connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, [this] {
-        const QJsonDocument &json_doc = QJsonDocument::fromJson(m_dbusNetwork->activeConnections().toUtf8());
-
-        for(NetworkGenericListItem *item : m_mapVpnPathToItem.values()) {
-            item->setState(ActiveConnectionState::Unknown);
-        }
-
-        for(const QJsonValue &value : json_doc.object()) {
-            const QJsonObject &json_obj = value.toObject();
-
-            if(json_obj["Vpn"].toBool()) {
-                for(NetworkGenericListItem *item : m_mapVpnPathToItem.values()) {
-                    if(item->uuid() == json_obj["Uuid"].toString()) {
-                        if(item->uuid() == json_obj["Uuid"].toString()) {
-                            item->setState(json_obj["State"].toInt());
-                        }
-                    }
-                }
-            }
-        }
-    });
+    connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, &VPNConnectsWidget::onActiveConnectionsChanged);
 }
 
 QString VPNConnectsWidget::path() const
@@ -56,8 +37,6 @@ void VPNConnectsWidget::onConnectsChanged()
 
         if(!item) {
             item = new NetworkGenericListItem(m_dbusNetwork);
-            item->updateInfoByMap(json_object.toVariantMap());
-            item->setDevicePath(path());
 
             listWidget()->addWidget(item);
 
@@ -67,6 +46,9 @@ void VPNConnectsWidget::onConnectsChanged()
             connect(item, &NetworkGenericListItem::clearButtonClicked, this, &VPNConnectsWidget::onClearButtonClicked);
             connect(item, &NetworkGenericListItem::stateChanged, this, &VPNConnectsWidget::onItemStateChanged);
             connect(this, &VPNConnectsWidget::pathChanged, item, &NetworkGenericListItem::setDevicePath);
+
+            item->setDevicePath(path());
+            item->updateInfoByMap(json_object.toVariantMap());
         } else {
             tmp_list.removeOne(item);
             item->updateInfoByMap(json_object.toVariantMap());
@@ -118,5 +100,29 @@ void VPNConnectsWidget::onItemStateChanged(int state)
     } else {
         item->setChecked(false);
         item->setLoading(false);
+    }
+}
+
+void VPNConnectsWidget::onActiveConnectionsChanged()
+{
+    const QJsonDocument &json_doc = QJsonDocument::fromJson(m_dbusNetwork->activeConnections().toUtf8());
+
+    for(NetworkGenericListItem *item : m_mapVpnPathToItem.values()) {
+        item->setState(ActiveConnectionState::Unknown);
+    }
+
+    for(const QJsonValue &value : json_doc.object()) {
+        const QJsonObject &json_obj = value.toObject();
+
+        if(json_obj["Vpn"].toBool()) {
+            for(NetworkGenericListItem *item : m_mapVpnPathToItem.values()) {
+                if(item->uuid() == json_obj["Uuid"].toString()) {
+                    if(item->uuid() == json_obj["Uuid"].toString()) {
+                        item->setState(json_obj["State"].toInt());
+                        continue;
+                    }
+                }
+            }
+        }
     }
 }
