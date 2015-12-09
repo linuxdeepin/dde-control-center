@@ -24,6 +24,7 @@ NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &
     DLabel *label = new DLabel(title);
 
     label->setWordWrap(true);
+    label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
 
     layout->setContentsMargins(15, 0, 15, 0);
     layout->setSpacing(15);

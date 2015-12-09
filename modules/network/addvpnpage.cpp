@@ -51,11 +51,11 @@ void AddVpnPage::init()
 
 //    missing_package->setAlwaysUpdate(true);
 
-//    connect(list_vpn_type, &DButtonList::buttonChecked,
-//            this, [this, missing_package](const QString &text) {
-//        missing_package->setCurrentVpnName(text);
-//        m_dbus->SetKey("vs-vpn", "vk-vpn-type", "\"" + m_mapVpnNameToType[text] + "\"");
-//    });
+    connect(list_vpn_type, &DButtonList::buttonChecked,
+            this, [this](const QString &text) {
+        //missing_package->setCurrentVpnName(text);
+        m_dbus->SetKey("vs-vpn", "vk-vpn-type", "\"" + m_mapVpnNameToType[text] + "\"");
+    });
 
     DVBoxWidget *boxWidget_vpn_info = new DVBoxWidget;
 
