@@ -359,7 +359,7 @@
     <name>ComplexPlugin</name>
     <message>
         <source>Network</source>
-        <translation type="unfinished">网络</translation>
+        <translation>网络</translation>
     </message>
 </context>
 <context>
@@ -1305,7 +1305,7 @@
     </message>
     <message>
         <source>Drag Threshold</source>
-        <translation>拖动阀值</translation>
+        <translation>拖动阈值</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
