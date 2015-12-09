@@ -188,7 +188,7 @@
     </message>
     <message>
         <source>Need VPN Plugin</source>
-        <translation>需要VPN插件</translation>
+        <translation type="vanished">需要VPN插件</translation>
     </message>
     <message>
         <source>Add</source>
@@ -353,6 +353,13 @@
     <message>
         <source>Devices nearby</source>
         <translation type="vanished">附近的设备</translation>
+    </message>
+</context>
+<context>
+    <name>ComplexPlugin</name>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished">网络</translation>
     </message>
 </context>
 <context>
@@ -1146,7 +1153,7 @@
     </message>
     <message>
         <source>Complete</source>
-        <translation>完成</translation>
+        <translation type="vanished">完成</translation>
     </message>
     <message>
         <source>Auto check update</source>
@@ -1155,6 +1162,10 @@
     <message>
         <source>Update server</source>
         <translation>更新源</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation>完成</translation>
     </message>
 </context>
 <context>
@@ -1808,19 +1819,67 @@
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">注销</translation>
+        <translation>注销</translation>
     </message>
     <message>
         <source>Shutdown</source>
-        <translation type="vanished">关机</translation>
+        <translation>关机</translation>
     </message>
     <message>
         <source>Restore</source>
-        <translation>唤醒</translation>
+        <translation type="vanished">唤醒</translation>
     </message>
     <message>
         <source>Sound Effects</source>
         <translation>音效</translation>
+    </message>
+    <message>
+        <source>Wakeup</source>
+        <translation>唤醒</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation>通知提醒</translation>
+    </message>
+    <message>
+        <source>Unable to Operate</source>
+        <translation>无法操作</translation>
+    </message>
+    <message>
+        <source>Empty trash</source>
+        <translation>清空回收站</translation>
+    </message>
+    <message>
+        <source>Adjust volume</source>
+        <translation>音量调节</translation>
+    </message>
+    <message>
+        <source>Low battery</source>
+        <translation>电量不足</translation>
+    </message>
+    <message>
+        <source>Power plug in</source>
+        <translation>电源插入</translation>
+    </message>
+    <message>
+        <source>Power unplugged</source>
+        <translation>电源拔出</translation>
+    </message>
+    <message>
+        <source>Movable device plug in</source>
+        <translation>移动设备插入</translation>
+    </message>
+    <message>
+        <source>Movable device unplug</source>
+        <translation>移动设备拔出</translation>
+    </message>
+    <message>
+        <source>Send app icon to desktop</source>
+        <translation>发送应用图标到桌面</translation>
+    </message>
+    <message>
+        <source>Screenshot</source>
+        <translation>截图</translation>
     </message>
 </context>
 <context>
@@ -1874,7 +1933,7 @@
     </message>
     <message>
         <source>%1 %2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1965,7 +2024,7 @@
     </message>
     <message>
         <source>Click to check update.</source>
-        <translation>点击以检查更新</translation>
+        <translation type="vanished">点击以检查更新</translation>
     </message>
     <message>
         <source>Total download size: %1</source>
@@ -1973,23 +2032,39 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished"></translation>
+        <translation>未知</translation>
     </message>
     <message>
         <source>%1 software need to be updated</source>
-        <translation type="unfinished"></translation>
+        <translation>您有%1个软件需要更新</translation>
     </message>
     <message>
         <source>Patches</source>
-        <translation type="unfinished"></translation>
+        <translation>系统补丁</translation>
     </message>
     <message>
         <source>Some patches need to be updated</source>
-        <translation type="unfinished"></translation>
+        <translation>您有系统补丁需要更新</translation>
     </message>
     <message>
         <source>Some patches and %1 software need to be updated</source>
-        <translation type="unfinished"></translation>
+        <translation>您有系统补丁和%1个软件需要更新</translation>
+    </message>
+    <message>
+        <source>Your system is up to date</source>
+        <translation>您的系统是最新的</translation>
+    </message>
+    <message>
+        <source>Click to view available  updates</source>
+        <translation>点击按钮查看更新</translation>
+    </message>
+    <message>
+        <source>Checking for updates</source>
+        <translation>正在检查更新</translation>
+    </message>
+    <message>
+        <source>Check for updates, please wait</source>
+        <translation>检查更新中，请稍候</translation>
     </message>
 </context>
 <context>
