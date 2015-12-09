@@ -76,7 +76,10 @@ void VPNConnectsWidget::onConnectsChanged()
         item->setTitle(json_object["Id"].toString());
     }
 
-    qDeleteAll(tmp_list);
+    for(NetworkGenericListItem *item : tmp_list) {
+        m_mapVpnPathToItem.remove(item->path());
+        item->deleteLater();
+    }
 }
 
 void VPNConnectsWidget::onItemClicked()

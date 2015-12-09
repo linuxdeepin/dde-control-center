@@ -112,7 +112,10 @@ void WiredNetworkListItem::onConnectsChanged()
         }
     }
 
-    qDeleteAll(tmp_list);
+    for(NetworkGenericListItem *item : tmp_list) {
+        m_mapPppoePathToItem.remove(item->path());
+        item->deleteLater();
+    }
 }
 
 void WiredNetworkListItem::onItemClicked()
