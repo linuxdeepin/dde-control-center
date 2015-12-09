@@ -16,7 +16,7 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     m_updateSwitchBtn = new DSwitchButton;
     m_updateSwitchBtn->setChecked(m_dbusLastoreInter->autoCheckUpdates());
     m_changeMirrorBtn = new DTextButton(tr("Change"));
-    m_applyBtn = new DTextButton(tr("Complete"));
+    m_applyBtn = new DTextButton(tr("Done"));
     m_mirrorsList = new DListWidget;
     m_mirrorsList->setEnableVerticalScroll(true);
     m_mirrorsList->setCheckable(true);

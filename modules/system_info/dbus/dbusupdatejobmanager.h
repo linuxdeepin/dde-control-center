@@ -8,8 +8,8 @@
  * Do not edit! All changes made to it will be lost.
  */
 
-#ifndef DBUSUPDATEJOBMANAGER_H_1447763497
-#define DBUSUPDATEJOBMANAGER_H_1447763497
+#ifndef DBUSUPDATEJOBMANAGER_H_1449626260
+#define DBUSUPDATEJOBMANAGER_H_1449626260
 
 #include <QtCore/QObject>
 #include <QtCore/QByteArray>
@@ -36,7 +36,7 @@ class DBusUpdateJobManager: public QDBusAbstractInterface
         if (interfaceName !="com.deepin.lastore.Manager")
             return;
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
-        QStringList keys = changedProps.keys();
+        const QList<QString> keys = changedProps.keys();
         foreach(const QString &prop, keys) {
         const QMetaObject* self = metaObject();
             for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
@@ -86,17 +86,17 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("DistUpgrade"), argumentList);
     }
 
-    inline QDBusPendingReply<QDBusObjectPath> DownloadPackage(const QString &in0)
+    inline QDBusPendingReply<QDBusObjectPath> DownloadPackage(const QString &in0, const QString &in1)
     {
         QList<QVariant> argumentList;
-        argumentList << QVariant::fromValue(in0);
+        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
         return asyncCallWithArgumentList(QStringLiteral("DownloadPackage"), argumentList);
     }
 
-    inline QDBusPendingReply<QDBusObjectPath> InstallPackage(const QString &in0)
+    inline QDBusPendingReply<QDBusObjectPath> InstallPackage(const QString &in0, const QString &in1)
     {
         QList<QVariant> argumentList;
-        argumentList << QVariant::fromValue(in0);
+        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
         return asyncCallWithArgumentList(QStringLiteral("InstallPackage"), argumentList);
     }
 
@@ -128,10 +128,10 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("PauseJob"), argumentList);
     }
 
-    inline QDBusPendingReply<QDBusObjectPath> RemovePackage(const QString &in0)
+    inline QDBusPendingReply<QDBusObjectPath> RemovePackage(const QString &in0, const QString &in1)
     {
         QList<QVariant> argumentList;
-        argumentList << QVariant::fromValue(in0);
+        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
         return asyncCallWithArgumentList(QStringLiteral("RemovePackage"), argumentList);
     }
 
@@ -149,10 +149,10 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("StartJob"), argumentList);
     }
 
-    inline QDBusPendingReply<QDBusObjectPath> UpdatePackage(const QString &in0)
+    inline QDBusPendingReply<QDBusObjectPath> UpdatePackage(const QString &in0, const QString &in1)
     {
         QList<QVariant> argumentList;
-        argumentList << QVariant::fromValue(in0);
+        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
         return asyncCallWithArgumentList(QStringLiteral("UpdatePackage"), argumentList);
     }
 

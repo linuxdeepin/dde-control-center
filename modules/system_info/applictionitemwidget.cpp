@@ -160,7 +160,7 @@ void ApplictionItemWidget::toggleUpdateJob()
 void ApplictionItemWidget::startJob()
 {
     qDebug() << m_updateInfo.m_packageId;
-    QDBusPendingReply<QDBusObjectPath> reply = m_dbusJobManagerInter->UpdatePackage(m_updateInfo.m_packageId);
+    QDBusPendingReply<QDBusObjectPath> reply = m_dbusJobManagerInter->UpdatePackage("", m_updateInfo.m_packageId);
     const QDBusObjectPath &jobPath = reply.value();
 
     DBusUpdateJob *newJob = new DBusUpdateJob("com.deepin.lastore", jobPath.path(), QDBusConnection::systemBus(), this);

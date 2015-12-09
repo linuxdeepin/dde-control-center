@@ -243,7 +243,7 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
         m_tipsWidget->show();
         m_checkingIndicator->show();
         m_updateButton->hide();
-        m_updateCountTips->setText(tr("Click to check update."));
+        m_updateCountTips->setText(tr("Click to view available  updates"));
         m_updateSizeTips->clear();
         m_appsList->hide();
         m_appSeparator->hide();
@@ -318,6 +318,7 @@ void UpdateWidget::checkUpdate()
     refreshProgress(SysCheckUpdate);
     m_checkingIndicator->setLoading(true);
     m_updateCountTips->setText(tr("Checking for updates"));
+    m_updateStatTips->setText(tr("Check for updates, please wait"));
 
 //    m_updateCountTips->setText();
 
