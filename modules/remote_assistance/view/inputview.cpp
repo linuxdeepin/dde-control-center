@@ -41,6 +41,13 @@ void InputView::emitConnect()
     emit connect(m_tokenEdit->text().trimmed());
 }
 
+void InputView::connectToClient()
+{
+    if (m_connectButton->isEnabled()) {
+        emitConnect();
+    }
+}
+
 QWidget* InputView::createMainWidget()
 {
     auto mainWidget = new QWidget;
@@ -54,11 +61,12 @@ QWidget* InputView::createMainWidget()
     m_tokenEdit->setAlignment(Qt::AlignCenter);
     m_tokenEdit->setFixedWidth(DCC::ModuleContentWidth);
     m_tokenEdit->setFixedHeight(70);
-    QObject::connect(m_tokenEdit, SIGNAL(returnPressed()), this, SLOT(emitConnect()));
+    QObject::connect(m_tokenEdit, SIGNAL(returnPressed()), this, SLOT(connectToClient()));
     QObject::connect(m_tokenEdit, &QLineEdit::textChanged, [this](const QString& token){
         qDebug() << "valid token";
         QString copyToken = token;
         int pos = 0;
+        m_connectButton->setEnabled(false);
         if (m_validator->validate(copyToken, pos) == QValidator::Acceptable) {
             m_connectButton->setEnabled(true);
             m_tip->setText(tr("Start remote access after clicking on \"Connect\""));

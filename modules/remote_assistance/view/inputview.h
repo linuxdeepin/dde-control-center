@@ -26,6 +26,7 @@ signals:
 
 private slots:
     void emitConnect();
+    void connectToClient();
 
 private:
     QWidget* createMainWidget() Q_DECL_OVERRIDE;
