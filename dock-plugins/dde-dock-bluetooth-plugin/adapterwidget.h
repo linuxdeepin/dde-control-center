@@ -25,6 +25,7 @@ public:
 
     void addDevice(BluetoothObject::DeviceInfo *info);
     void removeDevice(BluetoothObject::DeviceInfo *info, bool isDelete);
+    int getHeightHint() const;
 
 public slots:
     void updateUI();
@@ -35,7 +36,7 @@ private:
     DListWidget *m_deviceItemList = nullptr;
     DSeparatorHorizontal *m_listWidgetSeparator = nullptr;
     BluetoothObject::AdapterInfo *m_info = nullptr;
-    DHeaderLine *m_headerLine;
+    DHeaderLine *m_headerLine = nullptr;
     DSwitchButton *m_bluetoothSwitch;
 };
 

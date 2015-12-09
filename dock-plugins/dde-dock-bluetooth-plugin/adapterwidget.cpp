@@ -41,6 +41,15 @@ void AdapterWidget::removeDevice(BluetoothObject::DeviceInfo *info, bool isDelet
     }
 }
 
+int AdapterWidget::getHeightHint() const
+{
+    if(m_headerLine && m_deviceItemList) {
+        return m_headerLine->height() + m_deviceItemList->count() * DUI::EXPAND_HEADER_HEIGHT + 2;
+    }
+
+    return height();
+}
+
 void AdapterWidget::updateUI()
 {
     m_headerLine->setTitle(m_info->name);

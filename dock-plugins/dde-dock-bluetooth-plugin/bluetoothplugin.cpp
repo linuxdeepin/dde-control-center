@@ -181,6 +181,9 @@ QWidget *BluetoothPlugin::getApplet(QString id)
 {
     BluetoothObject::AdapterInfo *info = m_bluetooth->getAdapterInfoByPath(id);
 
+    if(info && info->widget)
+        info->widget->setFixedHeight(info->widget->getHeightHint());
+
     return info ? info->widget : NULL;
 }
 
