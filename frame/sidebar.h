@@ -17,7 +17,6 @@ public:
     explicit SideBar(QWidget *parent = 0);
 
     void switchToModule(const ModuleMetaData &pluginId);
-    DTipsFrame *getTipFrame() const;
 
 signals:
     void moduleSelected(ModuleMetaData meta);

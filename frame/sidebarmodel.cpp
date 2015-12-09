@@ -48,7 +48,7 @@ QVariant SidebarModel::data(const QModelIndex &index, int role) const
     const QString iconPath = "../share/dde-control-center/modules/icons/24/%1_%2.svg";
 #endif
 
-    if (role == Qt::DisplayRole || role == Qt::ToolTipRole)
+    if (role == Qt::DisplayRole || role == PluginName)
         return plugin.name;
 
     if (role == DefaultIcon)
@@ -68,7 +68,7 @@ QVariant SidebarModel::data(const QModelIndex &index, int role) const
     }
 
     if (role == Qt::SizeHintRole)
-        return QSize(24, 24 + 16);
+        return QSize(24, 24 + 24);
 
 
     if (role == PluginMetaData)
@@ -109,11 +109,10 @@ void SidebarModel::loadIcons()
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Power"));
     m_pluginsList.append(power);
 
-#ifndef QT_DEBUG
-    return;
-#endif
-
     // for test
-    m_pluginsList.append(m_pluginManager->pluginsList());
+//    m_pluginsList.append(m_pluginManager->pluginsList());
+
+    // refresh all data
+    emit dataChanged(index(0), index(m_pluginsList.count()));
 }
 

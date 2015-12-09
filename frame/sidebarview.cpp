@@ -1,5 +1,6 @@
 #include "sidebarview.h"
 #include "sidebarmodel.h"
+#include "controlcenterproxy.h"
 
 #include <QDebug>
 #include <QScrollBar>
@@ -10,13 +11,21 @@ SidebarView::SidebarView(QWidget *parent)
 {
     m_tips = new DTipsFrame;
 
+    // WARNING: if not set Qt::WA_Hover attribute to viewport,
+    // item cant receive "mouse leave" event, and items mouse hover state will error
+    // TODO: its Qts issue, remove after qt fix it
+    viewport()->setAttribute(Qt::WA_Hover, true);
     setMouseTracking(true);
-    setFocusPolicy(Qt::StrongFocus);
     setFrameStyle(QFrame::NoFrame);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setStyleSheet("background-color:transparent;");
+
+    ControlCenterProxy *proxy = ControlCenterProxy::getInstance();
+    connect(proxy, &ControlCenterProxy::frameSideChanged, [this] (bool leftSide) {
+        m_tips->setArrowDirection(leftSide ? DTipsFrame::ArrowLeft : DTipsFrame::ArrowRight);
+    });
 
     connect(this, &SidebarView::clicked, [this] (QModelIndex index) {
 
@@ -41,7 +50,7 @@ SidebarView::SidebarView(QWidget *parent)
             parent = qobject_cast<QWidget *>(parent->parent());
         }
 
-        m_tips->showTipsTextAt(index.data(Qt::ToolTipRole).toString(), pos);
+        m_tips->showTipsTextAt(index.data(SidebarModel::PluginName).toString(), pos);
     });
 }
 
@@ -50,9 +59,13 @@ SidebarView::~SidebarView()
     m_tips->deleteLater();
 }
 
-void SidebarView::leaveEvent(QEvent *)
+void SidebarView::leaveEvent(QEvent *e)
 {
+    QListView::leaveEvent(e);
+//    QListView::update(m_lastHoverIndex);
+
     QMetaObject::invokeMethod(m_tips, "hide", Qt::QueuedConnection);
+//    QMetaObject::invokeMethod(this, "update", Qt::QueuedConnection, QGenericReturnArgument(), Q_ARG(QModelIndex, m_lastHoverIndex));
 }
 
 void SidebarView::resizeEvent(QResizeEvent *e)

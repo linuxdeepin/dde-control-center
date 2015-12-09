@@ -105,7 +105,7 @@ void DTipsFrame::showTipsTextAt(const QString &text, const QPoint &p)
     setFixedWidth(metric.tightBoundingRect(m_label->text()).width() + 40);
 
     int x = p.x();
-    x += arrowDirection() == ArrowLeft ? rect().right() + 12
+    x += arrowDirection() == ArrowLeft ? 45 + 12
                                        : rect().left() - width() - 12;
     int y = p.y();
     y += 3;

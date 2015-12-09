@@ -18,7 +18,7 @@ signals:
     void moduleSelected(const ModuleMetaData &meta) const;
 
 protected:
-    void leaveEvent(QEvent *);
+    void leaveEvent(QEvent *e);
     void resizeEvent(QResizeEvent *e);
 
 private:

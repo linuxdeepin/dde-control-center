@@ -12,6 +12,7 @@ class SidebarModel : public QAbstractListModel
 public:
     enum ItemDataRole {
         PluginMetaData = Qt::UserRole + 1,
+        PluginName,
         DefaultIcon,
         HoverIcon,
     };
