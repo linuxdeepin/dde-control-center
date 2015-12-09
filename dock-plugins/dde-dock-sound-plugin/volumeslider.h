@@ -13,6 +13,8 @@ public:
 
     bool isMute() const;
     void setIsMute(bool value);
+protected:
+    void mousePressEvent(QMouseEvent *event);
 
 private:
     bool m_isMute = false;
