@@ -221,8 +221,6 @@ Mouse::Mouse()
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::tpadEnableChanged,
             m_touchpadSwitchButton, &DSwitchButton::setChecked);
     connect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)),
-            m_touchpadSettingPanel, SLOT(setVisible(bool)));
-    connect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)),
             m_fourthHSeparator, SLOT(setVisible(bool)));
     connect(m_touchpadPointSpeedSlider, SIGNAL(valueChanged(int)), this, SLOT(setTouchpadPointSpeed(int)));
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::motionAccelerationChanged,
@@ -391,6 +389,14 @@ void Mouse::onTouchPadExistChanged()
     m_thirdHSeparator->setVisible(touchpadExist);
     m_touchpadSettingPanel->setVisible(touchpadExist && m_touchpadInterface->tPadEnable());
     m_fourthHSeparator->setVisible(touchpadExist && m_touchpadInterface->tPadEnable());
+
+    if(touchpadExist) {
+        connect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)),
+                m_touchpadSettingPanel, SLOT(setVisible(bool)));
+    } else  {
+        disconnect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)),
+                m_touchpadSettingPanel, SLOT(setVisible(bool)));
+    }
 }
 
 Mouse::~Mouse()
