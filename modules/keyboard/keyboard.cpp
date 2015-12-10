@@ -212,8 +212,13 @@ void Keyboard::initUI()
         capsLockSwitch->setChecked(m_dbusKeyboard->capslockToggle());
     });
 
+    m_languageTips = new QLabel;
+    m_languageTips->setStyleSheet("color:#666;");
+
     DArrowLineExpand *language_expand = new DArrowLineExpand;
     language_expand->setTitle(tr("Language"));
+    language_expand->headerLine()->leftLayout()->addSpacing(10);
+    language_expand->headerLine()->leftLayout()->addWidget(m_languageTips);
 
     AddRmDoneLine *keyboardLayoutLine = new AddRmDoneLine;
     keyboardLayoutLine->setTitle(tr("Keyboard Layout"));
@@ -366,12 +371,14 @@ void Keyboard::initUI()
 
             m_mapUserLayoutInfo[info.name] = info.id;
             m_mapUserLayoutIndex[info.id] = language_searchList->count()-1;
+
             qApp->processEvents();
             if(meDeleted)
                 return;
         }
 
         language_searchList->beginSearch();
+        m_languageTips->setText(m_mapUserLayoutInfo.key(dbusLangSelector->currentLocale()));
     });
 
     lang_list_frame->setMinimumHeight(lang_search->height()+language_searchList->height());
@@ -387,6 +394,7 @@ void Keyboard::initUI()
         QString str = m_mapUserLayoutInfo[language_searchList->getItem(index)->keyWords()[0]];
         if(dbusLangSelector->currentLocale() != str){
             dbusLangSelector->SetLocale(str);
+            m_languageTips->setText(m_mapUserLayoutInfo.key(str));
         }
     });
     connect(dbusLangSelector, &DbusLangSelector::CurrentLocaleChanged,

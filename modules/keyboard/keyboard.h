@@ -50,6 +50,7 @@ private:
     QVBoxLayout *m_mainLayout;
     SearchList *m_languageSearchList;
     DbusLangSelector *m_dbusLangSelector;
+    QLabel *m_languageTips;
 
     void updateKeyboardLayout(SearchList *button_list, AddRmDoneLine *line, bool showRemoveButton = false);
     void initBackend();
