@@ -22,7 +22,7 @@ public:
     ~VpnApplet();
 
 signals:
-    void sizeChanged();
+    void appletSizeChanged();
 
 private:
     void initStyleSheet();

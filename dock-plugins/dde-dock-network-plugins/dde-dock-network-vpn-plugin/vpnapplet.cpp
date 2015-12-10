@@ -27,7 +27,7 @@ VpnApplet::VpnApplet(DBusNetwork *dbusNetwork, QWidget *parent)
 
 VpnApplet::~VpnApplet()
 {
-    disconnect(m_dbusNetwork, &DBusNetwork::VpnEnabledChanged, this, &VpnApplet::sizeChanged);
+    disconnect(m_dbusNetwork, &DBusNetwork::VpnEnabledChanged, this, &VpnApplet::appletSizeChanged);
 }
 
 void VpnApplet::initStyleSheet()
@@ -115,12 +115,12 @@ void VpnApplet::onConnectionsChanged()
         }
     }
 
-    emit sizeChanged();
+    emit appletSizeChanged();
 }
 
 void VpnApplet::onVpnEnableChanged()
 {
-    emit sizeChanged();
+    emit appletSizeChanged();
     m_vpnSwitcher->setChecked(m_dbusNetwork->vpnEnabled());
     m_listWidget->setVisible(m_dbusNetwork->vpnEnabled());
 }

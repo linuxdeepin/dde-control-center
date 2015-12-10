@@ -1,10 +1,7 @@
 
 #include "complexplugin.h"
 
-#include <QUuid>
 #include <QLabel>
-#include <QtDebug>
-#include <QIcon>
 #include <QFile>
 #include <QDBusConnection>
 #include "complexapplet.h"
@@ -14,8 +11,6 @@ using namespace NetworkPlugin;
 const QString COMPLEX_NETWORK_PLUGIN_ID = "complex_network_plugin_id";
 ComplexPlugin::ComplexPlugin()
 {
-    QIcon::setThemeName("Deepin");
-
     m_dbusNetwork = new com::deepin::daemon::DBusNetwork(this);
 
     initSettings();
@@ -23,7 +18,7 @@ ComplexPlugin::ComplexPlugin()
 
 ComplexPlugin::~ComplexPlugin()
 {
-    qDebug() << "ComplexNetworkPlugin Destroyed!";
+    qDebug() << "[ComplexNetworkPlugin] ComplexNetworkPlugin Destroyed!";
 }
 
 void ComplexPlugin::init(DockPluginProxyInterface *proxy)
@@ -80,8 +75,7 @@ bool ComplexPlugin::configurable(const QString &id)
 
 bool ComplexPlugin::enabled(const QString &id)
 {
-    QVariant value = m_settings->value(settingEnabledKey(id));
-    return !value.isValid() ? true : value.toBool();    //default enabled
+    return m_settings->value(settingEnabledKey(id), true).toBool();    //default enabled
 }
 
 void ComplexPlugin::setEnabled(const QString &id, bool enabled)
@@ -113,10 +107,10 @@ QWidget * ComplexPlugin::getApplet(QString id)
 
 QWidget * ComplexPlugin::getItem(QString id)
 {
-    if (m_mode != Dock::FashionMode)
+    if (m_mode != Dock::FashionMode) {
         return NULL;
-
-    else if (enabled(id)){
+    }
+    else if (enabled(id)) {
         if (m_complexItem == nullptr)
             addNewItem(id);
 
@@ -173,10 +167,11 @@ void ComplexPlugin::addNewItem(const QString &id)
 void ComplexPlugin::removeItem(const QString &id)
 {
     if (m_complexItem != nullptr) {
+        m_complexItem->setVisible(false);
         m_proxy->itemRemovedEvent(id);
-        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
         m_complexItem->deleteLater();
         m_complexItem = nullptr;
+        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
     }
 
     if (m_applet != nullptr) {

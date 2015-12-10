@@ -2,7 +2,6 @@
 #include "vpnappletitem.h"
 #include <dde-dock/dockconstants.h>
 
-const int STRENGTH_STEP = 25;
 const int ITEM_LEFT_MARGIN = 5;
 const int ITEM_RIGHT_MARGIN = 15;
 
@@ -21,7 +20,7 @@ VpnAppletItem::VpnAppletItem(const VpnData &data, DBusNetwork *dbusNetwork, QWid
     m_checkIcon->setFixedSize(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_EFFICIENT_ICON_SIZE);
     m_checkIcon->setVisible(false);
     connect(m_checkIcon, &DImageButton::clicked, [=]{
-        qWarning() << "[VpnPlugin]Disconnect: " << getItemUuid();
+        qDebug() << "[VpnPlugin] Disconnect: " << getItemUuid();
         ASYN_CALL(m_dbusNetwork->DeactivateConnection(data.uuid), {Q_UNUSED(args)}, this)
     });
 
@@ -34,7 +33,7 @@ VpnAppletItem::VpnAppletItem(const VpnData &data, DBusNetwork *dbusNetwork, QWid
     m_title = new QPushButton(data.id);
     m_title->setObjectName("VpnItemTitle");
     connect(m_title, &QPushButton::clicked, [=] {
-        qWarning() << "Try to active vpn: " << getItemUuid();
+        qDebug() << "[VpnPlugin] Try to active vpn: " << getItemUuid();
         ASYN_CALL(m_dbusNetwork->ActivateConnection(data.uuid, QDBusObjectPath("/")), {Q_UNUSED(args)}, this)
     });
 

@@ -57,15 +57,16 @@ void WirelessApplet::initStyleSheet()
         setStyleSheet(styleSheet);
         file.close();
     }
-    else
-        qWarning() << "[Error:] Open  style file errr!";
+    else {
+        qWarning() << "[WirelessPlugin] Open  style file errr!";
+    }
 }
 
 void WirelessApplet::initTitleLine()
 {
     QString title = tr("Wireless Network");
     DeviceInfo info = getDeviceInfoById(m_uuid, m_dbusNetwork);
-    if (deviceArray(ConnectionTypeWireless, m_dbusNetwork).count() > 1) {
+    if (wirelessDevices(m_dbusNetwork).count() > 1) {
         title = info.vendor;
     }
     m_titleLabel = new QLabel(title);
@@ -110,7 +111,7 @@ void WirelessApplet::initApListContent()
                       return v1.toMap()["Strength"].toInt() > v2.toMap()["Strength"].toInt();
                   });
 
-                  for(const QVariant &map : mapList) {
+                  for (const QVariant &map : mapList) {
                       WirelessAppletItem::ApData data;
                       data.ssid = map.toMap().value("Ssid").toString();
                       data.apPath = map.toMap().value("Path").toString();
@@ -121,7 +122,6 @@ void WirelessApplet::initApListContent()
                       addApToList(data);
                   }
 
-                  emit propertiesChanged();
                   //for init activeap
                   onDevicesChanged();
               }, this);
@@ -163,7 +163,7 @@ void WirelessApplet::onApStrengthChanged(int strength)
     WirelessAppletItem *item = qobject_cast<WirelessAppletItem*>(sender());
     int index = m_listWidget->indexOf(item);
 
-    for(int i = 0; i < m_listWidget->count(); ++i){
+    for (int i = 0; i < m_listWidget->count(); ++i){
         WirelessAppletItem *tmpItem = qobject_cast<WirelessAppletItem*>(m_listWidget->getWidget(i));
 
         if(tmpItem && tmpItem->getApData().strength < strength) {
@@ -186,6 +186,12 @@ void WirelessApplet::onApStrengthChanged(int strength)
 void WirelessApplet::onDevicesChanged()
 {
     DeviceInfo info = getDeviceInfoById(m_uuid, m_dbusNetwork);
+    if (wirelessDevices(m_dbusNetwork).count() > 1) {
+        m_titleLabel->setText(info.vendor);
+    }
+    else {
+        m_titleLabel->setText(tr("Wireless Network"));
+    }
 
     emit activeApChanged(info.activeAp);
 }
@@ -213,8 +219,6 @@ void WirelessApplet::addApToList(const WirelessAppletItem::ApData &apData)
     connect(this, &WirelessApplet::activeApChanged, item, &WirelessAppletItem::onActiveApChanged);
 
     m_listWidget->addWidget(item);
-
-    qWarning() << "AP Added: " << apData.apPath << apData.ssid;
 }
 
 bool WirelessApplet::removeOverlapApFromList(const WirelessAppletItem::ApData &apData)
@@ -222,7 +226,7 @@ bool WirelessApplet::removeOverlapApFromList(const WirelessAppletItem::ApData &a
     DeviceInfo info = getDeviceInfoById(m_uuid, m_dbusNetwork);
 
     QList<QWidget *> list = m_listWidget->widgetList();
-    foreach (QWidget *widget, list) {
+    for (QWidget *widget : list) {
         WirelessAppletItem *item = qobject_cast<WirelessAppletItem *>(widget);
         if (item && item->getApData().ssid == apData.ssid) {
             //the new one is active ap or stronger
@@ -244,19 +248,11 @@ bool WirelessApplet::removeOverlapApFromList(const WirelessAppletItem::ApData &a
 void WirelessApplet::removeApFromList(const QString &apPath)
 {
     QList<QWidget *> list = m_listWidget->widgetList();
-    foreach (QWidget *widget, list) {
+    for (QWidget *widget : list) {
         WirelessAppletItem *item = qobject_cast<WirelessAppletItem *>(widget);
         if (item && item->getApPath() == apPath) {
             m_listWidget->removeWidget(list.indexOf(widget));
             item->deleteLater();
-
-            qWarning() << "AP Remove: " << apPath;
         }
     }
 }
-
-QString WirelessApplet::uuid() const
-{
-    return m_uuid;
-}
-

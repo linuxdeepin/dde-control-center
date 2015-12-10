@@ -22,7 +22,7 @@ WirelessAppletItem::WirelessAppletItem(const ApData &data, const QString &device
     m_checkIcon->setFixedSize(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_EFFICIENT_ICON_SIZE);
     m_checkIcon->setVisible(false);
     connect(m_checkIcon, &DImageButton::clicked, [=]{
-        qWarning() << "Disconnect: " << getApPath();
+        qDebug() << "[WirelessPlugin] Disconnect: " << getApPath();
         ASYN_CALL(m_dbusNetwork->DisconnectDevice(QDBusObjectPath(m_devicePath)), {Q_UNUSED(args)}, this)
     });
 
@@ -35,7 +35,7 @@ WirelessAppletItem::WirelessAppletItem(const ApData &data, const QString &device
     m_title = new QPushButton(data.ssid);
     m_title->setObjectName("ApTitle");
     connect(m_title, &QPushButton::clicked, [=] {
-        qWarning() << "Try to active ap: " << getApPath();
+        qDebug() << "[WirelessPlugin] Try to active ap: " << getApPath();
         ASYN_CALL(m_dbusNetwork->ActivateAccessPoint(getApUuidBySsid(m_apData.ssid, m_dbusNetwork),
                                                      QDBusObjectPath(getApPath()),
                                                      QDBusObjectPath(m_devicePath)), {Q_UNUSED(args)}, this)

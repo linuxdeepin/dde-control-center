@@ -44,16 +44,17 @@ private:
     QSettings * m_settings;
     DockPluginProxyInterface * m_proxy;
     QMap<QString, WirelessItem *> m_itemMap;
+    QStringList m_uuids;
     Dock::DockMode m_mode = Dock::EfficientMode;
-    com::deepin::daemon::DBusNetwork * m_dbusNetwork;
+    DBusNetwork * m_dbusNetwork;
 
     void initSettings();
+    void updateUuids();
     void addNewItem(const QString &id);
     void removeItem(const QString &id);
     void onEnabledChanged(const QString &id);
     void onDevicesChanged();
 
-    QMap<QString, QString> wirelessDevices();
     QString settingEnabledKey(const QString &id);
 };
 

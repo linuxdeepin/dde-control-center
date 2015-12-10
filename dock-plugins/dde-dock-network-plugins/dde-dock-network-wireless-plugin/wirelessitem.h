@@ -12,10 +12,9 @@ class WirelessItem : public QLabel
 public:
     explicit WirelessItem(const QString &uuid, DBusNetwork *dbusNetwork, QWidget *parent = 0);
     WirelessApplet *applet() const;
-    QString uuid() const;
 
 signals:
-    void sizeChanged();
+    void appletSizeChanged();
 
 private:
     void updateIcon();

@@ -1,18 +1,15 @@
-
-#include "wirelessplugin.h"
-
-#include <QUuid>
 #include <QLabel>
-#include <QDebug>
-#include <QIcon>
 #include <QFile>
 #include <QDBusConnection>
 
+#include "wirelessplugin.h"
+#include "../network-data/networkdata.h"
+
+using namespace NetworkPlugin;
+
 WirelessPlugin::WirelessPlugin()
 {
-    QIcon::setThemeName("Deepin");
-
-    m_dbusNetwork = new com::deepin::daemon::DBusNetwork(this);
+    m_dbusNetwork = new DBusNetwork(this);
     connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &WirelessPlugin::onDevicesChanged);
 
     initSettings();
@@ -27,6 +24,7 @@ void WirelessPlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
     m_mode = proxy->dockMode();
+    updateUuids();
     //for init
     if (m_mode != Dock::FashionMode) {
         onDevicesChanged();
@@ -40,18 +38,19 @@ QString WirelessPlugin::getPluginName()
 
 QStringList WirelessPlugin::ids()
 {
-    QStringList list = m_mode == Dock::FashionMode ? QStringList() : wirelessDevices().keys();
+    QStringList list = m_mode == Dock::FashionMode ? QStringList() : m_uuids;
     return list;
 }
 
 QString WirelessPlugin::getName(QString id)
 {
-    QMap<QString, QString> tmpMap = wirelessDevices();
+    QMap<QString, QString> tmpMap = wirelessDevices(m_dbusNetwork);
     if (tmpMap.count() > 1 && !tmpMap.value(id).isEmpty()) {
         return tmpMap.value(id);
     }
-    else
+    else {
         return getPluginName();
+    }
 }
 
 QString WirelessPlugin::getTitle(QString id)
@@ -72,7 +71,7 @@ QPixmap WirelessPlugin::getIcon(QString)
 
 bool WirelessPlugin::configurable(const QString &id)
 {
-    return m_mode == Dock::FashionMode ? false : wirelessDevices().keys().indexOf(id) != -1;
+    return m_mode == Dock::FashionMode ? false : (m_uuids.indexOf(id) != -1);
 }
 
 bool WirelessPlugin::enabled(const QString &id)
@@ -92,24 +91,28 @@ void WirelessPlugin::setEnabled(const QString &id, bool enabled)
 
 QWidget * WirelessPlugin::getApplet(QString id)
 {
-    if (m_itemMap.value(id))
+    if (m_itemMap.value(id)) {
         return m_itemMap.value(id)->applet();
-    else
+    }
+    else {
         return NULL;
+    }
 }
 
 QWidget * WirelessPlugin::getItem(QString id)
 {
-    if (m_mode == Dock::FashionMode)
+    if (m_mode == Dock::FashionMode) {
         return NULL;
-    else if (enabled(id)){
+    }
+    else if (enabled(id)) {
         if (m_itemMap.value(id) == nullptr)
             addNewItem(id);
 
         return m_itemMap.value(id);
     }
-    else
+    else {
         return NULL;
+    }
 }
 
 void WirelessPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
@@ -117,7 +120,7 @@ void WirelessPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
     m_mode = newMode;
     if (m_dbusNetwork->isValid() && (newMode != oldMode)){
         if (newMode == Dock::FashionMode) {
-            foreach (QString id, m_itemMap.keys()) {
+            for (QString id : m_itemMap.keys()) {
                 removeItem(id);
                 m_itemMap.take(id)->deleteLater();
             }
@@ -127,7 +130,7 @@ void WirelessPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
         }
     }
 
-    for(const QString id : m_itemMap.keys())
+    for (const QString id : m_itemMap.keys())
         m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
 }
 
@@ -146,10 +149,15 @@ void WirelessPlugin::initSettings()
     m_settings = new QSettings("deepin", "dde-dock-network-wireless-plugin", this);
 }
 
+void WirelessPlugin::updateUuids()
+{
+    m_uuids = wirelessDevices(m_dbusNetwork).keys();
+}
+
 void WirelessPlugin::addNewItem(const QString &id)
 {
     WirelessItem *item = new WirelessItem(id, m_dbusNetwork);
-    connect(item, &WirelessItem::sizeChanged, [=]{
+    connect(item, &WirelessItem::appletSizeChanged, [=]{
         m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeAppletSize, id);
     });
 
@@ -169,7 +177,6 @@ void WirelessPlugin::removeItem(const QString &id)
         return;
 
     m_proxy->itemRemovedEvent(id);
-    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
     m_itemMap.take(id)->deleteLater();
     //remove setting line from dock plugins setting frame,should delete wirelessitem first
     m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
@@ -190,44 +197,33 @@ void WirelessPlugin::onEnabledChanged(const QString &id)
 int retryTimes = 10;
 void WirelessPlugin::onDevicesChanged()
 {
-    if (!m_dbusNetwork->isValid()) {
+    if (m_mode == Dock::FashionMode)
+        return;
+
+    if (!m_dbusNetwork->isValid() && retryTimes-- > 0) {
         QTimer *retryTimer = new QTimer(this);
         retryTimer->setSingleShot(true);
         connect(retryTimer, &QTimer::timeout, this, &WirelessPlugin::onDevicesChanged);
         connect(retryTimer, &QTimer::timeout, retryTimer, &QTimer::deleteLater);
         retryTimer->start(1000);
+        qWarning() << "[WirelessPlugin] Network dbus data is not ready!";
         return;
     }
-    qWarning() << "DevicesChanged,Network dbus data is ready!";
     retryTimes = 10;
+    updateUuids();
 
-    QStringList idList = wirelessDevices().keys();
     //remove old
-    foreach (QString id, m_itemMap.keys()) {
-        if (idList.indexOf(id) == -1)
+    for (QString id : m_itemMap.keys()) {
+        if (m_uuids.indexOf(id) == -1)
             removeItem(id);
     }
 
     //add new
-    foreach (QString id, idList) {
+    for (QString id : m_uuids) {
         if (m_itemMap.keys().indexOf(id) == -1) {
             addNewItem(id);
         }
     }
-}
-
-QMap<QString, QString> WirelessPlugin::wirelessDevices()
-{
-    QMap<QString, QString> tmpMap;
-    if (m_dbusNetwork->isValid()) {
-        QJsonArray pathArray = NetworkPlugin::deviceArray(NetworkPlugin::ConnectionTypeWireless, m_dbusNetwork);
-        foreach (QJsonValue pathValue, pathArray) {
-            tmpMap.insert(pathValue.toObject().value("UniqueUuid").toString(),
-                          pathValue.toObject().value("Vendor").toString());
-        }
-    }
-
-    return tmpMap;
 }
 
 QString WirelessPlugin::settingEnabledKey(const QString &id)

@@ -32,13 +32,11 @@ private:
 
 private:
     DBusNetwork *m_dbusNetwork;
-    QString m_devicePath;
     VpnData m_itemData;
 
     QPushButton *m_title;
     DImageButton *m_checkIcon;
     DLoadingIndicator *m_loadingIcon;
-    QLabel *m_strengthIcon;
 };
 
 #endif // VPNAPPLETITEM_H

@@ -1,20 +1,15 @@
-
-#include "vpnplugin.h"
-
-#include <QUuid>
 #include <QLabel>
-#include <QtDebug>
-#include <QIcon>
 #include <QFile>
 #include <QDBusConnection>
+
+#include "vpnplugin.h"
 #include "vpnapplet.h"
 
 using namespace NetworkPlugin;
+
 const QString VPN_PLUGIN_ID = "vpn_plugin_id";
 VpnPlugin::VpnPlugin()
 {
-    QIcon::setThemeName("Deepin");
-
     m_dbusNetwork = new com::deepin::daemon::DBusNetwork(this);
     connect(m_dbusNetwork, &DBusNetwork::VpnEnabledChanged, this, &VpnPlugin::updateIcon);
     connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &VpnPlugin::onConnectionsChanged);
@@ -25,7 +20,7 @@ VpnPlugin::VpnPlugin()
 
 VpnPlugin::~VpnPlugin()
 {
-    qDebug() << "VpnPlugin Destroyed!";
+    qDebug() << "[VpnPlugin] VpnPlugin Destroyed!";
 }
 
 void VpnPlugin::init(DockPluginProxyInterface *proxy)
@@ -35,7 +30,7 @@ void VpnPlugin::init(DockPluginProxyInterface *proxy)
     m_vpnItem = nullptr;
     m_applet = nullptr;
     //for init
-    if (m_mode != Dock::FashionMode) {
+    if (m_mode != Dock::FashionMode && hasVpn(m_dbusNetwork)) {
         onConnectionsChanged();
     }
 }
@@ -87,8 +82,7 @@ bool VpnPlugin::configurable(const QString &id)
 
 bool VpnPlugin::enabled(const QString &id)
 {
-    QVariant value = m_settings->value(settingEnabledKey(id));
-    return !value.isValid() ? true : value.toBool();    //default enabled
+    return m_settings->value(settingEnabledKey(id), true).toBool();    //default enabled
 }
 
 void VpnPlugin::setEnabled(const QString &id, bool enabled)
@@ -110,7 +104,7 @@ QWidget * VpnPlugin::getApplet(QString id)
 
     if (m_applet == nullptr) {
         m_applet = new VpnApplet(m_dbusNetwork);
-        connect(m_applet, &VpnApplet::sizeChanged, [=]{
+        connect(m_applet, &VpnApplet::appletSizeChanged, [=]{
             m_proxy->infoChangedEvent(DockPluginInterface::AppletSize, VPN_PLUGIN_ID);
         });
     }
@@ -120,16 +114,18 @@ QWidget * VpnPlugin::getApplet(QString id)
 
 QWidget * VpnPlugin::getItem(QString id)
 {
-    if (m_mode == Dock::FashionMode)
+    if (m_mode == Dock::FashionMode) {
         return NULL;
-    else if (enabled(id)){
+    }
+    else if (enabled(id)) {
         if (m_vpnItem == nullptr)
             addNewItem(id);
 
         return m_vpnItem;
     }
-    else
+    else {
         return NULL;
+    }
 }
 
 void VpnPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
@@ -190,6 +186,7 @@ void VpnPlugin::addNewItem(const QString &id)
 void VpnPlugin::removeItem(const QString &id)
 {
     if (m_vpnItem != nullptr) {
+        m_vpnItem->setVisible(false);
         m_proxy->itemRemovedEvent(id);
         m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
         m_vpnItem->deleteLater();
@@ -217,13 +214,16 @@ void VpnPlugin::onEnabledChanged(const QString &id)
 int retryTimes = 10;
 void VpnPlugin::onConnectionsChanged()
 {
-    if (!m_dbusNetwork->isValid()) {
+    if (m_mode == Dock::FashionMode)
+        return;
+
+    if (!m_dbusNetwork->isValid() && retryTimes-- > 0) {
         QTimer *retryTimer = new QTimer;
         retryTimer->setSingleShot(true);
         connect(retryTimer, &QTimer::timeout, this, &VpnPlugin::onConnectionsChanged);
         connect(retryTimer, &QTimer::timeout, retryTimer, &QTimer::deleteLater);
         retryTimer->start(1000);
-        qDebug() << "[VpnPlugin]Network dbus data is not ready!";
+        qWarning() << "[VpnPlugin] Network dbus data is not ready!";
         return;
     }
     retryTimes = 10;

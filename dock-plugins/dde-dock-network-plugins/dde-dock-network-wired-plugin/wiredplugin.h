@@ -53,9 +53,6 @@ private:
     void onEnabledChanged(const QString &id);
     void onConnectionsChanged();
     QString getWiredIp();
-    bool isWiredConnected();
-    int wirelessDevicesCount();
-    int wiredDevicesCount();
 
     QString settingEnabledKey(const QString &id);
 };

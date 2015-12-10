@@ -22,11 +22,9 @@ public:
     ~WirelessApplet();
 
     int maxStrength();
-    QString uuid() const;
 
 signals:
     void sizeChanged();
-    void propertiesChanged();
     void activeApChanged(QString ap);
 
 private:

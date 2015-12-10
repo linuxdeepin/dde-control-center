@@ -1,18 +1,15 @@
 
 #include "wiredplugin.h"
 
-#include <QUuid>
 #include <QLabel>
-#include <QDebug>
-#include <QIcon>
 #include <QFile>
 #include <QDBusConnection>
+
+using namespace NetworkPlugin;
 
 const QString WIRED_PLUGIN_ID = "wired_plugin_id";
 WiredPlugin::WiredPlugin()
 {
-    QIcon::setThemeName("Deepin");
-
     m_dbusNetwork = new com::deepin::daemon::DBusNetwork(this);
     connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &WiredPlugin::onConnectionsChanged);
     connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, &WiredPlugin::onConnectionsChanged);
@@ -43,7 +40,7 @@ QString WiredPlugin::getPluginName()
 
 QStringList WiredPlugin::ids()
 {
-    if (m_mode != Dock::FashionMode && wirelessDevicesCount() == 0 && wiredDevicesCount() > 0) {
+    if (m_mode != Dock::FashionMode && wirelessDevicesCount(m_dbusNetwork) == 0 && wiredDevicesCount(m_dbusNetwork) > 0) {
         return QStringList(WIRED_PLUGIN_ID);
     }
     else {
@@ -62,7 +59,7 @@ QString WiredPlugin::getTitle(QString id)
 {
     Q_UNUSED(id)
 
-    return isWiredConnected() ? getWiredIp() : tr("Network Not Connected");
+    return wiredIsConnected(m_dbusNetwork) ? getWiredIp() : tr("Network Not Connected");
 }
 
 QString WiredPlugin::getCommand(QString)
@@ -80,13 +77,12 @@ bool WiredPlugin::configurable(const QString &id)
 {
     Q_UNUSED(id);
 
-    return m_mode != Dock::FashionMode;
+    return m_mode != Dock::FashionMode && wirelessDevicesCount(m_dbusNetwork) == 0;
 }
 
 bool WiredPlugin::enabled(const QString &id)
 {
-    QVariant value = m_settings->value(settingEnabledKey(id));
-    return !value.isValid() ? true : value.toBool();    //default enabled
+    return m_settings->value(settingEnabledKey(id), true).toBool();    //default enabled
 }
 
 void WiredPlugin::setEnabled(const QString &id, bool enabled)
@@ -157,7 +153,7 @@ void WiredPlugin::addNewItem(const QString &id)
 
     m_wiredItem = new QLabel;
     m_wiredItem->setFixedSize(Dock::APPLET_EFFICIENT_ITEM_WIDTH, Dock::APPLET_EFFICIENT_ITEM_HEIGHT);
-    QString iconPath = isWiredConnected() ? ":/images/images/wire_on.png" : ":/images/images/network-error.png";
+    QString iconPath = wiredIsConnected(m_dbusNetwork) ? ":/images/images/wire_on.png" : ":/images/images/network-error.png";
     m_wiredItem->setPixmap(QPixmap(iconPath).scaled(m_wiredItem->size()));
     m_proxy->itemAddedEvent(id);
 
@@ -171,6 +167,7 @@ void WiredPlugin::addNewItem(const QString &id)
 void WiredPlugin::removeItem(const QString &id)
 {
     if (m_wiredItem != nullptr) {
+        m_wiredItem->setVisible(false);
         m_proxy->itemRemovedEvent(id);
         m_wiredItem->deleteLater();
         m_wiredItem = nullptr;
@@ -194,21 +191,26 @@ void WiredPlugin::onEnabledChanged(const QString &id)
 int retryTimes = 10;
 void WiredPlugin::onConnectionsChanged()
 {
-    if (!m_dbusNetwork->isValid()) {
+    if (m_mode == Dock::FashionMode)
+        return;
+
+    if (!m_dbusNetwork->isValid() && retryTimes-- > 0) {
         QTimer *retryTimer = new QTimer;
         retryTimer->setSingleShot(true);
         connect(retryTimer, &QTimer::timeout, this, &WiredPlugin::onConnectionsChanged);
         connect(retryTimer, &QTimer::timeout, retryTimer, &QTimer::deleteLater);
         retryTimer->start(1000);
-        qWarning() << "[WiredPlugin]Network dbus data is not ready!";
+        qWarning() << "[WiredPlugin] Network dbus data is not ready!";
         return;
     }
     retryTimes = 10;
 
-    removeItem(WIRED_PLUGIN_ID);
 
-    if (wirelessDevicesCount() == 0 && wiredDevicesCount() > 0) {
+    if (wirelessDevicesCount(m_dbusNetwork) == 0 && wiredDevicesCount(m_dbusNetwork) > 0 && m_wiredItem == nullptr) {
         addNewItem(WIRED_PLUGIN_ID);
+    }
+    else if (!enabled(WIRED_PLUGIN_ID)) {
+        removeItem(WIRED_PLUGIN_ID);
     }
 }
 
@@ -223,42 +225,6 @@ QString WiredPlugin::getWiredIp()
 
     }
     return QString();
-}
-
-bool WiredPlugin::isWiredConnected()
-{
-    if (!m_dbusNetwork->isValid())
-        return false;
-
-    QList<NetworkPlugin::ActiveConnectionInfo> infoList = NetworkPlugin::getActiveConnectionsInfo(m_dbusNetwork);
-    foreach (NetworkPlugin::ActiveConnectionInfo info, infoList) {
-        if (info.connectionType == NetworkPlugin::ConnectionTypeWired)
-            return true;
-    }
-
-    return false;
-}
-
-int WiredPlugin::wirelessDevicesCount()
-{
-    if (m_dbusNetwork->isValid()) {
-        QJsonArray array = NetworkPlugin::deviceArray(NetworkPlugin::ConnectionTypeWireless, m_dbusNetwork);
-        return array.size();
-    }
-    else {
-        return 0;
-    }
-}
-
-int WiredPlugin::wiredDevicesCount()
-{
-    if (m_dbusNetwork->isValid()) {
-        QJsonArray array = NetworkPlugin::deviceArray(NetworkPlugin::ConnectionTypeWired, m_dbusNetwork);
-        return array.size();
-    }
-    else {
-        return 0;
-    }
 }
 
 QString WiredPlugin::settingEnabledKey(const QString &id)
