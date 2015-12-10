@@ -90,7 +90,6 @@ void WiredNetworkListItem::onConnectsChanged()
 
                 listWidget()->addWidget(item);
 
-                m_mapPppoePathToItem[item->path()] = item;
 
                 item->setDevicePath(path());
 
@@ -102,11 +101,15 @@ void WiredNetworkListItem::onConnectsChanged()
                         this, &WiredNetworkListItem::onItemStateChanged);
                 connect(this, &WiredNetworkListItem::pathChanged,
                         item, &NetworkGenericListItem::setDevicePath);
+
+                item->updateInfoByMap(json_object.toVariantMap());
+
+                m_mapPppoePathToItem[item->path()] = item;
             } else {
                 tmp_list.removeOne(item);
+                item->updateInfoByMap(json_object.toVariantMap());
             }
 
-            item->updateInfoByMap(json_object.toVariantMap());
             item->setConnectPath(item->path());
             item->setTitle(json_object["Id"].toString());
         }
@@ -114,7 +117,13 @@ void WiredNetworkListItem::onConnectsChanged()
 
     for(NetworkGenericListItem *item : tmp_list) {
         m_mapPppoePathToItem.remove(item->path());
-        item->deleteLater();
+
+        int index = listWidget()->indexOf(item);
+
+        if(index < 0)
+            item->deleteLater();
+        else
+            listWidget()->removeWidget(index);
     }
 }
 

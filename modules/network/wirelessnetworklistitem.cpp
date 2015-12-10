@@ -245,11 +245,16 @@ void WirelessNetworkListItem::init()
                 return;
 
             NetworkGenericListItem *item = m_mapApPathToItem.value(ap_path, nullptr);
+
             if(item) {
                 int index = listWidget()->indexOf(item);
+
                 m_mapApPathToItem.remove(ap_path);
                 m_mapApSsidToItem.remove(item->ssid());
-                if(index >= 0)
+
+                if(index < 0)
+                    item->deleteLater();
+                else
                     listWidget()->removeWidget(index);
             }
 

@@ -40,8 +40,6 @@ void VPNConnectsWidget::onConnectsChanged()
 
             listWidget()->addWidget(item);
 
-            m_mapVpnPathToItem[item->path()] = item;
-
             connect(item, &NetworkGenericListItem::clicked, this, &VPNConnectsWidget::onItemClicked);
             connect(item, &NetworkGenericListItem::clearButtonClicked, this, &VPNConnectsWidget::onClearButtonClicked);
             connect(item, &NetworkGenericListItem::stateChanged, this, &VPNConnectsWidget::onItemStateChanged);
@@ -49,6 +47,8 @@ void VPNConnectsWidget::onConnectsChanged()
 
             item->setDevicePath(path());
             item->updateInfoByMap(json_object.toVariantMap());
+
+            m_mapVpnPathToItem[item->path()] = item;
         } else {
             tmp_list.removeOne(item);
             item->updateInfoByMap(json_object.toVariantMap());
@@ -60,7 +60,13 @@ void VPNConnectsWidget::onConnectsChanged()
 
     for(NetworkGenericListItem *item : tmp_list) {
         m_mapVpnPathToItem.remove(item->path());
-        item->deleteLater();
+
+        int index = listWidget()->indexOf(item);
+
+        if(index < 0)
+            item->deleteLater();
+        else
+            listWidget()->removeWidget(index);
     }
 }
 
