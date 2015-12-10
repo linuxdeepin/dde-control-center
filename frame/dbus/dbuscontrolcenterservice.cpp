@@ -59,6 +59,9 @@ bool DBusControlCenterService::showInRight() const
 
 int DBusControlCenterService::x() const
 {
+    if (!parent()->isVisible())
+        return qApp->primaryScreen()->geometry().right();
+
     // get the value of property X
     return parent()->isHideInLeft()
             ? qApp->primaryScreen()->geometry().right()

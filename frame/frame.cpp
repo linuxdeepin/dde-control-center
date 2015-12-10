@@ -88,9 +88,9 @@ Frame::Frame(QWidget *parent) :
     connect(m_homeScreen, &HomeScreen::powerBtnClicked, [this] {hide(true);});
     connect(this, &Frame::hideInLeftChanged, this, updateGeometry);
     connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
-    connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
-    connect(m_hideAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged);
-    connect(m_showAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged);
+    connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide, Qt::QueuedConnection);
+    connect(m_hideAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged, Qt::QueuedConnection);
+    connect(m_showAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged, Qt::QueuedConnection);
     connect(m_showAni, &QPropertyAnimation::finished, m_centeralWarpper, static_cast<void (QWidget::*)()>(&QWidget::update), Qt::QueuedConnection);
     connect(m_homeScreen, &HomeScreen::moduleSelected, this, &Frame::selectModule);
     connect(m_contentView, &ContentView::shutdownSelected, m_homeScreen, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
@@ -187,6 +187,11 @@ void Frame::selectModule(const QString &pluginId)
 
     if (!m_visible)
         show();
+}
+
+bool Frame::isVisible() const
+{
+    return m_visible && QFrame::isVisible();
 }
 
 void Frame::globalMouseReleaseEvent(int button, int x, int y)

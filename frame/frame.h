@@ -39,6 +39,7 @@ public slots:
     void setAutoHide(bool autoHide);
     void toggle(bool inLeft);
     void selectModule(const QString &pluginId);
+    bool isVisible() const;
 
 signals:
     void hideInLeftChanged(bool hideInLeft);
