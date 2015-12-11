@@ -107,6 +107,9 @@ void UserExpandContent::initAvatarPanel()
     connect(this, &UserExpandContent::changeToSetting, [=](bool value){
         if (!value)
             m_cameraPanel->turnOffCamera();
+        else if (m_stackWidget->currentIndex() == 2) {//camera stack
+            m_cameraPanel->turnOnCamera();
+        }
     });
 
     m_stackWidget = new QStackedWidget(this);

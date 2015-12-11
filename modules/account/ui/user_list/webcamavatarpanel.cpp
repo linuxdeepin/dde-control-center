@@ -21,12 +21,15 @@ WebcamAvatarPanel::WebcamAvatarPanel(QWidget *parent) : QWidget(parent)
 
 void WebcamAvatarPanel::turnOnCamera()
 {
+    if (m_camera != NULL)
+        return;
     m_camera = new QCamera(QCameraInfo::defaultCamera(), this);
     connect(m_camera, SIGNAL(error(QCamera::Error)), this, SLOT(onCameraError(QCamera::Error)));
 
     if(m_camera && m_camera->isAvailable()){
         m_cameraView->setSource(m_camera);
         m_camera->start();
+        m_snapshotButton->setText(tr("Snapshot"));
     }
     else {
         m_stackWidget->setCurrentIndex(0);
@@ -102,13 +105,13 @@ void WebcamAvatarPanel::initControlButton()
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(DUI::BUTTON_MARGIN);
 
-    DTextButton *snapshotButton = new DTextButton(tr("Snapshot"));
-    connect(snapshotButton, &DTextButton::clicked, this, &WebcamAvatarPanel::onSnapshot);
+    m_snapshotButton = new DTextButton(tr("Snapshot"));
+    connect(m_snapshotButton, &DTextButton::clicked, this, &WebcamAvatarPanel::onSnapshot);
     DTextButton *confirmButton = new DTextButton(tr("Confirm"));
     connect(confirmButton, &DTextButton::clicked, this, &WebcamAvatarPanel::onConfirm);
 
     layout->addStretch(1);
-    layout->addWidget(snapshotButton);
+    layout->addWidget(m_snapshotButton);
     layout->addWidget(confirmButton);
     layout->addSpacing(DUI::HEADER_RIGHT_MARGIN);
 
@@ -138,17 +141,16 @@ void WebcamAvatarPanel::initStackWidget()
 
 void WebcamAvatarPanel::onSnapshot()
 {
-    DTextButton *button = qobject_cast<DTextButton *>(sender());
     if (m_camera->state() == QCamera::ActiveState){
         m_camera->stop();
-        button->setText(tr("Again"));
+        m_snapshotButton->setText(tr("Again"));
         m_cameraView->setRound(false);  //for save all pixel
         m_captureState = m_cameraView->capture().save(IMAGE_SAVE_PATH);
         m_cameraView->setRound(true);
     }
     else{
         m_camera->start();
-        button->setText(tr("Snapshot"));
+        m_snapshotButton->setText(tr("Snapshot"));
     }
 }
 

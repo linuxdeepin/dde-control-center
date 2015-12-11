@@ -45,6 +45,7 @@ private:
     QVBoxLayout *m_layout = NULL;
     QCamera *m_camera = NULL;
     DCameraView *m_cameraView = NULL;
+    DTextButton *m_snapshotButton;
     bool m_captureState = false;
 };
 
