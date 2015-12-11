@@ -132,6 +132,8 @@ void ComplexPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
             onEnabledChanged();
         }
     }
+
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, COMPLEX_NETWORK_PLUGIN_ID);
 }
 
 QString ComplexPlugin::getMenuContent(QString)
