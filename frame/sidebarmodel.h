@@ -25,6 +25,10 @@ public:
     QVariant data(const QModelIndex &index, int role) const;
     int rowCount(const QModelIndex &parent) const;
 
+signals:
+    // if selected plugin removed, need to notify view to switch another
+    void switchToModel(const ModuleMetaData &meta) const;
+
 private:
     void loadIcons();
 

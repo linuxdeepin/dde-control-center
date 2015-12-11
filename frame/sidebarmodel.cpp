@@ -13,6 +13,14 @@ SidebarModel::SidebarModel(QObject *parent)
 
     connect(m_pluginManager, &PluginsManager::pluginInserted, this, &SidebarModel::loadIcons, Qt::QueuedConnection);
     connect(m_pluginManager, &PluginsManager::pluginRemoved, this, &SidebarModel::loadIcons, Qt::QueuedConnection);
+    connect(m_pluginManager, &PluginsManager::pluginRemoved, [this] (const ModuleMetaData &meta) {
+        // if current selected plugin removed, switch to first plugin.
+        if (m_selectedPluginId == meta.id)
+        {
+            m_selectedPluginId.clear();
+            emit switchToModel(m_pluginsList.first());
+        }
+    });
 }
 
 void SidebarModel::setSelectedPluginId(const QString &id)

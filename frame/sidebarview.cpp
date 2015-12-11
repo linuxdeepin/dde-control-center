@@ -80,3 +80,14 @@ void SidebarView::resizeEvent(QResizeEvent *e)
     setMaximumHeight(nums * itemSize.height());
 }
 
+void SidebarView::setModel(QAbstractItemModel *model)
+{
+    QListView::setModel(model);
+
+    SidebarModel *sidebar = qobject_cast<SidebarModel *>(model);
+    if (!sidebar)
+        return;
+
+    connect(sidebar, &SidebarModel::switchToModel, this, &SidebarView::moduleSelected);
+}
+
