@@ -8,6 +8,7 @@
 
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dlinkbutton.h>
+#include <libdui/dboxwidget.h>
 
 #include "constants.h"
 
@@ -179,20 +180,25 @@ void Sound::initUI()
 
     ///advanced settings expand widget
 
-    QWidget *advanced_widget = new QWidget;
-    advanced_widget->setFixedSize(DCC::ModuleContentWidth, 400);
+    DVBoxWidget *advanced_widget = new DVBoxWidget;
+//    advanced_widget->setFixedSize(DCC::ModuleContentWidth, 400);
+    advanced_widget->setFixedWidth(DCC::ModuleContentWidth);
     ///400 is advanced settings height sum.
 
-    QVBoxLayout *advanced_layout = new QVBoxLayout(advanced_widget);
+    QVBoxLayout *advanced_layout = new QVBoxLayout;
     advanced_layout->setMargin(0);
     advanced_layout->setSpacing(0);
+//    advanced_widget->setLayout(advanced_layout);
+    advanced_widget->layout()->addLayout(advanced_layout);
 
     DBaseExpand *advanced_expand = new DBaseExpand;
     advanced_expand->setContent(advanced_widget);
     advanced_expand->setSeparatorVisible(false);
     advanced_expand->setExpandedSeparatorVisible(false);
 
-    advanced_layout->addWidget(new DBaseLine);
+    DBaseLine *space = new DBaseLine;
+    space->setStyleSheet("background-color:#252627;");
+    advanced_layout->addWidget(space);
 
     ///////////////////////////////////////////////////////--Advanced settings
     // Output ports
@@ -221,7 +227,9 @@ void Sound::initUI()
     connect(m_dbusAudio, &DBusAudio::SinksChanged, this, &Sound::updateOutputDevices);
 
     advanced_layout->addWidget(m_outputDevicesExpand);
-    advanced_layout->addWidget(new DBaseLine);
+    DBaseLine *space1 = new DBaseLine;
+    space1->setStyleSheet("background-color:#252627;");
+    advanced_layout->addWidget(space1);
 
     // Input ports
     m_inputPortsExpand = new DBaseExpand;
@@ -648,8 +656,7 @@ void Sound::updateInputPorts()
 
     if (inputPorts.length() > 0) {
         m_inputPortsList->addButtons(inputPorts);
-        m_inputPortsList->setMaximumSize(DCC::ModuleContentWidth, qMin(inputPorts.length() * m_inputPortsList->itemWidget(m_inputPortsList->item(0))->height(),
-                                                                       2 * m_inputPortsList->itemWidget(m_inputPortsList->item(0))->height()));
+        m_inputPortsList->setMaximumSize(DCC::ModuleContentWidth, inputPorts.length() * m_inputPortsList->itemWidget(m_inputPortsList->item(0))->height());
         if (inputPorts.contains(sourceActivePort.name)) {
             m_inputPortsList->checkButtonByIndex(inputPorts.indexOf(sourceActivePort.name));
         }
@@ -671,8 +678,7 @@ void Sound::updateOutputDevices()
     if (outputDevices.length() > 0) {
         m_outputDevicesList->clear();
         m_outputDevicesList->addButtons(outputDevices);
-        m_outputDevicesList->setFixedSize(DCC::ModuleContentWidth, qMin(outputDevices.length() * m_outputDevicesList->itemWidget(m_outputDevicesList->item(0))->height(),
-                                                                        2 * m_outputDevicesList->itemWidget(m_outputDevicesList->item(0))->height()));
+        m_outputDevicesList->setFixedSize(DCC::ModuleContentWidth, outputDevices.length() * m_outputDevicesList->itemWidget(m_outputDevicesList->item(0))->height());
 
         if (m_sinks.contains(m_sink)) {
             m_outputDevicesList->checkButtonByIndex(m_sinks.indexOf(m_sink));
@@ -695,8 +701,7 @@ void Sound::updateInputDevices()
     if (inputDevices.length() > 0) {
         m_inputDevicesList->clear();
         m_inputDevicesList->addButtons(inputDevices);
-        m_inputDevicesList->setFixedSize(DCC::ModuleContentWidth, qMin(inputDevices.length() * m_inputDevicesList->itemWidget(m_inputDevicesList->item(0))->height(),
-                                                                       2 * m_inputDevicesList->itemWidget(m_inputDevicesList->item(0))->height()));
+        m_inputDevicesList->setFixedSize(DCC::ModuleContentWidth, inputDevices.length() * m_inputDevicesList->itemWidget(m_inputDevicesList->item(0))->height());
         if (m_sources.contains(m_source)) {
             m_inputDevicesList->checkButtonByIndex(m_sources.indexOf(m_source));
         }
