@@ -1,5 +1,8 @@
 #include <QDBusPendingReply>
 #include <QFile>
+
+#include <libdui/dcheckbox.h>
+
 #include "wirelessapplet.h"
 #include "../network-data/networkdata.h"
 
@@ -26,6 +29,7 @@ WirelessApplet::WirelessApplet(const QString &uuid, DBusNetwork *dbusNetwork, QW
     connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &WirelessApplet::onDevicesChanged);
     connect(m_dbusNetwork, &DBusNetwork::DeviceEnabled, this, &WirelessApplet::onDeviceEnabledChanged);
     connect(m_dbusNetwork, SIGNAL(DeviceEnabled(QString,bool)), this, SIGNAL(sizeChanged()));
+    connect(m_dbusNetwork, &DBusNetwork::NeedSecrets, this, &WirelessApplet::onNeedSecrets);
 }
 
 WirelessApplet::~WirelessApplet()
@@ -203,6 +207,56 @@ void WirelessApplet::onDeviceEnabledChanged(const QString &path, bool enable)
         m_listWidget->setVisible(enable);
         m_deviceSwitcher->setChecked(enable);
     }
+}
+
+void WirelessApplet::onNeedSecrets(const QString &in0, const QString &in1, const QString &in2, bool in3)
+{
+    Q_UNUSED(in2)
+    Q_UNUSED(in3)
+
+    m_targetDevicePath = in0;
+    m_tragetConnectUuid = in1;
+
+    if(!m_passworkInputDialog) {
+        m_passworkInputDialog = new DInputDialog;
+
+        DCheckBox *check_box = new DCheckBox;
+
+        check_box->setText(tr("Auto-connect"));
+
+        QIcon::setThemeName("Deepin");
+
+        m_passworkInputDialog->setTextEchoMode(DLineEdit::Password);
+        m_passworkInputDialog->setIcon(QIcon::fromTheme("notification-network-wireless-full"));
+        m_passworkInputDialog->addSpacing(10);
+        m_passworkInputDialog->addContent(check_box, Qt::AlignLeft);
+        m_passworkInputDialog->setOkButtonText(tr("Connect"));
+        m_passworkInputDialog->setModal(false);
+
+        connect(m_passworkInputDialog, &DInputDialog::textValueChanged,
+                this, [this]{m_passworkInputDialog->setTextAlert(false);});
+        connect(m_passworkInputDialog, &DInputDialog::okButtonClicked,
+                this, [this, check_box] {
+            if(!m_passworkInputDialog->textValue().isEmpty()) {
+                m_dbusNetwork->FeedSecret(m_targetDevicePath, m_tragetConnectUuid, m_passworkInputDialog->textValue(),
+                                          check_box->checkState() != Qt::Unchecked);
+            } else {
+                m_passworkInputDialog->setTextAlert(true);
+            }
+        });
+        connect(m_passworkInputDialog, &DInputDialog::cancelButtonClicked,
+                m_passworkInputDialog, &DInputDialog::close);
+        connect(m_passworkInputDialog, &DInputDialog::closed, [this] {
+            m_passworkInputDialog->deleteLater();
+            m_passworkInputDialog = nullptr;
+            m_dbusNetwork->CancelSecret(m_targetDevicePath, m_tragetConnectUuid);
+        });
+
+        m_passworkInputDialog->open();
+    }
+
+
+    m_passworkInputDialog->setTitle(tr("Please enter the password of <font color=\"#faca57\">%1</font>").arg(in2));
 }
 
 void WirelessApplet::addApToList(const WirelessAppletItem::ApData &apData)
