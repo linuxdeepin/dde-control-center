@@ -11,7 +11,7 @@ SUBDIRS  = sound \
            personalization\
            keyboard \
            datetime \
-           remote_assistance \
+#           remote_assistance \
            wacom
 
 isEmpty(WITH_MODULE_GRUB){
@@ -36,4 +36,12 @@ isEmpty(WITH_MODULE_NETWORK){
 
 isEqual(WITH_MODULE_NETWORK, YES){
     SUBDIRS += network
+}
+
+isEmpty(WITH_MODULE_REMOTE_ASSIST){
+    WITH_MODULE_REMOTE_ASSIST = YES
+}
+
+isEqual(WITH_MODULE_REMOTE_ASSIST, YES){
+    SUBDIRS += remote_assistance
 }
