@@ -386,6 +386,7 @@ void Mouse::onTouchPadExistChanged()
 
     m_forbiddenTouchpadWhenMouseSwitchButton->setVisible(touchpadExist);
     m_forbiddenTouchpadWhenMouseLabel->setVisible(touchpadExist);
+    m_secondHSeparator->setVisible(touchpadExist);
     m_touchpadHeaderLine->setVisible(touchpadExist);
     m_thirdHSeparator->setVisible(touchpadExist);
     m_touchpadSettingPanel->setVisible(touchpadExist && m_touchpadInterface->tPadEnable());
