@@ -164,7 +164,10 @@ void AdapterWidget::initUI()
         if (name_lineEdit->text().isEmpty())
             return;
 
-        m_info->bluetoothDbus->SetAdapterAlias(QDBusObjectPath(m_info->path), name_lineEdit->text());
+        const QString newName = name_lineEdit->text().remove('\n')
+                                                     .remove('\r');
+
+        m_info->bluetoothDbus->SetAdapterAlias(QDBusObjectPath(m_info->path), newName);
 
         name_edit_switch->show();
         edit_name_widget->hide();
