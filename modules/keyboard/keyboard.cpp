@@ -29,9 +29,6 @@
 
 DUI_USE_NAMESPACE
 
-//TODO
-bool meDeleted = false;
-
 Keyboard::Keyboard() :
     QObject(),
     m_frame(new QFrame),
@@ -43,7 +40,6 @@ Keyboard::Keyboard() :
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
-    meDeleted = false;
     setAutoDelete(false);
     initBackend();
     if (m_dbusKeyboard) initUI();
@@ -52,7 +48,6 @@ Keyboard::Keyboard() :
 Keyboard::~Keyboard()
 {
     qDebug() << "~Keyboard and Language";
-    meDeleted = true;
     m_frame->deleteLater();
 }
 
@@ -346,12 +341,15 @@ void Keyboard::initUI()
 
     DbusLangSelector *dbusLangSelector = new DbusLangSelector(this);
     QDBusPendingCallWatcher *lang_list = new QDBusPendingCallWatcher(dbusLangSelector->GetLocaleList(), this);
-    connect(lang_list, &QDBusPendingCallWatcher::finished, lang_list,
-            [this, lang_list, dbusLangSelector, language_searchList]{
+    connect(lang_list, &QDBusPendingCallWatcher::finished, [=] {
         QString current_lang = dbusLangSelector->currentLocale();
         QDBusPendingReply<LocaleList> reply = *lang_list;
         QString theme = DThemeManager::instance()->theme();
-        foreach (const LocaleInfo &info, reply.value()) {
+
+        const QList<LocaleInfo> infos = reply.value();
+        for (const LocaleInfo &info : infos)
+        {
+            qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
             GenericListItem *item = new GenericListItem;
 
             item->setKeyWords(QStringList()<<info.name);
@@ -371,14 +369,12 @@ void Keyboard::initUI()
 
             m_mapUserLayoutInfo[info.name] = info.id;
             m_mapUserLayoutIndex[info.id] = language_searchList->count()-1;
-
-            qApp->processEvents();
-            if(meDeleted)
-                return;
         }
 
         language_searchList->beginSearch();
-        m_languageTips->setText(m_mapUserLayoutInfo.key(dbusLangSelector->currentLocale()));
+
+//        if (meDeleted && dbusLangSelector && dbusLangSelector->isValid())
+            m_languageTips->setText(m_mapUserLayoutInfo.key(current_lang));
     });
 
     lang_list_frame->setMinimumHeight(lang_search->height()+language_searchList->height());
@@ -431,9 +427,6 @@ void Keyboard::run()
                                       "com.deepin.api.Pinyin" );
 
     foreach (const QString &str, tmp_map.keys()) {
-        if(meDeleted)
-            return;
-
         if(m_mapUserLayoutInfo.contains(tmp_map[str]))
             continue;
 
