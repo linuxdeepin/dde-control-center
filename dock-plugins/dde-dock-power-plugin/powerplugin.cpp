@@ -1,13 +1,12 @@
-#include <QUuid>
 #include <QLabel>
-#include <QDebug>
 #include <QIcon>
 #include <QFile>
 #include <QTimer>
-
 #include <QDBusConnection>
 
 #include "powerplugin.h"
+
+const QString POWER_PLUGIN_ID = "power_plugin_id";
 
 enum MenuItemType{
     SeparatorHorizontal = -1,
@@ -21,8 +20,6 @@ PowerPlugin::PowerPlugin()
 {
     QIcon::setThemeName("Deepin");
 
-    m_id = "id_power";
-
     m_label = new QLabel;
     m_label->adjustSize();
 
@@ -33,11 +30,7 @@ PowerPlugin::PowerPlugin()
     connect(m_dbusPower, &DBusPower::BatteryPercentageChanged, this, &PowerPlugin::updateIcon);
     connect(m_dbusPower, &DBusPower::OnBatteryChanged, this, &PowerPlugin::updateIcon);
 
-    QTimer *initTimer = new QTimer(this);
-    connect(initTimer, SIGNAL(timeout()), this, SLOT(onInitTimerTriggered()));
-    initTimer->start(1000);
-
-    this->initSettings();
+    initSettings();
 }
 
 PowerPlugin::~PowerPlugin()
@@ -48,6 +41,10 @@ PowerPlugin::~PowerPlugin()
 void PowerPlugin::init(DockPluginProxyInterface *proxy)
 {
     m_proxy = proxy;
+    m_mode = proxy->dockMode();
+
+    //for init
+    onEnabledChanged();
 }
 
 QString PowerPlugin::getPluginName()
@@ -57,9 +54,7 @@ QString PowerPlugin::getPluginName()
 
 QStringList PowerPlugin::ids()
 {
-    QStringList list(m_id);
-
-    return list;
+    return QStringList(POWER_PLUGIN_ID);
 }
 
 QString PowerPlugin::getName(QString)
@@ -105,7 +100,7 @@ bool PowerPlugin::enabled(const QString &)
 
 void PowerPlugin::setEnabled(const QString & id, bool enable)
 {
-    if (id != m_id)
+    if (id != POWER_PLUGIN_ID)
         return;
 
     m_settings->setValue(settingEnabledKey(), enable);
@@ -123,9 +118,7 @@ QWidget * PowerPlugin::getItem(QString)
     if (!m_dbusPower->isValid())
         return NULL;
 
-    bool enable = m_settings->value(settingEnabledKey()).toBool();
-
-    if (m_dbusPower->batteryIsPresent() && enable) {
+    if (m_dbusPower->batteryIsPresent() && enabled(POWER_PLUGIN_ID)) {
         return m_label;
     } else {
         return NULL;
@@ -195,21 +188,6 @@ void PowerPlugin::invokeMenuItem(QString id, QString itemId, bool checked)
     }
 }
 
-void PowerPlugin::onInitTimerTriggered()
-{
-    QTimer *t = qobject_cast<QTimer *>(sender());
-
-    if (t && m_dbusPower->isValid()) {
-        qWarning() << "PowerPlugin: DBus data is ready!";
-        t->stop();
-        t->deleteLater();
-
-        setMode(m_proxy->dockMode());
-        onEnabledChanged();
-    }
-}
-
-
 // private methods
 void PowerPlugin::initSettings()
 {
@@ -220,15 +198,29 @@ void PowerPlugin::initSettings()
     }
 }
 
+int retryTimes = 10;
 void PowerPlugin::onEnabledChanged()
 {
-    m_proxy->itemRemovedEvent(m_id);
+    if (!m_dbusPower->isValid() && retryTimes-- > 0) {
+        QTimer *retryTimer = new QTimer;
+        retryTimer->setSingleShot(true);
+        connect(retryTimer, &QTimer::timeout, this, &PowerPlugin::onEnabledChanged);
+        connect(retryTimer, &QTimer::timeout, retryTimer, &QTimer::deleteLater);
+        retryTimer->start(1000);
+        qWarning() << "[PowerManagerPlugin] PowerManager dbus data is not ready!";
+        return;
+    }
+    retryTimes = 10;
+
+    m_proxy->itemRemovedEvent(POWER_PLUGIN_ID);
     m_label->setParent(NULL);
 
-    if (enabled(m_id))
-        m_proxy->itemAddedEvent(m_id);
+    if (enabled(POWER_PLUGIN_ID)) {
+        m_proxy->itemAddedEvent(POWER_PLUGIN_ID);
+        updateIcon();
+    }
 
-    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, m_id);
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, POWER_PLUGIN_ID);
 }
 
 void PowerPlugin::setMode(Dock::DockMode mode)
@@ -245,6 +237,9 @@ QString PowerPlugin::settingEnabledKey()
 
 void PowerPlugin::updateIcon()
 {
+    if (m_label == nullptr)
+        return;
+
     QString iconName;
 
     if (!m_dbusPower->isValid()){
@@ -268,7 +263,7 @@ void PowerPlugin::updateIcon()
     QIcon fallback = QIcon::fromTheme("application-default-icon");
     QIcon icon = QIcon::fromTheme(iconName, fallback);
     m_label->setPixmap(icon.pixmap(m_label->size()));
-    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeItemSize, m_id);
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeItemSize, POWER_PLUGIN_ID);
 }
 
 QString PowerPlugin::getBatteryIcon(int percentage, bool plugged, bool symbolic)

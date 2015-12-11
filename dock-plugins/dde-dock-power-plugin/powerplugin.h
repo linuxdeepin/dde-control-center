@@ -41,25 +41,21 @@ public:
     void invokeMenuItem(QString id, QString itemId, bool checked) Q_DECL_OVERRIDE;
 
 private slots:
-    void onInitTimerTriggered();
+    void updateIcon();
 
 private:
-    QString m_id;
-    QLabel * m_label;
-    Dock::DockMode m_mode = Dock::FashionMode;
-    DockPluginProxyInterface * m_proxy;
-    com::deepin::daemon::DBusPower * m_dbusPower;
-
-    QSettings * m_settings;
-
     void initSettings();
     void onEnabledChanged();
     void setMode(Dock::DockMode mode);
     QString settingEnabledKey();
     QString getBatteryIcon(int percentage, bool plugged, bool symbolic = false);
 
-private slots:
-    void updateIcon();
+private:
+    QLabel * m_label;
+    DockPluginProxyInterface * m_proxy;
+    com::deepin::daemon::DBusPower * m_dbusPower;
+    Dock::DockMode m_mode = Dock::FashionMode;
+    QSettings * m_settings;
 };
 
 #endif // POWERPLUGIN_H
