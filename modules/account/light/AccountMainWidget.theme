@@ -3,6 +3,9 @@ AvatarGrid, UserExpandContent, QScrollArea, QStackedWidget, UserListPanel {
     border: none;
 }
 
+QTableWidget {selection-background-color: #1A1B1B;outline: none;}
+QTableWidget:item {border: none;}
+
 AvatarDeleteButton {
     qproperty-normalPic: url(":/images/dark/images/delete_icon.png");
     qproperty-hoverPic: url(":/images/dark/images/delete_icon.png");
