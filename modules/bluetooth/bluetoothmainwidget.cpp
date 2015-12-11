@@ -45,6 +45,12 @@ void BluetoothMainWidget::removeAdapter(const AdapterInfo *info)
     if(index < 0)
         return;
 
+    for(DeviceInfo *device_info : m_pathToDeviceInfoMap.values()) {
+        if(device_info->adapterInfo == info) {
+            m_pathToDeviceInfoMap.remove(info->path + device_info->path);
+        }
+    }
+
     m_pathToAdapterInfoMap.remove(info->path);
     m_adapterList->removeWidget(index);
 }
@@ -93,7 +99,7 @@ BluetoothMainWidget::DeviceInfo *BluetoothMainWidget::newDeviceInfoByMap(const Q
 
     info->path = map["Path"].toString();
 
-    m_pathToDeviceInfoMap[info->path] = info;
+    m_pathToDeviceInfoMap[map["AdapterPath"].toString() + info->path] = info;
 
     updateDeviceInfoByMap(info, map);
 
@@ -104,7 +110,6 @@ DeviceItemWidget *BluetoothMainWidget::newDeviceListItem(DeviceInfo *device_info
 {
     DeviceItemWidget *item = new DeviceItemWidget(device_info);
     item->setFixedSize(DCC::ModuleContentWidth, DUI::EXPAND_HEADER_HEIGHT);
-    qDebug() << item->size();
 
     return item;
 }
@@ -189,13 +194,13 @@ void BluetoothMainWidget::intiBackend()
         const QVariantMap &map = getMapByJson(str);
         AdapterInfo *info = m_pathToAdapterInfoMap.value(map["AdapterPath"].toString(), nullptr);
         if(info){
-            DeviceInfo *device_info = m_pathToDeviceInfoMap.value(map["Path"].toString(), nullptr);
+            DeviceInfo *device_info = m_pathToDeviceInfoMap.value(info->path + map["Path"].toString(), nullptr);
             if(device_info){
                 if (device_info->trusted)
                     info->widget->removeTrustedDevice(device_info);
                 else
                     info->widget->removeDevice(device_info, true);
-                m_pathToDeviceInfoMap.remove(device_info->path);
+                m_pathToDeviceInfoMap.remove(info->path + device_info->path);
             }
         }
     });
@@ -210,7 +215,7 @@ void BluetoothMainWidget::intiBackend()
 
     connect(m_bluetoothDbus, &DBusBluetooth::DevicePropertiesChanged, this, [this](const QString &str){
         const QVariantMap &map = getMapByJson(str);
-        DeviceInfo *info = m_pathToDeviceInfoMap.value(map["Path"].toString(), nullptr);
+        DeviceInfo *info = m_pathToDeviceInfoMap.value(map["AdapterPath"].toString() + map["Path"].toString(), nullptr);
         updateDeviceInfoByMap(info, map);
         if(info)
             info->item->updateUI();

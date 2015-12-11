@@ -60,6 +60,12 @@ void BluetoothObject::removeAdapter(const AdapterInfo *info)
     if(!info)
         return;
 
+    for(DeviceInfo *device_info : m_pathToDeviceInfoMap.values()) {
+        if(device_info->adapterInfo == info) {
+            m_pathToDeviceInfoMap.remove(info->path + device_info->path);
+        }
+    }
+
     m_pathToAdapterInfoMap.remove(info->path);
     info->widget->deleteLater();
 
@@ -100,7 +106,7 @@ BluetoothObject::DeviceInfo *BluetoothObject::newDeviceInfoByMap(const QVariantM
 
     info->path = map["Path"].toString();
 
-    m_pathToDeviceInfoMap[info->path] = info;
+    m_pathToDeviceInfoMap[map["AdapterPath"].toString() + info->path] = info;
 
     updateDeviceInfoByMap(info, map);
 
@@ -212,10 +218,10 @@ void BluetoothObject::initBackend()
         const QVariantMap &map = getMapByJson(str);
         AdapterInfo *info = m_pathToAdapterInfoMap.value(map["AdapterPath"].toString(), nullptr);
         if(info){
-            DeviceInfo *device_info = m_pathToDeviceInfoMap.value(map["Path"].toString(), nullptr);
+            DeviceInfo *device_info = m_pathToDeviceInfoMap.value(info->path + map["Path"].toString(), nullptr);
             if(device_info){
                 info->widget->removeDevice(device_info, true);
-                m_pathToDeviceInfoMap.remove(device_info->path);
+                m_pathToDeviceInfoMap.remove(info->path + device_info->path);
             }
         }
     });
@@ -232,7 +238,7 @@ void BluetoothObject::initBackend()
 
     connect(m_bluetoothDbus, &DBusBluetooth::DevicePropertiesChanged, this, [this](const QString &str){
         const QVariantMap &map = getMapByJson(str);
-        DeviceInfo *info = m_pathToDeviceInfoMap.value(map["Path"].toString(), nullptr);
+        DeviceInfo *info = m_pathToDeviceInfoMap.value(map["AdapterPath"].toString() + map["Path"].toString(), nullptr);
         updateDeviceInfoByMap(info, map);
         if(info)
             info->item->updateUI();
