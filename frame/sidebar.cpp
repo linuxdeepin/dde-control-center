@@ -14,6 +14,7 @@ SideBar::SideBar(QWidget *parent)
     m_sidebarView = new SidebarView;
     m_sidebarView->setModel(new SidebarModel);
     m_sidebarView->setItemDelegate(new SidebarDelegate);
+    m_sidebarView->installEventFilter(this);
 
     m_sidebarLayout = new QVBoxLayout;
     m_sidebarLayout->addWidget(m_sidebarView, 1);
@@ -32,4 +33,12 @@ void SideBar::switchToModule(const ModuleMetaData &meta)
 {
     SidebarModel *model = qobject_cast<SidebarModel *>(m_sidebarView->model());
     model->setSelectedPluginId(meta.id);
+}
+
+bool SideBar::eventFilter(QObject *o, QEvent *e)
+{
+    if (o == m_sidebarView && e->type() == QEvent::Resize)
+        m_sidebarView->setMaximumSize(m_sidebarView->sizeHint());
+
+    return false;
 }

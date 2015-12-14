@@ -74,9 +74,6 @@ void SidebarView::resizeEvent(QResizeEvent *e)
 
     const QSize itemSize = model()->data(model()->index(0, 0), Qt::SizeHintRole).toSize();
     const int nums = e->size().height() / itemSize.height();
-
-    qDebug() << nums << e->size() << itemSize;
-
     setMaximumHeight(nums * itemSize.height());
 }
 
@@ -89,5 +86,10 @@ void SidebarView::setModel(QAbstractItemModel *model)
         return;
 
     connect(sidebar, &SidebarModel::switchToModel, this, &SidebarView::moduleSelected);
+}
+
+QSize SidebarView::sizeHint() const
+{
+    return QSize(24, 48 * model()->rowCount());
 }
 

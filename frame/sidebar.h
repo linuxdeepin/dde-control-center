@@ -21,6 +21,9 @@ public:
 signals:
     void moduleSelected(ModuleMetaData meta);
 
+protected:
+    bool eventFilter(QObject *o, QEvent *e);
+
 private:
     QVBoxLayout *m_sidebarLayout;
     SidebarView *m_sidebarView;
