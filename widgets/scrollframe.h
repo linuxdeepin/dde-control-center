@@ -24,6 +24,8 @@ public:
     void popCurrentWidget();
     void popAllWidget();
 
+    DStackWidget *stackWidget() const;
+
 private slots:
     void onCurrentWidgetSizeChanged(const QSize &size);
 

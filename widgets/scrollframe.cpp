@@ -37,6 +37,11 @@ void ScrollFrame::popAllWidget()
         m_stackWidget->popWidget(m_stackWidget->getWidgetByIndex(1), true, m_stackWidget->depth() - 1);
 }
 
+DStackWidget *ScrollFrame::stackWidget() const
+{
+    return m_stackWidget;
+}
+
 void ScrollFrame::onCurrentWidgetSizeChanged(const QSize &size)
 {
     setStackWidgetHeight(size.height());

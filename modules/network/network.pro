@@ -2,7 +2,7 @@ include(../../common.pri)
 
 TEMPLATE        = lib
 CONFIG         += plugin  c++11 link_pkgconfig
-QT             += widgets svg
+QT             += widgets svg dbus
 INCLUDEPATH    += ../../frame/ ../../widgets
 PKGCONFIG += dui
 LIBS += -L../../widgets -lwidgets
@@ -33,7 +33,8 @@ HEADERS         += network.h \
     editlineswitchbutton.h \
     systemproxyline.h \
     networkinfo.h \
-    editconnectionpage.h
+    editconnectionpage.h \
+    dbus/dbusdccnetworkservice.h
 SOURCES         += network.cpp \
     networkmainwidget.cpp \
     dbus/dbusnetwork.cpp \
@@ -59,7 +60,8 @@ SOURCES         += network.cpp \
     editlineswitchbutton.cpp \
     systemproxyline.cpp \
     networkinfo.cpp \
-    editconnectionpage.cpp
+    editconnectionpage.cpp \
+    dbus/dbusdccnetworkservice.cpp
 TARGET          = $$qtLibraryTarget(network)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

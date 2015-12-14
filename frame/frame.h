@@ -22,6 +22,7 @@ class Frame: public QFrame
     Q_OBJECT
     Q_PROPERTY(bool hideInLeft READ isHideInLeft WRITE setHideInLeft NOTIFY hideInLeftChanged)
     Q_PROPERTY(bool autoHide READ autoHide WRITE setAutoHide NOTIFY autoHideChanged)
+    Q_PROPERTY(bool visible READ isVisible NOTIFY visibleChanged)
 
 public:
     Frame(QWidget *parent = 0);
@@ -45,11 +46,16 @@ signals:
     void hideInLeftChanged(bool hideInLeft);
     void xChanged();
     void autoHideChanged(bool autoHide);
+    void visibleChanged();
 
 private slots:
     void globalMouseReleaseEvent(int button, int x, int y);
     void hideAndShowAnotherSide();
     void hideAndShowAnotherSideFinish();
+
+protected:
+    void hideEvent(QHideEvent *e);
+    void showEvent(QShowEvent *e);
 
 private:
     HomeScreen *m_homeScreen;

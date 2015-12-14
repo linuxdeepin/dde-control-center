@@ -25,6 +25,7 @@
 #include "addconnectpage.h"
 #include "systemproxywidget.h"
 #include "networkinfo.h"
+#include "dbus/dbusdccnetworkservice.h"
 
 namespace DCCNetwork {
     NetworkMainWidget *parentNetworkMainWidget(const QObject *obj)
@@ -49,6 +50,12 @@ NetworkMainWidget::NetworkMainWidget(QWidget *parent) :
 
     initUI();
     updateUI();
+
+    DBusDCCNetworkService *service = new DBusDCCNetworkService(this);
+
+    Q_UNUSED(service);
+
+    QDBusConnection::sessionBus().registerObject("/com/deepin/dde/ControlCenter/Network", this);
 
     connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &NetworkMainWidget::updateUI);
 }
