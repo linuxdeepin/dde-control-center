@@ -211,6 +211,16 @@ void WirelessApplet::onDeviceEnabledChanged(const QString &path, bool enable)
 
 void WirelessApplet::onNeedSecrets(const QString &in0, const QString &in1, const QString &in2, bool in3)
 {
+    QDBusInterface interface("com.deepin.dde.ControlCenter",
+                             "/com/deepin/dde/ControlCenter/Network",
+                             "com.deepin.dde.ControlCenter.Network");
+
+    if(interface.isValid() && interface.call("active").arguments().first().toBool()) {
+        qDebug() << "WirelessApplet:" << "dde-control-center network module is active.";
+
+        return;
+    }
+
     Q_UNUSED(in2)
     Q_UNUSED(in3)
 
