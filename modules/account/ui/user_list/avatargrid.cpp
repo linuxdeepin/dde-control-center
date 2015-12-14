@@ -122,7 +122,7 @@ void AvatarGrid::onIconFileChanged()
         QList<QAbstractButton *> buttonList = m_buttonGroup->buttons();
         foreach (QAbstractButton * button, buttonList) {
             UserAvatar * avatar = qobject_cast<UserAvatar *>(button);
-            if (avatar)
+            if (avatar && m_gridType == NormalGrid)
                 avatar->setDeleteable(m_user->IsIconDeletable(avatar->iconPath()));
         }
     }
