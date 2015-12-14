@@ -32,6 +32,9 @@ BluetoothMainWidget::BluetoothMainWidget(QWidget *parent) :
 
 void BluetoothMainWidget::addAdapter(AdapterInfo *info)
 {
+    if (!info)
+        return;
+
     info->widget = new AdapterWidget(info);
     m_adapterList->addWidget(info->widget);
 }
@@ -64,6 +67,9 @@ void BluetoothMainWidget::resizeEvent(QResizeEvent *e)
 
 BluetoothMainWidget::AdapterInfo* BluetoothMainWidget::newAdapterInfoByMap(const QVariantMap &map)
 {
+    if (m_pathToAdapterInfoMap.contains(map["Path"].toString()))
+        return nullptr;
+
     AdapterInfo *info = new AdapterInfo;
 
     info->path = map["Path"].toString();
