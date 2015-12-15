@@ -58,6 +58,7 @@ signals:
 
 protected:
     void showEvent(QShowEvent *e) Q_DECL_OVERRIDE;
+    void changeEvent(QEvent *e) Q_DECL_OVERRIDE;
 
 private:
     void setCacheValue(const QJsonValue &value);

@@ -194,6 +194,13 @@ void NetworkBaseEditLine::showEvent(QShowEvent *e)
     emit showed();
 }
 
+void NetworkBaseEditLine::changeEvent(QEvent *e)
+{
+    if(!isVisible() && e->type() == QEvent::ParentChange) {
+        updateVisible();
+    }
+}
+
 void NetworkBaseEditLine::setCacheValue(const QJsonValue &value)
 {
     if(m_cacheValue == value)
@@ -206,7 +213,8 @@ void NetworkBaseEditLine::setCacheValue(const QJsonValue &value)
 
 void NetworkBaseEditLine::updateVisible()
 {
-    setVisible(m_dbus->availableSections().indexOf(section()) != -1
+    if(parentWidget())
+        setVisible(m_dbus->availableSections().indexOf(section()) != -1
             &&  m_dbus->availableKeys()[section()].indexOf(key()) != -1);
 }
 
