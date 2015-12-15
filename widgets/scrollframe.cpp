@@ -22,17 +22,26 @@ QBoxLayout *ScrollFrame::mainLayout() const
 
 void ScrollFrame::pushWidget(QWidget *widget)
 {
+    if(m_stackWidget->busy())
+        return;
+
     m_stackWidget->pushWidget(widget);
 }
 
 void ScrollFrame::popCurrentWidget()
 {
+    if(m_stackWidget->busy())
+        return;
+
     if(m_stackWidget->depth() > 1)
         m_stackWidget->popWidget();
 }
 
 void ScrollFrame::popAllWidget()
 {
+    if(m_stackWidget->busy())
+        return;
+
     if(m_stackWidget->depth() > 1)
         m_stackWidget->popWidget(m_stackWidget->getWidgetByIndex(1), true, m_stackWidget->depth() - 1);
 }

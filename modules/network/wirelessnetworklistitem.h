@@ -1,6 +1,8 @@
 #ifndef WIRELESSNETWORKLISTITEM_H
 #define WIRELESSNETWORKLISTITEM_H
 
+#include <QPointer>
+
 #include "abstractdevicewidget.h"
 
 class WirelessNetworkListItem : public AbstractDeviceWidget
@@ -21,7 +23,7 @@ private:
     void init();
 
     bool m_inputPasswording = false;
-    NetworkGenericListItem *m_activeItem = nullptr;
+    QPointer<NetworkGenericListItem> m_activeItem;
     QMap<QString, NetworkGenericListItem*> m_mapApPathToItem;
     QMap<QString, NetworkGenericListItem*> m_mapApSsidToItem;
     QMap<QString, NetworkGenericListItem*> m_mapApUuidToItem;

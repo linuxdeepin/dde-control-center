@@ -1,3 +1,5 @@
+#include <QPointer>
+
 #include "scrollframe.h"
 
 #include "wirelessnetworklistitem.h"
@@ -18,7 +20,9 @@ WirelessNetworkListItem::WirelessNetworkListItem(DBusNetwork *dbus, QWidget *par
 
 void WirelessNetworkListItem::onItemClicked()
 {
-    NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
+    QPointer<NetworkGenericListItem> item = qobject_cast<NetworkGenericListItem*>(sender());
+
+    /// 此处必须使用智能指针，因为下面的函数都是使用异步方式调用的，有可能在函数执行时item已经被delete。
 
     if(!item)
         return;
@@ -51,9 +55,9 @@ void WirelessNetworkListItem::onItemClicked()
                                                      QDBusObjectPath(item->path()),
                                                      QDBusObjectPath(path())), {
                       const QString &connect_path = qvariant_cast<QDBusObjectPath>(args[0]).path();
-                      if(!connect_path.isEmpty())
+                      if(!connect_path.isEmpty() && item)
                           item->setConnectPath(connect_path);
-                      qDebug() << "ActivateAccessPoint:" << connect_path;
+                      qDebug() << "ActivateAccessPoint:" << connect_path << "<<<item is null:" << item.isNull();
                   }, this, item)
     }
 }
@@ -70,6 +74,9 @@ void WirelessNetworkListItem::onConnectsChanged()
             NetworkGenericListItem *item = m_mapApSsidToItem.value(json_object["Ssid"].toString(), nullptr);
 
             if(item) {
+                m_mapApUuidToItem.remove(item->uuid());
+                /// 注意：此处必须要先移除旧的item uuid。
+
                 item->setUuid(json_object["Uuid"].toString());
                 item->setConnectPath(json_object["Path"].toString());
                 m_mapApUuidToItem[item->uuid()] = item;
@@ -186,7 +193,10 @@ NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMa
             }
         });
     } else if(item->strength() < map["Strength"].toInt() || map["Path"] == activeAp()) {
+        m_mapApPathToItem.remove(item->path());
+
         item->updateInfoByMap(map);
+        /// 注意，此处更新会更新item的path，所以要记得先删除path map中旧的path项
     }
 
     m_mapApPathToItem[item->path()] = item;
@@ -246,11 +256,17 @@ void WirelessNetworkListItem::init()
 
             NetworkGenericListItem *item = m_mapApPathToItem.value(ap_path, nullptr);
 
+            const QString item_ssid = json_doc.object()["Ssid"].toString();
+
             if(item) {
                 int index = listWidget()->indexOf(item);
 
+                m_mapApSsidToItem.remove(item_ssid);
                 m_mapApPathToItem.remove(ap_path);
-                m_mapApSsidToItem.remove(item->ssid());
+                m_mapApUuidToItem.remove(item->uuid());
+
+                qDebug() << "remove item:" << ap_path << item_ssid << ",ListWidget.indexOf=" << index;
+                qDebug() << "remove target:" << item;
 
                 if(index < 0)
                     item->deleteLater();
@@ -258,7 +274,7 @@ void WirelessNetworkListItem::init()
                     listWidget()->removeWidget(index);
             }
 
-            qDebug() << "remove access point:" << ap_path << json_doc.object().toVariantMap()["Ssid"];
+            qDebug() << "remove access point:" << ap_path << item_ssid;
         }
     });
 
@@ -267,8 +283,15 @@ void WirelessNetworkListItem::init()
             QJsonDocument json_doc = QJsonDocument::fromJson(info.toUtf8());
             const QVariantMap &map = json_doc.object().toVariantMap();
             NetworkGenericListItem *item = m_mapApPathToItem.value(map["Path"].toString(), nullptr);
-            if(item)
+
+            if(item) {
+                m_mapApSsidToItem.remove(item->ssid());
+
                 item->updateInfoByMap(map);
+                /// 注意，此处调用可能会更新ssid的值，所以也要更新map ssid
+
+                m_mapApSsidToItem[item->ssid()] = item;
+            }
         }
     });
 
