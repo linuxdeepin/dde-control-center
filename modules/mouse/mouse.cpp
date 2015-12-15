@@ -287,10 +287,14 @@ void Mouse::setWidgetsValue() {
     }
 
     m_mousePointSpeed = m_mouseInterface->motionAcceleration();
+    m_mousePointSpeedSlider->blockSignals(true);
     m_mousePointSpeedSlider->setRange(200, 3000);	// 3 ~ 0.2
     m_mousePointSpeedSlider->setValue((3.2-m_mousePointSpeed) * 1000);
+    m_mousePointSpeedSlider->blockSignals(false);
 
+    m_mouseDoubleClickIntervalSlider->blockSignals(true);
     m_mouseDoubleClickIntervalSlider->setRange(0, 900);	// 100 ~ 1000
+    m_mouseDoubleClickIntervalSlider->blockSignals(false);
     m_mouseDoubleClickIntervalSlider->setValue(1000 - m_mouseInterface->doubleClick());
 
     m_forbiddenTouchpadWhenMouseSwitchButton->setChecked(m_mouseInterface->disableTpad());
@@ -304,10 +308,14 @@ void Mouse::setWidgetsValue() {
     m_touchpadPrimaryButtonSetting->setCurrentIndex((int)m_touchpadInterface->leftHanded());
 
     m_touchpadPointSpeed = m_touchpadInterface->motionAcceleration();
+    m_touchpadPointSpeedSlider->blockSignals(true);
     m_touchpadPointSpeedSlider->setRange(200, 3000);	// 3 ~ 0.2
     m_touchpadPointSpeedSlider->setValue((3.2-m_touchpadPointSpeed) * 1000);
+    m_touchpadPointSpeedSlider->blockSignals(false);
 
+    m_touchpadDoubleClickSpeed->blockSignals(true);
     m_touchpadDoubleClickSpeed->setRange(0, 900);	// not sure
+    m_touchpadDoubleClickSpeed->blockSignals(false);
     m_touchpadDoubleClickSpeed->setValue(1000 - m_touchpadInterface->doubleClick());
 
     // NOTE: the minimum value should be zore, otherwise setValue

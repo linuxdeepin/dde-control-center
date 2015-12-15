@@ -151,8 +151,6 @@ void UpdateWidget::loadAppList()
         } else {
             // TODO/FIXME: not handled job
             qWarning() << "not handled job: " << dbusJob->packageId() << dbusJob->status() << dbusJob->type();
-
-//            m_dbusJobManagerInter->CleanJob(dbusJob->id());
         }
     }
 
