@@ -53,11 +53,12 @@ EditLineComboBox::EditLineComboBox(const QString &section, const QString &key,
                 m_comboBox->setCurrentIndex(index);
         };
 
-        m_comboBox->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
 
         connect(this, &NetworkBaseEditLine::widgetShown, this, updateComboData);
         connect(this, &NetworkBaseEditLine::cacheValueChanged, this, updateComboData);
     }
+
+    m_comboBox->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
 
     setRightWidget(m_comboBox);
 }
