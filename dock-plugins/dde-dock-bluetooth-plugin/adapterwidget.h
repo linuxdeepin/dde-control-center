@@ -9,13 +9,12 @@
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/darrowlineexpand.h>
 #include <libdui/dlabel.h>
-#include <libdui/dboxwidget.h>
 
 #include "bluetoothobject.h"
 
 DUI_USE_NAMESPACE
 
-class AdapterWidget : public DVBoxWidget
+class AdapterWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -26,6 +25,9 @@ public:
     void addDevice(BluetoothObject::DeviceInfo *info);
     void removeDevice(BluetoothObject::DeviceInfo *info, bool isDelete);
     int getHeightHint() const;
+
+signals:
+    void sizeChanged();
 
 public slots:
     void updateUI();

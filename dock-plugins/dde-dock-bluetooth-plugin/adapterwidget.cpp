@@ -12,7 +12,7 @@ DUI_USE_NAMESPACE
 
 AdapterWidget::AdapterWidget(BluetoothObject::AdapterInfo *info,
                              QWidget *parent) :
-    DVBoxWidget(parent),
+    QWidget(parent),
     m_info(info)
 {
     initUI();
@@ -29,6 +29,8 @@ void AdapterWidget::addDevice(BluetoothObject::DeviceInfo *info)
     info->adapterInfo = m_info;
 
     m_deviceItemList->addWidget(info->item);
+    adjustSize();
+    emit sizeChanged();
 }
 
 void AdapterWidget::removeDevice(BluetoothObject::DeviceInfo *info, bool isDelete)
@@ -38,6 +40,8 @@ void AdapterWidget::removeDevice(BluetoothObject::DeviceInfo *info, bool isDelet
     if(index >= 0){
         info->adapterInfo = nullptr;
         m_deviceItemList->removeWidget(index, isDelete);
+        adjustSize();
+        emit sizeChanged();
     }
 }
 
@@ -85,8 +89,12 @@ void AdapterWidget::initUI()
     m_listWidgetSeparator->hide();
     m_info->widget = this;
 
-    addWidget(m_headerLine);
-    addWidget(new DSeparatorHorizontal);
-    addWidget(m_deviceItemList);
-    addWidget(m_listWidgetSeparator);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSpacing(0);
+    mainLayout->addWidget(m_headerLine);
+    mainLayout->addWidget(new DSeparatorHorizontal);
+    mainLayout->addWidget(m_deviceItemList);
+    mainLayout->addWidget(m_listWidgetSeparator);
+    adjustSize();
 }
