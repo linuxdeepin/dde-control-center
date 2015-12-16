@@ -92,9 +92,9 @@ void BluetoothPlugin::addItem(const QString &path)
         widget->load(icon_path);
         widget->resize(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_EFFICIENT_ICON_SIZE);
         m_mapIdToButton[path] = widget;
+        m_proxy->itemAddedEvent(path);
     }
 
-    m_proxy->itemAddedEvent(path);
 }
 
 void BluetoothPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
