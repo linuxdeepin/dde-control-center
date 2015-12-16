@@ -27,7 +27,7 @@ void WirelessNetworkListItem::onItemClicked()
     if(!item)
         return;
 
-    if(item->checked()) {
+    if(item->checked() || item->loading()) {
         item->onArrowClicked();
         return;
     }

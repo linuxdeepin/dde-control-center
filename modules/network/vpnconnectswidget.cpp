@@ -76,7 +76,7 @@ void VPNConnectsWidget::onItemClicked()
 
     if(!item)
         return;
-    if(item->checked())
+    if(item->checked() || item->loading())
         item->onArrowClicked();
     else
         m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath(path()));
