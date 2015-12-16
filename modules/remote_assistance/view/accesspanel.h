@@ -25,6 +25,7 @@ public slots:
     void focus();
 
 private slots:
+    void onStopped();
     void onConnect(QString);
     void onConnecting();
     void onConnected();

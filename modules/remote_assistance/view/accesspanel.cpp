@@ -18,6 +18,7 @@ AccessPanel::AccessPanel(IAccessController* controller, QWidget* p)
     setObjectName("AccessPanel");
     connect(controller, SIGNAL(noNetwork()), this, SLOT(onNoNetwork()));
     connect(controller, SIGNAL(connected()), this, SLOT(onConnected()));
+    connect(controller, SIGNAL(stopped()), this, SLOT(onStopped()));
 
     if (controller->isAlreadyConnected()) {
         onConnected();
@@ -46,6 +47,12 @@ void AccessPanel::emitChangePanel()
 {
     dtor();
     emit changePanel(ViewPanel::Main);
+}
+
+void AccessPanel::onStopped()
+{
+    qDebug() << "onStopped";
+    emitChangePanel();
 }
 
 void AccessPanel::onConnect(QString token)

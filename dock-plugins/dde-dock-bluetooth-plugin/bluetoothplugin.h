@@ -19,7 +19,7 @@ public:
     explicit BluetoothPlugin(QObject *parent = 0);
     ~BluetoothPlugin();
 
-    QString getPluginName();
+    QString getPluginName() Q_DECL_OVERRIDE;
 
     void init(DockPluginProxyInterface *proxy) Q_DECL_OVERRIDE;
     void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
