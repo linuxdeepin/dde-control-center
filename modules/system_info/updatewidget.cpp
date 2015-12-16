@@ -156,8 +156,7 @@ void UpdateWidget::loadAppList()
         }
     }
 
-    // TODO: lang
-    QList<AppUpdateInfo> updateInfoList = m_dbusUpdateInter->ApplicationUpdateInfos("zh_CN").value();
+    QList<AppUpdateInfo> updateInfoList = m_dbusUpdateInter->ApplicationUpdateInfos(QLocale().name()).value();
     ApplictionItemWidget *appItemWidget;
 
     for (const AppUpdateInfo &info : updateInfoList)

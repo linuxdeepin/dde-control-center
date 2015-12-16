@@ -10,7 +10,7 @@
 #include <libdui/dseparatorhorizontal.h>
 
 MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
-    : QWidget(parent)
+        : QWidget(parent)
 {
     m_dbusLastoreInter = new DBusLastoreUpdater("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
     m_updateSwitchBtn = new DSwitchButton;
@@ -105,8 +105,7 @@ void MirrorsControlWidget::resizeEvent(QResizeEvent *e)
 
 void MirrorsControlWidget::loadMirrorList()
 {
-    // TODO: lang
-    MirrorInfoList mirrorList = m_dbusLastoreInter->ListMirrorSources("zh_CN");
+    MirrorInfoList mirrorList = m_dbusLastoreInter->ListMirrorSources(QLocale().name());
     MirrorItemWidget *mirrorItem;
 
     const QString currentMirror = m_dbusLastoreInter->mirrorSource();
