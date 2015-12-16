@@ -322,62 +322,84 @@ void Mouse::setWidgetsValue() {
 
 void Mouse::setMousePrimaryButton(int index)
 {
-    if (index == 0){
-        m_mouseInterface->setLeftHanded(false);
-    } else {
-        m_mouseInterface->setLeftHanded(true);
+    if(m_mouseInterface->leftHanded() != index){
+        if (index == 0){
+            m_mouseInterface->setLeftHanded(false);
+        } else {
+            m_mouseInterface->setLeftHanded(true);
+        }
     }
 }
 
 void Mouse::setMousePointSpeed(int speed)
 {
     // the value should be scaled
-    m_mouseInterface->setMotionAcceleration((3200 - speed)/1000.0);
+    if(m_mouseInterface->motionAcceleration()*1000 + speed != 3200){
+        m_mouseInterface->setMotionAcceleration((3200 - speed)/1000.0);
+    }
 }
 
 void Mouse::setMouseDoubleClickInterval(int interval)
 {
-    m_mouseInterface->setDoubleClick(1000 - interval);
+    if(m_mouseInterface->doubleClick() + interval != 1000){
+        m_mouseInterface->setDoubleClick(1000 - interval);
+    }
 }
 
 void Mouse::disableTouchpadWhenMousePluggedIn(bool flag)
 {
-    m_mouseInterface->setDisableTpad(flag);
+    if(m_mouseInterface->disableTpad() != flag){
+        m_mouseInterface->setDisableTpad(flag);
+    }
 }
 
 void Mouse::enableTouchpad(bool flag)
 {
-    m_touchpadInterface->setTPadEnable(flag);
+    if(m_touchpadInterface->tPadEnable() != flag){
+        m_touchpadInterface->setTPadEnable(flag);
+    }
 }
 
 void Mouse::setTouchpadPointSpeed(int speed)
 {
-    m_touchpadInterface->setMotionAcceleration((3200 - speed)/1000.0);
+    if(m_touchpadInterface->motionAcceleration()*1000 + speed != 3200){
+        m_touchpadInterface->setMotionAcceleration((3200 - speed)/1000.0);
+    }
 }
 
 void Mouse::setTouchpadDoubleClickInterval(int interval)
 {
-    m_touchpadInterface->setDoubleClick(1000 - interval);
+    if(m_touchpadInterface->doubleClick() + interval != 1000){
+        m_touchpadInterface->setDoubleClick(1000 - interval);
+    }
 }
 
 void Mouse::enableTouchpadNatureScroll(bool flag)
 {
-    m_touchpadInterface->setNaturalScroll(flag);
+    if(m_touchpadInterface->naturalScroll() != flag){
+        m_touchpadInterface->setNaturalScroll(flag);
+    }
 }
 
 void Mouse::enableTouchpadTapToClick(bool flag)
 {
-    m_touchpadInterface->setTapClick(flag);
+    if(m_touchpadInterface->tapClick() != flag){
+        m_touchpadInterface->setTapClick(flag);
+    }
 }
 
 void Mouse::enableTouchpadTwoFingerScroll(bool flag)
 {
-    m_touchpadInterface->setVertScroll(flag);
+    if(m_touchpadInterface->vertScroll() != flag){
+        m_touchpadInterface->setVertScroll(flag);
+    }
 }
 
 void Mouse::enableTouchpadEdgeScroll(bool flag)
 {
-    m_touchpadInterface->setEdgeScroll(flag);
+    if(m_touchpadInterface->edgeScroll() != flag){
+        m_touchpadInterface->setEdgeScroll(flag);
+    }
 }
 
 void Mouse::onTouchPadExistChanged()
