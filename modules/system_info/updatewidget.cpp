@@ -294,9 +294,11 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
         m_updateCountTips->setText(QString(tr("Some patches and %1 software need to be updated")).arg(apps));
 
     // hide last separator
-    ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsList->getWidget(m_appsList->count() - 1));
-    if (item)
-        item->hideSeparator();
+    if(m_appsList->count() > 0) {
+        ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsList->getWidget(m_appsList->count() - 1));
+        if (item)
+            item->hideSeparator();
+    }
 
     // hide when upgrading
     if (upgrading)
