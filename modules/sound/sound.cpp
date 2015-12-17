@@ -157,6 +157,10 @@ void Sound::initUI()
     m_inputFeedbackSlider->setRange(0, 100);
     m_inputFeedbackSlider->setEnabled(false);
     connect(m_inputFeedbackSlider, &DSlider::valueChanged, [=](int value){
+        // to prevent the slider being over refreshed.
+        if (m_timeDeltaRecorder.elapsed() < 500) return;
+        m_timeDeltaRecorder.restart();
+
         if(value > 80){
             m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle
             +"DUI--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #0a73bb, stop:0.66 #0a73bb, stop:0.76 #ffbf0f, stop:1 #ff8503);}DUI--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 3px;}");

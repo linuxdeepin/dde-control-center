@@ -78,6 +78,7 @@ private:
     QList<DBusAudioSource *> m_sources;
     QDBusInterface *m_dbusMeter = nullptr;
     QTimer m_meterTimer;
+    QTime m_timeDeltaRecorder;
 
     void initBackend();
     void initUI();
