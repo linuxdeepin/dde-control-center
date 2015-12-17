@@ -49,13 +49,18 @@ void AddConnectPage::init()
     connect(this, &AddConnectPage::rightButtonClicked, this, [this, m_button_list] {
         NetworkMainWidget *widget = DCCNetwork::parentNetworkMainWidget(this);
 
+        if(widget->stackWidget()->busy())
+            return;
+
         switch (m_currentIndex) {
         case 0:{
             if(widget) {
                 ASYN_CALL(widget->dbusNetwork()->CreateConnection(ConnectionType::Pppoe,
                                                                   QDBusObjectPath("/")), {
                               const QString &path = qvariant_cast<QDBusObjectPath>(args[0]).path();
-                              widget->pushWidget(new AddDslPage(path));
+
+                              if(!widget->stackWidget()->busy())
+                                  widget->pushWidget(new AddDslPage(path));
                           }, widget)
             }
             break;
@@ -65,7 +70,9 @@ void AddConnectPage::init()
                 ASYN_CALL(widget->dbusNetwork()->CreateConnection(ConnectionType::Vpn,
                                                                   QDBusObjectPath("/")), {
                               const QString &path = qvariant_cast<QDBusObjectPath>(args[0]).path();
-                              widget->pushWidget(new AddVpnPage(path));
+
+                              if(!widget->stackWidget()->busy())
+                                  widget->pushWidget(new AddVpnPage(path));
                           }, widget)
             }
             break;

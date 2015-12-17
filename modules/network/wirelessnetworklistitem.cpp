@@ -33,15 +33,25 @@ void WirelessNetworkListItem::onItemClicked()
     }
 
     if(item->uuid().isEmpty() && item->securedInEap()) {
+        ScrollFrame *scrollWidget = DCCNetwork::parentNetworkMainWidget(this);
+
+        if(scrollWidget->stackWidget()->busy())
+            return;
+
         ASYN_CALL(m_dbusNetwork->CreateConnection(ConnectionType::Wireless, QDBusObjectPath(path())), {
                       const QDBusObjectPath &object = qvariant_cast<QDBusObjectPath>(args[0]);
 
                       qDebug() << "connect to hidden access point:" << object.path();
 
                       DBusConnectionSession *dbus = new DBusConnectionSession(object.path(), this);
-                      ConnectToHiddenApPage *connect_ap = new ConnectToHiddenApPage(dbus);
 
-                      ScrollFrame *scrollWidget = DCCNetwork::parentNetworkMainWidget(this);
+                      if(scrollWidget->stackWidget()->busy()) {
+                          dbus->Close().waitForFinished();
+                          dbus->deleteLater();
+                          return;
+                      }
+
+                      ConnectToHiddenApPage *connect_ap = new ConnectToHiddenApPage(dbus);
 
                       scrollWidget->pushWidget(connect_ap);
 
@@ -49,7 +59,7 @@ void WirelessNetworkListItem::onItemClicked()
                               scrollWidget, &ScrollFrame::popCurrentWidget);
                       connect(connect_ap, &ConnectToHiddenApPage::confirm,
                               scrollWidget, &ScrollFrame::popCurrentWidget);
-                  }, this)
+                  }, this, scrollWidget)
     } else {
         ASYN_CALL(m_dbusNetwork->ActivateAccessPoint(item->uuid(),
                                                      QDBusObjectPath(item->path()),
@@ -179,7 +189,7 @@ NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMa
             if(item->uuid().isEmpty()) {
                 NetworkMainWidget *main_widget = DCCNetwork::parentNetworkMainWidget(this);
 
-                if(main_widget) {
+                if(main_widget && !main_widget->stackWidget()->busy()) {
                     const QDBusObjectPath &path = m_dbusNetwork->CreateConnectionForAccessPoint(QDBusObjectPath(item->path()),
                                                                                                 QDBusObjectPath(this->path()));
 

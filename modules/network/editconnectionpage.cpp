@@ -53,6 +53,10 @@ EditConnectionPage::EditConnectionPage(const QString &dbusPath, QWidget *parent)
                 main_widget->dbusNetwork()->DeleteConnection(m_dbus->uuid());
                 main_widget->popAllWidget();
             } else {
+                for(NetworkBaseEditLine *line : findChildren<NetworkBaseEditLine*>()) {
+                    line->checkKey();
+                }
+
                 QDBusPendingCallWatcher watcher(m_dbus->Save());
 
                 watcher.waitForFinished();

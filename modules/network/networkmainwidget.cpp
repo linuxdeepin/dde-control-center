@@ -176,9 +176,12 @@ void NetworkMainWidget::initUI()
     });
     connect(add_button, &GeneralAddButton::clicked, this, [this] {
         AddConnectPage *add_connect_page = new AddConnectPage;
-        pushWidget(add_connect_page);
+
+        if(!stackWidget()->busy())
+            pushWidget(add_connect_page);
     });
     connect(info_button, &ImageNameButton::clicked, this, [this] {
-        pushWidget(new NetworkInfo(m_dbusNetwork));
+        if(!stackWidget()->busy())
+            pushWidget(new NetworkInfo(m_dbusNetwork));
     });
 }

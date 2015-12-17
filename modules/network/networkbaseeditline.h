@@ -3,7 +3,11 @@
 
 #include <QWidget>
 
+#include <libdui/dlabel.h>
+
 #include "dbus/dbusconnectionsession.h"
+
+DUI_USE_NAMESPACE
 
 class NetworkBaseEditLine : public QWidget
 {
@@ -65,6 +69,7 @@ private:
     void updateVisible();
     bool isValueError() const;
 
+    DLabel *titleLabel;
     DBusConnectionSession *m_dbus;
     QJsonValue m_cacheValue;
     QString m_section;

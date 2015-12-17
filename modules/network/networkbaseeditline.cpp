@@ -1,7 +1,6 @@
 #include <QHBoxLayout>
 #include <QDebug>
 
-#include <libdui/dlabel.h>
 #include <libdui/libdui_global.h>
 #include <libdui/dconstants.h>
 
@@ -9,8 +8,6 @@
 
 #include "networkglobal.h"
 #include "networkbaseeditline.h"
-
-DUI_USE_NAMESPACE
 
 NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &key,
                                          DBusConnectionSession *dbus, const QString &title,
@@ -21,19 +18,19 @@ NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &
     m_key(key)
 {
     QHBoxLayout *layout = new QHBoxLayout;
-    DLabel *label = new DLabel(title);
+    titleLabel = new DLabel(title);
 
-    label->setWordWrap(true);
-    label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    titleLabel->setWordWrap(true);
+    titleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
 
     layout->setContentsMargins(15, 0, 15, 0);
     layout->setSpacing(15);
-    layout->addWidget(label);
+    layout->addWidget(titleLabel);
 
     setLayout(layout);
     updateVisible();
 
-    connect(this, &NetworkBaseEditLine::setTitle, label, &DLabel::setText);
+    connect(this, &NetworkBaseEditLine::setTitle, titleLabel, &DLabel::setText);
     connect(dbus, &DBusConnectionSession::AvailableKeysChanged, this, &NetworkBaseEditLine::updateVisible);
     connect(dbus, &DBusConnectionSession::AvailableSectionsChanged, this, &NetworkBaseEditLine::updateVisible);
     connect(dbus, &DBusConnectionSession::ConnectionDataChanged, this, [this]{
@@ -256,6 +253,8 @@ void NetworkBaseEditLine::checkKey()
 {
     if(isValueError()) {
         emit showErrorAlert();
+
+        qDebug() << "key error: " << section() << key() << cacheValue() << titleLabel->text();
     }
 }
 

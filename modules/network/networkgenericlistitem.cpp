@@ -183,14 +183,12 @@ void NetworkGenericListItem::setDevicePath(QString devicePath)
 
 void NetworkGenericListItem::onArrowClicked()
 {
-    qDebug() << "ArrowClicked clicked";
-
     if(uuid().isEmpty() || devicePath().isEmpty())
         return;
 
     NetworkMainWidget *main_widget = DCCNetwork::parentNetworkMainWidget(this);
 
-    if(main_widget) {
+    if(main_widget && !main_widget->stackWidget()->busy()) {
         const QDBusObjectPath &path = m_dbusNetwork->EditConnection(uuid(), QDBusObjectPath(devicePath()));
 
         if(path.path().isEmpty())
