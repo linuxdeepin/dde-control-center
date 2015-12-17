@@ -287,8 +287,8 @@ void Mouse::setWidgetsValue() {
     }
 
     m_mousePointSpeed = m_mouseInterface->motionAcceleration();
-    m_mousePointSpeedSlider->setValue((3.2-m_mousePointSpeed) * 1000);
     m_mousePointSpeedSlider->setRange(200, 3000);	// 3 ~ 0.2
+    m_mousePointSpeedSlider->setValue((3.2-m_mousePointSpeed) * 1000);
 
     m_mouseDoubleClickIntervalSlider->setRange(0, 900);	// 100 ~ 1000
     m_mouseDoubleClickIntervalSlider->setValue(1000 - m_mouseInterface->doubleClick());
@@ -304,14 +304,17 @@ void Mouse::setWidgetsValue() {
     m_touchpadPrimaryButtonSetting->setCurrentIndex((int)m_touchpadInterface->leftHanded());
 
     m_touchpadPointSpeed = m_touchpadInterface->motionAcceleration();
-    m_touchpadPointSpeedSlider->setValue((3.2-m_touchpadPointSpeed) * 1000);
     m_touchpadPointSpeedSlider->setRange(200, 3000);	// 3 ~ 0.2
+    m_touchpadPointSpeedSlider->setValue((3.2-m_touchpadPointSpeed) * 1000);
 
-    m_touchpadDoubleClickSpeed->setValue(1000 - m_touchpadInterface->doubleClick());
     m_touchpadDoubleClickSpeed->setRange(0, 900);	// not sure
+    m_touchpadDoubleClickSpeed->setValue(1000 - m_touchpadInterface->doubleClick());
 
+    // NOTE: the minimum value should be zore, otherwise setValue
+    // will cause the valueChanged singal to be triggered, which in turn
+    // will cause the value stored in the backend to be changed.
+    m_touchpadDragThreshold->setRange(0, 10);	// not sure
     m_touchpadDragThreshold->setValue(m_touchpadInterface->dragThreshold());
-    m_touchpadDragThreshold->setRange(1, 10);	// not sure
 
     m_touchpadNatureScrollSwitch->setChecked(m_touchpadInterface->naturalScroll());
     m_touchpadTapToClickSwitch->setChecked(m_touchpadInterface->tapClick());
