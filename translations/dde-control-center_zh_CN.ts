@@ -87,22 +87,6 @@
 <context>
     <name>AdapterWidget</name>
     <message>
-        <source>Default Name</source>
-        <translation type="vanished">默认名称</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation type="vanished">应用</translation>
-    </message>
-    <message>
-        <source>Devices nearby</source>
-        <translation type="vanished">附近的设备</translation>
-    </message>
-    <message>
         <source>Other devices</source>
         <translation>其它设备</translation>
     </message>
@@ -117,10 +101,6 @@
 </context>
 <context>
     <name>AddConnectPage</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="obsolete">取消</translation>
-    </message>
     <message>
         <source>Add Network Connection</source>
         <translation>添加网络连接</translation>
@@ -140,10 +120,6 @@
 </context>
 <context>
     <name>AddDslPage</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="obsolete">取消</translation>
-    </message>
     <message>
         <source>Add PPPoE Connection</source>
         <translation>添加拨号连接</translation>
@@ -185,10 +161,6 @@
     <message>
         <source>Basic Information</source>
         <translation>基本信息</translation>
-    </message>
-    <message>
-        <source>Need VPN Plugin</source>
-        <translation type="vanished">需要VPN插件</translation>
     </message>
     <message>
         <source>Add</source>
@@ -342,17 +314,20 @@
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
+</context>
+<context>
+    <name>ComplexItem</name>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
+        <source>Auto-connect</source>
+        <translation>自动连接</translation>
     </message>
     <message>
-        <source>Apply</source>
-        <translation type="vanished">应用</translation>
+        <source>Connect</source>
+        <translation>连接</translation>
     </message>
     <message>
-        <source>Devices nearby</source>
-        <translation type="vanished">附近的设备</translation>
+        <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
+        <translation> 请输入&lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;的密码</translation>
     </message>
 </context>
 <context>
@@ -375,10 +350,6 @@
 </context>
 <context>
     <name>ConnectToHiddenApPage</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="obsolete">取消</translation>
-    </message>
     <message>
         <source>Connect to hidden access point</source>
         <translation>连接到隐藏网络</translation>
@@ -446,17 +417,6 @@
     <message>
         <source>Private Pwd</source>
         <translation>私钥密码</translation>
-    </message>
-</context>
-<context>
-    <name>ConnectToHiddenApWidget</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="obsolete">取消</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="obsolete">密码</translation>
     </message>
 </context>
 <context>
@@ -806,10 +766,6 @@
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
         <translation>%1 \&quot;%2\&quot; 卸载失败，请重试。</translation>
     </message>
-    <message>
-        <source>Failed to uninstall %1 &quot;%2&quot;, please retry.</source>
-        <translation type="vanished">%1 \&quot;%2\&quot; 卸载失败，请重试。</translation>
-    </message>
 </context>
 <context>
     <name>Display</name>
@@ -963,8 +919,8 @@
 <context>
     <name>HomeScreen</name>
     <message>
-        <source>Power</source>
-        <translation>电源</translation>
+        <source>Shutdown</source>
+        <translation>关机</translation>
     </message>
 </context>
 <context>
@@ -1150,10 +1106,6 @@
     <message>
         <source>Change</source>
         <translation>更改</translation>
-    </message>
-    <message>
-        <source>Complete</source>
-        <translation type="vanished">完成</translation>
     </message>
     <message>
         <source>Auto check update</source>
@@ -1393,10 +1345,6 @@
     <message>
         <source>(default)</source>
         <translation>（默认）</translation>
-    </message>
-    <message>
-        <source>default</source>
-        <translation type="vanished">（默认）</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -1664,20 +1612,6 @@
     </message>
 </context>
 <context>
-    <name>PressPowerButtonAction</name>
-    <message>
-        <source>When I press the power button</source>
-        <translation type="vanished">按下电源按钮</translation>
-    </message>
-</context>
-<context>
-    <name>PreviewWindow</name>
-    <message>
-        <source>Apply</source>
-        <translation type="vanished">应用</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Cancel</source>
@@ -1824,10 +1758,6 @@
     <message>
         <source>Shutdown</source>
         <translation>关机</translation>
-    </message>
-    <message>
-        <source>Restore</source>
-        <translation type="vanished">唤醒</translation>
     </message>
     <message>
         <source>Sound Effects</source>
@@ -2014,18 +1944,6 @@
 </context>
 <context>
     <name>UpdateWidget</name>
-    <message>
-        <source>No update avaliable.</source>
-        <translation type="vanished">无可用更新</translation>
-    </message>
-    <message>
-        <source>You have %1 softwares need update</source>
-        <translation type="vanished">当前有%1个软件需要更新</translation>
-    </message>
-    <message>
-        <source>Click to check update.</source>
-        <translation type="vanished">点击以检查更新</translation>
-    </message>
     <message>
         <source>Total download size: %1</source>
         <translation>总下载大小：%1</translation>
@@ -2279,6 +2197,18 @@
     <message>
         <source>Wireless Network</source>
         <translation>无线网络</translation>
+    </message>
+    <message>
+        <source>Auto-connect</source>
+        <translation>自动连接</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <translation>连接</translation>
+    </message>
+    <message>
+        <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
+        <translation>请输入 &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;的密码</translation>
     </message>
 </context>
 <context>

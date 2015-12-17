@@ -89,7 +89,7 @@ HomeScreen::HomeScreen(QWidget *parent) :
                                                   DCC::IconPath + "power-button-press.png");
     bottomButton->setAttribute(Qt::WA_TranslucentBackground);
 
-    QLabel *bottomLabel = new QLabel(tr("Power"));
+    QLabel *bottomLabel = new QLabel(tr("Shutdown"));
     bottomLabel->setObjectName("PowerLabel");
     bottomLabel->setAlignment(Qt::AlignCenter);
 
