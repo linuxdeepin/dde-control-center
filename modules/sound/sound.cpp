@@ -98,7 +98,6 @@ void Sound::initUI()
     // Output volume line
     speakerForm->addWidget(new NormalLabel(tr("Output Volume")), 0, 0, Qt::AlignVCenter);
     m_outputVolumeSlider = new DSlider(Qt::Horizontal);
-    m_outputVolumeSlider->setTracking(false);
     m_outputVolumeSlider->setRange(0, 150);
     m_outputVolumeSlider->setLeftTip("-");
     m_outputVolumeSlider->setRightTip("+");
@@ -434,7 +433,8 @@ void Sound::initUI()
     });
 
     connect(m_outputVolumeSlider, &DSlider::valueChanged, [=](int value){
-        m_sink->SetVolume(value / 100.0, true).waitForFinished();
+        if(qAbs(value - m_sink->volume() * 100) > 1)
+            m_sink->SetVolume(value / 100.0, true).waitForFinished();
     });
     connect(m_sink, &DBusAudioSink::VolumeChanged, [=]{
         if (qAbs(m_sink->volume() * 100 - m_outputVolumeSlider->value()) > 1) {
