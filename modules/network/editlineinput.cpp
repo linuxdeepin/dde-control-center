@@ -48,6 +48,14 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         box->setMaximum(maxValue);
         box->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
         setRightWidget(box);
+
+        connect(this, &EditLineInput::showErrorAlert, box, [box]{
+            box->setAlert(true);
+        });
+        connect(line_edit, &QLineEdit::textChanged, box, [box]{
+            box->setAlert(false);
+        });
+
         break;
     }
     default:
@@ -57,6 +65,9 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
     if(line_edit) {
         auto update_text = [this, line_edit] {
             int current_seek = line_edit->cursorPosition();
+
+            SIGNAL_BLOCKE(line_edit)
+
             line_edit->setText(cacheValue().toString());
             line_edit->setCursorPosition(current_seek);
         };
@@ -64,17 +75,18 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         connect(this, &NetworkBaseEditLine::widgetShown, this, update_text);
         connect(this, &NetworkBaseEditLine::cacheValueChanged, this, update_text);
         connect(line_edit, SIGNAL(textChanged(QString)), this, SLOT(setDBusKey(QString)));
-        connect(this, &EditLineInput::showErrorAlert, line_edit, [line_edit]{
-            line_edit->setProperty("alert", true);
-        });
-        connect(line_edit, &QLineEdit::textChanged, line_edit, [line_edit]{
-            line_edit->setProperty("alert", false);
-        });
         connect(this, &NetworkBaseEditLine::readOnlyChanged, line_edit, &QLineEdit::setReadOnly);
 
         if(type != EditLineInputType::SpinBox) {
             line_edit->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
             setRightWidget(line_edit);
+
+            connect(this, &EditLineInput::showErrorAlert, line_edit, [line_edit]{
+                line_edit->setProperty("alert", true);
+            });
+            connect(line_edit, &QLineEdit::textChanged, line_edit, [line_edit]{
+                line_edit->setProperty("alert", false);
+            });
         }
 
         if(!cacheValue().isNull())

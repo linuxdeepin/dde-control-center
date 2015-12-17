@@ -1,6 +1,7 @@
 #include <libdui/dswitchbutton.h>
 
 #include "editlineswitchbutton.h"
+#include "networkglobal.h"
 
 DUI_USE_NAMESPACE
 
@@ -12,6 +13,8 @@ EditLineSwitchButton::EditLineSwitchButton(const QString &section, const QString
     DSwitchButton *switch_button = new DSwitchButton;
 
     auto updateSwitchButtonCheckeState = [switch_button, this] {
+        SIGNAL_BLOCKE(switch_button);
+
         switch_button->setChecked(cacheValue().toBool());
     };
 

@@ -28,6 +28,10 @@
     timer->start(Time);\
 }
 
+#define SIGNAL_BLOCKE(obj) QSignalBlocker blocker(obj);Q_UNUSED(blocker);
+
+#define SIGNAL_UNBLOCK(obj) blocker.unblock();
+
 //// device type
 namespace DeviceType {
     const QString Unknown = "unknown";

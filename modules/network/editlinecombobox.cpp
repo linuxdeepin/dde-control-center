@@ -3,6 +3,7 @@
 #include <libdui/libdui_global.h>
 
 #include "editlinecombobox.h"
+#include "networkglobal.h"
 
 EditLineComboBox::EditLineComboBox(const QString &section, const QString &key,
                                    DBusConnectionSession *dbus, const QString &title,
@@ -29,6 +30,9 @@ EditLineComboBox::EditLineComboBox(const QString &section, const QString &key,
 
         auto update_text = [this, line_edit] {
             int current_seek = line_edit->cursorPosition();
+
+            SIGNAL_BLOCKE(line_edit)
+
             line_edit->setText(cacheValue().toString());
             line_edit->setCursorPosition(current_seek);
         };
@@ -37,6 +41,12 @@ EditLineComboBox::EditLineComboBox(const QString &section, const QString &key,
         connect(this, &NetworkBaseEditLine::cacheValueChanged, this, update_text);
         connect(line_edit, SIGNAL(textChanged(QString)), this, SLOT(setDBusKey(QString)));
         connect(this, &EditLineComboBox::readOnlyChanged, line_edit, &QLineEdit::setReadOnly);
+        connect(this, &EditLineComboBox::showErrorAlert, this, [this]{
+            m_comboBox->setAlert(true);
+        });
+        connect(line_edit, &QLineEdit::textChanged, this, [this]{
+            m_comboBox->setAlert(false);
+        });
 
         if(cacheValue().isNull())
             update_text();
