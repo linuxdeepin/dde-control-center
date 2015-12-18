@@ -47,8 +47,6 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         auto update_text = [this, line_edit] {
             int current_seek = line_edit->cursorPosition();
 
-            SIGNAL_BLOCKE(line_edit)
-
             line_edit->setText(cacheValue().toString());
             line_edit->setCursorPosition(current_seek);
         };
@@ -56,6 +54,7 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         connect(this, &NetworkBaseEditLine::widgetShown, this, update_text);
         connect(this, &NetworkBaseEditLine::cacheValueChanged, this, update_text);
         connect(this, &NetworkBaseEditLine::readOnlyChanged, line_edit, &QLineEdit::setReadOnly);
+        connect(line_edit, SIGNAL(textEdited(QString)), SLOT(setDBusKey(QString)));
 
         line_edit->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
         setRightWidget(line_edit);
@@ -63,9 +62,8 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         connect(this, &EditLineInput::showErrorAlert, line_edit, [line_edit]{
             line_edit->setProperty("alert", true);
         });
-        connect(line_edit, &QLineEdit::textChanged, line_edit, [line_edit, this](const QString &str) {
+        connect(line_edit, &QLineEdit::textChanged, line_edit, [line_edit, this] {
             line_edit->setProperty("alert", false);
-            setDBusKey(str);
         });
 
         if(!cacheValue().isNull())

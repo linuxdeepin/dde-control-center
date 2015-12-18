@@ -23,7 +23,6 @@ EditLineSpinBox::EditLineSpinBox(const QString &section, const QString &key,
     });
 
     auto update_text = [this, box] {
-        SIGNAL_BLOCKE(box)
         box->setValue(cacheValue().toInt());
     };
 
