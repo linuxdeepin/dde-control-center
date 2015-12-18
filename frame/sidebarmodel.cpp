@@ -112,9 +112,9 @@ void SidebarModel::loadIcons()
     ModuleMetaData power {
         "power",
         "shutdown",
-        "Power"
+        "Shutdown"
     };
-    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Power"));
+    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Shutdown"));
     m_pluginsList.append(power);
 
     // for test

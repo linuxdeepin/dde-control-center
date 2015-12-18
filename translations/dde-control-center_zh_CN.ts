@@ -1186,10 +1186,6 @@
         <translation>回到主页</translation>
     </message>
     <message>
-        <source>Power</source>
-        <translation>电源</translation>
-    </message>
-    <message>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
@@ -1204,6 +1200,10 @@
     <message>
         <source>Remote Assistance</source>
         <translation>远程协助</translation>
+    </message>
+    <message>
+        <source>Shutdown</source>
+        <translation>关机</translation>
     </message>
 </context>
 <context>

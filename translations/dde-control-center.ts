@@ -1501,7 +1501,7 @@
     </message>
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="117"/>
-        <source>Power</source>
+        <source>Shutdown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2472,52 +2472,52 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="242"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="241"/>
         <source>Your system is up to date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="246"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="245"/>
         <source>Click to view available  updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="267"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="266"/>
         <source>Total download size: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="269"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="268"/>
         <source>Unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="278"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="277"/>
         <source>%1 software need to be updated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="287"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>Patches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="290"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="289"/>
         <source>Some patches need to be updated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="294"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="293"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="322"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
         <source>Checking for updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="323"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="322"/>
         <source>Check for updates, please wait</source>
         <translation type="unfinished"></translation>
     </message>
