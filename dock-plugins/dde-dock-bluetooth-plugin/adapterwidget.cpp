@@ -29,7 +29,7 @@ void AdapterWidget::addDevice(BluetoothObject::DeviceInfo *info)
     info->adapterInfo = m_info;
 
     m_deviceItemList->addWidget(info->item);
-    adjustSize();
+    setFixedHeight(getHeightHint());
     emit sizeChanged();
 }
 
@@ -40,7 +40,7 @@ void AdapterWidget::removeDevice(BluetoothObject::DeviceInfo *info, bool isDelet
     if(index >= 0){
         info->adapterInfo = nullptr;
         m_deviceItemList->removeWidget(index, isDelete);
-        adjustSize();
+        setFixedHeight(getHeightHint());
         emit sizeChanged();
     }
 }
@@ -48,10 +48,18 @@ void AdapterWidget::removeDevice(BluetoothObject::DeviceInfo *info, bool isDelet
 int AdapterWidget::getHeightHint() const
 {
     if(m_headerLine && m_deviceItemList) {
-        return m_headerLine->height() + m_deviceItemList->count() * DUI::EXPAND_HEADER_HEIGHT + 2;
+        if(m_info && m_info->powered)
+            return m_headerLine->height() + m_deviceItemList->count() * DUI::EXPAND_HEADER_HEIGHT + 2;
+        else
+            return m_headerLine->height();
     }
 
     return height();
+}
+
+QSize AdapterWidget::sizeHint() const
+{
+    return QSize(width(), getHeightHint());
 }
 
 void AdapterWidget::updateUI()
@@ -76,8 +84,13 @@ void AdapterWidget::initUI()
     m_headerLine->setContent(m_bluetoothSwitch);
 
     connect(m_bluetoothSwitch, &DSwitchButton::checkedChanged, this, [this](bool checked){
-        if(m_info->powered != checked)
+        if(m_info->powered != checked) {
             m_info->bluetoothDbus->SetAdapterPowered(QDBusObjectPath(m_info->path), checked);
+            m_info->powered = checked;
+
+            setFixedHeight(getHeightHint());
+            emit sizeChanged();
+        }
     });
 
     m_deviceItemList = new DListWidget;
@@ -96,5 +109,5 @@ void AdapterWidget::initUI()
     mainLayout->addWidget(new DSeparatorHorizontal);
     mainLayout->addWidget(m_deviceItemList);
     mainLayout->addWidget(m_listWidgetSeparator);
-    adjustSize();
+    setFixedHeight(getHeightHint());
 }

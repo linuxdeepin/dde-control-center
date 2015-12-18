@@ -26,6 +26,8 @@ public:
     void removeDevice(BluetoothObject::DeviceInfo *info, bool isDelete);
     int getHeightHint() const;
 
+    QSize sizeHint() const Q_DECL_OVERRIDE;
+
 signals:
     void sizeChanged();
 
