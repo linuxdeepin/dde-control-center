@@ -4,12 +4,8 @@
 #include <QObject>
 #include <QWidget>
 
-#include <libdui/dinputdialog.h>
-
 #include "dbus/dbusnetwork.h"
 #include "dbus/dbusbluetooth.h"
-
-DUI_USE_NAMESPACE
 
 class ComplexItem : public QWidget
 {
@@ -19,9 +15,6 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event);
-
-private slots:
-    void onNeedSecrets(const QString &in0, const QString &in1, const QString &in2, bool in3);
 
 private:
     void drawBackground();
@@ -40,10 +33,6 @@ private:
     QString m_vpnImg;
     QString m_wirelessImg;
     QString m_bluetoothImg;
-
-    DInputDialog *m_passworkInputDialog = nullptr;
-    QString m_targetDevicePath;
-    QString m_tragetConnectUuid;
 };
 
 #endif // COMPLEXITEM_H

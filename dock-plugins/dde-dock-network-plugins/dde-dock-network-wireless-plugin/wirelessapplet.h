@@ -11,7 +11,6 @@
 #include <libdui/dheaderline.h>
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dlistwidget.h>
-#include <libdui/dinputdialog.h>
 
 DUI_USE_NAMESPACE
 
@@ -40,7 +39,6 @@ private:
     void onApStrengthChanged(int strength);
     void onDevicesChanged();
     void onDeviceEnabledChanged(const QString &path, bool enable);
-    void onNeedSecrets(const QString &in0, const QString &in1, const QString &in2, bool in3);
 
 private:
     QString m_uuid;
@@ -48,9 +46,6 @@ private:
     QLabel *m_titleLabel;
     DListWidget *m_listWidget;
     DSwitchButton *m_deviceSwitcher;
-    DInputDialog *m_passworkInputDialog = nullptr;
-    QString m_targetDevicePath;
-    QString m_tragetConnectUuid;
 };
 
 #endif // WIRELESSAPPLET_H

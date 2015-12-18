@@ -3,13 +3,18 @@
 
 #include <QObject>
 #include <QSettings>
+#include <QPointer>
 
 #include <dde-dock/dockconstants.h>
 #include <dde-dock/dockplugininterface.h>
 #include <dde-dock/dockpluginproxyinterface.h>
 
+#include <libdui/dinputdialog.h>
+
 #include "dbus/dbusnetwork.h"
 #include "wirelessitem.h"
+
+DUI_USE_NAMESPACE
 
 class QLabel;
 class WirelessPlugin : public QObject, public DockPluginInterface
@@ -47,6 +52,9 @@ private:
     QStringList m_uuids;
     Dock::DockMode m_mode = Dock::EfficientMode;
     DBusNetwork * m_dbusNetwork;
+    QPointer<DInputDialog> m_passworkInputDialog;
+    QString m_targetConnectPath;
+    QString m_tragetConnectUuid;
 
     void initSettings();
     void updateUuids();
@@ -54,6 +62,8 @@ private:
     void removeItem(const QString &id);
     void onEnabledChanged(const QString &id);
     void onDevicesChanged();
+
+    Q_SLOT void onNeedSecrets(const QString &path, const QString &uuid, const QString &ssid, bool in3);
 
     QString settingEnabledKey(const QString &id);
 };

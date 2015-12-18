@@ -1,9 +1,10 @@
-
-#include "complexplugin.h"
-
 #include <QLabel>
 #include <QFile>
 #include <QDBusConnection>
+
+#include <libdui/dcheckbox.h>
+
+#include "complexplugin.h"
 #include "complexapplet.h"
 #include "complexitem.h"
 
@@ -14,6 +15,8 @@ ComplexPlugin::ComplexPlugin()
     m_dbusNetwork = new com::deepin::daemon::DBusNetwork(this);
 
     initSettings();
+
+    connect(m_dbusNetwork, &DBusNetwork::NeedSecrets, this, &ComplexPlugin::onNeedSecrets);
 }
 
 ComplexPlugin::~ComplexPlugin()
@@ -202,4 +205,62 @@ void ComplexPlugin::onEnabledChanged()
 QString ComplexPlugin::settingEnabledKey(const QString &id)
 {
     return QString::number(m_mode) + QString("/%1_enabled").arg(id);
+}
+
+void ComplexPlugin::onNeedSecrets(const QString &path, const QString &uuid, const QString &ssid, bool in3)
+{
+    QDBusInterface interface("com.deepin.dde.ControlCenter",
+                             "/com/deepin/dde/ControlCenter/Network",
+                             "com.deepin.dde.ControlCenter.Network");
+
+    if(interface.isValid() && interface.call("active").arguments().first().toBool()) {
+        qDebug() << "WirelessApplet:" << "dde-control-center network module is active.";
+
+        return;
+    }
+
+    Q_UNUSED(in3)
+
+    m_targetConnectPath = path;
+    m_tragetConnectUuid = uuid;
+
+    if(!m_passworkInputDialog) {
+        m_passworkInputDialog = new DInputDialog;
+
+        DCheckBox *check_box = new DCheckBox;
+
+        check_box->setText(tr("Auto-connect"));
+
+        QIcon::setThemeName("Deepin");
+
+        m_passworkInputDialog->setTextEchoMode(DLineEdit::Password);
+        m_passworkInputDialog->setIcon(QIcon::fromTheme("notification-network-wireless-full"));
+        m_passworkInputDialog->addSpacing(10);
+        m_passworkInputDialog->addContent(check_box, Qt::AlignLeft);
+        m_passworkInputDialog->setOkButtonText(tr("Connect"));
+
+        connect(m_passworkInputDialog.data(), &DInputDialog::textValueChanged,
+                this, [this]{m_passworkInputDialog->setTextAlert(false);});
+        connect(m_passworkInputDialog.data(), &DInputDialog::okButtonClicked,
+                this, [this, check_box] {
+            if(!m_passworkInputDialog->textValue().isEmpty()) {
+                m_dbusNetwork->FeedSecret(m_targetConnectPath, m_tragetConnectUuid, m_passworkInputDialog->textValue(),
+                                          check_box->checkState() != Qt::Unchecked);
+            } else {
+                m_passworkInputDialog->setTextAlert(true);
+            }
+        });
+        connect(m_passworkInputDialog.data(), &DInputDialog::cancelButtonClicked,
+                m_passworkInputDialog, &DInputDialog::close);
+        connect(m_passworkInputDialog.data(), &DInputDialog::closed, [this] {
+            m_passworkInputDialog->deleteLater();
+            m_dbusNetwork->CancelSecret(m_targetConnectPath, m_tragetConnectUuid);
+        });
+
+        m_passworkInputDialog->open();
+    }
+
+
+    m_passworkInputDialog->setTitle(tr("Please enter the password of <font color=\"#faca57\">%1</font>").arg(ssid));
+    m_passworkInputDialog->raise();
 }
