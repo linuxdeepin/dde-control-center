@@ -34,7 +34,8 @@ HEADERS         += network.h \
     systemproxyline.h \
     networkinfo.h \
     editconnectionpage.h \
-    dbus/dbusdccnetworkservice.h
+    dbus/dbusdccnetworkservice.h \
+    editlinespinbox.h
 SOURCES         += network.cpp \
     networkmainwidget.cpp \
     dbus/dbusnetwork.cpp \
@@ -61,7 +62,8 @@ SOURCES         += network.cpp \
     systemproxyline.cpp \
     networkinfo.cpp \
     editconnectionpage.cpp \
-    dbus/dbusdccnetworkservice.cpp
+    dbus/dbusdccnetworkservice.cpp \
+    editlinespinbox.cpp
 TARGET          = $$qtLibraryTarget(network)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

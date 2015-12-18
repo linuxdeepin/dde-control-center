@@ -3,7 +3,6 @@
 #include <libdui/dconstants.h>
 #include <libdui/dfilechooseredit.h>
 #include <libdui/dipv4lineedit.h>
-#include <libdui/dspinbox.h>
 
 #include "editlineinput.h"
 
@@ -11,8 +10,7 @@ DUI_USE_NAMESPACE
 
 EditLineInput::EditLineInput(const QString &section, const QString &key,
                              DBusConnectionSession *dbus, const QString &title,
-                             EditLineInputType type, int minValue, int maxValue,
-                             QWidget *parent) :
+                             EditLineInputType type, QWidget *parent) :
     NetworkBaseEditLine(section, key, dbus, title, parent)
 {
     QLineEdit *line_edit = nullptr;
@@ -41,23 +39,6 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         line_edit = new DIpv4LineEdit;
         break;
     }
-    case EditLineInputType::SpinBox:{
-        DSpinBox *box = new DSpinBox;
-        line_edit = box->lineEdit();
-        box->setMinimum(minValue);
-        box->setMaximum(maxValue);
-        box->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
-        setRightWidget(box);
-
-        connect(this, &EditLineInput::showErrorAlert, box, [box]{
-            box->setAlert(true);
-        });
-        connect(line_edit, &QLineEdit::textChanged, box, [box]{
-            box->setAlert(false);
-        });
-
-        break;
-    }
     default:
         break;
     }
@@ -74,20 +55,18 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
 
         connect(this, &NetworkBaseEditLine::widgetShown, this, update_text);
         connect(this, &NetworkBaseEditLine::cacheValueChanged, this, update_text);
-        connect(line_edit, SIGNAL(textChanged(QString)), this, SLOT(setDBusKey(QString)));
         connect(this, &NetworkBaseEditLine::readOnlyChanged, line_edit, &QLineEdit::setReadOnly);
 
-        if(type != EditLineInputType::SpinBox) {
-            line_edit->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
-            setRightWidget(line_edit);
+        line_edit->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
+        setRightWidget(line_edit);
 
-            connect(this, &EditLineInput::showErrorAlert, line_edit, [line_edit]{
-                line_edit->setProperty("alert", true);
-            });
-            connect(line_edit, &QLineEdit::textChanged, line_edit, [line_edit]{
-                line_edit->setProperty("alert", false);
-            });
-        }
+        connect(this, &EditLineInput::showErrorAlert, line_edit, [line_edit]{
+            line_edit->setProperty("alert", true);
+        });
+        connect(line_edit, &QLineEdit::textChanged, line_edit, [line_edit, this](const QString &str) {
+            line_edit->setProperty("alert", false);
+            setDBusKey(str);
+        });
 
         if(!cacheValue().isNull())
             update_text();

@@ -11,14 +11,12 @@ public:
         Normal,
         Password,
         FileChooser,
-        Ipv4Input,
-        SpinBox
+        Ipv4Input
     };
 
     explicit EditLineInput(const QString &section, const QString &key,
                            DBusConnectionSession *dbus, const QString &title,
-                           EditLineInputType type = Normal, int minValue = 0, int maxValue = 0,
-                           QWidget *parent = 0);
+                           EditLineInputType type = Normal, QWidget *parent = 0);
 };
 
 #endif // EDITLINEINPUT_H

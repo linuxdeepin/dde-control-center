@@ -16,6 +16,7 @@
 #include "editlineinput.h"
 #include "editlineswitchbutton.h"
 #include "editlinemissingpackage.h"
+#include "editlinespinbox.h"
 
 EditConnectionPage::EditConnectionPage(const QString &dbusPath, QWidget *parent) :
     ListWidgetContainer("", parent),
@@ -160,8 +161,8 @@ NetworkBaseEditLine *EditConnectionPage::getLineByMap(const QVariantMap &map)
         line = new EditLineMissingPackage(map["Section"].toString(), map["Key"].toString(),
                 m_dbus, map["Name"].toString());
     } else if(widget_type == WidgetType::SpinBox){
-        line = new EditLineInput(map["Section"].toString(), map["Key"].toString(),
-                m_dbus, map["Name"].toString(), EditLineInput::SpinBox,
+        line = new EditLineSpinBox(map["Section"].toString(), map["Key"].toString(),
+                m_dbus, map["Name"].toString(),
                 map["MinValue"].toInt(), map["MaxValue"].toInt());
     }
 
