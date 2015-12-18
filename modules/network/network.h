@@ -25,7 +25,7 @@ signals:
     void dccVisibleChanged(bool visible);
 
 protected:
-    void setProxy(ControlCenterProxyInterface *proxy);
+    void setProxy(ControlCenterProxyInterface *proxy) Q_DECL_OVERRIDE;
 
 private:
     NetworkMainWidget * m_mainWidget;

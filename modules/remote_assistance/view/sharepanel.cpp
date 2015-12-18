@@ -28,7 +28,7 @@ SharePanel::SharePanel(IShareController* controller, QWidget* p)
 
     connect(controller, SIGNAL(sharing()), this, SLOT(onSharing()));
     connect(controller, SIGNAL(generatingAccessToken()), this, SLOT(onGeneratingAccessToken()));
-    connect(controller, SIGNAL(disconnected()), this, SLOT(onDisconnectedImmediately()));
+    connect(controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
     connect(controller, SIGNAL(genAccessTokenFailed()), this, SLOT(onGenAccessTokenFailed()));
     connect(controller, SIGNAL(genAccessTokenSuccessed(QString)), this, SLOT(onGenAccessTokenSuccessed(QString)));
     controller->startGenAccessToken();
@@ -48,6 +48,12 @@ void SharePanel::emitChangePanel()
     emit changePanel(ViewPanel::Main);
 }
 
+void SharePanel::abort()
+{
+    onDisconnected();
+    emitChangePanel();
+}
+
 void SharePanel::onStopped()
 {
     qDebug() << "onStopped";
@@ -59,7 +65,7 @@ void SharePanel::onSharing()
     qDebug() << "sharing";
     auto view = new ConnectedView;
     view->setText(tr("Sharing your desktop, your can continue to share or choose to disconnect"));
-    connect(view, SIGNAL(disconnect()), this, SLOT(onDisconnected()));
+    connect(view, SIGNAL(disconnect()), this, SLOT(onDisconnectedWithAsk()));
     setWidget(view);
 }
 
@@ -67,17 +73,17 @@ void SharePanel::onGeneratingAccessToken()
 {
     qDebug() << "generating access token";
     auto view = new GeneratingView;
-    connect(view, SIGNAL(cancel()), this, SLOT(onDisconnectedImmediately()));
+    connect(view, SIGNAL(cancel()), this, SLOT(onDisconnected()));
     setWidget(view);
 }
 
-void SharePanel::onDisconnected()
+void SharePanel::onDisconnectedWithAsk()
 {
     qDebug() << "disconnect";
     m_controller->disconnect();
 }
 
-void SharePanel::onDisconnectedImmediately()
+void SharePanel::onDisconnected()
 {
     qDebug() << "disconnect immedately";
     m_controller->cancel();
@@ -90,7 +96,7 @@ void SharePanel::onGenAccessTokenFailed()
     auto view = new ErrorView;
     auto button = new DTextButton(tr("Cancel"));
     QObject::connect(button, &DTextButton::clicked, [this]{
-        onDisconnected();
+        onDisconnectedWithAsk();
     });
     view->addButton(button);
     button = new DTextButton(tr("Retry"));
@@ -106,6 +112,6 @@ void SharePanel::onGenAccessTokenSuccessed(QString token)
 {
     qDebug() << "gen access token done";
     auto view = new GeneratedView(token);
-    connect(view, SIGNAL(cancel()), this, SLOT(onDisconnectedImmediately()));
+    connect(view, SIGNAL(cancel()), this, SLOT(onDisconnected()));
     setWidget(view);
 }

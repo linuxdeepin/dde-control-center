@@ -55,6 +55,11 @@ void AccessPanel::onStopped()
     emitChangePanel();
 }
 
+void AccessPanel::abort()
+{
+    onDisconnected();
+}
+
 void AccessPanel::onConnect(QString token)
 {
     m_controller->connect(token);

@@ -19,13 +19,14 @@ public slots:
     void onGeneratingAccessToken();
     void onGenAccessTokenFailed();
     void onGenAccessTokenSuccessed(QString);
+    void onDisconnectedWithAsk();
     void onDisconnected();
-    void onDisconnectedImmediately();
     void onSharing();
     void onStopped();
 
 private slots:
-    void emitChangePanel();
+    void emitChangePanel() Q_DECL_OVERRIDE;
+    void abort() Q_DECL_OVERRIDE;
 
 private:
     void dtor();

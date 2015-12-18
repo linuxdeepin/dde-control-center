@@ -22,6 +22,8 @@ protected:
 
 protected slots:
     virtual void onNoNetwork();
+    virtual void emitChangePanel();
+    virtual void abort();
 
 signals:
     void changePanel(ViewPanel);

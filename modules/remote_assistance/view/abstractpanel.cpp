@@ -28,6 +28,9 @@ AbstractPanel::AbstractPanel(const QString& title, QWidget *parent)
 
 }
 
+void AbstractPanel::emitChangePanel()
+{}
+
 void AbstractPanel::setTitle(const QString &title)
 {
     m_headerLine->setTitle(title);
@@ -53,6 +56,10 @@ void AbstractPanel::setWidget(QWidget *w)
     addWidget(w);
 }
 
+void AbstractPanel::abort()
+{
+}
+
 void AbstractPanel::onNoNetwork()
 {
     setTitle(tr("Remote Accessitance"));
@@ -60,7 +67,7 @@ void AbstractPanel::onNoNetwork()
     auto view = new ErrorView;
     auto button = new DTextButton(tr("Ok"));
     QObject::connect(button, &DTextButton::clicked, [this] {
-        emit changePanel(ViewPanel::Main);
+        abort();
     });
     view->addButton(button);
 

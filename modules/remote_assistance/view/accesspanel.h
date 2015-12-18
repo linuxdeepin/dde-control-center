@@ -31,9 +31,10 @@ private slots:
     void onConnected();
     void onConnectFailed(AccessErrors);
     void onDisconnected();
+    void abort() Q_DECL_OVERRIDE;
 
 private slots:
-    void emitChangePanel();
+    void emitChangePanel() Q_DECL_OVERRIDE;
 
 private:
     void dtor();
