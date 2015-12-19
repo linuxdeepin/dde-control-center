@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QScopedPointer>
 #include <libdui_global.h>
-#include "../../frame/interfaces.h"
+#include "interfaces.h"
 #include "dbus/manager.h"
 
 QT_BEGIN_NAMESPACE

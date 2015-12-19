@@ -46,7 +46,7 @@ signals:
     void hideInLeftChanged(bool hideInLeft);
     void xChanged();
     void autoHideChanged(bool autoHide);
-    void visibleChanged();
+    void visibleChanged(bool visible);
 
 private slots:
     void globalMouseReleaseEvent(int button, int x, int y);

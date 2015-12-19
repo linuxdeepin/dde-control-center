@@ -1,24 +1,23 @@
 #ifndef INTERFACES_H
 #define INTERFACES_H
 
-#include <QFrame>
-
-class ControlCenterProxy;
+class QFrame;
+class ControlCenterProxyInterface;
 class ModuleInterface
 {
 public:
     virtual ~ModuleInterface() {}
     virtual QFrame *getContent() = 0;
 
-public slots:
+public:
     // plugin can remove there own data on this function(remove popup window for example).
     // TODO
     // preUnload should be executed before every unload operations.
     virtual void preUnload() {}
-    virtual inline void setProxy(ControlCenterProxy *proxy) {m_controlCenterProxy = proxy;}
+    virtual inline void setProxy(ControlCenterProxyInterface *proxy) {m_controlCenterProxy = proxy;}
 
 protected:
-    ControlCenterProxy *m_controlCenterProxy;
+    ControlCenterProxyInterface *m_controlCenterProxy = nullptr;
 };
 
 

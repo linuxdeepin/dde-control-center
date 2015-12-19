@@ -1,27 +1,32 @@
 #ifndef CONTROLCENTERPROXY_H
 #define CONTROLCENTERPROXY_H
 
-#include "frame.h"
-
 #include <QObject>
 
-class ControlCenterProxy : public QObject
+#include "controlcenterproxyinterface.h"
+
+class Frame;
+class ControlCenterProxy : public QObject, public ControlCenterProxyInterface
 {
     Q_OBJECT
 
 public:
-    ControlCenterProxy(Frame *controlCenterPtr);
+    explicit ControlCenterProxy(Frame *parent);
 
     static ControlCenterProxy *getInstance();
 
-    inline void hide(bool imme = false) {m_controlCenterPtr->hide(imme);}
-    inline void setAutoHide(bool autoHide) {m_controlCenterPtr->setAutoHide(autoHide);}
+    Frame* parent() const;
+
+    void hide(bool imme = false)  Q_DECL_OVERRIDE;
+    void setAutoHide(bool autoHide) Q_DECL_OVERRIDE;
+
+    bool isVisible() const Q_DECL_OVERRIDE;
+
+    QObject *dccObject() const Q_DECL_OVERRIDE;
 
 signals:
     void frameSideChanged(bool inLeft);
-
-private:
-    Frame *m_controlCenterPtr = nullptr;
+    void visibleChanged(bool visible);
 };
 
 #endif // CONTROLCENTERPROXY_H

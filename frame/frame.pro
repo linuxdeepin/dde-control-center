@@ -1,7 +1,6 @@
 QT += widgets dbus svg
 
 HEADERS    = frame.h \
-             interfaces.h \
     homescreen.h \
     modulemetadata.h \
     constants.h \
@@ -50,3 +49,5 @@ RESOURCES += \
     images.qrc
 
 INCLUDEPATH    += ../widgets ../modules/display
+
+include(../interfaces/interfaces.pri)

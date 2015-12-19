@@ -143,7 +143,7 @@ void Frame::show(bool imme)
     activateWindow();
 
     emit xChanged();
-    emit visibleChanged();
+    emit visibleChanged(isVisible());
 }
 
 void Frame::hide(bool imme)
@@ -170,7 +170,7 @@ void Frame::hide(bool imme)
     m_dbusXMouseArea->UnregisterArea(m_dbusFullScreenKey);//waitForFinished();
 
     emit xChanged();
-    emit visibleChanged();
+    emit visibleChanged(isVisible());
 }
 
 // private slots
@@ -222,14 +222,14 @@ void Frame::hideEvent(QHideEvent *e)
 {
     QFrame::hideEvent(e);
 
-    emit visibleChanged();
+    emit visibleChanged(isVisible());
 }
 
 void Frame::showEvent(QShowEvent *e)
 {
     QFrame::showEvent(e);
 
-    emit visibleChanged();
+    emit visibleChanged(isVisible());
 }
 
 int Frame::visibleFrameXPos()

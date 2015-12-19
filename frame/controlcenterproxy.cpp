@@ -1,16 +1,15 @@
 #include "controlcenterproxy.h"
-
-#include <QDebug>
+#include "frame.h"
 
 static ControlCenterProxy *m_instance = nullptr;
 
-ControlCenterProxy::ControlCenterProxy(Frame *controlCenterPtr)
-    : QObject(controlCenterPtr),
-      m_controlCenterPtr(controlCenterPtr)
+ControlCenterProxy::ControlCenterProxy(Frame *parent) :
+    QObject(parent)
 {
     m_instance = this;
 
-    connect(controlCenterPtr, &Frame::hideInLeftChanged, this, &ControlCenterProxy::frameSideChanged);
+    connect(parent, &Frame::hideInLeftChanged, this, &ControlCenterProxy::frameSideChanged);
+    connect(parent, &Frame::visibleChanged, this, &ControlCenterProxy::visibleChanged);
 }
 
 ControlCenterProxy *ControlCenterProxy::getInstance()
@@ -21,3 +20,27 @@ ControlCenterProxy *ControlCenterProxy::getInstance()
     return m_instance;
 }
 
+Frame *ControlCenterProxy::parent() const
+{
+    return qobject_cast<Frame*>(QObject::parent());
+}
+
+void ControlCenterProxy::hide(bool imme)
+{
+    parent()->hide(imme);
+}
+
+void ControlCenterProxy::setAutoHide(bool autoHide)
+{
+    parent()->setAutoHide(autoHide);
+}
+
+bool ControlCenterProxy::isVisible() const
+{
+    return parent()->isVisible();
+}
+
+QObject *ControlCenterProxy::dccObject() const
+{
+    return m_instance;
+}
