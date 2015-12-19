@@ -2,6 +2,7 @@
 #define INPUTPASSWORDDIALOG_H
 
 #include <QWidget>
+#include <QPointer>
 
 #include <libdui/dboxwidget.h>
 #include <libdui/dpasswordedit.h>
@@ -10,6 +11,7 @@
 
 DUI_USE_NAMESPACE
 
+class QEventLoop;
 class InputPasswordDialog : public QFrame
 {
     Q_OBJECT
@@ -19,6 +21,7 @@ class InputPasswordDialog : public QFrame
 
 public:
     explicit InputPasswordDialog(QWidget *parent = 0);
+    ~InputPasswordDialog();
 
     bool autoConnect() const;
     QString text() const;
@@ -26,6 +29,7 @@ public:
 
 public slots:
     int exec();
+    void done(int code);
 
 protected:
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
@@ -44,8 +48,7 @@ private:
     DPasswordEdit *m_edit;
     DCheckBox *m_checkBox;
     DVBoxWidget *m_mainWidget;
-    //DSeparatorHorizontal *m_topSeparator;
-    //DSeparatorHorizontal *m_bottomSeparator;
+    QPointer<QEventLoop> m_eventLoop;
 };
 
 #endif // INPUTPASSWORDDIALOG_H

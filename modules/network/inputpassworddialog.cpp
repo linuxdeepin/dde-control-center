@@ -52,6 +52,11 @@ InputPasswordDialog::InputPasswordDialog(QWidget *parent) :
     });
 }
 
+InputPasswordDialog::~InputPasswordDialog()
+{
+    done(-1);
+}
+
 bool InputPasswordDialog::autoConnect() const
 {
     return m_checkBox->checkState() != Qt::Unchecked;
@@ -69,12 +74,24 @@ void InputPasswordDialog::setInputAlert(bool alert)
 
 int InputPasswordDialog::exec()
 {
+    if(m_eventLoop)
+        return 0;
+
     QEventLoop loop(this);
+
+    m_eventLoop = &loop;
 
     connect(this, &InputPasswordDialog::cancel, &loop, [&loop]{loop.exit(0);});
     connect(this, &InputPasswordDialog::confirm, &loop, [&loop]{loop.exit(1);});
 
     return loop.exec(QEventLoop::DialogExec);
+}
+
+void InputPasswordDialog::done(int code)
+{
+    if(m_eventLoop) {
+        m_eventLoop->exit(code);
+    }
 }
 
 void InputPasswordDialog::resizeEvent(QResizeEvent *e)

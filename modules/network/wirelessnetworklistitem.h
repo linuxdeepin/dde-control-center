@@ -5,11 +5,13 @@
 
 #include "abstractdevicewidget.h"
 
+class InputPasswordDialog;
 class WirelessNetworkListItem : public AbstractDeviceWidget
 {
     Q_OBJECT
 public:
     explicit WirelessNetworkListItem(DBusNetwork *dbus, QWidget *parent = 0);
+    ~WirelessNetworkListItem();
 
 private slots:
     void onItemClicked();
@@ -22,11 +24,16 @@ private slots:
 private:
     void init();
 
-    bool m_inputPasswording = false;
+    void closeInputDialog();
+
     QPointer<NetworkGenericListItem> m_activeItem;
+    QPointer<InputPasswordDialog> m_ddialog;
     QMap<QString, NetworkGenericListItem*> m_mapApPathToItem;
     QMap<QString, NetworkGenericListItem*> m_mapApSsidToItem;
     QMap<QString, NetworkGenericListItem*> m_mapApUuidToItem;
+
+    QString m_targetConnectPath;
+    QString m_tragetConnectUuid;
 };
 
 #endif // WIRELESSNETWORKLISTITEM_H

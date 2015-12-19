@@ -18,6 +18,11 @@ WirelessNetworkListItem::WirelessNetworkListItem(DBusNetwork *dbus, QWidget *par
     init();
 }
 
+WirelessNetworkListItem::~WirelessNetworkListItem()
+{
+    m_ddialog->deleteLater();
+}
+
 void WirelessNetworkListItem::onItemClicked()
 {
     QPointer<NetworkGenericListItem> item = qobject_cast<NetworkGenericListItem*>(sender());
@@ -308,52 +313,71 @@ void WirelessNetworkListItem::init()
     connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &WirelessNetworkListItem::onConnectsChanged);
 
     connect(m_dbusNetwork, &DBusNetwork::NeedSecrets,
-            this, [this](const QString &in0, const QString &in1, const QString &in2, bool in3){
+            this, [this](const QString &path, const QString &uuid, const QString &ssid, bool in3){
 
         Q_UNUSED(in3)
 
-        if(!m_inputPasswording) {
-            NetworkGenericListItem *item = m_mapApSsidToItem.value(in2, nullptr);
+        NetworkGenericListItem *item = m_mapApSsidToItem.value(ssid, nullptr);
 
-            if(!item || item->connectPath() != in0)
-                return;
+        if(!item || item->connectPath() != path)
+            return;
 
-            int index = listWidget()->indexOf(item);
+        m_targetConnectPath = path;
+        m_tragetConnectUuid = uuid;
 
-            if(index < 0)
-                return;
-
-            m_inputPasswording = true;
-
+        if(!m_ddialog) {
             for(int i = 0; i < listWidget()->count(); ++i)
                 listWidget()->getWidget(i)->setEnabled(false);
 
-            InputPasswordDialog dialog;
-            connect(&dialog, &InputPasswordDialog::textChanged, this, [&dialog]{dialog.setInputAlert(false);});
-            listWidget()->insertWidget(index + 1, &dialog);
+            m_ddialog = new InputPasswordDialog;
 
-            execDialog:
-
-            if(dialog.exec()) {
-                if(!dialog.text().isEmpty()) {
-                    m_dbusNetwork->FeedSecret(in0, in1, dialog.text(), dialog.autoConnect());
+            connect(m_ddialog, &InputPasswordDialog::textChanged, this, [this] {
+                m_ddialog->setInputAlert(false);
+            });
+            connect(m_ddialog, &InputPasswordDialog::confirm, this, [this] {
+                if(!m_ddialog->text().isEmpty()) {
+                    m_dbusNetwork->FeedSecret(m_targetConnectPath, m_tragetConnectUuid,
+                                              m_ddialog->text(), m_ddialog->autoConnect());
+                    closeInputDialog();
                 } else {
-                    dialog.setInputAlert(true);
-                    goto execDialog;
+                    m_ddialog->setInputAlert(true);
                 }
-            } else {
-                m_dbusNetwork->CancelSecret(in0, in1);
-            }
+            });
+            connect(m_ddialog.data(), &InputPasswordDialog::cancel, this, [this] {
+                m_dbusNetwork->CancelSecret(m_targetConnectPath, m_tragetConnectUuid);
 
-            listWidget()->removeWidget(listWidget()->indexOf(&dialog));
-
-            for(int i = 0; i < listWidget()->count(); ++i)
-                listWidget()->getWidget(i)->setEnabled(true);
-
-            m_inputPasswording = false;
+                closeInputDialog();
+            });
         }
+
+        int index = listWidget()->indexOf(item);
+
+        if(index < 0)
+            return;
+
+        int index_dialog = listWidget()->indexOf(m_ddialog.data());
+
+        if(index_dialog >= 0)
+            listWidget()->removeWidget(index_dialog, false);
+        listWidget()->insertWidget(index + 1, m_ddialog.data());
     });
 
     connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged,
             this, &WirelessNetworkListItem::onActiveConnectionsChanged);
+}
+
+void WirelessNetworkListItem::closeInputDialog()
+{
+    if(m_ddialog.isNull())
+        return;
+
+    int index_dialog = listWidget()->indexOf(m_ddialog.data());
+
+    if(index_dialog >= 0)
+        listWidget()->removeWidget(index_dialog);
+    else
+        m_ddialog->deleteLater();
+
+    for(int i = 0; i < listWidget()->count(); ++i)
+        listWidget()->getWidget(i)->setEnabled(true);
 }
