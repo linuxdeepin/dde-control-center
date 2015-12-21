@@ -27,9 +27,9 @@ CustomSettings::CustomSettings(DisplayInterface * dbusDisplay, MonitorGround *mo
       m_monitorGround(monitorGround)
 {
     m_rotationMap[1] = tr("Normal");
-    m_rotationMap[2] = tr("Rotate right");
+    m_rotationMap[8] = tr("Rotate right");
     m_rotationMap[4] = tr("Upside down");
-    m_rotationMap[8] = tr("Rotate left");
+    m_rotationMap[2] = tr("Rotate left");
 
     m_mainLayout = new QVBoxLayout(this);
     m_mainLayout->setMargin(0);
@@ -263,13 +263,12 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         }, Qt::DirectConnection);
         connect(rotationButtons, &DButtonGrid::buttonCheckedIndexChanged,
                 this, [dbusMonitor, rotations, this](int index){
-            ushort rotaion = dbusMonitor->rotation();
             foreach (ushort r, m_rotationMap.keys()) {
                 if (m_rotationMap.value(r) == rotations.at(index)) {
-                    rotaion = r;
+                    dbusMonitor->SetRotation(r);
+                    break;
                 }
             }
-            dbusMonitor->SetRotation(rotaion);
         }, Qt::DirectConnection);
     }
 
