@@ -71,6 +71,8 @@ Frame::Frame(QWidget *parent) :
     auto updateGeometry = [display_dbus, this] {
         QRect primaryRect = display_dbus->primaryRect();
 
+        qDebug() << "change screen, primary is: " << display_dbus->primary();
+
         for(const QScreen * screen: qApp->screens()) {
             if(screen->name() == display_dbus->primary()) {
                 primaryRect = screen->geometry();

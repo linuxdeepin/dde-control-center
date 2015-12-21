@@ -164,8 +164,8 @@ void AdapterWidget::initUI()
         if (name_lineEdit->text().isEmpty())
             return;
 
-        const QString newName = name_lineEdit->text().remove('\n')
-                                                     .remove('\r');
+        // remove all invisible chatacter
+        const QString newName = name_lineEdit->text().remove(QRegularExpression("\\s"));
 
         m_info->bluetoothDbus->SetAdapterAlias(QDBusObjectPath(m_info->path), newName);
 
