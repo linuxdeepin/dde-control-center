@@ -85,6 +85,11 @@ void UserExpandHeader::setExpand(bool value)
 
 void UserExpandHeader::changeToDeleteState(bool value)
 {
+    m_inDeleteState = value;
+
+    if (!m_adminCurrentLogin ||  m_isCurrentUser)
+        return;
+
     if (value){
         m_arrowButton->setVisible(false);
         m_deleteButton->showIcon();
@@ -108,7 +113,7 @@ QString UserExpandHeader::userName() const
 
 void UserExpandHeader::mousePressEvent(QMouseEvent *)
 {
-    if (!m_adminCurrentLogin && !m_isCurrentUser)
+    if ((!m_adminCurrentLogin && !m_isCurrentUser) || m_inDeleteState)
         return;
 
     reverseArrowDirection();

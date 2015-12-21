@@ -45,6 +45,7 @@ void UserListPanel::initAccount()
     connect(currentUser, &UserExpand::expandChange, this, &UserListPanel::adjustSize);
     connect(currentUser, &UserExpand::changeToSetting, this, &UserListPanel::changeToSetting);
     connect(this, &UserListPanel::requestPreDestroy, currentUser, &UserExpand::requestPreDestroy);
+    connect(this, &UserListPanel::requestDelete, currentUser, &UserExpand::requestDelete);
     connect(this, &UserListPanel::showForNormal, currentUser, &UserExpand::showNormal);
     connect(this, &UserListPanel::hideForSetting, currentUser, &UserExpand::hide);
 

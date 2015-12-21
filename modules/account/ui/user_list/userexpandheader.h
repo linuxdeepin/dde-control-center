@@ -90,6 +90,7 @@ private:
     DeleteButton *m_deleteButton = NULL;
     bool m_adminCurrentLogin = true;
     bool m_isCurrentUser = false;
+    bool m_inDeleteState = false;
 
     const int ICON_WIDTH = 118;
     const int ICON_NORMAL_HEIGHT = 100;

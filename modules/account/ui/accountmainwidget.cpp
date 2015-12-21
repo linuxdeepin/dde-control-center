@@ -101,6 +101,14 @@ void AccountMainWidget::initHeader()
     connect(m_addUserButton, &GeneralAddButton::clicked, this, &AccountMainWidget::onAddButtonClicked);
     connect(m_addUserButton, &GeneralAddButton::mouseEnter, this, &AccountMainWidget::onAddButtonMouseEntered);
     connect(m_addUserButton, &GeneralAddButton::mouseLeave, m_buttonToolTip, &DynamicLabel::hideLabel);
+    connect(this, &AccountMainWidget::stateChanged, this, [=](PanelState state) {
+        if (state == StateDeleting) {
+            m_addUserButton->setEnabled(false);
+        }
+        else {
+            m_addUserButton->setEnabled(true);
+        }
+    });
 }
 
 void AccountMainWidget::initListPanel()
