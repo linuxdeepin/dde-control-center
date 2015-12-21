@@ -16,6 +16,12 @@ void PasswordFrame::preDestroy()
     m_lineRepeat->hideWarning();
 }
 
+void PasswordFrame::reset()
+{
+    resetData();
+    setCurrentIndex(0);
+}
+
 bool PasswordFrame::eventFilter(QObject *obj, QEvent *event)
 {
     if (event->type() == QEvent::WindowDeactivate) {

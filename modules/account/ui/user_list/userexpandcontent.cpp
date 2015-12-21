@@ -289,6 +289,7 @@ void UserExpandContent::onAccountEnableChanged(bool enabled)
         m_segmentedFrame->setFixedHeight(0);
         m_stackWidget->setFixedHeight(0);
         m_autoLoginLine->setFixedHeight(0);
+        m_passwordFrame->reset();
         m_passwordFrame->setFixedHeight(0);
         m_typeLine->setFixedHeight(0);
     }
