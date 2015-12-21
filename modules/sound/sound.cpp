@@ -659,6 +659,7 @@ void Sound::updateInputPorts()
     }
 
     if (inputPorts.length() > 0) {
+        m_inputPortsList->clear();
         m_inputPortsList->addButtons(inputPorts);
         m_inputPortsList->setFixedSize(DCC::ModuleContentWidth, inputPorts.length() * m_inputPortsList->itemWidget(m_inputPortsList->item(0))->height());
         if (inputPorts.contains(sourceActivePort.name)) {
