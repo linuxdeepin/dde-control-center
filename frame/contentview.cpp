@@ -95,24 +95,34 @@ void ContentView::switchToModule(ModuleMetaData module)
     ModuleInterface *interface = qobject_cast<ModuleInterface *>(instance);
     qDebug() << "get instance: " << instance << interface;
 
+    QWidget *content = nullptr;
+
     do {
         if (!interface)
             break;
         m_lastPluginInterface = interface;
 
-        QWidget *content = interface->getContent();
+        content = interface->getContent();
         if (!content)
             break;
-        m_lastPluginInterface->setProxy(m_controlCenterProxy);
-        m_lastPluginWidget = content;
-        m_lastPluginWidget->setFixedWidth(DCC::ModuleContentWidth);
-        m_lastPluginWidgetContainerLayout->addWidget(m_lastPluginWidget);
 
-        return;
+        m_lastPluginInterface->setProxy(m_controlCenterProxy);
     } while (false);
 
-    // error
-    qDebug() << m_pluginLoader->errorString();
+    if (!content)
+    {
+        // display error infomation
+        const QString error = m_pluginLoader->errorString();
+        // this label will destory when call unloadPlugin() next time
+        QLabel *errorLabel = new QLabel(error);
+        errorLabel->setWordWrap(true);
+        errorLabel->setStyleSheet("color:red;");
+        content = errorLabel;
+    }
+
+    m_lastPluginWidget = content;
+    m_lastPluginWidget->setFixedWidth(DCC::ModuleContentWidth);
+    m_lastPluginWidgetContainerLayout->addWidget(m_lastPluginWidget);
 }
 
 void ContentView::hide()
