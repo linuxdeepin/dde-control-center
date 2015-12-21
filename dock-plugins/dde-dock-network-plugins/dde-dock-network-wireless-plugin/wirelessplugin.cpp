@@ -253,7 +253,7 @@ void WirelessPlugin::onNeedSecrets(const QString &path, const QString &uuid, con
 
         check_box->setText(tr("Auto-connect"));
 
-        QIcon::setThemeName("Deepin");
+        QIcon::setThemeName("deepin");
 
         m_passworkInputDialog->setTextEchoMode(DLineEdit::Password);
         m_passworkInputDialog->setIcon(QIcon::fromTheme("notification-network-wireless-full"));

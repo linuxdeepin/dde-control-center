@@ -18,7 +18,7 @@ enum MenuItemType{
 
 PowerPlugin::PowerPlugin()
 {
-    QIcon::setThemeName("Deepin");
+    QIcon::setThemeName("deepin");
 
     m_label = new QLabel;
     m_label->adjustSize();
