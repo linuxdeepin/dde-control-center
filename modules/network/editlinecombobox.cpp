@@ -48,6 +48,10 @@ EditLineComboBox::EditLineComboBox(const QString &section, const QString &key,
         connect(line_edit, &QLineEdit::textChanged, this, [this]{
             m_comboBox->setAlert(false);
         });
+        connect(m_comboBox, &DComboBox::focusChanged, this, [this](bool focus) {
+            if(!focus)
+                checkKey();
+        });
 
         if(cacheValue().isNull())
             update_text();

@@ -13,7 +13,7 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
                              EditLineInputType type, QWidget *parent) :
     NetworkBaseEditLine(section, key, dbus, title, parent)
 {
-    QLineEdit *line_edit = nullptr;
+    DLineEdit *line_edit = nullptr;
 
     switch (type) {
     case EditLineInputType::Normal:
@@ -64,6 +64,10 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         });
         connect(line_edit, &QLineEdit::textChanged, line_edit, [line_edit, this] {
             line_edit->setProperty("alert", false);
+        });
+        connect(line_edit, &DLineEdit::focusChanged, this, [this](bool focus) {
+            if(!focus)
+                checkKey();
         });
 
         if(!cacheValue().isNull())

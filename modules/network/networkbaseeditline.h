@@ -64,10 +64,11 @@ protected:
     void showEvent(QShowEvent *e) Q_DECL_OVERRIDE;
     void changeEvent(QEvent *e) Q_DECL_OVERRIDE;
 
+    bool isValueError() const;
+
 private:
     void setCacheValue(const QJsonValue &value);
     void updateVisible();
-    bool isValueError() const;
 
     DLabel *titleLabel;
     DBusConnectionSession *m_dbus;

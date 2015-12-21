@@ -185,6 +185,14 @@ void NetworkBaseEditLine::showEvent(QShowEvent *e)
     if(m_cacheValue.isNull() || alwaysUpdate()) {
         setCacheValue(dbusKey());
     } else {
+        if(m_cacheValue != dbusKey()) {
+            bool setKeyAlways = this->setKeyAlways();
+
+            setSetKeyAlways(true);
+            setDBusKey(m_cacheValue);
+            setSetKeyAlways(setKeyAlways);
+        }
+
         emit widgetShown();
     }
 
@@ -210,9 +218,11 @@ void NetworkBaseEditLine::setCacheValue(const QJsonValue &value)
 
 void NetworkBaseEditLine::updateVisible()
 {
-    if(parentWidget())
-        setVisible(m_dbus->availableSections().indexOf(section()) != -1
-            &&  m_dbus->availableKeys()[section()].indexOf(key()) != -1);
+    if(parentWidget()) {
+        bool visible = m_dbus->availableSections().indexOf(section()) != -1
+                &&  m_dbus->availableKeys()[section()].indexOf(key()) != -1;
+        setVisible(visible);
+    }
 }
 
 void NetworkBaseEditLine::setDBusKey(const QString &key)
