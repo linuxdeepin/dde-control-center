@@ -53,7 +53,7 @@ SystemInfo::SystemInfo()
 
     QLabel *info_sysDistro = new QLabel(tr("Distribution:"));
     info_sysDistro->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
-    QLabel *info_sysDistroContent = new QLabel(QString(tr("%1 %2")).arg(m_dbusSystemInfo.distroDesc(), m_dbusSystemInfo.distroVer()));
+    QLabel *info_sysDistroContent = new QLabel(QString("%1 %2").arg(m_dbusSystemInfo.distroDesc(), m_dbusSystemInfo.distroVer()));
     info_sysDistroContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
     info_sysDistroContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 

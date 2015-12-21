@@ -404,28 +404,10 @@
     </message>
 </context>
 <context>
-    <name>ComplexItem</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexitem.cpp" line="148"/>
-        <source>Auto-connect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexitem.cpp" line="156"/>
-        <source>Connect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexitem.cpp" line="182"/>
-        <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ComplexPlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="38"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="50"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="39"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="51"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1036,23 +1018,23 @@
 <context>
     <name>EditConnectionPage</name>
     <message>
-        <location filename="../modules/network/editconnectionpage.cpp" line="27"/>
-        <location filename="../modules/network/editconnectionpage.cpp" line="77"/>
+        <location filename="../modules/network/editconnectionpage.cpp" line="28"/>
+        <location filename="../modules/network/editconnectionpage.cpp" line="78"/>
         <source>Delete this network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/editconnectionpage.cpp" line="35"/>
+        <location filename="../modules/network/editconnectionpage.cpp" line="36"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/editconnectionpage.cpp" line="36"/>
+        <location filename="../modules/network/editconnectionpage.cpp" line="37"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/editconnectionpage.cpp" line="44"/>
+        <location filename="../modules/network/editconnectionpage.cpp" line="45"/>
         <source>Are you sure you want to delete this network?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1515,7 +1497,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/network.cpp" line="9"/>
+        <location filename="../modules/network/network.cpp" line="10"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1762,12 +1744,12 @@
 <context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="146"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="155"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="167"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="176"/>
         <source>System Proxy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1788,30 +1770,30 @@
 <context>
     <name>PasswordFrame</name>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="35"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="52"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="60"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="140"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="41"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="58"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="66"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="146"/>
         <source>The two passwords do not match.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="68"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="74"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="89"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="95"/>
         <source>New Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="91"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="97"/>
         <source>Repeat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="135"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="141"/>
         <source>Password can not be empty.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2342,11 +2324,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="56"/>
-        <source>%1 %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Type:</source>
         <translation type="unfinished"></translation>
@@ -2781,24 +2758,9 @@
 <context>
     <name>WirelessApplet</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="71"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="197"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="68"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="194"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="235"/>
-        <source>Auto-connect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="243"/>
-        <source>Connect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="269"/>
-        <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2810,7 +2772,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="234"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="239"/>
         <source>Connect to hidden access point</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2818,8 +2780,23 @@
 <context>
     <name>WirelessPlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="36"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="39"/>
         <source>Wireless Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="254"/>
+        <source>Auto-connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="262"/>
+        <source>Connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="286"/>
+        <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
