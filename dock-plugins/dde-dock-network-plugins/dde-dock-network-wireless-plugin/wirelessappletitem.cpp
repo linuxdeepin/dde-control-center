@@ -36,9 +36,19 @@ WirelessAppletItem::WirelessAppletItem(const ApData &data, const QString &device
     m_title->setObjectName("ApTitle");
     connect(m_title, &QPushButton::clicked, [=] {
         qDebug() << "[WirelessPlugin] Try to active ap: " << getApPath();
-        ASYN_CALL(m_dbusNetwork->ActivateAccessPoint(getApUuidBySsid(m_apData.ssid, m_dbusNetwork),
-                                                     QDBusObjectPath(getApPath()),
-                                                     QDBusObjectPath(m_devicePath)), {Q_UNUSED(args)}, this)
+        //fixme,one ssid may point to multiple uuid
+        QStringList uuids = getApUuidsBySsid(m_apData.ssid, m_dbusNetwork);
+        for (QString uuid : uuids) {
+            ASYN_CALL(m_dbusNetwork->ActivateAccessPoint(uuid,
+                                                         QDBusObjectPath(getApPath()),
+                                                         QDBusObjectPath(m_devicePath)), {
+                          const QString &connectPath = qvariant_cast<QDBusObjectPath>(args[0]).path();
+                          if(!connectPath.isEmpty()) {
+                              qDebug() << "[WirelessPlugin] Actived ap success: " << connectPath << getApPath();
+                              m_availableUuid = uuid;
+                          }
+                      }, this, uuid)
+        }
     });
 
     m_strengthIcon = new QLabel();
@@ -63,9 +73,10 @@ WirelessAppletItem::ApData WirelessAppletItem::getApData() const
     return m_apData;
 }
 
-void WirelessAppletItem::onActiveApChanged()
+void WirelessAppletItem::onActiveApChanged(const QString &ap)
 {
-    updateConnectionState();
+    if (ap == m_apData.apPath)
+        updateConnectionState();
 }
 
 void WirelessAppletItem::onActiveConnectionsChanged()
@@ -93,23 +104,30 @@ QPixmap WirelessAppletItem::getPixmapByStrength()
 
 void WirelessAppletItem::updateConnectionState()
 {
-    QString uuid = getApUuidBySsid(m_apData.ssid, m_dbusNetwork);
-    ConnectionState state = getActiveConnectionsStateByUuid(uuid, m_dbusNetwork);
-    switch (state) {
-    case ActiveConnectionStateActivating:
-    case ActiveConnectionStateDeactivating:
-        m_loadingIcon->show();
-        m_loadingIcon->setLoading(true);
-        m_checkIcon->setVisible(false);
-        break;
-    case ActiveConnectionStateActivated:
-        m_loadingIcon->setVisible(false);
-        m_loadingIcon->setLoading(false);
-        m_checkIcon->show();
-        break;
-    default:
-        m_loadingIcon->setVisible(false);
-        m_loadingIcon->setLoading(false);
-        m_checkIcon->setVisible(false);
+    QStringList uuids = getApUuidsBySsid(m_apData.ssid, m_dbusNetwork);
+    //fixme,one ssid may point to multiple uuid
+    for (QString uuid : uuids) {
+        if (!m_availableUuid.isEmpty() && m_availableUuid != uuid)
+            continue;
+
+        ConnectionState state = getActiveConnectionsStateByUuid(uuid, m_dbusNetwork);
+        switch (state) {
+        case ActiveConnectionStateActivating:
+        case ActiveConnectionStateDeactivating:
+            m_loadingIcon->show();
+            m_loadingIcon->setLoading(true);
+            m_checkIcon->setVisible(false);
+            break;
+        case ActiveConnectionStateActivated:
+            m_loadingIcon->setVisible(false);
+            m_loadingIcon->setLoading(false);
+            m_checkIcon->show();
+            m_availableUuid = uuid;
+            break;
+        default:
+            m_loadingIcon->setVisible(false);
+            m_loadingIcon->setLoading(false);
+            m_checkIcon->setVisible(false);
+        }
     }
 }

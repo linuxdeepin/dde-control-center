@@ -7,8 +7,8 @@ WirelessItem::WirelessItem(const QString &uuid, DBusNetwork *dbusNetwork, QWidge
     setFixedSize(Dock::APPLET_EFFICIENT_ITEM_WIDTH, Dock::APPLET_EFFICIENT_ITEM_HEIGHT);
 
     m_applet = new WirelessApplet(uuid, dbusNetwork, this);
+    connect(m_applet, &WirelessApplet::activeApChanged, this, &WirelessItem::updateIcon);
     connect(m_applet, &WirelessApplet::sizeChanged, this, &WirelessItem::appletSizeChanged);
-    connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, &WirelessItem::updateIcon);
     updateIcon();
 }
 

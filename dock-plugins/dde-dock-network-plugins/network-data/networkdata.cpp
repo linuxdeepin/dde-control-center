@@ -36,15 +36,16 @@ QJsonArray connectiosArray(const QString &deviceType, DBusNetwork *dbusNetwork)
     return allObj.value(deviceType).toArray();
 }
 
-QString getApUuidBySsid(const QString &ssid, DBusNetwork *dbusNetwork)
+QStringList getApUuidsBySsid(const QString &ssid, DBusNetwork *dbusNetwork)
 {
+    QStringList uuids;
     QVariantList list = connectiosArray(ConnectionTypeWireless, dbusNetwork).toVariantList();
-    foreach (QVariant v, list) {
+    for (QVariant v : list) {
         if (v.toMap().value("Ssid").toString() == ssid)
-            return v.toMap().value("Uuid").toString();
+            uuids.append(v.toMap().value("Uuid").toString());
     }
 
-    return QString();
+    return uuids;
 }
 
 ConnectionState getActiveConnectionsStateByUuid(const QString &uuid, DBusNetwork *dbusNetwork)

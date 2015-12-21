@@ -214,7 +214,7 @@ void WirelessApplet::addApToList(const WirelessAppletItem::ApData &apData)
 
     DeviceInfo info = getDeviceInfoById(m_uuid, m_dbusNetwork);
     WirelessAppletItem *item = new WirelessAppletItem(apData, info.path, m_dbusNetwork, this);
-    item->onActiveApChanged();
+    item->onActiveConnectionsChanged();
 
     connect(item, &WirelessAppletItem::strengthChanged, this, &WirelessApplet::onApStrengthChanged);
     connect(this, &WirelessApplet::activeApChanged, item, &WirelessAppletItem::onActiveApChanged);

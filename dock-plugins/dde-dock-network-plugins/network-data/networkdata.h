@@ -115,7 +115,7 @@ QJsonArray deviceArray(const QString &deviceType, DBusNetwork *dbusNetwork);
 
 QJsonArray connectiosArray(const QString &deviceType, DBusNetwork *dbusNetwork);
 
-QString getApUuidBySsid(const QString &ssid, DBusNetwork *dbusNetwork);
+QStringList getApUuidsBySsid(const QString &ssid, DBusNetwork *dbusNetwork);
 ConnectionState getActiveConnectionsStateByUuid(const QString &uuid, DBusNetwork *dbusNetwork);
 QStringList getActiveConnectionDevices(DBusNetwork *dbusNetwork);
 

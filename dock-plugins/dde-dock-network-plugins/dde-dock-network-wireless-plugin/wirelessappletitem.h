@@ -30,7 +30,7 @@ public:
     ApData getApData() const;
 
 public slots:
-    void onActiveApChanged();
+    void onActiveApChanged(const QString &ap);
     void onActiveConnectionsChanged();
 
 signals:
@@ -44,6 +44,7 @@ private:
 private:
     DBusNetwork *m_dbusNetwork;
     QString m_devicePath;
+    QString m_availableUuid;    //fixme,one ssid may point to multiple uuid
     ApData m_apData;
 
     QPushButton *m_title;
