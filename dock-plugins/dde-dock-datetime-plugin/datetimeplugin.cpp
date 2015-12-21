@@ -247,14 +247,13 @@ void DateTimePlugin::initSettings()
 void DateTimePlugin::initCalendar()
 {
     m_calendar = new DCalendar();
+    m_calendar->setLunarVisible(QLocale::system().name().startsWith("zh_"));
     m_calendar->setLunarFestivalHighlight(false);
     m_calendar->setControlPanelVisible(false);
     m_calendar->setDateInfoVisible(true);
     m_calendar->setSelectionMode(DCalendar::NoSelection);
     m_calendar->setFixedSize(300, 300);
     m_calendar->updateCurrentDate();
-
-    m_calendar->setLunarVisible(QLocale::system().name().startsWith("zh_"));
 }
 
 // private methods
