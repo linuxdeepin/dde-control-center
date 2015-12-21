@@ -54,17 +54,11 @@ private:
     Dock::DockMode m_mode = Dock::EfficientMode;
     com::deepin::daemon::DBusNetwork * m_dbusNetwork;
 
-    QPointer<DInputDialog> m_passworkInputDialog;
-    QString m_targetConnectPath;
-    QString m_tragetConnectUuid;
-
     void initSettings();
     void addNewItem(const QString &id);
     void removeItem(const QString &id);
     void onEnabledChanged();
     QString settingEnabledKey(const QString &id);
-
-    Q_SLOT void onNeedSecrets(const QString &path, const QString &uuid, const QString &ssid, bool in3);
 };
 
 #endif // COMPLEXPLUGIN_H

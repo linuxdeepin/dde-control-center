@@ -26,6 +26,8 @@
 #include "systemproxywidget.h"
 #include "networkinfo.h"
 #include "dbus/dbusdccnetworkservice.h"
+#include "network.h"
+#include "controlcenterproxyinterface.h"
 
 namespace DCCNetwork {
     NetworkMainWidget *parentNetworkMainWidget(const QObject *obj)
@@ -43,8 +45,9 @@ namespace DCCNetwork {
     }
 }
 
-NetworkMainWidget::NetworkMainWidget(QWidget *parent) :
-    ScrollFrame(parent)
+NetworkMainWidget::NetworkMainWidget(Network *network, QWidget *parent) :
+    ScrollFrame(parent),
+    m_networkModule(network)
 {
     m_dbusNetwork = new DBusNetwork(this);
 
@@ -58,11 +61,17 @@ NetworkMainWidget::NetworkMainWidget(QWidget *parent) :
     QDBusConnection::sessionBus().registerObject("/com/deepin/dde/ControlCenter/Network", this);
 
     connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &NetworkMainWidget::updateUI);
+    connect(network, &Network::dccVisibleChanged, this, &NetworkMainWidget::dccVisibleChanged);
 }
 
 DBusNetwork *NetworkMainWidget::dbusNetwork() const
 {
     return m_dbusNetwork;
+}
+
+bool NetworkMainWidget::dccIsVisible() const
+{
+    return m_networkModule->getInterface()->isVisible();
 }
 
 void NetworkMainWidget::updateDeviceByMap(const QString &type, const QVariantMap &map,

@@ -19,6 +19,14 @@ public:
     ~Network() Q_DECL_OVERRIDE;
     QFrame* getContent() Q_DECL_OVERRIDE;
 
+    ControlCenterProxyInterface *getInterface() const;
+
+signals:
+    void dccVisibleChanged(bool visible);
+
+protected:
+    void setProxy(ControlCenterProxyInterface *proxy);
+
 private:
     NetworkMainWidget * m_mainWidget;
 };

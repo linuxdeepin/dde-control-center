@@ -10,14 +10,17 @@ class WiredNetworkListItem;
 class WirelessNetworkListItem;
 class VPNConnectsWidget;
 class AbstractDeviceWidget;
+class Network;
 class NetworkMainWidget : public ScrollFrame
 {
     Q_OBJECT
 
 public:
-    explicit NetworkMainWidget(QWidget *parent = 0);
+    explicit NetworkMainWidget(Network *network, QWidget *parent = 0);
 
     DBusNetwork *dbusNetwork() const;
+
+    bool dccIsVisible() const;
 
 private:
     void updateDeviceByMap(const QString &type, const QVariantMap &map,
@@ -31,6 +34,11 @@ private:
     DBusNetwork *m_dbusNetwork;
     QMap<QString, AbstractDeviceWidget*> m_mapPathToObject;
     VPNConnectsWidget *m_vpnConnectsWidget;
+
+    Network *m_networkModule;
+
+signals:
+    void dccVisibleChanged(bool visible);
 };
 
 #endif // NETWORKMAINWIDGET_H

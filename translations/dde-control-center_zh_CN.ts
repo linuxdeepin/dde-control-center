@@ -319,15 +319,15 @@
     <name>ComplexItem</name>
     <message>
         <source>Auto-connect</source>
-        <translation>自动连接</translation>
+        <translation type="vanished">自动连接</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation>连接</translation>
+        <translation type="vanished">连接</translation>
     </message>
     <message>
         <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation> 请输入&lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;的密码</translation>
+        <translation type="vanished"> 请输入&lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;的密码</translation>
     </message>
 </context>
 <context>
@@ -2200,15 +2200,15 @@
     </message>
     <message>
         <source>Auto-connect</source>
-        <translation>自动连接</translation>
+        <translation type="vanished">自动连接</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation>连接</translation>
+        <translation type="vanished">连接</translation>
     </message>
     <message>
         <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation>请输入 &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;的密码</translation>
+        <translation type="vanished">请输入 &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;的密码</translation>
     </message>
 </context>
 <context>
@@ -2227,6 +2227,18 @@
     <message>
         <source>Wireless Network</source>
         <translation>无线网络</translation>
+    </message>
+    <message>
+        <source>Auto-connect</source>
+        <translation>自动连接</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <translation>连接</translation>
+    </message>
+    <message>
+        <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
+        <translation> 请输入&lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;的密码</translation>
     </message>
 </context>
 </TS>
