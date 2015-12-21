@@ -58,6 +58,7 @@ private:
     ModuleInterface *m_lastPluginInterface = nullptr;
     QWidget *m_lastPluginWidgetContainer;
     QHBoxLayout *m_lastPluginWidgetContainerLayout;
+    QString m_lastPluginPath;
 
     bool m_hideInLeft = false;
 };

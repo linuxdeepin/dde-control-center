@@ -77,6 +77,10 @@ ContentView::~ContentView()
 
 void ContentView::switchToModule(ModuleMetaData module)
 {
+    if (m_lastPluginInterface && m_lastPluginWidget && m_lastPluginPath == module.path)
+        return;
+    m_lastPluginPath = module.path;
+
     unloadPlugin();
 
     qDebug() << "load plugin: " << module.path;
