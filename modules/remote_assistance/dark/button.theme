@@ -3,7 +3,7 @@ QFrame#display {
 }
 
 QLabel#icon{
-margin-left: 18px;
+ margin-left: 18px;
 }
 
 QLabel {

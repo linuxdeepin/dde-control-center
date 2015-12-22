@@ -17,6 +17,8 @@
 #include "../helper.h"
 #include "button.h"
 
+static const int button_fixed_height = 70;
+
 DUI_USE_NAMESPACE
 
 Button::Button(const QString& title, const QString& tip, QWidget* p)
@@ -30,7 +32,7 @@ Button::Button(const QString& title, const QString& tip, QWidget* p)
 {
     setObjectName("display");
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
-    setFixedHeight(70);
+    setFixedHeight(button_fixed_height);
 
     auto contentWrap = new QWidget(this);
     contentWrap->setFixedWidth(DCC::ModuleContentWidth);
@@ -38,7 +40,7 @@ Button::Button(const QString& title, const QString& tip, QWidget* p)
     // To make sure mousearea stacked above the real content, mousearea MUST add to this after real content.
     auto mousearea = new MouseArea(this);
     mousearea->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
-    mousearea->setFixedHeight(70);
+    mousearea->setFixedHeight(button_fixed_height);
     mousearea->setFixedWidth(DCC::ModuleContentWidth);
     connect(mousearea, SIGNAL(pressed(QMouseEvent*)), this, SLOT(onMousePressed(QMouseEvent*)));
     connect(mousearea, SIGNAL(released(QMouseEvent*)), this, SLOT(onMouseReleased(QMouseEvent*)));
@@ -48,6 +50,7 @@ Button::Button(const QString& title, const QString& tip, QWidget* p)
 
     m_icon->setAlignment(Qt::AlignVCenter);
     m_icon->setObjectName("icon");
+    m_icon->setFixedHeight(button_fixed_height);
     m_hlayout->addWidget(m_icon);
 
     m_title->setAlignment(Qt::AlignTop);
@@ -72,6 +75,7 @@ Button::Button(const QString& title, const QString& tip, QWidget* p)
     m_arrow->setNormalPic(getThemeImage("right-arrow-normal.png"));
     m_arrow->setHoverPic(getThemeImage("right-arrow-hover.png"));
     m_arrow->setPressPic(getThemeImage("right-arrow-press.png"));
+    m_arrow->setFixedHeight(button_fixed_height);
     m_hlayout->addWidget(m_arrow);
 
     contentWrap->setLayout(m_hlayout);
