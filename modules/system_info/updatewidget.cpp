@@ -209,7 +209,10 @@ void UpdateWidget::updateUpgradeState()
     const QString status = m_dbusSystemUpgrade->status();
 
     if (status == "succeed" || status == "end")
+    {
+        refreshProgress(NotStart);
         return loadAppList();
+    }
 
     if (status == "failed")
         refreshProgress(SysFail);
@@ -345,6 +348,9 @@ void UpdateWidget::refreshProgress(UpdateWidget::UpgradeState state)
 
     switch (state)
     {
+    case NotStart:
+        // do nothing
+        break;
     case SysUpGrading:
         m_updateProgress->topLabel()->clear();
         disableAppsUpgrade();
@@ -455,10 +461,11 @@ void UpdateWidget::loadUpgradeJob(DBusUpdateJob *newJob)
 //        refreshProgress(Running);
 //    }
 
+    updateUpgradeProcess();
+
     if (status == "failed")
         refreshProgress(SysFail);
 
-    updateUpgradeProcess();
 //    updateUpgradeState();
 }
 
