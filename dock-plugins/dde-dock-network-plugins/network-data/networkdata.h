@@ -74,6 +74,17 @@ enum DeviceState {
     DeviceStateFailed = 120
 };
 
+enum NetworkingState{
+    NetworkingUnknown = 0,
+    NetworkingAsleep = 10,
+    NetworkingDisconnected = 20,
+    NetworkingDisconnecting = 30,
+    NetworkingConnecting = 40,
+    NetworkingConnectedLocal = 50,
+    NetworkingConnectedSite = 60,
+    NetworkingConnectedGlobal = 70
+};
+
 // active connection state
 enum ConnectionState {
     ActiveConnectionStateUnknown = 0,

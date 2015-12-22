@@ -41,7 +41,7 @@ void ComplexItem::paintEvent(QPaintEvent *event)
 void ComplexItem::drawBackground()
 {
     if (m_manuallyUpdate)
-        m_backgroundImg = wiredIsConnected(m_dbusNetwork)
+        m_backgroundImg = m_dbusNetwork->state() == NetworkingConnectedGlobal
                 ? ":/images/images/network_online.png"
                 : ":/images/images/network_offline.png";
 
