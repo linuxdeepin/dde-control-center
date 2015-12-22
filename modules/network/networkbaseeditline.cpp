@@ -1,4 +1,5 @@
 #include <QHBoxLayout>
+#include <QPointer>
 #include <QDebug>
 
 #include <libdui/libdui_global.h>
@@ -8,6 +9,18 @@
 
 #include "networkglobal.h"
 #include "networkbaseeditline.h"
+
+static AvailableKeyMap availableKeys;
+static QStringList availableSections;
+static ErrorInfo errors;
+static QPointer<NetworkBaseEditLine> firstBaseEditLine;
+
+void updateAllEditLineVisible(NetworkBaseEditLine *editLine)
+{
+    for(NetworkBaseEditLine *line : editLine->parent()->findChildren<NetworkBaseEditLine*>()) {
+        line->updateVisible();
+    }
+}
 
 NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &key,
                                          DBusConnectionSession *dbus, const QString &title,
@@ -30,9 +43,29 @@ NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &
     setLayout(layout);
     updateVisible();
 
+    if(!firstBaseEditLine) {
+        firstBaseEditLine = this;
+
+        availableSections = m_dbus->availableSections();
+        availableKeys = m_dbus->availableKeys();
+        errors = m_dbus->errors();
+
+        connect(dbus, &DBusConnectionSession::AvailableSectionsChanged, this, [this] {
+            availableSections = m_dbus->availableSections();
+            updateAllEditLineVisible(this);
+        });
+
+        connect(dbus, &DBusConnectionSession::AvailableKeysChanged, this, [this] {
+            availableKeys = m_dbus->availableKeys();
+            updateAllEditLineVisible(this);
+        });
+
+        connect(dbus, &DBusConnectionSession::ErrorsChanged, this, [this] {
+            errors = m_dbus->errors();
+        });
+    }
+
     connect(this, &NetworkBaseEditLine::setTitle, titleLabel, &DLabel::setText);
-    connect(dbus, &DBusConnectionSession::AvailableKeysChanged, this, &NetworkBaseEditLine::updateVisible);
-    connect(dbus, &DBusConnectionSession::AvailableSectionsChanged, this, &NetworkBaseEditLine::updateVisible);
     connect(dbus, &DBusConnectionSession::ConnectionDataChanged, this, [this]{
         if(isVisible() && alwaysUpdate()) {
             setCacheValue(dbusKey());
@@ -86,8 +119,27 @@ void NetworkBaseEditLine::setDBusKey(const QJsonValue &key)
         /// TODO 此处将key转换成json的value类型，由于Qt json目前并不支持此类型，故需手动转换
         /// 目前只处理了String int double bool类型，以后有新类型的需求记得在此处添加
 
-        m_dbus->SetKey(section(), this->key(), json).waitForFinished();
         setCacheValue(key);
+
+        m_tempValue = key;
+
+        if(m_updateKeying) {
+            return;
+        }
+
+        m_updateKeying = true;
+
+        ASYN_CALL(m_dbus->SetKey(section(), this->key(), json), {
+                      m_updateKeying = false;
+
+                      if(key != m_tempValue) {
+                          bool key_always = setKeyAlways();
+
+                          setSetKeyAlways(true);
+                          setDBusKey(m_tempValue);
+                          setSetKeyAlways(key_always);
+                      }
+                  }, this, key)
     }
 }
 
@@ -219,8 +271,8 @@ void NetworkBaseEditLine::setCacheValue(const QJsonValue &value)
 void NetworkBaseEditLine::updateVisible()
 {
     if(parentWidget()) {
-        bool visible = m_dbus->availableSections().indexOf(section()) != -1
-                &&  m_dbus->availableKeys()[section()].indexOf(key()) != -1;
+        bool visible = availableSections.indexOf(section()) != -1
+                &&  availableKeys[section()].indexOf(key()) != -1;
         setVisible(visible);
     }
 }
@@ -270,6 +322,6 @@ void NetworkBaseEditLine::checkKey()
 
 bool NetworkBaseEditLine::isValueError() const
 {
-    return !m_dbus->errors().isEmpty() && !m_dbus->errors()[section()].isEmpty()
-            && !m_dbus->errors()[section()][key()].isEmpty();
+    return !errors.isEmpty() && !errors[section()].isEmpty()
+            && !errors[section()][key()].isEmpty();
 }

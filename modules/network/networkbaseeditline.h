@@ -73,11 +73,17 @@ private:
     DLabel *titleLabel;
     DBusConnectionSession *m_dbus;
     QJsonValue m_cacheValue;
+    /// when setDBusKey if m_updateKeying is true then record key to m_tempValue
+    QJsonValue m_tempValue;
     QString m_section;
     QString m_key;
     bool m_alwaysUpdate = false;
     bool m_setKeyAlways = false;
     bool m_readOnly = false;
+
+    bool m_updateKeying = false;
+
+    friend void updateAllEditLineVisible(NetworkBaseEditLine *);
 };
 
 #endif // NETWORKBASEEDITLINE_H
