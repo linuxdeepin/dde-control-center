@@ -18,7 +18,7 @@ AddDslPage::AddDslPage(const QString &dbusPath, QWidget *parent) :
 
     addWidget(new EditLineInput("connection", "id", m_dbus, tr("Name")));
     addWidget(new EditLineInput("pppoe", "username", m_dbus, tr("Username")));
-    addWidget(new EditLineInput("pppoe", "service", m_dbus, tr("Service")));
+    //addWidget(new EditLineInput("pppoe", "service", m_dbus, tr("Service")));
     addWidget(new EditLineInput("pppoe", "password", m_dbus,
                                 tr("Password"), EditLineInput::Password));
 
