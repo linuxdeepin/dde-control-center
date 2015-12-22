@@ -247,6 +247,7 @@ void DateTimePlugin::initSettings()
 void DateTimePlugin::initCalendar()
 {
     m_calendar = new DCalendar();
+    m_calendar->setSolarDisplayFormat(tr("dddd, MMMM dd, yyyy"));
     m_calendar->setLunarVisible(QLocale::system().name().startsWith("zh_"));
     m_calendar->setLunarFestivalHighlight(false);
     m_calendar->setControlPanelVisible(false);

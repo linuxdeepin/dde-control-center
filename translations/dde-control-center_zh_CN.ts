@@ -624,6 +624,10 @@
         <source>ddd MMM dd</source>
         <translation>MMMdd日 dddd</translation>
     </message>
+    <message>
+        <source>dddd, MMMM dd, yyyy</source>
+        <translation>yyyy年MM月dd日 dddd</translation>
+    </message>
 </context>
 <context>
     <name>Datetime</name>
