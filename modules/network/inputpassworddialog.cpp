@@ -1,5 +1,6 @@
 #include <QVBoxLayout>
 #include <QEventLoop>
+#include <QShortcut>
 #include <QDebug>
 
 #include <libdui/dtextbutton.h>
@@ -50,6 +51,15 @@ InputPasswordDialog::InputPasswordDialog(QWidget *parent) :
         setFixedHeight(m_mainWidget->height());
         updateMainWidgetPos();
     });
+
+    QShortcut *shortcut_enter = new QShortcut(Qt::Key_Enter, this);
+    QShortcut *shortcut_return = new QShortcut(Qt::Key_Return, this);
+
+    connect(shortcut_enter, &QShortcut::activated, this, &InputPasswordDialog::confirm);
+    connect(shortcut_return, &QShortcut::activated, this, &InputPasswordDialog::confirm);
+
+    setFocusProxy(m_edit);
+    setFocusPolicy(Qt::StrongFocus);
 }
 
 InputPasswordDialog::~InputPasswordDialog()
@@ -99,6 +109,13 @@ void InputPasswordDialog::resizeEvent(QResizeEvent *e)
     QFrame::resizeEvent(e);
 
     updateMainWidgetPos();
+}
+
+void InputPasswordDialog::showEvent(QShowEvent *e)
+{
+    QFrame::showEvent(e);
+
+    setFocus();
 }
 
 void InputPasswordDialog::updateMainWidgetPos()

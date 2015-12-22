@@ -33,6 +33,7 @@ public slots:
 
 protected:
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
+    void showEvent(QShowEvent *e) Q_DECL_OVERRIDE;
 
 signals:
     void setText(const QString &text);
