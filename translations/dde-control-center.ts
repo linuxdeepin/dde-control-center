@@ -676,36 +676,36 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="300"/>
-        <location filename="../modules/display/customsettings.cpp" line="306"/>
+        <location filename="../modules/display/customsettings.cpp" line="299"/>
+        <location filename="../modules/display/customsettings.cpp" line="305"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="302"/>
-        <location filename="../modules/display/customsettings.cpp" line="308"/>
+        <location filename="../modules/display/customsettings.cpp" line="301"/>
+        <location filename="../modules/display/customsettings.cpp" line="307"/>
         <location filename="../modules/display/customsettings.h" line="43"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="330"/>
+        <location filename="../modules/display/customsettings.cpp" line="329"/>
         <source>Do you want to keep these display settings?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="331"/>
-        <location filename="../modules/display/customsettings.cpp" line="339"/>
+        <location filename="../modules/display/customsettings.cpp" line="330"/>
+        <location filename="../modules/display/customsettings.cpp" line="338"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="333"/>
+        <location filename="../modules/display/customsettings.cpp" line="332"/>
         <source>Revert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="334"/>
+        <location filename="../modules/display/customsettings.cpp" line="333"/>
         <source>Keep Changes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -805,14 +805,14 @@
         <source>Datetime settings(_T)</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="250"/>
+        <source>dddd, MMMM dd, yyyy</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Datetime</name>
-    <message>
-        <location filename="../modules/datetime/datetime.cpp" line="83"/>
-        <source>Date and Time</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="44"/>
         <source>Date</source>
@@ -836,6 +836,11 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="71"/>
         <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/datetime/datetime.cpp" line="83"/>
+        <source>Date and Time</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1417,6 +1422,16 @@
 <context>
     <name>ModuleName</name>
     <message>
+        <location filename="../frame/sidebarmodel.cpp" line="108"/>
+        <source>Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/sidebarmodel.cpp" line="117"/>
+        <source>Shutdown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/sound/sound.cpp" line="28"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
@@ -1472,23 +1487,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/grub/grub.cpp" line="10"/>
-        <source>Boot Menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/sidebarmodel.cpp" line="108"/>
-        <source>Home</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/sidebarmodel.cpp" line="117"/>
-        <source>Shutdown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/wacom/wacom.cpp" line="13"/>
         <source>Wacom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/grub.cpp" line="10"/>
+        <source>Boot Menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1968,12 +1973,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="182"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="190"/>
-        <source>1 hour</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="160"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="163"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="164"/>
@@ -1989,6 +1988,12 @@
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="180"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="188"/>
         <source>Never</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="182"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="190"/>
+        <source>1 hour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

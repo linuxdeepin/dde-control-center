@@ -8,8 +8,30 @@ SUBDIRS = widgets \
           modules \
           dock-plugins
 
-TRANSLATIONS = translations/dde-control-center.ts
+# Automating generation .qm files from .ts files
+LANGUAGES = zh_CN
 
+defineReplace(prependAll) {
+    result =
+    for (lang, $$1) {
+        result ''= $$2$${lang}$$3
+    }
+
+    return ($$result)
+}
+
+TRANSLATIONS = $$prependAll(LANGUAGES, $$PWD/translations/dde-control-center_, .ts)
+
+qtPrepareTool(LRELEASE, lrelease)
+for (tsfile, TRANSLATIONS) {
+    qmfile = $$tsfile
+    qmfile ~= s/\.ts/.qm/
+
+    command = $$LRELEASE $$tsfile -qm $$qmfile
+    system($$command) | error("Failed to execute: $$command")
+}
+
+# add install files
 frame.depends = widgets
 modules.depends = widgets
 
