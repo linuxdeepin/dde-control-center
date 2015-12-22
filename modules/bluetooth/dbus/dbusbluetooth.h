@@ -8,8 +8,8 @@
  * Do not edit! All changes made to it will be lost.
  */
 
-#ifndef DBUSBLUETOOTH_H_1437099652
-#define DBUSBLUETOOTH_H_1437099652
+#ifndef DBUSBLUETOOTH_H_1450753039
+#define DBUSBLUETOOTH_H_1450753039
 
 #include <QtCore/QObject>
 #include <QtCore/QByteArray>
@@ -47,10 +47,6 @@ class DBusBluetooth: public QDBusAbstractInterface
         }
    }
 public:
-    static inline const char *staticServerPath()
-    { return "com.deepin.daemon.Bluetooth"; }
-    static inline const char *staticInterfacePath()
-    { return "/com/deepin/daemon/Bluetooth"; }
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.Bluetooth"; }
 
@@ -72,6 +68,12 @@ public:
     { return qvariant_cast< uint >(property("State")); }
 
 public Q_SLOTS: // METHODS
+    inline QDBusPendingReply<> ClearUnpairedDevice()
+    {
+        QList<QVariant> argumentList;
+        return asyncCallWithArgumentList(QStringLiteral("ClearUnpairedDevice"), argumentList);
+    }
+
     inline QDBusPendingReply<> ConnectDevice(const QDBusObjectPath &in0)
     {
         QList<QVariant> argumentList;
@@ -154,6 +156,13 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("SetAdapterDiscoverableTimeout"), argumentList);
     }
 
+    inline QDBusPendingReply<> SetAdapterDiscovering(const QDBusObjectPath &in0, bool in1)
+    {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
+        return asyncCallWithArgumentList(QStringLiteral("SetAdapterDiscovering"), argumentList);
+    }
+
     inline QDBusPendingReply<> SetAdapterPowered(const QDBusObjectPath &in0, bool in1)
     {
         QList<QVariant> argumentList;
@@ -193,7 +202,7 @@ void StateChanged();
 namespace com {
   namespace deepin {
     namespace daemon {
-      typedef ::DBusBluetooth DBusBluetooth;
+      typedef ::DBusBluetooth Bluetooth;
     }
   }
 }

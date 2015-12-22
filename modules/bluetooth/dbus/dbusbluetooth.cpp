@@ -16,7 +16,7 @@
  */
 
 DBusBluetooth::DBusBluetooth(QObject *parent)
-    : QDBusAbstractInterface(staticServerPath(), staticInterfacePath(), staticInterfaceName(), QDBusConnection::sessionBus(), parent)
+    : QDBusAbstractInterface("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", staticInterfaceName(), QDBusConnection::sessionBus(), parent)
 {
     QDBusConnection::sessionBus().connect(this->service(), this->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged","sa{sv}as", this, SLOT(__propertyChanged__(QDBusMessage)));
 }

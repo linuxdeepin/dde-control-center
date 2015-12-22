@@ -2,8 +2,8 @@
 #include <QDebug>
 
 #include "bluetoothmainwidget.h"
-
 #include "bluetooth.h"
+#include "dbus/dbusbluetooth.h"
 
 Bluetooth::Bluetooth()
 {
@@ -27,4 +27,12 @@ Bluetooth::~Bluetooth()
 QFrame* Bluetooth::getContent()
 {
     return m_mainWidget;
+}
+
+void Bluetooth::setProxy(ControlCenterProxyInterface *proxy)
+{
+    ModuleInterface::setProxy(proxy);
+
+    DBusBluetooth *inter = new DBusBluetooth(this);
+    connect(m_controlCenterProxy->dccObject(), SIGNAL(visibleChanged(bool)), inter, SLOT(ClearUnpairedDevice()));
 }

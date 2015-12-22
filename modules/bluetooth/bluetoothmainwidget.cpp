@@ -166,6 +166,7 @@ QVariantMap getMapByJson(const QString &json)
 void BluetoothMainWidget::intiBackend()
 {
     m_bluetoothDbus = new DBusBluetooth(this);
+//    m_bluetoothDbus->ClearUnpairedDevice();
 
     if(m_bluetoothDbus->state() > 0) {
         ASYN_CALL(m_bluetoothDbus->GetAdapters(), {
