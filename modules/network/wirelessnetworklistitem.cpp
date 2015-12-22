@@ -100,30 +100,12 @@ void WirelessNetworkListItem::onConnectsChanged()
     }
 }
 
-void WirelessNetworkListItem::updateItemIndex(int strength)
+void WirelessNetworkListItem::updateItemIndex()
 {
     /// on wifi strength changed
     NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
-    int index = listWidget()->indexOf(item);
 
-    for(int i = 0; i < listWidget()->count(); ++i){
-        NetworkGenericListItem *tmp_item = qobject_cast<NetworkGenericListItem*>(listWidget()->getWidget(i));
-
-        if(tmp_item && tmp_item->strength() < strength) {
-            if(index == i - 1)
-                return;
-
-            if(index >= 0)
-                listWidget()->removeWidget(index, false);
-
-            if(index < i && index >= 0)
-                listWidget()->insertWidget(i - 1, item);
-            else
-                listWidget()->insertWidget(i, item);
-
-            return;
-        }
-    }
+    updateItemIndex(item);
 }
 
 void WirelessNetworkListItem::updateActiveApState()
@@ -166,7 +148,7 @@ void WirelessNetworkListItem::onActiveConnectionsChanged()
     }
 }
 
-NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMap &map)
+NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMap &map, bool auto_sort)
 {
     NetworkGenericListItem *item = m_mapApSsidToItem.value(map["Ssid"].toString(), nullptr);
 
@@ -177,10 +159,14 @@ NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMa
 
         m_mapApSsidToItem[item->ssid()] = item;
 
-        listWidget()->addWidget(item);
+        if(auto_sort) {
+            updateItemIndex(item);
+        } else {
+            listWidget()->addWidget(item);
+        }
 
         connect(item, &NetworkGenericListItem::strengthChanged,
-                this, &WirelessNetworkListItem::updateItemIndex);
+                this, static_cast<void (WirelessNetworkListItem::*)()>(&WirelessNetworkListItem::updateItemIndex));
         connect(item, &NetworkGenericListItem::clicked, this, &WirelessNetworkListItem::onItemClicked);
         connect(item, &NetworkGenericListItem::clearButtonClicked,
                 this, [this] {
@@ -255,8 +241,8 @@ void WirelessNetworkListItem::init()
             QJsonDocument json_doc = QJsonDocument::fromJson(info.toUtf8());
             const QVariantMap &map = json_doc.object().toVariantMap();
 
-            NetworkGenericListItem *item = addAccessPoint(map);
-            item->strengthChanged(item->strength());
+            NetworkGenericListItem *item = addAccessPoint(map, true);
+            //item->strengthChanged(item->strength());
 
             qDebug() << "add access point:" << item->path() << item->ssid();
         }
@@ -313,7 +299,7 @@ void WirelessNetworkListItem::init()
     connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &WirelessNetworkListItem::onConnectsChanged);
 
     connect(m_dbusNetwork, &DBusNetwork::NeedSecrets,
-            this, [this](const QString &path, const QString &uuid, const QString &ssid, bool in3){
+            this, [this](const QString &path, const QString &section, const QString &ssid, bool in3){
 
         Q_UNUSED(in3)
 
@@ -323,7 +309,7 @@ void WirelessNetworkListItem::init()
             return;
 
         m_targetConnectPath = path;
-        m_tragetConnectUuid = uuid;
+        m_targetConnectSection = section;
 
         if(!m_ddialog) {
             for(int i = 0; i < listWidget()->count(); ++i)
@@ -336,7 +322,7 @@ void WirelessNetworkListItem::init()
             });
             connect(m_ddialog, &InputPasswordDialog::confirm, this, [this] {
                 if(!m_ddialog->text().isEmpty()) {
-                    m_dbusNetwork->FeedSecret(m_targetConnectPath, m_tragetConnectUuid,
+                    m_dbusNetwork->FeedSecret(m_targetConnectPath, m_targetConnectSection,
                                               m_ddialog->text(), m_ddialog->autoConnect());
                     closeInputDialog();
                 } else {
@@ -344,7 +330,7 @@ void WirelessNetworkListItem::init()
                 }
             });
             connect(m_ddialog.data(), &InputPasswordDialog::cancel, this, [this] {
-                m_dbusNetwork->CancelSecret(m_targetConnectPath, m_tragetConnectUuid);
+                m_dbusNetwork->CancelSecret(m_targetConnectPath, m_targetConnectSection);
 
                 closeInputDialog();
             });
@@ -364,6 +350,38 @@ void WirelessNetworkListItem::init()
 
     connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged,
             this, &WirelessNetworkListItem::onActiveConnectionsChanged);
+}
+
+void WirelessNetworkListItem::updateItemIndex(NetworkGenericListItem *item)
+{
+    if(!item)
+        return;
+
+    if(m_ddialog && m_targetConnectPath == item->connectPath())
+        return;
+
+    int index = listWidget()->indexOf(item);
+    int strength = item->strength();
+
+    for(int i = 0; i < listWidget()->count(); ++i){
+        NetworkGenericListItem *tmp_item = qobject_cast<NetworkGenericListItem*>(listWidget()->getWidget(i));
+
+        if(tmp_item && tmp_item->strength() < strength) {
+            if(index >= 0) {
+                if(index == i - 1)
+                    return;
+
+                listWidget()->removeWidget(index, false);
+            }
+
+            if(index < i && index >= 0)
+                listWidget()->insertWidget(i - 1, item);
+            else
+                listWidget()->insertWidget(i, item);
+
+            return;
+        }
+    }
 }
 
 void WirelessNetworkListItem::closeInputDialog()

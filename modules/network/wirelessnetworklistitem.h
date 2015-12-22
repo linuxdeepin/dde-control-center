@@ -16,14 +16,15 @@ public:
 private slots:
     void onItemClicked();
     void onConnectsChanged();
-    void updateItemIndex(int strength);
+    void updateItemIndex();
     void updateActiveApState();
     void onActiveConnectionsChanged();
-    NetworkGenericListItem *addAccessPoint(const QVariantMap &map);
+    NetworkGenericListItem *addAccessPoint(const QVariantMap &map, bool auto_sort = false);
 
 private:
     void init();
 
+    void updateItemIndex(NetworkGenericListItem *item);
     void closeInputDialog();
 
     QPointer<NetworkGenericListItem> m_activeItem;
@@ -33,7 +34,7 @@ private:
     QMap<QString, NetworkGenericListItem*> m_mapApUuidToItem;
 
     QString m_targetConnectPath;
-    QString m_tragetConnectUuid;
+    QString m_targetConnectSection;
 };
 
 #endif // WIRELESSNETWORKLISTITEM_H
