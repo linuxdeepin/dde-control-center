@@ -123,9 +123,8 @@ void WirelessPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
     m_mode = newMode;
     if (m_dbusNetwork->isValid() && (newMode != oldMode)){
         if (newMode == Dock::FashionMode) {
-            for (QString id : m_itemMap.keys()) {
+            for (QString id : m_uuids) {
                 removeItem(id);
-                m_itemMap.take(id)->deleteLater();
             }
         }
         else {
@@ -176,13 +175,12 @@ void WirelessPlugin::addNewItem(const QString &id)
 
 void WirelessPlugin::removeItem(const QString &id)
 {
-    if (m_itemMap.keys().indexOf(id) == -1)
-        return;
-
     m_proxy->itemRemovedEvent(id);
-    m_itemMap.take(id)->deleteLater();
     //remove setting line from dock plugins setting frame,should delete wirelessitem first
     m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
+
+    if (m_itemMap.keys().indexOf(id) != -1)
+        m_itemMap.take(id)->deleteLater();
 }
 
 void WirelessPlugin::onEnabledChanged(const QString &id)
@@ -195,6 +193,8 @@ void WirelessPlugin::onEnabledChanged(const QString &id)
     if (enabled(id)) {
         addNewItem(id);
     }
+
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
 }
 
 int retryTimes = 10;

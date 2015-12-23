@@ -84,16 +84,16 @@ void BluetoothPlugin::addItem(const QString &path)
 
     if(!widget) {
         widget = new QSvgWidget;
-
-        BluetoothObject::AdapterInfo *info = m_bluetooth->getAdapterInfoByPath(path);
-
-        const QString icon_path = QString(":/dark/images/bluetooth_%1.svg").arg(info && info->powered ? "on" : "off");
-
-        widget->load(icon_path);
-        widget->resize(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_EFFICIENT_ICON_SIZE);
-        m_mapIdToButton[path] = widget;
-        m_proxy->itemAddedEvent(path);
     }
+
+    BluetoothObject::AdapterInfo *info = m_bluetooth->getAdapterInfoByPath(path);
+
+    const QString icon_path = QString(":/dark/images/bluetooth_%1.svg").arg(info && info->powered ? "on" : "off");
+
+    widget->load(icon_path);
+    widget->resize(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_EFFICIENT_ICON_SIZE);
+    m_mapIdToButton[path] = widget;
+    m_proxy->itemAddedEvent(path);
 
 }
 
@@ -170,6 +170,8 @@ void BluetoothPlugin::setEnabled(const QString &id, bool enabled)
     } else {
         removeItem(id);
     }
+
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
 }
 
 QWidget *BluetoothPlugin::getItem(QString id)

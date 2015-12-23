@@ -13,7 +13,7 @@ VpnPlugin::VpnPlugin()
     m_dbusNetwork = new com::deepin::daemon::DBusNetwork(this);
     connect(m_dbusNetwork, &DBusNetwork::VpnEnabledChanged, this, &VpnPlugin::updateIcon);
     connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &VpnPlugin::onConnectionsChanged);
-    connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, &VpnPlugin::onConnectionsChanged);
+    connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &VpnPlugin::onConnectionsChanged);
 
     initSettings();
 }
@@ -77,7 +77,7 @@ bool VpnPlugin::configurable(const QString &id)
 {
     Q_UNUSED(id);
 
-    return m_mode != Dock::FashionMode;
+    return (m_mode != Dock::FashionMode) && hasVpn(m_dbusNetwork);
 }
 
 bool VpnPlugin::enabled(const QString &id)
@@ -140,7 +140,7 @@ void VpnPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
         }
     }
 
-    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, VPN_PLUGIN_ID);
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, VPN_PLUGIN_ID);
 }
 
 QString VpnPlugin::getMenuContent(QString)
@@ -209,6 +209,8 @@ void VpnPlugin::onEnabledChanged(const QString &id)
     if (enabled(id)) {
         addNewItem(id);
     }
+
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
 }
 
 int retryTimes = 10;
@@ -229,12 +231,14 @@ void VpnPlugin::onConnectionsChanged()
     retryTimes = 10;
 
 
-    if (hasVpn(m_dbusNetwork)) {
+    if (hasVpn(m_dbusNetwork) && enabled(VPN_PLUGIN_ID)) {
         addNewItem(VPN_PLUGIN_ID);
     }
     else {
         removeItem(VPN_PLUGIN_ID);
     }
+
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, VPN_PLUGIN_ID);
     updateIcon();
 }
 

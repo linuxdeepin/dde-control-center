@@ -195,9 +195,9 @@ void ComplexPlugin::onEnabledChanged()
     if (enabled(COMPLEX_NETWORK_PLUGIN_ID)) {
         addNewItem(COMPLEX_NETWORK_PLUGIN_ID);
     }
-    else {
-        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, COMPLEX_NETWORK_PLUGIN_ID);
-    }
+
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, COMPLEX_NETWORK_PLUGIN_ID);
+
 }
 
 QString ComplexPlugin::settingEnabledKey(const QString &id)

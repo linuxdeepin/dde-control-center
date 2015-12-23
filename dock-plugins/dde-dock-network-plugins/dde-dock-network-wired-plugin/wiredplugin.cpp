@@ -12,7 +12,7 @@ WiredPlugin::WiredPlugin()
 {
     m_dbusNetwork = new com::deepin::daemon::DBusNetwork(this);
     connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &WiredPlugin::onConnectionsChanged);
-    connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, &WiredPlugin::onConnectionsChanged);
+    connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &WiredPlugin::onConnectionsChanged);
 
     initSettings();
 }
@@ -128,6 +128,7 @@ void WiredPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
         }
     }
 
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, WIRED_PLUGIN_ID);
     m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, WIRED_PLUGIN_ID);
 }
 
@@ -186,6 +187,8 @@ void WiredPlugin::onEnabledChanged(const QString &id)
     if (enabled(id)) {
         addNewItem(id);
     }
+
+    m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
 }
 
 int retryTimes = 10;
@@ -209,7 +212,7 @@ void WiredPlugin::onConnectionsChanged()
     if (wirelessDevicesCount(m_dbusNetwork) == 0 && wiredDevicesCount(m_dbusNetwork) > 0 && m_wiredItem == nullptr) {
         addNewItem(WIRED_PLUGIN_ID);
     }
-    else if (!enabled(WIRED_PLUGIN_ID)) {
+    else if (!enabled(WIRED_PLUGIN_ID) || !configurable(WIRED_PLUGIN_ID)) {
         removeItem(WIRED_PLUGIN_ID);
     }
 }

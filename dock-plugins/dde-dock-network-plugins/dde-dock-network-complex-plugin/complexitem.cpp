@@ -16,7 +16,7 @@ ComplexItem::ComplexItem(DBusNetwork *dbusNetwork, QWidget *parent)
     setFixedSize(Dock::APPLET_FASHION_ITEM_WIDTH, Dock::APPLET_FASHION_ITEM_HEIGHT);
 
     connect(dbusNetwork, &DBusNetwork::DevicesChanged, this, &ComplexItem::manuallyUpdate);
-    connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, &ComplexItem::manuallyUpdate);
+    connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &ComplexItem::manuallyUpdate);
 
     m_dbusBluetooth = new DBusBluetooth(this);
     connect(m_dbusBluetooth, &DBusBluetooth::StateChanged, this, &ComplexItem::manuallyUpdate);
