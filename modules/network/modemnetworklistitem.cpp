@@ -34,7 +34,10 @@ void ModemNetworkListItem::init()
     listWidget()->addWidget(m_item);
 
     connect(m_item, &NetworkGenericListItem::clicked, this, [this] {
-        if(m_item->checked() || m_item->loading())
+        if(m_item->loading())
+            return;
+
+        if(m_item->checked())
             m_item->onArrowClicked();
         else
             m_dbusNetwork->ActivateConnection(uniqueUuid(), QDBusObjectPath(path()));

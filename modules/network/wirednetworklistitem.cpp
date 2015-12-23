@@ -131,8 +131,8 @@ void WiredNetworkListItem::onItemClicked()
 {
     NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
 
-    if(item) {
-        if(item->checked() || item->loading())
+    if(item && !item->loading()) {
+        if(item->checked())
             item->onArrowClicked();
         else
             m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath(path()));

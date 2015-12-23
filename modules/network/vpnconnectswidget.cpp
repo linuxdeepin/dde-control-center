@@ -74,9 +74,10 @@ void VPNConnectsWidget::onItemClicked()
 {
     NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
 
-    if(!item)
+    if(!item || item->loading())
         return;
-    if(item->checked() || item->loading())
+
+    if(item->checked())
         item->onArrowClicked();
     else
         m_dbusNetwork->ActivateConnection(item->uuid(), QDBusObjectPath(path()));

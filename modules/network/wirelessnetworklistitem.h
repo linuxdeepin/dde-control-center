@@ -2,6 +2,7 @@
 #define WIRELESSNETWORKLISTITEM_H
 
 #include <QPointer>
+#include <QJsonArray>
 
 #include "abstractdevicewidget.h"
 
@@ -27,11 +28,15 @@ private:
     void updateItemIndex(NetworkGenericListItem *item);
     void closeInputDialog();
 
+    void updateAllItemUuid();
+    void updateItemUuid(NetworkGenericListItem *item);
+
     QPointer<NetworkGenericListItem> m_activeItem;
     QPointer<InputPasswordDialog> m_ddialog;
     QMap<QString, NetworkGenericListItem*> m_mapApPathToItem;
     QMap<QString, NetworkGenericListItem*> m_mapApSsidToItem;
     QMap<QString, NetworkGenericListItem*> m_mapApUuidToItem;
+    QJsonArray connectsArray;
 
     QString m_targetConnectPath;
     QString m_targetConnectSection;

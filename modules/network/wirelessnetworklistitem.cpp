@@ -29,11 +29,12 @@ void WirelessNetworkListItem::onItemClicked()
 
     /// 此处必须使用智能指针，因为下面的函数都是使用异步方式调用的，有可能在函数执行时item已经被delete。
 
-    if(!item)
+    if(!item || item->loading())
         return;
 
-    if(item->checked() || item->loading()) {
+    if(item->checked()) {
         item->onArrowClicked();
+
         return;
     }
 
@@ -81,23 +82,9 @@ void WirelessNetworkListItem::onConnectsChanged()
 {
     QJsonDocument json_doc = QJsonDocument::fromJson(m_dbusNetwork->connections().toUtf8());
 
-    for(const QJsonValue &value : json_doc.object()[ConnectionType::Wireless].toArray()) {
-        const QJsonObject &json_object = value.toObject();
+    connectsArray = json_doc.object()[ConnectionType::Wireless].toArray();
 
-        if(json_object["HwAddress"].toString() == hwAddress()
-                || json_object["HwAddress"].toString().isEmpty()) {
-            NetworkGenericListItem *item = m_mapApSsidToItem.value(json_object["Ssid"].toString(), nullptr);
-
-            if(item) {
-                m_mapApUuidToItem.remove(item->uuid());
-                /// 注意：此处必须要先移除旧的item uuid。
-
-                item->setUuid(json_object["Uuid"].toString());
-                item->setConnectPath(json_object["Path"].toString());
-                m_mapApUuidToItem[item->uuid()] = item;
-            }
-        }
-    }
+    updateAllItemUuid();
 }
 
 void WirelessNetworkListItem::updateItemIndex()
@@ -156,6 +143,8 @@ NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMa
         item = new NetworkGenericListItem(m_dbusNetwork);
         item->updateInfoByMap(map);
         item->setDevicePath(path());
+
+        updateItemUuid(item);
 
         m_mapApSsidToItem[item->ssid()] = item;
 
@@ -398,4 +387,48 @@ void WirelessNetworkListItem::closeInputDialog()
 
     for(int i = 0; i < listWidget()->count(); ++i)
         listWidget()->getWidget(i)->setEnabled(true);
+}
+
+void WirelessNetworkListItem::updateAllItemUuid()
+{
+    for(NetworkGenericListItem *item : m_mapApSsidToItem.values()) {
+        m_mapApUuidToItem.remove(item->uuid());
+        /// 注意：此处必须要先移除旧的item uuid。
+
+        item->setUuid("");
+    }
+
+    for(const QJsonValue &value : connectsArray) {
+        const QJsonObject &connectsObject = value.toObject();
+
+        if(connectsObject["HwAddress"].toString() == hwAddress()
+                || connectsObject["HwAddress"].toString().isEmpty()) {
+            NetworkGenericListItem *item = m_mapApSsidToItem.value(connectsObject["Ssid"].toString(), nullptr);
+
+            if(item) {
+                item->setUuid(connectsObject["Uuid"].toString());
+                item->setConnectPath(connectsObject["Path"].toString());
+                m_mapApUuidToItem[item->uuid()] = item;
+            }
+        }
+    }
+}
+
+void WirelessNetworkListItem::updateItemUuid(NetworkGenericListItem *item)
+{
+    m_mapApUuidToItem.remove(item->uuid());
+    /// 注意：此处必须要先移除旧的item uuid。
+
+    item->setUuid("");
+
+    for(const QJsonValue &value : connectsArray) {
+        const QJsonObject &connectsObject = value.toObject();
+
+        if(connectsObject["HwAddress"].toString() == hwAddress()
+                || connectsObject["HwAddress"].toString().isEmpty()) {
+            item->setUuid(connectsObject["Uuid"].toString());
+            item->setConnectPath(connectsObject["Path"].toString());
+            m_mapApUuidToItem[item->uuid()] = item;
+        }
+    }
 }
