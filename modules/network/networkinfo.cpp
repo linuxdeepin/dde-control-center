@@ -1,3 +1,5 @@
+#include <QShortcut>
+
 #include <libdui/dheaderline.h>
 #include <libdui/darrowlineexpand.h>
 #include <libdui/dseparatorhorizontal.h>
@@ -113,12 +115,18 @@ void NetworkInfo::init(DBusNetwork *dbus)
                   DTextButton *button_cancel = new DTextButton(tr("Cancel"));
                   QHBoxLayout *layout_button = new QHBoxLayout;
 
-                  connect(button_cancel, &DTextButton::clicked, this, [this] {
+                  QShortcut *shortcut_enter = new QShortcut(Qt::Key_Enter, this);
+                  QShortcut *shortcut_return = new QShortcut(Qt::Key_Return, this);
+
+                  connect(shortcut_enter, &QShortcut::activated, this, [this] {
                       NetworkMainWidget *widget = DCCNetwork::parentNetworkMainWidget(this);
 
                       if(widget)
                           widget->popAllWidget();
                   });
+
+                  connect(shortcut_return, &QShortcut::activated, shortcut_enter, &QShortcut::activated);
+                  connect(button_cancel, &DTextButton::clicked, shortcut_enter, &QShortcut::activated);
 
                   layout_button->setMargin(0);
                   layout_button->setSpacing(0);

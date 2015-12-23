@@ -1,3 +1,5 @@
+#include <QKeyEvent>
+
 #include <libdui/dheaderline.h>
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dthememanager.h>
@@ -49,6 +51,33 @@ QString ListWidgetContainer::rightButtonText() const
 QLayout *ListWidgetContainer::boxWidgetLayout() const
 {
     return m_boxWidget->layout();
+}
+
+void ListWidgetContainer::keyPressEvent(QKeyEvent *e)
+{
+    DVBoxWidget::keyPressEvent(e);
+
+    if(e->key() == Qt::Key_Enter || e->key() == Qt::Key_Return) {
+        if(m_connectButton->isVisible()) {
+            emit rightButtonClicked();
+        } else {
+            emit leftButtonClicked();
+        }
+    }
+}
+
+void ListWidgetContainer::showEvent(QShowEvent *e)
+{
+    DVBoxWidget::showEvent(e);
+
+    setFocus();
+}
+
+void ListWidgetContainer::hideEvent(QHideEvent *e)
+{
+    DVBoxWidget::hideEvent(e);
+
+    clearFocus();
 }
 
 void ListWidgetContainer::init(const QString &text)

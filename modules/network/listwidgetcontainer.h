@@ -32,6 +32,11 @@ signals:
     void leftButtonClicked();
     void rightButtonClicked();
 
+protected:
+    void keyPressEvent(QKeyEvent *e) Q_DECL_OVERRIDE;
+    void showEvent(QShowEvent *e) Q_DECL_OVERRIDE;
+    void hideEvent(QHideEvent *e) Q_DECL_OVERRIDE;
+
 private:
     void init(const QString &title);
 
