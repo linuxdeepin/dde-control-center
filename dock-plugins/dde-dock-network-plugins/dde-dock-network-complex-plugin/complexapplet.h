@@ -36,9 +36,9 @@ private:
     void handleMobileConnections();
     void handleVpnConnections();
     void updateVpnIcon();
-    void updateWiredIcon(const QString &path, bool connected, const QString &index = "");
+    void updateWiredIcon(const QString &path, bool connected, const QString &index = "default");
     void updateBluetoothIcon(const QString &path, bool powered, const QString &index = "");
-    void updateWirelessIcon(const QString &path, bool connected, const QString &index = "");
+    void updateWirelessIcon(const QString &path, bool connected, const QString &index = "default");
 
 private:
     QGridLayout *m_mainLayout;

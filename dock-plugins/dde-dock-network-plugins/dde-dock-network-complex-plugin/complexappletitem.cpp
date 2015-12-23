@@ -25,6 +25,11 @@ void ComplexAppletItem::setIcon(const QString &icon)
     setPressPic(icon);
 }
 
+QString ComplexAppletItem::index() const
+{
+    return m_indexLabel->text();
+}
+
 void ComplexAppletItem::setIndex(const QString &value)
 {
     if (value.isEmpty()) {
@@ -34,5 +39,15 @@ void ComplexAppletItem::setIndex(const QString &value)
         m_indexLabel->setText(value);
         m_indexLabel->show();
     }
+}
+
+ComplexAppletItem::DeviceType ComplexAppletItem::deviceType() const
+{
+    return m_deviceType;
+}
+
+void ComplexAppletItem::setDeviceType(const DeviceType &deviceType)
+{
+    m_deviceType = deviceType;
 }
 

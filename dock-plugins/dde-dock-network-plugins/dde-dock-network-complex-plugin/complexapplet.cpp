@@ -139,6 +139,7 @@ void ComplexApplet::handleWiredConnections()
         QString path = pathList.at(i);
         if (m_wiredList.indexOf(path) == -1) {
             ComplexAppletItem *item = new ComplexAppletItem(this);
+            item->setDeviceType(ComplexAppletItem::DeviceWired);
             connect(item, &ComplexAppletItem::clicked, [=] {
                 bool enabled = m_dbusNetwork->IsDeviceEnabled(QDBusObjectPath(path));
                 m_dbusNetwork->EnableDevice(QDBusObjectPath(path), !enabled);
@@ -174,6 +175,7 @@ void ComplexApplet::handleWirelessConnections()
         QString path = pathList.at(i);
         if (m_wirelessList.indexOf(path) == -1) {
             ComplexAppletItem *item = new ComplexAppletItem(this);
+            item->setDeviceType(ComplexAppletItem::DeviceWireless);
             connect(item, &ComplexAppletItem::clicked, [=] {
                 bool enabled = m_dbusNetwork->IsDeviceEnabled(QDBusObjectPath(path));
                 m_dbusNetwork->EnableDevice(QDBusObjectPath(path), !enabled);
@@ -207,6 +209,7 @@ void ComplexApplet::handleVpnConnections()
     if (hasVpn(m_dbusNetwork)) {
         if (m_itemMap.keys().indexOf(VPN_CONNECTION_ID) == -1) {
             ComplexAppletItem *item = new ComplexAppletItem(this);
+            item->setDeviceType(ComplexAppletItem::DeviceVPN);
             connect(item, &ComplexAppletItem::clicked, [=] {
                 m_dbusNetwork->setVpnEnabled(!m_dbusNetwork->vpnEnabled());
             });
@@ -262,12 +265,12 @@ void ComplexApplet::updateVpnIcon()
 void ComplexApplet::updateWiredIcon(const QString &path, bool connected, const QString &index)
 {
     ComplexAppletItem *item = m_itemMap.value(path);
-    if (item) {
+    if (item && item->deviceType() == ComplexAppletItem::DeviceWired) {
         QString img = connected
                 ? ":/images/images/switch_wired_on.png"
                 : ":/images/images/switch_wired_off.png";
         item->setIcon(img);
-        item->setIndex(index);
+        item->setIndex(index == "default" ? item->index() : index);
     }
 }
 
@@ -286,11 +289,11 @@ void ComplexApplet::updateBluetoothIcon(const QString &path, bool powered, const
 void ComplexApplet::updateWirelessIcon(const QString &path, bool connected, const QString &index)
 {
     ComplexAppletItem *item = m_itemMap.value(path);
-    if (item) {
+    if (item && item->deviceType() == ComplexAppletItem::DeviceWireless) {
         QString img = connected
                 ? ":/images/images/switch_wireless_on.png"
                 : ":/images/images/switch_wireless_off.png";
         item->setIcon(img);
-        item->setIndex(index);
+        item->setIndex(index == "default" ? item->index() : index);
     }
 }
