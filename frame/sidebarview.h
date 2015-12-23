@@ -15,7 +15,7 @@ public:
     SidebarView(QWidget *parent = nullptr);
     ~SidebarView();
 
-    QSize sizeHint() const;
+    QSize sizeHint() const Q_DECL_OVERRIDE;
     void setModel(QAbstractItemModel *model) Q_DECL_OVERRIDE;
 
 signals:

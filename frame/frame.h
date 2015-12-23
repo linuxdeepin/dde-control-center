@@ -52,10 +52,12 @@ private slots:
     void globalMouseReleaseEvent(int button, int x, int y);
     void hideAndShowAnotherSide();
     void hideAndShowAnotherSideFinish();
+    void showHelpDocument();
 
 protected:
     void hideEvent(QHideEvent *e);
     void showEvent(QShowEvent *e);
+    void keyPressEvent(QKeyEvent *e);
 
 private:
     HomeScreen *m_homeScreen;

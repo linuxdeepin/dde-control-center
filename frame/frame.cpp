@@ -218,6 +218,15 @@ void Frame::hideAndShowAnotherSideFinish()
     show();
 }
 
+void Frame::showHelpDocument()
+{
+    QProcess *process = new QProcess;
+
+    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), process, &QProcess::deleteLater);
+
+    process->start("dman dde-control-center");
+}
+
 void Frame::hideEvent(QHideEvent *e)
 {
     QFrame::hideEvent(e);
@@ -230,6 +239,20 @@ void Frame::showEvent(QShowEvent *e)
     QFrame::showEvent(e);
 
     emit visibleChanged(isVisible());
+}
+
+void Frame::keyPressEvent(QKeyEvent *e)
+{
+    switch (e->key())
+    {
+    case Qt::Key_F1:        showHelpDocument();     break;
+#ifdef QT_DEBUG
+    case Qt::Key_Escape:    qApp->quit();           break;
+#endif
+    default:;
+    }
+
+    QFrame::keyPressEvent(e);
 }
 
 int Frame::visibleFrameXPos()
