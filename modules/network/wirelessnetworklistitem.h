@@ -18,7 +18,7 @@ private slots:
     void onItemClicked();
     void onConnectsChanged();
     void updateItemIndex();
-    void updateActiveApState();
+    void updateActiveAp();
     void onActiveConnectionsChanged();
     NetworkGenericListItem *addAccessPoint(const QVariantMap &map, bool auto_sort = false);
 

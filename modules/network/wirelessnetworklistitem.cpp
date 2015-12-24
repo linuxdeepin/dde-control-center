@@ -67,6 +67,8 @@ void WirelessNetworkListItem::onItemClicked()
                               scrollWidget, &ScrollFrame::popCurrentWidget);
                   }, this, scrollWidget)
     } else {
+        qDebug() << "item clicked, to connect: item path=" << item->path() << "item uuid=" << item->uuid();
+
         ASYN_CALL(m_dbusNetwork->ActivateAccessPoint(item->uuid(),
                                                      QDBusObjectPath(item->path()),
                                                      QDBusObjectPath(path())), {
@@ -95,7 +97,7 @@ void WirelessNetworkListItem::updateItemIndex()
     updateItemIndex(item);
 }
 
-void WirelessNetworkListItem::updateActiveApState()
+void WirelessNetworkListItem::updateActiveAp()
 {
     NetworkGenericListItem *item = qobject_cast<NetworkGenericListItem*>(sender());
 
@@ -154,6 +156,7 @@ NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMa
             listWidget()->addWidget(item);
         }
 
+
         connect(item, &NetworkGenericListItem::strengthChanged,
                 this, static_cast<void (WirelessNetworkListItem::*)()>(&WirelessNetworkListItem::updateItemIndex));
         connect(item, &NetworkGenericListItem::clicked, this, &WirelessNetworkListItem::onItemClicked);
@@ -161,7 +164,7 @@ NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMa
                 this, [this] {
             m_dbusNetwork->DisconnectDevice(QDBusObjectPath(path()));
         });
-        connect(item, &NetworkGenericListItem::stateChanged, this, &WirelessNetworkListItem::updateActiveApState);
+        connect(item, &NetworkGenericListItem::stateChanged, this, &WirelessNetworkListItem::updateActiveAp);
         connect(this, &WirelessNetworkListItem::pathChanged, item, &NetworkGenericListItem::setDevicePath);
         item->disconnect(item, SIGNAL(rightArrowClicked()), item, SLOT(onArrowClicked()));
         /// 改动此处代码时需注意：此代码的目的是不让右边箭头点击后调用NetworkGenericListItem::onArrowClicked
@@ -182,6 +185,11 @@ NetworkGenericListItem *WirelessNetworkListItem::addAccessPoint(const QVariantMa
                 item->onArrowClicked();
             }
         });
+
+        if(item->path() == activeAp()) {
+            onActiveConnectionsChanged();
+            /// update item state.
+        }
     } else if(item->strength() < map["Strength"].toInt() || map["Path"] == activeAp()) {
         m_mapApPathToItem.remove(item->path());
 
@@ -424,8 +432,9 @@ void WirelessNetworkListItem::updateItemUuid(NetworkGenericListItem *item)
     for(const QJsonValue &value : connectsArray) {
         const QJsonObject &connectsObject = value.toObject();
 
-        if(connectsObject["HwAddress"].toString() == hwAddress()
-                || connectsObject["HwAddress"].toString().isEmpty()) {
+        if(connectsObject["Ssid"].toString() == item->ssid()
+                &&(connectsObject["HwAddress"].toString() == hwAddress()
+                || connectsObject["HwAddress"].toString().isEmpty())) {
             item->setUuid(connectsObject["Uuid"].toString());
             item->setConnectPath(connectsObject["Path"].toString());
             m_mapApUuidToItem[item->uuid()] = item;
