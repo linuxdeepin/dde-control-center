@@ -419,6 +419,8 @@ void Keyboard::initUI()
 
 void Keyboard::run()
 {
+    QPointer<Keyboard> self = this;
+
     QDBusPendingReply<KeyboardLayoutList> list = m_dbusKeyboard->LayoutList();
     list.waitForFinished();
     KeyboardLayoutList tmp_map = list.value();
@@ -427,6 +429,9 @@ void Keyboard::run()
                                       "com.deepin.api.Pinyin" );
 
     foreach (const QString &str, tmp_map.keys()) {
+        if(self.isNull())
+            return;
+
         if(m_mapUserLayoutInfo.contains(tmp_map[str]))
             continue;
 
