@@ -22,9 +22,12 @@ CreateUserPanel::CreateUserPanel(QWidget *parent) : QWidget(parent)
 
 void CreateUserPanel::preDestroy()
 {
-    m_nameLine->hideWarning();
-    m_passwdNew->hideWarning();
-    m_passwdRepeat->hideWarning();
+    if (m_nameLine)
+        m_nameLine->hideWarning();
+    if (m_passwdNew)
+        m_passwdNew->hideWarning();
+    if (m_passwdRepeat)
+        m_passwdRepeat->hideWarning();
 }
 
 bool CreateUserPanel::eventFilter(QObject *obj, QEvent *event)
