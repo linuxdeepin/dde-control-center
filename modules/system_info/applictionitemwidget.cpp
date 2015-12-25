@@ -78,31 +78,9 @@ void ApplictionItemWidget::setAppUpdateInfo(const AppUpdateInfo &info)
 {
     m_updateInfo = info;
 
-    qDebug() << "find icon: " << info.m_icon;
+    const QString &iconPath = getIconPath(info);
 
-    // keng: dont forget call gtk_init() method before use gtk functions.
-    GtkIconTheme *theme = gtk_icon_theme_get_default();
-    gtk_icon_theme_append_search_path(theme, "/usr/share/pixmaps");
-    GtkIconInfo *iconInfo = gtk_icon_theme_lookup_icon(theme, info.m_icon.toStdString().c_str(), 32, GTK_ICON_LOOKUP_GENERIC_FALLBACK);
-
-    // if cant find icon by m_icon, try to app name
-    if (!iconInfo)
-        iconInfo = gtk_icon_theme_lookup_icon(theme, info.m_name.toStdString().c_str(), 32, GTK_ICON_LOOKUP_GENERIC_FALLBACK);
-
-    // use default application icon
-    if (!iconInfo)
-        iconInfo = gtk_icon_theme_lookup_icon(theme, "application-x-desktop", 32, GTK_ICON_LOOKUP_GENERIC_FALLBACK);
-
-    if (iconInfo) {
-        const QString &iconPath = g_strdup(gtk_icon_info_get_filename(iconInfo));
-        qDebug() << iconPath;
-        m_appIcon->setPixmap(QPixmap(iconPath).scaled(32, 32, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
-
-        g_object_unref(iconInfo);
-    } else {
-        qWarning() << info.m_name << " - " << info.m_icon << " - icon not found";
-    }
-
+    m_appIcon->setPixmap(QPixmap(iconPath).scaled(32, 32, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
     m_appName->setText(info.m_name);
     m_appVersion->setText(info.m_avilableVersion);
 }
@@ -251,5 +229,43 @@ void ApplictionItemWidget::restartJob()
     m_dbusJobManagerInter->StartJob(m_dbusJobInter->id());
 
     updateJobStat(Ready);
+}
+
+const QString ApplictionItemWidget::getIconPath(const AppUpdateInfo &info) const
+{
+    qDebug() << "find icon: " << info.m_icon;
+
+    // use if file exist
+    if (QFile(info.m_icon).exists() && !QPixmap(info.m_icon).isNull())
+        return info.m_icon;
+
+    // keng: dont forget call gtk_init() method before use gtk functions.
+    GtkIconTheme *theme = gtk_icon_theme_get_default();
+    gtk_icon_theme_append_search_path(theme, "/usr/share/pixmaps");
+    GtkIconInfo *iconInfo = gtk_icon_theme_lookup_icon(theme, info.m_icon.toStdString().c_str(), 32, GTK_ICON_LOOKUP_GENERIC_FALLBACK);
+
+    // if cant find icon by m_icon, try to app name
+    if (!iconInfo)
+        iconInfo = gtk_icon_theme_lookup_icon(theme, info.m_name.toStdString().c_str(), 32, GTK_ICON_LOOKUP_GENERIC_FALLBACK);
+
+    // use default application icon
+    if (!iconInfo)
+        iconInfo = gtk_icon_theme_lookup_icon(theme, "application-x-desktop", 32, GTK_ICON_LOOKUP_GENERIC_FALLBACK);
+
+    if (iconInfo) {
+        const QString &iconPath = g_strdup(gtk_icon_info_get_filename(iconInfo));
+
+#if GTK_MAJOR_VERSION >= 3
+        g_object_unref(iconInfo);
+#elif GTK_MAJOR_VERSION == 2
+        gtk_icon_info_free(iconInfo);
+#endif
+
+        return iconPath;
+    } else {
+        qWarning() << info.m_name << " - " << info.m_icon << " - icon not found";
+
+        return QString();
+    }
 }
 

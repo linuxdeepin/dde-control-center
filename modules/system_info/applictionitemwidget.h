@@ -72,6 +72,7 @@ private:
     void updateJobStat(Status stat);
     void progressClicked();
     void restartJob();
+    const QString getIconPath(const AppUpdateInfo &info) const;
 
 private:
     QLabel *m_appIcon;
