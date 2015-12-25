@@ -26,6 +26,7 @@ public:
     bool autoConnect() const;
     QString text() const;
     void setInputAlert(bool alert);
+    void setAutoConnect(bool autoConnect);
 
 public slots:
     int exec();

@@ -296,9 +296,7 @@ void WirelessNetworkListItem::init()
     connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &WirelessNetworkListItem::onConnectsChanged);
 
     connect(m_dbusNetwork, &DBusNetwork::NeedSecrets,
-            this, [this](const QString &path, const QString &section, const QString &ssid, bool in3){
-
-        Q_UNUSED(in3)
+            this, [this](const QString &path, const QString &section, const QString &ssid, bool autoConnect){
 
         NetworkGenericListItem *item = m_mapApSsidToItem.value(ssid, nullptr);
 
@@ -332,6 +330,8 @@ void WirelessNetworkListItem::init()
                 closeInputDialog();
             });
         }
+
+        m_ddialog->setAutoConnect(autoConnect);
 
         int index = listWidget()->indexOf(item);
 

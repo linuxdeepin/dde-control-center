@@ -82,6 +82,11 @@ void InputPasswordDialog::setInputAlert(bool alert)
     m_edit->setAlert(alert);
 }
 
+void InputPasswordDialog::setAutoConnect(bool autoConnect)
+{
+    m_checkBox->setChecked(autoConnect);
+}
+
 int InputPasswordDialog::exec()
 {
     if(m_eventLoop)
