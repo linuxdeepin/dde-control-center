@@ -344,7 +344,13 @@ void WirelessNetworkListItem::init()
             listWidget()->removeWidget(index_dialog, false);
         listWidget()->insertWidget(index + 1, m_ddialog.data());
     });
-
+    connect(m_dbusNetwork, &DBusNetwork::NeedSecretsFinished,
+            this, [this](const QString &connPath, const QString &section) {
+        if(m_ddialog && m_targetConnectPath == connPath
+                && m_targetConnectSection == section) {
+            closeInputDialog();
+        }
+    });
     connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged,
             this, &WirelessNetworkListItem::onActiveConnectionsChanged);
 }
