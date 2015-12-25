@@ -55,7 +55,13 @@ EditConnectionPage::EditConnectionPage(const QString &dbusPath, QWidget *parent)
                 main_widget->popAllWidget();
             } else {
                 for(NetworkBaseEditLine *line : findChildren<NetworkBaseEditLine*>()) {
-                    line->checkKey();
+                    if(!line->checkKey()) {
+                        DBaseExpand *expand = DCCNetwork::parentObject<DBaseExpand>(line);
+
+                        if(expand) {
+                            expand->setExpand(true);
+                        }
+                    }
                 }
 
                 QDBusPendingCallWatcher watcher(m_dbus->Save());

@@ -50,7 +50,7 @@ public slots:
     void setAlwaysUpdate(bool alwaysUpdate);
     void setSetKeyAlways(bool setKeyAlways);
     void setReadOnly(bool readOnly);
-    void checkKey();
+    bool checkKey();
 
 signals:
     void setTitle(const QString &title);

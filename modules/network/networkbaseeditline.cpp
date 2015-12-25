@@ -311,13 +311,17 @@ void NetworkBaseEditLine::setReadOnly(bool readOnly)
     emit readOnlyChanged(readOnly);
 }
 
-void NetworkBaseEditLine::checkKey()
+bool NetworkBaseEditLine::checkKey()
 {
     if(isValueError()) {
         emit showErrorAlert();
 
         qDebug() << "key error: " << section() << key() << cacheValue() << titleLabel->text();
+
+        return false;
     }
+
+    return true;
 }
 
 bool NetworkBaseEditLine::isValueError() const

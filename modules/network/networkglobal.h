@@ -141,6 +141,23 @@ class NetworkMainWidget;
 
 namespace DCCNetwork {
     NetworkMainWidget* parentNetworkMainWidget(const QObject *obj);
+
+    template <class T>
+    T* parentObject(const QObject *obj)
+    {
+        QObject *tmp_obj = obj->parent();
+
+        while(tmp_obj) {
+            T *widget = qobject_cast<T*>(tmp_obj);
+
+            if(widget)
+                return widget;
+
+            tmp_obj = tmp_obj->parent();
+        }
+
+        return NULL;
+    }
 }
 
 #endif // NETWORKGLOBAL
