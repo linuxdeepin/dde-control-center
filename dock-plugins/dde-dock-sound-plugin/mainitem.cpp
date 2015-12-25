@@ -2,7 +2,23 @@
 
 MainItem::MainItem(QWidget *parent) : QLabel(parent)
 {
+    m_audio = new DBusAudio(this);
     initDefaultSink();
+    //data will change with default-sink-change
+    connect(m_audio, &DBusAudio::DefaultSinkChanged, this, [=] {
+        disconnect(m_defaultSkin,&DBusAudioSink::VolumeChanged,this,&MainItem::updateIcon);
+        disconnect(m_defaultSkin,&DBusAudioSink::MuteChanged,this,&MainItem::updateIcon);
+        m_defaultSkin->deleteLater();
+        //audio-backend's data is always delayed loaging
+        QTimer *t = new QTimer(this);
+        t->setSingleShot(true);
+        connect(t, &QTimer::timeout, this, [=] {
+            initDefaultSink();
+            updateIcon();
+            sender()->deleteLater();
+        });
+        t->start(1000);
+    });
 }
 
 void MainItem::setDockMode(Dock::DockMode mode)
@@ -32,8 +48,7 @@ void MainItem::wheelEvent(QWheelEvent * event)
 
 void MainItem::initDefaultSink()
 {
-    DBusAudio *audio = new DBusAudio(this);
-    QString path = QDBusObjectPath(audio->GetDefaultSink().value()).path();
+    QString path = QDBusObjectPath(m_audio->GetDefaultSink().value()).path();
     m_defaultSkin = new DBusAudioSink(path,this);
     connect(m_defaultSkin,&DBusAudioSink::VolumeChanged,this,&MainItem::updateIcon);
     connect(m_defaultSkin,&DBusAudioSink::MuteChanged,this,&MainItem::updateIcon);

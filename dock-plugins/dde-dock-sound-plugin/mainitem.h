@@ -24,6 +24,7 @@ private:
     void updateIcon();
 
 private:
+    DBusAudio *m_audio;
     DBusAudioSink *m_defaultSkin = NULL;
     Dock::DockMode m_dockMode = Dock::FashionMode;
     const double WHEEL_STEP = 0.1;

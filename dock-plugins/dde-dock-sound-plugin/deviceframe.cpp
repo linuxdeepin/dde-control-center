@@ -9,10 +9,20 @@ DeviceFrame::DeviceFrame(QWidget *parent) : QWidget(parent)
     m_mainLayout = new QVBoxLayout(this);
     m_mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    m_audio = new DBusAudio(this);
+
     setLayout(m_mainLayout);
     initTitle();
     initDevice();
     adjustSize();
+
+    //data will change with default-sink-change
+    connect(m_audio, &DBusAudio::DefaultSinkChanged, this, [=] {
+        m_mainLayout->removeWidget(m_iconSlider);
+        m_iconSlider->deleteLater();
+        //audio-backend's data is always delayed loaging
+        QTimer::singleShot(1000, this, SLOT(initDevice()));
+    });
 }
 
 
@@ -37,12 +47,9 @@ void DeviceFrame::initTitle()
 
 void DeviceFrame::initDevice()
 {
-    DBusAudio *audio = new DBusAudio(this);
-    QString path = QDBusObjectPath(audio->GetDefaultSink().value()).path();
-    DeviceIconSlider *iconSlider = new DeviceIconSlider(path,this);
-    iconSlider->setFixedSize(TITLE_WIDTH, SLIDER_HEIGHT);
+    QString path = QDBusObjectPath(m_audio->GetDefaultSink().value()).path();
+    m_iconSlider = new DeviceIconSlider(path,this);
+    m_iconSlider->setFixedSize(TITLE_WIDTH, SLIDER_HEIGHT);
 
-    m_mainLayout->addWidget(iconSlider);
-    m_mainLayout->setAlignment(iconSlider, Qt::AlignRight);
-
+    m_mainLayout->addWidget(m_iconSlider, 0, Qt::AlignRight);
 }

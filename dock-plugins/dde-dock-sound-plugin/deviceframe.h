@@ -17,12 +17,13 @@ public:
 signals:
     void heightChanged(int height);
 
-public slots:
-
-private:
+private slots:
     void initTitle();
     void initDevice();
 
+private:
+    DBusAudio *m_audio;
+    DeviceIconSlider *m_iconSlider;
     QVBoxLayout * m_mainLayout = NULL;
 };
 
