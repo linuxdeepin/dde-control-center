@@ -106,10 +106,20 @@ void WirelessNetworkListItem::updateActiveAp()
 
     if(item->state() == ActiveConnectionState::Activating) {
         item->setLoading(true);
+
+        NetworkGenericListItem *oldActiveItem = m_activeItem.data();
+
         m_activeItem = item;
+
+        updateItemIndex(oldActiveItem);
     } else if(item->state() == ActiveConnectionState::Activated) {
         item->setChecked(true);
+
+        NetworkGenericListItem *oldActiveItem = m_activeItem.data();
+
         m_activeItem = item;
+
+        updateItemIndex(oldActiveItem);
     } else {
         item->setChecked(false);
         item->setLoading(false);
@@ -357,7 +367,7 @@ void WirelessNetworkListItem::init()
 
 void WirelessNetworkListItem::updateItemIndex(NetworkGenericListItem *item)
 {
-    if(!item)
+    if(!item || (m_ddialog && item == m_activeItem.data()))
         return;
 
     if(m_ddialog && m_targetConnectPath == item->connectPath())
@@ -401,6 +411,8 @@ void WirelessNetworkListItem::closeInputDialog()
 
     for(int i = 0; i < listWidget()->count(); ++i)
         listWidget()->getWidget(i)->setEnabled(true);
+
+    updateItemIndex(m_activeItem.data());
 }
 
 void WirelessNetworkListItem::updateAllItemUuid()
