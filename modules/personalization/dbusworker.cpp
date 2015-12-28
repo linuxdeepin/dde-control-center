@@ -42,32 +42,37 @@ void DBusWorker::doWork(){
     emit themeKeysChanged(m_themeKeys);
     emit themeObjsChanged(m_themeObjs);
     emit themeDetailsChanged(m_themeDetails);
-
-    getDetails(staticTypeKeys.value("TypeGtkTheme"), m_windowKeys, m_windowObjs, m_windowDetails);
-    getDetails(staticTypeKeys.value("TypeIconTheme"), m_iconKeys, m_iconObjs, m_iconDetails);
-    getDetails(staticTypeKeys.value("TypeCursorTheme"), m_cursorKeys, m_cursorObjs, m_cursorDetails);
-    getDetails(staticTypeKeys.value("TypeBackground"), m_backgroundKeys, m_backgroundObjs, m_backgroundDetails);
-    getDetails(staticTypeKeys.value("TypeStandardFont"), m_standardFontKeys, m_standardFontObjs);
-    getDetails(staticTypeKeys.value("TypeMonospaceFont"), m_monospaceFontKeys, m_monospaceFontObjs);
-
-    getFontSize();
     getCurrentTheme();
-
-    emit themeKeysChanged(m_themeKeys);
-    emit windowKeysChanged(m_windowKeys);
-    emit iconKeysChanged(m_iconKeys);
-    emit cursorKeysChanged(m_cursorKeys);
-    emit backgroundKeysChanged(m_backgroundKeys);
-
-    emit windowDetailsChanged(m_windowDetails);
-    emit iconDetailsChanged(m_iconDetails);
-    emit cursorDetailsChanged(m_cursorDetails);
-    emit backgroundDetailsChanged(m_backgroundDetails);
-    emit standardFontDetailsChanged(m_standardFontKeys);
-    emit monospaceFontDetailsChanged(m_monospaceFontKeys);
     emit currentThemeChanged(m_currentThemeKey);
-    emit fontSizeChanged(m_fontSize);
-    emit dataFinished();
+
+    QTimer::singleShot(1000, [=](){
+        getDetails(staticTypeKeys.value("TypeGtkTheme"), m_windowKeys, m_windowObjs, m_windowDetails);
+        getDetails(staticTypeKeys.value("TypeIconTheme"), m_iconKeys, m_iconObjs, m_iconDetails);
+        getDetails(staticTypeKeys.value("TypeCursorTheme"), m_cursorKeys, m_cursorObjs, m_cursorDetails);
+        getDetails(staticTypeKeys.value("TypeBackground"), m_backgroundKeys, m_backgroundObjs, m_backgroundDetails);
+        getDetails(staticTypeKeys.value("TypeStandardFont"), m_standardFontKeys, m_standardFontObjs);
+        getDetails(staticTypeKeys.value("TypeMonospaceFont"), m_monospaceFontKeys, m_monospaceFontObjs);
+
+        getFontSize();
+        getCurrentTheme();
+
+        emit themeKeysChanged(m_themeKeys);
+        emit windowKeysChanged(m_windowKeys);
+        emit iconKeysChanged(m_iconKeys);
+        emit cursorKeysChanged(m_cursorKeys);
+        emit backgroundKeysChanged(m_backgroundKeys);
+
+        emit windowDetailsChanged(m_windowDetails);
+        emit iconDetailsChanged(m_iconDetails);
+        emit cursorDetailsChanged(m_cursorDetails);
+        emit backgroundDetailsChanged(m_backgroundDetails);
+        emit standardFontDetailsChanged(m_standardFontKeys);
+        emit monospaceFontDetailsChanged(m_monospaceFontKeys);
+        emit currentThemeChanged(m_currentThemeKey);
+        emit fontSizeChanged(m_fontSize);
+        emit dataFinished();
+    });
+
 }
 
 QString DBusWorker::getThumbnail(QString Type, QString key){
