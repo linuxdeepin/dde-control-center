@@ -1,7 +1,5 @@
 include(./common.pri)
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
 TEMPLATE = subdirs
 SUBDIRS = widgets \
           frame \
@@ -9,27 +7,7 @@ SUBDIRS = widgets \
           dock-plugins
 
 # Automating generation .qm files from .ts files
-LANGUAGES = zh_CN
-
-defineReplace(prependAll) {
-    result =
-    for (lang, $$1) {
-        result ''= $$2$${lang}$$3
-    }
-
-    return ($$result)
-}
-
-TRANSLATIONS = $$prependAll(LANGUAGES, $$PWD/translations/dde-control-center_, .ts)
-
-qtPrepareTool(LRELEASE, lrelease)
-for (tsfile, TRANSLATIONS) {
-    qmfile = $$tsfile
-    qmfile ~= s/\.ts/.qm/
-
-    command = $$LRELEASE $$tsfile -qm $$qmfile
-    system($$command) | error("Failed to execute: $$command")
-}
+system($$PWD/translate_generation.sh)
 
 # add install files
 frame.depends = widgets
