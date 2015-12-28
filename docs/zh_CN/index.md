@@ -34,7 +34,7 @@
  
 > ![notes](icon/notes.svg)：打开/退出控制中心和电源显示界面，具体操作请参阅 [打开启动器和控制中心](dman:///dde#打开启动器和控制中心)和[开机和关机](dman:///dde#开机和关机)。
  
-![0|panel](png/panel.png)
+ ![0|panel](png/panel.png)
  
 <table class="block1">
  
@@ -44,13 +44,13 @@
  
 <tr>
  
-<td><img src="icon/user.png" class="inline" /></td>
+<td><img src="icon/user.svg" class="inline" /></td>
  
 <td>点击可对帐户进行创建、管理等操作。
  
 </td>
  
-<td><img src="icon/display.png" class="inline" /></td>
+<td><img src="icon/display.svg" class="inline" /></td>
  
 <td>点击可对显示器的分辨率、亮度等进行设置。
  
@@ -60,13 +60,13 @@
  
 <tr>
  
-<td><img src="icon/defaultapp.png" class="inline" /></td>
+<td><img src="icon/defaultapp.svg" class="inline" /></td>
  
 <td>点击可对默认启动程序进行设置。
  
 </td>
  
-<td><img src="icon/personal.png" class="inline" /></td>
+<td><img src="icon/personal.svg" class="inline" /></td>
  
 <td>点击可对主题、窗口、图标、光标、壁纸、字体进行设置。
  
@@ -76,13 +76,13 @@
  
 <tr>
  
-<td><img src="icon/network.png" class="inline" /></td>
+<td><img src="icon/network.svg" class="inline" /></td>
  
 <td>点击可对网络进行设置。
  
 </td>
  
-<td><img src="icon/audio.png" class="inline" /></td>
+<td><img src="icon/audio.svg" class="inline" /></td>
  
 <td>点击可对扬声器和麦克风进行设置。
  
@@ -92,13 +92,13 @@
  
 <tr>
  
-<td><img src="icon/clock.png" class="inline" /></td>
+<td><img src="icon/clock.svg" class="inline" /></td>
  
 <td>点击可对日期和时间进行设置。
  
 </td>
  
-<td><img src="icon/battery.png" class="inline" /></td>
+<td><img src="icon/battery.svg" class="inline" /></td>
  
 <td>点击可对电源进行设置。
  
@@ -108,13 +108,13 @@
  
 <tr>
  
-<td><img src="icon/mouse.png" class="inline" /></td>
+<td><img src="icon/mouse.svg" class="inline" /></td>
  
 <td>点击可对鼠标和笔记本触摸板进行设置。
  
 </td>
  
-<td><img src="icon/keyboard.png" class="inline" /></td>
+<td><img src="icon/keyboard.svg" class="inline" /></td>
  
 <td>点击可对键盘布局和语言进行设置。
  
@@ -124,13 +124,13 @@
  
 <tr>
  
-<td><img src="icon/shortcut.png" class="inline" /></td>
+<td><img src="icon/shortcut.svg" class="inline" /></td>
  
 <td>点击可对系统的快捷键进行设置。
  
 </td>
  
-<td><img src="icon/startupmenu.png" class="inline" /></td>
+<td><img src="icon/startupmenu.svg" class="inline" /></td>
  
 <td>点击可对默认启动菜单进行设置。
  
@@ -141,13 +141,13 @@
 <tr>
  
 
-<td><img src="icon/remoteassistance.png" class="inline" /></td>
+<td><img src="icon/remoteassistance.svg" class="inline" /></td>
  
 <td>点击可通过网络远程访问并控制其他电脑进行操作。
  
 </td>
  
-<td><img src="icon/systeminfo.png" class="inline" /></td>
+<td><img src="icon/systeminfo.svg" class="inline" /></td>
  
 <td>点击可查看系统详细信息以及系统和软件升级。
  
@@ -173,7 +173,7 @@
  
 3. 在弹出的授权界面，输入帐户密码来授权此项操作。
  
-![0|autologin](png/autologin.png)
+ ![0|autologin](png/autologin.png)
  
 ### 更改帐户头像
  
@@ -185,8 +185,9 @@
  
 - 使用摄像头拍摄的照片来作为帐户头像。
  
-![0|changeimg](png/changeimg.png)
+ ![0|changeimg](png/changeimg.png)
  
+
 1. 在控制中心面板，点击 **帐户**。
  
 2. 选择需要更改头像的帐户，您可以：
@@ -195,7 +196,7 @@
  
  - 点击 **拍照**，使用电脑自带或外接的摄像头来拍摄图片作为头像。
  
- - 点击 ![plus](icon/plus_icon.png)，选择电脑中存储的其他图片来设置帐户头像。
+ - 点击 ![plus](icon/plus_icon.svg)，选择电脑中存储的其他图片来设置帐户头像。
  
 3. 在弹出的授权界面，输入帐户密码来授权此项操作。
  
@@ -212,7 +213,7 @@
  
 4. 点击 **确定**。
  
-![0|changepw](png/changepw.png)
+ ![0|changepw](png/changepw.png)
  
 ### 创建新帐户
  
@@ -220,7 +221,7 @@
  
 1. 在控制中心面板，点击 **帐户**。
  
-2. 点击右上角的 ![plus](icon/plus_icon.png)。
+2. 点击右上角的 ![plus](icon/plus_icon.svg)。
  
 3. 输入新帐户的用户名、密码并再次确认密码。
  
@@ -230,7 +231,7 @@
  
 6. 点击 **确定**，新帐户将自动添加到帐户列表中。
  
-![0|adduser](png/adduser.png)
+ ![0|adduser](png/adduser.png)
  
 > ![attention](icon/attention.svg)：您可以以管理员、普通用户或来宾三种不同的身份登录电脑。
  
@@ -256,7 +257,7 @@
  
 3. 点击 **应用**。
  
-![0|resolution](png/resolution.png)
+ ![0|resolution](png/resolution.png)
  
 #### 设置旋转方向
  
@@ -266,7 +267,7 @@
  
 3. 点击 **应用**。
  
-![0|rotation](png/rotation.png)
+ ![0|rotation](png/rotation.png)
  
 #### 设置亮度
  
@@ -274,7 +275,7 @@
  
 2. 在 **亮度** 选项，通过左右拖动滑条来调节屏幕亮度。
  
-![0|brightness](png/brightness.png)
+ ![0|brightness](png/brightness.png)
  
 ### 多屏设置
  
@@ -298,7 +299,7 @@
  
  - 选择 **仅在VGA-0上显示**，将只在 VGA-0 显示设备上显示屏幕内容，其他屏幕不显示。
  
-![0|displaymode](png/displaymode.png)
+ ![0|displaymode](png/displaymode.png)
  
 > ![notes](icon/notes.svg)：当显示模式为复制时，如果要取消复制，请点击 **自定义设置** > **拆分**。当显示模式为扩展时，点击 **自定义设置** > **编辑** 可以随意拖动显示设备以改变显示位置。
  
@@ -320,7 +321,7 @@
  
  - 在 **亮度** 折叠框中，设置显示设备的显示亮度。
  
-![0|customdisplay](png/customdisplay.png)
+ ![0|customdisplay](png/customdisplay.png)
  
 #### 识别多个显示器
  
@@ -330,7 +331,7 @@
  
 2. 点击 **识别**，在各个显示器的屏幕上您将看到对应的显示设备名称。
  
-![0|discerndisplay](png/discerndisplay.png)
+ ![0|discerndisplay](png/discerndisplay.png)
  
 ## 默认程序设置|../common/icon_defaultapp.svg|
  
@@ -356,7 +357,7 @@
  
  - 在 **终端** 折叠框中，选择默认使用的终端工具。
  
-![0|defaultappset](png/defaultappset.png)
+ ![0|defaultappset](png/defaultappset.png)
  
 ### 自动播放设置
  
@@ -368,7 +369,7 @@
  
 3. 在显示的各个折叠框中，您可以设置媒体文件、软件程序的默认打开方式。
  
-![0|autoplay](png/autoplay.png)
+ ![0|autoplay](png/autoplay.png)
  
 ## 个性化设置|../common/icon_personalization.svg|
  
@@ -384,7 +385,7 @@
  
  - 使用自定义的主题样式。
  
-![0|theme](png/theme.png)
+ ![0|theme](png/theme.png)
  
 > ![notes](icon/notes.svg)：如果您要使用自定义的主题样式，请分别对窗口、图标、光标、壁纸、字体进行设置。
  
@@ -394,7 +395,7 @@
  
 2. 在 **窗口** 折叠框中，选择一款窗口样式进行切换。
  
-![0|window](png/window.png)
+ ![0|window](png/window.png)
  
 ### 设置图标
  
@@ -402,7 +403,7 @@
  
 2. 在 **图标** 折叠框中，选择一款图标样式进行切换。
  
-![0|settingtheme](png/settingtheme.png)
+ ![0|settingtheme](png/settingtheme.png)
  
 ### 设置光标
  
@@ -410,7 +411,7 @@
  
 2. 在 **光标** 折叠框中，选择一款光标进行切换。
  
-![0|cursor](png/cursor.png)
+ ![0|cursor](png/cursor.png)
  
 ### 设置壁纸
  
@@ -422,7 +423,7 @@
  
 2. 在 **壁纸** 折叠框中，选择一款壁纸图片进行切换。
  
-![0|innerwallpaper](png/innerwallpaper.png)
+ ![0|innerwallpaper](png/innerwallpaper.png)
  
 #### 获取外部图片
  
@@ -438,7 +439,7 @@
  
 > ![attention](icon/attention.svg)：如果您需要删除外部壁纸，必须先切换到其他壁纸，外部壁纸的右上角删除按钮才会出现。
  
-![0|extwallpaper](png/extwallpaper.png)
+ ![0|extwallpaper](png/extwallpaper.png)
  
 ### 设置字体
  
@@ -446,7 +447,7 @@
  
 2. 在 **字体** 折叠框中，设置系统显示字体的类型和大小。
  
-![0|typeface](png/typeface.png)
+ ![0|typeface](png/typeface.png)
  
 ## 网络设置|../common/icon_network.svg|
  
@@ -456,33 +457,33 @@
  
 您可以查看电脑当前的网络连接状态和详细信息。
  
-> ![notes](icon/notes.svg)：如果在接入的网络名称前显示 ![checkbutton_icon](icon/checkbutton_icon.png)，表示当前电脑已接入网络。
+> ![notes](icon/notes.svg)：如果在接入的网络名称前显示 ![checkbutton_icon](icon/checkbutton_icon.svg)，表示当前电脑已接入网络。
  
 1. 在控制中心面板，点击 **网络**。
  
-2. 点击 ![arrowright](icon/arrowright_icon.png)，查看当前选中的网络详细信息。
+2. 点击 ![arrowright](icon/arrowright_icon.svg)，查看当前选中的网络详细信息。
  
-3. 点击右上角的 ![networkdetails](icon/networkdetails_icon.png)，查看全部已连接网络详细信息。
+3. 点击右上角的 ![networkdetails](icon/networkdetails_icon.svg)，查看全部已连接网络详细信息。
  
-![0|checknetworkinfo](png/checknetworkinfo.png)
+ ![0|checknetworkinfo](png/checknetworkinfo.png)
  
 ### 添加网络
  
-您可以通过拨号上网或连接VPN的方式接入网络，以下操作以添加VPN网络为例。
+您可以通过拨号上网或连接 VPN 的方式接入网络，以下操作以添加 VPN 网络为例。
  
 1. 在控制中心面板，点击 **网络**。
  
-2. 点击右上角的 ![plus](icon/plus_icon.png)。
+2. 点击右上角的 ![plus](icon/plus_icon.svg)。
  
 3. 选择网络类型。
  
 4. 点击 **下一步**。
  
-5. 选择VPN类型，根据实际情况输入基本信息。
+5. 选择 VPN 类型，根据实际情况输入基本信息。
  
 6. 点击 **添加**。
  
-![0|addnetwork](png/addnetwork.png)
+ ![0|addnetwork](png/addnetwork.png)
  
 ### 连接网络
  
@@ -502,7 +503,7 @@
  
 5. 当网络连接成功后，在桌面将会弹出“已连接有线连接”的提示信息。
  
-![0|cablenetwork](png/cablenetwork.png)
+ ![0|cablenetwork](png/cablenetwork.png)
  
 #### 连接无线网络
  
@@ -523,7 +524,7 @@
  
  -  如果该网络是加密的，请根据提示输入密码，点击 **连接**，然后将自动完成连接。
  
-![0|wirelessnetwork](png/wirelessnetwork.png)
+ ![0|wirelessnetwork](png/wirelessnetwork.png)
  
 #### 删除无线网络
  
@@ -531,13 +532,13 @@
  
 1. 在控制中心面板，点击 **网络**。
  
-2. 选择需要删除的无线网络，点击 ![arrowright](icon/arrowright_icon.png)。
+2. 选择需要删除的无线网络，点击 ![arrowright](icon/arrowright_icon.svg)。
  
 3. 点击 **删除此网络**，将会弹出“您确认要删除此网络吗？”的提示信息。
   
 4. 点击 **删除**。
  
-![0|delnetwork](png/delnetwork.png)
+ ![0|delnetwork](png/delnetwork.png)
  
 ### 开启网络自动连接
  
@@ -545,13 +546,13 @@
  
 1. 在控制中心面板，点击 **网络**。
  
-2. 选择要设置自动连接的网络，点击 ![arrowright](icon/arrowright_icon.png)。
+2. 选择要设置自动连接的网络，点击 ![arrowright](icon/arrowright_icon.svg)。
  
 3. 点击 **自动连接** 开关按钮，开启自动连接功能。
  
 4. 点击 **保存**。
  
-![0|autoconn](png/autoconn.png)
+ ![0|autoconn](png/autoconn.png)
  
 ### 手动配置 IP 地址
  
@@ -559,7 +560,7 @@
  
 1. 在控制中心面板，点击 **网络**。
  
-2. 选择要配置的网络，点击 ![arrowright](icon/arrowright_icon.png)。
+2. 选择要配置的网络，点击 ![arrowright](icon/arrowright_icon.svg)。
  
 3. 点击 **IPv4** 或 **IPv6** 。
  
@@ -569,7 +570,7 @@
  
 6. 点击 **保存**。
  
-![0|configip](png/configip.png)
+ ![0|configip](png/configip.png)
  
 ### 设置网络代理
  
@@ -587,15 +588,15 @@
  
 3. 点击 **应用到整个系统**。
  
-![0|agentnetwork](png/agentnetwork.png)
+ ![0|agentnetwork](png/agentnetwork.png)
  
 ## 声音设置|../common/icon_sound.svg|
  
 设置系统音量大小，您可以通过执行以下操作之一来调节：
  
-- 将鼠标指针置于 ![audio_icon](icon/audio_icon.png) 上，拖动音量滑块。
+- 将鼠标指针置于 ![audio_icon](icon/audio_icon.svg) 上，拖动音量滑块。
  
-- 在任务栏上，点击 ![audio_icon](icon/audio_icon.png) 或点击 ![concenter](icon/concenter-24.png) > **声音** 进入控制中心面板来设置声音。
+- 在任务栏上，点击 ![audio_icon](icon/audio_icon.svg) 或点击 ![concenter](icon/concenter-24.svg) > **声音** 进入控制中心面板来设置声音。
  
 - 通过应用程序本身具有的音量控件来设置。
  
@@ -609,7 +610,7 @@
  
 3. 通过左右拖动滑块来调节输出音量和左/右平衡。
  
-![0|speaker](png/speaker.png)
+ ![0|speaker](png/speaker.png)
  
 ### 设置麦克风
  
@@ -621,7 +622,7 @@
  
 3. 通过左右拖动滑块来增大或减小输入音量。
  
-![0|microphone](png/microphone.png)
+ ![0|microphone](png/microphone.png)
  
 ### 设置音效
  
@@ -641,7 +642,7 @@
  
  - 点击其他选项的开关按钮，开启或关闭提醒、通知等音效。
  
-![0|setsound](png/setsound.png)
+ ![0|setsound](png/setsound.png)
  
 ### 高级设置
  
@@ -653,7 +654,7 @@
  
 3. 分别对输出和输入的端口和设备进行设置。
  
-![0|advancedset](png/advancedset.png)
+ ![0|advancedset](png/advancedset.png)
  
 ## 日期和时间|../common/icon_dateandtime.svg|
  
@@ -661,22 +662,21 @@
  
 ### 查看日期和时间
  
-- 当任务栏为时尚模式显示时，时间将以 ![clocktime](icon/clocktime_icon.png) 形式显示在任务栏上。将鼠标指针置于 ![clocktime](icon/clocktime_icon.png) 上可以查看日期。
+- 当任务栏为时尚模式显示时，时间将以 ![clocktime](icon/clocktime_icon.svg) 形式显示在任务栏上。将鼠标指针置于 ![clocktime](icon/clocktime_icon.svg) 上可以查看日期。
 
-![0|showtime](png/showtime.png)
+ ![0|showtime](png/showtime.png)
  
-- 当任务栏为高效模式或经典模式显示时，时间将以 ![numbertime](icon/numbertime_icon.png) 形式显示在任务栏的右下角。将鼠标指针置于 ![numbertime](icon/numbertime_icon.png) 上可以查看日期。
+- 当任务栏为高效模式或经典模式显示时，时间将以 ![numbertime](icon/numbertime_icon.svg) 形式显示在任务栏的右下角。将鼠标指针置于 ![numbertime](icon/numbertime_icon.svg) 上可以查看日期。
 
-![0|showdate](png/showdate.png)
-
+ ![0|showdate](png/showdate.png)
  
 > ![tips](icon/tips.svg)：点击时间或右键单击时间 > **时间设置** 可以打开控制中心面板来进行日期和时间设置。
  
 ### 切换显示方式
  
-- 当任务栏为时尚模式显示时，右键单击 ![clocktime](icon/clocktime_icon.png) > **切换显示方式**，时间将以 ![simulationtime](icon/simulationtime_icon.png) 形式显示。
+- 当任务栏为时尚模式显示时，右键单击 ![clocktime](icon/clocktime_icon.svg) > **切换显示方式**，时间将以 ![simulationtime](icon/simulationtime_icon.svg) 形式显示。
  
-- 当任务栏为高效模式或经典模式显示时，右键单击 ![numbertime](icon/numbertime_icon.png) > **显示日期** 或 **显示星期几**，在任务栏上将显示日期或星期。
+- 当任务栏为高效模式或经典模式显示时，右键单击 ![numbertime](icon/numbertime_icon.svg) > **显示日期** 或 **显示星期几**，在任务栏上将显示日期或星期。
  
 ### 显示24小时制
  
@@ -686,7 +686,7 @@
  
 2. 点击 **24小时制** 开关按钮，开启24小时制功能。
  
-![0|timeformat](png/timeformat.png)
+ ![0|timeformat](png/timeformat.png)
  
 ### 自动同步
  
@@ -700,7 +700,7 @@
  
 3. 在弹出的授权界面，输入帐户密码来授权此项操作。
  
-![0|timesync](png/timesync.png)
+ ![0|timesync](png/timesync.png)
  
 ### 手动设置
  
@@ -714,27 +714,27 @@
  
 2. 双击顶部显示框中的时间。
  
-3. 点击 ![arrowup](icon/arrowup_icon.png) 和 ![arrowdown](icon/arrowdown_icon.png) 来校正时间。
+3. 点击 ![arrowup](icon/arrowup_icon.svg) 和 ![arrowdown](icon/arrowdown_icon.svg) 来校正时间。
  
 4. 点击 **保存**，完成时间修改。
  
-![0|timeset](png/timeset.png)
+ ![0|timeset](png/timeset.png)
  
 #### 设置日期
  
 1. 在控制中心面板，点击 **日期和时间**。
  
-2. 在 **日期** 选项，通过点击 ![arrowleft](icon/arrowleft_icon.png) 和 ![arrowright](icon/arrowright_icon.png) 来更改年份和月份。
+2. 在 **日期** 选项，通过点击 ![arrowleft](icon/arrowleft_icon.svg) 和 ![arrowright](icon/arrowright_icon.svg) 来更改年份和月份。
  
 3. 使用鼠标选定日期。
  
-4. 点击 ![setting](icon/setting_icon.png)。
+4. 点击 ![setting](icon/setting_icon.svg)。
  
 5. 点击 **确定**，完成日期修改。
  
 6. 在弹出的授权界面，输入帐户密码来授权此项操作。
  
-![0|dateset](png/dateset.png)
+ ![0|dateset](png/dateset.png)
  
 ### 设置时区
  
@@ -746,11 +746,11 @@
  
 2. 在 **时区** 选项，您可以：
  
- - 点击 ![plus](icon/plus_icon.png)，在时区列表中选中需要添加的时区，点击 **添加**。
+ - 点击 ![plus](icon/plus_icon.svg)，在时区列表中选中需要添加的时区，点击 **添加**。
  
- - 点击 ![minus](icon/minus_icon.png) > ![delete](icon/delete_icon.png)，选中需要删除的时区，点击 **确定**。
+ - 点击 ![minus](icon/minus_icon.svg) > ![delete](icon/delete_icon.svg)，选中需要删除的时区，点击 **确定**。
  
-![0|addtimezone](png/addtimezone.png)
+ ![0|addtimezone](png/addtimezone.png)
  
 ## 电源管理|../common/icon_powermanagement.svg|
  
@@ -770,7 +770,7 @@
  
  - 选择 **询问**，当您按下电源按钮时，系统将会询问您的操作。
  
-![0|pushpower](png/pushpower.png)
+ ![0|pushpower](png/pushpower.png)
  
 如果您使用的是笔记本电脑，还可以设置合上笔记本电脑后的下一步操作。
  
@@ -784,7 +784,7 @@
  
  - 选择 **无**，当您合上笔记本时，系统将无任何操作。
  
-![0|closenotebook](png/closenotebook.png)
+ ![0|closenotebook](png/closenotebook.png)
  
 ### 唤醒操作
  
@@ -796,7 +796,7 @@
  
 3. 当下次唤醒电脑时，需要输入密码进行登录。
  
-![0|rouseneedpw](png/rouseneedpw.png)
+ ![0|rouseneedpw](png/rouseneedpw.png)
  
 ### 电源节能操作
  
@@ -814,7 +814,7 @@
  
  - 选择 **自定义**，您可以创建并自定义关闭显示器和进入待机状态的时间。
  
-![0|connpower](png/connpower.png)
+ ![0|connpower](png/connpower.png)
  
 如果您使用的是笔记本电脑，还可以设置笔记本电脑的电池使用模式，使电池使用达到最优。
  
@@ -830,7 +830,7 @@
  
  - 选择 **自定义**，您可以创建并自定义关闭显示器和进入待机状态的时间。
  
-![0|usebattery](png/usebattery.png)
+ ![0|usebattery](png/usebattery.png)
  
 ## 鼠标和触摸板|../common/icon_mouse.svg|
  
@@ -848,7 +848,7 @@
  
 4. 在 **双击速度** 选项，通过左右拖动滑条来调节鼠标的双击速度。
  
-![0|mouseset](png/mouseset.png)
+ ![0|mouseset](png/mouseset.png)
  
 ### 禁用触摸板
  
@@ -860,7 +860,7 @@
  
 3. 触摸板设置的所有功能将失效。
  
-![0|forbidtouch](png/forbidtouch.png)
+ ![0|forbidtouch](png/forbidtouch.png)
  
 ### 开启触摸板
  
@@ -872,7 +872,7 @@
  
 2. 点击 **触摸板** 开关按钮，开启触摸板功能。
  
-![0|touchset](png/touchset.png)
+ ![0|touchset](png/touchset.png)
  
 #### 设置触摸板
  
@@ -920,7 +920,7 @@
  
 2. 点击 **大写键提示** 开关按钮，开启大写键提示功能。
  
-![0|uppercase](png/uppercase.png)
+ ![0|uppercase](png/uppercase.png)
  
 ### 设置系统语言
  
@@ -928,7 +928,7 @@
  
 1. 在控制中心面板，点击 **键盘和语言**。
  
-2. 在 **语言**折叠框中，当前系统的显示语言前将显示 ![checkbutton_icon](icon/checkbutton_icon.png)。
+2. 在 **语言**折叠框中，当前系统的显示语言前将显示 ![checkbutton_icon](icon/checkbutton_icon.svg)。
  
 3. 选择需要切换的语言，系统将自动开始安装语言包。
  
@@ -940,7 +940,7 @@
  
 重新登录时，请确保使用正确的键盘布局来输入密码。
  
-![0|syslanguage](png/syslanguage.png)
+ ![0|syslanguage](png/syslanguage.png)
  
 ### 设置键盘布局
  
@@ -952,13 +952,13 @@
  
 2. 在 **键盘布局** 选项，您可以：
  
- - 点击 ![plus](icon/plus_icon.png)，选择需要添加的键盘布局，点击 **添加**。
+ - 点击 ![plus](icon/plus_icon.svg)，选择需要添加的键盘布局，点击 **添加**。
  
- - 点击 ![minus](icon/minus_icon.png) > ![delete](icon/delete_icon.png)，选择需要删除键盘布局。
+ - 点击 ![minus](icon/minus_icon.svg) > ![delete](icon/delete_icon.svg)，选择需要删除键盘布局。
  
 3. 点击 **完成**。
  
-![0|addkeyboardlayout](png/addkeyboardlayout.png)
+ ![0|addkeyboardlayout](png/addkeyboardlayout.png)
  
 #### 切换键盘布局
  
@@ -966,9 +966,9 @@
  
 2. 在 **键盘布局** 选项，选择一个键盘布局进行切换。
  
-3. 当切换键盘布局成功后，在当前使用的键盘布局前将显示 ![checkbutton](icon/checkbutton_icon.png)。
+3. 当切换键盘布局成功后，在当前使用的键盘布局前将显示 ![checkbutton](icon/checkbutton_icon.svg)。
  
-![0|keyboardlayout](png/keyboardlayout.png)
+ ![0|keyboardlayout](png/keyboardlayout.png)
  
 ### 设置键盘属性
  
@@ -982,7 +982,7 @@
  
 2. 在 **测试区** 中，您可以实时测试键盘的设置效果。
  
-![0|keyboardset](png/keyboardset.png)
+ ![0|keyboardset](png/keyboardset.png)
  
 ## 快捷键设置|../common/icon_shortcuts.svg|
  
@@ -1268,7 +1268,7 @@
  
 2. 在顶部的搜索框中输入关键字，搜索栏会自动列出包含关键字的所有快捷键。
  
-![0|searchshortcut](png/searchshortcut.png)
+ ![0|searchshortcut](png/searchshortcut.png)
  
 ### 修改快捷键
  
@@ -1288,13 +1288,13 @@
  
 1. 在控制中心面板，点击 **快捷键**。
  
-2. 在 **自定义** 选项，点击 ![plus](icon/plus_icon.png)。
+2. 在 **自定义** 选项，点击 ![plus](icon/plus_icon.svg)。
  
 3. 输入快捷键的名称和命令。
  
 4. 点击 **添加**。
  
-![0|customshortcut](png/customshortcut.png)
+ ![0|customshortcut](png/customshortcut.png)
  
 ## 启动菜单设置|../common/icon_bootmenu.svg|
  
@@ -1310,7 +1310,7 @@
  
 > ![notes](icon/notes.svg)：当您更换背景图片成功后，需要重启才能生效。
  
-![0|startbackground](png/startbackground.png)
+ ![0|startbackground](png/startbackground.png)
 
  
 ### 设置默认启动系统
@@ -1321,7 +1321,7 @@
  
 2. 在 **默认启动** 折叠框中，选择电脑开机后默认启动的操作系统。
  
-![0|startmenu](png/startmenu.png)
+ ![0|startmenu](png/startmenu.png)
  
 ### 设置启动延时时间
  
@@ -1331,7 +1331,7 @@
  
 2. 在 **启动延时** 折叠框中，设置延迟启动的时间。
  
-![0|startdelay](png/startdelay.png)
+ ![0|startdelay](png/startdelay.png)
  
  
 ### 设置启动界面文字颜色
@@ -1344,13 +1344,13 @@
  
 3. 在 **选中文字颜色** 折叠框中，选择启动界面默认启动的操作系统的显示颜色。
  
-![0|fontcolor](png/fontcolor.png)
+ ![0|fontcolor](png/fontcolor.png)
  
 ## 远程协助设置|../common/icon_remoteassistance.svg|
  
 您可以通过远程协助操作来协助用户、技术人员解决问题，还可以进行远程协助办公、培训、交互式教学等使用。
  
-![0|remoteinterface](png/remoteinterface.png)
+ ![0|remoteinterface](png/remoteinterface.png)
  
 ### 共享操作
  
@@ -1364,7 +1364,7 @@
  
 4. 点击 **复制验证码**，将验证码发送给控制端。
  
-![0|verificationcode](png/verificationcode.png)
+ ![0|verificationcode](png/verificationcode.png)
  
 ### 接入操作
  
@@ -1378,7 +1378,7 @@
  
 4. 点击 **连接**，进入被控端的桌面，您可以帮助解决问题或进行其他操作。
  
-![0|accessinterface](png/accessinterface.png)
+ ![0|accessinterface](png/accessinterface.png)
  
 ### 远程连接
  
@@ -1394,7 +1394,7 @@
  
 - 设置 **全屏**，调整到全屏模式以便您更加方便的进行远程操作。
  
-![1|remoteassdesktop](png/remoteassdesktop.png)
+ ![1|remoteassdesktop](png/remoteassdesktop.png)
  
 ### 断开连接
  
@@ -1408,7 +1408,7 @@
  
 > ![attention](icon/attention.svg)：如果您正在使用远程桌面操作时，由于其他原因导致网络中断，系统将间隔一段时间后自动断开远程连接。
  
-![1|exitremoteassdesktop](png/exitremoteassdesktop.png)
+ ![1|exitremoteassdesktop](png/exitremoteassdesktop.png)
  
 ## 系统信息|../common/icon_systeminfo.svg|
  
@@ -1432,7 +1432,7 @@
  
  - 查看电脑硬盘容量。
  
-![0|checksysteminfo](png/checksysteminfo.png)
+ ![0|checksysteminfo](png/checksysteminfo.png)
  
 ### 查看公共许可协议
  
@@ -1444,7 +1444,7 @@
  
 3. 查看GNU通用公共许可协议详细描述。
  
-![0|checkgnuinfo](png/checkgnuinfo.png)
+ ![0|checkgnuinfo](png/checkgnuinfo.png)
  
 ### 更新和升级
  
@@ -1454,7 +1454,7 @@
  
 1. 在控制中心面板，点击 **系统信息**。
  
-2. 在 **更新** 折叠框中，点击 ![setting](icon/setting_icon.png)。
+2. 在 **更新** 折叠框中，点击 ![setting](icon/setting_icon.svg)。
  
 3. 点击 **自动检查更新** 开关按钮，开启自动检查更新功能。
  
@@ -1464,13 +1464,13 @@
  
 > ![notes](icon/notes.svg)：系统默认开启自动检查更新功能，您可以手动关闭此功能。
 
-![0|checkautoupdate](png/checkautoupdate.png)
+ ![0|checkautoupdate](png/checkautoupdate.png)
  
 #### 设置镜像源
  
 1. 在控制中心面板，点击 **系统信息**。
  
-2. 在 **更新** 折叠框中，点击 ![setting](icon/setting_icon.png)。
+2. 在 **更新** 折叠框中，点击 ![setting](icon/setting_icon.svg)。
  
 3. 在 **更新源** 选项，点击 **更改**。
  
@@ -1480,7 +1480,7 @@
 
 > ![notes](icon/notes.svg)：系统默认推荐官方稳定源并且在列表中最上显示。
 
-![0|changesource](png/changesource.png)
+ ![0|changesource](png/changesource.png)
 
 #### 升级应用和系统
  
@@ -1488,10 +1488,10 @@
  
 2. 在 **更新** 折叠框中，选择需要升级的应用。
 
-3. 当存在系统或应用升级提示时，点击 ![upgrade](icon/upgrade_icon.png)，系统和系统包含应用的组件将一起升级。
+3. 当存在系统或应用升级提示时，点击 ![upgrade](icon/upgrade_icon.svg)，系统和系统包含应用的组件将一起升级。
  
-4. 将鼠标指针置于待升级的应用上，点击 ![update](icon/update_icon.png)，仅更新和升级该应用。
+4. 将鼠标指针置于待升级的应用上，点击 ![update](icon/update_icon.svg)，仅更新和升级该应用。
  
-> ![attention](icon/attention.svg)：如果系统无任何更新，将提示“点击按钮检查更新”；如果存在更新，当系统和应用升级完成后，部分功能需要重启才生效。
+> ![attention](icon/attention.svg)：如果系统无任何更新，将提示“点击按钮查看更新”；如果存在更新，当系统和应用升级完成后，部分功能需要重启才生效。
 
-![0|systemupgrade](png/systemupgrade.png)
+ ![0|systemupgrade](png/systemupgrade.png)

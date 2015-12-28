@@ -30,9 +30,9 @@ On Control Center panel, you can:
 
 Control Center panel is mainly composed of system administrator account, system basic settings and power button.
 
-> ![notes](icon/notes.svg): Please refer to [Open Launcher and Control Center](dman:///dde#[Open Launcher and Control Center) and [Boot and Shutdown](dman:///dde#Boot and Shutdown) for specific operations of open/exit Control Center and power display interface.
+> ![notes](icon/notes.svg): Please refer to [Open Launcher and Control Center](dman:///dde#Open Launcher and Control Center) and [Boot and Shut down](dman:///dde#Boot and Shut down) for specific operations of open/exit Control Center and power display interface.
 
-  ![0|panel](png/panel.png)
+ ![0|panel](png/panel.png)
 
  <table class="block1">
 
@@ -42,11 +42,11 @@ Control Center panel is mainly composed of system administrator account, system 
 
      <tr>
 
-            <td><img src="icon/user.png" class="inline" /></td>
+            <td><img src="icon/user.svg" class="inline" /></td>
 
             <td>Click to create or manage, or execute other operations to account. </td>
 
-            <td><img src="icon/display.png" class="inline" /></td>
+            <td><img src="icon/display.svg" class="inline" /></td>
 
             <td>Click to set the resolution, brightness and others of the screen. </td>
 
@@ -54,11 +54,11 @@ Control Center panel is mainly composed of system administrator account, system 
 
           <tr>
 
-            <td><img src="icon/defaultapp.png" class="inline" /></td>
+            <td><img src="icon/defaultapp.svg" class="inline" /></td>
 
             <td>Click to set default startup applications. </td>
 
-            <td><img src="icon/personal.png" class="inline" /></td>
+            <td><img src="icon/personal.svg" class="inline" /></td>
 
             <td>Click to set theme, window, icon, cursor, wallpaper and font. </td>
 
@@ -66,11 +66,11 @@ Control Center panel is mainly composed of system administrator account, system 
 
            <tr>
 
-            <td><img src="icon/network.png" class="inline" /></td>
+            <td><img src="icon/network.svg" class="inline" /></td>
 
             <td>Click to set network. </td>
 
-            <td><img src="icon/audio.png" class="inline" /></td>
+            <td><img src="icon/audio.svg" class="inline" /></td>
 
             <td>Click to set speaker and microphone. </td>
 
@@ -78,11 +78,11 @@ Control Center panel is mainly composed of system administrator account, system 
 
          <tr>
 
-            <td><img src="icon/clock.png" class="inline" /></td>
+            <td><img src="icon/clock.svg" class="inline" /></td>
 
             <td>Click to set date and time. </td>
 
-            <td><img src="icon/battery.png" class="inline" /></td>
+            <td><img src="icon/battery.svg" class="inline" /></td>
 
             <td>Click to set power. </td>
 
@@ -90,11 +90,11 @@ Control Center panel is mainly composed of system administrator account, system 
 
          <tr>
 
-            <td><img src="icon/mouse.png" class="inline" /></td>
+            <td><img src="icon/mouse.svg" class="inline" /></td>
 
             <td>Click to set mouse and touchpad. </td>
 
-            <td><img src="icon/keyboard.png" class="inline" /></td>
+            <td><img src="icon/keyboard.svg" class="inline" /></td>
 
             <td>Click to set keyboard layout and language. </td>
 
@@ -102,11 +102,11 @@ Control Center panel is mainly composed of system administrator account, system 
 
          <tr>
 
-            <td><img src="icon/shortcut.png" class="inline" /></td>
+            <td><img src="icon/shortcut.svg" class="inline" /></td>
 
             <td>Click to set system shortcuts. </td>
 
-            <td><img src="icon/startupmenu.png" class="inline" /></td>
+            <td><img src="icon/startupmenu.svg" class="inline" /></td>
 
             <td>Click to set default boot menu. </td> 
 
@@ -114,11 +114,11 @@ Control Center panel is mainly composed of system administrator account, system 
 
              <tr>
 
-            <td><img src="icon/remoteassistance.png" class="inline" /></td>
+            <td><img src="icon/remoteassistance.svg" class="inline" /></td>
 
             <td>Click to visit and control other computers remotely through network to execute operations. </td>
 
-            <td><img src="icon/systeminfo.png" class="inline" /></td>
+            <td><img src="icon/systeminfo.svg" class="inline" /></td>
 
             <td>Click to view system detailed information and upgrade system and software. </td>
 
@@ -142,7 +142,7 @@ You can enable auto-login to automatically log in system with the account after 
 
 3. On the pop-up authentication interface, input your account password to authorize the operation.
 
-  ![0|autologin](png/autologin.png)
+ ![0|autologin](png/autologin.png)
 
 ### Change Account Avatar
 
@@ -154,7 +154,7 @@ You can personalize your avatar by the following ways.
 
 - Use photo taken by camera as account avatar.
 
-  ![0|changeimg](png/changeimg.png)
+ ![0|changeimg](png/changeimg.png)
 
 
 1. On Control Center panel, click on **User Accounts**.
@@ -165,7 +165,7 @@ You can personalize your avatar by the following ways.
 
  - Click on **Webcam**, use built-in or external camera to take a photo and use as avatar.
 
- - Click on ![plus](icon/plus_icon.png), select other images stored in the computer to set as account avatar.
+ - Click on ![plus](icon/plus_icon.svg), select other images stored in the computer to set as account avatar.
 
 3. On the pop-up authentication interface, input your account password to authorize the operation.
 
@@ -181,7 +181,7 @@ The system will notify you to set a default account password during its installa
 
 4. Click on **Confirm**.
 
-  ![0|changepw](png/changepw.png)
+ ![0|changepw](png/changepw.png)
 
 ### Create New Account
 
@@ -189,7 +189,7 @@ After logging in, you can create a new account and switch users while using.
 
 1. On Control Center panel, click on **User Accounts**.
 
-2. Click on ![plus](icon/plus_icon.png) in the upper right corner.
+2. Click on ![plus](icon/plus_icon.svg) in the upper right corner.
 
 3. Input user name and password and confirm the password.
 
@@ -199,7 +199,7 @@ After logging in, you can create a new account and switch users while using.
 
 6. Click on **Confirm**, the new account will automatically be added into account list.
 
-  ![0|adduser](png/adduser.png)
+ ![0|adduser](png/adduser.png)
 
 > ![attention](icon/attention.svg): You can log in the computer as administrator, normal user or guest.
 
@@ -363,7 +363,6 @@ You can change the appearance of the desktop to your favorite style by using dif
 
 2. In **Window** collapse box, select a window type to switch.
 
-
  ![0|window](png/window.png)
 
 ### Icon Settings
@@ -380,9 +379,7 @@ You can change the appearance of the desktop to your favorite style by using dif
 
 2. In **Cursor** collapse box, select a cursor type to switch.
 
-
  ![0|cursor](png/cursor.png)
-
 
 ### Wallpaper Settings
 
@@ -428,13 +425,13 @@ Experience the fun surfing the Internet! You can browse news, play online video,
 
 You can view the status and detailed information of the current computer network.
 
-> ![notes](icon/notes.svg): If ![checkbutton_icon](icon/checkbutton_icon.png) is in front of the network name which you want to connect to, then the current computer is already connected to the network.
+> ![notes](icon/notes.svg): If ![checkbutton_icon](icon/checkbutton_icon.svg) is in front of the network name which you want to connect to, then the current computer is already connected to the network.
 
 1. On Control Center panel, click on **Network**.
 
-2. Click on ![arrowright](icon/arrowright_icon.png) to view the detailed information of the currently selected network.
+2. Click on ![arrowright](icon/arrowright_icon.svg) to view the detailed information of the currently selected network.
 
-3. Click on ![networkdetails](icon/networkdetails_icon.png) in the upper-right corner to view the detailed information of all the connected network.
+3. Click on ![networkdetails](icon/networkdetails_icon.svg) in the upper-right corner to view the detailed information of all the connected network.
 
  ![0|checknetworkinfo](png/checknetworkinfo.png)
 
@@ -444,7 +441,7 @@ You can connect to network by dial-up Internet connection or VPN connection to a
 
 1. On Control Center panel, click on **Network**.
 
-2. Click on ![plus](icon/plus_icon.png) in the upper right corner.
+2. Click on ![plus](icon/plus_icon.svg) in the upper right corner.
 
 3. Select network type.
 
@@ -472,7 +469,7 @@ You can connect the computer to router or network port by wire to access wired n
 
 5. After successfully connected to network, a prompt message of "Connected Wired Connection" will be displayed on the desktop.
 
-  ![0|cablenetwork](png/cablenetwork.png)
+ ![0|cablenetwork](png/cablenetwork.png)
 
 #### Connect to Wireless Network
 
@@ -501,7 +498,7 @@ You can delete the unnecessary network from the list.
 
 1. On Control Center panel, click on **Network**.
 
-2. Select wireless network to delete, click on ![arrowright](icon/arrowright_icon.png).
+2. Select wireless network to delete, click on ![arrowright](icon/arrowright_icon.svg).
 
 3. Click on **Delete this network**, a prompt message will display and says "Are you sure you want to delete this network?" 
 
@@ -515,7 +512,7 @@ After connected to wired or wireless network, you can enable auto-connection, so
 
 1. On Control Center panel, click on **Network**.
 
-2. Select wireless network to auto-connect, click on ![arrowright](icon/arrowright_icon.png).
+2. Select wireless network to auto-connect, click on ![arrowright](icon/arrowright_icon.svg).
 
 3. Click on **Automatically connect** switch button to enable auto-play function.
 
@@ -529,7 +526,7 @@ You can manually configure IP Address in both wired and wireless network.
 
 1. On Control Center panel, click on **Network**.
 
-2. Select wireless network to configure, click on ![arrowright](icon/arrowright_icon.png).
+2. Select wireless network to configure, click on ![arrowright](icon/arrowright_icon.svg).
 
 3. Click on **IPv4** or **IPv6**.
 
@@ -539,7 +536,7 @@ You can manually configure IP Address in both wired and wireless network.
 
 6. Click on **Save**.
 
-![0|configip](png/configip.png)
+ ![0|configip](png/configip.png)
 
 ### Network Proxy Settings
 
@@ -563,9 +560,9 @@ You can breakthrough network limitations by setting proxy server, which makes yo
 
 You can adjust system volume by executing one of the following operations:
 
-- Move the mouse pointer over ![audio_icon](icon/audio_icon.png) and drag the volume slider.
+- Move the mouse pointer over ![audio_icon](icon/audio_icon.svg) and drag the volume slider.
 
-- On Dock, click on ![audio_icon](icon/audio_icon.png) or ![concenter](icon/concenter-24.png) > **Sound** to enter Control Center to set sound.
+- On Dock, click on ![audio_icon](icon/audio_icon.svg) or ![concenter](icon/concenter-24.svg) > **Sound** to enter Control Center to set sound.
 
 - Use volume control that is built in the application to set.
 
@@ -631,21 +628,21 @@ System has made initialize settings for date and time, you can check if the date
 
 ### View Date and Time
 
-- In Fashion mode, time will be displayed on Dock as ![clocktime](icon/clocktime_icon.png). Move the mouse pointer over ![clocktime](icon/clocktime_icon.png) to view date.
+- In Fashion mode, time will be displayed on Dock as ![clocktime](icon/clocktime_icon.svg). Move the mouse pointer over ![clocktime](icon/clocktime_icon.svg) to view date.
 
-![0|showtime](png/showtime.png)
+ ![0|showtime](png/showtime.png)
 
-- In Efficient or Classic mode, time will be displayed on the lower right corner of the Dock as ![numbertime](icon/numbertime_icon.png). Move the mouse pointer over ![numbertime](icon/numbertime_icon.png) to view date.
+- In Efficient or Classic mode, time will be displayed on the lower right corner of the Dock as ![numbertime](icon/numbertime_icon.svg). Move the mouse pointer over ![numbertime](icon/numbertime_icon.svg) to view date.
 
-![0|showdate](png/showdate.png)
+ ![0|showdate](png/showdate.png)
 
 > ![tips](icon/tips.svg): Click or right click on Time > **Datetime settings** to open Control Center panel to set date and time.
 
 ### Switch Display Mode
 
-- In Fashion mode, right click on ![clocktime](icon/clocktime_icon.png) > **Switch display mode**, time will display as ![simulationtime](icon/simulationtime_icon.png).
+- In Fashion mode, right click on ![clocktime](icon/clocktime_icon.svg) > **Switch display mode**, time will display as ![simulationtime](icon/simulationtime_icon.svg).
 
-- In Efficient or Classic mode, right click on ![numbertime](icon/numbertime_icon.png) > **Show date** or **Show week** to display on Dock the date or day.
+- In Efficient or Classic mode, right click on ![numbertime](icon/numbertime_icon.svg) > **Show date** or **Show week** to display on Dock the date or day.
 
 ### Display 24-hour Clock
 
@@ -683,7 +680,7 @@ You can manually set time according to other time tools around you, such as time
 
 2. Double click Time in the top display frame.
 
-- Click on ![arrowup](icon/arrowup_icon.png) and ![arrowdown](icon/arrowdown_icon.png) to correct time.
+- Click on ![arrowup](icon/arrowup_icon.svg) and ![arrowdown](icon/arrowdown_icon.svg) to correct time.
 
 4. Click on **Save** to complete time change.
 
@@ -693,11 +690,11 @@ You can manually set time according to other time tools around you, such as time
 
 1. On Control Center panel, click on **Date and Time**.
 
-2. In **Date** option, click on ![arrowleft](icon/arrowleft_icon.png) and ![arrowright](icon/arrowright_icon.png) to change year and month.
+2. In **Date** option, click on ![arrowleft](icon/arrowleft_icon.svg) and ![arrowright](icon/arrowright_icon.svg) to change year and month.
 
 3. Use the mouse to select date.
 
-4. Click on ![setting](icon/setting_icon.png).
+4. Click on ![setting](icon/setting_icon.svg).
 
 5. Click on **Confirm** to complete date change.
 
@@ -713,9 +710,9 @@ Usually, if the system is installed with simplified Chinese, then the default ti
 
 2. In **Time Zone** option, you can:
 
-  - Click on ![plus](icon/plus_icon.png) and select a time zone in the list to add and click on **Add**.
+  - Click on ![plus](icon/plus_icon.svg) and select a time zone in the list to add and click on **Add**.
 
-  - Click on ![minus](icon/minus_icon.png) > ![delete](icon/delete_icon.png), select a time zone to delete and click on **Confirm**.
+  - Click on ![minus](icon/minus_icon.svg) > ![delete](icon/delete_icon.svg), select a time zone to delete and click on **Confirm**.
 
  ![0|addtimezone](png/addtimezone.png)
 
@@ -895,7 +892,7 @@ While installing the system, you can select system default display language. Aft
 
 1. On Control Center panel, click on **Keyboard and Language**.
 
-2. In **Language** collapse box, the language currently displayed in the system will have a ![checkbutton_icon](icon/checkbutton_icon.png) in front of it.
+2. In **Language** collapse box, the language currently displayed in the system will have a ![checkbutton_icon](icon/checkbutton_icon.svg) in front of it.
 
 3. Select language to switch, the system will automatically start installing language packages.
 
@@ -917,9 +914,9 @@ The system default keyboard layout is US keyboard, you can add other keyboard la
 
 2. In **Keyboard Layout** option, you can:
 
-   - Click on ![plus](icon/plus_icon.png) and select a keyboard layout to add, then click on *Add**.
+   - Click on ![plus](icon/plus_icon.svg) and select a keyboard layout to add, then click on *Add**.
 
-   - Click on ![minus](icon/minus_icon.png) > ![delete](icon/delete_icon.png), select a keyboard layout to delete.
+   - Click on ![minus](icon/minus_icon.svg) > ![delete](icon/delete_icon.svg), select a keyboard layout to delete.
 
 3. Click on **Done**.
 
@@ -931,7 +928,7 @@ The system default keyboard layout is US keyboard, you can add other keyboard la
 
 2. In **Keyboard Layout ** option, select a keyboard layout to switch.
 
-3. After successfully switched keyboard layout, ![checkbutton](icon/checkbutton_icon.png) will be displayed in front of the current keyboard layout.
+3. After successfully switched keyboard layout, ![checkbutton](icon/checkbutton_icon.svg) will be displayed in front of the current keyboard layout.
 
  ![0|keyboardlayout](png/keyboardlayout.png)
 
@@ -1258,7 +1255,7 @@ Customize more shortcuts to simplify your operations.
 
 1. On Control Center panel, click on **Keyboard Shortcuts**.
 
-2. In **Custom** option, click on ![plus](icon/plus_icon.png).
+2. In **Custom** option, click on ![plus](icon/plus_icon.svg).
 
 3. Input shortcut name and command.
 
@@ -1319,7 +1316,7 @@ You can set different color for the texts on the boot interface to distinguish o
 
 With remote assistance, you can assist user and technicians to solve problems, in addition, you can do remote assist work, training, interactive teaching and learning, and so on.
 
-![0|remoteinterface](png/remoteinterface.png)
+ ![0|remoteinterface](png/remoteinterface.png)
 
 ### Share Operations
 
@@ -1424,7 +1421,7 @@ You can check if there is update for the system and applications. Meanwhile, you
 
 1. On Control Center panel, click on **System Information**.
 
-2. In **Update** collapse box, click on ![setting](icon/setting_icon.png)
+2. In **Update** collapse box, click on ![setting](icon/setting_icon.svg)
 
 3. Click on **Auto check update** switch button to enable automatic update check.
 
@@ -1440,7 +1437,7 @@ You can check if there is update for the system and applications. Meanwhile, you
 
 1. On Control Center panel, click on **System Information**.
 
-2. In **Update** collapse box, click on ![setting](icon/setting_icon.png)
+2. In **Update** collapse box, click on ![setting](icon/setting_icon.svg)
 
 3. In **Update server** option, click on **Change**.
 
@@ -1458,9 +1455,9 @@ You can check if there is update for the system and applications. Meanwhile, you
 
 2. In **Update** collapse box, select application(s) to update.
 
-3. When there is notification for system or application update, click on ![upgrade](icon/upgrade_icon.png), the system and utilities of applications contained in system will be both updated.
+3. When there is notification for system or application update, click on ![upgrade](icon/upgrade_icon.svg), the system and utilities of applications contained in system will be both updated.
 
-4. Hover the mouse pointer on the application to be updated, click on ![update](icon/update_icon.png) to update this application only.
+4. Hover the mouse pointer on the application to be updated, click on ![update](icon/update_icon.svg) to update this application only.
 
 > ![attention](icon/attention.svg): If there is no update for system, it will show "Click to view available updates"; if there is(are) update(s), then after updating system and applications, some functions can only be valid after rebooting.
 
