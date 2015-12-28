@@ -112,10 +112,10 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
     connect(m_updateButton, &DImageButton::clicked, this, &UpdateWidget::systemUpgrade);
     connect(m_updateProgress, &DCircleProgress::clicked, this, &UpdateWidget::toggleUpdateState);
-    connect(this, &UpdateWidget::updatableNumsChanged, this, &UpdateWidget::updateInfo);
+    connect(this, &UpdateWidget::updatableNumsChanged, this, &UpdateWidget::updateInfo, Qt::QueuedConnection);
 //    connect(m_dbusJobManagerInter, &DBusUpdateJobManager::UpgradableAppsChanged, this, &UpdateWidget::loadAppList);
-    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatableAppsChanged, this, &UpdateWidget::loadAppList);
-    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatablePackagesChanged, this, &UpdateWidget::loadAppList);
+    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatableAppsChanged, this, &UpdateWidget::loadAppList, Qt::QueuedConnection);
+    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatablePackagesChanged, this, &UpdateWidget::loadAppList, Qt::QueuedConnection);
 //    connect(m_checkUpdateBtn, &DImageButton::clicked, this, &UpdateWidget::loadAppList);
 //    connect(m_checkUpdateBtn, &DImageButton::clicked, m_dbusJobManagerInter, &DBusUpdateJobManager::UpdateSource);
     connect(m_checkUpdateBtn, &DImageButton::clicked, this, &UpdateWidget::checkUpdate);
@@ -128,7 +128,7 @@ void UpdateWidget::resizeEvent(QResizeEvent *e)
 
 void UpdateWidget::loadAppList()
 {
-    qDebug() << "reload app list";
+    qDebug() << "reload app list" << ", stat = " << m_upgradeStatus;
 
     m_appsList->clear();
     m_updateProgress->hide();
@@ -202,11 +202,14 @@ void UpdateWidget::updateUpgradeState()
     if (!m_dbusSystemUpgrade || !m_dbusSystemUpgrade->isValid())
         return;
 
-    qDebug() << "state: " << m_dbusSystemUpgrade->type() << m_dbusSystemUpgrade->status() << m_dbusSystemUpgrade->id();
-
     const QString status = m_dbusSystemUpgrade->status();
+    const QString type = m_dbusSystemUpgrade->type();
+    const QString id = m_dbusSystemUpgrade->id();
 
-    if (status == "succeed" || status == "end")
+    qDebug() << "state: " << type << status << id;
+
+    // TODO/FIXME: 当Job为end状态时，马上会被销毁，所以把status为空的状态当做end状态处理
+    if (status == "succeed" || status == "end" || status.isEmpty())
     {
         refreshProgress(NotStart);
         return loadAppList();
