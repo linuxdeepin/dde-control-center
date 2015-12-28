@@ -278,6 +278,7 @@ void WirelessPlugin::onNeedSecrets(const QString &path, const QString &uuid, con
             m_passworkInputDialog->deleteLater();
             m_dbusNetwork->CancelSecret(m_targetConnectPath, m_tragetConnectUuid);
         });
+        connect(m_dbusNetwork, &DBusNetwork::NeedSecretsFinished, m_passworkInputDialog.data(), &DInputDialog::close);
 
         m_passworkInputDialog->open();
     }
