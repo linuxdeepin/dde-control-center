@@ -64,6 +64,7 @@ signals:
 
 public slots:
     void doWork();
+    void delayGetData();
     void setTheme(QString Type, QString Key);
     void deleteItem(QString Type, QString Key);
 
