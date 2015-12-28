@@ -29,8 +29,6 @@ void AdapterWidget::addDevice(BluetoothObject::DeviceInfo *info)
     info->adapterInfo = m_info;
 
     m_deviceItemList->addWidget(info->item);
-    setFixedHeight(getHeightHint());
-    emit sizeChanged();
 }
 
 void AdapterWidget::removeDevice(BluetoothObject::DeviceInfo *info, bool isDelete)
@@ -40,8 +38,6 @@ void AdapterWidget::removeDevice(BluetoothObject::DeviceInfo *info, bool isDelet
     if(index >= 0){
         info->adapterInfo = nullptr;
         m_deviceItemList->removeWidget(index, isDelete);
-        setFixedHeight(getHeightHint());
-        emit sizeChanged();
     }
 }
 
@@ -66,8 +62,15 @@ void AdapterWidget::updateUI()
 {
     m_headerLine->setTitle(m_info->name);
     m_bluetoothSwitch->setChecked(m_info->powered);
-    m_deviceItemList->setVisible(m_info->powered);
-    m_listWidgetSeparator->setVisible(m_deviceItemList->count() > 0 && m_info->powered);
+    m_deviceItemList->setVisible(m_deviceItemList->count() > 0 && m_info->powered);
+    m_listWidgetSeparator->setVisible(m_deviceItemList->isVisible());
+}
+
+void AdapterWidget::resizeEvent(QResizeEvent *e)
+{
+    QWidget::resizeEvent(e);
+
+    emit sizeChanged();
 }
 
 void AdapterWidget::initUI()
@@ -89,14 +92,13 @@ void AdapterWidget::initUI()
             m_info->powered = checked;
 
             setFixedHeight(getHeightHint());
-            emit sizeChanged();
         }
     });
 
     m_deviceItemList = new DListWidget;
     m_listWidgetSeparator = new DSeparatorHorizontal;
 
-    m_deviceItemList->setVisible(m_info->powered);
+    m_deviceItemList->setVisible(m_deviceItemList->count() > 0 && m_info->powered);
     m_deviceItemList->setMaximumHeight(DEVICE_LIST_MAX_HEIGHT);
     m_deviceItemList->setEnableVerticalScroll(true);
     m_listWidgetSeparator->hide();
@@ -110,4 +112,11 @@ void AdapterWidget::initUI()
     mainLayout->addWidget(m_deviceItemList);
     mainLayout->addWidget(m_listWidgetSeparator);
     setFixedHeight(getHeightHint());
+
+    connect(m_deviceItemList, &DListWidget::countChanged, this, [this] {
+        m_deviceItemList->setVisible(m_deviceItemList->count() > 0 && m_info->powered);
+        m_listWidgetSeparator->setVisible(m_deviceItemList->isVisible());
+
+        setFixedHeight(getHeightHint());
+    });
 }

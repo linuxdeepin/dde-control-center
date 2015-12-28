@@ -34,6 +34,9 @@ signals:
 public slots:
     void updateUI();
 
+protected:
+    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
+
 private:
     void initUI();
 
