@@ -59,6 +59,7 @@ private:
     QPropertyAnimation *m_hideAnimation;
     int m_timeout;
     QTimer m_delayTimer;
+    bool labelIsVisible = false;
 };
 
 #endif // DYNAMICLABEL_H

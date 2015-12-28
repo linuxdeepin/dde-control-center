@@ -27,10 +27,8 @@ DynamicLabel::DynamicLabel(QWidget *parent) :
 
     connect(m_hideAnimation, &QPropertyAnimation::finished, [this]{
         update();
-        hide();
         emit hideFinished();
     });
-    hide();
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
@@ -93,8 +91,9 @@ void DynamicLabel::setText(const QString &text)
 
 void DynamicLabel::showLabel()
 {
+    labelIsVisible = true;
+
     m_showAnimation->stop();
-    show();
     m_delayTimer.stop();
     m_showAnimation->setStartValue(QPoint(width(), 0));
     m_showAnimation->setEndValue(QPoint(width() - qMin(m_label->width(), m_label->fontMetrics().width(text())), 0));
@@ -103,6 +102,8 @@ void DynamicLabel::showLabel()
 
 void DynamicLabel::hideLabel()
 {
+    labelIsVisible = false;
+
     m_delayTimer.stop();
 
     m_hideAnimation->setStartValue(QPoint(m_label->x(), 0));
@@ -166,5 +167,22 @@ void DynamicLabel::resizeEvent(QResizeEvent *e)
 {
     QFrame::resizeEvent(e);
     m_label->setFixedSize(e->size());
+
+    if(labelIsVisible) {
+        int end_x = e->size().width() - qMin(m_label->width(),
+                     m_label->fontMetrics().width(text()));
+
+        if(m_showAnimation->state() == QVariantAnimation::Running) {
+            m_showAnimation->setEndValue(QPoint(end_x, 0));
+        } else {
+            m_label->move(end_x, 0);
+        }
+    } else {
+        if(m_hideAnimation->state() == QVariantAnimation::Running) {
+            m_hideAnimation->setEndValue(QPoint(e->size().width(), 0));
+        } else {
+            m_label->move(e->size().width(), 0);
+        }
+    }
 }
 
