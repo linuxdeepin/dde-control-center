@@ -9,6 +9,8 @@ WirelessItem::WirelessItem(const QString &uuid, DBusNetwork *dbusNetwork, QWidge
     m_applet = new WirelessApplet(uuid, dbusNetwork, this);
     connect(m_applet, &WirelessApplet::activeApChanged, this, &WirelessItem::updateIcon);
     connect(m_applet, &WirelessApplet::sizeChanged, this, &WirelessItem::appletSizeChanged);
+
+    connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &WirelessItem::updateIcon);
     updateIcon();
 }
 
