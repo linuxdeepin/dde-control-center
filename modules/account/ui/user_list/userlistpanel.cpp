@@ -106,11 +106,16 @@ void UserListPanel::insertToLayout(UserExpand *expand)
 
 void UserListPanel::onUserDeleted(const QString &path)
 {
-    foreach (UserExpand *expand, m_expandList) {
+    for (UserExpand *expand : m_expandList) {
         if (expand->userPath() == path) {
             m_expandList.removeAll(expand);
             m_mainLayout->removeWidget(expand);
             expand->deleteLater();
+
+            if (m_expandList.count() == 1) {    //no user for delete
+                emit cancelDelete();
+            }
+
             break;
         }
     }

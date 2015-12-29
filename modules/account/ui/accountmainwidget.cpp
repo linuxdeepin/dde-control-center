@@ -202,6 +202,9 @@ void AccountMainWidget::initDBusAccount()
         else {
             m_deleteUserButton->setVisible(true);
             m_deleteUserButton->setEnabled(true);
+            //update tooltip's position to make sure delete button won't cover by tooltip
+            m_deleteUserButton->mouseEnter();
+            m_deleteUserButton->mouseLeave();
         }
     });
 }
