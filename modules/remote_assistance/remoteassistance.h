@@ -58,6 +58,7 @@ private:
 
 private slots:
     void onAnimationEnd();
+    void hide();
 };
 
 #endif /* end of include guard: REMOTE_ASSISTANCE_H */

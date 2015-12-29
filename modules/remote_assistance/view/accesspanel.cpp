@@ -83,6 +83,7 @@ void AccessPanel::onConnected()
     connect(view, SIGNAL(disconnect()), this, SLOT(onDisconnected()));
     setWidget(view);
     connect(m_controller, SIGNAL(disconnected()), this, SLOT(onDisconnected()));
+    emit connected();
 }
 
 void AccessPanel::onConnectFailed(AccessErrors e)

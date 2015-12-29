@@ -5,6 +5,7 @@
 #include <libdui/dstackwidget.h>
 
 #include "../../frame/constants.h"
+#include "../../interfaces/controlcenterproxyinterface.h"
 #include "remoteassistance.h"
 #include "dbus/manager.h"
 #include "controller/access.h"
@@ -81,6 +82,7 @@ QWidget* RemoteAssistance::Impl::getPanel(ViewPanel v)
         auto controller = new AccessController(m_manager, client);
         QWidget* m_accessPanel = new AccessPanel(controller);
         QObject::connect(m_accessPanel, SIGNAL(changePanel(ViewPanel)), m_pub, SLOT(changePanel(ViewPanel)));
+        QObject::connect(m_accessPanel, SIGNAL(connected()), m_pub, SLOT(hide()));
         return m_accessPanel;
     }
     case ViewPanel::Share: {
@@ -154,3 +156,9 @@ QFrame* RemoteAssistance::getContent()
 {
     return m_impl->m_view;
 }
+
+void RemoteAssistance::hide()
+{
+    m_controlCenterProxy->hide();
+}
+

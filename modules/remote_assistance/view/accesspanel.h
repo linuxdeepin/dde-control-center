@@ -21,6 +21,9 @@ public:
     AccessPanel(IAccessController* controller, QWidget* p=nullptr);
     ~AccessPanel() { dtor(); }
 
+signals:
+    void connected();
+
 public slots:
     void focus();
 
