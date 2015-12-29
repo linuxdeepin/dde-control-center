@@ -108,7 +108,7 @@ void DTipsFrame::showTipsTextAt(const QString &text, const QPoint &p)
     x += arrowDirection() == ArrowLeft ? 45 + 12
                                        : rect().left() - width() - 12;
     int y = p.y();
-    y += 3;
+    y += 13;
     move(x, y);
 
     show();

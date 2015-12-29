@@ -15,8 +15,10 @@ SidebarView::SidebarView(QWidget *parent)
     // item cant receive "mouse leave" event, and items mouse hover state will error
     // TODO: its Qts issue, remove after qt fix it
     viewport()->setAttribute(Qt::WA_Hover, true);
+    verticalScrollBar()->setSingleStep(1);
     setMouseTracking(true);
     setFrameStyle(QFrame::NoFrame);
+    setVerticalScrollMode(ScrollPerItem);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -52,11 +54,23 @@ SidebarView::SidebarView(QWidget *parent)
 
         m_tips->showTipsTextAt(index.data(SidebarModel::PluginName).toString(), pos);
     });
+
+    connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &SidebarView::scrolled, Qt::QueuedConnection);
 }
 
 SidebarView::~SidebarView()
 {
     m_tips->deleteLater();
+}
+
+bool SidebarView::firstItemVisible()
+{
+    return verticalScrollBar()->value() == verticalScrollBar()->minimum();
+}
+
+bool SidebarView::lastItemVisible()
+{
+    return verticalScrollBar()->value() == verticalScrollBar()->maximum();
 }
 
 void SidebarView::leaveEvent(QEvent *e)
@@ -75,6 +89,13 @@ void SidebarView::resizeEvent(QResizeEvent *e)
     const QSize itemSize = model()->data(model()->index(0, 0), Qt::SizeHintRole).toSize();
     const int nums = e->size().height() / itemSize.height();
     setMaximumHeight(nums * itemSize.height());
+
+    emit sizeChanged(size());
+}
+
+void SidebarView::wheelEvent(QWheelEvent *e)
+{
+    e->delta() < 0 ? scrollDown() : scrollUp();
 }
 
 void SidebarView::setModel(QAbstractItemModel *model)
@@ -86,6 +107,16 @@ void SidebarView::setModel(QAbstractItemModel *model)
         return;
 
     connect(sidebar, &SidebarModel::switchToModel, this, &SidebarView::moduleSelected);
+}
+
+void SidebarView::scrollDown()
+{
+    verticalScrollBar()->setValue(verticalScrollBar()->value() + 1);
+}
+
+void SidebarView::scrollUp()
+{
+    verticalScrollBar()->setValue(verticalScrollBar()->value() - 1);
 }
 
 QSize SidebarView::sizeHint() const
