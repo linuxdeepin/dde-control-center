@@ -148,7 +148,7 @@ void AddVpnPage::init()
                                                            m_dbus, tr("Use MPPE")));
     boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-pptp-ppp", "vk-require-mppe",
                                                            m_dbus, tr("Use MPPE")));
-    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("connection", "vk-vpn-autoconnect",
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("connection", "vk-autoconnect",
                                                            m_dbus, tr("Automatically connect")));
 
     connect(container_vpn_info, &ListWidgetContainer::leftButtonClicked, this, [this] {
