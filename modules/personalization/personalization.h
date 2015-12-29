@@ -84,6 +84,7 @@ public slots:
 
     void handleDataFinished();
     void updateCurrentTheme(QString themeKey);
+    void highlightCurrentTheme(QString themeKey);
 
     void setThemeByIndex(int index);
     void setWindowByIndex(int index);

@@ -90,6 +90,7 @@ void Personalization::initControllers(){
     connect(m_dbusWorker, &DBusWorker::monospaceFontDetailsChanged, this, &Personalization::updateMonospaceFontCombox);
 
     connect(m_dbusWorker, &DBusWorker::currentThemeChanged, this, &Personalization::updateCurrentTheme);
+    connect(m_dbusWorker, &DBusWorker::currentThemeHightlighted, this, &Personalization::highlightCurrentTheme);
     connect(m_dbusWorker, &DBusWorker::fontSizeChanged, this, &Personalization::setFontLabel);
     connect(m_dbusWorker, &DBusWorker::dataFinished, this, &Personalization::handleDataFinished);
     m_workerThread.start();
@@ -401,6 +402,8 @@ void Personalization::updateWallpaperButtons(const ImageInfoList &imageInfos){
 }
 
 void Personalization::updateStandardFontCombox(const QStringList &standardFonts){
+    m_standardFonts.clear();
+    m_standardFontCombox->clear();
     m_standardFonts = standardFonts;
     foreach (QString family, standardFonts) {
         m_standardFontCombox->addFontItem(family);
@@ -409,6 +412,8 @@ void Personalization::updateStandardFontCombox(const QStringList &standardFonts)
 
 
 void Personalization::updateMonospaceFontCombox(const QStringList &monospaceFonts){
+    m_monospaceFonts.clear();
+    m_monospaceFontCombox->clear();
     m_monospaceFonts = monospaceFonts;
     foreach (QString family, monospaceFonts) {
         m_monospaceFontCombox->addFontItem(family);
@@ -518,6 +523,7 @@ void Personalization::updateCurrentTheme(QString themeKey){
            m_standardFontCombox->setCurrentIndex((sIndex + 1) % m_standardFontCombox->count());
            m_standardFontCombox->setCurrentIndex(sIndex);
        } else {
+           m_standardFonts.append(standardFont);
            m_standardFontCombox->addFontItem(standardFont);
            m_standardFontCombox->setCurrentIndex(m_standardFontCombox->count() - 1);
        }
@@ -530,8 +536,25 @@ void Personalization::updateCurrentTheme(QString themeKey){
            m_monospaceFontCombox->setCurrentIndex((mIndex + 1) % m_monospaceFontCombox->count());
            m_monospaceFontCombox->setCurrentIndex(mIndex);
        } else {
+           m_monospaceFonts.append(monospaceFont);
            m_monospaceFontCombox->addFontItem(monospaceFont);
            m_monospaceFontCombox->setCurrentIndex(m_monospaceFontCombox->count() - 1);
+       }
+    }
+}
+
+void Personalization::highlightCurrentTheme(QString themeKey)
+{
+    m_currentTheme = themeKey;
+    if (m_themeObjs.contains(themeKey)){
+       const QJsonObject& obj =  m_themeObjs.value(themeKey);
+       if (m_themeKeys.contains(themeKey)){
+            int index = getValidKeyIndex(m_themeImageInfos, themeKey);
+            if (index >= 0){
+                m_themeButtonGrid->checkButtonByIndex(index);
+            }else{
+                qCritical() << "There is no theme named:" << themeKey;
+            }
        }
     }
 }

@@ -61,6 +61,7 @@ signals:
     void fontSizeChanged(int size);
     void dataFinished();
     void currentThemeChanged(QString themeKey);
+    void currentThemeHightlighted(QString themeKey);
 
 public slots:
     void doWork();

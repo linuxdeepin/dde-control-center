@@ -43,7 +43,7 @@ void DBusWorker::doWork(){
     emit themeObjsChanged(m_themeObjs);
     emit themeDetailsChanged(m_themeDetails);
     getCurrentTheme();
-    emit currentThemeChanged(m_currentThemeKey);
+    emit currentThemeHightlighted(m_currentThemeKey);
 
     QTimer* delayTimer = new QTimer;
     delayTimer->setSingleShot(true);
