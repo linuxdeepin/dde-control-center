@@ -183,10 +183,22 @@ void ComplexPlugin::removeItem(const QString &id)
     }
 }
 
+int retryTimes = 10;
 void ComplexPlugin::onEnabledChanged()
 {
     if (!m_proxy)
         return;
+
+    if (!m_dbusNetwork->isValid() && retryTimes-- > 0) {
+        QTimer *retryTimer = new QTimer(this);
+        retryTimer->setSingleShot(true);
+        connect(retryTimer, &QTimer::timeout, this, &ComplexPlugin::onEnabledChanged);
+        connect(retryTimer, &QTimer::timeout, retryTimer, &QTimer::deleteLater);
+        retryTimer->start(1000);
+        qWarning() << "[ComplexNetworkPlugin] Network dbus data is not ready!";
+        return;
+    }
+    retryTimes = 10;
 
     if (m_complexItem != nullptr) {
         m_complexItem->setVisible(false);
