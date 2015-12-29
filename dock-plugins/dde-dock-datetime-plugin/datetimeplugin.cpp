@@ -4,6 +4,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QCoreApplication>
 
 #include "datetimeplugin.h"
 #include "clockpixmap.h"
@@ -247,7 +248,8 @@ void DateTimePlugin::initSettings()
 void DateTimePlugin::initCalendar()
 {
     m_calendar = new DCalendar();
-    m_calendar->setSolarDisplayFormat(tr("dddd, MMMM dd, yyyy"));
+	// reuse the translation of dde-control-center datetime module
+    m_calendar->setSolarDisplayFormat(QCoreApplication::translate("NormalWidget", "dddd, dd MMMM yyyy"));
     m_calendar->setLunarVisible(QLocale::system().name().startsWith("zh_"));
     m_calendar->setLunarFestivalHighlight(false);
     m_calendar->setControlPanelVisible(false);
