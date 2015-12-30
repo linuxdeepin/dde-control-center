@@ -38,6 +38,8 @@ WirelessAppletItem::WirelessAppletItem(const ApData &data, const QString &device
         qDebug() << "[WirelessPlugin] Try to active ap: " << getApPath();
         //fixme,one ssid may point to multiple uuid
         QStringList uuids = getApUuidsBySsid(m_apData.ssid, m_dbusNetwork);
+        if (uuids.isEmpty())
+            uuids << "";    //backend will create uuid for the empty one
         for (QString uuid : uuids) {
             ASYN_CALL(m_dbusNetwork->ActivateAccessPoint(uuid,
                                                          QDBusObjectPath(getApPath()),
@@ -46,6 +48,9 @@ WirelessAppletItem::WirelessAppletItem(const ApData &data, const QString &device
                           if(!connectPath.isEmpty()) {
                               qDebug() << "[WirelessPlugin] Actived ap success: " << connectPath << getApPath();
                               m_availableUuid = uuid;
+                          }
+                          else {
+                              qDebug() << "[WirelessPlugin] Actived ap failed: " << connectPath << getApPath();
                           }
                       }, this, uuid)
         }
