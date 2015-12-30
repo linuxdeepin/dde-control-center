@@ -107,6 +107,7 @@ void SidebarView::setModel(QAbstractItemModel *model)
         return;
 
     connect(sidebar, &SidebarModel::switchToModel, this, &SidebarView::moduleSelected);
+    connect(sidebar, &SidebarModel::dataChanged, [this] {setMaximumHeight(sizeHint().height());});
 }
 
 void SidebarView::scrollDown()
