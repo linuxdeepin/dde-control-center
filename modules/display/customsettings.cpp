@@ -468,9 +468,15 @@ QStringList CustomSettings::getResolutionLabels(MonitorInterface *dbus)
     modesReply.waitForFinished();
     MonitorModeList monitorModeList = modesReply.value();
 
+    if(monitorModeList.isEmpty()) {
+        return m_mapNameToResolutionLabels[dbus->name()];
+    }
+
     foreach (MonitorMode mode, monitorModeList) {
         resolutions << QString("%1x%2").arg(mode.width).arg(mode.height);
     }
+
+    m_mapNameToResolutionLabels[dbus->name()] = resolutions;
 
     return resolutions;
 }
@@ -483,9 +489,15 @@ QStringList CustomSettings::getRotationLabels(MonitorInterface *dbus)
     rotationsReply.waitForFinished();
     UshortList monitorRotations = rotationsReply.value();
 
+    if(monitorRotations.isEmpty()) {
+        return m_mapNameToRotationLabels[dbus->name()];
+    }
+
     foreach (ushort rotationId, monitorRotations) {
         rotations << m_rotationMap[rotationId];
     }
+
+    m_mapNameToRotationLabels[dbus->name()] = rotations;
 
     return rotations;
 }

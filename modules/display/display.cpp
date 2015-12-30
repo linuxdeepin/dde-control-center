@@ -84,10 +84,8 @@ void Display::updateUI()
 
     m_monitorGround->clear();
 
-    for (int i=0; i < m_monitors.count(); ++i) {
-        m_monitors[i]->deleteLater();
-        m_dbusMonitors[i]->deleteLater();
-    }
+    qDeleteAll(m_monitors);
+    qDeleteAll(m_dbusMonitors);
 
     m_monitors.clear();
     m_dbusMonitors.clear();

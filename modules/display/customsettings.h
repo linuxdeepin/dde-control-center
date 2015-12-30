@@ -44,6 +44,9 @@ private:
     MonitorGround *m_monitorGround;
     bool m_ignoreSliderChang = false;
 
+    QMap<QString, QStringList> m_mapNameToRotationLabels;
+    QMap<QString, QStringList> m_mapNameToResolutionLabels;
+
     QStringList getResolutionLabels(MonitorInterface *dbus);
     QStringList getRotationLabels(MonitorInterface *dbus);
     DSlider *getBrightnessSlider(const QString &name);
