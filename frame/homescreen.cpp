@@ -95,16 +95,10 @@ HomeScreen::HomeScreen(QWidget *parent) :
 
     QVBoxLayout *bottomVLayout = new QVBoxLayout;
     bottomVLayout->addWidget(bottomButton);
+    bottomVLayout->setAlignment(bottomButton, Qt::AlignHCenter);
     bottomVLayout->addWidget(bottomLabel);
     bottomVLayout->setSpacing(0);
-    bottomVLayout->setContentsMargins(0, 0, 0, 10);
-
-    QHBoxLayout *bottomHLayout = new QHBoxLayout;
-    bottomHLayout->addStretch();
-    bottomHLayout->addLayout(bottomVLayout);
-    bottomHLayout->addStretch();
-    bottomHLayout->setSpacing(0);
-    bottomHLayout->setMargin(0);
+    bottomVLayout->setContentsMargins(0, 0, 0, 5);
 
     QWidget *bottomOuterWidget = new QWidget(this);
     bottomOuterWidget->setFixedHeight(DCC::HomeScreen_BottomWidgetHeight);
@@ -112,7 +106,7 @@ HomeScreen::HomeScreen(QWidget *parent) :
 
     m_bottomWidget = new QWidget(bottomOuterWidget);
     m_bottomWidget->setObjectName("BottomWidget");
-    m_bottomWidget->setLayout(bottomHLayout);
+    m_bottomWidget->setLayout(bottomVLayout);
     m_bottomWidget->setFixedSize(bottomOuterWidget->size());
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
