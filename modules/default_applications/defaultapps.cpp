@@ -10,7 +10,7 @@
 #include <QJsonObject>
 
 #include "moduleheader.h"
-
+#include "constants.h"
 #include "defaultapps.h"
 #include "dbus/dbusdefaultapps.h"
 
@@ -18,6 +18,7 @@
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dbaseline.h>
 #include <libdui/darrowlineexpand.h>
+#include <libdui/dboxwidget.h>
 
 DUI_USE_NAMESPACE
 
@@ -77,37 +78,41 @@ DefaultApps::DefaultApps() :
 
     QTimer::singleShot(600, this, SLOT(lazyLoad()));
 
-    QVBoxLayout *scrollLayout = new QVBoxLayout;
-    scrollLayout->addWidget(defaultApps);
-    scrollLayout->addWidget(new DSeparatorHorizontal);
-    scrollLayout->addWidget(m_modBrowser);
-    scrollLayout->addWidget(m_modMail);
-    scrollLayout->addWidget(m_modText);
-    scrollLayout->addWidget(m_modMusic);
-    scrollLayout->addWidget(m_modVideo);
-    scrollLayout->addWidget(m_modPicture);
-    scrollLayout->addWidget(m_modTerminal);
-    scrollLayout->addWidget(autoPlayApplications);
-    scrollLayout->addWidget(new DSeparatorHorizontal);
-    scrollLayout->addWidget(m_modCDAudio);
-    scrollLayout->addWidget(m_modDVDVideo);
-    scrollLayout->addWidget(m_modMusicPlayer);
-    scrollLayout->addWidget(m_modCamera);
-    scrollLayout->addWidget(m_modSoftware);
-    scrollLayout->addStretch(1);
-    scrollLayout->setSpacing(0);
-    scrollLayout->setMargin(0);
+    DVBoxWidget *scrollContent = new DVBoxWidget;
+    scrollContent->layout()->addWidget(defaultApps);
+    scrollContent->layout()->addWidget(new DSeparatorHorizontal);
+    scrollContent->layout()->addWidget(m_modBrowser);
+    scrollContent->layout()->addWidget(m_modMail);
+    scrollContent->layout()->addWidget(m_modText);
+    scrollContent->layout()->addWidget(m_modMusic);
+    scrollContent->layout()->addWidget(m_modVideo);
+    scrollContent->layout()->addWidget(m_modPicture);
+    scrollContent->layout()->addWidget(m_modTerminal);
+    scrollContent->layout()->addWidget(autoPlayApplications);
+    scrollContent->layout()->addWidget(new DSeparatorHorizontal);
+    scrollContent->layout()->addWidget(m_modCDAudio);
+    scrollContent->layout()->addWidget(m_modDVDVideo);
+    scrollContent->layout()->addWidget(m_modMusicPlayer);
+    scrollContent->layout()->addWidget(m_modCamera);
+    scrollContent->layout()->addWidget(m_modSoftware);
+    scrollContent->layout()->addStretch(1);
+    scrollContent->layout()->setSpacing(0);
+    scrollContent->layout()->setMargin(0);
+    scrollContent->setFixedWidth(DCC::ModuleContentWidth);
 
-    QWidget *scrollWidget = new QWidget;
-    scrollWidget->setLayout(scrollLayout);
-    scrollWidget->setFixedWidth(310);
+    QScrollArea *scrollArea = new QScrollArea;
+    scrollArea->setWidget(scrollContent);
+    scrollArea->setStyleSheet("background-color:transparent;");
+    scrollArea->setFrameStyle(QFrame::NoFrame);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_header);
     mainLayout->addWidget(new DSeparatorHorizontal);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
-    mainLayout->addWidget(scrollWidget);
+    mainLayout->addWidget(scrollArea);
 
     m_centralWidget->setLayout(mainLayout);
     m_centralWidget->updateGeometry();
@@ -174,17 +179,8 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
         qDebug() << appName << " => " << mimeList;
     });
 
-    QHBoxLayout *layout = new QHBoxLayout;
-    layout->addWidget(list);
-    layout->setMargin(0);
-    layout->setSpacing(0);
-
-    QWidget *appsList = new QWidget;
-
-    appsList->setFixedHeight(30 * appList.count());
-    appsList->setLayout(layout);
-
-    defaultApps->setContent(appsList);
+    list->setFixedHeight(30 * list->count());
+    defaultApps->setContent(list);
 
     return defaultApps;
 }
