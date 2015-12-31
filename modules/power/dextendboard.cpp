@@ -20,24 +20,24 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     m_customChooseLabel->setText(tr("Custom options"));
     m_customChooseLabel->setStyleSheet(QString("background-color: %1;color:rgb(180,180,180)").arg(DCC::BgLightColor.name()));
 
-    m_poweroffLabel = new QLabel;
-    m_poweroffLabel->setText(tr("Turn off the display"));
-    m_poweroffLabel->setStyleSheet("color: rgb(180, 180, 180)");
+    m_idleLabel = new QLabel;
+    m_idleLabel->setText(tr("Turn off the display"));
+    m_idleLabel->setStyleSheet("color: rgb(180, 180, 180)");
 
-    m_poweroffButtonGrid = new DButtonGrid(1, 7);
-    m_poweroffButtonGrid->setFixedHeight(30);
-    m_poweroffButtonGrid->setItemSize(32, 28);
+    m_idleButtonGrid = new DButtonGrid(1, 7);
+    m_idleButtonGrid->setFixedHeight(30);
+    m_idleButtonGrid->setItemSize(32, 28);
 
-    m_poweroffButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
-    m_poweroffButtonGrid->addButtons(m_poweroffButtons);
-    m_poweroffButtonGrid->checkButtonByIndex(6);
+    m_idleButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
+    m_idleButtonGrid->addButtons(m_idleButtons);
+    m_idleButtonGrid->checkButtonByIndex(6);
     m_suspendLabel = new QLabel;
     m_suspendLabel->setText(tr("Suspend"));
     m_suspendLabel->setStyleSheet("color: rgb(180, 180, 180)");;
     m_suspendButtonGrid = new DButtonGrid(1, 7);
 
-    m_poweroffButtonGrid->setColumnWidth(6, 48);
-    m_poweroffButtonGrid->setFixedWidth(DCC::ModuleContentWidth);
+    m_idleButtonGrid->setColumnWidth(6, 48);
+    m_idleButtonGrid->setFixedWidth(DCC::ModuleContentWidth);
     m_suspendButtonGrid->setItemSize(32, 28);
 
     m_suspendButtons << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
@@ -52,19 +52,19 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     m_customLabel = new QLabel;
     m_customLabel->setStyleSheet(QString("background-color: %1;color:rgb(180,180,180)").arg(DCC::BgLightColor.name()));
 
-    customPowerOffLayout = new QHBoxLayout;
-    customPowerOffLayout->setMargin(0);
-    customPowerOffLayout->setSpacing(0);
-    customPowerOffLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
-    customPowerOffLayout->addWidget(m_customChooseLabel);
-    customPowerOffLayout->addStretch();
-    m_customLabel->setLayout(customPowerOffLayout);
+    customIdleLayout = new QHBoxLayout;
+    customIdleLayout->setMargin(0);
+    customIdleLayout->setSpacing(0);
+    customIdleLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
+    customIdleLayout->addWidget(m_customChooseLabel);
+    customIdleLayout->addStretch();
+    m_customLabel->setLayout(customIdleLayout);
 
-    powerOffLayout = new QHBoxLayout;
-    powerOffLayout->setMargin(0);
-    powerOffLayout->setSpacing(0);
-    powerOffLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
-    powerOffLayout->addWidget(m_poweroffLabel);
+    idleLayout = new QHBoxLayout;
+    idleLayout->setMargin(0);
+    idleLayout->setSpacing(0);
+    idleLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
+    idleLayout->addWidget(m_idleLabel);
 
 
     suspendLayout = new QHBoxLayout;
@@ -78,8 +78,8 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     m_contentLayout->setSpacing(0);
     m_contentLayout->addWidget(m_guideExtendTriangle);
     m_contentLayout->addWidget(m_customLabel);
-    m_contentLayout->addLayout(powerOffLayout);
-    m_contentLayout->addWidget(m_poweroffButtonGrid);
+    m_contentLayout->addLayout(idleLayout);
+    m_contentLayout->addWidget(m_idleButtonGrid);
     m_contentLayout->addLayout(suspendLayout);
     m_contentLayout->addWidget(m_suspendButtonGrid);
     m_contentLayout->addWidget(m_bottomSeparator);
@@ -107,10 +107,10 @@ void DExtendBoard::setExpand(bool expand) {
             m_animation->setEasingCurve(QEasingCurve::InCubic);
             m_guideExtendTriangle->show();
             m_customChooseLabel->show();
-            m_poweroffLabel->show();
+            m_idleLabel->show();
             m_suspendLabel->show();
             m_suspendButtonGrid->show();
-            m_poweroffButtonGrid->show();
+            m_idleButtonGrid->show();
             this->setFixedHeight(200);
             m_animation->setStartValue(2);
             m_animation->setEndValue(155);
@@ -122,10 +122,10 @@ void DExtendBoard::setExpand(bool expand) {
             m_animation->setEndValue(2);
             m_guideExtendTriangle->hide();
             m_customChooseLabel->hide();
-            m_poweroffLabel->hide();
+            m_idleLabel->hide();
             m_suspendLabel->hide();
             m_suspendButtonGrid->hide();
-            m_poweroffButtonGrid->hide();
+            m_idleButtonGrid->hide();
             m_bottomSeparator->move(1, 1);
         }
         m_animation->stop();

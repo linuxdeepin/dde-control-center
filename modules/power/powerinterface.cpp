@@ -1,168 +1,165 @@
 #include <QObject>
 #include <QtGui/QFont>
 #include <QtGui/QFontMetrics>
-#include "powerinterfacemanagement.h"
 
-PowerInterfaceManagement::PowerInterfaceManagement(QObject *parent)
+#include "powerinterface.h"
+
+PowerInterface::PowerInterface(QObject *parent)
     : QObject(parent)
 {
     m_powerInterface = new com::deepin::daemon::DBusPower("com.deepin.daemon.Power",
                                                       "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this);
     initConnection();
 }
-PowerInterfaceManagement::~PowerInterfaceManagement() {
+PowerInterface::~PowerInterface() {
 
 }
-qint32 PowerInterfaceManagement::getPowerButtonAction() {
+qint32 PowerInterface::getPowerButtonAction() {
     return m_powerInterface->powerButtonAction();
 }
-qint32 PowerInterfaceManagement::getLidCloseAction() {
+qint32 PowerInterface::getLidCloseAction() {
     return m_powerInterface->lidClosedAction();
 }
-void PowerInterfaceManagement::setPowerButtonAction(QString actionButton) {
-    if (actionButton == tr("Shutdown")) {
+void PowerInterface::setPowerButtonAction(int index) {
+    if (index == 0) {
         m_powerInterface->setPowerButtonAction(CLOSE_ACTION_SHUTDOWN);
-    } else if (actionButton == qApp->translate("Power", "Suspend")) {
+    } else if (index == 1) {
         m_powerInterface->setPowerButtonAction(CLOSE_ACTION_SUSPEND);
     } else {
         m_powerInterface->setPowerButtonAction(CLOSE_ACTION_INTERACTIVE);
     }
 }
-void PowerInterfaceManagement::setLidCloseAction(QString actionButton) {
-    if (actionButton == tr("Shutdown")) {
+void PowerInterface::setLidCloseAction(int index) {
+    if (index == 0) {
         m_powerInterface->setLidClosedAction(CLOSE_ACTION_SHUTDOWN);
-    } else if (actionButton == qApp->translate("Power", "Suspend")) {
+    } else if (index == 1) {
         m_powerInterface->setLidClosedAction(CLOSE_ACTION_SUSPEND);
     } else {
         m_powerInterface->setLidClosedAction(CLOSE_ACTION_NOTHING);
     }
 }
-bool PowerInterfaceManagement::getLockWhenActive() {
+bool PowerInterface::getLockWhenActive() {
     return m_powerInterface->lockWhenActive();
 }
-void PowerInterfaceManagement::setLockWhenActive(bool isneedPassWd) {
+void PowerInterface::setLockWhenActive(bool isneedPassWd) {
     m_powerInterface->setLockWhenActive(isneedPassWd);
 }
-qint32 PowerInterfaceManagement::getLinePowerPlan() {
+qint32 PowerInterface::getLinePowerPlan() {
     return m_powerInterface->linePowerPlan();
 }
-void PowerInterfaceManagement::setLinePowerPlan(QString buttonPerformace) {
-
-    if (buttonPerformace == tr("Balanced")) {
+void PowerInterface::setLinePowerPlan(int index) {
+    qDebug() << "setLinePowerPlan:" << index;
+    if (index == 0) {
         m_powerInterface->setLinePowerPlan(2);
-    } else if(buttonPerformace == tr("Power saver")) {
+    } else if(index == 1) {
         m_powerInterface->setLinePowerPlan(1);
-    } else if(buttonPerformace == tr("High performance")) {
+    } else if(index == 2) {
         m_powerInterface->setLinePowerPlan(3);
     } else {
         m_powerInterface->setLinePowerPlan(0);
     }
 }
-qint32 PowerInterfaceManagement::getLinePowerIdleDelay() {
+qint32 PowerInterface::getLinePowerIdleDelay() {
     return m_powerInterface->linePowerIdleDelay();
 }
-void PowerInterfaceManagement::setLinePowerIdleDelay(QString linePowerIdleDelay) {
-    bool endWithHour = linePowerIdleDelay.endsWith("h");
-    bool endWithMinute = linePowerIdleDelay.endsWith("m");
 
-    if (endWithHour) {
-        int time = linePowerIdleDelay.replace("h", "").toInt();
-        m_powerInterface->setLinePowerIdleDelay(time*60*60);
-    } else if (endWithMinute) {
-        int time = linePowerIdleDelay.replace("m", "").toInt();
-        m_powerInterface->setLinePowerIdleDelay(time*60);
-    } else {
-        m_powerInterface->setLinePowerIdleDelay(0);
+void PowerInterface::setLinePowerIdleDelay(int index) {
+    switch(index) {
+    case 0: m_powerInterface->setLinePowerIdleDelay(60);    break;
+    case 1: m_powerInterface->setLinePowerIdleDelay(5*60);  break;
+    case 2: m_powerInterface->setLinePowerIdleDelay(10*60); break;
+    case 3: m_powerInterface->setLinePowerIdleDelay(15*60); break;
+    case 4: m_powerInterface->setLinePowerIdleDelay(30*60); break;
+    case 5: m_powerInterface->setLinePowerIdleDelay(3600);  break;
+    case 6: m_powerInterface->setLinePowerIdleDelay(0);     break;
     }
 
 }
-qint32 PowerInterfaceManagement::getLinePowerSuspendDelay() {
+
+qint32 PowerInterface::getLinePowerSuspendDelay() {
     return m_powerInterface->linePowerSuspendDelay();
 }
-void PowerInterfaceManagement::setLinePowerSuspendDelay(QString linePowerSuspendDelay) {
-    bool endWithHour = linePowerSuspendDelay.endsWith("h");
-    bool endWithMinute = linePowerSuspendDelay.endsWith("m");
-    if (endWithHour) {
-        int time = linePowerSuspendDelay.replace("h", "").toInt();
-        m_powerInterface->setLinePowerSuspendDelay(time*60*60);
-    } else if (endWithMinute) {
-        int time = linePowerSuspendDelay.replace("m", "").toInt();
-        m_powerInterface->setLinePowerSuspendDelay(time*60);
-    } else {
-        m_powerInterface->setLinePowerSuspendDelay(0);
+
+void PowerInterface::setLinePowerSuspendDelay(int index) {
+    switch(index) {
+    case 0: m_powerInterface->setLinePowerSuspendDelay(60);    break;
+    case 1: m_powerInterface->setLinePowerSuspendDelay(5*60);  break;
+    case 2: m_powerInterface->setLinePowerSuspendDelay(10*60); break;
+    case 3: m_powerInterface->setLinePowerSuspendDelay(15*60); break;
+    case 4: m_powerInterface->setLinePowerSuspendDelay(30*60); break;
+    case 5: m_powerInterface->setLinePowerSuspendDelay(3600);  break;
+    case 6: m_powerInterface->setLinePowerSuspendDelay(0);     break;
     }
 }
-qint32 PowerInterfaceManagement::getBatteryPlan() {
+
+qint32 PowerInterface::getBatteryPlan() {
     return m_powerInterface->batteryPlan();
 }
-void PowerInterfaceManagement::setBatteryPlan(QString buttonPerformance) {
-    if (buttonPerformance == tr("Balanced")) {
+void PowerInterface::setBatteryPlan(int index) {
+    qDebug() << "setBatteryPaln:" << index;
+    if (index == 0) {
          m_powerInterface->setBatteryPlan(2);
-    } else if(buttonPerformance == tr("Power saver")) {
+    } else if(index == 1) {
          m_powerInterface->setBatteryPlan(1);
-    } else if(buttonPerformance == tr("High performance")) {
+    } else if(index == 2) {
          m_powerInterface->setBatteryPlan(3);
     } else {
          m_powerInterface->setBatteryPlan(0);
     }
 }
-qint32 PowerInterfaceManagement::getBatteryIdleDelay() {
+qint32 PowerInterface::getBatteryIdleDelay() {
     return m_powerInterface->batteryIdleDelay();
 }
-void PowerInterfaceManagement::setBatteryIdleDelay(QString batteryIdleDelay) {
-    bool endWithHour = batteryIdleDelay.endsWith("h");
-    bool endWithMinute = batteryIdleDelay.endsWith("m");
-    if (endWithHour) {
-        int time = batteryIdleDelay.replace("h", "").toInt();
-        m_powerInterface->setBatteryIdleDelay(time*60*60);
-    } else if (endWithMinute) {
-        int time = batteryIdleDelay.replace("m", "").toInt();
-        m_powerInterface->setBatteryIdleDelay(time*60);
-    } else {
-        m_powerInterface->setBatteryIdleDelay(0);
+
+void PowerInterface::setBatteryIdleDelay(int index) {
+    switch(index) {
+    case 0: m_powerInterface->setBatteryIdleDelay(60);    break;
+    case 1: m_powerInterface->setBatteryIdleDelay(5*60);  break;
+    case 2: m_powerInterface->setBatteryIdleDelay(10*60); break;
+    case 3: m_powerInterface->setBatteryIdleDelay(15*60); break;
+    case 4: m_powerInterface->setBatteryIdleDelay(30*60); break;
+    case 5: m_powerInterface->setBatteryIdleDelay(3600);  break;
+    case 6: m_powerInterface->setBatteryIdleDelay(0);     break;
     }
 }
-qint32 PowerInterfaceManagement::getBatterySuspendDelay() {
+qint32 PowerInterface::getBatterySuspendDelay() {
     return m_powerInterface->batterySuspendDelay();
 }
-void PowerInterfaceManagement::setBatterySuspendDelay(QString batterySuspendDelay) {
-    bool endWithHour = batterySuspendDelay.endsWith("h");
-    bool endWithMinute = batterySuspendDelay.endsWith("m");
-    if (endWithHour) {
-        int time = batterySuspendDelay.replace("h", "").toInt();
-        m_powerInterface->setBatterySuspendDelay(time*60*60);
-    } else if (endWithMinute) {
-        int time = batterySuspendDelay.replace("m", "").toInt();
-        m_powerInterface->setBatterySuspendDelay(time*60);
-    } else {
-        m_powerInterface->setBatterySuspendDelay(0);
+void PowerInterface::setBatterySuspendDelay(int index) {
+    switch(index) {
+    case 0: m_powerInterface->setBatterySuspendDelay(60);    break;
+    case 1: m_powerInterface->setBatterySuspendDelay(5*60);  break;
+    case 2: m_powerInterface->setBatterySuspendDelay(10*60); break;
+    case 3: m_powerInterface->setBatterySuspendDelay(15*60); break;
+    case 4: m_powerInterface->setBatterySuspendDelay(30*60); break;
+    case 5: m_powerInterface->setBatterySuspendDelay(3600);  break;
+    case 6: m_powerInterface->setBatterySuspendDelay(0);     break;
     }
 }
-void PowerInterfaceManagement::Reset() {
+void PowerInterface::Reset() {
     m_powerInterface->Reset();
 }
-bool PowerInterfaceManagement::getBatteryIsPresent() {
+bool PowerInterface::getBatteryIsPresent() {
     return m_powerInterface->batteryIsPresent();
 }
-bool PowerInterfaceManagement::getBatteryon() {
+bool PowerInterface::getBatteryon() {
     return m_powerInterface->onBattery();
 }
-double PowerInterfaceManagement::getBatteryPresent() {
+double PowerInterface::getBatteryPresent() {
     return m_powerInterface->batteryPercentage();
 }
-void PowerInterfaceManagement::batteryPresentUpdate() {
+void PowerInterface::batteryPresentUpdate() {
     emit this->BatteryPercentageChanged(m_powerInterface->batteryPercentage());
 }
-QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString powerType) {
+QString PowerInterface::setPowerTooltipText(int index, QString powerType) {
     QString argument_display, argument_suspend;
-
-    if (itemId == tr("Balanced")) {
+    if (index == 0) {
         argument_display = QString(tr("%1 minutes").arg("10"));
         argument_suspend = QString(tr("Never"));
-    } else if (itemId == tr("Power saver")) {
+    } else if (index == 1) {
         argument_display = QString(tr("%1 minutes")).arg("5");
         argument_suspend = QString(tr("%1 minutes")).arg("15");
-    } else if (itemId == tr("High performance")) {
+    } else if (index == 2) {
         argument_display = QString(tr("%1 minutes")).arg("15");
         argument_suspend = QString(tr("Never"));
     } else {
@@ -197,7 +194,7 @@ QString PowerInterfaceManagement::setPowerTooltipText(QString itemId, QString po
     QString tooltip_content = QString(tr("Turn off the display: %1 Suspend: %2 ").arg(argument_display).arg(argument_suspend));
     return tooltip_content;
 }
-void PowerInterfaceManagement::powerBatteryPlanInfo() {
+void PowerInterface::powerBatteryPlanInfo() {
     std::string planInfoString = m_powerInterface->planInfo().toStdString();
     QString m_planInfo = QString(QString::fromLocal8Bit(planInfoString.c_str()));
 
@@ -225,7 +222,7 @@ void PowerInterfaceManagement::powerBatteryPlanInfo() {
     }
 }
 
-void PowerInterfaceManagement::initConnection() {
+void PowerInterface::initConnection() {
    connect(m_powerInterface, SIGNAL(LidClosedActionChanged()), SIGNAL(LidClosedActionChanged()));
    connect(m_powerInterface, SIGNAL(PowerButtonActionChanged()), SIGNAL(PowerButtonActionChanged()));
 

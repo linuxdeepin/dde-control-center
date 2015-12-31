@@ -12,7 +12,7 @@ HEADERS         = power.h \
     powermanagement.h \
     presspowerbuttonaction.h \
     dextendboard.h \
-    powerinterfacemanagement.h
+    powerinterface.h
 
 SOURCES         = power.cpp \
     dbus/dbuspower.cpp \
@@ -20,7 +20,7 @@ SOURCES         = power.cpp \
     powermanagement.cpp \
     presspowerbuttonaction.cpp \
     dextendboard.cpp \
-    powerinterfacemanagement.cpp
+    powerinterface.cpp
 
 TARGET          = $$qtLibraryTarget(power)
 DESTDIR         = $$_PRO_FILE_PWD_/../

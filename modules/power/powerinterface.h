@@ -1,15 +1,15 @@
-#ifndef POWERINTERFACEMANAGEMENT
-#define POWERINTERFACEMANAGEMENT
+#ifndef POWERINTERFACE
+#define POWERINTERFACE
 #include <QObject>
 
 #include "dbus/dbuspower.h"
 
-class PowerInterfaceManagement:public QObject
+class PowerInterface:public QObject
 {
     Q_OBJECT
 public:
-    PowerInterfaceManagement(QObject *parent=0);
-    ~PowerInterfaceManagement();
+    PowerInterface(QObject *parent=0);
+    ~PowerInterface();
 
     com::deepin::daemon::DBusPower* m_powerInterface;
 signals:
@@ -31,32 +31,33 @@ public slots:
     void initConnection();
     qint32 getPowerButtonAction();
     qint32 getLidCloseAction();
-    void setPowerButtonAction(QString actionButton);
-    void setLidCloseAction(QString actionButton);
+    void setPowerButtonAction(int index);
+    void setLidCloseAction(int index);
 
     bool getLockWhenActive();
     void setLockWhenActive(bool isneedPassWd);
 
     qint32 getLinePowerPlan();
-    void setLinePowerPlan(QString buttonPerformace);
+    void setLinePowerPlan(int index);
+
     qint32 getLinePowerIdleDelay();
-    void setLinePowerIdleDelay(QString linePowerIdleDelay);
+    void setLinePowerIdleDelay(int index);
     qint32 getLinePowerSuspendDelay();
-    void setLinePowerSuspendDelay(QString linePowerSuspendDelay);
+    void setLinePowerSuspendDelay(int index);
 
     qint32 getBatteryPlan();
-    void setBatteryPlan(QString buttonPerformance);
-    qint32 getBatteryIdleDelay();
-    void setBatteryIdleDelay(QString batteryIdleDelay);
-    qint32 getBatterySuspendDelay();
-    void setBatterySuspendDelay(QString batterySuspendDelay);
+    void setBatteryPlan(int index);
 
+    qint32 getBatteryIdleDelay();
+   void setBatteryIdleDelay(int index);
+    qint32 getBatterySuspendDelay();
+    void setBatterySuspendDelay(int index);
     void Reset();
     bool getBatteryIsPresent();
     bool getBatteryon();
     double getBatteryPresent();
     void batteryPresentUpdate();
-    QString setPowerTooltipText(QString itemId, QString powerType);
+    QString setPowerTooltipText(int index, QString powerType);
 private:
     const int CLOSE_ACTION_SHUTDOWN = 2;
     const int CLOSE_ACTION_SUSPEND = 1;
@@ -69,5 +70,5 @@ private:
     int M_BATTERY_IDLE_DELAY = 0;
     void powerBatteryPlanInfo();
 };
-#endif // POWERINTERFACEMANAGEMENT
+#endif // POWERINTERFACE
 

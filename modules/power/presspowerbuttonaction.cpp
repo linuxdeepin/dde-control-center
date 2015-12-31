@@ -32,8 +32,8 @@ void PressPowerButtonAction::setTitle(QString titleName) {
     m_pressPowerReActionLine->setTitle(titleName);
 }
 void PressPowerButtonAction::initConnection() {
-    connect(m_powerActionButtonGrid, SIGNAL(buttonChecked(QString)),
-            this, SIGNAL(powerButtonAction(QString)));
+    connect(m_powerActionButtonGrid, SIGNAL(buttonCheckedIndexChanged(int)),
+            this, SIGNAL(powerButtonIndexChanged(int)));
 }
 
 void PressPowerButtonAction::setPowerButtonAction(int buttonId) {

@@ -1,6 +1,8 @@
 #include <QLabel>
 #include <QDebug>
 
+#include <libdui/dbuttongrid.h>
+
 #include "power.h"
 #include "constants.h"
 
@@ -10,7 +12,7 @@ Power::Power()
       m_bgContentHeight(60),
       m_frame(new QFrame),
       m_powerManagementFrame(new PowerManagement),
-      m_powerInterfaceManagement(new PowerInterfaceManagement)
+      m_powerInter(new PowerInterface)
 
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Power Management"));
@@ -93,13 +95,13 @@ void Power::initPowerConnectionPanelUI() {
     m_powerDynamicLabel->label()->setWordWrap(true);
     m_powerDynamicLabel->setHideDuration(200);
     m_powerDynamicLabel->setShowDuration(500);
-    m_powerPerformanceButtonGroup = new DButtonGrid(2, 2);
+    m_linePowerButtonGrid = new DButtonGrid(2, 2);
 
     m_powerPerformaceString << tr("Balanced") << tr("Power saver") << tr("High performance") << tr("Custom");
-    m_powerPerformanceButtonGroup->addButtons(m_powerPerformaceString);
-    m_powerPerformanceButtonGroup->setItemSize(150, 30);
-    m_powerPerformanceButtonGroup->checkButtonByIndex(2);
-    m_powerSettingExpand->setContent(m_powerPerformanceButtonGroup);
+    m_linePowerButtonGrid->addButtons(m_powerPerformaceString);
+    m_linePowerButtonGrid->setItemSize(150, 30);
+    m_linePowerButtonGrid->checkButtonByIndex(2);
+    m_powerSettingExpand->setContent(m_linePowerButtonGrid);
     m_powerSettingExpand->setExpand(true);
 /////////////////////////////////////////////////////-- power connection custom setting expand
     m_powerCustomExtendBoard = new DExtendBoard;
@@ -211,9 +213,9 @@ void Power::initUI() {
 }
 void Power::updatePowerManagermentUI() {
     ////////////////////////////////////////////////////--get battery setting
-    m_batteryIsPresent = m_powerInterfaceManagement->getBatteryIsPresent();
-    m_onBattery = m_powerInterfaceManagement->getBatteryon();
-    m_batteryPercentage = m_powerInterfaceManagement->getBatteryPresent();
+    m_batteryIsPresent = m_powerInter->getBatteryIsPresent();
+    m_onBattery = m_powerInter->getBatteryon();
+    m_batteryPercentage = m_powerInter->getBatteryPresent();
 
 //    m_batteryIsPresent = true; //for testing
 //    m_batteryPercentage = 100;
@@ -222,15 +224,15 @@ void Power::updatePowerManagermentUI() {
     m_powerManagementFrame->batteryReservedControl(m_batteryIsPresent);
 }
 void Power::updatePowerLockUI() {
-    m_chooseNeedPasswdButton->setChecked(m_powerInterfaceManagement->getLockWhenActive());
+    m_chooseNeedPasswdButton->setChecked(m_powerInter->getLockWhenActive());
 }
 void Power::updatePressPowerButtonReactionUI() {
-    qint32 buttonId = m_powerInterfaceManagement->getPowerButtonAction();
+    qint32 buttonId = m_powerInter->getPowerButtonAction();
 
     m_pressPowerButtonActionFrame->setPowerButtonAction(buttonId);
 }
 void Power::updatePressLidPowerButtonReactionUI() {
-    qint32 buttonIndex = m_powerInterfaceManagement->getLidCloseAction();
+    qint32 buttonIndex = m_powerInter->getLidCloseAction();
     m_closeLaptopActionFrame->setPowerButtonAction(buttonIndex);
 }
 void Power::initData() {
@@ -266,79 +268,56 @@ void Power::set7ButtonGridChecked(int idIndex, DButtonGrid* buttonGroup) {
     }
 }
 void Power::initConnection() {
-    connect(m_powerInterfaceManagement, SIGNAL(BatteryPercentageChanged(double)),
-            m_powerManagementFrame, SLOT(setElectricQuantity(double)));
+///////////////update the battery status in powerManagement head title
+    connect(m_powerInter, SIGNAL(BatteryPercentageChanged(double)), m_powerManagementFrame, SLOT(setElectricQuantity(double)));
+    connect(m_powerInter, SIGNAL(BatteryPercentageChanged()), this, SLOT(updatePowerManagermentUI()));
+    connect(m_powerInter, SIGNAL(BatteryIsPresentChanged()), this, SLOT(updatePowerManagermentUI()));
 
-    connect(m_powerInterfaceManagement, SIGNAL(BatteryPercentageChanged()),
-            this, SLOT(updatePowerManagermentUI()));
-    connect(m_powerInterfaceManagement, SIGNAL(BatteryIsPresentChanged()),
-            this, SLOT(updatePowerManagermentUI()));
+///////////////Reset the data of power module
+    connect(m_powerManagementFrame, SIGNAL(Reset()), m_powerInter, SLOT(Reset()));
 
-    connect(m_powerManagementFrame, SIGNAL(Reset()),
-            m_powerInterfaceManagement, SLOT(Reset()));
+//////////////Wake up need password or not
+    connect(m_powerInter, SIGNAL(LockWhenActiveChanged()), this, SLOT(updatePowerLockUI()));
+    connect(m_chooseNeedPasswdButton, SIGNAL(checkedChanged(bool)), m_powerInter, SLOT(setLockWhenActive(bool)));
 
-    connect(m_powerInterfaceManagement, SIGNAL(LockWhenActiveChanged()),
-            this, SLOT(updatePowerLockUI()));
-    connect(m_chooseNeedPasswdButton, SIGNAL(checkedChanged(bool)),
-            m_powerInterfaceManagement,
-            SLOT(setLockWhenActive(bool)));
+/////////////Set the action of press power button
+    connect(m_powerInter, SIGNAL(PowerButtonActionChanged()), SLOT(updatePressPowerButtonReactionUI()));
+    connect(m_pressPowerButtonActionFrame, SIGNAL(powerButtonIndexChanged(int)), m_powerInter, SLOT(setPowerButtonAction(int)));
+////////////Close the lid of laptop
+    connect(m_powerInter, SIGNAL(LidClosedActionChanged()), SLOT(updatePressLidPowerButtonReactionUI()));
+    connect(m_closeLaptopActionFrame, SIGNAL(powerButtonIndexChanged(int)), m_powerInter, SLOT(setLidCloseAction(int)));
 
-    connect(m_powerInterfaceManagement, SIGNAL(PowerButtonActionChanged()),
-             SLOT(updatePressPowerButtonReactionUI()));
-    connect(m_pressPowerButtonActionFrame, SIGNAL(powerButtonAction(QString)),
-            m_powerInterfaceManagement, SLOT(setPowerButtonAction(QString)));
-    connect(m_powerInterfaceManagement, SIGNAL(LidClosedActionChanged()),
-              SLOT(updatePressLidPowerButtonReactionUI()));
+/////////////Set the linePowerPlan
+    connect(m_linePowerButtonGrid, SIGNAL(buttonCheckedIndexChanged(int)), m_powerInter, SLOT(setLinePowerPlan(int)));
+    connect(m_powerInter, SIGNAL(LinePowerPlanChanged()), this, SLOT(updateLinePowerPlanUI()));
 
-    connect(m_closeLaptopActionFrame, SIGNAL(powerButtonAction(QString)),
-            m_powerInterfaceManagement, SLOT(setLidCloseAction(QString)));
-    connect(m_powerInterfaceManagement, SIGNAL(LinePowerPlanChanged()),
-            this, SLOT(updateLinePowerPlanUI()));
+    connect(m_linePowerButtonGrid, SIGNAL(buttonEnteredIndexChanged(int)), this, SLOT(showPowerTooltip(int)));
+    connect(m_linePowerButtonGrid, SIGNAL(buttonLeavedIndexChanged(int)), this, SLOT(hidePowerTooltip(int)));
+    ////////////////set the idleDelay&suspendDelay in linePowerPlan
+    connect(m_powerInter, SIGNAL(LinePowerIdleDelayChanged()), this, SLOT(updateLinePowerIdleDelayUI()));
+    connect(m_powerInter, SIGNAL(LinePowerSuspendDelayChanged()), this, SLOT(updateLinePowerSuspendDelayUI()));
 
-    connect(m_powerPerformanceButtonGroup, SIGNAL(buttonChecked(QString)),
-            m_powerInterfaceManagement, SLOT(setLinePowerPlan(QString)));
-    connect(m_powerPerformanceButtonGroup, SIGNAL(buttonChecked(QString)),
-            SLOT(setConnectPowerExpand(QString)));
+    connect(m_powerCustomExtendBoard->m_idleButtonGrid, SIGNAL(buttonCheckedIndexChanged(int)),
+            m_powerInter, SLOT(setLinePowerIdleDelay(int)));
+    connect(m_powerCustomExtendBoard->m_suspendButtonGrid, SIGNAL(buttonCheckedIndexChanged(int)),
+              m_powerInter, SLOT(setLinePowerSuspendDelay(int)));
 
-    connect(m_powerPerformanceButtonGroup, SIGNAL(buttonMouseEntered(QString)),
-            this, SLOT(showPowerTooltip(QString)));
-    connect(m_powerPerformanceButtonGroup, SIGNAL(buttonMouseLeaved(QString)),
-            this, SLOT(hidePowerTooltip(QString)));
+///////////////Set the batteryPlan
+    connect(m_batteryButtonGrid, SIGNAL(buttonCheckedIndexChanged(int)), m_powerInter, SLOT(setBatteryPlan(int)));
+    connect(m_powerInter, SIGNAL(BatteryPlanChanged()), this, SLOT(updateBatteryPlanUI()));
 
-    connect(m_powerInterfaceManagement, SIGNAL(LinePowerIdleDelayChanged()),
-            this, SLOT(updateLinePowerIdleDelayUI()));
-    connect(m_powerCustomExtendBoard->m_poweroffButtonGrid,
-            SIGNAL(buttonChecked(QString)),
-            m_powerInterfaceManagement, SLOT(setLinePowerIdleDelay(QString)));
+    connect(m_batteryButtonGrid, SIGNAL(buttonEnteredIndexChanged(int)), this, SLOT(showBatteryTooltip(int)));
+    connect(m_batteryButtonGrid, SIGNAL(buttonLeavedIndexChanged(int)), this, SLOT(hideBatteryTooltip(int)));
 
-    connect(m_powerInterfaceManagement, SIGNAL(LinePowerSuspendDelayChanged()),
-            this, SLOT(updateLinePowerSuspendDelayUI()));
-    connect(m_powerCustomExtendBoard->m_suspendButtonGrid,
-            SIGNAL(buttonChecked(QString)),
-            m_powerInterfaceManagement, SLOT(setLinePowerSuspendDelay(QString)));
+    ////////////////Set the idleDelay&suspendDelay in batteryPlan
+    connect(m_powerInter, SIGNAL(BatterySuspendDelayChanged()), this, SLOT(updateBatterySuspendDelayUI()));
+    connect(m_powerInter, SIGNAL(BatteryIdleDelayChanged()), this, SLOT(updateBatteryIdleDelayUI()));
 
-    connect(m_powerInterfaceManagement, SIGNAL(BatteryPlanChanged()),
-            this, SLOT(updateBatteryPlanUI()));
-    connect(m_batteryButtonGrid, SIGNAL(buttonChecked(QString)),
-            m_powerInterfaceManagement, SLOT(setBatteryPlan(QString)));
+    connect(m_batteryCustomExtendBoard->m_idleButtonGrid, SIGNAL(buttonCheckedIndexChanged(int)),
+            m_powerInter, SLOT(setBatteryIdleDelay(int)));
 
-    connect(m_batteryButtonGrid, SIGNAL(buttonMouseEntered(QString)),
-            this, SLOT(showBatteryTooltip(QString)));
-
-    connect(m_batteryButtonGrid, SIGNAL(buttonMouseLeaved(QString)),
-            this, SLOT(hideBatteryTooltip(QString)));
-
-    connect(m_batteryButtonGrid, SIGNAL(buttonChecked(QString)),
-            SLOT(setUseBatteryExpand(QString)));
-    connect(m_powerInterfaceManagement, SIGNAL(BatteryIdleDelayChanged()),
-            this, SLOT(updateBatteryIdleDelayUI()));
-    connect(m_batteryCustomExtendBoard->m_poweroffButtonGrid, SIGNAL(buttonChecked(QString)),
-            m_powerInterfaceManagement, SLOT(setBatteryIdleDelay(QString)));
-
-    connect(m_powerInterfaceManagement, SIGNAL(BatterySuspendDelayChanged()),
-            this, SLOT(updateBatterySuspendDelayUI()));
-    connect(m_batteryCustomExtendBoard->m_suspendButtonGrid, SIGNAL(buttonChecked(QString)),
-            m_powerInterfaceManagement, SLOT(setBatterySuspendDelay(QString)));
+    connect(m_batteryCustomExtendBoard->m_suspendButtonGrid, SIGNAL(buttonCheckedIndexChanged(int)),
+            m_powerInter, SLOT(setBatterySuspendDelay(int)));
 }
 
 QFrame* Power::getContent()

@@ -30,23 +30,23 @@ public:
     void setHeight(int ex_height);
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
     DButtonGrid* m_suspendButtonGrid;
-    DButtonGrid* m_poweroffButtonGrid;
+    DButtonGrid* m_idleButtonGrid;
 
 private:
     bool isExpand = false;
-    QHBoxLayout* customPowerOffLayout;
-    QHBoxLayout* powerOffLayout;
+    QHBoxLayout* customIdleLayout;
+    QHBoxLayout* idleLayout;
     QHBoxLayout* suspendLayout;
     QLabel* m_label;
     TriangleRectangle* m_guideExtendTriangle;
     QVBoxLayout* m_contentLayout;
     QLabel* m_customLabel;
     QLabel* m_customChooseLabel;
-    QLabel* m_poweroffLabel;
+    QLabel* m_idleLabel;
 
     QLabel* m_suspendLabel;
     QStringList m_suspendButtons;
-    QStringList m_poweroffButtons;
+    QStringList m_idleButtons;
     DSeparatorHorizontal* m_bottomSeparator;
     QPropertyAnimation* m_animation=NULL;
 
