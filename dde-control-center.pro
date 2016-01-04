@@ -7,7 +7,10 @@ SUBDIRS = widgets \
           dock-plugins
 
 # Automating generation .qm files from .ts files
-system($$PWD/translate_generation.sh)
+CONFIG(release, debug|release) {
+    system($$PWD/translate_generation.sh)
+}
+
 
 # add install files
 frame.depends = widgets
