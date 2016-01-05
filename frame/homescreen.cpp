@@ -14,6 +14,7 @@
 #include <QSettings>
 
 #include <unistd.h>
+#include <pwd.h>
 
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dimagebutton.h>
@@ -26,7 +27,11 @@ HomeScreen::HomeScreen(QWidget *parent) :
     Q_INIT_RESOURCE(widgets_theme_light);
 
     m_pluginsManager = PluginsManager::getInstance(this);
-    const QString userName(getlogin());
+
+    struct passwd *pws;
+    pws = getpwuid(getuid());
+
+    const QString userName(pws->pw_name);
     m_settings = new QSettings("/var/lib/AccountsService/users/" + userName, QSettings::IniFormat, this);
 
     m_grid = new QGridLayout;
