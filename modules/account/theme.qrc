@@ -9,5 +9,7 @@
         <file>dark/images/delete_icon.png</file>
         <file>dark/images/mask.png</file>
         <file>dark/images/avatar_add.png</file>
+        <file>dark/images/arrow_up_golden.png</file>
+        <file>dark/images/arrow_down_golden.png</file>
     </qresource>
 </RCC>

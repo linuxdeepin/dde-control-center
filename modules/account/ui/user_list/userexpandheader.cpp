@@ -1,3 +1,5 @@
+#include <QStyle>
+#include <QApplication>
 #include "userexpandheader.h"
 #include "dbus/dbusaccount.h"
 #include "dbus/dbussessionmanager.h"
@@ -73,14 +75,28 @@ void UserExpandHeader::setIsCurrentUser(bool isCurrentUser)
     m_nameTitle->setIsCurrentUser(isCurrentUser);
     UserAvatar::AvatarSize size = isCurrentUser ? UserAvatar::AvatarLargeSize : UserAvatar::AvatarNormalSize;
     m_icon->setAvatarSize(size);
+
+    if (isCurrentUser) {
+        //for user name color
+        style()->unpolish(qApp);
+        style()->polish(qApp);
+
+        //for special arrow icon
+        m_arrowButton->setStyleSheet("");
+        m_arrowButton->setPixmap(QPixmap(":/images/dark/images/arrow_down_golden.png"));
+    }
 }
 
 void UserExpandHeader::setExpand(bool value)
 {
-    if (value)
+    if (value) {
+        m_arrowButton->setPixmap(QPixmap(":/images/dark/images/arrow_up_golden.png"));
         m_arrowButton->setArrowDirection(DArrowButton::ArrowUp);
-    else
+    }
+    else {
+        m_arrowButton->setPixmap(QPixmap(":/images/dark/images/arrow_down_golden.png"));
         m_arrowButton->setArrowDirection(DArrowButton::ArrowDown);
+    }
 }
 
 void UserExpandHeader::changeToDeleteState(bool value)
