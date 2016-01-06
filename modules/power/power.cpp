@@ -39,7 +39,9 @@ void Power::updateBatteryUsedControlUI() {
         m_batterySettingExpand->hide();
         m_batteryCustomExtendBoard->hide();
     } else {
+#ifndef DCC_DISABLE_POWER_ACTION
         m_closeLaptopActionFrame->show();
+#endif
         m_batterySettingDBaseLine->show();
         m_batterySettingExpand->show();
         m_batteryCustomExtendBoard->show();
@@ -203,8 +205,10 @@ void Power::initUI() {
     layout->setSpacing(0);
 
     layout->addWidget(m_powerManagementFrame);
+#ifndef DCC_DISABLE_POWER_ACTION
     layout->addWidget(m_pressPowerButtonActionFrame);
     layout->addWidget(m_closeLaptopActionFrame);
+#endif
     layout->addLayout(lockWhenActiveLayout);
     layout->addLayout(powerConnectLayout);
     layout->addLayout(batteryUsedLayout);

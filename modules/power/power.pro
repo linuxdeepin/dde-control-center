@@ -28,3 +28,7 @@ DISTFILES += power.json
 
 target.path = $${PREFIX}/lib/dde-control-center/modules/
 INSTALLS += target
+
+isEqual(DCC_DISABLE_POWER_ACTION, YES){
+    DEFINES += DCC_DISABLE_POWER_ACTION
+}
