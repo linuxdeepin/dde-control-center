@@ -53,6 +53,7 @@ private:
     void loadUpgradeJob(DBusUpdateJob *newJob);
     void toggleUpdateState();
     void disableAppsUpgrade();
+    void loadCheckUpdateJob(DBusUpdateJob *updateJob);
 
 private:
     enum UpgradeState {

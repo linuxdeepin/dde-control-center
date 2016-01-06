@@ -147,7 +147,11 @@ void UpdateWidget::loadAppList()
             jobMap.insert(dbusJob->packageId(), dbusJob);
         } else if (dbusJob->type() == "dist_upgrade") {
             // system upgrade job
+            refreshProgress(SysUpGrading);
             loadUpgradeJob(dbusJob);
+        } else if (dbusJob->type() == "update_source") {
+            refreshProgress(SysCheckUpdate);
+            loadCheckUpdateJob(dbusJob);
         } else {
             // TODO/FIXME: not handled job
             qWarning() << "not handled job: " << dbusJob->packageId() << dbusJob->status() << dbusJob->type();
@@ -321,14 +325,7 @@ void UpdateWidget::checkUpdate()
     if (m_upgradeStatus == SysCheckUpdate)
         return;
     refreshProgress(SysCheckUpdate);
-    m_checkingIndicator->setLoading(true);
-    m_updateCountTips->setText(tr("Checking for updates"));
-    m_updateStatTips->setText(tr("Check for updates, please wait"));
 
-//    m_updateCountTips->setText();
-
-    // TODO: check update
-    qDebug() << "check update";
     QDBusPendingReply<QDBusObjectPath> reply = m_dbusJobManagerInter->UpdateSource();
     reply.waitForFinished();
     qDebug() << "check update finished" << reply.value().path() << reply.error();
@@ -336,6 +333,25 @@ void UpdateWidget::checkUpdate()
     const QString jobPath = reply.value().path();
 
     m_dbusCheckupdate = new DBusUpdateJob("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
+    loadCheckUpdateJob(m_dbusCheckupdate);
+}
+
+void UpdateWidget::loadCheckUpdateJob(DBusUpdateJob *updateJob)
+{
+    if (m_dbusCheckupdate)
+        qWarning() << "check update job already exist!!!!!";
+
+    m_dbusCheckupdate = updateJob;
+
+    m_appSeparator->hide();
+    m_appsList->hide();
+    m_tipsWidget->show();
+    m_updateButton->hide();
+    m_updateSizeTips->hide();
+    m_checkingIndicator->setLoading(true);
+    m_updateCountTips->setText(tr("Checking for updates"));
+    m_updateStatTips->setText(tr("Check for updates, please wait"));
+
     connect(m_dbusCheckupdate, &DBusUpdateJob::StatusChanged, this, &UpdateWidget::checkUpdateStateChanged);
 }
 
