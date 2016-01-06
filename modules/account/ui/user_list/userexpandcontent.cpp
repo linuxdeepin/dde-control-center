@@ -21,13 +21,14 @@ UserExpandContent::UserExpandContent(const QString &userPath, QWidget *parent)
 
 UserExpandContent::~UserExpandContent()
 {
-    onCanHideControlCenter();
+
 }
 
 void UserExpandContent::onRequestPreDestroy()
 {
     if (m_passwordFrame)
         m_passwordFrame->preDestroy();
+    changeControlCenterHideable(true);
 }
 
 void UserExpandContent::initDBusData()
@@ -41,11 +42,7 @@ void UserExpandContent::initDBusData()
         DBusAccount * da = new DBusAccount(this);
         connect(da, &DBusAccount::Success, [=](uint id, const QString &) {
             if (uint(getpid()) == id) {
-                //500毫秒延时是为了防止某些性能比较好的机器上dbus数据处理比较快，
-                //引起的返回比较快导致窗口焦点切换还没完成就设置控制中心为“可隐藏”状态
-                //这是比较折中的处理方案
-                //fixme
-                QTimer::singleShot(500, this, SLOT(onCanHideControlCenter()));
+                changeControlCenterHideable(true);
             }
         });
 
@@ -75,9 +72,24 @@ void UserExpandContent::initDBusData()
     }
 }
 
-void UserExpandContent::onCanHideControlCenter()
+void UserExpandContent::changeControlCenterHideable(bool hideable)
 {
-    this->window()->setProperty("autoHide", true);
+    if (hideable) {
+        //500毫秒延时是为了防止某些性能比较好的机器上dbus数据处理比较快，
+        //引起的返回比较快导致窗口焦点切换还没完成就设置控制中心为“可隐藏”状态
+        //这是比较折中的处理方案
+        //fixme
+        QTimer *t = new QTimer(this);
+        t->setSingleShot(true);
+        connect(t, &QTimer::timeout, this, [=] {
+            this->window()->setProperty("autoHide", true);
+            sender()->deleteLater();
+        });
+        t->start(500);
+    }
+    else {
+        this->window()->setProperty("autoHide", false);
+    }
 }
 
 void UserExpandContent::initSegmentedControl()
@@ -152,12 +164,13 @@ void UserExpandContent::initAutoLogin()
         if (m_accountUser->automaticLogin() == s)//just record the valid value(configure file just has single line record,set invalid value will cause error)
             return;
 
-        this->window()->setProperty("autoHide", false);
+        changeControlCenterHideable(false);
         QDBusPendingReply<bool> reply = m_accountUser->SetAutomaticLogin(s);
         reply.waitForFinished();
         if (reply.error().isValid()) {
             //reset state
             m_autoLoginLine->setCheck(m_accountUser->automaticLogin());
+            changeControlCenterHideable(true);
             qWarning() << "Account: set account automatic login error: " << reply.error();
         }
     });
@@ -177,12 +190,13 @@ void UserExpandContent::initUserEnable()
         if (!m_accountUser->locked() == s)
             return;
 
-        this->window()->setProperty("autoHide", false);
+        changeControlCenterHideable(false);
         QDBusPendingReply<bool> reply = m_accountUser->SetLocked(!s);
         reply.waitForFinished();
         if (reply.error().isValid()) {
             //reset state
             m_lockLine->setCheck(!m_accountUser->locked());
+            changeControlCenterHideable(true);
             qWarning()<<"Account: set account lock error: " << reply.error();
         }
     });
@@ -209,12 +223,13 @@ void UserExpandContent::initAccountType()
         if (type == m_accountUser->accountType())
             return;
 
-        this->window()->setProperty("autoHide", false);
+        changeControlCenterHideable(false);
         QDBusPendingReply<bool> reply = m_accountUser->SetAccountType(type);
         reply.waitForFinished();
         if (reply.error().isValid()) {
             //reset state
             m_typeLine->setType(m_accountUser->accountType());
+            changeControlCenterHideable(true);
             qWarning() << "Account: set account type error: " << reply.error();
         }
     });
@@ -237,11 +252,13 @@ void UserExpandContent::initPassword()
         updateSize();
     });
     connect(m_passwordFrame, &PasswordFrame::changePassword, [=](QString password){
-        this->window()->setProperty("autoHide", false);
+        changeControlCenterHideable(false);
         QDBusPendingReply<bool> reply = m_accountUser->SetPassword(password);
         reply.waitForFinished();
-        if (reply.error().isValid())
+        if (reply.error().isValid()) {
+            changeControlCenterHideable(true);
             qWarning() << "Account: set password error: " << reply.error();
+        }
     });
 
     m_mainLayout->addWidget(m_passwordFrame);
@@ -267,11 +284,13 @@ void UserExpandContent::onAvatarSelected(const QString &avatar)
         fileName = avatar;
 
     if (!fileName.isEmpty()) {
-        this->window()->setProperty("autoHide", false);
+        changeControlCenterHideable(false);
         QDBusPendingReply<bool> reply = m_accountUser->SetIconFile(fileName);
         reply.waitForFinished();
-        if (reply.error().isValid())
+        if (reply.error().isValid()) {
+            changeControlCenterHideable(true);
             qWarning()<<"Account: set icon file error: " << reply.error();
+        }
     }
 }
 

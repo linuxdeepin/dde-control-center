@@ -33,7 +33,7 @@ signals:
 
 private slots:
     void initDBusData();
-    void onCanHideControlCenter();
+    void changeControlCenterHideable(bool hideable);
 
 private:
     void initSegmentedControl();
