@@ -4,6 +4,7 @@
 #include "mirrorscontrolwidget.h"
 #include "updatewidget.h"
 #include "applictionitemwidget.h"
+#include "licensescanner.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -121,6 +122,7 @@ SystemInfo::SystemInfo()
     licenseBody->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     licenseBody->setFixedWidth(DCC::ModuleContentWidth);
     licenseBody->setWordWrap(true);
+    licenseBody->setMargin(10);
 
     DVBoxWidget *licenseWidget = new DVBoxWidget;
     licenseWidget->layout()->addWidget(licenseTitle);
@@ -140,6 +142,9 @@ SystemInfo::SystemInfo()
     license->setTitle(tr("GNU GENERAL PUBLIC LICENSE"));
     license->setContent(m_licenseArea);
 
+    DExpandGroup *expandGrp = new DExpandGroup(this);
+    expandGrp->addExpand(license);
+
 #ifdef DCC_SYSINFO_UPDATE
     m_updateInfoWidget = new UpdateWidget;
     m_mirrorsControlWidget = new MirrorsControlWidget;
@@ -157,8 +162,6 @@ SystemInfo::SystemInfo()
     m_updateExpand->setContent(m_updateWidget);
     m_updateExpand->setUpdatableNums(0); // 0 for default
 
-    DExpandGroup *expandGrp = new DExpandGroup(this);
-    expandGrp->addExpand(license);
     expandGrp->addExpand(m_updateExpand);
 #endif // DCC_SYSINFO_UPDATE
 
@@ -168,6 +171,13 @@ SystemInfo::SystemInfo()
     centeralLayout->addWidget(m_infoWidget);
     centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(license);
+
+    scanlicenses();
+    foreach (DArrowLineExpand * expand, m_extralicenses) {
+        expandGrp->addExpand(expand);
+        centeralLayout->addWidget(expand);
+    }
+
 #ifdef DCC_SYSINFO_UPDATE
     centeralLayout->addWidget(m_updateExpand);
 #endif
@@ -242,6 +252,7 @@ void SystemInfo::updateWidgetHeight()
 #else
                                     - 32 * 1 // 32 for DArrowLine
 #endif
+                                    - 32 * m_extralicenses.length()
                                     - 2 * 3; // 2 for DSeparatorHorizontal
     m_licenseArea->setFixedHeight(expandContentHeight);
 
@@ -268,4 +279,33 @@ void SystemInfo::onUpdatableNumsChange(const int apps, const int packages)
 
     if (num && !m_updateExpand->expand())
         m_updateExpand->setExpand(true);
+}
+
+void SystemInfo::scanlicenses()
+{
+    QMap<QString, QString> licenseInfos = licenseScanner::scan();
+
+    foreach (QString title, licenseInfos.keys()) {
+        QLabel * _content = new QLabel(licenseInfos[title]);
+        _content->setStyleSheet("color:#666;");
+        _content->setAlignment(Qt::AlignTop);
+        _content->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        _content->setFixedWidth(DCC::ModuleContentWidth);
+        _content->setWordWrap(true);
+        _content->setMargin(10);
+
+        QScrollArea * content = new QScrollArea;
+        content->setFrameStyle(QFrame::NoFrame);
+        content->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        content->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        content->setWidget(_content);
+        content->setFixedWidth(DCC::ModuleContentWidth);
+        content->setStyleSheet("background-color:#1a1b1b;");
+
+        DArrowLineExpand *license = new DArrowLineExpand;
+        license->setTitle(title);
+        license->setContent(content);
+
+        m_extralicenses.append(license);
+    }
 }

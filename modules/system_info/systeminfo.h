@@ -51,6 +51,9 @@ private:
     UpdateWidget *m_updateInfoWidget;
     MirrorsControlWidget *m_mirrorsControlWidget;
     UpdateArrowExpand *m_updateExpand;
+
+    QList<DArrowLineExpand*> m_extralicenses;
+    void scanlicenses();
 };
 
 #endif // SYSTEMINFO_H

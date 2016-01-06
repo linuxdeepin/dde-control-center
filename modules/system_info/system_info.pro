@@ -18,7 +18,8 @@ HEADERS         = systeminfo.h \
     dbus/appupdateinfo.h \
     dbus/dbusupdatejobmanager.h \
     dbus/dbusupdatejob.h \
-    dbus/dbuslastoreupdater.h
+    dbus/dbuslastoreupdater.h \
+    licensescanner.h
 SOURCES         = systeminfo.cpp \
     dbus/dbussysteminfo.cpp \
     updatearrowexpand.cpp \
@@ -31,7 +32,8 @@ SOURCES         = systeminfo.cpp \
     dbus/appupdateinfo.cpp \
     dbus/dbusupdatejobmanager.cpp \
     dbus/dbusupdatejob.cpp \
-    dbus/dbuslastoreupdater.cpp
+    dbus/dbuslastoreupdater.cpp \
+    licensescanner.cpp
 TARGET          = $$qtLibraryTarget(systeminfo)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
