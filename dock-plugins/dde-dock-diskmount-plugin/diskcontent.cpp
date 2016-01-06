@@ -1,19 +1,25 @@
+#include <QResizeEvent>
 #include "diskcontent.h"
 
 const int DISK_ITEM_HEIGHT = 80;
 const int DISK_ITEM_WIDTH = 220;
 const int DISK_ITEM_MARGIN = 10;
 const int DISK_ITEM_SPACING = 6;
+const int MAX_VISABLE_COUNT = 4;
 DiskContent::DiskContent(const QString &id, DockPluginProxyInterface *proxy, QWidget *parent)
-    : QWidget(parent), m_id(id), m_proxy(proxy)
+    : DVBoxWidget(parent), m_id(id), m_proxy(proxy)
 {
     initStyleSheet();
     initDiskMount();
 
-    m_mainLayout = new QVBoxLayout(this);
-    m_mainLayout->setContentsMargins(DISK_ITEM_MARGIN, DISK_ITEM_MARGIN, DISK_ITEM_MARGIN, DISK_ITEM_MARGIN);
-    m_mainLayout->setSpacing(DISK_ITEM_SPACING);
-    setLayout(m_mainLayout);
+    m_listWidget = new DListWidget;
+    m_listWidget->setItemSize(DISK_ITEM_WIDTH, DISK_ITEM_HEIGHT);
+    m_listWidget->setEnableVerticalScroll(true);
+    m_listWidget->setMaximumHeight(360);
+    m_listWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_listWidget->setSpacing(DISK_ITEM_SPACING);
+    m_listWidget->setContentsMargins(DISK_ITEM_MARGIN, DISK_ITEM_MARGIN + DISK_ITEM_SPACING, DISK_ITEM_MARGIN, DISK_ITEM_MARGIN);
+    addWidget(m_listWidget);
 
     updateMountDisks();
 }
@@ -40,7 +46,6 @@ void DiskContent::initDiskMount()
 
 void DiskContent::updateMountDisks()
 {
-    bool infoChanged = false;
     DiskInfoList tmpList = m_diskMount->diskList();
     QStringList idList;
     for (DiskInfo info : tmpList)
@@ -55,9 +60,8 @@ void DiskContent::updateMountDisks()
         {
             DiskItem * item = new DiskItem(info.uUID,m_diskMount, this);
             m_itemList.insert(info.uUID,item);
-            m_mainLayout->addWidget(item);
+            m_listWidget->addWidget(item);
 
-            infoChanged = true;
             qDebug() << "[DiskMountPlugin] Disk Mounted:" << info.uUID;
         }
     }
@@ -67,23 +71,27 @@ void DiskContent::updateMountDisks()
         if (idList.indexOf(id) == -1)//Not in can-mount list
         {
             DiskItem * item = m_itemList.take(id);
-            m_mainLayout->removeWidget(item);
-            item->deleteLater();
+            m_listWidget->removeWidget(m_listWidget->indexOf(item), true);
 
-            infoChanged = true;
             qWarning() << "[DiskMountPlugin] Disk Unmounted:" << id;
         }
     }
 
     int spacing = DISK_ITEM_MARGIN + DISK_ITEM_SPACING;
-    setFixedSize(DISK_ITEM_WIDTH + DISK_ITEM_MARGIN * 2,
-                 qMax((DISK_ITEM_HEIGHT + spacing) * m_mainLayout->count() - spacing, 0));
-
-    if (infoChanged)
-        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeAppletSize, m_id);
+    int c = m_listWidget->count() > MAX_VISABLE_COUNT ? MAX_VISABLE_COUNT : m_listWidget->count();
+    int w = DISK_ITEM_WIDTH + DISK_ITEM_MARGIN * 2;
+    int h = qMax((DISK_ITEM_HEIGHT + spacing) * c - spacing, 0);
+    setFixedSize(w, h);
 }
 
 DiskContent::~DiskContent()
 {
 
+}
+
+void DiskContent::resizeEvent(QResizeEvent *e)
+{
+    if (e->size() != e->oldSize()) {
+        m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeAppletSize, m_id);
+    }
 }

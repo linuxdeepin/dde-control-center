@@ -11,14 +11,20 @@
 #include <dde-dock/dockpluginproxyinterface.h>
 #include "diskitem.h"
 
-class DiskContent : public QWidget
+#include <libdui/dboxwidget.h>
+#include <libdui/dlistwidget.h>
+
+DUI_USE_NAMESPACE
+
+class DiskContent : public DVBoxWidget
 {
     Q_OBJECT
 public:
     explicit DiskContent(const QString &id, DockPluginProxyInterface *proxy, QWidget *parent = 0);
     ~DiskContent();
 
-public slots:
+protected:
+    void resizeEvent(QResizeEvent *e);
 
 private:
     void initStyleSheet();
@@ -27,11 +33,11 @@ private:
     void updateMountDisks();
 
 private:
-    QVBoxLayout * m_mainLayout = NULL;
     QMap<QString, DiskItem *> m_itemList;
     QString m_id = "";
     DockPluginProxyInterface * m_proxy = NULL;
     DBusDiskMount * m_diskMount = NULL;
+    DListWidget *m_listWidget = NULL;
 };
 
 #endif // DISKCONTENT_H
