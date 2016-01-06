@@ -319,7 +319,10 @@ void Datetime::adjustItemHeight()
     int maxHeight = DApplication::desktop()->height();
     maxHeight -= m_timezoneHeaderLine->height() + 2 + m_timeWidget->height() + 2;
     maxHeight -= (m_syncHeaderLine->height() + 2) * 4 + m_calendar->height() + 13;
-    m_timezoneListWidget->setFixedHeight(qMin(maxHeight, 50 * m_timezoneListWidget->count()));
+
+    int min = qMin(maxHeight, 50 * m_timezoneListWidget->count());
+
+    m_timezoneListWidget->setFixedHeight(qMax(min, 50));
 }
 
 bool Datetime::eventFilter(QObject *o, QEvent *e)
