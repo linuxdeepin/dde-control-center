@@ -468,7 +468,12 @@ QStringList CustomSettings::getResolutionLabels(MonitorInterface *dbus)
     modesReply.waitForFinished();
     MonitorModeList monitorModeList = modesReply.value();
 
+    qDebug() << "-----------------getResolutionLabels start--------------------------";
+    qDebug() << "monitor name:" << dbus->name();
+
     if(monitorModeList.isEmpty()) {
+        qDebug() << "monitorModeList is empty.";
+        qDebug() << m_mapNameToResolutionLabels;
         return m_mapNameToResolutionLabels[dbus->name()];
     }
 
@@ -477,6 +482,9 @@ QStringList CustomSettings::getResolutionLabels(MonitorInterface *dbus)
     }
 
     m_mapNameToResolutionLabels[dbus->name()] = resolutions;
+
+    qDebug() << resolutions << m_mapNameToResolutionLabels;
+    qDebug() << "-----------------getResolutionLabels end--------------------------";
 
     return resolutions;
 }
@@ -489,7 +497,12 @@ QStringList CustomSettings::getRotationLabels(MonitorInterface *dbus)
     rotationsReply.waitForFinished();
     UshortList monitorRotations = rotationsReply.value();
 
+    qDebug() << "-----------------getRotationLabels start--------------------------";
+    qDebug() << "monitor name:" << dbus->name();
+
     if(monitorRotations.isEmpty()) {
+        qDebug() << "monitorRotations is empty.";
+        qDebug() << m_mapNameToRotationLabels;
         return m_mapNameToRotationLabels[dbus->name()];
     }
 
@@ -498,6 +511,9 @@ QStringList CustomSettings::getRotationLabels(MonitorInterface *dbus)
     }
 
     m_mapNameToRotationLabels[dbus->name()] = rotations;
+
+    qDebug() << monitorRotations << rotations;
+    qDebug() << "-----------------getRotationLabels end--------------------------";
 
     return rotations;
 }
