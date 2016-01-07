@@ -47,7 +47,7 @@ void DBusWorker::doWork(){
 
     QTimer* delayTimer = new QTimer;
     delayTimer->setSingleShot(true);
-    delayTimer->setInterval(500);
+    delayTimer->setInterval(200);
     connect(delayTimer, SIGNAL(timeout()), this, SLOT(delayGetData()));
     connect(delayTimer, SIGNAL(timeout()), delayTimer, SLOT(deleteLater()));
     delayTimer->start();
