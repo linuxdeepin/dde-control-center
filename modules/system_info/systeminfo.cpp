@@ -5,6 +5,7 @@
 #include "updatewidget.h"
 #include "applictionitemwidget.h"
 #include "licensescanner.h"
+#include "mousearea.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -96,6 +97,8 @@ SystemInfo::SystemInfo()
     infoGrid->addWidget(info_memoryContent, 4, 1);
     infoGrid->addWidget(info_hardDrive, 5, 0);
     infoGrid->addWidget(info_hardDriveContent, 5, 1);
+
+    loadSystemInfoFromLocalFile(infoGrid);
 
     QVBoxLayout *infoLayout = new QVBoxLayout;
     infoLayout->addWidget(deepinLogo);
@@ -281,6 +284,17 @@ void SystemInfo::onUpdatableNumsChange(const int apps, const int packages)
         m_updateExpand->setExpand(true);
 }
 
+void SystemInfo::onProcessFinished()
+{
+    QProcess *process = qobject_cast<QProcess*>(sender());
+
+    if(process) {
+        process->terminate();
+        process->kill();
+        process->deleteLater();
+    }
+}
+
 void SystemInfo::scanlicenses()
 {
     QMap<QString, QString> licenseInfos = licenseScanner::scan();
@@ -307,5 +321,88 @@ void SystemInfo::scanlicenses()
         license->setContent(content);
 
         m_extralicenses.append(license);
+    }
+}
+
+void SystemInfo::loadSystemInfoFromLocalFile(QGridLayout *infoGrid)
+{
+    const QStringList &info_dirs = QStandardPaths::standardLocations(QStandardPaths::AppConfigLocation);
+    QSet<QString> markRead;
+
+    foreach (const QString &path, info_dirs) {
+        if(path.startsWith("/home/"))
+            continue;
+
+        QDir dir(path + "/systeminfo/infos");
+
+        dir.setNameFilters(QStringList() << "*.json");
+        dir.setFilter(QDir::Files | QDir::Readable);
+
+        if(dir.isReadable()) {
+            foreach (const QFileInfo &file_info, dir.entryInfoList()) {
+                if(markRead.contains(file_info.fileName()))
+                    continue;
+
+                markRead << file_info.fileName();
+
+                QFile file(file_info.absoluteFilePath());
+
+                if(file.open(QIODevice::ReadOnly)) {
+                    const QJsonDocument &json_doc = QJsonDocument::fromJson(file.readAll());
+
+                    for(const QJsonValue &value : json_doc.array()) {
+                        const QJsonObject &json_obj = value.toObject();
+                        int infoGridCount = infoGrid->rowCount();
+
+                        QString title = json_obj.value("title").toString();
+                        QString content = json_obj.value("content").toString();
+
+                        if(!title.isEmpty()) {
+                            QLabel *info_title = new QLabel;
+
+                            info_title->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+                            info_title->setTextFormat(Qt::AutoText);
+                            info_title->setText(title + (content.isEmpty() ? "" :":"));
+
+                            infoGrid->addWidget(info_title, infoGridCount, 0);
+                        } else if(content.isEmpty()) {
+                            continue;
+                        }
+
+                        if(!content.isEmpty()) {
+                            QLabel *info_content = new QLabel(content);
+
+                            info_content->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
+                            info_content->setTextFormat(Qt::AutoText);
+                            info_content->setText(content);
+
+                            infoGrid->addWidget(info_content, infoGridCount, 1);
+
+                            const QString &action = json_obj.value("action").toString();
+
+                            if(!action.isEmpty()) {
+                                MouseArea *mouse_area = new MouseArea(info_content);
+
+                                mouse_area->resize(info_content->sizeHint());
+
+                                connect(mouse_area, &MouseArea::clicked, [this, action] {
+                                    if(m_markProcessStarted.contains(sender()))
+                                        return;
+
+                                    QProcess *process = new QProcess(this);
+
+                                    m_markProcessStarted << sender();
+
+                                    connect(process, SIGNAL(error(QProcess::ProcessError)),
+                                            SLOT(onProcessFinished()));
+                                    connect(process, SIGNAL(finished(int)), SLOT(onProcessFinished()));
+                                    process->start(action, QProcess::ReadOnly);
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

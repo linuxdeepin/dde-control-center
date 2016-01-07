@@ -39,6 +39,7 @@ private:
 
 private slots:
     void onUpdatableNumsChange(const int apps, const int packages);
+    void onProcessFinished();
 
 private:
     QFrame *m_centeralFrame;
@@ -53,7 +54,10 @@ private:
     UpdateArrowExpand *m_updateExpand;
 
     QList<DArrowLineExpand*> m_extralicenses;
+    QSet<QObject*> m_markProcessStarted;
+
     void scanlicenses();
+    void loadSystemInfoFromLocalFile(QGridLayout *infoGrid);
 };
 
 #endif // SYSTEMINFO_H
