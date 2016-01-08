@@ -326,13 +326,14 @@ void SystemInfo::scanlicenses()
 
 void SystemInfo::loadSystemInfoFromLocalFile(QGridLayout *infoGrid)
 {
-    const QStringList &info_dirs = QStandardPaths::standardLocations(QStandardPaths::AppConfigLocation);
+    QStringList info_dirs;
     QSet<QString> markRead;
 
-    foreach (const QString &path, info_dirs) {
-        if(path.startsWith("/home/"))
-            continue;
+    info_dirs << QString("/etc/xdg/%1/%2")
+                 .arg(qApp->organizationName())
+                 .arg(qApp->applicationName());
 
+    foreach (const QString &path, info_dirs) {
         QDir dir(path + "/systeminfo/infos");
 
         dir.setNameFilters(QStringList() << "*.json");
