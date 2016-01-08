@@ -30,6 +30,9 @@ Sound::Sound() :
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
+    m_delaySetOutputVolumeTimer.setSingleShot(true);
+    m_delaySetBalanceTimer.setSingleShot(true);
+
     initBackend();
 
     if (m_sink && m_source) {
@@ -51,6 +54,14 @@ void Sound::initBackend()
 
     updateSinks();
     updateSources();
+
+    connect(&m_delaySetOutputVolumeTimer, &QTimer::timeout, [this]{
+        m_sink->SetVolume(m_outputVolumeSlider->value() / 100.0, true).waitForFinished();
+    });
+
+    connect(&m_delaySetBalanceTimer, &QTimer::timeout, [this]{
+        m_sink->SetBalance(m_leftRightBalanceSlider->value() / 100.0, true).waitForFinished();
+    });
 }
 
 void Sound::initUI()
@@ -437,8 +448,12 @@ void Sound::initUI()
     });
 
     connect(m_outputVolumeSlider, &DSlider::valueChanged, [=](int value){
-        if(qAbs(value - m_sink->volume() * 100) > 1)
-            m_sink->SetVolume(value / 100.0, true).waitForFinished();
+        if(qAbs(value - m_sink->volume() * 100) > 1) {
+            if (m_delaySetOutputVolumeTimer.remainingTime() > 0) {
+                m_sink->SetVolume(value / 100.0, false).waitForFinished();
+            }
+            m_delaySetOutputVolumeTimer.start(500);
+        }
     });
     connect(m_sink, &DBusAudioSink::VolumeChanged, [=]{
         if (qAbs(m_sink->volume() * 100 - m_outputVolumeSlider->value()) > 1) {
@@ -447,7 +462,13 @@ void Sound::initUI()
     });
 
     connect(m_leftRightBalanceSlider, &DSlider::valueChanged, [=](int value){
-        m_sink->SetBalance(value / 100.0, true).waitForFinished();
+        if(qAbs(m_sink->balance() * 100 - value) > 1) {
+            if (m_delaySetBalanceTimer.remainingTime() > 0)  {
+                m_sink->SetBalance(value / 100.0, false).waitForFinished();
+            }
+
+            m_delaySetBalanceTimer.start(500);
+        }
     });
     connect(m_sink, &DBusAudioSink::BalanceChanged, [=]{
         if(qAbs(m_sink->balance() * 100 - m_leftRightBalanceSlider->value()) > 1) {
@@ -478,7 +499,9 @@ void Sound::initUI()
         updateOutputPorts();
     });
     connect(m_inputVolumeSlider, &DSlider::valueChanged, [=](int value){
-        m_source->SetVolume(value / 100.0, true);
+        if (qAbs(value - m_source->volume() * 100) > 1) {
+            m_source->SetVolume(value / 100.0, false).waitForFinished();
+        }
     });
     connect(m_source, &DBusAudioSource::VolumeChanged, [=]{
         if (qAbs(m_source->volume() * 100 - m_inputVolumeSlider->value()) > 1) {
