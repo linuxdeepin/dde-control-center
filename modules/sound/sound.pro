@@ -29,3 +29,7 @@ DISTFILES += sound.json
 
 target.path = $${PREFIX}/lib/dde-control-center/modules/
 INSTALLS += target
+
+isEqual(DCC_DISABLE_MICROPHONE_FEEDBACK, YES){
+    DEFINES += DCC_DISABLE_MICROPHONE_FEEDBACK
+}

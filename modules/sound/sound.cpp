@@ -146,7 +146,9 @@ void Sound::initUI()
     mircophoneExpandContent->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     QGridLayout * microphoneForm = new QGridLayout(mircophoneExpandContent);
     microphoneForm->setRowMinimumHeight(0, 36);
+#ifndef DCC_DISABLE_MICROPHONE_FEEDBACK
     microphoneForm->setRowMinimumHeight(1, 36);
+#endif
 
     // microphone volume line
     microphoneForm->addWidget(new NormalLabel(tr("Input Volume")), 0, 0, Qt::AlignVCenter);
@@ -159,6 +161,7 @@ void Sound::initUI()
     m_inputVolumeSlider->setHoverShowValueInterval(1000);
     microphoneForm->addWidget(m_inputVolumeSlider, 0, 1, Qt::AlignVCenter);
 
+#ifndef DCC_DISABLE_MICROPHONE_FEEDBACK
     // microphone feedback line
     microphoneForm->addWidget(new NormalLabel(tr("Feedback Volume")), 1, 0, Qt::AlignVCenter);
     m_inputFeedbackSlider = new DSlider(Qt::Horizontal);
@@ -184,9 +187,10 @@ void Sound::initUI()
         }
     });
     microphoneForm->addWidget(m_inputFeedbackSlider, 1, 1, Qt::AlignVCenter);
+#endif // DCC_DISABLE_MICROPHONE_FEEDBACK
 
     updateMicrophoneUI();
-    mircophoneExpandContent->setFixedHeight(speakerExpandContent->height());
+//    mircophoneExpandContent->setFixedHeight(speakerExpandContent->height());
     mircophoneExpandContent->adjustSize();
 
     m_microphoneExpand->setContent(mircophoneExpandContent);
@@ -609,6 +613,7 @@ void Sound::updateSources()
     if(!m_source)
         return;
 
+#ifndef DCC_DISABLE_MICROPHONE_FEEDBACK
     // init meter
     QString meterPath = m_source->GetMeter().value().path();
     QString meterName = meterPath;
@@ -622,9 +627,12 @@ void Sound::updateSources()
     connect(&m_meterTimer, &QTimer::timeout, m_dbusMeter, [&]{
         m_dbusMeter->call("Tick");
     });
+
     QDBusConnection::sessionBus().connect(m_dbusMeter->service(), m_dbusMeter->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged","sa{sv}as", this, SLOT(meterVolumeChanged(QDBusMessage)));
+
     m_meterTimer.start(2000);
     m_dbusMeter->call("Tick");
+#endif
 }
 
 void Sound::updateSpeakerUI()
