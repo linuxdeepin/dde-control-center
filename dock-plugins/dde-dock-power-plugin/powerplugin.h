@@ -56,6 +56,7 @@ private:
     com::deepin::daemon::DBusPower * m_dbusPower;
     Dock::DockMode m_mode = Dock::FashionMode;
     QSettings * m_settings;
+    QTimer *m_detectionDBusTimer = NULL;
 };
 
 #endif // POWERPLUGIN_H

@@ -88,9 +88,38 @@ QPixmap PowerPlugin::getIcon(QString)
     return icon.pixmap(QSize(Dock::APPLET_EFFICIENT_ICON_SIZE, Dock::APPLET_CLASSIC_ICON_SIZE));
 }
 
+int callDBusRetryCount = 10;
 bool PowerPlugin::configurable(const QString &)
 {
-    return m_dbusPower->isValid() ? m_dbusPower->batteryIsPresent() : false;
+    if(m_dbusPower->isValid())
+        return m_dbusPower->batteryIsPresent();
+
+    if(!m_detectionDBusTimer) {
+        m_detectionDBusTimer = new QTimer(this);
+
+        connect(m_detectionDBusTimer, &QTimer::timeout, this, [this] {
+            if(m_dbusPower->isValid()) {
+                m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, POWER_PLUGIN_ID);
+
+                onEnabledChanged();
+                m_detectionDBusTimer->deleteLater();
+                m_detectionDBusTimer = NULL;
+                callDBusRetryCount = 10;
+                return;
+            }
+
+            if(--callDBusRetryCount < 0) {
+                m_detectionDBusTimer->deleteLater();
+                m_detectionDBusTimer = NULL;
+                return;
+            }
+            m_detectionDBusTimer->start(1500);
+        });
+    }
+
+    m_detectionDBusTimer->start(1500);
+
+    return false;
 }
 
 bool PowerPlugin::enabled(const QString &)
@@ -198,19 +227,19 @@ void PowerPlugin::initSettings()
     }
 }
 
-int retryTimes = 10;
+//int retryTimes = 10;
 void PowerPlugin::onEnabledChanged()
 {
-    if (!m_dbusPower->isValid() && retryTimes-- > 0) {
-        QTimer *retryTimer = new QTimer;
-        retryTimer->setSingleShot(true);
-        connect(retryTimer, &QTimer::timeout, this, &PowerPlugin::onEnabledChanged);
-        connect(retryTimer, &QTimer::timeout, retryTimer, &QTimer::deleteLater);
-        retryTimer->start(1000);
+    if (!m_dbusPower->isValid() /*&& retryTimes-- > 0*/) {
+//        QTimer *retryTimer = new QTimer;
+//        retryTimer->setSingleShot(true);
+//        connect(retryTimer, &QTimer::timeout, this, &PowerPlugin::onEnabledChanged);
+//        connect(retryTimer, &QTimer::timeout, retryTimer, &QTimer::deleteLater);
+//        retryTimer->start(1000);
         qWarning() << "[PowerManagerPlugin] PowerManager dbus data is not ready!";
         return;
     }
-    retryTimes = 10;
+//    retryTimes = 10;
 
     m_proxy->itemRemovedEvent(POWER_PLUGIN_ID);
     m_label->setParent(NULL);
