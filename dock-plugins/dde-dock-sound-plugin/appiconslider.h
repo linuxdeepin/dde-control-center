@@ -32,6 +32,7 @@ private:
     VolumeSlider *m_iSlider = NULL;
     IconLabel *m_iLabel = NULL;
     QLabel *m_muteIcon = NULL;
+    QTimer *m_callDBusTimer = NULL;
 
     const int ICON_SIZE = 26;
 };

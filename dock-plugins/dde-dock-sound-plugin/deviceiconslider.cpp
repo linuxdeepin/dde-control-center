@@ -50,11 +50,25 @@ void DeviceIconSlider::initWidget()
     m_iSlider->setMaximum(100);
     m_iSlider->setMinimum(0);
     m_iSlider->setIsMute(m_das->mute());
-    connect(m_iSlider,&QSlider::valueChanged,[=](int value){
-        if (m_das->isValid() && qAbs(int(m_das->volume() * 100) - value) > 1) {
-            m_das->SetMute(false);
-            m_das->SetVolume(value / 100.00, m_das->mute());
+    connect(m_iSlider,&QSlider::valueChanged,[=] {
+        if(!m_callDBusTimer) {
+            m_callDBusTimer = new QTimer(this);
+            m_callDBusTimer->setSingleShot(true);
+
+            connect(m_callDBusTimer, &QTimer::timeout, m_iSlider, [this] {
+                m_callDBusTimer->deleteLater();
+                m_callDBusTimer = NULL;
+
+                int value = m_iSlider->value();
+
+                if (m_das->isValid() && qAbs(int(m_das->volume() * 100) - value) > 1) {
+                    m_das->SetMute(false);
+                    m_das->SetVolume(value / 100.00, m_das->mute());
+                }
+            });
         }
+
+        m_callDBusTimer->start(300);
     });
 
     volumeUpdate();

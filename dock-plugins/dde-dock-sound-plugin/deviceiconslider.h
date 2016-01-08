@@ -31,7 +31,7 @@ private:
     Dock::DockMode m_dockMode = Dock::EfficientMode;
     VolumeSlider *m_iSlider = NULL;
     IconLabel *m_iLabel = NULL;
-
+    QTimer *m_callDBusTimer = NULL;
     DBusAudioSink *m_das = NULL;
     const int ICON_SIZE = 24;
 };

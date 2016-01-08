@@ -65,11 +65,25 @@ void AppIconSlider::initWidget()
     m_iSlider->setMaximum(100);
     m_iSlider->setMinimum(0);
     m_iSlider->setIsMute(m_dasi->mute());
-    connect(m_iSlider,&QSlider::valueChanged,[=](int value){
-        if (m_dasi->isValid() && qAbs(int(m_dasi->volume() * 100) - value) > 1) {
-            m_dasi->SetMute(false);
-            m_dasi->SetVolume(value / 100.00, m_dasi->mute());
+    connect(m_iSlider,&QSlider::valueChanged,[=] {
+        if(!m_callDBusTimer) {
+            m_callDBusTimer = new QTimer(this);
+            m_callDBusTimer->setSingleShot(true);
+
+            connect(m_callDBusTimer, &QTimer::timeout, m_iSlider, [this] {
+                m_callDBusTimer->deleteLater();
+                m_callDBusTimer = NULL;
+
+                int value = m_iSlider->value();
+
+                if (m_dasi->isValid() && qAbs(int(m_dasi->volume() * 100) - value) > 1) {
+                    m_dasi->SetMute(false);
+                    m_dasi->SetVolume(value / 100.00, m_dasi->mute());
+                }
+            });
         }
+
+        m_callDBusTimer->start(300);
     });
 
     volumeUpdate();
