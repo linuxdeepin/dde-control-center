@@ -138,18 +138,13 @@ void DiskItem::initWidgets()
 
 QString DiskItem::bitToHuman(qint64 value)
 {
-    //default value is KB
-    value *= 1000;
-    qint64 kSize = 1000;
-    qint64 mSize = 1000 * kSize;
-    qint64 gSize = 1000 * mSize;
+    const qint64 mSize = 1000;
+    const qint64 gSize = mSize * 1000;
 
     if (value >= gSize)
         return QString::number(double(value) / gSize, 'f', 2) + "GB";
     else if (value >= mSize)
-        return QString::number(double(value) / gSize, 'f', 2) + "MB";
-    else if (value >= kSize)
-        return QString::number(double(value) / gSize, 'f', 2) + "KB";
+        return QString::number(double(value) / mSize, 'f', 2) + "MB";
     else
-        return QString::number(value) + "B";
+        return QString::number(value) + "KB";
 }
