@@ -2,25 +2,29 @@
 #include <QtGui/QFont>
 #include <QtGui/QFontMetrics>
 
-#include "powerinterface.h"
+#include "powerinterfacemanagement.h"
 
-PowerInterface::PowerInterface(QObject *parent)
+PowerInterfaceManagement::PowerInterfaceManagement(QObject *parent)
     : QObject(parent)
 {
     m_powerInterface = new com::deepin::daemon::DBusPower("com.deepin.daemon.Power",
                                                       "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this);
     initConnection();
 }
-PowerInterface::~PowerInterface() {
+
+PowerInterfaceManagement::~PowerInterfaceManagement() {
 
 }
-qint32 PowerInterface::getPowerButtonAction() {
+
+qint32 PowerInterfaceManagement::getPowerButtonAction() {
     return m_powerInterface->powerButtonAction();
 }
-qint32 PowerInterface::getLidCloseAction() {
+
+qint32 PowerInterfaceManagement::getLidCloseAction() {
     return m_powerInterface->lidClosedAction();
 }
-void PowerInterface::setPowerButtonAction(int index) {
+
+void PowerInterfaceManagement::setPowerButtonAction(int index) {
     if (index == 0) {
         m_powerInterface->setPowerButtonAction(CLOSE_ACTION_SHUTDOWN);
     } else if (index == 1) {
@@ -29,7 +33,8 @@ void PowerInterface::setPowerButtonAction(int index) {
         m_powerInterface->setPowerButtonAction(CLOSE_ACTION_INTERACTIVE);
     }
 }
-void PowerInterface::setLidCloseAction(int index) {
+
+void PowerInterfaceManagement::setLidCloseAction(int index) {
     if (index == 0) {
         m_powerInterface->setLidClosedAction(CLOSE_ACTION_SHUTDOWN);
     } else if (index == 1) {
@@ -38,16 +43,20 @@ void PowerInterface::setLidCloseAction(int index) {
         m_powerInterface->setLidClosedAction(CLOSE_ACTION_NOTHING);
     }
 }
-bool PowerInterface::getLockWhenActive() {
+
+bool PowerInterfaceManagement::getLockWhenActive() {
     return m_powerInterface->lockWhenActive();
 }
-void PowerInterface::setLockWhenActive(bool isneedPassWd) {
+
+void PowerInterfaceManagement::setLockWhenActive(bool isneedPassWd) {
     m_powerInterface->setLockWhenActive(isneedPassWd);
 }
-qint32 PowerInterface::getLinePowerPlan() {
+
+qint32 PowerInterfaceManagement::getLinePowerPlan() {
     return m_powerInterface->linePowerPlan();
 }
-void PowerInterface::setLinePowerPlan(int index) {
+
+void PowerInterfaceManagement::setLinePowerPlan(int index) {
     qDebug() << "setLinePowerPlan:" << index;
     if (index == 0) {
         m_powerInterface->setLinePowerPlan(2);
@@ -59,11 +68,12 @@ void PowerInterface::setLinePowerPlan(int index) {
         m_powerInterface->setLinePowerPlan(0);
     }
 }
-qint32 PowerInterface::getLinePowerIdleDelay() {
+
+qint32 PowerInterfaceManagement::getLinePowerIdleDelay() {
     return m_powerInterface->linePowerIdleDelay();
 }
 
-void PowerInterface::setLinePowerIdleDelay(int index) {
+void PowerInterfaceManagement::setLinePowerIdleDelay(int index) {
     switch(index) {
     case 0: m_powerInterface->setLinePowerIdleDelay(60);    break;
     case 1: m_powerInterface->setLinePowerIdleDelay(5*60);  break;
@@ -76,11 +86,11 @@ void PowerInterface::setLinePowerIdleDelay(int index) {
 
 }
 
-qint32 PowerInterface::getLinePowerSuspendDelay() {
+qint32 PowerInterfaceManagement::getLinePowerSuspendDelay() {
     return m_powerInterface->linePowerSuspendDelay();
 }
 
-void PowerInterface::setLinePowerSuspendDelay(int index) {
+void PowerInterfaceManagement::setLinePowerSuspendDelay(int index) {
     switch(index) {
     case 0: m_powerInterface->setLinePowerSuspendDelay(60);    break;
     case 1: m_powerInterface->setLinePowerSuspendDelay(5*60);  break;
@@ -92,10 +102,11 @@ void PowerInterface::setLinePowerSuspendDelay(int index) {
     }
 }
 
-qint32 PowerInterface::getBatteryPlan() {
+qint32 PowerInterfaceManagement::getBatteryPlan() {
     return m_powerInterface->batteryPlan();
 }
-void PowerInterface::setBatteryPlan(int index) {
+
+void PowerInterfaceManagement::setBatteryPlan(int index) {
     qDebug() << "setBatteryPaln:" << index;
     if (index == 0) {
          m_powerInterface->setBatteryPlan(2);
@@ -107,11 +118,12 @@ void PowerInterface::setBatteryPlan(int index) {
          m_powerInterface->setBatteryPlan(0);
     }
 }
-qint32 PowerInterface::getBatteryIdleDelay() {
+
+qint32 PowerInterfaceManagement::getBatteryIdleDelay() {
     return m_powerInterface->batteryIdleDelay();
 }
 
-void PowerInterface::setBatteryIdleDelay(int index) {
+void PowerInterfaceManagement::setBatteryIdleDelay(int index) {
     switch(index) {
     case 0: m_powerInterface->setBatteryIdleDelay(60);    break;
     case 1: m_powerInterface->setBatteryIdleDelay(5*60);  break;
@@ -122,10 +134,12 @@ void PowerInterface::setBatteryIdleDelay(int index) {
     case 6: m_powerInterface->setBatteryIdleDelay(0);     break;
     }
 }
-qint32 PowerInterface::getBatterySuspendDelay() {
+
+qint32 PowerInterfaceManagement::getBatterySuspendDelay() {
     return m_powerInterface->batterySuspendDelay();
 }
-void PowerInterface::setBatterySuspendDelay(int index) {
+
+void PowerInterfaceManagement::setBatterySuspendDelay(int index) {
     switch(index) {
     case 0: m_powerInterface->setBatterySuspendDelay(60);    break;
     case 1: m_powerInterface->setBatterySuspendDelay(5*60);  break;
@@ -136,22 +150,28 @@ void PowerInterface::setBatterySuspendDelay(int index) {
     case 6: m_powerInterface->setBatterySuspendDelay(0);     break;
     }
 }
-void PowerInterface::Reset() {
+
+void PowerInterfaceManagement::Reset() {
     m_powerInterface->Reset();
 }
-bool PowerInterface::getBatteryIsPresent() {
+
+bool PowerInterfaceManagement::getBatteryIsPresent() {
     return m_powerInterface->batteryIsPresent();
 }
-bool PowerInterface::getBatteryon() {
+
+bool PowerInterfaceManagement::getBatteryon() {
     return m_powerInterface->onBattery();
 }
-double PowerInterface::getBatteryPresent() {
+
+double PowerInterfaceManagement::getBatteryPresent() {
     return m_powerInterface->batteryPercentage();
 }
-void PowerInterface::batteryPresentUpdate() {
+
+void PowerInterfaceManagement::batteryPresentUpdate() {
     emit this->BatteryPercentageChanged(m_powerInterface->batteryPercentage());
 }
-QString PowerInterface::setPowerTooltipText(int index, QString powerType) {
+
+QString PowerInterfaceManagement::setPowerTooltipText(int index, QString powerType) {
     QString argument_display, argument_suspend;
     if (index == 0) {
         argument_display = QString(tr("%1 minutes").arg("10"));
@@ -194,7 +214,8 @@ QString PowerInterface::setPowerTooltipText(int index, QString powerType) {
     QString tooltip_content = QString(tr("Turn off the display: %1 Suspend: %2 ").arg(argument_display).arg(argument_suspend));
     return tooltip_content;
 }
-void PowerInterface::powerBatteryPlanInfo() {
+
+void PowerInterfaceManagement::powerBatteryPlanInfo() {
     std::string planInfoString = m_powerInterface->planInfo().toStdString();
     QString m_planInfo = QString(QString::fromLocal8Bit(planInfoString.c_str()));
 
@@ -222,7 +243,7 @@ void PowerInterface::powerBatteryPlanInfo() {
     }
 }
 
-void PowerInterface::initConnection() {
+void PowerInterfaceManagement::initConnection() {
    connect(m_powerInterface, SIGNAL(LidClosedActionChanged()), SIGNAL(LidClosedActionChanged()));
    connect(m_powerInterface, SIGNAL(PowerButtonActionChanged()), SIGNAL(PowerButtonActionChanged()));
 

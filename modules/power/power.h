@@ -20,7 +20,7 @@
 #include "dextendboard.h"
 #include "powermanagement.h"
 #include "presspowerbuttonaction.h"
-#include "powerinterface.h"
+#include "powerinterfacemanagement.h"
 #include "dynamiclabel.h"
 #include "dbreathinglabel.h"
 
@@ -90,7 +90,7 @@ private:
 
     qint32 m_batteryState;//read-only
 //interface
-     PowerInterface* m_powerInter;
+     PowerInterfaceManagement* m_powerInter;
 public slots:
     inline void Reset(bool reset) {
         if (reset) { m_powerInter->Reset();}
@@ -160,7 +160,7 @@ public slots:
         QString powerTips = m_powerInter->setPowerTooltipText(index, "power");
         m_powerDynamicLabel->setText(powerTips);
     }
-
+    ////linePower tooltip
     inline void  showPowerTooltip(int index) {
         setPowerDynamicTooltip(index);
         QFont labelFont; QFontMetrics fm(labelFont);
@@ -170,6 +170,7 @@ public slots:
         }
         m_powerDynamicLabel->delayShowLabel(300);
     }
+
     inline void  hidePowerTooltip(int index) {
         QFont labelFont; QFontMetrics fm(labelFont);
         QString tips = m_powerInter->setPowerTooltipText(index, "power");

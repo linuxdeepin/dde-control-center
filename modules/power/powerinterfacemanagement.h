@@ -1,15 +1,15 @@
-#ifndef POWERINTERFACE
-#define POWERINTERFACE
+#ifndef POWERINTERFACEMANAGEMENT
+#define POWERINTERFACEMANAGEMENT
 #include <QObject>
 
 #include "dbus/dbuspower.h"
 
-class PowerInterface:public QObject
+class PowerInterfaceManagement:public QObject
 {
     Q_OBJECT
 public:
-    PowerInterface(QObject *parent=0);
-    ~PowerInterface();
+    PowerInterfaceManagement(QObject *parent=0);
+    ~PowerInterfaceManagement();
 
     com::deepin::daemon::DBusPower* m_powerInterface;
 signals:
@@ -70,5 +70,5 @@ private:
     int M_BATTERY_IDLE_DELAY = 0;
     void powerBatteryPlanInfo();
 };
-#endif // POWERINTERFACE
+#endif // POWERINTERFACEMANAGEMENT
 

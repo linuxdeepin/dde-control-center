@@ -12,7 +12,7 @@ Power::Power()
       m_bgContentHeight(60),
       m_frame(new QFrame),
       m_powerManagementFrame(new PowerManagement),
-      m_powerInter(new PowerInterface)
+      m_powerInter(new PowerInterfaceManagement)
 
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Power Management"));
