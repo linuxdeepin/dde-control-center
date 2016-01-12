@@ -14,7 +14,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="67"/>
         <source>No network connections are available, please retry after connected</source>
-        <translation>沒有可使用的網路連結，請在連結網路後重試</translation>
+        <translation>沒有可使用的網路連線，請在連線後重試</translation>
     </message>
 </context>
 <context>
@@ -23,12 +23,12 @@
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="15"/>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="66"/>
         <source>Accessing</source>
-        <translation>訪問</translation>
+        <translation>造訪</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="77"/>
         <source>You are accessing the desktop shared by other users, you can choose to continue or disconnect</source>
-        <translation>你正訪問由其他用戶分享的桌面，你可以選擇繼續或斷開連接</translation>
+        <translation>你正造訪由其他用戶分享的桌面，你可以選擇繼續或斷線</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="86"/>
@@ -38,7 +38,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="96"/>
         <source>Failed to establish the connection, you can retry to connect</source>
-        <translation>建立連線失敗，您可以重新嘗試連線</translation>
+        <translation>無法建立連線，你可以重試</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="97"/>
@@ -115,8 +115,7 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="222"/>
         <source>Open bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>開啟藍芽以尋找附近的裝置
-(音響、鍵盤、滑鼠)</translation>
+        <translation>開啟藍牙以尋找附近的裝置 ( 音響、鍵盤、滑鼠 )</translation>
     </message>
 </context>
 <context>
@@ -124,7 +123,7 @@
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="20"/>
         <source>Add Network Connection</source>
-        <translation>新增網絡連線</translation>
+        <translation>新增網路連線</translation>
     </message>
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="27"/>
@@ -147,7 +146,7 @@
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="14"/>
         <source>Add PPPoE Connection</source>
-        <translation>新增撥號連接</translation>
+        <translation>新增撥號連線</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="17"/>
@@ -253,7 +252,7 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="82"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>允許思科安全桌面木馬</translation>
+        <translation>允許思科防阻桌面木馬</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="84"/>
@@ -270,12 +269,12 @@
         <location filename="../modules/network/addvpnpage.cpp" line="88"/>
         <location filename="../modules/network/addvpnpage.cpp" line="105"/>
         <source>Private Key</source>
-        <translation>金鑰</translation>
+        <translation>密鑰</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="90"/>
         <source>Use FSID for Key Passphrase</source>
-        <translation>為密鑰口令句使用FSID</translation>
+        <translation>為密鑰通行碼使用FSID</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="93"/>
@@ -290,7 +289,7 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="111"/>
         <source>Static Key</source>
-        <translation>靜態密碼</translation>
+        <translation>靜態密鑰</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="113"/>
@@ -429,7 +428,7 @@
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="25"/>
         <source>Connect to hidden access point</source>
-        <translation>連接到隱藏網絡</translation>
+        <translation>連接到隱藏網路</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="39"/>
@@ -532,7 +531,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/connectingview.cpp" line="58"/>
         <source>Establishing connection, please wait...</source>
-        <translation>建立連結，請稍等...</translation>
+        <translation>正在建立連線，請稍等 ...</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/connectingview.cpp" line="75"/>
@@ -595,7 +594,7 @@
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="176"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="263"/>
         <source>Password can not be empty.</source>
-        <translation>密碼不能空白</translation>
+        <translation>密碼不能空白。</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="180"/>
@@ -604,14 +603,14 @@
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="313"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="320"/>
         <source>The two passwords do not match.</source>
-        <translation>兩次輸入的密碼不相同</translation>
+        <translation>兩次輸入的密碼不相同。</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="248"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="258"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="273"/>
         <source>Username can not be empty.</source>
-        <translation>使用者名稱不能為空</translation>
+        <translation>使用者名稱不能空白。</translation>
     </message>
 </context>
 <context>
@@ -629,7 +628,7 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="31"/>
         <source>Upside down</source>
-        <translation>上下顛倒</translation>
+        <translation>上下翻轉</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="32"/>
@@ -640,17 +639,17 @@
         <location filename="../modules/display/customsettings.cpp" line="70"/>
         <location filename="../modules/display/customsettings.cpp" line="77"/>
         <source>Brightness</source>
-        <translation>亮度</translation>
+        <translation>螢幕亮度</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="87"/>
         <source>Enable Monitor</source>
-        <translation>啟用監測</translation>
+        <translation>開啟顯示器</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="100"/>
         <source>Please select the monitor you want to enable (checkable)</source>
-        <translation>請選擇您要啟用(可檢測的）的螢幕</translation>
+        <translation>請選擇要開啟的螢幕 ( 可辨識的 )</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="105"/>
@@ -665,7 +664,7 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="132"/>
         <source>Rotation</source>
-        <translation>旋轉</translation>
+        <translation>螢幕旋轉</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="151"/>
@@ -690,13 +689,13 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="330"/>
         <source>Do you want to keep these display settings?</source>
-        <translation>是否要保留這些顯示設定？</translation>
+        <translation>是否要保留這些顯示設定 ?</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="331"/>
         <location filename="../modules/display/customsettings.cpp" line="339"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
-        <translation>於&lt;font color=&apos;white&apos;&gt; ％1&lt;/font&gt; 秒內還原至之前的顯示設定。</translation>
+        <translation>於&lt;font color=&apos;white&apos;&gt; ％1 &lt;/font&gt;秒內還原至之前的顯示設定。</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="333"/>
@@ -719,7 +718,7 @@
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="20"/>
         <source>Custom options</source>
-        <translation>自定義選項</translation>
+        <translation>自定選項</translation>
     </message>
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="24"/>
@@ -735,7 +734,7 @@
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="35"/>
         <source>Suspend</source>
-        <translation>待命</translation>
+        <translation>待機</translation>
     </message>
 </context>
 <context>
@@ -772,7 +771,7 @@
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="138"/>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="271"/>
         <source> hh:mm A</source>
-        <translation>時：分 A</translation>
+        <translation>時 : 分 A</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="139"/>
@@ -802,7 +801,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="199"/>
         <source>Datetime settings(_T)</source>
-        <translation>日期與時間設定(_T)</translation>
+        <translation>設定日期與時間 (_T)</translation>
     </message>
 </context>
 <context>
@@ -830,7 +829,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="66"/>
         <source>Use 24-hour clock</source>
-        <translation>24小時制</translation>
+        <translation>24 小時制</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="71"/>
@@ -859,7 +858,7 @@
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="51"/>
         <source>Mail</source>
-        <translation>郵件</translation>
+        <translation>電子郵件</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="53"/>
@@ -930,7 +929,7 @@
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="90"/>
         <source>Unconnect</source>
-        <translation>未連結</translation>
+        <translation>沒有連線</translation>
     </message>
 </context>
 <context>
@@ -943,7 +942,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="97"/>
         <source>removable disk</source>
-        <translation>可卸除式硬碟</translation>
+        <translation>行動硬碟</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="99"/>
@@ -953,12 +952,12 @@
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="101"/>
         <source>local disk</source>
-        <translation>本機磁碟</translation>
+        <translation>本機硬碟</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="104"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
-        <translation>解除安裝失敗 %1 &quot; %2 &quot;，請重新嘗試。</translation>
+        <translation>無法解除安裝 %1&quot; %2 &quot;，請重試。</translation>
     </message>
 </context>
 <context>
@@ -976,22 +975,22 @@
     <message>
         <location filename="../modules/display/display.cpp" line="152"/>
         <source>Copy</source>
-        <translation>複製</translation>
+        <translation>複製畫面</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="153"/>
         <source>Copy the contents of your primary screen to other screens.</source>
-        <translation>將您的一個螢幕內容複製到其他螢幕</translation>
+        <translation>將你的主螢幕內容複製到其他螢幕。</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="163"/>
         <source>Extend</source>
-        <translation>延伸</translation>
+        <translation>延伸畫面</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="164"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
-        <translation>將您的螢幕內容延伸，在不同螢幕顯示不同內容</translation>
+        <translation>將你的螢幕內容延伸，在不同螢幕顯示不同內容。</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="175"/>
@@ -1001,17 +1000,17 @@
     <message>
         <location filename="../modules/display/display.cpp" line="176"/>
         <source>You can do other custom settings to your screens.</source>
-        <translation>您可以針對螢幕做其他個性化設定</translation>
+        <translation>你可以針對螢幕做其他個人化設定。</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="186"/>
         <source>Only Displayed on %1</source>
-        <translation>僅在%1上顯示</translation>
+        <translation>僅在 %1 上顯示</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="187"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
-        <translation>僅在%1上顯示螢幕內容，其他螢幕不顯示</translation>
+        <translation>僅在 %1 上顯示螢幕內容，其他螢幕不顯示。</translation>
     </message>
 </context>
 <context>
@@ -1035,7 +1034,7 @@
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="45"/>
         <source>Are you sure you want to delete this network?</source>
-        <translation>您確定要刪除此網路嗎？</translation>
+        <translation>你確定要刪除此網路？</translation>
     </message>
 </context>
 <context>
@@ -1069,7 +1068,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="33"/>
         <source>Copy Code</source>
-        <translation>複製程式碼</translation>
+        <translation>複製驗證碼</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="35"/>
@@ -1085,7 +1084,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="80"/>
         <source>To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input</source>
-        <translation>要開始分享您的桌面，請提供以上的認証碼給協助您的人。您分享的部分將在認証碼輸入後立即開始。</translation>
+        <translation>要開始分享你的桌面，請提供以上的驗證碼給協助你的人。你的分享對話框將在驗證碼輸入後立刻開始。</translation>
     </message>
 </context>
 <context>
@@ -1098,7 +1097,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/generatingview.cpp" line="56"/>
         <source>Generating the verification code, please wait...</source>
-        <translation>正在產生驗證碼，請稍候...</translation>
+        <translation>正在產生驗證碼，請稍等 ...</translation>
     </message>
 </context>
 <context>
@@ -1112,12 +1111,12 @@
         <location filename="../modules/grub/grubwidget.cpp" line="65"/>
         <location filename="../modules/grub/grubwidget.cpp" line="158"/>
         <source>Drag and drop an image to change background.</source>
-        <translation>拖拽圖片到此以更換背景</translation>
+        <translation>拖拽圖片到此以更換背景。</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="84"/>
         <source>Default Boot</source>
-        <translation>默認啟動</translation>
+        <translation>預設啟動</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="100"/>
@@ -1132,17 +1131,17 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="116"/>
         <source>Selected Text Color</source>
-        <translation>反白像母文字顏色</translation>
+        <translation>反白選擇項目的文字顏色</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="148"/>
         <source>Updating...</source>
-        <translation>正在升級...</translation>
+        <translation>正在升級 ...</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="150"/>
         <source>Successfully updated, reboot to view.</source>
-        <translation>成功升級，重新啟動以生效。</translation>
+        <translation>成功升級，重新啟動即可查看。</translation>
     </message>
 </context>
 <context>
@@ -1192,13 +1191,13 @@
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="72"/>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="73"/>
         <source>Start remote access after clicking on &quot;Connect&quot;</source>
-        <translation>點擊「連結」後開始遠端存取</translation>
+        <translation>點擊 &quot; 連線 &quot; 後開始遠端存取</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="74"/>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="86"/>
         <source>Please enter the verification code in the input field above</source>
-        <translation>請在上方輸入區內鍵入認證碼</translation>
+        <translation>請在上方輸入框內輸入驗證碼</translation>
     </message>
 </context>
 <context>
@@ -1206,12 +1205,12 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="124"/>
         <source>Keyboard and Language</source>
-        <translation>鍵盤與語言</translation>
+        <translation>鍵盤和語言</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="137"/>
         <source>Repeat Delay</source>
-        <translation>重複延遲</translation>
+        <translation>重復延時</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="152"/>
@@ -1246,12 +1245,12 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="220"/>
         <source>Remove Keyboard Layout</source>
-        <translation>移除鍵盤配置</translation>
+        <translation>移除鍵盤佈局設定</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="221"/>
         <source>Add Keyboard Layout</source>
-        <translation>增加鍵盤配置</translation>
+        <translation>增加鍵盤佈局設定</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="309"/>
@@ -1282,17 +1281,17 @@
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="27"/>
         <source>Share</source>
-        <translation>分享</translation>
+        <translation>共用</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="27"/>
         <source>Share your desktop to get remote assistance from other users</source>
-        <translation>分享你的桌面以取得來自其他用戶的遠端協助</translation>
+        <translation>分享你的桌面取得來自其他使用者的遠端協助</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="34"/>
         <source>Access</source>
-        <translation>存取</translation>
+        <translation>造訪</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="34"/>
@@ -1364,17 +1363,17 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="385"/>
         <source>The shortcut you set </source>
-        <translation>您設定的捷徑鍵</translation>
+        <translation>你設定的捷徑鍵</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="395"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
-        <translation>與 &quot;%1&quot; 類別下的 &quot;%2&quot; 的捷徑鍵衝突。</translation>
+        <translation>與 &quot; %1 &quot; 類別下的 &quot; %2 &quot; 的捷徑鍵相撞。</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="402"/>
         <source>Do you want to replace it?</source>
-        <translation>是否進行取代？</translation>
+        <translation>是否進行取代 ?</translation>
     </message>
 </context>
 <context>
@@ -1438,7 +1437,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="28"/>
         <source>System Information</source>
-        <translation>系統訊息</translation>
+        <translation>系統資訊</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="20"/>
@@ -1559,12 +1558,12 @@
         <location filename="../modules/mouse/mouse.cpp" line="81"/>
         <location filename="../modules/mouse/mouse.cpp" line="154"/>
         <source>Double-click Speed</source>
-        <translation>連按滑鼠兩下的速度</translation>
+        <translation>點擊滑鼠兩下的速度</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="94"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>裝入滑鼠時停用觸控板</translation>
+        <translation>接上滑鼠時停用觸控板</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="120"/>
@@ -1579,22 +1578,22 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="156"/>
         <source>Natural Scrolling</source>
-        <translation>自然滾動</translation>
+        <translation>自然捲動</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="157"/>
         <source>Tap to click</source>
-        <translation>輕觸以點選</translation>
+        <translation>輕觸點選</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="158"/>
         <source>Two-finger scrolling</source>
-        <translation>雙指滾動</translation>
+        <translation>雙指捲動</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="159"/>
         <source>Edge scrolling</source>
-        <translation>邊緣滾動</translation>
+        <translation>邊緣捲動</translation>
     </message>
 </context>
 <context>
@@ -1672,7 +1671,7 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="63"/>
         <source>Not Connected</source>
-        <translation>未連線</translation>
+        <translation>沒有連線</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="65"/>
@@ -1758,12 +1757,12 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="84"/>
         <source>Double-click this area to change your time</source>
-        <translation>按兩下此區域以更改時間</translation>
+        <translation>在此點兩下更改時間</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="111"/>
         <source>dddd, dd MMMM yyyy</source>
-        <translation>dddd, dd MMMM yyyy</translation>
+        <translation>yyyy-MM-dd dddd</translation>
     </message>
 </context>
 <context>
@@ -1789,7 +1788,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="97"/>
         <source>Repeat</source>
-        <translation>重複密碼</translation>
+        <translation>重新輸入密碼</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="141"/>
@@ -1822,7 +1821,7 @@
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="192"/>
         <source>Cursor</source>
-        <translation>游標</translation>
+        <translation>滑鼠游標</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="223"/>
@@ -1866,7 +1865,7 @@
     <message>
         <location filename="../modules/power/power.cpp" line="68"/>
         <source>Plugged in</source>
-        <translation>接通電源</translation>
+        <translation>接上電源</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="98"/>
@@ -1908,7 +1907,7 @@
         <location filename="../modules/power/power.cpp" line="188"/>
         <location filename="../modules/power/power.cpp" line="192"/>
         <source>Suspend</source>
-        <translation>待命</translation>
+        <translation>待機</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="188"/>
@@ -1923,7 +1922,7 @@
     <message>
         <location filename="../modules/power/power.cpp" line="192"/>
         <source>Nothing</source>
-        <translation>無操作</translation>
+        <translation>沒有動作</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="194"/>
@@ -1943,7 +1942,7 @@
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="25"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="34"/>
         <source>Suspend</source>
-        <translation>待命</translation>
+        <translation>待機</translation>
     </message>
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="51"/>
@@ -1970,7 +1969,7 @@
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="182"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="190"/>
         <source>1 hour</source>
-        <translation>1小時</translation>
+        <translation>1 小時</translation>
     </message>
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="160"/>
@@ -1993,7 +1992,7 @@
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="197"/>
         <source>Turn off the display: %1 Suspend: %2 </source>
-        <translation>關掉顯示：%1 中止：%2</translation>
+        <translation>關閉顯示器 : %1 待機 : %2</translation>
     </message>
 </context>
 <context>
@@ -2047,7 +2046,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="98"/>
         <source>Add</source>
-        <translation>新增</translation>
+        <translation>加入</translation>
     </message>
 </context>
 <context>
@@ -2055,7 +2054,7 @@
     <message>
         <location filename="../widgets/moduleheader.cpp" line="50"/>
         <source>Reset Successfully</source>
-        <translation>重置成功</translation>
+        <translation>成功重設</translation>
     </message>
     <message>
         <location filename="../widgets/moduleheader.cpp" line="52"/>
@@ -2087,7 +2086,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="61"/>
         <source>Sharing your desktop, your can continue to share or choose to disconnect</source>
-        <translation>分享你的桌面，你可以繼續分享或選擇斷開連接</translation>
+        <translation>分享你的桌面，你可以繼續分享或斷線</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="88"/>
@@ -2107,7 +2106,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="102"/>
         <source>Failed to establish the connection, you can retry to connect</source>
-        <translation>建立聯結失敗，您可以重新嘗試聯結</translation>
+        <translation>無法建立連線，你可以重試</translation>
     </message>
 </context>
 <context>
@@ -2153,7 +2152,7 @@
     <message>
         <location filename="../modules/sound/sound.cpp" line="110"/>
         <source>Left/Right Balance</source>
-        <translation>左/右平衡</translation>
+        <translation>左 / 右平衡</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="114"/>
@@ -2178,7 +2177,7 @@
     <message>
         <location filename="../modules/sound/sound.cpp" line="152"/>
         <source>Feedback Volume</source>
-        <translation>音量回授</translation>
+        <translation>接收音量</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="211"/>
@@ -2219,7 +2218,7 @@
     <message>
         <location filename="../modules/sound/sound.cpp" line="291"/>
         <source>Logout</source>
-        <translation>註銷</translation>
+        <translation>登出</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="294"/>
@@ -2305,7 +2304,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="38"/>
         <source>System Information</source>
-        <translation>系統訊息</translation>
+        <translation>系統資訊</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="44"/>
@@ -2315,17 +2314,17 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="48"/>
         <source>Deepin Edition:</source>
-        <translation>Deepin 版本：</translation>
+        <translation>Deepin 版本 :</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="54"/>
         <source>Distribution:</source>
-        <translation>分布：</translation>
+        <translation>分布 :</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Type:</source>
-        <translation>系統型態：</translation>
+        <translation>系統類型 :</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="62"/>
@@ -2335,17 +2334,17 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="65"/>
         <source>Processor:</source>
-        <translation>處理器：</translation>
+        <translation>處理器 :</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="71"/>
         <source>Memory:</source>
-        <translation>記憶：</translation>
+        <translation>記憶體 :</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="76"/>
         <source>Disk:</source>
-        <translation>硬碟：</translation>
+        <translation>硬碟 :</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="140"/>
@@ -2450,17 +2449,17 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="241"/>
         <source>Your system is up to date</source>
-        <translation>你的系統已更新至最新版本</translation>
+        <translation>你的系統已更新到最新版本</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="245"/>
         <source>Click to view available  updates</source>
-        <translation>點入來瀏覽可得的更新</translation>
+        <translation>點擊查看可用的更新</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="266"/>
         <source>Total download size: %1</source>
-        <translation>總計下載大小： %1</translation>
+        <translation>總計下載大小 : %1</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="268"/>
@@ -2470,22 +2469,22 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="277"/>
         <source>%1 software need to be updated</source>
-        <translation>%1 軟體需要更新</translation>
+        <translation>%1 個軟體需要更新</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>Patches</source>
-        <translation>補丁</translation>
+        <translation>修補程式</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="289"/>
         <source>Some patches need to be updated</source>
-        <translation>一些補丁需要更新</translation>
+        <translation>一些修補程式需要更新</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="293"/>
         <source>Some patches and %1 software need to be updated</source>
-        <translation>一些補丁和 %1 軟體需要更新</translation>
+        <translation>一些修補程式和 %1 個軟體需要更新</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
@@ -2495,7 +2494,7 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="322"/>
         <source>Check for updates, please wait</source>
-        <translation>檢查更新，請稍候</translation>
+        <translation>正在檢查更新，請稍等</translation>
     </message>
 </context>
 <context>
@@ -2508,7 +2507,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="87"/>
         <source>Avatar</source>
-        <translation>帳號圖片</translation>
+        <translation>大頭貼照</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="88"/>
@@ -2523,7 +2522,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="174"/>
         <source>Enable</source>
-        <translation>啟用</translation>
+        <translation>開啟</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="206"/>
@@ -2533,12 +2532,12 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="257"/>
         <source>Choose a new picture for your Avatar</source>
-        <translation>選擇一張新圖片作為您的帳號圖片</translation>
+        <translation>選擇一張新圖片作為你的大頭貼照</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="258"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
-        <translation>影像檔 (*.jpg *.png *.jpeg)</translation>
+        <translation>影像檔案 (*.jpg *.png *.jpeg)</translation>
     </message>
 </context>
 <context>
@@ -2546,12 +2545,12 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="155"/>
         <source>Keep user&apos;s files</source>
-        <translation>保留用戶文件</translation>
+        <translation>保留使用者檔案</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="156"/>
         <source>Delete user&apos;s files</source>
-        <translation>刪除用戶文件</translation>
+        <translation>刪除使用者檔案</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="158"/>
@@ -2614,22 +2613,22 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="40"/>
         <source>Left Click</source>
-        <translation>點選滑鼠左鍵</translation>
+        <translation>點擊滑鼠左鍵</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="41"/>
         <source>Right Click</source>
-        <translation>點選滑鼠右鍵</translation>
+        <translation>點擊滑鼠右鍵</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="42"/>
         <source>Middle Click</source>
-        <translation>點選滑鼠中間的按鍵</translation>
+        <translation>點選滑鼠中鍵</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="60"/>
         <source>Tablet</source>
-        <translation>數位板</translation>
+        <translation>電繪板</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="74"/>
@@ -2649,12 +2648,12 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="92"/>
         <source>Digital Pen Modes</source>
-        <translation>觸控筆模式</translation>
+        <translation>電繪筆模式</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Pen Mode</source>
-        <translation>筆模式</translation>
+        <translation>觸控筆模式</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="98"/>
@@ -2679,7 +2678,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="153"/>
         <source>Soft</source>
-        <translation>溫和</translation>
+        <translation>輕</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="154"/>
@@ -2689,7 +2688,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="168"/>
         <source>Double-click Space</source>
-        <translation>按兩下間距</translation>
+        <translation>雙擊間隔</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="173"/>
@@ -2719,12 +2718,12 @@
     <message>
         <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="126"/>
         <source>No camera found.</source>
-        <translation>未找到相機設備</translation>
+        <translation>沒有找到相機設備。</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="146"/>
         <source>Again</source>
-        <translation>重拍</translation>
+        <translation>重新拍攝</translation>
     </message>
 </context>
 <context>
@@ -2732,12 +2731,12 @@
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="11"/>
         <source>Wired Network</source>
-        <translation>有線網絡</translation>
+        <translation>有線網路</translation>
     </message>
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="20"/>
         <source>Wired Connection</source>
-        <translation>有線連接</translation>
+        <translation>有線連線</translation>
     </message>
 </context>
 <context>
@@ -2746,7 +2745,7 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="38"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="55"/>
         <source>Wired Network</source>
-        <translation>有線網絡</translation>
+        <translation>有線網路</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="62"/>
@@ -2760,7 +2759,7 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="68"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="194"/>
         <source>Wireless Network</source>
-        <translation>無線網絡</translation>
+        <translation>無線網路</translation>
     </message>
 </context>
 <context>
@@ -2768,12 +2767,12 @@
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="16"/>
         <source>Wireless Network</source>
-        <translation>無線網絡</translation>
+        <translation>無線網路</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="239"/>
         <source>Connect to hidden access point</source>
-        <translation>連接到隱藏網絡</translation>
+        <translation>連線到隱藏網路</translation>
     </message>
 </context>
 <context>
@@ -2781,7 +2780,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="39"/>
         <source>Wireless Network</source>
-        <translation>無線網絡</translation>
+        <translation>無線網路</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="254"/>
@@ -2796,7 +2795,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="286"/>
         <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation>請輸入&lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;的密碼</translation>
+        <translation>請輸入&lt;font color=&quot;#faca57&quot;&gt; %1 &lt;/font&gt;的密碼</translation>
     </message>
 </context>
 </TS>

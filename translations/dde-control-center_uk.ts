@@ -1764,7 +1764,7 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="111"/>
         <source>dddd, dd MMMM yyyy</source>
-        <translation>дддд, дд ММММ рррр</translation>
+        <translation>yyyy-MM-dd dddd</translation>
     </message>
 </context>
 <context>

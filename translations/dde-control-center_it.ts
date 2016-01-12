@@ -723,7 +723,7 @@
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="24"/>
         <source>Turn off the display</source>
-        <translation>Segni il display</translation>
+        <translation>Spegni il display</translation>
     </message>
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="31"/>
@@ -1510,7 +1510,7 @@
     <message>
         <location filename="../modules/display/monitorground.cpp" line="37"/>
         <source>Recognize</source>
-        <translation>Riconosci</translation>
+        <translation>Identifica</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="38"/>
@@ -1762,7 +1762,7 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="111"/>
         <source>dddd, dd MMMM yyyy</source>
-        <translation>dddd, dd MMMM yyyy</translation>
+        <translation>yyyy-MM-dd dddd</translation>
     </message>
 </context>
 <context>
@@ -2310,7 +2310,7 @@
         <location filename="../modules/system_info/systeminfo.cpp" line="44"/>
         <source>Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd.
-Localizzazione italiana a cura di Carofano Massimo Antonio</translation>
+Localizzazione italiana a cura di Massimo Antonio Carofano</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="48"/>
@@ -2490,7 +2490,7 @@ Localizzazione italiana a cura di Carofano Massimo Antonio</translation>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
         <source>Checking for updates</source>
-        <translation>Controllo aggiornamenti</translation>
+        <translation>Ricerca aggiornamenti</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="322"/>

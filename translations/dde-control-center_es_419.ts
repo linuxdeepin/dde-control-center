@@ -229,7 +229,7 @@
         <location filename="../modules/network/addvpnpage.cpp" line="127"/>
         <location filename="../modules/network/addvpnpage.cpp" line="132"/>
         <source>Ask for Pwd</source>
-        <translation>Preguntar Pwd</translation>
+        <translation>Pregunta para la Contraseña</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="75"/>
@@ -247,7 +247,7 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="80"/>
         <source>Proxy</source>
-        <translation>Proxy</translation>
+        <translation>Servidor Proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="82"/>
@@ -279,12 +279,12 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="93"/>
         <source>Auth Type</source>
-        <translation>Tipo de Autentificación</translation>
+        <translation>Tipo de Autorización</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="109"/>
         <source>Private Pwd</source>
-        <translation>Pwd Privado</translation>
+        <translation>Contraseña Privada</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="111"/>
@@ -314,7 +314,7 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="129"/>
         <source>User Pwd</source>
-        <translation>Pwd Usuario</translation>
+        <translation>Contraseña de Usuario</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="130"/>
@@ -325,12 +325,12 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="134"/>
         <source>Group Pwd</source>
-        <translation>Pwd Grupo</translation>
+        <translation>Contraseña de Grupo</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="136"/>
         <source>Use Hybrid Authentication</source>
-        <translation>Usar Autentificación Híbrida</translation>
+        <translation>Usar Autorización Híbrida</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="138"/>
@@ -443,13 +443,13 @@
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="45"/>
         <source>Inner Auth</source>
-        <translation>Autenticación Interna</translation>
+        <translation>Autorización interna</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="47"/>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="83"/>
         <source>Ask for Pwd</source>
-        <translation>Preguntar Pwd</translation>
+        <translation>Pregunta para la Contraseña</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="56"/>
@@ -465,7 +465,7 @@
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="61"/>
         <source>EAP Auth</source>
-        <translation>Autentificación EAP</translation>
+        <translation>Autorización EAP</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="63"/>
@@ -480,7 +480,7 @@
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="67"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>Certificado de CA</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="69"/>
@@ -510,7 +510,7 @@
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="85"/>
         <source>Private Pwd</source>
-        <translation>Pwd Privado</translation>
+        <translation>Contraseña Privada</translation>
     </message>
 </context>
 <context>
@@ -628,7 +628,7 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="31"/>
         <source>Upside down</source>
-        <translation>Invertir Horizontalmente</translation>
+        <translation>Al revés</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="32"/>
@@ -705,7 +705,7 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="334"/>
         <source>Keep Changes</source>
-        <translation>Mantener los Cambios</translation>
+        <translation>Guardar los cambios</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.h" line="42"/>
@@ -760,12 +760,12 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="137"/>
         <source>MMM dd</source>
-        <translation>ddd MMM dd</translation>
+        <translation>MMM dd</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="138"/>
         <source> hh:mm </source>
-        <translation>hh:mm A</translation>
+        <translation>hh:mm</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="138"/>
@@ -801,7 +801,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="199"/>
         <source>Datetime settings(_T)</source>
-        <translation>Borrar configuracion de tiempo(_T)</translation>
+        <translation>Ajuste de Fecha y Hora(_T)</translation>
     </message>
 </context>
 <context>
@@ -834,7 +834,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="71"/>
         <source>Reset</source>
-        <translation>Reiniciar</translation>
+        <translation>Restablecer</translation>
     </message>
 </context>
 <context>
@@ -843,7 +843,7 @@
         <location filename="../modules/default_applications/defaultapps.cpp" line="35"/>
         <location filename="../modules/default_applications/defaultapps.cpp" line="40"/>
         <source>Default Applications</source>
-        <translation>Aplicaciones por defecto</translation>
+        <translation>Aplicaciones Predeterminadas</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="43"/>
@@ -1105,7 +1105,7 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="21"/>
         <source>Boot Menu</source>
-        <translation>Menú de Booteo</translation>
+        <translation>Menú de Arranque</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="65"/>
@@ -1121,7 +1121,7 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="100"/>
         <source>Boot delay</source>
-        <translation>Retraso de booteo</translation>
+        <translation>Retraso de Arranque</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="108"/>
@@ -1162,7 +1162,7 @@
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="20"/>
         <source>Auto-connect</source>
-        <translation>Auto-conectar</translation>
+        <translation>Conectar Automáticamente</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="27"/>
@@ -1230,7 +1230,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="198"/>
         <source>Caps Lock prompt</source>
-        <translation>Indicador de Bloq Mayús</translation>
+        <translation>Indicador de Mayúsculas activado</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="214"/>
@@ -1348,7 +1348,7 @@
         <location filename="../modules/shortcuts/mainwidget.cpp" line="231"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="301"/>
         <source>Workspace</source>
-        <translation>Modo de escritorio</translation>
+        <translation>Espacios de trabajo</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="260"/>
@@ -1427,7 +1427,7 @@
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="28"/>
         <source>Default Applications</source>
-        <translation>Aplicaciones por defecto</translation>
+        <translation>Aplicaciones Predeterminadas</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="21"/>
@@ -1472,12 +1472,12 @@
     <message>
         <location filename="../modules/grub/grub.cpp" line="10"/>
         <source>Boot Menu</source>
-        <translation>Menú de Booteo</translation>
+        <translation>Menú de Arranque</translation>
     </message>
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="108"/>
         <source>Home</source>
-        <translation>Local</translation>
+        <translation>Carpeta personal</translation>
     </message>
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="117"/>
@@ -1528,7 +1528,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="37"/>
         <source>Mouse And Touchpad</source>
-        <translation>Mouse y Touchpad</translation>
+        <translation>Ratón y Almohadilla Táctil</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="53"/>
@@ -1563,12 +1563,12 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="94"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Deshabilitar el touchpad al conectar el mouse</translation>
+        <translation>Desahabilitar la almohadilla táctil al conectar un ratón.</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="120"/>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation>Almohadilla táctil</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="155"/>
@@ -1661,12 +1661,12 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="48"/>
         <source>VPN OpenVPN</source>
-        <translation>VPN OpenVPN</translation>
+        <translation>Acceder a servidor VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="49"/>
         <source>VPN OpenConnect</source>
-        <translation>VPN OpenConnect</translation>
+        <translation>Conectar con servidor VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="63"/>
@@ -1681,7 +1681,7 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="77"/>
         <source>(default)</source>
-        <translation>(por defecto)</translation>
+        <translation>(predeterminado)</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="96"/>
@@ -1696,7 +1696,7 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="101"/>
         <source>Device Addr</source>
-        <translation>Dirección MAC del dispositivo</translation>
+        <translation>Dirección de Dispositivo</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="102"/>
@@ -1749,7 +1749,7 @@
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="176"/>
         <source>System Proxy</source>
-        <translation>Proxy del Sistema</translation>
+        <translation>Sistema de servidores  proxy</translation>
     </message>
 </context>
 <context>
@@ -1762,7 +1762,7 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="111"/>
         <source>dddd, dd MMMM yyyy</source>
-        <translation>dddd, dd MMMM yyyy</translation>
+        <translation>yyyy-MM-dd dddd</translation>
     </message>
 </context>
 <context>
@@ -2008,7 +2008,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="52"/>
         <source>Power</source>
-        <translation>Apagado</translation>
+        <translation>Energía</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="73"/>
@@ -2309,12 +2309,12 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="44"/>
         <source>Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd.</translation>
+        <translation>Derechos de Autor (c) 2011-2015 Wuhan Deepin Technology Co.,Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="48"/>
         <source>Deepin Edition:</source>
-        <translation>Edición de Deepin</translation>
+        <translation>Edición de Deepin:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="54"/>
@@ -2349,7 +2349,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="140"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
-        <translation>GNU GENERAL PUBLIC LICENSE</translation>
+        <translation>GNU LICENCIA AL PUBLICO EN GENERAL</translation>
     </message>
 </context>
 <context>
@@ -2375,7 +2375,7 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="21"/>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation>Automático</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="38"/>
@@ -2428,12 +2428,12 @@
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="40"/>
         <source>Remove Timezone</source>
-        <translation>Mostrar zona horaria</translation>
+        <translation>Eliminar Zona Horaria</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="47"/>
         <source>Add Timezone</source>
-        <translation>Agregar Zona Horaria</translation>
+        <translation>Añadir Zona Horaria</translation>
     </message>
 </context>
 <context>
@@ -2512,7 +2512,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="88"/>
         <source>Webcam</source>
-        <translation>Webcam</translation>
+        <translation>Cámara Web</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="149"/>
@@ -2522,7 +2522,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="174"/>
         <source>Enable</source>
-        <translation>Habilitar</translation>
+        <translation>Activar</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="206"/>

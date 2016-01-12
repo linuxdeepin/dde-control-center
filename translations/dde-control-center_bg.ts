@@ -4,7 +4,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="58"/>
         <source>Remote Accessitance</source>
-        <translation type="unfinished"/>
+        <translation>Отдалечен достъп</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="61"/>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="67"/>
         <source>No network connections are available, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>Няма достъпни връзки с мрежа, моля, опитайте отново след свързване</translation>
     </message>
 </context>
 <context>
@@ -105,17 +105,17 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="193"/>
         <source>Other devices</source>
-        <translation type="unfinished"/>
+        <translation>Други устройства </translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="215"/>
         <source>My devices</source>
-        <translation type="unfinished"/>
+        <translation>Моите устройства</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="222"/>
         <source>Open bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>Отворете bluetooth, за да откриете близки устройства (високоговорител, клавиатура, мишка)</translation>
     </message>
 </context>
 <context>
@@ -377,7 +377,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="32"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Актуализиране</translation>
     </message>
 </context>
 <context>
@@ -695,7 +695,7 @@
         <location filename="../modules/display/customsettings.cpp" line="331"/>
         <location filename="../modules/display/customsettings.cpp" line="339"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
-        <translation type="unfinished"/>
+        <translation>Връщане към предишните настройки на дисплея след &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; секунди.</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="333"/>
@@ -929,7 +929,7 @@
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="90"/>
         <source>Unconnect</source>
-        <translation type="unfinished"/>
+        <translation>Несвързан</translation>
     </message>
 </context>
 <context>
@@ -942,22 +942,22 @@
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="97"/>
         <source>removable disk</source>
-        <translation type="unfinished"/>
+        <translation>преносим диск</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="99"/>
         <source>network disk</source>
-        <translation type="unfinished"/>
+        <translation>мрежов диск</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="101"/>
         <source>local disk</source>
-        <translation type="unfinished"/>
+        <translation>локален диск</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="104"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно деинсталиране %1 &quot;%2&quot;, моля, опитайте отново.</translation>
     </message>
 </context>
 <context>
@@ -1391,12 +1391,12 @@
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="29"/>
         <source>Auto check update</source>
-        <translation type="unfinished"/>
+        <translation>Автоматична проверка на актуализация</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="32"/>
         <source>Update server</source>
-        <translation type="unfinished"/>
+        <translation>Актуализиране на сървър</translation>
     </message>
 </context>
 <context>
@@ -1404,12 +1404,12 @@
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="7"/>
         <source>Modem Network</source>
-        <translation type="unfinished"/>
+        <translation>Мрежа на модем</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="31"/>
         <source>Restore the connect</source>
-        <translation type="unfinished"/>
+        <translation>Възстановете връзката</translation>
     </message>
 </context>
 <context>
@@ -1487,7 +1487,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="13"/>
         <source>Wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/bluetooth.cpp" line="10"/>
@@ -1510,7 +1510,7 @@
     <message>
         <location filename="../modules/display/monitorground.cpp" line="37"/>
         <source>Recognize</source>
-        <translation type="unfinished"/>
+        <translation>Разпознаване</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="38"/>
@@ -1762,7 +1762,7 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="111"/>
         <source>dddd, dd MMMM yyyy</source>
-        <translation>dddd, dd MMMM yyyy</translation>
+        <translation>yyyy-MM-dd dddd</translation>
     </message>
 </context>
 <context>
@@ -2013,7 +2013,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="73"/>
         <source>On Charging %1</source>
-        <translation type="unfinished"/>
+        <translation>Зареждане %1</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="169"/>
@@ -2228,57 +2228,57 @@
     <message>
         <location filename="../modules/sound/sound.cpp" line="297"/>
         <source>Wakeup</source>
-        <translation type="unfinished"/>
+        <translation>Събудете се</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="300"/>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Известяване</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="303"/>
         <source>Unable to Operate</source>
-        <translation type="unfinished"/>
+        <translation>Недостъпно да се обработи</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="306"/>
         <source>Empty trash</source>
-        <translation type="unfinished"/>
+        <translation>Празно кошче</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="309"/>
         <source>Adjust volume</source>
-        <translation type="unfinished"/>
+        <translation>Регулирайте силата на звука</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="312"/>
         <source>Low battery</source>
-        <translation type="unfinished"/>
+        <translation>Изтощена батерия</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="315"/>
         <source>Power plug in</source>
-        <translation type="unfinished"/>
+        <translation>Включена мощност</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="318"/>
         <source>Power unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Изключена мощност</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="321"/>
         <source>Movable device plug in</source>
-        <translation type="unfinished"/>
+        <translation>Добавка към преносимо устройство</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="324"/>
         <source>Movable device unplug</source>
-        <translation type="unfinished"/>
+        <translation>Изключено преносимо устройство </translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="327"/>
         <source>Send app icon to desktop</source>
-        <translation type="unfinished"/>
+        <translation>Изпратете икона за приложение на работния плот.</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="330"/>
@@ -2288,7 +2288,7 @@
     <message>
         <location filename="../modules/sound/sound.cpp" line="357"/>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Звукови ефекти</translation>
     </message>
 </context>
 <context>
@@ -2319,7 +2319,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="54"/>
         <source>Distribution:</source>
-        <translation type="unfinished"/>
+        <translation>Дистрибуция:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
@@ -2441,7 +2441,7 @@
     <message>
         <location filename="../modules/system_info/updatearrowexpand.cpp" line="23"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Актуализирайте</translation>
     </message>
 </context>
 <context>
@@ -2449,17 +2449,17 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="241"/>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>Вашата система  е актуализирана</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="245"/>
         <source>Click to view available  updates</source>
-        <translation type="unfinished"/>
+        <translation>Кликнете, за да видите достъпните актуализации</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="266"/>
         <source>Total download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Свалено общ размер: %1</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="268"/>
@@ -2469,32 +2469,32 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="277"/>
         <source>%1 software need to be updated</source>
-        <translation type="unfinished"/>
+        <translation>%1 софтуерът се нуждае от актуализиране</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>Patches</source>
-        <translation type="unfinished"/>
+        <translation>Корекции</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="289"/>
         <source>Some patches need to be updated</source>
-        <translation type="unfinished"/>
+        <translation>Някои части се нуждаят от актуализиране</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="293"/>
         <source>Some patches and %1 software need to be updated</source>
-        <translation type="unfinished"/>
+        <translation>Някои части и  %1 софтуер се нуждаят от актуализиране</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
         <source>Checking for updates</source>
-        <translation type="unfinished"/>
+        <translation>Проверяване за актуализации</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="322"/>
         <source>Check for updates, please wait</source>
-        <translation type="unfinished"/>
+        <translation>Проверка за актуализации, моля, изчакайте</translation>
     </message>
 </context>
 <context>
@@ -2795,7 +2795,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="286"/>
         <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Моля, въведете паролата на &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</translation>
     </message>
 </context>
 </TS>

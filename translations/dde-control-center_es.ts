@@ -791,7 +791,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="195"/>
         <source>Show week</source>
-        <translation>Ver semana</translation>
+        <translation>Mostrar semana</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="196"/>
@@ -1661,12 +1661,12 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="48"/>
         <source>VPN OpenVPN</source>
-        <translation>VPN OpenVPN</translation>
+        <translation>Acceder a servidor VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="49"/>
         <source>VPN OpenConnect</source>
-        <translation>VPN OpenConnect</translation>
+        <translation>Conectar con servidor VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="63"/>
@@ -1762,7 +1762,7 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="111"/>
         <source>dddd, dd MMMM yyyy</source>
-        <translation>dddd, dd MMMM yyyy</translation>
+        <translation>yyyy-MM-dd dddd</translation>
     </message>
 </context>
 <context>
@@ -1841,7 +1841,7 @@
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="249"/>
         <source>Monospaced</source>
-        <translation>Monospaced</translation>
+        <translation>Monoespaciado</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="250"/>
@@ -2013,12 +2013,12 @@
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="73"/>
         <source>On Charging %1</source>
-        <translation>Sobre tarificación %1</translation>
+        <translation>Cargando %1</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="169"/>
         <source>Custom</source>
-        <translation>Personalizado</translation>
+        <translation>Personailzar</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="170"/>
@@ -2309,7 +2309,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="44"/>
         <source>Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd.</translation>
+        <translation>Derechos de Autor (c) 2011-2014 Wuhan Deepin Technology Co.,Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="48"/>
@@ -2608,7 +2608,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="39"/>
         <source>Page Down</source>
-        <translation>Página abajo</translation>
+        <translation>Avance página</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="40"/>

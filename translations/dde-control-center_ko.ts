@@ -28,7 +28,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="77"/>
         <source>You are accessing the desktop shared by other users, you can choose to continue or disconnect</source>
-        <translation>귀하는 다른 사용자에 의해 공유된 디스크톱에 접근하는 중입니다, 계속하거나 연결 해제를 선택하실 수 있습니다</translation>
+        <translation>귀하는 다른 사용자에 의해 공유된 데스크톱에 접근하는 중입니다, 계속하거나 연결 해제를 선택하실 수 있습니다</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="86"/>
@@ -252,7 +252,7 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="82"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>시스코 보안 데스크탑 Trojan 허용</translation>
+        <translation>시스코 보안 데스크톱 Trojan 허용</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="84"/>
@@ -536,7 +536,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/connectingview.cpp" line="75"/>
         <source>This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully</source>
-        <translation>이 패널은 자동으로 숨겨지며 이 연결이 성공적으로 이루어진 다음 원격 세션 윈도우가 데스크가 열릴 것입니다</translation>
+        <translation>이 패널은 자동으로 숨겨지며 이 연결이 성공적으로 이루어진 다음 원격 세션 윈도우가 바탕 화면에 열릴 것입니다</translation>
     </message>
 </context>
 <context>
@@ -594,7 +594,7 @@
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="176"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="263"/>
         <source>Password can not be empty.</source>
-        <translation>암호를 채워주세요.</translation>
+        <translation>비밀번호는 빈칸일 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="180"/>
@@ -610,7 +610,7 @@
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="258"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="273"/>
         <source>Username can not be empty.</source>
-        <translation>사용자 이름을 채워주세요.</translation>
+        <translation>사용자 이름은 비워둘 수 없습니다.</translation>
     </message>
 </context>
 <context>
@@ -729,7 +729,7 @@
         <location filename="../modules/power/dextendboard.cpp" line="31"/>
         <location filename="../modules/power/dextendboard.cpp" line="43"/>
         <source>Never</source>
-        <translation>전혀</translation>
+        <translation>절대로 하지 않음</translation>
     </message>
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="35"/>
@@ -1762,7 +1762,7 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="111"/>
         <source>dddd, dd MMMM yyyy</source>
-        <translation>dddd, dd MMMM yyyy(요일, 날짜 월 년)</translation>
+        <translation>yyyy-MM-dd dddd</translation>
     </message>
 </context>
 <context>
@@ -1793,7 +1793,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="141"/>
         <source>Password can not be empty.</source>
-        <translation>암호를 채워주세요.</translation>
+        <translation>비밀번호는 빈칸일 수 없습니다.</translation>
     </message>
 </context>
 <context>
@@ -2278,7 +2278,7 @@
     <message>
         <location filename="../modules/sound/sound.cpp" line="327"/>
         <source>Send app icon to desktop</source>
-        <translation>데스크탑으로 앱 아이콘 보내기</translation>
+        <translation>바탕 화면으로 응용프로그램 아이콘 보내기</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="330"/>
@@ -2633,7 +2633,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="74"/>
         <source>Tablet Orientation</source>
-        <translation>타블렛 오리엔테이션</translation>
+        <translation>타블렛 방향</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="79"/>
