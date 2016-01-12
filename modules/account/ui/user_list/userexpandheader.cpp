@@ -22,8 +22,7 @@ UserExpandHeader::UserExpandHeader(const QString &userPath, QWidget *parent)
     if (m_accountUser->isValid()) {
         DBusSessionManager sessionManager;
         QString currentUserPath = da.FindUserById(sessionManager.currentUid()).value();
-        m_isCurrentUser = currentUserPath == m_userPath;
-        setIsCurrentUser(m_isCurrentUser);
+        setIsCurrentUser(currentUserPath == m_userPath);
         DBusAccountUser dau(currentUserPath);
         m_adminCurrentLogin = dau.accountType() == 1;
 
@@ -72,6 +71,7 @@ void UserExpandHeader::onConfirmDeleteUser()
 
 void UserExpandHeader::setIsCurrentUser(bool isCurrentUser)
 {
+    m_isCurrentUser = isCurrentUser;
     m_nameTitle->setIsCurrentUser(isCurrentUser);
     UserAvatar::AvatarSize size = isCurrentUser ? UserAvatar::AvatarLargeSize : UserAvatar::AvatarNormalSize;
     m_icon->setAvatarSize(size);
@@ -90,11 +90,13 @@ void UserExpandHeader::setIsCurrentUser(bool isCurrentUser)
 void UserExpandHeader::setExpand(bool value)
 {
     if (value) {
-        m_arrowButton->setPixmap(QPixmap(":/images/dark/images/arrow_up_golden.png"));
+        if (m_isCurrentUser)
+            m_arrowButton->setPixmap(QPixmap(":/images/dark/images/arrow_up_golden.png"));
         m_arrowButton->setArrowDirection(DArrowButton::ArrowUp);
     }
     else {
-        m_arrowButton->setPixmap(QPixmap(":/images/dark/images/arrow_down_golden.png"));
+        if (m_isCurrentUser)
+            m_arrowButton->setPixmap(QPixmap(":/images/dark/images/arrow_down_golden.png"));
         m_arrowButton->setArrowDirection(DArrowButton::ArrowDown);
     }
 }
