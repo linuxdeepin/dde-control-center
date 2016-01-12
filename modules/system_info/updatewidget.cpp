@@ -422,8 +422,8 @@ void UpdateWidget::checkUpdateStateChanged()
 
 void UpdateWidget::systemUpgrade()
 {
-    // TODO: if no system update avaliable
-//    if (m_updateSizeTips->isVisible())
+    if (m_upgradeStatus != NotStart)
+        return;
 
     m_updateProgress->setValue(0);
     m_updateProgress->show();
