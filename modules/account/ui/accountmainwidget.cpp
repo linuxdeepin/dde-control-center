@@ -86,6 +86,7 @@ void AccountMainWidget::initHeader()
     m_headerStackWidget->addWidget(lbFrame);
 
     m_buttonToolTip = new DynamicLabel(m_header);
+    m_buttonToolTip->stackUnder(m_headerStackWidget);
 
     connect(this, &AccountMainWidget::cancelDelete, [=]{
        if (m_deleteUserButton){
@@ -202,9 +203,6 @@ void AccountMainWidget::initDBusAccount()
         else {
             m_deleteUserButton->setVisible(true);
             m_deleteUserButton->setEnabled(true);
-            //update tooltip's position to make sure delete button won't cover by tooltip
-            m_deleteUserButton->mouseEnter();
-            m_deleteUserButton->mouseLeave();
         }
     });
 }
