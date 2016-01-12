@@ -46,8 +46,12 @@ ShortcutDbus::ShortcutDbus(QObject *parent)
     list << "launcher" << "show-desktop" << "lock-screen" << "file-manager" << "show-dock" << "screenshot"
          << "screenshot-window" << "screenshot-delayed" << "terminal" << "terminal-quake"
          << "logout" << "switch-layout" << "preview-workspace" << "expose-windows" << "expose-all-windows"
-         << "switch-group" << "switch-group-backward" << "switch-applications" << "switch-applications-backward"
-         << "wm-switcher";
+         << "switch-group" << "switch-group-backward" << "switch-applications"
+#ifndef PLATFORM_SUNWAY
+         << "switch-applications-backward" << "wm-switcher";
+#else
+         << "switch-applications-backward";
+#endif
 
     QDBusInterface dbus("com.deepin.daemon.InputDevice.InputDevices",
                         "/com/deepin/daemon/InputDevice/TouchPad",

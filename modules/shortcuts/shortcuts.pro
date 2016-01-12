@@ -33,3 +33,7 @@ RESOURCES += \
 
 target.path = $${PREFIX}/lib/dde-control-center/modules/
 INSTALLS += target
+
+!isEmpty(PLATFORM_SUNWAY) {
+    DEFINES += "PLATFORM_SUNWAY=YES"
+}
