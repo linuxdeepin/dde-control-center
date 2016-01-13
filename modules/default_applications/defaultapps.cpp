@@ -9,6 +9,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+#include "helper.h"
 #include "moduleheader.h"
 #include "constants.h"
 #include "defaultapps.h"
@@ -19,6 +20,7 @@
 #include <libdui/dbaseline.h>
 #include <libdui/darrowlineexpand.h>
 #include <libdui/dboxwidget.h>
+#include <libdui/doptionlist.h>
 
 DUI_USE_NAMESPACE
 
@@ -138,9 +140,10 @@ QFrame* DefaultApps::getContent()
 
 DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::DefaultAppsCategory &category, DArrowLineExpand *defaultApps)
 {
-    DButtonList *list = new DButtonList;
-    list->setItemHeight(30);
-    list->setItemWidth(310);
+    DOptionList *list = new DOptionList;
+    list->setFixedWidth(DCC::ModuleContentWidth);
+//    list->setItemHeight(30);
+//    list->setItemWidth(310);
 
     const QString mime = getTypeByCategory(category);
     const bool isMedia = isMediaApps(category);
@@ -154,18 +157,34 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
 
 
     QJsonArray appList = QJsonDocument::fromJson(appListJson.toStdString().c_str()).array();
-    QString app;
-    QStringList apps;
+
+    QString appDisplayName;
+    QString appName;
+    QString id;
+    QString icon;
     for (int i = 0; i != appList.size(); ++i)
     {
-        app = appList.at(i).toObject().take("Name").toString();
-        apps << app;
-        list->addButton(app);
+        appName = appList.at(i).toObject().take("Name").toString();
+        appDisplayName = appList.at(i).toObject().take("DisplayName").toString();
+        id = appList.at(i).toObject().take("Id").toString();
+        icon = appList.at(i).toObject().take("Icon").toString();
+
+        DOption *option = new DOption;
+        option->setName(appDisplayName.isEmpty() ? appName : appDisplayName);
+        option->setValue(id);
+        option->setFixedHeight(30);
+
+        if (!isMedia)
+        {
+            QPixmap pixmap(Helper::searchAppIcon(QStringList() << icon << "application-x-desktop", 16));
+            option->setIcon(pixmap.scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        }
+
+        list->addOption(option);
     }
-    m_appsList[category] = apps;
     m_appsBtnList[category] = list;
 
-    connect(list, &DButtonList::buttonCheckedIndexChanged, [=] (int index) -> void {
+    connect(list, &DOptionList::currentRowChanged, [=] (int index) {
         const QStringList mimeList = getTypeListByCategory(category);
         const QString appName = appList.at(index).toObject().take("Id").toString();
         QThread *t = nullptr;
@@ -175,8 +194,6 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
             t = new SetDefMediaThread(&m_dbusDefaultMedia, mime, appName, mimeList);
         t->start();
         connect(t, &QThread::finished, t, &QThread::deleteLater);
-
-        qDebug() << appName << " => " << mimeList;
     });
 
     list->setFixedHeight(30 * list->count());
@@ -267,9 +284,22 @@ void DefaultApps::resetDefaults()
 
 void DefaultApps::updateListCheckedIndex()
 {
-    const QList<DefaultAppsCategory> &categoryList = m_appsList.keys();
-    for (const DefaultAppsCategory &category : categoryList)
-        updateCheckedItem(category);
+//    const QList<DefaultAppsCategory> &categoryList = m_appsList.keys();
+//    for (const DefaultAppsCategory &category : categoryList)
+//        updateCheckedItem(category);
+
+    updateCheckedItem(Browser);
+    updateCheckedItem(Mail);
+    updateCheckedItem(Text);
+    updateCheckedItem(Music);
+    updateCheckedItem(Video);
+    updateCheckedItem(Picture);
+    updateCheckedItem(Terminal);
+    updateCheckedItem(CD_Audio);
+    updateCheckedItem(DVD_Video);
+    updateCheckedItem(MusicPlayer);
+    updateCheckedItem(Camera);
+    updateCheckedItem(Software);
 }
 
 void DefaultApps::updateCheckedItem(const DefaultApps::DefaultAppsCategory &category)
@@ -278,17 +308,9 @@ void DefaultApps::updateCheckedItem(const DefaultApps::DefaultAppsCategory &cate
      const QString &defApp = isMediaApps(category) ? m_dbusDefaultMedia.GetDefaultApp(mime)
                                                    : m_dbusDefaultApps.GetDefaultApp(mime);
      const QJsonObject &defaultApp = QJsonDocument::fromJson(defApp.toStdString().c_str()).object();
-     const QString &defAppName = defaultApp.value("Name").toString();
+     const QString defAppValue = defaultApp.value("Id").toString();
 
-     const QStringList apps = m_appsList[category];
-     const int index = apps.indexOf(defAppName);
-
-     // block signals for ignore index changed event
-     m_appsBtnList[category]->blockSignals(true);
-     // TODO/FIXME: -1 means not select any item, but DButtonList not support select nothing.
-     if (index != -1)
-        m_appsBtnList[category]->checkButtonByIndex(index);
-     m_appsBtnList[category]->blockSignals(false);
+     m_appsBtnList[category]->setCurrentSelected(defAppValue);
 }
 
 bool DefaultApps::isMediaApps(const DefaultApps::DefaultAppsCategory &category) const
@@ -363,7 +385,6 @@ void SetDefAppsThread::run()
 {
     for (const QString &mime : list)
         dbus->SetDefaultApp(mime, appName).waitForFinished();
-    qDebug() << "app set finished" << list << " => " << appName;
 }
 
 SetDefMediaThread::SetDefMediaThread(DBusDefaultMedia *dbus, const QString &mime, const QString &appName, const QStringList &list) :
@@ -378,5 +399,4 @@ void SetDefMediaThread::run()
 {
     for (const QString &mime : list)
         dbus->SetDefaultApp(mime, appName).waitForFinished();
-    qDebug() << "set finished" << list << " => " << appName;
 }

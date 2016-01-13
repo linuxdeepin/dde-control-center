@@ -4,9 +4,9 @@ include(../../common.pri)
 TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus
-INCLUDEPATH    += ../../frame/ ../../widgets
+INCLUDEPATH    += ../../frame/ ../../widgets ../../helper
 PKGCONFIG += dui
-LIBS += -L../../widgets -lwidgets
+LIBS += -L../../widgets -lwidgets -L../../helper -lhelper
 
 HEADERS         = defaultapps.h \
     dbus/dbusdefaultmedia.h \

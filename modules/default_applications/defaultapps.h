@@ -15,8 +15,8 @@
 
 #include <libdui/darrowlineexpand.h>
 #include <libdui/dexpandgroup.h>
-#include <libdui/dbuttonlist.h>
 #include <libdui/dswitchbutton.h>
+#include <libdui/doptionlist.h>
 
 DUI_USE_NAMESPACE
 
@@ -79,8 +79,7 @@ private:
     DArrowLineExpand *m_modCamera = nullptr;
     DArrowLineExpand *m_modSoftware = nullptr;
 
-    QMap<DefaultAppsCategory, QStringList> m_appsList;
-    QMap<DefaultAppsCategory, DButtonList*> m_appsBtnList;
+    QMap<DefaultAppsCategory, DOptionList*> m_appsBtnList;
 
     DSwitchButton *m_autoPlaySwitch;
 };
