@@ -72,8 +72,8 @@ private:
 
 
     DBusAudio * m_dbusAudio;
-    DBusAudioSink * m_sink;
-    DBusAudioSource * m_source;
+    DBusAudioSink * m_sink = nullptr;
+    DBusAudioSource * m_source = nullptr;
     QList<DBusAudioSink *> m_sinks;
     QList<DBusAudioSource *> m_sources;
     QDBusInterface *m_dbusMeter = nullptr;
