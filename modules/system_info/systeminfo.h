@@ -9,11 +9,11 @@
 #include <libdui/dexpandgroup.h>
 #include <libdui/dboxwidget.h>
 
-#include "interfaces.h"
 #include "dbus/dbussysteminfo.h"
 #include "updatearrowexpand.h"
 #include "updatewidget.h"
 #include "mirrorscontrolwidget.h"
+#include "interfaces.h"
 
 DUI_USE_NAMESPACE
 

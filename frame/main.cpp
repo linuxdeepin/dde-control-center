@@ -1,3 +1,6 @@
+
+#include <gtk/gtk.h>
+
 #include <QApplication>
 #include <QFile>
 #include <QDebug>
@@ -37,6 +40,8 @@ void onThemeChange(const QString &theme)
 
 int main(int argv, char *args[])
 {
+    gtk_init(&argv, &args);
+
     DApplication app(argv, args);
     app.setOrganizationName("deepin");
     app.setApplicationName("DDE Control Center");

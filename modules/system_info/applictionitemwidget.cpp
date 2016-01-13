@@ -1,5 +1,6 @@
 #include "applictionitemwidget.h"
 #include "constants.h"
+#include "helper.h"
 
 #include <QVBoxLayout>
 #include <QPixmap>
@@ -233,39 +234,6 @@ void ApplictionItemWidget::restartJob()
 
 const QString ApplictionItemWidget::getIconPath(const AppUpdateInfo &info) const
 {
-    qDebug() << "find icon: " << info.m_icon;
-
-    // use if file exist
-    if (QFile(info.m_icon).exists() && !QPixmap(info.m_icon).isNull())
-        return info.m_icon;
-
-    // keng: dont forget call gtk_init() method before use gtk functions.
-    GtkIconTheme *theme = gtk_icon_theme_get_default();
-    gtk_icon_theme_append_search_path(theme, "/usr/share/pixmaps");
-    GtkIconInfo *iconInfo = gtk_icon_theme_lookup_icon(theme, info.m_icon.toStdString().c_str(), 32, GTK_ICON_LOOKUP_GENERIC_FALLBACK);
-
-    // if cant find icon by m_icon, try to app name
-    if (!iconInfo)
-        iconInfo = gtk_icon_theme_lookup_icon(theme, info.m_name.toStdString().c_str(), 32, GTK_ICON_LOOKUP_GENERIC_FALLBACK);
-
-    // use default application icon
-    if (!iconInfo)
-        iconInfo = gtk_icon_theme_lookup_icon(theme, "application-x-desktop", 32, GTK_ICON_LOOKUP_GENERIC_FALLBACK);
-
-    if (iconInfo) {
-        const QString &iconPath = g_strdup(gtk_icon_info_get_filename(iconInfo));
-
-#if GTK_MAJOR_VERSION >= 3
-        g_object_unref(iconInfo);
-#elif GTK_MAJOR_VERSION == 2
-        gtk_icon_info_free(iconInfo);
-#endif
-
-        return iconPath;
-    } else {
-        qWarning() << info.m_name << " - " << info.m_icon << " - icon not found";
-
-        return QString();
-    }
+    return Helper::searchAppIcon(QStringList() << info.m_icon << info.m_name << "application-x-desktop", 32);
 }
 

@@ -1,10 +1,11 @@
+
 include(../../common.pri)
+
 TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus
-PKGCONFIG      += gtk+-2.0
-INCLUDEPATH    += ../../frame/ ../../widgets
-LIBS += -L../../widgets -lwidgets
+INCLUDEPATH    += ../../frame/ ../../widgets ../../helper
+LIBS += -L../../widgets -lwidgets -L../../helper -lhelper
 
 HEADERS         = systeminfo.h \
     dbus/dbussysteminfo.h \

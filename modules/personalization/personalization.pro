@@ -1,12 +1,7 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2015-08-17T15:26:32
-#
-#-------------------------------------------------
-
-QT       += core gui widgets dbus
 
 include(../../common.pri)
+
+QT       += core gui widgets dbus
 TEMPLATE = lib
 CONFIG += plugin c++11
 LIBS += -ldui -L../../widgets -lwidgets

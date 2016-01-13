@@ -32,11 +32,6 @@ SystemInfo::SystemInfo()
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
-#ifdef DCC_SYSINFO_UPDATE
-    // to use gtk functions
-    gtk_init(nullptr, nullptr);
-#endif
-
     m_baseLine = new ModuleHeader(tr("System Information"), false);
 
     QLabel *deepinLogo = new QLabel;

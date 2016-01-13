@@ -14,12 +14,6 @@
 #include "dbus/dbusupdatejobmanager.h"
 #include "dbus/dbusupdatejob.h"
 
-#undef signals
-extern "C" {
-  #include <gtk/gtk.h>
-}
-#define signals public
-
 DUI_USE_NAMESPACE
 
 class ApplictionItemWidget : public QFrame

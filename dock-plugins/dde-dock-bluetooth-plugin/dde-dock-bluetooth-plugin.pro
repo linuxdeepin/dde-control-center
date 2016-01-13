@@ -1,8 +1,4 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2015-07-14T11:37:40
-#
-#-------------------------------------------------
+
 include(../../common.pri)
 
 QT       += core gui widgets dbus svg

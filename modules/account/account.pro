@@ -1,4 +1,6 @@
+
 include(../../common.pri)
+
 TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets multimedia multimediawidgets dbus

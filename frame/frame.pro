@@ -40,9 +40,9 @@ include(../cutelogger/cutelogger.pri)
 TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../
 
-CONFIG += c++11
-
-LIBS += -ldui -L../widgets -lwidgets
+CONFIG += c++11 link_pkgconfig
+LIBS += -L../widgets -lwidgets
+PKGCONFIG      += gtk+-2.0 dui
 
 RESOURCES += \
     qss.qrc \
