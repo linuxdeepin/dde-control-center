@@ -14,6 +14,7 @@ CONFIG(release, debug|release) {
 
 
 # add install files
+widgets.depends = helper
 frame.depends = widgets
 modules.depends = widgets
 
