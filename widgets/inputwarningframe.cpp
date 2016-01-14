@@ -25,14 +25,14 @@ InputWarningFrame::InputWarningFrame(QWidget *sourceInput) :
 void InputWarningFrame::showWarning(const QString &msg)
 {
     m_label->setText(msg);
+    QRect contentRect = QRect(0, 0, m_sourceInput->maximumWidth() - 2 * margin(), 0);
     QFontMetrics metrics(m_label->font());
-    int msgWidth = metrics.width(msg);
-    bool inRange = msgWidth + margin() * 2 < m_sourceInput->maximumWidth();
-    m_label->setFixedWidth(inRange ? msgWidth : m_sourceInput->maximumWidth() - margin() * 2);
+    const int msgWidth = metrics.boundingRect(contentRect, Qt::AlignLeft | Qt::TextWordWrap, msg).width();
+    m_label->setFixedWidth(msgWidth);
     m_frame->adjustSize();
     resizeWithContent();
     QPoint sourcePoint = m_sourceInput->mapToGlobal(QPoint(0, 0));
 
-    show(sourcePoint.x() + (inRange ? msgWidth / 2  + margin() : m_sourceInput->maximumWidth() / 2),
+    show(sourcePoint.x() + msgWidth / 2  + margin(),
          sourcePoint.y() + m_sourceInput->height());
 }
