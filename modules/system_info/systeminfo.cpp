@@ -287,6 +287,7 @@ void SystemInfo::onProcessFinished()
         process->terminate();
         process->kill();
         process->deleteLater();
+        m_markActionStarted.remove(process->objectName());
     }
 }
 
@@ -321,15 +322,14 @@ void SystemInfo::scanlicenses()
 
 void SystemInfo::loadSystemInfoFromLocalFile(QGridLayout *infoGrid)
 {
-    QStringList info_dirs;
+    QStringList info_dirs = QStandardPaths::standardLocations(QStandardPaths::GenericConfigLocation);
     QSet<QString> markRead;
 
-    info_dirs << QString("/etc/xdg/%1/%2")
-                 .arg(qApp->organizationName())
-                 .arg(qApp->applicationName());
-
     foreach (const QString &path, info_dirs) {
-        QDir dir(path + "/systeminfo/infos");
+        if(path.startsWith("/home") || path.startsWith("/root"))
+            continue;
+
+        QDir dir(path + "/systeminfos");
 
         dir.setNameFilters(QStringList() << "*.json");
         dir.setFilter(QDir::Files | QDir::Readable);
@@ -382,12 +382,14 @@ void SystemInfo::loadSystemInfoFromLocalFile(QGridLayout *infoGrid)
                                 mouse_area->resize(info_content->sizeHint());
 
                                 connect(mouse_area, &MouseArea::clicked, [this, action] {
-                                    if(m_markProcessStarted.contains(sender()))
+                                    if(m_markActionStarted.contains(action))
                                         return;
+
+                                    m_markActionStarted << action;
 
                                     QProcess *process = new QProcess(this);
 
-                                    m_markProcessStarted << sender();
+                                    process->setObjectName(action);
 
                                     connect(process, SIGNAL(error(QProcess::ProcessError)),
                                             SLOT(onProcessFinished()));

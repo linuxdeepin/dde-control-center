@@ -54,7 +54,7 @@ private:
     UpdateArrowExpand *m_updateExpand;
 
     QList<DArrowLineExpand*> m_extralicenses;
-    QSet<QObject*> m_markProcessStarted;
+    QSet<QString> m_markActionStarted;
 
     void scanlicenses();
     void loadSystemInfoFromLocalFile(QGridLayout *infoGrid);
