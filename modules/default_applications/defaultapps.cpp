@@ -310,7 +310,9 @@ void DefaultApps::updateCheckedItem(const DefaultApps::DefaultAppsCategory &cate
      const QJsonObject &defaultApp = QJsonDocument::fromJson(defApp.toStdString().c_str()).object();
      const QString defAppValue = defaultApp.value("Id").toString();
 
+     blockSignals(true);
      m_appsBtnList[category]->setCurrentSelected(defAppValue);
+     blockSignals(false);
 }
 
 bool DefaultApps::isMediaApps(const DefaultApps::DefaultAppsCategory &category) const
