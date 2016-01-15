@@ -198,7 +198,7 @@ void AdapterWidget::initUI()
     m_deviceItemList = new DListWidget;
     m_listWidgetSeparator = new DSeparatorHorizontal;
 
-    m_deviceItemList->setVisible(m_info->powered);
+//    m_deviceItemList->setVisible(m_info->powered);
     m_deviceItemList->setStyleSheet(styleSheet());
     m_listWidgetSeparator->hide();
     m_info->widget = this;
@@ -237,5 +237,6 @@ void AdapterWidget::initUI()
     main_layout->addWidget(m_deviceItemList);
     main_layout->addWidget(m_listWidgetSeparator);
 
-    updateUI();
+//    updateUI();
+    QMetaObject::invokeMethod(this, "updateUI", Qt::QueuedConnection);
 }
