@@ -6,12 +6,12 @@
 #include <QListWidget>
 #include <QMap>
 
-#include <libdui/dcircleprogress.h>
 #include <libdui/dlistwidget.h>
 #include <libdui/dimagebutton.h>
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dloadingindicator.h>
 
+#include "updateprogress.h"
 #include "applictionitemwidget.h"
 #include "dbus/dbuslastoreupdater.h"
 #include "dbus/dbusupdatejobmanager.h"
@@ -82,7 +82,7 @@ private:
     DLoadingIndicator *m_checkingIndicator;
     DImageButton *m_checkUpdateBtn;
     DImageButton *m_updateButton;
-    DCircleProgress *m_updateProgress;
+    UpdateProgress *m_updateProgress;
     DListWidget *m_appsList;
     DBusUpdateJob *m_dbusSystemUpgrade = nullptr;
     DBusUpdateJob *m_dbusCheckupdate = nullptr;

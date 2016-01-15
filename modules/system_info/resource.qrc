@@ -24,4 +24,66 @@
         <file>gpl/gpl-3.0-en-title.txt</file>
         <file>gpl/gpl-3.0-en-body.txt</file>
     </qresource>
+    <qresource prefix="/images/loading">
+        <file>images/eLoading/eLoading_01.png</file>
+        <file>images/eLoading/eLoading_02.png</file>
+        <file>images/eLoading/eLoading_03.png</file>
+        <file>images/eLoading/eLoading_04.png</file>
+        <file>images/eLoading/eLoading_05.png</file>
+        <file>images/eLoading/eLoading_06.png</file>
+        <file>images/eLoading/eLoading_07.png</file>
+        <file>images/eLoading/eLoading_08.png</file>
+        <file>images/eLoading/eLoading_09.png</file>
+        <file>images/eLoading/eLoading_10.png</file>
+        <file>images/eLoading/eLoading_11.png</file>
+        <file>images/eLoading/eLoading_12.png</file>
+        <file>images/eLoading/eLoading_13.png</file>
+        <file>images/eLoading/eLoading_14.png</file>
+        <file>images/eLoading/eLoading_15.png</file>
+        <file>images/eLoading/eLoading_16.png</file>
+        <file>images/eLoading/eLoading_17.png</file>
+        <file>images/eLoading/eLoading_18.png</file>
+        <file>images/eLoading/eLoading_19.png</file>
+        <file>images/eLoading/eLoading_20.png</file>
+        <file>images/eLoading/eLoading_21.png</file>
+        <file>images/eLoading/eLoading_22.png</file>
+        <file>images/eLoading/eLoading_23.png</file>
+        <file>images/eLoading/eLoading_24.png</file>
+        <file>images/eLoading/eLoading_25.png</file>
+        <file>images/eLoading/eLoading_26.png</file>
+        <file>images/eLoading/eLoading_27.png</file>
+        <file>images/eLoading/eLoading_28.png</file>
+        <file>images/eLoading/eLoading_29.png</file>
+        <file>images/eLoading/eLoading_30.png</file>
+        <file>images/eLoading/eLoading_31.png</file>
+        <file>images/eLoading/eLoading_32.png</file>
+        <file>images/eLoading/eLoading_33.png</file>
+        <file>images/eLoading/eLoading_34.png</file>
+        <file>images/eLoading/eLoading_35.png</file>
+        <file>images/eLoading/eLoading_36.png</file>
+        <file>images/eLoading/eLoading_37.png</file>
+        <file>images/eLoading/eLoading_38.png</file>
+        <file>images/eLoading/eLoading_39.png</file>
+        <file>images/eLoading/eLoading_40.png</file>
+        <file>images/eLoading/eLoading_41.png</file>
+        <file>images/eLoading/eLoading_42.png</file>
+        <file>images/eLoading/eLoading_43.png</file>
+        <file>images/eLoading/eLoading_44.png</file>
+        <file>images/eLoading/eLoading_45.png</file>
+        <file>images/eLoading/eLoading_46.png</file>
+        <file>images/eLoading/eLoading_47.png</file>
+        <file>images/eLoading/eLoading_48.png</file>
+        <file>images/eLoading/eLoading_49.png</file>
+        <file>images/eLoading/eLoading_50.png</file>
+        <file>images/eLoading/eLoading_51.png</file>
+        <file>images/eLoading/eLoading_52.png</file>
+        <file>images/eLoading/eLoading_53.png</file>
+        <file>images/eLoading/eLoading_54.png</file>
+        <file>images/eLoading/eLoading_55.png</file>
+        <file>images/eLoading/eLoading_56.png</file>
+        <file>images/eLoading/eLoading_57.png</file>
+        <file>images/eLoading/eLoading_58.png</file>
+        <file>images/eLoading/eLoading_59.png</file>
+        <file>images/eLoading/eLoading_60.png</file>
+    </qresource>
 </RCC>

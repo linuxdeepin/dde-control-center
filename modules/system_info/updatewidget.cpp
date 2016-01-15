@@ -44,9 +44,9 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_updateButton->setNormalPic(":/images/images/upgrade_normal.png");
     m_updateButton->setHoverPic(":/images/images/upgrade_hover.png");
     m_updateButton->setPressPic(":/images/images/upgrade_press.png");
-    m_updateProgress = new DCircleProgress;
+    m_updateProgress = new UpdateProgress;
     m_updateProgress->setObjectName("UpgradeProcess");
-    m_updateProgress->setFixedSize(32, 32);
+    m_updateProgress->setFixedSize(31, 31);
     m_updateProgress->setLineWidth(2);
     m_updateProgress->setValue(0);
     m_updateProgress->hide();
@@ -195,6 +195,7 @@ void UpdateWidget::updateUpgradeProcess()
     const double progress = m_dbusSystemUpgrade->progress();
     const int percent = int(100 * progress);
 
+    m_updateProgress->showLoading();
     m_updateProgress->setValue(percent);
     m_updateProgress->setText(QString("%1").arg(percent));
 
@@ -370,9 +371,11 @@ void UpdateWidget::refreshProgress(UpdateWidget::UpgradeState state)
         break;
     case SysUpGrading:
         m_updateProgress->topLabel()->clear();
+        m_updateProgress->showLoading();
         disableAppsUpgrade();
         break;
     case SysFail:
+        m_updateProgress->hideLoading();
         m_updateProgress->topLabel()->setPixmap(QPixmap(":/images/images/start.png"));
         break;
     default:            qDebug() << "refresh Progress" << state << m_upgradeStatus;
@@ -427,6 +430,7 @@ void UpdateWidget::systemUpgrade()
 
     m_updateProgress->setValue(0);
     m_updateProgress->show();
+    m_updateProgress->showLoading();
     m_updateButton->hide();
     m_checkingIndicator->hide();
 
@@ -467,6 +471,7 @@ void UpdateWidget::loadUpgradeJob(DBusUpdateJob *newJob)
 
     m_updateProgress->setValue(0);
     m_updateProgress->show();
+    m_updateProgress->showLoading();
     m_updateButton->hide();
 
     connect(m_dbusSystemUpgrade, &DBusUpdateJob::ProgressChanged, this, &UpdateWidget::updateUpgradeProcess);
