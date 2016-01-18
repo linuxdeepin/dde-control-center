@@ -170,6 +170,11 @@ void DeviceMoniter::run()
 
     while (true)
     {
+        QThread::sleep(1);
+
+        if (!wacomInter.isValid() || !bluetoothInter.isValid())
+            continue;
+
         bool changed = false;
 
         const bool wacom = wacomInter.exist();
@@ -189,7 +194,5 @@ void DeviceMoniter::run()
 
         if (changed)
             emit deviceChanged();
-
-        QThread::sleep(1);
     }
 }
