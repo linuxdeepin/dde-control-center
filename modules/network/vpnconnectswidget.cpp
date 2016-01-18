@@ -2,6 +2,7 @@
 #include "dbus/dbusnetwork.h"
 #include "networkglobal.h"
 #include "networkgenericlistitem.h"
+#include "inputpassworddialog.h"
 
 VPNConnectsWidget::VPNConnectsWidget(DBusNetwork *dbus, QWidget *parent) :
     AbstractDeviceWidget(tr("VPN Connections"), dbus, parent)
@@ -14,9 +15,14 @@ VPNConnectsWidget::VPNConnectsWidget(DBusNetwork *dbus, QWidget *parent) :
     connect(dbus, &DBusNetwork::VpnEnabledChanged, this, [this, dbus]{
         setEnabled(dbus->vpnEnabled());
     });
-    connect(this, &VPNConnectsWidget::enabledChanged, dbus, &DBusNetwork::setVpnEnabled);
-    connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &VPNConnectsWidget::onConnectsChanged);
-    connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, &VPNConnectsWidget::onActiveConnectionsChanged);
+    connect(this, &VPNConnectsWidget::enabledChanged,
+            dbus, &DBusNetwork::setVpnEnabled);
+    connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged,
+            this, &VPNConnectsWidget::onConnectsChanged);
+    connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged,
+            this, &VPNConnectsWidget::onActiveConnectionsChanged);
+    connect(m_dbusNetwork, &DBusNetwork::NeedSecrets,
+            this, &VPNConnectsWidget::onNeedSecrets);
 }
 
 QString VPNConnectsWidget::path() const
@@ -124,12 +130,75 @@ void VPNConnectsWidget::onActiveConnectionsChanged()
         if(json_obj["Vpn"].toBool()) {
             for(NetworkGenericListItem *item : m_mapVpnPathToItem.values()) {
                 if(item->uuid() == json_obj["Uuid"].toString()) {
-                    if(item->uuid() == json_obj["Uuid"].toString()) {
-                        item->setState(json_obj["State"].toInt());
-                        continue;
-                    }
+                    item->setState(json_obj["State"].toInt());
+                    break;
                 }
             }
         }
     }
+}
+
+void VPNConnectsWidget::onNeedSecrets(const QString &path, const QString &section,
+                                      const QString &ssid, bool autoConnect)
+{
+    Q_UNUSED(ssid)
+
+    NetworkGenericListItem *item = m_mapVpnPathToItem.value(path, nullptr);
+
+    m_targetConnectPath = path;
+    m_targetConnectSection = section;
+
+    if(!m_ddialog) {
+        for(int i = 0; i < listWidget()->count(); ++i)
+            listWidget()->getWidget(i)->setEnabled(false);
+
+        m_ddialog = new InputPasswordDialog;
+
+        connect(m_ddialog, &InputPasswordDialog::textChanged, this, [this] {
+            m_ddialog->setInputAlert(false);
+        });
+        connect(m_ddialog, &InputPasswordDialog::confirm, this, [this] {
+            if(!m_ddialog->text().isEmpty()) {
+                m_dbusNetwork->FeedSecret(m_targetConnectPath, m_targetConnectSection,
+                                          m_ddialog->text(), m_ddialog->autoConnect());
+                closeInputDialog();
+            } else {
+                m_ddialog->setInputAlert(true);
+            }
+        });
+        connect(m_ddialog.data(), &InputPasswordDialog::cancel, this, [this] {
+            m_dbusNetwork->CancelSecret(m_targetConnectPath, m_targetConnectSection);
+
+            closeInputDialog();
+        });
+    }
+
+    m_ddialog->setAutoConnect(autoConnect);
+
+    int index = listWidget()->indexOf(item);
+
+    if(index < 0)
+        return;
+
+    int index_dialog = listWidget()->indexOf(m_ddialog.data());
+
+    if(index_dialog >= 0)
+        listWidget()->removeWidget(index_dialog, false);
+    listWidget()->insertWidget(index + 1, m_ddialog.data());
+}
+
+void VPNConnectsWidget::closeInputDialog()
+{
+    if(m_ddialog.isNull())
+        return;
+
+    int index_dialog = listWidget()->indexOf(m_ddialog.data());
+
+    if(index_dialog >= 0)
+        listWidget()->removeWidget(index_dialog);
+    else
+        m_ddialog->deleteLater();
+
+    for(int i = 0; i < listWidget()->count(); ++i)
+        listWidget()->getWidget(i)->setEnabled(true);
 }
