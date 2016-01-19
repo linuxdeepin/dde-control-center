@@ -137,7 +137,7 @@ void ClockPixmap::paint()
 
     if (m_analog) {
         // draw analog clock
-        int hourRotation = (m_time.hour() % 12) * 360 / 12;
+        int hourRotation = (m_time.hour() % 12 + double(m_time.minute()) / 60.0) * 360 / 12;
         int minuteRotation = m_time.minute() * 360 / 60;
 
         // draw dial
