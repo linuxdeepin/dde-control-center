@@ -2272,7 +2272,7 @@
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="41"/>
-        <source>Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd.</source>
+        <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
