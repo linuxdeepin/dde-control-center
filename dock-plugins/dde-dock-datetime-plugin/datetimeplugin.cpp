@@ -197,7 +197,7 @@ QString DateTimePlugin::getMenuContent(QString)
         items.append(createMenuItem(MenuIdShowDate, tr("Show date"), true, showDate()));
     }
 
-    items.append(createMenuItem(MenuIdDatetimeSettings, tr("Datetime settings(_T)")));
+    items.append(createMenuItem(MenuIdDatetimeSettings, tr("Date&Time settings(_T)")));
 
     contentObj.insert("items", items);
 

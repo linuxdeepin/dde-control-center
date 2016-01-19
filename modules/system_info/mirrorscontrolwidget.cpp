@@ -15,7 +15,7 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     m_dbusLastoreInter = new DBusLastoreUpdater("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
     m_updateSwitchBtn = new DSwitchButton;
     m_updateSwitchBtn->setChecked(m_dbusLastoreInter->autoCheckUpdates());
-    m_changeMirrorBtn = new DTextButton(tr("Change"));
+    m_changeMirrorBtn = new DTextButton(tr("Switch"));
     m_applyBtn = new DTextButton(tr("Done"));
     m_mirrorsList = new DListWidget;
     m_mirrorsList->setEnableVerticalScroll(true);

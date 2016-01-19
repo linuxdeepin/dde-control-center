@@ -28,7 +28,7 @@ void ModemNetworkListItem::onConnectsChanged()
 void ModemNetworkListItem::init()
 {
     m_item = new NetworkGenericListItem(m_dbusNetwork);
-    m_item->setTitle(tr("Restore the connect"));
+    m_item->setTitle(tr("Restore the connection"));
     m_item->setLoading(true);
 
     listWidget()->addWidget(m_item);

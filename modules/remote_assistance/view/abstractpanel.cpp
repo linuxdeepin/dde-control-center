@@ -62,7 +62,7 @@ void AbstractPanel::abort()
 
 void AbstractPanel::onNoNetwork()
 {
-    setTitle(tr("Remote Accessitance"));
+    setTitle(tr("Remote Assistance"));
     qDebug ()<< "no network";
     auto view = new ErrorView;
     auto button = new DTextButton(tr("Ok"));
