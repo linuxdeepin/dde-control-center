@@ -42,6 +42,8 @@ VpnAppletItem::VpnAppletItem(const VpnData &data, DBusNetwork *dbusNetwork, QWid
     layout->setSpacing(0);
     layout->addWidget(checkFrame);
     layout->addWidget(m_title);
+
+    updateConnectionState();
 }
 
 QString VpnAppletItem::getItemUuid() const
