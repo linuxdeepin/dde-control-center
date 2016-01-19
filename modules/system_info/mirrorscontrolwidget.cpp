@@ -29,7 +29,7 @@ MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
     QLabel *autoCheckUpdate = new QLabel(tr("Auto check update"));
     autoCheckUpdate->setStyleSheet(QString("color:%1;").arg(DCC::TextNormalColor.name()));
     autoCheckUpdate->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    QLabel *updateServer = new QLabel(tr("Update server"));
+    QLabel *updateServer = new QLabel(tr("Mirrors"));
     updateServer->setStyleSheet(QString("color:%1;").arg(DCC::TextNormalColor.name()));
     updateServer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 

@@ -1392,7 +1392,7 @@
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="32"/>
-        <source>Update server</source>
+        <source>Mirrors</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
