@@ -69,6 +69,10 @@ Mouse::Mouse()
     m_mousePointSpeedSlider = new DSlider(Qt::Horizontal);
     m_mousePointSpeedSlider->setMinimumSize(180, 20);
 
+    m_mousePointSpeedSetTimer = new QTimer(this);
+    m_mousePointSpeedSetTimer->setInterval(100);
+    m_mousePointSpeedSetTimer->setSingleShot(true);
+
     m_pointSpeedContainerLayout->addWidget(m_pointSpeedLabel);
     m_pointSpeedContainerLayout->addWidget(m_mousePointSpeedSlider);
 
@@ -81,6 +85,10 @@ Mouse::Mouse()
     m_doubleClickSpeedLabel = new QLabel(tr("Double-click Speed"));
     m_mouseDoubleClickIntervalSlider = new DSlider(Qt::Horizontal);
     m_mouseDoubleClickIntervalSlider->setMinimumSize(180, 20);
+
+    m_mouseDoubleClickIntervalTimer = new QTimer(this);
+    m_mouseDoubleClickIntervalTimer->setInterval(100);
+    m_mouseDoubleClickIntervalTimer->setSingleShot(true);
 
     m_doubleClickContainerLayout->addWidget(m_doubleClickSpeedLabel);
     m_doubleClickContainerLayout->addWidget(m_mouseDoubleClickIntervalSlider);
@@ -134,6 +142,18 @@ Mouse::Mouse()
     m_touchpadPointSpeedSlider = new DSlider(Qt::Horizontal);
     m_touchpadDoubleClickSpeed = new DSlider(Qt::Horizontal);
     m_touchpadDragThreshold = new DSlider(Qt::Horizontal);
+
+    m_touchpadDragThresholdSetTimer = new QTimer(this);
+    m_touchpadDragThresholdSetTimer->setInterval(100);
+    m_touchpadDragThresholdSetTimer->setSingleShot(true);
+
+    m_touchpadDoubleClickSetTimer = new QTimer(this);
+    m_touchpadDoubleClickSetTimer->setInterval(100);
+    m_touchpadDoubleClickSetTimer->setSingleShot(true);
+
+    m_touchpadPointSpeedSetTimer = new QTimer(this);
+    m_touchpadPointSpeedSetTimer->setInterval(100);
+    m_touchpadPointSpeedSetTimer->setSingleShot(true);
 
     m_touchpadPointSpeedSlider->setMinimumSize(180, 20);
     m_touchpadDoubleClickSpeed->setMinimumSize(180, 20);
@@ -199,7 +219,8 @@ Mouse::Mouse()
             [&](bool arg){
             m_mousePrimaryButtonSetting->setCurrentIndex((int)arg);
     });
-    connect(m_mousePointSpeedSlider, SIGNAL(valueChanged(int)), this, SLOT(setMousePointSpeed(int)));
+    connect(m_mousePointSpeedSetTimer, &QTimer::timeout, this, &Mouse::setMousePointSpeed);
+    connect(m_mousePointSpeedSlider, &DSlider::valueChanged, m_mousePointSpeedSetTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::motionAccelerationChanged,
             [&](double value){
         if(value != m_mousePointSpeed){
@@ -207,7 +228,8 @@ Mouse::Mouse()
             m_mousePointSpeed = value;
         }
     });
-    connect(m_mouseDoubleClickIntervalSlider, SIGNAL(valueChanged(int)), this, SLOT(setMouseDoubleClickInterval(int)));
+    connect(m_mouseDoubleClickIntervalSlider, &DSlider::valueChanged, m_mouseDoubleClickIntervalTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_mouseDoubleClickIntervalTimer, &QTimer::timeout, this, &Mouse::setMouseDoubleClickInterval);
     connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::doubleClickChanged,
             [&](int value){
         m_mouseDoubleClickIntervalSlider->setValue(1000 - value);
@@ -223,7 +245,8 @@ Mouse::Mouse()
             m_touchpadSwitchButton, &DSwitchButton::setChecked);
     connect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)),
             m_fourthHSeparator, SLOT(setVisible(bool)));
-    connect(m_touchpadPointSpeedSlider, SIGNAL(valueChanged(int)), this, SLOT(setTouchpadPointSpeed(int)));
+    connect(m_touchpadPointSpeedSetTimer, &QTimer::timeout, this, &Mouse::setTouchpadPointSpeed);
+    connect(m_touchpadPointSpeedSlider, &DSlider::valueChanged, m_touchpadPointSpeedSetTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::motionAccelerationChanged,
             [&](double value){
         if(value != m_touchpadPointSpeed){
@@ -231,7 +254,8 @@ Mouse::Mouse()
             m_touchpadPointSpeed = value;
         }
     });
-    connect(m_touchpadDoubleClickSpeed, SIGNAL(valueChanged(int)), this, SLOT(setTouchpadDoubleClickInterval(int)));
+    connect(m_touchpadDoubleClickSpeed, &DSlider::valueChanged, m_touchpadDoubleClickSetTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_touchpadDoubleClickSetTimer, &QTimer::timeout, this, &Mouse::setTouchpadDoubleClickInterval);
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::doubleClickChanged,
             [&](int value){
         m_touchpadDoubleClickSpeed->setValue(1000 - value);
@@ -248,8 +272,10 @@ Mouse::Mouse()
     connect(m_touchpadEdgeScrollSwitch, SIGNAL(checkedChanged(bool)), this, SLOT(enableTouchpadEdgeScroll(bool)));
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::edgeScrollChanged,
             m_touchpadEdgeScrollSwitch, &DSwitchButton::setChecked);
-    connect(m_touchpadDragThreshold, &DSlider::valueChanged,
-            m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::setDragThreshold);
+    connect(m_touchpadDragThreshold, &DSlider::valueChanged, m_touchpadDragThresholdSetTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_touchpadDragThresholdSetTimer, &QTimer::timeout, [this] {
+        m_touchpadInterface->setDragThreshold(m_touchpadDragThreshold->value());
+    });
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::dragThresholdChanged,
             m_touchpadDragThreshold, &DSlider::setValue);
     connect(m_touchpadPrimaryButtonSetting, &DSegmentedControl::currentChanged,
@@ -342,16 +368,20 @@ void Mouse::setMousePrimaryButton(int index)
     }
 }
 
-void Mouse::setMousePointSpeed(int speed)
+void Mouse::setMousePointSpeed()
 {
+    const int speed = m_mousePointSpeedSlider->value();
+
     // the value should be scaled
     if(m_mouseInterface->motionAcceleration()*1000 + speed != 3200){
         m_mouseInterface->setMotionAcceleration((3200 - speed)/1000.0);
     }
 }
 
-void Mouse::setMouseDoubleClickInterval(int interval)
+void Mouse::setMouseDoubleClickInterval()
 {
+    const int interval = m_mouseDoubleClickIntervalSlider->value();
+
     if(m_mouseInterface->doubleClick() + interval != 1000){
         m_mouseInterface->setDoubleClick(1000 - interval);
     }
@@ -371,15 +401,19 @@ void Mouse::enableTouchpad(bool flag)
     }
 }
 
-void Mouse::setTouchpadPointSpeed(int speed)
+void Mouse::setTouchpadPointSpeed()
 {
+    const int speed = m_touchpadPointSpeedSlider->value();
+
     if(m_touchpadInterface->motionAcceleration()*1000 + speed != 3200){
         m_touchpadInterface->setMotionAcceleration((3200 - speed)/1000.0);
     }
 }
 
-void Mouse::setTouchpadDoubleClickInterval(int interval)
+void Mouse::setTouchpadDoubleClickInterval()
 {
+    const int interval = m_touchpadDoubleClickSpeed->value();
+
     if(m_touchpadInterface->doubleClick() + interval != 1000){
         m_touchpadInterface->setDoubleClick(1000 - interval);
     }

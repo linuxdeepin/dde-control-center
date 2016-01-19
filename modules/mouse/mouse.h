@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QtPlugin>
 #include <QLabel>
+#include <QTimer>
 
 #include <libdui/dtextbutton.h>
 #include <libdui/dheaderline.h>
@@ -36,13 +37,13 @@ public:
 
 public slots:
     void setMousePrimaryButton(int index);
-    void setMousePointSpeed(int speed);
-    void setMouseDoubleClickInterval(int interval);
+    void setMousePointSpeed();
+    void setMouseDoubleClickInterval();
     void disableTouchpadWhenMousePluggedIn(bool flag);
 
     void enableTouchpad(bool flag);
-    void setTouchpadPointSpeed(int speed);
-    void setTouchpadDoubleClickInterval(int interval);
+    void setTouchpadPointSpeed();
+    void setTouchpadDoubleClickInterval();
     void enableTouchpadNatureScroll(bool flag);
     void enableTouchpadTapToClick(bool flag);
     void enableTouchpadTwoFingerScroll(bool flag);
@@ -67,10 +68,12 @@ private:
     QHBoxLayout * m_pointSpeedContainerLayout;
     QLabel * m_pointSpeedLabel;
     DSlider * m_mousePointSpeedSlider;
+    QTimer *m_mousePointSpeedSetTimer;
     QWidget * m_doubleClickSpeedContainer;
     QHBoxLayout * m_doubleClickContainerLayout;
     QLabel * m_doubleClickSpeedLabel;
     DSlider * m_mouseDoubleClickIntervalSlider;
+    QTimer *m_mouseDoubleClickIntervalTimer;
     QWidget * m_forbiddenTouchpadWhenMouseContainer;
     QHBoxLayout * m_forbiddenTouchpadWhenMouseLayout;
     QLabel * m_forbiddenTouchpadWhenMouseLabel;
@@ -82,8 +85,11 @@ private:
     ContainerWidget * m_touchpadSettingPanel;
     DSegmentedControl * m_touchpadPrimaryButtonSetting;
     DSlider * m_touchpadPointSpeedSlider;
+    QTimer *m_touchpadPointSpeedSetTimer;
     DSlider * m_touchpadDoubleClickSpeed;
+    QTimer *m_touchpadDoubleClickSetTimer;
     DSlider * m_touchpadDragThreshold;
+    QTimer *m_touchpadDragThresholdSetTimer;
     DSwitchButton * m_touchpadNatureScrollSwitch;
     DSwitchButton * m_touchpadTapToClickSwitch;
     DSwitchButton * m_touchpadTwoFingerScrollSwitch;

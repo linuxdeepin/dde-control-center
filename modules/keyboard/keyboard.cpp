@@ -141,9 +141,15 @@ void Keyboard::initUI()
     basicSettingsLayout->addWidget(repeatDelayTitle, 0, 0, Qt::AlignRight);
     basicSettingsLayout->addWidget(repeatDelaySlider, 0, 1);
 
-    connect(repeatDelaySlider, &DSlider::valueChanged, [this](int value){
-        m_dbusKeyboard->setRepeatDelay(value);
+    QTimer *repeatDelayTimer = new QTimer(this);
+    repeatDelayTimer->setInterval(100);
+    repeatDelayTimer->setSingleShot(true);
+
+    connect(repeatDelaySlider, &DSlider::valueChanged, repeatDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(repeatDelayTimer, &QTimer::timeout, [=] {
+        m_dbusKeyboard->setRepeatDelay(repeatDelaySlider->value());
     });
+
     connect(m_dbusKeyboard, &DBusKeyboard::RepeatDelayChanged,
             repeatDelaySlider, [repeatDelaySlider, this]{
         repeatDelaySlider->setValue(m_dbusKeyboard->repeatDelay());
@@ -156,9 +162,15 @@ void Keyboard::initUI()
     basicSettingsLayout->addWidget(repeatSpeedTitle, 1, 0, Qt::AlignRight);
     basicSettingsLayout->addWidget(repeatSpeedSlider, 1, 1);
 
-    connect(repeatSpeedSlider, &DSlider::valueChanged, [this](int value){
-        m_dbusKeyboard->setRepeatInterval(((1000 - value) + 200) / 10);
+    QTimer *repeatSpeedTimer = new QTimer(this);
+    repeatSpeedTimer->setInterval(100);
+    repeatSpeedTimer->setSingleShot(true);
+
+    connect(repeatSpeedSlider, &DSlider::valueChanged, repeatSpeedTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(repeatSpeedTimer, &QTimer::timeout, [=] {
+        m_dbusKeyboard->setRepeatInterval(((1000 - repeatSpeedSlider->value()) + 200) / 10);
     });
+
     connect(m_dbusKeyboard, &DBusKeyboard::RepeatIntervalChanged,
             repeatSpeedSlider, [repeatSpeedSlider, this]{
         repeatSpeedSlider->setValue(1000 - (m_dbusKeyboard->repeatInterval() * 10 - 200));
@@ -172,8 +184,13 @@ void Keyboard::initUI()
     basicSettingsLayout->addWidget(cursorBlinkIntervalTitle, 2, 0, Qt::AlignRight);
     basicSettingsLayout->addWidget(cursorBlinkIntervalSlider, 2, 1);
 
-    connect(cursorBlinkIntervalSlider, &DSlider::valueChanged, [this](int value){
-        m_dbusKeyboard->setCursorBlink((2500 - value) + 100);
+    QTimer *cursorBlinkIntervalTimer = new QTimer(this);
+    cursorBlinkIntervalTimer->setInterval(100);
+    cursorBlinkIntervalTimer->setSingleShot(true);
+
+    connect(cursorBlinkIntervalSlider, &DSlider::valueChanged, cursorBlinkIntervalTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(cursorBlinkIntervalTimer, &QTimer::timeout, [=] {
+        m_dbusKeyboard->setCursorBlink((2500 - cursorBlinkIntervalSlider->value()) + 100);
     });
     connect(m_dbusKeyboard, &DBusKeyboard::CursorBlinkChanged,
             cursorBlinkIntervalSlider, [cursorBlinkIntervalSlider, this]{
