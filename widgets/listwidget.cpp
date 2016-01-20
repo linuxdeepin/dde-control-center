@@ -105,7 +105,7 @@ void ListWidget::setItemSize(int w, int h)
 void ListWidget::clear(bool isDelete)
 {
     for(int i=0;i<count();++i){
-        m_layout->removeItem(m_layout->takeAt(i));
+        delete m_layout->takeAt(i);
         m_widgetList[i]->removeEventFilter(this);
         m_widgetList[i]->setParent(NULL);
         if(isDelete)
@@ -128,11 +128,10 @@ void ListWidget::removeWidget(int index, bool isDelete)
     QWidget *w = getWidget(index);
 
     m_widgetList.removeAt(index);
-    m_layout->removeItem(m_layout->takeAt(index));
+    delete m_layout->takeAt(index);
     m_checkedList.removeOne(index);
 
     if(m_mapVisible.value(w, false)){
-        qDebug() << w->height() << m_mainWidget->height();
         setHeight(m_mainWidget->height() - w->height() - m_layout->spacing());
         setVisibleCount(m_visibleCount -1);
     }
