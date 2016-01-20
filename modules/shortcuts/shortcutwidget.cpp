@@ -48,7 +48,8 @@ ShortcutWidget::ShortcutWidget(ShortcutDbus *dbus, int id, const QString &title,
     });
 
     connect(m_animation, &QPropertyAnimation::valueChanged, [=](const QVariant &value){
-        m_hlayout->removeItem(m_hlayout->takeAt(0));
+        /// 0 is normal spacing index for m_hlayout
+        delete m_hlayout->takeAt(0);
         m_hlayout->insertSpacing(0, HEADER_LEFT_MARGIN+value.toRect().right()/1.5);
     });
 
