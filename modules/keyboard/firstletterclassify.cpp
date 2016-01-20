@@ -112,7 +112,8 @@ FirstLetterClassify::FirstLetterClassify(QWidget *parent) :
     connect(m_letterList, &DSegmentedControl::currentTitleChanged, [&](const QString& key){
         int index = key[0].toUpper().toLatin1() - 65;
         m_currentList->setParent(0);
-        m_layout->removeItem(m_layout->itemAt(1));
+        /// 1 is m_currentList index for m_layout
+        delete m_layout->takeAt(1);
         m_currentList = m_listWidgetList[index];
         m_layout->addWidget(m_currentList);
 
