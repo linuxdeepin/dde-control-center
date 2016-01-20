@@ -80,6 +80,7 @@ NormalWidget::NormalWidget(QWidget *parent) :
     m_dateLabel->setObjectName("DateLabel");
 
     m_tipsLabel = new QLabel;
+    m_tipsLabel->setWordWrap(true);
     m_tipsLabel->setAlignment(Qt::AlignCenter);
     m_tipsLabel->setText(tr("Double-click this area to change your time"));
     m_tipsLabel->setObjectName("TipsLabel");
@@ -89,7 +90,7 @@ NormalWidget::NormalWidget(QWidget *parent) :
     normalLayout->addLayout(hLayout);
     normalLayout->addWidget(m_dateLabel);
     normalLayout->addWidget(m_tipsLabel);
-    normalLayout->setContentsMargins(0, 30, 0, 30);
+    normalLayout->setContentsMargins(12, 30, 12, 30);
 
     setFixedHeight(150);
     setLayout(normalLayout);
