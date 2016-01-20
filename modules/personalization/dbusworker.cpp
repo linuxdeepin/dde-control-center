@@ -182,8 +182,20 @@ void DBusWorker::getThemeObjs(){
 }
 
 void DBusWorker::setTheme(QString Type, QString Key){
-    QDBusPendingReply<> reply = m_appearanceDaemonInterface->Set(Type, Key);
-    qDebug() << "set" << Type << Key;
+    if(!m_setThemeTimer) {
+        m_setThemeTimer = new QTimer(this);
+
+        connect(m_setThemeTimer, &QTimer::timeout, this, [this] {
+            m_setThemeTimer->deleteLater();
+            m_setThemeTimer = nullptr;
+            m_appearanceDaemonInterface->Set(m_setThemeType, m_setThemeKey);
+            qDebug() << "set" << m_setThemeType << m_setThemeKey;
+        });
+    }
+
+    m_setThemeType = Type;
+    m_setThemeKey = Key;
+    m_setThemeTimer->start(500);
 }
 
 void DBusWorker::deleteItem(QString Type, QString Key){

@@ -9,6 +9,7 @@
 #include "persionalizationfwd.h"
 
 class AppearanceDaemonInterface;
+class QTimer;
 
 class DBusWorker : public QObject
 {
@@ -92,6 +93,10 @@ private:
     JosnMapObjs m_standardFontObjs;
     JosnMapObjs m_monospaceFontObjs;
     AppearanceDaemonInterface* m_appearanceDaemonInterface;
+
+    QTimer *m_setThemeTimer = nullptr;
+    QString m_setThemeType;
+    QString m_setThemeKey;
 };
 
 #endif // DBUSWORKER_H
