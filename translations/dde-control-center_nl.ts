@@ -2,17 +2,17 @@
 <context>
     <name>AbstractPanel</name>
     <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="58"/>
-        <source>Remote Accessitance</source>
+        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="65"/>
+        <source>Remote Assistance</source>
         <translation>Hulp op afstand</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="61"/>
+        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="68"/>
         <source>Ok</source>
-        <translation>OK</translation>
+        <translation>Oké</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="67"/>
+        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="74"/>
         <source>No network connections are available, please retry after connected</source>
         <translation>Er zijn geen netwerkverbindingen beschikbaar. Probeer het opnieuw zodra u verbonden bent.</translation>
     </message>
@@ -21,32 +21,32 @@
     <name>AccessPanel</name>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="15"/>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="66"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="71"/>
         <source>Accessing</source>
         <translation>Toegang verkrijgen</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="77"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="82"/>
         <source>You are accessing the desktop shared by other users, you can choose to continue or disconnect</source>
         <translation>Het bureaublad dat u gebruikt wordt gedeeld met andere gebruikers. U kan kiezen om verder te gaan of de verbinding te verbreken</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="86"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="92"/>
         <source>Remote Assistance</source>
         <translation>Hulp op afstand</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="96"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="102"/>
         <source>Failed to establish the connection, you can retry to connect</source>
         <translation>Verbinding maken mislukt. U kan opnieuw proberen.</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="97"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="103"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="102"/>
+        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="108"/>
         <source>Retry</source>
         <translation>Opnieuw proberen</translation>
     </message>
@@ -77,12 +77,12 @@
         <translation>Gebruikerslijst</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="216"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="225"/>
         <source>Add Account</source>
         <translation>Account toevoegen</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="250"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="259"/>
         <source>Delete Account</source>
         <translation>Verwijder account</translation>
     </message>
@@ -162,11 +162,6 @@
         <location filename="../modules/network/adddslpage.cpp" line="20"/>
         <source>Username</source>
         <translation>Gebruikersnaam</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/adddslpage.cpp" line="21"/>
-        <source>Service</source>
-        <translation>Dienst</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="23"/>
@@ -375,7 +370,7 @@
 <context>
     <name>ApplictionItemWidget</name>
     <message>
-        <location filename="../modules/system_info/applictionitemwidget.cpp" line="32"/>
+        <location filename="../modules/system_info/applictionitemwidget.cpp" line="33"/>
         <source>Update</source>
         <translation>Bijwerken</translation>
     </message>
@@ -396,7 +391,7 @@
 <context>
     <name>BluetoothMainWidget</name>
     <message>
-        <location filename="../modules/bluetooth/bluetoothmainwidget.cpp" line="242"/>
+        <location filename="../modules/bluetooth/bluetoothmainwidget.cpp" line="243"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -542,73 +537,73 @@
 <context>
     <name>CreateUserPanel</name>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="51"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="54"/>
         <source>Add User</source>
         <translation>Gebruiker toevoegen</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="81"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="297"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="303"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="84"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="300"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="306"/>
         <source>new user</source>
         <translation>nieuwe gebruiker</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="84"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="87"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="96"/>
         <source>Normal User</source>
         <translation>Normale gebruiker</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="90"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
         <source>Administrator</source>
         <translation>Beheerder</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="130"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="133"/>
         <source>Username</source>
         <translation>Gebruikersnaam</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="131"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="134"/>
         <source>Password</source>
         <translation>Wachtwoord</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="132"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="135"/>
         <source>Repeat Password</source>
         <translation>Wachtwoord herhalen</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="133"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="136"/>
         <source>Account Type</source>
         <translation>Accounttype</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="134"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="137"/>
         <source>Auto-login</source>
         <translation>Automatisch aanmelden</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="176"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="263"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="174"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="179"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="266"/>
         <source>Password can not be empty.</source>
         <translation>Het wachtwoord mag niet leeg worden gelaten.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="180"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="276"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="313"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="320"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="183"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="263"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="279"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="316"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="323"/>
         <source>The two passwords do not match.</source>
         <translation>De twee wachtwoorden komen niet overeen.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="248"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="258"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="273"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="251"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="261"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="276"/>
         <source>Username can not be empty.</source>
         <translation>De gebruikersnaam mag niet leeg worden gelaten.</translation>
     </message>
@@ -674,36 +669,36 @@
         <translation>Beeldscherm %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="300"/>
-        <location filename="../modules/display/customsettings.cpp" line="306"/>
+        <location filename="../modules/display/customsettings.cpp" line="299"/>
+        <location filename="../modules/display/customsettings.cpp" line="305"/>
         <source>Apply</source>
         <translation>Toepassen</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="302"/>
-        <location filename="../modules/display/customsettings.cpp" line="308"/>
+        <location filename="../modules/display/customsettings.cpp" line="301"/>
+        <location filename="../modules/display/customsettings.cpp" line="307"/>
         <location filename="../modules/display/customsettings.h" line="43"/>
         <source>Confirm</source>
         <translation>Bevestigen</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="330"/>
+        <location filename="../modules/display/customsettings.cpp" line="329"/>
         <source>Do you want to keep these display settings?</source>
         <translation>Wilt u deze beeldscherminstellingen behouden?</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="331"/>
-        <location filename="../modules/display/customsettings.cpp" line="339"/>
+        <location filename="../modules/display/customsettings.cpp" line="330"/>
+        <location filename="../modules/display/customsettings.cpp" line="338"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation>Bezig met het herstellen van de vorige beeldscherminstellingen over &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconden.</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="333"/>
+        <location filename="../modules/display/customsettings.cpp" line="332"/>
         <source>Revert</source>
         <translation>Herstellen</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="334"/>
+        <location filename="../modules/display/customsettings.cpp" line="333"/>
         <source>Keep Changes</source>
         <translation>Wijzigingen behouden</translation>
     </message>
@@ -758,59 +753,54 @@
 <context>
     <name>DateTimePlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="137"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="138"/>
         <source>MMM dd</source>
         <translation>dd MMM</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="138"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="139"/>
         <source> hh:mm </source>
         <translation>hh:mm</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="138"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="271"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="139"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="273"/>
         <source> hh:mm A</source>
         <translation>hh:mm A</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="139"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="140"/>
         <source>ddd</source>
         <translation>ddd</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="140"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="141"/>
         <source>ddd MMM dd</source>
         <translation>ddd MMM dd</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="193"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="194"/>
         <source>Switch display mode</source>
         <translation>Weergavemodus schakelen</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="195"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="196"/>
         <source>Show week</source>
         <translation>Toon week</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="196"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="197"/>
         <source>Show date</source>
         <translation>Toon datum</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="199"/>
-        <source>Datetime settings(_T)</source>
-        <translation>Tijd- en datuminstellingen(_T)</translation>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="200"/>
+        <source>Date&amp;Time settings(_T)</source>
+        <translation>Datum- en tijdsinstellingen(_T)</translation>
     </message>
 </context>
 <context>
     <name>Datetime</name>
-    <message>
-        <location filename="../modules/datetime/datetime.cpp" line="83"/>
-        <source>Date and Time</source>
-        <translation>Datum en tijd</translation>
-    </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="44"/>
         <source>Date</source>
@@ -836,77 +826,82 @@
         <source>Reset</source>
         <translation>Terugzetten</translation>
     </message>
+    <message>
+        <location filename="../modules/datetime/datetime.cpp" line="83"/>
+        <source>Date and Time</source>
+        <translation>Datum en tijd</translation>
+    </message>
 </context>
 <context>
     <name>DefaultApps</name>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="35"/>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="40"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="38"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="43"/>
         <source>Default Applications</source>
         <translation>Standaardapplicaties</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="43"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="46"/>
         <source>AutoPlay</source>
         <translation>AutoPlay</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="49"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="52"/>
         <source>Browser</source>
         <translation>Browser</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="51"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="54"/>
         <source>Mail</source>
         <translation>Mail</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="53"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="56"/>
         <source>Text</source>
         <translation>Tekst</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="55"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="58"/>
         <source>Music</source>
         <translation>Muziek</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="57"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="60"/>
         <source>Video</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="59"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="62"/>
         <source>Picture</source>
         <translation>Afbeelding</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="61"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="64"/>
         <source>Terminal</source>
         <translation>Terminal</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="64"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="67"/>
         <source>CD Audio</source>
         <translation>CD-audio</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="67"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="70"/>
         <source>DVD Video</source>
         <translation>DVD-video</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="70"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="73"/>
         <source>Music Player</source>
         <translation>Muziekspeler</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="73"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="76"/>
         <source>Camera</source>
         <translation>Camera</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="76"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="79"/>
         <source>Software</source>
         <translation>Software</translation>
     </message>
@@ -914,7 +909,7 @@
 <context>
     <name>DeviceFrame</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-sound-plugin/deviceframe.cpp" line="21"/>
+        <location filename="../dock-plugins/dde-dock-sound-plugin/deviceframe.cpp" line="31"/>
         <source>Device</source>
         <translation>Apparaat</translation>
     </message>
@@ -968,47 +963,47 @@
         <translation>Beeldscherm</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="146"/>
+        <location filename="../modules/display/display.cpp" line="144"/>
         <source>Display Mode</source>
         <translation>Weergavemodus</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="152"/>
+        <location filename="../modules/display/display.cpp" line="150"/>
         <source>Copy</source>
         <translation>Kopiëren</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="153"/>
+        <location filename="../modules/display/display.cpp" line="151"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>Kopieer de inhoud van uw primaire scherm naar andere schermen. </translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="163"/>
+        <location filename="../modules/display/display.cpp" line="161"/>
         <source>Extend</source>
         <translation>Uitbreiden</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="164"/>
+        <location filename="../modules/display/display.cpp" line="162"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>Breid de scherminhoud uit om andere inhouden op andere schermen te weergeven.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="175"/>
+        <location filename="../modules/display/display.cpp" line="173"/>
         <source>Custom Settings</source>
         <translation>Aangepaste instellingen</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="176"/>
+        <location filename="../modules/display/display.cpp" line="174"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>U kunt andere aangepaste instellingen kiezen voor uw schermen.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="186"/>
+        <location filename="../modules/display/display.cpp" line="184"/>
         <source>Only Displayed on %1</source>
         <translation>Wordt alleen weergegeven op %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="187"/>
+        <location filename="../modules/display/display.cpp" line="185"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>De scherminhoud wordt alleen weergegeven op %1 en niet op andere schermen.</translation>
     </message>
@@ -1017,7 +1012,7 @@
     <name>EditConnectionPage</name>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="28"/>
-        <location filename="../modules/network/editconnectionpage.cpp" line="78"/>
+        <location filename="../modules/network/editconnectionpage.cpp" line="84"/>
         <source>Delete this network</source>
         <translation>Dit netwerk verwijderen</translation>
     </message>
@@ -1147,7 +1142,7 @@
 <context>
     <name>HomeScreen</name>
     <message>
-        <location filename="../frame/homescreen.cpp" line="92"/>
+        <location filename="../frame/homescreen.cpp" line="97"/>
         <source>Shutdown</source>
         <translation>Afsluiten</translation>
     </message>
@@ -1155,22 +1150,22 @@
 <context>
     <name>InputPasswordDialog</name>
     <message>
-        <location filename="../modules/network/inputpassworddialog.cpp" line="18"/>
+        <location filename="../modules/network/inputpassworddialog.cpp" line="19"/>
         <source>Password</source>
         <translation>Wachtwoord</translation>
     </message>
     <message>
-        <location filename="../modules/network/inputpassworddialog.cpp" line="20"/>
+        <location filename="../modules/network/inputpassworddialog.cpp" line="21"/>
         <source>Auto-connect</source>
         <translation>Automatisch verbinden</translation>
     </message>
     <message>
-        <location filename="../modules/network/inputpassworddialog.cpp" line="27"/>
+        <location filename="../modules/network/inputpassworddialog.cpp" line="28"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../modules/network/inputpassworddialog.cpp" line="28"/>
+        <location filename="../modules/network/inputpassworddialog.cpp" line="29"/>
         <source>Connect</source>
         <translation>Verbinden</translation>
     </message>
@@ -1261,12 +1256,12 @@
 <context>
     <name>ListWidgetContainer</name>
     <message>
-        <location filename="../modules/network/listwidgetcontainer.cpp" line="63"/>
+        <location filename="../modules/network/listwidgetcontainer.cpp" line="92"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../modules/network/listwidgetcontainer.cpp" line="64"/>
+        <location filename="../modules/network/listwidgetcontainer.cpp" line="93"/>
         <source>Connect</source>
         <translation>Verbinden</translation>
     </message>
@@ -1380,8 +1375,8 @@
     <name>MirrorsControlWidget</name>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="18"/>
-        <source>Change</source>
-        <translation>Wijzigen</translation>
+        <source>Switch</source>
+        <translation>Overschakelen</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="19"/>
@@ -1395,8 +1390,8 @@
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="32"/>
-        <source>Update server</source>
-        <translation>Update-server</translation>
+        <source>Mirrors</source>
+        <translation>Mirrors</translation>
     </message>
 </context>
 <context>
@@ -1408,24 +1403,34 @@
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="31"/>
-        <source>Restore the connect</source>
-        <translation>Herstel de verbinding</translation>
+        <source>Restore the connection</source>
+        <translation>De verbinding herstellen</translation>
     </message>
 </context>
 <context>
     <name>ModuleName</name>
+    <message>
+        <location filename="../frame/sidebarmodel.cpp" line="108"/>
+        <source>Home</source>
+        <translation>Start</translation>
+    </message>
+    <message>
+        <location filename="../frame/sidebarmodel.cpp" line="117"/>
+        <source>Shutdown</source>
+        <translation>Afsluiten</translation>
+    </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="28"/>
         <source>Sound</source>
         <translation>Geluid</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="16"/>
+        <location filename="../modules/power/power.cpp" line="18"/>
         <source>Power Management</source>
         <translation>Energiebeheer</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="28"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="31"/>
         <source>Default Applications</source>
         <translation>Standaardapplicaties</translation>
     </message>
@@ -1435,7 +1440,7 @@
         <translation>Muis en touchpad</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="28"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="30"/>
         <source>System Information</source>
         <translation>Systeeminformatie</translation>
     </message>
@@ -1470,24 +1475,14 @@
         <translation>Datum en tijd</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grub.cpp" line="10"/>
-        <source>Boot Menu</source>
-        <translation>Opstartmenu</translation>
-    </message>
-    <message>
-        <location filename="../frame/sidebarmodel.cpp" line="108"/>
-        <source>Home</source>
-        <translation>Start</translation>
-    </message>
-    <message>
-        <location filename="../frame/sidebarmodel.cpp" line="117"/>
-        <source>Shutdown</source>
-        <translation>Afsluiten</translation>
-    </message>
-    <message>
         <location filename="../modules/wacom/wacom.cpp" line="13"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/grub.cpp" line="10"/>
+        <source>Boot Menu</source>
+        <translation>Opstartmenu</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/bluetooth.cpp" line="10"/>
@@ -1500,7 +1495,7 @@
         <translation>Netwerk</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/remoteassistance.cpp" line="32"/>
+        <location filename="../modules/remote_assistance/remoteassistance.cpp" line="33"/>
         <source>Remote Assistance</source>
         <translation>Hulp op afstand</translation>
     </message>
@@ -1599,142 +1594,142 @@
 <context>
     <name>NetworkInfo</name>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="36"/>
+        <location filename="../modules/network/networkinfo.cpp" line="38"/>
         <source>Ethernet</source>
         <translation>Ethernet</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="37"/>
+        <location filename="../modules/network/networkinfo.cpp" line="39"/>
         <source>802.11 WiFi</source>
         <translation>802.11 WiFi</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="38"/>
+        <location filename="../modules/network/networkinfo.cpp" line="40"/>
         <source>802.11 WiFi AdHoc</source>
         <translation>802.11 WiFi AdHoc</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="39"/>
+        <location filename="../modules/network/networkinfo.cpp" line="41"/>
         <source>802.11 WiFi Hotspot</source>
         <translation>802.11 WiFi Hotspot</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="40"/>
+        <location filename="../modules/network/networkinfo.cpp" line="42"/>
         <source>PPPoE</source>
         <translation>PPPoE</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="41"/>
+        <location filename="../modules/network/networkinfo.cpp" line="43"/>
         <source>Mobile</source>
         <translation>Mobiel</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="42"/>
+        <location filename="../modules/network/networkinfo.cpp" line="44"/>
         <source>Mobile GSM</source>
         <translation>Mobile GSM</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="43"/>
+        <location filename="../modules/network/networkinfo.cpp" line="45"/>
         <source>Mobile CDMA</source>
         <translation>Mobile CDMA</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="44"/>
+        <location filename="../modules/network/networkinfo.cpp" line="46"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="45"/>
+        <location filename="../modules/network/networkinfo.cpp" line="47"/>
         <source>VPN L2TP</source>
         <translation>VPN L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="46"/>
+        <location filename="../modules/network/networkinfo.cpp" line="48"/>
         <source>VPN PPTP</source>
         <translation>VPN PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="47"/>
+        <location filename="../modules/network/networkinfo.cpp" line="49"/>
         <source>VPN VPNC</source>
         <translation>VPN VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="48"/>
+        <location filename="../modules/network/networkinfo.cpp" line="50"/>
         <source>VPN OpenVPN</source>
         <translation>VPN OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="49"/>
+        <location filename="../modules/network/networkinfo.cpp" line="51"/>
         <source>VPN OpenConnect</source>
         <translation>VPN OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="63"/>
+        <location filename="../modules/network/networkinfo.cpp" line="65"/>
         <source>Not Connected</source>
         <translation>Niet verbonden</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="65"/>
+        <location filename="../modules/network/networkinfo.cpp" line="67"/>
         <source>Connected</source>
         <translation>Verbonden</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="77"/>
+        <location filename="../modules/network/networkinfo.cpp" line="79"/>
         <source>(default)</source>
         <translation>(standaard)</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="96"/>
+        <location filename="../modules/network/networkinfo.cpp" line="98"/>
         <source>Interface</source>
         <translation>Uiterlijk</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="100"/>
+        <location filename="../modules/network/networkinfo.cpp" line="102"/>
         <source>Security</source>
         <translation>Beveiliging</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="101"/>
+        <location filename="../modules/network/networkinfo.cpp" line="103"/>
         <source>Device Addr</source>
         <translation>Apparaatadres</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="102"/>
+        <location filename="../modules/network/networkinfo.cpp" line="104"/>
         <source>IP Address</source>
         <translation>IP-adres</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="103"/>
+        <location filename="../modules/network/networkinfo.cpp" line="105"/>
         <source>Subnet Mask</source>
         <translation>Subnetmasker</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="104"/>
+        <location filename="../modules/network/networkinfo.cpp" line="106"/>
         <source>Gateway</source>
         <translation>Gateway</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="105"/>
+        <location filename="../modules/network/networkinfo.cpp" line="107"/>
         <source>Primary DNS</source>
         <translation>Primaire DNS-server</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="106"/>
+        <location filename="../modules/network/networkinfo.cpp" line="108"/>
         <source>Secondary DNS</source>
         <translation>Secundaire DNS-server</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="107"/>
+        <location filename="../modules/network/networkinfo.cpp" line="109"/>
         <source>Third DNS</source>
         <translation>Derde DNS-server</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="108"/>
+        <location filename="../modules/network/networkinfo.cpp" line="110"/>
         <source>Device Speed</source>
         <translation>Apparaatsnelheid</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkinfo.cpp" line="113"/>
+        <location filename="../modules/network/networkinfo.cpp" line="115"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
@@ -1742,12 +1737,12 @@
 <context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="155"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="146"/>
         <source>Network</source>
         <translation>Netwerk</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="176"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="167"/>
         <source>System Proxy</source>
         <translation>Systeemproxy</translation>
     </message>
@@ -1761,6 +1756,7 @@
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="111"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="252"/>
         <source>dddd, dd MMMM yyyy</source>
         <translation>yyyy-MM-dd dddd</translation>
     </message>
@@ -1804,53 +1800,53 @@
         <translation>Personalisatie</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="114"/>
+        <location filename="../modules/personalization/personalization.cpp" line="115"/>
         <source>Theme</source>
         <translation>Thema</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="135"/>
+        <location filename="../modules/personalization/personalization.cpp" line="136"/>
         <source>Window</source>
         <translation>Venster</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="159"/>
+        <location filename="../modules/personalization/personalization.cpp" line="160"/>
         <source>Icon</source>
         <translation>Icoon</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="192"/>
+        <location filename="../modules/personalization/personalization.cpp" line="193"/>
         <source>Cursor</source>
         <translation>Cursor</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="223"/>
+        <location filename="../modules/personalization/personalization.cpp" line="224"/>
         <source>Wallpaper</source>
         <translation>Bureaubladachtergrond</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="246"/>
+        <location filename="../modules/personalization/personalization.cpp" line="247"/>
         <source>Fonts</source>
         <translation>Lettertypes</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="248"/>
+        <location filename="../modules/personalization/personalization.cpp" line="249"/>
         <source>Standard</source>
         <translation>Standaard</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="249"/>
+        <location filename="../modules/personalization/personalization.cpp" line="250"/>
         <source>Monospaced</source>
         <translation>Monospaced</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="250"/>
+        <location filename="../modules/personalization/personalization.cpp" line="251"/>
         <source>Size</source>
         <translation>Grootte</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="265"/>
-        <location filename="../modules/personalization/personalization.cpp" line="613"/>
+        <location filename="../modules/personalization/personalization.cpp" line="266"/>
+        <location filename="../modules/personalization/personalization.cpp" line="636"/>
         <source>Font</source>
         <translation>Lettertype</translation>
     </message>
@@ -1858,74 +1854,73 @@
 <context>
     <name>Power</name>
     <message>
-        <location filename="../modules/power/power.cpp" line="50"/>
+        <location filename="../modules/power/power.cpp" line="54"/>
         <source>Password required to wake up</source>
         <translation>Wachtwoord vereist om computer uit slaapstand te halen</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="68"/>
+        <location filename="../modules/power/power.cpp" line="72"/>
         <source>Plugged in</source>
         <translation>Aan netstroom</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="98"/>
-        <location filename="../modules/power/power.cpp" line="153"/>
+        <location filename="../modules/power/power.cpp" line="102"/>
+        <location filename="../modules/power/power.cpp" line="157"/>
         <source>Balanced</source>
         <translation>Gebalanceerd</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="98"/>
-        <location filename="../modules/power/power.cpp" line="153"/>
+        <location filename="../modules/power/power.cpp" line="102"/>
+        <location filename="../modules/power/power.cpp" line="157"/>
         <source>Power saver</source>
         <translation>Stroombesparing</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="98"/>
-        <location filename="../modules/power/power.cpp" line="153"/>
+        <location filename="../modules/power/power.cpp" line="102"/>
+        <location filename="../modules/power/power.cpp" line="157"/>
         <source>High performance</source>
         <translation>Hoge prestaties</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="98"/>
-        <location filename="../modules/power/power.cpp" line="153"/>
-        <location filename="../modules/power/power.h" line="155"/>
+        <location filename="../modules/power/power.cpp" line="102"/>
+        <location filename="../modules/power/power.cpp" line="157"/>
         <source>Custom</source>
         <translation>Aangepast</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="125"/>
+        <location filename="../modules/power/power.cpp" line="129"/>
         <source>On battery</source>
         <translation>Op accu</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="188"/>
         <location filename="../modules/power/power.cpp" line="192"/>
+        <location filename="../modules/power/power.cpp" line="196"/>
         <source>Shutdown</source>
         <translation>Afsluiten</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="188"/>
         <location filename="../modules/power/power.cpp" line="192"/>
+        <location filename="../modules/power/power.cpp" line="196"/>
         <source>Suspend</source>
         <translation>Slaapstand</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="188"/>
+        <location filename="../modules/power/power.cpp" line="192"/>
         <source>Ask</source>
         <translation>Vragen</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="190"/>
+        <location filename="../modules/power/power.cpp" line="194"/>
         <source>When I press the power button</source>
         <translation>Als ik op de aan/uit-knop druk</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="192"/>
+        <location filename="../modules/power/power.cpp" line="196"/>
         <source>Nothing</source>
         <translation>Niks</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="194"/>
+        <location filename="../modules/power/power.cpp" line="198"/>
         <source>When I close the lid</source>
         <translation>Als ik het deksel sluit</translation>
     </message>
@@ -1933,64 +1928,31 @@
 <context>
     <name>PowerInterfaceManagement</name>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="23"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="32"/>
-        <source>Shutdown</source>
-        <translation>Afsluiten</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="25"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="34"/>
-        <source>Suspend</source>
-        <translation>Slaapstand</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="51"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="99"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="159"/>
-        <source>Balanced</source>
-        <translation>Gebalanceerd</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="53"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="101"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="162"/>
-        <source>Power saver</source>
-        <translation>Stroombesparing</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="55"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="103"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="165"/>
-        <source>High performance</source>
-        <translation>Hoge prestaties</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="182"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="190"/>
-        <source>1 hour</source>
-        <translation>1 uur</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="160"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="163"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="164"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="166"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="184"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="192"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="177"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="180"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="181"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="183"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="201"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="209"/>
         <source>%1 minutes</source>
         <translation>%1 minuten</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="161"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="167"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="180"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="188"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="178"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="184"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="197"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="205"/>
         <source>Never</source>
         <translation>Nooit</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="197"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="199"/>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="207"/>
+        <source>1 hour</source>
+        <translation>1 uur</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerinterfacemanagement.cpp" line="214"/>
         <source>Turn off the display: %1 Suspend: %2 </source>
         <translation>Schakel het beeldscherm uit: %1 Sluimeren: %2</translation>
     </message>
@@ -2016,22 +1978,22 @@
         <translation>Bezig met opladen van %1</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="169"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="198"/>
         <source>Custom</source>
         <translation>Aangepast</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="170"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="199"/>
         <source>Power saver</source>
         <translation>Stroombesparing</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="171"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="200"/>
         <source>Balanced</source>
         <translation>Gebalanceerd</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="172"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="201"/>
         <source>High performance</source>
         <translation>Hoge prestaties</translation>
     </message>
@@ -2079,32 +2041,32 @@
     <name>SharePanel</name>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="17"/>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="98"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="104"/>
         <source>Sharing</source>
         <translation>Delen</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="61"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="67"/>
         <source>Sharing your desktop, your can continue to share or choose to disconnect</source>
         <translation>Uw bureaublad wordt gedeeld. U kan verdergaan of de verbinding verbreken</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="88"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="94"/>
         <source>Remote Assistance</source>
         <translation>Hulp op afstand</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="91"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="97"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="96"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="102"/>
         <source>Retry</source>
         <translation>Opnieuw proberen</translation>
     </message>
     <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="102"/>
+        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="108"/>
         <source>Failed to establish the connection, you can retry to connect</source>
         <translation>Verbinding maken mislukt. U kan opnieuw proberen.</translation>
     </message>
@@ -2112,12 +2074,12 @@
 <context>
     <name>ShortcutDbus</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="59"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="70"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="81"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="116"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="144"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="177"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="63"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="74"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="85"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="120"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="148"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="181"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="218"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="222"/>
         <source>None</source>
@@ -2135,158 +2097,158 @@
 <context>
     <name>Sound</name>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="79"/>
+        <location filename="../modules/sound/sound.cpp" line="85"/>
         <source>Sound</source>
         <translation>Geluid</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="89"/>
+        <location filename="../modules/sound/sound.cpp" line="96"/>
         <source>Speaker</source>
         <translation>Luidspreker</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="99"/>
+        <location filename="../modules/sound/sound.cpp" line="106"/>
         <source>Output Volume</source>
         <translation>Uitgangsvolume</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="110"/>
+        <location filename="../modules/sound/sound.cpp" line="117"/>
         <source>Left/Right Balance</source>
         <translation>Links/Rechts-balans</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="114"/>
+        <location filename="../modules/sound/sound.cpp" line="121"/>
         <source>Left</source>
         <translation>Links</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="115"/>
+        <location filename="../modules/sound/sound.cpp" line="122"/>
         <source>Right</source>
         <translation>Rechts</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="131"/>
+        <location filename="../modules/sound/sound.cpp" line="140"/>
         <source>Microphone</source>
         <translation>Microfoon</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="141"/>
+        <location filename="../modules/sound/sound.cpp" line="152"/>
         <source>Input Volume</source>
         <translation>Ingangsvolume</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="152"/>
+        <location filename="../modules/sound/sound.cpp" line="164"/>
         <source>Feedback Volume</source>
         <translation>Terugkoppeling Volume</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="211"/>
+        <location filename="../modules/sound/sound.cpp" line="225"/>
         <source>Output Port</source>
         <translation>Uitgangspoort</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="224"/>
+        <location filename="../modules/sound/sound.cpp" line="238"/>
         <source>Output device</source>
         <translation>Uitgangsapparaat</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="241"/>
+        <location filename="../modules/sound/sound.cpp" line="258"/>
         <source>Input Port</source>
         <translation>Ingangspoort</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="255"/>
+        <location filename="../modules/sound/sound.cpp" line="272"/>
         <source>Input device</source>
         <translation>Ingangsapparaat</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="264"/>
-        <location filename="../modules/sound/sound.cpp" line="271"/>
+        <location filename="../modules/sound/sound.cpp" line="285"/>
+        <location filename="../modules/sound/sound.cpp" line="292"/>
         <source>Show Advanced...</source>
         <translation>Geavanceerde Opties Weergeven...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="277"/>
+        <location filename="../modules/sound/sound.cpp" line="298"/>
         <source>Hide Advanced...</source>
         <translation>Geavanceerde Opties Verbergen...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="287"/>
+        <location filename="../modules/sound/sound.cpp" line="308"/>
         <source>Login</source>
         <translation>Inloggen</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="291"/>
+        <location filename="../modules/sound/sound.cpp" line="312"/>
         <source>Logout</source>
         <translation>Uitloggen</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="294"/>
+        <location filename="../modules/sound/sound.cpp" line="315"/>
         <source>Shutdown</source>
         <translation>Afsluiten</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="297"/>
+        <location filename="../modules/sound/sound.cpp" line="318"/>
         <source>Wakeup</source>
         <translation>Wakker maken</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="300"/>
+        <location filename="../modules/sound/sound.cpp" line="321"/>
         <source>Notification</source>
         <translation>Melding</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="303"/>
+        <location filename="../modules/sound/sound.cpp" line="324"/>
         <source>Unable to Operate</source>
         <translation>Het opereren is mislukt</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="306"/>
+        <location filename="../modules/sound/sound.cpp" line="327"/>
         <source>Empty trash</source>
         <translation>Prullenbak legen</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="309"/>
+        <location filename="../modules/sound/sound.cpp" line="330"/>
         <source>Adjust volume</source>
         <translation>Volume aanpassen</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="312"/>
+        <location filename="../modules/sound/sound.cpp" line="333"/>
         <source>Low battery</source>
         <translation>Batterijniveau is laag</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="315"/>
+        <location filename="../modules/sound/sound.cpp" line="336"/>
         <source>Power plug in</source>
         <translation>De voeding is aangesloten</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="318"/>
+        <location filename="../modules/sound/sound.cpp" line="339"/>
         <source>Power unplugged</source>
         <translation>De voeding is afgesloten</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="321"/>
+        <location filename="../modules/sound/sound.cpp" line="342"/>
         <source>Movable device plug in</source>
         <translation>Verplaatsbaar apparaat is aangesloten</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="324"/>
+        <location filename="../modules/sound/sound.cpp" line="345"/>
         <source>Movable device unplug</source>
         <translation>Verplaatsbaar apparaat is afgesloten</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="327"/>
+        <location filename="../modules/sound/sound.cpp" line="348"/>
         <source>Send app icon to desktop</source>
         <translation>Applicatie-pictogram naar bureaublad versturen</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="330"/>
+        <location filename="../modules/sound/sound.cpp" line="351"/>
         <source>Screenshot</source>
         <translation>Schermopname</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="357"/>
+        <location filename="../modules/sound/sound.cpp" line="378"/>
         <source>Sound Effects</source>
         <translation>Geluidseffecten</translation>
     </message>
@@ -2302,47 +2264,47 @@
 <context>
     <name>SystemInfo</name>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="38"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="35"/>
         <source>System Information</source>
         <translation>Systeeminformatie</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="44"/>
-        <source>Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Copyright (c) 2011-2015 Wuhan Deepin Technology Co., Ltd.</translation>
+        <location filename="../modules/system_info/systeminfo.cpp" line="41"/>
+        <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="48"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="45"/>
         <source>Deepin Edition:</source>
         <translation>Deepin Versie:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="54"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="51"/>
         <source>Distribution:</source>
         <translation>Distributie:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="57"/>
         <source>System Type:</source>
         <translation>Systeemtype:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="62"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="59"/>
         <source>%1 Bit</source>
         <translation>%1 Bit</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="65"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="62"/>
         <source>Processor:</source>
         <translation>Processor:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="71"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="68"/>
         <source>Memory:</source>
         <translation>Geheugen:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="76"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
         <source>Disk:</source>
         <translation>Schijf:</translation>
     </message>
@@ -2447,52 +2409,52 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="241"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="250"/>
         <source>Your system is up to date</source>
         <translation>Uw systeem is bijgewerkt</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="245"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="254"/>
         <source>Click to view available  updates</source>
         <translation>Klik om de beschikbare updates weer te geven</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="266"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="275"/>
         <source>Total download size: %1</source>
         <translation>Totale downloadgrootte: %1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="268"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="277"/>
         <source>Unknown</source>
         <translation>Onbekend</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="277"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>%1 software need to be updated</source>
         <translation>%1 software moet worden bijgewerkt</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="295"/>
         <source>Patches</source>
         <translation>Patches</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="289"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="298"/>
         <source>Some patches need to be updated</source>
         <translation>Enkele patches moeten worden bijgewerkt</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="293"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="302"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation>Enkele patches en %1 software-items moeten worden bijgewerkt</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="353"/>
         <source>Checking for updates</source>
         <translation>Bezig met controleren op updates</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="322"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="354"/>
         <source>Check for updates, please wait</source>
         <translation>Bezig met controleren op updates; een ogenblik geduld</translation>
     </message>
@@ -2500,42 +2462,42 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="86"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="98"/>
         <source>Recently Used</source>
         <translation>Recentelijk gebruikt</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="87"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="99"/>
         <source>Avatar</source>
         <translation>Gebruikersafbeelding</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="88"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="100"/>
         <source>Webcam</source>
         <translation>Webcam</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="149"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="161"/>
         <source>Auto-login</source>
         <translation>Automatisch aanmelden</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="174"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="187"/>
         <source>Enable</source>
         <translation>Inschakelen</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="206"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="220"/>
         <source>Account Type</source>
         <translation>Accounttype</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="257"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="274"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>Kies een nieuwe afbeelding voor uw gebruikersafbeelding</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="258"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="275"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>Afbeeldingsbestanden (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -2543,32 +2505,32 @@
 <context>
     <name>UserExpandHeader</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="155"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="178"/>
         <source>Keep user&apos;s files</source>
         <translation>Gebruikersbestanden behouden</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="156"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="179"/>
         <source>Delete user&apos;s files</source>
         <translation>Gebruikersbestanden verwijderen</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="158"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="181"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="159"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="182"/>
         <source>Confirm</source>
         <translation>Bevestigen</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="207"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="230"/>
         <source>Administrator</source>
         <translation>Beheerder</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="209"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="232"/>
         <source>Normal User</source>
         <translation>Normale gebruiker</translation>
     </message>
@@ -2576,7 +2538,7 @@
 <context>
     <name>VPNConnectsWidget</name>
     <message>
-        <location filename="../modules/network/vpnconnectswidget.cpp" line="7"/>
+        <location filename="../modules/network/vpnconnectswidget.cpp" line="8"/>
         <source>VPN Connections</source>
         <translation>VPN-verbindingen</translation>
     </message>
@@ -2770,7 +2732,7 @@
         <translation>Draadloos netwerk</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="239"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="232"/>
         <source>Connect to hidden access point</source>
         <translation>Verbinden met verborgen toegangspunt</translation>
     </message>
@@ -2793,7 +2755,7 @@
         <translation>Verbinden</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="286"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="287"/>
         <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
         <translation>Vul het wachtwoord in van &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</translation>
     </message>
