@@ -152,21 +152,14 @@ void ContentView::reLayout(bool hideInLeft)
 
     m_hideInLeft = hideInLeft;
 
-    if(m_hideInLeft){
-//        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowLeft);
-    }else{
-//        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowRight);
-    }
-
     m_rightSeparator->setHidden(hideInLeft);
     m_leftSeparator->setVisible(hideInLeft);
     int index = hideInLeft ? 3 : 0;
     if(m_layout->count() > 3){
-        QLayoutItem *item = m_layout->itemAt(index);
-        QWidget *w = item->widget();
-        if(w){
-            m_layout->removeItem(item);
-            m_layout->insertWidget(3 - index, w);
+        QLayoutItem *item = m_layout->takeAt(index);
+
+        if(item){
+            m_layout->insertItem(3 - index, item);
         }
     }
 }
