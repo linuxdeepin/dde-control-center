@@ -19,6 +19,7 @@ class MonitorInterface;
 class Monitor;
 class ListWidget;
 class CustomSettings;
+class ScrollFrame;
 class Display: public QObject, ModuleInterface
 {
     Q_OBJECT
@@ -36,8 +37,7 @@ private slots:
     void onDisplayModeChanged();
 
 private:
-    QFrame * m_frame;
-    QVBoxLayout *m_mainLayout;
+    ScrollFrame * m_frame;
     DisplayInterface * m_dbusDisplay;
     MonitorGround *m_monitorGround;
     QList<MonitorInterface*> m_dbusMonitors;

@@ -11,11 +11,12 @@
 #include "monitorground.h"
 #include "monitor.h"
 #include "displaymodeitem.h"
+#include "scrollframe.h"
+#include "constants.h"
 
 Display::Display():
     QObject(),
-    m_frame(NULL),
-    m_mainLayout(new QVBoxLayout)
+    m_frame(NULL)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Display"));
 
@@ -40,25 +41,24 @@ void Display::init()
 {
     m_dbusDisplay = new DisplayInterface(this);
 
-    m_frame = new QFrame;
-    m_frame->setFixedWidth(310);
+    m_frame = new ScrollFrame;
+    m_frame->setFixedWidth(DCC::ModuleContentWidth);
     m_frame->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
-    m_mainLayout->setMargin(0);
-    m_mainLayout->setSpacing(0);
+    m_frame->mainLayout()->setMargin(0);
+    m_frame->mainLayout()->setSpacing(0);
 
     ModuleHeader * headerLine = new ModuleHeader(tr("Display"));
 
+    headerLine->setFixedWidth(DCC::ModuleContentWidth);
     connect(headerLine, &ModuleHeader::resetButtonClicked, m_dbusDisplay, &DisplayInterface::Reset);
 
     m_monitorGround = new MonitorGround(m_dbusDisplay);
 
-    m_mainLayout->addWidget(headerLine);
-    m_mainLayout->addWidget(new DSeparatorHorizontal);
-    m_mainLayout->addWidget(m_monitorGround);
-    m_mainLayout->addWidget(new DSeparatorHorizontal);
-
-    m_frame->setLayout(m_mainLayout);
+    m_frame->headerLayout()->addWidget(headerLine);
+    m_frame->mainLayout()->addWidget(new DSeparatorHorizontal);
+    m_frame->mainLayout()->addWidget(m_monitorGround);
+    m_frame->mainLayout()->addWidget(new DSeparatorHorizontal);
 
     m_singleSettings = new CustomSettings(m_dbusDisplay, m_monitorGround, m_dbusMonitors);
     m_singleSettings->hide();
@@ -126,10 +126,9 @@ void Display::updateUI()
 
     m_monitorNameList = tmp_list;
 
-    for(int i=4; i < m_mainLayout->count();){
-        QLayoutItem *item = m_mainLayout->itemAt(i);
+    for(int i = 3; i < m_frame->mainLayout()->count();){
+        QLayoutItem *item = m_frame->mainLayout()->takeAt(i);
         QWidget *widget = item->widget();
-        m_mainLayout->removeItem(item);
         delete item;
 
         if(widget == m_singleSettings){
@@ -144,7 +143,7 @@ void Display::updateUI()
         displayModeExpand->setTitle(tr("Display Mode"));
 
         m_widgetList = new ListWidget;
-        m_widgetList->setItemSize(310, 90);
+        m_widgetList->setItemSize(DCC::ModuleContentWidth, 90);
 
         DisplayModeItem *item_copy = new DisplayModeItem;
         item_copy->setTitle(tr("Copy"));
@@ -212,18 +211,18 @@ void Display::updateUI()
             m_monitorGround->setEditable(false);
         });
 
-        m_mainLayout->addWidget(displayModeExpand);
-        m_mainLayout->addWidget(m_singleSettings);
+        m_frame->mainLayout()->addWidget(displayModeExpand);
+        m_frame->mainLayout()->addWidget(m_singleSettings);
 
         onDisplayModeChanged();
 
         displayModeExpand->setExpand(true);
     }else{
-        m_mainLayout->addWidget(m_singleSettings);
+        m_frame->mainLayout()->addWidget(m_singleSettings);
         m_singleSettings->show();
     }
 
-    m_mainLayout->addStretch(1);
+    m_frame->mainLayout()->addStretch(1);
 }
 
 void Display::onDisplayModeChanged()
