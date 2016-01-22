@@ -310,9 +310,9 @@ void DefaultApps::updateCheckedItem(const DefaultApps::DefaultAppsCategory &cate
      const QJsonObject &defaultApp = QJsonDocument::fromJson(defApp.toStdString().c_str()).object();
      const QString defAppValue = defaultApp.value("Id").toString();
 
-     blockSignals(true);
+     m_appsBtnList[category]->blockSignals(true);
      m_appsBtnList[category]->setCurrentSelected(defAppValue);
-     blockSignals(false);
+     m_appsBtnList[category]->blockSignals(false);
 }
 
 bool DefaultApps::isMediaApps(const DefaultApps::DefaultAppsCategory &category) const
@@ -387,6 +387,7 @@ void SetDefAppsThread::run()
 {
     for (const QString &mime : list)
         dbus->SetDefaultApp(mime, appName).waitForFinished();
+//    qDebug() << "set def app : " << appName << " to " << list;
 }
 
 SetDefMediaThread::SetDefMediaThread(DBusDefaultMedia *dbus, const QString &mime, const QString &appName, const QStringList &list) :
@@ -401,4 +402,5 @@ void SetDefMediaThread::run()
 {
     for (const QString &mime : list)
         dbus->SetDefaultApp(mime, appName).waitForFinished();
+//    qDebug() << "set def media : " << appName << " to " << list;
 }
