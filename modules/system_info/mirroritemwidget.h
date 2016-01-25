@@ -27,6 +27,10 @@ public:
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
     inline void setMirrorName(const QString &name) {m_mirrorName->setText(name);}
+    void testMirrorSpeed(const QString &mirrorAdr);
+
+public slots:
+    void testMirrorSpeed_finish(int ret);
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
@@ -34,6 +38,7 @@ protected:
 private:
     DImageButton *m_selectedBtn;
     QLabel *m_mirrorName;
+    QLabel *m_mirrorSpeed;
 
     bool m_selected = false;
 };

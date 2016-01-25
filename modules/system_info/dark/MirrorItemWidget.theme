@@ -6,12 +6,21 @@ MirrorItemWidget[checked="false"] {
     background-color:#1a1b1b;
 }
 
+MirrorItemWidget[checked="true"] QLabel#MirrorName {
+    color:#2ca7f8;
+}
+
 QLabel {
-    color:#b2b2b2;
-    font-size:13px;
     background-color:transparent;
 }
 
-MirrorItemWidget[checked="true"] QLabel {
-    color:#2ca7f8;
+QLabel#MirrorName {
+    color:#b2b2b2;
+    font-size:11px;
+    background-color:transparent;
+}
+
+QLabel#Status {
+    color:#505050;
+    font-size:10px;
 }

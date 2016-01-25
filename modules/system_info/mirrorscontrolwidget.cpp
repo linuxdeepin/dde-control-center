@@ -114,6 +114,7 @@ void MirrorsControlWidget::loadMirrorList()
     {
         mirrorItem = new MirrorItemWidget;
         mirrorItem->setMirrorName(mirror.m_name);
+        mirrorItem->testMirrorSpeed(mirror.m_url);
 
         m_mirrorsList->addWidget(mirrorItem);
         if (mirror.m_id == currentMirror)
