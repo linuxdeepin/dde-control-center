@@ -46,7 +46,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_updateButton->setPressPic(":/images/images/upgrade_press.png");
     m_updateProgress = new UpdateProgress;
     m_updateProgress->setObjectName("UpgradeProcess");
-    m_updateProgress->setFixedSize(31, 31);
+    m_updateProgress->setFixedSize(32, 31);
     m_updateProgress->setLineWidth(2);
     m_updateProgress->setValue(0);
     m_updateProgress->hide();
