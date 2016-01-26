@@ -174,7 +174,7 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
         option->setValue(id);
         option->setFixedHeight(30);
 
-        if (!isMedia)
+//        if (!isMedia)
         {
             QPixmap pixmap(Helper::searchAppIcon(QStringList() << icon << "application-x-desktop", 16));
             option->setIcon(pixmap.scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
