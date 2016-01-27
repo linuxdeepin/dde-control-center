@@ -74,6 +74,8 @@ void UserExpandContent::initDBusData()
 
 void UserExpandContent::changeControlCenterHideable(bool hideable)
 {
+    qDebug() << "change hideable to " << hideable;
+
     if (hideable) {
         //500毫秒延时是为了防止某些性能比较好的机器上dbus数据处理比较快，
         //引起的返回比较快导致窗口焦点切换还没完成就设置控制中心为“可隐藏”状态
@@ -82,12 +84,14 @@ void UserExpandContent::changeControlCenterHideable(bool hideable)
         QTimer *t = new QTimer(this);
         t->setSingleShot(true);
         connect(t, &QTimer::timeout, this, [=] {
-            this->window()->setProperty("autoHide", true);
+//            this->window()->setProperty("autoHide", true);
+            QMetaObject::invokeMethod(this->window(), "setAutoHide", Qt::QueuedConnection, Q_ARG(bool, true));
             sender()->deleteLater();
         });
-        t->start(500);
+        t->start(200);
     }
     else {
+        qApp->processEvents();
         this->window()->setProperty("autoHide", false);
     }
 }
@@ -266,7 +270,8 @@ void UserExpandContent::initPassword()
 
 void UserExpandContent::onAvatarSelected(const QString &avatar)
 {
-    this->window()->setProperty("autoHide", false);
+//    this->window()->setProperty("autoHide", false);
+    changeControlCenterHideable(false);
     QString fileName = "";
     if (avatar == ADD_AVATAR_ICON){
         QFileDialog dl(this);
@@ -292,6 +297,8 @@ void UserExpandContent::onAvatarSelected(const QString &avatar)
             qWarning()<<"Account: set icon file error: " << reply.error();
         }
     }
+
+    changeControlCenterHideable(true);
 }
 
 void UserExpandContent::onAccountEnableChanged(bool enabled)

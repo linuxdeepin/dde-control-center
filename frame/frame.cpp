@@ -151,6 +151,7 @@ void Frame::show(bool imme)
 void Frame::hide(bool imme)
 {
     if (!m_autoHide || !m_visible || m_showAni->state() == QPropertyAnimation::Running) {
+        qDebug() << "not hide" << m_autoHide << m_visible << m_showAni->state();
         return;
     }
     m_visible = false;
@@ -180,6 +181,9 @@ void Frame::selectModule(const QString &pluginId)
 {
     qDebug() << pluginId;
 
+    // when module changed, clear old module settings
+    m_autoHide = true;
+
     if (pluginId == "home") {
         m_homeScreen->show();
         m_contentView->hide();
@@ -203,6 +207,7 @@ void Frame::globalMouseReleaseEvent(int button, int x, int y)
     Q_UNUSED(button);
 
     if (!rect().contains(x - this->x(), y - this->y())) {
+        qDebug() << "hide by global btn release";
         hide();
     }
 }
