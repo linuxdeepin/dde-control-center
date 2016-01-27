@@ -1,20 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ko" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="fa" version="2.1">
 <context>
     <name>AbstractPanel</name>
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="65"/>
         <source>Remote Assistance</source>
-        <translation>원격 지원</translation>
+        <translation>دستیار از راه دور</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="68"/>
         <source>Ok</source>
-        <translation>확인</translation>
+        <translation>باشه</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="74"/>
         <source>No network connections are available, please retry after connected</source>
-        <translation>이용할 수 있는 네트워크 연결이 없습니다. 연결 후 다시 시도하시기 바랍니다</translation>
+        <translation>هیچ اتصال شبکه ای فعال نیست ، لطفا بعدا برای اتصال تلاش کنید</translation>
     </message>
 </context>
 <context>
@@ -23,32 +23,32 @@
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="15"/>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="71"/>
         <source>Accessing</source>
-        <translation>접속</translation>
+        <translation>دسترسی</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="82"/>
         <source>You are accessing the desktop shared by other users, you can choose to continue or disconnect</source>
-        <translation>귀하는 다른 사용자에 의해 공유된 데스크톱에 접근하는 중입니다, 계속하거나 연결 해제를 선택하실 수 있습니다</translation>
+        <translation>شما به نمایشگر مشترک با سایر کاربران دسترسی دارید ، میتوانید ادامه یا قطع ارتباط را انتخاب کنید</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="92"/>
         <source>Remote Assistance</source>
-        <translation>원격 도움</translation>
+        <translation>دستیار از راه دور</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="102"/>
         <source>Failed to establish the connection, you can retry to connect</source>
-        <translation>연결에 실패했습니다, 다시 연결을 시도해주십시오</translation>
+        <translation>ناتوان در ایجاد اتصال ، میتوانید بعدا برای اتصال تلاش کنید</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="103"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="108"/>
         <source>Retry</source>
-        <translation>재시도 </translation>
+        <translation>سعی مجدد</translation>
     </message>
 </context>
 <context>
@@ -56,12 +56,12 @@
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="99"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="101"/>
         <source>Confirm</source>
-        <translation>확인</translation>
+        <translation>تایید</translation>
     </message>
 </context>
 <context>
@@ -69,22 +69,22 @@
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="35"/>
         <source>User Accounts</source>
-        <translation>사용자 계정</translation>
+        <translation>حساب کاربران</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="71"/>
         <source>User List</source>
-        <translation>사용자 목록</translation>
+        <translation>لیست کاربران</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="225"/>
         <source>Add Account</source>
-        <translation>계정 추가</translation>
+        <translation>افزودن حساب</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="259"/>
         <source>Delete Account</source>
-        <translation>계정 삭제</translation>
+        <translation>حذف حساب</translation>
     </message>
 </context>
 <context>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="76"/>
         <source>Normal User</source>
-        <translation>일반 사용자</translation>
+        <translation>کاربر معمولی</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="77"/>
         <source>Administrator</source>
-        <translation>관리자</translation>
+        <translation>مدیر</translation>
     </message>
 </context>
 <context>
@@ -105,17 +105,17 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="193"/>
         <source>Other devices</source>
-        <translation>다른 장치</translation>
+        <translation>سایر وسايل</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="215"/>
         <source>My devices</source>
-        <translation>내 장치</translation>
+        <translation>وسایل من</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="222"/>
         <source>Open bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>주변의 장치를 찾기 위해 블루투스를 여세요(스피커, 키보드, 마우스)</translation>
+        <translation>بازکردن بلوتوث برای یافتن وسایل نزدیک (اسپیکر ، صفحه کلید و موشواره)</translation>
     </message>
 </context>
 <context>
@@ -123,12 +123,12 @@
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="20"/>
         <source>Add Network Connection</source>
-        <translation>네트워크 연결 추가</translation>
+        <translation>افزودن اتصال شبکه</translation>
     </message>
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="27"/>
         <source>Next</source>
-        <translation>다음</translation>
+        <translation>بعدی</translation>
     </message>
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="32"/>
@@ -146,27 +146,27 @@
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="14"/>
         <source>Add PPPoE Connection</source>
-        <translation>PPPoE 연결 추가</translation>
+        <translation>افزودن اتصال PPPoE</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="17"/>
         <source>Add</source>
-        <translation>추가</translation>
+        <translation>اضافه کردن</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="19"/>
         <source>Name</source>
-        <translation>이름</translation>
+        <translation>نام</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="20"/>
         <source>Username</source>
-        <translation>사용자 이름</translation>
+        <translation>نام کاربری</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="23"/>
         <source>Password</source>
-        <translation>암호</translation>
+        <translation>گذرواژه</translation>
     </message>
 </context>
 <context>
@@ -174,7 +174,7 @@
     <message>
         <location filename="../widgets/addrmdoneline.cpp" line="16"/>
         <source>Done</source>
-        <translation>완료</translation>
+        <translation>انجام شد</translation>
     </message>
 </context>
 <context>
@@ -182,22 +182,22 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="30"/>
         <source>VPN Type</source>
-        <translation>VPN 타입</translation>
+        <translation>نوع VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="47"/>
         <source>Basic Information</source>
-        <translation>기본 정보</translation>
+        <translation>اطلاعات اولیه</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="64"/>
         <source>Add</source>
-        <translation>추가</translation>
+        <translation>اضافه کردن</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="69"/>
         <source>Name</source>
-        <translation>이름</translation>
+        <translation>نام</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="70"/>
@@ -206,7 +206,7 @@
         <location filename="../modules/network/addvpnpage.cpp" line="118"/>
         <location filename="../modules/network/addvpnpage.cpp" line="124"/>
         <source>Gateway</source>
-        <translation>게이트웨이</translation>
+        <translation>درگاه</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="71"/>
@@ -214,7 +214,7 @@
         <location filename="../modules/network/addvpnpage.cpp" line="119"/>
         <location filename="../modules/network/addvpnpage.cpp" line="125"/>
         <source>Username</source>
-        <translation>사용자 이름</translation>
+        <translation>نام کاربری</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="73"/>
@@ -224,139 +224,139 @@
         <location filename="../modules/network/addvpnpage.cpp" line="127"/>
         <location filename="../modules/network/addvpnpage.cpp" line="132"/>
         <source>Ask for Pwd</source>
-        <translation>암호 요청</translation>
+        <translation>پرسش برای پسورد</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="75"/>
         <location filename="../modules/network/addvpnpage.cpp" line="99"/>
         <location filename="../modules/network/addvpnpage.cpp" line="123"/>
         <source>Password</source>
-        <translation>암호</translation>
+        <translation>گذرواژه</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="79"/>
         <location filename="../modules/network/addvpnpage.cpp" line="101"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>مجوز CA</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="80"/>
         <source>Proxy</source>
-        <translation>프록시</translation>
+        <translation>پراکسی</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="82"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>시스코 보안 데스크톱 Trojan 허용</translation>
+        <translation>به برنامه محافظت دربرابر تروجان سیسکو اجازه دهید</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="84"/>
         <source>CSD Script</source>
-        <translation>CSD 스크립트</translation>
+        <translation>اسکریپت CSD</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="86"/>
         <location filename="../modules/network/addvpnpage.cpp" line="103"/>
         <source>User Cert</source>
-        <translation>사용자 Cert</translation>
+        <translation>مجوز کاربر</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="88"/>
         <location filename="../modules/network/addvpnpage.cpp" line="105"/>
         <source>Private Key</source>
-        <translation>개인키</translation>
+        <translation>کلید شخصی</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="90"/>
         <source>Use FSID for Key Passphrase</source>
-        <translation>키 암호화에 FSID 사용</translation>
+        <translation>از FSID برای کلید پسورد استفاده کن</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="93"/>
         <source>Auth Type</source>
-        <translation>인증 타입</translation>
+        <translation>نوع احراز حویت</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="109"/>
         <source>Private Pwd</source>
-        <translation>개인 Pwd</translation>
+        <translation>پسورد شخصی</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="111"/>
         <source>Static Key</source>
-        <translation>정적 키</translation>
+        <translation>کلید استاتیک</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="113"/>
         <source>Customize Key Direction</source>
-        <translation>사용자 정의된 키 안내</translation>
+        <translation>سفارشی سازی جهت کلید</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="115"/>
         <source>Key Direction</source>
-        <translation>키 안내</translation>
+        <translation>جهت کلید</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="116"/>
         <source>Remote IP</source>
-        <translation>원격 IP</translation>
+        <translation>ریموت آی پی</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="117"/>
         <source>Local IP</source>
-        <translation>로컬 IP</translation>
+        <translation>آی پی محلی</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="129"/>
         <source>User Pwd</source>
-        <translation>사용자 암호</translation>
+        <translation>پسورد کاربر</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="130"/>
         <location filename="../modules/network/addvpnpage.cpp" line="142"/>
         <source>Group Name</source>
-        <translation>그룹 이름</translation>
+        <translation>نام گروه</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="134"/>
         <source>Group Pwd</source>
-        <translation>그룹 암호</translation>
+        <translation>پسورد گروه</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="136"/>
         <source>Use Hybrid Authentication</source>
-        <translation>하이브리드 인증 사용</translation>
+        <translation>از احراز حویت ترکیبی استفده کن</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="138"/>
         <source>CA File</source>
-        <translation>CA 파일</translation>
+        <translation>فایل CA</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="140"/>
         <source>Enable IPsec</source>
-        <translation>IPsec 사용</translation>
+        <translation>فعال کردن IPsec</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="144"/>
         <source>Group ID</source>
-        <translation>그룹 ID</translation>
+        <translation>آی دی گروه</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="146"/>
         <source>Pre-Shared Key</source>
-        <translation>사전 공유 킵</translation>
+        <translation>Pre-Shared Key</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="148"/>
         <location filename="../modules/network/addvpnpage.cpp" line="150"/>
         <source>Use MPPE</source>
-        <translation>MPPE 사용</translation>
+        <translation>استفاده از MPPE</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="152"/>
         <source>Automatically connect</source>
-        <translation>자동 연결</translation>
+        <translation>بصورت اتوماتیک متصل شود</translation>
     </message>
 </context>
 <context>
@@ -364,7 +364,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/appframe.cpp" line="33"/>
         <source>Applications</source>
-        <translation>응용프로그램</translation>
+        <translation>برنامه ها</translation>
     </message>
 </context>
 <context>
@@ -372,7 +372,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="33"/>
         <source>Update</source>
-        <translation>업데이트</translation>
+        <translation>بروز رسانی</translation>
     </message>
 </context>
 <context>
@@ -380,12 +380,12 @@
     <message>
         <location filename="../widgets/applybuttonline.cpp" line="5"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
     <message>
         <location filename="../widgets/applybuttonline.cpp" line="7"/>
         <source>Apply</source>
-        <translation>적용</translation>
+        <translation>اعمال</translation>
     </message>
 </context>
 <context>
@@ -393,7 +393,7 @@
     <message>
         <location filename="../modules/bluetooth/bluetoothmainwidget.cpp" line="243"/>
         <source>Bluetooth</source>
-        <translation>블루투스</translation>
+        <translation>بلوتوث</translation>
     </message>
 </context>
 <context>
@@ -402,7 +402,7 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="39"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="51"/>
         <source>Network</source>
-        <translation>네트워크</translation>
+        <translation>شبکه</translation>
     </message>
 </context>
 <context>
@@ -410,12 +410,12 @@
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="10"/>
         <source>Disconnect</source>
-        <translation>연결 해제</translation>
+        <translation>قطع اتصال</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="12"/>
         <source>Ignore</source>
-        <translation>무시</translation>
+        <translation>نادیده گرفتن</translation>
     </message>
 </context>
 <context>
@@ -423,7 +423,7 @@
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="25"/>
         <source>Connect to hidden access point</source>
-        <translation>숨겨진 연결 포인트에 연결</translation>
+        <translation>به Access Point مخفی متصل شود</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="39"/>
@@ -433,79 +433,79 @@
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="43"/>
         <source>Security</source>
-        <translation>보안</translation>
+        <translation>امنیتی</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="45"/>
         <source>Inner Auth</source>
-        <translation>내부 인증</translation>
+        <translation>احراز حویت داخلی</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="47"/>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="83"/>
         <source>Ask for Pwd</source>
-        <translation>암호 요청</translation>
+        <translation>پرسش برای پسورد</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="56"/>
         <source>Key</source>
-        <translation>키</translation>
+        <translation>کلید</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="59"/>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="81"/>
         <source>Password</source>
-        <translation>암호</translation>
+        <translation>گذرواژه</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="61"/>
         <source>EAP Auth</source>
-        <translation>EAP 인증</translation>
+        <translation>احراز حویت EAP</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="63"/>
         <source>Identity</source>
-        <translation>신원</translation>
+        <translation>حویت</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="65"/>
         <source>Anonymous ID</source>
-        <translation>익명 ID</translation>
+        <translation>آی دی ناشناس</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="67"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>مجوز CA</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="69"/>
         <source>User Cert</source>
-        <translation>사용자 Cert</translation>
+        <translation>مجوز کاربر</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="71"/>
         <source>Provisioning</source>
-        <translation>제공</translation>
+        <translation>تامین</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="73"/>
         <source>PAC file</source>
-        <translation>PAC 파일</translation>
+        <translation>فایل PAC</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="75"/>
         <source>PEAP Version</source>
-        <translation>PEAP 버전</translation>
+        <translation>نسخه PEAP</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="78"/>
         <source>Private Key</source>
-        <translation>개인키</translation>
+        <translation>کلید شخصی</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="85"/>
         <source>Private Pwd</source>
-        <translation>개인 Pwd</translation>
+        <translation>پسورد شخصی</translation>
     </message>
 </context>
 <context>
@@ -513,7 +513,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/connectedview.cpp" line="23"/>
         <source>Disconnect</source>
-        <translation>연결 해제</translation>
+        <translation>قطع اتصال</translation>
     </message>
 </context>
 <context>
@@ -521,17 +521,17 @@
     <message>
         <location filename="../modules/remote_assistance/view/connectingview.cpp" line="22"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/connectingview.cpp" line="58"/>
         <source>Establishing connection, please wait...</source>
-        <translation>연결 구성 중, 기다리세요...</translation>
+        <translation>برقراری اتصال، لطفا صبر کنید ...</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/connectingview.cpp" line="75"/>
         <source>This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully</source>
-        <translation>이 패널은 자동으로 숨겨지며 이 연결이 성공적으로 이루어진 다음 원격 세션 윈도우가 바탕 화면에 열릴 것입니다</translation>
+        <translation>این پنل بصورت اتوماتیک پنهان خواهد شد و پنجره جلسه ریموت پس از برقراری اتصال باز خواهد شد.</translation>
     </message>
 </context>
 <context>
@@ -539,57 +539,57 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="54"/>
         <source>Add User</source>
-        <translation>사용자 추가</translation>
+        <translation>اضافه کردن کاربر</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="84"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="300"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="306"/>
         <source>new user</source>
-        <translation>새로운 사용자</translation>
+        <translation>کابر جدید</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="87"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="96"/>
         <source>Normal User</source>
-        <translation>일반 사용자</translation>
+        <translation>کاربر معمولی</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
         <source>Administrator</source>
-        <translation>관리자</translation>
+        <translation>مدیر</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="133"/>
         <source>Username</source>
-        <translation>사용자 이름</translation>
+        <translation>نام کاربری</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="134"/>
         <source>Password</source>
-        <translation>암호</translation>
+        <translation>گذرواژه</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="135"/>
         <source>Repeat Password</source>
-        <translation>암호 반복</translation>
+        <translation>تکرار رمز</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="136"/>
         <source>Account Type</source>
-        <translation>계정 타입</translation>
+        <translation>نوع حساب کاربری</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="137"/>
         <source>Auto-login</source>
-        <translation>자동 로그인</translation>
+        <translation>ورود خودکار</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="174"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="179"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="266"/>
         <source>Password can not be empty.</source>
-        <translation>비밀번호는 빈칸일 수 없습니다.</translation>
+        <translation>گذرواژه نمیتواند خالی باشد.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="183"/>
@@ -598,14 +598,14 @@
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="316"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="323"/>
         <source>The two passwords do not match.</source>
-        <translation>암호가 틀립니다.</translation>
+        <translation>گذرواژه ها یکسان نیستند.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="251"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="261"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="276"/>
         <source>Username can not be empty.</source>
-        <translation>사용자 이름은 비워둘 수 없습니다.</translation>
+        <translation>نام کاربری نمیتواند خالی باشد.</translation>
     </message>
 </context>
 <context>
@@ -613,99 +613,99 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="29"/>
         <source>Normal</source>
-        <translation>표준</translation>
+        <translation>معمولی</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="30"/>
         <source>Rotate right</source>
-        <translation>오른쪽으로 회전</translation>
+        <translation>به راست بچرخان</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="31"/>
         <source>Upside down</source>
-        <translation>뒤집기</translation>
+        <translation>بر عکس</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="32"/>
         <source>Rotate left</source>
-        <translation>왼쪽으로 회전</translation>
+        <translation>به چپ بچرخان</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="70"/>
         <location filename="../modules/display/customsettings.cpp" line="77"/>
         <source>Brightness</source>
-        <translation>밝기</translation>
+        <translation>روشنایی</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="87"/>
         <source>Enable Monitor</source>
-        <translation>모니터 활성화</translation>
+        <translation>نمایشگر را فعال کن</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="100"/>
         <source>Please select the monitor you want to enable (checkable)</source>
-        <translation>활성화(확인 가능)할 모니터를 선택하세요</translation>
+        <translation>لطفا نمایشگری را که می خواهید فعال کنید انتخاب کنید (قابل بررسی)</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="105"/>
         <source>Primary</source>
-        <translation>주요</translation>
+        <translation>اولیه</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="128"/>
         <source>Resolution</source>
-        <translation>해상도</translation>
+        <translation>وضوح تصویر</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="132"/>
         <source>Rotation</source>
-        <translation>회전</translation>
+        <translation>چرخش</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="151"/>
         <location filename="../modules/display/customsettings.cpp" line="180"/>
         <location filename="../modules/display/customsettings.cpp" line="199"/>
         <source>Monitor %1</source>
-        <translation>%1 모니터</translation>
+        <translation>نمایشگر %1</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="299"/>
         <location filename="../modules/display/customsettings.cpp" line="305"/>
         <source>Apply</source>
-        <translation>적용</translation>
+        <translation>اعمال</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="301"/>
         <location filename="../modules/display/customsettings.cpp" line="307"/>
         <location filename="../modules/display/customsettings.h" line="43"/>
         <source>Confirm</source>
-        <translation>확인</translation>
+        <translation>تایید</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="329"/>
         <source>Do you want to keep these display settings?</source>
-        <translation>디스플레이 설정을 유지하시겠습니까?</translation>
+        <translation>آیا می خواهید تنظیمات این نمایشگر را ذخیره کنید؟</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="330"/>
         <location filename="../modules/display/customsettings.cpp" line="338"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
-        <translation>&lt;font color=&apos;white&apos;&gt; %1&lt;/font&gt; 초에서 이전 재생 설정으로 되돌아가기</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="332"/>
         <source>Revert</source>
-        <translation>복구</translation>
+        <translation>بازگشت</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="333"/>
         <source>Keep Changes</source>
-        <translation>변경사항 유지</translation>
+        <translation>تغییرات را ذخیره کن</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.h" line="42"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
 </context>
 <context>
@@ -713,23 +713,23 @@
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="20"/>
         <source>Custom options</source>
-        <translation>사용자 지정 옵션 </translation>
+        <translation>اختیارات شخصی</translation>
     </message>
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="24"/>
         <source>Turn off the display</source>
-        <translation>화면 끄기</translation>
+        <translation>نمایشگر را خاموش کن</translation>
     </message>
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="31"/>
         <location filename="../modules/power/dextendboard.cpp" line="43"/>
         <source>Never</source>
-        <translation>절대로 하지 않음</translation>
+        <translation>هرگز</translation>
     </message>
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="35"/>
         <source>Suspend</source>
-        <translation>일시 정지</translation>
+        <translation>معلق کردن</translation>
     </message>
 </context>
 <context>
@@ -737,17 +737,17 @@
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="9"/>
         <source>Set Date</source>
-        <translation>날짜 설정</translation>
+        <translation>تنظیم تاریخ</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="17"/>
         <source>Confirm</source>
-        <translation>확인</translation>
+        <translation>تایید</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="18"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
 </context>
 <context>
@@ -755,48 +755,48 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="138"/>
         <source>MMM dd</source>
-        <translation>MMM dd</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="139"/>
         <source> hh:mm </source>
-        <translation> hh:mm </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="139"/>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="273"/>
         <source> hh:mm A</source>
-        <translation>hh:mm A</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="140"/>
         <source>ddd</source>
-        <translation>ddd</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="141"/>
         <source>ddd MMM dd</source>
-        <translation>ddd MMM dd</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="194"/>
         <source>Switch display mode</source>
-        <translation>디스플레이 모드 전환</translation>
+        <translation>تغییر حالت نمایش</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="196"/>
         <source>Show week</source>
-        <translation>주 보기</translation>
+        <translation>نمایش هفته</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="197"/>
         <source>Show date</source>
-        <translation>쇼 날짜</translation>
+        <translation>نمایش روز</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="200"/>
         <source>Date&amp;Time settings(_T)</source>
-        <translation type="unfinished"/>
+        <translation>تنظیمات تاریخ و زمان (_T)</translation>
     </message>
 </context>
 <context>
@@ -804,32 +804,32 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="44"/>
         <source>Date</source>
-        <translation>날짜</translation>
+        <translation>تاریخ</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="52"/>
         <source>Time Zone</source>
-        <translation>표준시간대 </translation>
+        <translation>منطقه زمانی</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="59"/>
         <source>Sync Automatically</source>
-        <translation>자동으로 동기화</translation>
+        <translation>همگام سازی اتوماتیک</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="66"/>
         <source>Use 24-hour clock</source>
-        <translation>24시간 시계 사용</translation>
+        <translation>از حالت ۲۴ ساعته استفاده کن</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="71"/>
         <source>Reset</source>
-        <translation>재설정</translation>
+        <translation>تنظیم مجدد</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="83"/>
         <source>Date and Time</source>
-        <translation>날짜와 시간</translation>
+        <translation>تاریخ و زمان</translation>
     </message>
 </context>
 <context>
@@ -838,72 +838,72 @@
         <location filename="../modules/default_applications/defaultapps.cpp" line="38"/>
         <location filename="../modules/default_applications/defaultapps.cpp" line="43"/>
         <source>Default Applications</source>
-        <translation>기본 응용프로그램</translation>
+        <translation>برنامه های پیش فرض</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="46"/>
         <source>AutoPlay</source>
-        <translation>자동 재생</translation>
+        <translation>اجرای خودکار</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="52"/>
         <source>Browser</source>
-        <translation>브라우저</translation>
+        <translation>مرورگر</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="54"/>
         <source>Mail</source>
-        <translation>메일</translation>
+        <translation>ایمیل</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="56"/>
         <source>Text</source>
-        <translation>텍스트</translation>
+        <translation>متن</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="58"/>
         <source>Music</source>
-        <translation>음악</translation>
+        <translation>موسیقی</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="60"/>
         <source>Video</source>
-        <translation>비디오</translation>
+        <translation>ویدیو</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="62"/>
         <source>Picture</source>
-        <translation>사진</translation>
+        <translation>تصویر</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="64"/>
         <source>Terminal</source>
-        <translation>터미널</translation>
+        <translation>ترمینال</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="67"/>
         <source>CD Audio</source>
-        <translation>CD 오디오</translation>
+        <translation>دیسک صوتی</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="70"/>
         <source>DVD Video</source>
-        <translation>DVD 비디오</translation>
+        <translation>دیسک  ویدیو</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="73"/>
         <source>Music Player</source>
-        <translation>음악 플레이어</translation>
+        <translation>پخش کننده موسیقی</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="76"/>
         <source>Camera</source>
-        <translation>카메라</translation>
+        <translation>دوربین</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="79"/>
         <source>Software</source>
-        <translation>소프트웨어</translation>
+        <translation>نرم افزار</translation>
     </message>
 </context>
 <context>
@@ -911,7 +911,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/deviceframe.cpp" line="31"/>
         <source>Device</source>
-        <translation>장치</translation>
+        <translation>دستگاه</translation>
     </message>
 </context>
 <context>
@@ -919,12 +919,12 @@
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="88"/>
         <source>Connected</source>
-        <translation>연결됨</translation>
+        <translation>متصل شده</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="90"/>
         <source>Unconnect</source>
-        <translation>연결 해제</translation>
+        <translation>متصل نشده</translation>
     </message>
 </context>
 <context>
@@ -932,27 +932,27 @@
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="52"/>
         <source>Retry</source>
-        <translation>재시도</translation>
+        <translation>سعی مجدد</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="97"/>
         <source>removable disk</source>
-        <translation>이동식 디스크</translation>
+        <translation>دیسک جدا شونده</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="99"/>
         <source>network disk</source>
-        <translation>네트워크 디스크</translation>
+        <translation>دیسک شبکه</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="101"/>
         <source>local disk</source>
-        <translation>로컬디스크</translation>
+        <translation>دیسک محلی</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="104"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
-        <translation>%1 &quot; %2 &quot;를 제거하는 데 실패하였습니다, 다시 시도해주십시오.</translation>
+        <translation>حذف با موفقیت انجام نشد %1 &quot;%2&quot;. لطفا مجدداْ سعی کنید.</translation>
     </message>
 </context>
 <context>
@@ -960,52 +960,52 @@
     <message>
         <location filename="../modules/display/display.cpp" line="51"/>
         <source>Display</source>
-        <translation>디스플레이</translation>
+        <translation>نمایش</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="143"/>
         <source>Display Mode</source>
-        <translation>디스플레이 모드</translation>
+        <translation>حالت نمایش</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="149"/>
         <source>Copy</source>
-        <translation>복사</translation>
+        <translation>رونوشت</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="150"/>
         <source>Copy the contents of your primary screen to other screens.</source>
-        <translation>다른 화면에 기본 화면의 내용을 복사합니다.</translation>
+        <translation>محتویات صفحه نمایش اولیه خود را به صفحه نمایش دیگری کپی کنید.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="160"/>
         <source>Extend</source>
-        <translation>확장</translation>
+        <translation>گسترش</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="161"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
-        <translation>다른 화면에 서로 다른 내용을 표시할 수 있도록 확장합니다.</translation>
+        <translation>صفحه نمایش خود را گسترش دهید تا بتوانید محتویاتی متفاوت را در صفحه نمایش های متفاوت نشان دهید.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="172"/>
         <source>Custom Settings</source>
-        <translation>사용자 정의 설정</translation>
+        <translation>تنظیمات شخصی</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="173"/>
         <source>You can do other custom settings to your screens.</source>
-        <translation>화면을 다른 방법의 사용자 지정 설정을 할 수 있습니다.</translation>
+        <translation>شما می توانید تنظیمات شخصی دیگری را برای صفحه نمایش خود اعمال کنید.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="183"/>
         <source>Only Displayed on %1</source>
-        <translation>%1에서만 디스플레이됨</translation>
+        <translation>تنها نمایش داده شده در %1</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="184"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
-        <translation>화면내용을 %1에서만 디스플레이되고 다른 쪽은 안됩니다.</translation>
+        <translation>محتویات صفحه نمایش فقط در %1 نمایش داده شده اند اما نه در صفحه نمایش ها.</translation>
     </message>
 </context>
 <context>
@@ -1014,22 +1014,22 @@
         <location filename="../modules/network/editconnectionpage.cpp" line="28"/>
         <location filename="../modules/network/editconnectionpage.cpp" line="84"/>
         <source>Delete this network</source>
-        <translation>이 네트워크 삭제</translation>
+        <translation>این شبکه را حذف کن</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="36"/>
         <source>Delete</source>
-        <translation>삭제</translation>
+        <translation>حذف کردن</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="37"/>
         <source>Save</source>
-        <translation>저장</translation>
+        <translation>ذخیره</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="45"/>
         <source>Are you sure you want to delete this network?</source>
-        <translation>정말 이 네트워크를 삭제하시겠습니까?</translation>
+        <translation>آیا از حذف این شبکه مطمئن هستید؟</translation>
     </message>
 </context>
 <context>
@@ -1037,12 +1037,12 @@
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="23"/>
         <source>Click to install</source>
-        <translation>클릭하여 설치</translation>
+        <translation>برای نصب کلیک کنید</translation>
     </message>
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="52"/>
         <source>Current system lacks component for %1</source>
-        <translation>현재 시스템에 %1에 대한 구성 요소가 빠져있음</translation>
+        <translation>سیستم جاری فاقد کامپوننت برای %1 است.</translation>
     </message>
 </context>
 <context>
@@ -1050,12 +1050,12 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="163"/>
         <source>Set</source>
-        <translation>설정</translation>
+        <translation>تنظیم</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="165"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
 </context>
 <context>
@@ -1063,23 +1063,23 @@
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="33"/>
         <source>Copy Code</source>
-        <translation>코드 복사</translation>
+        <translation>کد را کپی کن</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="35"/>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="70"/>
         <source>Copied to clipboard successfully</source>
-        <translation>클립보드로 성공적으로 복사되었습니다</translation>
+        <translation>با موفقیت در کلیپ برد کپی شد</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="44"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="80"/>
         <source>To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input</source>
-        <translation>당신의 컴퓨터 공유를 시작하기 위해 위쪽의 인증번호를 당신을 도울 사람에게 제공해주세요. 당신의 공유한 세션은 인증번호를 입력하자마자 시작합니다. </translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1087,12 +1087,12 @@
     <message>
         <location filename="../modules/remote_assistance/view/generatingview.cpp" line="23"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatingview.cpp" line="56"/>
         <source>Generating the verification code, please wait...</source>
-        <translation>인증 코드를 형성하고 있습니다, 기다려 주십시오...</translation>
+        <translation>در حال ساخت کد شناسایی لطفا منتظر بمانید...</translation>
     </message>
 </context>
 <context>
@@ -1100,43 +1100,43 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="21"/>
         <source>Boot Menu</source>
-        <translation>부팅 메뉴</translation>
+        <translation>فهرست بوت</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="65"/>
         <location filename="../modules/grub/grubwidget.cpp" line="158"/>
         <source>Drag and drop an image to change background.</source>
-        <translation>백그라운드를 변경하려면 이미지를 드래그 엔 드랍으로 가져옵니다.</translation>
+        <translation>با کشیدن و رها کردن عکس پس زمینه را تغییر دهید</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="84"/>
         <source>Default Boot</source>
-        <translation>기본 부팅</translation>
+        <translation>بوت پیش فرض</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="100"/>
         <source>Boot delay</source>
-        <translation>부팅 지연</translation>
+        <translation>تاخیر بوت</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="108"/>
         <source>Text Color</source>
-        <translation>텍스트 색</translation>
+        <translation>رنگ متن</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="116"/>
         <source>Selected Text Color</source>
-        <translation>택스트 색 선택</translation>
+        <translation>رنگ متن انتخاب شده</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="148"/>
         <source>Updating...</source>
-        <translation>업데이트중...</translation>
+        <translation>به‌روزرسانی...</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="150"/>
         <source>Successfully updated, reboot to view.</source>
-        <translation>업데이트 완료했습니다. 리붓후 확인하십시오.</translation>
+        <translation>با موفقیت بروز رسانی شد. برای مشاهده مجددا راه اندازی کنید.</translation>
     </message>
 </context>
 <context>
@@ -1144,7 +1144,7 @@
     <message>
         <location filename="../frame/homescreen.cpp" line="97"/>
         <source>Shutdown</source>
-        <translation>전원 종료</translation>
+        <translation>خاموش کردن</translation>
     </message>
 </context>
 <context>
@@ -1152,22 +1152,22 @@
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="19"/>
         <source>Password</source>
-        <translation>암호</translation>
+        <translation>پسورد</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="21"/>
         <source>Auto-connect</source>
-        <translation>자동 연결</translation>
+        <translation>اتصال-خودکار</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="28"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="29"/>
         <source>Connect</source>
-        <translation>연결</translation>
+        <translation>اتصال</translation>
     </message>
 </context>
 <context>
@@ -1175,24 +1175,24 @@
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="23"/>
         <source>Connect</source>
-        <translation>연결</translation>
+        <translation>اتصال</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="32"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="72"/>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="73"/>
         <source>Start remote access after clicking on &quot;Connect&quot;</source>
-        <translation>&quot;연결&quot; 클릭 후 원격 접근 시작</translation>
+        <translation>پس از کلیلک بر روی &quot;اتصال&quot; دسترسی از راه دور آغاز شود.</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="74"/>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="86"/>
         <source>Please enter the verification code in the input field above</source>
-        <translation>상단의 입력칸에 인증코드를 입력해주십시오</translation>
+        <translation>لطفا کد شناسایی را در کادر ورودی زیر وارد کنید</translation>
     </message>
 </context>
 <context>
@@ -1200,57 +1200,57 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="124"/>
         <source>Keyboard and Language</source>
-        <translation>키보드와 언어</translation>
+        <translation>صفحه کلید و زبان</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="137"/>
         <source>Repeat Delay</source>
-        <translation>지연 반복</translation>
+        <translation>تاخیر تکرار </translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="158"/>
         <source>Repeat Rate</source>
-        <translation>반복 속도</translation>
+        <translation>نرخ تکرار</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="179"/>
         <source>Cursor Blink Rate</source>
-        <translation>커서 깜박임 속도</translation>
+        <translation>نرخ چشمک زدن مکان نما</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="201"/>
         <source>Test Area</source>
-        <translation>테스트 공간</translation>
+        <translation>محدوده متن</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="215"/>
         <source>Caps Lock prompt</source>
-        <translation>캡슬 락 프롬프트</translation>
+        <translation>اعلان وضعیت کلید Caps Lock</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="231"/>
         <source>Language</source>
-        <translation>언어</translation>
+        <translation>زبان</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="236"/>
         <source>Keyboard Layout</source>
-        <translation>키보드 레이아웃</translation>
+        <translation>طرح بندی صفحه کلید</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="237"/>
         <source>Remove Keyboard Layout</source>
-        <translation>키보드 레이아웃 삭제</translation>
+        <translation>طرح بندی صفحه کلید از راه دور</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="238"/>
         <source>Add Keyboard Layout</source>
-        <translation>키보드 레이아웃 추가</translation>
+        <translation>اضافه کردن طرح بندی صفحه کلید</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="326"/>
         <source>Search</source>
-        <translation>찾기</translation>
+        <translation>جستجو</translation>
     </message>
 </context>
 <context>
@@ -1258,12 +1258,12 @@
     <message>
         <location filename="../modules/network/listwidgetcontainer.cpp" line="92"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
     <message>
         <location filename="../modules/network/listwidgetcontainer.cpp" line="93"/>
         <source>Connect</source>
-        <translation>연결</translation>
+        <translation>اتصال</translation>
     </message>
 </context>
 <context>
@@ -1271,27 +1271,27 @@
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="16"/>
         <source>Remote Assistance</source>
-        <translation>원격 지원</translation>
+        <translation>دستیار از راه دور</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="27"/>
         <source>Share</source>
-        <translation>공유 </translation>
+        <translation>اشتراک گذاری</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="27"/>
         <source>Share your desktop to get remote assistance from other users</source>
-        <translation>다른 사용자에게 원격 도움을 받으려면 당신의 컴퓨터를 공유하세요.</translation>
+        <translation>دسکتاپ خود را به اشتراک بزارید تا از سایر کاربران بصورت از راه دور کمک دریافت کنید</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="34"/>
         <source>Access</source>
-        <translation>접속</translation>
+        <translation>دسترسی</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="34"/>
         <source>Access to the desktop shared by other users</source>
-        <translation>다른 사용자에 의해 공유된 데스크톱에 접근하기</translation>
+        <translation>دسترسی به  دسکتاپ اشتراک گذاشته شده توسط سایر کاربران</translation>
     </message>
 </context>
 <context>
@@ -1299,76 +1299,76 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="27"/>
         <source>Keyboard Shortcuts</source>
-        <translation>키보드 단축키</translation>
+        <translation>میانبرهای صفحه کلید</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="143"/>
         <source>Name</source>
-        <translation>이름</translation>
+        <translation>نام</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="147"/>
         <source>Command</source>
-        <translation>명령</translation>
+        <translation>دستور</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="170"/>
         <source>Delete Shortcut</source>
-        <translation>바로가기 삭제</translation>
+        <translation>حذف میانبر</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="171"/>
         <source>Add Shortcut</source>
-        <translation>바로가기 추가</translation>
+        <translation>اضافه کردن میانبر</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="172"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="232"/>
         <source>Custom</source>
-        <translation>사용자 정의</translation>
+        <translation>شخصی</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="229"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="299"/>
         <source>System</source>
-        <translation>시스템</translation>
+        <translation>سیستمی</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="230"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="300"/>
         <source>Window</source>
-        <translation>윈도우</translation>
+        <translation>پنجره</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="231"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="301"/>
         <source>Workspace</source>
-        <translation>워크 스페이스</translation>
+        <translation>فضای کار</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="260"/>
         <source>Search</source>
-        <translation>검색</translation>
+        <translation>جستجو</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="371"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
-        <translation>바로가기 &quot;%1&quot;를 사용할 수 없습니다. 새로운 바로가기를 입력하십시오.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="385"/>
         <source>The shortcut you set </source>
-        <translation>바로가기 설정</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="395"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
-        <translation>&quot;%1&quot; 카테고리에 있는 &quot;%2&quot;와 사용하는 것이 겹칩니다.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="402"/>
         <source>Do you want to replace it?</source>
-        <translation>그것을 변경하시겠습니까?</translation>
+        <translation>آیا می خواهید آن را جایگزین کنید؟</translation>
     </message>
 </context>
 <context>
@@ -1401,22 +1401,22 @@
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="18"/>
         <source>Switch</source>
-        <translation type="unfinished"/>
+        <translation>سوئیچ</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="19"/>
         <source>Done</source>
-        <translation>완료</translation>
+        <translation>انجام شد</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="29"/>
         <source>Auto check update</source>
-        <translation>자동 검사 업데이트 </translation>
+        <translation>بررسی خودکار بروز رسانی</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="32"/>
         <source>Mirrors</source>
-        <translation type="unfinished"/>
+        <translation>آینه‌ها</translation>
     </message>
 </context>
 <context>
@@ -1424,12 +1424,12 @@
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="7"/>
         <source>Modem Network</source>
-        <translation>모뎀 네트워크</translation>
+        <translation>شبکه مودم</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="31"/>
         <source>Restore the connection</source>
-        <translation type="unfinished"/>
+        <translation>بازیابی اتصال</translation>
     </message>
 </context>
 <context>
@@ -1437,92 +1437,92 @@
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="108"/>
         <source>Home</source>
-        <translation>홈</translation>
+        <translation>خانه</translation>
     </message>
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="117"/>
         <source>Shutdown</source>
-        <translation>전원 종료</translation>
+        <translation>خاموش کردن</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="28"/>
         <source>Sound</source>
-        <translation>소리</translation>
+        <translation>صدا</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="18"/>
         <source>Power Management</source>
-        <translation>전원 관리</translation>
+        <translation>مدیریت منبع قدرت</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="31"/>
         <source>Default Applications</source>
-        <translation>기본 응용프로그램</translation>
+        <translation>برنامه های پیش فرض</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="21"/>
         <source>Mouse and Touchpad</source>
-        <translation>마우스와 터치패드</translation>
+        <translation>ماوس و صفحه لمسی</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="30"/>
         <source>System Information</source>
-        <translation>시스템 정보</translation>
+        <translation>اطلاعات سیستم</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="21"/>
         <source>Display</source>
-        <translation>디스플레이</translation>
+        <translation>نمایش</translation>
     </message>
     <message>
         <location filename="../modules/account/account.cpp" line="8"/>
         <source>User Accounts</source>
-        <translation>사용자 계정</translation>
+        <translation>حساب کاربران</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/shortcuts.cpp" line="10"/>
         <source>Keyboard Shortcuts</source>
-        <translation>키보드 단축키</translation>
+        <translation>میانبر صفحه کلید</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="24"/>
         <source>Personalization</source>
-        <translation>개인 설정</translation>
+        <translation>شخصی سازی</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="38"/>
         <source>Keyboard and Language</source>
-        <translation>키보드와 언어</translation>
+        <translation>صفحه کلید و زبان</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="31"/>
         <source>Date and Time</source>
-        <translation>날짜와 시간</translation>
+        <translation>تاریخ  و زمان</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="13"/>
         <source>Wacom</source>
-        <translation>와콤 </translation>
+        <translation>Wacom</translation>
     </message>
     <message>
         <location filename="../modules/grub/grub.cpp" line="10"/>
         <source>Boot Menu</source>
-        <translation>부팅 메뉴</translation>
+        <translation>فهرست بوت</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/bluetooth.cpp" line="10"/>
         <source>Bluetooth</source>
-        <translation>블루투스</translation>
+        <translation>بلوتوث</translation>
     </message>
     <message>
         <location filename="../modules/network/network.cpp" line="10"/>
         <source>Network</source>
-        <translation>네트워크</translation>
+        <translation>شبکه</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/remoteassistance.cpp" line="33"/>
         <source>Remote Assistance</source>
-        <translation>원격 지원 </translation>
+        <translation>دستیار از راه دور</translation>
     </message>
 </context>
 <context>
@@ -1530,17 +1530,17 @@
     <message>
         <location filename="../modules/display/monitorground.cpp" line="37"/>
         <source>Recognize</source>
-        <translation>인식</translation>
+        <translation>شناسایی</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="38"/>
         <source>Edit</source>
-        <translation>수정</translation>
+        <translation>ویرایش</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="39"/>
         <source>Split</source>
-        <translation>스프리트</translation>
+        <translation>جدا سازی</translation>
     </message>
 </context>
 <context>
@@ -1548,72 +1548,72 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="37"/>
         <source>Mouse And Touchpad</source>
-        <translation>마우스 및 터치패드</translation>
+        <translation>ماوس و صفحه لمسی</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="53"/>
         <location filename="../modules/mouse/mouse.cpp" line="172"/>
         <source>Primary Button</source>
-        <translation>기본 버튼</translation>
+        <translation>دکمه اولیه</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="56"/>
         <location filename="../modules/mouse/mouse.cpp" line="139"/>
         <source>Left Button</source>
-        <translation>왼쪽 버튼</translation>
+        <translation>دکمه چپ</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="57"/>
         <location filename="../modules/mouse/mouse.cpp" line="140"/>
         <source>Right Button</source>
-        <translation>오른쪽 버튼</translation>
+        <translation>دکمه راست</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="68"/>
         <location filename="../modules/mouse/mouse.cpp" line="173"/>
         <source>Pointer Speed</source>
-        <translation>포인터 속도</translation>
+        <translation>سرعت اشاره گر</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="85"/>
         <location filename="../modules/mouse/mouse.cpp" line="174"/>
         <source>Double-click Speed</source>
-        <translation>더블클릭 속도</translation>
+        <translation>سرعت دوبار-کلیلک</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="102"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>마우스를 사용할때 터치 패드 비활성화</translation>
+        <translation>صفحه لمسی را هنگام اتصال ماوس غیر فعال کن</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="128"/>
         <source>Touchpad</source>
-        <translation>터치패드</translation>
+        <translation>صفحه لمسی</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="175"/>
         <source>Drag Threshold</source>
-        <translation>드래그 임계값</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="176"/>
         <source>Natural Scrolling</source>
-        <translation>자연스러운 스크롤</translation>
+        <translation>پیمایش طبیعی</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="177"/>
         <source>Tap to click</source>
-        <translation>탭으로 클릭</translation>
+        <translation>برای کلیک لمس کنید</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="178"/>
         <source>Two-finger scrolling</source>
-        <translation>두 손가락으로 스크롤</translation>
+        <translation>پیمایش دو انگشتی</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="179"/>
         <source>Edge scrolling</source>
-        <translation>가장자리 스크롤</translation>
+        <translation>پیمایش لبه</translation>
     </message>
 </context>
 <context>
@@ -1621,22 +1621,22 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="38"/>
         <source>Ethernet</source>
-        <translation>이더넷</translation>
+        <translation>اترنت</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="39"/>
         <source>802.11 WiFi</source>
-        <translation>802.11 WiFi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="40"/>
         <source>802.11 WiFi AdHoc</source>
-        <translation>802.11 WiFi AdHoc</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="41"/>
         <source>802.11 WiFi Hotspot</source>
-        <translation>802.11 WiFi Hotspot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="42"/>
@@ -1646,17 +1646,17 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="43"/>
         <source>Mobile</source>
-        <translation>모바일</translation>
+        <translation>موبایل</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="44"/>
         <source>Mobile GSM</source>
-        <translation>모바일 GSM</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="45"/>
         <source>Mobile CDMA</source>
-        <translation>모바일 CDMA</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="46"/>
@@ -1691,72 +1691,72 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="65"/>
         <source>Not Connected</source>
-        <translation>연결되지 않음</translation>
+        <translation>متصل نیست</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="67"/>
         <source>Connected</source>
-        <translation>연결됨</translation>
+        <translation>متصل است</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="79"/>
         <source>(default)</source>
-        <translation>(기본)</translation>
+        <translation>(پیش فرض)</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="98"/>
         <source>Interface</source>
-        <translation>인터페이스</translation>
+        <translation>رابط</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="102"/>
         <source>Security</source>
-        <translation>보안</translation>
+        <translation>امنیتی</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="103"/>
         <source>Device Addr</source>
-        <translation>장치 주소</translation>
+        <translation>آدرس دستگاه</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="104"/>
         <source>IP Address</source>
-        <translation>IP 주소</translation>
+        <translation>آدرس آی پی</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="105"/>
         <source>Subnet Mask</source>
-        <translation>서브넷 마크</translation>
+        <translation>ماسک زیر شبکه</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="106"/>
         <source>Gateway</source>
-        <translation>게이트웨이</translation>
+        <translation>درگاه</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="107"/>
         <source>Primary DNS</source>
-        <translation>첫 번째 DNS</translation>
+        <translation>DNS اولیه</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="108"/>
         <source>Secondary DNS</source>
-        <translation>두번째 DNS</translation>
+        <translation>DNS ثانویه</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="109"/>
         <source>Third DNS</source>
-        <translation>세번째 DNS</translation>
+        <translation>DNS ثالث</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="110"/>
         <source>Device Speed</source>
-        <translation>장치 속도</translation>
+        <translation>سرعت دستگاه</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="115"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
 </context>
 <context>
@@ -1764,12 +1764,12 @@
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="146"/>
         <source>Network</source>
-        <translation>네트워크</translation>
+        <translation>شبکه</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="167"/>
         <source>System Proxy</source>
-        <translation>시스템 프록시</translation>
+        <translation>پراکسی سیستم</translation>
     </message>
 </context>
 <context>
@@ -1777,7 +1777,7 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="85"/>
         <source>Double-click this area to change your time</source>
-        <translation>이 영력을 더블 클릭하여 시간을 변경합니다</translation>
+        <translation>در این ناحیه دوبار کلیک کنید تا زمان خود را تغییر دهید</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="112"/>
@@ -1794,27 +1794,27 @@
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="66"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="146"/>
         <source>The two passwords do not match.</source>
-        <translation>암호가 틀립니다.</translation>
+        <translation>پسورد ها یکسان نیستند.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="74"/>
         <source>Password</source>
-        <translation>암호</translation>
+        <translation>پسورد</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="95"/>
         <source>New Password</source>
-        <translation>새로운 암호</translation>
+        <translation>پسورد جدید</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="97"/>
         <source>Repeat</source>
-        <translation>다시</translation>
+        <translation>تکرار</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="141"/>
         <source>Password can not be empty.</source>
-        <translation>비밀번호는 빈칸일 수 없습니다.</translation>
+        <translation>پسورد نمیتواند خالی باشد.</translation>
     </message>
 </context>
 <context>
@@ -1822,58 +1822,58 @@
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="40"/>
         <source>Personalization</source>
-        <translation>개인 설정</translation>
+        <translation>شخصی سازی</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="115"/>
         <source>Theme</source>
-        <translation>테마</translation>
+        <translation>ظاهر</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="136"/>
         <source>Window</source>
-        <translation>윈도우</translation>
+        <translation>پنجره</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="160"/>
         <source>Icon</source>
-        <translation>아이콘</translation>
+        <translation>آیکون</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="193"/>
         <source>Cursor</source>
-        <translation>커서</translation>
+        <translation>اشاره گر</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="224"/>
         <source>Wallpaper</source>
-        <translation>바탕화면</translation>
+        <translation>تصویر زمینه</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="247"/>
         <source>Fonts</source>
-        <translation>폰트</translation>
+        <translation>فونت ها</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="249"/>
         <source>Standard</source>
-        <translation>표준</translation>
+        <translation>استاندارد</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="250"/>
         <source>Monospaced</source>
-        <translation>고정폭</translation>
+        <translation>عرض</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="251"/>
         <source>Size</source>
-        <translation>크기</translation>
+        <translation>حجم</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="266"/>
         <location filename="../modules/personalization/personalization.cpp" line="636"/>
         <source>Font</source>
-        <translation>글꼴</translation>
+        <translation>فونت</translation>
     </message>
 </context>
 <context>
@@ -1881,73 +1881,73 @@
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Password required to wake up</source>
-        <translation>깨울때 암호 입력</translation>
+        <translation>برای بیدار شدن پسورد مورد نیاز است</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="72"/>
         <source>Plugged in</source>
-        <translation>전원 사용</translation>
+        <translation>متصل شده</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="102"/>
         <location filename="../modules/power/power.cpp" line="157"/>
         <source>Balanced</source>
-        <translation>균형</translation>
+        <translation>متعادل</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="102"/>
         <location filename="../modules/power/power.cpp" line="157"/>
         <source>Power saver</source>
-        <translation>절전</translation>
+        <translation>ذخیره کننده انرژی</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="102"/>
         <location filename="../modules/power/power.cpp" line="157"/>
         <source>High performance</source>
-        <translation>높은 성능</translation>
+        <translation>عملکرد بالا</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="102"/>
         <location filename="../modules/power/power.cpp" line="157"/>
         <source>Custom</source>
-        <translation>사용자 정의</translation>
+        <translation>شخصی</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="129"/>
         <source>On battery</source>
-        <translation>베터리 사용</translation>
+        <translation>در باتری</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="192"/>
         <location filename="../modules/power/power.cpp" line="196"/>
         <source>Shutdown</source>
-        <translation>전원 종료</translation>
+        <translation>خاموش کردن</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="192"/>
         <location filename="../modules/power/power.cpp" line="196"/>
         <source>Suspend</source>
-        <translation>일시 정지</translation>
+        <translation>معلق کردن</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="192"/>
         <source>Ask</source>
-        <translation>물음</translation>
+        <translation>پرسیدن</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="194"/>
         <source>When I press the power button</source>
-        <translation>전원 버튼을 누르면</translation>
+        <translation>هنگامیکه من دکمه پاور را می فشارم</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="196"/>
         <source>Nothing</source>
-        <translation>아무것도 안함</translation>
+        <translation>هیچی</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="198"/>
         <source>When I close the lid</source>
-        <translation>덮게를 닫을 때</translation>
+        <translation>هنگامی که من درب لپ تاپ را میبندم</translation>
     </message>
 </context>
 <context>
@@ -1960,7 +1960,7 @@
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="201"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="209"/>
         <source>%1 minutes</source>
-        <translation>%1분</translation>
+        <translation>%1 دقیقه</translation>
     </message>
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="178"/>
@@ -1968,18 +1968,18 @@
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="197"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="205"/>
         <source>Never</source>
-        <translation>전혀</translation>
+        <translation>هرگز</translation>
     </message>
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="199"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="207"/>
         <source>1 hour</source>
-        <translation>1 시간</translation>
+        <translation>۱ ساعت</translation>
     </message>
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="214"/>
         <source>Turn off the display: %1 Suspend: %2 </source>
-        <translation>화면 끄기: %1 중단: %2</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1987,7 +1987,7 @@
     <message>
         <location filename="../modules/power/powermanagement.cpp" line="17"/>
         <source>Power Management</source>
-        <translation>전원 관리</translation>
+        <translation>مدیریت منبع قدرت</translation>
     </message>
 </context>
 <context>
@@ -1995,32 +1995,32 @@
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="52"/>
         <source>Power</source>
-        <translation>전원</translation>
+        <translation>منبع قدرت</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="73"/>
         <source>On Charging %1</source>
-        <translation>%1 충전</translation>
+        <translation>در حال شارژ %1</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="198"/>
         <source>Custom</source>
-        <translation>사용자 정의</translation>
+        <translation>شخصی</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="199"/>
         <source>Power saver</source>
-        <translation>절전</translation>
+        <translation>ذخیره کننده انرژی</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="200"/>
         <source>Balanced</source>
-        <translation>균형</translation>
+        <translation>متعادل</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="201"/>
         <source>High performance</source>
-        <translation>높은 성능</translation>
+        <translation>عملکرد بالا</translation>
     </message>
 </context>
 <context>
@@ -2028,12 +2028,12 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="97"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="98"/>
         <source>Add</source>
-        <translation>추가</translation>
+        <translation>اضافه کردن</translation>
     </message>
 </context>
 <context>
@@ -2041,12 +2041,12 @@
     <message>
         <location filename="../widgets/moduleheader.cpp" line="50"/>
         <source>Reset Successfully</source>
-        <translation>성공적으로 초기화됨</translation>
+        <translation>تنظیم مجدد با موفقیت انجام شد</translation>
     </message>
     <message>
         <location filename="../widgets/moduleheader.cpp" line="52"/>
         <source>Reset</source>
-        <translation>재설정</translation>
+        <translation>تنظیم مجدد</translation>
     </message>
 </context>
 <context>
@@ -2054,12 +2054,12 @@
     <message>
         <location filename="../modules/shortcuts/selectdialog.cpp" line="28"/>
         <source>Replace</source>
-        <translation>교체</translation>
+        <translation> جایگزین</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/selectdialog.cpp" line="29"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
 </context>
 <context>
@@ -2068,32 +2068,32 @@
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="17"/>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="104"/>
         <source>Sharing</source>
-        <translation>공유 중</translation>
+        <translation>اشترام گذاری</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="67"/>
         <source>Sharing your desktop, your can continue to share or choose to disconnect</source>
-        <translation>귀하의 데스크톱을 공유 중입니다, 계속 공유하거나 열결 해제를 선택하실 수 있습니다</translation>
+        <translation>اشتراک گذاری دسکتاپ خود. شما می توانید برای اشتراک گذاری  ادامه دهید یا اتصال را قطع کنید</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="94"/>
         <source>Remote Assistance</source>
-        <translation>원격 지원 </translation>
+        <translation>دستیار از راه دور</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="97"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="102"/>
         <source>Retry</source>
-        <translation>재시도</translation>
+        <translation>سعی مجدد</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="108"/>
         <source>Failed to establish the connection, you can retry to connect</source>
-        <translation>연결에 실패하였습니다, 다시 시도해주십시오</translation>
+        <translation>ناتوان در ایجاد اتصال ، میتوانید بعدا برای اتصال تلاش کنید</translation>
     </message>
 </context>
 <context>
@@ -2108,7 +2108,7 @@
         <location filename="../modules/shortcuts/shortcutdbus.h" line="218"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="222"/>
         <source>None</source>
-        <translation>없음</translation>
+        <translation>هیچ کدام</translation>
     </message>
 </context>
 <context>
@@ -2116,7 +2116,7 @@
     <message>
         <location filename="../modules/shortcuts/shortcutedit.cpp" line="29"/>
         <source>Please input new shortcut</source>
-        <translation>새로운 바로가기를 입력해주세요</translation>
+        <translation>لطفا میانبر جدید را وارد کنید</translation>
     </message>
 </context>
 <context>
@@ -2124,158 +2124,158 @@
     <message>
         <location filename="../modules/sound/sound.cpp" line="85"/>
         <source>Sound</source>
-        <translation>소리</translation>
+        <translation>صدا</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="96"/>
         <source>Speaker</source>
-        <translation>스피커</translation>
+        <translation>بلندگو</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="106"/>
         <source>Output Volume</source>
-        <translation>출력 볼륨</translation>
+        <translation>صدای خروجی</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="117"/>
         <source>Left/Right Balance</source>
-        <translation>왼쪽/오른쪽 균형</translation>
+        <translation>تعادل چپ/راست </translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="121"/>
         <source>Left</source>
-        <translation>왼쪽</translation>
+        <translation>چپ</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="122"/>
         <source>Right</source>
-        <translation>오른쪽</translation>
+        <translation>راست</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="140"/>
         <source>Microphone</source>
-        <translation>마이크</translation>
+        <translation>میکروفون</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="152"/>
         <source>Input Volume</source>
-        <translation>입력 볼륨</translation>
+        <translation>صدای ورودی</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="164"/>
         <source>Feedback Volume</source>
-        <translation>피드백 음량</translation>
+        <translation>صدای بازخورد</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="225"/>
         <source>Output Port</source>
-        <translation>출력 포트</translation>
+        <translation>پورت خروجی</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="238"/>
         <source>Output device</source>
-        <translation>출력 장치</translation>
+        <translation>دستگاه خروجی</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="258"/>
         <source>Input Port</source>
-        <translation>입력 포트</translation>
+        <translation>پورت ورودی</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="272"/>
         <source>Input device</source>
-        <translation>입력 장치</translation>
+        <translation>دستگاه ورودی</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="285"/>
         <location filename="../modules/sound/sound.cpp" line="292"/>
         <source>Show Advanced...</source>
-        <translation>고급 기능 보기...</translation>
+        <translation>نمایش تنظیمات پیشرفته</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="298"/>
         <source>Hide Advanced...</source>
-        <translation>고급 기능 숨기기...</translation>
+        <translation>بستن تنظیمات پیشرفته</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="308"/>
         <source>Login</source>
-        <translation>로그인</translation>
+        <translation>ورود</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="312"/>
         <source>Logout</source>
-        <translation>로그아웃</translation>
+        <translation>خروج</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="315"/>
         <source>Shutdown</source>
-        <translation>전원 종료</translation>
+        <translation>خاموش کردن</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="318"/>
         <source>Wakeup</source>
-        <translation>기상</translation>
+        <translation>بیدار شدن</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="321"/>
         <source>Notification</source>
-        <translation>알림</translation>
+        <translation>اعلان</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="324"/>
         <source>Unable to Operate</source>
-        <translation>수행 불가</translation>
+        <translation>عدم توانایی در انجام</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="327"/>
         <source>Empty trash</source>
-        <translation>휴지통 비우기</translation>
+        <translation>سطل بازیافت را خالی کن</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="330"/>
         <source>Adjust volume</source>
-        <translation>음량 조절 </translation>
+        <translation>تنظیم صدا</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="333"/>
         <source>Low battery</source>
-        <translation>배터리 잔량 부족</translation>
+        <translation>باتری کم</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="336"/>
         <source>Power plug in</source>
-        <translation>파워 플러그 인</translation>
+        <translation>متصل شده به برق</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="339"/>
         <source>Power unplugged</source>
-        <translation>전원 연결 해제됨</translation>
+        <translation>عدم اتصال به برق</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="342"/>
         <source>Movable device plug in</source>
-        <translation>이동식 기기 삽입</translation>
+        <translation>اتصال دستگاه جدا شونده</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="345"/>
         <source>Movable device unplug</source>
-        <translation>이동식 장치 제거</translation>
+        <translation> دستگاه جدا شونده قطع اتصال شد</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="348"/>
         <source>Send app icon to desktop</source>
-        <translation>바탕 화면으로 응용프로그램 아이콘 보내기</translation>
+        <translation>آیکون برنامه را به دسکتاپ بفرست</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="351"/>
         <source>Screenshot</source>
-        <translation>스크린샷</translation>
+        <translation>تصویر از صفحه</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="378"/>
         <source>Sound Effects</source>
-        <translation>음향 효과</translation>
+        <translation>جلوه های صدا</translation>
     </message>
 </context>
 <context>
@@ -2283,7 +2283,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/soundplugin.cpp" line="23"/>
         <source>Sound</source>
-        <translation>소리</translation>
+        <translation>صدا</translation>
     </message>
 </context>
 <context>
@@ -2291,52 +2291,52 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="35"/>
         <source>System Information</source>
-        <translation>시스템 정보</translation>
+        <translation>اطلاعات سیستم</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="41"/>
         <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>حق کپی در اختیار شرکت با مسئولیت محدود Wuhan Deepin Technology</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="45"/>
         <source>Deepin Edition:</source>
-        <translation>Deepin 에디션:</translation>
+        <translation>ویرایش دیپین:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="51"/>
         <source>Distribution:</source>
-        <translation>배포:</translation>
+        <translation>توزیع:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="57"/>
         <source>System Type:</source>
-        <translation>시스템 유형:</translation>
+        <translation>نوع سیستم:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="59"/>
         <source>%1 Bit</source>
-        <translation>%1 Bit</translation>
+        <translation>%1 بیت</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="62"/>
         <source>Processor:</source>
-        <translation>프로세스:</translation>
+        <translation>پردازنده:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="68"/>
         <source>Memory:</source>
-        <translation>메모리:</translation>
+        <translation>حافظه:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
         <source>Disk:</source>
-        <translation>디스크:</translation>
+        <translation>دیسک:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="140"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
-        <translation>GNU GENERAL PUBLIC LICENSE</translation>
+        <translation>مجوز عمومی کلی گنو</translation>
     </message>
 </context>
 <context>
@@ -2344,7 +2344,7 @@
     <message>
         <location filename="../modules/network/systemproxyline.cpp" line="18"/>
         <source>Port</source>
-        <translation>포트</translation>
+        <translation>پورت</translation>
     </message>
 </context>
 <context>
@@ -2352,47 +2352,47 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="21"/>
         <source>None</source>
-        <translation>없음</translation>
+        <translation>هیچ</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="21"/>
         <source>Manual</source>
-        <translation>수동</translation>
+        <translation>دستی</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="21"/>
         <source>Auto</source>
-        <translation>자동</translation>
+        <translation>خودکار</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="38"/>
         <source>Apply system wide</source>
-        <translation>시스템 전체 적용</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="47"/>
         <source>HTTP Proxy</source>
-        <translation>HTTP 프록시</translation>
+        <translation>پراکسی HTTP</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="48"/>
         <source>HTTPS Proxy</source>
-        <translation>HTTPS 프록시</translation>
+        <translation>پراکسی HTTPS</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="49"/>
         <source>FTP Proxy</source>
-        <translation>FTP 프록시</translation>
+        <translation>پراکسی FTP</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="50"/>
         <source>Socks Proxy</source>
-        <translation>소켓 프로시</translation>
+        <translation>پراکسی Sockets</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="61"/>
         <source>Configuration URL</source>
-        <translation>URL 구성</translation>
+        <translation>پیکربندی URL</translation>
     </message>
 </context>
 <context>
@@ -2400,27 +2400,27 @@
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="12"/>
         <source>Close</source>
-        <translation>닫기</translation>
+        <translation>بستن</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="13"/>
         <source>Confirm</source>
-        <translation>확인</translation>
+        <translation>تایید</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="14"/>
         <source>Add</source>
-        <translation>추가</translation>
+        <translation>اضافه کردن</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="40"/>
         <source>Remove Timezone</source>
-        <translation>시간대 제거</translation>
+        <translation>حذف منطقه زمانی</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="47"/>
         <source>Add Timezone</source>
-        <translation>시간대 추가</translation>
+        <translation>اضافه کردن منطقه زمانی</translation>
     </message>
 </context>
 <context>
@@ -2428,7 +2428,7 @@
     <message>
         <location filename="../modules/system_info/updatearrowexpand.cpp" line="23"/>
         <source>Update</source>
-        <translation>업데이트</translation>
+        <translation>بروز رسانی</translation>
     </message>
 </context>
 <context>
@@ -2436,52 +2436,52 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="250"/>
         <source>Your system is up to date</source>
-        <translation>귀하의 시스템은 최신 상태입니다</translation>
+        <translation>سیستم شما بروز است</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="254"/>
         <source>Click to view available  updates</source>
-        <translation>클릭해서 이용 가능한 업데이트 보기</translation>
+        <translation>برای مشاهده بروز رسانی ها کلیک کنید</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="275"/>
         <source>Total download size: %1</source>
-        <translation>총 다운로드 크기: %1</translation>
+        <translation>حجم کل دانلود: %1</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="277"/>
         <source>Unknown</source>
-        <translation>알 수 없음</translation>
+        <translation>ناشناخته</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>%1 software need to be updated</source>
-        <translation>%1 소프트웨어는 업데이트가 필요합니다.</translation>
+        <translation>%1 نرم افزارها نیاز به بروز رسانی دارند</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="295"/>
         <source>Patches</source>
-        <translation>패치</translation>
+        <translation>وصله ها</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="298"/>
         <source>Some patches need to be updated</source>
-        <translation>몇 가지 패치가 업데이트를 필요로 합니다</translation>
+        <translation>برخی از وصله ها نیاز به بروز رسانی دارند</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="302"/>
         <source>Some patches and %1 software need to be updated</source>
-        <translation>몇 가지 패치와 %1 소프트웨어가 업데이트를 필요로 합니다</translation>
+        <translation>برخی وصله ها و %1 نرم افزارها نیاز به بروز رسانی دارند</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="353"/>
         <source>Checking for updates</source>
-        <translation>업데이트 확인 중</translation>
+        <translation>در حال بررسی بروز رسانی ها</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="354"/>
         <source>Check for updates, please wait</source>
-        <translation>업데이트를 확인하세요, 기다려주세요</translation>
+        <translation>در حال بررسی بروز رسانی ها لطفا صبر کنید</translation>
     </message>
 </context>
 <context>
@@ -2489,42 +2489,42 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="98"/>
         <source>Recently Used</source>
-        <translation>최근 사용된</translation>
+        <translation>اخیرا استفاده شده</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="99"/>
         <source>Avatar</source>
-        <translation>아바타</translation>
+        <translation>آواتار</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="100"/>
         <source>Webcam</source>
-        <translation>웹캠</translation>
+        <translation>وبکم</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="161"/>
         <source>Auto-login</source>
-        <translation>자동 로그인</translation>
+        <translation>ورود خودکار</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="187"/>
         <source>Enable</source>
-        <translation>활성화</translation>
+        <translation>فعال</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="220"/>
         <source>Account Type</source>
-        <translation>계정 타입</translation>
+        <translation>نوع حساب کاربری</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="274"/>
         <source>Choose a new picture for your Avatar</source>
-        <translation>아바타의 새로운 사진 선택</translation>
+        <translation>برای آواتار خود عکس جدیدی انتخاب کنید</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="275"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
-        <translation>이미지 파일 (*.jpg *.png *.jpeg)</translation>
+        <translation>فایل های تصویر (*.jpg *.png *.jpeg)</translation>
     </message>
 </context>
 <context>
@@ -2532,32 +2532,32 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="178"/>
         <source>Keep user&apos;s files</source>
-        <translation>사용자 파일 남겨둠</translation>
+        <translation>فایل های کاربران را نگه دار</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="179"/>
         <source>Delete user&apos;s files</source>
-        <translation>사용자 파일 삭제</translation>
+        <translation>فایل های کاربران را حذف کن</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="181"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>انصراف</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="182"/>
         <source>Confirm</source>
-        <translation>확인</translation>
+        <translation>تایید</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="230"/>
         <source>Administrator</source>
-        <translation>관리자</translation>
+        <translation>مدیر</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="232"/>
         <source>Normal User</source>
-        <translation>일반 사용자</translation>
+        <translation>کاربر معمولی</translation>
     </message>
 </context>
 <context>
@@ -2565,7 +2565,7 @@
     <message>
         <location filename="../modules/network/vpnconnectswidget.cpp" line="8"/>
         <source>VPN Connections</source>
-        <translation>VPN 연결</translation>
+        <translation>اتصالات VPN</translation>
     </message>
 </context>
 <context>
@@ -2590,102 +2590,102 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="38"/>
         <source>Page Up</source>
-        <translation>페이지 업</translation>
+        <translation>صفحه بالا</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="39"/>
         <source>Page Down</source>
-        <translation>페이지 다운</translation>
+        <translation>صفحه پایین</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="40"/>
         <source>Left Click</source>
-        <translation>왼쪽 클릭</translation>
+        <translation>چپ کلیک</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="41"/>
         <source>Right Click</source>
-        <translation>오른쪽 클릭</translation>
+        <translation>راست کلیک</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="42"/>
         <source>Middle Click</source>
-        <translation>가운데 클릭</translation>
+        <translation>کلیک وسط</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="60"/>
         <source>Tablet</source>
-        <translation>타블렛</translation>
+        <translation>تبلت</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="74"/>
         <source>Tablet Orientation</source>
-        <translation>타블렛 방향</translation>
+        <translation>جهت تبلت</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="79"/>
         <source>Left Hand</source>
-        <translation>왼쪽 손</translation>
+        <translation>چپ دست</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="80"/>
         <source>Right Hand</source>
-        <translation>오른쪽 손</translation>
+        <translation>راست دست</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="92"/>
         <source>Digital Pen Modes</source>
-        <translation>디지털 펜 모드</translation>
+        <translation>حالت های قلم دیجیتال</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Pen Mode</source>
-        <translation>펜 모드</translation>
+        <translation>حالت قلم</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="98"/>
         <source>Mouse Mode</source>
-        <translation>마우스 모드</translation>
+        <translation>پد ماوس</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="110"/>
         <source>Down Key</source>
-        <translation>아래 키</translation>
+        <translation>کلید پایین</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="129"/>
         <source>Up Key</source>
-        <translation>위 키</translation>
+        <translation>کلید بالا</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="148"/>
         <source>Pressure</source>
-        <translation>압력</translation>
+        <translation>فشار</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="153"/>
         <source>Soft</source>
-        <translation>약하게</translation>
+        <translation>نرم</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="154"/>
         <source>Hard</source>
-        <translation>강하게</translation>
+        <translation>سخت</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="168"/>
         <source>Double-click Space</source>
-        <translation>더블클릭 공간</translation>
+        <translation>فضای دوبار- کلیلک</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="173"/>
         <source>Narrow</source>
-        <translation>좁게</translation>
+        <translation>محدود</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="174"/>
         <source>Wide</source>
-        <translation>넓게</translation>
+        <translation>گسترده</translation>
     </message>
 </context>
 <context>
@@ -2695,22 +2695,22 @@
         <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="108"/>
         <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="153"/>
         <source>Snapshot</source>
-        <translation>스냅샷</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="110"/>
         <source>Confirm</source>
-        <translation>확인</translation>
+        <translation>تایید</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="126"/>
         <source>No camera found.</source>
-        <translation>카메라를 찾을 수 없습니다.</translation>
+        <translation>دوربینی پیدا نشد</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="146"/>
         <source>Again</source>
-        <translation>다시</translation>
+        <translation>مجدداْ</translation>
     </message>
 </context>
 <context>
@@ -2718,12 +2718,12 @@
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="11"/>
         <source>Wired Network</source>
-        <translation>유선 네트워크</translation>
+        <translation>شبکه کابلی</translation>
     </message>
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="20"/>
         <source>Wired Connection</source>
-        <translation>유선 연결</translation>
+        <translation>اتصال کابلی</translation>
     </message>
 </context>
 <context>
@@ -2732,12 +2732,12 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="38"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="55"/>
         <source>Wired Network</source>
-        <translation>유선 네트워크</translation>
+        <translation>شبکه کابلی</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="62"/>
         <source>Network Not Connected</source>
-        <translation>네트워크 연결 안됨</translation>
+        <translation>شبکه کابلی متصل نیست</translation>
     </message>
 </context>
 <context>
@@ -2746,7 +2746,7 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="68"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="194"/>
         <source>Wireless Network</source>
-        <translation>무선 네트워크</translation>
+        <translation>شبکه بیسیم</translation>
     </message>
 </context>
 <context>
@@ -2754,12 +2754,12 @@
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="16"/>
         <source>Wireless Network</source>
-        <translation>무선 네트워크</translation>
+        <translation>شبکه بیسیم</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="232"/>
         <source>Connect to hidden access point</source>
-        <translation>숨겨진 연결 포인트에 연결</translation>
+        <translation>به Access Point مخفی متصل شود</translation>
     </message>
 </context>
 <context>
@@ -2767,22 +2767,22 @@
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="39"/>
         <source>Wireless Network</source>
-        <translation>무선 네트워크</translation>
+        <translation>شبکه بیسیم</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="254"/>
         <source>Auto-connect</source>
-        <translation>자동 연결</translation>
+        <translation>اتصال - خودکار</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="262"/>
         <source>Connect</source>
-        <translation>연결</translation>
+        <translation>اتصال</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="287"/>
         <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation>&lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt; 비밀번호를 입력하세요</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

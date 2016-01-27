@@ -958,52 +958,52 @@
 <context>
     <name>Display</name>
     <message>
-        <location filename="../modules/display/display.cpp" line="50"/>
+        <location filename="../modules/display/display.cpp" line="51"/>
         <source>Display</source>
         <translation>Ekrano</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="144"/>
+        <location filename="../modules/display/display.cpp" line="143"/>
         <source>Display Mode</source>
         <translation>Modo de la ekrano</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="150"/>
+        <location filename="../modules/display/display.cpp" line="149"/>
         <source>Copy</source>
         <translation>Kopii</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="151"/>
+        <location filename="../modules/display/display.cpp" line="150"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>Kopii la enhavojn de via unuaranga ekrano al aliaj ekranoj.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="161"/>
+        <location filename="../modules/display/display.cpp" line="160"/>
         <source>Extend</source>
         <translation>Etendi</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="162"/>
+        <location filename="../modules/display/display.cpp" line="161"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>Etendi vian ekranon enhavojn por montri malsamajn enhavojn sur malsamaj ekranoj.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="173"/>
+        <location filename="../modules/display/display.cpp" line="172"/>
         <source>Custom Settings</source>
         <translation>Personigitaj agordojn</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="174"/>
+        <location filename="../modules/display/display.cpp" line="173"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>Vi povas fari aliajn personaligitajn agordojn al la viaj ekranoj.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="184"/>
+        <location filename="../modules/display/display.cpp" line="183"/>
         <source>Only Displayed on %1</source>
         <translation>Nud montrita sur la %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="185"/>
+        <location filename="../modules/display/display.cpp" line="184"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>Ekrano enhavoj estas montritaj nur sur% 1 sed ne sur aliaj ekranoj.</translation>
     </message>
@@ -1048,12 +1048,12 @@
 <context>
     <name>EditWidget</name>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="162"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="163"/>
         <source>Set</source>
         <translation>Agordi</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="164"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="165"/>
         <source>Cancel</source>
         <translation>Forigi</translation>
     </message>
@@ -1208,47 +1208,47 @@
         <translation>Ripeti prokaston</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="152"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="158"/>
         <source>Repeat Rate</source>
         <translation>Ripeti ritmon</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="167"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="179"/>
         <source>Cursor Blink Rate</source>
         <translation>Intermite kursoro ritmo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="201"/>
         <source>Test Area</source>
         <translation>Areo de provo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="198"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="215"/>
         <source>Caps Lock prompt</source>
         <translation>Majuskla bloko postulo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="214"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="231"/>
         <source>Language</source>
         <translation>Lingvo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="219"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="236"/>
         <source>Keyboard Layout</source>
         <translation>klavara dizajno</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="220"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="237"/>
         <source>Remove Keyboard Layout</source>
         <translation>Forigi klavararanĝon</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="221"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="238"/>
         <source>Add Keyboard Layout</source>
         <translation>Aldoni klavararanĝon</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="309"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="326"/>
         <source>Search</source>
         <translation type="unfinished"/>
     </message>
@@ -1372,6 +1372,31 @@
     </message>
 </context>
 <context>
+    <name>MirrorItemWidget</name>
+    <message>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="96"/>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="105"/>
+        <source>Timeout</source>
+        <extracomment>the mirror cant reachable</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="107"/>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="109"/>
+        <source>Medium</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="111"/>
+        <source>Fast</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MirrorsControlWidget</name>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="18"/>
@@ -1445,7 +1470,7 @@
         <translation>Sistemo informoj</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="20"/>
+        <location filename="../modules/display/display.cpp" line="21"/>
         <source>Display</source>
         <translation>Ekrano</translation>
     </message>
@@ -1527,66 +1552,66 @@
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="53"/>
-        <location filename="../modules/mouse/mouse.cpp" line="152"/>
+        <location filename="../modules/mouse/mouse.cpp" line="172"/>
         <source>Primary Button</source>
         <translation> Unuaranga butono</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="56"/>
-        <location filename="../modules/mouse/mouse.cpp" line="131"/>
+        <location filename="../modules/mouse/mouse.cpp" line="139"/>
         <source>Left Button</source>
         <translation>Maldekstra butono</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="57"/>
-        <location filename="../modules/mouse/mouse.cpp" line="132"/>
+        <location filename="../modules/mouse/mouse.cpp" line="140"/>
         <source>Right Button</source>
         <translation>Dekstra butono</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="68"/>
-        <location filename="../modules/mouse/mouse.cpp" line="153"/>
+        <location filename="../modules/mouse/mouse.cpp" line="173"/>
         <source>Pointer Speed</source>
         <translation>Indikilrapido</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="81"/>
-        <location filename="../modules/mouse/mouse.cpp" line="154"/>
+        <location filename="../modules/mouse/mouse.cpp" line="85"/>
+        <location filename="../modules/mouse/mouse.cpp" line="174"/>
         <source>Double-click Speed</source>
         <translation>Eltempiĝo de duobla alklako</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="94"/>
+        <location filename="../modules/mouse/mouse.cpp" line="102"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Malŝalti la tuŝplaton kiam al la kunligo de la muso</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="120"/>
+        <location filename="../modules/mouse/mouse.cpp" line="128"/>
         <source>Touchpad</source>
         <translation>Tuŝbloko</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="155"/>
+        <location filename="../modules/mouse/mouse.cpp" line="175"/>
         <source>Drag Threshold</source>
         <translation>Trensojlo</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="156"/>
+        <location filename="../modules/mouse/mouse.cpp" line="176"/>
         <source>Natural Scrolling</source>
         <translation>Natura rulado</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="157"/>
+        <location filename="../modules/mouse/mouse.cpp" line="177"/>
         <source>Tap to click</source>
         <translation>Frapi por klaki</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="158"/>
+        <location filename="../modules/mouse/mouse.cpp" line="178"/>
         <source>Two-finger scrolling</source>
         <translation>Du-fingroj rulado</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="159"/>
+        <location filename="../modules/mouse/mouse.cpp" line="179"/>
         <source>Edge scrolling</source>
         <translation>Bordrulado</translation>
     </message>
@@ -1750,12 +1775,12 @@
 <context>
     <name>NormalWidget</name>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="84"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="85"/>
         <source>Double-click this area to change your time</source>
         <translation>Duobla alklaki ĉi tiun areon por ŝanĝi vian tempon</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="111"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="112"/>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="252"/>
         <source>dddd, dd MMMM yyyy</source>
         <translation>yyyy-MM-dd dddd</translation>

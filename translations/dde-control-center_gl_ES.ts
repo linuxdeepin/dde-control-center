@@ -796,7 +796,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="200"/>
         <source>Date&amp;Time settings(_T)</source>
-        <translation type="unfinished"/>
+        <translation>Axustes da data e hora (_T)</translation>
     </message>
 </context>
 <context>
@@ -958,52 +958,52 @@
 <context>
     <name>Display</name>
     <message>
-        <location filename="../modules/display/display.cpp" line="50"/>
+        <location filename="../modules/display/display.cpp" line="51"/>
         <source>Display</source>
         <translation>Pantalla</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="144"/>
+        <location filename="../modules/display/display.cpp" line="143"/>
         <source>Display Mode</source>
         <translation>Modo da pantalla</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="150"/>
+        <location filename="../modules/display/display.cpp" line="149"/>
         <source>Copy</source>
         <translation>Copiar</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="151"/>
+        <location filename="../modules/display/display.cpp" line="150"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>Copiar o contido da pantalla principal nas outras pantallas.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="161"/>
+        <location filename="../modules/display/display.cpp" line="160"/>
         <source>Extend</source>
         <translation>Extender</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="162"/>
+        <location filename="../modules/display/display.cpp" line="161"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>Amplíe os contidos da súa pantalla para amosar diferentes contidos en diferentes pantallas.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="173"/>
+        <location filename="../modules/display/display.cpp" line="172"/>
         <source>Custom Settings</source>
         <translation>Configuración personalizada</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="174"/>
+        <location filename="../modules/display/display.cpp" line="173"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>Pode engadir configuracións personalizadas ás súas pantallas.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="184"/>
+        <location filename="../modules/display/display.cpp" line="183"/>
         <source>Only Displayed on %1</source>
         <translation>Só se amosa en %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="185"/>
+        <location filename="../modules/display/display.cpp" line="184"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>Os contidos da pantalla só se amosan en %1, pero non noutras pantallas</translation>
     </message>
@@ -1048,12 +1048,12 @@
 <context>
     <name>EditWidget</name>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="162"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="163"/>
         <source>Set</source>
         <translation>Aplicar</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="164"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="165"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -1208,47 +1208,47 @@
         <translation>Repetir atraso</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="152"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="158"/>
         <source>Repeat Rate</source>
         <translation>Taxa de repetición</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="167"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="179"/>
         <source>Cursor Blink Rate</source>
         <translation>Taxa de parpadeo do cursor</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="201"/>
         <source>Test Area</source>
         <translation>Área de probas</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="198"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="215"/>
         <source>Caps Lock prompt</source>
         <translation>Indicador do Bloq Maiús</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="214"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="231"/>
         <source>Language</source>
         <translation>Idioma</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="219"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="236"/>
         <source>Keyboard Layout</source>
         <translation>Disposición do teclado</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="220"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="237"/>
         <source>Remove Keyboard Layout</source>
         <translation>Eliminar disposición do teclado</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="221"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="238"/>
         <source>Add Keyboard Layout</source>
         <translation>Engadir disposición do teclado</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="309"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="326"/>
         <source>Search</source>
         <translation>Buscar</translation>
     </message>
@@ -1372,11 +1372,36 @@
     </message>
 </context>
 <context>
+    <name>MirrorItemWidget</name>
+    <message>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="96"/>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="105"/>
+        <source>Timeout</source>
+        <extracomment>the mirror cant reachable</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="107"/>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="109"/>
+        <source>Medium</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="111"/>
+        <source>Fast</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MirrorsControlWidget</name>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="18"/>
         <source>Switch</source>
-        <translation type="unfinished"/>
+        <translation>Mudar</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="19"/>
@@ -1404,7 +1429,7 @@
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="31"/>
         <source>Restore the connection</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar a conexión</translation>
     </message>
 </context>
 <context>
@@ -1445,7 +1470,7 @@
         <translation>Información do sistema</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="20"/>
+        <location filename="../modules/display/display.cpp" line="21"/>
         <source>Display</source>
         <translation>Pantalla</translation>
     </message>
@@ -1527,66 +1552,66 @@
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="53"/>
-        <location filename="../modules/mouse/mouse.cpp" line="152"/>
+        <location filename="../modules/mouse/mouse.cpp" line="172"/>
         <source>Primary Button</source>
         <translation>Botón primario</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="56"/>
-        <location filename="../modules/mouse/mouse.cpp" line="131"/>
+        <location filename="../modules/mouse/mouse.cpp" line="139"/>
         <source>Left Button</source>
         <translation>Botón primario</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="57"/>
-        <location filename="../modules/mouse/mouse.cpp" line="132"/>
+        <location filename="../modules/mouse/mouse.cpp" line="140"/>
         <source>Right Button</source>
         <translation>Botón secundario</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="68"/>
-        <location filename="../modules/mouse/mouse.cpp" line="153"/>
+        <location filename="../modules/mouse/mouse.cpp" line="173"/>
         <source>Pointer Speed</source>
         <translation>Velociade do punteiro</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="81"/>
-        <location filename="../modules/mouse/mouse.cpp" line="154"/>
+        <location filename="../modules/mouse/mouse.cpp" line="85"/>
+        <location filename="../modules/mouse/mouse.cpp" line="174"/>
         <source>Double-click Speed</source>
         <translation>Velocidade do duplo clic</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="94"/>
+        <location filename="../modules/mouse/mouse.cpp" line="102"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Desactivar a área táctil ao conectar o rato</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="120"/>
+        <location filename="../modules/mouse/mouse.cpp" line="128"/>
         <source>Touchpad</source>
         <translation>Área táctil</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="155"/>
+        <location filename="../modules/mouse/mouse.cpp" line="175"/>
         <source>Drag Threshold</source>
         <translation>Umbral de arrastre</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="156"/>
+        <location filename="../modules/mouse/mouse.cpp" line="176"/>
         <source>Natural Scrolling</source>
         <translation>Desprazamento natural</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="157"/>
+        <location filename="../modules/mouse/mouse.cpp" line="177"/>
         <source>Tap to click</source>
         <translation>Tocar para facer clic</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="158"/>
+        <location filename="../modules/mouse/mouse.cpp" line="178"/>
         <source>Two-finger scrolling</source>
         <translation>Desprazamento con dous dedos</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="159"/>
+        <location filename="../modules/mouse/mouse.cpp" line="179"/>
         <source>Edge scrolling</source>
         <translation>Desprazamento no bordo</translation>
     </message>
@@ -1750,12 +1775,12 @@
 <context>
     <name>NormalWidget</name>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="84"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="85"/>
         <source>Double-click this area to change your time</source>
         <translation>Fai duplo clic nesta área para trocar a hora</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="111"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="112"/>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="252"/>
         <source>dddd, dd MMMM yyyy</source>
         <translation>yyyy-MM-dd dddd</translation>
@@ -2271,7 +2296,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="41"/>
         <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="45"/>

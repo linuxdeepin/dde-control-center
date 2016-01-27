@@ -755,29 +755,28 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="138"/>
         <source>MMM dd</source>
-        <translation>МММ дд</translation>
+        <translation>MMM dd</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="139"/>
         <source> hh:mm </source>
-        <translation>год:хв</translation>
+        <translation>hh:mm</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="139"/>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="273"/>
         <source> hh:mm A</source>
-        <translation> hh:mm A
-</translation>
+        <translation> hh:mm A</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="140"/>
         <source>ddd</source>
-        <translation>ддд</translation>
+        <translation>ddd</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="141"/>
         <source>ddd MMM dd</source>
-        <translation>ддд МММ дд</translation>
+        <translation>ddd MMM dd</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="194"/>
@@ -959,52 +958,52 @@
 <context>
     <name>Display</name>
     <message>
-        <location filename="../modules/display/display.cpp" line="50"/>
+        <location filename="../modules/display/display.cpp" line="51"/>
         <source>Display</source>
         <translation>Дисплей</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="144"/>
+        <location filename="../modules/display/display.cpp" line="143"/>
         <source>Display Mode</source>
         <translation>Режим відтворення</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="150"/>
+        <location filename="../modules/display/display.cpp" line="149"/>
         <source>Copy</source>
         <translation>Копіювати</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="151"/>
+        <location filename="../modules/display/display.cpp" line="150"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>Копіювати вміст основного екрану до інших екранів.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="161"/>
+        <location filename="../modules/display/display.cpp" line="160"/>
         <source>Extend</source>
         <translation>Продовжити</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="162"/>
+        <location filename="../modules/display/display.cpp" line="161"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>Розширювати вміст екрану для відображення різного вмісту на різних екранах.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="173"/>
+        <location filename="../modules/display/display.cpp" line="172"/>
         <source>Custom Settings</source>
         <translation>Користувацькі Налаштування</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="174"/>
+        <location filename="../modules/display/display.cpp" line="173"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>Ви можете застосовувати інші користувацькі налаштування до ваших екранів.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="184"/>
+        <location filename="../modules/display/display.cpp" line="183"/>
         <source>Only Displayed on %1</source>
         <translation>Відображається лише на %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="185"/>
+        <location filename="../modules/display/display.cpp" line="184"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>Вміст екрану відображається лише на %1, але не на інші екрани.</translation>
     </message>
@@ -1049,12 +1048,12 @@
 <context>
     <name>EditWidget</name>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="162"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="163"/>
         <source>Set</source>
         <translation>Встановити</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="164"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="165"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
@@ -1209,47 +1208,47 @@
         <translation>Повторити затримку</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="152"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="158"/>
         <source>Repeat Rate</source>
         <translation>Повторити оцінювання</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="167"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="179"/>
         <source>Cursor Blink Rate</source>
         <translation>Швидкість блимання курсору</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="201"/>
         <source>Test Area</source>
         <translation>Тестова область</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="198"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="215"/>
         <source>Caps Lock prompt</source>
         <translation>Підказка Caps Lock</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="214"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="231"/>
         <source>Language</source>
         <translation>Мова</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="219"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="236"/>
         <source>Keyboard Layout</source>
         <translation>Розкладка клавіатури</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="220"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="237"/>
         <source>Remove Keyboard Layout</source>
         <translation>Видалити розкладку клавіатури</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="221"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="238"/>
         <source>Add Keyboard Layout</source>
         <translation>Додати Розкладку Клавіатури</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="309"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="326"/>
         <source>Search</source>
         <translation>Пошук</translation>
     </message>
@@ -1373,6 +1372,31 @@
     </message>
 </context>
 <context>
+    <name>MirrorItemWidget</name>
+    <message>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="96"/>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="105"/>
+        <source>Timeout</source>
+        <extracomment>the mirror cant reachable</extracomment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="107"/>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="109"/>
+        <source>Medium</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/system_info/mirroritemwidget.cpp" line="111"/>
+        <source>Fast</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MirrorsControlWidget</name>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="18"/>
@@ -1446,7 +1470,7 @@
         <translation>Інформація про систему</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="20"/>
+        <location filename="../modules/display/display.cpp" line="21"/>
         <source>Display</source>
         <translation>Дисплей</translation>
     </message>
@@ -1528,66 +1552,66 @@
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="53"/>
-        <location filename="../modules/mouse/mouse.cpp" line="152"/>
+        <location filename="../modules/mouse/mouse.cpp" line="172"/>
         <source>Primary Button</source>
         <translation>Перша кнопка</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="56"/>
-        <location filename="../modules/mouse/mouse.cpp" line="131"/>
+        <location filename="../modules/mouse/mouse.cpp" line="139"/>
         <source>Left Button</source>
         <translation>Ліва кнопка</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="57"/>
-        <location filename="../modules/mouse/mouse.cpp" line="132"/>
+        <location filename="../modules/mouse/mouse.cpp" line="140"/>
         <source>Right Button</source>
         <translation>Права клавіша</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="68"/>
-        <location filename="../modules/mouse/mouse.cpp" line="153"/>
+        <location filename="../modules/mouse/mouse.cpp" line="173"/>
         <source>Pointer Speed</source>
         <translation>Покажчик швидкості</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="81"/>
-        <location filename="../modules/mouse/mouse.cpp" line="154"/>
+        <location filename="../modules/mouse/mouse.cpp" line="85"/>
+        <location filename="../modules/mouse/mouse.cpp" line="174"/>
         <source>Double-click Speed</source>
         <translation>Швидкість подвійного кліку</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="94"/>
+        <location filename="../modules/mouse/mouse.cpp" line="102"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Відключати сенсорну панель при вставці миші</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="120"/>
+        <location filename="../modules/mouse/mouse.cpp" line="128"/>
         <source>Touchpad</source>
         <translation>Сенсорна панель</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="155"/>
+        <location filename="../modules/mouse/mouse.cpp" line="175"/>
         <source>Drag Threshold</source>
         <translation>Перетягнути позицію</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="156"/>
+        <location filename="../modules/mouse/mouse.cpp" line="176"/>
         <source>Natural Scrolling</source>
         <translation>Природне прокручування</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="157"/>
+        <location filename="../modules/mouse/mouse.cpp" line="177"/>
         <source>Tap to click</source>
         <translation>Торкніться для натискання</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="158"/>
+        <location filename="../modules/mouse/mouse.cpp" line="178"/>
         <source>Two-finger scrolling</source>
         <translation>Гортання двома пальцями</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="159"/>
+        <location filename="../modules/mouse/mouse.cpp" line="179"/>
         <source>Edge scrolling</source>
         <translation>Прокрутка через край екрана</translation>
     </message>
@@ -1752,12 +1776,12 @@
 <context>
     <name>NormalWidget</name>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="84"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="85"/>
         <source>Double-click this area to change your time</source>
         <translation>Двічі натисніть на цю область, щоб змінити час</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timewidget.cpp" line="111"/>
+        <location filename="../modules/datetime/timewidget.cpp" line="112"/>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="252"/>
         <source>dddd, dd MMMM yyyy</source>
         <translation>yyyy-MM-dd dddd</translation>

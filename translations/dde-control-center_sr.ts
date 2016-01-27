@@ -1,20 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ko" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr" version="2.1">
 <context>
     <name>AbstractPanel</name>
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="65"/>
         <source>Remote Assistance</source>
-        <translation>원격 지원</translation>
+        <translation>Удаљена Помођ</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="68"/>
         <source>Ok</source>
-        <translation>확인</translation>
+        <translation>У реду</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="74"/>
         <source>No network connections are available, please retry after connected</source>
-        <translation>이용할 수 있는 네트워크 연결이 없습니다. 연결 후 다시 시도하시기 바랍니다</translation>
+        <translation>Нема доступне везе, пробајте поново после прикљућивање</translation>
     </message>
 </context>
 <context>
@@ -23,32 +23,32 @@
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="15"/>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="71"/>
         <source>Accessing</source>
-        <translation>접속</translation>
+        <translation>Приступам</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="82"/>
         <source>You are accessing the desktop shared by other users, you can choose to continue or disconnect</source>
-        <translation>귀하는 다른 사용자에 의해 공유된 데스크톱에 접근하는 중입니다, 계속하거나 연결 해제를 선택하실 수 있습니다</translation>
+        <translation>Приступате радној површини који други корисници деле, можете да одаберете да наставите или да прекинете</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="92"/>
         <source>Remote Assistance</source>
-        <translation>원격 도움</translation>
+        <translation>Удаљена Помођ</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="102"/>
         <source>Failed to establish the connection, you can retry to connect</source>
-        <translation>연결에 실패했습니다, 다시 연결을 시도해주십시오</translation>
+        <translation>Нисам успео да се повежем, пробајте поново да се повежете</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="103"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="108"/>
         <source>Retry</source>
-        <translation>재시도 </translation>
+        <translation>Поново</translation>
     </message>
 </context>
 <context>
@@ -56,12 +56,12 @@
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="99"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="101"/>
         <source>Confirm</source>
-        <translation>확인</translation>
+        <translation>Потврди</translation>
     </message>
 </context>
 <context>
@@ -69,22 +69,22 @@
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="35"/>
         <source>User Accounts</source>
-        <translation>사용자 계정</translation>
+        <translation>Кориснички налози</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="71"/>
         <source>User List</source>
-        <translation>사용자 목록</translation>
+        <translation>Списак Корисника</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="225"/>
         <source>Add Account</source>
-        <translation>계정 추가</translation>
+        <translation>Додај Налог</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="259"/>
         <source>Delete Account</source>
-        <translation>계정 삭제</translation>
+        <translation>Уклони Налог</translation>
     </message>
 </context>
 <context>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="76"/>
         <source>Normal User</source>
-        <translation>일반 사용자</translation>
+        <translation>Обичан Корисник</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="77"/>
         <source>Administrator</source>
-        <translation>관리자</translation>
+        <translation>Управник</translation>
     </message>
 </context>
 <context>
@@ -105,17 +105,17 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="193"/>
         <source>Other devices</source>
-        <translation>다른 장치</translation>
+        <translation>Други уређаји</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="215"/>
         <source>My devices</source>
-        <translation>내 장치</translation>
+        <translation>Моји уређаји</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="222"/>
         <source>Open bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>주변의 장치를 찾기 위해 블루투스를 여세요(스피커, 키보드, 마우스)</translation>
+        <translation>Упали блутус да нађеш уређаји у близини (звучници, тастатура, миш)</translation>
     </message>
 </context>
 <context>
@@ -123,12 +123,12 @@
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="20"/>
         <source>Add Network Connection</source>
-        <translation>네트워크 연결 추가</translation>
+        <translation>Додај мрежу</translation>
     </message>
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="27"/>
         <source>Next</source>
-        <translation>다음</translation>
+        <translation>Следеће</translation>
     </message>
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="32"/>
@@ -138,7 +138,7 @@
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="32"/>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation>ВПН</translation>
     </message>
 </context>
 <context>
@@ -146,27 +146,27 @@
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="14"/>
         <source>Add PPPoE Connection</source>
-        <translation>PPPoE 연결 추가</translation>
+        <translation>Додај PPPoE</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="17"/>
         <source>Add</source>
-        <translation>추가</translation>
+        <translation>Додај</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="19"/>
         <source>Name</source>
-        <translation>이름</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="20"/>
         <source>Username</source>
-        <translation>사용자 이름</translation>
+        <translation>Корисничко Име</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="23"/>
         <source>Password</source>
-        <translation>암호</translation>
+        <translation>Лозинка</translation>
     </message>
 </context>
 <context>
@@ -174,7 +174,7 @@
     <message>
         <location filename="../widgets/addrmdoneline.cpp" line="16"/>
         <source>Done</source>
-        <translation>완료</translation>
+        <translation>Готово</translation>
     </message>
 </context>
 <context>
@@ -182,22 +182,22 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="30"/>
         <source>VPN Type</source>
-        <translation>VPN 타입</translation>
+        <translation>Врста ВПН</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="47"/>
         <source>Basic Information</source>
-        <translation>기본 정보</translation>
+        <translation>Основни подаци</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="64"/>
         <source>Add</source>
-        <translation>추가</translation>
+        <translation>Додај</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="69"/>
         <source>Name</source>
-        <translation>이름</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="70"/>
@@ -206,7 +206,7 @@
         <location filename="../modules/network/addvpnpage.cpp" line="118"/>
         <location filename="../modules/network/addvpnpage.cpp" line="124"/>
         <source>Gateway</source>
-        <translation>게이트웨이</translation>
+        <translation>Везни чвор</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="71"/>
@@ -214,7 +214,7 @@
         <location filename="../modules/network/addvpnpage.cpp" line="119"/>
         <location filename="../modules/network/addvpnpage.cpp" line="125"/>
         <source>Username</source>
-        <translation>사용자 이름</translation>
+        <translation>Корисничко Име</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="73"/>
@@ -224,139 +224,139 @@
         <location filename="../modules/network/addvpnpage.cpp" line="127"/>
         <location filename="../modules/network/addvpnpage.cpp" line="132"/>
         <source>Ask for Pwd</source>
-        <translation>암호 요청</translation>
+        <translation>Затражи лозинку</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="75"/>
         <location filename="../modules/network/addvpnpage.cpp" line="99"/>
         <location filename="../modules/network/addvpnpage.cpp" line="123"/>
         <source>Password</source>
-        <translation>암호</translation>
+        <translation>Лозинка</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="79"/>
         <location filename="../modules/network/addvpnpage.cpp" line="101"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>CA дозвола</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="80"/>
         <source>Proxy</source>
-        <translation>프록시</translation>
+        <translation>Представитељ (прокси)</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="82"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>시스코 보안 데스크톱 Trojan 허용</translation>
+        <translation>Омогући Cisco безбедност тројански коњ на радну површину</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="84"/>
         <source>CSD Script</source>
-        <translation>CSD 스크립트</translation>
+        <translation>CSD скрипта</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="86"/>
         <location filename="../modules/network/addvpnpage.cpp" line="103"/>
         <source>User Cert</source>
-        <translation>사용자 Cert</translation>
+        <translation>Корисничка дозвола</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="88"/>
         <location filename="../modules/network/addvpnpage.cpp" line="105"/>
         <source>Private Key</source>
-        <translation>개인키</translation>
+        <translation>Лични кљућ</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="90"/>
         <source>Use FSID for Key Passphrase</source>
-        <translation>키 암호화에 FSID 사용</translation>
+        <translation>Узе ФСИД као фразу за пролаз</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="93"/>
         <source>Auth Type</source>
-        <translation>인증 타입</translation>
+        <translation>Тип дозволе</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="109"/>
         <source>Private Pwd</source>
-        <translation>개인 Pwd</translation>
+        <translation>Лична лозинка</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="111"/>
         <source>Static Key</source>
-        <translation>정적 키</translation>
+        <translation>Статучни кључ</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="113"/>
         <source>Customize Key Direction</source>
-        <translation>사용자 정의된 키 안내</translation>
+        <translation>Прилагоди смер кључа</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="115"/>
         <source>Key Direction</source>
-        <translation>키 안내</translation>
+        <translation>Смер кључа</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="116"/>
         <source>Remote IP</source>
-        <translation>원격 IP</translation>
+        <translation>Удаљени ИП</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="117"/>
         <source>Local IP</source>
-        <translation>로컬 IP</translation>
+        <translation>Локални ИП</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="129"/>
         <source>User Pwd</source>
-        <translation>사용자 암호</translation>
+        <translation>Корисничка лозинка</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="130"/>
         <location filename="../modules/network/addvpnpage.cpp" line="142"/>
         <source>Group Name</source>
-        <translation>그룹 이름</translation>
+        <translation>Име скупа</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="134"/>
         <source>Group Pwd</source>
-        <translation>그룹 암호</translation>
+        <translation>Лозинка скупа</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="136"/>
         <source>Use Hybrid Authentication</source>
-        <translation>하이브리드 인증 사용</translation>
+        <translation>Употреби хибридне дозволе</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="138"/>
         <source>CA File</source>
-        <translation>CA 파일</translation>
+        <translation>CA датотека</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="140"/>
         <source>Enable IPsec</source>
-        <translation>IPsec 사용</translation>
+        <translation>Омогуђи ИПсек</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="144"/>
         <source>Group ID</source>
-        <translation>그룹 ID</translation>
+        <translation>ИД скупа</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="146"/>
         <source>Pre-Shared Key</source>
-        <translation>사전 공유 킵</translation>
+        <translation>Унапредно-дељени кључ</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="148"/>
         <location filename="../modules/network/addvpnpage.cpp" line="150"/>
         <source>Use MPPE</source>
-        <translation>MPPE 사용</translation>
+        <translation>Употреби МППЕ</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="152"/>
         <source>Automatically connect</source>
-        <translation>자동 연결</translation>
+        <translation>Повежи аутоматски</translation>
     </message>
 </context>
 <context>
@@ -364,7 +364,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/appframe.cpp" line="33"/>
         <source>Applications</source>
-        <translation>응용프로그램</translation>
+        <translation>Апликације</translation>
     </message>
 </context>
 <context>
@@ -372,7 +372,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="33"/>
         <source>Update</source>
-        <translation>업데이트</translation>
+        <translation>Ажурирања</translation>
     </message>
 </context>
 <context>
@@ -380,12 +380,12 @@
     <message>
         <location filename="../widgets/applybuttonline.cpp" line="5"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../widgets/applybuttonline.cpp" line="7"/>
         <source>Apply</source>
-        <translation>적용</translation>
+        <translation>Примени</translation>
     </message>
 </context>
 <context>
@@ -393,7 +393,7 @@
     <message>
         <location filename="../modules/bluetooth/bluetoothmainwidget.cpp" line="243"/>
         <source>Bluetooth</source>
-        <translation>블루투스</translation>
+        <translation>Блутут</translation>
     </message>
 </context>
 <context>
@@ -402,7 +402,7 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="39"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="51"/>
         <source>Network</source>
-        <translation>네트워크</translation>
+        <translation>Мрежа</translation>
     </message>
 </context>
 <context>
@@ -410,12 +410,12 @@
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="10"/>
         <source>Disconnect</source>
-        <translation>연결 해제</translation>
+        <translation>Прекид конекције</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="12"/>
         <source>Ignore</source>
-        <translation>무시</translation>
+        <translation>Занемари</translation>
     </message>
 </context>
 <context>
@@ -423,89 +423,89 @@
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="25"/>
         <source>Connect to hidden access point</source>
-        <translation>숨겨진 연결 포인트에 연결</translation>
+        <translation>Повежи се за удаљено приступно место</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="39"/>
         <source>SSID</source>
-        <translation>SSID</translation>
+        <translation>Место повезивања - &quot;ССИД&quot;</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="43"/>
         <source>Security</source>
-        <translation>보안</translation>
+        <translation>Безбедност</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="45"/>
         <source>Inner Auth</source>
-        <translation>내부 인증</translation>
+        <translation>Унутрашња дозвола</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="47"/>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="83"/>
         <source>Ask for Pwd</source>
-        <translation>암호 요청</translation>
+        <translation>Затражи лозинку</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="56"/>
         <source>Key</source>
-        <translation>키</translation>
+        <translation>Кључ</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="59"/>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="81"/>
         <source>Password</source>
-        <translation>암호</translation>
+        <translation>Лозинка</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="61"/>
         <source>EAP Auth</source>
-        <translation>EAP 인증</translation>
+        <translation>Проширени протокол потврда идентитета - &quot;ЕАП&quot;</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="63"/>
         <source>Identity</source>
-        <translation>신원</translation>
+        <translation>Личност</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="65"/>
         <source>Anonymous ID</source>
-        <translation>익명 ID</translation>
+        <translation>Скривени ИД</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="67"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>CA дозвола</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="69"/>
         <source>User Cert</source>
-        <translation>사용자 Cert</translation>
+        <translation>Корисничка дозвола</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="71"/>
         <source>Provisioning</source>
-        <translation>제공</translation>
+        <translation>Снабдевање</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="73"/>
         <source>PAC file</source>
-        <translation>PAC 파일</translation>
+        <translation>Представитељска датотека за аутоматска подешавања - &quot;ПАЦ&quot;</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="75"/>
         <source>PEAP Version</source>
-        <translation>PEAP 버전</translation>
+        <translation>Верзија заштиђеног раширеног протокола потврдних идентитета - &quot;ПЕАП&quot;</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="78"/>
         <source>Private Key</source>
-        <translation>개인키</translation>
+        <translation>Лични кљућ</translation>
     </message>
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="85"/>
         <source>Private Pwd</source>
-        <translation>개인 Pwd</translation>
+        <translation>Лична лозинка</translation>
     </message>
 </context>
 <context>
@@ -513,7 +513,7 @@
     <message>
         <location filename="../modules/remote_assistance/view/connectedview.cpp" line="23"/>
         <source>Disconnect</source>
-        <translation>연결 해제</translation>
+        <translation>Прекид конекције</translation>
     </message>
 </context>
 <context>
@@ -521,17 +521,17 @@
     <message>
         <location filename="../modules/remote_assistance/view/connectingview.cpp" line="22"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/connectingview.cpp" line="58"/>
         <source>Establishing connection, please wait...</source>
-        <translation>연결 구성 중, 기다리세요...</translation>
+        <translation>Повезујем се, сачекајте...</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/connectingview.cpp" line="75"/>
         <source>This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully</source>
-        <translation>이 패널은 자동으로 숨겨지며 이 연결이 성공적으로 이루어진 다음 원격 세션 윈도우가 바탕 화면에 열릴 것입니다</translation>
+        <translation>Овај панел биђе сакривен аутоматски и удаљено приступно прозорче биђе отворено на радној површини после успешно повезивање</translation>
     </message>
 </context>
 <context>
@@ -539,57 +539,57 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="54"/>
         <source>Add User</source>
-        <translation>사용자 추가</translation>
+        <translation>Додај Корисника</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="84"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="300"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="306"/>
         <source>new user</source>
-        <translation>새로운 사용자</translation>
+        <translation>Нови корисник</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="87"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="96"/>
         <source>Normal User</source>
-        <translation>일반 사용자</translation>
+        <translation>Обичан Корисник</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
         <source>Administrator</source>
-        <translation>관리자</translation>
+        <translation>Администратор</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="133"/>
         <source>Username</source>
-        <translation>사용자 이름</translation>
+        <translation>Корисничко Име</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="134"/>
         <source>Password</source>
-        <translation>암호</translation>
+        <translation>Лозинка</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="135"/>
         <source>Repeat Password</source>
-        <translation>암호 반복</translation>
+        <translation>Поново Унеси Лозинку</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="136"/>
         <source>Account Type</source>
-        <translation>계정 타입</translation>
+        <translation>Врста Налога</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="137"/>
         <source>Auto-login</source>
-        <translation>자동 로그인</translation>
+        <translation>Аутоматко Логовање</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="174"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="179"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="266"/>
         <source>Password can not be empty.</source>
-        <translation>비밀번호는 빈칸일 수 없습니다.</translation>
+        <translation>Лозинка не може да буде празна.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="183"/>
@@ -598,14 +598,14 @@
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="316"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="323"/>
         <source>The two passwords do not match.</source>
-        <translation>암호가 틀립니다.</translation>
+        <translation>Лозинке се не поклапају.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="251"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="261"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="276"/>
         <source>Username can not be empty.</source>
-        <translation>사용자 이름은 비워둘 수 없습니다.</translation>
+        <translation>Корисничко име не сме бити празно</translation>
     </message>
 </context>
 <context>
@@ -613,99 +613,99 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="29"/>
         <source>Normal</source>
-        <translation>표준</translation>
+        <translation>Природно</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="30"/>
         <source>Rotate right</source>
-        <translation>오른쪽으로 회전</translation>
+        <translation>Окрени десно</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="31"/>
         <source>Upside down</source>
-        <translation>뒤집기</translation>
+        <translation>Наопачки</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="32"/>
         <source>Rotate left</source>
-        <translation>왼쪽으로 회전</translation>
+        <translation>Окрени лево</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="70"/>
         <location filename="../modules/display/customsettings.cpp" line="77"/>
         <source>Brightness</source>
-        <translation>밝기</translation>
+        <translation>Светлост</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="87"/>
         <source>Enable Monitor</source>
-        <translation>모니터 활성화</translation>
+        <translation>Омогуђи екран</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="100"/>
         <source>Please select the monitor you want to enable (checkable)</source>
-        <translation>활성화(확인 가능)할 모니터를 선택하세요</translation>
+        <translation>Одаберите екран који желите да употребите (проверљив)</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="105"/>
         <source>Primary</source>
-        <translation>주요</translation>
+        <translation>Основни</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="128"/>
         <source>Resolution</source>
-        <translation>해상도</translation>
+        <translation>Резолуција</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="132"/>
         <source>Rotation</source>
-        <translation>회전</translation>
+        <translation>Обртај</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="151"/>
         <location filename="../modules/display/customsettings.cpp" line="180"/>
         <location filename="../modules/display/customsettings.cpp" line="199"/>
         <source>Monitor %1</source>
-        <translation>%1 모니터</translation>
+        <translation>Екран %1</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="299"/>
         <location filename="../modules/display/customsettings.cpp" line="305"/>
         <source>Apply</source>
-        <translation>적용</translation>
+        <translation>Примени</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="301"/>
         <location filename="../modules/display/customsettings.cpp" line="307"/>
         <location filename="../modules/display/customsettings.h" line="43"/>
         <source>Confirm</source>
-        <translation>확인</translation>
+        <translation>Потврди</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="329"/>
         <source>Do you want to keep these display settings?</source>
-        <translation>디스플레이 설정을 유지하시겠습니까?</translation>
+        <translation>Да ли желите да сачувате подешавања екрана?</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="330"/>
         <location filename="../modules/display/customsettings.cpp" line="338"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
-        <translation>&lt;font color=&apos;white&apos;&gt; %1&lt;/font&gt; 초에서 이전 재생 설정으로 되돌아가기</translation>
+        <translation>Врађамо на претходне вредности за &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; сек.</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="332"/>
         <source>Revert</source>
-        <translation>복구</translation>
+        <translation>Врати Претходно</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="333"/>
         <source>Keep Changes</source>
-        <translation>변경사항 유지</translation>
+        <translation>Задржи Промене</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.h" line="42"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
 </context>
 <context>
@@ -713,23 +713,23 @@
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="20"/>
         <source>Custom options</source>
-        <translation>사용자 지정 옵션 </translation>
+        <translation>Прилагоди поставке</translation>
     </message>
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="24"/>
         <source>Turn off the display</source>
-        <translation>화면 끄기</translation>
+        <translation>Угаси екран</translation>
     </message>
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="31"/>
         <location filename="../modules/power/dextendboard.cpp" line="43"/>
         <source>Never</source>
-        <translation>절대로 하지 않음</translation>
+        <translation>Никада</translation>
     </message>
     <message>
         <location filename="../modules/power/dextendboard.cpp" line="35"/>
         <source>Suspend</source>
-        <translation>일시 정지</translation>
+        <translation>Обустави</translation>
     </message>
 </context>
 <context>
@@ -737,17 +737,17 @@
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="9"/>
         <source>Set Date</source>
-        <translation>날짜 설정</translation>
+        <translation>Постави Датум</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="17"/>
         <source>Confirm</source>
-        <translation>확인</translation>
+        <translation>Потврди</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="18"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
 </context>
 <context>
@@ -755,48 +755,48 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="138"/>
         <source>MMM dd</source>
-        <translation>MMM dd</translation>
+        <translation>МММ дд</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="139"/>
         <source> hh:mm </source>
-        <translation> hh:mm </translation>
+        <translation>чч:мм</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="139"/>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="273"/>
         <source> hh:mm A</source>
-        <translation>hh:mm A</translation>
+        <translation>чч:мм А</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="140"/>
         <source>ddd</source>
-        <translation>ddd</translation>
+        <translation>ддд</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="141"/>
         <source>ddd MMM dd</source>
-        <translation>ddd MMM dd</translation>
+        <translation>ддд МММ дд</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="194"/>
         <source>Switch display mode</source>
-        <translation>디스플레이 모드 전환</translation>
+        <translation>Пребаци начин екрана</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="196"/>
         <source>Show week</source>
-        <translation>주 보기</translation>
+        <translation>Покажи недељу</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="197"/>
         <source>Show date</source>
-        <translation>쇼 날짜</translation>
+        <translation>Покажи датум</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="200"/>
         <source>Date&amp;Time settings(_T)</source>
-        <translation type="unfinished"/>
+        <translation>Штеловања датума и времена(_T)</translation>
     </message>
 </context>
 <context>
@@ -804,32 +804,32 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="44"/>
         <source>Date</source>
-        <translation>날짜</translation>
+        <translation>Датум</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="52"/>
         <source>Time Zone</source>
-        <translation>표준시간대 </translation>
+        <translation>Временска Зона</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="59"/>
         <source>Sync Automatically</source>
-        <translation>자동으로 동기화</translation>
+        <translation>Аутоматски синхронизуј</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="66"/>
         <source>Use 24-hour clock</source>
-        <translation>24시간 시계 사용</translation>
+        <translation>Користи 24ч сат</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="71"/>
         <source>Reset</source>
-        <translation>재설정</translation>
+        <translation>Поново покрени</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="83"/>
         <source>Date and Time</source>
-        <translation>날짜와 시간</translation>
+        <translation>Датум и Време</translation>
     </message>
 </context>
 <context>
@@ -838,72 +838,72 @@
         <location filename="../modules/default_applications/defaultapps.cpp" line="38"/>
         <location filename="../modules/default_applications/defaultapps.cpp" line="43"/>
         <source>Default Applications</source>
-        <translation>기본 응용프로그램</translation>
+        <translation>Подразумеване Апликације</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="46"/>
         <source>AutoPlay</source>
-        <translation>자동 재생</translation>
+        <translation>Аутоматски Почетак</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="52"/>
         <source>Browser</source>
-        <translation>브라우저</translation>
+        <translation>Веб прегледач</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="54"/>
         <source>Mail</source>
-        <translation>메일</translation>
+        <translation>Пошта</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="56"/>
         <source>Text</source>
-        <translation>텍스트</translation>
+        <translation>Текст</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="58"/>
         <source>Music</source>
-        <translation>음악</translation>
+        <translation>Музика</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="60"/>
         <source>Video</source>
-        <translation>비디오</translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="62"/>
         <source>Picture</source>
-        <translation>사진</translation>
+        <translation>Слика</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="64"/>
         <source>Terminal</source>
-        <translation>터미널</translation>
+        <translation>Конзола</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="67"/>
         <source>CD Audio</source>
-        <translation>CD 오디오</translation>
+        <translation>Музички ЦД</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="70"/>
         <source>DVD Video</source>
-        <translation>DVD 비디오</translation>
+        <translation>Видео ДВД</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="73"/>
         <source>Music Player</source>
-        <translation>음악 플레이어</translation>
+        <translation>Музички Плејер</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="76"/>
         <source>Camera</source>
-        <translation>카메라</translation>
+        <translation>Камера</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="79"/>
         <source>Software</source>
-        <translation>소프트웨어</translation>
+        <translation>Програм</translation>
     </message>
 </context>
 <context>
@@ -911,7 +911,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/deviceframe.cpp" line="31"/>
         <source>Device</source>
-        <translation>장치</translation>
+        <translation>Уреџај</translation>
     </message>
 </context>
 <context>
@@ -919,12 +919,12 @@
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="88"/>
         <source>Connected</source>
-        <translation>연결됨</translation>
+        <translation>Прикључен</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="90"/>
         <source>Unconnect</source>
-        <translation>연결 해제</translation>
+        <translation>Искључи</translation>
     </message>
 </context>
 <context>
@@ -932,27 +932,27 @@
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="52"/>
         <source>Retry</source>
-        <translation>재시도</translation>
+        <translation>Поново</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="97"/>
         <source>removable disk</source>
-        <translation>이동식 디스크</translation>
+        <translation>уклоњиви медијум</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="99"/>
         <source>network disk</source>
-        <translation>네트워크 디스크</translation>
+        <translation>мрежни диск</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="101"/>
         <source>local disk</source>
-        <translation>로컬디스크</translation>
+        <translation>локални диск</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="104"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
-        <translation>%1 &quot; %2 &quot;를 제거하는 데 실패하였습니다, 다시 시도해주십시오.</translation>
+        <translation>Отказано је уклоњивање %1 &quot; %2 &quot;, покушајте поново.</translation>
     </message>
 </context>
 <context>
@@ -960,52 +960,52 @@
     <message>
         <location filename="../modules/display/display.cpp" line="51"/>
         <source>Display</source>
-        <translation>디스플레이</translation>
+        <translation>Приказ</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="143"/>
         <source>Display Mode</source>
-        <translation>디스플레이 모드</translation>
+        <translation>Начин Приказивања</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="149"/>
         <source>Copy</source>
-        <translation>복사</translation>
+        <translation>Копирај</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="150"/>
         <source>Copy the contents of your primary screen to other screens.</source>
-        <translation>다른 화면에 기본 화면의 내용을 복사합니다.</translation>
+        <translation>Прекопирај садржај твог основног екрана на други екрани.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="160"/>
         <source>Extend</source>
-        <translation>확장</translation>
+        <translation>Прошири</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="161"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
-        <translation>다른 화면에 서로 다른 내용을 표시할 수 있도록 확장합니다.</translation>
+        <translation>Проширава ваш екран да приказује различити садржаји на различити екрани.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="172"/>
         <source>Custom Settings</source>
-        <translation>사용자 정의 설정</translation>
+        <translation>Прилагођене Поставке</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="173"/>
         <source>You can do other custom settings to your screens.</source>
-        <translation>화면을 다른 방법의 사용자 지정 설정을 할 수 있습니다.</translation>
+        <translation>Можете другачије да прилагодите на ваши екрани.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="183"/>
         <source>Only Displayed on %1</source>
-        <translation>%1에서만 디스플레이됨</translation>
+        <translation>само приказано на %1</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="184"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
-        <translation>화면내용을 %1에서만 디스플레이되고 다른 쪽은 안됩니다.</translation>
+        <translation>Садржаји екрана само приказани на %1 , не на други екрани</translation>
     </message>
 </context>
 <context>
@@ -1014,22 +1014,22 @@
         <location filename="../modules/network/editconnectionpage.cpp" line="28"/>
         <location filename="../modules/network/editconnectionpage.cpp" line="84"/>
         <source>Delete this network</source>
-        <translation>이 네트워크 삭제</translation>
+        <translation>Обриши ту мрежу</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="36"/>
         <source>Delete</source>
-        <translation>삭제</translation>
+        <translation>Обриши</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="37"/>
         <source>Save</source>
-        <translation>저장</translation>
+        <translation>Сачувај</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="45"/>
         <source>Are you sure you want to delete this network?</source>
-        <translation>정말 이 네트워크를 삭제하시겠습니까?</translation>
+        <translation>Да ли сте сигурни да желите да бришете ту мрежу?</translation>
     </message>
 </context>
 <context>
@@ -1037,12 +1037,12 @@
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="23"/>
         <source>Click to install</source>
-        <translation>클릭하여 설치</translation>
+        <translation>Кликни за уградњу</translation>
     </message>
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="52"/>
         <source>Current system lacks component for %1</source>
-        <translation>현재 시스템에 %1에 대한 구성 요소가 빠져있음</translation>
+        <translation>Тренутном поредком фали делови за %1 </translation>
     </message>
 </context>
 <context>
@@ -1050,12 +1050,12 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="163"/>
         <source>Set</source>
-        <translation>설정</translation>
+        <translation>Постави</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="165"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
 </context>
 <context>
@@ -1063,23 +1063,23 @@
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="33"/>
         <source>Copy Code</source>
-        <translation>코드 복사</translation>
+        <translation>Умножи законик</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="35"/>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="70"/>
         <source>Copied to clipboard successfully</source>
-        <translation>클립보드로 성공적으로 복사되었습니다</translation>
+        <translation>Успешно умножехо у прекопирач</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="44"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatedview.cpp" line="80"/>
         <source>To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input</source>
-        <translation>당신의 컴퓨터 공유를 시작하기 위해 위쪽의 인증번호를 당신을 도울 사람에게 제공해주세요. 당신의 공유한 세션은 인증번호를 입력하자마자 시작합니다. </translation>
+        <translation>Да би започео дељење ваше радне површине, доделите проверни законик особи која вам помаже. Дељење налога почиње одмах после уношење проверног законика</translation>
     </message>
 </context>
 <context>
@@ -1087,12 +1087,12 @@
     <message>
         <location filename="../modules/remote_assistance/view/generatingview.cpp" line="23"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/generatingview.cpp" line="56"/>
         <source>Generating the verification code, please wait...</source>
-        <translation>인증 코드를 형성하고 있습니다, 기다려 주십시오...</translation>
+        <translation>Стварам проверни законик, сачекајте...</translation>
     </message>
 </context>
 <context>
@@ -1100,43 +1100,43 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="21"/>
         <source>Boot Menu</source>
-        <translation>부팅 메뉴</translation>
+        <translation>Покретач</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="65"/>
         <location filename="../modules/grub/grubwidget.cpp" line="158"/>
         <source>Drag and drop an image to change background.</source>
-        <translation>백그라운드를 변경하려면 이미지를 드래그 엔 드랍으로 가져옵니다.</translation>
+        <translation>Превучи и отпусти слику да промениш позадину</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="84"/>
         <source>Default Boot</source>
-        <translation>기본 부팅</translation>
+        <translation>Подразумевани покретач</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="100"/>
         <source>Boot delay</source>
-        <translation>부팅 지연</translation>
+        <translation>Покретачки пешчаник</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="108"/>
         <source>Text Color</source>
-        <translation>텍스트 색</translation>
+        <translation>Боја Текста</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="116"/>
         <source>Selected Text Color</source>
-        <translation>택스트 색 선택</translation>
+        <translation>Одабери боју текста</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="148"/>
         <source>Updating...</source>
-        <translation>업데이트중...</translation>
+        <translation>Закрпавам...</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="150"/>
         <source>Successfully updated, reboot to view.</source>
-        <translation>업데이트 완료했습니다. 리붓후 확인하십시오.</translation>
+        <translation>Успешно ажурирано, покрените поново да видите.</translation>
     </message>
 </context>
 <context>
@@ -1144,7 +1144,7 @@
     <message>
         <location filename="../frame/homescreen.cpp" line="97"/>
         <source>Shutdown</source>
-        <translation>전원 종료</translation>
+        <translation>Угаси</translation>
     </message>
 </context>
 <context>
@@ -1152,22 +1152,22 @@
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="19"/>
         <source>Password</source>
-        <translation>암호</translation>
+        <translation>Лозинка</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="21"/>
         <source>Auto-connect</source>
-        <translation>자동 연결</translation>
+        <translation>Аутоматски се повежи</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="28"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="29"/>
         <source>Connect</source>
-        <translation>연결</translation>
+        <translation>Повежи</translation>
     </message>
 </context>
 <context>
@@ -1175,24 +1175,24 @@
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="23"/>
         <source>Connect</source>
-        <translation>연결</translation>
+        <translation>Повежи</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="32"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="72"/>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="73"/>
         <source>Start remote access after clicking on &quot;Connect&quot;</source>
-        <translation>&quot;연결&quot; 클릭 후 원격 접근 시작</translation>
+        <translation>Започни даљински приступ после притискивање на &quot;Повежи&quot;</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="74"/>
         <location filename="../modules/remote_assistance/view/inputview.cpp" line="86"/>
         <source>Please enter the verification code in the input field above</source>
-        <translation>상단의 입력칸에 인증코드를 입력해주십시오</translation>
+        <translation>Унесите проверни законик у поље уноса испод</translation>
     </message>
 </context>
 <context>
@@ -1200,57 +1200,57 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="124"/>
         <source>Keyboard and Language</source>
-        <translation>키보드와 언어</translation>
+        <translation>Тастатура и језик</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="137"/>
         <source>Repeat Delay</source>
-        <translation>지연 반복</translation>
+        <translation>Прикасни понављање</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="158"/>
         <source>Repeat Rate</source>
-        <translation>반복 속도</translation>
+        <translation>брзина понављања</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="179"/>
         <source>Cursor Blink Rate</source>
-        <translation>커서 깜박임 속도</translation>
+        <translation>Брзина свиткања стрелице</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="201"/>
         <source>Test Area</source>
-        <translation>테스트 공간</translation>
+        <translation>Поље пробе</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="215"/>
         <source>Caps Lock prompt</source>
-        <translation>캡슬 락 프롬프트</translation>
+        <translation>Одзив дугмада за велика слова</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="231"/>
         <source>Language</source>
-        <translation>언어</translation>
+        <translation>Језик</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="236"/>
         <source>Keyboard Layout</source>
-        <translation>키보드 레이아웃</translation>
+        <translation>Распоред тастатуре</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="237"/>
         <source>Remove Keyboard Layout</source>
-        <translation>키보드 레이아웃 삭제</translation>
+        <translation>Обриши распоред тастатуре</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="238"/>
         <source>Add Keyboard Layout</source>
-        <translation>키보드 레이아웃 추가</translation>
+        <translation>Додај распоред тастатуре</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="326"/>
         <source>Search</source>
-        <translation>찾기</translation>
+        <translation>Претражи</translation>
     </message>
 </context>
 <context>
@@ -1258,12 +1258,12 @@
     <message>
         <location filename="../modules/network/listwidgetcontainer.cpp" line="92"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../modules/network/listwidgetcontainer.cpp" line="93"/>
         <source>Connect</source>
-        <translation>연결</translation>
+        <translation>Повежи</translation>
     </message>
 </context>
 <context>
@@ -1271,27 +1271,27 @@
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="16"/>
         <source>Remote Assistance</source>
-        <translation>원격 지원</translation>
+        <translation>Uдаљена Помођ</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="27"/>
         <source>Share</source>
-        <translation>공유 </translation>
+        <translation>Дели</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="27"/>
         <source>Share your desktop to get remote assistance from other users</source>
-        <translation>다른 사용자에게 원격 도움을 받으려면 당신의 컴퓨터를 공유하세요.</translation>
+        <translation>Подели твоју радну површину да примиш помођ са удаљене површине других корисника</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="34"/>
         <source>Access</source>
-        <translation>접속</translation>
+        <translation>Приступам</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="34"/>
         <source>Access to the desktop shared by other users</source>
-        <translation>다른 사용자에 의해 공유된 데스크톱에 접근하기</translation>
+        <translation>Приступам радној површини коју деле други корисници</translation>
     </message>
 </context>
 <context>
@@ -1299,76 +1299,76 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="27"/>
         <source>Keyboard Shortcuts</source>
-        <translation>키보드 단축키</translation>
+        <translation>Тастатурске пречице</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="143"/>
         <source>Name</source>
-        <translation>이름</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="147"/>
         <source>Command</source>
-        <translation>명령</translation>
+        <translation>Наређење</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="170"/>
         <source>Delete Shortcut</source>
-        <translation>바로가기 삭제</translation>
+        <translation>Обриши Пречицу</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="171"/>
         <source>Add Shortcut</source>
-        <translation>바로가기 추가</translation>
+        <translation>Додај Пречицу</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="172"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="232"/>
         <source>Custom</source>
-        <translation>사용자 정의</translation>
+        <translation>Прилагођен</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="229"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="299"/>
         <source>System</source>
-        <translation>시스템</translation>
+        <translation>Поредак</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="230"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="300"/>
         <source>Window</source>
-        <translation>윈도우</translation>
+        <translation>Прозор</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="231"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="301"/>
         <source>Workspace</source>
-        <translation>워크 스페이스</translation>
+        <translation>Радни простор</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="260"/>
         <source>Search</source>
-        <translation>검색</translation>
+        <translation>Претражи</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="371"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
-        <translation>바로가기 &quot;%1&quot;를 사용할 수 없습니다. 새로운 바로가기를 입력하십시오.</translation>
+        <translation>Пречица &quot;%1&quot; је неважеђа, прекуцај нову пречицу.</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="385"/>
         <source>The shortcut you set </source>
-        <translation>바로가기 설정</translation>
+        <translation>Пречицу коју сте поставили</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="395"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
-        <translation>&quot;%1&quot; 카테고리에 있는 &quot;%2&quot;와 사용하는 것이 겹칩니다.</translation>
+        <translation>Сукоб међу тог употребљеног за &quot;%2&quot; у &quot;%1&quot; категорију.</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="402"/>
         <source>Do you want to replace it?</source>
-        <translation>그것을 변경하시겠습니까?</translation>
+        <translation>Дали желите да га замените?</translation>
     </message>
 </context>
 <context>
@@ -1401,22 +1401,22 @@
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="18"/>
         <source>Switch</source>
-        <translation type="unfinished"/>
+        <translation>пребаци</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="19"/>
         <source>Done</source>
-        <translation>완료</translation>
+        <translation>Готово</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="29"/>
         <source>Auto check update</source>
-        <translation>자동 검사 업데이트 </translation>
+        <translation>Аутоматски провери ажурирања</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="32"/>
         <source>Mirrors</source>
-        <translation type="unfinished"/>
+        <translation>Пресликана места</translation>
     </message>
 </context>
 <context>
@@ -1424,12 +1424,12 @@
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="7"/>
         <source>Modem Network</source>
-        <translation>모뎀 네트워크</translation>
+        <translation>Модемска Мрежа</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="31"/>
         <source>Restore the connection</source>
-        <translation type="unfinished"/>
+        <translation>Поврати везу</translation>
     </message>
 </context>
 <context>
@@ -1437,92 +1437,92 @@
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="108"/>
         <source>Home</source>
-        <translation>홈</translation>
+        <translation>Матична страна</translation>
     </message>
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="117"/>
         <source>Shutdown</source>
-        <translation>전원 종료</translation>
+        <translation>Угаси</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="28"/>
         <source>Sound</source>
-        <translation>소리</translation>
+        <translation>Звук</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="18"/>
         <source>Power Management</source>
-        <translation>전원 관리</translation>
+        <translation>Управљање напајањем</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="31"/>
         <source>Default Applications</source>
-        <translation>기본 응용프로그램</translation>
+        <translation>Подразумеване Апликације</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="21"/>
         <source>Mouse and Touchpad</source>
-        <translation>마우스와 터치패드</translation>
+        <translation>Миш и Додирну таблу</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="30"/>
         <source>System Information</source>
-        <translation>시스템 정보</translation>
+        <translation>Подаци о Поредком</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="21"/>
         <source>Display</source>
-        <translation>디스플레이</translation>
+        <translation>Екран</translation>
     </message>
     <message>
         <location filename="../modules/account/account.cpp" line="8"/>
         <source>User Accounts</source>
-        <translation>사용자 계정</translation>
+        <translation>Кориснички налози</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/shortcuts.cpp" line="10"/>
         <source>Keyboard Shortcuts</source>
-        <translation>키보드 단축키</translation>
+        <translation>Тастатурске пречице</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="24"/>
         <source>Personalization</source>
-        <translation>개인 설정</translation>
+        <translation>Личне промене</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="38"/>
         <source>Keyboard and Language</source>
-        <translation>키보드와 언어</translation>
+        <translation>Тастатура и језик</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="31"/>
         <source>Date and Time</source>
-        <translation>날짜와 시간</translation>
+        <translation>Датум и Време</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="13"/>
         <source>Wacom</source>
-        <translation>와콤 </translation>
+        <translation>Wacom</translation>
     </message>
     <message>
         <location filename="../modules/grub/grub.cpp" line="10"/>
         <source>Boot Menu</source>
-        <translation>부팅 메뉴</translation>
+        <translation>Покретач</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/bluetooth.cpp" line="10"/>
         <source>Bluetooth</source>
-        <translation>블루투스</translation>
+        <translation>Блутут</translation>
     </message>
     <message>
         <location filename="../modules/network/network.cpp" line="10"/>
         <source>Network</source>
-        <translation>네트워크</translation>
+        <translation>Мрежа</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/remoteassistance.cpp" line="33"/>
         <source>Remote Assistance</source>
-        <translation>원격 지원 </translation>
+        <translation>Удаљена Помођ</translation>
     </message>
 </context>
 <context>
@@ -1530,17 +1530,17 @@
     <message>
         <location filename="../modules/display/monitorground.cpp" line="37"/>
         <source>Recognize</source>
-        <translation>인식</translation>
+        <translation>препознај</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="38"/>
         <source>Edit</source>
-        <translation>수정</translation>
+        <translation>Измени</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="39"/>
         <source>Split</source>
-        <translation>스프리트</translation>
+        <translation>Подели</translation>
     </message>
 </context>
 <context>
@@ -1548,72 +1548,72 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="37"/>
         <source>Mouse And Touchpad</source>
-        <translation>마우스 및 터치패드</translation>
+        <translation>Миш и Додирну таблу</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="53"/>
         <location filename="../modules/mouse/mouse.cpp" line="172"/>
         <source>Primary Button</source>
-        <translation>기본 버튼</translation>
+        <translation>Основно Дугме</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="56"/>
         <location filename="../modules/mouse/mouse.cpp" line="139"/>
         <source>Left Button</source>
-        <translation>왼쪽 버튼</translation>
+        <translation>Лево Дугме</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="57"/>
         <location filename="../modules/mouse/mouse.cpp" line="140"/>
         <source>Right Button</source>
-        <translation>오른쪽 버튼</translation>
+        <translation>Десно Дугме</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="68"/>
         <location filename="../modules/mouse/mouse.cpp" line="173"/>
         <source>Pointer Speed</source>
-        <translation>포인터 속도</translation>
+        <translation>Брзина Показивача</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="85"/>
         <location filename="../modules/mouse/mouse.cpp" line="174"/>
         <source>Double-click Speed</source>
-        <translation>더블클릭 속도</translation>
+        <translation>Двокликна Брзина</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="102"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>마우스를 사용할때 터치 패드 비활성화</translation>
+        <translation>Онемогуђи додирну таблу када укљућиш миш</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="128"/>
         <source>Touchpad</source>
-        <translation>터치패드</translation>
+        <translation>Додирна табла</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="175"/>
         <source>Drag Threshold</source>
-        <translation>드래그 임계값</translation>
+        <translation>Праг Превучења</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="176"/>
         <source>Natural Scrolling</source>
-        <translation>자연스러운 스크롤</translation>
+        <translation>Природно Померање</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="177"/>
         <source>Tap to click</source>
-        <translation>탭으로 클릭</translation>
+        <translation>Тапнути за кликовање</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="178"/>
         <source>Two-finger scrolling</source>
-        <translation>두 손가락으로 스크롤</translation>
+        <translation>Двопрсно померање</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="179"/>
         <source>Edge scrolling</source>
-        <translation>가장자리 스크롤</translation>
+        <translation>Ивично померање</translation>
     </message>
 </context>
 <context>
@@ -1621,22 +1621,22 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="38"/>
         <source>Ethernet</source>
-        <translation>이더넷</translation>
+        <translation>Унутрашња мрежа</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="39"/>
         <source>802.11 WiFi</source>
-        <translation>802.11 WiFi</translation>
+        <translation>802.11 ВиФи</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="40"/>
         <source>802.11 WiFi AdHoc</source>
-        <translation>802.11 WiFi AdHoc</translation>
+        <translation>802.11 ВиФи АдХок</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="41"/>
         <source>802.11 WiFi Hotspot</source>
-        <translation>802.11 WiFi Hotspot</translation>
+        <translation>802.11 ВиФи Мрежна Антена</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="42"/>
@@ -1646,117 +1646,117 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="43"/>
         <source>Mobile</source>
-        <translation>모바일</translation>
+        <translation>Мобилни</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="44"/>
         <source>Mobile GSM</source>
-        <translation>모바일 GSM</translation>
+        <translation>Мобилни ГСМ</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="45"/>
         <source>Mobile CDMA</source>
-        <translation>모바일 CDMA</translation>
+        <translation>Мобилни CDMA</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="46"/>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation>ВПН</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="47"/>
         <source>VPN L2TP</source>
-        <translation>VPN L2TP</translation>
+        <translation>ВПН L2TP</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="48"/>
         <source>VPN PPTP</source>
-        <translation>VPN PPTP</translation>
+        <translation>ВПН PPTP</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="49"/>
         <source>VPN VPNC</source>
-        <translation>VPN VPNC</translation>
+        <translation>ВПН VPNC</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="50"/>
         <source>VPN OpenVPN</source>
-        <translation>VPN OpenVPN</translation>
+        <translation>ВПН ОтворенВПН</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="51"/>
         <source>VPN OpenConnect</source>
-        <translation>VPN OpenConnect</translation>
+        <translation>ВПН OpenConnect</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="65"/>
         <source>Not Connected</source>
-        <translation>연결되지 않음</translation>
+        <translation>Није Повезан</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="67"/>
         <source>Connected</source>
-        <translation>연결됨</translation>
+        <translation>Прикључен</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="79"/>
         <source>(default)</source>
-        <translation>(기본)</translation>
+        <translation>(подразумевано)</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="98"/>
         <source>Interface</source>
-        <translation>인터페이스</translation>
+        <translation>Сучеља</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="102"/>
         <source>Security</source>
-        <translation>보안</translation>
+        <translation>Безбедност</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="103"/>
         <source>Device Addr</source>
-        <translation>장치 주소</translation>
+        <translation>Уреџајска Адреса</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="104"/>
         <source>IP Address</source>
-        <translation>IP 주소</translation>
+        <translation>ИП адреса</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="105"/>
         <source>Subnet Mask</source>
-        <translation>서브넷 마크</translation>
+        <translation>Подмрежна Маска</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="106"/>
         <source>Gateway</source>
-        <translation>게이트웨이</translation>
+        <translation>Везни чвор</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="107"/>
         <source>Primary DNS</source>
-        <translation>첫 번째 DNS</translation>
+        <translation>Основни ДНС</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="108"/>
         <source>Secondary DNS</source>
-        <translation>두번째 DNS</translation>
+        <translation>Други ДНС</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="109"/>
         <source>Third DNS</source>
-        <translation>세번째 DNS</translation>
+        <translation>Тређи ДНС</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="110"/>
         <source>Device Speed</source>
-        <translation>장치 속도</translation>
+        <translation>Брзина Уреџаја</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="115"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
 </context>
 <context>
@@ -1764,12 +1764,12 @@
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="146"/>
         <source>Network</source>
-        <translation>네트워크</translation>
+        <translation>Мрежа</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="167"/>
         <source>System Proxy</source>
-        <translation>시스템 프록시</translation>
+        <translation>Пореџађки Представитељ</translation>
     </message>
 </context>
 <context>
@@ -1777,13 +1777,13 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="85"/>
         <source>Double-click this area to change your time</source>
-        <translation>이 영력을 더블 클릭하여 시간을 변경합니다</translation>
+        <translation>Двоклик у ову област за промену времена</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="112"/>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="252"/>
         <source>dddd, dd MMMM yyyy</source>
-        <translation>yyyy-MM-dd dddd</translation>
+        <translation>дддд, дд мммм гггг</translation>
     </message>
 </context>
 <context>
@@ -1794,27 +1794,27 @@
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="66"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="146"/>
         <source>The two passwords do not match.</source>
-        <translation>암호가 틀립니다.</translation>
+        <translation>Лозинке се не поклапају.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="74"/>
         <source>Password</source>
-        <translation>암호</translation>
+        <translation>Лозинка</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="95"/>
         <source>New Password</source>
-        <translation>새로운 암호</translation>
+        <translation>Нова Лозинка</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="97"/>
         <source>Repeat</source>
-        <translation>다시</translation>
+        <translation>Понови</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="141"/>
         <source>Password can not be empty.</source>
-        <translation>비밀번호는 빈칸일 수 없습니다.</translation>
+        <translation>Лозинка не може да буде празна.</translation>
     </message>
 </context>
 <context>
@@ -1822,58 +1822,58 @@
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="40"/>
         <source>Personalization</source>
-        <translation>개인 설정</translation>
+        <translation>Личне промене</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="115"/>
         <source>Theme</source>
-        <translation>테마</translation>
+        <translation>Предмети</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="136"/>
         <source>Window</source>
-        <translation>윈도우</translation>
+        <translation>Прозор</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="160"/>
         <source>Icon</source>
-        <translation>아이콘</translation>
+        <translation>Иконе</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="193"/>
         <source>Cursor</source>
-        <translation>커서</translation>
+        <translation>Приказивач</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="224"/>
         <source>Wallpaper</source>
-        <translation>바탕화면</translation>
+        <translation>Позадине</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="247"/>
         <source>Fonts</source>
-        <translation>폰트</translation>
+        <translation>Фонтови</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="249"/>
         <source>Standard</source>
-        <translation>표준</translation>
+        <translation>Стандарни</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="250"/>
         <source>Monospaced</source>
-        <translation>고정폭</translation>
+        <translation>Једноширински</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="251"/>
         <source>Size</source>
-        <translation>크기</translation>
+        <translation>Величина</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="266"/>
         <location filename="../modules/personalization/personalization.cpp" line="636"/>
         <source>Font</source>
-        <translation>글꼴</translation>
+        <translation>Фонт</translation>
     </message>
 </context>
 <context>
@@ -1881,73 +1881,73 @@
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Password required to wake up</source>
-        <translation>깨울때 암호 입력</translation>
+        <translation>Лозинка затражена за разбуђивање</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="72"/>
         <source>Plugged in</source>
-        <translation>전원 사용</translation>
+        <translation>Укључен</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="102"/>
         <location filename="../modules/power/power.cpp" line="157"/>
         <source>Balanced</source>
-        <translation>균형</translation>
+        <translation>Уједначени</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="102"/>
         <location filename="../modules/power/power.cpp" line="157"/>
         <source>Power saver</source>
-        <translation>절전</translation>
+        <translation>Ниски потрошач</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="102"/>
         <location filename="../modules/power/power.cpp" line="157"/>
         <source>High performance</source>
-        <translation>높은 성능</translation>
+        <translation>Високе перформансе</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="102"/>
         <location filename="../modules/power/power.cpp" line="157"/>
         <source>Custom</source>
-        <translation>사용자 정의</translation>
+        <translation>Прилагођен</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="129"/>
         <source>On battery</source>
-        <translation>베터리 사용</translation>
+        <translation>На батерију</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="192"/>
         <location filename="../modules/power/power.cpp" line="196"/>
         <source>Shutdown</source>
-        <translation>전원 종료</translation>
+        <translation>Угаси</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="192"/>
         <location filename="../modules/power/power.cpp" line="196"/>
         <source>Suspend</source>
-        <translation>일시 정지</translation>
+        <translation>Обустави</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="192"/>
         <source>Ask</source>
-        <translation>물음</translation>
+        <translation>Питај</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="194"/>
         <source>When I press the power button</source>
-        <translation>전원 버튼을 누르면</translation>
+        <translation>Када притиснем дугме за гашење</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="196"/>
         <source>Nothing</source>
-        <translation>아무것도 안함</translation>
+        <translation>Ништа</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="198"/>
         <source>When I close the lid</source>
-        <translation>덮게를 닫을 때</translation>
+        <translation>Када приклопим рачунар</translation>
     </message>
 </context>
 <context>
@@ -1960,7 +1960,7 @@
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="201"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="209"/>
         <source>%1 minutes</source>
-        <translation>%1분</translation>
+        <translation>%1 мин.</translation>
     </message>
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="178"/>
@@ -1968,18 +1968,18 @@
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="197"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="205"/>
         <source>Never</source>
-        <translation>전혀</translation>
+        <translation>Никада</translation>
     </message>
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="199"/>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="207"/>
         <source>1 hour</source>
-        <translation>1 시간</translation>
+        <translation>1 сат</translation>
     </message>
     <message>
         <location filename="../modules/power/powerinterfacemanagement.cpp" line="214"/>
         <source>Turn off the display: %1 Suspend: %2 </source>
-        <translation>화면 끄기: %1 중단: %2</translation>
+        <translation>Угаси екран: %1 Обустави: %2 </translation>
     </message>
 </context>
 <context>
@@ -1987,7 +1987,7 @@
     <message>
         <location filename="../modules/power/powermanagement.cpp" line="17"/>
         <source>Power Management</source>
-        <translation>전원 관리</translation>
+        <translation>Управљање напајањем</translation>
     </message>
 </context>
 <context>
@@ -1995,32 +1995,32 @@
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="52"/>
         <source>Power</source>
-        <translation>전원</translation>
+        <translation>Напајање</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="73"/>
         <source>On Charging %1</source>
-        <translation>%1 충전</translation>
+        <translation>На пуњење %1</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="198"/>
         <source>Custom</source>
-        <translation>사용자 정의</translation>
+        <translation>Прилагођен</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="199"/>
         <source>Power saver</source>
-        <translation>절전</translation>
+        <translation>Ниски потрошач</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="200"/>
         <source>Balanced</source>
-        <translation>균형</translation>
+        <translation>Уједначени</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="201"/>
         <source>High performance</source>
-        <translation>높은 성능</translation>
+        <translation>Високе перформансе</translation>
     </message>
 </context>
 <context>
@@ -2028,12 +2028,12 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="97"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="98"/>
         <source>Add</source>
-        <translation>추가</translation>
+        <translation>Додај</translation>
     </message>
 </context>
 <context>
@@ -2041,12 +2041,12 @@
     <message>
         <location filename="../widgets/moduleheader.cpp" line="50"/>
         <source>Reset Successfully</source>
-        <translation>성공적으로 초기화됨</translation>
+        <translation>Поново сам га Покренуо</translation>
     </message>
     <message>
         <location filename="../widgets/moduleheader.cpp" line="52"/>
         <source>Reset</source>
-        <translation>재설정</translation>
+        <translation>Поново покрени</translation>
     </message>
 </context>
 <context>
@@ -2054,12 +2054,12 @@
     <message>
         <location filename="../modules/shortcuts/selectdialog.cpp" line="28"/>
         <source>Replace</source>
-        <translation>교체</translation>
+        <translation>Замени</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/selectdialog.cpp" line="29"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
 </context>
 <context>
@@ -2068,32 +2068,32 @@
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="17"/>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="104"/>
         <source>Sharing</source>
-        <translation>공유 중</translation>
+        <translation>Дељење</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="67"/>
         <source>Sharing your desktop, your can continue to share or choose to disconnect</source>
-        <translation>귀하의 데스크톱을 공유 중입니다, 계속 공유하거나 열결 해제를 선택하실 수 있습니다</translation>
+        <translation>Дељењем радне површине, можете да наставите дељење или да прекинете</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="94"/>
         <source>Remote Assistance</source>
-        <translation>원격 지원 </translation>
+        <translation>Удаљена Помођ</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="97"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="102"/>
         <source>Retry</source>
-        <translation>재시도</translation>
+        <translation>Поново</translation>
     </message>
     <message>
         <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="108"/>
         <source>Failed to establish the connection, you can retry to connect</source>
-        <translation>연결에 실패하였습니다, 다시 시도해주십시오</translation>
+        <translation>Нисам успео да се повежем, пробајте поново да се повежете</translation>
     </message>
 </context>
 <context>
@@ -2108,7 +2108,7 @@
         <location filename="../modules/shortcuts/shortcutdbus.h" line="218"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="222"/>
         <source>None</source>
-        <translation>없음</translation>
+        <translation>Ниједно</translation>
     </message>
 </context>
 <context>
@@ -2116,7 +2116,7 @@
     <message>
         <location filename="../modules/shortcuts/shortcutedit.cpp" line="29"/>
         <source>Please input new shortcut</source>
-        <translation>새로운 바로가기를 입력해주세요</translation>
+        <translation>Молимо укуцајте нову пречицу</translation>
     </message>
 </context>
 <context>
@@ -2124,158 +2124,158 @@
     <message>
         <location filename="../modules/sound/sound.cpp" line="85"/>
         <source>Sound</source>
-        <translation>소리</translation>
+        <translation>Звук</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="96"/>
         <source>Speaker</source>
-        <translation>스피커</translation>
+        <translation>Звучник</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="106"/>
         <source>Output Volume</source>
-        <translation>출력 볼륨</translation>
+        <translation>Излазна Јачина</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="117"/>
         <source>Left/Right Balance</source>
-        <translation>왼쪽/오른쪽 균형</translation>
+        <translation>Лево/Десно Изједначење</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="121"/>
         <source>Left</source>
-        <translation>왼쪽</translation>
+        <translation>Лево</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="122"/>
         <source>Right</source>
-        <translation>오른쪽</translation>
+        <translation>Десно</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="140"/>
         <source>Microphone</source>
-        <translation>마이크</translation>
+        <translation>Микрофон</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="152"/>
         <source>Input Volume</source>
-        <translation>입력 볼륨</translation>
+        <translation>Улазна Јачина</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="164"/>
         <source>Feedback Volume</source>
-        <translation>피드백 음량</translation>
+        <translation>Јачина у Позадину</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="225"/>
         <source>Output Port</source>
-        <translation>출력 포트</translation>
+        <translation>Излазни Прикључак</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="238"/>
         <source>Output device</source>
-        <translation>출력 장치</translation>
+        <translation>Излазни Уреџај</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="258"/>
         <source>Input Port</source>
-        <translation>입력 포트</translation>
+        <translation>Улазни Прикључак</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="272"/>
         <source>Input device</source>
-        <translation>입력 장치</translation>
+        <translation>Улазни Уреџај</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="285"/>
         <location filename="../modules/sound/sound.cpp" line="292"/>
         <source>Show Advanced...</source>
-        <translation>고급 기능 보기...</translation>
+        <translation>Прикажи Напредно...</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="298"/>
         <source>Hide Advanced...</source>
-        <translation>고급 기능 숨기기...</translation>
+        <translation>Сакриј Напредно...</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="308"/>
         <source>Login</source>
-        <translation>로그인</translation>
+        <translation>Пријави се</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="312"/>
         <source>Logout</source>
-        <translation>로그아웃</translation>
+        <translation>Одјави се</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="315"/>
         <source>Shutdown</source>
-        <translation>전원 종료</translation>
+        <translation>Угаси</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="318"/>
         <source>Wakeup</source>
-        <translation>기상</translation>
+        <translation>Разбуди</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="321"/>
         <source>Notification</source>
-        <translation>알림</translation>
+        <translation>Обавештања</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="324"/>
         <source>Unable to Operate</source>
-        <translation>수행 불가</translation>
+        <translation>Радња Немогуђа</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="327"/>
         <source>Empty trash</source>
-        <translation>휴지통 비우기</translation>
+        <translation>Празни корпу</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="330"/>
         <source>Adjust volume</source>
-        <translation>음량 조절 </translation>
+        <translation>Прилагоди звук</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="333"/>
         <source>Low battery</source>
-        <translation>배터리 잔량 부족</translation>
+        <translation>Слаба батерија</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="336"/>
         <source>Power plug in</source>
-        <translation>파워 플러그 인</translation>
+        <translation>Прикључен у струју</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="339"/>
         <source>Power unplugged</source>
-        <translation>전원 연결 해제됨</translation>
+        <translation>Искључен из струје</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="342"/>
         <source>Movable device plug in</source>
-        <translation>이동식 기기 삽입</translation>
+        <translation>Уклоњиви уређај укључен</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="345"/>
         <source>Movable device unplug</source>
-        <translation>이동식 장치 제거</translation>
+        <translation>Уклоњиви уређај искључен</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="348"/>
         <source>Send app icon to desktop</source>
-        <translation>바탕 화면으로 응용프로그램 아이콘 보내기</translation>
+        <translation>Пошаљи апликациону икону на радну површину</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="351"/>
         <source>Screenshot</source>
-        <translation>스크린샷</translation>
+        <translation>Слика екрана</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="378"/>
         <source>Sound Effects</source>
-        <translation>음향 효과</translation>
+        <translation>Звучна Дејства</translation>
     </message>
 </context>
 <context>
@@ -2283,7 +2283,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/soundplugin.cpp" line="23"/>
         <source>Sound</source>
-        <translation>소리</translation>
+        <translation>Звук</translation>
     </message>
 </context>
 <context>
@@ -2291,52 +2291,52 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="35"/>
         <source>System Information</source>
-        <translation>시스템 정보</translation>
+        <translation>Подаци о Поредком</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="41"/>
         <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Сва права заштиђена (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="45"/>
         <source>Deepin Edition:</source>
-        <translation>Deepin 에디션:</translation>
+        <translation>Дипин издање:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="51"/>
         <source>Distribution:</source>
-        <translation>배포:</translation>
+        <translation>Расподела:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="57"/>
         <source>System Type:</source>
-        <translation>시스템 유형:</translation>
+        <translation>Врста Поредка:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="59"/>
         <source>%1 Bit</source>
-        <translation>%1 Bit</translation>
+        <translation>%1 Битни</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="62"/>
         <source>Processor:</source>
-        <translation>프로세스:</translation>
+        <translation>Процесор:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="68"/>
         <source>Memory:</source>
-        <translation>메모리:</translation>
+        <translation>Меморија:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
         <source>Disk:</source>
-        <translation>디스크:</translation>
+        <translation>Диск:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="140"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
-        <translation>GNU GENERAL PUBLIC LICENSE</translation>
+        <translation>ГНУ-ова општа јавна лиценца</translation>
     </message>
 </context>
 <context>
@@ -2344,7 +2344,7 @@
     <message>
         <location filename="../modules/network/systemproxyline.cpp" line="18"/>
         <source>Port</source>
-        <translation>포트</translation>
+        <translation>Порт</translation>
     </message>
 </context>
 <context>
@@ -2352,47 +2352,47 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="21"/>
         <source>None</source>
-        <translation>없음</translation>
+        <translation>Ниједно</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="21"/>
         <source>Manual</source>
-        <translation>수동</translation>
+        <translation>Ручно</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="21"/>
         <source>Auto</source>
-        <translation>자동</translation>
+        <translation>Аутоматски</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="38"/>
         <source>Apply system wide</source>
-        <translation>시스템 전체 적용</translation>
+        <translation>Примени на цео поредак</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="47"/>
         <source>HTTP Proxy</source>
-        <translation>HTTP 프록시</translation>
+        <translation>ХТТП Представитељ</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="48"/>
         <source>HTTPS Proxy</source>
-        <translation>HTTPS 프록시</translation>
+        <translation>ХТТПС Представитељ</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="49"/>
         <source>FTP Proxy</source>
-        <translation>FTP 프록시</translation>
+        <translation>ФТП Представитељ</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="50"/>
         <source>Socks Proxy</source>
-        <translation>소켓 프로시</translation>
+        <translation>Socks Представитељ</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="61"/>
         <source>Configuration URL</source>
-        <translation>URL 구성</translation>
+        <translation>Прилагоди Веб-адресу</translation>
     </message>
 </context>
 <context>
@@ -2400,27 +2400,27 @@
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="12"/>
         <source>Close</source>
-        <translation>닫기</translation>
+        <translation>Затвори</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="13"/>
         <source>Confirm</source>
-        <translation>확인</translation>
+        <translation>Потврди</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="14"/>
         <source>Add</source>
-        <translation>추가</translation>
+        <translation>Додај</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="40"/>
         <source>Remove Timezone</source>
-        <translation>시간대 제거</translation>
+        <translation>Обриши Временску Зону</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="47"/>
         <source>Add Timezone</source>
-        <translation>시간대 추가</translation>
+        <translation>Додај Временску Зону</translation>
     </message>
 </context>
 <context>
@@ -2428,7 +2428,7 @@
     <message>
         <location filename="../modules/system_info/updatearrowexpand.cpp" line="23"/>
         <source>Update</source>
-        <translation>업데이트</translation>
+        <translation>Ажурирања</translation>
     </message>
 </context>
 <context>
@@ -2436,52 +2436,52 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="250"/>
         <source>Your system is up to date</source>
-        <translation>귀하의 시스템은 최신 상태입니다</translation>
+        <translation>Ваш систем је ажуриран</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="254"/>
         <source>Click to view available  updates</source>
-        <translation>클릭해서 이용 가능한 업데이트 보기</translation>
+        <translation>Кликни да видиш доступне ажурирања</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="275"/>
         <source>Total download size: %1</source>
-        <translation>총 다운로드 크기: %1</translation>
+        <translation>Укупна количина скидања: %1</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="277"/>
         <source>Unknown</source>
-        <translation>알 수 없음</translation>
+        <translation>Непознато</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>%1 software need to be updated</source>
-        <translation>%1 소프트웨어는 업데이트가 필요합니다.</translation>
+        <translation>%1 програм мора бити ажуриран</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="295"/>
         <source>Patches</source>
-        <translation>패치</translation>
+        <translation>Закрпе</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="298"/>
         <source>Some patches need to be updated</source>
-        <translation>몇 가지 패치가 업데이트를 필요로 합니다</translation>
+        <translation>Неке закрпе морају бити ажуриране</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="302"/>
         <source>Some patches and %1 software need to be updated</source>
-        <translation>몇 가지 패치와 %1 소프트웨어가 업데이트를 필요로 합니다</translation>
+        <translation>Неке закрпе и %1 програм морају бити ажурирани</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="353"/>
         <source>Checking for updates</source>
-        <translation>업데이트 확인 중</translation>
+        <translation>Проверавам ажурирања</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="354"/>
         <source>Check for updates, please wait</source>
-        <translation>업데이트를 확인하세요, 기다려주세요</translation>
+        <translation>Провера ажурирања, сачекајте</translation>
     </message>
 </context>
 <context>
@@ -2489,42 +2489,42 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="98"/>
         <source>Recently Used</source>
-        <translation>최근 사용된</translation>
+        <translation>Недавно коришћено</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="99"/>
         <source>Avatar</source>
-        <translation>아바타</translation>
+        <translation>Аватар</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="100"/>
         <source>Webcam</source>
-        <translation>웹캠</translation>
+        <translation>Камера</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="161"/>
         <source>Auto-login</source>
-        <translation>자동 로그인</translation>
+        <translation>Аутоматко Логовање</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="187"/>
         <source>Enable</source>
-        <translation>활성화</translation>
+        <translation>Укључи</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="220"/>
         <source>Account Type</source>
-        <translation>계정 타입</translation>
+        <translation>Врста Налога</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="274"/>
         <source>Choose a new picture for your Avatar</source>
-        <translation>아바타의 새로운 사진 선택</translation>
+        <translation>Изаберите слику за ваш аватар</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="275"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
-        <translation>이미지 파일 (*.jpg *.png *.jpeg)</translation>
+        <translation>Датотеке слике (*.jpg *.png *.jpeg)</translation>
     </message>
 </context>
 <context>
@@ -2532,32 +2532,32 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="178"/>
         <source>Keep user&apos;s files</source>
-        <translation>사용자 파일 남겨둠</translation>
+        <translation>Сачувај кориснички документи</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="179"/>
         <source>Delete user&apos;s files</source>
-        <translation>사용자 파일 삭제</translation>
+        <translation>Уклони корсинички документи</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="181"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation>Откажи</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="182"/>
         <source>Confirm</source>
-        <translation>확인</translation>
+        <translation>Потврди</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="230"/>
         <source>Administrator</source>
-        <translation>관리자</translation>
+        <translation>Администратор</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="232"/>
         <source>Normal User</source>
-        <translation>일반 사용자</translation>
+        <translation>Обичан Корисник</translation>
     </message>
 </context>
 <context>
@@ -2565,7 +2565,7 @@
     <message>
         <location filename="../modules/network/vpnconnectswidget.cpp" line="8"/>
         <source>VPN Connections</source>
-        <translation>VPN 연결</translation>
+        <translation>ВПН Повезивања</translation>
     </message>
 </context>
 <context>
@@ -2573,7 +2573,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnapplet.cpp" line="49"/>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation>ВПН</translation>
     </message>
 </context>
 <context>
@@ -2582,7 +2582,7 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnplugin.cpp" line="40"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnplugin.cpp" line="57"/>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation>ВПН</translation>
     </message>
 </context>
 <context>
@@ -2590,102 +2590,102 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="38"/>
         <source>Page Up</source>
-        <translation>페이지 업</translation>
+        <translation>Страница Горе</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="39"/>
         <source>Page Down</source>
-        <translation>페이지 다운</translation>
+        <translation>Страница Доле</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="40"/>
         <source>Left Click</source>
-        <translation>왼쪽 클릭</translation>
+        <translation>Леви клик</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="41"/>
         <source>Right Click</source>
-        <translation>오른쪽 클릭</translation>
+        <translation>Десни Клик</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="42"/>
         <source>Middle Click</source>
-        <translation>가운데 클릭</translation>
+        <translation>Средњи Клик</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="60"/>
         <source>Tablet</source>
-        <translation>타블렛</translation>
+        <translation>Таблични рачунар</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="74"/>
         <source>Tablet Orientation</source>
-        <translation>타블렛 방향</translation>
+        <translation>Смер табле</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="79"/>
         <source>Left Hand</source>
-        <translation>왼쪽 손</translation>
+        <translation>Лева Рука</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="80"/>
         <source>Right Hand</source>
-        <translation>오른쪽 손</translation>
+        <translation>Десна Рука</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="92"/>
         <source>Digital Pen Modes</source>
-        <translation>디지털 펜 모드</translation>
+        <translation>Начини Дигиталне Оловке</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Pen Mode</source>
-        <translation>펜 모드</translation>
+        <translation>Начин Оловке</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="98"/>
         <source>Mouse Mode</source>
-        <translation>마우스 모드</translation>
+        <translation>Начин Миша</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="110"/>
         <source>Down Key</source>
-        <translation>아래 키</translation>
+        <translation>Доње Дугме</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="129"/>
         <source>Up Key</source>
-        <translation>위 키</translation>
+        <translation>Горње Дугме</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="148"/>
         <source>Pressure</source>
-        <translation>압력</translation>
+        <translation>Притисак</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="153"/>
         <source>Soft</source>
-        <translation>약하게</translation>
+        <translation>Меко</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="154"/>
         <source>Hard</source>
-        <translation>강하게</translation>
+        <translation>Тврдо</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="168"/>
         <source>Double-click Space</source>
-        <translation>더블클릭 공간</translation>
+        <translation>Двокликни Простор</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="173"/>
         <source>Narrow</source>
-        <translation>좁게</translation>
+        <translation>Сузи</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="174"/>
         <source>Wide</source>
-        <translation>넓게</translation>
+        <translation>Рашири</translation>
     </message>
 </context>
 <context>
@@ -2695,22 +2695,22 @@
         <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="108"/>
         <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="153"/>
         <source>Snapshot</source>
-        <translation>스냅샷</translation>
+        <translation>Слика</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="110"/>
         <source>Confirm</source>
-        <translation>확인</translation>
+        <translation>Потврди</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="126"/>
         <source>No camera found.</source>
-        <translation>카메라를 찾을 수 없습니다.</translation>
+        <translation>Камера није пронађена</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="146"/>
         <source>Again</source>
-        <translation>다시</translation>
+        <translation>Поново</translation>
     </message>
 </context>
 <context>
@@ -2718,12 +2718,12 @@
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="11"/>
         <source>Wired Network</source>
-        <translation>유선 네트워크</translation>
+        <translation>Жична Мрежа</translation>
     </message>
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="20"/>
         <source>Wired Connection</source>
-        <translation>유선 연결</translation>
+        <translation>Жична Веза</translation>
     </message>
 </context>
 <context>
@@ -2732,12 +2732,12 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="38"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="55"/>
         <source>Wired Network</source>
-        <translation>유선 네트워크</translation>
+        <translation>Жична Мрежа</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="62"/>
         <source>Network Not Connected</source>
-        <translation>네트워크 연결 안됨</translation>
+        <translation>Мрежа није повезана</translation>
     </message>
 </context>
 <context>
@@ -2746,7 +2746,7 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="68"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="194"/>
         <source>Wireless Network</source>
-        <translation>무선 네트워크</translation>
+        <translation>Бежична Мрежа</translation>
     </message>
 </context>
 <context>
@@ -2754,12 +2754,12 @@
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="16"/>
         <source>Wireless Network</source>
-        <translation>무선 네트워크</translation>
+        <translation>Бежична Мрежа</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="232"/>
         <source>Connect to hidden access point</source>
-        <translation>숨겨진 연결 포인트에 연결</translation>
+        <translation>Повежи се за удаљену приступну тачку</translation>
     </message>
 </context>
 <context>
@@ -2767,22 +2767,22 @@
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="39"/>
         <source>Wireless Network</source>
-        <translation>무선 네트워크</translation>
+        <translation>Бежична Мрежа</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="254"/>
         <source>Auto-connect</source>
-        <translation>자동 연결</translation>
+        <translation>Аутоматски се повежи</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="262"/>
         <source>Connect</source>
-        <translation>연결</translation>
+        <translation>Повежи</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="287"/>
         <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation>&lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt; 비밀번호를 입력하세요</translation>
+        <translation>Унесите лозинку од &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</translation>
     </message>
 </context>
 </TS>
