@@ -137,7 +137,7 @@ void BluetoothMainWidget::updateDeviceInfoByMap(BluetoothMainWidget::DeviceInfo 
     if(!info)
         return;
 
-    qDebug() << "update " << map["Paired"].toBool()  << "to " << info->trusted;
+//    qDebug() << "update " << map["Paired"].toBool()  << "to " << info->trusted;
 
     AdapterWidget *adapter = nullptr;
     if (info->adapterInfo && info->adapterInfo->widget)
@@ -226,6 +226,21 @@ void BluetoothMainWidget::intiBackend()
         updateDeviceInfoByMap(info, map);
         if(info)
             info->item->updateUI();
+    });
+
+    connect(m_bluetoothDbus, &DBusBluetooth::RequestConfirmation, this, [this] (const QDBusObjectPath &in0, const QString &in1) {
+        qDebug() << "RequestConfirmation" << in0.path() << in1;
+
+        // TODO: display confirm dialog.
+        m_bluetoothDbus->Confirm(in0, true);
+    });
+
+    connect(m_bluetoothDbus, &DBusBluetooth::RequestPinCode, this, [this] (const QDBusObjectPath &in0) {
+        qDebug() << "RequestPinCode" << in0.path();
+    });
+
+    connect(m_bluetoothDbus, &DBusBluetooth::DisplayPinCode, this, [this] (const QDBusObjectPath &in0, const QString &in1) {
+        qDebug() << "DisplayPinCode" << in0.path() << in1;
     });
 }
 

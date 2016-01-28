@@ -47,7 +47,7 @@ void AdapterWidget::addConfirm(ConfrimWidget *confirm, BluetoothMainWidget::Devi
 
 void AdapterWidget::addDevice(BluetoothMainWidget::DeviceInfo *info)
 {
-    qDebug() << info->name << info->trusted << info->state;
+//    qDebug() << info->name << info->trusted << info->state;
 
     info->adapterInfo = m_info;
 
