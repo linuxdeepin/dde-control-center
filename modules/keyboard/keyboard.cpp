@@ -16,6 +16,7 @@
 #include <libdui/darrowlineexpand.h>
 #include <libdui/dsearchedit.h>
 #include <libdui/anchors.h>
+#include <libdui/denhancedwidget.h>
 
 #include "moduleheader.h"
 #include "normallabel.h"
@@ -334,14 +335,14 @@ void Keyboard::initUI()
     language_searchList->setItemSize(290, EXPAND_HEADER_HEIGHT);
     language_searchList->setEnableVerticalScroll(true);
 
-    ExtendWidget *extend_mainWidget = new ExtendWidget(m_frame, m_frame);
-    connect(extend_mainWidget, &ExtendWidget::heightChanged,
+    DEnhancedWidget *extend_mainWidget = new DEnhancedWidget(m_frame, m_frame);
+    connect(extend_mainWidget, &DEnhancedWidget::heightChanged,
             [language_searchList, user_layout_list, lang_list_frame, lang_search, this]{
         language_searchList->setFixedHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
         lang_list_frame->setFixedHeight(language_searchList->height() + 50);
     });
-    ExtendWidget *extend_user_layoutList = new ExtendWidget(user_layout_list, user_layout_list);
-    connect(extend_user_layoutList, &ExtendWidget::heightChanged,
+    DEnhancedWidget *extend_user_layoutList = new DEnhancedWidget(user_layout_list, user_layout_list);
+    connect(extend_user_layoutList, &DEnhancedWidget::heightChanged,
             [language_searchList, user_layout_list, lang_list_frame, lang_search, this]{
         language_searchList->setFixedHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
         lang_list_frame->setFixedHeight(language_searchList->height() + 50);
