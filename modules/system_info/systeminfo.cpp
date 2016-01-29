@@ -41,6 +41,7 @@ SystemInfo::SystemInfo()
     QLabel *deepinName = new QLabel(tr("Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd."));
     deepinName->setWordWrap(true);
     deepinName->setAlignment(Qt::AlignCenter);
+    deepinName->setStyleSheet("padding:2px 0;");
 
     QLabel *info_sysVersion = new QLabel(tr("Deepin Edition:"));
     info_sysVersion->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
