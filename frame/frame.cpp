@@ -89,7 +89,7 @@ Frame::Frame(QWidget *parent) :
     connect(display_dbus, &DisplayInterface::PrimaryChanged, this, updateGeometry);
     connect(m_homeScreen, &HomeScreen::powerBtnClicked, [this] {hide(true);});
     connect(this, &Frame::hideInLeftChanged, this, updateGeometry);
-    connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
+//    connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide, Qt::QueuedConnection);
     connect(m_hideAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged, Qt::QueuedConnection);
     connect(m_showAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged, Qt::QueuedConnection);
@@ -136,6 +136,7 @@ void Frame::show(bool imme)
         m_showAni->start();
     }
 
+    connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
     QDBusPendingReply<QString> reply = m_dbusXMouseArea->RegisterFullScreen();
     reply.waitForFinished();
     m_dbusFullScreenKey = reply.value();
@@ -171,6 +172,7 @@ void Frame::hide(bool imme)
 
     qDebug() << "unregister: " << m_dbusFullScreenKey;
     m_dbusXMouseArea->UnregisterArea(m_dbusFullScreenKey);//waitForFinished();
+    disconnect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
 
     emit xChanged();
     emit visibleChanged(isVisible());
