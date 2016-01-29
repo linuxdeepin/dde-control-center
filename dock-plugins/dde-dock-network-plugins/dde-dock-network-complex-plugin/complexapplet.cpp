@@ -24,7 +24,7 @@ ComplexApplet::ComplexApplet(QWidget *parent)
 
     m_dbusBluetooth = new DBusBluetooth(this);
     connect(m_dbusBluetooth, &DBusBluetooth::AdapterRemoved, this, &ComplexApplet::onBluetoothAdapterRemoved);
-    connect(m_dbusBluetooth, &DBusBluetooth::AdaptersChanged, this, &ComplexApplet::onBluetoothAdaptersChanged);
+    connect(m_dbusBluetooth, &DBusBluetooth::AdapterPropertiesChanged, this, &ComplexApplet::onBluetoothAdaptersChanged);
 
     m_mainLayout = new QGridLayout(this);
     m_mainLayout->setContentsMargins(0, 0, 0, 0);

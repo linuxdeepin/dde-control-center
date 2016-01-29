@@ -55,14 +55,6 @@ public:
 
     ~DBusBluetooth();
 
-    Q_PROPERTY(QString Adapters READ adapters NOTIFY AdaptersChanged)
-    inline QString adapters() const
-    { return qvariant_cast< QString >(property("Adapters")); }
-
-    Q_PROPERTY(QString Devices READ devices NOTIFY DevicesChanged)
-    inline QString devices() const
-    { return qvariant_cast< QString >(property("Devices")); }
-
     Q_PROPERTY(uint State READ state NOTIFY StateChanged)
     inline uint state() const
     { return qvariant_cast< uint >(property("State")); }
@@ -205,8 +197,6 @@ Q_SIGNALS: // SIGNALS
     void RequestPasskey(const QDBusObjectPath &in0);
     void RequestPinCode(const QDBusObjectPath &in0);
 // begin property changed signals
-void AdaptersChanged();
-void DevicesChanged();
 void StateChanged();
 };
 

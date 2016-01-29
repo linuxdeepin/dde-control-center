@@ -132,7 +132,7 @@ int wirelessApMaxStrength(DBusNetwork *dbusNetwork);
 QMap<QString, QString> wirelessDevices(DBusNetwork *dbusNetwork);
 
 QList<BluetoothAdapterInfo> bluetoothAdapters(DBusBluetooth *dbusBluetooth);
-bool bluetoothAdaptersActived(DBusBluetooth *dbusBluetooth);
+//bool bluetoothAdaptersActived(DBusBluetooth *dbusBluetooth);
 }
 
 #endif // NETWORKDATA

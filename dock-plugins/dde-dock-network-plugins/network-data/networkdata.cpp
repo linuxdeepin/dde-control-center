@@ -223,7 +223,9 @@ QList<BluetoothAdapterInfo> bluetoothAdapters(DBusBluetooth *dbusBluetooth)
     QList<BluetoothAdapterInfo> list;
 
     if (dbusBluetooth->isValid()) {
-        QJsonArray array = QJsonDocument::fromJson(dbusBluetooth->adapters().toUtf8()).array();
+        const QString &adapters = dbusBluetooth->GetAdapters();
+        QJsonArray array = QJsonDocument::fromJson(adapters.toUtf8()).array();
+
         for (QJsonValue value : array) {
             QJsonObject obj = value.toObject();
             if (!obj.isEmpty()) {
@@ -244,21 +246,23 @@ QList<BluetoothAdapterInfo> bluetoothAdapters(DBusBluetooth *dbusBluetooth)
     return list;
 }
 
-bool bluetoothAdaptersActived(DBusBluetooth *dbusBluetooth)
-{
-    QVariantMap allObjMap = QJsonDocument::fromJson(dbusBluetooth->devices().toUtf8()).object().toVariantMap();
-    //all adapter
-    for (QVariant mv : allObjMap.values()) {
-        //all devices of the adapter
-        QVariantList list = mv.toList();
-        foreach (QVariant v, list) {
-            int state = v.toMap().value("State").toInt();
-            if (state == BluetoothStateConnected)
-                return true;
-        }
-    }
+//bool bluetoothAdaptersActived(DBusBluetooth *dbusBluetooth)
+//{
+//    const QString &devices = dbusBluetooth->GetDevices();
 
-    return false;
-}
+//    QVariantMap allObjMap = QJsonDocument::fromJson(devices.toUtf8()).object().toVariantMap();
+//    //all adapter
+//    for (QVariant mv : allObjMap.values()) {
+//        //all devices of the adapter
+//        QVariantList list = mv.toList();
+//        foreach (QVariant v, list) {
+//            int state = v.toMap().value("State").toInt();
+//            if (state == BluetoothStateConnected)
+//                return true;
+//        }
+//    }
+
+//    return false;
+//}
 
 }
