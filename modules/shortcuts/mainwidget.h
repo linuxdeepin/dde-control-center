@@ -18,6 +18,7 @@ DUI_USE_NAMESPACE
 class AddRmDoneLine;
 class ModuleHeader;
 class SearchList;
+class SelectDialog;
 class MainWidget : public ScrollFrame
 {
     Q_OBJECT
@@ -43,6 +44,8 @@ private:
     SearchList *m_customList;
     DExpandGroup *m_expandGroup;
     QList<QWidget*> m_expandGroupChildList;
+
+    QPointer<SelectDialog> m_conflictDialog;
 
     void init();
 

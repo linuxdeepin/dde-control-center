@@ -411,41 +411,41 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         ///40是warning icon的高
         ///60是对话框中button和间隔的高
 
-        SelectDialog *dialog = new SelectDialog;
-        dialog->setFixedHeight(dialog_height);
-        dialog->setText(tmp_text);
-        listw->insertItem(index+1, dialog);
-        listw->setFixedHeight(qMin(LIST_MAX_HEIGHT,
-                                   listw->count() * RADIO_ITEM_HEIGHT + dialog_height - RADIO_ITEM_HEIGHT));
+        if(!m_conflictDialog) {
+            m_conflictDialog = new SelectDialog;
 
-        ///获取listw所对应的expand widget在expandGroup的index
-        index = m_expandGroupChildList.indexOf(listw);
-//        if(index >= 0)
-//            m_expandGroup->expand(index)->updateContentHeight();
+            m_conflictDialog->setFixedHeight(dialog_height);
 
-        connect(dialog, &SelectDialog::replace, [=]{
-            dialog->setFixedHeight(dialog_height);
-            listw->removeItem(listw->indexOf(dialog));
+            listw->insertItem(index+1, m_conflictDialog);
+            listw->setFixedHeight(qMin(LIST_MAX_HEIGHT,
+                                       listw->count() * RADIO_ITEM_HEIGHT + dialog_height - RADIO_ITEM_HEIGHT));
 
-            foreach (ShortcutWidget* tmp_w, tmp_list) {
-                m_dbus->ModifyShortcut(tmp_w->id(), "");
-            }
-            m_dbus->ModifyShortcut(w->id(), shortcut);
-            emit setEnableEditShortcut(true);
-//            if(index >= 0)
-//                m_expandGroup->expand(index)->updateContentHeight();
-        });
-        connect(dialog, &SelectDialog::cancel, [=]{
-            dialog->contraction();
-        });
-        connect(dialog, &SelectDialog::contracted, [=]{
-            dialog->setFixedHeight(dialog_height);
-            listw->removeItem(listw->indexOf(dialog));
-            emit setEnableEditShortcut(true);
-//            if(index >= 0)
-//                m_expandGroup->expand(index)->updateContentHeight();
-        });
-        dialog->expansion();
+            connect(m_conflictDialog, &SelectDialog::replace, [=]{
+                m_conflictDialog->setFixedHeight(dialog_height);
+                listw->removeItem(listw->indexOf(m_conflictDialog));
+                m_conflictDialog->deleteLater();
+
+                foreach (ShortcutWidget* tmp_w, tmp_list) {
+                    m_dbus->ModifyShortcut(tmp_w->id(), "");
+                }
+                m_dbus->ModifyShortcut(w->id(), shortcut);
+                emit setEnableEditShortcut(true);
+            });
+            connect(m_conflictDialog, &SelectDialog::cancel, [=]{
+                m_conflictDialog->contraction();
+            });
+            connect(m_conflictDialog, &SelectDialog::contracted, [=]{
+                m_conflictDialog->setFixedHeight(dialog_height);
+                listw->removeItem(listw->indexOf(m_conflictDialog));
+                m_conflictDialog->deleteLater();
+                emit setEnableEditShortcut(true);
+            });
+            connect(m_header, &ModuleHeader::resetButtonClicked,
+                    m_conflictDialog.data(), &SelectDialog::contracted);
+        }
+
+        m_conflictDialog->setText(tmp_text);
+        m_conflictDialog->expansion();
     }
 }
 
