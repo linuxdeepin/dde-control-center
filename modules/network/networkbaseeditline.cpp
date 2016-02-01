@@ -206,11 +206,13 @@ void updateAllEditLineVisible(NetworkBaseEditLine *editLine)
 
 NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &key,
                                          DBusConnectionSession *dbus, const QString &title,
+                                         bool alwaysUpdate,
                                          QWidget *parent):
     QWidget(parent),
     m_dbus(dbus),
     m_section(section),
-    m_key(key)
+    m_key(key),
+    m_alwaysUpdate(alwaysUpdate)
 {
     QHBoxLayout *layout = new QHBoxLayout;
     titleLabel = new DLabel(title);
@@ -249,7 +251,7 @@ NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &
 
     connect(this, &NetworkBaseEditLine::setTitle, titleLabel, &DLabel::setText);
     connect(dbus, &DBusConnectionSession::ConnectionDataChanged, this, [this]{
-        if(isVisible() && alwaysUpdate()) {
+        if(isVisible() && this->alwaysUpdate()) {
             setCacheValue(dbusKey());
         }
     });

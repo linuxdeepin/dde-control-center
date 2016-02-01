@@ -109,6 +109,7 @@ namespace ConnectionType {
     const QString VpnPptp = "vpn-pptp";
     const QString VpnVpnc = "vpn-vpnc";
     const QString VpnOpenvpn = "vpn-openvpn";
+    const QString VpnStrongSwan = "vpn-strongswan";
     const QString VpnOpenconnect = "vpn-openconnect";
 }
 

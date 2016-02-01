@@ -35,6 +35,7 @@ void AddVpnPage::init()
     m_mapVpnNameToType["OpenVPN"] = ConnectionType::VpnOpenvpn;
     m_mapVpnNameToType["OpenConnect"] = ConnectionType::VpnOpenconnect;
     m_mapVpnNameToType["VPNC"] = ConnectionType::VpnVpnc;
+    m_mapVpnNameToType["StrongSwan"] = ConnectionType::VpnStrongSwan;
 
     list_vpn_type->addButtons(m_mapVpnNameToType.keys());
     list_vpn_type->checkButtonByIndex(0);
@@ -148,6 +149,26 @@ void AddVpnPage::init()
                                                            m_dbus, tr("Use MPPE")));
     boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-pptp-ppp", "vk-require-mppe",
                                                            m_dbus, tr("Use MPPE")));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "address",
+                                                    m_dbus, tr("Address")));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "certificate",
+                                                    m_dbus, tr("Certificate"), EditLineInput::FileChooser));
+    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-strongswan", "method",
+                                                    m_dbus, tr("Authentication")));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "user",
+                                                    m_dbus, tr("Username"), EditLineInput::Normal, true));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "usercert",
+                                                    m_dbus, tr("Client Cert"),
+                                                    EditLineInput::FileChooser, true));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "userkey",
+                                                    m_dbus, tr("Client Key"),
+                                                    EditLineInput::FileChooser, true));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-strongswan", "virtual",
+                                                    m_dbus, tr("Request an Inner IP Address")));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-strongswan", "encap",
+                                                    m_dbus, tr("Enforce UDP Encapsulation")));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-strongswan", "ipcomp",
+                                                    m_dbus, tr("Use IP Compression")));
     boxWidget_vpn_info->addWidget(new EditLineSwitchButton("connection", "vk-autoconnect",
                                                            m_dbus, tr("Automatically connect")));
 

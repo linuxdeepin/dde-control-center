@@ -10,8 +10,8 @@ DUI_USE_NAMESPACE
 
 EditLineInput::EditLineInput(const QString &section, const QString &key,
                              DBusConnectionSession *dbus, const QString &title,
-                             EditLineInputType type, QWidget *parent) :
-    NetworkBaseEditLine(section, key, dbus, title, parent)
+                             EditLineInputType type, bool alwaysUpdate, QWidget *parent) :
+    NetworkBaseEditLine(section, key, dbus, title, alwaysUpdate, parent)
 {
     DLineEdit *line_edit = nullptr;
 
