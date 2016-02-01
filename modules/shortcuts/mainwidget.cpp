@@ -342,7 +342,7 @@ void MainWidget::shortcutListChanged(SearchList *listw, const ShortcutInfoList &
             connect(this, &MainWidget::setEnableEditShortcut, shortw, &ShortcutWidget::setEnableEdit);
         }
     }else{
-        for(int i=list.count();i<listw->count();++i){
+        for(int i = listw->count() - 1; i >= list.count(); --i){
             listw->removeItem(i);
             m_searchList->removeItem(offseIndex+i);
         }
