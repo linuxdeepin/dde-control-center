@@ -63,6 +63,7 @@ ContentView::ContentView(ControlCenterProxy *proxy, QWidget *parent)
     connect(m_sideBar, &SideBar::moduleSelected, this, &ContentView::onModuleSelected);
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
     connect(m_showAni, &QPropertyAnimation::finished, this, static_cast<void (ContentView::*)()>(&ContentView::update));
+    connect(m_pluginsManager, &PluginsManager::showHome, this,&ContentView::switchToHome );
 
     setLayout(m_layout);
 }
@@ -162,6 +163,11 @@ void ContentView::reLayout(bool hideInLeft)
             m_layout->insertItem(3 - index, item);
         }
     }
+}
+
+void ContentView::switchToHome()
+{
+    emit backToHome();
 }
 
 void ContentView::switchToModule(const QString pluginId)

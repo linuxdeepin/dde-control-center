@@ -33,6 +33,7 @@ public slots:
     void reLayout(bool hideInLeft);
     void switchToModule(const QString pluginId);
     void unloadPlugin();
+    void switchToHome();
 
 signals:
     void backToHome();

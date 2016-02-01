@@ -52,6 +52,11 @@ const QList<ModuleMetaData> &&PluginsManager::pluginsList() const
 const ModuleMetaData PluginsManager::pluginMetaData(const QString &pluginId) const
 {
     const int index = pluginIndex(pluginId);
+    if (index < 0 )
+    {
+        emit showHome();
+        return m_pluginsList.first();
+    }
 
     return m_pluginsList.at(index);
 }

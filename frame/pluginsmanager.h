@@ -25,6 +25,7 @@ public:
 signals:
     void pluginInserted(const int position, const ModuleMetaData &meta) const;
     void pluginRemoved(const ModuleMetaData &meta) const;
+    void showHome() const;
 
 private:
     explicit PluginsManager(QObject *parent = 0);
