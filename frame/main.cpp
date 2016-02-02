@@ -19,6 +19,7 @@
 #include "frame.h"
 #include "interfaces.h"
 #include "logmanager.h"
+#include "pluginsmanager.h"
 #include "dbus/dbuscontrolcenter.h"
 #include "dbus/dbuscontrolcenterservice.h"
 
@@ -104,11 +105,22 @@ int main(int argv, char *args[])
 #endif
     }
 
-    if (!positionalArgs.isEmpty())
-        frame.selectModule(positionalArgs.at(0));
+
+
+    if (!positionalArgs.isEmpty()) {
+
+        PluginsManager * pluginsManager = PluginsManager::getInstance(&app);
+
+        if(pluginsManager->pluginIndex(positionalArgs.at(0)) != -1) {
+            frame.selectModule(positionalArgs.at(0));
+        }else{
+            frame.selectModule("home");
+        }
+    }
 #ifndef QT_DEBUG
     else if (parser.isSet(showOption))
 #endif
+
     frame.show();
 
     // setup theme manager

@@ -30,6 +30,7 @@ public:
     const QString pluginPath(const QString &pluginId) const;
     const QList<ModuleMetaData>&& pluginsList() const;
     const ModuleMetaData pluginMetaData(const QString &pluginId) const;
+    static QStringList getPluginsOrder();
 
 signals:
     void pluginInserted(const int position, const ModuleMetaData &meta) const;
@@ -47,6 +48,7 @@ private:
 private:
     DeviceMoniter *m_deviceMoniter = nullptr;
     QList<ModuleMetaData> m_pluginsList;
+    static QStringList m_pluginsOrder;
 };
 
 class DeviceMoniter : public QThread

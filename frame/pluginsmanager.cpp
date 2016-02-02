@@ -21,6 +21,12 @@
 
 static PluginsManager *m_self = nullptr;
 
+// TODO: make this QStringList dynamic in the future to allow 3rd party modules.
+QStringList PluginsManager::m_pluginsOrder = QStringList() << "account" << "display" << "defaultapps" << "personalization"
+                                                           << "network" << "bluetooth" << "sound" << "datetime" << "power"
+                                                           << "mouse"<<"wacom" << "keyboard" << "shortcuts"
+                                                           << "grub" << "remoting" << "system_info";
+
 PluginsManager *PluginsManager::getInstance(QObject *parent)
 {
     if (!m_self)
@@ -93,17 +99,17 @@ bool PluginsManager::checkDependentCondition(const QString &condition)
     return m_deviceMoniter->property(condition.toStdString().c_str()).toBool();
 }
 
+QStringList PluginsManager::getPluginsOrder()
+{
+    return m_pluginsOrder;
+}
+
 int PluginsManager::getPluginInsertIndex(const QString &id)
 {
-    // TODO: make this QStringList dynamic in the future to allow 3rd party modules.
-    static QStringList pluginsOrder({"account", "display", "defaultapps", "personalization",
-                                     "network", "bluetooth", "sound", "datetime",
-                                     "power", "mouse", "wacom", "keyboard", "shortcuts",
-                                     "grub", "remoting", "system_info"});
 
-    const int pluginOrder = pluginsOrder.indexOf(id);
+    const int pluginOrder = m_pluginsOrder.indexOf(id);
     for (const ModuleMetaData &p : m_pluginsList)
-        if (pluginsOrder.indexOf(p.id) > pluginOrder)
+        if (m_pluginsOrder.indexOf(p.id) > pluginOrder)
             return pluginIndex(p.id);
 
     return m_pluginsList.size();
