@@ -34,6 +34,9 @@ Q_DECLARE_METATYPE(LocaleList)
 QDBusArgument& operator<<(QDBusArgument& arg, const LocaleInfo& info);
 const QDBusArgument& operator>>(const QDBusArgument& arg, LocaleInfo& info);
 
+QDataStream& operator<<(QDataStream &ds, const LocaleInfo& info);
+const QDataStream& operator>>(QDataStream& ds, LocaleInfo& info);
+
 /*
  * Proxy class for interface com.deepin.daemon.LangSelector
  */

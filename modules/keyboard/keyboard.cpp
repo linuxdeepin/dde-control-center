@@ -3,6 +3,8 @@
 #include <QFrame>
 #include <QVBoxLayout>
 #include <QGridLayout>
+#include <QList>
+#include <QVariant>
 
 #include <libdui/dslider.h>
 #include <libdui/dseparatorhorizontal.h>
@@ -33,8 +35,9 @@ DUI_USE_NAMESPACE
 Keyboard::Keyboard() :
     QObject(),
     m_frame(new QFrame),
-    m_dbusKeyboard(NULL),
-    m_letterClassifyList(NULL)
+    m_letterClassifyList(nullptr),
+    m_settings(new QSettings("deepin", "dde-control-center-kayboard", this)),
+    m_dbusKeyboard(nullptr)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Keyboard and Language"));
 
@@ -330,95 +333,57 @@ void Keyboard::initUI()
     lang_search->setFixedWidth(290);
     lang_search->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
-    SearchList *language_searchList = new SearchList;
-    language_searchList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    language_searchList->setCheckable(true);
-    language_searchList->setFixedWidth(310);
-    language_searchList->setItemSize(290, EXPAND_HEADER_HEIGHT);
-    language_searchList->setEnableVerticalScroll(true);
+    m_langItemList = new SearchList;
+    m_langItemList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_langItemList->setCheckable(true);
+    m_langItemList->setFixedWidth(310);
+    m_langItemList->setItemSize(290, EXPAND_HEADER_HEIGHT);
+    m_langItemList->setEnableVerticalScroll(true);
 
     DEnhancedWidget *extend_mainWidget = new DEnhancedWidget(m_frame, m_frame);
     connect(extend_mainWidget, &DEnhancedWidget::heightChanged,
-            [language_searchList, user_layout_list, lang_list_frame, lang_search, this]{
-        language_searchList->setFixedHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
-        lang_list_frame->setFixedHeight(language_searchList->height() + 50);
+            [user_layout_list, lang_list_frame, lang_search, this]{
+        m_langItemList->setFixedHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
+        lang_list_frame->setFixedHeight(m_langItemList->height() + 50);
     });
     DEnhancedWidget *extend_user_layoutList = new DEnhancedWidget(user_layout_list, user_layout_list);
     connect(extend_user_layoutList, &DEnhancedWidget::heightChanged,
-            [language_searchList, user_layout_list, lang_list_frame, lang_search, this]{
-        language_searchList->setFixedHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
-        lang_list_frame->setFixedHeight(language_searchList->height() + 50);
+            [user_layout_list, lang_list_frame, lang_search, this]{
+        m_langItemList->setFixedHeight(m_frame->height() - user_layout_list->geometry().bottom() - 80);
+        lang_list_frame->setFixedHeight(m_langItemList->height() + 50);
     });
 
     lang_frame_layout->addSpacing(10);
     lang_frame_layout->addWidget(lang_search, 0, Qt::AlignTop|Qt::AlignHCenter);
-    lang_frame_layout->addWidget(language_searchList, 50);
+    lang_frame_layout->addWidget(m_langItemList, 50);
     lang_frame_layout->addStretch(1);
 
     lang_list_frame->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     lang_list_frame->setLayout(lang_frame_layout);
     language_expand->setContent(lang_list_frame);
 
-    DbusLangSelector *dbusLangSelector = new DbusLangSelector(this);
-    QDBusPendingCallWatcher *lang_list = new QDBusPendingCallWatcher(dbusLangSelector->GetLocaleList(), this);
-    connect(lang_list, &QDBusPendingCallWatcher::finished, [=] {
-        QString current_lang = dbusLangSelector->currentLocale();
-        QDBusPendingReply<LocaleList> reply = *lang_list;
-        QString theme = DThemeManager::instance()->theme();
+    m_dbusLangSelector = new DbusLangSelector(this);
 
-        const QList<LocaleInfo> infos = reply.value();
-        for (const LocaleInfo &info : infos)
-        {
-            qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-            GenericListItem *item = new GenericListItem;
+    lang_list_frame->setMinimumHeight(lang_search->height()+m_langItemList->height());
 
-            item->setKeyWords(QStringList()<<info.name);
-            if(theme == "dark"){
-                item->setImageNormal(":/lang_images/normal/"+info.id+".png");
-            }else{
-                item->setImageNormal(":/lang_images/dark/"+info.id+".png");
-            }
-            item->setImageHover(":/lang_images/hover/"+info.id+".png");
-            item->setImagePress(":/lang_images/hover/"+info.id+".png");
-            item->setImageChecked(":/lang_images/active/"+info.id+".png");
-
-            language_searchList->addItem(item);
-            if(info.id == current_lang){
-                language_searchList->setCheckedItem(language_searchList->count()-1);
-            }
-
-            m_mapUserLayoutInfo[info.name] = info.id;
-            m_mapUserLayoutIndex[info.id] = language_searchList->count()-1;
-        }
-
-        language_searchList->beginSearch();
-
-//        if (meDeleted && dbusLangSelector && dbusLangSelector->isValid())
-            m_languageTips->setText(m_mapUserLayoutInfo.key(current_lang));
+    connect(lang_search, &DSearchEdit::textChanged, [lang_search, this]{
+        m_langItemList->setKeyWord(lang_search->text());
     });
-
-    lang_list_frame->setMinimumHeight(lang_search->height()+language_searchList->height());
-
-    connect(lang_search, &DSearchEdit::textChanged, [language_searchList, lang_search]{
-        language_searchList->setKeyWord(lang_search->text());
-    });
-    connect(language_searchList, &SearchList::checkedItemChanged,
-            [this, language_searchList, dbusLangSelector](int index){
+    connect(m_langItemList, &SearchList::checkedItemChanged, [this](int index){
         if(index<0)
             return;
 
-        QString str = m_mapUserLayoutInfo[language_searchList->getItem(index)->keyWords()[0]];
-        if(dbusLangSelector->currentLocale() != str){
-            dbusLangSelector->SetLocale(str);
+        QString str = m_mapUserLayoutInfo[m_langItemList->getItem(index)->keyWords()[0]];
+        if(m_dbusLangSelector->currentLocale() != str){
+            m_dbusLangSelector->SetLocale(str);
             m_languageTips->setText(m_mapUserLayoutInfo.key(str));
         }
     });
-    connect(dbusLangSelector, &DbusLangSelector::CurrentLocaleChanged,
-            [this, language_searchList, dbusLangSelector]{
-        QString str = dbusLangSelector->currentLocale();
+    connect(m_dbusLangSelector, &DbusLangSelector::CurrentLocaleChanged, [this]{
+        QString str = m_dbusLangSelector->currentLocale();
         int index = m_mapUserLayoutIndex[str];
-        if(index>=0&&index<language_searchList->count())
-            language_searchList->setCheckedItem(index);
+        if(index>=0&&index<m_langItemList->count())
+            m_langItemList->setCheckedItem(index);
     });
 
     m_mainLayout->addWidget(capsLockLine);
@@ -434,7 +399,7 @@ void Keyboard::initUI()
     m_letterClassifyList->hide();
     m_letterClassifyList->setFixedWidth(310);
     m_mainLayout->insertWidget(10, m_letterClassifyList);
-    QTimer::singleShot(400, this, SLOT(loadLetterClassify()));
+    QTimer::singleShot(400, this, SLOT(loadLater()));
 }
 
 void Keyboard::run()
@@ -471,8 +436,33 @@ void Keyboard::run()
     }
 }
 
-void Keyboard::loadLetterClassify()
+void Keyboard::loadLater()
 {
+    QList<LocaleInfo> langList;
+    QByteArray readBytes = m_settings->value("LangList").toByteArray();
+    QDataStream readStream(&readBytes, QIODevice::ReadOnly);
+    readStream >> langList;
+    if (!langList.isEmpty())
+    {
+        loadLanguageList(langList);
+    } else {
+        QDBusPendingCallWatcher *lang_list = new QDBusPendingCallWatcher(m_dbusLangSelector->GetLocaleList(), this);
+        connect(lang_list, &QDBusPendingCallWatcher::finished, [=] {
+            QDBusPendingReply<LocaleList> reply = *lang_list;
+
+            const QList<LocaleInfo> infos = reply.value();
+            loadLanguageList(infos);
+
+            // save langList for optimize load speed
+            QByteArray writeBytes;
+            QDataStream writeStream(&writeBytes, QIODevice::WriteOnly);
+            writeStream << infos;
+
+            m_settings->setValue("LangList", writeBytes);
+        });
+    }
+
+    // load classify
     connect(this, &Keyboard::addLayoutItem, this, &Keyboard::onAddLayoutItem, Qt::QueuedConnection);
     QThreadPool::globalInstance()->start(this);
 }
@@ -499,6 +489,42 @@ void Keyboard::onAddLayoutItem(const QString &id, const QString &title, const QS
         connect(tmp, &KeyboardLayoutDelegate::checkedChanged, item, &KeyboardLayoutDelegate::setChecked);
         m_letterClassifyList->addItem(tmp, ch);
     }
+}
+
+void Keyboard::loadLanguageList(const QList<LocaleInfo> &infos)
+{
+    const QString theme = DThemeManager::instance()->theme();
+    const QString current_lang = m_dbusLangSelector->currentLocale();
+
+    for (const LocaleInfo &info : infos)
+    {
+        qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
+        GenericListItem *item = new GenericListItem;
+
+        item->setKeyWords(QStringList()<<info.name);
+        if(theme == "dark"){
+            item->setImageNormal(":/lang_images/normal/"+info.id+".png");
+        }else{
+            item->setImageNormal(":/lang_images/dark/"+info.id+".png");
+        }
+        item->setImageHover(":/lang_images/hover/"+info.id+".png");
+        item->setImagePress(":/lang_images/hover/"+info.id+".png");
+        item->setImageChecked(":/lang_images/active/"+info.id+".png");
+
+        m_langItemList->addItem(item);
+        if(info.id == current_lang){
+            m_langItemList->setCheckedItem(m_langItemList->count()-1);
+        }
+
+        m_mapUserLayoutInfo[info.name] = info.id;
+        m_mapUserLayoutIndex[info.id] = m_langItemList->count()-1;
+    }
+
+
+    m_langItemList->beginSearch();
+
+//        if (meDeleted && dbusLangSelector && dbusLangSelector->isValid())
+        m_languageTips->setText(m_mapUserLayoutInfo.key(current_lang));
 }
 
 QFrame* Keyboard::getContent()

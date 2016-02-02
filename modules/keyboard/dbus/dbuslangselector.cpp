@@ -10,6 +10,7 @@
  */
 
 #include "dbuslangselector.h"
+#include <QDataStream>
 
 /*
  * Implementation of interface class DbusLangSelector
@@ -47,4 +48,14 @@ const QDBusArgument &operator>>(const QDBusArgument &arg, LocaleInfo &info)
     arg.endStructure();
 
     return arg;
+}
+
+QDataStream &operator<<(QDataStream &ds, const LocaleInfo &info)
+{
+    return ds << info.id << info.name;
+}
+
+const QDataStream &operator>>(QDataStream &ds, LocaleInfo &info)
+{
+    return ds >> info.id >> info.name;
 }
