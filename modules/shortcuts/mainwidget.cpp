@@ -1,3 +1,5 @@
+#include <QScrollBar>
+
 #include <libdui/dtextbutton.h>
 #include <libdui/dseparatorhorizontal.h>
 #include <libdui/dsearchedit.h>
@@ -459,7 +461,18 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
         }
 
         m_conflictDialog->setText(tmp_text);
-        m_conflictDialog->expansion();
+
+        int dialog_y = listw->getWidget(index)->geometry().bottom();
+        int listw_content_y = listw->verticalScrollBar()->value();
+
+        if(dialog_y > listw->height() + listw_content_y - dialog_height / 3) {
+            m_conflictDialog->setMinimumHeight(0);
+            QMetaObject::invokeMethod(listw->verticalScrollBar(), "setValue",
+                                      Qt::QueuedConnection,
+                                      Q_ARG(int, listw_content_y + dialog_height));
+        } else {
+            m_conflictDialog->expansion();
+        }
     }
 }
 
