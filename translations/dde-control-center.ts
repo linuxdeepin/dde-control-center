@@ -187,176 +187,217 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="47"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="48"/>
         <source>Basic Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="64"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="65"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="69"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="70"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="70"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="77"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="91"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="118"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="124"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="71"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="78"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="92"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="119"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="125"/>
         <source>Gateway</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="71"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="95"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="119"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="125"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="72"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="96"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="120"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="126"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="159"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="73"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="97"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="107"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="121"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="127"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="132"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="74"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="98"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="108"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="122"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="128"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="133"/>
         <source>Ask for Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="75"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="99"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="123"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="76"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="100"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="124"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="79"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="101"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="80"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="102"/>
         <source>CA Cert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="80"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="81"/>
         <source>Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="82"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="83"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="84"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="85"/>
         <source>CSD Script</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="86"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="103"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="87"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="104"/>
         <source>User Cert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="88"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="105"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="89"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="106"/>
         <source>Private Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="90"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="91"/>
         <source>Use FSID for Key Passphrase</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="93"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="94"/>
         <source>Auth Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="109"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="110"/>
         <source>Private Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="111"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="112"/>
         <source>Static Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="113"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="114"/>
         <source>Customize Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="115"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="116"/>
         <source>Key Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="116"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="117"/>
         <source>Remote IP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="117"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="118"/>
         <source>Local IP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="129"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="130"/>
         <source>User Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="130"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="142"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="131"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="143"/>
         <source>Group Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="134"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="135"/>
         <source>Group Pwd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="136"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="137"/>
         <source>Use Hybrid Authentication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="138"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="139"/>
         <source>CA File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="140"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="141"/>
         <source>Enable IPsec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="144"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="145"/>
         <source>Group ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="146"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="147"/>
         <source>Pre-Shared Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="148"/>
-        <location filename="../modules/network/addvpnpage.cpp" line="150"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="149"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="151"/>
         <source>Use MPPE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/addvpnpage.cpp" line="152"/>
+        <location filename="../modules/network/addvpnpage.cpp" line="153"/>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="155"/>
+        <source>Certificate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="157"/>
+        <source>Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="161"/>
+        <source>Client Cert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="164"/>
+        <source>Client Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="167"/>
+        <source>Request an Inner IP Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="169"/>
+        <source>Enforce UDP Encapsulation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="171"/>
+        <source>Use IP Compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/addvpnpage.cpp" line="173"/>
         <source>Automatically connect</source>
         <translation type="unfinished"></translation>
     </message>
@@ -393,7 +434,7 @@
 <context>
     <name>BluetoothMainWidget</name>
     <message>
-        <location filename="../modules/bluetooth/bluetoothmainwidget.cpp" line="243"/>
+        <location filename="../modules/bluetooth/bluetoothmainwidget.cpp" line="258"/>
         <source>Bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1200,57 +1241,57 @@
 <context>
     <name>Keyboard</name>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="124"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="125"/>
         <source>Keyboard and Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="137"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="138"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="158"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="159"/>
         <source>Repeat Rate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="179"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="180"/>
         <source>Cursor Blink Rate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="201"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="202"/>
         <source>Test Area</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="215"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="216"/>
         <source>Caps Lock prompt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="231"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="232"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="236"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="237"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="237"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="238"/>
         <source>Remove Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="238"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="239"/>
         <source>Add Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="326"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="327"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1492,7 +1533,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="38"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="39"/>
         <source>Keyboard and Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2301,42 +2342,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="45"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="46"/>
         <source>Deepin Edition:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="51"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="52"/>
         <source>Distribution:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="57"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="58"/>
         <source>System Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="59"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>%1 Bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="62"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="63"/>
         <source>Processor:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="68"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="69"/>
         <source>Memory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="74"/>
         <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="140"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="141"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2489,42 +2530,42 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="98"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="102"/>
         <source>Recently Used</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="99"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="103"/>
         <source>Avatar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="100"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="104"/>
         <source>Webcam</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="161"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="165"/>
         <source>Auto-login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="187"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="191"/>
         <source>Enable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="220"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
         <source>Account Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="274"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="279"/>
         <source>Choose a new picture for your Avatar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="275"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="280"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation type="unfinished"></translation>
     </message>
