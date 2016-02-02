@@ -245,15 +245,15 @@ void MainWidget::init()
                             m_systemList->count()+m_windowList->count()+m_workspaceList->count());
     });
 
-    AddRmDoneLine *customLine = getCustomLstHeadBar();
-    customLine->setRemoveHidden(m_customList->count()<1);
+    m_customLine = getCustomLstHeadBar();
+    m_customLine->setRemoveHidden(m_customList->count()<1);
 
     DSeparatorHorizontal *customListSeparator = new DSeparatorHorizontal;
     customListSeparator->setHidden(m_customList->count()<1);
     connect(m_customList, &SearchList::countChanged, [=]{
         customListSeparator->setHidden(m_customList->count()<1);
-        if(customLine->doneButton()->isHidden())
-            customLine->setRemoveHidden(m_customList->count()<1);
+        if(m_customLine->doneButton()->isHidden())
+            m_customLine->setRemoveHidden(m_customList->count()<1);
     });
 
     DSearchEdit *edit  = new DSearchEdit;
@@ -288,6 +288,8 @@ void MainWidget::init()
         }
     });
 
+    m_addShortcutDialog = getAddShortcutWidget();
+
     headerLayout()->addWidget(m_header);
     headerLayout()->addWidget(new DSeparatorHorizontal);
     headerLayout()->addSpacing(5);
@@ -299,12 +301,12 @@ void MainWidget::init()
     m_childLayout->addWidget(addExpand(tr("System"), m_systemList));
     m_childLayout->addWidget(addExpand(tr("Window"), m_windowList));
     m_childLayout->addWidget(addExpand(tr("Workspace"), m_workspaceList));
-    m_childLayout->addWidget(customLine);
+    m_childLayout->addWidget(m_customLine);
     m_childLayout->addWidget(new DSeparatorHorizontal);
     m_childLayout->addWidget(m_customList);
     m_childLayout->addWidget(customListSeparator);
     m_childLayout->addSpacing(5);
-    m_childLayout->addWidget(getAddShortcutWidget());
+    m_childLayout->addWidget(m_addShortcutDialog);
     m_layout->addLayout(m_childLayout);
     m_layout->addStretch(1);
 }
@@ -424,6 +426,8 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
                 m_conflictDialog->setFixedHeight(dialog_height);
                 listw->removeItem(listw->indexOf(m_conflictDialog));
                 m_conflictDialog->deleteLater();
+                m_customLine->setDisabled(false);
+                m_addShortcutDialog->setDisabled(false);
 
                 foreach (ShortcutWidget* tmp_w, tmp_list) {
                     m_dbus->ModifyShortcut(tmp_w->id(), "");
@@ -438,10 +442,20 @@ void MainWidget::editShortcut(ShortcutWidget *w, SearchList *listw, const QStrin
                 m_conflictDialog->setFixedHeight(dialog_height);
                 listw->removeItem(listw->indexOf(m_conflictDialog));
                 m_conflictDialog->deleteLater();
+                m_customLine->setDisabled(false);
+                m_addShortcutDialog->setDisabled(false);
+
                 emit setEnableEditShortcut(true);
             });
             connect(m_header, &ModuleHeader::resetButtonClicked,
                     m_conflictDialog.data(), &SelectDialog::contracted);
+
+            m_customLine->setDisabled(true);
+            m_addShortcutDialog->setDisabled(true);
+
+            if(m_customLine->doneButton()->isVisible()) {
+                m_customLine->doneButton()->clicked();
+            }
         }
 
         m_conflictDialog->setText(tmp_text);

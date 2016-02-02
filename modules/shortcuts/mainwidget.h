@@ -43,6 +43,8 @@ private:
     SearchList *m_workspaceList;
     SearchList *m_customList;
     DExpandGroup *m_expandGroup;
+    AddRmDoneLine *m_customLine;
+    QWidget *m_addShortcutDialog;
     QList<QWidget*> m_expandGroupChildList;
 
     QPointer<SelectDialog> m_conflictDialog;
