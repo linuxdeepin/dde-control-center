@@ -203,9 +203,9 @@ void BluetoothMainWidget::intiBackend()
         if(info){
             DeviceInfo *device_info = m_pathToDeviceInfoMap.value(info->path + map["Path"].toString(), nullptr);
             if(device_info){
-                if (device_info->trusted)
+//                if (device_info->trusted)
                     info->widget->removeTrustedDevice(device_info);
-                else
+//                else
                     info->widget->removeDevice(device_info, true);
                 m_pathToDeviceInfoMap.remove(info->path + device_info->path);
             }
@@ -243,15 +243,6 @@ void BluetoothMainWidget::intiBackend()
         qDebug() << "DisplayPinCode" << in0.path() << in1;
     });
 }
-
-//GenericListItem *getListItem(const QString &name)
-//{
-//    GenericListItem *item = new GenericListItem;
-//    item->setTitle(name);
-//    item->setShowBgColor(false);
-
-//    return item;
-//}
 
 void BluetoothMainWidget::initUI()
 {

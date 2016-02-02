@@ -43,7 +43,9 @@ Keyboard::Keyboard() :
 
     setAutoDelete(false);
     initBackend();
-    if (m_dbusKeyboard) initUI();
+
+    if (m_dbusKeyboard)
+        initUI();
 }
 
 Keyboard::~Keyboard()
