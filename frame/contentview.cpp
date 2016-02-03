@@ -108,27 +108,28 @@ void ContentView::switchToModule(ModuleMetaData module)
     QWidget *content = nullptr;
 
     do {
+
         if (!interface)
             break;
+
         m_lastPluginInterface = interface;
 
         content = interface->getContent();
-        if (!content)
+
+        if (!content) {
+            // display error infomation
+            const QString error = m_pluginLoader->errorString();
+            // this label will destory when call unloadPlugin() next time
+            QLabel *errorLabel = new QLabel(error);
+            errorLabel->setWordWrap(true);
+            errorLabel->setStyleSheet("color:red;");
+            content = errorLabel;
             break;
+        }
 
         m_lastPluginInterface->setProxy(m_controlCenterProxy);
-    } while (false);
 
-    if (!content)
-    {
-        // display error infomation
-        const QString error = m_pluginLoader->errorString();
-        // this label will destory when call unloadPlugin() next time
-        QLabel *errorLabel = new QLabel(error);
-        errorLabel->setWordWrap(true);
-        errorLabel->setStyleSheet("color:red;");
-        content = errorLabel;
-    }
+    } while (false);
 
     m_lastPluginWidget = content;
     m_lastPluginWidget->setFixedWidth(DCC::ModuleContentWidth);
