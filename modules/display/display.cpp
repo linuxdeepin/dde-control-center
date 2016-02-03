@@ -61,6 +61,7 @@ void Display::init()
     m_frame->mainLayout()->addWidget(new DSeparatorHorizontal);
 
     m_singleSettings = new CustomSettings(m_dbusDisplay, m_monitorGround, m_dbusMonitors);
+    m_singleSettings->setFixedWidth(DCC::ModuleContentWidth);
     m_singleSettings->hide();
 
     updateUI();
