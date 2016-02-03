@@ -112,12 +112,7 @@ QWidget * DateTimePlugin::getItem(QString)
 
 QWidget * DateTimePlugin::getApplet(QString)
 {
-    if (m_calendar) {
-        m_calendar->setCurrentDate(QDate::currentDate());
-        return m_calendar;
-    }
-    else
-        return NULL;
+    return m_calendar;
 }
 
 void DateTimePlugin::changeMode(Dock::DockMode newMode,
@@ -130,6 +125,9 @@ void DateTimePlugin::updateTime()
 {
     QTime time = QTime::currentTime();
     QDate today = QDate::currentDate();
+
+    if (m_calendar)
+        m_calendar->updateCurrentDate();
 
     if (m_mode == Dock::FashionMode) {
         m_clockPixmap.setTime(time);
