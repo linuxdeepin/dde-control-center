@@ -54,7 +54,7 @@ int main(int argv, char *args[])
 
     DApplication app(argv, args);
     app.setOrganizationName("deepin");
-    app.setApplicationName("DDE Control Center");
+    app.setApplicationName("dde-control-center");
     app.setApplicationVersion("3.0");
 
     // keep running if all window hided
