@@ -164,6 +164,13 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("GetAllKeys"), argumentList);
     }
 
+    inline QDBusPendingReply<QString> GetKeyName(const QString &section, const QString &key)
+    {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(section) << QVariant::fromValue(key);
+        return asyncCallWithArgumentList(QStringLiteral("GetKeyName"), argumentList);
+    }
+
 Q_SIGNALS: // SIGNALS
     void ConnectionDataChanged();
 // begin property changed signals

@@ -20,7 +20,7 @@ class EditLineComboBox : public NetworkBaseEditLine
 {
 public:
     explicit EditLineComboBox(const QString &section, const QString &key,
-                              DBusConnectionSession *dbus, const QString &title,
+                              DBusConnectionSession *dbus,
                               bool editable = false, QWidget *parent = 0);
 
     DComboBox *comboBox() const;

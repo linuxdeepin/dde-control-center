@@ -15,9 +15,9 @@
 #include "networkglobal.h"
 
 EditLineComboBox::EditLineComboBox(const QString &section, const QString &key,
-                                   DBusConnectionSession *dbus, const QString &title,
+                                   DBusConnectionSession *dbus,
                                    bool editable, QWidget *parent) :
-    NetworkBaseEditLine(section, key, dbus, title, parent)
+    NetworkBaseEditLine(section, key, dbus, parent)
 {
     m_comboBox = new DComboBox;
 

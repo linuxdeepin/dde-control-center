@@ -152,32 +152,35 @@ NetworkBaseEditLine *EditConnectionPage::getLineByMap(const QVariantMap &map)
     NetworkBaseEditLine *line = nullptr;
 
     if(widget_type == WidgetType::SwitchButton) {
-        line = new EditLineSwitchButton(map["Section"].toString(), map["Key"].toString(),
-                m_dbus, map["Name"].toString());
+        line = new EditLineSwitchButton(map["Section"].toString(),
+                map["Key"].toString(), m_dbus);
     } else if(widget_type == WidgetType::ComboBox) {
-        line = new EditLineComboBox(map["Section"].toString(), map["Key"].toString(),
-                m_dbus, map["Name"].toString());
+        line = new EditLineComboBox(map["Section"].toString(),
+                map["Key"].toString(), m_dbus);
     } else if(widget_type == WidgetType::TextInput) {
-        line = new EditLineInput(map["Section"].toString(), map["Key"].toString(),
-                m_dbus, map["Name"].toString());
+        line = new EditLineInput(map["Section"].toString(),
+                map["Key"].toString(), m_dbus);
     } else if(widget_type == WidgetType::PasswordInput) {
-        line = new EditLineInput(map["Section"].toString(), map["Key"].toString(),
-                m_dbus, map["Name"].toString(), EditLineInput::Password);
+        line = new EditLineInput(map["Section"].toString(),
+                map["Key"].toString(),
+                m_dbus, EditLineInput::Password);
     } else if(widget_type == WidgetType::FileChooser) {
-        line = new EditLineInput(map["Section"].toString(), map["Key"].toString(),
-                m_dbus, map["Name"].toString(), EditLineInput::FileChooser);
+        line = new EditLineInput(map["Section"].toString(),
+                map["Key"].toString(),
+                m_dbus, EditLineInput::FileChooser);
     } else if(widget_type == WidgetType::EditableComboBox){
-        line = new EditLineComboBox(map["Section"].toString(), map["Key"].toString(),
-                m_dbus, map["Name"].toString(), true);
+        line = new EditLineComboBox(map["Section"].toString(),
+                map["Key"].toString(), m_dbus, true);
     } else if(widget_type == WidgetType::Ipv4Input){
-        line = new EditLineInput(map["Section"].toString(), map["Key"].toString(),
-                m_dbus, map["Name"].toString(), EditLineInput::Ipv4Input);
+        line = new EditLineInput(map["Section"].toString(),
+                map["Key"].toString(),
+                m_dbus, EditLineInput::Ipv4Input);
     } else if(widget_type == WidgetType::MissingPackage){
-        line = new EditLineMissingPackage(map["Section"].toString(), map["Key"].toString(),
-                m_dbus, map["Name"].toString());
+        line = new EditLineMissingPackage(map["Section"].toString(),
+                map["Key"].toString(), m_dbus);
     } else if(widget_type == WidgetType::SpinBox){
-        line = new EditLineSpinBox(map["Section"].toString(), map["Key"].toString(),
-                m_dbus, map["Name"].toString(),
+        line = new EditLineSpinBox(map["Section"].toString(),
+                map["Key"].toString(), m_dbus,
                 map["MinValue"].toInt(), map["MaxValue"].toInt());
     }
 

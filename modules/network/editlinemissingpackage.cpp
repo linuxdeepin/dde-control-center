@@ -20,9 +20,9 @@
 DUI_USE_NAMESPACE
 
 EditLineMissingPackage::EditLineMissingPackage(const QString &section, const QString &key,
-                                               DBusConnectionSession *dbus, const QString &title,
+                                               DBusConnectionSession *dbus,
                                                QWidget *parent) :
-    NetworkBaseEditLine(section, key, dbus, title, parent)
+    NetworkBaseEditLine(section, key, dbus, parent)
 {
     QBoxLayout *layout = qobject_cast<QBoxLayout*>(this->layout());
 

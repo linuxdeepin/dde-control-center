@@ -16,7 +16,7 @@ class EditLineSwitchButton : public NetworkBaseEditLine
 {
 public:
     explicit EditLineSwitchButton(const QString &section, const QString &key,
-                                 DBusConnectionSession *dbus, const QString &title,
+                                 DBusConnectionSession *dbus,
                                  QWidget *parent = 0);
 };
 

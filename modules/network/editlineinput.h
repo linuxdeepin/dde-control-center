@@ -24,7 +24,7 @@ public:
     };
 
     explicit EditLineInput(const QString &section, const QString &key,
-                           DBusConnectionSession *dbus, const QString &title,
+                           DBusConnectionSession *dbus,
                            EditLineInputType type = Normal,
                            bool alwaysUpdate = false, QWidget *parent = 0);
 };

@@ -16,9 +16,9 @@
 DUI_USE_NAMESPACE
 
 EditLineSpinBox::EditLineSpinBox(const QString &section, const QString &key,
-                                 DBusConnectionSession *dbus, const QString &title,
+                                 DBusConnectionSession *dbus,
                                  int minValue, int maxValue, QWidget *parent) :
-    NetworkBaseEditLine(section, key, dbus, title, parent)
+    NetworkBaseEditLine(section, key, dbus, parent)
 {
     DSpinBox *box = new DSpinBox;
 

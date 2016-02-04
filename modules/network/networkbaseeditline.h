@@ -33,7 +33,7 @@ class NetworkBaseEditLine : public QWidget
 
 public:
     explicit NetworkBaseEditLine(const QString &section, const QString &key,
-                                 DBusConnectionSession *dbus, const QString &title,
+                                 DBusConnectionSession *dbus,
                                  bool alwaysUpdate = false,
                                  QWidget *parent = 0);
 

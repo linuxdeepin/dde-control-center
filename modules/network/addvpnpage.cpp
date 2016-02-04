@@ -76,110 +76,99 @@ void AddVpnPage::init()
     //connect(missing_package, &EditLineMissingPackage::visibleChanged, boxWidget_vpn_info, &DVBoxWidget::setHidden);
 
     boxWidget_vpn_info->layout()->setSpacing(5);
-    boxWidget_vpn_info->addWidget(new EditLineInput("connection", "id", m_dbus, tr("Name")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-l2tp", "gateway", m_dbus, tr("Gateway")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-l2tp", "user", m_dbus, tr("Username")));
-    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-l2tp", "password-flags",
-                                                       m_dbus, tr("Ask for Pwd")));
+    boxWidget_vpn_info->addWidget(new EditLineInput("connection", "id", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-l2tp", "gateway", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-l2tp", "user", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-l2tp", "password-flags", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-l2tp", "password", m_dbus,
-                                                    tr("Password"), EditLineInput::Password));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openconnect", "gateway",
-                                                    m_dbus, tr("Gateway")));
+                                                    EditLineInput::Password));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openconnect", "gateway", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openconnect", "cacert", m_dbus,
-                                                    tr("CA Cert"), EditLineInput::FileChooser));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openconnect", "proxy", m_dbus, tr("Proxy")));
-    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-openconnect", "enable_csd_trojan",
-                                                           m_dbus, tr("Allow Cisco Secure Desktop Trojan")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openconnect", "csd_wrapper",
-                                                    m_dbus, tr("CSD Script")));
+                                                    EditLineInput::FileChooser));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openconnect", "proxy", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-openconnect",
+                                                           "enable_csd_trojan", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openconnect",
+                                                    "csd_wrapper", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openconnect", "usercert", m_dbus,
-                                                    tr("User Cert"), EditLineInput::FileChooser));
+                                                    EditLineInput::FileChooser));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openconnect", "userkey", m_dbus,
-                                                    tr("Private Key"), EditLineInput::FileChooser));
-    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-openconnect", "pem_passphrase_fsid",
-                                                           m_dbus, tr("Use FSID for Key Passphrase")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "remote", m_dbus, tr("Gateway")));
-    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-openvpn", "connection-type",
-                                                       m_dbus, tr("Auth Type")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "username",
-                                                    m_dbus, tr("Username")));
-    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-openvpn", "password-flags",
-                                                       m_dbus, tr("Ask for Pwd")));
+                                                    EditLineInput::FileChooser));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-openconnect",
+                                                           "pem_passphrase_fsid", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "remote", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-openvpn",
+                                                       "connection-type", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "username", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-openvpn",
+                                                       "password-flags", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "password", m_dbus,
-                                                    tr("Password"), EditLineInput::Password));
+                                                    EditLineInput::Password));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "ca", m_dbus,
-                                                    tr("CA Cert"), EditLineInput::FileChooser));
+                                                    EditLineInput::FileChooser));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "cert", m_dbus,
-                                                    tr("User Cert"), EditLineInput::FileChooser));
+                                                    EditLineInput::FileChooser));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "key", m_dbus,
-                                                    tr("Private Key"), EditLineInput::FileChooser));
-    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-openvpn", "cert-pass-flags",
-                                                       m_dbus, tr("Ask for Pwd")));
+                                                    EditLineInput::FileChooser));
+    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-openvpn",
+                                                       "cert-pass-flags", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "cert-pass", m_dbus,
-                                                    tr("Private Pwd"), EditLineInput::Password));
+                                                    EditLineInput::Password));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "static-key", m_dbus,
-                                                    tr("Static Key"), EditLineInput::FileChooser));
-    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-openvpn", "vk-static-key-direction",
-                                                           m_dbus, tr("Customize Key Direction")));
-    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-openvpn", "static-key-direction",
-                                                       m_dbus, tr("Key Direction")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "remote-ip", m_dbus, tr("Remote IP")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "local-ip", m_dbus, tr("Local IP")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-pptp", "gateway", m_dbus, tr("Gateway")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-pptp", "user", m_dbus, tr("Username")));
-    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-pptp", "password-flags",
-                                                       m_dbus, tr("Ask for Pwd")));
+                                                    EditLineInput::FileChooser));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-openvpn",
+                                                           "vk-static-key-direction", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-openvpn",
+                                                       "static-key-direction", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "remote-ip", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-openvpn", "local-ip", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-pptp", "gateway", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-pptp", "user", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-pptp",
+                                                       "password-flags", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-pptp", "password", m_dbus,
-                                                    tr("Password"), EditLineInput::Password));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-vpnc", "IPSec gateway", m_dbus, tr("Gateway")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-vpnc", "Xauth username", m_dbus, tr("Username")));
-    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-vpnc", "Xauth password-flags",
-                                                       m_dbus, tr("Ask for Pwd")));
+                                                    EditLineInput::Password));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-vpnc", "IPSec gateway", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-vpnc", "Xauth username", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-vpnc",
+                                                       "Xauth password-flags", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-vpnc", "Xauth password", m_dbus,
-                                                    tr("User Pwd"), EditLineInput::Password));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-vpnc", "IPSec ID", m_dbus, tr("Group Name")));
-    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-vpnc", "IPSec secret-flags",
-                                                       m_dbus, tr("Ask for Pwd")));
+                                                    EditLineInput::Password));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-vpnc", "IPSec ID", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-vpnc",
+                                                       "IPSec secret-flags", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-vpnc", "IPSec secret", m_dbus,
-                                                    tr("Group Pwd"), EditLineInput::Password));
-    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-vpnc", "vk-hybrid-authmode",
-                                                           m_dbus, tr("Use Hybrid Authentication")));
+                                                    EditLineInput::Password));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-vpnc",
+                                                           "vk-hybrid-authmode", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-vpnc", "CA-File", m_dbus,
-                                                    tr("CA File"), EditLineInput::FileChooser));
-    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-l2tp-ipsec", "ipsec-enabled",
-                                                           m_dbus, tr("Enable IPsec")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-l2tp-ipsec", "ipsec-group-name",
-                                                    m_dbus, tr("Group Name")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-l2tp-ipsec", "ipsec-gateway-id",
-                                                    m_dbus, tr("Group ID")));
+                                                    EditLineInput::FileChooser));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-l2tp-ipsec",
+                                                           "ipsec-enabled", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-l2tp-ipsec",
+                                                    "ipsec-group-name", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-l2tp-ipsec",
+                                                    "ipsec-gateway-id", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-l2tp-ipsec", "ipsec-psk", m_dbus,
-                                                    tr("Pre-Shared Key"), EditLineInput::Password));
-    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-l2tp-ppp", "vk-require-mppe",
-                                                           m_dbus, tr("Use MPPE")));
-    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-pptp-ppp", "vk-require-mppe",
-                                                           m_dbus, tr("Use MPPE")));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "address",
-                                                    m_dbus, tr("Address")));
+                                                    EditLineInput::Password));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-l2tp-ppp",
+                                                           "vk-require-mppe", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-pptp-ppp",
+                                                           "vk-require-mppe", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "address", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "certificate",
-                                                    m_dbus, tr("Certificate"), EditLineInput::FileChooser));
-    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-strongswan", "method",
-                                                    m_dbus, tr("Authentication")));
+                                                    m_dbus, EditLineInput::FileChooser));
+    boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-strongswan", "method", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "user",
-                                                    m_dbus, tr("Username"), EditLineInput::Normal, true));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "usercert",
-                                                    m_dbus, tr("Client Cert"),
+                                                    m_dbus, EditLineInput::Normal, true));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "usercert", m_dbus,
                                                     EditLineInput::FileChooser, true));
-    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "userkey",
-                                                    m_dbus, tr("Client Key"),
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "userkey", m_dbus,
                                                     EditLineInput::FileChooser, true));
-    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-strongswan", "virtual",
-                                                    m_dbus, tr("Request an Inner IP Address")));
-    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-strongswan", "encap",
-                                                    m_dbus, tr("Enforce UDP Encapsulation")));
-    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-strongswan", "ipcomp",
-                                                    m_dbus, tr("Use IP Compression")));
-    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("connection", "vk-autoconnect",
-                                                           m_dbus, tr("Automatically connect")));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-strongswan", "virtual", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-strongswan", "encap", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("alias-vpn-strongswan", "ipcomp", m_dbus));
+    boxWidget_vpn_info->addWidget(new EditLineSwitchButton("connection", "vk-autoconnect", m_dbus));
 
     connect(container_vpn_info, &ListWidgetContainer::leftButtonClicked, this, [this] {
         m_dbus->Close();

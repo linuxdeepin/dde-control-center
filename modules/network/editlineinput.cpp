@@ -18,9 +18,9 @@
 DUI_USE_NAMESPACE
 
 EditLineInput::EditLineInput(const QString &section, const QString &key,
-                             DBusConnectionSession *dbus, const QString &title,
-                             EditLineInputType type, bool alwaysUpdate, QWidget *parent) :
-    NetworkBaseEditLine(section, key, dbus, title, alwaysUpdate, parent)
+                             DBusConnectionSession *dbus, EditLineInputType type,
+                             bool alwaysUpdate, QWidget *parent) :
+    NetworkBaseEditLine(section, key, dbus, alwaysUpdate, parent)
 {
     DLineEdit *line_edit = nullptr;
 
@@ -70,7 +70,7 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         connect(this, &EditLineInput::showErrorAlert, line_edit, [line_edit]{
             line_edit->setProperty("alert", true);
         });
-        connect(line_edit, &QLineEdit::textChanged, line_edit, [line_edit, this, title] {
+        connect(line_edit, &QLineEdit::textChanged, line_edit, [line_edit, this] {
             line_edit->setProperty("alert", false);
             setDBusKey(line_edit->text());
         });

@@ -214,7 +214,7 @@ void updateAllEditLineVisible(NetworkBaseEditLine *editLine)
 }
 
 NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &key,
-                                         DBusConnectionSession *dbus, const QString &title,
+                                         DBusConnectionSession *dbus,
                                          bool alwaysUpdate,
                                          QWidget *parent):
     QWidget(parent),
@@ -224,10 +224,19 @@ NetworkBaseEditLine::NetworkBaseEditLine(const QString &section, const QString &
     m_alwaysUpdate(alwaysUpdate)
 {
     QHBoxLayout *layout = new QHBoxLayout;
-    titleLabel = new DLabel(title);
+    titleLabel = new DLabel;
 
     titleLabel->setWordWrap(true);
     titleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+    ASYN_CALL(dbus->GetKeyName(section, key), {
+                  if(watcher->isError()) {
+                      qDebug() << QString("Error: NetworkBaseEditLine-> get key name failed,"
+                      " section=%1, key=%2, error string=%3").arg(m_section, m_key, watcher->error().message());
+                  } else {
+                      titleLabel->setText(args[0].toString());
+                  }
+              }, this);
 
     layout->setContentsMargins(15, 0, 15, 0);
     layout->setSpacing(15);

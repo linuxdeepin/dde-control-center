@@ -15,9 +15,9 @@
 DUI_USE_NAMESPACE
 
 EditLineSwitchButton::EditLineSwitchButton(const QString &section, const QString &key,
-                                           DBusConnectionSession *dbus, const QString &title,
+                                           DBusConnectionSession *dbus,
                                            QWidget *parent) :
-    NetworkBaseEditLine(section, key, dbus, title, parent)
+    NetworkBaseEditLine(section, key, dbus, parent)
 {
     DSwitchButton *switch_button = new DSwitchButton;
 

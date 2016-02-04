@@ -17,7 +17,7 @@ class EditLineSpinBox : public NetworkBaseEditLine
     Q_OBJECT
 public:
     explicit EditLineSpinBox(const QString &section, const QString &key,
-                             DBusConnectionSession *dbus, const QString &title,
+                             DBusConnectionSession *dbus,
                              int minValue = 0, int maxValue = 0, QWidget *parent = 0);
 };
 
