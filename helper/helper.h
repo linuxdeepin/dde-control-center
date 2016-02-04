@@ -11,11 +11,20 @@
 #define HELPER_H
 
 #include <QStringList>
+#include <QSettings>
 
 class Helper
 {
 public:
     static const QString searchAppIcon(const QStringList& iconName, int size);
+    static void refreshThemeInfo();
+
+private:
+    static const QString getThemeName();
+
+private:
+    static QString THEME_NAME;
+    static QSettings SETTINGS;
 };
 
 #endif // HELPER_H

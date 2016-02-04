@@ -16,8 +16,21 @@
 
 #include "helper.h"
 
+QString Helper::THEME_NAME = getThemeName();
+QSettings Helper::SETTINGS("deepin", "dde-control-center-helper", nullptr);
+
 const QString Helper::searchAppIcon(const QStringList &iconName, int size)
 {
+    if (iconName.isEmpty())
+        return QString();
+
+    const QString cacheKey = QString("%1-%2-%3").arg(iconName.first())
+                                                .arg(THEME_NAME)
+                                                .arg(size);
+
+    const QVariant value = SETTINGS.value(cacheKey);
+    if (value.isValid())
+        return value.toString();
 
     GtkIconInfo *iconInfo;
     GtkIconTheme *iconTheme = gtk_icon_theme_get_default();
@@ -42,9 +55,24 @@ const QString Helper::searchAppIcon(const QStringList &iconName, int size)
         gtk_icon_info_free(iconInfo);
 #endif
 
+        SETTINGS.setValue(cacheKey, iconPath);
+
         return iconPath;
     }
 
     qWarning() << iconName << " - icon not found";
     return QString();
+}
+
+void Helper::refreshThemeInfo()
+{
+    THEME_NAME = getThemeName();
+}
+
+const QString Helper::getThemeName()
+{
+    char *themeName;
+    g_object_get(gtk_settings_get_default(), "gtk-icon-theme-name", &themeName, NULL);
+
+    return QString(themeName);
 }
