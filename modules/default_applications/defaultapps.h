@@ -15,10 +15,13 @@
 #include <QButtonGroup>
 #include <QThread>
 #include <QMap>
+#include <QtConcurrent>
 
 #include "moduleheader.h"
 
 #include "interfaces.h"
+
+
 #include "dbus/dbusdefaultapps.h"
 #include "dbus/dbusdefaultmedia.h"
 
@@ -31,6 +34,9 @@ DUI_USE_NAMESPACE
 
 class QLabel;
 class QFrame;
+
+class RunnableTask;
+
 class DefaultApps : public QObject, ModuleInterface
 {
     Q_OBJECT
@@ -42,11 +48,11 @@ public:
     ~DefaultApps() Q_DECL_OVERRIDE;
     QFrame* getContent() Q_DECL_OVERRIDE;
 
-private:
     enum DefaultAppsCategory {
         Browser, Mail, Text, Music, Video, Picture, Terminal,
         CD_Audio, DVD_Video, MusicPlayer, Camera, Software,
     };
+
 
 private:
     DArrowLineExpand *createDefaultAppsExpand(const DefaultAppsCategory & category, DArrowLineExpand *defaultApps);
@@ -57,11 +63,15 @@ private:
     void updateListCheckedIndex();
     void updateCheckedItem(const DefaultAppsCategory & category);
 
+    void createTask();
+
+
 private:
     bool isMediaApps(const DefaultAppsCategory & category) const;
 
 private slots:
     void lazyLoad();
+    void arrowLineExpandSetContent(QJsonArray json, int acategory, DArrowLineExpand *arrowLineApps);
 
 private:
     QFrame * m_centralWidget;
@@ -88,10 +98,13 @@ private:
     DArrowLineExpand *m_modCamera = nullptr;
     DArrowLineExpand *m_modSoftware = nullptr;
 
-    QMap<DefaultAppsCategory, DOptionList*> m_appsBtnList;
+    QMap<DefaultApps::DefaultAppsCategory, DOptionList*> m_appsBtnList;
+    QMap<DefaultApps::DefaultAppsCategory, DArrowLineExpand*> m_taskMap;
 
     DSwitchButton *m_autoPlaySwitch;
+    QElapsedTimer m_timer;
 };
+
 
 class SetDefAppsThread : public QThread
 {
