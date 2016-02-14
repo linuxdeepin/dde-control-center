@@ -241,6 +241,7 @@ void Keyboard::initUI()
 
     m_languageTips = new QLabel;
     m_languageTips->setStyleSheet("color:#666;");
+    m_languageTips->setText(m_settings->value("languageTips").toString());
 
     DArrowLineExpand *language_expand = new DArrowLineExpand;
     language_expand->setTitle(tr("Language"));
@@ -534,6 +535,8 @@ void Keyboard::loadLanguageList(const QList<LocaleInfo> &infos)
 
 //        if (meDeleted && dbusLangSelector && dbusLangSelector->isValid())
         m_languageTips->setText(m_mapUserLayoutInfo.key(current_lang));
+        m_settings->setValue("languageTips", m_mapUserLayoutInfo.key(current_lang) );
+
 }
 
 QFrame* Keyboard::getContent()
