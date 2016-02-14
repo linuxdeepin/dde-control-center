@@ -71,11 +71,13 @@ int main(int argv, char *args[])
 
     // take care of command line options
     QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
+    QCommandLineOption toggleOption(QStringList() << "t" << "toggle", "toggle control center visible.");
     QCommandLineParser parser;
     parser.setApplicationDescription("DDE Control Center");
     parser.addHelpOption();
     parser.addVersionOption();
     parser.addOption(showOption);
+    parser.addOption(toggleOption);
     parser.addPositionalArgument("module", "the module's id of which to be shown.");
     parser.process(app);
 
@@ -88,12 +90,16 @@ int main(int argv, char *args[])
     DBusControlCenterService adaptor(&frame);
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("com.deepin.dde.ControlCenter") ||
-        !conn.registerObject("/com/deepin/dde/ControlCenter", &frame))
-    {
+            !conn.registerObject("/com/deepin/dde/ControlCenter", &frame)) {
         qDebug() << "dbus service already registered!";
 
         // call exist service
         DBusControlCenter c;
+
+        if (parser.isSet(toggleOption)) {
+            c.Toggle();
+        }
+
         if (!positionalArgs.isEmpty()) {
             c.ShowModule(positionalArgs.at(0));
         } else if (parser.isSet(showOption)) {
@@ -105,23 +111,21 @@ int main(int argv, char *args[])
 #endif
     }
 
-
-
     if (!positionalArgs.isEmpty()) {
 
-        PluginsManager * pluginsManager = PluginsManager::getInstance(&app);
+        PluginsManager *pluginsManager = PluginsManager::getInstance(&app);
 
-        if(pluginsManager->pluginIndex(positionalArgs.at(0)) != -1) {
+        if (pluginsManager->pluginIndex(positionalArgs.at(0)) != -1) {
             frame.selectModule(positionalArgs.at(0));
-        }else{
+        } else {
             frame.selectModule("home");
         }
     }
 #ifndef QT_DEBUG
-    else if (parser.isSet(showOption))
+    else if (parser.isSet(showOption) || parser.isSet(toggleOption))
 #endif
 
-    frame.show();
+        frame.show();
 
     // setup theme manager
     DThemeManager *manager = DThemeManager::instance();
