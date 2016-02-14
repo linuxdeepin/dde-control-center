@@ -87,13 +87,17 @@ Q_SIGNALS: // SIGNALS
     void StatusChanged(int status);
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      namespace Remoting {
-        typedef ::ComDeepinDaemonRemotingServerInterface Server;
-      }
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+namespace Remoting
+{
+typedef ::ComDeepinDaemonRemotingServerInterface Server;
+}
+}
+}
 }
 #endif

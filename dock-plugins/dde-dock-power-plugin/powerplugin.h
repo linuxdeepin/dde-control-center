@@ -42,8 +42,8 @@ public:
     bool configurable(const QString &id) Q_DECL_OVERRIDE;
     bool enabled(const QString &id) Q_DECL_OVERRIDE;
     void setEnabled(const QString &id, bool enable) Q_DECL_OVERRIDE;
-    QWidget * getItem(QString id) Q_DECL_OVERRIDE;
-    QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
+    QWidget *getItem(QString id) Q_DECL_OVERRIDE;
+    QWidget *getApplet(QString id) Q_DECL_OVERRIDE;
     void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
 
     QString getMenuContent(QString id) Q_DECL_OVERRIDE;
@@ -60,11 +60,11 @@ private:
     QString getBatteryIcon(int percentage, bool plugged, bool symbolic = false);
 
 private:
-    QLabel * m_label;
-    DockPluginProxyInterface * m_proxy;
-    com::deepin::daemon::DBusPower * m_dbusPower;
+    QLabel *m_label;
+    DockPluginProxyInterface *m_proxy;
+    com::deepin::daemon::DBusPower *m_dbusPower;
     Dock::DockMode m_mode = Dock::FashionMode;
-    QSettings * m_settings;
+    QSettings *m_settings;
     QTimer *m_detectionDBusTimer = NULL;
 };
 

@@ -54,7 +54,7 @@ private:
     DExpandGroup *m_expandGroup;
     AddRmDoneLine *m_customLine;
     QWidget *m_addShortcutDialog;
-    QList<QWidget*> m_expandGroupChildList;
+    QList<QWidget *> m_expandGroupChildList;
 
     QPointer<SelectDialog> m_conflictDialog;
 

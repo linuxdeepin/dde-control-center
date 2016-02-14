@@ -21,7 +21,7 @@ class Monitor : public QFrame
     Q_PROPERTY(QColor childBorderColor READ childBorderColor WRITE setChildBorderColor)
     Q_PROPERTY(QString name READ name WRITE setName)
     Q_PROPERTY(Qt::Alignment nameAlignment READ nameAlignment WRITE setNameAlignment)
-    Q_PROPERTY(const Monitor* child READ child)
+    Q_PROPERTY(const Monitor *child READ child)
     Q_PROPERTY(bool draggable READ draggable WRITE setDraggable)
     Q_PROPERTY(bool draging READ draging NOTIFY dragingChanged)
     Q_PROPERTY(bool eyeing READ eyeing NOTIFY eyeingChanged)
@@ -42,7 +42,7 @@ public:
     bool draging() const;
     bool eyeing() const;
     bool isPrimary() const;
-    const Monitor* child() const;
+    const Monitor *child() const;
 
     QRect parentRect() const;
     void setParentRect(const QRect &rect);
@@ -60,7 +60,7 @@ public slots:
     bool dragEnter(Monitor *e);
     void dragLeave();
     bool drop(Monitor *e);
-    Monitor* split();
+    Monitor *split();
     void applyPostion();
     void resetResolution();
 
@@ -91,7 +91,7 @@ private:
     bool m_draging;
     bool m_eyeing;
     bool m_isPrimary;
-    Monitor* m_child;
+    Monitor *m_child;
     QRect m_parentRect;
     QRect m_resolution;
 

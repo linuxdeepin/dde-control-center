@@ -27,7 +27,7 @@ class AccessPanel: public AbstractPanel
 {
     Q_OBJECT
 public:
-    AccessPanel(IAccessController* controller, QWidget* p=nullptr);
+    AccessPanel(IAccessController *controller, QWidget *p = nullptr);
     ~AccessPanel() { dtor(); }
 
 signals:
@@ -52,8 +52,8 @@ private:
     void dtor();
 
 private:
-    IAccessController* m_controller;
-    DUI_NAMESPACE::DTextButton* m_retryBtn;
+    IAccessController *m_controller;
+    DUI_NAMESPACE::DTextButton *m_retryBtn;
 };
 
 #endif /* end of include guard: ACCESS_PANEL_H_T7BZFECR */

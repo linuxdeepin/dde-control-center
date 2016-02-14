@@ -21,9 +21,9 @@ public:
     AppUpdateInfo();
     static void registerMetaType();
 
-    friend QDebug operator<<(QDebug argument, const AppUpdateInfo & info);
-    friend QDBusArgument &operator<<(QDBusArgument & argument, const AppUpdateInfo & info);
-    friend const QDBusArgument &operator>>(const QDBusArgument & argument, AppUpdateInfo & info);
+    friend QDebug operator<<(QDebug argument, const AppUpdateInfo &info);
+    friend QDBusArgument &operator<<(QDBusArgument &argument, const AppUpdateInfo &info);
+    friend const QDBusArgument &operator>>(const QDBusArgument &argument, AppUpdateInfo &info);
 
 public:
     QString m_packageId;

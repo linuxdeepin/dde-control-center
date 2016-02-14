@@ -33,7 +33,7 @@ private slots:
 private:
     DBusAudio *m_audio;
     DeviceIconSlider *m_iconSlider;
-    QVBoxLayout * m_mainLayout = NULL;
+    QVBoxLayout *m_mainLayout = NULL;
 };
 
 #endif // DEVICEFRAME_H

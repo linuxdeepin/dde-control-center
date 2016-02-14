@@ -69,7 +69,7 @@ public:
     ListWidget *searchList() const;
     DSegmentedControl *letterList() const;
     void addItem(KeyboardLayoutDelegate *item, const QChar letterFirst);
-    void removeItems(QList<KeyboardLayoutDelegate*> datas);
+    void removeItems(QList<KeyboardLayoutDelegate *> datas);
     QString currentLetter() const;
 
 public slots:
@@ -84,7 +84,7 @@ private:
     DSegmentedControl *m_letterList;
     ListWidget *m_currentList = NULL;
     QString m_currentLetter;
-    QList<ListWidget*> m_listWidgetList;
+    QList<ListWidget *> m_listWidgetList;
 };
 
 #endif // FIRSTLETTERCLASSIFY_H

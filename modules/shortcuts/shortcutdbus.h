@@ -33,7 +33,7 @@
  * Proxy class for interface com.deepin.daemon.Keybinding
  */
 
-struct ShortcutInfo{
+struct ShortcutInfo {
     qint16 listType;
     qint32 type;
     qint32 id;
@@ -41,7 +41,8 @@ struct ShortcutInfo{
     QString title;
     QString shortcut;
 
-    bool operator==(const ShortcutInfo& info){
+    bool operator==(const ShortcutInfo &info)
+    {
         return id == info.id;
     }
 };
@@ -60,7 +61,7 @@ public:
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.Keybinding"; }
 
-    enum ListType{
+    enum ListType {
         SystemList,
         WindowList,
         WorkspaceList,
@@ -177,12 +178,12 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("Query"), argumentList);
     }
 
-    inline const ShortcutInfoList& customList() const
+    inline const ShortcutInfoList &customList() const
     {
         return m_customList;
     }
 
-    inline const ShortcutInfoList& systemList() const
+    inline const ShortcutInfoList &systemList() const
     {
         return m_systemList;
     }
@@ -202,8 +203,9 @@ public Q_SLOTS: // METHODS
         QString tmp;
         bool result = CheckAvaliable(in0, tmp).value();
 
-        if(result)
+        if (result) {
             return "Valid";
+        }
 
         return "Conflict";
     }
@@ -219,25 +221,28 @@ public Q_SLOTS: // METHODS
     inline void ModifyShortcut(int in0, const QString &in1)
     {
         const ShortcutInfo *info = m_intIdToInfoMap[in0];
-        if(!info)
+        if (!info) {
             return;
+        }
 
         QString str;
 
-        if(info->shortcut != tr("None")){
+        if (info->shortcut != tr("None")) {
             ModifiedAccel(info->strId, info->type, info->shortcut, false, str).value();//remove
         }
 
-        if(!in1.isEmpty() && in1 != tr("None"))
+        if (!in1.isEmpty() && in1 != tr("None")) {
             ModifiedAccel(info->strId, info->type, in1, true, str).value();
+        }
 
     }
 
     inline void DeleteCustomShortcut(int in0)
     {
         const ShortcutInfo *info = m_intIdToInfoMap[in0];
-        if(!info)
+        if (!info) {
             return;
+        }
 
         Delete(info->strId, info->type);
     }
@@ -260,9 +265,9 @@ private:
     ShortcutInfoList m_windowList;
     ShortcutInfoList m_workspaceList;
     ShortcutInfoList m_customList;
-    QHash<QString, ShortcutInfo*> m_idToInfoListHash;
-    QMap<QString, ShortcutInfo*> m_strIdAndTypeToInfoMap;
-    QMap<int, ShortcutInfo*> m_intIdToInfoMap;
+    QHash<QString, ShortcutInfo *> m_idToInfoListHash;
+    QMap<QString, ShortcutInfo *> m_strIdAndTypeToInfoMap;
+    QMap<int, ShortcutInfo *> m_intIdToInfoMap;
     int m_intId = 0;
 
     int getId();
@@ -273,11 +278,14 @@ private:
     Q_SLOT void getListFinished(QDBusPendingCallWatcher *call);
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      typedef ::ShortcutDbus Keybinding;
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+typedef ::ShortcutDbus Keybinding;
+}
+}
 }
 #endif

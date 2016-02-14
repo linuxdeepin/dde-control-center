@@ -50,26 +50,28 @@ class DBusInputDevices: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
-        {
-            QList<QVariant> arguments = msg.arguments();
-            if (3 != arguments.count())
-                return;
-            QString interfaceName = msg.arguments().at(0).toString();
-            if (interfaceName !="com.deepin.daemon.InputDevices")
-                return;
-            QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
-            QStringList keys = changedProps.keys();
-            foreach(const QString &prop, keys) {
-            const QMetaObject* self = metaObject();
-                for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
-                    QMetaProperty p = self->property(i);
-                    if (p.name() == prop) {
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
+    {
+        QList<QVariant> arguments = msg.arguments();
+        if (3 != arguments.count()) {
+            return;
+        }
+        QString interfaceName = msg.arguments().at(0).toString();
+        if (interfaceName != "com.deepin.daemon.InputDevices") {
+            return;
+        }
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        QStringList keys = changedProps.keys();
+        foreach(const QString & prop, keys) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
+                QMetaProperty p = self->property(i);
+                if (p.name() == prop) {
                     Q_EMIT p.notifySignal().invoke(this);
-                    }
                 }
             }
-       }
+        }
+    }
 public:
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.InputDevices"; }
@@ -93,11 +95,14 @@ Q_SIGNALS: // SIGNALS
     void InfosChanged();
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      typedef ::DBusInputDevices InputDevices;
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+typedef ::DBusInputDevices InputDevices;
+}
+}
 }
 #endif

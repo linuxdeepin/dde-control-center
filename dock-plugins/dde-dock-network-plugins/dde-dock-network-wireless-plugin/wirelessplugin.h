@@ -46,8 +46,8 @@ public:
     QString getCommand(QString id) Q_DECL_OVERRIDE;
     QString getMenuContent(QString id) Q_DECL_OVERRIDE;
     QPixmap getIcon(QString) Q_DECL_OVERRIDE;
-    QWidget * getItem(QString id) Q_DECL_OVERRIDE;
-    QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
+    QWidget *getItem(QString id) Q_DECL_OVERRIDE;
+    QWidget *getApplet(QString id) Q_DECL_OVERRIDE;
     bool configurable(const QString &id) Q_DECL_OVERRIDE;
     bool enabled(const QString &id) Q_DECL_OVERRIDE;
     void setEnabled(const QString &id, bool enabled) Q_DECL_OVERRIDE;
@@ -55,12 +55,12 @@ public:
     void invokeMenuItem(QString, QString, bool) Q_DECL_OVERRIDE;
 
 private:
-    QSettings * m_settings;
-    DockPluginProxyInterface * m_proxy;
+    QSettings *m_settings;
+    DockPluginProxyInterface *m_proxy;
     QMap<QString, WirelessItem *> m_itemMap;
     QStringList m_uuids;
     Dock::DockMode m_mode = Dock::EfficientMode;
-    DBusNetwork * m_dbusNetwork;
+    DBusNetwork *m_dbusNetwork;
     QPointer<DInputDialog> m_passworkInputDialog;
     QString m_targetConnectPath;
     QString m_tragetConnectUuid;

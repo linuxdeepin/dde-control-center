@@ -13,14 +13,14 @@
 
 #include "dbus/dbuspower.h"
 
-class PowerInterfaceManagement:public QObject
+class PowerInterfaceManagement: public QObject
 {
     Q_OBJECT
 public:
-    PowerInterfaceManagement(QObject *parent=0);
+    PowerInterfaceManagement(QObject *parent = 0);
     ~PowerInterfaceManagement();
 
-    com::deepin::daemon::DBusPower* m_powerInterface;
+    com::deepin::daemon::DBusPower *m_powerInterface;
 signals:
     void PowerButtonActionChanged();
     void LidClosedActionChanged();
@@ -58,7 +58,7 @@ public slots:
     void setBatteryPlan(int index);
 
     qint32 getBatteryIdleDelay();
-   void setBatteryIdleDelay(int index);
+    void setBatteryIdleDelay(int index);
     qint32 getBatterySuspendDelay();
     void setBatterySuspendDelay(int index);
     void Reset();

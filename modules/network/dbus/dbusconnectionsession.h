@@ -45,25 +45,27 @@ class DBusConnectionSession: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
     {
         QList<QVariant> arguments = msg.arguments();
-        if (3 != arguments.count())
+        if (3 != arguments.count()) {
             return;
+        }
         QString interfaceName = msg.arguments().at(0).toString();
-        if (interfaceName !="com.deepin.daemon.ConnectionSession")
+        if (interfaceName != "com.deepin.daemon.ConnectionSession") {
             return;
+        }
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
-        foreach(const QString &prop, changedProps.keys()) {
-        const QMetaObject* self = metaObject();
-            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+        foreach(const QString & prop, changedProps.keys()) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
                 QMetaProperty p = self->property(i);
                 if (p.name() == prop) {
- 	            Q_EMIT p.notifySignal().invoke(this);
+                    Q_EMIT p.notifySignal().invoke(this);
                 }
             }
         }
-   }
+    }
 public:
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.ConnectionSession"; }
@@ -174,22 +176,25 @@ public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
     void ConnectionDataChanged();
 // begin property changed signals
-void AllowDeleteChanged();
-void AllowEditConnectionIdChanged();
-void AvailableKeysChanged();
-void AvailableSectionsChanged();
-void AvailableVirtualSectionsChanged();
-void ErrorsChanged();
-void ConnectionPathChanged();
-void TypeChanged();
-void UuidChanged();
+    void AllowDeleteChanged();
+    void AllowEditConnectionIdChanged();
+    void AvailableKeysChanged();
+    void AvailableSectionsChanged();
+    void AvailableVirtualSectionsChanged();
+    void ErrorsChanged();
+    void ConnectionPathChanged();
+    void TypeChanged();
+    void UuidChanged();
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      typedef ::DBusConnectionSession ConnectionSession;
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+typedef ::DBusConnectionSession ConnectionSession;
+}
+}
 }
 #endif

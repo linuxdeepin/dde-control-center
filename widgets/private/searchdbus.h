@@ -101,11 +101,14 @@ public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      typedef ::SearchDbus Search;
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+typedef ::SearchDbus Search;
+}
+}
 }
 #endif

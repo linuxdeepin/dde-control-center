@@ -42,7 +42,7 @@ class Keyboard: public QObject, ModuleInterface, QRunnable
 public:
     Keyboard();
     ~Keyboard() Q_DECL_OVERRIDE;
-    QFrame* getContent() Q_DECL_OVERRIDE;
+    QFrame *getContent() Q_DECL_OVERRIDE;
 
 signals:
     void addLayoutItem(const QString &id, const QString &title, const QStringList &letterFirstList);
@@ -69,12 +69,12 @@ private:
 
     QSettings *m_settings;
 
-    DBusKeyboard * m_dbusKeyboard;
+    DBusKeyboard *m_dbusKeyboard;
     DbusLangSelector *m_dbusLangSelector;
 
     QMap<QString, QString> m_mapUserLayoutInfo;
     QMap<QString, int> m_mapUserLayoutIndex;
-    QList<KeyboardLayoutDelegate*> m_selectLayoutList;
+    QList<KeyboardLayoutDelegate *> m_selectLayoutList;
 };
 
 #endif //   KEYBOARD_H

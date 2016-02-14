@@ -18,20 +18,20 @@ class ConnectedView : public AbstractView
 {
     Q_OBJECT
 public:
-    ConnectedView(QWidget*p = nullptr);
-    ConnectedView* setText(const QString&);
+    ConnectedView(QWidget *p = nullptr);
+    ConnectedView *setText(const QString &);
 
 signals:
     void disconnect();
 
 private:
-    QWidget* createMainWidget() Q_DECL_OVERRIDE;
+    QWidget *createMainWidget() Q_DECL_OVERRIDE;
 
 private slots:
     void onDisconnectButtonClicked();
 
 private:
-    QLabel* m_text;
+    QLabel *m_text;
 };
 
 #endif // SHARINGVIEW_H

@@ -39,14 +39,18 @@ public:
     {
         static QString type[] = {"B", "KB", "MB", "GB", "TB"};
 
-        if (cap < qulonglong(size))
+        if (cap < qulonglong(size)) {
             return QString::number(cap) + type[0];
-        if (cap < qulonglong(size) * size)
+        }
+        if (cap < qulonglong(size) * size) {
             return QString::number(double(cap) / size, 'f', 2) + type[1];
-        if (cap < qulonglong(size) * size * size)
+        }
+        if (cap < qulonglong(size) * size * size) {
             return QString::number(double(cap) / size / size, 'f', 2) + type[2];
-        if (cap < qulonglong(size) * size * size * size)
+        }
+        if (cap < qulonglong(size) * size * size * size) {
             return QString::number(double(cap) / size / size / size, 'f', 2) + type[3];
+        }
 
         return QString::number(double(cap) / size / size / size / size, 'f', 2) + type[4];
     }

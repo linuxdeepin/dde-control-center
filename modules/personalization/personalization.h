@@ -45,51 +45,51 @@ class Personalization: public QObject, ModuleInterface
 public:
     Personalization();
     ~Personalization() Q_DECL_OVERRIDE;
-    QFrame* getContent() Q_DECL_OVERRIDE;
+    QFrame *getContent() Q_DECL_OVERRIDE;
 
     void initUI();
     void initControllers();
     void initConnect();
 
     void initThemeExpand();
-    DArrowLineExpand* getThemeExpand();
+    DArrowLineExpand *getThemeExpand();
 
     void initWindowExpand();
-    DArrowLineExpand* getWindowExpand();
+    DArrowLineExpand *getWindowExpand();
 
     void initIconExpand();
-    DArrowLineExpand* getIconExpand();
+    DArrowLineExpand *getIconExpand();
 
     void initCursorExpand();
-    DArrowLineExpand* getCursorExpand();
+    DArrowLineExpand *getCursorExpand();
 
     void initWallPaperExpand();
-    DArrowLineExpand* getWallPaperExpand();
+    DArrowLineExpand *getWallPaperExpand();
 
     void initFontExpand();
-    DArrowLineExpand* getFontExpand();
+    DArrowLineExpand *getFontExpand();
 
-    int getValidKeyIndex(const ImageInfoList& infoList, const QString& key) const;
+    int getValidKeyIndex(const ImageInfoList &infoList, const QString &key) const;
 
 signals:
     void dataRequested();
     void itemDeleted(QString type, QString id);
 
 public slots:
-    void updateThemeKeys(const QStringList& themeKeys);
-    void updateWindowKeys(const QStringList& windowKeys);
-    void updateIconKeys(const QStringList& iconKeys);
-    void updateCursorKeys(const QStringList& cursorKeys);
-    void updateBackgroundKeys(const QStringList& backgroundKeys);
+    void updateThemeKeys(const QStringList &themeKeys);
+    void updateWindowKeys(const QStringList &windowKeys);
+    void updateIconKeys(const QStringList &iconKeys);
+    void updateCursorKeys(const QStringList &cursorKeys);
+    void updateBackgroundKeys(const QStringList &backgroundKeys);
 
-    void updateThemeObjs(const JosnMapObjs& themeObjs);
-    void updateThemeButtons(const ImageInfoList& imageInfos);
-    void updateWindowButtons(const ImageInfoList& imageInfos);
-    void updateIconButtons(const ImageInfoList& imageInfos);
-    void updateCursorButtons(const ImageInfoList& imageInfos);
-    void updateWallpaperButtons(const ImageInfoList& imageInfos);
-    void updateStandardFontCombox(const QStringList& standardFonts);
-    void updateMonospaceFontCombox(const QStringList& monospaceFonts);
+    void updateThemeObjs(const JosnMapObjs &themeObjs);
+    void updateThemeButtons(const ImageInfoList &imageInfos);
+    void updateWindowButtons(const ImageInfoList &imageInfos);
+    void updateIconButtons(const ImageInfoList &imageInfos);
+    void updateCursorButtons(const ImageInfoList &imageInfos);
+    void updateWallpaperButtons(const ImageInfoList &imageInfos);
+    void updateStandardFontCombox(const QStringList &standardFonts);
+    void updateMonospaceFontCombox(const QStringList &monospaceFonts);
 
     void handleDataFinished();
     void updateCurrentTheme(QString themeKey);
@@ -115,54 +115,54 @@ private:
     ImageInfoList m_cursorImageInfos;
     ImageInfoList m_wallpaperImageInfos;
 
-    QFrame * m_frame = NULL;
+    QFrame *m_frame = NULL;
 
-    DHeaderLine* m_headerLine;
+    DHeaderLine *m_headerLine;
 
-    DArrowLineExpand* m_themeExpand = NULL;
-    DButtonGrid* m_themeButtonGrid = NULL;
-    QFrame* m_themeContentFrame = NULL;
+    DArrowLineExpand *m_themeExpand = NULL;
+    DButtonGrid *m_themeButtonGrid = NULL;
+    QFrame *m_themeContentFrame = NULL;
 
-    DArrowLineExpand* m_windowExpand = NULL;
-    DButtonGrid* m_windowButtonGrid = NULL;
-    QFrame* m_windowContentFrame = NULL;
+    DArrowLineExpand *m_windowExpand = NULL;
+    DButtonGrid *m_windowButtonGrid = NULL;
+    QFrame *m_windowContentFrame = NULL;
 
-    DArrowLineExpand* m_iconExpand = NULL;
-    DButtonGrid* m_iconButtonGrid = NULL;
-    QScrollArea* m_iconContentArea = NULL;
+    DArrowLineExpand *m_iconExpand = NULL;
+    DButtonGrid *m_iconButtonGrid = NULL;
+    QScrollArea *m_iconContentArea = NULL;
 
-    DArrowLineExpand* m_cursorExpand = NULL;
-    DButtonGrid* m_cursorButtonGrid = NULL;
-    QScrollArea* m_cursorContentArea = NULL;
+    DArrowLineExpand *m_cursorExpand = NULL;
+    DButtonGrid *m_cursorButtonGrid = NULL;
+    QScrollArea *m_cursorContentArea = NULL;
 
-    DArrowLineExpand* m_wallpaperExpand = NULL;
-    DButtonGrid* m_wallpaperButtonGrid = NULL;
-    QFrame* m_wallpaperContentFrame = NULL;
+    DArrowLineExpand *m_wallpaperExpand = NULL;
+    DButtonGrid *m_wallpaperButtonGrid = NULL;
+    QFrame *m_wallpaperContentFrame = NULL;
 
-    DArrowLineExpand* m_fontExpand = NULL;
-    QFrame* m_fontContentFrame = NULL;
+    DArrowLineExpand *m_fontExpand = NULL;
+    QFrame *m_fontContentFrame = NULL;
 
-    DFontComboBox* m_standardFontCombox;
-    DFontComboBox* m_monospaceFontCombox;
-    DSlider* m_slider;
-    DLabel* m_fontTipLabel;
+    DFontComboBox *m_standardFontCombox;
+    DFontComboBox *m_monospaceFontCombox;
+    DSlider *m_slider;
+    DLabel *m_fontTipLabel;
 
-    DExpandGroup* m_expandGroup = NULL;
+    DExpandGroup *m_expandGroup = NULL;
 
 
-    DBusWorker* m_dbusWorker = NULL;
+    DBusWorker *m_dbusWorker = NULL;
     QThread m_workerThread;
 
-    QList<DButtonGrid*> m_buttonGrids;
-    QList<QFrame*> m_contentFrames;
+    QList<DButtonGrid *> m_buttonGrids;
+    QList<QFrame *> m_contentFrames;
 
-    QStringList m_themeKeys{};
-    QStringList m_windowKeys{};
-    QStringList m_iconKeys{};
-    QStringList m_cursorKeys{};
-    QStringList m_backgroundKeys{};
-    QStringList m_standardFonts{};
-    QStringList m_monospaceFonts{};
+    QStringList m_themeKeys {};
+    QStringList m_windowKeys {};
+    QStringList m_iconKeys {};
+    QStringList m_cursorKeys {};
+    QStringList m_backgroundKeys {};
+    QStringList m_standardFonts {};
+    QStringList m_monospaceFonts {};
     QString m_currentTheme;
     JosnMapObjs m_themeObjs;
 

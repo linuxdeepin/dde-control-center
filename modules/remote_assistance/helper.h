@@ -12,8 +12,8 @@
 
 #include <QString>
 
-QString readStyleSheet(const QString& path);
-QString getThemeImage(const QString& prefix);
+QString readStyleSheet(const QString &path);
+QString getThemeImage(const QString &prefix);
 
 #endif // HELPER_H
 

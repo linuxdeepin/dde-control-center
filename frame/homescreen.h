@@ -72,7 +72,7 @@ class ModuleButton : public QFrame
 public:
     ModuleButton(const ModuleMetaData &metaData, QWidget *parent = 0);
 
-    const QString pluginId() const{return m_pluginId;}
+    const QString pluginId() const {return m_pluginId;}
     void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
     void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
     void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;

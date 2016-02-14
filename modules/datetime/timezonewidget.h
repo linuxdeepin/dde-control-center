@@ -43,15 +43,15 @@ signals:
 
 public slots:
     void setSelected(const bool selected);
-    inline void setZoneCities(const QString & cities) {m_citiesLabel->setText(cities);}
-    inline void setZoneUTCOffset(const QString & UTCOffset) {m_utcOffsetLabel->setText(UTCOffset);}
+    inline void setZoneCities(const QString &cities) {m_citiesLabel->setText(cities);}
+    inline void setZoneUTCOffset(const QString &UTCOffset) {m_utcOffsetLabel->setText(UTCOffset);}
     inline void removeMode() {m_removeBtn->setVisible(!m_selected); m_selectedBtn->setVisible(m_selected);}
     inline void normalMode() {m_removeBtn->setVisible(false); m_selectedBtn->setVisible(m_selected);}
 
 private:
-    inline void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE {if (!m_selected) emit clicked(); e->accept();}
+    inline void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE {if (!m_selected) { emit clicked(); } e->accept();}
     QStringList keyWords() const Q_DECL_OVERRIDE {return QStringList();}
-    void setData(const QVariant&) Q_DECL_OVERRIDE {}
+    void setData(const QVariant &) Q_DECL_OVERRIDE {}
     QVariant getData() Q_DECL_OVERRIDE {return QVariant();}
 
 private:

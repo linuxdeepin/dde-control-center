@@ -25,20 +25,20 @@
 
 class CUTELOGGERSHARED_EXPORT FileAppender : public AbstractStringAppender
 {
-  public:
-    FileAppender(const QString& fileName = QString());
+public:
+    FileAppender(const QString &fileName = QString());
     ~FileAppender();
 
     QString fileName() const;
-    void setFileName(const QString&);
+    void setFileName(const QString &);
 
-  protected:
-    virtual void append(const QDateTime& timeStamp, Logger::LogLevel logLevel, const char* file, int line,
-                        const char* function, const QString& category, const QString& message);
+protected:
+    virtual void append(const QDateTime &timeStamp, Logger::LogLevel logLevel, const char *file, int line,
+                        const char *function, const QString &category, const QString &message);
     bool openFile();
     void closeFile();
 
-  private:
+private:
     QFile m_logFile;
     QTextStream m_logStream;
     mutable QMutex m_logFileMutex;

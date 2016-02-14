@@ -46,11 +46,11 @@ private slots:
     void onDisplayModeChanged();
 
 private:
-    ScrollFrame * m_frame;
-    DisplayInterface * m_dbusDisplay;
+    ScrollFrame *m_frame;
+    DisplayInterface *m_dbusDisplay;
     MonitorGround *m_monitorGround;
-    QList<MonitorInterface*> m_dbusMonitors;
-    QList<Monitor*> m_monitors;
+    QList<MonitorInterface *> m_dbusMonitors;
+    QList<Monitor *> m_monitors;
     ListWidget *m_widgetList = NULL;
     QStringList m_monitorNameList;
     CustomSettings *m_singleSettings = NULL;

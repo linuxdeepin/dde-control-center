@@ -26,7 +26,7 @@ public:
     QColor enabledColor() const;
 
 public slots:
-    void addButtons(const QStringList& listLabels);
+    void addButtons(const QStringList &listLabels);
     void checkButtonByIndex(int index);
     void setNormalColor(QColor normalColor);
     void setEnabledColor(QColor enabledColor);

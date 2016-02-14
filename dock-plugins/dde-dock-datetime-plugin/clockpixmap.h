@@ -37,7 +37,7 @@ private:
 
     void paint();
     QPixmap getNamedPixmap(QString name);
-    QPixmap getNumberPixmap(int number, bool big=true);
+    QPixmap getNumberPixmap(int number, bool big = true);
 
     QList<int> getTimeTuple();
 };

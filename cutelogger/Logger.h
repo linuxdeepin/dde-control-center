@@ -25,7 +25,7 @@ class AbstractAppender;
 
 
 class Logger;
-CUTELOGGERSHARED_EXPORT Logger* loggerInstance();
+CUTELOGGERSHARED_EXPORT Logger *loggerInstance();
 #define logger loggerInstance()
 
 
@@ -51,78 +51,77 @@ CUTELOGGERSHARED_EXPORT Logger* loggerInstance();
 #define LOG_ASSERT_X(cond, msg) ((!(cond)) ? loggerInstance()->writeAssert(__FILE__, __LINE__, Q_FUNC_INFO, msg) : qt_noop())
 
 #define LOG_CATEGORY(category) \
-  private:\
+    private:\
     Logger* loggerInstance()\
     {\
-      static Logger customLoggerInstance(category);\
-      return &customLoggerInstance;\
+        static Logger customLoggerInstance(category);\
+        return &customLoggerInstance;\
     }\
-
+     
 #define LOG_GLOBAL_CATEGORY(category) \
-  private:\
+    private:\
     Logger* loggerInstance()\
     {\
-      static Logger customLoggerInstance(category);\
-      customLoggerInstance.logToGlobalInstance(category, true);\
-      return &customLoggerInstance;\
+        static Logger customLoggerInstance(category);\
+        customLoggerInstance.logToGlobalInstance(category, true);\
+        return &customLoggerInstance;\
     }\
-
+     
 
 class LoggerPrivate;
 class CUTELOGGERSHARED_EXPORT Logger
 {
-  Q_DISABLE_COPY(Logger)
+    Q_DISABLE_COPY(Logger)
 
-  public:
+public:
     Logger();
-    Logger(const QString& defaultCategory);
+    Logger(const QString &defaultCategory);
     ~Logger();
 
     //! Describes the possible severity levels of the log records
-    enum LogLevel
-    {
-      Trace,   //!< Trace level. Can be used for mostly unneeded records used for internal code tracing.
-      Debug,   //!< Debug level. Useful for non-necessary records used for the debugging of the software.
-      Info,    //!< Info level. Can be used for informational records, which may be interesting for not only developers.
-      Warning, //!< Warning. May be used to log some non-fatal warnings detected by your application.
-      Error,   //!< Error. May be used for a big problems making your application work wrong but not crashing.
-      Fatal    //!< Fatal. Used for unrecoverable errors, crashes the application right after the log record is written.
+    enum LogLevel {
+        Trace,   //!< Trace level. Can be used for mostly unneeded records used for internal code tracing.
+        Debug,   //!< Debug level. Useful for non-necessary records used for the debugging of the software.
+        Info,    //!< Info level. Can be used for informational records, which may be interesting for not only developers.
+        Warning, //!< Warning. May be used to log some non-fatal warnings detected by your application.
+        Error,   //!< Error. May be used for a big problems making your application work wrong but not crashing.
+        Fatal    //!< Fatal. Used for unrecoverable errors, crashes the application right after the log record is written.
     };
 
     static QString levelToString(LogLevel logLevel);
-    static LogLevel levelFromString(const QString& s);
+    static LogLevel levelFromString(const QString &s);
 
-    static Logger* globalInstance();
+    static Logger *globalInstance();
 
-    void registerAppender(AbstractAppender* appender);
-    void registerCategoryAppender(const QString& category, AbstractAppender* appender);
+    void registerAppender(AbstractAppender *appender);
+    void registerCategoryAppender(const QString &category, AbstractAppender *appender);
 
-    void logToGlobalInstance(const QString& category, bool logToGlobal = false);
+    void logToGlobalInstance(const QString &category, bool logToGlobal = false);
 
-    void setDefaultCategory(const QString& category);
+    void setDefaultCategory(const QString &category);
     QString defaultCategory() const;
 
-    void write(const QDateTime& timeStamp, LogLevel logLevel, const char* file, int line, const char* function, const char* category,
-               const QString& message);
-    void write(LogLevel logLevel, const char* file, int line, const char* function, const char* category, const QString& message);
-    QDebug write(LogLevel logLevel, const char* file, int line, const char* function, const char* category);
+    void write(const QDateTime &timeStamp, LogLevel logLevel, const char *file, int line, const char *function, const char *category,
+               const QString &message);
+    void write(LogLevel logLevel, const char *file, int line, const char *function, const char *category, const QString &message);
+    QDebug write(LogLevel logLevel, const char *file, int line, const char *function, const char *category);
 
-    void writeAssert(const char* file, int line, const char* function, const char* condition);
+    void writeAssert(const char *file, int line, const char *function, const char *condition);
 
-  private:
-    void write(const QDateTime& timeStamp, LogLevel logLevel, const char* file, int line, const char* function, const char* category,
-               const QString& message, bool fromLocalInstance);
+private:
+    void write(const QDateTime &timeStamp, LogLevel logLevel, const char *file, int line, const char *function, const char *category,
+               const QString &message, bool fromLocalInstance);
     Q_DECLARE_PRIVATE(Logger)
-    LoggerPrivate* d_ptr;
+    LoggerPrivate *d_ptr;
 };
 
 
 class CUTELOGGERSHARED_EXPORT CuteMessageLogger
 {
-  Q_DISABLE_COPY(CuteMessageLogger)
+    Q_DISABLE_COPY(CuteMessageLogger)
 
-  public:
-    Q_DECL_CONSTEXPR CuteMessageLogger(Logger* l, Logger::LogLevel level, const char* file, int line, const char* function)
+public:
+    Q_DECL_CONSTEXPR CuteMessageLogger(Logger *l, Logger::LogLevel level, const char *file, int line, const char *function)
         : m_l(l),
           m_level(level),
           m_file(file),
@@ -131,7 +130,7 @@ class CUTELOGGERSHARED_EXPORT CuteMessageLogger
           m_category(0)
     {}
 
-    Q_DECL_CONSTEXPR CuteMessageLogger(Logger* l, Logger::LogLevel level, const char* file, int line, const char* function, const char* category)
+    Q_DECL_CONSTEXPR CuteMessageLogger(Logger *l, Logger::LogLevel level, const char *file, int line, const char *function, const char *category)
         : m_l(l),
           m_level(level),
           m_file(file),
@@ -140,65 +139,65 @@ class CUTELOGGERSHARED_EXPORT CuteMessageLogger
           m_category(category)
     {}
 
-    void write(const char* msg, ...) const
+    void write(const char *msg, ...) const
 #if defined(Q_CC_GNU) && !defined(__INSURE__)
 #  if defined(Q_CC_MINGW) && !defined(Q_CC_CLANG)
-    __attribute__ ((format (gnu_printf, 2, 3)))
+    __attribute__((format(gnu_printf, 2, 3)))
 #  else
-    __attribute__ ((format (printf, 2, 3)))
+    __attribute__((format(printf, 2, 3)))
 #  endif
 #endif
     ;
 
-    void write(const QString& msg) const;
+    void write(const QString &msg) const;
 
     QDebug write() const;
 
-  private:
-    Logger* m_l;
+private:
+    Logger *m_l;
     Logger::LogLevel m_level;
-    const char* m_file;
+    const char *m_file;
     int m_line;
-    const char* m_function;
-    const char* m_category;
+    const char *m_function;
+    const char *m_category;
 };
 
 
 class CUTELOGGERSHARED_EXPORT LoggerTimingHelper
 {
-  Q_DISABLE_COPY(LoggerTimingHelper)
+    Q_DISABLE_COPY(LoggerTimingHelper)
 
-  public:
-    inline explicit LoggerTimingHelper(Logger* l, Logger::LogLevel logLevel, const char* file, int line,
-                                       const char* function)
-      : m_logger(l),
-        m_logLevel(logLevel),
-        m_file(file),
-        m_line(line),
-        m_function(function)
+public:
+    inline explicit LoggerTimingHelper(Logger *l, Logger::LogLevel logLevel, const char *file, int line,
+                                       const char *function)
+        : m_logger(l),
+          m_logLevel(logLevel),
+          m_file(file),
+          m_line(line),
+          m_function(function)
     {}
 
-    void start(const char* msg, ...)
+    void start(const char *msg, ...)
 #if defined(Q_CC_GNU) && !defined(__INSURE__)
-  #  if defined(Q_CC_MINGW) && !defined(Q_CC_CLANG)
-    __attribute__ ((format (gnu_printf, 2, 3)))
-  #  else
-    __attribute__ ((format (printf, 2, 3)))
-  #  endif
+#  if defined(Q_CC_MINGW) && !defined(Q_CC_CLANG)
+    __attribute__((format(gnu_printf, 2, 3)))
+#  else
+    __attribute__((format(printf, 2, 3)))
+#  endif
 #endif
-        ;
+    ;
 
-    void start(const QString& msg = QString());
+    void start(const QString &msg = QString());
 
     ~LoggerTimingHelper();
 
-  private:
-    Logger* m_logger;
+private:
+    Logger *m_logger;
     QTime m_time;
     Logger::LogLevel m_logLevel;
-    const char* m_file;
+    const char *m_file;
     int m_line;
-    const char* m_function;
+    const char *m_function;
     QString m_block;
 };
 

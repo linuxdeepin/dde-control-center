@@ -32,7 +32,7 @@ class ListWidget : public DScrollArea
 
     Q_ENUMS(CheckMode)
 public:
-    enum CheckMode{
+    enum CheckMode {
         Radio,
         MultipleCheck
     };
@@ -41,9 +41,9 @@ public:
 
 public slots:
     int addWidget(QWidget *w, Qt::Alignment a = Qt::AlignHCenter);
-    void addWidgets(const QList<QWidget*> &ws, Qt::Alignment a = Qt::AlignHCenter);
+    void addWidgets(const QList<QWidget *> &ws, Qt::Alignment a = Qt::AlignHCenter);
     void insertWidget(int index, QWidget *w, Qt::Alignment a = Qt::AlignHCenter);
-    void insertWidgets(int index, const QList<QWidget*> &ws, Qt::Alignment a = Qt::AlignHCenter);
+    void insertWidgets(int index, const QList<QWidget *> &ws, Qt::Alignment a = Qt::AlignHCenter);
     void setItemSize(int w, int h);
     void clear(bool isDelete = true);
     void removeWidget(int index, bool isDelete = true);
@@ -57,7 +57,7 @@ public slots:
 
 public:
     int count() const;
-    int indexOf(const QWidget* widget);
+    int indexOf(const QWidget *widget);
     QWidget *getWidget(int index) const;
     int firstChecked() const;
     QList<int> checkedList() const;
@@ -66,7 +66,7 @@ public:
     bool isChecked(int index) const;
     int visibleCount() const;
     CheckMode checkMode() const;
-    QList<QWidget*> widgetList() const;
+    QList<QWidget *> widgetList() const;
     QSize itemSize() const;
     bool enableVerticalScroll() const;
 
@@ -90,13 +90,13 @@ private:
     int m_itemWidth;
     int m_itemHeight;
     QVBoxLayout *m_layout;
-    QList<QWidget*> m_widgetList;
+    QList<QWidget *> m_widgetList;
     QList<int> m_checkedList;
     CheckMode m_checkMode;
     QWidget *m_mainWidget;
     int m_visibleCount;
     bool m_checkable;
-    QMap<const QWidget*, bool> m_mapVisible;
+    QMap<const QWidget *, bool> m_mapVisible;
     bool m_enableUncheck;
     bool m_enableVerticalScroll = false;
 };

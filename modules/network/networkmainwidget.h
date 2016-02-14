@@ -33,7 +33,7 @@ public:
 
 private:
     void updateDeviceByMap(const QString &type, const QVariantMap &map,
-                           int index, QList<AbstractDeviceWidget*> &tmp_list);
+                           int index, QList<AbstractDeviceWidget *> &tmp_list);
     void updateUI();
     void initUI();
 
@@ -41,7 +41,7 @@ private:
     int m_modemCount = 0;
     int m_wirelessCount = 0;
     DBusNetwork *m_dbusNetwork;
-    QMap<QString, AbstractDeviceWidget*> m_mapPathToObject;
+    QMap<QString, AbstractDeviceWidget *> m_mapPathToObject;
     VPNConnectsWidget *m_vpnConnectsWidget;
 
     Network *m_networkModule;

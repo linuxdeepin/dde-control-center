@@ -14,16 +14,17 @@
 #include "dbus/dbusbluetooth.h"
 
 #define ASYN_CALL(Fun, Code, captured...) { \
-    QDBusPendingCallWatcher * watcher = new QDBusPendingCallWatcher(Fun, this); \
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, captured]{ \
-        const QVariantList & args = watcher->reply().arguments(); \
-        Code \
-        watcher->deleteLater(); \
-    }); }
+        QDBusPendingCallWatcher * watcher = new QDBusPendingCallWatcher(Fun, this); \
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, captured]{ \
+                const QVariantList & args = watcher->reply().arguments(); \
+                Code \
+                watcher->deleteLater(); \
+                                                                                      }); }
 
-namespace NetworkPlugin {
+namespace NetworkPlugin
+{
 
-struct BluetoothAdapterInfo{
+struct BluetoothAdapterInfo {
     bool powered;
 //    bool discovering;
 //    bool discoverable;
@@ -33,7 +34,7 @@ struct BluetoothAdapterInfo{
 //    QString name;
 };
 
-enum BluetoothState{
+enum BluetoothState {
     BluetoothStateDisconnected = 0,
     BluetoothStateConnecting = 1,
     BluetoothStateConnected = 2
@@ -83,7 +84,7 @@ enum DeviceState {
     DeviceStateFailed = 120
 };
 
-enum NetworkingState{
+enum NetworkingState {
     NetworkingUnknown = 0,
     NetworkingAsleep = 10,
     NetworkingDisconnected = 20,

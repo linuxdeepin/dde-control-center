@@ -38,26 +38,26 @@ public:
     void setWidth(int ex_width);
     void setHeight(int ex_height);
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
-    DButtonGrid* m_suspendButtonGrid;
-    DButtonGrid* m_idleButtonGrid;
+    DButtonGrid *m_suspendButtonGrid;
+    DButtonGrid *m_idleButtonGrid;
 
 private:
     bool isExpand = false;
-    QHBoxLayout* customIdleLayout;
-    QHBoxLayout* idleLayout;
-    QHBoxLayout* suspendLayout;
-    QLabel* m_label;
-    TriangleRectangle* m_guideExtendTriangle;
-    QVBoxLayout* m_contentLayout;
-    QLabel* m_customLabel;
-    QLabel* m_customChooseLabel;
-    QLabel* m_idleLabel;
+    QHBoxLayout *customIdleLayout;
+    QHBoxLayout *idleLayout;
+    QHBoxLayout *suspendLayout;
+    QLabel *m_label;
+    TriangleRectangle *m_guideExtendTriangle;
+    QVBoxLayout *m_contentLayout;
+    QLabel *m_customLabel;
+    QLabel *m_customChooseLabel;
+    QLabel *m_idleLabel;
 
-    QLabel* m_suspendLabel;
+    QLabel *m_suspendLabel;
     QStringList m_suspendButtons;
     QStringList m_idleButtons;
-    DSeparatorHorizontal* m_bottomSeparator;
-    QPropertyAnimation* m_animation=NULL;
+    DSeparatorHorizontal *m_bottomSeparator;
+    QPropertyAnimation *m_animation = NULL;
 
 };
 #endif // DEXTENDBOARD_H

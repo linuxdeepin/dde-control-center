@@ -36,7 +36,7 @@ private:
 private:
     DBusAudio *m_audio = NULL;
     QMap<QString, AppIconSlider *> m_appsMap;
-    QVBoxLayout * m_mainLayout = NULL;
+    QVBoxLayout *m_mainLayout = NULL;
 };
 
 #endif // APPFRAME_H

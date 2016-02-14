@@ -26,7 +26,7 @@ class Network: public QObject, ModuleInterface
 public:
     Network();
     ~Network() Q_DECL_OVERRIDE;
-    QFrame* getContent() Q_DECL_OVERRIDE;
+    QFrame *getContent() Q_DECL_OVERRIDE;
 
     ControlCenterProxyInterface *getInterface() const;
 
@@ -37,7 +37,7 @@ protected:
     void setProxy(ControlCenterProxyInterface *proxy) Q_DECL_OVERRIDE;
 
 private:
-    NetworkMainWidget * m_mainWidget;
+    NetworkMainWidget *m_mainWidget;
 };
 
 #endif

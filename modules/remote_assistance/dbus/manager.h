@@ -60,13 +60,17 @@ public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      namespace Remoting {
-        typedef ::ComDeepinDaemonRemotingManagerInterface Manager;
-      }
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+namespace Remoting
+{
+typedef ::ComDeepinDaemonRemotingManagerInterface Manager;
+}
+}
+}
 }
 #endif

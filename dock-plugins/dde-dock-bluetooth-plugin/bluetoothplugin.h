@@ -41,8 +41,8 @@ public:
     bool configurable(const QString &id) Q_DECL_OVERRIDE;
     bool enabled(const QString &id) Q_DECL_OVERRIDE;
     void setEnabled(const QString &id, bool enabled) Q_DECL_OVERRIDE;
-    QWidget * getItem(QString id) Q_DECL_OVERRIDE;
-    QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
+    QWidget *getItem(QString id) Q_DECL_OVERRIDE;
+    QWidget *getApplet(QString id) Q_DECL_OVERRIDE;
     QString getMenuContent(QString id) Q_DECL_OVERRIDE;
     void invokeMenuItem(QString id, QString itemId, bool checked) Q_DECL_OVERRIDE;
 
@@ -53,7 +53,7 @@ private:
 
     DockPluginProxyInterface *m_proxy;
     BluetoothObject *m_bluetooth = nullptr;
-    QMap<QString, QSvgWidget*> m_mapIdToButton;
+    QMap<QString, QSvgWidget *> m_mapIdToButton;
     QSettings *m_settings;
 };
 

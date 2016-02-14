@@ -41,8 +41,8 @@ public:
     QString getCommand(QString id) Q_DECL_OVERRIDE;
     QString getMenuContent(QString id) Q_DECL_OVERRIDE;
     QPixmap getIcon(QString) Q_DECL_OVERRIDE;
-    QWidget * getItem(QString id) Q_DECL_OVERRIDE;
-    QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
+    QWidget *getItem(QString id) Q_DECL_OVERRIDE;
+    QWidget *getApplet(QString id) Q_DECL_OVERRIDE;
     bool configurable(const QString &id) Q_DECL_OVERRIDE;
     bool enabled(const QString &id) Q_DECL_OVERRIDE;
     void setEnabled(const QString &id, bool enabled) Q_DECL_OVERRIDE;
@@ -50,11 +50,11 @@ public:
     void invokeMenuItem(QString, QString, bool) Q_DECL_OVERRIDE;
 
 private:
-    QLabel * m_wiredItem;
-    QSettings * m_settings;
-    DockPluginProxyInterface * m_proxy;
+    QLabel *m_wiredItem;
+    QSettings *m_settings;
+    DockPluginProxyInterface *m_proxy;
     Dock::DockMode m_mode = Dock::EfficientMode;
-    com::deepin::daemon::DBusNetwork * m_dbusNetwork;
+    com::deepin::daemon::DBusNetwork *m_dbusNetwork;
 
     void initSettings();
     void addNewItem(const QString &id);

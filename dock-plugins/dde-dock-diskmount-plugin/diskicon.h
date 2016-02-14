@@ -28,7 +28,7 @@ public:
     void setMountPoint(const QString &path);
 
 protected:
-    void mousePressEvent(QMouseEvent * event);
+    void mousePressEvent(QMouseEvent *event);
 
 private:
     QString getIconUrl(const QString &icon);

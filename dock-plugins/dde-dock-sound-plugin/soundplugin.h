@@ -51,8 +51,8 @@ public:
     bool configurable(const QString &id) Q_DECL_OVERRIDE;
     bool enabled(const QString &id) Q_DECL_OVERRIDE;
     void setEnabled(const QString &id, bool enabled) Q_DECL_OVERRIDE;
-    QWidget * getItem(QString id) Q_DECL_OVERRIDE;
-    QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
+    QWidget *getItem(QString id) Q_DECL_OVERRIDE;
+    QWidget *getApplet(QString id) Q_DECL_OVERRIDE;
     void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
 
     QString getMenuContent(QString id) Q_DECL_OVERRIDE;
@@ -63,12 +63,12 @@ private slots:
 
 private:
     QString m_id = "sound_plugin";
-    DockPluginProxyInterface * m_proxy;
+    DockPluginProxyInterface *m_proxy;
 
     Dock::DockMode m_mode = Dock::FashionMode;
-    MainItem * m_item = NULL;
+    MainItem *m_item = NULL;
     SoundContent *m_soundContent = NULL;
-    QSettings * m_settings = NULL;
+    QSettings *m_settings = NULL;
     DBusAudio *m_audio = NULL;
 
     void initSettings();

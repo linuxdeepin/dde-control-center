@@ -39,26 +39,28 @@ class DBusAccountUser: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
     {
         QList<QVariant> arguments = msg.arguments();
-        if (3 != arguments.count())
+        if (3 != arguments.count()) {
             return;
+        }
         QString interfaceName = msg.arguments().at(0).toString();
-        if (interfaceName !="com.deepin.daemon.Accounts.User")
+        if (interfaceName != "com.deepin.daemon.Accounts.User") {
             return;
+        }
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
         QStringList keys = changedProps.keys();
-        foreach(const QString &prop, keys) {
-        const QMetaObject* self = metaObject();
-            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+        foreach(const QString & prop, keys) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
                 QMetaProperty p = self->property(i);
                 if (p.name() == prop) {
- 	            Q_EMIT p.notifySignal().invoke(this);
+                    Q_EMIT p.notifySignal().invoke(this);
                 }
             }
         }
-   }
+    }
 public:
     static inline const char *staticService()
     { return "com.deepin.daemon.Accounts"; }
@@ -215,28 +217,32 @@ public Q_SLOTS: // METHODS
 
 Q_SIGNALS: // SIGNALS
 // begin property changed signals
-void AccountTypeChanged();
-void AutomaticLoginChanged();
-void BackgroundFileChanged();
-void GidChanged();
-void HistoryIconsChanged();
-void HomeDirChanged();
-void IconFileChanged();
-void IconListChanged();
-void LockedChanged();
-void LoginTimeChanged();
-void ShellChanged();
-void UidChanged();
-void UserNameChanged();
+    void AccountTypeChanged();
+    void AutomaticLoginChanged();
+    void BackgroundFileChanged();
+    void GidChanged();
+    void HistoryIconsChanged();
+    void HomeDirChanged();
+    void IconFileChanged();
+    void IconListChanged();
+    void LockedChanged();
+    void LoginTimeChanged();
+    void ShellChanged();
+    void UidChanged();
+    void UserNameChanged();
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      namespace Accounts {
-        typedef ::DBusAccountUser User;
-      }
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+namespace Accounts
+{
+typedef ::DBusAccountUser User;
+}
+}
+}
 }
 #endif

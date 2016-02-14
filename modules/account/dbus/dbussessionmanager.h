@@ -36,26 +36,28 @@ class DBusSessionManager: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
     {
         QList<QVariant> arguments = msg.arguments();
-        if (3 != arguments.count())
+        if (3 != arguments.count()) {
             return;
+        }
         QString interfaceName = msg.arguments().at(0).toString();
-        if (interfaceName !="com.deepin.SessionManager")
+        if (interfaceName != "com.deepin.SessionManager") {
             return;
+        }
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
         QStringList keys = changedProps.keys();
-        foreach(const QString &prop, keys) {
-        const QMetaObject* self = metaObject();
-            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+        foreach(const QString & prop, keys) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
                 QMetaProperty p = self->property(i);
                 if (p.name() == prop) {
- 	            Q_EMIT p.notifySignal().invoke(this);
+                    Q_EMIT p.notifySignal().invoke(this);
                 }
             }
         }
-   }
+    }
 public:
     static inline const char *staticService()
     { return "com.deepin.SessionManager"; }
@@ -80,13 +82,15 @@ public:
 public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
 // begin property changed signals
-void CurrentUidChanged();
-void StageChanged();
+    void CurrentUidChanged();
+    void StageChanged();
 };
 
-namespace com {
-  namespace deepin {
-    typedef ::DBusSessionManager SessionManager;
-  }
+namespace com
+{
+namespace deepin
+{
+typedef ::DBusSessionManager SessionManager;
+}
 }
 #endif

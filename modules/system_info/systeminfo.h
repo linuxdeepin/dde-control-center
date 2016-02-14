@@ -38,11 +38,11 @@ class SystemInfo : public QObject, ModuleInterface
 public:
     SystemInfo();
     ~SystemInfo() Q_DECL_OVERRIDE;
-    QFrame* getContent() Q_DECL_OVERRIDE;
+    QFrame *getContent() Q_DECL_OVERRIDE;
     void preUnload() Q_DECL_OVERRIDE;
 
 private:
-    QString getLicense(const QString & filePath, const QString &type) const;
+    QString getLicense(const QString &filePath, const QString &type) const;
     Q_SLOT void updateWidgetHeight();
     bool eventFilter(QObject *, QEvent *e) Q_DECL_OVERRIDE;
 
@@ -62,7 +62,7 @@ private:
     MirrorsControlWidget *m_mirrorsControlWidget;
     UpdateArrowExpand *m_updateExpand;
 
-    QList<DArrowLineExpand*> m_extralicenses;
+    QList<DArrowLineExpand *> m_extralicenses;
     QSet<QString> m_markActionStarted;
 
     void scanlicenses();

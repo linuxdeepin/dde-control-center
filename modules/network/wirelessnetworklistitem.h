@@ -42,9 +42,9 @@ private:
 
     QPointer<NetworkGenericListItem> m_activeItem;
     QPointer<InputPasswordDialog> m_ddialog;
-    QMap<QString, NetworkGenericListItem*> m_mapApPathToItem;
-    QMap<QString, NetworkGenericListItem*> m_mapApSsidToItem;
-    QMap<QString, NetworkGenericListItem*> m_mapApUuidToItem;
+    QMap<QString, NetworkGenericListItem *> m_mapApPathToItem;
+    QMap<QString, NetworkGenericListItem *> m_mapApSsidToItem;
+    QMap<QString, NetworkGenericListItem *> m_mapApUuidToItem;
     QJsonArray connectsArray;
 
     QString m_targetConnectPath;

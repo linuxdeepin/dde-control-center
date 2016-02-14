@@ -44,8 +44,8 @@ private:
 private:
     QMap<QString, DiskItem *> m_itemList;
     QString m_id = "";
-    DockPluginProxyInterface * m_proxy = NULL;
-    DBusDiskMount * m_diskMount = NULL;
+    DockPluginProxyInterface *m_proxy = NULL;
+    DBusDiskMount *m_diskMount = NULL;
     DListWidget *m_listWidget = NULL;
 };
 

@@ -29,7 +29,7 @@ private:
     void init();
 
     DBusConnectionSession *m_dbus;
-    QMap<QString,QString> m_mapVpnNameToType;
+    QMap<QString, QString> m_mapVpnNameToType;
 };
 
 #endif // ADDVPNPAGE_H

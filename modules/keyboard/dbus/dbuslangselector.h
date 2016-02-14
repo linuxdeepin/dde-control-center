@@ -30,7 +30,7 @@
 #include <QtDBus/QtDBus>
 
 
-struct LocaleInfo{
+struct LocaleInfo {
     QString id;
     QString name;
 };
@@ -40,11 +40,11 @@ typedef QList<LocaleInfo> LocaleList;
 Q_DECLARE_METATYPE(LocaleInfo)
 Q_DECLARE_METATYPE(LocaleList)
 
-QDBusArgument& operator<<(QDBusArgument& arg, const LocaleInfo& info);
-const QDBusArgument& operator>>(const QDBusArgument& arg, LocaleInfo& info);
+QDBusArgument &operator<<(QDBusArgument &arg, const LocaleInfo &info);
+const QDBusArgument &operator>>(const QDBusArgument &arg, LocaleInfo &info);
 
-QDataStream& operator<<(QDataStream &ds, const LocaleInfo& info);
-const QDataStream& operator>>(QDataStream& ds, LocaleInfo& info);
+QDataStream &operator<<(QDataStream &ds, const LocaleInfo &info);
+const QDataStream &operator>>(QDataStream &ds, LocaleInfo &info);
 
 /*
  * Proxy class for interface com.deepin.daemon.LangSelector
@@ -53,26 +53,28 @@ class DbusLangSelector: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
     {
         QList<QVariant> arguments = msg.arguments();
-        if (3 != arguments.count())
+        if (3 != arguments.count()) {
             return;
+        }
         QString interfaceName = msg.arguments().at(0).toString();
-        if (interfaceName !="com.deepin.daemon.LangSelector")
+        if (interfaceName != "com.deepin.daemon.LangSelector") {
             return;
+        }
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
         QStringList keys = changedProps.keys();
-        foreach(const QString &prop, keys) {
-        const QMetaObject* self = metaObject();
-            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+        foreach(const QString & prop, keys) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
                 QMetaProperty p = self->property(i);
                 if (p.name() == prop) {
- 	            Q_EMIT p.notifySignal().invoke(this);
+                    Q_EMIT p.notifySignal().invoke(this);
                 }
             }
         }
-   }
+    }
 public:
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.LangSelector"; }
@@ -117,15 +119,18 @@ public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
     void Changed(const QString &in0);
 // begin property changed signals
-void CurrentLocaleChanged();
-void LocaleStateChanged();
+    void CurrentLocaleChanged();
+    void LocaleStateChanged();
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      typedef ::DbusLangSelector LangSelector;
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+typedef ::DbusLangSelector LangSelector;
+}
+}
 }
 #endif

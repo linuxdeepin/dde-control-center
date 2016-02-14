@@ -21,14 +21,14 @@ class SearchList;
 class SearchItem
 {
 public:
-    virtual ~SearchItem(){}
-    virtual QStringList keyWords() const{return QStringList();}
-    virtual void setData(const QVariant &){}
-    virtual QVariant getData(){return QVariant();}
+    virtual ~SearchItem() {}
+    virtual QStringList keyWords() const {return QStringList();}
+    virtual void setData(const QVariant &) {}
+    virtual QVariant getData() {return QVariant();}
     virtual QWidget *widget() const = 0;
 
     SearchList *listWidget() const;
-    virtual void setListWidget(SearchList* list);
+    virtual void setListWidget(SearchList *list);
 
 protected:
     QPointer<SearchList> m_list;
@@ -47,9 +47,9 @@ public:
 
 public slots:
     int addItem(SearchItem *data);
-    void addItems(const QList<SearchItem*> &datas);
+    void addItems(const QList<SearchItem *> &datas);
     void insertItem(int index, SearchItem *data);
-    void insertItems(int index, const QList<SearchItem*> &datas);
+    void insertItems(int index, const QList<SearchItem *> &datas);
     void setItemData(int index, const QVariant &data);
     void clear();
     void removeItem(int index);
@@ -74,7 +74,7 @@ signals:
     void keyWordChanged(QString keyWord);
 
 private:
-    QList<SearchItem*> m_itemList;
+    QList<SearchItem *> m_itemList;
     SearchDbus *m_dbus;
     QStringList m_keyWords;//all item keyword list
     QString m_dbusKey;

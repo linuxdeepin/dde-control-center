@@ -39,12 +39,12 @@ signals:
 
 public slots:
     inline void reloadThemes() {D_THEME_INIT_WIDGET(TimezoneItemWidget);}
-    inline void setZones(const QString & zones) {m_zones->setText(zones);}
-    inline void setUTCOffset(const QString & offset) {m_utcOffset->setText(offset);}
+    inline void setZones(const QString &zones) {m_zones->setText(zones);}
+    inline void setUTCOffset(const QString &offset) {m_utcOffset->setText(offset);}
 
 private:
     QStringList keyWords() const Q_DECL_OVERRIDE {return QStringList();}
-    void setData(const QVariant&) Q_DECL_OVERRIDE {}
+    void setData(const QVariant &) Q_DECL_OVERRIDE {}
     QVariant getData() Q_DECL_OVERRIDE {return QVariant();}
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE {emit clicked(); m_checkBtn->setChecked(!m_checkBtn->isChecked()); e->accept();}
 

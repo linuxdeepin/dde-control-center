@@ -32,7 +32,7 @@ private:
     GrubThemeDbus *m_themeDbus;
     bool m_isDrop;
 
-    Q_SLOT bool updateBackground(const QString& filename);
+    Q_SLOT bool updateBackground(const QString &filename);
 };
 
 #endif // GRUBBACKGROUND_H

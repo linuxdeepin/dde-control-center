@@ -36,25 +36,27 @@ class DBusNetwork: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
     {
         QList<QVariant> arguments = msg.arguments();
-        if (3 != arguments.count())
+        if (3 != arguments.count()) {
             return;
+        }
         QString interfaceName = msg.arguments().at(0).toString();
-        if (interfaceName !="com.deepin.daemon.Network")
+        if (interfaceName != "com.deepin.daemon.Network") {
             return;
+        }
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
-        foreach(const QString &prop, changedProps.keys()) {
-        const QMetaObject* self = metaObject();
-            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+        foreach(const QString & prop, changedProps.keys()) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
                 QMetaProperty p = self->property(i);
                 if (p.name() == prop) {
- 	            Q_EMIT p.notifySignal().invoke(this);
+                    Q_EMIT p.notifySignal().invoke(this);
                 }
             }
         }
-   }
+    }
 public:
     static inline const char *staticServerPath()
     { return "com.deepin.daemon.Network"; }
@@ -265,19 +267,22 @@ Q_SIGNALS: // SIGNALS
     void NeedSecrets(const QString &in0, const QString &in1, const QString &in2, bool in3);
     void NeedSecretsFinished(const QString &connPath, const QString &section);
 // begin property changed signals
-void ActiveConnectionsChanged();
-void ConnectionsChanged();
-void DevicesChanged();
-void NetworkingEnabledChanged();
-void StateChanged();
-void VpnEnabledChanged();
+    void ActiveConnectionsChanged();
+    void ConnectionsChanged();
+    void DevicesChanged();
+    void NetworkingEnabledChanged();
+    void StateChanged();
+    void VpnEnabledChanged();
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      typedef ::DBusNetwork DBusNetwork;
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+typedef ::DBusNetwork DBusNetwork;
+}
+}
 }
 #endif

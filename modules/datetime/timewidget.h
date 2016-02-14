@@ -117,7 +117,7 @@ public slots:
     void switchToEditMode();
     void switchToNormalMode();
     inline void updateTime() {m_normalWidget->updateDateTime();}
-    inline void setEditable(bool enable) {m_normalWidget->setEditEnable(enable); if (!enable) switchToNormalMode();}
+    inline void setEditable(bool enable) {m_normalWidget->setEditEnable(enable); if (!enable) { switchToNormalMode(); }}
     //inline void setTime(const QTime & time) {m_normalWidget->setTime(time); m_editWidget->setTime(time);}
     inline void setIs24HourFormat(const bool is24HourFormat) {m_normalWidget->setIs24HourFormat(is24HourFormat);}
 

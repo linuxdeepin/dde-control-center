@@ -28,7 +28,7 @@ class BluetoothObject : public QObject
 public:
     struct DeviceInfo;
     ///本机的蓝牙适配器的信息
-    struct AdapterInfo{
+    struct AdapterInfo {
         bool powered;
         bool discovering;
         bool discoverable;
@@ -39,7 +39,7 @@ public:
         DBusBluetooth *bluetoothDbus = nullptr;
     };
     ///搜到的蓝牙设备信息
-    struct DeviceInfo{
+    struct DeviceInfo {
         bool trusted;
         bool paired;
         int state;
@@ -50,7 +50,7 @@ public:
         struct AdapterInfo *adapterInfo = nullptr;
         DeviceItemWidget *item = nullptr;///
 
-        enum State{
+        enum State {
             Disconnected = 0,
             Connecting = 1,
             Connected = 2
@@ -61,7 +61,7 @@ public:
     ~BluetoothObject();
 
     QStringList getIds() const;
-    AdapterInfo* getAdapterInfoByPath(const QString &path) const;
+    AdapterInfo *getAdapterInfoByPath(const QString &path) const;
 
     bool dbusValid() const;
 
@@ -77,12 +77,12 @@ private slots:
 private:
     DBusBluetooth *m_bluetoothDbus;
 
-    QMap<QString, AdapterInfo*> m_pathToAdapterInfoMap;
-    QMap<QString, DeviceInfo*> m_pathToDeviceInfoMap;
+    QMap<QString, AdapterInfo *> m_pathToAdapterInfoMap;
+    QMap<QString, DeviceInfo *> m_pathToDeviceInfoMap;
 
-    AdapterInfo* newAdapterInfoByMap(const QVariantMap &map);
-    DeviceInfo* newDeviceInfoByMap(const QVariantMap &map);
-    DeviceItemWidget *newDeviceListItem(DeviceInfo* device_info) const;
+    AdapterInfo *newAdapterInfoByMap(const QVariantMap &map);
+    DeviceInfo *newDeviceInfoByMap(const QVariantMap &map);
+    DeviceItemWidget *newDeviceListItem(DeviceInfo *device_info) const;
 
     void updateAdapterInfoByMap(AdapterInfo *info, const QVariantMap &map);
     void updateDeviceInfoByMap(DeviceInfo *info, const QVariantMap &map);

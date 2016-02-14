@@ -21,9 +21,9 @@ public:
     MirrorInfo();
     static void registerMetaType();
 
-    friend QDebug operator<<(QDebug argument, const MirrorInfo & info);
-    friend QDBusArgument &operator<<(QDBusArgument & argument, const MirrorInfo & info);
-    friend const QDBusArgument &operator>>(const QDBusArgument & argument, MirrorInfo & info);
+    friend QDebug operator<<(QDebug argument, const MirrorInfo &info);
+    friend QDBusArgument &operator<<(QDBusArgument &argument, const MirrorInfo &info);
+    friend const QDBusArgument &operator>>(const QDBusArgument &argument, MirrorInfo &info);
 
 public:
     QString m_id;

@@ -34,7 +34,7 @@ private slots:
     void closeInputDialog();
 
 private:
-    QMap<QString, NetworkGenericListItem*> m_mapVpnPathToItem;
+    QMap<QString, NetworkGenericListItem *> m_mapVpnPathToItem;
     QPointer<InputPasswordDialog> m_ddialog;
     QString m_targetConnectPath;
     QString m_targetConnectSection;

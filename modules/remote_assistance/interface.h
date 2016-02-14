@@ -13,7 +13,8 @@
 #include <QObject>
 #include <QString>
 
-namespace NetworkConnectivity{
+namespace NetworkConnectivity
+{
 enum {
     Unknown,
     Connected,
@@ -21,11 +22,12 @@ enum {
 };
 }
 
-class Connectable: public QObject {
+class Connectable: public QObject
+{
     Q_OBJECT
 public:
-    Connectable(QObject*p): QObject(p) {}
-    virtual ~Connectable(){}
+    Connectable(QObject *p): QObject(p) {}
+    virtual ~Connectable() {}
     virtual void checkNetworkConnectivity() = 0;
     virtual void retry() = 0;
 
@@ -35,19 +37,21 @@ signals:
     void stopped();
 };
 
-namespace AccessError {
+namespace AccessError
+{
 enum AccessError {
-InvalidToken,
-ConnectServerFailed,
+    InvalidToken,
+    ConnectServerFailed,
 };
 }
 
 Q_DECLARE_FLAGS(AccessErrors, AccessError::AccessError)
 
-class IAccessController: public Connectable {
+class IAccessController: public Connectable
+{
     Q_OBJECT
 public:
-    IAccessController(QObject* p): Connectable(p) {}
+    IAccessController(QObject *p): Connectable(p) {}
 
     virtual void initStatus() = 0;
     virtual bool isAlreadyConnected() = 0;
@@ -63,10 +67,11 @@ signals:
     void connectFailed(AccessErrors);
 };
 
-class IShareController : public Connectable {
+class IShareController : public Connectable
+{
     Q_OBJECT
 public:
-    IShareController(QObject*p): Connectable(p) {}
+    IShareController(QObject *p): Connectable(p) {}
 
 public slots:
     virtual bool isSharing() = 0;

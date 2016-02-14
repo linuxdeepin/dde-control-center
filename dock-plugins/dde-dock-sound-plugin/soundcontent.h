@@ -35,7 +35,7 @@ private:
 
 private:
     QString m_id = "";
-    DockPluginProxyInterface * m_proxy = NULL;
+    DockPluginProxyInterface *m_proxy = NULL;
 
 };
 

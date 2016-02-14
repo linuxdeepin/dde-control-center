@@ -40,25 +40,25 @@ class Sound: public QObject, ModuleInterface
 public:
     Sound();
     ~Sound() Q_DECL_OVERRIDE;
-    QFrame* getContent() Q_DECL_OVERRIDE;
+    QFrame *getContent() Q_DECL_OVERRIDE;
 
 private:
-    QFrame * m_frame;
+    QFrame *m_frame;
 
-    DSwitchLineExpand * m_speakerExpand;
-    DSwitchLineExpand * m_microphoneExpand;
-    DSlider * m_outputVolumeSlider;
-    DSlider * m_leftRightBalanceSlider;
-    DSlider * m_inputVolumeSlider;
-    DSlider * m_inputFeedbackSlider;
-    DBaseExpand * m_outputPortsExpand;
-    DButtonList * m_outputPortsList;
-    DBaseExpand * m_inputPortsExpand;
-    DButtonList * m_inputPortsList;
-    DBaseExpand * m_outputDevicesExpand;
-    DButtonList * m_outputDevicesList;
-    DBaseExpand * m_inputDevicesExpand;
-    DButtonList * m_inputDevicesList;
+    DSwitchLineExpand *m_speakerExpand;
+    DSwitchLineExpand *m_microphoneExpand;
+    DSlider *m_outputVolumeSlider;
+    DSlider *m_leftRightBalanceSlider;
+    DSlider *m_inputVolumeSlider;
+    DSlider *m_inputFeedbackSlider;
+    DBaseExpand *m_outputPortsExpand;
+    DButtonList *m_outputPortsList;
+    DBaseExpand *m_inputPortsExpand;
+    DButtonList *m_inputPortsList;
+    DBaseExpand *m_outputDevicesExpand;
+    DButtonList *m_outputDevicesList;
+    DBaseExpand *m_inputDevicesExpand;
+    DButtonList *m_inputDevicesList;
     QFrame *m_mainWidget;
     DScrollArea *m_scrollArea;
     DArrowLineExpand *m_soundEffectsExpand;
@@ -80,9 +80,9 @@ private:
     DBusSoundEffects *m_soundEffectsInter;
 
 
-    DBusAudio * m_dbusAudio;
-    DBusAudioSink * m_sink = nullptr;
-    DBusAudioSource * m_source = nullptr;
+    DBusAudio *m_dbusAudio;
+    DBusAudioSink *m_sink = nullptr;
+    DBusAudioSource *m_source = nullptr;
     QList<DBusAudioSink *> m_sinks;
     QList<DBusAudioSource *> m_sources;
     QDBusInterface *m_dbusMeter = nullptr;
@@ -94,8 +94,8 @@ private:
     void initBackend();
     void initUI();
 
-    com::deepin::daemon::Audio::Sink * getDefaultSink();
-    com::deepin::daemon::Audio::Source * getDefaultSource();
+    com::deepin::daemon::Audio::Sink *getDefaultSink();
+    com::deepin::daemon::Audio::Source *getDefaultSource();
 
     void updateSinks();
     void updateSources();
@@ -105,7 +105,7 @@ private:
     void updateInputPorts();
     void updateOutputDevices();
     void updateInputDevices();
-    Q_SLOT void meterVolumeChanged(const QDBusMessage& msg);
+    Q_SLOT void meterVolumeChanged(const QDBusMessage &msg);
 };
 
 #endif

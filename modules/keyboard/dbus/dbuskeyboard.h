@@ -40,26 +40,28 @@ class DBusKeyboard: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
-        {
-            QList<QVariant> arguments = msg.arguments();
-            if (3 != arguments.count())
-                return;
-            QString interfaceName = msg.arguments().at(0).toString();
-            if (interfaceName !="com.deepin.daemon.InputDevice.Keyboard")
-                return;
-            QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
-            QStringList keys = changedProps.keys();
-            foreach(const QString &prop, keys) {
-            const QMetaObject* self = metaObject();
-                for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
-                    QMetaProperty p = self->property(i);
-                    if (p.name() == prop) {
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
+    {
+        QList<QVariant> arguments = msg.arguments();
+        if (3 != arguments.count()) {
+            return;
+        }
+        QString interfaceName = msg.arguments().at(0).toString();
+        if (interfaceName != "com.deepin.daemon.InputDevice.Keyboard") {
+            return;
+        }
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        QStringList keys = changedProps.keys();
+        foreach(const QString & prop, keys) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
+                QMetaProperty p = self->property(i);
+                if (p.name() == prop) {
                     Q_EMIT p.notifySignal().invoke(this);
-                    }
                 }
             }
-       }
+        }
+    }
 public:
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.InputDevice.Keyboard"; }
@@ -183,13 +185,17 @@ Q_SIGNALS: // SIGNALS
     void UserOptionListChanged();
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      namespace InputDevice {
-        typedef ::DBusKeyboard Keyboard;
-      }
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+namespace InputDevice
+{
+typedef ::DBusKeyboard Keyboard;
+}
+}
+}
 }
 #endif

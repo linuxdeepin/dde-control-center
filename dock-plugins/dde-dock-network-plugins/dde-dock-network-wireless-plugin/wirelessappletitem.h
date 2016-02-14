@@ -24,7 +24,7 @@ using namespace NetworkPlugin;
 class WirelessAppletItem : public QFrame
 {
     Q_OBJECT
-public:    
+public:
     struct ApData {
         QString apPath;
         QString ssid;

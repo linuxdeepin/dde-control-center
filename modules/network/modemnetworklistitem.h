@@ -23,7 +23,7 @@ private slots:
     void init();
 
 private:
-    NetworkGenericListItem* m_item = nullptr;
+    NetworkGenericListItem *m_item = nullptr;
 };
 
 #endif // MODEMNETWORKLISTITEM_H

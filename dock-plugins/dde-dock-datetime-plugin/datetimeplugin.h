@@ -44,8 +44,8 @@ public:
     bool configurable(const QString &id) Q_DECL_OVERRIDE;
     bool enabled(const QString &id) Q_DECL_OVERRIDE;
     void setEnabled(const QString &id, bool enable) Q_DECL_OVERRIDE;
-    QWidget * getItem(QString id) Q_DECL_OVERRIDE;
-    QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
+    QWidget *getItem(QString id) Q_DECL_OVERRIDE;
+    QWidget *getApplet(QString id) Q_DECL_OVERRIDE;
     void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
 
     QString getMenuContent(QString id) Q_DECL_OVERRIDE;
@@ -57,11 +57,11 @@ private slots:
 private:
     DBusTimedate *m_dateTime = NULL;
     QString m_id = "id_datetime";
-    DockPluginProxyInterface * m_proxy;
+    DockPluginProxyInterface *m_proxy;
 
-    DCalendar * m_calendar = NULL;
-    QLabel * m_item = NULL;
-    QTimer * m_timer = NULL;
+    DCalendar *m_calendar = NULL;
+    QLabel *m_item = NULL;
+    QTimer *m_timer = NULL;
     ClockPixmap m_clockPixmap;
     Dock::DockMode m_mode;
     bool m_use24HourFormat;
@@ -83,7 +83,7 @@ private:
                                bool checked = false);
 
 private:
-    QSettings * m_settings = NULL;
+    QSettings *m_settings = NULL;
     const int RIGHT_PADDING = 20;
 };
 

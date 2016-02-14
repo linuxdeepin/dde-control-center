@@ -31,23 +31,23 @@ class CustomSettings : public QFrame
 {
     Q_OBJECT
 public:
-    explicit CustomSettings(DisplayInterface * display, MonitorGround *monitorGround,
-                                   const QList<MonitorInterface*> &list,
-                                   QWidget *parent = 0);
+    explicit CustomSettings(DisplayInterface *display, MonitorGround *monitorGround,
+                            const QList<MonitorInterface *> &list,
+                            QWidget *parent = 0);
     ~CustomSettings();
 
     void updateUI(const QList<MonitorInterface *> &list);
 
 private:
-    QList<MonitorInterface*> m_dbusMonitors;
-    DisplayInterface* m_dbusDisplay;
+    QList<MonitorInterface *> m_dbusMonitors;
+    DisplayInterface *m_dbusDisplay;
     QMap<ushort, QString> m_rotationMap;
     QStringList m_monitorNameList;
-    DBaseLine * m_brightnessHeaderLine;
+    DBaseLine *m_brightnessHeaderLine;
     DSeparatorHorizontal *m_brightnessLineSeparator;
     DArrowLineExpand *m_brightnessExpand;
     QPointer<DArrowLineExpand> m_primaryMonitor;
-    QVBoxLayout * m_mainLayout;
+    QVBoxLayout *m_mainLayout;
     DTextButton *m_cancelButton = new DTextButton(tr("Cancel"));
     DTextButton *m_applyButton = new DTextButton(tr("Confirm"));
     MonitorGround *m_monitorGround;
@@ -66,7 +66,7 @@ signals:
 private slots:
     void updateResolutionButtons(MonitorInterface *dbus, DButtonGrid *resolutionButtons);
     void updateRotationButtons(MonitorInterface *dbus, DButtonGrid *rotationButtons);
-    void updateBrightnessSlider(const QString& name, DSlider *brightnessSlider);
+    void updateBrightnessSlider(const QString &name, DSlider *brightnessSlider);
     void updateBrightnessLayout();
     void onHasChangedChanged();
 };

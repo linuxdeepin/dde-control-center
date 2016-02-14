@@ -24,42 +24,45 @@ DUI_BEGIN_NAMESPACE
 class DStackWidget;
 DUI_END_NAMESPACE
 
-enum class ViewPanel {
+enum class ViewPanel
+{
     Main,
     Share,
     Access,
 };
 
-class RemoteAssistance: public QObject, public ModuleInterface {
+class RemoteAssistance: public QObject, public ModuleInterface
+{
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "remote_assistance.json")
     Q_INTERFACES(ModuleInterface)
 public:
     RemoteAssistance();
     ~RemoteAssistance();
-    QFrame* getContent() Q_DECL_OVERRIDE;
+    QFrame *getContent() Q_DECL_OVERRIDE;
 
 public slots:
     void changePanel(ViewPanel);
 
 private:
-    class Impl {
+    class Impl
+    {
     public:
-        Impl(RemoteAssistance*, com::deepin::daemon::Remoting::Manager*);
+        Impl(RemoteAssistance *, com::deepin::daemon::Remoting::Manager *);
         ~Impl();
-        inline void popView(QWidget* w=nullptr, bool isDelete=true, int count=1, bool enableTransition=true);
-        inline void pushView(QWidget* w, bool enableTransition=true);
+        inline void popView(QWidget *w = nullptr, bool isDelete = true, int count = 1, bool enableTransition = true);
+        inline void pushView(QWidget *w, bool enableTransition = true);
         void initPanel();
         void changePanel(ViewPanel);
 
     public:
-        QWidget* getPanel(ViewPanel);
+        QWidget *getPanel(ViewPanel);
 
-        RemoteAssistance* m_pub;
-        com::deepin::daemon::Remoting::Manager* m_manager;
-        QFrame* m_view; // NB: the m_view will be reparented, should not delete it in dtor.
-        DUI_NAMESPACE::DStackWidget* m_stackWidget; // this is child of m_view.
-        QWidget* m_panel;
+        RemoteAssistance *m_pub;
+        com::deepin::daemon::Remoting::Manager *m_manager;
+        QFrame *m_view; // NB: the m_view will be reparented, should not delete it in dtor.
+        DUI_NAMESPACE::DStackWidget *m_stackWidget; // this is child of m_view.
+        QWidget *m_panel;
         ViewPanel m_viewType;
     };
 

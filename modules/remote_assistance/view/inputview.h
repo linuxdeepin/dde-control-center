@@ -26,7 +26,7 @@ class InputView : public AbstractView
 {
     Q_OBJECT
 public:
-    InputView(QWidget* p=nullptr);
+    InputView(QWidget *p = nullptr);
     void focus();
 
 signals:
@@ -38,11 +38,11 @@ private slots:
     void connectToClient();
 
 private:
-    QWidget* createMainWidget() Q_DECL_OVERRIDE;
-    QLineEdit* m_tokenEdit;
-    QLabel* m_tip;
-    QRegExpValidator* m_validator;
-    DUI_NAMESPACE::DTextButton* m_connectButton;
+    QWidget *createMainWidget() Q_DECL_OVERRIDE;
+    QLineEdit *m_tokenEdit;
+    QLabel *m_tip;
+    QRegExpValidator *m_validator;
+    DUI_NAMESPACE::DTextButton *m_connectButton;
 };
 
 #endif // INPUTVIEW_H

@@ -19,7 +19,7 @@ class MainPanel : public AbstractPanel
 {
     Q_OBJECT
 public:
-    MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p=nullptr);
+    MainPanel(com::deepin::daemon::Remoting::Manager *manager, QWidget *p = nullptr);
 
 private slots:
     void changeToSharePanel();
@@ -27,8 +27,8 @@ private slots:
     void emitPanelChanged(ViewPanel);
 
 private:
-    com::deepin::daemon::Remoting::Manager* m_manager;
-    ButtonGroup* m_buttongroup;
+    com::deepin::daemon::Remoting::Manager *m_manager;
+    ButtonGroup *m_buttongroup;
 };
 
 #endif

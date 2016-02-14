@@ -41,7 +41,7 @@ class Datetime: public QObject, ModuleInterface
 public:
     Datetime();
     ~Datetime() Q_DECL_OVERRIDE;
-    QFrame* getContent() Q_DECL_OVERRIDE;
+    QFrame *getContent() Q_DECL_OVERRIDE;
 
 protected:
     bool eventFilter(QObject *o, QEvent *e) Q_DECL_OVERRIDE;
@@ -49,7 +49,7 @@ protected:
 private:
     static const QString getUTCOffset(int offset);
     const QString getZoneCityListByOffset(int zoneOffset);
-    const ZoneInfo &getZoneInfoByName(const QString & zoneName) const;
+    const ZoneInfo &getZoneInfoByName(const QString &zoneName) const;
     void loadTimezoneList();
     void reloadTimezoneList();
     void showTimezoneList();
@@ -64,7 +64,7 @@ private slots:
     void loadZoneList();
 
 private:
-    QFrame * m_frame;
+    QFrame *m_frame;
 
     DBusTimedate m_dbusInter;
 

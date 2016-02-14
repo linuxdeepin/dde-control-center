@@ -46,7 +46,7 @@ class DefaultApps : public QObject, ModuleInterface
 public:
     DefaultApps();
     ~DefaultApps() Q_DECL_OVERRIDE;
-    QFrame* getContent() Q_DECL_OVERRIDE;
+    QFrame *getContent() Q_DECL_OVERRIDE;
 
     enum DefaultAppsCategory {
         Browser, Mail, Text, Music, Video, Picture, Terminal,
@@ -55,26 +55,26 @@ public:
 
 
 private:
-    DArrowLineExpand *createDefaultAppsExpand(const DefaultAppsCategory & category, DArrowLineExpand *defaultApps);
-    const QString getTypeByCategory(const DefaultAppsCategory & category);
-    const QStringList getTypeListByCategory(const DefaultAppsCategory & category);
+    DArrowLineExpand *createDefaultAppsExpand(const DefaultAppsCategory &category, DArrowLineExpand *defaultApps);
+    const QString getTypeByCategory(const DefaultAppsCategory &category);
+    const QStringList getTypeListByCategory(const DefaultAppsCategory &category);
     void setMediaOptionVisible(const bool visible);
     void resetDefaults();
     void updateListCheckedIndex();
-    void updateCheckedItem(const DefaultAppsCategory & category);
+    void updateCheckedItem(const DefaultAppsCategory &category);
 
     void createTask();
 
 
 private:
-    bool isMediaApps(const DefaultAppsCategory & category) const;
+    bool isMediaApps(const DefaultAppsCategory &category) const;
 
 private slots:
     void lazyLoad();
     void arrowLineExpandSetContent(QJsonArray json, int acategory, DArrowLineExpand *arrowLineApps);
 
 private:
-    QFrame * m_centralWidget;
+    QFrame *m_centralWidget;
 
     ModuleHeader *m_header;
 
@@ -98,8 +98,8 @@ private:
     DArrowLineExpand *m_modCamera = nullptr;
     DArrowLineExpand *m_modSoftware = nullptr;
 
-    QMap<DefaultApps::DefaultAppsCategory, DOptionList*> m_appsBtnList;
-    QMap<DefaultApps::DefaultAppsCategory, DArrowLineExpand*> m_taskMap;
+    QMap<DefaultApps::DefaultAppsCategory, DOptionList *> m_appsBtnList;
+    QMap<DefaultApps::DefaultAppsCategory, DArrowLineExpand *> m_taskMap;
 
     DSwitchButton *m_autoPlaySwitch;
     QElapsedTimer m_timer;

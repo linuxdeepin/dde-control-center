@@ -26,14 +26,14 @@ class Account: public QObject, ModuleInterface
 public:
     Account();
     ~Account() Q_DECL_OVERRIDE;
-    QFrame* getContent() Q_DECL_OVERRIDE;
+    QFrame *getContent() Q_DECL_OVERRIDE;
 
 private slots:
     void preUnload() Q_DECL_OVERRIDE;
 
 private:
-    QLabel * m_label;
-    AccountMainWidget*m_mainWidget;
+    QLabel *m_label;
+    AccountMainWidget *m_mainWidget;
 };
 
 #endif

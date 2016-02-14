@@ -24,7 +24,7 @@ public:
 
     static ControlCenterProxy *getInstance();
 
-    Frame* parent() const;
+    Frame *parent() const;
 
     void hide(bool imme = false)  Q_DECL_OVERRIDE;
     void setAutoHide(bool autoHide) Q_DECL_OVERRIDE;

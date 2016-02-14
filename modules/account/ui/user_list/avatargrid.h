@@ -44,7 +44,7 @@ private:
     void onIconFileChanged();
 
 private slots:
-    void onButtonToggled(QAbstractButton * button, bool checked);
+    void onButtonToggled(QAbstractButton *button, bool checked);
     void onCanHideControlCenter() {this->window()->setProperty("autoHide", true);}
 
 private:

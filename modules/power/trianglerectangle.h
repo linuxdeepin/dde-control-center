@@ -20,7 +20,7 @@ class TriangleRectangle : public QFrame
 public:
     TriangleRectangle(QWidget *parent = 0);
     ~TriangleRectangle();
-    void paintEvent(QPaintEvent* e);
+    void paintEvent(QPaintEvent *e);
     QColor fillColor;
     QColor strokeColor;
     int topFromRight;

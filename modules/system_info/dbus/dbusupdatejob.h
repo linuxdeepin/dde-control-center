@@ -36,26 +36,28 @@ class DBusUpdateJob: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
     {
         QList<QVariant> arguments = msg.arguments();
-        if (3 != arguments.count())
+        if (3 != arguments.count()) {
             return;
+        }
         QString interfaceName = msg.arguments().at(0).toString();
-        if (interfaceName !="com.deepin.lastore.Job")
+        if (interfaceName != "com.deepin.lastore.Job") {
             return;
+        }
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
         QStringList keys = changedProps.keys();
-        foreach(const QString &prop, keys) {
-        const QMetaObject* self = metaObject();
-            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+        foreach(const QString & prop, keys) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
                 QMetaProperty p = self->property(i);
                 if (p.name() == prop) {
- 	            Q_EMIT p.notifySignal().invoke(this);
+                    Q_EMIT p.notifySignal().invoke(this);
                 }
             }
         }
-   }
+    }
 public:
     static inline const char *staticInterfaceName()
     { return "com.deepin.lastore.Job"; }
@@ -101,21 +103,24 @@ public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
     void Notify(int in0);
 // begin property changed signals
-void CreateTimeChanged();
-void DescriptionChanged();
-void ElapsedTimeChanged();
-void IdChanged();
-void PackageIdChanged();
-void ProgressChanged();
-void StatusChanged();
-void TypeChanged();
+    void CreateTimeChanged();
+    void DescriptionChanged();
+    void ElapsedTimeChanged();
+    void IdChanged();
+    void PackageIdChanged();
+    void ProgressChanged();
+    void StatusChanged();
+    void TypeChanged();
 };
 
-namespace org {
-  namespace deepin {
-    namespace lastore {
-      typedef ::DBusUpdateJob Job;
-    }
-  }
+namespace org
+{
+namespace deepin
+{
+namespace lastore
+{
+typedef ::DBusUpdateJob Job;
+}
+}
 }
 #endif

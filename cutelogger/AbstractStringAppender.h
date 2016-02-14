@@ -24,20 +24,20 @@
 
 class CUTELOGGERSHARED_EXPORT AbstractStringAppender : public AbstractAppender
 {
-  public:
+public:
     AbstractStringAppender();
 
     virtual QString format() const;
-    void setFormat(const QString&);
+    void setFormat(const QString &);
 
-    static QString stripFunctionName(const char*);
+    static QString stripFunctionName(const char *);
 
-  protected:
-    QString formattedString(const QDateTime& timeStamp, Logger::LogLevel logLevel, const char* file, int line,
-                            const char* function, const QString& category, const QString& message) const;
+protected:
+    QString formattedString(const QDateTime &timeStamp, Logger::LogLevel logLevel, const char *file, int line,
+                            const char *function, const QString &category, const QString &message) const;
 
-  private:
-    static QByteArray qCleanupFuncinfo(const char*);
+private:
+    static QByteArray qCleanupFuncinfo(const char *);
 
     QString m_format;
     mutable QReadWriteLock m_formatLock;

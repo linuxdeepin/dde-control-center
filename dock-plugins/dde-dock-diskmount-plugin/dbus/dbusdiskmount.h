@@ -31,7 +31,7 @@
 #include <QDBusArgument>
 #include <QDebug>
 
-struct DiskInfo{
+struct DiskInfo {
     QString name;
     QString type;
 
@@ -61,25 +61,27 @@ class DBusDiskMount: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
     {
         QList<QVariant> arguments = msg.arguments();
-        if (3 != arguments.count())
+        if (3 != arguments.count()) {
             return;
+        }
         QString interfaceName = msg.arguments().at(0).toString();
-        if (interfaceName !="com.deepin.daemon.DiskMount")
+        if (interfaceName != "com.deepin.daemon.DiskMount") {
             return;
+        }
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
-        foreach(const QString &prop, changedProps.keys()) {
-        const QMetaObject* self = metaObject();
-            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+        foreach(const QString & prop, changedProps.keys()) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
                 QMetaProperty p = self->property(i);
                 if (p.name() == prop) {
- 	            Q_EMIT p.notifySignal().invoke(this);
+                    Q_EMIT p.notifySignal().invoke(this);
                 }
             }
         }
-   }
+    }
 public:
     static inline const char *staticServerPath()
     { return "com.deepin.daemon.DiskMount"; }
@@ -96,7 +98,8 @@ public:
     Q_PROPERTY(DiskInfoList DiskList READ diskList NOTIFY DiskListChanged)
     inline DiskInfoList diskList() const
     {
-        return qvariant_cast< DiskInfoList >(property("DiskList")); }
+        return qvariant_cast< DiskInfoList >(property("DiskList"));
+    }
 
 public Q_SLOTS: // METHODS
     inline QDBusPendingReply<bool> DeviceEject(const QString &in0)
@@ -123,14 +126,17 @@ public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
     void Error(const QString &in0, const QString &in1);
 // begin property changed signals
-void DiskListChanged();
+    void DiskListChanged();
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      typedef ::DBusDiskMount DiskMount;
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+typedef ::DBusDiskMount DiskMount;
+}
+}
 }
 #endif

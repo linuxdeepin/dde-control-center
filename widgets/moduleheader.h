@@ -27,24 +27,24 @@ class ModuleHeader : public DBaseLine
 {
     Q_OBJECT
 public:
-    ModuleHeader(QString title, bool addResetButton = true, QWidget * parent = 0);
-    ModuleHeader(QWidget* leftContent, bool addResetButton = true, QWidget *parent=0);
+    ModuleHeader(QString title, bool addResetButton = true, QWidget *parent = 0);
+    ModuleHeader(QWidget *leftContent, bool addResetButton = true, QWidget *parent = 0);
     ~ModuleHeader();
 public slots:
     void initUI(bool addResetButton);
-    void setTitle(const QString&);
+    void setTitle(const QString &);
 signals:
     void resetButtonClicked();
 private:
-    RightContentWidget* m_rightContentWidget;
-    QLabel * m_title;
+    RightContentWidget *m_rightContentWidget;
+    QLabel *m_title;
 };
 
 class RightContentWidget: public QWidget
 {
     Q_OBJECT
 public:
-    RightContentWidget(bool addResetButton, QWidget *parent=0);
+    RightContentWidget(bool addResetButton, QWidget *parent = 0);
     ~RightContentWidget();
 signals:
     void resetButtonClicked();
@@ -52,8 +52,8 @@ signals:
 private slots:
     void resetUI();
 private:
-    QLabel * m_tipsLabel;
-    DTextButton * m_reset;
-    QTimer * m_timer;
+    QLabel *m_tipsLabel;
+    DTextButton *m_reset;
+    QTimer *m_timer;
 };
 #endif // MODULEHEADER_H

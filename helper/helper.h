@@ -16,7 +16,7 @@
 class Helper
 {
 public:
-    static const QString searchAppIcon(const QStringList& iconName, int size);
+    static const QString searchAppIcon(const QStringList &iconName, int size);
     static void refreshThemeInfo();
 
 private:

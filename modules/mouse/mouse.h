@@ -42,7 +42,7 @@ class Mouse: public QObject, ModuleInterface
 public:
     Mouse();
     ~Mouse() Q_DECL_OVERRIDE;
-    QFrame* getContent() Q_DECL_OVERRIDE;
+    QFrame *getContent() Q_DECL_OVERRIDE;
 
 public slots:
     void setMousePrimaryButton(int index);
@@ -60,50 +60,50 @@ public slots:
     void onTouchPadExistChanged();
     void reset();
 private:
-    QLabel * m_label;
+    QLabel *m_label;
 
-    ComDeepinDaemonInputDeviceMouseInterface * m_mouseInterface;
-    ComDeepinDaemonInputDeviceTouchPadInterface * m_touchpadInterface;
+    ComDeepinDaemonInputDeviceMouseInterface *m_mouseInterface;
+    ComDeepinDaemonInputDeviceTouchPadInterface *m_touchpadInterface;
 
-    ModuleHeader * m_topHeaderLine;
-    DSeparatorHorizontal * m_firstHSeparator;
-    QWidget * m_mouseSettingPanel;
-    QVBoxLayout * m_mouseSettingPanelLayout;
-    QWidget * m_primaryButtonContainer;
-    QHBoxLayout * m_primaryButtonContainerLayout;
-    QLabel * m_primaryButtonSetting;
-    DSegmentedControl * m_mousePrimaryButtonSetting;
-    QWidget * m_pointSpeedContainer;
-    QHBoxLayout * m_pointSpeedContainerLayout;
-    QLabel * m_pointSpeedLabel;
-    DSlider * m_mousePointSpeedSlider;
+    ModuleHeader *m_topHeaderLine;
+    DSeparatorHorizontal *m_firstHSeparator;
+    QWidget *m_mouseSettingPanel;
+    QVBoxLayout *m_mouseSettingPanelLayout;
+    QWidget *m_primaryButtonContainer;
+    QHBoxLayout *m_primaryButtonContainerLayout;
+    QLabel *m_primaryButtonSetting;
+    DSegmentedControl *m_mousePrimaryButtonSetting;
+    QWidget *m_pointSpeedContainer;
+    QHBoxLayout *m_pointSpeedContainerLayout;
+    QLabel *m_pointSpeedLabel;
+    DSlider *m_mousePointSpeedSlider;
     QTimer *m_mousePointSpeedSetTimer;
-    QWidget * m_doubleClickSpeedContainer;
-    QHBoxLayout * m_doubleClickContainerLayout;
-    QLabel * m_doubleClickSpeedLabel;
-    DSlider * m_mouseDoubleClickIntervalSlider;
+    QWidget *m_doubleClickSpeedContainer;
+    QHBoxLayout *m_doubleClickContainerLayout;
+    QLabel *m_doubleClickSpeedLabel;
+    DSlider *m_mouseDoubleClickIntervalSlider;
     QTimer *m_mouseDoubleClickIntervalTimer;
-    QWidget * m_forbiddenTouchpadWhenMouseContainer;
-    QHBoxLayout * m_forbiddenTouchpadWhenMouseLayout;
-    QLabel * m_forbiddenTouchpadWhenMouseLabel;
-    DSwitchButton * m_forbiddenTouchpadWhenMouseSwitchButton;
-    DSeparatorHorizontal * m_secondHSeparator;
-    DHeaderLine * m_touchpadHeaderLine;
-    DSwitchButton * m_touchpadSwitchButton;
-    DSeparatorHorizontal * m_thirdHSeparator;
-    ContainerWidget * m_touchpadSettingPanel;
-    DSegmentedControl * m_touchpadPrimaryButtonSetting;
-    DSlider * m_touchpadPointSpeedSlider;
+    QWidget *m_forbiddenTouchpadWhenMouseContainer;
+    QHBoxLayout *m_forbiddenTouchpadWhenMouseLayout;
+    QLabel *m_forbiddenTouchpadWhenMouseLabel;
+    DSwitchButton *m_forbiddenTouchpadWhenMouseSwitchButton;
+    DSeparatorHorizontal *m_secondHSeparator;
+    DHeaderLine *m_touchpadHeaderLine;
+    DSwitchButton *m_touchpadSwitchButton;
+    DSeparatorHorizontal *m_thirdHSeparator;
+    ContainerWidget *m_touchpadSettingPanel;
+    DSegmentedControl *m_touchpadPrimaryButtonSetting;
+    DSlider *m_touchpadPointSpeedSlider;
     QTimer *m_touchpadPointSpeedSetTimer;
-    DSlider * m_touchpadDoubleClickSpeed;
+    DSlider *m_touchpadDoubleClickSpeed;
     QTimer *m_touchpadDoubleClickSetTimer;
-    DSlider * m_touchpadDragThreshold;
+    DSlider *m_touchpadDragThreshold;
     QTimer *m_touchpadDragThresholdSetTimer;
-    DSwitchButton * m_touchpadNatureScrollSwitch;
-    DSwitchButton * m_touchpadTapToClickSwitch;
-    DSwitchButton * m_touchpadTwoFingerScrollSwitch;
-    DSwitchButton * m_touchpadEdgeScrollSwitch ;
-    DSeparatorHorizontal * m_fourthHSeparator;
+    DSwitchButton *m_touchpadNatureScrollSwitch;
+    DSwitchButton *m_touchpadTapToClickSwitch;
+    DSwitchButton *m_touchpadTwoFingerScrollSwitch;
+    DSwitchButton *m_touchpadEdgeScrollSwitch ;
+    DSeparatorHorizontal *m_fourthHSeparator;
     double m_mousePointSpeed;
     double m_touchpadPointSpeed;
 
@@ -115,11 +115,11 @@ class ContainerWidget: public QWidget
 {
     Q_OBJECT
 public:
-    ContainerWidget(QWidget * parent = 0);
+    ContainerWidget(QWidget *parent = 0);
     ~ContainerWidget();
 
-    void addRow(const QString & text, QWidget * widget);
-    void addRow(const QString & test, int stretch, QWidget * widget, int spacing = 5);
+    void addRow(const QString &text, QWidget *widget);
+    void addRow(const QString &test, int stretch, QWidget *widget, int spacing = 5);
 
 private:
     int m_labelWidth;

@@ -16,7 +16,7 @@ class GeneratingView : public AbstractView
 {
     Q_OBJECT
 public:
-    GeneratingView(QWidget* p=nullptr);
+    GeneratingView(QWidget *p = nullptr);
 
 signals:
     void cancel();
@@ -25,7 +25,7 @@ private slots:
     void onCancelButtonClicked();
 
 private:
-    QWidget* createMainWidget();
+    QWidget *createMainWidget();
 };
 
 #endif // GENERATINGVIEW_H

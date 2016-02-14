@@ -18,8 +18,8 @@ class EditLineMissingPackage : public NetworkBaseEditLine
 
 public:
     explicit EditLineMissingPackage(const QString &section, const QString &key,
-                              DBusConnectionSession *dbus,
-                              QWidget *parent = 0);
+                                    DBusConnectionSession *dbus,
+                                    QWidget *parent = 0);
 
     void setCurrentVpnName(const QString &name);
 

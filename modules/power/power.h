@@ -46,52 +46,52 @@ class Power: public QObject, ModuleInterface
 public:
     Power();
     ~Power() Q_DECL_OVERRIDE;
-    QFrame* getContent() Q_DECL_OVERRIDE;
+    QFrame *getContent() Q_DECL_OVERRIDE;
 
 private:
     int m_contentHeight;
     int m_bgContentHeight;
 
-    QFrame* m_frame;
+    QFrame *m_frame;
 
 //// top header
-    PowerManagement* m_powerManagementFrame;
+    PowerManagement *m_powerManagementFrame;
 
 //  press power button action
     QStringList linePowerAction;
-    PressPowerButtonAction* m_pressPowerButtonActionFrame;
+    PressPowerButtonAction *m_pressPowerButtonActionFrame;
 
 // close the laptop
     QStringList closeLaptopAction;
-    PressPowerButtonAction* m_closeLaptopActionFrame;
+    PressPowerButtonAction *m_closeLaptopActionFrame;
 //   lockWhenActive
-    QVBoxLayout* lockWhenActiveLayout;
+    QVBoxLayout *lockWhenActiveLayout;
 //    DSeparatorHorizontal* m_secondHSeparator;
-    DHeaderLine* m_chooseNeedPasswdLine;
-    DSwitchButton* m_chooseNeedPasswdButton;
-    DSeparatorHorizontal* m_thirdHSeparator;
+    DHeaderLine *m_chooseNeedPasswdLine;
+    DSwitchButton *m_chooseNeedPasswdButton;
+    DSeparatorHorizontal *m_thirdHSeparator;
 //  connection power
-    QLabel* m_powerConnection;
-    QVBoxLayout* powerConnectLayout;
+    QLabel *m_powerConnection;
+    QVBoxLayout *powerConnectLayout;
     QStringList m_powerPerformaceString;
-    DButtonGrid* m_linePowerButtonGrid;
-    DHeaderLine* m_prePowerSettingHeaderLine;
-    DBaseLine* m_powerSettingDBaseLine;
+    DButtonGrid *m_linePowerButtonGrid;
+    DHeaderLine *m_prePowerSettingHeaderLine;
+    DBaseLine *m_powerSettingDBaseLine;
 //    DBaseLine* m_powerSettingBaseLine;
-    DBreathingLabel* m_powerConnectionBreathingLabel;
-    DSeparatorHorizontal* m_forthHSeparator;
-    DBaseExpand* m_powerSettingExpand;
-    DExtendBoard* m_powerCustomExtendBoard;
-    DynamicLabel* m_powerDynamicLabel;
+    DBreathingLabel *m_powerConnectionBreathingLabel;
+    DSeparatorHorizontal *m_forthHSeparator;
+    DBaseExpand *m_powerSettingExpand;
+    DExtendBoard *m_powerCustomExtendBoard;
+    DynamicLabel *m_powerDynamicLabel;
 // use battery
-    QVBoxLayout* batteryUsedLayout;
-    DButtonGrid* m_batteryButtonGrid;
-    DBaseLine* m_batterySettingDBaseLine;
-    DBreathingLabel* m_batteryBreathingLabel;
-    DSeparatorHorizontal* m_sixthHSeparator;
-    DBaseExpand* m_batterySettingExpand;
-    DExtendBoard* m_batteryCustomExtendBoard;
-    DynamicLabel* m_batteryDynamicLabel;
+    QVBoxLayout *batteryUsedLayout;
+    DButtonGrid *m_batteryButtonGrid;
+    DBaseLine *m_batterySettingDBaseLine;
+    DBreathingLabel *m_batteryBreathingLabel;
+    DSeparatorHorizontal *m_sixthHSeparator;
+    DBaseExpand *m_batterySettingExpand;
+    DExtendBoard *m_batteryCustomExtendBoard;
+    DynamicLabel *m_batteryDynamicLabel;
     /* get the setting in dbus connection */
     bool m_batteryIsPresent;
     bool m_onBattery;
@@ -99,9 +99,10 @@ private:
 
     qint32 m_batteryState;//read-only
 //interface
-     PowerInterfaceManagement* m_powerInter;
+    PowerInterfaceManagement *m_powerInter;
 public slots:
-    inline void Reset(bool reset) {
+    inline void Reset(bool reset)
+    {
         if (reset) { m_powerInter->Reset();}
     }
     void initUI();
@@ -122,23 +123,27 @@ public slots:
 
     void initConnection();
 
-    inline void updateBatteryPlanUI() {
+    inline void updateBatteryPlanUI()
+    {
         qint32 batteryPlan = m_powerInter->getBatteryPlan();
         set4ButtonGridChecked(batteryPlan, m_batteryButtonGrid);
         setPowerAndBatteryCheckAndExpand(batteryPlan, m_batteryCustomExtendBoard);
         updateBatteryIdleDelayUI();
         updateBatterySuspendDelayUI();
     }
-    inline void updateBatteryIdleDelayUI() {
-        qint32 batteryIdleDelay = m_powerInter->getBatteryIdleDelay()/60;
+    inline void updateBatteryIdleDelayUI()
+    {
+        qint32 batteryIdleDelay = m_powerInter->getBatteryIdleDelay() / 60;
         set7ButtonGridChecked(batteryIdleDelay, m_batteryCustomExtendBoard->m_idleButtonGrid);
     }
-    inline void updateBatterySuspendDelayUI() {
-        qint32 batterySuspendDelay = m_powerInter->getBatterySuspendDelay()/60;
+    inline void updateBatterySuspendDelayUI()
+    {
+        qint32 batterySuspendDelay = m_powerInter->getBatterySuspendDelay() / 60;
         set7ButtonGridChecked(batterySuspendDelay, m_batteryCustomExtendBoard->m_suspendButtonGrid);
     }
 
-    inline void updateLinePowerPlanUI() {
+    inline void updateLinePowerPlanUI()
+    {
         qint32 linePowerPlan = m_powerInter->getLinePowerPlan();
         qDebug() << "linePowerPlan:" << linePowerPlan;
         set4ButtonGridChecked(linePowerPlan, m_linePowerButtonGrid);
@@ -146,31 +151,37 @@ public slots:
         updateLinePowerIdleDelayUI();
         updateLinePowerSuspendDelayUI();
     }
-    inline void updateLinePowerIdleDelayUI() {
-        qint32 linePowerIdleDelay = m_powerInter->getLinePowerIdleDelay()/60;
+    inline void updateLinePowerIdleDelayUI()
+    {
+        qint32 linePowerIdleDelay = m_powerInter->getLinePowerIdleDelay() / 60;
         set7ButtonGridChecked(linePowerIdleDelay, m_powerCustomExtendBoard->m_idleButtonGrid);
     }
-    inline void updateLinePowerSuspendDelayUI() {
-        qint32 linePowerSuspendDelay = m_powerInter->getLinePowerSuspendDelay()/60;
+    inline void updateLinePowerSuspendDelayUI()
+    {
+        qint32 linePowerSuspendDelay = m_powerInter->getLinePowerSuspendDelay() / 60;
         set7ButtonGridChecked(linePowerSuspendDelay, m_powerCustomExtendBoard->m_suspendButtonGrid);
     }
 
-    void set4ButtonGridChecked(int idIndex, DButtonGrid* buttonGroup);
-    void set7ButtonGridChecked(int idIndex, DButtonGrid* buttonGroup);
-    inline void setPowerAndBatteryExpand(int index, DExtendBoard* expandBoard) {
+    void set4ButtonGridChecked(int idIndex, DButtonGrid *buttonGroup);
+    void set7ButtonGridChecked(int idIndex, DButtonGrid *buttonGroup);
+    inline void setPowerAndBatteryExpand(int index, DExtendBoard *expandBoard)
+    {
         if (index == 0) {expandBoard->setExpand(true);}
         else { expandBoard->setExpand(false);}
     }
 
-    inline void setPowerAndBatteryCheckAndExpand(int idIndex, DExtendBoard* expandBoard) {
+    inline void setPowerAndBatteryCheckAndExpand(int idIndex, DExtendBoard *expandBoard)
+    {
         setPowerAndBatteryExpand(idIndex, expandBoard);
     }
-    inline void  setPowerDynamicTooltip(int index) {
+    inline void  setPowerDynamicTooltip(int index)
+    {
         QString powerTips = m_powerInter->setPowerTooltipText(index, "power");
         m_powerDynamicLabel->setText(powerTips);
     }
     ////linePower tooltip
-    inline void  showPowerTooltip(int index) {
+    inline void  showPowerTooltip(int index)
+    {
         setPowerDynamicTooltip(index);
         QFont labelFont; QFontMetrics fm(labelFont);
         QString tips = m_powerInter->setPowerTooltipText(index, "power");
@@ -180,7 +191,8 @@ public slots:
         m_powerDynamicLabel->delayShowLabel(300);
     }
 
-    inline void  hidePowerTooltip(int index) {
+    inline void  hidePowerTooltip(int index)
+    {
         QFont labelFont; QFontMetrics fm(labelFont);
         QString tips = m_powerInter->setPowerTooltipText(index, "power");
 
@@ -192,13 +204,15 @@ public slots:
         m_powerDynamicLabel->hideLabel();
     }
 
-    inline void  setBatteryDynamicTooltip(int index) {
+    inline void  setBatteryDynamicTooltip(int index)
+    {
         QString batteryTips = m_powerInter->setPowerTooltipText(index, "battery");
         m_batteryDynamicLabel->setText(batteryTips);
     }
 
 
-    inline void  showBatteryTooltip(int index) {
+    inline void  showBatteryTooltip(int index)
+    {
         setBatteryDynamicTooltip(index);
         QFont labelFont; QFontMetrics fm(labelFont);
         QString tips = m_powerInter->setPowerTooltipText(index, "battery");
@@ -210,7 +224,8 @@ public slots:
         m_batteryDynamicLabel->delayShowLabel(300);
     }
 
-    inline void  hideBatteryTooltip(int index) {
+    inline void  hideBatteryTooltip(int index)
+    {
         QFont labelFont; QFontMetrics fm(labelFont);
         QString tips = m_powerInter->setPowerTooltipText(index, "battery");
 

@@ -48,8 +48,8 @@ public:
     bool configurable(const QString &id) Q_DECL_OVERRIDE;
     bool enabled(const QString &id) Q_DECL_OVERRIDE;
     void setEnabled(const QString &id, bool enable) Q_DECL_OVERRIDE;
-    QWidget * getItem(QString id) Q_DECL_OVERRIDE;
-    QWidget * getApplet(QString id) Q_DECL_OVERRIDE;
+    QWidget *getItem(QString id) Q_DECL_OVERRIDE;
+    QWidget *getApplet(QString id) Q_DECL_OVERRIDE;
     void changeMode(Dock::DockMode newMode, Dock::DockMode oldMode) Q_DECL_OVERRIDE;
 
     QString getMenuContent(QString id) Q_DECL_OVERRIDE;
@@ -63,9 +63,9 @@ private slots:
 
 private:
     bool m_hasMount = false;
-    MainItem * m_item = NULL;
+    MainItem *m_item = NULL;
     QString m_id = "disk_mount_plugin";
-    DockPluginProxyInterface * m_proxy;
+    DockPluginProxyInterface *m_proxy;
 
     Dock::DockMode m_mode = Dock::EfficientMode;
     DBusDiskMount *m_diskMount;

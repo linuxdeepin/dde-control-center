@@ -29,7 +29,7 @@ class AddRmDoneLine : public DBaseLine
     Q_PROPERTY(QString doneButtonToolTip READ doneButtonToolTip WRITE setDoneButtonToolTip)
 public:
     explicit AddRmDoneLine(QWidget *parent = 0);
-     void setTitle(const QString &title);
+    void setTitle(const QString &title);
 
     ImageNameButton *removeButton() const;
     ImageNameButton *addButton() const;

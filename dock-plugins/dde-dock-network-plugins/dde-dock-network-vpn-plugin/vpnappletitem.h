@@ -24,7 +24,7 @@ using namespace NetworkPlugin;
 class VpnAppletItem : public QFrame
 {
     Q_OBJECT
-public:    
+public:
     struct VpnData {
         QString path;
         QString uuid;

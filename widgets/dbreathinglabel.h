@@ -21,8 +21,8 @@ class DBreathingLabel: public QLabel
     Q_OBJECT
     Q_PROPERTY(int alpha READ alpha WRITE setAlpha)
 public:
-    DBreathingLabel(QWidget *parent=0, Qt::WindowFlags f = 0);
-    DBreathingLabel(const QString & text, QWidget * parent = 0,
+    DBreathingLabel(QWidget *parent = 0, Qt::WindowFlags f = 0);
+    DBreathingLabel(const QString &text, QWidget *parent = 0,
                     Qt::WindowFlags f = 0);
     ~DBreathingLabel();
     void setColor(QColor color);
@@ -36,8 +36,8 @@ private:
     int alpha_;
 
     void setAlpha(int alpha);
-    QPropertyAnimation* m_showAnimation;
-    QPropertyAnimation* m_hideAnimation;
+    QPropertyAnimation *m_showAnimation;
+    QPropertyAnimation *m_hideAnimation;
     QPalette m_palette;
 };
 #endif // DSHINELABEL

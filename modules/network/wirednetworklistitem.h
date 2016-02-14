@@ -26,7 +26,7 @@ private slots:
     void onItemStateChanged(int state);
 
 private:
-    QMap<QString, NetworkGenericListItem*> m_mapPppoePathToItem;
+    QMap<QString, NetworkGenericListItem *> m_mapPppoePathToItem;
 };
 
 #endif // WIREDNETWORKLISTITEM_H

@@ -17,7 +17,7 @@ class VolumeSlider : public QSlider
     Q_OBJECT
     Q_PROPERTY(bool isMute READ isMute WRITE setIsMute)
 public:
-    explicit VolumeSlider(Qt::Orientation orientation, QWidget * parent = 0);
+    explicit VolumeSlider(Qt::Orientation orientation, QWidget *parent = 0);
     ~VolumeSlider();
 
     bool isMute() const;

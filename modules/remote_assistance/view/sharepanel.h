@@ -21,7 +21,7 @@ class SharePanel : public AbstractPanel
 {
     Q_OBJECT
 public:
-    SharePanel(IShareController*, QWidget* p=nullptr);
+    SharePanel(IShareController *, QWidget *p = nullptr);
     ~SharePanel() { dtor(); }
 
 public slots:
@@ -41,7 +41,7 @@ private:
     void dtor();
 
 private:
-    IShareController* m_controller;
+    IShareController *m_controller;
 };
 
 #endif /* end of include guard: SHARE_PANEL_H_WNAMLTE2 */

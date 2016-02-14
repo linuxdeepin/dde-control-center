@@ -37,19 +37,21 @@ class GrubThemeDbus: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
     {
         QList<QVariant> arguments = msg.arguments();
-        if (3 != arguments.count())
+        if (3 != arguments.count()) {
             return;
+        }
         QString interfaceName = msg.arguments().at(0).toString();
-        if (interfaceName !="com.deepin.daemon.Grub2.Theme")
+        if (interfaceName != "com.deepin.daemon.Grub2.Theme") {
             return;
+        }
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
         QStringList keys = changedProps.keys();
-        foreach(const QString &prop, keys) {
-        const QMetaObject* self = metaObject();
-            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+        foreach(const QString & prop, keys) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
                 QMetaProperty p = self->property(i);
                 if (p.name() == prop) {
                     QVariant v = p.read(this);
@@ -106,13 +108,17 @@ Q_SIGNALS: // SIGNALS
     void updatingChanged(bool Updating);
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      namespace Grub2 {
-        typedef ::GrubThemeDbus Theme;
-      }
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+namespace Grub2
+{
+typedef ::GrubThemeDbus Theme;
+}
+}
+}
 }
 #endif

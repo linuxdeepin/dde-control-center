@@ -22,12 +22,12 @@ class AbstractPanel : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AbstractPanel(const QString& title=QLatin1String(""), QWidget *parent = 0);
-    AbstractPanel* addWidget(QWidget*);
-    AbstractPanel* addLayout(QLayout* l, int stretch=0);
+    explicit AbstractPanel(const QString &title = QLatin1String(""), QWidget *parent = 0);
+    AbstractPanel *addWidget(QWidget *);
+    AbstractPanel *addLayout(QLayout *l, int stretch = 0);
 
 protected:
-    void setTitle(const QString&);
+    void setTitle(const QString &);
 
 protected slots:
     virtual void onNoNetwork();
@@ -38,13 +38,13 @@ signals:
     void changePanel(ViewPanel);
 
 protected:
-    QVBoxLayout* m_viewLayout;
-    QWidget* m_view;
+    QVBoxLayout *m_viewLayout;
+    QWidget *m_view;
 
-    void setWidget(QWidget*);
+    void setWidget(QWidget *);
 
 private:
-    ModuleHeader * m_headerLine;
+    ModuleHeader *m_headerLine;
 };
 
 #endif // ABSTRACTPANEL_H

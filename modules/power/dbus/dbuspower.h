@@ -36,26 +36,28 @@ class DBusPower: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
     {
         QList<QVariant> arguments = msg.arguments();
-        if (3 != arguments.count())
+        if (3 != arguments.count()) {
             return;
+        }
         QString interfaceName = msg.arguments().at(0).toString();
-        if (interfaceName !="com.deepin.daemon.Power")
+        if (interfaceName != "com.deepin.daemon.Power") {
             return;
+        }
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
         QStringList keys = changedProps.keys();
-        foreach(const QString &prop, keys) {
-        const QMetaObject* self = metaObject();
-            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+        foreach(const QString & prop, keys) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
                 QMetaProperty p = self->property(i);
                 if (p.name() == prop) {
- 	            Q_EMIT p.notifySignal().invoke(this);
+                    Q_EMIT p.notifySignal().invoke(this);
                 }
             }
         }
-   }
+    }
 public:
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.Power"; }
@@ -152,28 +154,31 @@ public Q_SLOTS: // METHODS
 
 Q_SIGNALS: // SIGNALS
 // begin property changed signals
-void BatteryIdleDelayChanged();
-void BatteryIsPresentChanged();
-void BatteryPercentageChanged();
-void BatteryPlanChanged();
-void BatteryStateChanged();
-void BatterySuspendDelayChanged();
-void LidClosedActionChanged();
-void LidIsPresentChanged();
-void LinePowerIdleDelayChanged();
-void LinePowerPlanChanged();
-void LinePowerSuspendDelayChanged();
-void LockWhenActiveChanged();
-void OnBatteryChanged();
-void PlanInfoChanged();
-void PowerButtonActionChanged();
+    void BatteryIdleDelayChanged();
+    void BatteryIsPresentChanged();
+    void BatteryPercentageChanged();
+    void BatteryPlanChanged();
+    void BatteryStateChanged();
+    void BatterySuspendDelayChanged();
+    void LidClosedActionChanged();
+    void LidIsPresentChanged();
+    void LinePowerIdleDelayChanged();
+    void LinePowerPlanChanged();
+    void LinePowerSuspendDelayChanged();
+    void LockWhenActiveChanged();
+    void OnBatteryChanged();
+    void PlanInfoChanged();
+    void PowerButtonActionChanged();
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      typedef ::DBusPower DBusPower;
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+typedef ::DBusPower DBusPower;
+}
+}
 }
 #endif

@@ -20,9 +20,9 @@ class ShareController: public IShareController
     Q_OBJECT
 public:
 
-    ShareController(com::deepin::daemon::Remoting::Manager* manager,
-                    com::deepin::daemon::Remoting::Server* server,
-                    QObject* p=nullptr);
+    ShareController(com::deepin::daemon::Remoting::Manager *manager,
+                    com::deepin::daemon::Remoting::Server *server,
+                    QObject *p = nullptr);
     virtual ~ShareController();
 
     void checkNetworkConnectivity() Q_DECL_OVERRIDE;
@@ -43,8 +43,8 @@ private:
     int doCheckNetworkConnectivity();
 
 private:
-    com::deepin::daemon::Remoting::Manager* m_manager;
-    com::deepin::daemon::Remoting::Server* m_server;
+    com::deepin::daemon::Remoting::Manager *m_manager;
+    com::deepin::daemon::Remoting::Server *m_server;
 
     struct ServerStatus {
         enum  {

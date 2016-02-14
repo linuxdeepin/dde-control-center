@@ -20,11 +20,12 @@ class AccessController : public IAccessController
 {
     Q_OBJECT
 public:
-    AccessController(com::deepin::daemon::Remoting::Manager* manager,
-                     com::deepin::daemon::Remoting::Client* client,
-                     QObject*p=nullptr);
+    AccessController(com::deepin::daemon::Remoting::Manager *manager,
+                     com::deepin::daemon::Remoting::Client *client,
+                     QObject *p = nullptr);
 
-    virtual ~AccessController() {
+    virtual ~AccessController()
+    {
         m_client->deleteLater();
     }
 
@@ -61,8 +62,8 @@ private:
         };
     };
 
-    com::deepin::daemon::Remoting::Manager* m_manager;
-    com::deepin::daemon::Remoting::Client* m_client;
+    com::deepin::daemon::Remoting::Manager *m_manager;
+    com::deepin::daemon::Remoting::Client *m_client;
     QString m_accessToken;
 };
 

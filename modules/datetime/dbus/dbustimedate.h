@@ -36,11 +36,11 @@ public:
     ZoneInfo();
     static void registerMetaType();
 
-    friend QDebug operator<<(QDebug argument, const ZoneInfo & info);
-    friend QDBusArgument &operator<<(QDBusArgument & argument, const ZoneInfo & info);
-    friend QDataStream &operator<<(QDataStream & argument, const ZoneInfo & info);
-    friend const QDBusArgument &operator>>(const QDBusArgument & argument, ZoneInfo & info);
-    friend const QDataStream &operator>>(QDataStream & argument, ZoneInfo & info);
+    friend QDebug operator<<(QDebug argument, const ZoneInfo &info);
+    friend QDBusArgument &operator<<(QDBusArgument &argument, const ZoneInfo &info);
+    friend QDataStream &operator<<(QDataStream &argument, const ZoneInfo &info);
+    friend const QDBusArgument &operator>>(const QDBusArgument &argument, ZoneInfo &info);
+    friend const QDataStream &operator>>(QDataStream &argument, ZoneInfo &info);
 
     bool operator==(const ZoneInfo &what) const;
 
@@ -67,25 +67,27 @@ class DBusTimedate: public QDBusAbstractInterface
 {
     Q_OBJECT
 
-    Q_SLOT void __propertyChanged__(const QDBusMessage& msg)
+    Q_SLOT void __propertyChanged__(const QDBusMessage &msg)
     {
         QList<QVariant> arguments = msg.arguments();
-        if (3 != arguments.count())
+        if (3 != arguments.count()) {
             return;
+        }
         QString interfaceName = msg.arguments().at(0).toString();
-        if (interfaceName !="com.deepin.daemon.Timedate")
+        if (interfaceName != "com.deepin.daemon.Timedate") {
             return;
+        }
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
-        QStringList keys = changedProps.keys(); foreach(const QString &prop, keys) {
-        const QMetaObject* self = metaObject();
-            for (int i=self->propertyOffset(); i < self->propertyCount(); ++i) {
+        QStringList keys = changedProps.keys(); foreach(const QString & prop, keys) {
+            const QMetaObject *self = metaObject();
+            for (int i = self->propertyOffset(); i < self->propertyCount(); ++i) {
                 QMetaProperty p = self->property(i);
                 if (p.name() == prop) {
- 	            Q_EMIT p.notifySignal().invoke(this);
+                    Q_EMIT p.notifySignal().invoke(this);
                 }
             }
         }
-   }
+    }
 public:
     static inline const char *staticInterfaceName()
     { return "com.deepin.daemon.Timedate"; }
@@ -192,20 +194,23 @@ public Q_SLOTS: // METHODS
 
 Q_SIGNALS: // SIGNALS
 // begin property changed signals
-void CanNTPChanged();
-void DSTOffsetChanged();
-void LocalRTCChanged();
-void NTPChanged();
-void TimezoneChanged();
-void Use24HourFormatChanged();
-void UserTimezonesChanged();
+    void CanNTPChanged();
+    void DSTOffsetChanged();
+    void LocalRTCChanged();
+    void NTPChanged();
+    void TimezoneChanged();
+    void Use24HourFormatChanged();
+    void UserTimezonesChanged();
 };
 
-namespace com {
-  namespace deepin {
-    namespace daemon {
-      typedef ::DBusTimedate Timedate;
-    }
-  }
+namespace com
+{
+namespace deepin
+{
+namespace daemon
+{
+typedef ::DBusTimedate Timedate;
+}
+}
 }
 #endif
