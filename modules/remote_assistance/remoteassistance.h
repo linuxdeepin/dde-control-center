@@ -24,7 +24,7 @@ DUI_BEGIN_NAMESPACE
 class DStackWidget;
 DUI_END_NAMESPACE
 
-enum class ViewPanel
+enum ViewPanel
 {
     Main,
     Share,
