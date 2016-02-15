@@ -25,9 +25,9 @@
 #include <unistd.h>
 #include <pwd.h>
 
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dimagebutton.h>
-#include <libdui/dboxwidget.h>
+#include <dseparatorhorizontal.h>
+#include <dimagebutton.h>
+#include <dboxwidget.h>
 
 HomeScreen::HomeScreen(QWidget *parent) :
     QFrame(parent)

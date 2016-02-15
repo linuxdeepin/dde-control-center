@@ -12,16 +12,16 @@
 
 #include <QWidget>
 
-#include <libdui/dlistwidget.h>
-#include <libdui/dloadingindicator.h>
-#include <libdui/dswitchbutton.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/darrowlineexpand.h>
-#include <libdui/dlabel.h>
+#include <dlistwidget.h>
+#include <dloadingindicator.h>
+#include <dswitchbutton.h>
+#include <dseparatorhorizontal.h>
+#include <darrowlineexpand.h>
+#include <dlabel.h>
 
 #include "bluetoothobject.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class AdapterWidget : public QWidget
 {

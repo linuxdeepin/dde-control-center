@@ -23,10 +23,10 @@
 #include "dbus/dbuscontrolcenter.h"
 #include "dbus/dbuscontrolcenterservice.h"
 
-#include <libdui/dapplication.h>
-#include <libdui/dthememanager.h>
+#include <dapplication.h>
+#include <dthememanager.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 QString getQssFromFile(const QString &name)
 {

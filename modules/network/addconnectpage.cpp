@@ -7,12 +7,12 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dheaderline.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dlistwidget.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dthememanager.h>
-#include <libdui/dbuttonlist.h>
+#include <dheaderline.h>
+#include <dtextbutton.h>
+#include <dlistwidget.h>
+#include <dseparatorhorizontal.h>
+#include <dthememanager.h>
+#include <dbuttonlist.h>
 
 #include "constants.h"
 
@@ -23,7 +23,7 @@
 #include "networkglobal.h"
 #include "networkmainwidget.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 AddConnectPage::AddConnectPage(QWidget *parent) :
     ListWidgetContainer(tr("Add Network Connection"), parent)
@@ -40,7 +40,7 @@ void AddConnectPage::init()
 
     m_button_list->addButtons(QStringList() << tr("PPPoE") << tr("VPN"));
     m_button_list->checkButtonByIndex(0);
-    m_button_list->setFixedSize(DCC::ModuleContentWidth, m_button_list->count() * DUI::BUTTON_HEIGHT);
+    m_button_list->setFixedSize(DCC::ModuleContentWidth, m_button_list->count() * DTK_WIDGET_NAMESPACE::BUTTON_HEIGHT);
 
     addWidget(m_button_list);
 

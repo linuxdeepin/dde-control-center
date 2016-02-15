@@ -10,7 +10,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QMouseEvent>
-#include <libdui/dseparatorhorizontal.h>
+#include <dseparatorhorizontal.h>
 
 #include "constants.h"
 #include "moduleheader.h"
@@ -20,7 +20,7 @@
 #include "button.h"
 #include "helper.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 MainPanel::MainPanel(com::deepin::daemon::Remoting::Manager* manager, QWidget*p): AbstractPanel(tr("Remote Assistance"), p), m_buttongroup(new ButtonGroup)
 {

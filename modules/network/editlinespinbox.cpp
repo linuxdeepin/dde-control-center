@@ -7,13 +7,13 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dspinbox.h>
-#include <libdui/dconstants.h>
+#include <dspinbox.h>
+#include <dconstants.h>
 
 #include "editlinespinbox.h"
 #include "networkglobal.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 EditLineSpinBox::EditLineSpinBox(const QString &section, const QString &key,
                                  DBusConnectionSession *dbus,
@@ -25,7 +25,7 @@ EditLineSpinBox::EditLineSpinBox(const QString &section, const QString &key,
     box->setMinimum(minValue);
     box->setMaximum(maxValue);
 
-    box->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
+    box->setFixedSize(width() * 0.6, DTK_WIDGET_NAMESPACE::MENU_ITEM_HEIGHT);
 
     connect(this, &EditLineSpinBox::showErrorAlert, box, [box]{
         box->setAlert(true);

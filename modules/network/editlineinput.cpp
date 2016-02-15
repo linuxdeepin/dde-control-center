@@ -7,15 +7,15 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dlineedit.h>
-#include <libdui/dpasswordedit.h>
-#include <libdui/dconstants.h>
-#include <libdui/dfilechooseredit.h>
-#include <libdui/dipv4lineedit.h>
+#include <dlineedit.h>
+#include <dpasswordedit.h>
+#include <dconstants.h>
+#include <dfilechooseredit.h>
+#include <dipv4lineedit.h>
 
 #include "editlineinput.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 EditLineInput::EditLineInput(const QString &section, const QString &key,
                              DBusConnectionSession *dbus, EditLineInputType type,
@@ -64,7 +64,7 @@ EditLineInput::EditLineInput(const QString &section, const QString &key,
         connect(this, &NetworkBaseEditLine::cacheValueChanged, this, update_text);
         connect(this, &NetworkBaseEditLine::readOnlyChanged, line_edit, &QLineEdit::setReadOnly);
 
-        line_edit->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
+        line_edit->setFixedSize(width() * 0.6, DTK_WIDGET_NAMESPACE::MENU_ITEM_HEIGHT);
         setRightWidget(line_edit);
 
         connect(this, &EditLineInput::showErrorAlert, line_edit, [line_edit]{

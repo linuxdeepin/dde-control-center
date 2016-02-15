@@ -11,8 +11,8 @@
 #include <QResizeEvent>
 #include <QJsonDocument>
 
-#include <libdui/dconstants.h>
-#include <libdui/dseparatorhorizontal.h>
+#include <dconstants.h>
+#include <dseparatorhorizontal.h>
 
 #include "moduleheader.h"
 #include "constants.h"
@@ -21,7 +21,7 @@
 #include "bluetoothmainwidget.h"
 #include "adapterwidget.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 #define ASYN_CALL(Fun, Code, captured...) { \
     QDBusPendingCallWatcher * watcher = new QDBusPendingCallWatcher(Fun, this); \
@@ -124,7 +124,7 @@ BluetoothMainWidget::DeviceInfo *BluetoothMainWidget::newDeviceInfoByMap(const Q
 DeviceItemWidget *BluetoothMainWidget::newDeviceListItem(DeviceInfo *device_info) const
 {
     DeviceItemWidget *item = new DeviceItemWidget(device_info);
-    item->setFixedSize(DCC::ModuleContentWidth, DUI::EXPAND_HEADER_HEIGHT);
+    item->setFixedSize(DCC::ModuleContentWidth, DTK_WIDGET_NAMESPACE::EXPAND_HEADER_HEIGHT);
 
     return item;
 }

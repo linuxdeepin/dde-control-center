@@ -10,15 +10,15 @@
 #include <QVariant>
 #include <QMouseEvent>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dthememanager.h>
-#include <libdui/dconstants.h>
-#include <libdui/dloadingindicator.h>
+#include <libdui_global.h>
+#include <dthememanager.h>
+#include <dconstants.h>
+#include <dloadingindicator.h>
 
 #include "genericlistitem.h"
 #include "imagenamebutton.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 GenericListItem::GenericListItem(bool showRmButton, QWidget *parent) :
     QFrame(parent),

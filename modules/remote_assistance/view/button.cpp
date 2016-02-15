@@ -17,8 +17,8 @@
 #include <QDebug>
 #include <QCoreApplication>
 
-#include <libdui/dthememanager.h>
-#include <libdui/dimagebutton.h>
+#include <dthememanager.h>
+#include <dimagebutton.h>
 
 #include "constants.h"
 #include "mousearea.h"
@@ -28,7 +28,7 @@
 
 static const int button_fixed_height = 70;
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 Button::Button(const QString& title, const QString& tip, QWidget* p)
     : QFrame(p),

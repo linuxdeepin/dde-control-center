@@ -9,7 +9,7 @@
 
 #include <QHBoxLayout>
 
-#include <libdui/dheaderline.h>
+#include <dheaderline.h>
 
 #include "constants.h"
 
@@ -17,7 +17,7 @@
 #include "editlinemissingpackage.h"
 #include "networkglobal.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 EditLineMissingPackage::EditLineMissingPackage(const QString &section, const QString &key,
                                                DBusConnectionSession *dbus,

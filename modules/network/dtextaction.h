@@ -10,9 +10,9 @@
 #ifndef DTEXTACTION_H
 #define DTEXTACTION_H
 
-#include <libdui/dlinkbutton.h>
+#include <dlinkbutton.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class DTextAction : public DLinkButton
 {

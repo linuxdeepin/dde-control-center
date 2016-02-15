@@ -10,10 +10,10 @@
 #ifndef MULTIADDCHECKBUTTON_H
 #define MULTIADDCHECKBUTTON_H
 
-#include <libdui/dimagebutton.h>
-#include <libdui/libdui_global.h>
+#include <dimagebutton.h>
+#include <libdui_global.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class MultiAddCheckButton : public DImageButton
 {

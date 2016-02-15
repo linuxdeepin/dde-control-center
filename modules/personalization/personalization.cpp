@@ -9,10 +9,10 @@
 
 #include "personalization.h"
 #include "dbusworker.h"
-#include <libdui/dbuttongrid.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dlabel.h>
-#include <libdui/dboxwidget.h>
+#include <dbuttongrid.h>
+#include <dseparatorhorizontal.h>
+#include <dlabel.h>
+#include <dboxwidget.h>
 #include <QVBoxLayout>
 #include <QTimer>
 #include <QApplication>
@@ -26,7 +26,7 @@
 
 #include "mousearea.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 Personalization::Personalization():m_margins(0, 5, 0, 5)
 {

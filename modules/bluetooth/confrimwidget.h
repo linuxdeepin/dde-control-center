@@ -12,9 +12,9 @@
 
 #include <QWidget>
 
-#include <libdui/dtextbutton.h>
+#include <dtextbutton.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class ConfrimWidget : public QWidget
 {

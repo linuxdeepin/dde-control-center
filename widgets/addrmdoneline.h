@@ -10,13 +10,13 @@
 #ifndef ADDRMDONELINE_H
 #define ADDRMDONELINE_H
 
-#include <libdui/dbaseline.h>
-#include <libdui/libdui_global.h>
-#include <libdui/dtextbutton.h>
+#include <dbaseline.h>
+#include <libdui_global.h>
+#include <dtextbutton.h>
 
 #include "dbreathinglabel.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class ImageNameButton;
 class DynamicLabel;

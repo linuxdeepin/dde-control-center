@@ -26,14 +26,14 @@
 
 #include "dbus/dbusdefaultapps.h"
 
-#include <libdui/dtextbutton.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dbaseline.h>
-#include <libdui/darrowlineexpand.h>
-#include <libdui/dboxwidget.h>
-#include <libdui/doptionlist.h>
+#include <dtextbutton.h>
+#include <dseparatorhorizontal.h>
+#include <dbaseline.h>
+#include <darrowlineexpand.h>
+#include <dboxwidget.h>
+#include <doptionlist.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 DefaultApps::DefaultApps() :
     m_dbusDefaultApps(this),

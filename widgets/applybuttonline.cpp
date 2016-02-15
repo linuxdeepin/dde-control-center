@@ -21,7 +21,7 @@ ApplyButtonLine::ApplyButtonLine(QWidget *parent) : DHeaderLine(parent)
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
     layout->addWidget(cancelButton);
-    layout->addSpacing(DUI::BUTTON_MARGIN);
+    layout->addSpacing(DTK_WIDGET_NAMESPACE::BUTTON_MARGIN);
     layout->addWidget(confirmButton);
     contentWidget->setLayout(layout);
 

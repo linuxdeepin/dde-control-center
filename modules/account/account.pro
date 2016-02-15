@@ -5,7 +5,7 @@ TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets multimedia multimediawidgets dbus
 INCLUDEPATH    += ../../frame/ ../../widgets
-PKGCONFIG += dui
+PKGCONFIG += dtkbase dtkwidget
 
 CONFIG(debug) {
     include(../../widgets/widgets.pri)

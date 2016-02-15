@@ -22,11 +22,11 @@
 #include <QDesktopWidget>
 #include <QDateTime>
 
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dimagebutton.h>
-#include <libdui/dapplication.h>
+#include <dseparatorhorizontal.h>
+#include <dimagebutton.h>
+#include <dapplication.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 Datetime::Datetime() :
     QObject(),

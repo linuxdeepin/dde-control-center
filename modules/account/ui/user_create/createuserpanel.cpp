@@ -62,8 +62,8 @@ void CreateUserPanel::initHeader()
 {
     QLabel *headerLabel = new QLabel(tr("Add User"));
     headerLabel->setObjectName("CreateHeaderLabel");
-    headerLabel->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
-    headerLabel->setContentsMargins(DUI::HEADER_LEFT_MARGIN, 0 , 0, 0);
+    headerLabel->setFixedHeight(DTK_WIDGET_NAMESPACE::EXPAND_HEADER_HEIGHT);
+    headerLabel->setContentsMargins(DTK_WIDGET_NAMESPACE::HEADER_LEFT_MARGIN, 0 , 0, 0);
     headerLabel->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
     m_layout->addWidget(headerLabel);
@@ -110,9 +110,9 @@ void CreateUserPanel::initInfoLine()
     vLayout->addWidget(m_newNameLabel);
     vLayout->addWidget(newTypeLabel);
 
-    hLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
+    hLayout->addSpacing(DTK_WIDGET_NAMESPACE::HEADER_LEFT_MARGIN);
     hLayout->addWidget(m_avatar);
-    hLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
+    hLayout->addSpacing(DTK_WIDGET_NAMESPACE::HEADER_LEFT_MARGIN);
     hLayout->addLayout(vLayout);
     hLayout->addStretch(1);
 

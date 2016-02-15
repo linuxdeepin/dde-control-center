@@ -17,21 +17,21 @@
 #include <QJsonObject>
 #include <QScrollArea>
 #include "interfaces.h"
-#include <libdui/libdui_global.h>
-#include <libdui/darrowlineexpand.h>
-#include <libdui/dbuttongrid.h>
-#include <libdui/dexpandgroup.h>
-#include <libdui/dheaderline.h>
-#include <libdui/dslider.h>
-#include <libdui/dcombobox.h>
-#include <libdui/dsimplecombobox.h>
-#include <libdui/dlabel.h>
-#include <libdui/dfontcombobox.h>
+#include <libdui_global.h>
+#include <darrowlineexpand.h>
+#include <dbuttongrid.h>
+#include <dexpandgroup.h>
+#include <dheaderline.h>
+#include <dslider.h>
+#include <dcombobox.h>
+#include <dsimplecombobox.h>
+#include <dlabel.h>
+#include <dfontcombobox.h>
 
 
 #include "persionalizationfwd.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QFrame;
 class DBusWorker;

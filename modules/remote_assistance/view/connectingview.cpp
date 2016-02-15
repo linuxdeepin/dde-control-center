@@ -12,7 +12,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 #include <dloadingindicator.h>
 #include <dtextbutton.h>
 
@@ -20,7 +20,7 @@
 
 #include "../helper.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 ConnectingView::ConnectingView(QWidget*p)
     : AbstractView(p)

@@ -14,7 +14,7 @@ PasswdLine::PasswdLine(QWidget *parent) : DHeaderLine(parent)
 {
     m_passwordEdit = new DPasswordEdit();
     m_passwordEdit->setFixedWidth(160);
-    m_passwordEdit->setFixedHeight(DUI::BUTTON_HEIGHT);
+    m_passwordEdit->setFixedHeight(DTK_WIDGET_NAMESPACE::BUTTON_HEIGHT);
     connect(m_passwordEdit, &DPasswordEdit::textChanged, this, &PasswdLine::textChanged);
     connect(m_passwordEdit, &DPasswordEdit::focusChanged, this, &PasswdLine::focusChanged);
     setContent(m_passwordEdit);

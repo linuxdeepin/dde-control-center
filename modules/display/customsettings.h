@@ -13,20 +13,20 @@
 #include <QFrame>
 #include <QMap>
 
-#include <libdui/dbuttongrid.h>
-#include <libdui/dslider.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dbaseline.h>
-#include <libdui/darrowlineexpand.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dbuttonlist.h>
+#include <dbuttongrid.h>
+#include <dslider.h>
+#include <dseparatorhorizontal.h>
+#include <dbaseline.h>
+#include <darrowlineexpand.h>
+#include <dtextbutton.h>
+#include <dbuttonlist.h>
 
 #include "listwidget.h"
 
 #include "dbus/monitorinterface.h"
 #include "dbus/displayinterface.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class Monitor;
 class MonitorGround;

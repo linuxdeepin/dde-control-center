@@ -13,13 +13,13 @@
 #include "passwdline.h"
 #include "switchline.h"
 
-#include "libdui/dlineedit.h"
-#include "libdui/dtextbutton.h"
-#include "libdui/dheaderline.h"
-#include "libdui/dsegmentedcontrol.h"
-#include "libdui/dseparatorhorizontal.h"
+#include "dlineedit.h"
+#include "dtextbutton.h"
+#include "dheaderline.h"
+#include "dsegmentedcontrol.h"
+#include "dseparatorhorizontal.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 //for special style
 class AccountHeaderLine : public DHeaderLine

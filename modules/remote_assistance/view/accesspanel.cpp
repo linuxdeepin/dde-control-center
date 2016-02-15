@@ -11,14 +11,14 @@
 #include <QVBoxLayout>
 
 #include "accesspanel.h"
-#include <libdui/dtextbutton.h>
+#include <dtextbutton.h>
 
 #include "connectingview.h"
 #include "connectedview.h"
 #include "errorview.h"
 #include "inputview.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 AccessPanel::AccessPanel(IAccessController* controller, QWidget* p)
     : AbstractPanel(tr("Accessing"), p),

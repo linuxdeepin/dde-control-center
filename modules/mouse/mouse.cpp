@@ -18,7 +18,7 @@
 
 #include "mouse.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 
 /// as long as the qslider can't have float value,

@@ -17,7 +17,7 @@
 #include "dbus/dbusnetwork.h"
 #include "dbus/dbusbluetooth.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class ComplexApplet : public QFrame
 {

@@ -5,7 +5,8 @@ QT       += core gui widgets dbus
 
 TARGET = dde-dock-diskmount-plugin
 TEMPLATE = lib
-CONFIG += plugin c++11
+CONFIG += plugin c++11 link_pkgconfig
+PKGCONFIG += dtkbase dtkwidget
 DESTDIR = $$_PRO_FILE_PWD_/../
 
 SOURCES += diskmountplugin.cpp \

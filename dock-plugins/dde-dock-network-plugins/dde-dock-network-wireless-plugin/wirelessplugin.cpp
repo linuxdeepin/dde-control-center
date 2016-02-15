@@ -11,7 +11,7 @@
 #include <QFile>
 #include <QDBusConnection>
 
-#include <libdui/dcheckbox.h>
+#include <dcheckbox.h>
 
 #include "wirelessplugin.h"
 #include "../network-data/networkdata.h"

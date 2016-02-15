@@ -10,16 +10,16 @@
 #ifndef MODULEHEADER_H
 #define MODULEHEADER_H
 
-#include <libdui/dbaseline.h>
+#include <dbaseline.h>
 
 #include <QLabel>
 #include <QTimer>
 
-DUI_BEGIN_NAMESPACE
+DWIDGET_BEGIN_NAMESPACE
 class DTextButton;
-DUI_END_NAMESPACE
+DWIDGET_END_NAMESPACE
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QLabel;
 class RightContentWidget;

@@ -10,12 +10,12 @@
 #ifndef SYSTEMPROXYLINE_H
 #define SYSTEMPROXYLINE_H
 
-#include <libdui/dheaderline.h>
+#include <dheaderline.h>
 
 #include "networkglobal.h"
 #include "dbus/dbusnetwork.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class SystemProxyLine : public DHeaderLine
 {

@@ -14,14 +14,14 @@
 #include <QLabel>
 #include <QMap>
 
-#include <libdui/dswitchbutton.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dlistwidget.h>
+#include <dswitchbutton.h>
+#include <dtextbutton.h>
+#include <dlistwidget.h>
 
 #include "mirroritemwidget.h"
 #include "dbus/dbuslastoreupdater.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class MirrorsControlWidget : public QWidget
 {

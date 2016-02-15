@@ -12,12 +12,12 @@
 #include <QFile>
 #include <QResizeEvent>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dthememanager.h>
+#include <libdui_global.h>
+#include <dthememanager.h>
 
 #include "dynamiclabel.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 DynamicLabel::DynamicLabel(QWidget *parent) :
     QFrame(parent),

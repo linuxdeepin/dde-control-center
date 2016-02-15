@@ -26,9 +26,9 @@
 #include <QDebug>
 #include <QDesktopWidget>
 
-#include <libdui/dapplication.h>
+#include <dapplication.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 Frame::Frame(QWidget *parent) :
     QFrame(parent),

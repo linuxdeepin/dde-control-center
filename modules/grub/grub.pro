@@ -5,7 +5,7 @@ TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus
 INCLUDEPATH    += ../../frame/ ../../widgets
-PKGCONFIG += dui
+PKGCONFIG += dtkbase dtkwidget
 LIBS += -L../../widgets -lwidgets
 
 HEADERS        += grub.h \

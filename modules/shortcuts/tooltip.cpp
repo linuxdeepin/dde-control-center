@@ -10,12 +10,12 @@
 #include <QDebug>
 #include <QVariant>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dthememanager.h>
+#include <libdui_global.h>
+#include <dthememanager.h>
 
 #include "tooltip.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 ToolTip::ToolTip(QWidget *parent) :
     QLabel(parent),

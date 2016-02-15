@@ -16,11 +16,11 @@
 #include <QHBoxLayout>
 #include <QProgressBar>
 #include <QDebug>
-#include "libdui/dimagebutton.h"
+#include "dimagebutton.h"
 #include "dbus/dbusdiskmount.h"
 #include "diskicon.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class DiskItem : public QLabel
 {

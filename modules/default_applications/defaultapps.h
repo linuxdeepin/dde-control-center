@@ -25,12 +25,12 @@
 #include "dbus/dbusdefaultapps.h"
 #include "dbus/dbusdefaultmedia.h"
 
-#include <libdui/darrowlineexpand.h>
-#include <libdui/dexpandgroup.h>
-#include <libdui/dswitchbutton.h>
-#include <libdui/doptionlist.h>
+#include <darrowlineexpand.h>
+#include <dexpandgroup.h>
+#include <dswitchbutton.h>
+#include <doptionlist.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QLabel;
 class QFrame;

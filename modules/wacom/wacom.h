@@ -15,18 +15,18 @@
 #include <QFrame>
 #include <QLabel>
 
-#include <libdui/dtextbutton.h>
-#include <libdui/dslider.h>
-#include <libdui/dsimplecombobox.h>
-#include <libdui/dheaderline.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dsegmentedcontrol.h>
+#include <dtextbutton.h>
+#include <dslider.h>
+#include <dsimplecombobox.h>
+#include <dheaderline.h>
+#include <dseparatorhorizontal.h>
+#include <dsegmentedcontrol.h>
 
 #include "moduleheader.h"
 #include "interfaces.h"
 #include "dbus/dbusinputwacom.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class Wacom: public QObject, ModuleInterface
 {

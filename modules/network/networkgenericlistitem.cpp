@@ -9,7 +9,7 @@
 
 #include <QSvgWidget>
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 
 #include "imagenamebutton.h"
 #include "networkgenericlistitem.h"

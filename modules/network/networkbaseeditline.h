@@ -12,11 +12,11 @@
 
 #include <QWidget>
 
-#include <libdui/dlabel.h>
+#include <dlabel.h>
 
 #include "dbus/dbusconnectionsession.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class NetworkBaseEditLine : public QWidget
 {

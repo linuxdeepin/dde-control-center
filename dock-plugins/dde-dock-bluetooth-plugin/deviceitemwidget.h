@@ -14,10 +14,10 @@
 
 #include "bluetoothobject.h"
 
-#include <libdui/dimagebutton.h>
-#include <libdui/dloadingindicator.h>
+#include <dimagebutton.h>
+#include <dloadingindicator.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class DeviceItemWidget : public QWidget
 {

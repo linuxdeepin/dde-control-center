@@ -12,11 +12,11 @@
 
 #include <QMap>
 
-#include <libdui/dboxwidget.h>
+#include <dboxwidget.h>
 
 #include "dbus/dbusnetwork.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class NetworkInfo : public DVBoxWidget
 {

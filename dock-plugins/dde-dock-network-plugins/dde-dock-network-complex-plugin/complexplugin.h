@@ -17,12 +17,12 @@
 #include <dde-dock/dockplugininterface.h>
 #include <dde-dock/dockpluginproxyinterface.h>
 
-#include <libdui/dinputdialog.h>
+#include <dinputdialog.h>
 
 #include "dbus/dbusnetwork.h"
 #include "../network-data/networkdata.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QLabel;
 class ComplexApplet;

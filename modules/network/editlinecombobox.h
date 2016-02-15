@@ -10,11 +10,11 @@
 #ifndef EDITLINECOMBOBOX_H
 #define EDITLINECOMBOBOX_H
 
-#include <libdui/dcombobox.h>
+#include <dcombobox.h>
 
 #include "networkbaseeditline.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class EditLineComboBox : public NetworkBaseEditLine
 {

@@ -12,10 +12,10 @@
 
 #include <QWidget>
 #include <QEvent>
-#include "libdui/dimagebutton.h"
-#include "libdui/dthememanager.h"
+#include "dimagebutton.h"
+#include "dthememanager.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class GeneralAddButton : public DImageButton
 {

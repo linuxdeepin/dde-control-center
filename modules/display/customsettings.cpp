@@ -11,10 +11,10 @@
 #include <QGuiApplication>
 #include <QScreen>
 
-#include <libdui/dbuttonlist.h>
-#include <libdui/dexpandgroup.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/ddialog.h>
+#include <dbuttonlist.h>
+#include <dexpandgroup.h>
+#include <dseparatorhorizontal.h>
+#include <ddialog.h>
 
 #include "moduleheader.h"
 #include "normallabel.h"
@@ -25,7 +25,7 @@
 #include "customsettings.h"
 #include "titleandwidget.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 CustomSettings::CustomSettings(DisplayInterface *dbusDisplay, MonitorGround *monitorGround,
                                const QList<MonitorInterface *> &list,

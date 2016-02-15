@@ -25,13 +25,13 @@
 #include <QFile>
 #include <QScrollArea>
 
-#include <libdui/dbaseline.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/libdui_global.h>
-#include <libdui/darrowlineexpand.h>
-#include <libdui/dboxwidget.h>
+#include <dbaseline.h>
+#include <dseparatorhorizontal.h>
+#include <libdui_global.h>
+#include <darrowlineexpand.h>
+#include <dboxwidget.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 SystemInfo::SystemInfo()
     : m_dbusSystemInfo("com.deepin.daemon.SystemInfo", "/com/deepin/daemon/SystemInfo", QDBusConnection::sessionBus(), this)

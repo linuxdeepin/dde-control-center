@@ -313,12 +313,12 @@ void UserExpandContent::onAvatarSelected(const QString &avatar)
 void UserExpandContent::onAccountEnableChanged(bool enabled)
 {
     if (enabled) {
-        m_segmentedFrame->setFixedHeight(DUI::BUTTON_HEIGHT + LAYOUT_SPACING * 2);
+        m_segmentedFrame->setFixedHeight(DTK_WIDGET_NAMESPACE::BUTTON_HEIGHT + LAYOUT_SPACING * 2);
         updatemAvatarGridSize(m_stackWidget->currentIndex());
-        m_autoLoginLine->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
-        m_passwordFrame->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
+        m_autoLoginLine->setFixedHeight(DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
+        m_passwordFrame->setFixedHeight(DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
         if (!m_isCurrentUser)
-            m_typeLine->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
+            m_typeLine->setFixedHeight(DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
     }
     else {
         m_segmentedFrame->setFixedHeight(0);

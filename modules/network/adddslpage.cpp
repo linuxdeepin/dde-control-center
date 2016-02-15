@@ -7,10 +7,10 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dheaderline.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dthememanager.h>
+#include <dheaderline.h>
+#include <dtextbutton.h>
+#include <dseparatorhorizontal.h>
+#include <dthememanager.h>
 
 #include "constants.h"
 

@@ -12,12 +12,12 @@
 #include <QDebug>
 #include <QLabel>
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 
 #include "constants.h"
 #include "../helper.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 ErrorView::ErrorView(QWidget* p)
     : AbstractView(p),

@@ -7,17 +7,17 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dthememanager.h>
-#include <libdui/libdui_global.h>
-#include <libdui/dlineedit.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dheaderline.h>
+#include <dthememanager.h>
+#include <libdui_global.h>
+#include <dlineedit.h>
+#include <dtextbutton.h>
+#include <dheaderline.h>
 
 #include "adapterwidget.h"
 #include "deviceitemwidget.h"
 #include "constants.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 AdapterWidget::AdapterWidget(BluetoothObject::AdapterInfo *info,
                              QWidget *parent) :
@@ -54,7 +54,7 @@ int AdapterWidget::getHeightHint() const
 {
     if(m_headerLine && m_deviceItemList) {
         if(m_info && m_info->powered)
-            return m_headerLine->height() + m_deviceItemList->count() * DUI::EXPAND_HEADER_HEIGHT + 2;
+            return m_headerLine->height() + m_deviceItemList->count() * DTK_WIDGET_NAMESPACE::EXPAND_HEADER_HEIGHT + 2;
         else
             return m_headerLine->height();
     }

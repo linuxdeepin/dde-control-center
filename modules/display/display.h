@@ -13,14 +13,14 @@
 #include <QObject>
 #include <QtPlugin>
 
-#include <libdui/darrowlineexpand.h>
-#include <libdui/libdui_global.h>
+#include <darrowlineexpand.h>
+#include <libdui_global.h>
 
 #include "interfaces.h"
 
 #include "dbus/displayinterface.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QFrame;
 class MonitorGround;

@@ -8,8 +8,8 @@
  **/
 
 #include <QLabel>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dtextbutton.h>
+#include <dseparatorhorizontal.h>
+#include <dtextbutton.h>
 
 #include "constants.h"
 
@@ -20,7 +20,7 @@
 #include "connectedview.h"
 #include "errorview.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 SharePanel::SharePanel(IShareController* controller, QWidget* p)
     : AbstractPanel(tr("Sharing"), p),

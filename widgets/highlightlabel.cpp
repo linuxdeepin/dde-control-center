@@ -7,11 +7,11 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 
 #include "highlightlabel.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 HighlightLabel::HighlightLabel(QWidget *parent)
     : QLabel(parent)

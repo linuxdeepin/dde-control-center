@@ -13,16 +13,16 @@
 #include <QFrame>
 #include <QVBoxLayout>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dheaderline.h>
-#include <libdui/dexpandgroup.h>
-#include <libdui/darrowlineexpand.h>
+#include <libdui_global.h>
+#include <dheaderline.h>
+#include <dexpandgroup.h>
+#include <darrowlineexpand.h>
 
 #include "shortcutdbus.h"
 #include "shortcutwidget.h"
 #include "scrollframe.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class AddRmDoneLine;
 class ModuleHeader;

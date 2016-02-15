@@ -5,7 +5,7 @@ TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus x11extras
 INCLUDEPATH    += ../../frame/ ../../widgets
-PKGCONFIG += dui x11
+PKGCONFIG += dtkbase dtkwidget x11
 LIBS += -L../../widgets -lwidgets
 
 HEADERS        += display.h \
@@ -29,8 +29,6 @@ SOURCES        += display.cpp \
 TARGET          = $$qtLibraryTarget(display)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 DISTFILES += display.json
-
-LIBS += -ldui
 
 RESOURCES += \
     theme.qrc

@@ -18,12 +18,12 @@
 #include <QStackedWidget>
 #include "generaladdbutton.h"
 #include "generalremovebutton.h"
-#include "libdui/dslider.h"
-#include "libdui/dcameraview.h"
-#include "libdui/dtextbutton.h"
-#include "libdui/dconstants.h"
+#include "dslider.h"
+#include "dcameraview.h"
+#include "dtextbutton.h"
+#include "dconstants.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class WebcamAvatarPanel : public QWidget
 {

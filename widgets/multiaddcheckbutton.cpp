@@ -7,7 +7,7 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 
 #include "multiaddcheckbutton.h"
 

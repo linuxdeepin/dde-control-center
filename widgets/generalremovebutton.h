@@ -11,10 +11,10 @@
 #define GENERALREMOVEBUTTON_H
 
 #include <QWidget>
-#include "libdui/dimagebutton.h"
-#include "libdui/dthememanager.h"
+#include "dimagebutton.h"
+#include "dthememanager.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class GeneralRemoveButton : public DImageButton
 {

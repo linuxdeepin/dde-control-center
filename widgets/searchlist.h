@@ -10,12 +10,12 @@
 #ifndef SEARCHLIST_H
 #define SEARCHLIST_H
 
-#include <libdui/libdui_global.h>
+#include <libdui_global.h>
 
 #include "private/searchdbus.h"
 #include "listwidget.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class SearchList;
 class SearchItem

@@ -13,8 +13,8 @@
 #include <QHBoxLayout>
 #include <QProcess>
 
-#include <libdui/dthememanager.h>
-#include <libdui/dseparatorhorizontal.h>
+#include <dthememanager.h>
+#include <dseparatorhorizontal.h>
 
 MirrorItemWidget::MirrorItemWidget(QWidget *parent)
     : QFrame(parent)

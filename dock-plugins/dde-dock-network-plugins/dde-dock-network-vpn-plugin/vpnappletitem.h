@@ -14,11 +14,11 @@
 #include <QLabel>
 #include <QPushButton>
 #include "dbus/dbusnetwork.h"
-#include "libdui/dloadingindicator.h"
-#include "libdui/dimagebutton.h"
+#include "dloadingindicator.h"
+#include "dimagebutton.h"
 #include "../network-data/networkdata.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 using namespace NetworkPlugin;
 
 class VpnAppletItem : public QFrame

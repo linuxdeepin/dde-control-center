@@ -9,13 +9,13 @@
 
 #include <QPushButton>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dthememanager.h>
-#include <libdui/dtextbutton.h>
+#include <libdui_global.h>
+#include <dthememanager.h>
+#include <dtextbutton.h>
 
 #include "selectdialog.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 SelectDialog::SelectDialog(QWidget *parent):
     QFrame(parent),

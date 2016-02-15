@@ -20,9 +20,9 @@
 
 #include "searchlist.h"
 
-#include <libdui/dimagebutton.h>
+#include <dimagebutton.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class TimezoneWidget : public QFrame, public SearchItem
 {

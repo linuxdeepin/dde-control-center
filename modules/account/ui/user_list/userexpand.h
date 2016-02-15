@@ -13,11 +13,11 @@
 #include <QWidget>
 #include <QResizeEvent>
 #include <QPropertyAnimation>
-#include "libdui/dbaseexpand.h"
+#include "dbaseexpand.h"
 #include "userexpandheader.h"
 #include "userexpandcontent.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class UserExpand : public DBaseExpand
 {

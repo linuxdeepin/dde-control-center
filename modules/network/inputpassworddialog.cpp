@@ -12,8 +12,8 @@
 #include <QShortcut>
 #include <QDebug>
 
-#include <libdui/dtextbutton.h>
-#include <libdui/dthememanager.h>
+#include <dtextbutton.h>
+#include <dthememanager.h>
 
 #include "constants.h"
 #include "inputpassworddialog.h"

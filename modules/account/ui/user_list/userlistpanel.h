@@ -17,7 +17,7 @@
 #include "userexpand.h"
 #include "dbus/dbussessionmanager.h"
 #include "dbus/dbusaccount.h"
-#include "libdui/dexpandgroup.h"
+#include "dexpandgroup.h"
 
 class UserListPanel : public QWidget
 {

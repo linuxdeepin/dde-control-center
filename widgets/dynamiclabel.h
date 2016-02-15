@@ -14,7 +14,7 @@
 #include <QPropertyAnimation>
 #include <QTimer>
 
-#include <libdui/libdui_global.h>
+#include <libdui_global.h>
 
 class DynamicLabel : public QFrame
 {
@@ -32,16 +32,16 @@ public:
     QString text() const;
     QLabel *label() const;
     QColor color() const;
-    int duration() const DUI_DECL_DEPRECATED;
-    QEasingCurve::Type easingType() const DUI_DECL_DEPRECATED;
+    int duration() const DTKWIDGET_DECL_DEPRECATED;
+    QEasingCurve::Type easingType() const DTKWIDGET_DECL_DEPRECATED;
     QSize sizeHint() const Q_DECL_OVERRIDE;
     int hideDuration() const;
     QEasingCurve::Type hideEasingType() const;
     int showDuration() const;
     QEasingCurve::Type showEasingType() const;
 
-    void setDuration(int duration) DUI_DECL_DEPRECATED;
-    void setEasingType(QEasingCurve::Type easingType) DUI_DECL_DEPRECATED;
+    void setDuration(int duration) DTKWIDGET_DECL_DEPRECATED;
+    void setEasingType(QEasingCurve::Type easingType) DTKWIDGET_DECL_DEPRECATED;
 
 public slots:
     void setText(const QString &text);

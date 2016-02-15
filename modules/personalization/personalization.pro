@@ -3,10 +3,11 @@ include(../../common.pri)
 
 QT       += core gui widgets dbus
 TEMPLATE = lib
-CONFIG += plugin c++11
-LIBS += -ldui -L../../widgets -lwidgets
+CONFIG += plugin c++11 link_pkgconfig
+PKGCONFIG += dtkbase dtkwidget
+LIBS += -L../../widgets -lwidgets
 INCLUDEPATH += ../../frame/ ../../widgets
-INCLUDEPATH += /usr/include/libdui/
+INCLUDEPATH += /usr/include/
 DESTDIR         = $$_PRO_FILE_PWD_/../
 
 SOURCES += personalization.cpp \

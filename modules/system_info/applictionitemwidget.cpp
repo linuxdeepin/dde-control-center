@@ -15,7 +15,7 @@
 #include <QPixmap>
 #include <QMetaObject>
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 
 ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     : QFrame(parent)

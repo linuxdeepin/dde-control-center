@@ -16,12 +16,12 @@
 #include <QPropertyAnimation>
 #include <QPushButton>
 
-#include <libdui/libdui_global.h>
+#include <libdui_global.h>
 
 #include "searchlist.h"
 #include "shortcutedit.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class ImageNameButton;
 class ShortcutWidget : public QFrame, public SearchItem

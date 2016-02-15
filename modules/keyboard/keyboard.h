@@ -15,14 +15,14 @@
 #include <QRunnable>
 #include <QSettings>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dbuttonlist.h>
+#include <libdui_global.h>
+#include <dbuttonlist.h>
 
 #include "interfaces.h"
 
 #include "dbus/dbuskeyboard.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QFrame;
 class SearchItem;

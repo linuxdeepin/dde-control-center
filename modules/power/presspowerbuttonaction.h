@@ -13,12 +13,12 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QFrame>
 
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dbuttongrid.h>
-#include <libdui/dheaderline.h>
-#include <libdui/dbaseexpand.h>
+#include <dseparatorhorizontal.h>
+#include <dbuttongrid.h>
+#include <dheaderline.h>
+#include <dbaseexpand.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 class PressPowerButtonAction: public QFrame
 {
     Q_OBJECT

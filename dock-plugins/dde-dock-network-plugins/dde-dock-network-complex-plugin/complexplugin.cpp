@@ -11,7 +11,7 @@
 #include <QFile>
 #include <QDBusConnection>
 
-#include <libdui/dcheckbox.h>
+#include <dcheckbox.h>
 
 #include "complexplugin.h"
 #include "complexapplet.h"

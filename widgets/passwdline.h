@@ -12,11 +12,11 @@
 
 #include <QWidget>
 #include "inputwarningframe.h"
-#include "libdui/dpasswordedit.h"
-#include "libdui/dheaderline.h"
-#include "libdui/dconstants.h"
+#include "dpasswordedit.h"
+#include "dheaderline.h"
+#include "dconstants.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class PasswdLine : public DHeaderLine
 {

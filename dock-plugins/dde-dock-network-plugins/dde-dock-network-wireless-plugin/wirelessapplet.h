@@ -15,13 +15,13 @@
 #include "wirelessappletitem.h"
 #include "dbus/dbusnetwork.h"
 
-#include <libdui/dboxwidget.h>
-#include <libdui/dswitchbutton.h>
-#include <libdui/dheaderline.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dlistwidget.h>
+#include <dboxwidget.h>
+#include <dswitchbutton.h>
+#include <dheaderline.h>
+#include <dseparatorhorizontal.h>
+#include <dlistwidget.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class WirelessApplet : public DVBoxWidget
 {

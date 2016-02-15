@@ -11,7 +11,7 @@
 #include <QDBusConnection>
 #include <QVBoxLayout>
 
-#include <libdui/dstackwidget.h>
+#include <dstackwidget.h>
 
 #include "../../frame/constants.h"
 #include "../../interfaces/controlcenterproxyinterface.h"
@@ -31,7 +31,7 @@ namespace ManagerState {
     };
 }
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 RemoteAssistance::Impl::Impl(RemoteAssistance* pub, com::deepin::daemon::Remoting::Manager* manager)
     : m_pub(pub),

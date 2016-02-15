@@ -10,14 +10,14 @@
 #include <QDebug>
 #include <QVBoxLayout>
 
-#include <libdui/dthememanager.h>
-#include <libdui/libdui_global.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dswitchbutton.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dheaderline.h>
-#include <libdui/dlistwidget.h>
-#include <libdui/darrowlineexpand.h>
+#include <dthememanager.h>
+#include <libdui_global.h>
+#include <dseparatorhorizontal.h>
+#include <dswitchbutton.h>
+#include <dtextbutton.h>
+#include <dheaderline.h>
+#include <dlistwidget.h>
+#include <darrowlineexpand.h>
 
 #include "moduleheader.h"
 #include "constants.h"
@@ -162,7 +162,7 @@ void NetworkMainWidget::initUI()
     info_dynamicLabel->move(95, 12);
     info_dynamicLabel->setText(tr("View detailed information"));
 
-    header->setFixedSize(DCC::ModuleContentWidth, DUI::CONTENT_HEADER_HEIGHT);
+    header->setFixedSize(DCC::ModuleContentWidth, DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
     header_right_widget_layout->setMargin(0);
     header_right_widget_layout->setSpacing(5);
     header_right_widget_layout->addWidget(add_button);

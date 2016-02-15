@@ -12,11 +12,11 @@
 
 #include <QWidget>
 
-#include <libdui/dboxwidget.h>
-#include <libdui/libdui_global.h>
-#include <libdui/dtextbutton.h>
+#include <dboxwidget.h>
+#include <libdui_global.h>
+#include <dtextbutton.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class ListWidgetContainer : public DVBoxWidget
 {

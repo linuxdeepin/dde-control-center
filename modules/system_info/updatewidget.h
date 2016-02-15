@@ -15,10 +15,10 @@
 #include <QListWidget>
 #include <QMap>
 
-#include <libdui/dlistwidget.h>
-#include <libdui/dimagebutton.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dloadingindicator.h>
+#include <dlistwidget.h>
+#include <dimagebutton.h>
+#include <dseparatorhorizontal.h>
+#include <dloadingindicator.h>
 
 #include "updateprogress.h"
 #include "applictionitemwidget.h"
@@ -27,7 +27,7 @@
 #include "dbus/dbusupdatejob.h"
 #include "dbus/appupdateinfo.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class UpdateWidget : public QWidget
 {

@@ -13,7 +13,7 @@
 #include <QHBoxLayout>
 #include <QDebug>
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 #include <dseparatorhorizontal.h>
 #include <dtextbutton.h>
 
@@ -21,7 +21,7 @@
 
 #include "../helper.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 ConnectedView::ConnectedView(QWidget* p)
     : AbstractView(p), m_text(new QLabel)

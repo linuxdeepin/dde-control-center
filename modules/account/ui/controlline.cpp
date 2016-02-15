@@ -13,7 +13,7 @@ AccountPasswdLine::AccountPasswdLine(QWidget *parent) : AccountHeaderLine(parent
 {
     m_passwordEdit = new DPasswordEdit();
     m_passwordEdit->setFixedWidth(160);
-    m_passwordEdit->setFixedHeight(DUI::BUTTON_HEIGHT);
+    m_passwordEdit->setFixedHeight(DTK_WIDGET_NAMESPACE::BUTTON_HEIGHT);
     connect(m_passwordEdit, &DPasswordEdit::textChanged, this, &AccountPasswdLine::textChanged);
     connect(m_passwordEdit, &DPasswordEdit::focusChanged, this, &AccountPasswdLine::focusChanged);
     setContent(m_passwordEdit);
@@ -115,7 +115,7 @@ AccountConfirmButtonLine::AccountConfirmButtonLine(QWidget *parent) : AccountHea
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
     layout->addWidget(cancelButton);
-    layout->addSpacing(DUI::BUTTON_MARGIN);
+    layout->addSpacing(DTK_WIDGET_NAMESPACE::BUTTON_MARGIN);
     layout->addWidget(confirmButton);
     contentWidget->setLayout(layout);
 

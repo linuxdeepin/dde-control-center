@@ -14,9 +14,9 @@
 #include <QLabel>
 #include <QDebug>
 
-#include <libdui/dimagebutton.h>
+#include <dimagebutton.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class MirrorItemWidget : public QFrame
 {

@@ -64,7 +64,7 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     customIdleLayout = new QHBoxLayout;
     customIdleLayout->setMargin(0);
     customIdleLayout->setSpacing(0);
-    customIdleLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
+    customIdleLayout->addSpacing(DTK_WIDGET_NAMESPACE::HEADER_LEFT_MARGIN);
     customIdleLayout->addWidget(m_customChooseLabel);
     customIdleLayout->addStretch();
     m_customLabel->setLayout(customIdleLayout);
@@ -72,14 +72,14 @@ DExtendBoard::DExtendBoard(QFrame *parent)
     idleLayout = new QHBoxLayout;
     idleLayout->setMargin(0);
     idleLayout->setSpacing(0);
-    idleLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
+    idleLayout->addSpacing(DTK_WIDGET_NAMESPACE::HEADER_LEFT_MARGIN);
     idleLayout->addWidget(m_idleLabel);
 
 
     suspendLayout = new QHBoxLayout;
     suspendLayout->setMargin(0);
     suspendLayout->setSpacing(0);
-    suspendLayout->addSpacing(DUI::HEADER_LEFT_MARGIN);
+    suspendLayout->addSpacing(DTK_WIDGET_NAMESPACE::HEADER_LEFT_MARGIN);
     suspendLayout->addWidget(m_suspendLabel);
 
     m_contentLayout = new QVBoxLayout;

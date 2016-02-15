@@ -5,7 +5,7 @@ TEMPLATE        = lib
 
 CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus
-PKGCONFIG += dui
+PKGCONFIG += dtkbase dtkwidget
 INCLUDEPATH    += ../../frame/ ../../widgets
 LIBS += -L../../widgets -lwidgets
 HEADERS         = power.h \

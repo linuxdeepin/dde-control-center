@@ -15,11 +15,11 @@
 #include <dde-dock/dockpluginproxyinterface.h>
 
 #include <clockpixmap.h>
-#include <libdui/dcalendar.h>
+#include <dcalendar.h>
 #include "dbus/dbustimedate.h"
 #include <QSettings>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QLabel;
 class QTimer;

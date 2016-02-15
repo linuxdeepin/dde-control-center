@@ -10,12 +10,12 @@
 #ifndef UPDATEARROWEXPAND_H
 #define UPDATEARROWEXPAND_H
 
-#include <libdui/darrowlineexpand.h>
-#include <libdui/dimagebutton.h>
+#include <darrowlineexpand.h>
+#include <dimagebutton.h>
 
 #include <QLabel>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class UpdateArrowExpand : public DArrowLineExpand
 {

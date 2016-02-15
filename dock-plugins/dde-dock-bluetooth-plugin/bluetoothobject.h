@@ -13,12 +13,12 @@
 #include <QFrame>
 #include <QVBoxLayout>
 
-#include <libdui/dlistwidget.h>
-#include <libdui/dboxwidget.h>
+#include <dlistwidget.h>
+#include <dboxwidget.h>
 
 #include "dbus/dbusbluetooth.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class AdapterWidget;
 class DeviceItemWidget;

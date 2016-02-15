@@ -10,7 +10,7 @@
 #include <QLabel>
 #include <QDebug>
 
-#include <libdui/dbuttongrid.h>
+#include <dbuttongrid.h>
 
 #include "power.h"
 #include "constants.h"

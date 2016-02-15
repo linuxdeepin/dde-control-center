@@ -12,10 +12,10 @@
 
 #include <QWidget>
 #include "inputwarningframe.h"
-#include "libdui/dlineedit.h"
-#include "libdui/dheaderline.h"
+#include "dlineedit.h"
+#include "dheaderline.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class InputLine : public DHeaderLine
 {

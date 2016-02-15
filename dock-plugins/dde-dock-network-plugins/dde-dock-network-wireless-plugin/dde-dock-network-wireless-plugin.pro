@@ -13,7 +13,7 @@ include(../network-data/network-data.pri)
 INCLUDEPATH += ../../../modules/network
 
 CONFIG += c++11 link_pkgconfig
-
+PKGCONFIG += dtkbase dtkwidget
 SOURCES += wirelessplugin.cpp \
     ../../../modules/network/dbus/dbusnetwork.cpp \
     wirelessappletitem.cpp \

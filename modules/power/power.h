@@ -14,15 +14,15 @@
 #include <QtPlugin>
 #include <QLabel>
 
-#include <libdui/dtextbutton.h>
-#include <libdui/dheaderline.h>
-#include <libdui/dbaseline.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dslider.h>
-#include <libdui/dsegmentedcontrol.h>
-#include <libdui/dswitchbutton.h>
-#include <libdui/dbuttongrid.h>
-#include <libdui/dbaseexpand.h>
+#include <dtextbutton.h>
+#include <dheaderline.h>
+#include <dbaseline.h>
+#include <dseparatorhorizontal.h>
+#include <dslider.h>
+#include <dsegmentedcontrol.h>
+#include <dswitchbutton.h>
+#include <dbuttongrid.h>
+#include <dbaseexpand.h>
 
 #include "interfaces.h"
 #include "dbus/dbuspower.h"
@@ -33,7 +33,7 @@
 #include "dynamiclabel.h"
 #include "dbreathinglabel.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QLabel;
 class QFrame;

@@ -16,10 +16,10 @@
 #include <QWheelEvent>
 #include <QLabel>
 
-#include <libdui/dlinkbutton.h>
-#include <libdui/dimagebutton.h>
+#include <dlinkbutton.h>
+#include <dimagebutton.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class TimeSpinBox : public QFrame
 {

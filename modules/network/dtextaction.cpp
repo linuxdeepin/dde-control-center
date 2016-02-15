@@ -7,11 +7,11 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 
 #include "dtextaction.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 DTextAction::DTextAction(QWidget *parent) :
     DLinkButton("", parent)

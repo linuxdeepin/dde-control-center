@@ -15,19 +15,19 @@
 #include <QList>
 #include <QVariant>
 
-#include <libdui/dslider.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dlineedit.h>
-#include <libdui/dheaderline.h>
-#include <libdui/dswitchbutton.h>
-#include <libdui/dimagebutton.h>
-#include <libdui/dthememanager.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dbuttonlist.h>
-#include <libdui/darrowlineexpand.h>
-#include <libdui/dsearchedit.h>
-#include <libdui/anchors.h>
-#include <libdui/denhancedwidget.h>
+#include <dslider.h>
+#include <dseparatorhorizontal.h>
+#include <dlineedit.h>
+#include <dheaderline.h>
+#include <dswitchbutton.h>
+#include <dimagebutton.h>
+#include <dthememanager.h>
+#include <dtextbutton.h>
+#include <dbuttonlist.h>
+#include <darrowlineexpand.h>
+#include <dsearchedit.h>
+#include <anchors.h>
+#include <denhancedwidget.h>
 
 #include "moduleheader.h"
 #include "normallabel.h"
@@ -39,7 +39,7 @@
 #include "dbus/dbuslangselector.h"
 #include "firstletterclassify.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 Keyboard::Keyboard() :
     QObject(),

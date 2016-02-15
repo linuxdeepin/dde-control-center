@@ -6,6 +6,7 @@ QT       += core gui widgets dbus
 TARGET = dde-dock-network-vpn-plugin
 TEMPLATE = lib
 CONFIG += c++11 link_pkgconfig plugin
+PKGCONFIG += dtkbase dtkwidget
 DESTDIR = $$_PRO_FILE_PWD_/../
 
 include(../network-data/network-data.pri)

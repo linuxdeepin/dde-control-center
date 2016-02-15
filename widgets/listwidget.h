@@ -13,10 +13,10 @@
 #include <QVBoxLayout>
 #include <QMap>
 
-#include <libdui/dscrollarea.h>
-#include <libdui/libdui_global.h>
+#include <dscrollarea.h>
+#include <libdui_global.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class ListWidget : public DScrollArea
 {

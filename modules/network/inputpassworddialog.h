@@ -13,12 +13,12 @@
 #include <QWidget>
 #include <QPointer>
 
-#include <libdui/dboxwidget.h>
-#include <libdui/dpasswordedit.h>
-#include <libdui/dcheckbox.h>
-#include <libdui/dseparatorhorizontal.h>
+#include <dboxwidget.h>
+#include <dpasswordedit.h>
+#include <dcheckbox.h>
+#include <dseparatorhorizontal.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QEventLoop;
 class InputPasswordDialog : public QFrame

@@ -21,12 +21,12 @@
 #include "usernametitle.h"
 #include "dbus/dbusaccount.h"
 #include "dbus/dbusaccountuser.h"
-#include "libdui/darrowbutton.h"
-#include "libdui/dsegmentedcontrol.h"
+#include "darrowbutton.h"
+#include "dsegmentedcontrol.h"
 #include "confirmbuttonline.h"
 #include "multideletebutton.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class DeleteButton : public QFrame
 {

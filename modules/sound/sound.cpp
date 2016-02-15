@@ -15,9 +15,9 @@
 #include <QGuiApplication>
 #include <QScreen>
 
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dlinkbutton.h>
-#include <libdui/dboxwidget.h>
+#include <dseparatorhorizontal.h>
+#include <dlinkbutton.h>
+#include <dboxwidget.h>
 
 #include "constants.h"
 
@@ -26,7 +26,7 @@
 #include "headerline.h"
 #include "normallabel.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 Sound::Sound() :
     QObject(),

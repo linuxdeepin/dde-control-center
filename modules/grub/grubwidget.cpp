@@ -11,12 +11,12 @@
 #include <QDebug>
 #include <QTimer>
 
-#include <libdui/dtextbutton.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dcolorpicker.h>
-#include <libdui/dsegmentedcontrol.h>
-#include <libdui/dbuttonlist.h>
-#include <libdui/dbuttongrid.h>
+#include <dtextbutton.h>
+#include <dseparatorhorizontal.h>
+#include <dcolorpicker.h>
+#include <dsegmentedcontrol.h>
+#include <dbuttonlist.h>
+#include <dbuttongrid.h>
 
 #include "moduleheader.h"
 

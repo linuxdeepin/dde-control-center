@@ -12,10 +12,10 @@
 
 #include <QLabel>
 #include <QWidget>
-#include <libdui/dthememanager.h>
-#include <libdui/darrowrectangle.h>
+#include <dthememanager.h>
+#include <darrowrectangle.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class InputWarningFrame : public DArrowRectangle
 {

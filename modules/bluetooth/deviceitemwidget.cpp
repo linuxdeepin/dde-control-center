@@ -15,8 +15,8 @@
 #include <QHBoxLayout>
 #include <QDBusObjectPath>
 
-#include <libdui/dconstants.h>
-#include <libdui/dthememanager.h>
+#include <dconstants.h>
+#include <dthememanager.h>
 
 DeviceItemWidget::DeviceItemWidget(BluetoothMainWidget::DeviceInfo *info, QWidget *parent)
     : QWidget(parent),

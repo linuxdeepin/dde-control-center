@@ -13,10 +13,10 @@
 #include <QWidget>
 #include <QLabel>
 
-#include <libdui/dswitchbutton.h>
-#include <libdui/dseparatorhorizontal.h>
+#include <dswitchbutton.h>
+#include <dseparatorhorizontal.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class SoundEffectSwitchWidget : public QWidget
 {

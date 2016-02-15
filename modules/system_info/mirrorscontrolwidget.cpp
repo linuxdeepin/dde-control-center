@@ -16,7 +16,7 @@
 #include <QResizeEvent>
 #include <QPalette>
 
-#include <libdui/dseparatorhorizontal.h>
+#include <dseparatorhorizontal.h>
 
 MirrorsControlWidget::MirrorsControlWidget(QWidget *parent)
         : QWidget(parent)

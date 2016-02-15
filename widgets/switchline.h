@@ -11,11 +11,11 @@
 #define SWITCHLINE_H
 
 #include <QWidget>
-#include "libdui/dseparatorhorizontal.h"
-#include "libdui/dswitchbutton.h"
-#include "libdui/dheaderline.h"
+#include "dseparatorhorizontal.h"
+#include "dswitchbutton.h"
+#include "dheaderline.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class SwitchLine : public DHeaderLine
 {

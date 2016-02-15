@@ -13,12 +13,12 @@
 #include <QObject>
 #include <QtPlugin>
 
-#include <libdui/dswitchlineexpand.h>
-#include <libdui/dslider.h>
-#include <libdui/dbuttonlist.h>
-#include <libdui/dbaseexpand.h>
-#include <libdui/dscrollarea.h>
-#include <libdui/darrowlineexpand.h>
+#include <dswitchlineexpand.h>
+#include <dslider.h>
+#include <dbuttonlist.h>
+#include <dbaseexpand.h>
+#include <dscrollarea.h>
+#include <darrowlineexpand.h>
 
 
 #include "interfaces.h"
@@ -28,7 +28,7 @@
 #include "dbus/dbusaudiosource.h"
 #include "dbus/dbussoundeffects.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QFrame;
 class Sound: public QObject, ModuleInterface

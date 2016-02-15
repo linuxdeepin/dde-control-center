@@ -15,9 +15,9 @@
 #include "imagenamebutton.h"
 #include "dynamiclabel.h"
 
-#include <libdui/dtextbutton.h>
+#include <dtextbutton.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class TimezoneCtrlWidget : public QWidget
 {

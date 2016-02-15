@@ -10,12 +10,12 @@
 #ifndef ADDVPNPAGE_H
 #define ADDVPNPAGE_H
 
-#include <libdui/dboxwidget.h>
-#include <libdui/libdui_global.h>
+#include <dboxwidget.h>
+#include <libdui_global.h>
 
 #include "dbus/dbusconnectionsession.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class AddVpnPage : public DVBoxWidget
 {

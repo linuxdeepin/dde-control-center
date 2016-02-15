@@ -16,14 +16,14 @@
 #include <QTimer>
 #include <QDebug>
 
-#include <libdui/dthememanager.h>
-#include <libdui/dtextbutton.h>
+#include <dthememanager.h>
+#include <dtextbutton.h>
 
 #include "constants.h"
 
 #include "../helper.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 GeneratedView::GeneratedView(const QString& token, QWidget* p)
     : AbstractView(p),

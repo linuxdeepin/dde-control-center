@@ -7,12 +7,12 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dswitchbutton.h>
+#include <dswitchbutton.h>
 
 #include "editlineswitchbutton.h"
 #include "networkglobal.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 EditLineSwitchButton::EditLineSwitchButton(const QString &section, const QString &key,
                                            DBusConnectionSession *dbus,

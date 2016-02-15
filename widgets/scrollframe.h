@@ -14,11 +14,11 @@
 #include <QBoxLayout>
 #include <QPointer>
 
-#include <libdui/dscrollarea.h>
-#include <libdui/dboxwidget.h>
-#include <libdui/dstackwidget.h>
+#include <dscrollarea.h>
+#include <dboxwidget.h>
+#include <dstackwidget.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class ScrollFrame : public QFrame
 {

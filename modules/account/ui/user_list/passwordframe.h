@@ -15,15 +15,15 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QStackedWidget>
-#include "libdui/dseparatorhorizontal.h"
-#include "libdui/dtextbutton.h"
-#include "libdui/dheaderline.h"
-#include "libdui/dlineedit.h"
-#include "libdui/dconstants.h"
+#include "dseparatorhorizontal.h"
+#include "dtextbutton.h"
+#include "dheaderline.h"
+#include "dlineedit.h"
+#include "dconstants.h"
 #include "../controlline.h"
 #include <QDebug>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 
 class PasswordFrame : public QStackedWidget

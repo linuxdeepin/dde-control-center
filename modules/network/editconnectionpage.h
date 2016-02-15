@@ -15,7 +15,7 @@
 #include "listwidgetcontainer.h"
 #include "networkbaseeditline.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class DBusConnectionSession;
 class EditConnectionPage : public ListWidgetContainer

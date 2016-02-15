@@ -20,10 +20,10 @@
 #include <dde-dock/dockpluginproxyinterface.h>
 #include "diskitem.h"
 
-#include <libdui/dboxwidget.h>
-#include <libdui/dlistwidget.h>
+#include <dboxwidget.h>
+#include <dlistwidget.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class DiskContent : public DVBoxWidget
 {

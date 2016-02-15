@@ -10,8 +10,8 @@
 #include <QDebug>
 #include <QPushButton>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dthememanager.h>
+#include <libdui_global.h>
+#include <dthememanager.h>
 
 #include "constants.h"
 #include "abstractdevicewidget.h"
@@ -39,12 +39,12 @@ AbstractDeviceWidget::AbstractDeviceWidget(const QString &title, DBusNetwork *db
 
     m_headerLine->setTitle(title);
     m_headerLine->setFixedWidth(DCC::ModuleContentWidth);
-    m_headerLine->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
+    m_headerLine->setFixedHeight(DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
     m_headerLine->setContent(m_switchButton);
 
     m_listWidget = new DListWidget;
     m_listWidget->setStyleSheet(this->styleSheet());
-    m_listWidget->setItemSize(DCC::ModuleContentWidth, DUI::RADIO_ITEM_HEIGHT);
+    m_listWidget->setItemSize(DCC::ModuleContentWidth, DTK_WIDGET_NAMESPACE::RADIO_ITEM_HEIGHT);
     m_listWidget->hide();
 
     m_bottomSeparator = new DSeparatorHorizontal;

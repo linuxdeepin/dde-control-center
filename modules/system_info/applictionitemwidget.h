@@ -15,15 +15,15 @@
 #include <QPushButton>
 #include <QDBusObjectPath>
 
-#include <libdui/dimagebutton.h>
-#include <libdui/dcircleprogress.h>
+#include <dimagebutton.h>
+#include <dcircleprogress.h>
 
 #include "separatorwidget.h"
 #include "dbus/appupdateinfo.h"
 #include "dbus/dbusupdatejobmanager.h"
 #include "dbus/dbusupdatejob.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class ApplictionItemWidget : public QFrame
 {

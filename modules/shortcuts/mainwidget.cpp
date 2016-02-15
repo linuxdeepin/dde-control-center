@@ -9,14 +9,14 @@
 
 #include <QScrollBar>
 
-#include <libdui/dtextbutton.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dsearchedit.h>
-#include <libdui/dbuttonlist.h>
-#include <libdui/dlineedit.h>
-#include <libdui/dimagebutton.h>
-#include <libdui/dthememanager.h>
-#include <libdui/libdui_global.h>
+#include <dtextbutton.h>
+#include <dseparatorhorizontal.h>
+#include <dsearchedit.h>
+#include <dbuttonlist.h>
+#include <dlineedit.h>
+#include <dimagebutton.h>
+#include <dthememanager.h>
+#include <libdui_global.h>
 
 #include "imagenamebutton.h"
 #include "addrmdoneline.h"
@@ -28,7 +28,7 @@
 #include "tooltip.h"
 #include "selectdialog.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 #define LIST_MAX_HEIGHT 500
 

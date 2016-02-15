@@ -13,15 +13,15 @@
 #include <QFrame>
 #include <QVBoxLayout>
 
-#include <libdui/darrowlineexpand.h>
-#include <libdui/dheaderline.h>
-#include <libdui/libdui_global.h>
-#include <libdui/dbuttonlist.h>
+#include <darrowlineexpand.h>
+#include <dheaderline.h>
+#include <libdui_global.h>
+#include <dbuttonlist.h>
 
 #include "grubbackground.h"
 #include "dbusgrub.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class ModuleHeader;
 class BootMenuList;

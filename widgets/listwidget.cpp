@@ -10,7 +10,7 @@
 #include <QEvent>
 #include <QDebug>
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 
 #include "listwidget.h"
 

@@ -9,11 +9,11 @@
 
 #include <QDebug>
 
-#include <libdui/dbuttongrid.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dlineedit.h>
-#include <libdui/dthememanager.h>
-#include <libdui/dseparatorhorizontal.h>
+#include <dbuttongrid.h>
+#include <dtextbutton.h>
+#include <dlineedit.h>
+#include <dthememanager.h>
+#include <dseparatorhorizontal.h>
 
 #include "constants.h"
 
@@ -28,7 +28,7 @@ SystemProxyWidget::SystemProxyWidget(DBusNetwork *dbus, QWidget *parent) :
     DButtonGrid *button_grid = new DButtonGrid(1, 3);
 
     button_grid->addButtons(QStringList() << tr("None") << tr("Manual") << tr("Auto"));
-    button_grid->setFixedSize(DCC::ModuleContentWidth, DUI::CONTENT_HEADER_HEIGHT);
+    button_grid->setFixedSize(DCC::ModuleContentWidth, DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
 
     ASYN_CALL(dbus->GetProxyMethod(), {
                   const QString &method = args[0].toString();

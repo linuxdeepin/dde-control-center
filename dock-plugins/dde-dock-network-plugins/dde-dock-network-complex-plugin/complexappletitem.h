@@ -13,10 +13,10 @@
 #include <QFrame>
 #include <QLabel>
 #include "dbus/dbusnetwork.h"
-#include "libdui/dimagebutton.h"
+#include "dimagebutton.h"
 #include "../network-data/networkdata.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 using namespace NetworkPlugin;
 
 class ComplexAppletItem final : public DImageButton

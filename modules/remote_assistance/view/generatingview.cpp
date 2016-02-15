@@ -13,15 +13,15 @@
 #include <QLabel>
 #include <QDebug>
 
-#include <libdui/dthememanager.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dloadingindicator.h>
+#include <dthememanager.h>
+#include <dseparatorhorizontal.h>
+#include <dtextbutton.h>
+#include <dloadingindicator.h>
 
 #include "constants.h"
 #include "../helper.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 GeneratingView::GeneratingView(QWidget* p)
     : AbstractView(p)

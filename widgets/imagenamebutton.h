@@ -10,10 +10,10 @@
 #ifndef IMAGENAMEBUTTON_H
 #define IMAGENAMEBUTTON_H
 
-#include <libdui/dimagebutton.h>
-#include <libdui/libdui_global.h>
+#include <dimagebutton.h>
+#include <libdui_global.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class ImageNameButton : public DImageButton
 {

@@ -12,9 +12,9 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
-#include <libdui/dseparatorhorizontal.h>
+#include <dseparatorhorizontal.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 TimezoneItemWidget::TimezoneItemWidget(const ZoneInfo *info, QWidget *parent) :
     QFrame(parent),

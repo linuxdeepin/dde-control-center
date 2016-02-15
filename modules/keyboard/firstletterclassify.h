@@ -14,12 +14,12 @@
 #include <QVBoxLayout>
 #include <QLabel>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dsegmentedcontrol.h>
+#include <libdui_global.h>
+#include <dsegmentedcontrol.h>
 
 #include "listwidget.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class MultiAddCheckButton;
 

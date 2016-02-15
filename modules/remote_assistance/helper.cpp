@@ -10,9 +10,9 @@
 #include "helper.h"
 #include <QFile>
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 QString readStyleSheet(const QString &widgetName)
 {

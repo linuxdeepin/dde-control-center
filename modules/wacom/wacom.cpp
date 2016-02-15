@@ -15,7 +15,7 @@
 #include "wacom.h"
 #include "moduleheader.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 Wacom::Wacom() :QObject(),
                 ModuleInterface() {

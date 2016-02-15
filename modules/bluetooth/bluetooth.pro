@@ -4,7 +4,7 @@ include(../../common.pri)
 TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
 INCLUDEPATH    += ../../frame/ ../../widgets
-PKGCONFIG += dui
+PKGCONFIG += dtkbase dtkwidget
 LIBS += -L../../widgets -lwidgets
 
 QT             += widgets dbus

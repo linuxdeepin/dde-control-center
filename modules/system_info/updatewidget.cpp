@@ -18,8 +18,8 @@
 #include <QDBusPendingCallWatcher>
 #include <QMap>
 
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dthememanager.h>
+#include <dseparatorhorizontal.h>
+#include <dthememanager.h>
 
 UpdateWidget::UpdateWidget(QWidget *parent)
     : QWidget(parent)

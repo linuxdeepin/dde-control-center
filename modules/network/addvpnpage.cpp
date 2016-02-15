@@ -7,8 +7,8 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dbuttonlist.h>
-#include <libdui/dconstants.h>
+#include <dbuttonlist.h>
+#include <dconstants.h>
 
 #include "genericlistitem.h"
 #include "constants.h"
@@ -48,7 +48,7 @@ void AddVpnPage::init()
 
     list_vpn_type->addButtons(m_mapVpnNameToType.keys());
     list_vpn_type->checkButtonByIndex(0);
-    list_vpn_type->setFixedSize(DCC::ModuleContentWidth, list_vpn_type->count() * DUI::BUTTON_HEIGHT);
+    list_vpn_type->setFixedSize(DCC::ModuleContentWidth, list_vpn_type->count() * DTK_WIDGET_NAMESPACE::BUTTON_HEIGHT);
 
     container_vpn_type->setBoxWidgetContentsMargins(0, 5, 0, 5);
     container_vpn_type->addWidget(list_vpn_type);

@@ -24,12 +24,12 @@
 
 #include "searchlist.h"
 
-#include <libdui/dcalendar.h>
-#include <libdui/dswitchbutton.h>
-#include <libdui/dheaderline.h>
-#include <libdui/dseparatorhorizontal.h>
+#include <dcalendar.h>
+#include <dswitchbutton.h>
+#include <dheaderline.h>
+#include <dseparatorhorizontal.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QFrame;
 class Datetime: public QObject, ModuleInterface

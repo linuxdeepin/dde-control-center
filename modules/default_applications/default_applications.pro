@@ -5,7 +5,7 @@ TEMPLATE        = lib
 CONFIG         += plugin c++11 link_pkgconfig
 QT             += widgets dbus concurrent
 INCLUDEPATH    += ../../frame/ ../../widgets ../../helper
-PKGCONFIG += dui
+PKGCONFIG += dtkbase dtkwidget
 LIBS += -L../../widgets -lwidgets -L../../helper -lhelper
 
 HEADERS         = defaultapps.h \

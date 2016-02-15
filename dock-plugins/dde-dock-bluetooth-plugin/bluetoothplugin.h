@@ -13,7 +13,7 @@
 #include <QObject>
 
 #include <dde-dock/dockplugininterface.h>
-#include <libdui/dimagebutton.h>
+#include <dimagebutton.h>
 
 #include "bluetoothobject.h"
 

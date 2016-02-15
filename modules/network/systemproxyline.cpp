@@ -7,10 +7,10 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dlineedit.h>
-#include <libdui/dlabel.h>
-#include <libdui/dboxwidget.h>
-#include <libdui/dthememanager.h>
+#include <dlineedit.h>
+#include <dlabel.h>
+#include <dboxwidget.h>
+#include <dthememanager.h>
 
 #include "systemproxyline.h"
 

@@ -15,11 +15,11 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 
-#include <libdui/dtextbutton.h>
-#include <libdui/dseparatorhorizontal.h>
+#include <dtextbutton.h>
+#include <dseparatorhorizontal.h>
 
 #include "moduleheader.h"
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class PowerManagement: public QFrame
 {

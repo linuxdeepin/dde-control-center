@@ -11,8 +11,8 @@
 #include <QMouseEvent>
 #include <QMessageBox>
 
-#include <libdui/dthememanager.h>
-#include <libdui/dconstants.h>
+#include <dthememanager.h>
+#include <dconstants.h>
 
 #include "imagenamebutton.h"
 

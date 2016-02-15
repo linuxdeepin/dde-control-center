@@ -9,8 +9,8 @@
 
 #include "timewidget.h"
 
-#include <libdui/dthememanager.h>
-#include <libdui/libdui_global.h>
+#include <dthememanager.h>
+#include <libdui_global.h>
 
 #include <QVBoxLayout>
 #include <QLabel>
@@ -19,7 +19,7 @@
 #include <QTimer>
 #include <QFontDatabase>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 TimeWidget::TimeWidget(QWidget *parent) :
     QFrame(parent)

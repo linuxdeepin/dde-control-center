@@ -15,14 +15,14 @@
 #include <QGraphicsOpacityEffect>
 #include <QPropertyAnimation>
 
-#include <libdui/dseparatorvertical.h>
-#include <libdui/libdui_global.h>
+#include <dseparatorvertical.h>
+#include <libdui_global.h>
 
 #include "modulemetadata.h"
 #include "pluginsmanager.h"
 #include "interfaces.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class ControlCenterProxy;
 class QHBoxLayout;

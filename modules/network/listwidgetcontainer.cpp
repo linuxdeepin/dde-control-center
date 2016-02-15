@@ -9,9 +9,9 @@
 
 #include <QKeyEvent>
 
-#include <libdui/dheaderline.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dthememanager.h>
+#include <dheaderline.h>
+#include <dseparatorhorizontal.h>
+#include <dthememanager.h>
 
 #include "constants.h"
 

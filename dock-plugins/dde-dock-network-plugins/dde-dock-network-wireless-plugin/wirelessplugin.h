@@ -18,12 +18,12 @@
 #include <dde-dock/dockplugininterface.h>
 #include <dde-dock/dockpluginproxyinterface.h>
 
-#include <libdui/dinputdialog.h>
+#include <dinputdialog.h>
 
 #include "dbus/dbusnetwork.h"
 #include "wirelessitem.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QLabel;
 class WirelessPlugin : public QObject, public DockPluginInterface

@@ -14,14 +14,14 @@
 #include <QLabel>
 #include <QMouseEvent>
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 
 #include "searchlist.h"
 
 #include "multiaddcheckbutton.h"
 #include "dbus/dbustimedate.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class TimezoneItemWidget : public QFrame, public SearchItem
 {

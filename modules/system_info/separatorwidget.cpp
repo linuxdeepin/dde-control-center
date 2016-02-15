@@ -9,9 +9,9 @@
 
 #include "separatorwidget.h"
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 SeparatorWidget::SeparatorWidget(QWidget *parent)
     : QFrame(parent)

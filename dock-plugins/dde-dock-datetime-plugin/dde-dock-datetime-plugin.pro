@@ -5,7 +5,9 @@ QT       += core gui widgets
 
 TARGET = dde-dock-datetime-plugin
 TEMPLATE = lib
-CONFIG += plugin c++11
+CONFIG += plugin c++11 link_pkgconfig
+PKGCONFIG += dtkbase dtkwidget
+
 INCLUDEPATH += ../../modules/datetime/
 DESTDIR = $$_PRO_FILE_PWD_/../
 
@@ -24,7 +26,5 @@ INSTALLS += target
 
 RESOURCES += \
     images.qrc
-
-LIBS += -ldui
 
 QMAKE_MOC_OPTIONS += -I/usr/include/

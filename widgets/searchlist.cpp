@@ -9,7 +9,7 @@
 
 #include <QDebug>
 
-#include <libdui/dthememanager.h>
+#include <dthememanager.h>
 
 #include "searchlist.h"
 

@@ -10,11 +10,11 @@
 #ifndef SYSTEMPROXYWIDGET_H
 #define SYSTEMPROXYWIDGET_H
 
-#include <libdui/dboxwidget.h>
+#include <dboxwidget.h>
 
 #include "dbus/dbusnetwork.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class SystemProxyWidget : public DVBoxWidget
 {

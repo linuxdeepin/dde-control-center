@@ -15,8 +15,8 @@
 #include <QtPlugin>
 #include <QScrollArea>
 
-#include <libdui/dexpandgroup.h>
-#include <libdui/dboxwidget.h>
+#include <dexpandgroup.h>
+#include <dboxwidget.h>
 
 #include "dbus/dbussysteminfo.h"
 #include "updatearrowexpand.h"
@@ -24,7 +24,7 @@
 #include "mirrorscontrolwidget.h"
 #include "interfaces.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class QFrame;
 class QPlainTextEdit;

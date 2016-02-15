@@ -17,7 +17,7 @@
 
 #include "constants.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 AbstractView::AbstractView(QWidget* p)
     : QWidget(p),

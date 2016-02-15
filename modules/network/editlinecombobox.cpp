@@ -9,7 +9,7 @@
 
 #include <QLineEdit>
 
-#include <libdui/libdui_global.h>
+#include <libdui_global.h>
 
 #include "editlinecombobox.h"
 #include "networkglobal.h"
@@ -82,7 +82,7 @@ EditLineComboBox::EditLineComboBox(const QString &section, const QString &key,
         connect(this, &NetworkBaseEditLine::cacheValueChanged, this, updateComboData);
     }
 
-    m_comboBox->setFixedSize(width() * 0.6, DUI::MENU_ITEM_HEIGHT);
+    m_comboBox->setFixedSize(width() * 0.6, DTK_WIDGET_NAMESPACE::MENU_ITEM_HEIGHT);
 
     setRightWidget(m_comboBox);
 }

@@ -13,13 +13,13 @@
 #include <QEvent>
 #include <QGuiApplication>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dthememanager.h>
+#include <libdui_global.h>
+#include <dthememanager.h>
 
 #include "shortcutedit.h"
 #include "shortcutdbus.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 ShortcutEdit::ShortcutEdit(ShortcutDbus *dbus, QWidget *parent) :
     QFrame(parent),

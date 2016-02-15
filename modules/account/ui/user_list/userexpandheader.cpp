@@ -196,9 +196,9 @@ void UserExpandHeader::initRightStack()
     buttonLayout->setContentsMargins(0, 0, 0, 0);
     buttonLayout->setAlignment(Qt::AlignRight);
     buttonLayout->addWidget(cancelButton);
-    buttonLayout->addSpacing(DUI::BUTTON_MARGIN);
+    buttonLayout->addSpacing(DTK_WIDGET_NAMESPACE::BUTTON_MARGIN);
     buttonLayout->addWidget(confirmButton);
-    buttonLayout->addSpacing(DUI::HEADER_RIGHT_MARGIN);
+    buttonLayout->addSpacing(DTK_WIDGET_NAMESPACE::HEADER_RIGHT_MARGIN);
 
     QFrame *deleteFrame = new QFrame;
     QVBoxLayout *deleteLayout = new QVBoxLayout(deleteFrame);

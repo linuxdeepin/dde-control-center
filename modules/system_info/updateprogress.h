@@ -10,10 +10,10 @@
 #ifndef UPDATEPROGRESS_H
 #define UPDATEPROGRESS_H
 
-#include <libdui/dcircleprogress.h>
-#include <libdui/dpicturesequenceview.h>
+#include <dcircleprogress.h>
+#include <dpicturesequenceview.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class UpdateProgress : public DCircleProgress
 {

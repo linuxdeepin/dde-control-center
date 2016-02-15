@@ -10,9 +10,9 @@
 #ifndef HEADERLINE_H
 #define HEADERLINE_H
 
-#include <libdui/dbaseline.h>
+#include <dbaseline.h>
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class HeaderLine : public DBaseLine
 {

@@ -73,12 +73,12 @@ void AccountMainWidget::initHeader()
 
     m_addUserButton = new GeneralAddButton;
     buttonLayout->addWidget(m_deleteUserButton);
-    buttonLayout->addSpacing(DUI::BUTTON_MARGIN);
+    buttonLayout->addSpacing(DTK_WIDGET_NAMESPACE::BUTTON_MARGIN);
     buttonLayout->addWidget(m_addUserButton);
 
     //user list label//////////////////////////////////////////
     DTextButton *listButton = new DTextButton(tr("User List"));
-    listButton->setFixedHeight(DUI::BUTTON_HEIGHT);
+    listButton->setFixedHeight(DTK_WIDGET_NAMESPACE::BUTTON_HEIGHT);
     connect(listButton, &DTextButton::clicked, [=]{
         m_headerStackWidget->setVisible(true);
         m_headerStackWidget->setCurrentIndex(0);
@@ -234,7 +234,7 @@ void AccountMainWidget::onAddButtonMouseEntered()
     m_buttonToolTip->setText(tr("Add Account"));
     QPoint tp = m_account->userList().count() <= 1 ? m_addUserButton->mapTo(this, QPoint(0, 0)) : m_deleteUserButton->mapTo(this, QPoint(0, 0));
     //the x or width value is valid after all component ready,infact it only need move once
-    m_buttonToolTip->move(tp.x() - m_buttonToolTip->width() - DUI::TEXT_RIGHT_MARGIN,
+    m_buttonToolTip->move(tp.x() - m_buttonToolTip->width() - DTK_WIDGET_NAMESPACE::TEXT_RIGHT_MARGIN,
                   (m_header->height() - m_buttonToolTip->height()) / 2);
 
     m_buttonToolTip->showLabel();
@@ -267,7 +267,7 @@ void AccountMainWidget::onDeleteButtonMouseEntered()
 {
     m_buttonToolTip->setText(tr("Delete Account"));
     //the x or width value is valid after all component ready,infact it only need move once
-    m_buttonToolTip->move(m_deleteUserButton->mapTo(this, QPoint(0, 0)).x() - m_buttonToolTip->width() - DUI::TEXT_RIGHT_MARGIN,
+    m_buttonToolTip->move(m_deleteUserButton->mapTo(this, QPoint(0, 0)).x() - m_buttonToolTip->width() - DTK_WIDGET_NAMESPACE::TEXT_RIGHT_MARGIN,
                   (m_header->height() - m_buttonToolTip->height()) / 2);
 
     m_buttonToolTip->showLabel();

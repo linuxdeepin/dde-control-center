@@ -17,14 +17,14 @@
 #include <QFileDialog>
 #include <QDir>
 #include "dbus/dbusaccountuser.h"
-#include "libdui/dsegmentedcontrol.h"
-#include "libdui/dswitchlineexpand.h"
+#include "dsegmentedcontrol.h"
+#include "dswitchlineexpand.h"
 #include "webcamavatarpanel.h"
 #include "passwordframe.h"
 #include "avatargrid.h"
 #include "../controlline.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class UserExpandContent : public QWidget
 {

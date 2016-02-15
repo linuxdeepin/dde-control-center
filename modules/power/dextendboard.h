@@ -18,13 +18,13 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtGui/QResizeEvent>
-#include <libdui/dbuttongrid.h>
-#include <libdui/dseparatorhorizontal.h>
+#include <dbuttongrid.h>
+#include <dseparatorhorizontal.h>
 
 #include "constants.h"
 #include "trianglerectangle.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 class DExtendBoard : public QFrame
 {
     Q_OBJECT

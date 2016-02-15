@@ -15,13 +15,13 @@
 #include <QDebug>
 #include <QTimer>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dthememanager.h>
+#include <libdui_global.h>
+#include <dthememanager.h>
 
 #include "monitor.h"
 #include "dbus/monitorinterface.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 Monitor::Monitor(MonitorInterface *dbus, QWidget *parent) :
     QFrame(parent),

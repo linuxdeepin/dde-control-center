@@ -12,13 +12,13 @@
 #include <QLabel>
 #include <QDebug>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dthememanager.h>
-#include <libdui/dseparatorhorizontal.h>
+#include <libdui_global.h>
+#include <dthememanager.h>
+#include <dseparatorhorizontal.h>
 
 #include "displaymodeitem.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 DisplayModeItem::DisplayModeItem(bool showSeparator, bool showTitle, QWidget *parent) :
     QLabel(parent),

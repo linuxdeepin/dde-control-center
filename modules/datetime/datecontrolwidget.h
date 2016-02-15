@@ -13,12 +13,12 @@
 #include <QWidget>
 #include <QDate>
 
-#include <libdui/dimagebutton.h>
-#include <libdui/dtextbutton.h>
+#include <dimagebutton.h>
+#include <dtextbutton.h>
 
 #include "dynamiclabel.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class DateControlWidget : public QWidget
 {

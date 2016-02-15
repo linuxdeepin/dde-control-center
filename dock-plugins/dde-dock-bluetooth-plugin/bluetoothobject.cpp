@@ -12,15 +12,15 @@
 #include <QJsonDocument>
 #include <QEventLoop>
 
-#include <libdui/dconstants.h>
-#include <libdui/dseparatorhorizontal.h>
+#include <dconstants.h>
+#include <dseparatorhorizontal.h>
 
 #include "deviceitemwidget.h"
 #include "bluetoothobject.h"
 #include "adapterwidget.h"
 #include "constants.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 BluetoothObject::BluetoothObject(QObject *parent) :
     QObject(parent)
@@ -125,7 +125,7 @@ BluetoothObject::DeviceInfo *BluetoothObject::newDeviceInfoByMap(const QVariantM
 DeviceItemWidget *BluetoothObject::newDeviceListItem(DeviceInfo *device_info) const
 {
     DeviceItemWidget *item = new DeviceItemWidget(device_info);
-    item->setFixedSize(BLUETOOTH_PLUGIN_WIDTH, DUI::EXPAND_HEADER_HEIGHT);
+    item->setFixedSize(BLUETOOTH_PLUGIN_WIDTH, DTK_WIDGET_NAMESPACE::EXPAND_HEADER_HEIGHT);
 
     return item;
 }

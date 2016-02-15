@@ -12,8 +12,8 @@
 #include <QTimer>
 #include <QWidget>
 
-#include <libdui/dthememanager.h>
-#include <libdui/dtextbutton.h>
+#include <dthememanager.h>
+#include <dtextbutton.h>
 
 #include "moduleheader.h"
 

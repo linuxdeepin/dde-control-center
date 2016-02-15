@@ -9,12 +9,12 @@
 
 #include <QShortcut>
 
-#include <libdui/dheaderline.h>
-#include <libdui/darrowlineexpand.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dlabel.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dthememanager.h>
+#include <dheaderline.h>
+#include <darrowlineexpand.h>
+#include <dseparatorhorizontal.h>
+#include <dlabel.h>
+#include <dtextbutton.h>
+#include <dthememanager.h>
 
 #include "networkglobal.h"
 #include "networkinfo.h"
@@ -37,7 +37,7 @@ DHeaderLine *getLine(const QString &label, const QString &value)
 
     line->setTitle(label);
     line->setContent(content);
-    line->setFixedSize(DCC::ModuleContentWidth, DUI::EXPAND_HEADER_HEIGHT);
+    line->setFixedSize(DCC::ModuleContentWidth, DTK_WIDGET_NAMESPACE::EXPAND_HEADER_HEIGHT);
 
     return line;
 }

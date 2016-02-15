@@ -16,12 +16,12 @@
 #include <QHBoxLayout>
 #include "dbus/dbusaccount.h"
 #include "dbus/dbusaccountuser.h"
-#include "libdui/dseparatorhorizontal.h"
+#include "dseparatorhorizontal.h"
 #include "useravatar.h"
 #include "inputline.h"
 #include "../controlline.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class CreateUserPanel : public QWidget
 {

@@ -112,7 +112,7 @@ void WebcamAvatarPanel::initControlButton()
     QFrame *frame = new QFrame;
     QHBoxLayout *layout = new QHBoxLayout(frame);
     layout->setContentsMargins(0, 0, 0, 0);
-    layout->setSpacing(DUI::BUTTON_MARGIN);
+    layout->setSpacing(DTK_WIDGET_NAMESPACE::BUTTON_MARGIN);
 
     m_snapshotButton = new DTextButton(tr("Snapshot"));
     connect(m_snapshotButton, &DTextButton::clicked, this, &WebcamAvatarPanel::onSnapshot);
@@ -122,7 +122,7 @@ void WebcamAvatarPanel::initControlButton()
     layout->addStretch(1);
     layout->addWidget(m_snapshotButton);
     layout->addWidget(confirmButton);
-    layout->addSpacing(DUI::HEADER_RIGHT_MARGIN);
+    layout->addSpacing(DTK_WIDGET_NAMESPACE::HEADER_RIGHT_MARGIN);
 
     m_layout->addWidget(frame);
 }

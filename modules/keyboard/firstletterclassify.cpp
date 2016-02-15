@@ -12,16 +12,16 @@
 #include <QDBusPendingReply>
 #include <QDebug>
 
-#include <libdui/dconstants.h>
-#include <libdui/libdui_global.h>
-#include <libdui/dthememanager.h>
+#include <dconstants.h>
+#include <libdui_global.h>
+#include <dthememanager.h>
 
 #include "imagenamebutton.h"
 #include "multiaddcheckbutton.h"
 
 #include "firstletterclassify.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 KeyboardLayoutDelegate::KeyboardLayoutDelegate(const QString &title, QWidget *parent):
     QFrame(parent),

@@ -7,11 +7,11 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dthememanager.h>
-#include <libdui/libdui_global.h>
-#include <libdui/dlineedit.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dheaderline.h>
+#include <dthememanager.h>
+#include <libdui_global.h>
+#include <dlineedit.h>
+#include <dtextbutton.h>
+#include <dheaderline.h>
 
 #include "constants.h"
 
@@ -21,7 +21,7 @@
 #include "adapterwidget.h"
 #include "deviceitemwidget.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 AdapterWidget::AdapterWidget(BluetoothMainWidget::AdapterInfo *info,
                              QWidget *parent) :
@@ -129,7 +129,7 @@ void AdapterWidget::initUI()
     m_bluetoothSwitch = new DSwitchButton;
 
     name_edit_switch->setFixedWidth(DCC::ModuleContentWidth);
-    name_edit_switch->setFixedHeight(DUI::CONTENT_HEADER_HEIGHT);
+    name_edit_switch->setFixedHeight(DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
 
     h_layout->setSpacing(10);
     h_layout->setMargin(0);
@@ -202,7 +202,7 @@ void AdapterWidget::initUI()
     m_headerLine->setTitle(tr("Other devices"));
     m_headerLine->setLeftMargin(10);
     m_headerLine->setContent(m_refreshnndicator);
-    m_headerLine->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
+    m_headerLine->setFixedHeight(DTK_WIDGET_NAMESPACE::EXPAND_HEADER_HEIGHT);
 
     m_deviceItemList = new DListWidget;
     m_listWidgetSeparator = new DSeparatorHorizontal;

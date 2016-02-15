@@ -12,10 +12,10 @@
 
 #include <QWidget>
 #include <QHBoxLayout>
-#include "libdui/dtextbutton.h"
-#include "libdui/dheaderline.h"
+#include "dtextbutton.h"
+#include "dheaderline.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 class ConfirmButtonLine : public DHeaderLine
 {

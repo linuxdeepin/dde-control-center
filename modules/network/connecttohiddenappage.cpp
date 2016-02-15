@@ -11,15 +11,15 @@
 #include <QSpinBox>
 #include <QDebug>
 
-#include <libdui/dheaderline.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/dseparatorhorizontal.h>
-#include <libdui/dlineedit.h>
-#include <libdui/dcombobox.h>
-#include <libdui/dpasswordedit.h>
-#include <libdui/dconstants.h>
-#include <libdui/dthememanager.h>
-#include <libdui/libdui_global.h>
+#include <dheaderline.h>
+#include <dtextbutton.h>
+#include <dseparatorhorizontal.h>
+#include <dlineedit.h>
+#include <dcombobox.h>
+#include <dpasswordedit.h>
+#include <dconstants.h>
+#include <dthememanager.h>
+#include <libdui_global.h>
 
 #include "constants.h"
 
@@ -28,7 +28,7 @@
 #include "editlinecombobox.h"
 #include "editlineinput.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 ConnectToHiddenApPage::ConnectToHiddenApPage(DBusConnectionSession *dbus, QWidget *parent) :
     ListWidgetContainer(tr("Connect to hidden access point"), parent),

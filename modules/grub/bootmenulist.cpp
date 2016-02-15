@@ -10,12 +10,12 @@
 #include <QLabel>
 #include <QDebug>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dthememanager.h>
+#include <libdui_global.h>
+#include <dthememanager.h>
 
 #include "bootmenulist.h"
 
-DUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 BootMenuList::BootMenuList(QWidget *parent) :
     QFrame(parent),

@@ -7,11 +7,11 @@
  * (at your option) any later version.
  **/
 
-#include <libdui/dheaderline.h>
-#include <libdui/dtextbutton.h>
-#include <libdui/darrowlineexpand.h>
-#include <libdui/dlinkbutton.h>
-#include <libdui/dthememanager.h>
+#include <dheaderline.h>
+#include <dtextbutton.h>
+#include <darrowlineexpand.h>
+#include <dlinkbutton.h>
+#include <dthememanager.h>
 
 #include "dtextaction.h"
 
@@ -187,7 +187,7 @@ NetworkBaseEditLine *EditConnectionPage::getLineByMap(const QVariantMap &map)
     if(line) {
         line->setAlwaysUpdate(map["AlwaysUpdate"].toBool());
         line->setReadOnly(map["Readonly"].toBool());
-        line->setFixedHeight(DUI::EXPAND_HEADER_HEIGHT);
+        line->setFixedHeight(DTK_WIDGET_NAMESPACE::EXPAND_HEADER_HEIGHT);
     }
 
     return line;

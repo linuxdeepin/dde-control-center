@@ -11,8 +11,8 @@
 #include <QPointer>
 #include <QDebug>
 
-#include <libdui/libdui_global.h>
-#include <libdui/dconstants.h>
+#include <libdui_global.h>
+#include <dconstants.h>
 
 #include "constants.h"
 
