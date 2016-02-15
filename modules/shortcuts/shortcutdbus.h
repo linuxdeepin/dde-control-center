@@ -41,7 +41,7 @@ struct ShortcutInfo {
     QString title;
     QString shortcut;
 
-    bool operator==(const ShortcutInfo &info)
+    bool operator==(const ShortcutInfo &info) const
     {
         return id == info.id;
     }

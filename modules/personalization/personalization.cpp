@@ -556,7 +556,7 @@ void Personalization::highlightCurrentTheme(QString themeKey)
 {
     m_currentTheme = themeKey;
     if (m_themeObjs.contains(themeKey)){
-       const QJsonObject& obj =  m_themeObjs.value(themeKey);
+//       const QJsonObject& obj =  m_themeObjs.value(themeKey);
        if (m_themeKeys.contains(themeKey)){
             int index = getValidKeyIndex(m_themeImageInfos, themeKey);
             if (index >= 0){

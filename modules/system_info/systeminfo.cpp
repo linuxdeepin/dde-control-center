@@ -89,9 +89,13 @@ SystemInfo::SystemInfo()
     infoGrid->addWidget(info_sysVersion, 0, 0);
     infoGrid->addWidget(info_sysVersionContent, 0, 1);
 
-    if (m_dbusSystemInfo.distroId() != "" && m_dbusSystemInfo.distroId() != "Deepin") {
+    const QString distroId = m_dbusSystemInfo.distroId();
+    if (!distroId.isEmpty() && distroId.compare("Deepin", Qt::CaseInsensitive)) {
         infoGrid->addWidget(info_sysDistro, 1, 0);
         infoGrid->addWidget(info_sysDistroContent, 1, 1);
+    } else {
+        info_sysDistro->deleteLater();
+        info_sysDistroContent->deleteLater();
     }
 
     infoGrid->addWidget(info_sysType, 2, 0);
