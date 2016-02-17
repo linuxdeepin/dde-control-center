@@ -19,6 +19,9 @@
 #include <libdui/dbaseline.h>
 #include <libdui/darrowlineexpand.h>
 #include <libdui/dtextbutton.h>
+#include <libdui/dbuttonlist.h>
+
+#include "listwidget.h"
 
 #include "dbus/monitorinterface.h"
 #include "dbus/displayinterface.h"
@@ -51,6 +54,8 @@ private:
     DTextButton *m_cancelButton = new DTextButton(tr("Cancel"));
     DTextButton *m_applyButton = new DTextButton(tr("Confirm"));
     MonitorGround *m_monitorGround;
+    DButtonList *m_primaryMonitorList = nullptr;
+    ListWidget *m_enableMonitorList = nullptr;
     bool m_ignoreSliderChang = false;
 
     QMap<QString, QStringList> m_mapNameToRotationLabels;
