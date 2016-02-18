@@ -29,11 +29,12 @@ signals:
 private slots:
     void initTitle();
     void initDevice();
+    void reloadDevice();
 
 private:
     DBusAudio *m_audio;
-    DeviceIconSlider *m_iconSlider;
-    QVBoxLayout *m_mainLayout = NULL;
+    DeviceIconSlider *m_iconSlider = nullptr;
+    QVBoxLayout *m_mainLayout = nullptr;
 };
 
 #endif // DEVICEFRAME_H

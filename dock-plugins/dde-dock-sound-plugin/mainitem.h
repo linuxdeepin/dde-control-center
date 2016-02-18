@@ -31,10 +31,11 @@ protected:
 private:
     void initDefaultSink();
     void updateIcon();
+    void reloadDefaultSink();
 
 private:
     DBusAudio *m_audio;
-    DBusAudioSink *m_defaultSkin = NULL;
+    DBusAudioSink *m_defaultSkink = nullptr;
     Dock::DockMode m_dockMode = Dock::FashionMode;
     const double WHEEL_STEP = 0.1;
 };

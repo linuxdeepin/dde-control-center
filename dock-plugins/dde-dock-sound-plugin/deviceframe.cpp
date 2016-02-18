@@ -26,14 +26,8 @@ DeviceFrame::DeviceFrame(QWidget *parent) : QWidget(parent)
     adjustSize();
 
     //data will change with default-sink-change
-    connect(m_audio, &DBusAudio::DefaultSinkChanged, this, [=] {
-        m_mainLayout->removeWidget(m_iconSlider);
-        m_iconSlider->deleteLater();
-        //audio-backend's data is always delayed loaging
-        QTimer::singleShot(1000, this, SLOT(initDevice()));
-    });
+    connect(m_audio, &DBusAudio::DefaultSinkChanged, this, &DeviceFrame::reloadDevice);
 }
-
 
 void DeviceFrame::initTitle()
 {
@@ -51,14 +45,28 @@ void DeviceFrame::initTitle()
     titleWidget->setFixedSize(TITLE_WIDTH, 35);
 
     m_mainLayout->addWidget(titleWidget);
-    m_mainLayout->setAlignment(titleWidget,Qt::AlignRight);
+    m_mainLayout->setAlignment(titleWidget, Qt::AlignRight);
 }
 
 void DeviceFrame::initDevice()
 {
     QString path = QDBusObjectPath(m_audio->GetDefaultSink().value()).path();
-    m_iconSlider = new DeviceIconSlider(path,this);
+    m_iconSlider = new DeviceIconSlider(path, this);
     m_iconSlider->setFixedSize(TITLE_WIDTH, SLIDER_HEIGHT);
 
     m_mainLayout->addWidget(m_iconSlider, 0, Qt::AlignRight);
+}
+
+void DeviceFrame::reloadDevice()
+{
+    if (!m_iconSlider) {
+        return;
+    }
+    // remove old slider.
+    m_mainLayout->removeWidget(m_iconSlider);
+    m_iconSlider->deleteLater();
+    m_iconSlider = nullptr;
+
+    //audio-backend's data is always delayed loaging
+    QTimer::singleShot(1000, this, SLOT(initDevice()));
 }
