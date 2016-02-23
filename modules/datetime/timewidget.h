@@ -66,7 +66,7 @@ signals:
 public slots:
     void updateDateTime();
     inline void setEditEnable(bool enable) {m_editEnable = enable;}
-    inline void setIs24HourFormat(const bool is24HourFormat) {m_amOrPm->setVisible(!is24HourFormat);}
+    inline void setIs24HourFormat(const bool is24HourFormat) {m_is24HourFormat = is24HourFormat; m_amOrPm->setVisible(!is24HourFormat);}
 
 private:
     void enterEvent(QEvent *);
@@ -80,6 +80,7 @@ private:
     QLabel *m_tipsLabel;
 
     bool m_editEnable = false;
+    bool m_is24HourFormat = false;
 };
 
 class EditWidget : public QWidget

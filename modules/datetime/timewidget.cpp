@@ -112,8 +112,9 @@ NormalWidget::NormalWidget(QWidget *parent) :
 
 void NormalWidget::updateDateTime()
 {
+
     const QDateTime datetime = QDateTime::currentDateTime();
-    const int hour = datetime.time().hour() % (m_amOrPm->isVisible() ? 12 : 24);
+    const int hour = datetime.time().hour() % (!m_is24HourFormat ? 12 : 24);
     const QString hourStr = QString("%1").arg(QString::number(hour), 2, '0');
     const QString minuteStr = QString("%1").arg(QString::number(datetime.time().minute()), 2, '0');
 
