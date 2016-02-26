@@ -1,0 +1,20 @@
+Monitor{
+    border: 1px solid #4b4b4b;
+    background-color: #0e0e0e;
+    font-size: 18px;
+    color: #9b9b9b;
+    qproperty-dockBgColor: #3B3B3B;
+    qproperty-childBorderColor: #4b4b4b;
+}
+
+Monitor:focus{
+    border: 1px solid #2ca7f8;
+}
+
+Monitor[draging=true]{
+    background-color: #AA212121;
+}
+
+Monitor[eyeing=true]{
+    border-color: red;
+}

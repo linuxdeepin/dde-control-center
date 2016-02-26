@@ -1,0 +1,20 @@
+NormalWidget #TimeLabel {
+    font-size:66px;
+    color:white;
+}
+
+NormalWidget #TimeAmOrPm {
+    color:white;
+    font-size:10px;
+    padding-bottom:10px;
+}
+
+NormalWidget #DateLabel {
+    color:white;
+    font-size:12px;
+}
+
+NormalWidget #TipsLabel {
+    color:orange;
+    font-size:12px;
+}

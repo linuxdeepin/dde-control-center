@@ -1,0 +1,14 @@
+<interface name="com.deepin.api.XMouseArea">
+  <method name="RegisterFullScreen">
+       <arg type="s" direction="out"></arg>
+  </method>
+  <method name="UnregisterArea">
+       <arg type="s" direction="in"></arg>
+  </method>
+  <signal name="KeyRelease">
+       <arg type="s"></arg>
+       <arg type="i"></arg>
+       <arg type="i"></arg>
+       <arg type="s"></arg>
+  </signal>
+</interface>

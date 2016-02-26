@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>dark/button.theme</file>
+        <file>dark/connectedview.theme</file>
+        <file>dark/generatingview.theme</file>
+        <file>dark/inputview.theme</file>
+        <file>dark/images/assistant_access_hover.svg</file>
+        <file>dark/images/assistant_access_normal.svg</file>
+        <file>dark/images/assistant_access_press.svg</file>
+        <file>dark/images/assistant_share_hover.svg</file>
+        <file>dark/images/assistant_share_normal.svg</file>
+        <file>dark/images/assistant_share_press.svg</file>
+        <file>dark/images/waiting.png</file>
+        <file>dark/generatedview.theme</file>
+        <file>dark/errorview.theme</file>
+        <file>dark/connectingview.theme</file>
+        <file>dark/images/right-arrow-press.png</file>
+        <file>dark/images/right-arrow-normal.png</file>
+        <file>dark/images/right-arrow-hover.png</file>
+    </qresource>
+</RCC>

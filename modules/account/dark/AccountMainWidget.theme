@@ -1,0 +1,58 @@
+AvatarGrid, UserExpandContent, QScrollArea, QStackedWidget, UserListPanel {
+    background-color: transparent;
+    border: none;
+}
+
+QTableWidget {selection-background-color: #1A1B1B;outline: none;}
+QTableWidget:item {border: none;}
+
+AvatarDeleteButton {
+    qproperty-normalPic: url(":/images/dark/images/delete_icon.png");
+    qproperty-hoverPic: url(":/images/dark/images/delete_icon.png");
+    qproperty-pressPic: url(":/images/dark/images/delete_icon.png");
+    qproperty-checkedPic: url(":/images/dark/images/delete_icon.png");
+}
+
+QLabel#CameraErrorLabel {
+    font-size: 16px;
+    color: #b4b4b4
+}
+
+QLabel#HeaderTypeLabel {
+    font-size: 12px;
+    color: #b4b4b4;
+}
+
+HeaderNameLabel {
+    font-size: 12px;
+    color: #b4b4b4;
+}
+
+HeaderNameLabel[isCurrentUser="true"] {
+    font-size: 12px;
+    color: #fdbd25;
+}
+
+UserExpandHeader {
+    background-color: #1A1B1B;
+}
+
+/********************************** Create Frame ************************/
+QLabel#CreateHeaderLabel {
+    font-size: 14px;
+    color: #01BDFF;
+}
+
+QLabel#CreateInfoLabel {
+    background-color: #1A1B1B;
+}
+
+QLabel#NewNameLabel {
+    font-size: 14px;
+    color: #b4b4b4;
+}
+
+QLabel#NewTypeLabel {
+    font-size: 12px;
+    color: #b4b4b4;
+}

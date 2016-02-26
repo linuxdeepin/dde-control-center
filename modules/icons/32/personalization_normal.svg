@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1" id="&#x56FE;&#x5C42;_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32"
+	 enable-background="new 0 0 32 32" xml:space="preserve">
+<metadata>
+	<sfw  xmlns="&ns_sfw;">
+		<slices></slices>
+		<sliceSourceBounds  width="1546.667" height="16845" y="-8451" x="-7" bottomLeftOrigin="true"></sliceSourceBounds>
+	</sfw>
+</metadata>
+<path fill="none" stroke="#B4B4B4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M14.027,28.292
+	c0.666,0.109,1.35,0.166,2.047,0.166c6.121,0,11.218-4.378,12.313-10.167c0,0,1.244-5.545-3.287-4.237
+	c-0.642,0.185-1.464,0.566-2.347,0.731"/>
+<path fill="none" stroke="#B4B4B4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M18.574,13.195
+	c-0.267-0.503-0.373-1.124-0.24-1.868c0.239-1.342,1.531-2.318,1.587-4.424c0.097-3.604-3.848-3.444-3.848-3.444
+	c-6.921,0-12.531,5.596-12.531,12.499c0,4.894,2.82,9.132,6.928,11.183"/>
+<path fill="none" stroke="#B4B4B4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M14.354,18.258
+	c0,0-4.461,0.441-3.134,5.933c0,0,0.442,3.138-2.692,3.994c0,0,10.529,2.379,10.408-6.92L14.354,18.258z"/>
+<path fill="none" stroke="#B4B4B4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M14.354,18.258
+	L25.577,5.45c0,0,1.03-1.306,1.757-0.838c0.583,0.335,0.583,0.823-0.062,2.05l-8.337,14.603L14.354,18.258z"/>
+<line fill="none" stroke="#B4B4B4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="16.943" y1="15.654" x2="20.528" y2="17.885"/>
+<ellipse fill="none" stroke="#B4B4B4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="12.825" cy="9.334" rx="1.846" ry="1.856"/>
+<ellipse fill="none" stroke="#B4B4B4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="8.784" cy="14.372" rx="1.846" ry="1.856"/>
+</svg>

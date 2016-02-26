@@ -1,0 +1,5 @@
+TitleAndWidget{
+    color: #505050;
+    font-size: 10px;
+    padding-top: 10px;
+}

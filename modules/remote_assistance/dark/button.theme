@@ -1,0 +1,27 @@
+QFrame#display {
+ background-color: #1A1B1B;
+}
+
+QLabel#icon{
+ margin-left: 18px;
+}
+
+QLabel {
+ color: #7c7c7c;
+}
+
+QLabel#title {
+ margin-left: 22px;
+ margin-top: 12px;
+ font-size: 12px;
+}
+
+QLabel#tip {
+ line-height: 1.2;
+ font-size: 10px;
+ margin-left:22px;
+}
+
+QLabel#arrow {
+ margin-right: 14px;
+}

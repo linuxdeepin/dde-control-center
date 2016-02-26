@@ -1,25 +1,25 @@
-*.pyc
-nohup.out
-.#*
-*~
-build
-dist
-dtk.egg-info
-*.po~
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+build*/
+*.pro.user*
+*.DS_Store
+dde-control-center
+*.core
+*.autosave
+# qm file is auto generate from .ts file
+*.qm
+
+# vim tmp file
 *.swp
-*.user
-*.old
-*.mo
-dss.sublime-project
-dss.sublime-workspace
-qt5frame/*.o
-qt5frame/moc_*
-qt5frame/qrc_*
-qt5frame/Makefile
-qt5frame/dde-control-center
-.gitreview
-src/Makefile.control-center
-src/dde-control-center
-src/*.o
-src/moc_*
-src/qrc_*

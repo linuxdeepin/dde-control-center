@@ -1,0 +1,46 @@
+<RCC>
+    <qresource prefix="/">
+        <file>dark/images/connected.png</file>
+        <file>dark/images/disconnect.png</file>
+        <file>dark/images/gsm-3g-0.svg</file>
+        <file>dark/images/gsm-3g-25.svg</file>
+        <file>dark/images/gsm-3g-50.svg</file>
+        <file>dark/images/gsm-3g-75.svg</file>
+        <file>dark/images/gsm-3g-100.svg</file>
+        <file>dark/images/ico_warning.png</file>
+        <file>dark/images/info_hover.png</file>
+        <file>dark/images/info_normal.png</file>
+        <file>dark/images/info_press.png</file>
+        <file>dark/images/select-dark-hover.png</file>
+        <file>dark/images/select-dark.png</file>
+        <file>dark/images/wifi-no-connection.svg</file>
+        <file>dark/images/wifi-signal-0-secure.svg</file>
+        <file>dark/images/wifi-signal-0.svg</file>
+        <file>dark/images/wifi-signal-25-secure.svg</file>
+        <file>dark/images/wifi-signal-25.svg</file>
+        <file>dark/images/wifi-signal-50-secure.svg</file>
+        <file>dark/images/wifi-signal-50.svg</file>
+        <file>dark/images/wifi-signal-75-secure.svg</file>
+        <file>dark/images/wifi-signal-75.svg</file>
+        <file>dark/images/wifi-signal-100-secure.svg</file>
+        <file>dark/images/wifi-signal-100.svg</file>
+        <file>dark/images/wired_status_error.svg</file>
+        <file>dark/images/wired_status_idle.svg</file>
+        <file>dark/images/wired_status_offline.svg</file>
+        <file>dark/images/wired_status_receive.svg</file>
+        <file>dark/images/wired_status_secure.svg</file>
+        <file>dark/images/wired_status_transmit-receive.svg</file>
+        <file>dark/images/wired_status_transmit.svg</file>
+        <file>dark/images/info_focus.png</file>
+        <file>dark/AbstractDeviceWidget.theme</file>
+        <file>dark/InputPasswordDialog.theme</file>
+        <file>dark/ListWidgetContainer.theme</file>
+        <file>dark/DTextAction.theme</file>
+        <file>dark/SystemProxyWidget.theme</file>
+        <file>dark/images/arrow_right_normal.png</file>
+        <file>dark/images/arrow_right_hover.png</file>
+        <file>dark/images/arrow_right_press.png</file>
+        <file>dark/images/arrow_right_white.png</file>
+        <file>dark/EditConnectionPage.theme</file>
+    </qresource>
+</RCC>

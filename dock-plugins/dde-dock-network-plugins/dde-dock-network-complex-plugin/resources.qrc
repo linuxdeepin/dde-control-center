@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/0g_off.png</file>
+        <file>images/0g_on.png</file>
+        <file>images/2g_off.png</file>
+        <file>images/2g_on.png</file>
+        <file>images/3g_off.png</file>
+        <file>images/3g_on.png</file>
+        <file>images/4g_off.png</file>
+        <file>images/4g_on.png</file>
+        <file>images/bluetooth_off.png</file>
+        <file>images/bluetooth_on.png</file>
+        <file>images/network_offline.png</file>
+        <file>images/network_online.png</file>
+        <file>images/vpn_off.png</file>
+        <file>images/vpn_on.png</file>
+        <file>images/wifi_1.png</file>
+        <file>images/wifi_2.png</file>
+        <file>images/wifi_3.png</file>
+        <file>images/wifi_4.png</file>
+        <file>images/wifi_5.png</file>
+        <file>images/wire_on.png</file>
+        <file>images/switch_bluetooth_off.png</file>
+        <file>images/switch_bluetooth_on.png</file>
+        <file>images/switch_vpn_off.png</file>
+        <file>images/switch_vpn_on.png</file>
+        <file>images/switch_wired_off.png</file>
+        <file>images/switch_wired_on.png</file>
+        <file>images/switch_wireless_off.png</file>
+        <file>images/switch_wireless_on.png</file>
+    </qresource>
+    <qresource prefix="/qss">
+        <file>qss/complex.qss</file>
+    </qresource>
+</RCC>

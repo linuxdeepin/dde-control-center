@@ -1,0 +1,16 @@
+QWidget{
+background-color:#1A1B1B;
+}
+QLabel#token{
+color: #01bdff;
+font-size: 24px;
+}
+QLabel#copyTip{
+color: #ffc735;
+font-size: 10px;
+}
+QLabel#tip{
+color: #7c7c7c;
+padding-right: 16px;
+padding-left: 16px;
+}

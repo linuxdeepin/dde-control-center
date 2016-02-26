@@ -1,0 +1,56 @@
+     <interface name="com.deepin.lastore.Manager">
+          <method name="CleanJob">
+               <arg type="s" direction="in"></arg>
+          </method>
+          <method name="DistUpgrade">
+               <arg type="o" direction="out"></arg>
+          </method>
+          <method name="DownloadPackage">
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="in"></arg>
+               <arg type="o" direction="out"></arg>
+          </method>
+          <method name="InstallPackage">
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="in"></arg>
+               <arg type="o" direction="out"></arg>
+          </method>
+          <method name="PackageDesktopPath">
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="out"></arg>
+          </method>
+          <method name="PackageExists">
+               <arg type="s" direction="in"></arg>
+               <arg type="b" direction="out"></arg>
+          </method>
+          <method name="PackagesDownloadSize">
+               <arg type="as" direction="in"></arg>
+               <arg type="x" direction="out"></arg>
+          </method>
+          <method name="PauseJob">
+               <arg type="s" direction="in"></arg>
+          </method>
+          <method name="RemovePackage">
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="in"></arg>
+               <arg type="o" direction="out"></arg>
+          </method>
+          <method name="SetRegion">
+               <arg type="s" direction="in"></arg>
+          </method>
+          <method name="StartJob">
+               <arg type="s" direction="in"></arg>
+          </method>
+          <method name="UpdatePackage">
+               <arg type="s" direction="in"></arg>
+               <arg type="s" direction="in"></arg>
+               <arg type="o" direction="out"></arg>
+          </method>
+          <method name="UpdateSource">
+               <arg type="o" direction="out"></arg>
+          </method>
+          <property name="JobList" type="ao" access="read"></property>
+          <property name="SystemArchitectures" type="as" access="read"></property>
+          <property name="UpgradableApps" type="as" access="read"></property>
+          <property name="SystemOnChanging" type="b" access="read"></property>
+     </interface>

@@ -1,0 +1,21 @@
+BootMenuList{
+    background-color: transparent;
+    border:none;
+}
+
+BootMenuList QLabel{
+    background-color:transparent;
+    color:white;
+    font-size:7px;
+    padding:2px 2px 2px 20px;
+}
+
+QLabel{color: #000000}
+
+BootMenuList QLabel:enabled{
+    background-color:#20FFFFFF;
+    color: #19A9F9;
+    border-radius: 3px;
+}
+
+QLabel:enabled{color: #000000}

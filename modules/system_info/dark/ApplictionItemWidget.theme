@@ -1,0 +1,28 @@
+ApplictionItemWidget[hovered="true"] {
+    background-color:#66000000;
+}
+
+ApplictionItemWidget #AppName {
+    color:#ccc;
+}
+
+ApplictionItemWidget #AppVersion {
+    color:#ccc;
+}
+
+ApplictionItemWidget #UpdateButton {
+    color:#ccc;
+    border:none;
+    border-width:4px 8px 4px 8px;
+    border-image:url(:/images/images/update.png) 4 8 4 8 stretch;
+}
+
+ApplictionItemWidget #AppProgress {
+    qproperty-backgroundColor:rgba(255, 255, 255, .1);
+    qproperty-chunkColor:#01bdff;
+}
+
+ApplictionItemWidget #AppProgress #TopLabel {
+    color:white;
+    font-size:8px;
+}

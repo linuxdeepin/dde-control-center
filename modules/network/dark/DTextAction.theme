@@ -1,0 +1,11 @@
+DUI--DLinkButton{
+    color: yellow;
+}
+
+DUI--DLinkButton:hover{
+    color: #2CA7F8;
+}
+
+DUI--DLinkButton:pressed{
+    color: #0188FF;
+}

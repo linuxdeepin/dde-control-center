@@ -1,0 +1,3 @@
+QLabel#WarningMessageLabel {
+    color: #FF8F00;
+}

@@ -1,0 +1,66 @@
+<interface name="com.deepin.daemon.Accounts.User">
+  <method name="DeleteHistoryIcon">
+       <arg type="s" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <method name="DeleteIconFile">
+       <arg type="s" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <method name="GetLargeIcon">
+       <arg type="s" direction="out"></arg>
+  </method>
+  <method name="IsIconDeletable">
+       <arg type="s" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <method name="SetAccountType">
+       <arg type="i" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <method name="SetAutomaticLogin">
+       <arg type="b" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <method name="SetBackgroundFile">
+       <arg type="s" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <method name="SetHomeDir">
+       <arg type="s" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <method name="SetIconFile">
+       <arg type="s" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <method name="SetLocked">
+       <arg type="b" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <method name="SetPassword">
+       <arg type="s" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <method name="SetShell">
+       <arg type="s" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <method name="SetUserName">
+       <arg type="s" direction="in"></arg>
+       <arg type="b" direction="out"></arg>
+  </method>
+  <property name="UserName" type="s" access="read"></property>
+  <property name="Uid" type="s" access="read"></property>
+  <property name="Gid" type="s" access="read"></property>
+  <property name="HomeDir" type="s" access="read"></property>
+  <property name="Shell" type="s" access="read"></property>
+  <property name="IconFile" type="s" access="read"></property>
+  <property name="BackgroundFile" type="s" access="read"></property>
+  <property name="Locked" type="b" access="read"></property>
+  <property name="AutomaticLogin" type="b" access="read"></property>
+  <property name="AccountType" type="i" access="read"></property>
+  <property name="LoginTime" type="t" access="read"></property>
+  <property name="IconList" type="as" access="read"></property>
+  <property name="HistoryIcons" type="as" access="read"></property>
+</interface>

@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>light/ShortcutWidget.theme</file>
+        <file>dark/ShortcutWidget.theme</file>
+        <file>dark/SelectDialog.theme</file>
+        <file>light/SelectDialog.theme</file>
+        <file>light/ToolTip.theme</file>
+        <file>dark/ToolTip.theme</file>
+        <file>images/ico_warning.png</file>
+        <file>dark/ShortcutEdit.theme</file>
+        <file>light/ShortcutEdit.theme</file>
+    </qresource>
+</RCC>

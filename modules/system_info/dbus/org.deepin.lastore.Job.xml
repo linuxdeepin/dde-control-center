@@ -1,0 +1,13 @@
+<interface name="org.deepin.lastore.Job">
+  <signal name="Notify">
+       <arg type="i"></arg>
+  </signal>
+  <property name="Id" type="s" access="read"></property>
+  <property name="PackageId" type="s" access="read"></property>
+  <property name="CreateTime" type="x" access="read"></property>
+  <property name="Type" type="s" access="read"></property>
+  <property name="Status" type="s" access="read"></property>
+  <property name="Progress" type="d" access="read"></property>
+  <property name="Description" type="s" access="read"></property>
+  <property name="ElapsedTime" type="i" access="read"></property>
+</interface>

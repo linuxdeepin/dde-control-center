@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>dark/FirstLetterClassify.theme</file>
+        <file>light/FirstLetterClassify.theme</file>
+    </qresource>
+</RCC>
