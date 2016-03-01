@@ -296,7 +296,8 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
     }
 
     // have package update, insert "Deepin system upgrade item"
-    if (packages != apps)
+    // insert only apps num equal m_appList count, if these item already inserted, count == apps + 1
+    if (packages != apps && apps == m_appsList->count())
     {
         ApplictionItemWidget *sysItem = new ApplictionItemWidget;
         sysItem->setAppName("Deepin");
