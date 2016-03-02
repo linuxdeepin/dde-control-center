@@ -66,7 +66,7 @@ public:
     { return "com.deepin.daemon.Network"; }
 
 public:
-    DBusNetwork(QObject *parent = 0);
+    explicit DBusNetwork(QObject *parent = 0);
 
     ~DBusNetwork();
 
@@ -257,6 +257,19 @@ public Q_SLOTS: // METHODS
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(in0);
         return asyncCallWithArgumentList(QStringLiteral("SetProxyMethod"), argumentList);
+    }
+
+    inline QDBusPendingReply<QString> GetProxyIgnoreHosts()
+    {
+        QList<QVariant> argumentList;
+        return asyncCallWithArgumentList(QStringLiteral("GetProxyIgnoreHosts"), argumentList);
+    }
+
+    inline QDBusPendingReply<> SetProxyIgnoreHosts(const QString &ignoreHosts)
+    {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(ignoreHosts);
+        return asyncCallWithArgumentList(QStringLiteral("SetProxyIgnoreHosts"), argumentList);
     }
 
 Q_SIGNALS: // SIGNALS

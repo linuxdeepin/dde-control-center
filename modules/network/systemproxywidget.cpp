@@ -14,6 +14,8 @@
 #include <dlineedit.h>
 #include <dthememanager.h>
 #include <dseparatorhorizontal.h>
+#include <dlabel.h>
+#include <dtextedit.h>
 
 #include "constants.h"
 
@@ -47,16 +49,41 @@ SystemProxyWidget::SystemProxyWidget(DBusNetwork *dbus, QWidget *parent) :
     DTextButton *button_apply = new DTextButton(tr("Apply system wide"));
     DSeparatorHorizontal *separator_top = new DSeparatorHorizontal;
     QHBoxLayout *layout_button = new QHBoxLayout;
+    DLabel *ignore_label = new DLabel(tr("Ignore the following proxy configuration for hosts and domains"));
+    QHBoxLayout *layout_ignoreList_edit = new QHBoxLayout;
+    DTextEdit *ignore_text_edit = new DTextEdit;
+
+    ignore_label->setWordWrap(true);
+    ignore_label->setContentsMargins(15, 0, 15, 0);
+    ignore_text_edit->setFixedHeight(80);
+
+    ASYN_CALL(dbus->GetProxyIgnoreHosts(), {
+                  SIGNAL_BLOCKE(ignore_text_edit)
+                  ignore_text_edit->setText(args[0].toString());
+              }, ignore_text_edit)
+
+    connect(ignore_text_edit, &QTextEdit::textChanged,
+                    this, [ignore_text_edit, dbus] {
+        dbus->SetProxyIgnoreHosts(ignore_text_edit->toPlainText());
+    });
 
     layout_button->setSpacing(0);
     layout_button->setMargin(0);
     layout_button->addWidget(button_apply, 0, Qt::AlignRight);
     layout_button->addSpacing(15);
 
+    layout_ignoreList_edit->addSpacing(15);
+    layout_ignoreList_edit->addWidget(ignore_text_edit);
+    layout_ignoreList_edit->addSpacing(15);
+
     vbox_manual->addWidget(new SystemProxyLine(tr("HTTP Proxy"), ProxyType::HTTP, dbus));
     vbox_manual->addWidget(new SystemProxyLine(tr("HTTPS Proxy"), ProxyType::HTTPS, dbus));
     vbox_manual->addWidget(new SystemProxyLine(tr("FTP Proxy"), ProxyType::FTP, dbus));
     vbox_manual->addWidget(new SystemProxyLine(tr("Socks Proxy"), ProxyType::SOCKS, dbus));
+    vbox_manual->addWidget(ignore_label);
+    vbox_manual->layout()->addSpacing(10);
+    vbox_manual->layout()->addLayout(layout_ignoreList_edit);
+    vbox_manual->layout()->addSpacing(10);
 
     DHeaderLine *line_autoVbox = new DHeaderLine;
     DLineEdit *edit_autoVbox = new DLineEdit;
