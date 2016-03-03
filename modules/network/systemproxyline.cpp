@@ -42,9 +42,6 @@ SystemProxyLine::SystemProxyLine(const QString &title, const QString &proxyType,
     h_boxwidget->addWidget(edit_port);
 
     auto updateProxyInfo = [this, dbus, edit_host, edit_port, proxyType] {
-        if(edit_host->text().isEmpty())
-            return;
-
         dbus->SetProxy(proxyType, edit_host->text(),
                        edit_port->text().isEmpty() ? "0" : edit_port->text());
     };
