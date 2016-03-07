@@ -49,7 +49,7 @@ protected:
 private:
     static const QString getUTCOffset(int offset);
     const QString getZoneCityListByOffset(int zoneOffset);
-    const ZoneInfo &getZoneInfoByName(const QString &zoneName) const;
+    const ZoneInfo &getZoneInfoByName(const QString &zoneName);
     void loadTimezoneList();
     void reloadTimezoneList();
     void showTimezoneList();

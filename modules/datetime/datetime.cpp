@@ -196,10 +196,12 @@ const QString Datetime::getZoneCityListByOffset(int zoneOffset)
     return std::move(list.join(", "));
 }
 
-const ZoneInfo &Datetime::getZoneInfoByName(const QString &zoneName) const
+const ZoneInfo &Datetime::getZoneInfoByName(const QString &zoneName)
 {
+    const ZoneInfo info = m_dbusInter.GetZoneInfo(zoneName);
+
     for (const ZoneInfo & zone : *m_zoneInfoList)
-        if (zone.getZoneName() == zoneName)
+        if (zone.getUTCOffset() == info.getUTCOffset())
             return zone;
 
     qWarning() << zoneName << "not in Timezone list!!!";
@@ -211,23 +213,25 @@ const ZoneInfo &Datetime::getZoneInfoByName(const QString &zoneName) const
 void Datetime::loadTimezoneList()
 {
     const QString userZone = m_dbusInter.timezone();
+    const int userZoneOffset = getZoneInfoByName(userZone).getUTCOffset();
     QStringList zoneList = m_dbusInter.userTimezones();
     int zoneNums = 0;
+    // pass duplicate time zone
+    QList<int> selectedOffset;
 
     for (const QString & zone : zoneList)
     {
-        // pass default Timezone
-        if (zone == "Etc/UTC")
+        const ZoneInfo & zoneInfo = getZoneInfoByName(zone);
+        if (selectedOffset.contains(zoneInfo.getUTCOffset()))
             continue;
+        selectedOffset.append(zoneInfo.getUTCOffset());
 
         ++zoneNums;
-
-        const ZoneInfo & zoneInfo = getZoneInfoByName(zone);
 
         TimezoneWidget *zoneWidget = new TimezoneWidget(&zoneInfo);
         zoneWidget->setZoneCities(getZoneCityListByOffset(zoneInfo.getUTCOffset()));
         zoneWidget->setZoneUTCOffset(getUTCOffset(zoneInfo.getUTCOffset()));
-        zoneWidget->setSelected(userZone == zoneInfo.getZoneName());
+        zoneWidget->setSelected(userZoneOffset == zoneInfo.getUTCOffset());
 
         connect(zoneWidget, &TimezoneWidget::clicked, [this, zoneWidget] () -> void {toggleTimeZone(zoneWidget);});
 
