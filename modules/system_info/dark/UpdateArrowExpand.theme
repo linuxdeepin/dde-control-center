@@ -1,4 +1,4 @@
-DUI--ContentLoader {
+Dtk--Widget--ContentLoader {
     background-color:#252627;
 }
 

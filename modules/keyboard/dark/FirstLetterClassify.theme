@@ -7,27 +7,27 @@ KeyboardLayoutDelegate QLabel:hover{
     color: white;
 }
 
-DUI--DSegmentedControl#LetterList{
+Dtk--Widget--DSegmentedControl#LetterList{
     border: none;
     color: #b4b4b4;
 }
 
-DUI--DSegmentedControl#LetterList DUI--DSegmentedHighlight{
+Dtk--Widget--DSegmentedControl#LetterList Dtk--Widget--DSegmentedHighlight{
     background-color: transparent;
     border: none;
 }
 
-DUI--DSegmentedControl#LetterList QToolButton:enabled{
+Dtk--Widget--DSegmentedControl#LetterList QToolButton:enabled{
     color: #b4b4b4;
     font-size: 12px;
     font-weight: normal;
 }
 
-DUI--DSegmentedControl#LetterList QToolButton:hover{
+Dtk--Widget--DSegmentedControl#LetterList QToolButton:hover{
     color: #2CA7F8;
 }
 
-DUI--DSegmentedControl#LetterList QToolButton{
+Dtk--Widget--DSegmentedControl#LetterList QToolButton{
     background: transparent;
     color: #2CA7F8;
     font-size: 17px;

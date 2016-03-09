@@ -1,11 +1,11 @@
-DUI--DLinkButton{
+Dtk--Widget--DLinkButton{
     color: yellow;
 }
 
-DUI--DLinkButton:hover{
+Dtk--Widget--DLinkButton:hover{
     color: #2CA7F8;
 }
 
-DUI--DLinkButton:pressed{
+Dtk--Widget--DLinkButton:pressed{
     color: #0188FF;
 }

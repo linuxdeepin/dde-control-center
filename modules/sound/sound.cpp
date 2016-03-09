@@ -173,7 +173,7 @@ void Sound::initUI()
         microphoneForm->addWidget(new NormalLabel(tr("Feedback Volume")), 1, 0, Qt::AlignVCenter);
         m_inputFeedbackSlider = new DSlider(Qt::Horizontal);
         QString feedbackSliderStyle = m_inputFeedbackSlider->styleSheet();
-        feedbackSliderStyle += "DUI--DSlider::handle[handleType=\"1\"] {background: none;}DUI--DSlider::add-page:horizontal[handleType=\"1\"]{border-width: 0px 2px 1px 0px;}";
+        feedbackSliderStyle += "Dtk--Widget--DSlider::handle[handleType=\"1\"] {background: none;}Dtk--Widget--DSlider::add-page:horizontal[handleType=\"1\"]{border-width: 0px 2px 1px 0px;}";
         m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle);
         m_inputFeedbackSlider->setRange(0, 100);
         m_inputFeedbackSlider->setEnabled(false);
@@ -184,13 +184,13 @@ void Sound::initUI()
 
             if(value > 80){
                 m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle
-                                                     +"DUI--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #0a73bb, stop:0.66 #0a73bb, stop:0.76 #ffbf0f, stop:1 #ff8503);}DUI--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 3px;}");
+                                                     +"Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #0a73bb, stop:0.66 #0a73bb, stop:0.76 #ffbf0f, stop:1 #ff8503);}Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 3px;}");
             }else if(value < 3){
                 m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle
-                                                     +"DUI--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0a73bb, stop:1 #51a7dc)}DUI--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 2px;}");
+                                                     +"Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0a73bb, stop:1 #51a7dc)}Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 2px;}");
             }else{
                 m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle
-                                                     +"DUI--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0a73bb, stop:1 #51a7dc)}DUI--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 3px;}");
+                                                     +"Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0a73bb, stop:1 #51a7dc)}Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 3px;}");
             }
         });
         microphoneForm->addWidget(m_inputFeedbackSlider, 1, 1, Qt::AlignVCenter);
@@ -292,7 +292,7 @@ void Sound::initUI()
 
     // show advanced
     DLinkButton *advanced_button = new DLinkButton(tr("Show Advanced...") + "      ");
-    advanced_button->setStyleSheet(advanced_button->styleSheet() + "DUI--DLinkButton:pressed{color:#0188FF;}");
+    advanced_button->setStyleSheet(advanced_button->styleSheet() + "Dtk--Widget--DLinkButton:pressed{color:#0188FF;}");
     connect(advanced_button, &DLinkButton::clicked, [this, advanced_button, advanced_expand]{
         if(advanced_expand->expand()){
             m_frame->setFixedHeight(150);
