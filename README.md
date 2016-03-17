@@ -1,6 +1,6 @@
 # DDE Control Center
 
-DDE Control Center is Deepin Desktop Environment control panel.
+DDE Control Center is the control panel of Deepin Desktop Environment.
 
 ## Dependencies
 
@@ -46,16 +46,18 @@ $ make
 $ sudo make install
 ```
 
-When install complete, the executable binary file is placed into `/usr/bin/dde-control-center`, and plugins file will be placed into `/usr/lib/dde-control-center/modules/`.
+The executable binary file could be found at `/usr/bin/dde-control-center` after the installation is finished, and plugins will be placed into `/usr/lib/dde-control-center/modules/`.
 
 ## Usage
 
-Execute `dde-control-center -h` to get more detail.
+Execute `dde-control-center -h` to get more details.
 
 ## Getting help
 
 You can press `F1` to start [deepin-manual](https://github.com/linuxdeepin/deepin-manual) when you focus on DDE Control Center window.
-Other usage issues can ask via these channels:
+
+You may also find these channels useful if you encounter any other issues:
+
 * [Gitter](https://gitter.im/orgs/linuxdeepin/rooms)
 * [IRC Channel](https://webchat.freenode.net/?channels=deepin)
 * [Official Forum](https://bbs.deepin.org/)
