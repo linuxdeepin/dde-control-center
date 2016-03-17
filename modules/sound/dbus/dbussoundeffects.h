@@ -67,95 +67,11 @@ public:
 
     ~DBusSoundEffects();
 
-    Q_PROPERTY(bool BatteryLow READ batteryLow WRITE setBatteryLow NOTIFY BatteryLowChanged)
-    inline bool batteryLow() const
-    { return qvariant_cast< bool >(property("BatteryLow")); }
-    inline void setBatteryLow(bool value)
-    { setProperty("BatteryLow", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool DevicePlug READ devicePlug WRITE setDevicePlug NOTIFY DevicePlugChanged)
-    inline bool devicePlug() const
-    { return qvariant_cast< bool >(property("DevicePlug")); }
-    inline void setDevicePlug(bool value)
-    { setProperty("DevicePlug", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool DeviceUnplug READ deviceUnplug WRITE setDeviceUnplug NOTIFY DeviceUnplugChanged)
-    inline bool deviceUnplug() const
-    { return qvariant_cast< bool >(property("DeviceUnplug")); }
-    inline void setDeviceUnplug(bool value)
-    { setProperty("DeviceUnplug", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool EmptyTrash READ emptyTrash WRITE setEmptyTrash NOTIFY EmptyTrashChanged)
-    inline bool emptyTrash() const
-    { return qvariant_cast< bool >(property("EmptyTrash")); }
-    inline void setEmptyTrash(bool value)
-    { setProperty("EmptyTrash", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool IconToDesktop READ iconToDesktop WRITE setIconToDesktop NOTIFY IconToDesktopChanged)
-    inline bool iconToDesktop() const
-    { return qvariant_cast< bool >(property("IconToDesktop")); }
-    inline void setIconToDesktop(bool value)
-    { setProperty("IconToDesktop", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool Login READ login WRITE setLogin NOTIFY LoginChanged)
-    inline bool login() const
-    { return qvariant_cast< bool >(property("Login")); }
-    inline void setLogin(bool value)
-    { setProperty("Login", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool Logout READ logout WRITE setLogout NOTIFY LogoutChanged)
-    inline bool logout() const
-    { return qvariant_cast< bool >(property("Logout")); }
-    inline void setLogout(bool value)
-    { setProperty("Logout", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool Notification READ notification WRITE setNotification NOTIFY NotificationChanged)
-    inline bool notification() const
-    { return qvariant_cast< bool >(property("Notification")); }
-    inline void setNotification(bool value)
-    { setProperty("Notification", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool PowerPlug READ powerPlug WRITE setPowerPlug NOTIFY PowerPlugChanged)
-    inline bool powerPlug() const
-    { return qvariant_cast< bool >(property("PowerPlug")); }
-    inline void setPowerPlug(bool value)
-    { setProperty("PowerPlug", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool PowerUnplug READ powerUnplug WRITE setPowerUnplug NOTIFY PowerUnplugChanged)
-    inline bool powerUnplug() const
-    { return qvariant_cast< bool >(property("PowerUnplug")); }
-    inline void setPowerUnplug(bool value)
-    { setProperty("PowerUnplug", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool Screenshot READ screenshot WRITE setScreenshot NOTIFY ScreenshotChanged)
-    inline bool screenshot() const
-    { return qvariant_cast< bool >(property("Screenshot")); }
-    inline void setScreenshot(bool value)
-    { setProperty("Screenshot", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool Shutdown READ shutdown WRITE setShutdown NOTIFY ShutdownChanged)
-    inline bool shutdown() const
-    { return qvariant_cast< bool >(property("Shutdown")); }
-    inline void setShutdown(bool value)
-    { setProperty("Shutdown", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool UnableOperate READ unableOperate WRITE setUnableOperate NOTIFY UnableOperateChanged)
-    inline bool unableOperate() const
-    { return qvariant_cast< bool >(property("UnableOperate")); }
-    inline void setUnableOperate(bool value)
-    { setProperty("UnableOperate", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool VolumeChange READ volumeChange WRITE setVolumeChange NOTIFY VolumeChangeChanged)
-    inline bool volumeChange() const
-    { return qvariant_cast< bool >(property("VolumeChange")); }
-    inline void setVolumeChange(bool value)
-    { setProperty("VolumeChange", QVariant::fromValue(value)); }
-
-    Q_PROPERTY(bool Wakeup READ wakeup WRITE setWakeup NOTIFY WakeupChanged)
-    inline bool wakeup() const
-    { return qvariant_cast< bool >(property("Wakeup")); }
-    inline void setWakeup(bool value)
-    { setProperty("Wakeup", QVariant::fromValue(value)); }
+    Q_PROPERTY(bool Enabled READ enabled WRITE setEnabled NOTIFY EnabledChanged)
+    inline bool enabled() const
+    { return qvariant_cast< bool >(property("Enabled")); }
+    inline void setEnabled(bool value)
+    { setProperty("Enabled", QVariant::fromValue(value)); }
 
 public Q_SLOTS: // METHODS
     inline QDBusPendingReply<> PlaySystemSound(const QString &in0)
@@ -165,44 +81,9 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("PlaySystemSound"), argumentList);
     }
 
-    inline QDBusPendingReply<> PlaySystemSoundSync(const QString &in0)
-    {
-        QList<QVariant> argumentList;
-        argumentList << QVariant::fromValue(in0);
-        return asyncCallWithArgumentList(QStringLiteral("PlaySystemSoundSync"), argumentList);
-    }
-
-    inline QDBusPendingReply<> PlayThemeSound(const QString &in0, const QString &in1)
-    {
-        QList<QVariant> argumentList;
-        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
-        return asyncCallWithArgumentList(QStringLiteral("PlayThemeSound"), argumentList);
-    }
-
-    inline QDBusPendingReply<> PlayThemeSoundSync(const QString &in0, const QString &in1)
-    {
-        QList<QVariant> argumentList;
-        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
-        return asyncCallWithArgumentList(QStringLiteral("PlayThemeSoundSync"), argumentList);
-    }
-
 Q_SIGNALS: // SIGNALS
 // begin property changed signals
-    void BatteryLowChanged();
-    void DevicePlugChanged();
-    void DeviceUnplugChanged();
-    void EmptyTrashChanged();
-    void IconToDesktopChanged();
-    void LoginChanged();
-    void LogoutChanged();
-    void NotificationChanged();
-    void PowerPlugChanged();
-    void PowerUnplugChanged();
-    void ScreenshotChanged();
-    void ShutdownChanged();
-    void UnableOperateChanged();
-    void VolumeChangeChanged();
-    void WakeupChanged();
+    void EnabledChanged();
 };
 
 namespace com
