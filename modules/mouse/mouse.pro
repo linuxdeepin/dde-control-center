@@ -10,10 +10,12 @@ LIBS += -L../../widgets -lwidgets
 
 HEADERS         = mouse.h \
     dbus/dbusmouse.h \
-    dbus/dbustouchpad.h
+    dbus/dbustouchpad.h \
+    dbus/dbustrackpoint.h
 SOURCES         = mouse.cpp \
     dbus/dbusmouse.cpp \
-    dbus/dbustouchpad.cpp
+    dbus/dbustouchpad.cpp \
+    dbus/dbustrackpoint.cpp
 TARGET          = $$qtLibraryTarget(mouse)
 DESTDIR         = $$_PRO_FILE_PWD_/../
 

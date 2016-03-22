@@ -26,6 +26,7 @@
 #include "interfaces.h"
 #include "dbus/dbusmouse.h"
 #include "dbus/dbustouchpad.h"
+#include "dbus/dbustrackpoint.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -52,18 +53,21 @@ public slots:
 
     void enableTouchpad(bool flag);
     void setTouchpadPointSpeed();
-    void setTouchpadDoubleClickInterval();
     void enableTouchpadNatureScroll(bool flag);
     void enableTouchpadTapToClick(bool flag);
     void enableTouchpadTwoFingerScroll(bool flag);
     void enableTouchpadEdgeScroll(bool flag);
     void onTouchPadExistChanged();
+
+    void setTrackpointSpeed();
+
     void reset();
 private:
     QLabel *m_label;
 
     ComDeepinDaemonInputDeviceMouseInterface *m_mouseInterface;
     ComDeepinDaemonInputDeviceTouchPadInterface *m_touchpadInterface;
+    TrackPointInterface *m_trackpointInterface;
 
     ModuleHeader *m_topHeaderLine;
     DSeparatorHorizontal *m_firstHSeparator;
@@ -81,8 +85,8 @@ private:
     QWidget *m_doubleClickSpeedContainer;
     QHBoxLayout *m_doubleClickContainerLayout;
     QLabel *m_doubleClickSpeedLabel;
-    DSlider *m_mouseDoubleClickIntervalSlider;
-    QTimer *m_mouseDoubleClickIntervalTimer;
+    DSlider *m_doubleClickIntervalSlider;
+    QTimer *m_doubleClickIntervalTimer;
     QWidget *m_forbiddenTouchpadWhenMouseContainer;
     QHBoxLayout *m_forbiddenTouchpadWhenMouseLayout;
     QLabel *m_forbiddenTouchpadWhenMouseLabel;
@@ -95,8 +99,6 @@ private:
     DSegmentedControl *m_touchpadPrimaryButtonSetting;
     DSlider *m_touchpadPointSpeedSlider;
     QTimer *m_touchpadPointSpeedSetTimer;
-    DSlider *m_touchpadDoubleClickSpeed;
-    QTimer *m_touchpadDoubleClickSetTimer;
     DSlider *m_touchpadDragThreshold;
     QTimer *m_touchpadDragThresholdSetTimer;
     DSwitchButton *m_touchpadNatureScrollSwitch;
@@ -106,6 +108,12 @@ private:
     DSeparatorHorizontal *m_fourthHSeparator;
     double m_mousePointSpeed;
     double m_touchpadPointSpeed;
+    double m_trackpointSpeed;
+
+    DHeaderLine *m_trackpointHeaderLine;
+    DSlider *m_trackpointSpeedSlider;
+    QTimer *m_trackpointSpeedSetTimer;
+    ContainerWidget *m_trackpointSettingPanel;
 
     void setWidgetsValue();
 };
