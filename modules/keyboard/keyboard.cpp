@@ -401,15 +401,22 @@ void Keyboard::initUI()
     m_mainLayout->addWidget(keyboardLayoutLine);
     m_mainLayout->addWidget(new DSeparatorHorizontal);
     m_mainLayout->addWidget(user_layout_list);
+
+#ifndef DCC_DISABLE_LANG_SETTING
     m_mainLayout->addWidget(new DSeparatorHorizontal);
     m_mainLayout->addWidget(language_expand);
+#endif
+
     m_mainLayout->addStretch(1);
 
     m_letterClassifyList = new FirstLetterClassify(m_frame);
     m_letterClassifyList->hide();
     m_letterClassifyList->setFixedWidth(310);
     m_mainLayout->insertWidget(10, m_letterClassifyList);
+
+#ifndef DCC_DISABLE_LANG_SETTING
     QTimer::singleShot(400, this, SLOT(loadLater()));
+#endif
 }
 
 void Keyboard::run()
