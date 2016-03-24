@@ -11,6 +11,9 @@
 #define EDITCONNECTIONPAGE_H
 
 #include <QWidget>
+#include <QJsonObject>
+
+#include <libdui/darrowlineexpand.h>
 
 #include "listwidgetcontainer.h"
 #include "networkbaseeditline.h"
@@ -27,8 +30,10 @@ public:
 
 private:
     NetworkBaseEditLine *getLineByMap(const QVariantMap &map);
+    void onExpand(bool e);
 
     DBusConnectionSession *m_dbus;
+    QMap<DArrowLineExpand*, QJsonObject> m_expandToJsonObject;
 };
 
 #endif // EDITCONNECTIONPAGE_H

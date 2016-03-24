@@ -111,20 +111,30 @@ EditConnectionPage::EditConnectionPage(const QString &dbusPath, QWidget *parent)
 
         if(json_obj["VirtualSection"] != "vs-general") {
             DArrowLineExpand *expand = new DArrowLineExpand;
-            DVBoxWidget *boxWidget = new DVBoxWidget;
 
             expand->setTitle(json_obj["Name"].toString());
-            expand->setContent(boxWidget);
-            boxWidget->layout()->setSpacing(5);
-            boxWidget->layout()->setContentsMargins(0, 5, 0, 5);
-
-            for(const QJsonValue &value : json_obj["Keys"].toArray()) {
-                boxWidget->addWidget(getLineByMap(value.toObject().toVariantMap()));
-            }
 
             expand->setExpand(json_obj["Expanded"].toBool());
             expand->headerLine()->setObjectName("expand_headerLine");
             expand->headerLine()->setStyleSheet(expand->headerLine()->styleSheet() + styleSheet());
+
+            if(expand->expand()) {
+                DVBoxWidget *boxWidget = new DVBoxWidget;
+
+                expand->setContent(boxWidget);
+                boxWidget->layout()->setSpacing(5);
+                boxWidget->layout()->setContentsMargins(0, 5, 0, 5);
+
+                for(const QJsonValue &value : json_obj["Keys"].toArray()) {
+                    boxWidget->addWidget(getLineByMap(value.toObject().toVariantMap()));
+                }
+            } else {
+                expand->setFixedWidth(DCC::ModuleContentWidth);
+                m_expandToJsonObject[expand] = json_obj;
+
+                connect(expand, &DArrowLineExpand::expandChange,
+                        this, &EditConnectionPage::onExpand);
+            }
 
             addWidget(expand);
         } else {
@@ -191,5 +201,34 @@ NetworkBaseEditLine *EditConnectionPage::getLineByMap(const QVariantMap &map)
     }
 
     return line;
+}
+
+void EditConnectionPage::onExpand(bool)
+{
+    DArrowLineExpand *expand = qobject_cast<DArrowLineExpand*>(sender());
+
+    if(!expand || !expand->expand())
+        return;
+
+    const QJsonObject &json_obj = m_expandToJsonObject.value(expand);
+
+    if(json_obj.isEmpty())
+        return;
+
+    m_expandToJsonObject.remove(expand);
+
+    disconnect(expand, &DArrowLineExpand::expandChange,
+               this, &EditConnectionPage::onExpand);
+
+    DVBoxWidget *boxWidget = new DVBoxWidget;
+
+    boxWidget->layout()->setSpacing(5);
+    boxWidget->layout()->setContentsMargins(0, 5, 0, 5);
+
+    for(const QJsonValue &value : json_obj["Keys"].toArray()) {
+        boxWidget->addWidget(getLineByMap(value.toObject().toVariantMap()));
+    }
+
+    expand->setContent(boxWidget);
 }
 
