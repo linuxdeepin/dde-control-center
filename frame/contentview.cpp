@@ -96,44 +96,26 @@ void ContentView::switchToModule(ModuleMetaData module)
     qDebug() << "load plugin: " << module.path;
 
     // load new plugin
-    m_pluginLoader->setFileName(module.path);
     m_sideBar->blockSignals(true);
     m_sideBar->switchToModule(module);
     m_sideBar->blockSignals(false);
 
-    QObject *instance = m_pluginLoader->instance();
-    ModuleInterface *interface = qobject_cast<ModuleInterface *>(instance);
-    qDebug() << "get instance: " << instance << interface;
-
-    QWidget *content = nullptr;
-
-    do {
-
-        if (!interface)
-            break;
-
-        m_lastPluginInterface = interface;
-
-        content = interface->getContent();
-
-        if (!content) {
-            // display error infomation
-            const QString error = m_pluginLoader->errorString();
-            // this label will destory when call unloadPlugin() next time
-            QLabel *errorLabel = new QLabel(error);
-            errorLabel->setWordWrap(true);
-            errorLabel->setStyleSheet("color:red;");
-            content = errorLabel;
-            break;
-        }
-
-        m_lastPluginInterface->setProxy(m_controlCenterProxy);
-
-    } while (false);
+    QWidget * content = nullptr;
+#ifdef DCC_CACHE_MODULES
+    if (m_pluginsCache.contains(module.path)) {
+        content = m_pluginsCache.value(module.path, nullptr);
+    } else {
+        content = loadPlugin(module);
+        m_pluginsCache[module.path] = content;
+    }
+#else
+    content = loadPlugin(module);
+#endif
 
     m_lastPluginWidget = content;
     m_lastPluginWidget->setFixedWidth(DCC::ModuleContentWidth);
     m_lastPluginWidgetContainerLayout->addWidget(m_lastPluginWidget);
+    m_lastPluginWidget->show();
 }
 
 void ContentView::hide()
@@ -185,6 +167,49 @@ void ContentView::switchToModule(const QString pluginId)
     switchToModule(m_pluginsManager->pluginMetaData(pluginId));
 }
 
+QWidget * ContentView::loadPlugin(ModuleMetaData module)
+{
+#ifdef DCC_CACHE_MODULES
+    QPluginLoader * pluginLoader = new QPluginLoader(this);
+    pluginLoader->setFileName(module.path);
+    QObject *instance = pluginLoader->instance();
+#else
+    m_pluginLoader->setFileName(module.path);
+    QObject *instance = m_pluginLoader->instance();
+#endif
+
+    ModuleInterface *interface = qobject_cast<ModuleInterface *>(instance);
+    qDebug() << "get instance: " << instance << interface;
+
+    QWidget *content = nullptr;
+
+    do {
+
+        if (!interface)
+            break;
+
+        m_lastPluginInterface = interface;
+
+        content = interface->getContent();
+
+        if (!content) {
+            // display error infomation
+            const QString error = m_pluginLoader->errorString();
+            // this label will destory when call unloadPlugin() next time
+            QLabel *errorLabel = new QLabel(error);
+            errorLabel->setWordWrap(true);
+            errorLabel->setStyleSheet("color:red;");
+            content = errorLabel;
+            break;
+        }
+
+        m_lastPluginInterface->setProxy(m_controlCenterProxy);
+
+    } while (false);
+
+    return content;
+}
+
 void ContentView::onModuleSelected(ModuleMetaData meta)
 {
     qDebug() << meta.id;
@@ -218,7 +243,9 @@ void ContentView::unloadPlugin()
     {
         m_lastPluginWidget->hide();
         m_lastPluginWidget->setParent(nullptr);
+#ifndef DCC_CACHE_MODULES
         m_lastPluginWidget->deleteLater();
+#endif
 //        delete m_lastPluginWidget;
         m_lastPluginWidget = nullptr;
     }
@@ -226,7 +253,9 @@ void ContentView::unloadPlugin()
     if (m_lastPluginInterface)
     {
 //        m_lastPluginInterface->preUnload();
+#ifndef DCC_CACHE_MODULES
         delete m_lastPluginInterface;
+#endif
         m_lastPluginInterface = nullptr;
     }
 }

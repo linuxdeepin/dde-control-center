@@ -41,6 +41,7 @@ public:
 public slots:
     void reLayout(bool hideInLeft);
     void switchToModule(const QString pluginId);
+    QWidget * loadPlugin(ModuleMetaData module);
     void unloadPlugin();
     void switchToHome();
 
@@ -53,6 +54,9 @@ private:
     SideBar *m_sideBar;
     QPluginLoader *m_pluginLoader;
     ControlCenterProxy *m_controlCenterProxy;
+#ifdef DCC_CACHE_MODULES
+    QMap<QString, QWidget*> m_pluginsCache;
+#endif
 
 private slots:
     void onModuleSelected(ModuleMetaData meta);
