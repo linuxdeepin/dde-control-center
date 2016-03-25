@@ -227,7 +227,7 @@ void Frame::hideAndShowAnotherSide()
 {
     hide();
     m_hideInLeft = !m_hideInLeft;
-    QTimer::singleShot(DCC::FrameAnimationDuration + 10, this, SLOT(hideAndShowAnotherSideFinish()));
+    QTimer::singleShot(DCC::CommonAnimationDuration + 10, this, SLOT(hideAndShowAnotherSideFinish()));
 }
 
 void Frame::hideAndShowAnotherSideFinish()

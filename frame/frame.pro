@@ -51,3 +51,7 @@ RESOURCES += \
 INCLUDEPATH    += ../widgets ../modules/display
 
 include(../interfaces/interfaces.pri)
+
+isEqual(DCC_DISABLE_ANIMATION, YES){
+    DEFINES += DCC_DISABLE_ANIMATION
+}
