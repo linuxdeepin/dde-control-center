@@ -64,10 +64,10 @@ ContentView::ContentView(ControlCenterProxy *proxy, QWidget *parent)
     setGraphicsEffect(m_opacityEffect);
 
     m_showAni = new QPropertyAnimation(m_opacityEffect, "opacity");
-    m_showAni->setDuration(DCC::FrameAnimationDuration);
+    m_showAni->setDuration(DCC::CommonAnimationDuration);
 
     m_hideAni = new QPropertyAnimation(m_opacityEffect, "opacity");
-    m_hideAni->setDuration(DCC::FrameAnimationDuration);
+    m_hideAni->setDuration(DCC::CommonAnimationDuration);
 
     connect(m_sideBar, &SideBar::moduleSelected, this, &ContentView::onModuleSelected);
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);

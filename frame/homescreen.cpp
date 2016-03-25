@@ -138,18 +138,18 @@ HomeScreen::HomeScreen(QWidget *parent) :
     m_centerArea->setGraphicsEffect(m_opacityEffect);
 
     m_topAni = new QPropertyAnimation(m_topWidget, "geometry");
-    m_topAni->setDuration(DCC::FrameAnimationDuration);
+    m_topAni->setDuration(DCC::CommonAnimationDuration);
 
     m_ctrHideAni = new QPropertyAnimation(m_opacityEffect, "opacity");
-    m_ctrHideAni->setDuration(DCC::FrameAnimationDuration);
+    m_ctrHideAni->setDuration(DCC::CommonAnimationDuration);
     m_ctrHideAni->setEasingCurve(DCC::FrameHideCurve);
 
     m_ctrShowAni = new QPropertyAnimation(m_opacityEffect, "opacity");
-    m_ctrShowAni->setDuration(DCC::FrameAnimationDuration);
+    m_ctrShowAni->setDuration(DCC::CommonAnimationDuration);
     m_ctrShowAni->setEasingCurve(DCC::FrameShowCurve);
 
     m_botAni = new QPropertyAnimation(m_bottomWidget, "geometry");
-    m_botAni->setDuration(DCC::FrameAnimationDuration);
+    m_botAni->setDuration(DCC::CommonAnimationDuration);
 
     connect(bottomButton, &DImageButton::clicked, this, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
     connect(m_userAvatar, &UserAvatar::clicked, [this] {emit moduleSelected("account");});

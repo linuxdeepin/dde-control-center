@@ -32,6 +32,11 @@ static const uint HomeScreen_TopWidgetHeight = 150;
 static const uint HomeScreen_BottomWidgetHeight = 84;
 
 static const uint FrameAnimationDuration = 300;
+#ifdef DCC_DISABLE_ANIMATION
+static const uint CommonAnimationDuration = 0;
+#else
+static const uint CommonAnimationDuration = 300;
+#endif
 static const QEasingCurve FrameShowCurve = QEasingCurve::Linear;
 static const QEasingCurve FrameHideCurve = QEasingCurve::Linear;
 
