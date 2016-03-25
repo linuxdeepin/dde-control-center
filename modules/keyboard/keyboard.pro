@@ -28,3 +28,7 @@ RESOURCES += \
 
 target.path = $${PREFIX}/lib/dde-control-center/modules/
 INSTALLS += target
+
+isEqual(DCC_DISABLE_LANG_SETTING, YES){
+    DEFINES += DCC_DISABLE_LANG_SETTING
+}
