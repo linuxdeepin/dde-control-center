@@ -34,16 +34,16 @@ void DiskItem::updateData()
     DiskInfoList infoList = m_diskMount->diskList();
     foreach (DiskInfo info, infoList)
     {
-        if (info.uUID == m_id)
+        if (info.id == m_id)
         {
-            m_diskUuid = info.uUID;
+            m_diskUuid = info.id;
 
             m_diskType = info.type;
             m_titleLabel->setText(info.name);
             m_diskIcon->setIcon(info.icon);
             m_diskIcon->setMountPoint(info.mountPoint);
-            m_progressLabel->setText(bitToHuman(info.used) + "/" + bitToHuman(info.size));
-            m_usedBar->setValue(100 * (double(info.used) / info.size));
+            m_progressLabel->setText(bitToHuman(info.used) + "/" + bitToHuman(info.total));
+            m_usedBar->setValue(100 * (double(info.used) / info.total));
         }
     }
 }
@@ -66,7 +66,7 @@ void DiskItem::sendNotification(const QString &title, const QString &msg)
 void DiskItem::umountDisk()
 {
     qDebug() << "[DiskMountPlugin] Try to umount Disk: "<< m_diskUuid;
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_diskMount->DeviceUnmount(m_diskUuid));
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_diskMount->Unmount(m_diskUuid));
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher]{
         if(!watcher->reply().arguments().first().toBool()){
             umountDiskFailed(m_id, "Umount disk error.");

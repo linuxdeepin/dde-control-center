@@ -111,9 +111,11 @@ void DiskMountPlugin::onInitTimerTriggered()
 
 void DiskMountPlugin::mountableDeviceChanged()
 {
+    qDebug()<<"Device mount list changed";
     bool hasMount = false;
     DiskInfoList tmpList = m_diskMount->diskList();
     for (DiskInfo info : tmpList) {
+        qDebug()<<"Info:"<<info.name<<info.canUnmount;
         if (info.canUnmount)
         {
             hasMount = true;

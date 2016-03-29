@@ -40,16 +40,16 @@ DBusDiskMount::~DBusDiskMount()
 QDBusArgument &operator<<(QDBusArgument &argument, const DiskInfo &diskInfo)
 {
     argument.beginStructure();
-    argument << diskInfo.name
-        << diskInfo.type
-        << diskInfo.canUnmount
-        << diskInfo.canEject
-        << diskInfo.used
-        << diskInfo.size
-        << diskInfo.path
-        << diskInfo.uUID
-        << diskInfo.mountPoint
-        << diskInfo.icon;
+    argument << diskInfo.id
+             << diskInfo.name
+             << diskInfo.type
+             << diskInfo.path
+             << diskInfo.mountPoint
+             << diskInfo.icon
+             << diskInfo.canUnmount
+             << diskInfo.canEject
+             << diskInfo.used
+             << diskInfo.total;
     argument.endStructure();
     return argument;
 }
@@ -57,16 +57,16 @@ QDBusArgument &operator<<(QDBusArgument &argument, const DiskInfo &diskInfo)
 const QDBusArgument &operator>>(const QDBusArgument &argument, DiskInfo &diskInfo)
 {
     argument.beginStructure();
-    argument >> diskInfo.name
+    argument >> diskInfo.id
+            >> diskInfo.name
             >> diskInfo.type
+            >> diskInfo.path
+            >> diskInfo.mountPoint
+            >> diskInfo.icon
             >> diskInfo.canUnmount
             >> diskInfo.canEject
             >> diskInfo.used
-            >> diskInfo.size
-            >> diskInfo.path
-            >> diskInfo.uUID
-            >> diskInfo.mountPoint
-            >> diskInfo.icon;
+            >> diskInfo.total;
     argument.endStructure();
     return argument;
 }

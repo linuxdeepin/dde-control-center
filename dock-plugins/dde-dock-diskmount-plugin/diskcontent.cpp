@@ -60,18 +60,18 @@ void DiskContent::updateMountDisks()
     for (DiskInfo info : tmpList)
     {
         if (info.canUnmount)
-            idList << info.uUID;
+            idList << info.id;
     }
 
     for (DiskInfo info : tmpList)
     {
-        if (info.canUnmount && m_itemList.keys().indexOf(info.uUID) == -1)//New Item
+        if (info.canUnmount && m_itemList.keys().indexOf(info.id) == -1)//New Item
         {
-            DiskItem * item = new DiskItem(info.uUID,m_diskMount, this);
-            m_itemList.insert(info.uUID,item);
+            DiskItem * item = new DiskItem(info.id,m_diskMount, this);
+            m_itemList.insert(info.id,item);
             m_listWidget->addWidget(item);
 
-            qDebug() << "[DiskMountPlugin] Disk Mounted:" << info.uUID;
+            qDebug() << "[DiskMountPlugin] Disk Mounted:" << info.id;
         }
     }
 

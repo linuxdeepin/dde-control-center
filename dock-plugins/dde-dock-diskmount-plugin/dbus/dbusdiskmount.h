@@ -32,19 +32,18 @@
 #include <QDebug>
 
 struct DiskInfo {
+    QString id;
     QString name;
     QString type;
+    QString path;
+    QString mountPoint;
+    QString icon;
 
     bool canUnmount;
     bool canEject;
 
     qulonglong used;
-    qulonglong size;
-
-    QString path;
-    QString uUID;
-    QString mountPoint;
-    QString icon;
+    qulonglong total;
 };
 typedef QList<DiskInfo> DiskInfoList;
 Q_DECLARE_METATYPE(DiskInfo)
@@ -102,25 +101,25 @@ public:
     }
 
 public Q_SLOTS: // METHODS
-    inline QDBusPendingReply<bool> DeviceEject(const QString &in0)
+    inline QDBusPendingReply<bool> Eject(const QString &in0)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(in0);
-        return asyncCallWithArgumentList(QStringLiteral("DeviceEject"), argumentList);
+        return asyncCallWithArgumentList(QStringLiteral("Eject"), argumentList);
     }
 
-    inline QDBusPendingReply<bool> DeviceMount(const QString &in0)
+    inline QDBusPendingReply<bool> Mount(const QString &in0)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(in0);
-        return asyncCallWithArgumentList(QStringLiteral("DeviceMount"), argumentList);
+        return asyncCallWithArgumentList(QStringLiteral("Mount"), argumentList);
     }
 
-    inline QDBusPendingReply<bool> DeviceUnmount(const QString &in0)
+    inline QDBusPendingReply<bool> Unmount(const QString &in0)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(in0);
-        return asyncCallWithArgumentList(QStringLiteral("DeviceUnmount"), argumentList);
+        return asyncCallWithArgumentList(QStringLiteral("Unmount"), argumentList);
     }
 
 Q_SIGNALS: // SIGNALS
