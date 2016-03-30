@@ -32,7 +32,8 @@ Sound::Sound() :
     QObject(),
     m_frame(new QFrame),
     m_inputFeedbackSlider(NULL),
-    m_mainWidget(new QFrame)
+    m_mainWidget(new QFrame),
+    m_mainWidgetVLayout(new QVBoxLayout(m_mainWidget))
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Sound"));
 
@@ -42,8 +43,35 @@ Sound::Sound() :
     m_delaySetOutputVolumeTimer.setSingleShot(true);
     m_delaySetBalanceTimer.setSingleShot(true);
 
-    initBackend();
-    initUI();
+    // UI that can show immediately show first. # optimize for slow chips.
+    m_mainWidgetVLayout->setSpacing(0);
+    m_mainWidgetVLayout->setMargin(0);
+
+    m_frame->setFixedWidth(DCC::ModuleContentWidth);
+    m_frame->setObjectName("SoundMainFrame");
+    m_frame->setStyleSheet("QFrame#SoundMainFrame{background:transparent}");
+
+    m_scrollArea = new DScrollArea;
+    m_scrollArea->setFixedSize(DCC::ModuleContentWidth, qApp->primaryScreen()->geometry().height() - 60);
+    m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_scrollArea->setWidget(m_frame);
+
+    ///////////////////////////////////////////////////////-- Title
+    m_moduleHeader = new ModuleHeader(tr("Sound"), true, m_mainWidget);
+    m_mainWidgetVLayout->addWidget(m_moduleHeader);
+    m_mainWidgetVLayout->addWidget(new DSeparatorHorizontal);
+    m_mainWidgetVLayout->addWidget(m_scrollArea);
+    m_mainWidgetVLayout->addStretch(1);
+
+#ifdef ARCH_MIPSEL
+    QTimer::singleShot(100, [this]{
+#endif
+        initBackend();
+        initUI();
+#ifdef ARCH_MIPSEL
+    });
+#endif
 }
 
 Sound::~Sound()
@@ -66,38 +94,17 @@ void Sound::initBackend()
     connect(&m_delaySetBalanceTimer, &QTimer::timeout, [this]{
         m_sink->SetBalance(m_leftRightBalanceSlider->value() / 100.0, true).waitForFinished();
     });
+
+    connect(m_moduleHeader, &ModuleHeader::resetButtonClicked, m_dbusAudio, &DBusAudio::Reset);
 }
 
 void Sound::initUI()
 {
-    QVBoxLayout *mainWidgetVLayout = new QVBoxLayout(m_mainWidget);
-    mainWidgetVLayout->setSpacing(0);
-    mainWidgetVLayout->setMargin(0);
-
-    m_frame->setFixedWidth(DCC::ModuleContentWidth);
-    m_frame->setObjectName("SoundMainFrame");
-    m_frame->setStyleSheet("QFrame#SoundMainFrame{background:transparent}");
-
-    m_scrollArea = new DScrollArea;
-    m_scrollArea->setFixedSize(DCC::ModuleContentWidth, qApp->primaryScreen()->geometry().height() - 60);
-    m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_scrollArea->setWidget(m_frame);
-
     QVBoxLayout * mainLayout = new QVBoxLayout(m_frame);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
-
-    ///////////////////////////////////////////////////////-- Title
-    ModuleHeader * header = new ModuleHeader(tr("Sound"), true, m_mainWidget);
-    mainWidgetVLayout->addWidget(header);
-    mainWidgetVLayout->addWidget(new DSeparatorHorizontal);
-    mainWidgetVLayout->addWidget(m_scrollArea);
-    mainWidgetVLayout->addStretch(1);
-
-    connect(header, &ModuleHeader::resetButtonClicked, m_dbusAudio, &DBusAudio::Reset);
 
     if (m_sink) {
         ///////////////////////////////////////////////////////-- Speaker Settings
