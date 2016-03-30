@@ -37,3 +37,7 @@ docs.path = /usr/share/dman/dde-control-center
 docs.files = docs/*
 
 INSTALLS = binary desktop service icons qm_files docs
+
+isEqual(ARCH_MIPSEL, YES){
+    DEFINES += ARCH_MIPSEL
+}
