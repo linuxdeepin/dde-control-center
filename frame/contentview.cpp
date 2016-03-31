@@ -163,7 +163,7 @@ void ContentView::switchToHome()
 }
 
 void ContentView::switchToModule(const QString pluginId)
-{
+{ 
     switchToModule(m_pluginsManager->pluginMetaData(pluginId));
 }
 
@@ -231,7 +231,27 @@ void ContentView::onModuleSelected(ModuleMetaData meta)
     }
 
     // switch to another plugin
-    return switchToModule(meta);
+#ifndef ARCH_MIPSEL
+    switchToModule(meta);
+#else
+    // prevent the UI from blocking, we choose to drop some
+    // module-switch requests on slower machines.
+    static QTimer *timer = nullptr;
+
+    if (!timer) {
+        timer = new QTimer(this);
+        timer->setSingleShot(true);
+        timer->setInterval(500);
+    }
+
+    timer->stop();
+    timer->disconnect();
+    connect(timer, &QTimer::timeout, [this, meta]{
+        switchToModule(meta);
+    });
+
+    timer->start();
+#endif
 }
 
 void ContentView::unloadPlugin()
