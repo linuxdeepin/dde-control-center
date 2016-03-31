@@ -364,6 +364,7 @@ void UpdateWidget::loadCheckUpdateJob(DBusUpdateJob *updateJob)
     m_updateStatTips->setText(tr("Check for updates, please wait"));
 
     connect(m_dbusCheckupdate, &DBusUpdateJob::StatusChanged, this, &UpdateWidget::checkUpdateStateChanged);
+    checkUpdateStateChanged();
 }
 
 void UpdateWidget::refreshProgress(UpdateWidget::UpgradeState state)
