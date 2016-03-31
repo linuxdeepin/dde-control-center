@@ -43,17 +43,21 @@ Power::~Power()
 
 void Power::updateBatteryUsedControlUI() {
     if (!m_batteryIsPresent) {
+#ifndef ARCH_MIPSEL
         m_closeLaptopActionFrame->hide();
         m_batterySettingDBaseLine->hide();
         m_batterySettingExpand->hide();
         m_batteryCustomExtendBoard->hide();
+#endif
     } else {
-#ifndef DCC_DISABLE_POWER_ACTION
+#if !defined(DCC_DISABLE_POWER_ACTION) && !defined(ARCH_MIPSEL)
         m_closeLaptopActionFrame->show();
 #endif
+#ifndef ARCH_MIPSEL
         m_batterySettingDBaseLine->show();
         m_batterySettingExpand->show();
         m_batteryCustomExtendBoard->show();
+#endif
     }
 }
 
@@ -202,25 +206,33 @@ void Power::initUI() {
     m_pressPowerButtonActionFrame = new PressPowerButtonAction(linePowerAction);
     m_pressPowerButtonActionFrame->setTitle(tr("When I press the power button"));
 
+#ifndef ARCH_MIPSEL
     closeLaptopAction << tr("Shutdown") << tr("Suspend") << tr("Nothing");
     m_closeLaptopActionFrame = new PressPowerButtonAction(closeLaptopAction);
     m_closeLaptopActionFrame->setTitle(tr("When I close the lid"));
+#endif
 
     initClockWhenActiveUI();
     initPowerConnectionPanelUI();
+#ifndef ARCH_MIPSEL
     initBatteryUsedUI();
+#endif
     QVBoxLayout * layout = new QVBoxLayout(m_frame);
     layout->setMargin(0);
     layout->setSpacing(0);
 
     layout->addWidget(m_powerManagementFrame);
-#ifndef DCC_DISABLE_POWER_ACTION
+#if !defined(DCC_DISABLE_POWER_ACTION)
     layout->addWidget(m_pressPowerButtonActionFrame);
+#endif
+#if !defined(DCC_DISABLE_POWER_ACTION) && !defined(ARCH_MIPSEL)
     layout->addWidget(m_closeLaptopActionFrame);
 #endif
     layout->addLayout(lockWhenActiveLayout);
     layout->addLayout(powerConnectLayout);
+#ifndef ARCH_MIPSEL
     layout->addLayout(batteryUsedLayout);
+#endif
     layout->addStretch();
     m_frame->setLayout(layout);
 }
@@ -253,10 +265,14 @@ void Power::initData() {
     updatePowerLockUI();
     ////////////////////////////////////////////////////--get press power button action panel
     updatePressPowerButtonReactionUI();
+#ifndef ARCH_MIPSEL
     updatePressLidPowerButtonReactionUI();
+#endif
     ////////////////////////////////////////////////////--getLinePowerPlan
     updateLinePowerPlanUI();
+#ifndef ARCH_MIPSEL
     updateBatteryPlanUI();
+#endif
     ////////////////////////////////////////////////////-- lock when Active
     updateBatteryUsedControlUI();
 }
@@ -282,9 +298,11 @@ void Power::set7ButtonGridChecked(int idIndex, DButtonGrid* buttonGroup) {
 }
 void Power::initConnection() {
 ///////////////update the battery status in powerManagement head title
+#ifndef ARCH_MIPSEL
     connect(m_powerInter, SIGNAL(BatteryPercentageChanged(double)), m_powerManagementFrame, SLOT(setElectricQuantity(double)));
     connect(m_powerInter, SIGNAL(BatteryPercentageChanged()), this, SLOT(updatePowerManagermentUI()));
     connect(m_powerInter, SIGNAL(BatteryIsPresentChanged()), this, SLOT(updatePowerManagermentUI()));
+#endif
 
 ///////////////Reset the data of power module
     connect(m_powerManagementFrame, SIGNAL(Reset()), m_powerInter, SLOT(Reset()));
@@ -297,8 +315,10 @@ void Power::initConnection() {
     connect(m_powerInter, SIGNAL(PowerButtonActionChanged()), SLOT(updatePressPowerButtonReactionUI()));
     connect(m_pressPowerButtonActionFrame, SIGNAL(powerButtonIndexChanged(int)), m_powerInter, SLOT(setPowerButtonAction(int)));
 ////////////Close the lid of laptop
+#ifndef ARCH_MIPSEL
     connect(m_powerInter, SIGNAL(LidClosedActionChanged()), SLOT(updatePressLidPowerButtonReactionUI()));
     connect(m_closeLaptopActionFrame, SIGNAL(powerButtonIndexChanged(int)), m_powerInter, SLOT(setLidCloseAction(int)));
+#endif
 
 /////////////Set the linePowerPlan
     connect(m_linePowerButtonGrid, SIGNAL(buttonCheckedIndexChanged(int)), m_powerInter, SLOT(setLinePowerPlan(int)));
@@ -316,6 +336,7 @@ void Power::initConnection() {
               m_powerInter, SLOT(setLinePowerSuspendDelay(int)));
 
 ///////////////Set the batteryPlan
+#ifndef ARCH_MIPSEL
     connect(m_batteryButtonGrid, SIGNAL(buttonCheckedIndexChanged(int)), m_powerInter, SLOT(setBatteryPlan(int)));
     connect(m_powerInter, SIGNAL(BatteryPlanChanged()), this, SLOT(updateBatteryPlanUI()));
 
@@ -331,6 +352,7 @@ void Power::initConnection() {
 
     connect(m_batteryCustomExtendBoard->m_suspendButtonGrid, SIGNAL(buttonCheckedIndexChanged(int)),
             m_powerInter, SLOT(setBatterySuspendDelay(int)));
+#endif
 }
 
 QFrame* Power::getContent()
