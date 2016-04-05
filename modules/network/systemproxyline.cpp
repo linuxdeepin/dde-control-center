@@ -46,8 +46,8 @@ SystemProxyLine::SystemProxyLine(const QString &title, const QString &proxyType,
                        edit_port->text().isEmpty() ? "0" : edit_port->text());
     };
 
-    connect(edit_host, &DLineEdit::textChanged, this, updateProxyInfo);
-    connect(edit_port, &DLineEdit::textChanged, this, updateProxyInfo);
+    connect(edit_host, &DLineEdit::editingFinished, this, updateProxyInfo);
+    connect(edit_port, &DLineEdit::editingFinished, this, updateProxyInfo);
 
     setLeftMargin(15);
     setRightMargin(15);
