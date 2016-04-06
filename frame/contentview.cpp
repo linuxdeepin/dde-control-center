@@ -244,11 +244,17 @@ void ContentView::onModuleSelected(ModuleMetaData meta)
         timer->setInterval(500);
     }
 
-    timer->stop();
+
     timer->disconnect();
-    connect(timer, &QTimer::timeout, [this, meta]{
+
+    if (timer->isActive()) {
+        timer->stop();
+        connect(timer, &QTimer::timeout, [this, meta]{
+            switchToModule(meta);
+        });
+    } else {
         switchToModule(meta);
-    });
+    }
 
     timer->start();
 #endif
