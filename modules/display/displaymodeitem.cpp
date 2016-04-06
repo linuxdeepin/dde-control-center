@@ -16,11 +16,12 @@
 #include <dthememanager.h>
 #include <dseparatorhorizontal.h>
 
+#include "../widgets/imagenamebutton.h"
 #include "displaymodeitem.h"
 
 DWIDGET_USE_NAMESPACE
 
-DisplayModeItem::DisplayModeItem(bool showSeparator, bool showTitle, QWidget *parent) :
+DisplayModeItem::DisplayModeItem(bool showSeparator, bool showTitle, bool showRightArrow, QWidget *parent) :
     QLabel(parent),
     m_title(new QLabel),
     m_text(new QLabel),
@@ -35,6 +36,8 @@ DisplayModeItem::DisplayModeItem(bool showSeparator, bool showTitle, QWidget *pa
     D_THEME_INIT_WIDGET(DisplayModeItem, hover, checked);
 
     if(showTitle){
+        QHBoxLayout *mainLayout = new QHBoxLayout;
+
         QVBoxLayout *layout = new QVBoxLayout;
         layout->addSpacing(10);
         layout->addWidget(m_title);
@@ -46,8 +49,22 @@ DisplayModeItem::DisplayModeItem(bool showSeparator, bool showTitle, QWidget *pa
             layout->addWidget(new DSeparatorHorizontal);
         }
         layout->setMargin(0);
-        layout->setContentsMargins(60, 0, 0, 0);
-        setLayout(layout);
+        layout->setSpacing(0);
+
+        mainLayout->setMargin(0);
+        mainLayout->setContentsMargins(60, 0, 0, 0);
+
+        mainLayout->addLayout(layout, 1);
+
+        if (showRightArrow) {
+            ImageNameButton * button = new ImageNameButton("arrow_right", this);
+            mainLayout->addWidget(button);
+
+            connect(button, &ImageNameButton::clicked, this, &DisplayModeItem::clicked);
+            connect(button, &ImageNameButton::clicked, this, &DisplayModeItem::rightArrowClicked);
+        }
+
+        setLayout(mainLayout);
     }else{
         m_text->setParent(this);
         m_text->move(30, 2);

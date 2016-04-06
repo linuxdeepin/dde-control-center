@@ -289,8 +289,8 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
     QHBoxLayout *buttonLayout = new QHBoxLayout;
 
     if (m_monitorNameList.count() == 1) {
-        m_cancelButton->setVisible(m_dbusDisplay->hasChanged());
-        m_applyButton->setVisible(m_cancelButton->isVisible());
+//        m_cancelButton->setVisible(m_dbusDisplay->hasChanged());
+//        m_applyButton->setVisible(m_cancelButton->isVisible());
 
         connect(m_dbusDisplay, &DisplayInterface::HasChangedChanged,
                 this, &CustomSettings::onHasChangedChanged);

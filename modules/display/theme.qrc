@@ -25,6 +25,10 @@
         <file>light/images/split_normal.png</file>
         <file>light/images/split_press.png</file>
         <file>dark/images/arrow_left_hover.png</file>
+        <file>dark/images/arrow_right_normal.png</file>
+        <file>dark/images/arrow_right_hover.png</file>
+        <file>dark/images/arrow_right_press.png</file>
+        <file>dark/images/arrow_right_white.png</file>
         <file>dark/images/copy_active.png</file>
         <file>dark/images/copy_hover.png</file>
         <file>dark/images/copy_normal.png</file>

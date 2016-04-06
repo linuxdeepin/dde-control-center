@@ -25,7 +25,7 @@ class DisplayModeItem : public QLabel
     Q_PROPERTY(bool clickCheck READ clickCheck WRITE setClickCheck)
 
 public:
-    explicit DisplayModeItem(bool showSeparator = true, bool showTitle = true, QWidget *parent = 0);
+    explicit DisplayModeItem(bool showSeparator = true, bool showTitle = true, bool showRightArrow = false, QWidget *parent = 0);
     ~DisplayModeItem();
 
     QString iconName() const;
@@ -48,6 +48,7 @@ signals:
     void hoverChanged(bool hover);
     void checkedChanged(bool checked);
     void clicked();
+    void rightArrowClicked();
 
 protected:
     void enterEvent(QEvent *e);

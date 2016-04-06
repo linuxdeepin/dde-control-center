@@ -22,7 +22,7 @@
 #include "fullscreentooltip.h"
 
 DisplayModeItem * getIconButton(const QString &text, const QString &iconName){
-    DisplayModeItem* button = new DisplayModeItem(false, false);
+    DisplayModeItem* button = new DisplayModeItem(false, false, NULL);
     button->setText(text);
     button->setClickCheck(false);
     button->setIconName(iconName);

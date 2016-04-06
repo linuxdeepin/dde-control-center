@@ -182,7 +182,7 @@ void Display::updateUI()
             }
         }, Qt::DirectConnection);
 
-        DisplayModeItem *item_settings = new DisplayModeItem(false);
+        DisplayModeItem *item_settings = new DisplayModeItem(false, true, true);
         item_settings->setTitle(tr("Custom Settings"));
         item_settings->setText(tr("You can do other custom settings to your screens."));
         item_settings->setIconName("customize");
@@ -213,10 +213,14 @@ void Display::updateUI()
         displayModeExpand->setContent(m_widgetList);
 
         connect(item_settings, &DisplayModeItem::clicked, displayModeExpand, [this, displayModeExpand]{
+            m_dbusDisplay->SwitchMode(0, "");
+        }, Qt::DirectConnection);
+
+        connect(item_settings, &DisplayModeItem::rightArrowClicked, [displayModeExpand, this] {
             displayModeExpand->hide();
             m_singleSettings->show();
             m_monitorGround->setEditable(true);
-        }, Qt::DirectConnection);
+        });
 
         connect(m_singleSettings, &CustomSettings::cancel, displayModeExpand, [this, displayModeExpand]{
             displayModeExpand->show();
