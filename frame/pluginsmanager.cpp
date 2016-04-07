@@ -81,12 +81,14 @@ PluginsManager::PluginsManager(QObject *parent)
 {
     loadPlugins();
 
+#ifdef ARCH_MIPSEL
     m_deviceMoniter = new DeviceMoniter(this);
 
     connect(m_deviceMoniter, &DeviceMoniter::deviceChanged, this, &PluginsManager::loadPlugins);
 
     // set low priority
     m_deviceMoniter->start(QThread::LowestPriority);
+#endif
 }
 
 bool PluginsManager::checkDependentCondition(const QString &condition)
@@ -102,6 +104,11 @@ bool PluginsManager::checkDependentCondition(const QString &condition)
 QStringList PluginsManager::getPluginsOrder()
 {
     return m_pluginsOrder;
+}
+
+int PluginsManager::count() const
+{
+    return m_pluginsList.length();
 }
 
 int PluginsManager::getPluginInsertIndex(const QString &id)

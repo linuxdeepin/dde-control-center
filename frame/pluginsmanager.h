@@ -31,10 +31,12 @@ public:
     const QList<ModuleMetaData> &&pluginsList() const;
     const ModuleMetaData pluginMetaData(const QString &pluginId) const;
     static QStringList getPluginsOrder();
+    int count() const;
 
 signals:
     void pluginInserted(const int position, const ModuleMetaData &meta) const;
     void pluginRemoved(const ModuleMetaData &meta) const;
+    void pluginLoaded(const ModuleMetaData &meta) const;
     void showHome() const;
 
 private:

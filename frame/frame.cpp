@@ -116,6 +116,18 @@ Frame::Frame(QWidget *parent) :
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     setFocusPolicy(Qt::StrongFocus);
     setHideInLeft(false);
+
+#ifdef ARCH_MIPSEL
+    setCursor(Qt::WaitCursor);
+    QTimer::singleShot(500, m_contentView, &ContentView::lazyQueueLoadModules);
+
+    PluginsManager * pm = PluginsManager::getInstance(this);
+    connect(pm, &PluginsManager::pluginLoaded, [this, pm] {
+        if (pm->count() == m_homeScreen->count()) {
+            setCursor(Qt::ArrowCursor);
+        }
+    });
+#endif
 }
 
 Frame::~Frame()

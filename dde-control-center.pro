@@ -24,6 +24,9 @@ binary.files = dde-control-center
 desktop.path = $${PREFIX}/share/applications/
 desktop.files = dde-control-center.desktop
 
+autostart.path = /etc/xdg/autostart/
+autostart.files = dde-control-center_autostart.desktop
+
 service.path = $${PREFIX}/share/dbus-1/services
 service.files = com.deepin.dde.ControlCenter.service
 
@@ -37,3 +40,7 @@ docs.path = /usr/share/dman/dde-control-center
 docs.files = docs/*
 
 INSTALLS = binary desktop service icons qm_files docs
+
+isEqual(ARCH_MIPSEL, YES){
+    INSTALLS += autostart
+}

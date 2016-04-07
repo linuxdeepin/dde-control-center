@@ -31,6 +31,7 @@ public:
 
     void hide();
     void show();
+    int count() const;
 
 signals:
     void moduleSelected(const QString pluginId) const;
@@ -44,6 +45,7 @@ private slots:
     void loadUserAvatar();
     void insertPlugin(const int position, const ModuleMetaData &meta);
     void removePlugin(const ModuleMetaData &meta);
+    void onPluginLoaded(const ModuleMetaData &meta);
     void relayoutPlugins();
 
 private:

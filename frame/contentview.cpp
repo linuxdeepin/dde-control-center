@@ -162,6 +162,20 @@ void ContentView::switchToHome()
     emit backToHome();
 }
 
+void ContentView::lazyQueueLoadModules()
+{
+#if defined(DCC_CACHE_MODULES) && defined(ARCH_MIPSEL)
+    QList<ModuleMetaData> list = m_pluginsManager->pluginsList();
+    foreach (ModuleMetaData module, list) {
+        if (!m_pluginsCache.contains(module.path)) {
+            m_pluginsCache[module.path] = loadPlugin(module);
+            // One module at a time, otherwise slower CPUs will stuck.
+            break;
+        }
+    }
+#endif
+}
+
 void ContentView::switchToModule(const QString pluginId)
 { 
     switchToModule(m_pluginsManager->pluginMetaData(pluginId));
@@ -206,6 +220,11 @@ QWidget * ContentView::loadPlugin(ModuleMetaData module)
         m_lastPluginInterface->setProxy(m_controlCenterProxy);
 
     } while (false);
+
+#ifdef ARCH_MIPSEL
+    QTimer::singleShot(500, this, &ContentView::lazyQueueLoadModules);
+    emit m_pluginsManager->pluginLoaded(module);
+#endif
 
     return content;
 }

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/usr/bin/dde-control-center 
+Name=Control Center
+OnlyShowIn=Deepin
+StartupNotify=false
+Terminal=false
+Type=Application
