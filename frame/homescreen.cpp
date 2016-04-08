@@ -47,10 +47,12 @@ HomeScreen::HomeScreen(QWidget *parent) :
     m_grid->setContentsMargins(1, 0, 1, 0);
     m_grid->setSpacing(2);
 
+#ifndef ARCH_MIPSEL
     const QList<ModuleMetaData> pluginsList = m_pluginsManager->pluginsList();
     const int pluginsCount = pluginsList.count();
     for (int i(0); i != pluginsCount; ++i)
         insertPlugin(i, pluginsList.at(i));
+#endif
 
     DVBoxWidget *centerBox = new DVBoxWidget;
     centerBox->layout()->addLayout(m_grid);
@@ -155,8 +157,13 @@ HomeScreen::HomeScreen(QWidget *parent) :
     connect(m_userAvatar, &UserAvatar::clicked, [this] {emit moduleSelected("account");});
     connect(m_ctrHideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
     connect(m_ctrShowAni, &QPropertyAnimation::finished, this, &HomeScreen::showAniFinished, Qt::QueuedConnection);
+#ifndef ARCH_MIPSEL
     connect(m_pluginsManager, &PluginsManager::pluginInserted, this, &HomeScreen::insertPlugin);
     connect(m_pluginsManager, &PluginsManager::pluginRemoved, this, &HomeScreen::removePlugin);
+#else
+    connect(m_pluginsManager, &PluginsManager::pluginLoaded, this, &HomeScreen::onPluginLoaded);
+#endif
+
 
     loadUserAvatar();
 }
@@ -221,13 +228,22 @@ void HomeScreen::show()
     QFrame::show();
 }
 
+int HomeScreen::count() const
+{
+    return m_grid->count();
+}
+
 void HomeScreen::powerButtonClicked()
 {
+    QDBusInterface iface("com.deepin.dde.shutdownFront",
+                         "/com/deepin/dde/shutdownFront",
+                         "com.deepin.dde.shutdownFront",
+                         QDBusConnection::sessionBus(), this);
+    iface.setTimeout(3000);
+
     emit powerBtnClicked();
 
-    QProcess *proc = new QProcess;
-    QObject::connect(proc, static_cast<void (QProcess::*)(int)>(&QProcess::finished), proc, &QProcess::deleteLater, Qt::QueuedConnection);
-    proc->start("dde-shutdown");
+    iface.asyncCall("Show");
 }
 
 void HomeScreen::loadUserAvatar()
@@ -284,6 +300,11 @@ void HomeScreen::removePlugin(const ModuleMetaData &meta)
     }
 
     relayoutPlugins();
+}
+
+void HomeScreen::onPluginLoaded(const ModuleMetaData &meta)
+{
+    insertPlugin(m_grid->count(), meta);
 }
 
 void HomeScreen::relayoutPlugins()

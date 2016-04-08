@@ -162,8 +162,22 @@ void ContentView::switchToHome()
     emit backToHome();
 }
 
-void ContentView::switchToModule(const QString pluginId)
+void ContentView::lazyQueueLoadModules()
 {
+#if defined(DCC_CACHE_MODULES) && defined(ARCH_MIPSEL)
+    QList<ModuleMetaData> list = m_pluginsManager->pluginsList();
+    foreach (ModuleMetaData module, list) {
+        if (!m_pluginsCache.contains(module.path)) {
+            m_pluginsCache[module.path] = loadPlugin(module);
+            // One module at a time, otherwise slower CPUs will stuck.
+            break;
+        }
+    }
+#endif
+}
+
+void ContentView::switchToModule(const QString pluginId)
+{ 
     switchToModule(m_pluginsManager->pluginMetaData(pluginId));
 }
 
@@ -207,6 +221,11 @@ QWidget * ContentView::loadPlugin(ModuleMetaData module)
 
     } while (false);
 
+#ifdef ARCH_MIPSEL
+    QTimer::singleShot(500, this, &ContentView::lazyQueueLoadModules);
+    emit m_pluginsManager->pluginLoaded(module);
+#endif
+
     return content;
 }
 
@@ -231,7 +250,33 @@ void ContentView::onModuleSelected(ModuleMetaData meta)
     }
 
     // switch to another plugin
-    return switchToModule(meta);
+#ifndef ARCH_MIPSEL
+    switchToModule(meta);
+#else
+    // prevent the UI from blocking, we choose to drop some
+    // module-switch requests on slower machines.
+    static QTimer *timer = nullptr;
+
+    if (!timer) {
+        timer = new QTimer(this);
+        timer->setSingleShot(true);
+        timer->setInterval(500);
+    }
+
+
+    timer->disconnect();
+
+    if (timer->isActive()) {
+        timer->stop();
+        connect(timer, &QTimer::timeout, [this, meta]{
+            switchToModule(meta);
+        });
+    } else {
+        switchToModule(meta);
+    }
+
+    timer->start();
+#endif
 }
 
 void ContentView::unloadPlugin()

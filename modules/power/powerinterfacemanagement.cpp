@@ -165,15 +165,27 @@ void PowerInterfaceManagement::Reset() {
 }
 
 bool PowerInterfaceManagement::getBatteryIsPresent() {
+#ifndef ARCH_MIPSEL
     return m_powerInterface->batteryIsPresent();
+#else
+    return false;
+#endif
 }
 
 bool PowerInterfaceManagement::getBatteryon() {
+#ifndef ARCH_MIPSEL
     return m_powerInterface->onBattery();
+#else
+    return false;
+#endif
 }
 
 double PowerInterfaceManagement::getBatteryPresent() {
+#ifdef ARCH_MIPSEL
     return m_powerInterface->batteryPercentage();
+#else
+    return false;
+#endif
 }
 
 void PowerInterfaceManagement::batteryPresentUpdate() {

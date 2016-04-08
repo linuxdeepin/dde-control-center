@@ -37,6 +37,8 @@ SOURCES    = frame.cpp \
     sidebardelegate.cpp
 
 include(../cutelogger/cutelogger.pri)
+include(../common.pri)
+
 TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../
 

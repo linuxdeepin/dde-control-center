@@ -31,6 +31,7 @@
 DWIDGET_USE_NAMESPACE
 
 class QFrame;
+class ModuleHeader;
 class Sound: public QObject, ModuleInterface
 {
     Q_OBJECT
@@ -45,6 +46,7 @@ public:
 private:
     QFrame *m_frame;
 
+    ModuleHeader *m_moduleHeader;
     DSwitchLineExpand *m_speakerExpand;
     DSwitchLineExpand *m_microphoneExpand;
     DSlider *m_outputVolumeSlider;
@@ -60,6 +62,7 @@ private:
     DBaseExpand *m_inputDevicesExpand;
     DButtonList *m_inputDevicesList;
     QFrame *m_mainWidget;
+    QVBoxLayout *m_mainWidgetVLayout;
     DScrollArea *m_scrollArea;
     DBusSoundEffects *m_soundEffectsInter;
     DHeaderLine *m_soundEffectsLine;

@@ -44,6 +44,7 @@ public slots:
     QWidget * loadPlugin(ModuleMetaData module);
     void unloadPlugin();
     void switchToHome();
+    void lazyQueueLoadModules();
 
 signals:
     void backToHome();
