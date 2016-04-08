@@ -47,7 +47,12 @@ void DBreathingLabel::setAlpha(int opa) {
     setPalette(m_palette);
 }
 
-
+void DBreathingLabel::setStopCycle(bool stop) {
+    if (stop) {
+       disconnect(m_hideAnimation, &QPropertyAnimation::finished, this, &DBreathingLabel::showLabel);
+       disconnect(m_showAnimation, &QPropertyAnimation::finished, this, &DBreathingLabel::hideLabel);
+    }
+}
 void DBreathingLabel::hideLabel() {
 //    m_showAnimation->stop();
     m_hideAnimation->setStartValue(255);
@@ -56,8 +61,15 @@ void DBreathingLabel::hideLabel() {
 }
 
 void DBreathingLabel::showLabel() {
-
     m_showAnimation->setStartValue(0);
     m_showAnimation->setEndValue(255);
     m_showAnimation->start();
+}
+
+void DBreathingLabel::setCycle(int time) {
+
+    hideLabel();
+    setDuration(time);
+    connect(m_hideAnimation, &QPropertyAnimation::finished, this, &DBreathingLabel::showLabel);
+    connect(m_showAnimation, &QPropertyAnimation::finished, this, &DBreathingLabel::hideLabel);
 }

@@ -32,10 +32,7 @@ PowerPlugin::PowerPlugin()
     m_label = new QLabel;
     m_label->adjustSize();
 
-    m_dbusPower = new com::deepin::daemon::DBusPower("com.deepin.daemon.Power",
-                                                     "/com/deepin/daemon/Power",
-                                                     QDBusConnection::sessionBus(),
-                                                     this);
+    m_dbusPower = new com::deepin::daemon::DBusPower(this);
     connect(m_dbusPower, &DBusPower::BatteryPercentageChanged, this, &PowerPlugin::updateIcon);
     connect(m_dbusPower, &DBusPower::OnBatteryChanged, this, &PowerPlugin::updateIcon);
 
@@ -71,12 +68,36 @@ QString PowerPlugin::getName(QString)
     return getPluginName();
 }
 
+int PowerPlugin::getBatteryPercentage() {
+    BatteryPercentageMap pertMap = m_dbusPower->batteryPercentage();
+    int totalBatPercentage = 0;
+    BatteryPercentageMap::const_iterator i = pertMap.constBegin();
+    while (i != pertMap.constEnd()) {
+
+       totalBatPercentage += pertMap.value(i.key());
+       i++;
+    }
+    return totalBatPercentage;
+}
+
+bool PowerPlugin::getBatteryIsPresent() {
+    BatteryInfoMap infoMap = m_dbusPower->batteryIsPresent();
+    bool isPresent = false;
+    BatteryInfoMap::const_iterator j = infoMap.constBegin();
+    while( j != infoMap.constEnd()) {
+        isPresent = (infoMap.value(j.key()) || isPresent);
+        j++;
+    }
+    return isPresent;
+}
+
 QString PowerPlugin::getTitle(QString)
 {
     if (!m_dbusPower->isValid())
         return getPluginName();
 
-    QString batteryPercentage = QString("%1%").arg(QString::number(int(m_dbusPower->batteryPercentage())));
+
+    QString batteryPercentage = QString("%1%").arg(QString::number(int(getBatteryPercentage())));
 
     if (!m_dbusPower->onBattery()) {
         return tr("On Charging %1").arg(batteryPercentage);
@@ -101,7 +122,7 @@ int callDBusRetryCount = 10;
 bool PowerPlugin::configurable(const QString &)
 {
     if(m_dbusPower->isValid())
-        return m_dbusPower->batteryIsPresent();
+        return getBatteryIsPresent();
 
     if(!m_detectionDBusTimer) {
         m_detectionDBusTimer = new QTimer(this);
@@ -156,7 +177,7 @@ QWidget * PowerPlugin::getItem(QString)
     if (!m_dbusPower->isValid())
         return NULL;
 
-    if (m_dbusPower->batteryIsPresent() && enabled(POWER_PLUGIN_ID)) {
+    if (getBatteryIsPresent() && enabled(POWER_PLUGIN_ID)) {
         return m_label;
     } else {
         return NULL;
@@ -192,37 +213,39 @@ QJsonObject createMenuItem(MenuItemType itemId, QString itemName, bool checked =
 
 QString PowerPlugin::getMenuContent(QString)
 {
-    QJsonObject contentObj;
+//    QJsonObject contentObj;
 
-    QJsonArray items;
+//    QJsonArray items;
 
-    MenuItemType type;
-    if(m_dbusPower->onBattery()){
-        type = (MenuItemType)m_dbusPower->batteryPlan();
-    }else{
-        type = (MenuItemType)m_dbusPower->linePowerPlan();
-    }
+//    MenuItemType type;
+//    if(m_dbusPower->onBattery()){
+//        type = (MenuItemType)m_dbusPower->batteryPlan();
+//    }else{
+//        type = (MenuItemType)m_dbusPower->linePowerPlan();
+//    }
 
-    items.append(createMenuItem(SeparatorHorizontal, ""));
-    items.append(createMenuItem(CustomMenuItem, tr("Custom"), type == CustomMenuItem));
-    items.append(createMenuItem(PowerSaverMenuItem, tr("Power saver"), type == PowerSaverMenuItem));
-    items.append(createMenuItem(BalancedMenuItem, tr("Balanced"), type == BalancedMenuItem));
-    items.append(createMenuItem(HighPerformanceMenuItem, tr("High performance"), type == HighPerformanceMenuItem));
-    items.append(createMenuItem(SeparatorHorizontal, ""));
+//    items.append(createMenuItem(SeparatorHorizontal, ""));
+//    items.append(createMenuItem(CustomMenuItem, tr("Custom"), type == CustomMenuItem));
+//    items.append(createMenuItem(PowerSaverMenuItem, tr("Power saver"), type == PowerSaverMenuItem));
+//    items.append(createMenuItem(BalancedMenuItem, tr("Balanced"), type == BalancedMenuItem));
+//    items.append(createMenuItem(HighPerformanceMenuItem, tr("High performance"), type == HighPerformanceMenuItem));
+//    items.append(createMenuItem(SeparatorHorizontal, ""));
 
-    contentObj.insert("items", items);
+//    contentObj.insert("items", items);
 
-    return QString(QJsonDocument(contentObj).toJson());
+//    return QString(QJsonDocument(contentObj).toJson());
+    return QString("");
 }
 
 void PowerPlugin::invokeMenuItem(QString id, QString itemId, bool checked)
 {
     Q_UNUSED(id)
+    Q_UNUSED(itemId);
     if(checked){
-        if(m_dbusPower->onBattery())
-            m_dbusPower->setBatteryPlan(itemId.toInt());
-        else
-            m_dbusPower->setLinePowerPlan(itemId.toInt());
+//        if(m_dbusPower->onBattery())
+//            m_dbusPower->setBatteryPlan(itemId.toInt());
+//        else
+//            m_dbusPower->setLinePowerPlan(itemId.toInt());
     }
 }
 
@@ -283,10 +306,10 @@ void PowerPlugin::updateIcon()
     if (!m_dbusPower->isValid()){
         iconName = getBatteryIcon(-1, false, m_mode != Dock::FashionMode);
     }else{
-        bool batteryPresent = m_dbusPower->batteryIsPresent();
+        bool batteryPresent =  getBatteryIsPresent();
 
         if (batteryPresent) {
-            int batteryPercentage = m_dbusPower->batteryPercentage();
+            int batteryPercentage = getBatteryPercentage();
             iconName = getBatteryIcon(batteryPercentage, !m_dbusPower->onBattery(),
                                       m_mode != Dock::FashionMode);
         }

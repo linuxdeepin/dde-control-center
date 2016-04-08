@@ -220,6 +220,52 @@
     </message>
 </context>
 <context>
+    <name>ChooseDelayTimeWidget</name>
+    <message>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="29"/>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="54"/>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="69"/>
+        <source>Never</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="48"/>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="63"/>
+        <source>1Minute</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="49"/>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="64"/>
+        <source>5Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="50"/>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="65"/>
+        <source>10Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="51"/>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="66"/>
+        <source>15Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="52"/>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="67"/>
+        <source>30Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="53"/>
+        <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="68"/>
+        <source>1Hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ComplexPlugin</name>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="48"/>
@@ -446,30 +492,6 @@
     <message>
         <location filename="../modules/display/customsettings.h" line="54"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DExtendBoard</name>
-    <message>
-        <location filename="../modules/power/dextendboard.cpp" line="29"/>
-        <source>Custom options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/dextendboard.cpp" line="33"/>
-        <source>Turn off the display</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/dextendboard.cpp" line="40"/>
-        <location filename="../modules/power/dextendboard.cpp" line="52"/>
-        <source>Never</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/dextendboard.cpp" line="44"/>
-        <source>Suspend</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -704,47 +726,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="153"/>
+        <location filename="../modules/display/display.cpp" line="157"/>
         <source>Display Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="159"/>
+        <location filename="../modules/display/display.cpp" line="163"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="160"/>
+        <location filename="../modules/display/display.cpp" line="164"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="170"/>
+        <location filename="../modules/display/display.cpp" line="174"/>
         <source>Extend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="171"/>
+        <location filename="../modules/display/display.cpp" line="175"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="182"/>
+        <location filename="../modules/display/display.cpp" line="186"/>
         <source>Custom Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="183"/>
+        <location filename="../modules/display/display.cpp" line="187"/>
         <source>You can do other custom settings to your screens.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="193"/>
+        <location filename="../modules/display/display.cpp" line="197"/>
         <source>Only Displayed on %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="194"/>
+        <location filename="../modules/display/display.cpp" line="198"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -883,7 +905,7 @@
 <context>
     <name>HomeScreen</name>
     <message>
-        <location filename="../frame/homescreen.cpp" line="106"/>
+        <location filename="../frame/homescreen.cpp" line="108"/>
         <source>Shutdown</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1186,12 +1208,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="37"/>
+        <location filename="../modules/sound/sound.cpp" line="39"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="27"/>
+        <location filename="../modules/power/power.cpp" line="25"/>
         <source>Power Management</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1625,106 +1647,28 @@
 <context>
     <name>Power</name>
     <message>
-        <location filename="../modules/power/power.cpp" line="63"/>
-        <source>Password required to wake up</source>
+        <location filename="../modules/power/power.cpp" line="43"/>
+        <source>The display suspended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="81"/>
-        <source>Plugged in</source>
+        <location filename="../modules/power/power.cpp" line="44"/>
+        <source>The computer suspended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="111"/>
-        <location filename="../modules/power/power.cpp" line="166"/>
-        <source>Balanced</source>
+        <location filename="../modules/power/power.cpp" line="46"/>
+        <source>Password required to wake the display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="111"/>
-        <location filename="../modules/power/power.cpp" line="166"/>
-        <source>Power saver</source>
+        <location filename="../modules/power/power.cpp" line="48"/>
+        <source>Password required to wake the computer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="111"/>
-        <location filename="../modules/power/power.cpp" line="166"/>
-        <source>High performance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/power.cpp" line="111"/>
-        <location filename="../modules/power/power.cpp" line="166"/>
-        <source>Custom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/power.cpp" line="138"/>
-        <source>On battery</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/power.cpp" line="201"/>
-        <location filename="../modules/power/power.cpp" line="205"/>
-        <source>Shutdown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/power.cpp" line="201"/>
-        <location filename="../modules/power/power.cpp" line="205"/>
-        <source>Suspend</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/power.cpp" line="201"/>
-        <source>Ask</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/power.cpp" line="203"/>
-        <source>When I press the power button</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/power.cpp" line="205"/>
-        <source>Nothing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/power.cpp" line="207"/>
-        <source>When I close the lid</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PowerInterfaceManagement</name>
-    <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="186"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="189"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="190"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="192"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="210"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="218"/>
-        <source>%1 minutes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="187"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="193"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="206"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="214"/>
-        <source>Never</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="208"/>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="216"/>
-        <source>1 hour</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerinterfacemanagement.cpp" line="223"/>
-        <source>Turn off the display: %1 Suspend: %2 </source>
+        <location filename="../modules/power/power.cpp" line="50"/>
+        <source>The notebook suspended when close the lid</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1739,33 +1683,13 @@
 <context>
     <name>PowerPlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="61"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="58"/>
         <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="82"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
         <source>On Charging %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="207"/>
-        <source>Custom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="208"/>
-        <source>Power saver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="209"/>
-        <source>Balanced</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="210"/>
-        <source>High performance</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1868,159 +1792,84 @@
 <context>
     <name>Sound</name>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="94"/>
+        <location filename="../modules/sound/sound.cpp" line="62"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="105"/>
+        <location filename="../modules/sound/sound.cpp" line="113"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="115"/>
+        <location filename="../modules/sound/sound.cpp" line="123"/>
         <source>Output Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="126"/>
+        <location filename="../modules/sound/sound.cpp" line="134"/>
         <source>Left/Right Balance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="130"/>
+        <location filename="../modules/sound/sound.cpp" line="138"/>
         <source>Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="131"/>
+        <location filename="../modules/sound/sound.cpp" line="139"/>
         <source>Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="149"/>
+        <location filename="../modules/sound/sound.cpp" line="157"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="161"/>
+        <location filename="../modules/sound/sound.cpp" line="169"/>
         <source>Input Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="173"/>
+        <location filename="../modules/sound/sound.cpp" line="181"/>
         <source>Feedback Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="234"/>
+        <location filename="../modules/sound/sound.cpp" line="242"/>
         <source>Output Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="247"/>
+        <location filename="../modules/sound/sound.cpp" line="255"/>
         <source>Output device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="267"/>
+        <location filename="../modules/sound/sound.cpp" line="275"/>
         <source>Input Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="281"/>
+        <location filename="../modules/sound/sound.cpp" line="289"/>
         <source>Input device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="294"/>
-        <location filename="../modules/sound/sound.cpp" line="301"/>
+        <location filename="../modules/sound/sound.cpp" line="302"/>
+        <location filename="../modules/sound/sound.cpp" line="309"/>
         <source>Show Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="307"/>
+        <location filename="../modules/sound/sound.cpp" line="314"/>
         <source>Hide Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="317"/>
-        <source>Login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="321"/>
-        <source>Logout</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="324"/>
-        <source>Shutdown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="327"/>
-        <source>Wakeup</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="330"/>
-        <source>Notification</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="333"/>
-        <source>Unable to Operate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="336"/>
-        <source>Empty trash</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="339"/>
-        <source>Adjust volume</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="342"/>
-        <source>Low battery</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="345"/>
-        <source>Power plug in</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="348"/>
-        <source>Power unplugged</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="351"/>
-        <source>Movable device plug in</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="354"/>
-        <source>Movable device unplug</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="357"/>
-        <source>Send app icon to desktop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="360"/>
-        <source>Screenshot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="387"/>
-        <source>Sound Effects</source>
+        <location filename="../modules/sound/sound.cpp" line="325"/>
+        <source>Sound effects</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2210,27 +2059,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="304"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
         <source>Patches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="307"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Some patches need to be updated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="311"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="312"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="362"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="363"/>
         <source>Checking for updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="363"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="364"/>
         <source>Check for updates, please wait</source>
         <translation type="unfinished"></translation>
     </message>

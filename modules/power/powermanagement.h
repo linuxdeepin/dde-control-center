@@ -17,6 +17,8 @@
 
 #include <dtextbutton.h>
 #include <dseparatorhorizontal.h>
+#include "../widgets/dbreathinglabel.h"
+#include "dbus/dbuspower.h"
 
 #include "moduleheader.h"
 DWIDGET_USE_NAMESPACE
@@ -27,25 +29,32 @@ class PowerManagement: public QFrame
 public:
     PowerManagement(QWidget *parent = 0);
     ~PowerManagement();
+
 public slots:
     void reset();
-    void batteryReservedControl(bool batteryIsPresent);
-    void setElectricQuantity(double electricQuantity);
+    void setbatteryExist(bool onBat);
     void initConnection();
+    void addBatterys(QList<BatteryItem> bats);
+    void setOnBattery(bool onBats);
 signals:
     void Reset();
 private:
     QString headTitle;
+    bool m_onBattery = false;
     bool m_batteryIsPresent;
     double m_batteryPercentage;
     // top header
     QVBoxLayout *topHeaderLayout;
-    ModuleHeader *m_topHeaderLine;
-    QLabel *m_powerManagerViewLabel;
-    QLabel *m_powerManagerLabel;
-    QLabel *m_shortSeparatorLine;
-    QLabel *m_powerPercentageLabel;
-    QHBoxLayout *m_powerManagerLayout;
+    ModuleHeader *m_powerModuleHeader;
+    QLabel *m_moduleNameLabel;
+    QLabel *m_powerTitleLabel;
+
+
+    QLabel* m_shortSeparatorLine;
+    DBreathingLabel* m_batteryPercentageLabel;
+    QList<BatteryItem> m_batteryInfoList;
+
+    QHBoxLayout *m_moduleTitleLayout;
     DTextButton *m_powerResetButton;
     DSeparatorHorizontal *m_firstHSeparator;
 };

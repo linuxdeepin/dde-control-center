@@ -12,7 +12,6 @@
 
 #include <QObject>
 #include <QSettings>
-
 #include <dde-dock/dockconstants.h>
 #include <dde-dock/dockplugininterface.h>
 #include <dde-dock/dockpluginproxyinterface.h>
@@ -51,7 +50,8 @@ public:
 
 private slots:
     void updateIcon();
-
+    int getBatteryPercentage();
+    bool getBatteryIsPresent();
 private:
     void initSettings();
     void onEnabledChanged();

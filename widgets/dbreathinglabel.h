@@ -32,9 +32,10 @@ public slots:
     void showLabel();
     void hideLabel();
     void setDuration(int duration);
+    void setCycle(int time);
+    void setStopCycle(bool stop);
 private:
     int alpha_;
-
     void setAlpha(int alpha);
     QPropertyAnimation *m_showAnimation;
     QPropertyAnimation *m_hideAnimation;

@@ -9,20 +9,22 @@ PKGCONFIG += dtkbase dtkwidget
 INCLUDEPATH    += ../../frame/ ../../widgets
 LIBS += -L../../widgets -lwidgets
 HEADERS         = power.h \
-    dbus/dbuspower.h \
-    trianglerectangle.h \
     powermanagement.h \
     presspowerbuttonaction.h \
-    dextendboard.h \
-    powerinterfacemanagement.h
+    widgets/doublecornerwidget.h \
+    dbus/dbuspower.h \
+    powerinterface.h \
+    widgets/powerswitchwidget.h \
+    widgets/choosedelaytimewidget.h
 
 SOURCES         = power.cpp \
-    dbus/dbuspower.cpp \
-    trianglerectangle.cpp \
     powermanagement.cpp \
     presspowerbuttonaction.cpp \
-    dextendboard.cpp \
-    powerinterfacemanagement.cpp
+    widgets/doublecornerwidget.cpp \
+    dbus/dbuspower.cpp \
+    powerinterface.cpp \
+    widgets/powerswitchwidget.cpp \
+    widgets/choosedelaytimewidget.cpp
 
 TARGET          = $$qtLibraryTarget(power)
 DESTDIR         = $$_PRO_FILE_PWD_/../
