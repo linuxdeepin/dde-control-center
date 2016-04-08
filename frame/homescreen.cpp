@@ -223,11 +223,15 @@ void HomeScreen::show()
 
 void HomeScreen::powerButtonClicked()
 {
+    QDBusInterface iface("com.deepin.dde.shutdownFront",
+                         "/com/deepin/dde/shutdownFront",
+                         "com.deepin.dde.shutdownFront",
+                         QDBusConnection::sessionBus(), this);
+    iface.setTimeout(3000);
+
     emit powerBtnClicked();
 
-    QProcess *proc = new QProcess;
-    QObject::connect(proc, static_cast<void (QProcess::*)(int)>(&QProcess::finished), proc, &QProcess::deleteLater, Qt::QueuedConnection);
-    proc->start("dde-shutdown");
+    iface.asyncCall("Show");
 }
 
 void HomeScreen::loadUserAvatar()
