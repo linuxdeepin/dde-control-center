@@ -15,6 +15,7 @@
 #include "controlcenterproxy.h"
 #include "sidebarview.h"
 #include "dbus/displayinterface.h"
+#include "dbus/dbuslauncher.h"
 
 #include <QDir>
 #include <QLibrary>
@@ -76,6 +77,7 @@ Frame::Frame(QWidget *parent) :
     m_homeScreen->setFixedSize(DCC::ControlCenterWidth, frameHeight);
 
     DisplayInterface *display_dbus = new DisplayInterface(this);
+    DBusLauncher* m_dbusLauncher = new DBusLauncher(this);
 
     auto updateGeometry = [display_dbus, this] {
         QRect primaryRect = display_dbus->primaryRect();
@@ -96,6 +98,8 @@ Frame::Frame(QWidget *parent) :
     };
 
     connect(display_dbus, &DisplayInterface::PrimaryChanged, this, updateGeometry);
+    connect(m_dbusLauncher, &DBusLauncher::Shown, [this]{hide(true);});
+
     connect(m_homeScreen, &HomeScreen::powerBtnClicked, [this] {hide(true);});
     connect(this, &Frame::hideInLeftChanged, this, updateGeometry);
 //    connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);

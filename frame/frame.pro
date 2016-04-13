@@ -17,7 +17,8 @@ HEADERS    = frame.h \
     controlcenterproxy.h \
     sidebarview.h \
     sidebarmodel.h \
-    sidebardelegate.h
+    sidebardelegate.h \
+    dbus/dbuslauncher.h
 SOURCES    = frame.cpp \
              main.cpp \
     homescreen.cpp \
@@ -34,7 +35,8 @@ SOURCES    = frame.cpp \
     controlcenterproxy.cpp \
     sidebarview.cpp \
     sidebarmodel.cpp \
-    sidebardelegate.cpp
+    sidebardelegate.cpp \
+    dbus/dbuslauncher.cpp
 
 include(../cutelogger/cutelogger.pri)
 include(../common.pri)

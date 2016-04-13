@@ -85,7 +85,6 @@ int main(int argv, char *args[])
 
     // initialize logging
     LogManager::instance()->debug_log_console_on();
-
     Frame frame;
     DBusControlCenterService adaptor(&frame);
     QDBusConnection conn = QDBusConnection::sessionBus();
@@ -126,7 +125,6 @@ int main(int argv, char *args[])
 #endif
 
         frame.show();
-
     // setup theme manager
     DThemeManager *manager = DThemeManager::instance();
     QObject::connect(manager, &DThemeManager::themeChanged, [ = ](QString theme) {
