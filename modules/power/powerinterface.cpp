@@ -74,7 +74,7 @@ void PowerInterface::handleSleepNeedPassWd() {
 void PowerInterface::setLidCloseNeedPassWd(bool need) {
     if (need) {
         qDebug() << "true";
-        m_dbusPower->lidClosedAction();
+        m_dbusPower->setLidClosedAction(LID_CLOSE_DEFAULTACTION);
     } else {
         qDebug() << "false";
         m_dbusPower->setLidClosedAction("");

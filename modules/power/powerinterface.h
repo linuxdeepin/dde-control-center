@@ -43,5 +43,7 @@ private:
 
     bool lidCloseNeedpassword();
     void initConnection();
+    const QString LID_CLOSE_DEFAULTACTION = "dbus-send --print-reply --dest=com.deepin.SessionManager \
+            /com/deepin/SessionManager com.deepin.SessionManager.RequestSuspend";
 };
 #endif // POWERINTERFACE_H
