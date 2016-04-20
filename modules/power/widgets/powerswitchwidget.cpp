@@ -22,7 +22,7 @@ PowerSwitchWidget::PowerSwitchWidget(QString title, QWidget *parent)
     setLayout(m_Layout);
 
 
-    this->setStyleSheet(QString("QWidget{background:1%;}").arg(DCC::BgLightColor.name()));
+    this->setStyleSheet(QString("QWidget{background:%1;}").arg(DCC::BgLightColor.name()));
     update();
     connect(m_switchButton, &DSwitchButton::checkedChanged, this, &PowerSwitchWidget::checkedChanged);
 }
