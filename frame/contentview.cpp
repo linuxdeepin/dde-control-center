@@ -207,6 +207,9 @@ QWidget * ContentView::loadPlugin(ModuleMetaData module)
         content = interface->getContent();
 
         if (!content) {
+
+            qDebug() << "content is null !!" << module.path;
+
             // display error infomation
             const QString error = m_pluginLoader->errorString();
             // this label will destory when call unloadPlugin() next time

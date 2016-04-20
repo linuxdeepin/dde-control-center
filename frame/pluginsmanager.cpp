@@ -81,7 +81,7 @@ PluginsManager::PluginsManager(QObject *parent)
 {
     loadPlugins();
 
-#ifdef ARCH_MIPSEL
+#ifndef ARCH_MIPSEL
     m_deviceMoniter = new DeviceMoniter(this);
 
     connect(m_deviceMoniter, &DeviceMoniter::deviceChanged, this, &PluginsManager::loadPlugins);
