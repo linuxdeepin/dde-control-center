@@ -289,8 +289,8 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
     QHBoxLayout *buttonLayout = new QHBoxLayout;
 
     if (m_monitorNameList.count() == 1) {
-//        m_cancelButton->setVisible(m_dbusDisplay->hasChanged());
-//        m_applyButton->setVisible(m_cancelButton->isVisible());
+        m_cancelButton->setVisible(m_dbusDisplay->hasChanged());
+        m_applyButton->setVisible(m_cancelButton->isVisible());
 
         connect(m_dbusDisplay, &DisplayInterface::HasChangedChanged,
                 this, &CustomSettings::onHasChangedChanged);
@@ -308,12 +308,6 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
     buttonLayout->addWidget(m_applyButton);
     buttonLayout->addSpacing(10);
 
-    connect(m_dbusDisplay, &DisplayInterface::HasChangedChanged, buttonLayout, [this] {
-        if (m_dbusDisplay->hasChanged() || m_monitorGround->editing())
-            m_applyButton->setText(tr("Apply"));
-        else
-        { m_applyButton->setText(tr("Confirm")); }
-    });
     connect(m_monitorGround, &MonitorGround::editingChanged, buttonLayout, [this] {
         if (m_dbusDisplay->hasChanged() || m_monitorGround->editing())
             m_applyButton->setText(tr("Apply"));
@@ -478,8 +472,16 @@ void CustomSettings::updateBrightnessLayout()
 
 void CustomSettings::onHasChangedChanged()
 {
-    m_cancelButton->setVisible(m_dbusDisplay->hasChanged());
-    m_applyButton->setVisible(m_cancelButton->isVisible());
+    if (m_dbusDisplay->hasChanged() || m_monitorGround->editing()) {
+        m_applyButton->setText(tr("Apply"));
+    } else {
+        m_applyButton->setText(tr("Confirm"));
+    }
+
+    if (m_monitorNameList.count() == 1) {
+        m_cancelButton->setVisible(m_dbusDisplay->hasChanged());
+        m_applyButton->setVisible(m_cancelButton->isVisible());
+    }
 }
 
 QStringList CustomSettings::getResolutionLabels(MonitorInterface *dbus)

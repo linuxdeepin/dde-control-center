@@ -213,7 +213,9 @@ void Display::updateUI()
         displayModeExpand->setContent(m_widgetList);
 
         connect(item_settings, &DisplayModeItem::clicked, displayModeExpand, [this, displayModeExpand]{
-            m_dbusDisplay->SwitchMode(0, "");
+            if (m_dbusDisplay->displayMode() != 0) {
+                m_dbusDisplay->SwitchMode(0, "");
+            }
         }, Qt::DirectConnection);
 
         connect(item_settings, &DisplayModeItem::rightArrowClicked, [displayModeExpand, this] {
