@@ -51,9 +51,6 @@ public:
     void initControllers();
     void initConnect();
 
-    void initThemeExpand();
-    DArrowLineExpand *getThemeExpand();
-
     void initWindowExpand();
     DArrowLineExpand *getWindowExpand();
 
@@ -76,14 +73,18 @@ signals:
     void itemDeleted(QString type, QString id);
 
 public slots:
-    void updateThemeKeys(const QStringList &themeKeys);
+    void updateWindow(const QString &window);
+    void updateIcon(const QString &icon);
+    void updateCursor(const QString &window);
+    void updateWallpaper(const QString &window);
+    void updateStandardFont(const QString &window);
+    void updateMonospaceFont(const QString &window);
+
     void updateWindowKeys(const QStringList &windowKeys);
     void updateIconKeys(const QStringList &iconKeys);
     void updateCursorKeys(const QStringList &cursorKeys);
     void updateBackgroundKeys(const QStringList &backgroundKeys);
 
-    void updateThemeObjs(const JosnMapObjs &themeObjs);
-    void updateThemeButtons(const ImageInfoList &imageInfos);
     void updateWindowButtons(const ImageInfoList &imageInfos);
     void updateIconButtons(const ImageInfoList &imageInfos);
     void updateCursorButtons(const ImageInfoList &imageInfos);
@@ -92,10 +93,7 @@ public slots:
     void updateMonospaceFontCombox(const QStringList &monospaceFonts);
 
     void handleDataFinished();
-    void updateCurrentTheme(QString themeKey);
-    void highlightCurrentTheme(QString themeKey);
 
-    void setThemeByIndex(int index);
     void setWindowByIndex(int index);
     void setIconByIndex(int index);
     void setCursorByIndex(int index);
@@ -109,7 +107,6 @@ public slots:
 
 private:
     QMargins m_margins;
-    ImageInfoList m_themeImageInfos;
     ImageInfoList m_windowImageInfos;
     ImageInfoList m_iconImageInfos;
     ImageInfoList m_cursorImageInfos;
@@ -118,10 +115,6 @@ private:
     QFrame *m_frame = NULL;
 
     DHeaderLine *m_headerLine;
-
-    DArrowLineExpand *m_themeExpand = NULL;
-    DButtonGrid *m_themeButtonGrid = NULL;
-    QFrame *m_themeContentFrame = NULL;
 
     DArrowLineExpand *m_windowExpand = NULL;
     DButtonGrid *m_windowButtonGrid = NULL;
@@ -156,7 +149,6 @@ private:
     QList<DButtonGrid *> m_buttonGrids;
     QList<QFrame *> m_contentFrames;
 
-    QStringList m_themeKeys {};
     QStringList m_windowKeys {};
     QStringList m_iconKeys {};
     QStringList m_cursorKeys {};

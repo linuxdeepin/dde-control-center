@@ -2,32 +2,38 @@
 <node>
     <interface name="com.deepin.daemon.Appearance">
         <method name="Delete">
-            <arg type="s" direction="in"/>
-            <arg type="s" direction="in"/>
+             <arg type="s" direction="in"></arg>
+             <arg type="s" direction="in"></arg>
         </method>
         <method name="List">
-            <arg type="s" direction="in"/>
-            <arg type="s" direction="out"/>
+             <arg type="s" direction="in"></arg>
+             <arg type="s" direction="out"></arg>
         </method>
         <method name="Set">
-            <arg type="s" direction="in"/>
-            <arg type="s" direction="in"/>
+             <arg type="s" direction="in"></arg>
+             <arg type="s" direction="in"></arg>
         </method>
         <method name="Show">
-            <arg type="s" direction="in"/>
-            <arg type="s" direction="in"/>
-            <arg type="s" direction="out"/>
+             <arg type="s" direction="in"></arg>
+             <arg type="s" direction="in"></arg>
+             <arg type="s" direction="out"></arg>
         </method>
         <method name="Thumbnail">
-            <arg type="s" direction="in"/>
-            <arg type="s" direction="in"/>
-            <arg type="s" direction="out"/>
+             <arg type="s" direction="in"></arg>
+             <arg type="s" direction="in"></arg>
+             <arg type="s" direction="out"></arg>
         </method>
         <signal name="Changed">
-            <arg type="s"/>
-            <arg type="s"/>
+             <arg type="s"></arg>
+             <arg type="s"></arg>
         </signal>
-        <property access="read" name="Theme" type="s"/>
-        <property access="read" name="FontSize" type="i"/>
+        <property name="GtkTheme" type="s" access="readwrite"></property>
+        <property name="IconTheme" type="s" access="readwrite"></property>
+        <property name="CursorTheme" type="s" access="readwrite"></property>
+        <property name="Background" type="s" access="readwrite"></property>
+        <property name="StandardFont" type="s" access="readwrite"></property>
+        <property name="MonospaceFont" type="s" access="readwrite"></property>
+        <property name="FontSize" type="i" access="readwrite"></property>
     </interface>
 </node>
+
