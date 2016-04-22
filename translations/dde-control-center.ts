@@ -457,35 +457,35 @@
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="313"/>
-        <location filename="../modules/display/customsettings.cpp" line="319"/>
+        <location filename="../modules/display/customsettings.cpp" line="476"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="315"/>
-        <location filename="../modules/display/customsettings.cpp" line="321"/>
+        <location filename="../modules/display/customsettings.cpp" line="478"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="346"/>
+        <location filename="../modules/display/customsettings.cpp" line="340"/>
         <source>Do you want to keep these display settings?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="347"/>
-        <location filename="../modules/display/customsettings.cpp" line="355"/>
+        <location filename="../modules/display/customsettings.cpp" line="341"/>
+        <location filename="../modules/display/customsettings.cpp" line="349"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="349"/>
+        <location filename="../modules/display/customsettings.cpp" line="343"/>
         <source>Revert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="350"/>
+        <location filename="../modules/display/customsettings.cpp" line="344"/>
         <source>Keep Changes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1309,73 +1309,78 @@
 <context>
     <name>Mouse</name>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="46"/>
+        <location filename="../modules/mouse/mouse.cpp" line="52"/>
         <source>Mouse And Touchpad</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="62"/>
+        <location filename="../modules/mouse/mouse.cpp" line="68"/>
         <location filename="../modules/mouse/mouse.cpp" line="181"/>
         <source>Primary Button</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="65"/>
-        <location filename="../modules/mouse/mouse.cpp" line="148"/>
+        <location filename="../modules/mouse/mouse.cpp" line="71"/>
+        <location filename="../modules/mouse/mouse.cpp" line="154"/>
         <source>Left Button</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="66"/>
-        <location filename="../modules/mouse/mouse.cpp" line="149"/>
+        <location filename="../modules/mouse/mouse.cpp" line="72"/>
+        <location filename="../modules/mouse/mouse.cpp" line="155"/>
         <source>Right Button</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="77"/>
+        <location filename="../modules/mouse/mouse.cpp" line="83"/>
         <location filename="../modules/mouse/mouse.cpp" line="182"/>
+        <location filename="../modules/mouse/mouse.cpp" line="206"/>
         <source>Pointer Speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="94"/>
-        <location filename="../modules/mouse/mouse.cpp" line="183"/>
+        <location filename="../modules/mouse/mouse.cpp" line="100"/>
         <source>Double-click Speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="111"/>
+        <location filename="../modules/mouse/mouse.cpp" line="117"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="137"/>
+        <location filename="../modules/mouse/mouse.cpp" line="143"/>
         <source>Touchpad</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="184"/>
+        <location filename="../modules/mouse/mouse.cpp" line="183"/>
         <source>Drag Threshold</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="185"/>
+        <location filename="../modules/mouse/mouse.cpp" line="184"/>
         <source>Natural Scrolling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="186"/>
+        <location filename="../modules/mouse/mouse.cpp" line="185"/>
         <source>Tap to click</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="187"/>
+        <location filename="../modules/mouse/mouse.cpp" line="186"/>
         <source>Two-finger scrolling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="188"/>
+        <location filename="../modules/mouse/mouse.cpp" line="187"/>
         <source>Edge scrolling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mouse.cpp" line="195"/>
+        <source>Trackpoint</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

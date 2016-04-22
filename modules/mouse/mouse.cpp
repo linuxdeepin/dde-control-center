@@ -193,6 +193,7 @@ Mouse::Mouse()
     /////////////////////////////////////////////////////////////-- trackpoint header line
     m_trackpointHeaderLine = new DHeaderLine(m_label);
     m_trackpointHeaderLine->setTitle(tr("Trackpoint"));
+    m_fifthHSeparator = new DSeparatorHorizontal(m_label);
 
     m_trackpointSpeedSlider = new DSlider(Qt::Horizontal);
     m_trackpointSpeedSlider->setMinimumSize(180, 20);
@@ -203,6 +204,7 @@ Mouse::Mouse()
 
     m_trackpointSettingPanel = new ContainerWidget(m_label);
     m_trackpointSettingPanel->addRow(tr("Pointer Speed"), 0, m_trackpointSpeedSlider);
+
 
     //////////////////////////////////////////////////////////////
     // normalize the style of those labels , buttons
@@ -223,6 +225,7 @@ Mouse::Mouse()
     m_forbiddenTouchpadWhenMouseLabel->setWordWrap(true);
 
     onTouchPadExistChanged();////update widgets visible property
+    onTrackpointExistChanged();
     m_mouseSettingPanel->setVisible(m_mouseInterface->exist());
 
     layout->addWidget(m_topHeaderLine);
@@ -234,7 +237,7 @@ Mouse::Mouse()
     layout->addWidget(m_touchpadSettingPanel);
     layout->addWidget(m_fourthHSeparator);
     layout->addWidget(m_trackpointHeaderLine);
-    layout->addWidget(new DSeparatorHorizontal);
+    layout->addWidget(m_fifthHSeparator);
     layout->addWidget(m_trackpointSettingPanel);
     layout->addStretch(1);
 
@@ -313,6 +316,8 @@ Mouse::Mouse()
     });
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::existChanged,
             this, &Mouse::onTouchPadExistChanged);
+    connect(m_trackpointInterface, &TrackPointInterface::ExistChanged,
+            this, &Mouse::onTrackpointExistChanged);
 
     connect(m_trackpointSpeedSetTimer, &QTimer::timeout, this, &Mouse::setTrackpointSpeed);
     connect(m_trackpointSpeedSlider, &DSlider::valueChanged, m_trackpointSpeedSetTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
@@ -491,6 +496,15 @@ void Mouse::onTouchPadExistChanged()
         disconnect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)),
                 m_touchpadSettingPanel, SLOT(setVisible(bool)));
     }
+}
+
+void Mouse::onTrackpointExistChanged()
+{
+    bool trackpointExist = m_trackpointInterface->exist();
+
+    m_trackpointHeaderLine->setVisible(trackpointExist);
+    m_trackpointSettingPanel->setVisible(trackpointExist);
+    m_fifthHSeparator->setVisible(trackpointExist);
 }
 
 void Mouse::setTrackpointSpeed()

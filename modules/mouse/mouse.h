@@ -58,6 +58,7 @@ public slots:
     void enableTouchpadTwoFingerScroll(bool flag);
     void enableTouchpadEdgeScroll(bool flag);
     void onTouchPadExistChanged();
+    void onTrackpointExistChanged();
 
     void setTrackpointSpeed();
 
@@ -106,6 +107,7 @@ private:
     DSwitchButton *m_touchpadTwoFingerScrollSwitch;
     DSwitchButton *m_touchpadEdgeScrollSwitch ;
     DSeparatorHorizontal *m_fourthHSeparator;
+    DSeparatorHorizontal *m_fifthHSeparator;
     double m_mousePointSpeed;
     double m_touchpadPointSpeed;
     double m_trackpointSpeed;
