@@ -45,12 +45,12 @@ ChooseDelayTimeWidget::ChooseDelayTimeWidget(QString title, QWidget *parent)
 void ChooseDelayTimeWidget::setCurrentTime(int time) {
 
     switch(time) {
-    case 60: m_timeBtnGrid->checkButtonByIndex(0); m_currentNum = tr("1Minute"); break;
-    case 300: m_timeBtnGrid->checkButtonByIndex(1);m_currentNum = tr("5Minutes");break;
-    case 600: m_timeBtnGrid->checkButtonByIndex(2);m_currentNum = tr("10Minutes");break;
-    case 900: m_timeBtnGrid->checkButtonByIndex(3);m_currentNum = tr("15Minutes");break;
-    case 1800: m_timeBtnGrid->checkButtonByIndex(4);m_currentNum = tr("30Minutes");break;
-    case 3600: m_timeBtnGrid->checkButtonByIndex(5);m_currentNum = tr("1Hour");break;
+    case 60: m_timeBtnGrid->checkButtonByIndex(0); m_currentNum = tr("1 Minute"); break;
+    case 300: m_timeBtnGrid->checkButtonByIndex(1);m_currentNum = tr("5 Minutes");break;
+    case 600: m_timeBtnGrid->checkButtonByIndex(2);m_currentNum = tr("10 Minutes");break;
+    case 900: m_timeBtnGrid->checkButtonByIndex(3);m_currentNum = tr("15 Minutes");break;
+    case 1800: m_timeBtnGrid->checkButtonByIndex(4);m_currentNum = tr("30 Minutes");break;
+    case 3600: m_timeBtnGrid->checkButtonByIndex(5);m_currentNum = tr("1 Hour");break;
     case 0: m_timeBtnGrid->checkButtonByIndex(6);m_currentNum = tr("Never");break;
     default: break;
     }
@@ -60,12 +60,12 @@ void ChooseDelayTimeWidget::setCurrentTime(int time) {
 void ChooseDelayTimeWidget::handleCurrentItemIndexChanged(int index) {
     qDebug() << "handle:" << index;
     switch (index) {
-    case 0:emit currentTimeChanged(60);m_currentNum = tr("1Minute");break;
-    case 1:emit currentTimeChanged(300);m_currentNum = tr("5Minutes");break;
-    case 2:emit currentTimeChanged(600);m_currentNum = tr("10Minutes");break;
-    case 3:emit currentTimeChanged(900);m_currentNum = tr("15Minutes");break;
-    case 4:emit currentTimeChanged(1800);m_currentNum = tr("30Minutes");break;
-    case 5:emit currentTimeChanged(3600);m_currentNum = tr("1Hour");break;
+    case 0:emit currentTimeChanged(60);m_currentNum = tr("1 Minute");break;
+    case 1:emit currentTimeChanged(300);m_currentNum = tr("5 Minutes");break;
+    case 2:emit currentTimeChanged(600);m_currentNum = tr("10 Minutes");break;
+    case 3:emit currentTimeChanged(900);m_currentNum = tr("15 Minutes");break;
+    case 4:emit currentTimeChanged(1800);m_currentNum = tr("30 Minutes");break;
+    case 5:emit currentTimeChanged(3600);m_currentNum = tr("1 Hour");break;
     case 6:emit currentTimeChanged(0);m_currentNum = tr("Never");break;
     default:break;
     }

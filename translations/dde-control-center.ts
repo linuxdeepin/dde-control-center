@@ -231,37 +231,37 @@
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="48"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="63"/>
-        <source>1Minute</source>
+        <source>1 Minute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="49"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="64"/>
-        <source>5Minutes</source>
+        <source>5 Minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="50"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="65"/>
-        <source>10Minutes</source>
+        <source>10 Minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="51"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="66"/>
-        <source>15Minutes</source>
+        <source>15 Minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="52"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="67"/>
-        <source>30Minutes</source>
+        <source>30 Minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="53"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="68"/>
-        <source>1Hour</source>
+        <source>1 Hour</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -516,48 +516,48 @@
 <context>
     <name>DateTimePlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="147"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="145"/>
         <source>MMM dd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="148"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="146"/>
         <source> hh:mm </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="148"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="282"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="146"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="280"/>
         <source> hh:mm A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="149"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="147"/>
         <source>ddd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="150"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="148"/>
         <source>ddd MMM dd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="203"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="201"/>
         <source>Switch display mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="205"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="203"/>
         <source>Show week</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="206"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="204"/>
         <source>Show date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="209"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="207"/>
         <source>Date&amp;Time settings(_T)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1554,7 +1554,7 @@
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="122"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="261"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="259"/>
         <source>dddd, dd MMMM yyyy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1598,53 +1598,48 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="124"/>
-        <source>Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/personalization/personalization.cpp" line="145"/>
+        <location filename="../modules/personalization/personalization.cpp" line="125"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="169"/>
+        <location filename="../modules/personalization/personalization.cpp" line="151"/>
         <source>Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="202"/>
+        <location filename="../modules/personalization/personalization.cpp" line="186"/>
         <source>Cursor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="233"/>
+        <location filename="../modules/personalization/personalization.cpp" line="219"/>
         <source>Wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="256"/>
+        <location filename="../modules/personalization/personalization.cpp" line="244"/>
         <source>Fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="258"/>
+        <location filename="../modules/personalization/personalization.cpp" line="246"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="259"/>
+        <location filename="../modules/personalization/personalization.cpp" line="247"/>
         <source>Monospaced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="260"/>
+        <location filename="../modules/personalization/personalization.cpp" line="248"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="275"/>
-        <location filename="../modules/personalization/personalization.cpp" line="645"/>
+        <location filename="../modules/personalization/personalization.cpp" line="263"/>
+        <location filename="../modules/personalization/personalization.cpp" line="597"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1653,12 +1648,12 @@
     <name>Power</name>
     <message>
         <location filename="../modules/power/power.cpp" line="43"/>
-        <source>The display suspended</source>
+        <source>Display will suspend after</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="44"/>
-        <source>The computer suspended</source>
+        <source>Computer will suspend after</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1673,7 +1668,7 @@
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="50"/>
-        <source>The notebook suspended when close the lid</source>
+        <source>The notebook will suspend when close the lid</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

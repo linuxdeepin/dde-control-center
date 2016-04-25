@@ -40,14 +40,14 @@ Power::~Power()
 }
 
 void Power::initUI() {
-    m_screenBlackTimeWidget = new ChooseDelayTimeWidget(tr("The display suspended"));
-    m_sleepTimeWidget = new ChooseDelayTimeWidget(tr("The computer suspended"));
+    m_screenBlackTimeWidget = new ChooseDelayTimeWidget(tr("Display will suspend after"));
+    m_sleepTimeWidget = new ChooseDelayTimeWidget(tr("Computer will suspend after"));
     dsHorizontalFirst = new DSeparatorHorizontal;
     m_screenBlackSwitchWidget = new PowerSwitchWidget(tr("Password required to wake the display"));
     dsHorizontalSecond = new DSeparatorHorizontal;
     m_sleepSwitchWidget = new PowerSwitchWidget(tr("Password required to wake the computer"));
     dsHorizontalThird = new DSeparatorHorizontal;
-    m_lidCloseSwitchWidget = new PowerSwitchWidget(tr("The notebook suspended when close the lid"));
+    m_lidCloseSwitchWidget = new PowerSwitchWidget(tr("The notebook will suspend when close the lid"));
     dsHorizontalFourth = new DSeparatorHorizontal;
 
     QVBoxLayout* m_Layout = new QVBoxLayout(m_frame);

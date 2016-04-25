@@ -359,38 +359,62 @@
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="48"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="63"/>
-        <source>1Minute</source>
-        <translation>1分钟</translation>
+        <source>1 Minute</source>
+        <translation>1  分钟</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="49"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="64"/>
-        <source>5Minutes</source>
-        <translation>分钟</translation>
+        <source>5 Minutes</source>
+        <translation>5  分钟</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="50"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="65"/>
-        <source>10Minutes</source>
-        <translation>10分钟</translation>
+        <source>10 Minutes</source>
+        <translation>10 分钟</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="51"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="66"/>
-        <source>15Minutes</source>
-        <translation>15分钟</translation>
+        <source>15 Minutes</source>
+        <translation>15 分钟</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="52"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="67"/>
-        <source>30Minutes</source>
-        <translation>30分钟</translation>
+        <source>30 Minutes</source>
+        <translation>30 分钟</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="53"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="68"/>
+        <source>1 Hour</source>
+        <translation>1 小时</translation>
+    </message>
+    <message>
+        <source>1Minute</source>
+        <translation type="vanished">1分钟</translation>
+    </message>
+    <message>
+        <source>5Minutes</source>
+        <translation type="vanished">分钟</translation>
+    </message>
+    <message>
+        <source>10Minutes</source>
+        <translation type="vanished">10分钟</translation>
+    </message>
+    <message>
+        <source>15Minutes</source>
+        <translation type="vanished">15分钟</translation>
+    </message>
+    <message>
+        <source>30Minutes</source>
+        <translation type="vanished">30分钟</translation>
+    </message>
+    <message>
         <source>1Hour</source>
-        <translation>1小时</translation>
+        <translation type="vanished">1小时</translation>
     </message>
 </context>
 <context>
@@ -649,35 +673,35 @@
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="313"/>
-        <location filename="../modules/display/customsettings.cpp" line="319"/>
+        <location filename="../modules/display/customsettings.cpp" line="476"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="315"/>
-        <location filename="../modules/display/customsettings.cpp" line="321"/>
+        <location filename="../modules/display/customsettings.cpp" line="478"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="346"/>
+        <location filename="../modules/display/customsettings.cpp" line="340"/>
         <source>Do you want to keep these display settings?</source>
         <translation>是否要保留这些显示设置？</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="347"/>
-        <location filename="../modules/display/customsettings.cpp" line="355"/>
+        <location filename="../modules/display/customsettings.cpp" line="341"/>
+        <location filename="../modules/display/customsettings.cpp" line="349"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation>&lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt;秒后恢复之前的显示设置</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="349"/>
+        <location filename="../modules/display/customsettings.cpp" line="343"/>
         <source>Revert</source>
         <translation>还原</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="350"/>
+        <location filename="../modules/display/customsettings.cpp" line="344"/>
         <source>Keep Changes</source>
         <translation>保留更改</translation>
     </message>
@@ -727,48 +751,48 @@
 <context>
     <name>DateTimePlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="147"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="145"/>
         <source>MMM dd</source>
         <translation>MMMdd日</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="148"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="146"/>
         <source> hh:mm </source>
         <translation> hh:mm</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="148"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="282"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="146"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="280"/>
         <source> hh:mm A</source>
         <translation> A hh:mm</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="149"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="147"/>
         <source>ddd</source>
         <translation>dddd</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="150"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="148"/>
         <source>ddd MMM dd</source>
         <translation>MMMdd日 dddd</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="203"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="201"/>
         <source>Switch display mode</source>
         <translation>切换显示方式</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="205"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="203"/>
         <source>Show week</source>
         <translation>显示星期几</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="206"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="204"/>
         <source>Show date</source>
         <translation>显示日期</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="209"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="207"/>
         <source>Date&amp;Time settings(_T)</source>
         <translation>时间设置(_T)</translation>
     </message>
@@ -1520,74 +1544,79 @@
 <context>
     <name>Mouse</name>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="46"/>
+        <location filename="../modules/mouse/mouse.cpp" line="52"/>
         <source>Mouse And Touchpad</source>
         <translation>鼠标和触摸板</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="62"/>
+        <location filename="../modules/mouse/mouse.cpp" line="68"/>
         <location filename="../modules/mouse/mouse.cpp" line="181"/>
         <source>Primary Button</source>
         <translation>主按键</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="65"/>
-        <location filename="../modules/mouse/mouse.cpp" line="148"/>
+        <location filename="../modules/mouse/mouse.cpp" line="71"/>
+        <location filename="../modules/mouse/mouse.cpp" line="154"/>
         <source>Left Button</source>
         <translation>左键</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="66"/>
-        <location filename="../modules/mouse/mouse.cpp" line="149"/>
+        <location filename="../modules/mouse/mouse.cpp" line="72"/>
+        <location filename="../modules/mouse/mouse.cpp" line="155"/>
         <source>Right Button</source>
         <translation>右键</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="77"/>
+        <location filename="../modules/mouse/mouse.cpp" line="83"/>
         <location filename="../modules/mouse/mouse.cpp" line="182"/>
+        <location filename="../modules/mouse/mouse.cpp" line="206"/>
         <source>Pointer Speed</source>
         <translation>指针移动速度</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="94"/>
-        <location filename="../modules/mouse/mouse.cpp" line="183"/>
+        <location filename="../modules/mouse/mouse.cpp" line="100"/>
         <source>Double-click Speed</source>
         <translation>双击速度</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="111"/>
+        <location filename="../modules/mouse/mouse.cpp" line="117"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>插入鼠标时禁用触摸板</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="137"/>
+        <location filename="../modules/mouse/mouse.cpp" line="143"/>
         <source>Touchpad</source>
         <translation>触摸板</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="184"/>
+        <location filename="../modules/mouse/mouse.cpp" line="183"/>
         <source>Drag Threshold</source>
         <translation>拖动阈值</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="185"/>
+        <location filename="../modules/mouse/mouse.cpp" line="184"/>
         <source>Natural Scrolling</source>
         <translation>自然滚动</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="186"/>
+        <location filename="../modules/mouse/mouse.cpp" line="185"/>
         <source>Tap to click</source>
         <translation>轻触以点击</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="187"/>
+        <location filename="../modules/mouse/mouse.cpp" line="186"/>
         <source>Two-finger scrolling</source>
         <translation>双指滚动</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="188"/>
+        <location filename="../modules/mouse/mouse.cpp" line="187"/>
         <source>Edge scrolling</source>
         <translation>边缘滚动</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mouse.cpp" line="195"/>
+        <source>Trackpoint</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1760,7 +1789,7 @@
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="122"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="261"/>
+        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="259"/>
         <source>dddd, dd MMMM yyyy</source>
         <translation>yyyy年MMMdd日 dddd</translation>
     </message>
@@ -1804,53 +1833,52 @@
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="124"/>
         <source>Theme</source>
-        <translation>主题</translation>
+        <translation type="vanished">主题</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="145"/>
+        <location filename="../modules/personalization/personalization.cpp" line="125"/>
         <source>Window</source>
         <translation>窗口</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="169"/>
+        <location filename="../modules/personalization/personalization.cpp" line="151"/>
         <source>Icon</source>
         <translation>图标</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="202"/>
+        <location filename="../modules/personalization/personalization.cpp" line="186"/>
         <source>Cursor</source>
         <translation>光标</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="233"/>
+        <location filename="../modules/personalization/personalization.cpp" line="219"/>
         <source>Wallpaper</source>
         <translation>壁纸</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="256"/>
+        <location filename="../modules/personalization/personalization.cpp" line="244"/>
         <source>Fonts</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="258"/>
+        <location filename="../modules/personalization/personalization.cpp" line="246"/>
         <source>Standard</source>
         <translation>标准</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="259"/>
+        <location filename="../modules/personalization/personalization.cpp" line="247"/>
         <source>Monospaced</source>
         <translation>等宽</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="260"/>
+        <location filename="../modules/personalization/personalization.cpp" line="248"/>
         <source>Size</source>
         <translation>大小</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="275"/>
-        <location filename="../modules/personalization/personalization.cpp" line="645"/>
+        <location filename="../modules/personalization/personalization.cpp" line="263"/>
+        <location filename="../modules/personalization/personalization.cpp" line="597"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
@@ -1910,13 +1938,21 @@
         <translation type="vanished">合上笔记本盖子</translation>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="43"/>
         <source>The display suspended</source>
+        <translation type="vanished">显示器进入睡眠</translation>
+    </message>
+    <message>
+        <source>The computer suspended</source>
+        <translation type="vanished">电脑进入睡眠</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/power.cpp" line="43"/>
+        <source>Display will suspend after</source>
         <translation>显示器进入睡眠</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="44"/>
-        <source>The computer suspended</source>
+        <source>Computer will suspend after</source>
         <translation>电脑进入睡眠</translation>
     </message>
     <message>
@@ -1931,8 +1967,12 @@
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="50"/>
-        <source>The notebook suspended when close the lid</source>
+        <source>The notebook will suspend when close the lid</source>
         <translation>笔记本合盖时睡眠</translation>
+    </message>
+    <message>
+        <source>The notebook suspended when close the lid</source>
+        <translation type="vanished">笔记本合盖时睡眠</translation>
     </message>
 </context>
 <context>
