@@ -52,9 +52,12 @@ ShortcutDbus::ShortcutDbus(QObject *parent)
     connect(this, &ShortcutDbus::Deleted, this, &ShortcutDbus::onDeleted);
 
     QStringList list;
-    list << "launcher" << "show-desktop" << "lock-screen" << "file-manager" << "screenshot"
-         << "screenshot-window" << "screenshot-delayed" << "terminal" << "terminal-quake"
-         << "logout" << "switch-layout" << "preview-workspace" << "expose-windows" << "expose-all-windows"
+    list << "launcher" << "show-desktop" << "lock-screen" << "file-manager"
+#if !defined(PLATFORM_SUNWAY) && !defined(PLATFORM_MIPSEL)
+         << "screenshot" << "screenshot-window" << "screenshot-delayed"
+#endif
+         << "terminal" << "terminal-quake" << "logout" << "switch-layout"
+         << "preview-workspace" << "expose-windows" << "expose-all-windows"
          << "switch-group" << "switch-group-backward" << "switch-applications"
 #if !defined(PLATFORM_SUNWAY) && !defined(ARCH_MIPSEL)
          << "switch-applications-backward" << "wm-switcher";
