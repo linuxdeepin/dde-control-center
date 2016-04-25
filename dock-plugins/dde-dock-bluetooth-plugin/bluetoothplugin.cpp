@@ -109,11 +109,15 @@ void BluetoothPlugin::addItem(const QString &path)
 void BluetoothPlugin::changeMode(Dock::DockMode newMode, Dock::DockMode oldMode)
 {
     for (const QString& id : ids()) {
-        if (newMode == Dock::FashionMode) {
+//        if (newMode == Dock::FashionMode) {
+//            removeItem(id);
+//        } else if(oldMode == Dock::FashionMode){
+//            addItem(id);
+//        }
+        if (oldMode != Dock::FashionMode)
             removeItem(id);
-        } else if(oldMode == Dock::FashionMode){
+        if (newMode != Dock::FashionMode)
             addItem(id);
-        }
 
         m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeConfigurable, id);
         m_proxy->infoChangedEvent(DockPluginInterface::InfoTypeEnable, id);
