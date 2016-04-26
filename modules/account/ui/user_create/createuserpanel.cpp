@@ -203,8 +203,10 @@ void CreateUserPanel::resetData()
     m_nameLine->hideWarning();
     m_passwdNew->setText("");
     m_passwdNew->hideWarning();
+    m_passwdNew->passwordEdit()->setEchoMode(QLineEdit::Password);
     m_passwdRepeat->setText("");
     m_passwdRepeat->hideWarning();
+    m_passwdRepeat->passwordEdit()->setEchoMode(QLineEdit::Password);
     m_accountType->setType(0);
     m_autoLogin->setCheck(false);
     m_randIcon = m_account->RandUserIcon().value();
