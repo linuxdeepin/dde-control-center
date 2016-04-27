@@ -29,21 +29,19 @@ PowerManagement::PowerManagement(QWidget *parent)
     QFont myFont;
     QFontMetrics fontMetrics(myFont);
     m_moduleNameLabel->setFixedWidth(fontMetrics.width(powerName)+19);
-    m_shortSeparatorLine = new QLabel;
-    m_shortSeparatorLine->setFixedSize(5, 2);
-    m_shortSeparatorLine->setStyleSheet("background-color: rgb(79, 79, 79)");
+
     m_batteryPercentageLabel = new DBreathingLabel("100%", this);
     m_batteryPercentageLabel->setColor(DCC::TextNormalColor);
     m_moduleTitleLayout = new QHBoxLayout;
     m_moduleTitleLayout->setMargin(0);
     m_moduleTitleLayout->setSpacing(0);
     m_moduleTitleLayout->addWidget(m_moduleNameLabel);
-    m_moduleTitleLayout->addWidget(m_shortSeparatorLine);
+    m_moduleTitleLayout->addSpacing(10);
     m_moduleTitleLayout->addStretch(1);
     m_powerTitleLabel->setLayout(m_moduleTitleLayout);
 
     m_powerTitleLabel->sizeHint();
-    m_batteryPercentageLabel->move(fontMetrics.width(powerName)+38, m_shortSeparatorLine->y()+10);
+    m_batteryPercentageLabel->move(fontMetrics.width(powerName)+38, 10);
 
     m_powerModuleHeader = new ModuleHeader(m_powerTitleLabel);
 
@@ -107,10 +105,8 @@ void PowerManagement::setbatteryExist(bool batteryIsPresent) {
     m_batteryIsPresent = batteryIsPresent;
 
     if (!m_batteryIsPresent) {
-        m_shortSeparatorLine->hide();
         m_batteryPercentageLabel->hide();
     } else {
-        m_shortSeparatorLine->show();
         m_batteryPercentageLabel->show();
     }
 

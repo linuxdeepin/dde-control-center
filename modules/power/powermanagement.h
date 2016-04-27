@@ -50,7 +50,6 @@ private:
     QLabel *m_powerTitleLabel;
 
 
-    QLabel* m_shortSeparatorLine;
     DBreathingLabel* m_batteryPercentageLabel;
     QList<BatteryItem> m_batteryInfoList;
 
