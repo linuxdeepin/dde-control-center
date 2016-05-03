@@ -110,7 +110,6 @@ void UserExpandContent::initSegmentedControl()
     m_segmentedControl = new DSegmentedControl(this);
     m_segmentedControl->addSegmented(tr("Recently Used"));
     m_segmentedControl->addSegmented(tr("Avatar"));
-    m_segmentedControl->addSegmented(tr("Webcam"));
     m_segmentedControl->setCurrentIndex(1);
 
     m_segmentedFrame = new QFrame;
@@ -124,18 +123,7 @@ void UserExpandContent::initSegmentedControl()
 void UserExpandContent::initAvatarPanel()
 {
     m_historyAvatarGrid = new AvatarGrid(AvatarGrid::HistoryGrid, m_userPath, this);
-    m_allAvatarGrid = new AvatarGrid(AvatarGrid::NormalGrid, m_userPath, this);
-    m_cameraPanel = new WebcamAvatarPanel(this);
-    connect(m_historyAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
-    connect(m_allAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
-    connect(m_cameraPanel, &WebcamAvatarPanel::selectedAvatar, this, &UserExpandContent::onAvatarSelected);
-    connect(this, &UserExpandContent::changeToSetting, [=](bool value){
-        if (!value)
-            m_cameraPanel->turnOffCamera();
-        else if (m_stackWidget->currentIndex() == 2) {//camera stack
-            m_cameraPanel->turnOnCamera();
-        }
-    });
+    m_allAvatarGrid = new AvatarGrid(AvatarGrid::NormalGrid, m_userPath, this);\
 
     m_stackWidget = new QStackedWidget(this);
     connect(m_segmentedControl, &DSegmentedControl::currentChanged, m_stackWidget, &QStackedWidget::setCurrentIndex);
@@ -161,7 +149,6 @@ void UserExpandContent::initAvatarPanel()
 
     m_stackWidget->addWidget(m_historyAvatarGrid);
     m_stackWidget->addWidget(m_allAvatarGrid);
-    m_stackWidget->addWidget(m_cameraPanel);
     m_stackWidget->setCurrentIndex(1);
 
     m_mainLayout->addWidget(m_stackWidget, 0, Qt::AlignHCenter);
@@ -353,16 +340,12 @@ void UserExpandContent::updatemAvatarGridSize(int stackIndex)
     QSize ns;
     switch (stackIndex) {
     case 0:
-        m_cameraPanel->turnOffCamera();
         ns = m_historyAvatarGrid->size();
         break;
     case 1:
-        m_cameraPanel->turnOffCamera();
         ns = m_allAvatarGrid->size();
         break;
     default:
-        m_cameraPanel->turnOnCamera();
-        ns = m_cameraPanel->size();
         break;
     }
 

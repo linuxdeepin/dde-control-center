@@ -63,7 +63,6 @@ private:
     DBusAccountUser *m_accountUser = NULL;
     AvatarGrid *m_allAvatarGrid = NULL;
     AvatarGrid *m_historyAvatarGrid = NULL;
-    WebcamAvatarPanel *m_cameraPanel = NULL;
     QStackedWidget *m_stackWidget = NULL;
     QFrame *m_segmentedFrame = NULL;
     DSegmentedControl *m_segmentedControl = NULL;
