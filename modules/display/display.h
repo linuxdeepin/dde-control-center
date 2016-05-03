@@ -14,7 +14,7 @@
 #include <QtPlugin>
 
 #include <darrowlineexpand.h>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 
 #include "interfaces.h"
 

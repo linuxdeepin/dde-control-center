@@ -8,7 +8,7 @@
  **/
 
 #include <dthememanager.h>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <dlineedit.h>
 #include <dtextbutton.h>
 #include <dheaderline.h>

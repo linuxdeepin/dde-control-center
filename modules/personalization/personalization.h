@@ -17,7 +17,7 @@
 #include <QJsonObject>
 #include <QScrollArea>
 #include "interfaces.h"
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <darrowlineexpand.h>
 #include <dbuttongrid.h>
 #include <dexpandgroup.h>

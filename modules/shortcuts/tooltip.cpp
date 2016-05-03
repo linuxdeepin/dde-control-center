@@ -10,7 +10,7 @@
 #include <QDebug>
 #include <QVariant>
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <dthememanager.h>
 
 #include "tooltip.h"

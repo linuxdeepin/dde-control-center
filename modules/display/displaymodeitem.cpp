@@ -12,7 +12,7 @@
 #include <QLabel>
 #include <QDebug>
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <dthememanager.h>
 #include <dseparatorhorizontal.h>
 

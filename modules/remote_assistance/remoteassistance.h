@@ -12,7 +12,7 @@
 
 #include <QObject>
 #include <QScopedPointer>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include "interfaces.h"
 #include "dbus/manager.h"
 

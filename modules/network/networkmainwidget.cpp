@@ -11,7 +11,7 @@
 #include <QVBoxLayout>
 
 #include <dthememanager.h>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <dseparatorhorizontal.h>
 #include <dswitchbutton.h>
 #include <dtextbutton.h>

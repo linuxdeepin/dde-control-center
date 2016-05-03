@@ -14,7 +14,7 @@
 #include <QPropertyAnimation>
 #include <QTimer>
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 
 class DynamicLabel : public QFrame
 {

@@ -14,7 +14,7 @@
 #include <QVBoxLayout>
 #include <QLabel>
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <dsegmentedcontrol.h>
 
 #include "listwidget.h"

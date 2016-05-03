@@ -13,7 +13,7 @@
 #include <QFrame>
 #include <QVBoxLayout>
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <dheaderline.h>
 #include <dexpandgroup.h>
 #include <darrowlineexpand.h>

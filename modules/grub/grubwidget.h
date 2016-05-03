@@ -15,7 +15,7 @@
 
 #include <darrowlineexpand.h>
 #include <dheaderline.h>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <dbuttonlist.h>
 
 #include "grubbackground.h"

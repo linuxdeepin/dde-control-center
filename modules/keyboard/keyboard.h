@@ -15,7 +15,7 @@
 #include <QRunnable>
 #include <QSettings>
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <dbuttonlist.h>
 
 #include "interfaces.h"

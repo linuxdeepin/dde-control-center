@@ -11,7 +11,7 @@
 #define ADDVPNPAGE_H
 
 #include <dboxwidget.h>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 
 #include "dbus/dbusconnectionsession.h"
 

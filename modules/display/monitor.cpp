@@ -15,7 +15,7 @@
 #include <QDebug>
 #include <QTimer>
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <dthememanager.h>
 
 #include "monitor.h"

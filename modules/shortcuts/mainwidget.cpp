@@ -16,7 +16,7 @@
 #include <dlineedit.h>
 #include <dimagebutton.h>
 #include <dthememanager.h>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 
 #include "imagenamebutton.h"
 #include "addrmdoneline.h"

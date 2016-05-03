@@ -27,7 +27,7 @@
 
 #include <dbaseline.h>
 #include <dseparatorhorizontal.h>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <darrowlineexpand.h>
 #include <dboxwidget.h>
 

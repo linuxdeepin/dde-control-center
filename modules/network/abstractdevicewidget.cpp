@@ -10,7 +10,7 @@
 #include <QDebug>
 #include <QPushButton>
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <dthememanager.h>
 
 #include "constants.h"

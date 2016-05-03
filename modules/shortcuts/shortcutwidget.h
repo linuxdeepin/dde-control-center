@@ -16,7 +16,7 @@
 #include <QPropertyAnimation>
 #include <QPushButton>
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 
 #include "searchlist.h"
 #include "shortcutedit.h"

@@ -9,7 +9,7 @@
 
 #include <QLineEdit>
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 
 #include "editlinecombobox.h"
 #include "networkglobal.h"

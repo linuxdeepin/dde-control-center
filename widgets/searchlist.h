@@ -10,7 +10,7 @@
 #ifndef SEARCHLIST_H
 #define SEARCHLIST_H
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 
 #include "private/searchdbus.h"
 #include "listwidget.h"

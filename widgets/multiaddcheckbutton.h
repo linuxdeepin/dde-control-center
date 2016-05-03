@@ -11,7 +11,7 @@
 #define MULTIADDCHECKBUTTON_H
 
 #include <dimagebutton.h>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 
 DWIDGET_USE_NAMESPACE
 

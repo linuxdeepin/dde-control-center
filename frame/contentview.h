@@ -16,7 +16,7 @@
 #include <QPropertyAnimation>
 
 #include <dseparatorvertical.h>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 
 #include "modulemetadata.h"
 #include "pluginsmanager.h"

@@ -10,7 +10,7 @@
 #include <QVariant>
 #include <QMouseEvent>
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <dthememanager.h>
 #include <dconstants.h>
 #include <dloadingindicator.h>

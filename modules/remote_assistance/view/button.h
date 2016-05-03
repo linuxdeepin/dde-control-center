@@ -11,7 +11,7 @@
 #define WIDGET_H_NZTWOD8T
 
 #include <QFrame>
-#include "libdui_global.h"
+#include "dwidget_global.h"
 
 DWIDGET_BEGIN_NAMESPACE
 class DImageButton;

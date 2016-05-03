@@ -11,7 +11,7 @@
 #define ABSTRACTVIEW_H
 
 #include <QFrame>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 
 class QVBoxLayout;
 class QHBoxLayout;

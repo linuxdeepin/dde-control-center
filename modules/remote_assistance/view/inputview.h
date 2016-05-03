@@ -12,7 +12,7 @@
 
 #include <QString>
 #include "abstractview.h"
-#include <libdui_global.h>
+#include <dwidget_global.h>
 
 class QLineEdit;
 class QLabel;

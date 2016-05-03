@@ -11,7 +11,7 @@
 #define ADDRMDONELINE_H
 
 #include <dbaseline.h>
-#include <libdui_global.h>
+#include <dwidget_global.h>
 #include <dtextbutton.h>
 
 #include "dbreathinglabel.h"

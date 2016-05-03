@@ -12,7 +12,7 @@
 
 #include <QString>
 
-#include <libdui_global.h>
+#include <dwidget_global.h>
 
 #include "abstractpanel.h"
 #include "../controller/access.h"
