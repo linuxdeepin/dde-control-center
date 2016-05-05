@@ -77,9 +77,10 @@ void Personalization::initUI()
 
 void Personalization::initControllers()
 {
-    m_dbusWorker = new DBusWorker;
-    m_dbusWorker->moveToThread(&m_workerThread);
-    connect(&m_workerThread, &QThread::finished, m_dbusWorker, &QObject::deleteLater);
+    m_dbusWorker = new DBusWorker(this);
+    m_workerThread = new QThread(this);
+    m_dbusWorker->moveToThread(m_workerThread);
+    connect(m_workerThread, &QThread::finished, m_dbusWorker, &QObject::deleteLater);
     connect(this, &Personalization::dataRequested, m_dbusWorker, &DBusWorker::doWork);
 
     connect(m_dbusWorker, &DBusWorker::windowChanged, this, &Personalization::updateWindow);
@@ -103,7 +104,7 @@ void Personalization::initControllers()
 
     connect(m_dbusWorker, &DBusWorker::fontSizeChanged, this, &Personalization::setFontLabel);
     connect(m_dbusWorker, &DBusWorker::dataFinished, this, &Personalization::handleDataFinished);
-    m_workerThread.start();
+    m_workerThread->start();
 }
 
 void Personalization::initConnect()
@@ -617,7 +618,7 @@ void Personalization::handleDataDeleteRefrehed(QString id)
 Personalization::~Personalization()
 {
     qDebug() << "~Personalization()";
-    m_workerThread.quit();
-    m_workerThread.wait();
+    m_workerThread->quit();
+    m_workerThread->wait();
     m_frame->deleteLater();
 }

@@ -85,6 +85,7 @@ int main(int argv, char *args[])
 
     // initialize logging
     LogManager::instance()->debug_log_console_on();
+    LogManager::instance()->initConsoleAppender();
     Frame frame;
     DBusControlCenterService adaptor(&frame);
     QDBusConnection conn = QDBusConnection::sessionBus();

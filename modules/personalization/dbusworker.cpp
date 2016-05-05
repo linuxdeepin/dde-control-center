@@ -41,6 +41,8 @@ DBusWorker::DBusWorker(QObject *parent) : QObject(parent)
         qDebug() << "AppearanceDaemonInterface::Changed" << str1 << val;
 
         if (str1 == staticTypeKeys.value("TypeBackground")) {
+            getDetails(staticTypeKeys.value("TypeBackground"), m_backgroundKeys, m_backgroundObjs, m_backgroundDetails);
+            emit backgroundDetailsChanged(m_backgroundDetails);
             emit backgroundChanged(val);
             return;
         }
@@ -218,6 +220,7 @@ void DBusWorker::deleteItem(QString Type, QString Key)
             getDetails(staticTypeKeys.value("TypeBackground"), m_backgroundKeys, m_backgroundObjs, m_backgroundDetails);
             emit backgroundKeysChanged(m_backgroundKeys);
             emit backgroundDetailsChanged(m_backgroundDetails);
+            emit backgroundChanged(m_appearanceDaemonInterface->background());
         }
     } else {
         qDebug() << reply.error().message();

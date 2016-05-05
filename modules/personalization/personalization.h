@@ -144,7 +144,7 @@ private:
 
 
     DBusWorker *m_dbusWorker = NULL;
-    QThread m_workerThread;
+    QThread *m_workerThread;
 
     QList<DButtonGrid *> m_buttonGrids;
     QList<QFrame *> m_contentFrames;
