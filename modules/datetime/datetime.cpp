@@ -399,17 +399,20 @@ void Datetime::loadZoneList()
     // get timezone info list
     m_zoneInfoList = new QList<ZoneInfo>;
 
-    // try to read config file
-    QByteArray bytes = m_settings->value(zoneInfoListKey).toByteArray();
-    QDataStream readStream(&bytes, QIODevice::ReadOnly);
-    readStream >> *m_zoneInfoList;
+    if (m_settings->value("version").toString() == qApp->applicationVersion())
+    {
+        // try to read config file
+        QByteArray bytes = m_settings->value(zoneInfoListKey).toByteArray();
+        QDataStream readStream(&bytes, QIODevice::ReadOnly);
+        readStream >> *m_zoneInfoList;
 
-    // FIXME: 读文件有时会出现由于文件错误而导致数据不正常，所以简单验证一下数据
-    if (!m_zoneInfoList->isEmpty() &&
-        !m_zoneInfoList->first().getZoneName().isEmpty() &&
-        !m_zoneInfoList->first().getZoneCity().isEmpty() &&
-        abs(m_zoneInfoList->first().getUTCOffset()) <= 3600 * 24)
-        return;
+        // FIXME: 读文件有时会出现由于文件错误而导致数据不正常，所以简单验证一下数据
+        if (!m_zoneInfoList->isEmpty() &&
+            !m_zoneInfoList->first().getZoneName().isEmpty() &&
+            !m_zoneInfoList->first().getZoneCity().isEmpty() &&
+            abs(m_zoneInfoList->first().getUTCOffset()) <= 3600 * 24)
+            return;
+    }
 
     qDebug() << "load zoneInfoList from d-bus";
 
@@ -442,4 +445,5 @@ void Datetime::loadZoneList()
     writeStream << *m_zoneInfoList;
 
     m_settings->setValue(zoneInfoListKey, writeBytes);
+    m_settings->setValue("version", qApp->applicationVersion());
 }
