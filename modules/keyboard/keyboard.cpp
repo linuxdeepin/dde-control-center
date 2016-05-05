@@ -414,9 +414,7 @@ void Keyboard::initUI()
     m_letterClassifyList->setFixedWidth(310);
     m_mainLayout->insertWidget(10, m_letterClassifyList);
 
-#ifndef DCC_DISABLE_LANG_SETTING
     QTimer::singleShot(400, this, SLOT(loadLater()));
-#endif
 }
 
 void Keyboard::run()
@@ -455,6 +453,7 @@ void Keyboard::run()
 
 void Keyboard::loadLater()
 {
+#ifndef DCC_DISABLE_LANG_SETTING
     QList<LocaleInfo> langList;
     QByteArray readBytes = m_settings->value("LangList").toByteArray();
     QDataStream readStream(&readBytes, QIODevice::ReadOnly);
@@ -478,6 +477,7 @@ void Keyboard::loadLater()
             m_settings->setValue("LangList", writeBytes);
         });
     }
+#endif
 
     // load classify
     connect(this, &Keyboard::addLayoutItem, this, &Keyboard::onAddLayoutItem, Qt::QueuedConnection);
