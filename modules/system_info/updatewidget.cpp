@@ -378,16 +378,14 @@ void UpdateWidget::refreshProgress(UpdateWidget::UpgradeState state)
     switch (state)
     {
     case NotStart:
-        // do nothing
+    case SysFail:
+        m_updateProgress->hideLoading();
+        m_updateProgress->topLabel()->setPixmap(QPixmap(":/images/images/start.png"));
         break;
     case SysUpGrading:
         m_updateProgress->topLabel()->clear();
         m_updateProgress->showLoading();
         disableAppsUpgrade();
-        break;
-    case SysFail:
-        m_updateProgress->hideLoading();
-        m_updateProgress->topLabel()->setPixmap(QPixmap(":/images/images/start.png"));
         break;
     default:            qDebug() << "refresh Progress" << state << m_upgradeStatus;
     }
@@ -407,7 +405,7 @@ void UpdateWidget::checkUpdateStateChanged()
     const QString &stat = m_dbusCheckupdate->status();
     qDebug() << stat << m_upgradeStatus;
 
-    if (stat == "end" || stat == "failed")
+    if (/*stat.isEmpty() || */stat == "end" || stat == "failed")
     {
         // TODO:
         if (m_upgradeStatus == SysCheckUpdate)
