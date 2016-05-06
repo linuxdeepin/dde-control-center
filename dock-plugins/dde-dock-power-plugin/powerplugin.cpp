@@ -108,7 +108,7 @@ QString PowerPlugin::getTitle(QString)
 
 QString PowerPlugin::getCommand(QString)
 {
-    return "dbus-send --dest=com.deepin.dde.shutdownFront /com/deepin/dde/shutdownFront com.deepin.dde.shutdownFront.Show";
+    return "dde-control-center power";
 }
 
 QPixmap PowerPlugin::getIcon(QString)
