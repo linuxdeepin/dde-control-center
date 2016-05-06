@@ -20,9 +20,9 @@ const QString WIRED_PLUGIN_ID = "wired_plugin_id";
 WiredPlugin::WiredPlugin()
 {
     m_dbusNetwork = new com::deepin::daemon::DBusNetwork(this);
+    connect(m_dbusNetwork, &DBusNetwork::StateChanged, this, &WiredPlugin::onConnectionsChanged);
     connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &WiredPlugin::onConnectionsChanged);
     connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &WiredPlugin::onConnectionsChanged);
-    connect(m_dbusNetwork, &DBusNetwork::StateChanged, this, &WiredPlugin::onConnectionsChanged);
     connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, &WiredPlugin::onConnectionsChanged);
 
     initSettings();
@@ -222,7 +222,8 @@ void WiredPlugin::onConnectionsChanged()
     if (wirelessDevicesCount(m_dbusNetwork) == 0 && wiredDevicesCount(m_dbusNetwork) > 0 && m_wiredItem == nullptr) {
         addNewItem(WIRED_PLUGIN_ID);
     }
-    else if (!enabled(WIRED_PLUGIN_ID) || !configurable(WIRED_PLUGIN_ID)) {
+
+    if (!enabled(WIRED_PLUGIN_ID) || !configurable(WIRED_PLUGIN_ID)) {
         removeItem(WIRED_PLUGIN_ID);
     }
 

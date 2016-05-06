@@ -24,8 +24,10 @@ ComplexItem::ComplexItem(DBusNetwork *dbusNetwork, QWidget *parent)
 {
     setFixedSize(Dock::APPLET_FASHION_ITEM_WIDTH, Dock::APPLET_FASHION_ITEM_HEIGHT);
 
-    connect(dbusNetwork, &DBusNetwork::DevicesChanged, this, &ComplexItem::manuallyUpdate);
+    connect(m_dbusNetwork, &DBusNetwork::StateChanged, this, &ComplexItem::manuallyUpdate);
+    connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &ComplexItem::manuallyUpdate);
     connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &ComplexItem::manuallyUpdate);
+    connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, &ComplexItem::manuallyUpdate);
 
     m_dbusBluetooth = new DBusBluetooth(this);
     connect(m_dbusBluetooth, &DBusBluetooth::StateChanged, this, &ComplexItem::manuallyUpdate);
@@ -50,9 +52,15 @@ void ComplexItem::paintEvent(QPaintEvent *event)
 void ComplexItem::drawBackground()
 {
     if (m_manuallyUpdate)
-        m_backgroundImg = m_dbusNetwork->state() == NetworkingConnectedGlobal
+    {
+        const uint connectState = m_dbusNetwork->state();
+
+        m_backgroundImg = connectState == NetworkingConnectedGlobal
                 ? ":/images/images/network_online.png"
                 : ":/images/images/network_offline.png";
+
+        qDebug() << "update network state to " << connectState;
+    }
 
     QPainter painter(this);
     painter.drawImage(geometry(), QImage(m_backgroundImg));
