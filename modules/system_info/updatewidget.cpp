@@ -132,7 +132,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
 void UpdateWidget::resizeEvent(QResizeEvent *e)
 {
-    m_appsList->setMaximumHeight(e->size().height() - 55);
+    m_appsList->setMaximumHeight(e->size().height() - 75);
 }
 
 void UpdateWidget::loadAppList()
