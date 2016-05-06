@@ -80,7 +80,13 @@ void DiskContent::updateMountDisks()
         if (idList.indexOf(id) == -1)//Not in can-mount list
         {
             DiskItem * item = m_itemList.take(id);
-            m_listWidget->removeWidget(m_listWidget->indexOf(item), true);
+
+            const int index = m_listWidget->indexOf(item);
+
+            if (index != -1)
+                m_listWidget->removeWidget(index, true);
+            else
+                qDebug() << "[DiskMountPlugin] Disk item remove fail: " << item << index;
 
             qWarning() << "[DiskMountPlugin] Disk Unmounted:" << id;
         }
