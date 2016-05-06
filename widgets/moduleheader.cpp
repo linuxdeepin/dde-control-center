@@ -59,6 +59,9 @@ RightContentWidget::RightContentWidget(bool addResetButton, QWidget *parent):
         m_tipsLabel = new QLabel(tr("Reset Successfully"), this);
         m_tipsLabel->setObjectName("TipsLabel");
         m_reset = new DTextButton(tr("Reset"), this);
+        m_reset->adjustSize();
+        m_tipsLabel->setMinimumWidth(m_reset->width());
+        m_tipsLabel->setAlignment(Qt::AlignCenter);
         m_timer = new QTimer;
 
         QHBoxLayout *layout = new QHBoxLayout;

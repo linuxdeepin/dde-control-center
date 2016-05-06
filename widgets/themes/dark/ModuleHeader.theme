@@ -4,7 +4,7 @@ ModuleHeader QLabel {
 }
 
 ModuleHeader #TipsLabel {
-    font-size:10px;
+    font-size:12px;
     color:#01BDFF;
     padding:0;
     margin:0;
