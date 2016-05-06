@@ -18,7 +18,6 @@
 
 #include "frame.h"
 #include "interfaces.h"
-#include "logmanager.h"
 #include "pluginsmanager.h"
 #include "dbus/dbuscontrolcenter.h"
 #include "dbus/dbuscontrolcenterservice.h"
@@ -26,6 +25,9 @@
 #include <dapplication.h>
 #include <dthememanager.h>
 
+#include <DLog>
+
+DUTIL_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 QString getQssFromFile(const QString &name)
@@ -64,6 +66,10 @@ int main(int argv, char *args[])
     QDir::setCurrent(QApplication::applicationDirPath());
 #endif
 
+    // initialize logging
+    DLogManager::registerFileAppender();
+    DLogManager::registerConsoleAppender();
+
     // install translators
     QTranslator translator;
     translator.load("../share/dde-control-center/translations/dde-control-center_" + QLocale::system().name());
@@ -83,9 +89,6 @@ int main(int argv, char *args[])
 
     QStringList positionalArgs = parser.positionalArguments();
 
-    // initialize logging
-    LogManager::instance()->debug_log_console_on();
-    LogManager::instance()->initConsoleAppender();
     Frame frame;
     DBusControlCenterService adaptor(&frame);
     QDBusConnection conn = QDBusConnection::sessionBus();

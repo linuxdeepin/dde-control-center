@@ -1,3 +1,5 @@
+DEFINES += QT_MESSAGELOGCONTEXT
+
 isEmpty(PREFIX){
     PREFIX = /usr
 }

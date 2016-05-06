@@ -38,7 +38,6 @@ SOURCES    = frame.cpp \
     sidebardelegate.cpp \
     dbus/dbuslauncher.cpp
 
-include(../cutelogger/cutelogger.pri)
 include(../common.pri)
 
 TARGET     = dde-control-center
@@ -46,7 +45,7 @@ DESTDIR    = $$_PRO_FILE_PWD_/../
 
 CONFIG += c++11 link_pkgconfig
 LIBS += -L../widgets -lwidgets
-PKGCONFIG      += gtk+-2.0 dtkbase dtkwidget
+PKGCONFIG      += gtk+-2.0 dtkbase dtkutil dtkwidget
 
 RESOURCES += \
     qss.qrc \
