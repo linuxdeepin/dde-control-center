@@ -41,8 +41,8 @@ Sound::Sound() :
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
-    m_delaySetOutputVolumeTimer.setSingleShot(true);
-    m_delaySetBalanceTimer.setSingleShot(true);
+//    m_delaySetOutputVolumeTimer.setSingleShot(true);
+//    m_delaySetBalanceTimer.setSingleShot(true);
 
     // UI that can show immediately show first. # optimize for slow chips.
     m_mainWidgetVLayout->setSpacing(0);
@@ -88,13 +88,9 @@ void Sound::initBackend()
     updateSinks();
     updateSources();
 
-    connect(&m_delaySetOutputVolumeTimer, &QTimer::timeout, [this]{
-        m_sink->SetVolume(m_outputVolumeSlider->value() / 100.0, true).waitForFinished();
-    });
-
-    connect(&m_delaySetBalanceTimer, &QTimer::timeout, [this]{
-        m_sink->SetBalance(m_leftRightBalanceSlider->value() / 100.0, true).waitForFinished();
-    });
+    m_SetOutputVolumeRecorder.start();
+    m_SetBalanceRecorder.start();
+    m_SetInputVolumeRecorder.start();
 
     connect(m_moduleHeader, &ModuleHeader::resetButtonClicked, m_dbusAudio, &DBusAudio::Reset);
 }
@@ -378,31 +374,73 @@ void Sound::initUI()
         });
 
         connect(m_outputVolumeSlider, &DSlider::valueChanged, [=](int value){
-            if(qAbs(value - m_sink->volume() * 100) > 1) {
-                if (m_delaySetOutputVolumeTimer.remainingTime() > 0) {
-                    m_sink->SetVolume(value / 100.0, false).waitForFinished();
+            blockOutputVolumeSignal = true;
+            int sliderInterval = m_SetOutputVolumeRecorder.elapsed();
+            if (sliderInterval > 50) {
+                if(qAbs(value - m_sink->volume() * 100) > 1) {
+                    m_sink->SetVolume(value / 100.0, false);
                 }
-                m_delaySetOutputVolumeTimer.start(500);
             }
+            m_SetOutputVolumeRecorder.restart();
+
+            // send the last change
+            if(!m_SetOutputVolumeTimer) {
+                m_SetOutputVolumeTimer = new QTimer(this);
+                m_SetOutputVolumeTimer->setSingleShot(true);
+
+                connect(m_SetOutputVolumeTimer, &QTimer::timeout, m_outputVolumeSlider, [this] {
+                    m_SetOutputVolumeTimer->deleteLater();
+                    m_SetOutputVolumeTimer = NULL;
+                    int sliderValue = m_outputVolumeSlider->value();
+                    if(qAbs(sliderValue - m_sink->volume() * 100) > 1) {
+                        m_sink->SetVolume(sliderValue / 100.0, false);
+                    }
+                    blockOutputVolumeSignal = false;
+                });
+            }
+            m_SetOutputVolumeTimer->start(200);
         });
+
         connect(m_sink, &DBusAudioSink::VolumeChanged, [=]{
             if (qAbs(m_sink->volume() * 100 - m_outputVolumeSlider->value()) > 1) {
-                m_outputVolumeSlider->setValue(m_sink->volume() * 100);
+                if (!blockOutputVolumeSignal) {
+                    m_outputVolumeSlider->setValue(m_sink->volume() * 100);
+                }
             }
         });
 
         connect(m_leftRightBalanceSlider, &DSlider::valueChanged, [=](int value){
-            if(qAbs(m_sink->balance() * 100 - value) > 1) {
-                if (m_delaySetBalanceTimer.remainingTime() > 0)  {
-                    m_sink->SetBalance(value / 100.0, false).waitForFinished();
+            blockBalanceSignal = true;
+            int sliderInterval = m_SetBalanceRecorder.elapsed();
+            if (sliderInterval > 50) {
+                if(qAbs(m_sink->balance() * 100 - value) > 1) {
+                    m_sink->SetBalance(value / 100.0, false);
                 }
-
-                m_delaySetBalanceTimer.start(500);
             }
+            m_SetBalanceRecorder.restart();
+
+            // send the last change
+            if(!m_SetBalanceTimer) {
+                m_SetBalanceTimer = new QTimer(this);
+                m_SetBalanceTimer->setSingleShot(true);
+
+                connect(m_SetBalanceTimer, &QTimer::timeout, m_leftRightBalanceSlider, [this] {
+                    m_SetBalanceTimer->deleteLater();
+                    m_SetBalanceTimer = NULL;
+                    int sliderValue = m_leftRightBalanceSlider->value();
+                    if(qAbs(m_sink->balance() * 100 - sliderValue) > 1) {
+                        m_sink->SetBalance(sliderValue / 100.0, false);
+                    }
+                    blockBalanceSignal = false;
+                });
+            }
+            m_SetBalanceTimer->start(200);
         });
         connect(m_sink, &DBusAudioSink::BalanceChanged, [=]{
             if(qAbs(m_sink->balance() * 100 - m_leftRightBalanceSlider->value()) > 1) {
-                m_leftRightBalanceSlider->setValue(m_sink->balance() * 100);
+                if (!blockBalanceSignal) {
+                    m_leftRightBalanceSlider->setValue(m_sink->balance() * 100);
+                }
             }
         });
 
@@ -416,13 +454,37 @@ void Sound::initUI()
 
     if (m_source) {
         connect(m_inputVolumeSlider, &DSlider::valueChanged, [=](int value){
-            if (qAbs(value - m_source->volume() * 100) > 1) {
-                m_source->SetVolume(value / 100.0, false).waitForFinished();
+            blockInputVolumeSignal = true;
+            int sliderInterval = m_SetInputVolumeRecorder.elapsed();
+            if (sliderInterval > 50) {
+                if (qAbs(value - m_source->volume() * 100) > 1) {
+                    m_source->SetVolume(value / 100.0, false);
+                }
             }
+            m_SetInputVolumeRecorder.restart();
+
+            // send the last change
+            if(!m_SetInputVolumeTimer) {
+                m_SetInputVolumeTimer = new QTimer(this);
+                m_SetInputVolumeTimer->setSingleShot(true);
+
+                connect(m_SetInputVolumeTimer, &QTimer::timeout, m_inputVolumeSlider, [this] {
+                    m_SetInputVolumeTimer->deleteLater();
+                    m_SetInputVolumeTimer = NULL;
+                    int sliderValue = m_inputVolumeSlider->value();
+                    if (qAbs(sliderValue - m_source->volume() * 100) > 1) {
+                        m_source->SetVolume(sliderValue / 100.0, false);
+                    }
+                    blockInputVolumeSignal = false;
+                });
+            }
+            m_SetInputVolumeTimer->start(200);
         });
         connect(m_source, &DBusAudioSource::VolumeChanged, [=]{
             if (qAbs(m_source->volume() * 100 - m_inputVolumeSlider->value()) > 1) {
-                m_inputVolumeSlider->setValue(m_source->volume() * 100);
+                if (!blockInputVolumeSignal) {
+                    m_inputVolumeSlider->setValue(m_source->volume() * 100);
+                }
             }
         });
 

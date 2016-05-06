@@ -74,8 +74,19 @@ private:
     QList<DBusAudioSource *> m_sources;
     QDBusInterface *m_dbusMeter = nullptr;
     QTimer m_meterTimer;
-    QTimer m_delaySetOutputVolumeTimer;
-    QTimer m_delaySetBalanceTimer;
+
+    QTimer *m_SetOutputVolumeTimer = NULL;
+    QTime  m_SetOutputVolumeRecorder;
+    bool   blockOutputVolumeSignal = false;
+
+    QTimer *m_SetBalanceTimer = NULL;
+    QTime  m_SetBalanceRecorder;
+    bool blockBalanceSignal = false;
+
+    QTimer *m_SetInputVolumeTimer = NULL;
+    QTime  m_SetInputVolumeRecorder;
+    bool blockInputVolumeSignal = false;
+
     QTime m_timeDeltaRecorder;
 
     void initBackend();

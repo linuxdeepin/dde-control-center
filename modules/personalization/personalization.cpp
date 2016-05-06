@@ -454,12 +454,15 @@ void Personalization::updateWallpaperButtons(const ImageInfoList &imageInfos)
                                - m_headerLine->height()\
                                - 2\
                                - 32 * 6;
+    qDebug() << "before fixed size"<< "w = " << w << "h = "<<h ;
+    qDebug() << "before fixed size"<< "m_maxExpandContentHeight = " << m_maxExpandContentHeight;
     if (h > m_maxExpandContentHeight) {
         m_wallpaperButtonGrid->setFixedHeight(m_maxExpandContentHeight - m_margins.top() - m_margins.bottom());
         m_wallpaperContentFrame->setFixedSize(w, m_maxExpandContentHeight);
     } else {
         m_wallpaperContentFrame->setFixedSize(w, h);
     }
+
 
     m_wallpaperExpand->setContent(m_wallpaperContentFrame);
 }
