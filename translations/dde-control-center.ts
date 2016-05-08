@@ -330,8 +330,8 @@
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="309"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="315"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="311"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
         <source>new user</source>
         <translation type="unfinished"></translation>
     </message>
@@ -374,23 +374,23 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="183"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="188"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="275"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="277"/>
         <source>Password can not be empty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="192"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="272"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="288"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="325"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="332"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="274"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="290"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="327"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="334"/>
         <source>The two passwords do not match.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="285"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="262"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="272"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="287"/>
         <source>Username can not be empty.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1598,48 +1598,48 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="125"/>
+        <location filename="../modules/personalization/personalization.cpp" line="126"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="151"/>
+        <location filename="../modules/personalization/personalization.cpp" line="152"/>
         <source>Icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="186"/>
+        <location filename="../modules/personalization/personalization.cpp" line="187"/>
         <source>Cursor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="219"/>
+        <location filename="../modules/personalization/personalization.cpp" line="220"/>
         <source>Wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="244"/>
+        <location filename="../modules/personalization/personalization.cpp" line="245"/>
         <source>Fonts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="246"/>
+        <location filename="../modules/personalization/personalization.cpp" line="247"/>
         <source>Standard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="247"/>
+        <location filename="../modules/personalization/personalization.cpp" line="248"/>
         <source>Monospaced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="248"/>
+        <location filename="../modules/personalization/personalization.cpp" line="249"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="263"/>
-        <location filename="../modules/personalization/personalization.cpp" line="597"/>
+        <location filename="../modules/personalization/personalization.cpp" line="264"/>
+        <location filename="../modules/personalization/personalization.cpp" line="601"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1769,12 +1769,12 @@
 <context>
     <name>ShortcutDbus</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="72"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="83"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="94"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="129"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="157"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="190"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="75"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="86"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="97"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="132"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="160"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="193"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="230"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="234"/>
         <source>None</source>
@@ -1797,78 +1797,78 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="113"/>
+        <location filename="../modules/sound/sound.cpp" line="109"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="123"/>
+        <location filename="../modules/sound/sound.cpp" line="119"/>
         <source>Output Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="134"/>
+        <location filename="../modules/sound/sound.cpp" line="130"/>
         <source>Left/Right Balance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="138"/>
+        <location filename="../modules/sound/sound.cpp" line="134"/>
         <source>Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="139"/>
+        <location filename="../modules/sound/sound.cpp" line="135"/>
         <source>Right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="157"/>
+        <location filename="../modules/sound/sound.cpp" line="153"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="169"/>
+        <location filename="../modules/sound/sound.cpp" line="165"/>
         <source>Input Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="181"/>
+        <location filename="../modules/sound/sound.cpp" line="177"/>
         <source>Feedback Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="242"/>
+        <location filename="../modules/sound/sound.cpp" line="238"/>
         <source>Output Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="255"/>
+        <location filename="../modules/sound/sound.cpp" line="251"/>
         <source>Output device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="275"/>
+        <location filename="../modules/sound/sound.cpp" line="271"/>
         <source>Input Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="289"/>
+        <location filename="../modules/sound/sound.cpp" line="285"/>
         <source>Input device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="302"/>
-        <location filename="../modules/sound/sound.cpp" line="309"/>
+        <location filename="../modules/sound/sound.cpp" line="298"/>
+        <location filename="../modules/sound/sound.cpp" line="305"/>
         <source>Show Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="314"/>
+        <location filename="../modules/sound/sound.cpp" line="310"/>
         <source>Hide Advanced...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="325"/>
+        <location filename="../modules/sound/sound.cpp" line="321"/>
         <source>Sound effects</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2097,32 +2097,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="113"/>
-        <source>Webcam</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="174"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="161"/>
         <source>Auto-login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="200"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="187"/>
         <source>Enable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="233"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="220"/>
         <source>Account Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="288"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="275"/>
         <source>Choose a new picture for your Avatar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="289"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="276"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2285,31 +2280,6 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="183"/>
         <source>Wide</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>WebcamAvatarPanel</name>
-    <message>
-        <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="41"/>
-        <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="117"/>
-        <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="162"/>
-        <source>Snapshot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="119"/>
-        <source>Confirm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="135"/>
-        <source>No camera found.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="155"/>
-        <source>Again</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
