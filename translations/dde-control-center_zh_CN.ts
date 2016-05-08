@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
 <context>
     <name>AbstractPanel</name>
     <message>
@@ -155,18 +153,6 @@
         <source>Add</source>
         <translation>添加</translation>
     </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">名称</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">用户名</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
 </context>
 <context>
     <name>AddRmDoneLine</name>
@@ -192,122 +178,6 @@
         <location filename="../modules/network/addvpnpage.cpp" line="74"/>
         <source>Add</source>
         <translation>添加</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation type="vanished">名称</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation type="vanished">网关</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation type="vanished">用户名</translation>
-    </message>
-    <message>
-        <source>Ask for Pwd</source>
-        <translation type="vanished">询问密码</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="vanished">CA证书</translation>
-    </message>
-    <message>
-        <source>Proxy</source>
-        <translation type="vanished">代理</translation>
-    </message>
-    <message>
-        <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation type="vanished">允许思科安全桌面木马</translation>
-    </message>
-    <message>
-        <source>CSD Script</source>
-        <translation type="vanished">CSD 脚本</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="vanished">用户证书</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="vanished">私钥</translation>
-    </message>
-    <message>
-        <source>Use FSID for Key Passphrase</source>
-        <translation type="vanished">为密钥口令句使用FSID</translation>
-    </message>
-    <message>
-        <source>Auth Type</source>
-        <translation type="vanished">认证类型</translation>
-    </message>
-    <message>
-        <source>Private Pwd</source>
-        <translation type="vanished">私钥密码</translation>
-    </message>
-    <message>
-        <source>Static Key</source>
-        <translation type="vanished">静态密钥</translation>
-    </message>
-    <message>
-        <source>Customize Key Direction</source>
-        <translation type="vanished">自定义密钥方向</translation>
-    </message>
-    <message>
-        <source>Key Direction</source>
-        <translation type="vanished">密钥方向</translation>
-    </message>
-    <message>
-        <source>Remote IP</source>
-        <translation type="vanished">远程IP</translation>
-    </message>
-    <message>
-        <source>Local IP</source>
-        <translation type="vanished">本地IP</translation>
-    </message>
-    <message>
-        <source>User Pwd</source>
-        <translation type="vanished">用户密码</translation>
-    </message>
-    <message>
-        <source>Group Name</source>
-        <translation type="vanished">组名</translation>
-    </message>
-    <message>
-        <source>Group Pwd</source>
-        <translation type="vanished">组密码</translation>
-    </message>
-    <message>
-        <source>Use Hybrid Authentication</source>
-        <translation type="vanished">使用混合认证</translation>
-    </message>
-    <message>
-        <source>CA File</source>
-        <translation type="vanished">CA文件</translation>
-    </message>
-    <message>
-        <source>Enable IPsec</source>
-        <translation type="vanished">启用IPsec</translation>
-    </message>
-    <message>
-        <source>Group ID</source>
-        <translation type="vanished">组ID</translation>
-    </message>
-    <message>
-        <source>Pre-Shared Key</source>
-        <translation type="vanished">预共享密钥</translation>
-    </message>
-    <message>
-        <source>Use MPPE</source>
-        <translation type="vanished">使用MPPE点到点加密</translation>
-    </message>
-    <message>
-        <source>Automatically connect</source>
-        <translation type="vanished">自动连接</translation>
     </message>
 </context>
 <context>
@@ -360,13 +230,13 @@
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="48"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="63"/>
         <source>1 Minute</source>
-        <translation>1  分钟</translation>
+        <translation>1 分钟</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="49"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="64"/>
         <source>5 Minutes</source>
-        <translation>5  分钟</translation>
+        <translation>5 分钟</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="50"/>
@@ -391,30 +261,6 @@
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="68"/>
         <source>1 Hour</source>
         <translation>1 小时</translation>
-    </message>
-    <message>
-        <source>1Minute</source>
-        <translation type="vanished">1分钟</translation>
-    </message>
-    <message>
-        <source>5Minutes</source>
-        <translation type="vanished">分钟</translation>
-    </message>
-    <message>
-        <source>10Minutes</source>
-        <translation type="vanished">10分钟</translation>
-    </message>
-    <message>
-        <source>15Minutes</source>
-        <translation type="vanished">15分钟</translation>
-    </message>
-    <message>
-        <source>30Minutes</source>
-        <translation type="vanished">30分钟</translation>
-    </message>
-    <message>
-        <source>1Hour</source>
-        <translation type="vanished">1小时</translation>
     </message>
 </context>
 <context>
@@ -445,70 +291,6 @@
         <location filename="../modules/network/connecttohiddenappage.cpp" line="34"/>
         <source>Connect to hidden access point</source>
         <translation>连接到隐藏网络</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation type="vanished">SSID</translation>
-    </message>
-    <message>
-        <source>Security</source>
-        <translation type="vanished">安全</translation>
-    </message>
-    <message>
-        <source>Inner Auth</source>
-        <translation type="vanished">内部认证</translation>
-    </message>
-    <message>
-        <source>Ask for Pwd</source>
-        <translation type="vanished">询问密码</translation>
-    </message>
-    <message>
-        <source>Key</source>
-        <translation type="vanished">密钥</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="vanished">密码</translation>
-    </message>
-    <message>
-        <source>EAP Auth</source>
-        <translation type="vanished">EAP认证</translation>
-    </message>
-    <message>
-        <source>Identity</source>
-        <translation type="vanished">身份</translation>
-    </message>
-    <message>
-        <source>Anonymous ID</source>
-        <translation type="vanished">匿名身份</translation>
-    </message>
-    <message>
-        <source>CA Cert</source>
-        <translation type="vanished">CA证书</translation>
-    </message>
-    <message>
-        <source>User Cert</source>
-        <translation type="vanished">用户证书</translation>
-    </message>
-    <message>
-        <source>Provisioning</source>
-        <translation type="vanished">自动PAC配置</translation>
-    </message>
-    <message>
-        <source>PAC file</source>
-        <translation type="vanished">PAC文件</translation>
-    </message>
-    <message>
-        <source>PEAP Version</source>
-        <translation type="vanished">PEAP版本</translation>
-    </message>
-    <message>
-        <source>Private Key</source>
-        <translation type="vanished">私钥</translation>
-    </message>
-    <message>
-        <source>Private Pwd</source>
-        <translation type="vanished">私钥密码</translation>
     </message>
 </context>
 <context>
@@ -546,8 +328,8 @@
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="309"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="315"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="311"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
         <source>new user</source>
         <translation>新建用户</translation>
     </message>
@@ -590,23 +372,23 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="183"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="188"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="275"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="277"/>
         <source>Password can not be empty.</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="192"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="272"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="288"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="325"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="332"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="274"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="290"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="327"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="334"/>
         <source>The two passwords do not match.</source>
         <translation>两次输入密码不一致</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="285"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="262"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="272"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="287"/>
         <source>Username can not be empty.</source>
         <translation>用户名不能为空</translation>
     </message>
@@ -709,25 +491,6 @@
         <location filename="../modules/display/customsettings.h" line="54"/>
         <source>Cancel</source>
         <translation>取消</translation>
-    </message>
-</context>
-<context>
-    <name>DExtendBoard</name>
-    <message>
-        <source>Custom options</source>
-        <translation type="vanished">自定义选项</translation>
-    </message>
-    <message>
-        <source>Turn off the display</source>
-        <translation type="vanished">关闭显示器</translation>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation type="vanished">从不</translation>
-    </message>
-    <message>
-        <source>Suspend</source>
-        <translation type="vanished">待机</translation>
     </message>
 </context>
 <context>
@@ -1616,7 +1379,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="195"/>
         <source>Trackpoint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1772,7 +1535,7 @@
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="163"/>
         <source>View detailed information</source>
-        <translation></translation>
+        <translation>查看详情</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="180"/>
@@ -1833,52 +1596,48 @@
         <translation>个性化</translation>
     </message>
     <message>
-        <source>Theme</source>
-        <translation type="vanished">主题</translation>
-    </message>
-    <message>
-        <location filename="../modules/personalization/personalization.cpp" line="125"/>
+        <location filename="../modules/personalization/personalization.cpp" line="126"/>
         <source>Window</source>
         <translation>窗口</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="151"/>
+        <location filename="../modules/personalization/personalization.cpp" line="152"/>
         <source>Icon</source>
         <translation>图标</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="186"/>
+        <location filename="../modules/personalization/personalization.cpp" line="187"/>
         <source>Cursor</source>
         <translation>光标</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="219"/>
+        <location filename="../modules/personalization/personalization.cpp" line="220"/>
         <source>Wallpaper</source>
         <translation>壁纸</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="244"/>
+        <location filename="../modules/personalization/personalization.cpp" line="245"/>
         <source>Fonts</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="246"/>
+        <location filename="../modules/personalization/personalization.cpp" line="247"/>
         <source>Standard</source>
         <translation>标准</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="247"/>
+        <location filename="../modules/personalization/personalization.cpp" line="248"/>
         <source>Monospaced</source>
         <translation>等宽</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="248"/>
+        <location filename="../modules/personalization/personalization.cpp" line="249"/>
         <source>Size</source>
         <translation>大小</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="263"/>
-        <location filename="../modules/personalization/personalization.cpp" line="597"/>
+        <location filename="../modules/personalization/personalization.cpp" line="264"/>
+        <location filename="../modules/personalization/personalization.cpp" line="601"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
@@ -1886,112 +1645,29 @@
 <context>
     <name>Power</name>
     <message>
-        <source>Password required to wake up</source>
-        <translation type="vanished">唤醒需要密码</translation>
-    </message>
-    <message>
-        <source>Plugged in</source>
-        <translation type="vanished">接通电源</translation>
-    </message>
-    <message>
-        <source>Balanced</source>
-        <translation type="vanished">均衡</translation>
-    </message>
-    <message>
-        <source>Power saver</source>
-        <translation type="vanished">节能</translation>
-    </message>
-    <message>
-        <source>High performance</source>
-        <translation type="vanished">高性能</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation type="vanished">自定义</translation>
-    </message>
-    <message>
-        <source>On battery</source>
-        <translation type="vanished">使用电池</translation>
-    </message>
-    <message>
-        <source>Shutdown</source>
-        <translation type="vanished">关机</translation>
-    </message>
-    <message>
-        <source>Suspend</source>
-        <translation type="vanished">待机</translation>
-    </message>
-    <message>
-        <source>Ask</source>
-        <translation type="vanished">询问</translation>
-    </message>
-    <message>
-        <source>When I press the power button</source>
-        <translation type="vanished">按下电源按钮</translation>
-    </message>
-    <message>
-        <source>Nothing</source>
-        <translation type="vanished">无</translation>
-    </message>
-    <message>
-        <source>When I close the lid</source>
-        <translation type="vanished">合上笔记本盖子</translation>
-    </message>
-    <message>
-        <source>The display suspended</source>
-        <translation type="vanished">显示器进入睡眠</translation>
-    </message>
-    <message>
-        <source>The computer suspended</source>
-        <translation type="vanished">电脑进入睡眠</translation>
-    </message>
-    <message>
         <location filename="../modules/power/power.cpp" line="43"/>
         <source>Display will suspend after</source>
-        <translation>显示器进入睡眠</translation>
+        <translation>关闭显示器</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="44"/>
         <source>Computer will suspend after</source>
-        <translation>电脑进入睡眠</translation>
+        <translation>进入休眠</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="46"/>
         <source>Password required to wake the display</source>
-        <translation>显示器唤醒时需要密码</translation>
+        <translation>唤醒屏幕时需要输入密码</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="48"/>
         <source>Password required to wake the computer</source>
-        <translation>电脑唤醒时需要密码</translation>
+        <translation>唤醒电脑时需要输入密码</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="50"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation>笔记本合盖时睡眠</translation>
-    </message>
-    <message>
-        <source>The notebook suspended when close the lid</source>
-        <translation type="vanished">笔记本合盖时睡眠</translation>
-    </message>
-</context>
-<context>
-    <name>PowerInterfaceManagement</name>
-    <message>
-        <source>%1 minutes</source>
-        <translation type="vanished">%1分钟</translation>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation type="vanished">从不</translation>
-    </message>
-    <message>
-        <source>1 hour</source>
-        <translation type="vanished">1小时</translation>
-    </message>
-    <message>
-        <source>Turn off the display: %1 Suspend: %2 </source>
-        <translation type="vanished">关闭显示器：%1 待机：%2</translation>
+        <translation>当合上笔记本盖子时进入休眠</translation>
     </message>
 </context>
 <context>
@@ -2013,22 +1689,6 @@
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
         <source>On Charging %1</source>
         <translation>充电中 %1</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation type="vanished">自定义</translation>
-    </message>
-    <message>
-        <source>Power saver</source>
-        <translation type="vanished">节能</translation>
-    </message>
-    <message>
-        <source>Balanced</source>
-        <translation type="vanished">均衡</translation>
-    </message>
-    <message>
-        <source>High performance</source>
-        <translation type="vanished">高性能</translation>
     </message>
 </context>
 <context>
@@ -2107,12 +1767,12 @@
 <context>
     <name>ShortcutDbus</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="72"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="83"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="94"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="129"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="157"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="190"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="75"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="86"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="97"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="132"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="160"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="193"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="230"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="234"/>
         <source>None</source>
@@ -2135,144 +1795,80 @@
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="113"/>
+        <location filename="../modules/sound/sound.cpp" line="109"/>
         <source>Speaker</source>
         <translation>扬声器</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="123"/>
+        <location filename="../modules/sound/sound.cpp" line="119"/>
         <source>Output Volume</source>
         <translation>输出音量</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="134"/>
+        <location filename="../modules/sound/sound.cpp" line="130"/>
         <source>Left/Right Balance</source>
         <translation>左/右平衡</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="138"/>
+        <location filename="../modules/sound/sound.cpp" line="134"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="139"/>
+        <location filename="../modules/sound/sound.cpp" line="135"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="157"/>
+        <location filename="../modules/sound/sound.cpp" line="153"/>
         <source>Microphone</source>
         <translation>麦克风</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="169"/>
+        <location filename="../modules/sound/sound.cpp" line="165"/>
         <source>Input Volume</source>
         <translation>输入音量</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="181"/>
+        <location filename="../modules/sound/sound.cpp" line="177"/>
         <source>Feedback Volume</source>
         <translation>输入反馈</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="242"/>
+        <location filename="../modules/sound/sound.cpp" line="238"/>
         <source>Output Port</source>
         <translation>输出端口</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="255"/>
+        <location filename="../modules/sound/sound.cpp" line="251"/>
         <source>Output device</source>
         <translation>输出设备</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="275"/>
+        <location filename="../modules/sound/sound.cpp" line="271"/>
         <source>Input Port</source>
         <translation>输入端口</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="289"/>
+        <location filename="../modules/sound/sound.cpp" line="285"/>
         <source>Input device</source>
         <translation>输入设备</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="302"/>
-        <location filename="../modules/sound/sound.cpp" line="309"/>
+        <location filename="../modules/sound/sound.cpp" line="298"/>
+        <location filename="../modules/sound/sound.cpp" line="305"/>
         <source>Show Advanced...</source>
         <translation>显示高级设置...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="314"/>
+        <location filename="../modules/sound/sound.cpp" line="310"/>
         <source>Hide Advanced...</source>
         <translation>隐藏高级设置...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="325"/>
+        <location filename="../modules/sound/sound.cpp" line="321"/>
         <source>Sound effects</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Login</source>
-        <translation type="vanished">登录</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation type="vanished">注销</translation>
-    </message>
-    <message>
-        <source>Shutdown</source>
-        <translation type="vanished">关机</translation>
-    </message>
-    <message>
-        <source>Wakeup</source>
-        <translation type="vanished">唤醒</translation>
-    </message>
-    <message>
-        <source>Notification</source>
-        <translation type="vanished">通知提醒</translation>
-    </message>
-    <message>
-        <source>Unable to Operate</source>
-        <translation type="vanished">无法操作</translation>
-    </message>
-    <message>
-        <source>Empty trash</source>
-        <translation type="vanished">清空回收站</translation>
-    </message>
-    <message>
-        <source>Adjust volume</source>
-        <translation type="vanished">音量调节</translation>
-    </message>
-    <message>
-        <source>Low battery</source>
-        <translation type="vanished">电量不足</translation>
-    </message>
-    <message>
-        <source>Power plug in</source>
-        <translation type="vanished">电源插入</translation>
-    </message>
-    <message>
-        <source>Power unplugged</source>
-        <translation type="vanished">电源拔出</translation>
-    </message>
-    <message>
-        <source>Movable device plug in</source>
-        <translation type="vanished">移动设备插入</translation>
-    </message>
-    <message>
-        <source>Movable device unplug</source>
-        <translation type="vanished">移动设备拔出</translation>
-    </message>
-    <message>
-        <source>Send app icon to desktop</source>
-        <translation type="vanished">发送应用图标到桌面</translation>
-    </message>
-    <message>
-        <source>Screenshot</source>
-        <translation type="vanished">截图</translation>
-    </message>
-    <message>
-        <source>Sound Effects</source>
-        <translation type="vanished">音效</translation>
+        <translation>音效</translation>
     </message>
 </context>
 <context>
@@ -2369,7 +1965,7 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="52"/>
         <source>Ignore the following proxy configuration for hosts and domains</source>
-        <translation></translation>
+        <translation>忽略以下主机和域的代理配置</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="79"/>
@@ -2499,32 +2095,27 @@
         <translation>头像</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="113"/>
-        <source>Webcam</source>
-        <translation>拍照</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="174"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="161"/>
         <source>Auto-login</source>
         <translation>自动登录</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="200"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="187"/>
         <source>Enable</source>
         <translation>启用</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="233"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="220"/>
         <source>Account Type</source>
         <translation>帐户类型</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="288"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="275"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>请选择一张图片作为您的头像</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="289"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="276"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>图片文件 (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -2688,31 +2279,6 @@
         <location filename="../modules/wacom/wacom.cpp" line="183"/>
         <source>Wide</source>
         <translation>大</translation>
-    </message>
-</context>
-<context>
-    <name>WebcamAvatarPanel</name>
-    <message>
-        <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="41"/>
-        <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="117"/>
-        <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="162"/>
-        <source>Snapshot</source>
-        <translation>拍照</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="119"/>
-        <source>Confirm</source>
-        <translation>确定</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="135"/>
-        <source>No camera found.</source>
-        <translation>未找到相机设备。</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/webcamavatarpanel.cpp" line="155"/>
-        <source>Again</source>
-        <translation>重拍</translation>
     </message>
 </context>
 <context>
