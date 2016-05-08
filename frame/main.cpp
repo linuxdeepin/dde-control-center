@@ -59,6 +59,10 @@ int main(int argv, char *args[])
     app.setApplicationName("dde-control-center");
     app.setApplicationVersion("3.0");
 
+    QFont ft12 = app.font();
+    ft12.setPixelSize(12);
+    app.setFont(ft12);
+
     // keep running if all window hided
     qApp->setQuitOnLastWindowClosed(false);
 
