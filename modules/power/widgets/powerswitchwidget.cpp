@@ -8,7 +8,7 @@ PowerSwitchWidget::PowerSwitchWidget(QString title, QWidget *parent)
     m_title = title;
     m_titleLabel = new QLabel(this);
     m_titleLabel->setText(QString("%1").arg(m_title));
-    m_titleLabel->setStyleSheet("color:white");
+    m_titleLabel->setStyleSheet("color:#b2b2b2");
     m_switchButton = new DSwitchButton(this);
 
     m_Layout = new QHBoxLayout;

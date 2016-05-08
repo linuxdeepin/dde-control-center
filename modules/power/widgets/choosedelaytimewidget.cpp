@@ -10,10 +10,10 @@ ChooseDelayTimeWidget::ChooseDelayTimeWidget(QString title, QWidget *parent)
 
     m_titleLabel = new QLabel(this);
     m_titleLabel->setText(title);
-    m_titleLabel->setStyleSheet("QLabel{color: white;}");
+    m_titleLabel->setStyleSheet("QLabel{color: #b2b2b2;}");
     m_numLabel = new QLabel(this);
     m_numLabel->setText(QString("%1").arg(m_currentNum));
-    m_numLabel->setStyleSheet("QLabel{color: white;}");
+    m_numLabel->setStyleSheet("QLabel{color: #b2b2b2;}");
     QHBoxLayout* titleHLayout = new QHBoxLayout;
     titleHLayout->setMargin(0);
     titleHLayout->setSpacing(0);
