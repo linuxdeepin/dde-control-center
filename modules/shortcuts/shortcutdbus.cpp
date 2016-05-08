@@ -53,7 +53,7 @@ ShortcutDbus::ShortcutDbus(QObject *parent)
 
     QStringList list;
     list << "launcher" << "show-desktop" << "lock-screen" << "file-manager"
-#if !defined(PLATFORM_SUNWAY) && !defined(PLATFORM_MIPSEL)
+#if !defined(PLATFORM_SUNWAY) && !defined(ARCH_MIPSEL)
          << "screenshot" << "screenshot-window" << "screenshot-delayed"
 #endif
          << "terminal" << "terminal-quake" << "logout" << "switch-layout"
