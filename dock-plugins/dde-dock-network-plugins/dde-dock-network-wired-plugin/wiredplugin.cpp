@@ -22,6 +22,8 @@ WiredPlugin::WiredPlugin()
     m_dbusNetwork = new com::deepin::daemon::DBusNetwork(this);
     connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &WiredPlugin::onConnectionsChanged);
     connect(m_dbusNetwork, &DBusNetwork::ConnectionsChanged, this, &WiredPlugin::onConnectionsChanged);
+    connect(m_dbusNetwork, &DBusNetwork::StateChanged, this, &WiredPlugin::onConnectionsChanged);
+    connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged, this, &WiredPlugin::onConnectionsChanged);
 
     initSettings();
 }
@@ -217,12 +219,18 @@ void WiredPlugin::onConnectionsChanged()
     }
     retryTimes = 10;
 
-
     if (wirelessDevicesCount(m_dbusNetwork) == 0 && wiredDevicesCount(m_dbusNetwork) > 0 && m_wiredItem == nullptr) {
         addNewItem(WIRED_PLUGIN_ID);
     }
     else if (!enabled(WIRED_PLUGIN_ID) || !configurable(WIRED_PLUGIN_ID)) {
         removeItem(WIRED_PLUGIN_ID);
+    }
+
+    // update wireditem status
+    if (m_wiredItem)
+    {
+        QString iconPath = wiredIsConnected(m_dbusNetwork) ? ":/images/images/wire_on.png" : ":/images/images/network-error.png";
+        m_wiredItem->setPixmap(QPixmap(iconPath).scaled(m_wiredItem->size()));
     }
 }
 
