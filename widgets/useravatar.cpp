@@ -7,6 +7,8 @@
  * (at your option) any later version.
  **/
 
+#include <QUrl>
+
 #include "useravatar.h"
 
 #include "dthememanager.h"
@@ -83,7 +85,8 @@ void UserAvatar::paintEvent(QPaintEvent *)
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
     painter.setClipPath(path);
 
-    QImage tmpImg(m_iconPath);
+    QString iconPath = QUrl(m_iconPath).isLocalFile() ? QUrl(m_iconPath).toLocalFile() : m_iconPath;
+    QImage tmpImg(iconPath);
     painter.drawImage(ellipseRec, this->isEnabled() ? tmpImg : imageToGray(tmpImg));
 
     QColor penColor = m_selected ? m_borderSelectedColor : m_borderColor;

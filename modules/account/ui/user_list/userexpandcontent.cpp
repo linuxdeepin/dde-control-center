@@ -123,7 +123,10 @@ void UserExpandContent::initSegmentedControl()
 void UserExpandContent::initAvatarPanel()
 {
     m_historyAvatarGrid = new AvatarGrid(AvatarGrid::HistoryGrid, m_userPath, this);
-    m_allAvatarGrid = new AvatarGrid(AvatarGrid::NormalGrid, m_userPath, this);\
+    m_allAvatarGrid = new AvatarGrid(AvatarGrid::NormalGrid, m_userPath, this);
+
+    connect(m_historyAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
+    connect(m_allAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
 
     m_stackWidget = new QStackedWidget(this);
     connect(m_segmentedControl, &DSegmentedControl::currentChanged, m_stackWidget, &QStackedWidget::setCurrentIndex);

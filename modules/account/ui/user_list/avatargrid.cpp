@@ -32,6 +32,7 @@ void AvatarGrid::setAvatars(const QStringList &list)
     setRowCount(rows);
     setColumnCount(COLUMN_COUNT);
 
+    QString currentIcon = m_user->iconFile();
     int listIndex = 0;
     for (int r = 0; r < rows; r ++){
 
@@ -46,6 +47,9 @@ void AvatarGrid::setAvatars(const QStringList &list)
                                               m_gridType == NormalGrid ? m_user->IsIconDeletable(iconName).value() : true);
             icon->setFixedSize(ICON_SIZE, ICON_SIZE);
             icon->setIcon(iconName);
+            if (iconName == currentIcon) {
+                icon->setSelected(true);
+            }
             connect(icon, &UserAvatar::clicked, this, &AvatarGrid::onIconPress);
             connect(icon, &UserAvatar::requestDelete, this, &AvatarGrid::onRequestDelete);
             setCellWidget(r, c, icon);  //set and delete old one
