@@ -75,6 +75,7 @@ public:
 public slots:
     void setCurrentLetter(QString currentLetter);
     void show();
+    void setMaximumHeight(const int height);
 
 signals:
     void currentLetterChanged(QString currentLetter);

@@ -201,3 +201,11 @@ void FirstLetterClassify::show()
     m_letterList->currentTitleChanged(m_letterList->getText(m_listWidgetList.indexOf(m_currentList)));
     QFrame::show();
 }
+
+void FirstLetterClassify::setMaximumHeight(const int height)
+{
+    QWidget::setMaximumHeight(height);
+
+    for (ListWidget *w : m_listWidgetList)
+        w->setMaximumHeight(height);
+}

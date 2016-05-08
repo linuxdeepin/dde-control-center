@@ -274,6 +274,14 @@ void Keyboard::initUI()
         keyboardLayoutLine->setDoneHidden(false);
 
         user_layout_list->hide();
+
+#ifdef DCC_DISABLE_LANG_SETTING
+        // when disable language setting, we need classify list expanding main frame
+        // 280 is total height of other widgets
+        const int height = m_frame->height() - 280;
+        m_letterClassifyList->setMaximumHeight(height);
+#endif
+
         m_letterClassifyList->show();
         language_expand->setExpand(false);
     });
