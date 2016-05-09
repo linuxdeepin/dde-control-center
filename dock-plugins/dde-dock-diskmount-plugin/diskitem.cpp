@@ -68,9 +68,12 @@ void DiskItem::umountDisk()
     qDebug() << "[DiskMountPlugin] Try to umount Disk: "<< m_diskUuid;
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_diskMount->Unmount(m_diskUuid));
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher]{
-        if(!watcher->reply().arguments().first().toBool()){
+
+        const QDBusMessage message = watcher->reply();
+        const QList<QVariant> args = message.arguments();
+
+        if(args.isEmpty() || !args.first().toBool())
             umountDiskFailed(m_id, "Umount disk error.");
-        }
 
         watcher->deleteLater();
     });
