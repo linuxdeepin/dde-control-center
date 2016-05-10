@@ -77,15 +77,16 @@ Frame::Frame(QWidget *parent) :
     m_homeScreen->setFixedSize(DCC::ControlCenterWidth, frameHeight);
 
     DisplayInterface *display_dbus = new DisplayInterface(this);
-    DBusLauncher* m_dbusLauncher = new DBusLauncher(this);
+    DBusLauncher *m_dbusLauncher = new DBusLauncher(this);
 
     auto updateGeometry = [display_dbus, this] {
         QRect primaryRect = display_dbus->primaryRect();
 
         qDebug() << "change screen, primary is: " << display_dbus->primary();
 
-        for(const QScreen * screen: qApp->screens()) {
-            if(screen->name() == display_dbus->primary()) {
+        for (const QScreen *screen : qApp->screens())
+        {
+            if (screen->name() == display_dbus->primary()) {
                 primaryRect = screen->geometry();
                 connect(screen, &QScreen::geometryChanged, this, &Frame::updateGeometry);
                 break;
@@ -98,7 +99,7 @@ Frame::Frame(QWidget *parent) :
     };
 
     connect(display_dbus, &DisplayInterface::PrimaryChanged, this, updateGeometry);
-    connect(m_dbusLauncher, &DBusLauncher::Shown, [this]{hide(true);});
+    connect(m_dbusLauncher, &DBusLauncher::Shown, [this] {hide(true);});
 
     connect(m_homeScreen, &HomeScreen::powerBtnClicked, [this] {hide(true);});
     connect(this, &Frame::hideInLeftChanged, this, updateGeometry);
@@ -123,11 +124,28 @@ Frame::Frame(QWidget *parent) :
 
 #ifdef ARCH_MIPSEL
     setCursor(Qt::WaitCursor);
-    QTimer::singleShot(500, m_contentView, &ContentView::lazyQueueLoadModules);
+    PluginLoader *rpc = new PluginLoader();
+    m_pluginLoadThread = new QThread(this);
+    rpc->list = PluginsManager::getInstance(this)->pluginsList();;
+    rpc->connect(m_pluginLoadThread, SIGNAL(started()), rpc, SLOT(runLoader()));
+    rpc->connect(rpc, SIGNAL(workFinished()), m_pluginLoadThread, SLOT(quit()));
+    rpc->connect(rpc, &PluginLoader::pluginLoad, m_contentView, &ContentView::loadPluginInstance);
+    rpc->connect(m_pluginLoadThread, SIGNAL(finished()), rpc, SLOT(deleteLater()));
+    rpc->connect(m_pluginLoadThread, SIGNAL(finished()), m_pluginLoadThread, SLOT(deleteLater()));
+    rpc->moveToThread(m_pluginLoadThread);
+#endif
+}
 
-    PluginsManager * pm = PluginsManager::getInstance(this);
+void Frame::loadContens()
+{
+#ifdef ARCH_MIPSEL
+    m_pluginLoadThread->start();
+    qDebug() << "plugin load thread" << m_pluginLoadThread << "started";
+
+    PluginsManager *pm = PluginsManager::getInstance(this);
     connect(pm, &PluginsManager::pluginLoaded, [this, pm] {
-        if (pm->count() == m_homeScreen->count()) {
+        if (pm->count() == m_homeScreen->count())
+        {
             setCursor(Qt::ArrowCursor);
         }
     });
@@ -142,6 +160,7 @@ Frame::~Frame()
 
 void Frame::show(bool imme)
 {
+    qDebug() << "frame show";
     if (m_visible || m_hideAni->state() == QPropertyAnimation::Running) {
         return;
     }
@@ -206,7 +225,7 @@ void Frame::hide(bool imme)
 // private slots
 void Frame::selectModule(const QString &pluginId)
 {
-    qDebug() << pluginId;
+    qDebug() << "select" << pluginId;
 
     // when module changed, clear old module settings
     m_autoHide = true;
@@ -220,8 +239,9 @@ void Frame::selectModule(const QString &pluginId)
         m_contentView->switchToModule(pluginId);
     }
 
-    if (!m_visible)
+    if (!m_visible) {
         show();
+    }
 }
 
 bool Frame::isVisible() const
@@ -277,8 +297,7 @@ void Frame::showEvent(QShowEvent *e)
 
 void Frame::keyPressEvent(QKeyEvent *e)
 {
-    switch (e->key())
-    {
+    switch (e->key()) {
     case Qt::Key_F1:        showHelpDocument();     break;
 #ifdef QT_DEBUG
     case Qt::Key_Escape:    qApp->quit();           break;
@@ -301,8 +320,9 @@ bool Frame::autoHide() const
 
 void Frame::setHideInLeft(bool hideInLeft)
 {
-    if (m_hideInLeft == hideInLeft)
+    if (m_hideInLeft == hideInLeft) {
         return;
+    }
 
     m_hideInLeft = hideInLeft;
 
@@ -314,10 +334,11 @@ void Frame::updateGeometry(const QRect &primaryRect)
     qDebug() << "updateGeometry: " << primaryRect;
 
     int posX;
-    if (m_hideInLeft)
+    if (m_hideInLeft) {
         posX = primaryRect.left();
-    else
+    } else {
         posX = primaryRect.right() - DCC::ControlCenterWidth - DCC::FrameShadowWidth + 1;
+    }
 
     move(posX, primaryRect.y());
     setFixedHeight(primaryRect.height());
@@ -331,8 +352,9 @@ void Frame::updateGeometry(const QRect &primaryRect)
 
 void Frame::setAutoHide(bool autoHide)
 {
-    if (m_autoHide == autoHide)
+    if (m_autoHide == autoHide) {
         return;
+    }
 
     m_autoHide = autoHide;
     emit autoHideChanged(autoHide);
@@ -341,13 +363,15 @@ void Frame::setAutoHide(bool autoHide)
 void Frame::toggle(bool inLeft)
 {
     if (m_hideAni->state() == QPropertyAnimation::Running ||
-        m_showAni->state() == QPropertyAnimation::Running)
+            m_showAni->state() == QPropertyAnimation::Running) {
         return;
+    }
 
     const bool lastState = isHideInLeft();
 
-    if (lastState == inLeft)
+    if (lastState == inLeft) {
         isVisible() ? hide() : show();
-    else
+    } else {
         hideAndShowAnotherSide();
+    }
 }

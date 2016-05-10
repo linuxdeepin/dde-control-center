@@ -32,16 +32,24 @@
 DWIDGET_USE_NAMESPACE
 
 class QFrame;
-class Datetime: public QObject, ModuleInterface
+class DatetimeModuele: public QObject, ModuleInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "datetime.json")
     Q_INTERFACES(ModuleInterface)
 
 public:
-    Datetime();
-    ~Datetime() Q_DECL_OVERRIDE;
     QFrame *getContent() Q_DECL_OVERRIDE;
+};
+
+class Datetime: public QObject
+{
+    Q_OBJECT
+
+public:
+    Datetime();
+    ~Datetime();
+    QFrame *getContent();
 
 protected:
     bool eventFilter(QObject *o, QEvent *e) Q_DECL_OVERRIDE;

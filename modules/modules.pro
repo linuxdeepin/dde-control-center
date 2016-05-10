@@ -1,18 +1,17 @@
 TEMPLATE = subdirs
-SUBDIRS  = sound \
-           power \
-           default_applications \
-#           grub \
-           mouse \
-           system_info \
-           display \
-           account \
-           shortcuts \
-           personalization\
-           keyboard \
-           datetime \
-#           remote_assistance \
-           wacom
+SUBDIRS  = \
+    account \
+    display \
+    sound \
+    power \
+    default_applications \
+    mouse \
+    system_info \
+    shortcuts \
+    personalization\
+    keyboard \
+    datetime \
+    wacom
 
 isEmpty(WITH_MODULE_GRUB){
     WITH_MODULE_GRUB = YES
@@ -36,12 +35,4 @@ isEmpty(WITH_MODULE_NETWORK){
 
 isEqual(WITH_MODULE_NETWORK, YES){
     SUBDIRS += network
-}
-
-isEmpty(WITH_MODULE_REMOTE_ASSIST){
-    WITH_MODULE_REMOTE_ASSIST = YES
-}
-
-isEqual(WITH_MODULE_REMOTE_ASSIST, YES){
-    SUBDIRS += remote_assistance
 }

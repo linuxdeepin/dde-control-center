@@ -20,6 +20,10 @@
 
 DWIDGET_USE_NAMESPACE
 
+QFrame *MouseModule::getContent() {
+    static Mouse *frame = new Mouse;
+    return frame->getContent();
+}
 
 /// as long as the qslider can't have float value,
 /// 	here , we have some value expanded. So pay attention.

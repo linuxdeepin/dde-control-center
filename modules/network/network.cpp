@@ -14,6 +14,11 @@
 #include "networkmainwidget.h"
 #include "controlcenterproxyinterface.h"
 
+QFrame *NetworkModule::getContent() {
+    static Network *frame = new Network;
+    return frame->getContent();
+}
+
 Network::Network()
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Network"));

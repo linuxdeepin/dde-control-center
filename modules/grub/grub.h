@@ -17,16 +17,24 @@
 
 class QFrame;
 class GrubWidget;
-class Grub: public QObject, ModuleInterface
+class GrubModule: public QObject, ModuleInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "grub.json")
     Q_INTERFACES(ModuleInterface)
 
 public:
-    Grub();
-    ~Grub() Q_DECL_OVERRIDE;
     QFrame *getContent() Q_DECL_OVERRIDE;
+};
+
+class Grub: public QObject
+{
+    Q_OBJECT
+
+public:
+    Grub();
+    ~Grub();
+    QFrame *getContent();
 
 private:
     QFrame *m_grubWidget;

@@ -11,32 +11,51 @@
 #include <QDebug>
 
 #include "account.h"
+#include "ui/accountmainwidget.h"
 
 Account::Account()
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "User Accounts"));
-
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
-
-    m_label = new QLabel("Account");
-    m_mainWidget = new AccountMainWidget;
+    mainWidget = new AccountMainWidget;
 }
 
 Account::~Account()
 {
     qDebug() << "~Account()";
-
-    m_label->deleteLater();
-    m_mainWidget->deleteLater();
 }
 
-QFrame* Account::getContent()
+QFrame *Account::getContent()
 {
-    return m_mainWidget;
+    return mainWidget;
 }
 
 void Account::preUnload()
 {
-    m_mainWidget->preDestroy();
+    mainWidget->preDestroy();
+}
+
+AccountModule::AccountModule()
+{
+    account = NULL;
+    qDebug() << "AccountModule" << "load";
+}
+
+AccountModule::~AccountModule()
+{
+    qDebug() << "AccountModule" << "destroy";
+}
+
+QFrame *AccountModule::getContent()
+{
+    if (!account) {
+        account = new Account;
+    }
+    return account->getContent();
+}
+
+void AccountModule::preUnload()
+{
+    account->preUnload();
 }

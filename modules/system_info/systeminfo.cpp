@@ -33,6 +33,22 @@
 
 DWIDGET_USE_NAMESPACE
 
+QFrame *SystemInfoModule::getContent()
+{
+    if (!frame) {
+        frame = new SystemInfo;
+    }
+    return frame->getContent();
+}
+
+void SystemInfoModule::preUnload()
+{
+    if (frame) {
+        return frame->preUnload();
+    }
+}
+
+
 SystemInfo::SystemInfo()
     : m_dbusSystemInfo("com.deepin.daemon.SystemInfo", "/com/deepin/daemon/SystemInfo", QDBusConnection::sessionBus(), this)
 {
@@ -185,7 +201,7 @@ SystemInfo::SystemInfo()
     centeralLayout->addWidget(license);
 
     scanlicenses();
-    foreach (DArrowLineExpand * expand, m_extralicenses) {
+    foreach(DArrowLineExpand * expand, m_extralicenses) {
         expandGrp->addExpand(expand);
         centeralLayout->addWidget(expand);
     }
@@ -237,15 +253,17 @@ void SystemInfo::preUnload()
 QString SystemInfo::getLicense(const QString &filePath, const QString &type) const
 {
     QString lang = QLocale::system().name();
-    if (lang != "zh_CN" && lang != "zh_TW")
+    if (lang != "zh_CN" && lang != "zh_TW") {
         lang = "en";
+    }
     QString path = QString(filePath).arg(lang).arg(type);
 
     qDebug() << path;
 
     QFile license(path);
-    if (!license.open(QIODevice::ReadOnly))
+    if (!license.open(QIODevice::ReadOnly)) {
         return "";
+    }
 
     const QByteArray buf = license.readAll();
     license.close();
@@ -277,8 +295,9 @@ void SystemInfo::updateWidgetHeight()
 
 bool SystemInfo::eventFilter(QObject *o, QEvent *e)
 {
-    if (o == m_centeralFrame && e->type() == QEvent::Resize)
+    if (o == m_centeralFrame && e->type() == QEvent::Resize) {
         updateWidgetHeight();
+    }
 
     return false;
 }
@@ -289,15 +308,16 @@ void SystemInfo::onUpdatableNumsChange(const int apps, const int packages)
 
     m_updateExpand->setUpdatableNums(num);
 
-    if (num && !m_updateExpand->expand())
+    if (num && !m_updateExpand->expand()) {
         m_updateExpand->setExpand(true);
+    }
 }
 
 void SystemInfo::onProcessFinished()
 {
-    QProcess *process = qobject_cast<QProcess*>(sender());
+    QProcess *process = qobject_cast<QProcess *>(sender());
 
-    if(process) {
+    if (process) {
         process->terminate();
         process->kill();
         process->deleteLater();
@@ -309,8 +329,8 @@ void SystemInfo::scanlicenses()
 {
     QMap<QString, QString> licenseInfos = licenseScanner::scan();
 
-    foreach (QString title, licenseInfos.keys()) {
-        QLabel * _content = new QLabel(licenseInfos[title]);
+    foreach(QString title, licenseInfos.keys()) {
+        QLabel *_content = new QLabel(licenseInfos[title]);
         _content->setStyleSheet("color:#666;");
         _content->setAlignment(Qt::AlignTop);
         _content->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -318,7 +338,7 @@ void SystemInfo::scanlicenses()
         _content->setWordWrap(true);
         _content->setMargin(10);
 
-        QScrollArea * content = new QScrollArea;
+        QScrollArea *content = new QScrollArea;
         content->setFrameStyle(QFrame::NoFrame);
         content->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         content->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -339,47 +359,49 @@ void SystemInfo::loadSystemInfoFromLocalFile(QGridLayout *infoGrid)
     QStringList info_dirs = QStandardPaths::standardLocations(QStandardPaths::GenericConfigLocation);
     QSet<QString> markRead;
 
-    foreach (const QString &path, info_dirs) {
-        if(path.startsWith("/home") || path.startsWith("/root"))
+    foreach(const QString & path, info_dirs) {
+        if (path.startsWith("/home") || path.startsWith("/root")) {
             continue;
+        }
 
         QDir dir(path + "/systeminfos");
 
         dir.setNameFilters(QStringList() << "*.json");
         dir.setFilter(QDir::Files | QDir::Readable);
 
-        if(dir.isReadable()) {
-            foreach (const QFileInfo &file_info, dir.entryInfoList()) {
-                if(markRead.contains(file_info.fileName()))
+        if (dir.isReadable()) {
+            foreach(const QFileInfo & file_info, dir.entryInfoList()) {
+                if (markRead.contains(file_info.fileName())) {
                     continue;
+                }
 
                 markRead << file_info.fileName();
 
                 QFile file(file_info.absoluteFilePath());
 
-                if(file.open(QIODevice::ReadOnly)) {
+                if (file.open(QIODevice::ReadOnly)) {
                     const QJsonDocument &json_doc = QJsonDocument::fromJson(file.readAll());
 
-                    for(const QJsonValue &value : json_doc.array()) {
+                    for (const QJsonValue &value : json_doc.array()) {
                         const QJsonObject &json_obj = value.toObject();
                         int infoGridCount = infoGrid->rowCount();
 
                         QString title = json_obj.value("title").toString();
                         QString content = json_obj.value("content").toString();
 
-                        if(!title.isEmpty()) {
+                        if (!title.isEmpty()) {
                             QLabel *info_title = new QLabel;
 
                             info_title->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
                             info_title->setTextFormat(Qt::AutoText);
-                            info_title->setText(title + (content.isEmpty() ? "" :":"));
+                            info_title->setText(title + (content.isEmpty() ? "" : ":"));
 
                             infoGrid->addWidget(info_title, infoGridCount, 0);
-                        } else if(content.isEmpty()) {
+                        } else if (content.isEmpty()) {
                             continue;
                         }
 
-                        if(!content.isEmpty()) {
+                        if (!content.isEmpty()) {
                             QLabel *info_content = new QLabel(content);
 
                             info_content->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
@@ -390,13 +412,13 @@ void SystemInfo::loadSystemInfoFromLocalFile(QGridLayout *infoGrid)
 
                             const QString &action = json_obj.value("action").toString();
 
-                            if(!action.isEmpty()) {
+                            if (!action.isEmpty()) {
                                 MouseArea *mouse_area = new MouseArea(info_content);
 
                                 mouse_area->resize(info_content->sizeHint());
 
                                 connect(mouse_area, &MouseArea::clicked, [this, action] {
-                                    if(m_markActionStarted.contains(action))
+                                    if (m_markActionStarted.contains(action))
                                         return;
 
                                     m_markActionStarted << action;
@@ -406,7 +428,7 @@ void SystemInfo::loadSystemInfoFromLocalFile(QGridLayout *infoGrid)
                                     process->setObjectName(action);
 
                                     connect(process, SIGNAL(error(QProcess::ProcessError)),
-                                            SLOT(onProcessFinished()));
+                                    SLOT(onProcessFinished()));
                                     connect(process, SIGNAL(finished(int)), SLOT(onProcessFinished()));
                                     process->start(action, QProcess::ReadOnly);
                                 });

@@ -15,6 +15,14 @@
 #include "power.h"
 #include "constants.h"
 
+QFrame *PowerModule::getContent() {
+    static Power *frame = NULL;
+    if (!frame) {
+        frame = new Power;
+    }
+    return frame->getContent();
+}
+
 Power::Power()
     :QObject(),
     m_frame(new QFrame),
@@ -55,7 +63,7 @@ void Power::initUI() {
     m_Layout->setSpacing(0);
     m_Layout->addWidget(m_powerTitleManagement);
     m_Layout->addWidget(m_screenBlackTimeWidget);
-    m_Layout->addSpacing(4);
+    m_Layout->addSpacing (4);
     m_Layout->addWidget(m_sleepTimeWidget);
     m_Layout->addWidget(dsHorizontalFirst);
     m_Layout->addWidget(m_screenBlackSwitchWidget);

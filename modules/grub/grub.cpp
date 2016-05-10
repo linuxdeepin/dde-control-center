@@ -13,6 +13,11 @@
 #include "grub.h"
 #include "grubwidget.h"
 
+QFrame *GrubModule::getContent() {
+    static Grub *frame = new Grub;
+    return frame->getContent();
+}
+
 Grub::Grub():
     m_grubWidget(new GrubWidget())
 {

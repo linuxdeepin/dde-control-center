@@ -28,6 +28,11 @@
 
 DWIDGET_USE_NAMESPACE
 
+QFrame *DatetimeModuele::getContent() {
+    static Datetime *frame = new Datetime;
+    return frame->getContent();
+}
+
 Datetime::Datetime() :
     QObject(),
     m_frame(new QFrame),

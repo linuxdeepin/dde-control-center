@@ -14,6 +14,21 @@
 #include "bluetooth.h"
 #include "dbus/dbusbluetooth.h"
 
+QFrame *BluetoothModule::getContent() {
+    if (!bluetooth) {
+        bluetooth = new Bluetooth;
+    }
+    return bluetooth->getContent();
+}
+
+void BluetoothModule::setProxy(ControlCenterProxyInterface *proxy)
+{
+    ModuleInterface::setProxy(proxy);
+
+    DBusBluetooth *inter = new DBusBluetooth(this);
+    connect(m_controlCenterProxy->dccObject(), SIGNAL(visibleChanged(bool)), inter, SLOT(ClearUnpairedDevice()));
+}
+
 Bluetooth::Bluetooth()
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Bluetooth"));
@@ -38,10 +53,3 @@ QFrame* Bluetooth::getContent()
     return m_mainWidget;
 }
 
-void Bluetooth::setProxy(ControlCenterProxyInterface *proxy)
-{
-    ModuleInterface::setProxy(proxy);
-
-    DBusBluetooth *inter = new DBusBluetooth(this);
-    connect(m_controlCenterProxy->dccObject(), SIGNAL(visibleChanged(bool)), inter, SLOT(ClearUnpairedDevice()));
-}

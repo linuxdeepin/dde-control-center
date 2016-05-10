@@ -17,8 +17,14 @@
 
 DWIDGET_USE_NAMESPACE
 
-Wacom::Wacom() :QObject(),
-                ModuleInterface() {
+QFrame *WacomModule::getContent()
+{
+    static Wacom *frame = new Wacom;
+    return frame->getContent();
+}
+
+Wacom::Wacom() : QObject()
+{
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Wacom"));
 
     Q_INIT_RESOURCE(widgets_theme_dark);
@@ -29,15 +35,18 @@ Wacom::Wacom() :QObject(),
     initConnects();
 }
 
-Wacom::~Wacom(){
+Wacom::~Wacom()
+{
     m_frame->deleteLater();
 }
 
-QFrame* Wacom::getContent(){
+QFrame *Wacom::getContent()
+{
     return m_frame;
 }
 
-void Wacom::initUI(){
+void Wacom::initUI()
+{
     const int labelWidth(105);
     const int segmentedCtrlAndComBoxWidth(160);
     const int dsliderWidth(170);
@@ -55,8 +64,8 @@ void Wacom::initUI(){
     m_frame = new QFrame();
     m_frame->setFixedWidth(DCC::ModuleContentWidth);
     m_frame->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    QVBoxLayout* wacomVLayout = new QVBoxLayout(m_frame);
-    wacomVLayout->setContentsMargins(0,0,0,0);
+    QVBoxLayout *wacomVLayout = new QVBoxLayout(m_frame);
+    wacomVLayout->setContentsMargins(0, 0, 0, 0);
     wacomVLayout->setSpacing(0);
 
     // WacomDbusInterface ,this variable is important
@@ -73,14 +82,14 @@ void Wacom::initUI(){
 
     // Panels under "Tablet" title
     wacomPanel = new QWidget(m_frame);
-    QVBoxLayout* wacomPanelVLayout = new QVBoxLayout(wacomPanel);
+    QVBoxLayout *wacomPanelVLayout = new QVBoxLayout(wacomPanel);
     wacomPanel->setLayout(wacomPanelVLayout);
-    wacomPanel->setContentsMargins(0,0,0,0);
+    wacomPanel->setContentsMargins(0, 0, 0, 0);
 
-    QWidget* tabletOrientatinItem = new QWidget(m_frame);
-    QHBoxLayout* tabletOriHLayout = new QHBoxLayout(tabletOrientatinItem);
+    QWidget *tabletOrientatinItem = new QWidget(m_frame);
+    QHBoxLayout *tabletOriHLayout = new QHBoxLayout(tabletOrientatinItem);
 
-    QLabel* tabletOriLabel = new QLabel(tr("Tablet Orientation"));
+    QLabel *tabletOriLabel = new QLabel(tr("Tablet Orientation"));
     tabletOriLabel->setStyleSheet(fontStyle);
     tabletOriLabel->setFixedWidth(labelWidth);
     tabletOriLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
@@ -94,11 +103,11 @@ void Wacom::initUI(){
     tabletOriHLayout->addWidget(m_tabletOriSCtrl);
 
     // DigitalPenModes Item
-    QWidget* digitalPenModesItem = new QWidget(m_frame);
-    QHBoxLayout* digitalPenModesHLayout = new QHBoxLayout(digitalPenModesItem);
+    QWidget *digitalPenModesItem = new QWidget(m_frame);
+    QHBoxLayout *digitalPenModesHLayout = new QHBoxLayout(digitalPenModesItem);
 
     // DigitalPenModesItem contents
-    QLabel* digitalPenModesLabel = new QLabel(tr("Digital Pen Modes"));
+    QLabel *digitalPenModesLabel = new QLabel(tr("Digital Pen Modes"));
     digitalPenModesLabel->setStyleSheet(fontStyle);
     digitalPenModesLabel->setFixedWidth(labelWidth);
     digitalPenModesLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
@@ -112,11 +121,11 @@ void Wacom::initUI(){
     digitalPenModesHLayout->addWidget(m_digitalPenModesSCtrl);
 
     // DownKey Item
-    QWidget* downKeyItem = new QWidget(m_frame);
-    QHBoxLayout* downKeyHLayout = new QHBoxLayout(downKeyItem);
+    QWidget *downKeyItem = new QWidget(m_frame);
+    QHBoxLayout *downKeyHLayout = new QHBoxLayout(downKeyItem);
 
     // DownKeyItem contents
-    QLabel* downKeyLabel = new QLabel(tr("Down Key"));
+    QLabel *downKeyLabel = new QLabel(tr("Down Key"));
     downKeyLabel->setStyleSheet(fontStyle);
     downKeyLabel->setFixedWidth(labelWidth);
     downKeyLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
@@ -131,59 +140,59 @@ void Wacom::initUI(){
     downKeyHLayout->addWidget(m_downKeySimpleComboBox);
 
     // UpKey Item
-    QWidget* upKeyItem = new QWidget(m_frame);
-    QHBoxLayout* upKeyHLayout = new QHBoxLayout(upKeyItem);
+    QWidget *upKeyItem = new QWidget(m_frame);
+    QHBoxLayout *upKeyHLayout = new QHBoxLayout(upKeyItem);
 
     // UpKeyItem contents
-    QLabel* upKeyLabel = new QLabel(tr("Up Key"));
+    QLabel *upKeyLabel = new QLabel(tr("Up Key"));
     upKeyLabel->setStyleSheet(fontStyle);
     upKeyLabel->setFixedWidth(labelWidth);
     upKeyLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     m_upKeySimpleComboBox = new DSimpleComboBox(upKeyItem);
     m_upKeySimpleComboBox->addItems(keylist);
     m_upKeySimpleComboBox->setCurrentIndex(-1);
-    m_upKeySimpleComboBox->setFixedSize(segmentedCtrlAndComBoxWidth,BUTTON_HEIGHT);
+    m_upKeySimpleComboBox->setFixedSize(segmentedCtrlAndComBoxWidth, BUTTON_HEIGHT);
 
     // to display them horizontally
     upKeyHLayout->addWidget(upKeyLabel);
     upKeyHLayout->addWidget(m_upKeySimpleComboBox);
 
     // pressure slider item
-    QWidget* pressureSliderItem = new QWidget(m_frame);
-    QHBoxLayout* pressureSliderHLayout = new QHBoxLayout(pressureSliderItem);
+    QWidget *pressureSliderItem = new QWidget(m_frame);
+    QHBoxLayout *pressureSliderHLayout = new QHBoxLayout(pressureSliderItem);
 
 
     // pressureSlider contents
-    QLabel* pressureLabel = new QLabel(tr("Pressure"));
+    QLabel *pressureLabel = new QLabel(tr("Pressure"));
     pressureLabel->setStyleSheet(fontStyle);
     pressureLabel->setFixedWidth(labelWidth);
     pressureLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    m_pressureSlider = new DSlider(Qt::Horizontal,pressureSliderItem);
+    m_pressureSlider = new DSlider(Qt::Horizontal, pressureSliderItem);
     m_pressureSlider->setLeftTip(tr("Soft"));
     m_pressureSlider->setRightTip(tr("Hard"));
     m_pressureSlider->setFixedWidth(dsliderWidth);
     m_pressureSlider->setHoverShowValue(true);
-    m_pressureSlider->setRange(1,pressureSliderRangeMaxValue);
+    m_pressureSlider->setRange(1, pressureSliderRangeMaxValue);
 
     // to display prssureSlider contents horizontally
     pressureSliderHLayout->addWidget(pressureLabel);
     pressureSliderHLayout->addWidget(m_pressureSlider);
 
     // DoubleClickSpaceItem
-    QWidget* doubleClickSpaceItem = new QWidget(m_frame);
-    QHBoxLayout* doubleClickSpaceSliderHLayout = new QHBoxLayout(doubleClickSpaceItem);
+    QWidget *doubleClickSpaceItem = new QWidget(m_frame);
+    QHBoxLayout *doubleClickSpaceSliderHLayout = new QHBoxLayout(doubleClickSpaceItem);
 
     // DoubleClickSpaceSlider contents
-    QLabel* doubleClickSpaceLabel = new QLabel(tr("Double-click Space"));
+    QLabel *doubleClickSpaceLabel = new QLabel(tr("Double-click Space"));
     doubleClickSpaceLabel->setStyleSheet(fontStyle);
     doubleClickSpaceLabel->setFixedWidth(labelWidth);
     doubleClickSpaceLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    m_doubleClickSpaceSlider = new DSlider(Qt::Horizontal,doubleClickSpaceItem);
+    m_doubleClickSpaceSlider = new DSlider(Qt::Horizontal, doubleClickSpaceItem);
     m_doubleClickSpaceSlider->setLeftTip(tr("Narrow"));
     m_doubleClickSpaceSlider->setRightTip(tr("Wide"));
     m_doubleClickSpaceSlider->setFixedWidth(dsliderWidth);
     m_doubleClickSpaceSlider->setHoverShowValue(true);
-    m_doubleClickSpaceSlider->setRange(0,doubleClickSpaceRangeMaxValue);
+    m_doubleClickSpaceSlider->setRange(0, doubleClickSpaceRangeMaxValue);
 
     // to display them horizontally
     doubleClickSpaceSliderHLayout->addWidget(doubleClickSpaceLabel);
@@ -210,7 +219,8 @@ void Wacom::initUI(){
     wacomVLayout->addStretch(1);
 }
 
-void Wacom::initWacom(){
+void Wacom::initWacom()
+{
     /* initial TabletOrientation,
        set m_tabletOriSCtrl's currentIndex by judging that m_wacomInterface's leftHanded() is true(1) or false(0) */
     m_tabletOriSCtrl->setCurrentIndex(m_wacomInterface->leftHanded() == 0);
@@ -221,29 +231,29 @@ void Wacom::initWacom(){
 
     // initial KeyDownAction
     QString keyDownActionStr = m_wacomInterface->keyDownAction();
-    if(keyDownActionStr == "PageUp"){
+    if (keyDownActionStr == "PageUp") {
         m_downKeySimpleComboBox->setCurrentIndex(0);
-    }else if(keyDownActionStr == "PageDown"){
+    } else if (keyDownActionStr == "PageDown") {
         m_downKeySimpleComboBox->setCurrentIndex(1);
-    }else if(keyDownActionStr == "LeftClick"){
+    } else if (keyDownActionStr == "LeftClick") {
         m_downKeySimpleComboBox->setCurrentIndex(2);
-    }else if(keyDownActionStr == "RightClick"){
+    } else if (keyDownActionStr == "RightClick") {
         m_downKeySimpleComboBox->setCurrentIndex(3);
-    }else{
+    } else {
         m_downKeySimpleComboBox->setCurrentIndex(4);
     }
 
     //initial KeyUpAction
     QString keyUpActionStr = m_wacomInterface->keyUpAction();
-    if(keyUpActionStr == "PageUp"){
+    if (keyUpActionStr == "PageUp") {
         m_upKeySimpleComboBox->setCurrentIndex(0);
-    }else if(keyUpActionStr == "PageDown"){
+    } else if (keyUpActionStr == "PageDown") {
         m_upKeySimpleComboBox->setCurrentIndex(1);
-    }else if(keyUpActionStr == "LeftClick"){
+    } else if (keyUpActionStr == "LeftClick") {
         m_upKeySimpleComboBox->setCurrentIndex(2);
-    }else if(keyUpActionStr == "RightClick"){
+    } else if (keyUpActionStr == "RightClick") {
         m_upKeySimpleComboBox->setCurrentIndex(3);
-    }else{
+    } else {
         m_upKeySimpleComboBox->setCurrentIndex(4);
     }
 
@@ -256,62 +266,64 @@ void Wacom::initWacom(){
     m_doubleClickSpaceSlider->setValue((int)wacomDoubleclickSpace);
 }
 
-void Wacom::initConnects(){
-    connect(m_wacomModuleHeader,&ModuleHeader::resetButtonClicked,this,&Wacom::reset);
+void Wacom::initConnects()
+{
+    connect(m_wacomModuleHeader, &ModuleHeader::resetButtonClicked, this, &Wacom::reset);
 
-    connect(m_tabletOriSCtrl,SIGNAL(currentChanged(int)),this,SLOT(setTabletOrientation(int)));
-    connect(m_wacomInterface,&DBusInputWacom::LeftHandedChanged,[=](){
+    connect(m_tabletOriSCtrl, SIGNAL(currentChanged(int)), this, SLOT(setTabletOrientation(int)));
+    connect(m_wacomInterface, &DBusInputWacom::LeftHandedChanged, [ = ]() {
         m_tabletOriSCtrl->setCurrentIndex(m_wacomInterface->leftHanded() == 0);
     });
 
-    connect(m_digitalPenModesSCtrl,SIGNAL(currentChanged(int)),this,SLOT(setDigitalPenModes(int)));
-    connect(m_wacomInterface,&DBusInputWacom::CursorModeChanged,[=](){
+    connect(m_digitalPenModesSCtrl, SIGNAL(currentChanged(int)), this, SLOT(setDigitalPenModes(int)));
+    connect(m_wacomInterface, &DBusInputWacom::CursorModeChanged, [ = ]() {
         m_digitalPenModesSCtrl->setCurrentIndex(m_wacomInterface->cursorMode() == 1);
     });
 
-    connect(m_downKeySimpleComboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(setDownKey(int)));
-    connect(m_wacomInterface,&DBusInputWacom::KeyDownActionChanged,[=](QString keyDownStr){
-        if(keyDownStr == "PageUp"){
+    connect(m_downKeySimpleComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(setDownKey(int)));
+    connect(m_wacomInterface, &DBusInputWacom::KeyDownActionChanged, [ = ](QString keyDownStr) {
+        if (keyDownStr == "PageUp") {
             m_downKeySimpleComboBox->setCurrentIndex(0);
-        }else if(keyDownStr == "PageDown"){
+        } else if (keyDownStr == "PageDown") {
             m_downKeySimpleComboBox->setCurrentIndex(1);
-        }else if(keyDownStr == "LeftClick"){
+        } else if (keyDownStr == "LeftClick") {
             m_downKeySimpleComboBox->setCurrentIndex(2);
-        }else if(keyDownStr == "RightClick"){
+        } else if (keyDownStr == "RightClick") {
             m_downKeySimpleComboBox->setCurrentIndex(3);
-        }else{
+        } else {
             m_downKeySimpleComboBox->setCurrentIndex(4);
         }
     });
 
-    connect(m_upKeySimpleComboBox,SIGNAL(currentIndexChanged(int)),this,SLOT(setUpKey(int)));
-    connect(m_wacomInterface,&DBusInputWacom::KeyUpActionChanged,[=](QString keyUpStr){
-        if(keyUpStr == "PageUp"){
+    connect(m_upKeySimpleComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(setUpKey(int)));
+    connect(m_wacomInterface, &DBusInputWacom::KeyUpActionChanged, [ = ](QString keyUpStr) {
+        if (keyUpStr == "PageUp") {
             m_upKeySimpleComboBox->setCurrentIndex(0);
-        }else if(keyUpStr == "PageDown"){
+        } else if (keyUpStr == "PageDown") {
             m_upKeySimpleComboBox->setCurrentIndex(1);
-        }else if(keyUpStr == "LeftClick"){
+        } else if (keyUpStr == "LeftClick") {
             m_upKeySimpleComboBox->setCurrentIndex(2);
-        }else if(keyUpStr == "RightClick"){
+        } else if (keyUpStr == "RightClick") {
             m_upKeySimpleComboBox->setCurrentIndex(3);
-        }else{
+        } else {
             m_upKeySimpleComboBox->setCurrentIndex(4);
         }
     });
 
-    connect(m_pressureSlider,SIGNAL(valueChanged(int)),this,SLOT(setPressure(int)));
-    connect(m_wacomInterface,&DBusInputWacom::PressureSensitiveChanged,[=](uint pressure){
+    connect(m_pressureSlider, SIGNAL(valueChanged(int)), this, SLOT(setPressure(int)));
+    connect(m_wacomInterface, &DBusInputWacom::PressureSensitiveChanged, [ = ](uint pressure) {
         m_pressureSlider->setValue((int)pressure);
     });
 
-    connect(m_doubleClickSpaceSlider,SIGNAL(valueChanged(int)),this,SLOT(setDoubleClickSpace(int)));
-    connect(m_wacomInterface,&DBusInputWacom::DoubleDeltaChanged,[=](uint doubleDelta){
+    connect(m_doubleClickSpaceSlider, SIGNAL(valueChanged(int)), this, SLOT(setDoubleClickSpace(int)));
+    connect(m_wacomInterface, &DBusInputWacom::DoubleDeltaChanged, [ = ](uint doubleDelta) {
         m_doubleClickSpaceSlider->setValue((int)doubleDelta);
     });
 }
 
 // Reset every parameter of Tablet
-void Wacom::reset(){
+void Wacom::reset()
+{
     m_wacomInterface->Reset();
     qDebug() << m_wacomInterface->leftHanded() << "  "
              << m_wacomInterface->cursorMode() << "  "
@@ -321,17 +333,20 @@ void Wacom::reset(){
              << m_wacomInterface->doubleDelta() <<  "  ";
 }
 
-void Wacom::setTabletOrientation(int indexOfTabletSegCtrl){
+void Wacom::setTabletOrientation(int indexOfTabletSegCtrl)
+{
     // set m_wacomInterface's leftHand by judging that if m_tabletOriSCtrl's currentIndex is 1 or 0
     m_wacomInterface->setLeftHanded(indexOfTabletSegCtrl == 0);
 }
 
-void Wacom::setDigitalPenModes(int indexOfDigitalPenModes){
+void Wacom::setDigitalPenModes(int indexOfDigitalPenModes)
+{
     // set m_wacomInterface's cursorMode by judging that if m_digitalPenModesSCtrl's currentIndex is 1 or 0
     m_wacomInterface->setCursorMode(indexOfDigitalPenModes == 1);
 }
 
-void Wacom::setDownKey(int indexofdownkey){
+void Wacom::setDownKey(int indexofdownkey)
+{
     // 0~4 indicate the index of m_upKeySimpleComboBox
     switch (indexofdownkey) {
     case 0:
@@ -351,7 +366,8 @@ void Wacom::setDownKey(int indexofdownkey){
     }
 }
 
-void Wacom::setUpKey(int indexofupkey){
+void Wacom::setUpKey(int indexofupkey)
+{
     // 0~4 indicate the index of m_downKeySimpleComboBox
     switch (indexofupkey) {
     case 0:
@@ -372,10 +388,12 @@ void Wacom::setUpKey(int indexofupkey){
     }
 }
 
-void Wacom::setPressure(int pressure){
+void Wacom::setPressure(int pressure)
+{
     m_wacomInterface->setPressureSensitive((uint)pressure);
 }
 
-void Wacom::setDoubleClickSpace(int space){
+void Wacom::setDoubleClickSpace(int space)
+{
     m_wacomInterface->setDoubleDelta((uint)space);
 }

@@ -32,11 +32,20 @@ DWIDGET_USE_NAMESPACE
 
 class QFrame;
 class ModuleHeader;
-class Sound: public QObject, ModuleInterface
+
+class SoundModule: public QObject, ModuleInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "sound.json")
     Q_INTERFACES(ModuleInterface)
+
+public:
+    QFrame *getContent() Q_DECL_OVERRIDE;
+};
+
+class Sound: public QObject, ModuleInterface
+{
+    Q_OBJECT
 
 public:
     Sound();

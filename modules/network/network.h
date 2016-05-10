@@ -17,16 +17,24 @@
 
 class QLabel;
 class NetworkMainWidget;
-class Network: public QObject, ModuleInterface
+class NetworkModule: public QObject, ModuleInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "network.json")
     Q_INTERFACES(ModuleInterface)
 
 public:
-    Network();
-    ~Network() Q_DECL_OVERRIDE;
     QFrame *getContent() Q_DECL_OVERRIDE;
+};
+
+class Network: public QObject, ModuleInterface
+{
+    Q_OBJECT
+
+public:
+    Network();
+    ~Network();
+    QFrame *getContent();
 
     ControlCenterProxyInterface *getInterface() const;
 

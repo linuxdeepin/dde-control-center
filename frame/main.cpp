@@ -118,6 +118,8 @@ int main(int argv, char *args[])
 #endif
     }
 
+    frame.loadContens();
+
     if (!positionalArgs.isEmpty()) {
 
         PluginsManager *pluginsManager = PluginsManager::getInstance(&app);

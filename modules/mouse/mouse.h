@@ -34,16 +34,24 @@ class ContainerWidget;
 class ModuleHeader;
 class QLabel;
 class QFrame;
-class Mouse: public QObject, ModuleInterface
+class MouseModule: public QObject, ModuleInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "mouse.json")
     Q_INTERFACES(ModuleInterface)
 
 public:
-    Mouse();
-    ~Mouse() Q_DECL_OVERRIDE;
     QFrame *getContent() Q_DECL_OVERRIDE;
+};
+
+class Mouse: public QObject
+{
+    Q_OBJECT
+
+public:
+    Mouse();
+    ~Mouse();
+    QFrame *getContent();
 
 public slots:
     void setMousePrimaryButton(int index);

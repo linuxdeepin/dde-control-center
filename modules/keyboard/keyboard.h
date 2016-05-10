@@ -33,16 +33,24 @@ class QVBoxLayout;
 class KeyboardLayoutDelegate;
 class DbusLangSelector;
 class LocaleInfo;
-class Keyboard: public QObject, ModuleInterface, QRunnable
+class KeyboardModule: public QObject, ModuleInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "keyboard.json")
     Q_INTERFACES(ModuleInterface)
 
 public:
-    Keyboard();
-    ~Keyboard() Q_DECL_OVERRIDE;
     QFrame *getContent() Q_DECL_OVERRIDE;
+};
+
+class Keyboard: public QObject, QRunnable
+{
+    Q_OBJECT
+
+public:
+    Keyboard();
+    ~Keyboard();
+    QFrame *getContent();
 
 signals:
     void addLayoutItem(const QString &id, const QString &title, const QStringList &letterFirstList);

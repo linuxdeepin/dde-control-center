@@ -28,16 +28,24 @@
 
 DWIDGET_USE_NAMESPACE
 
-class Wacom: public QObject, ModuleInterface
+class WacomModule: public QObject, ModuleInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "wacom.json")
     Q_INTERFACES(ModuleInterface)
 
 public:
-    Wacom();
-    ~Wacom() Q_DECL_OVERRIDE;
     QFrame *getContent() Q_DECL_OVERRIDE;
+};
+
+class Wacom: public QObject
+{
+    Q_OBJECT
+
+public:
+    Wacom();
+    ~Wacom();
+    QFrame *getContent();
 
     void initUI();
     void initWacom();

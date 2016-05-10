@@ -13,7 +13,7 @@
 
 RunnableTask::RunnableTask(QMap<DefaultApps::DefaultAppsCategory, DArrowLineExpand*> taskMap,
                            QMap<DefaultApps::DefaultAppsCategory, DOptionList*> *appBtnMap):
-    m_taskMap(taskMap),m_appsBtnMap(appBtnMap)
+    m_appsBtnMap(appBtnMap),m_taskMap(taskMap)
 {
 
 }

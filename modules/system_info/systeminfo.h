@@ -29,18 +29,16 @@ DWIDGET_USE_NAMESPACE
 class QFrame;
 class QPlainTextEdit;
 class ModuleHeader;
-class SystemInfo : public QObject, ModuleInterface
+
+class SystemInfo : public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "system_info.json")
-    Q_INTERFACES(ModuleInterface)
 
 public:
     SystemInfo();
     ~SystemInfo() Q_DECL_OVERRIDE;
-    QFrame *getContent() Q_DECL_OVERRIDE;
-    void preUnload() Q_DECL_OVERRIDE;
-
+    QFrame *getContent();
+    void preUnload();
 private:
     QString getLicense(const QString &filePath, const QString &type) const;
     Q_SLOT void updateWidgetHeight();
@@ -67,6 +65,19 @@ private:
 
     void scanlicenses();
     void loadSystemInfoFromLocalFile(QGridLayout *infoGrid);
+};
+
+class SystemInfoModule : public QObject, ModuleInterface
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "system_info.json")
+    Q_INTERFACES(ModuleInterface)
+
+public:
+    QFrame *getContent() Q_DECL_OVERRIDE;
+    void preUnload() Q_DECL_OVERRIDE;
+
+    SystemInfo *frame = NULL;
 };
 
 #endif // SYSTEMINFO_H

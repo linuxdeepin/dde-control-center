@@ -23,22 +23,21 @@
 #include "scrollframe.h"
 #include "constants.h"
 
-Display::Display():
-    QObject(),
-    m_frame(NULL)
+QFrame *DisplayModule::getContent()
 {
-    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Display"));
-
-    Q_INIT_RESOURCE(widgets_theme_dark);
-    Q_INIT_RESOURCE(widgets_theme_light);
-
-    init();
+    static Display *display = NULL;
+    if (!display) {
+        display = new Display;
+    }
+    return display->getContent();
 }
 
-Display::~Display()
+Display::Display()
 {
-    qDebug() << "~Display()";
-    delete m_frame ;
+    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Display"));
+    Q_INIT_RESOURCE(widgets_theme_dark);
+    Q_INIT_RESOURCE(widgets_theme_light);
+    init();
 }
 
 QFrame *Display::getContent()
@@ -57,7 +56,7 @@ void Display::init()
     m_frame->mainLayout()->setMargin(0);
     m_frame->mainLayout()->setSpacing(0);
 
-    ModuleHeader * headerLine = new ModuleHeader(tr("Display"));
+    ModuleHeader *headerLine = new ModuleHeader(tr("Display"));
 
     headerLine->setFixedWidth(DCC::ModuleContentWidth);
     connect(headerLine, &ModuleHeader::resetButtonClicked, m_dbusDisplay, &DisplayInterface::Reset);
@@ -73,20 +72,21 @@ void Display::init()
     m_singleSettings->setFixedWidth(DCC::ModuleContentWidth);
     m_singleSettings->hide();
 
-#ifndef ARCH_MIPSEL
+#ifndef aARCH_MIPSEL
     updateUI();
 #else
-    QTimer::singleShot(100, this, &Display::updateUI);
+//    QTimer::singleShot(100, this, &Display::updateUI);
 #endif
 
     connect(m_dbusDisplay, &DisplayInterface::MonitorsChanged,
             this, &Display::updateUI, Qt::DirectConnection);
     connect(m_dbusDisplay, &DisplayInterface::DisplayModeChanged,
             this, &Display::onDisplayModeChanged, Qt::DirectConnection);
-    connect(m_dbusDisplay, &DisplayInterface::PrimaryChanged, this, [this]{
+    connect(m_dbusDisplay, &DisplayInterface::PrimaryChanged, this, [this] {
         QString str = m_dbusDisplay->primary();
 
-        for(int i=0; i<m_monitors.count(); ++i){
+        for (int i = 0; i < m_monitors.count(); ++i)
+        {
             m_monitors[i]->setIsPrimary(m_monitors[i]->name() == str);
         }
     }, Qt::DirectConnection);
@@ -110,20 +110,22 @@ void Display::updateUI()
 
     QString primargName = m_dbusDisplay->primary();
 
-    for (int i=0; i<pathList.count(); ++i) {
+    for (int i = 0; i < pathList.count(); ++i) {
         MonitorInterface *interface = new MonitorInterface(pathList[i].path(), this);
         m_dbusMonitors << interface;
         Monitor *monitor = new Monitor(interface);
 
-        if(tmp_list.count() == pathList.count())
+        if (tmp_list.count() == pathList.count()) {
             monitor->setName(interface->name());
-        else if(i < tmp_list.count() - 1)
+        } else if (i < tmp_list.count() - 1) {
             monitor->setName(tmp_list[i]);
+        }
 
-        if(monitor->name() == primargName)
+        if (monitor->name() == primargName) {
             monitor->setIsPrimary(true);
+        }
 
-        if(interface->isComposited()){
+        if (interface->isComposited()) {
             Monitor *tmp = new Monitor(NULL);
             tmp->setName(tmp_list[1]);
             monitor->drop(tmp);
@@ -135,24 +137,25 @@ void Display::updateUI()
 
     m_singleSettings->updateUI(m_dbusMonitors);
 
-    if(m_monitorNameList == tmp_list)
+    if (m_monitorNameList == tmp_list) {
         return;
+    }
 
     m_monitorNameList = tmp_list;
 
-    for(int i = 3; i < m_frame->mainLayout()->count();){
+    for (int i = 3; i < m_frame->mainLayout()->count();) {
         QLayoutItem *item = m_frame->mainLayout()->takeAt(i);
         QWidget *widget = item->widget();
         delete item;
 
-        if(widget == m_singleSettings){
+        if (widget == m_singleSettings) {
             widget->hide();
-        }else{
+        } else {
             widget->deleteLater();
         }
     }
 
-    if(m_monitorNameList.count() > 1){
+    if (m_monitorNameList.count() > 1) {
         DArrowLineExpand *displayModeExpand = new DArrowLineExpand;
         displayModeExpand->setTitle(tr("Display Mode"));
 
@@ -164,8 +167,8 @@ void Display::updateUI()
         item_copy->setText(tr("Copy the contents of your primary screen to other screens."));
         item_copy->setIconName("copy");
         connect(item_copy, &DisplayModeItem::checkedChanged,
-                this, [this](bool arg){
-            if(arg && m_dbusDisplay->displayMode() != 1){
+        this, [this](bool arg) {
+            if (arg && m_dbusDisplay->displayMode() != 1) {
                 m_dbusDisplay->SwitchMode(1, "");
             }
         }, Qt::DirectConnection);
@@ -176,8 +179,8 @@ void Display::updateUI()
         item_extend->setIconName("extend");
 
         connect(item_extend, &DisplayModeItem::checkedChanged,
-                this, [this](bool arg){
-            if(arg && m_dbusDisplay->displayMode() != 2){
+        this, [this](bool arg) {
+            if (arg && m_dbusDisplay->displayMode() != 2) {
                 m_dbusDisplay->SwitchMode(2, "");
             }
         }, Qt::DirectConnection);
@@ -190,8 +193,8 @@ void Display::updateUI()
         m_widgetList->addWidget(item_copy);
         m_widgetList->addWidget(item_extend);
 
-        for (int i=0; i < m_monitorNameList.count(); ++i) {
-            const QString& name = m_monitorNameList[i];
+        for (int i = 0; i < m_monitorNameList.count(); ++i) {
+            const QString &name = m_monitorNameList[i];
 
             DisplayModeItem *item_monitor = new DisplayModeItem;
             item_monitor->setTitle(tr("Only Displayed on %1").arg(name));
@@ -201,8 +204,8 @@ void Display::updateUI()
             m_widgetList->addWidget(item_monitor);
 
             connect(item_monitor, &DisplayModeItem::checkedChanged,
-                    this, [this, name](bool arg){
-                if(arg){
+            this, [this, name](bool arg) {
+                if (arg) {
                     m_dbusDisplay->SwitchMode(3, name);
                 }
             }, Qt::DirectConnection);
@@ -212,8 +215,9 @@ void Display::updateUI()
 
         displayModeExpand->setContent(m_widgetList);
 
-        connect(item_settings, &DisplayModeItem::clicked, displayModeExpand, [this, displayModeExpand]{
-            if (m_dbusDisplay->displayMode() != 0) {
+        connect(item_settings, &DisplayModeItem::clicked, displayModeExpand, [this, displayModeExpand] {
+            if (m_dbusDisplay->displayMode() != 0)
+            {
                 m_dbusDisplay->SwitchMode(0, "");
             }
         }, Qt::DirectConnection);
@@ -224,7 +228,7 @@ void Display::updateUI()
             m_monitorGround->setEditable(true);
         });
 
-        connect(m_singleSettings, &CustomSettings::cancel, displayModeExpand, [this, displayModeExpand]{
+        connect(m_singleSettings, &CustomSettings::cancel, displayModeExpand, [this, displayModeExpand] {
             displayModeExpand->show();
             m_singleSettings->hide();
             onDisplayModeChanged();
@@ -237,7 +241,7 @@ void Display::updateUI()
         onDisplayModeChanged();
 
         displayModeExpand->setExpand(true);
-    }else{
+    } else {
         m_frame->mainLayout()->addWidget(m_singleSettings);
         m_singleSettings->show();
     }
@@ -247,27 +251,28 @@ void Display::updateUI()
 
 void Display::onDisplayModeChanged()
 {
-    if(!m_widgetList)
+    if (!m_widgetList) {
         return;
+    }
 
     switch (m_dbusDisplay->displayMode()) {
     case 0://custom mode
         m_widgetList->getWidget(m_monitorNameList.count() + 2)->setProperty("checked", true);
         break;
-    case 1:{//copy mode
+    case 1: { //copy mode
         m_widgetList->getWidget(0)->setProperty("checked", true);
         break;
     }
-    case 2:{
+    case 2: {
         m_widgetList->getWidget(1)->setProperty("checked", true);
         break;
     }
-    case 3:{
+    case 3: {
         QString str = m_dbusDisplay->primary();
 
-        for(int i = 2; i<m_widgetList->count() - 1; ++i){
-            DisplayModeItem *item = qobject_cast<DisplayModeItem*>(m_widgetList->getWidget(i));
-            if(item && item->title().contains(str)){
+        for (int i = 2; i < m_widgetList->count() - 1; ++i) {
+            DisplayModeItem *item = qobject_cast<DisplayModeItem *>(m_widgetList->getWidget(i));
+            if (item && item->title().contains(str)) {
                 m_widgetList->getWidget(i)->setProperty("checked", true);
             }
         }

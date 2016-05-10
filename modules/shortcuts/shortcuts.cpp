@@ -13,24 +13,21 @@
 #include "mainwidget.h"
 #include "shortcuts.h"
 
-Shortcuts::Shortcuts():
-    m_mainWidget(new MainWidget())
+QFrame *ShortcutsModule::getContent()
 {
-    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Keyboard Shortcuts"));
-
-    Q_INIT_RESOURCE(widgets_theme_dark);
-    Q_INIT_RESOURCE(widgets_theme_light);
+    static Shortcuts *frame = new Shortcuts;
+    return frame->getContent();
 }
 
-Shortcuts::~Shortcuts()
+Shortcuts::Shortcuts()
 {
-    qDebug() << "~Shortcuts()";
-    m_mainWidget->setParent(0);
-    m_mainWidget->deleteLater();
+    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Keyboard Shortcuts"));
+    Q_INIT_RESOURCE(widgets_theme_dark);
+    Q_INIT_RESOURCE(widgets_theme_light);
+    m_mainWidget = new MainWidget();
 }
 
 QFrame *Shortcuts::getContent()
 {
     return m_mainWidget;
 }
-

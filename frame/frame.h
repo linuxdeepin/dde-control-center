@@ -50,6 +50,7 @@ public slots:
     void toggle(bool inLeft);
     void selectModule(const QString &pluginId);
     bool isVisible() const;
+    void loadContens();
 
 signals:
     void hideInLeftChanged(bool hideInLeft);
@@ -79,7 +80,7 @@ private:
     QWidget *m_leftShadow;
     QWidget *m_rightShadow;
     ControlCenterProxy *m_controlProxy;
-
+    QThread *m_pluginLoadThread = NULL;
     QString m_dbusFullScreenKey = QString();
 
     bool m_visible = false;

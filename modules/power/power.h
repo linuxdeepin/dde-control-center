@@ -41,17 +41,26 @@ DWIDGET_USE_NAMESPACE
 
 class QLabel;
 class QFrame;
-class Power: public QObject, ModuleInterface
+class PowerModule: public QObject, ModuleInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "power.json")
     Q_INTERFACES(ModuleInterface)
 
 public:
-    Power();
-    ~Power() Q_DECL_OVERRIDE;
     QFrame *getContent() Q_DECL_OVERRIDE;
+};
+
+class Power: public QObject {
+    Q_OBJECT
+
+public:
+    Power();
+    ~Power();
+
 public slots:
+    QFrame *getContent();
+
     void handleScreenBlackDelayChanged();
     void handleSleepDelayChanged();
     void handleScreenBlackLockChanged();

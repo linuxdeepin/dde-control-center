@@ -20,9 +20,24 @@
 #include "constants.h"
 #include "controlcenterproxy.h"
 
+void PluginLoader::runLoader()
+{
+    qDebug() << "load" << list.length() << "modules";
+    foreach(ModuleMetaData module, list) {
+        qDebug() << "begin load file" << module.path;
+        QPluginLoader *pluginLoader = new QPluginLoader(this);
+        pluginLoader->setFileName(module.path);
+        QObject *instance = pluginLoader->instance();
+        qDebug() << "end load file" << module.path;
+        instance->moveToThread(qApp->thread());
+        emit pluginLoad(module.id, instance);
+        QThread::msleep(400);
+    }
+}
+
 ContentView::ContentView(ControlCenterProxy *proxy, QWidget *parent)
     : QFrame(parent),
-    m_controlCenterProxy(proxy)
+      m_controlCenterProxy(proxy)
 {
     m_pluginLoader = new QPluginLoader(this);
 #ifdef QT_DEBUG
@@ -48,7 +63,7 @@ ContentView::ContentView(ControlCenterProxy *proxy, QWidget *parent)
     m_layout->setSpacing(0);
     m_layout->setMargin(0);
 
-    if(m_hideInLeft) {
+    if (m_hideInLeft) {
         m_rightSeparator->hide();
 //        m_sideBar->getTipFrame()->setArrowDirection(DTipsFrame::ArrowLeft);
         m_layout->insertWidget(0, m_lastPluginWidgetContainer);
@@ -72,7 +87,7 @@ ContentView::ContentView(ControlCenterProxy *proxy, QWidget *parent)
     connect(m_sideBar, &SideBar::moduleSelected, this, &ContentView::onModuleSelected);
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide);
     connect(m_showAni, &QPropertyAnimation::finished, this, static_cast<void (ContentView::*)()>(&ContentView::update));
-    connect(m_pluginsManager, &PluginsManager::showHome, this,&ContentView::switchToHome );
+    connect(m_pluginsManager, &PluginsManager::showHome, this, &ContentView::switchToHome);
 
     setLayout(m_layout);
 }
@@ -87,31 +102,33 @@ ContentView::~ContentView()
 
 void ContentView::switchToModule(ModuleMetaData module)
 {
-    if (m_lastPluginInterface && m_lastPluginWidget && m_lastPluginPath == module.path)
+    qDebug() << "switchToModule" << module.id << module.path;
+    if (m_lastPluginInterface && m_lastPluginWidget && m_lastPluginPath == module.path) {
         return;
+    }
     m_lastPluginPath = module.path;
 
     unloadPlugin();
-
-    qDebug() << "load plugin: " << module.path;
 
     // load new plugin
     m_sideBar->blockSignals(true);
     m_sideBar->switchToModule(module);
     m_sideBar->blockSignals(false);
 
-    QWidget * content = nullptr;
+    QWidget *content = nullptr;
 #ifdef DCC_CACHE_MODULES
     if (m_pluginsCache.contains(module.path)) {
         content = m_pluginsCache.value(module.path, nullptr);
     } else {
-        content = loadPlugin(module);
-        m_pluginsCache[module.path] = content;
+        content = loadPluginNow(module);
     }
 #else
     content = loadPlugin(module);
 #endif
-
+    if (!content) {
+        qCritical() << module.path << "content not load";
+        return;
+    }
     m_lastPluginWidget = content;
     m_lastPluginWidget->setFixedWidth(DCC::ModuleContentWidth);
     m_lastPluginWidgetContainerLayout->addWidget(m_lastPluginWidget);
@@ -140,18 +157,19 @@ void ContentView::show()
 
 void ContentView::reLayout(bool hideInLeft)
 {
-    if(hideInLeft == m_hideInLeft)
+    if (hideInLeft == m_hideInLeft) {
         return;
+    }
 
     m_hideInLeft = hideInLeft;
 
     m_rightSeparator->setHidden(hideInLeft);
     m_leftSeparator->setVisible(hideInLeft);
     int index = hideInLeft ? 3 : 0;
-    if(m_layout->count() > 3){
+    if (m_layout->count() > 3) {
         QLayoutItem *item = m_layout->takeAt(index);
 
-        if(item){
+        if (item) {
             m_layout->insertItem(3 - index, item);
         }
     }
@@ -162,71 +180,106 @@ void ContentView::switchToHome()
     emit backToHome();
 }
 
-void ContentView::lazyQueueLoadModules()
+void ContentView::loadPluginInstance(const QString &id, QObject *instance)
 {
-#if defined(DCC_CACHE_MODULES) && defined(ARCH_MIPSEL)
-    QList<ModuleMetaData> list = m_pluginsManager->pluginsList();
-    foreach (ModuleMetaData module, list) {
-        if (!m_pluginsCache.contains(module.path)) {
-            m_pluginsCache[module.path] = loadPlugin(module);
-            // One module at a time, otherwise slower CPUs will stuck.
-            break;
-        }
+#ifdef DCC_CACHE_MODULES
+    ModuleMetaData module = m_pluginsManager->pluginMetaData(id);
+    if (!m_pluginsCache.contains(module.path)) {
+        qDebug() << "maint thread begin load" << module.path << instance;
+        m_moduleCache[module.path] = instance;
+        m_pluginsCache[module.path] = loadPlugin(module);
     }
+#else
+    Q_UNUSED(id);
+    Q_UNUSED(instance);
 #endif
 }
 
+
 void ContentView::switchToModule(const QString pluginId)
-{ 
+{
     switchToModule(m_pluginsManager->pluginMetaData(pluginId));
 }
 
-QWidget * ContentView::loadPlugin(ModuleMetaData module)
+QWidget *ContentView::loadModuleContent()
 {
+    QWidget *content = NULL;
+    QPair<ModuleMetaData, ModuleInterface *> moduleInfo = m_moduleLoadQueue.takeFirst();
+    ModuleMetaData module = moduleInfo.first;
+    ModuleInterface *m_interface = moduleInfo.second;
+
+    if (!m_interface) {
+        return content;
+    }
+    m_lastPluginInterface = m_interface;
+    content = m_interface->getContent();
+
+    if (!content) {
+        qDebug() << "content is null !!" << module.path;
+        // display error infomation
+        const QString error = m_pluginLoader->errorString();
+        // this label will destory when call unloadPlugin() next time
+        QLabel *errorLabel = new QLabel(error);
+        errorLabel->setWordWrap(true);
+        errorLabel->setStyleSheet("color:red;");
+        content = errorLabel;
+        return content;
+    }
+    m_lastPluginInterface->setProxy(m_controlCenterProxy);
+    qDebug() << "loadPlugin end" << content;
+
 #ifdef DCC_CACHE_MODULES
-    QPluginLoader * pluginLoader = new QPluginLoader(this);
+    m_pluginsCache[module.path] = content;
+#endif
+    return content;
+}
+
+QWidget *ContentView::loadPluginNow(ModuleMetaData module)
+{
+    QPluginLoader *pluginLoader = new QPluginLoader(this);
     pluginLoader->setFileName(module.path);
     QObject *instance = pluginLoader->instance();
+#ifdef DCC_CACHE_MODULES
+    m_moduleCache[module.path] = instance;
+#endif
+    ModuleInterface *interface = qobject_cast<ModuleInterface *>(instance);
+    m_moduleLoadQueue.push_back(QPair<ModuleMetaData, ModuleInterface *>(module, interface));
+    QWidget *content = loadModuleContent();
+
+#ifdef DCC_CACHE_MODULES
+    m_pluginsCache[module.path] = content;
+#endif
+#ifdef ARCH_MIPSEL
+    emit m_pluginsManager->pluginLoaded(module);
+#endif
+    return content;
+}
+
+QWidget *ContentView::loadPlugin(ModuleMetaData module)
+{
+    qDebug() << "loadPlugin start";
+
+#ifdef DCC_CACHE_MODULES
+#ifndef ARCH_MIPSEL
+    QPluginLoader *pluginLoader = new QPluginLoader(this);
+    pluginLoader->setFileName(module.path);
+    m_moduleCache[module.path] = pluginLoader->instance();
+#endif
+    QObject *instance = m_moduleCache[module.path];
 #else
     m_pluginLoader->setFileName(module.path);
     QObject *instance = m_pluginLoader->instance();
 #endif
 
     ModuleInterface *interface = qobject_cast<ModuleInterface *>(instance);
-    qDebug() << "get instance: " << instance << interface;
-
-    QWidget *content = nullptr;
-
-    do {
-
-        if (!interface)
-            break;
-
-        m_lastPluginInterface = interface;
-
-        content = interface->getContent();
-
-        if (!content) {
-
-            qDebug() << "content is null !!" << module.path;
-
-            // display error infomation
-            const QString error = m_pluginLoader->errorString();
-            // this label will destory when call unloadPlugin() next time
-            QLabel *errorLabel = new QLabel(error);
-            errorLabel->setWordWrap(true);
-            errorLabel->setStyleSheet("color:red;");
-            content = errorLabel;
-            break;
-        }
-
-        m_lastPluginInterface->setProxy(m_controlCenterProxy);
-
-    } while (false);
+    m_moduleLoadQueue.push_back(QPair<ModuleMetaData, ModuleInterface *>(module, interface));
+    QWidget *content = NULL;
 
 #ifdef ARCH_MIPSEL
-    QTimer::singleShot(500, this, &ContentView::lazyQueueLoadModules);
+    QTimer::singleShot(300, this, &ContentView::loadModuleContent);
     emit m_pluginsManager->pluginLoaded(module);
+#else
+    content = loadModuleContent();
 #endif
 
     return content;
@@ -236,18 +289,17 @@ void ContentView::onModuleSelected(ModuleMetaData meta)
 {
     qDebug() << meta.id;
 
-    if (meta.id == "home")
-    {
+    if (meta.id == "home") {
         // when goto home screen, notify plugin know.
-        if (m_lastPluginInterface)
+        if (m_lastPluginInterface) {
             m_lastPluginInterface->preUnload();
+        }
 
         emit backToHome();
         return;
     }
 
-    if (meta.id == "shutdown")
-    {
+    if (meta.id == "shutdown") {
         emit shutdownSelected();
         return;
     }
@@ -271,7 +323,7 @@ void ContentView::onModuleSelected(ModuleMetaData meta)
 
     if (timer->isActive()) {
         timer->stop();
-        connect(timer, &QTimer::timeout, [this, meta]{
+        connect(timer, &QTimer::timeout, [this, meta] {
             switchToModule(meta);
         });
     } else {
@@ -284,11 +336,11 @@ void ContentView::onModuleSelected(ModuleMetaData meta)
 
 void ContentView::unloadPlugin()
 {
-    if (m_lastPluginInterface)
+    if (m_lastPluginInterface) {
         m_lastPluginInterface->preUnload();
+    }
 
-    if (m_lastPluginWidget)
-    {
+    if (m_lastPluginWidget) {
         m_lastPluginWidget->hide();
         m_lastPluginWidget->setParent(nullptr);
 #ifndef DCC_CACHE_MODULES
@@ -298,8 +350,7 @@ void ContentView::unloadPlugin()
         m_lastPluginWidget = nullptr;
     }
 
-    if (m_lastPluginInterface)
-    {
+    if (m_lastPluginInterface) {
 //        m_lastPluginInterface->preUnload();
 #ifndef DCC_CACHE_MODULES
         delete m_lastPluginInterface;

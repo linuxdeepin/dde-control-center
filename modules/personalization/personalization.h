@@ -36,16 +36,23 @@ DWIDGET_USE_NAMESPACE
 class QFrame;
 class DBusWorker;
 
-class Personalization: public QObject, ModuleInterface
+class PersonalizationModule: public QObject, ModuleInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "personalization.json")
     Q_INTERFACES(ModuleInterface)
 
 public:
-    Personalization();
-    ~Personalization() Q_DECL_OVERRIDE;
     QFrame *getContent() Q_DECL_OVERRIDE;
+};
+
+class Personalization: public QObject
+{
+    Q_OBJECT
+public:
+    Personalization();
+    ~Personalization();
+    QFrame *getContent();
 
     void initUI();
     void initControllers();

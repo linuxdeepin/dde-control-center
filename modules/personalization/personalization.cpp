@@ -28,6 +28,11 @@
 
 DWIDGET_USE_NAMESPACE
 
+QFrame *PersonalizationModule::getContent() {
+    static Personalization *frame = new Personalization;
+    return frame->getContent();
+}
+
 Personalization::Personalization(): m_margins(0, 5, 0, 5)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Personalization"));
@@ -77,7 +82,7 @@ void Personalization::initUI()
 
 void Personalization::initControllers()
 {
-    m_dbusWorker = new DBusWorker(this);
+    m_dbusWorker = new DBusWorker;
     m_workerThread = new QThread(this);
     m_dbusWorker->moveToThread(m_workerThread);
     connect(m_workerThread, &QThread::finished, m_dbusWorker, &QObject::deleteLater);

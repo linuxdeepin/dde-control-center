@@ -29,6 +29,15 @@
 
 DWIDGET_USE_NAMESPACE
 
+QFrame *SoundModule::getContent()
+{
+    static Sound *sound = NULL;
+    if (!sound) {
+        sound = new Sound;
+    }
+    return sound->getContent();
+}
+
 Sound::Sound() :
     QObject(),
     m_frame(new QFrame),
@@ -37,7 +46,6 @@ Sound::Sound() :
     m_mainWidgetVLayout(new QVBoxLayout(m_mainWidget))
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Sound"));
-
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 

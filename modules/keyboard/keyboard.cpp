@@ -41,6 +41,11 @@
 
 DWIDGET_USE_NAMESPACE
 
+QFrame *KeyboardModule::getContent() {
+    static Keyboard *frame = new Keyboard;
+    return frame->getContent();
+}
+
 Keyboard::Keyboard() :
     QObject(),
     m_frame(new QFrame),

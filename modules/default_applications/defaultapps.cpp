@@ -35,6 +35,14 @@
 
 DWIDGET_USE_NAMESPACE
 
+QFrame *DefaultAppsModule::getContent() {
+    static DefaultApps *frame = NULL;
+    if (!frame) {
+        frame = new DefaultApps;
+    }
+    return frame->getContent();
+}
+
 DefaultApps::DefaultApps() :
     m_dbusDefaultApps(this),
     m_dbusDefaultMedia(this)
