@@ -119,7 +119,7 @@ void Personalization::initConnect()
     connect(m_iconButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setIconByIndex);
     connect(m_cursorButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setCursorByIndex);
     connect(m_wallpaperButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setBackgroundByIndex);
-    connect(m_wallpaperButtonGrid, SIGNAL(requestRefreshed(QString)), this, SLOT(handleDataDeleteRefrehed(QString)));
+    connect(m_wallpaperButtonGrid, &DButtonGrid::requestRefreshed, this, &Personalization::handleDataDeleteRefrehed);
     connect(m_standardFontCombox, SIGNAL(currentIndexChanged(int)), this, SLOT(setStandardFontByIndex(int)));
     connect(m_monospaceFontCombox, SIGNAL(currentIndexChanged(int)), this, SLOT(setMonospaceFontByIndex(int)));
 
