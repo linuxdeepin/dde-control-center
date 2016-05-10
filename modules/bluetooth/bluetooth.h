@@ -41,7 +41,7 @@ public:
     QFrame *getContent() Q_DECL_OVERRIDE;
     void setProxy(ControlCenterProxyInterface *proxy) Q_DECL_OVERRIDE;
 private:
-    Bluetooth *bluetooth;
+    Bluetooth *bluetooth = NULL;
 };
 
 #endif
