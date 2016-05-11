@@ -502,7 +502,9 @@ QStringList CustomSettings::getResolutionLabels(MonitorInterface *dbus)
     }
 
     foreach(MonitorMode mode, monitorModeList) {
-        resolutions << QString("%1x%2").arg(mode.width).arg(mode.height);
+        if (qMax(mode.width, mode.height) >= 800) {
+            resolutions << QString("%1x%2").arg(mode.width).arg(mode.height);
+        }
     }
 
     m_mapNameToResolutionLabels[dbus->name()] = resolutions;
