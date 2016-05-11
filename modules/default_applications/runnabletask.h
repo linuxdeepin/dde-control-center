@@ -17,7 +17,7 @@
 
 class DefaultApps;
 
-class RunnableTask : public QThread
+class RunnableTask : public QObject
 {
     Q_OBJECT
 

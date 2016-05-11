@@ -35,11 +35,14 @@
 
 DWIDGET_USE_NAMESPACE
 
-QFrame *DefaultAppsModule::getContent() {
+QFrame *DefaultAppsModule::getContent()
+{
+    qDebug() << "new DefaultApps begin";
     static DefaultApps *frame = NULL;
     if (!frame) {
         frame = new DefaultApps;
     }
+    qDebug() << "new DefaultApps end";
     return frame->getContent();
 }
 
@@ -53,53 +56,71 @@ DefaultApps::DefaultApps() :
     Q_INIT_RESOURCE(widgets_theme_light);
 
     m_centralWidget = new QFrame;
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->setSpacing(0);
+    mainLayout->setMargin(0);
+
+    m_centralWidget->setLayout(mainLayout);
 
     m_header = new ModuleHeader(tr("Default Applications"));
 
+    mainLayout->addWidget(m_header);
+    mainLayout->addWidget(new DSeparatorHorizontal);
+
+    QScrollArea *scrollArea = new QScrollArea;
+    mainLayout->addWidget(scrollArea);
+
+    scrollArea->setStyleSheet("background-color:transparent;");
+    scrollArea->setFrameStyle(QFrame::NoFrame);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    DVBoxWidget *scrollContent = new DVBoxWidget;
+    scrollArea->setWidget(scrollContent);
+
+    scrollContent->layout()->setSpacing(0);
+    scrollContent->layout()->setMargin(0);
+    scrollContent->setFixedWidth(DCC::ModuleContentWidth);
+
     m_autoPlaySwitch = new DSwitchButton;
-
     DHeaderLine *defaultApps = new DHeaderLine;
-    defaultApps->setTitle(tr("Default Applications"));
-
     DHeaderLine *autoPlayApplications = new DHeaderLine;
-    autoPlayApplications->setTitle(tr("AutoPlay"));
-    autoPlayApplications->setContent(m_autoPlaySwitch);
-
     m_appGrp = new DExpandGroup(this);
     m_mediaGrp = new DExpandGroup(this);
     m_modBrowser = new DArrowLineExpand;
-    m_modBrowser->setTitle(tr("Browser"));
     m_modMail = new DArrowLineExpand;
-    m_modMail->setTitle(tr("Mail"));
     m_modText = new DArrowLineExpand;
-    m_modText->setTitle(tr("Text"));
     m_modMusic = new DArrowLineExpand;
-    m_modMusic->setTitle(tr("Music"));
     m_modVideo = new DArrowLineExpand;
-    m_modVideo->setTitle(tr("Video"));
     m_modPicture = new DArrowLineExpand;
-    m_modPicture->setTitle(tr("Picture"));
     m_modTerminal = new DArrowLineExpand;
-    m_modTerminal->setTitle(tr("Terminal"));
     m_modCDAudio = new DArrowLineExpand;
-    m_modCDAudio->hide();
-    m_modCDAudio->setTitle(tr("CD Audio"));
     m_modDVDVideo = new DArrowLineExpand;
-    m_modDVDVideo->hide();
-    m_modDVDVideo->setTitle(tr("DVD Video"));
     m_modMusicPlayer = new DArrowLineExpand;
-    m_modMusicPlayer->hide();
-    m_modMusicPlayer->setTitle(tr("Music Player"));
     m_modCamera = new DArrowLineExpand;
-    m_modCamera->hide();
-    m_modCamera->setTitle(tr("Camera"));
     m_modSoftware = new DArrowLineExpand;
+
+    autoPlayApplications->setTitle(tr("AutoPlay"));
+    autoPlayApplications->setContent(m_autoPlaySwitch);
+    defaultApps->setTitle(tr("Default Applications"));
     m_modSoftware->hide();
     m_modSoftware->setTitle(tr("Software"));
+    m_modCamera->hide();
+    m_modCamera->setTitle(tr("Camera"));
+    m_modMusicPlayer->hide();
+    m_modMusicPlayer->setTitle(tr("Music Player"));
+    m_modDVDVideo->hide();
+    m_modDVDVideo->setTitle(tr("DVD Video"));
+    m_modCDAudio->hide();
+    m_modCDAudio->setTitle(tr("CD Audio"));
+    m_modTerminal->setTitle(tr("Terminal"));
+    m_modPicture->setTitle(tr("Picture"));
+    m_modVideo->setTitle(tr("Video"));
+    m_modMusic->setTitle(tr("Music"));
+    m_modText->setTitle(tr("Text"));
+    m_modMail->setTitle(tr("Mail"));
+    m_modBrowser->setTitle(tr("Browser"));
 
-    QTimer::singleShot(600, this, SLOT(lazyLoad()));
-
-    DVBoxWidget *scrollContent = new DVBoxWidget;
     scrollContent->layout()->addWidget(defaultApps);
     scrollContent->layout()->addWidget(new DSeparatorHorizontal);
     scrollContent->layout()->addWidget(m_modBrowser);
@@ -117,28 +138,14 @@ DefaultApps::DefaultApps() :
     scrollContent->layout()->addWidget(m_modCamera);
     scrollContent->layout()->addWidget(m_modSoftware);
     scrollContent->layout()->addStretch(1);
-    scrollContent->layout()->setSpacing(0);
-    scrollContent->layout()->setMargin(0);
-    scrollContent->setFixedWidth(DCC::ModuleContentWidth);
 
-    QScrollArea *scrollArea = new QScrollArea;
-    scrollArea->setWidget(scrollContent);
-    scrollArea->setStyleSheet("background-color:transparent;");
-    scrollArea->setFrameStyle(QFrame::NoFrame);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addWidget(m_header);
-    mainLayout->addWidget(new DSeparatorHorizontal);
-    mainLayout->setSpacing(0);
-    mainLayout->setMargin(0);
-    mainLayout->addWidget(scrollArea);
-
-    m_centralWidget->setLayout(mainLayout);
+    qDebug() << "begin update";
     m_centralWidget->updateGeometry();
     m_centralWidget->update();
+    qDebug() << "end update";
 
+    QTimer::singleShot(600, this, SLOT(lazyLoad()));
     connect(m_header, &ModuleHeader::resetButtonClicked, this, &DefaultApps::resetDefaults, Qt::QueuedConnection);
     connect(m_autoPlaySwitch, &DSwitchButton::checkedChanged, this, &DefaultApps::setMediaOptionVisible);
     connect(&m_dbusDefaultApps, &DBusDefaultApps::Change, this, &DefaultApps::updateListCheckedIndex);
@@ -152,7 +159,7 @@ DefaultApps::~DefaultApps()
     m_centralWidget->deleteLater();
 }
 
-QFrame* DefaultApps::getContent()
+QFrame *DefaultApps::getContent()
 {
     return m_centralWidget;
 }
@@ -170,10 +177,11 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
 
     QString appListJson;
 
-    if (isMediaApps(category))
+    if (isMediaApps(category)) {
         appListJson = m_dbusDefaultMedia.ListApps(mime);
-    else
+    } else {
         appListJson = m_dbusDefaultApps.ListApps(mime);
+    }
 
     QJsonArray appList = QJsonDocument::fromJson(appListJson.toStdString().c_str()).array();
 
@@ -182,8 +190,7 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     QString id;
     QString icon;
 
-    for (int i = 0; i != appList.size(); ++i)
-    {
+    for (int i = 0; i != appList.size(); ++i) {
         appName = appList.at(i).toObject().take("Name").toString();
         appDisplayName = appList.at(i).toObject().take("DisplayName").toString();
         id = appList.at(i).toObject().take("Id").toString();
@@ -204,16 +211,23 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     }
     m_appsBtnList[category] = list;
 
-    connect(list, &DOptionList::currentRowChanged, [=] (int index) {
+    connect(list, &DOptionList::currentRowChanged, [ = ](int index) {
         const QStringList mimeList = getTypeListByCategory(category);
         const QString appName = appList.at(index).toObject().take("Id").toString();
-        QThread *t = nullptr;
-        if (!isMedia)
-            t = new SetDefAppsThread(&m_dbusDefaultApps, mime, appName, mimeList);
-        else
-            t = new SetDefMediaThread(&m_dbusDefaultMedia, mime, appName, mimeList);
-        t->start();
+        QThread *t = new QThread;
+        QObject *app = nullptr;
+        if (!isMedia) {
+            app = new SetDefAppsThread(&m_dbusDefaultApps, mime, appName, mimeList);
+            connect(t, &QThread::started, qobject_cast<SetDefAppsThread *>(app), &SetDefAppsThread::run);
+        } else {
+            app = new SetDefMediaThread(&m_dbusDefaultMedia, mime, appName, mimeList);
+            connect(t, &QThread::started, qobject_cast<SetDefMediaThread *>(app), &SetDefMediaThread::run);
+        }
         connect(t, &QThread::finished, t, &QThread::deleteLater);
+        connect(t, &QThread::finished, app, &QObject::deleteLater);
+        app->moveToThread(t);
+        t->start();
+
     });
 
     list->setFixedHeight(30 * list->count());
@@ -273,21 +287,20 @@ void DefaultApps::updateListCheckedIndex()
 
 void DefaultApps::updateCheckedItem(const DefaultApps::DefaultAppsCategory &category)
 {
-     const QString &mime = getTypeByCategory(category);
-     const QString &defApp = isMediaApps(category) ? m_dbusDefaultMedia.GetDefaultApp(mime)
-                                                   : m_dbusDefaultApps.GetDefaultApp(mime);
-     const QJsonObject &defaultApp = QJsonDocument::fromJson(defApp.toStdString().c_str()).object();
-     const QString defAppValue = defaultApp.value("Id").toString();
+    const QString &mime = getTypeByCategory(category);
+    const QString &defApp = isMediaApps(category) ? m_dbusDefaultMedia.GetDefaultApp(mime)
+                            : m_dbusDefaultApps.GetDefaultApp(mime);
+    const QJsonObject &defaultApp = QJsonDocument::fromJson(defApp.toStdString().c_str()).object();
+    const QString defAppValue = defaultApp.value("Id").toString();
 
-     m_appsBtnList[category]->blockSignals(true);
-     m_appsBtnList[category]->setCurrentSelected(defAppValue);
-     m_appsBtnList[category]->blockSignals(false);
+    m_appsBtnList[category]->blockSignals(true);
+    m_appsBtnList[category]->setCurrentSelected(defAppValue);
+    m_appsBtnList[category]->blockSignals(false);
 }
 
 
 void DefaultApps::arrowLineExpandSetContent(QJsonArray json, int acategory, DArrowLineExpand *arrowLineApps)
 {
-
     QString appDisplayName;
     QString appName;
     QString id;
@@ -299,10 +312,11 @@ void DefaultApps::arrowLineExpandSetContent(QJsonArray json, int acategory, DArr
     const bool isMedia                          = isMediaApps(category);
     QJsonArray appList                          = json;
 
+    m_mediaGrp->addExpand(arrowLineApps);
+    arrowLineApps->setContent(m_list);
     m_list->setFixedWidth(DCC::ModuleContentWidth);
 
-    for (int i = 0; i != appList.size(); ++i)
-    {
+    for (int i = 0; i != appList.size(); ++i) {
         QJsonObject jsonObj = appList.at(i).toObject();
         appName = jsonObj.take("Name").toString();
 
@@ -315,7 +329,7 @@ void DefaultApps::arrowLineExpandSetContent(QJsonArray json, int acategory, DArr
         option->setValue(id);
         option->setFixedHeight(30);
 
-//        if (!isMedia)
+//      if (!isMedia)
         {
             QPixmap pixmap(Helper::searchAppIcon(QStringList() << icon << "application-x-desktop", 16));
             option->setIcon(pixmap.scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
@@ -326,44 +340,47 @@ void DefaultApps::arrowLineExpandSetContent(QJsonArray json, int acategory, DArr
 
     m_appsBtnList[category] = m_list;
 
-    connect(m_list, &DOptionList::currentRowChanged, [=] (int index) {
+    connect(m_list, &DOptionList::currentRowChanged, [ = ](int index) {
         const QStringList mimeList = getTypeListByCategory(category);
         const QString appName = appList.at(index).toObject().take("Id").toString();
-        QThread *t = nullptr;
-        if (!isMedia){
-            t = new SetDefAppsThread(&m_dbusDefaultApps, mime, appName, mimeList);
+        QThread *t = new QThread;
+        QObject *app = nullptr;
+        if (!isMedia) {
+            app = new SetDefAppsThread(&m_dbusDefaultApps, mime, appName, mimeList);
 
+            connect(t, &QThread::started, qobject_cast<SetDefAppsThread *>(app), &SetDefAppsThread::run);
+
+        } else {
+            app = new SetDefMediaThread(&m_dbusDefaultMedia, mime, appName, mimeList);
+            connect(t, &QThread::started, qobject_cast<SetDefMediaThread *>(app), &SetDefMediaThread::run);
         }
-        else
-            t = new SetDefMediaThread(&m_dbusDefaultMedia, mime, appName, mimeList);
-
+        app->moveToThread(t);
         t->start();
+        connect(t, &QThread::finished, app, &QObject::deleteLater);
         connect(t, &QThread::finished, t, &QThread::deleteLater);
     });
 
     m_list->setFixedHeight(30 * m_list->count());
-    arrowLineApps->setContent(m_list);
-
-    m_mediaGrp->addExpand(arrowLineApps);
 
     updateCheckedItem(category);
-
 }
 
 
 void DefaultApps::createTask()
 {
-
+    QThread *workThread = new QThread;
     RunnableTask *task = new RunnableTask(m_taskMap, &m_appsBtnList);
+    connect(workThread, &QThread::started, task, &RunnableTask::run);
     connect(task, &RunnableTask::appListReady, this, &DefaultApps::arrowLineExpandSetContent);
-    connect(task, &QThread::finished, task, &QThread::deleteLater);
-    task->start();
-
+    connect(workThread, &QThread::finished, task, &QObject::deleteLater);
+    connect(workThread, &QThread::finished, workThread, &QThread::deleteLater);
+    task->moveToThread(workThread);
+    workThread->start();
 }
 
 void DefaultApps::lazyLoad()
 {
-
+    qDebug() << "lazyLoad start";
     const bool isMediaOpen = m_dbusDefaultMedia.autoOpen();
     setMediaOptionVisible(isMediaOpen);
 
@@ -380,7 +397,7 @@ void DefaultApps::lazyLoad()
     m_taskMap.insert(Camera, m_modCamera);
     m_taskMap.insert(Software, m_modSoftware);
     createTask();
-
+    qDebug() << "lazyLoad end";
 }
 
 SetDefAppsThread::SetDefAppsThread(DBusDefaultApps *dbus, const QString &mime, const QString &appName, const QStringList &list) :
@@ -393,8 +410,9 @@ SetDefAppsThread::SetDefAppsThread(DBusDefaultApps *dbus, const QString &mime, c
 
 void SetDefAppsThread::run()
 {
-    for (const QString &mime : list)
+    for (const QString &mime : list) {
         dbus->SetDefaultApp(mime, appName).waitForFinished();
+    }
 //    qDebug() << "set def app : " << appName << " to " << list;
 }
 
@@ -408,15 +426,15 @@ SetDefMediaThread::SetDefMediaThread(DBusDefaultMedia *dbus, const QString &mime
 
 void SetDefMediaThread::run()
 {
-    for (const QString &mime : list)
+    for (const QString &mime : list) {
         dbus->SetDefaultApp(mime, appName).waitForFinished();
+    }
 //    qDebug() << "set def media : " << appName << " to " << list;
 }
 
 bool DefaultApps::isMediaApps(const DefaultApps::DefaultAppsCategory &category) const
 {
-    switch (category)
-    {
+    switch (category) {
     case Browser:
     case Mail:
     case Text:
@@ -439,8 +457,7 @@ bool DefaultApps::isMediaApps(const DefaultApps::DefaultAppsCategory &category) 
 
 const QString DefaultApps::getTypeByCategory(const DefaultApps::DefaultAppsCategory &category)
 {
-    switch (category)
-    {
+    switch (category) {
     case Browser:       return "x-scheme-handler/http";
     case Mail:          return "x-scheme-handler/mailto";
     case Text:          return "text/plain";
@@ -461,28 +478,27 @@ const QString DefaultApps::getTypeByCategory(const DefaultApps::DefaultAppsCateg
 const QStringList DefaultApps::getTypeListByCategory(const DefaultApps::DefaultAppsCategory &category)
 {
 
-    switch (category)
-    {
+    switch (category) {
     case Browser:       return QStringList() << "x-scheme-handler/http" << "x-scheme-handler/ftp" << "x-scheme-handler/https"
-                                             << "text/html" << "text/xml" << "text/xhtml_xml" << "text/xhtml+xml";
+                                   << "text/html" << "text/xml" << "text/xhtml_xml" << "text/xhtml+xml";
     case Mail:          return QStringList() << "x-scheme-handler/mailto" << "message/rfc822" << "application/x-extension-eml"
-                                             << "application/x-xpinstall";
+                                   << "application/x-xpinstall";
     case Text:          return QStringList() << "text/plain";
     case Music:         return QStringList() << "audio/mpeg" << "audio/mp3" << "audio/x-mp3" << "audio/mpeg3" << "audio/x-mpeg-3"
-                                             << "audio/x-mpeg" << "audio/flac" << "audio/x-flac" << "application/x-flac"
-                                             << "audio/ape" << "audio/x-ape" << "application/x-ape" << "audio/ogg" << "audio/x-ogg"
-                                             << "audio/musepack" << "application/musepack" << "audio/x-musepack"
-                                             << "application/x-musepack" << "audio/mpc" << "audio/x-mpc" << "audio/vorbis"
-                                             << "audio/x-vorbis" << "audio/x-wav" << "audio/x-ms-wma";
+                                   << "audio/x-mpeg" << "audio/flac" << "audio/x-flac" << "application/x-flac"
+                                   << "audio/ape" << "audio/x-ape" << "application/x-ape" << "audio/ogg" << "audio/x-ogg"
+                                   << "audio/musepack" << "application/musepack" << "audio/x-musepack"
+                                   << "application/x-musepack" << "audio/mpc" << "audio/x-mpc" << "audio/vorbis"
+                                   << "audio/x-vorbis" << "audio/x-wav" << "audio/x-ms-wma";
     case Video:         return QStringList() << "video/mp4" << "audio/mp4" << "audio/x-matroska" << "video/x-matroska"
-                                             << "application/x-matroska" << "video/avi" << "video/msvideo" << "video/x-msvideo"
-                                             << "video/ogg" << "application/ogg" << "application/x-ogg" << "video/3gpp" << "video/3gpp2"
-                                             << "video/flv" << "video/x-flv" << "video/x-flic" << "video/mpeg" << "video/x-mpeg"
-                                             << "video/x-ogm" << "application/x-shockwave-flash" << "video/x-theora" << "video/quicktime"
-                                             << "video/x-ms-asf" << "application/vnd.rn-realmedia" << "video/x-ms-wmv";
+                                   << "application/x-matroska" << "video/avi" << "video/msvideo" << "video/x-msvideo"
+                                   << "video/ogg" << "application/ogg" << "application/x-ogg" << "video/3gpp" << "video/3gpp2"
+                                   << "video/flv" << "video/x-flv" << "video/x-flic" << "video/mpeg" << "video/x-mpeg"
+                                   << "video/x-ogm" << "application/x-shockwave-flash" << "video/x-theora" << "video/quicktime"
+                                   << "video/x-ms-asf" << "application/vnd.rn-realmedia" << "video/x-ms-wmv";
     case Picture:       return QStringList() << "image/jpeg" << "image/pjpeg" << "image/bmp" << "image/x-bmp" << "image/png"
-                                             << "image/x-png" << "image/tiff" << "image/svg+xml" << "image/x-xbitmap" << "image/gif"
-                                             << "image/x-xpixmap";
+                                   << "image/x-png" << "image/tiff" << "image/svg+xml" << "image/x-xbitmap" << "image/gif"
+                                   << "image/x-xpixmap";
     case Terminal:      return QStringList() << "application/x-terminal";
     case CD_Audio:      return QStringList() << "x-content/audio-cdda";
     case DVD_Video:     return QStringList() << "x-content/video-dvd";

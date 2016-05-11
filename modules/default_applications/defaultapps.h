@@ -114,7 +114,7 @@ private:
 };
 
 
-class SetDefAppsThread : public QThread
+class SetDefAppsThread : public QObject
 {
     Q_OBJECT
 
@@ -129,7 +129,7 @@ private:
     QStringList list;
 };
 
-class SetDefMediaThread : public QThread
+class SetDefMediaThread : public QObject
 {
     Q_OBJECT
 
