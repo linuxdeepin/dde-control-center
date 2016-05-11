@@ -78,31 +78,6 @@ void AccountSwitchLine::setContent(QWidget *content)
     DHeaderLine::setContent(content);
 }
 
-
-AccountTypeLine::AccountTypeLine(QWidget *parent) : AccountHeaderLine(parent)
-{
-    m_control = new DSegmentedControl(this);
-    m_control->addSegmented(tr("Normal User"));
-    m_control->addSegmented(tr("Administrator"));
-    connect(m_control, &DSegmentedControl::currentChanged, this, &AccountTypeLine::typeChanged);
-    setContent(m_control);
-    DSeparatorHorizontal * separator = new DSeparatorHorizontal(this);
-    separator->setFixedWidth(width());
-    separator->move(0, height() - 2);
-}
-
-int AccountTypeLine::currentIndex() const
-{
-    return m_control->currentIndex();
-}
-
-void AccountTypeLine::setType(int type)
-{
-    m_control->setCurrentIndex(type);
-}
-
-
-
 AccountConfirmButtonLine::AccountConfirmButtonLine(QWidget *parent) : AccountHeaderLine(parent)
 {
     DTextButton *cancelButton = new DTextButton(tr("Cancel"));

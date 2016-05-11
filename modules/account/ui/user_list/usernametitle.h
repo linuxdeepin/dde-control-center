@@ -40,7 +40,6 @@ public:
 private:
     QVBoxLayout *m_mainLayout = NULL;
     HeaderNameLabel *m_nameLabel = NULL;
-    QLabel *m_typeLabel = NULL;
 };
 
 #endif // ACCOUNTNAMETITLE_H

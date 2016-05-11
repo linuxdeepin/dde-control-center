@@ -70,24 +70,6 @@ private:
     DSwitchButton *m_button = NULL;
 };
 
-
-
-class AccountTypeLine : public AccountHeaderLine
-{
-    Q_OBJECT
-public:
-    explicit AccountTypeLine(QWidget *parent = 0);
-    int currentIndex() const;
-    void setType(int type);
-
-signals:
-    void typeChanged(int type);
-
-private:
-    DSegmentedControl *m_control = NULL;
-};
-
-
 class AccountConfirmButtonLine : public AccountHeaderLine
 {
     Q_OBJECT

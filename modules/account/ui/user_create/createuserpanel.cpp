@@ -93,22 +93,8 @@ void CreateUserPanel::initInfoLine()
     m_newNameLabel = new QLabel(tr("new user"));
     m_newNameLabel->setObjectName("NewNameLabel");
     m_newNameLabel->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-    QLabel *newTypeLabel = new QLabel(tr("Normal User"));
-    newTypeLabel->setObjectName("NewTypeLabel");
-    newTypeLabel->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-    connect(m_accountType, &AccountTypeLine::typeChanged, [=](int type){
-        switch (type) {
-        case 1:
-            newTypeLabel->setText(tr("Administrator"));
-            break;
-        default:
-            newTypeLabel->setText(tr("Normal User"));
-            break;
-        }
-    });
 
     vLayout->addWidget(m_newNameLabel);
-    vLayout->addWidget(newTypeLabel);
 
     hLayout->addSpacing(DTK_WIDGET_NAMESPACE::HEADER_LEFT_MARGIN);
     hLayout->addWidget(m_avatar);
@@ -126,7 +112,6 @@ void CreateUserPanel::initInputLline()
     m_nameLine = new AccountInputLine();
     m_passwdNew = new AccountPasswdLine();
     m_passwdRepeat = new AccountPasswdLine();
-    m_accountType = new AccountTypeLine();
     m_autoLogin = new AccountSwitchLine();
     connect(m_nameLine, &AccountInputLine::textChanged, this, &CreateUserPanel::onNameChanged);
     connect(m_passwdNew, &AccountPasswdLine::textChanged, this, &CreateUserPanel::onPasswdChanged);
@@ -142,7 +127,6 @@ void CreateUserPanel::initInputLline()
     m_nameLine->setTitle(tr("Username"));
     m_passwdNew->setTitle(tr("Password"));
     m_passwdRepeat->setTitle(tr("Repeat Password"));
-    m_accountType->setTitle(tr("Account Type"));
     m_autoLogin->setTitle(tr("Auto-login"));
 
     DSeparatorHorizontal *s1 = new DSeparatorHorizontal();
@@ -154,7 +138,6 @@ void CreateUserPanel::initInputLline()
     m_layout->addWidget(s2);
     m_layout->addWidget(m_passwdRepeat);
     m_layout->addWidget(s3);
-    m_layout->addWidget(m_accountType);
     m_layout->addWidget(m_autoLogin);
 }
 
@@ -207,7 +190,6 @@ void CreateUserPanel::resetData()
     m_passwdRepeat->setText("");
     m_passwdRepeat->hideWarning();
     m_passwdRepeat->passwordEdit()->setEchoMode(QLineEdit::Password);
-    m_accountType->setType(0);
     m_autoLogin->setCheck(false);
     m_randIcon = m_account->RandUserIcon().value();
     m_avatar->setIcon(m_randIcon);
@@ -223,7 +205,8 @@ void CreateUserPanel::onConfirm()
 {
     if (validate()){
         this->window()->setProperty("autoHide", false);
-        QDBusPendingReply<> reply = m_account->CreateUser(m_nameLine->text().toLower(), "", m_accountType->currentIndex());
+        // Create administrator user by default.
+        QDBusPendingReply<> reply = m_account->CreateUser(m_nameLine->text().toLower(), "", 1);
         reply.waitForFinished();
         if (!reply.error().isValid())
             emit createConfirm();

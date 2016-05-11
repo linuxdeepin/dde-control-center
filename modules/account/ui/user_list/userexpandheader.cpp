@@ -53,11 +53,6 @@ void UserExpandHeader::updateAccountName()
     m_nameTitle->setUserName(m_accountUser->userName());
 }
 
-void UserExpandHeader::updateAccountType()
-{
-    m_nameTitle->setUserType(getTypeName(m_accountUser->accountType()));
-}
-
 void UserExpandHeader::onCancelDeleteUser()
 {
     changeToDeleteState(false);
@@ -151,12 +146,10 @@ void UserExpandHeader::initData()
 {
     updateIcon();
     updateAccountName();
-    updateAccountType();
 
     connect(m_accountUser, &DBusAccountUser::IconFileChanged, this, &UserExpandHeader::updateIcon);
     connect(m_accountUser, &DBusAccountUser::LockedChanged, this, &UserExpandHeader::updateIcon);
     connect(m_accountUser, &DBusAccountUser::LockedChanged, this, &UserExpandHeader::lockChanged);
-    connect(m_accountUser, &DBusAccountUser::AccountTypeChanged, this, &UserExpandHeader::updateAccountType);
 }
 
 void UserExpandHeader::initIcon()

@@ -49,7 +49,6 @@ private:
     void initAvatarPanel();
     void initAutoLogin();
     void initUserEnable();
-    void initAccountType();
     void initPassword();
 
     void onAvatarSelected(const QString &avatar);
@@ -67,7 +66,6 @@ private:
     QFrame *m_segmentedFrame = NULL;
     DSegmentedControl *m_segmentedControl = NULL;
     PasswordFrame *m_passwordFrame = NULL;
-    AccountTypeLine *m_typeLine = NULL;
     AccountSwitchLine *m_autoLoginLine = NULL;
     AccountSwitchLine *m_lockLine = NULL;
 

@@ -19,23 +19,14 @@ UserNameTitle::UserNameTitle(QWidget *parent) : QWidget(parent)
 
     m_nameLabel = new HeaderNameLabel(this);
     m_nameLabel->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-    m_typeLabel = new QLabel(this);
-    m_typeLabel->setObjectName("HeaderTypeLabel");
-    m_typeLabel->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
 
     m_mainLayout->addWidget(m_nameLabel);
-    m_mainLayout->addWidget(m_typeLabel);
 }
 
 void UserNameTitle::setUserName(const QString &name)
 {
     QString tmpName = name.length() > MAX_NAME_LENGTH ? (name.left(MAX_NAME_LENGTH) + "...") : name;
     m_nameLabel->setText(tmpName);
-}
-
-void UserNameTitle::setUserType(const QString &type)
-{
-    m_typeLabel->setText(type);
 }
 
 void UserNameTitle::setIsCurrentUser(bool v)

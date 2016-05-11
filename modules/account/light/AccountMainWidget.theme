@@ -24,7 +24,7 @@ QLabel#HeaderTypeLabel {
 }
 
 HeaderNameLabel {
-    font-size: 12px;
+    font-size: 14px;
     color: #b4b4b4;
 }
 

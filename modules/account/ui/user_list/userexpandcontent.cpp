@@ -67,7 +67,6 @@ void UserExpandContent::initDBusData()
             initAvatarPanel();
             initAutoLogin();
             initUserEnable();
-            initAccountType();
             initPassword();
 
             m_mainLayout->addStretch(1);
@@ -217,37 +216,6 @@ void UserExpandContent::initUserEnable()
     }
 }
 
-void UserExpandContent::initAccountType()
-{
-    m_typeLine = new AccountTypeLine();
-    m_typeLine->setTitle(tr("Account Type"));
-    m_typeLine->setType(m_accountUser->accountType());
-    connect(m_typeLine, &AccountTypeLine::typeChanged, [=](int type) {
-        if (type == m_accountUser->accountType())
-            return;
-
-        changeControlCenterHideable(false);
-        QDBusPendingReply<bool> reply = m_accountUser->SetAccountType(type);
-        reply.waitForFinished();
-        if (reply.error().isValid()) {
-            //reset state
-            m_typeLine->setType(m_accountUser->accountType());
-            changeControlCenterHideable(true);
-            qWarning() << "Account: set account type error: " << reply.error();
-        }
-    });
-    connect(m_accountUser, &DBusAccountUser::AccountTypeChanged, [=]{
-        m_typeLine->setType(m_accountUser->accountType());
-    });
-
-    m_mainLayout->addWidget(m_typeLine);
-
-    if (m_isCurrentUser) {
-        m_typeLine->setFixedHeight(0);
-        m_typeLine->hide();
-    }
-}
-
 void UserExpandContent::initPassword()
 {
     m_passwordFrame = new PasswordFrame();
@@ -307,8 +275,6 @@ void UserExpandContent::onAccountEnableChanged(bool enabled)
         updatemAvatarGridSize(m_stackWidget->currentIndex());
         m_autoLoginLine->setFixedHeight(DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
         m_passwordFrame->setFixedHeight(DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
-        if (!m_isCurrentUser)
-            m_typeLine->setFixedHeight(DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
     }
     else {
         m_segmentedFrame->setFixedHeight(0);
@@ -316,7 +282,6 @@ void UserExpandContent::onAccountEnableChanged(bool enabled)
         m_autoLoginLine->setFixedHeight(0);
         m_passwordFrame->reset();
         m_passwordFrame->setFixedHeight(0);
-        m_typeLine->setFixedHeight(0);
     }
 
     updateSize(true);
@@ -328,7 +293,6 @@ void UserExpandContent::updateSize(bool note)
     totalHeight += m_stackWidget->height();
     totalHeight += m_segmentedFrame->height();
     totalHeight += m_passwordFrame->height();
-    totalHeight += m_typeLine->height();
     totalHeight += m_autoLoginLine->height();
     totalHeight += m_lockLine->height();
 

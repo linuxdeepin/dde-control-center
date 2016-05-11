@@ -68,7 +68,6 @@ private:
     AccountSwitchLine *m_autoLogin = NULL;
     AccountPasswdLine *m_passwdNew = NULL;
     AccountPasswdLine *m_passwdRepeat = NULL;
-    AccountTypeLine *m_accountType = NULL;
     AccountConfirmButtonLine *m_confirmLine = NULL;
 
     QString m_randIcon = "";

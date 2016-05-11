@@ -82,7 +82,6 @@ private:
 
     void updateIcon();
     void updateAccountName();
-    void updateAccountType();
 
     void onCancelDeleteUser();
     void onConfirmDeleteUser();
