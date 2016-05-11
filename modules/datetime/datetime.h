@@ -32,15 +32,6 @@
 DWIDGET_USE_NAMESPACE
 
 class QFrame;
-class DatetimeModuele: public QObject, ModuleInterface
-{
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "datetime.json")
-    Q_INTERFACES(ModuleInterface)
-
-public:
-    QFrame *getContent() Q_DECL_OVERRIDE;
-};
 
 class Datetime: public QObject
 {
@@ -72,31 +63,47 @@ private slots:
     void loadZoneList();
 
 private:
-    QFrame *m_frame;
+    QFrame *m_frame = NULL;
 
     DBusTimedate m_dbusInter;
 
-    QList<ZoneInfo> *m_zoneInfoList;
+    QList<ZoneInfo> *m_zoneInfoList = NULL;
 
-    DSeparatorHorizontal *m_clockSeparator;
-    DSeparatorHorizontal *m_syncSeparator;
-    DSeparatorHorizontal *m_dateSeparator;
-    DSeparatorHorizontal *m_calendarSeparator;
-    DHeaderLine *m_clockHeaderLine;
-    DHeaderLine *m_syncHeaderLine;
-    DHeaderLine *m_dateHeaderLine;
-    DHeaderLine *m_timezoneHeaderLine;
-    DCalendar *m_calendar;
-    DSwitchButton *m_clockFormatSwitcher;
-    DSwitchButton *m_autoSyncSwitcher;
-    DateControlWidget *m_dateCtrlWidget;
-    TimezoneCtrlWidget *m_timezoneCtrlWidget;
-    TimeWidget *m_timeWidget;
-    SearchList *m_timezoneListWidget;
-    QTimer *m_refershClockTimer;
-    QSettings *m_settings;
+    DSeparatorHorizontal *m_clockSeparator = NULL;
+    DSeparatorHorizontal *m_syncSeparator = NULL;
+    DSeparatorHorizontal *m_dateSeparator = NULL;
+    DSeparatorHorizontal *m_calendarSeparator = NULL;
+    DHeaderLine *m_clockHeaderLine = NULL;
+    DHeaderLine *m_syncHeaderLine = NULL;
+    DHeaderLine *m_dateHeaderLine = NULL;
+    DHeaderLine *m_timezoneHeaderLine = NULL;
+    DCalendar *m_calendar = NULL;
+    DSwitchButton *m_clockFormatSwitcher = NULL;
+    DSwitchButton *m_autoSyncSwitcher = NULL;
+    DateControlWidget *m_dateCtrlWidget = NULL;
+    TimezoneCtrlWidget *m_timezoneCtrlWidget = NULL;
+    TimeWidget *m_timeWidget = NULL;
+    SearchList *m_timezoneListWidget = NULL;
+    QTimer *m_refershClockTimer = NULL;
+    QSettings *m_settings = NULL;
 
     QList<QString> m_choosedZoneList;
 };
+
+class DatetimeModuele: public QObject, ModuleInterface
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "datetime.json")
+    Q_INTERFACES(ModuleInterface)
+
+public:
+    DatetimeModuele();
+    ~DatetimeModuele() Q_DECL_OVERRIDE;
+    QFrame *getContent() Q_DECL_OVERRIDE;
+
+private:
+    Datetime *datetime = NULL;
+};
+
 
 #endif //DATETIME_H

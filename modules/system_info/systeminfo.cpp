@@ -35,9 +35,11 @@ DWIDGET_USE_NAMESPACE
 
 QFrame *SystemInfoModule::getContent()
 {
+    qDebug() << "Begin new SystemInfo";
     if (!frame) {
         frame = new SystemInfo;
     }
+    qDebug() << "End new SystemInfo";
     return frame->getContent();
 }
 
@@ -57,51 +59,59 @@ SystemInfo::SystemInfo()
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
-    m_baseLine = new ModuleHeader(tr("System Information"), false);
-
-    QLabel *deepinLogo = new QLabel;
-    deepinLogo->setPixmap(QPixmap(":/images/images/logo.png"));
-    deepinLogo->setAlignment(Qt::AlignCenter);
-
-    QLabel *deepinName = new QLabel(tr("Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd."));
-    deepinName->setWordWrap(true);
-    deepinName->setAlignment(Qt::AlignCenter);
-    deepinName->setStyleSheet("padding:2px 0;");
-
-    QLabel *info_sysVersion = new QLabel(tr("Deepin Edition:"));
-    info_sysVersion->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
-    QLabel *info_sysVersionContent = new QLabel(m_dbusSystemInfo.version());
-    info_sysVersionContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-    info_sysVersionContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-
-    QLabel *info_sysDistro = new QLabel(tr("Distribution:"));
-    info_sysDistro->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
-    QLabel *info_sysDistroContent = new QLabel(QString("%1 %2").arg(m_dbusSystemInfo.distroDesc(), m_dbusSystemInfo.distroVer()));
-    info_sysDistroContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-    info_sysDistroContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-
-    QLabel *info_sysType = new QLabel(tr("System Type:"));
-    info_sysType->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
-    QLabel *info_sysTypeContent = new QLabel(QString(tr("%1 Bit")).arg(m_dbusSystemInfo.systemType()));
-    info_sysTypeContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-
-    QLabel *info_cpuType = new QLabel(tr("Processor:"));
-    info_cpuType->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
-    QLabel *info_cpuTypeContent = new QLabel(m_dbusSystemInfo.processor());
-    info_cpuTypeContent->setWordWrap(true);
-    info_cpuTypeContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-
-    QLabel *info_memory = new QLabel(tr("Memory:"));
-    info_memory->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
-    QLabel *info_memoryContent = new QLabel(UpdateWidget::formatCap(m_dbusSystemInfo.memoryCap()));
-    info_memoryContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-
-    QLabel *info_hardDrive = new QLabel(tr("Disk:"));
-    info_hardDrive->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+    m_centeralFrame = new QFrame;
+    DExpandGroup *expandGrp = new DExpandGroup(this);
+    m_licenseArea = new QScrollArea;
+    DArrowLineExpand *license = new DArrowLineExpand;
+    DVBoxWidget *licenseWidget = new DVBoxWidget;
+    QLabel *licenseBody = new QLabel;
+    QLabel *licenseTitle = new QLabel;
     QLabel *info_hardDriveContent = new QLabel(UpdateWidget::formatCap(m_dbusSystemInfo.diskCap()));
-    info_hardDriveContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
-
+    QLabel *info_hardDrive = new QLabel(tr("Disk:"));
+    QLabel *info_memoryContent = new QLabel(UpdateWidget::formatCap(m_dbusSystemInfo.memoryCap()));
+    QLabel *info_memory = new QLabel(tr("Memory:"));
+    QLabel *info_cpuTypeContent = new QLabel(m_dbusSystemInfo.processor());
+    QLabel *info_cpuType = new QLabel(tr("Processor:"));
+    QLabel *info_sysTypeContent = new QLabel(QString(tr("%1 Bit")).arg(m_dbusSystemInfo.systemType()));
+    QLabel *info_sysType = new QLabel(tr("System Type:"));
+    QLabel *info_sysDistroContent = new QLabel(QString("%1 %2").arg(m_dbusSystemInfo.distroDesc(), m_dbusSystemInfo.distroVer()));
+    QLabel *info_sysVersionContent = new QLabel(m_dbusSystemInfo.version());
+    QLabel *info_sysDistro = new QLabel(tr("Distribution:"));
+    QLabel *info_sysVersion = new QLabel(tr("Deepin Edition:"));
+    QLabel *deepinName = new QLabel(tr("Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd."));
+    QLabel *deepinLogo = new QLabel;
     QGridLayout *infoGrid = new QGridLayout;
+    QVBoxLayout *infoLayout = new QVBoxLayout;
+    m_infoWidget = new QWidget;
+    m_baseLine = new ModuleHeader(tr("  System Information"), false);
+    QVBoxLayout *centeralLayout = new QVBoxLayout;
+
+    m_centeralFrame->installEventFilter(this);
+    m_centeralFrame->setLayout(centeralLayout);
+
+    centeralLayout->setSpacing(0);
+    centeralLayout->setMargin(0);
+    centeralLayout->addWidget(m_baseLine);
+    centeralLayout->addWidget(new DSeparatorHorizontal);
+    centeralLayout->addWidget(m_infoWidget);
+    centeralLayout->addWidget(new DSeparatorHorizontal);
+    centeralLayout->addWidget(license);
+
+#ifdef DCC_SYSINFO_UPDATE
+    centeralLayout->addWidget(m_updateExpand);
+#endif
+
+    centeralLayout->addStretch(1);
+
+    m_infoWidget->setLayout(infoLayout);
+    m_infoWidget->setStyleSheet("QLabel {color:#aaa; font-size:12px;} QWidget {background-color:#1a1b1b;}");
+
+    infoLayout->addWidget(deepinLogo);
+    infoLayout->addWidget(deepinName);
+    infoLayout->addLayout(infoGrid);
+    infoLayout->setContentsMargins(10, 15, 10, 30);
+    infoLayout->setSpacing(8);
+
     infoGrid->addWidget(info_sysVersion, 0, 0);
     infoGrid->addWidget(info_sysVersionContent, 0, 1);
 
@@ -125,25 +135,55 @@ SystemInfo::SystemInfo()
 
     loadSystemInfoFromLocalFile(infoGrid);
 
-    QVBoxLayout *infoLayout = new QVBoxLayout;
-    infoLayout->addWidget(deepinLogo);
-    infoLayout->addWidget(deepinName);
-    infoLayout->addLayout(infoGrid);
-    infoLayout->setContentsMargins(10, 15, 10, 30);
-    infoLayout->setSpacing(8);
+    deepinLogo->setPixmap(QPixmap(":/images/images/logo.png"));
+    deepinLogo->setAlignment(Qt::AlignCenter);
 
-    m_infoWidget = new QWidget;
-    m_infoWidget->setLayout(infoLayout);
-    m_infoWidget->setStyleSheet("QLabel {color:#aaa; font-size:12px;} QWidget {background-color:#1a1b1b;}");
+    deepinName->setWordWrap(true);
+    deepinName->setAlignment(Qt::AlignCenter);
+    deepinName->setStyleSheet("padding:2px 0;");
 
-    QLabel *licenseTitle = new QLabel;
+    info_sysVersion->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+    info_sysVersionContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
+    info_sysVersionContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+    info_sysDistro->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+    info_sysDistroContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
+    info_sysDistroContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+    info_sysType->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+    info_sysTypeContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
+
+    info_cpuType->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+    info_cpuTypeContent->setWordWrap(true);
+    info_cpuTypeContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
+
+    info_memory->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+    info_memoryContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
+
+    info_hardDrive->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+    info_hardDriveContent->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
+
+    expandGrp->addExpand(license);
+
+    license->setTitle(tr("GNU GENERAL PUBLIC LICENSE"));
+    license->setContent(m_licenseArea);
+
+    m_licenseArea->setFrameStyle(QFrame::NoFrame);
+    m_licenseArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_licenseArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_licenseArea->setWidget(licenseWidget);
+    m_licenseArea->setFixedWidth(DCC::ModuleContentWidth);
+    m_licenseArea->setStyleSheet("background-color:#1a1b1b;");
+
+    licenseWidget->layout()->addWidget(licenseTitle);
+    licenseWidget->layout()->addWidget(licenseBody);
+
     licenseTitle->setText(getLicense(":/licenses/gpl/gpl-3.0-%1-%2.txt", "title"));
     licenseTitle->setStyleSheet("color:#666;");
     licenseTitle->setAlignment(Qt::AlignCenter);
     licenseTitle->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     licenseTitle->setFixedWidth(DCC::ModuleContentWidth);
 
-    QLabel *licenseBody = new QLabel;
     licenseBody->setText(getLicense(":/licenses/gpl/gpl-3.0-%1-%2.txt", "body"));
     licenseBody->setStyleSheet("color:#666;");
     licenseBody->setAlignment(Qt::AlignTop);
@@ -152,26 +192,8 @@ SystemInfo::SystemInfo()
     licenseBody->setWordWrap(true);
     licenseBody->setMargin(10);
 
-    DVBoxWidget *licenseWidget = new DVBoxWidget;
-    licenseWidget->layout()->addWidget(licenseTitle);
-    licenseWidget->layout()->addWidget(licenseBody);
     licenseWidget->layout()->setContentsMargins(2, 5, 2, 2);
     licenseWidget->setFixedWidth(DCC::ModuleContentWidth);
-
-    m_licenseArea = new QScrollArea;
-    m_licenseArea->setFrameStyle(QFrame::NoFrame);
-    m_licenseArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_licenseArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_licenseArea->setWidget(licenseWidget);
-    m_licenseArea->setFixedWidth(DCC::ModuleContentWidth);
-    m_licenseArea->setStyleSheet("background-color:#1a1b1b;");
-
-    DArrowLineExpand *license = new DArrowLineExpand;
-    license->setTitle(tr("GNU GENERAL PUBLIC LICENSE"));
-    license->setContent(m_licenseArea);
-
-    DExpandGroup *expandGrp = new DExpandGroup(this);
-    expandGrp->addExpand(license);
 
 #ifdef DCC_SYSINFO_UPDATE
     m_updateInfoWidget = new UpdateWidget;
@@ -193,12 +215,6 @@ SystemInfo::SystemInfo()
     expandGrp->addExpand(m_updateExpand);
 #endif // DCC_SYSINFO_UPDATE
 
-    QVBoxLayout *centeralLayout = new QVBoxLayout;
-    centeralLayout->addWidget(m_baseLine);
-    centeralLayout->addWidget(new DSeparatorHorizontal);
-    centeralLayout->addWidget(m_infoWidget);
-    centeralLayout->addWidget(new DSeparatorHorizontal);
-    centeralLayout->addWidget(license);
 
     scanlicenses();
     foreach(DArrowLineExpand * expand, m_extralicenses) {
@@ -206,16 +222,6 @@ SystemInfo::SystemInfo()
         centeralLayout->addWidget(expand);
     }
 
-#ifdef DCC_SYSINFO_UPDATE
-    centeralLayout->addWidget(m_updateExpand);
-#endif
-    centeralLayout->addStretch(1);
-    centeralLayout->setSpacing(0);
-    centeralLayout->setMargin(0);
-
-    m_centeralFrame = new QFrame;
-    m_centeralFrame->installEventFilter(this);
-    m_centeralFrame->setLayout(centeralLayout);
 
 #ifdef DCC_SYSINFO_UPDATE
     connect(m_updateInfoWidget, &UpdateWidget::updatableNumsChanged, this, &SystemInfo::onUpdatableNumsChange);

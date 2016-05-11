@@ -159,6 +159,7 @@ void PluginsManager::loadPlugins()
 #else
     QDir pluginsDir("modules");
 #endif
+    qDebug() << "load plugins form" << pluginsDir.absolutePath();
 
     const QStringList files = pluginsDir.entryList(QDir::Files);
     for (QString fileName : files) {

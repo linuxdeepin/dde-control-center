@@ -28,15 +28,29 @@
 
 DWIDGET_USE_NAMESPACE
 
-QFrame *DatetimeModuele::getContent() {
-    static Datetime *frame = new Datetime;
-    return frame->getContent();
+QFrame *DatetimeModuele::getContent()
+{
+    if (NULL == datetime) {
+        datetime = new Datetime;
+    }
+    return datetime->getContent();
 }
+
+DatetimeModuele::DatetimeModuele()
+{
+    qDebug() << "DatetimeModuele()";
+}
+
+DatetimeModuele::~DatetimeModuele()
+{
+    qDebug() << "~DatetimeModuele()";
+}
+
 
 Datetime::Datetime() :
     QObject(),
-    m_frame(new QFrame),
-    m_dbusInter(m_frame),
+    m_frame(new QFrame()),
+    m_dbusInter(this),
     m_timezoneListWidget(new SearchList),
     m_refershClockTimer(new QTimer(m_frame)),
     // config manager
@@ -129,7 +143,7 @@ Datetime::Datetime() :
     connect(&m_dbusInter, &DBusTimedate::Use24HourFormatChanged, [this] {m_timeWidget->setIs24HourFormat(m_dbusInter.use24HourFormat());});
     connect(&m_dbusInter, &DBusTimedate::Use24HourFormatChanged, m_timeWidget, &TimeWidget::updateTime);
     connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] {m_timeWidget->setEditable(!m_dbusInter.nTP());});
-    connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this] () -> void {m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());});
+    connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this]() -> void {m_dateCtrlWidget->setVisible(!m_dbusInter.nTP());});
     connect(&m_dbusInter, &DBusTimedate::TimezoneChanged, this, &Datetime::reloadTimezoneList);
     connect(m_refershClockTimer, &QTimer::timeout, m_timeWidget, [this] {
         if (QDate::currentDate() != m_calendar->getCurrentDate())
@@ -141,11 +155,11 @@ Datetime::Datetime() :
         if (reply.isError())
             m_autoSyncSwitcher->setChecked(m_dbusInter.nTP());
     });
-    connect(m_timeWidget, &TimeWidget::applyTime, [this] (const QDateTime & time) -> void {
+    connect(m_timeWidget, &TimeWidget::applyTime, [this](const QDateTime & time) -> void {
         qDebug() << "set time: " << time << time.currentMSecsSinceEpoch();
         m_dbusInter.SetDate(time.date().year(), time.date().month(), time.date().day(), time.time().hour(), time.time().minute(), time.time().second(), time.time().msec()).waitForFinished();
     });
-    connect(m_dateCtrlWidget, &DateControlWidget::applyDate, [this] () -> void {
+    connect(m_dateCtrlWidget, &DateControlWidget::applyDate, [this]() -> void {
         const QDate date = m_calendar->getSelectDate();
         const QTime time = QTime::currentTime();
         qDebug() << "set date: " << date << time;
@@ -165,13 +179,9 @@ Datetime::Datetime() :
 Datetime::~Datetime()
 {
     qDebug() << "~Datetime";
-
-    m_frame->hide();
-    m_frame->setParent(nullptr);
-    m_frame->deleteLater();
 }
 
-QFrame* Datetime::getContent()
+QFrame *Datetime::getContent()
 {
     return m_frame;
 }
@@ -182,21 +192,23 @@ const QString Datetime::getUTCOffset(int offset)
     const QString offsetMinute = QString::number((abs(offset) % 3600) / 60);
 
     return std::move(QString("UTC%1%2:%3").arg(offset >= 0 ? '+' : '-')
-                                          .arg(offsetHour, 2, '0')
-                                          .arg(offsetMinute, 2, '0'));
+                     .arg(offsetHour, 2, '0')
+                     .arg(offsetMinute, 2, '0'));
 }
 
 const QString Datetime::getZoneCityListByOffset(int zoneOffset)
 {
     QStringList list;
-    for (const ZoneInfo & zone : *m_zoneInfoList)
+    for (const ZoneInfo &zone : *m_zoneInfoList)
         if (zone.getUTCOffset() == zoneOffset)
-            if (zone.getZoneCity() == "Asia/Shanghai")
+            if (zone.getZoneCity() == "Asia/Shanghai") {
                 list.append("Beijing");
-            else
+            } else {
                 list.append(zone.getZoneCity());
-        else if (zone.getUTCOffset() > zoneOffset)
+            }
+        else if (zone.getUTCOffset() > zoneOffset) {
             break;
+        }
 
     return std::move(list.join(", "));
 }
@@ -205,9 +217,10 @@ const ZoneInfo &Datetime::getZoneInfoByName(const QString &zoneName)
 {
     const ZoneInfo info = m_dbusInter.GetZoneInfo(zoneName);
 
-    for (const ZoneInfo & zone : *m_zoneInfoList)
-        if (zone.getUTCOffset() == info.getUTCOffset())
+    for (const ZoneInfo &zone : *m_zoneInfoList)
+        if (zone.getUTCOffset() == info.getUTCOffset()) {
             return zone;
+        }
 
     qWarning() << zoneName << "not in Timezone list!!!";
 
@@ -224,11 +237,11 @@ void Datetime::loadTimezoneList()
     // pass duplicate time zone
     QList<int> selectedOffset;
 
-    for (const QString & zone : zoneList)
-    {
-        const ZoneInfo & zoneInfo = getZoneInfoByName(zone);
-        if (selectedOffset.contains(zoneInfo.getUTCOffset()))
+    for (const QString &zone : zoneList) {
+        const ZoneInfo &zoneInfo = getZoneInfoByName(zone);
+        if (selectedOffset.contains(zoneInfo.getUTCOffset())) {
             continue;
+        }
         selectedOffset.append(zoneInfo.getUTCOffset());
 
         ++zoneNums;
@@ -238,7 +251,7 @@ void Datetime::loadTimezoneList()
         zoneWidget->setZoneUTCOffset(getUTCOffset(zoneInfo.getUTCOffset()));
         zoneWidget->setSelected(userZoneOffset == zoneInfo.getUTCOffset());
 
-        connect(zoneWidget, &TimezoneWidget::clicked, [this, zoneWidget] () -> void {toggleTimeZone(zoneWidget);});
+        connect(zoneWidget, &TimezoneWidget::clicked, [this, zoneWidget]() -> void {toggleTimeZone(zoneWidget);});
 
         m_timezoneListWidget->addItem(zoneWidget);
     }
@@ -284,16 +297,17 @@ void Datetime::showTimezoneList()
     int lastUTCOffset = -1;
 
     // m_zoneInfoList is sorted list.
-    for (const ZoneInfo & zone : *m_zoneInfoList)
-    {
+    for (const ZoneInfo &zone : *m_zoneInfoList) {
         // skip repeat timezone
-        if (zone.getUTCOffset() == lastUTCOffset)
+        if (zone.getUTCOffset() == lastUTCOffset) {
             continue;
+        }
         lastUTCOffset = zone.getUTCOffset();
 
         // skip exist timezone
-        if (userZoneList.contains(zone.getZoneName()))
+        if (userZoneList.contains(zone.getZoneName())) {
             continue;
+        }
 
         ++zoneNums;
 
@@ -318,16 +332,16 @@ void Datetime::toRemoveTimezoneMode()
     // update zone list.
     reloadTimezoneList();
 
-    for (int i = 0; i != m_timezoneListWidget->count(); ++i)
-    {
+    for (int i = 0; i != m_timezoneListWidget->count(); ++i) {
         TimezoneWidget *widget = qobject_cast<TimezoneWidget *>(m_timezoneListWidget->getItem(i)->widget());
-        if (!widget)
+        if (!widget) {
             continue;
+        }
 
         widget->removeMode();
         widget->disconnect();
 
-        connect(widget, &TimezoneWidget::clicked, [this, widget] () -> void {removeTimeZone(widget);});
+        connect(widget, &TimezoneWidget::clicked, [this, widget]() -> void {removeTimeZone(widget);});
     }
 }
 
@@ -346,16 +360,18 @@ void Datetime::adjustItemHeight()
 bool Datetime::eventFilter(QObject *o, QEvent *e)
 {
     if ((o == m_frame || o == m_timeWidget) &&
-        e->type() == QEvent::Resize)
+            e->type() == QEvent::Resize) {
         adjustItemHeight();
+    }
 
     return false;
 }
 
 void Datetime::toggleTimeZone(TimezoneWidget *zone)
 {
-    if (!zone)
+    if (!zone) {
         return;
+    }
 
     qDebug() << "toggle zone: " << zone->zoneName();
     m_dbusInter.SetTimezone(zone->zoneName()).waitForFinished();
@@ -363,8 +379,9 @@ void Datetime::toggleTimeZone(TimezoneWidget *zone)
 
 void Datetime::removeTimeZone(TimezoneWidget *zone)
 {
-    if (!zone)
+    if (!zone) {
         return;
+    }
 
     qDebug() << "remove zone: " << zone->zoneName();
     m_dbusInter.DeleteUserTimezone(zone->zoneName()).waitForFinished();
@@ -377,8 +394,9 @@ void Datetime::removeTimeZone(TimezoneWidget *zone)
 void Datetime::addUserTimeZone()
 {
     qDebug() << "add zone list: " << m_choosedZoneList;
-    for (const QString & zone : m_choosedZoneList)
+    for (const QString &zone : m_choosedZoneList) {
         m_dbusInter.AddUserTimezone(zone).waitForFinished();
+    }
     m_choosedZoneList.clear();
 }
 
@@ -386,12 +404,12 @@ void Datetime::timezoneItemChoosed()
 {
     const TimezoneItemWidget *item = qobject_cast<TimezoneItemWidget *>(sender());
 
-    if (item)
-    {
-        if (!item->selected())
+    if (item) {
+        if (!item->selected()) {
             m_choosedZoneList.append(item->zoneName());
-        else
+        } else {
             m_choosedZoneList.removeOne(item->zoneName());
+        }
     }
 
     m_timezoneCtrlWidget->setAcceptOrCancel(m_choosedZoneList.isEmpty());
@@ -404,8 +422,7 @@ void Datetime::loadZoneList()
     // get timezone info list
     m_zoneInfoList = new QList<ZoneInfo>;
 
-    if (m_settings->value("version").toString() == qApp->applicationVersion())
-    {
+    if (m_settings->value("version").toString() == qApp->applicationVersion()) {
         // try to read config file
         QByteArray bytes = m_settings->value(zoneInfoListKey).toByteArray();
         QDataStream readStream(&bytes, QIODevice::ReadOnly);
@@ -413,10 +430,11 @@ void Datetime::loadZoneList()
 
         // FIXME: 读文件有时会出现由于文件错误而导致数据不正常，所以简单验证一下数据
         if (!m_zoneInfoList->isEmpty() &&
-            !m_zoneInfoList->first().getZoneName().isEmpty() &&
-            !m_zoneInfoList->first().getZoneCity().isEmpty() &&
-            abs(m_zoneInfoList->first().getUTCOffset()) <= 3600 * 24)
+                !m_zoneInfoList->first().getZoneName().isEmpty() &&
+                !m_zoneInfoList->first().getZoneCity().isEmpty() &&
+                abs(m_zoneInfoList->first().getUTCOffset()) <= 3600 * 24) {
             return;
+        }
     }
 
     qDebug() << "load zoneInfoList from d-bus";
@@ -426,20 +444,20 @@ void Datetime::loadZoneList()
     list.waitForFinished();
     QStringList zoneList = list.value();
 
-    for (const QString & zone : zoneList)
-    {
+    for (const QString &zone : zoneList) {
         QDBusPendingReply<ZoneInfo> info;
-        if (zone == "Asia/Beijing")
+        if (zone == "Asia/Beijing") {
             info = m_dbusInter.GetZoneInfo("Asia/Shanghai");
-        else
+        } else {
             info = m_dbusInter.GetZoneInfo(zone);
+        }
 
         info.waitForFinished();
         m_zoneInfoList->append(info.argumentAt<0>());
     }
 
     // sort by utc offset ascend, if utc offset is equal, sort by city.
-    std::sort(m_zoneInfoList->begin(), m_zoneInfoList->end(), [this] (const ZoneInfo & z1, const ZoneInfo & z2) -> bool {
+    std::sort(m_zoneInfoList->begin(), m_zoneInfoList->end(), [this](const ZoneInfo & z1, const ZoneInfo & z2) -> bool {
         if (z1.getUTCOffset() == z2.getUTCOffset())
             return z1.getZoneCity() < z2.getZoneCity();
         return z1.getUTCOffset() < z2.getUTCOffset();
