@@ -98,6 +98,7 @@ SystemInfo::SystemInfo()
     centeralLayout->addWidget(license);
 
 #ifdef DCC_SYSINFO_UPDATE
+    m_updateInfoWidget = new UpdateWidget;
     centeralLayout->addWidget(m_updateExpand);
 #endif
 
@@ -196,7 +197,6 @@ SystemInfo::SystemInfo()
     licenseWidget->setFixedWidth(DCC::ModuleContentWidth);
 
 #ifdef DCC_SYSINFO_UPDATE
-    m_updateInfoWidget = new UpdateWidget;
     m_mirrorsControlWidget = new MirrorsControlWidget;
     m_mirrorsControlWidget->hide();
 
