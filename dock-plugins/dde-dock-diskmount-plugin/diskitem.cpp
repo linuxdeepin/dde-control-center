@@ -66,17 +66,16 @@ void DiskItem::sendNotification(const QString &title, const QString &msg)
 void DiskItem::umountDisk()
 {
     qDebug() << "[DiskMountPlugin] Try to umount Disk: "<< m_diskUuid;
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_diskMount->Unmount(m_diskUuid));
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher]{
+    m_diskMount->Unmount(m_diskUuid);
 
-        const QDBusMessage message = watcher->reply();
-        const QList<QVariant> args = message.arguments();
+//    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_diskMount->Unmount(m_diskUuid));
+//    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher]{
+//        if(!watcher->reply().arguments().first().toBool()){
+//            umountDiskFailed(m_id, "Umount disk error.");
+//        }
 
-        if(args.isEmpty() || !args.first().toBool())
-            umountDiskFailed(m_id, "Umount disk error.");
-
-        watcher->deleteLater();
-    });
+//        watcher->deleteLater();
+//    });
 }
 
 void DiskItem::slotRetry(uint, QString id)
@@ -94,11 +93,11 @@ void DiskItem::updateUnMountButtonState(bool normal)
     m_unMountButton->setPressPic(QString("://Resource/images/unmount_button_press%1.png").arg(stateStr));
 }
 
-void DiskItem::umountDiskFailed(const QString &uuid, const QString &reason)
+void DiskItem::umountDiskFailed(const QString &id, const QString &reason)
 {
     Q_UNUSED(reason);
 
-    if (m_id != uuid)
+    if (m_id != id)
         return;
 
     updateUnMountButtonState(false);

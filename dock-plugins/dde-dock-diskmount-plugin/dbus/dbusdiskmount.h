@@ -101,21 +101,21 @@ public:
     }
 
 public Q_SLOTS: // METHODS
-    inline QDBusPendingReply<bool> Eject(const QString &in0)
+    inline QDBusPendingReply<> Eject(const QString &in0)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(in0);
         return asyncCallWithArgumentList(QStringLiteral("Eject"), argumentList);
     }
 
-    inline QDBusPendingReply<bool> Mount(const QString &in0)
+    inline QDBusPendingReply<> Mount(const QString &in0)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(in0);
         return asyncCallWithArgumentList(QStringLiteral("Mount"), argumentList);
     }
 
-    inline QDBusPendingReply<bool> Unmount(const QString &in0)
+    inline QDBusPendingReply<> Unmount(const QString &in0)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(in0);
@@ -123,7 +123,8 @@ public Q_SLOTS: // METHODS
     }
 
 Q_SIGNALS: // SIGNALS
-    void Error(const QString &in0, const QString &in1);
+    void Changed(const int in0, const QString &in1);
+    void Error(const QString &id, const QString &reason);
 // begin property changed signals
     void DiskListChanged();
 };

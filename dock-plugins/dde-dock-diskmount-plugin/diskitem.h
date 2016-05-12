@@ -40,7 +40,7 @@ private slots:
     void umountDisk();
     void slotRetry(uint, QString);
     void updateUnMountButtonState(bool normal);
-    void umountDiskFailed(const QString &uuid, const QString &reason);
+    void umountDiskFailed(const QString &id, const QString &reason);
 
 private:
     DBusDiskMount *m_diskMount = NULL;
