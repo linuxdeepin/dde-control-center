@@ -43,6 +43,20 @@ public:
     QFrame *getContent() Q_DECL_OVERRIDE;
 };
 
+class SoundDBusPreLoad : public QObject
+{
+    Q_OBJECT
+
+public:
+    SoundDBusPreLoad(DBusSoundEffects *dbus);
+    void run();
+signals:
+    void dbusConnected();
+
+private:
+    DBusSoundEffects *m_dbus;
+};
+
 class Sound: public QObject, ModuleInterface
 {
     Q_OBJECT

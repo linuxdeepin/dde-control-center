@@ -146,7 +146,9 @@ void Frame::loadContens()
     connect(pm, &PluginsManager::pluginLoaded, [this, pm] {
         if (pm->count() == m_homeScreen->count())
         {
-            setCursor(Qt::ArrowCursor);
+            QTimer::singleShot(5000, this, [ = ] {
+                setCursor(Qt::ArrowCursor);
+            });
         }
     });
 #endif

@@ -76,11 +76,12 @@ void ScrollFrame::init()
     m_stackWidget = new DStackWidget;
     m_mainWidget = new DVBoxWidget;
 
-    m_headerWidget->show();
-    m_stackWidget->setFixedWidth(width());
     m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_scrollArea->setWidget(m_stackWidget);
+
+    m_headerWidget->show();
+    m_stackWidget->setFixedWidth(width());
 
     connect(m_headerWidget, &DVBoxWidget::sizeChanged, this, [this](QSize size){
         m_scrollArea->setFixedHeight(height() - size.height());

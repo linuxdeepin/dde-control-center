@@ -40,6 +40,19 @@ QFrame *SoundModule::getContent()
     return sound->getContent();
 }
 
+SoundDBusPreLoad::SoundDBusPreLoad(DBusSoundEffects *dbus)
+{
+    m_dbus = dbus;
+}
+
+void SoundDBusPreLoad::run()
+{
+    qDebug() << QThread::currentThread();
+    m_dbus->enabled();
+    qDebug() << qApp->thread();
+    emit dbusConnected();
+}
+
 Sound::Sound() :
     QObject(),
     m_frame(new QFrame),
@@ -75,13 +88,23 @@ Sound::Sound() :
     m_mainWidgetVLayout->addWidget(m_scrollArea);
     m_mainWidgetVLayout->addStretch(1);
 
-#ifdef ARCH_MIPSEL
-    QTimer::singleShot(100, [this]{
-#endif
-        initBackend();
-        initUI();
-#ifdef ARCH_MIPSEL
-    });
+    m_soundEffectsInter = new DBusSoundEffects("com.deepin.daemon.SoundEffect",
+            "/com/deepin/daemon/SoundEffect",
+            QDBusConnection::sessionBus());
+    initBackend();
+
+#ifndef ARCH_MIPSEL
+    SoundDBusPreLoad *dbuspreload = new SoundDBusPreLoad(m_soundEffectsInter);
+    QThread *dbusThread = new QThread;
+    dbuspreload->moveToThread(dbusThread);
+
+    connect(dbusThread, &QThread::started, dbuspreload, &SoundDBusPreLoad::run);
+    connect(dbusThread, &QThread::finished, dbusThread, &QThread::deleteLater);
+    connect(dbuspreload, &SoundDBusPreLoad::dbusConnected, this,  &Sound::initUI);
+
+    dbusThread->start();
+#else
+    initUI();
 #endif
 }
 
@@ -107,7 +130,7 @@ void Sound::initBackend()
 
 void Sound::initUI()
 {
-    QVBoxLayout * mainLayout = new QVBoxLayout(m_frame);
+    QVBoxLayout *mainLayout = new QVBoxLayout(m_frame);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -118,10 +141,10 @@ void Sound::initUI()
         m_speakerExpand = new DSwitchLineExpand;
         m_speakerExpand->setTitle(tr("Speaker"));
 
-        QFrame * speakerExpandContent = new QFrame(m_speakerExpand);
+        QFrame *speakerExpandContent = new QFrame(m_speakerExpand);
         speakerExpandContent->setFixedWidth(DCC::ModuleContentWidth);
         speakerExpandContent->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-        QGridLayout * speakerForm = new QGridLayout(speakerExpandContent);
+        QGridLayout *speakerForm = new QGridLayout(speakerExpandContent);
         speakerForm->setRowMinimumHeight(0, 36);
         speakerForm->setRowMinimumHeight(1, 36);
 
@@ -162,10 +185,10 @@ void Sound::initUI()
         m_microphoneExpand = new DSwitchLineExpand;
         m_microphoneExpand->setTitle(tr("Microphone"));
 
-        QFrame * mircophoneExpandContent = new QFrame(m_microphoneExpand);
+        QFrame *mircophoneExpandContent = new QFrame(m_microphoneExpand);
         mircophoneExpandContent->setFixedWidth(DCC::ModuleContentWidth);
         mircophoneExpandContent->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-        QGridLayout * microphoneForm = new QGridLayout(mircophoneExpandContent);
+        QGridLayout *microphoneForm = new QGridLayout(mircophoneExpandContent);
         microphoneForm->setRowMinimumHeight(0, 36);
 #ifndef DCC_DISABLE_MICROPHONE_FEEDBACK
         microphoneForm->setRowMinimumHeight(1, 36);
@@ -191,20 +214,20 @@ void Sound::initUI()
         m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle);
         m_inputFeedbackSlider->setRange(0, 100);
         m_inputFeedbackSlider->setEnabled(false);
-        connect(m_inputFeedbackSlider, &DSlider::valueChanged, [=](int value){
+        connect(m_inputFeedbackSlider, &DSlider::valueChanged, [ = ](int value) {
             // to prevent the slider being over refreshed.
-            if (m_timeDeltaRecorder.elapsed() < 500) return;
+            if (m_timeDeltaRecorder.elapsed() < 500) { return; }
             m_timeDeltaRecorder.restart();
 
-            if(value > 80){
+            if (value > 80) {
                 m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle
-                                                     +"Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #0a73bb, stop:0.66 #0a73bb, stop:0.76 #ffbf0f, stop:1 #ff8503);}Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 3px;}");
-            }else if(value < 3){
+                                                     + "Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #0a73bb, stop:0.66 #0a73bb, stop:0.76 #ffbf0f, stop:1 #ff8503);}Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 3px;}");
+            } else if (value < 3) {
                 m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle
-                                                     +"Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0a73bb, stop:1 #51a7dc)}Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 2px;}");
-            }else{
+                                                     + "Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0a73bb, stop:1 #51a7dc)}Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 2px;}");
+            } else {
                 m_inputFeedbackSlider->setStyleSheet(feedbackSliderStyle
-                                                     +"Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0a73bb, stop:1 #51a7dc)}Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 3px;}");
+                                                     + "Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0a73bb, stop:1 #51a7dc)}Dtk--Widget--DSlider::sub-page[handleType=\"1\"]{border-image: none;border-radius: 3px;}");
             }
         });
         microphoneForm->addWidget(m_inputFeedbackSlider, 1, 1, Qt::AlignVCenter);
@@ -245,7 +268,7 @@ void Sound::initUI()
         m_outputPortsExpand = new DBaseExpand;
         m_outputPortsExpand->setExpand(true);
 
-        HeaderLine * outputPortsLine = new HeaderLine(tr("Output Port"), m_outputPortsExpand);
+        HeaderLine *outputPortsLine = new HeaderLine(tr("Output Port"), m_outputPortsExpand);
         m_outputPortsExpand->setHeader(outputPortsLine);
 
         m_outputPortsList = new DButtonList(m_outputPortsExpand);
@@ -258,7 +281,7 @@ void Sound::initUI()
         m_outputDevicesExpand = new DBaseExpand;
         m_outputDevicesExpand->setExpand(true);
 
-        HeaderLine * outputDevicesLine = new HeaderLine(tr("Output device"), m_outputDevicesExpand);
+        HeaderLine *outputDevicesLine = new HeaderLine(tr("Output device"), m_outputDevicesExpand);
         m_outputDevicesExpand->setHeader(outputDevicesLine);
 
         m_outputDevicesList = new DButtonList(m_outputDevicesExpand);
@@ -278,7 +301,7 @@ void Sound::initUI()
         m_inputPortsExpand = new DBaseExpand;
         m_inputPortsExpand->setExpand(true);
 
-        HeaderLine * inputPortsLine = new HeaderLine(tr("Input Port"), m_inputPortsExpand);
+        HeaderLine *inputPortsLine = new HeaderLine(tr("Input Port"), m_inputPortsExpand);
         m_inputPortsExpand->setHeader(inputPortsLine);
 
         m_inputPortsList = new DButtonList(m_inputPortsExpand);
@@ -292,7 +315,7 @@ void Sound::initUI()
         m_inputDevicesExpand->setExpandedSeparatorVisible(false);
         m_inputDevicesExpand->setExpand(true);
 
-        HeaderLine * inputDevicesLine = new HeaderLine(tr("Input device"), m_inputDevicesExpand);
+        HeaderLine *inputDevicesLine = new HeaderLine(tr("Input device"), m_inputDevicesExpand);
         m_inputDevicesExpand->setHeader(inputDevicesLine);
 
         m_inputDevicesList = new DButtonList(m_inputDevicesExpand);
@@ -307,13 +330,14 @@ void Sound::initUI()
     // show advanced
     DLinkButton *advanced_button = new DLinkButton(tr("Show Advanced...") + "      ");
     advanced_button->setStyleSheet(advanced_button->styleSheet() + "Dtk--Widget--DLinkButton:pressed{color:#0188FF;}");
-    connect(advanced_button, &DLinkButton::clicked, [this, advanced_button, advanced_expand]{
-        if(advanced_expand->expand()){
+    connect(advanced_button, &DLinkButton::clicked, [this, advanced_button, advanced_expand] {
+        if (advanced_expand->expand())
+        {
             m_frame->setFixedHeight(150);
             ///When the height of the sum of the hide when advanced settings
             advanced_expand->setExpand(false);
             advanced_button->setText(tr("Show Advanced...") + "      ");
-        }else{
+        } else{
             m_frame->setFixedHeight(650);
             ///When the height of the sum of the show when advanced settings
             advanced_expand->setExpand(true);
@@ -321,11 +345,7 @@ void Sound::initUI()
         }
     });
 
-    m_soundEffectsInter = new DBusSoundEffects("com.deepin.daemon.SoundEffect",
-                                               "/com/deepin/daemon/SoundEffect",
-                                               QDBusConnection::sessionBus(), this);
-
-    DSwitchButton * soundEffectsSwitch = new DSwitchButton;
+    DSwitchButton *soundEffectsSwitch = new DSwitchButton;
 
     m_soundEffectsLine = new DHeaderLine;
     m_soundEffectsLine->setTitle(tr("Sound effects"));
@@ -348,53 +368,56 @@ void Sound::initUI()
     mainLayout->addStretch(1);
 
     if (m_sink) {
-        connect(m_outputDevicesList, &DButtonList::buttonCheckedIndexChanged, [=](int index) {
-            DBusAudioSink * sink = m_sinks.at(index);
+        connect(m_outputDevicesList, &DButtonList::buttonCheckedIndexChanged, [ = ](int index) {
+            DBusAudioSink *sink = m_sinks.at(index);
             // important, otherwise there will be bounding loop.
             if (sink->name() != getDefaultSink()->name()) {
                 m_dbusAudio->SetDefaultSink(sink->name());
             }
         });
-        connect(m_dbusAudio, &DBusAudio::DefaultSinkChanged, [=]{
+        connect(m_dbusAudio, &DBusAudio::DefaultSinkChanged, [ = ] {
             m_sink = getDefaultSink();
-            if (m_sinks.contains(m_sink)) {
+            if (m_sinks.contains(m_sink))
+            {
                 m_outputDevicesList->checkButtonByIndex(m_sinks.indexOf(m_sink));
             }
 
             updateOutputPorts();
         });
 
-        connect(m_outputPortsList, &DButtonList::buttonCheckedIndexChanged, [=](int index){
+        connect(m_outputPortsList, &DButtonList::buttonCheckedIndexChanged, [ = ](int index) {
             SinkPortStruct port =  m_sink->ports().at(index);
             m_sink->SetPort(port.id).waitForFinished();
         });
 
-        connect(m_sink, &DBusAudioSink::ActivePortChanged, [=]{
+        connect(m_sink, &DBusAudioSink::ActivePortChanged, [ = ] {
             QStringList outputPorts;
-            foreach (SinkPortStruct port, m_sink->ports()) {
+            foreach(SinkPortStruct port, m_sink->ports())
+            {
                 outputPorts << port.name;
             }
 
             SinkPortStruct activePort = m_sink->activePort();
-            if (outputPorts.contains(activePort.name)) {
+            if (outputPorts.contains(activePort.name))
+            {
                 m_outputPortsList->checkButtonByIndex(outputPorts.indexOf(activePort.name));
             }
 
             updateSpeakerUI();
         });
 
-        connect(m_outputVolumeSlider, &DSlider::valueChanged, [=](int value){
+        connect(m_outputVolumeSlider, &DSlider::valueChanged, [ = ](int value) {
             blockOutputVolumeSignal = true;
             int sliderInterval = m_SetOutputVolumeRecorder.elapsed();
             if (sliderInterval > 50) {
-                if(qAbs(value - m_sink->volume() * 100) > 1) {
+                if (qAbs(value - m_sink->volume() * 100) > 1) {
                     m_sink->SetVolume(value / 100.0, false);
                 }
             }
             m_SetOutputVolumeRecorder.restart();
 
             // send the last change
-            if(!m_SetOutputVolumeTimer) {
+            if (!m_SetOutputVolumeTimer) {
                 m_SetOutputVolumeTimer = new QTimer(this);
                 m_SetOutputVolumeTimer->setSingleShot(true);
 
@@ -402,7 +425,8 @@ void Sound::initUI()
                     m_SetOutputVolumeTimer->deleteLater();
                     m_SetOutputVolumeTimer = NULL;
                     int sliderValue = m_outputVolumeSlider->value();
-                    if(qAbs(sliderValue - m_sink->volume() * 100) > 1) {
+                    if (qAbs(sliderValue - m_sink->volume() * 100) > 1)
+                    {
                         m_sink->SetVolume(sliderValue / 100.0, false);
                     }
                     blockOutputVolumeSignal = false;
@@ -411,26 +435,27 @@ void Sound::initUI()
             m_SetOutputVolumeTimer->start(200);
         });
 
-        connect(m_sink, &DBusAudioSink::VolumeChanged, [=]{
-            if (qAbs(m_sink->volume() * 100 - m_outputVolumeSlider->value()) > 1) {
+        connect(m_sink, &DBusAudioSink::VolumeChanged, [ = ] {
+            if (qAbs(m_sink->volume() * 100 - m_outputVolumeSlider->value()) > 1)
+            {
                 if (!blockOutputVolumeSignal) {
                     m_outputVolumeSlider->setValue(m_sink->volume() * 100);
                 }
             }
         });
 
-        connect(m_leftRightBalanceSlider, &DSlider::valueChanged, [=](int value){
+        connect(m_leftRightBalanceSlider, &DSlider::valueChanged, [ = ](int value) {
             blockBalanceSignal = true;
             int sliderInterval = m_SetBalanceRecorder.elapsed();
             if (sliderInterval > 50) {
-                if(qAbs(m_sink->balance() * 100 - value) > 1) {
+                if (qAbs(m_sink->balance() * 100 - value) > 1) {
                     m_sink->SetBalance(value / 100.0, false);
                 }
             }
             m_SetBalanceRecorder.restart();
 
             // send the last change
-            if(!m_SetBalanceTimer) {
+            if (!m_SetBalanceTimer) {
                 m_SetBalanceTimer = new QTimer(this);
                 m_SetBalanceTimer->setSingleShot(true);
 
@@ -438,7 +463,8 @@ void Sound::initUI()
                     m_SetBalanceTimer->deleteLater();
                     m_SetBalanceTimer = NULL;
                     int sliderValue = m_leftRightBalanceSlider->value();
-                    if(qAbs(m_sink->balance() * 100 - sliderValue) > 1) {
+                    if (qAbs(m_sink->balance() * 100 - sliderValue) > 1)
+                    {
                         m_sink->SetBalance(sliderValue / 100.0, false);
                     }
                     blockBalanceSignal = false;
@@ -446,24 +472,25 @@ void Sound::initUI()
             }
             m_SetBalanceTimer->start(200);
         });
-        connect(m_sink, &DBusAudioSink::BalanceChanged, [=]{
-            if(qAbs(m_sink->balance() * 100 - m_leftRightBalanceSlider->value()) > 1) {
+        connect(m_sink, &DBusAudioSink::BalanceChanged, [ = ] {
+            if (qAbs(m_sink->balance() * 100 - m_leftRightBalanceSlider->value()) > 1)
+            {
                 if (!blockBalanceSignal) {
                     m_leftRightBalanceSlider->setValue(m_sink->balance() * 100);
                 }
             }
         });
 
-        connect(m_sink, &DBusAudioSink::MuteChanged, [=]{
+        connect(m_sink, &DBusAudioSink::MuteChanged, [ = ] {
             m_speakerExpand->setExpand(!m_sink->mute());
         });
-        connect(m_speakerExpand, &DBaseExpand::expandChange, [=] (bool expanded) {
+        connect(m_speakerExpand, &DBaseExpand::expandChange, [ = ](bool expanded) {
             m_sink->SetMute(!expanded).waitForFinished();
         });
     }
 
     if (m_source) {
-        connect(m_inputVolumeSlider, &DSlider::valueChanged, [=](int value){
+        connect(m_inputVolumeSlider, &DSlider::valueChanged, [ = ](int value) {
             blockInputVolumeSignal = true;
             int sliderInterval = m_SetInputVolumeRecorder.elapsed();
             if (sliderInterval > 50) {
@@ -474,7 +501,7 @@ void Sound::initUI()
             m_SetInputVolumeRecorder.restart();
 
             // send the last change
-            if(!m_SetInputVolumeTimer) {
+            if (!m_SetInputVolumeTimer) {
                 m_SetInputVolumeTimer = new QTimer(this);
                 m_SetInputVolumeTimer->setSingleShot(true);
 
@@ -482,7 +509,8 @@ void Sound::initUI()
                     m_SetInputVolumeTimer->deleteLater();
                     m_SetInputVolumeTimer = NULL;
                     int sliderValue = m_inputVolumeSlider->value();
-                    if (qAbs(sliderValue - m_source->volume() * 100) > 1) {
+                    if (qAbs(sliderValue - m_source->volume() * 100) > 1)
+                    {
                         m_source->SetVolume(sliderValue / 100.0, false);
                     }
                     blockInputVolumeSignal = false;
@@ -490,47 +518,51 @@ void Sound::initUI()
             }
             m_SetInputVolumeTimer->start(200);
         });
-        connect(m_source, &DBusAudioSource::VolumeChanged, [=]{
-            if (qAbs(m_source->volume() * 100 - m_inputVolumeSlider->value()) > 1) {
+        connect(m_source, &DBusAudioSource::VolumeChanged, [ = ] {
+            if (qAbs(m_source->volume() * 100 - m_inputVolumeSlider->value()) > 1)
+            {
                 if (!blockInputVolumeSignal) {
                     m_inputVolumeSlider->setValue(m_source->volume() * 100);
                 }
             }
         });
 
-        connect(m_source, &DBusAudioSource::MuteChanged, [=]{
+        connect(m_source, &DBusAudioSource::MuteChanged, [ = ] {
             m_microphoneExpand->setExpand(!m_source->mute());
         });
-        connect(m_microphoneExpand, &DBaseExpand::expandChange, [=](bool expanded){
+        connect(m_microphoneExpand, &DBaseExpand::expandChange, [ = ](bool expanded) {
             m_source->SetMute(!expanded);
         });
 
-        connect(m_inputPortsList, &DButtonList::buttonCheckedIndexChanged, [=](int index){
+        connect(m_inputPortsList, &DButtonList::buttonCheckedIndexChanged, [ = ](int index) {
             SourcePortStruct port = m_source->ports().at(index);
             m_source->SetPort(port.id);
         });
-        connect(m_source, &DBusAudioSource::ActivePortChanged, [=]{
+        connect(m_source, &DBusAudioSource::ActivePortChanged, [ = ] {
             QStringList inputPorts;
-            foreach (SourcePortStruct port, m_source->ports()) {
+            foreach(SourcePortStruct port, m_source->ports())
+            {
                 inputPorts << port.name;
             }
             SourcePortStruct activePort = m_source->activePort();
-            if (inputPorts.contains(activePort.name)) {
+            if (inputPorts.contains(activePort.name))
+            {
                 m_inputPortsList->checkButtonByIndex(inputPorts.indexOf(activePort.name));
             }
 
             updateMicrophoneUI();
         });
 
-        connect(m_inputDevicesList, &DButtonList::buttonCheckedIndexChanged, [=](int index) {
-            DBusAudioSource * source = m_sources.at(index);
+        connect(m_inputDevicesList, &DButtonList::buttonCheckedIndexChanged, [ = ](int index) {
+            DBusAudioSource *source = m_sources.at(index);
             if (source->name() != getDefaultSource()->name()) {
                 m_dbusAudio->SetDefaultSource(source->name());
             }
         });
-        connect(m_dbusAudio, &DBusAudio::DefaultSourceChanged, [=]{
+        connect(m_dbusAudio, &DBusAudio::DefaultSourceChanged, [ = ] {
             m_source = getDefaultSource();
-            if (m_sources.contains(m_source)) {
+            if (m_sources.contains(m_source))
+            {
                 m_inputDevicesList->checkButtonByIndex(m_sources.indexOf(m_source));
             }
 
@@ -539,14 +571,14 @@ void Sound::initUI()
     }
 }
 
-QFrame* Sound::getContent()
+QFrame *Sound::getContent()
 {
     return m_mainWidget;
 }
 
-DBusAudioSink * Sound::getDefaultSink()
+DBusAudioSink *Sound::getDefaultSink()
 {
-    foreach (DBusAudioSink * s, m_sinks) {
+    foreach(DBusAudioSink * s, m_sinks) {
         if (s->name() == m_dbusAudio->defaultSink()) {
             return s;
         }
@@ -557,9 +589,9 @@ DBusAudioSink * Sound::getDefaultSink()
     return NULL;
 }
 
-DBusAudioSource * Sound::getDefaultSource()
+DBusAudioSource *Sound::getDefaultSource()
 {
-    foreach (DBusAudioSource * s, m_sources) {
+    foreach(DBusAudioSource * s, m_sources) {
         if (s->name() == m_dbusAudio->defaultSource()) {
             return s;
         }
@@ -576,7 +608,7 @@ void Sound::updateSinks()
     m_sinks.clear();
 
     QList<QDBusObjectPath> sinkPaths = m_dbusAudio->sinks();
-    foreach (QDBusObjectPath path, sinkPaths) {
+    foreach(QDBusObjectPath path, sinkPaths) {
         m_sinks << new DBusAudioSink(path.path(), this);
     }
 
@@ -590,14 +622,15 @@ void Sound::updateSources()
     m_sources.clear();
 
     QList<QDBusObjectPath> sourcePaths = m_dbusAudio->sources();
-    foreach (QDBusObjectPath path, sourcePaths) {
+    foreach(QDBusObjectPath path, sourcePaths) {
         m_sources << new DBusAudioSource(path.path(), this);
     }
 
     m_source = getDefaultSource();
 
-    if(!m_source)
+    if (!m_source) {
         return;
+    }
 
 #ifndef DCC_DISABLE_MICROPHONE_FEEDBACK
     // init meter
@@ -605,16 +638,17 @@ void Sound::updateSources()
     QString meterName = meterPath;
     meterName = meterName.replace("/", ".").mid(1);
 
-    if(m_dbusMeter)
+    if (m_dbusMeter) {
         m_dbusMeter->deleteLater();
+    }
 
     m_dbusMeter = new QDBusInterface("com.deepin.daemon.Audio", meterPath, meterName);
     m_dbusMeter->setParent(this);
-    connect(&m_meterTimer, &QTimer::timeout, m_dbusMeter, [&]{
+    connect(&m_meterTimer, &QTimer::timeout, m_dbusMeter, [&] {
         m_dbusMeter->call("Tick");
     });
 
-    QDBusConnection::sessionBus().connect(m_dbusMeter->service(), m_dbusMeter->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged","sa{sv}as", this, SLOT(meterVolumeChanged(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(m_dbusMeter->service(), m_dbusMeter->path(), "org.freedesktop.DBus.Properties",  "PropertiesChanged", "sa{sv}as", this, SLOT(meterVolumeChanged(QDBusMessage)));
 
     m_meterTimer.start(2000);
     m_dbusMeter->call("Tick");
@@ -641,14 +675,15 @@ void Sound::updateOutputPorts()
     m_outputPortsList->clear();
     m_outputPortsList->setFixedSize(DCC::ModuleContentWidth, 0);
 
-    if (!m_sink || m_sink->ports().isEmpty())
+    if (!m_sink || m_sink->ports().isEmpty()) {
         return;
+    }
 
     SinkPortStruct sinkActivePort = m_sink->activePort();
     SinkPortList sinkPorts = m_sink->ports();
 
     QStringList outputPorts;
-    foreach (SinkPortStruct port, sinkPorts) {
+    foreach(SinkPortStruct port, sinkPorts) {
         outputPorts << port.name;
     }
 
@@ -664,12 +699,12 @@ void Sound::updateOutputPorts()
 
 void Sound::updateInputPorts()
 {
-    qDebug() << "updateInputPorts "<<m_source;
+    qDebug() << "updateInputPorts " << m_source;
 
     m_inputPortsList->clear();
     m_inputPortsList->setFixedSize(DCC::ModuleContentWidth, 0);
 
-    if (!m_source|| m_source->ports().isEmpty()) {
+    if (!m_source || m_source->ports().isEmpty()) {
         return;
     }
 
@@ -677,7 +712,7 @@ void Sound::updateInputPorts()
     SourcePortList sourcePorts = m_source->ports();
 
     QStringList inputPorts;
-    foreach (SourcePortStruct port, sourcePorts) {
+    foreach(SourcePortStruct port, sourcePorts) {
         inputPorts << port.name;
     }
 
@@ -697,7 +732,7 @@ void Sound::updateOutputDevices()
     updateSinks();
 
     QStringList outputDevices;
-    foreach (DBusAudioSink * sink, m_sinks) {
+    foreach(DBusAudioSink * sink, m_sinks) {
         outputDevices << sink->description();
     }
 
@@ -722,7 +757,7 @@ void Sound::updateInputDevices()
     updateSources();
 
     QStringList inputDevices;
-    foreach (DBusAudioSource * source, m_sources) {
+    foreach(DBusAudioSource * source, m_sources) {
         inputDevices << source->description();
     }
 
@@ -745,8 +780,8 @@ void Sound::meterVolumeChanged(const QDBusMessage &msg)
 
     QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
     QStringList keys = changedProps.keys();
-    foreach(const QString &prop, keys) {
-        if(prop == "Volume" && m_inputFeedbackSlider){
+    foreach(const QString & prop, keys) {
+        if (prop == "Volume" && m_inputFeedbackSlider) {
             m_inputFeedbackSlider->setValue(changedProps[prop].toDouble() * 100);
         }
     }

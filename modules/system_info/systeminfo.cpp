@@ -83,7 +83,7 @@ SystemInfo::SystemInfo()
     QGridLayout *infoGrid = new QGridLayout;
     QVBoxLayout *infoLayout = new QVBoxLayout;
     m_infoWidget = new QWidget;
-    m_baseLine = new ModuleHeader(tr("  System Information"), false);
+    m_baseLine = new ModuleHeader(tr("System Information"), false);
     QVBoxLayout *centeralLayout = new QVBoxLayout;
 
     m_centeralFrame->installEventFilter(this);

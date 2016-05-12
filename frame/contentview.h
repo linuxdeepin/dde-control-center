@@ -48,7 +48,6 @@ public slots:
     void unloadPlugin();
     void switchToHome();
 
-
 signals:
     void backToHome();
     void shutdownSelected();

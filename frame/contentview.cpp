@@ -22,7 +22,6 @@
 
 void PluginLoader::runLoader()
 {
-    qDebug() << "load" << list.length() << "modules";
     foreach(ModuleMetaData module, list) {
         qDebug() << "begin load file" << module.path;
         QPluginLoader *pluginLoader = new QPluginLoader(this);
@@ -31,7 +30,7 @@ void PluginLoader::runLoader()
         qDebug() << "end load file" << module.path;
         instance->moveToThread(qApp->thread());
         emit pluginLoad(module.id, instance);
-        QThread::msleep(500);
+        QThread::msleep(100);
     }
 }
 
@@ -209,6 +208,11 @@ QWidget *ContentView::loadModuleContent()
     ModuleInterface *m_interface = moduleInfo.second;
 
     qDebug() << "loadModuleContent" << module.id << "begin";
+
+#ifdef ARCH_MIPSEL
+    emit m_pluginsManager->pluginLoaded(module);
+#endif
+
     if (!m_interface) {
         return content;
     }
@@ -250,9 +254,6 @@ QWidget *ContentView::loadPluginNow(ModuleMetaData module)
 #ifdef DCC_CACHE_MODULES
     m_pluginsCache[module.path] = content;
 #endif
-#ifdef ARCH_MIPSEL
-    emit m_pluginsManager->pluginLoaded(module);
-#endif
     return content;
 }
 
@@ -277,8 +278,7 @@ QWidget *ContentView::loadPlugin(ModuleMetaData module)
     QWidget *content = NULL;
 
 #ifdef ARCH_MIPSEL
-    QTimer::singleShot(10, this, &ContentView::loadModuleContent);
-    emit m_pluginsManager->pluginLoaded(module);
+    QTimer::singleShot(800, this, &ContentView::loadModuleContent);
 #else
     content = loadModuleContent();
 #endif

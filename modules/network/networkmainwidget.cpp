@@ -50,16 +50,19 @@ NetworkMainWidget::NetworkMainWidget(Network *network, QWidget *parent) :
     ScrollFrame(parent),
     m_networkModule(network)
 {
+    qDebug()<< "DBusNetwork begin";
     m_dbusNetwork = new DBusNetwork(this);
-
+    qDebug()<< "initUI begin";
     initUI();
+    qDebug()<< "updateUI begin";
     updateUI();
 
+    qDebug()<< "service begin";
     DBusDCCNetworkService *service = new DBusDCCNetworkService(this);
-
     Q_UNUSED(service);
-
+    qDebug()<< "registerObject begin";
     QDBusConnection::sessionBus().registerObject("/com/deepin/dde/ControlCenter/Network", this);
+    qDebug()<< "updateUI begin";
 
     connect(m_dbusNetwork, &DBusNetwork::DevicesChanged, this, &NetworkMainWidget::updateUI);
     connect(network, &Network::dccVisibleChanged, this, &NetworkMainWidget::dccVisibleChanged);
@@ -154,6 +157,12 @@ void NetworkMainWidget::initUI()
     setFixedWidth(DCC::ModuleContentWidth);
 
     ModuleHeader *header = new ModuleHeader(tr("Network"), false);
+
+    m_vpnConnectsWidget = new VPNConnectsWidget(m_dbusNetwork, this);
+    DArrowLineExpand *expand_proxy = new DArrowLineExpand;
+    mainLayout()->addWidget(m_vpnConnectsWidget);
+    mainLayout()->addWidget(expand_proxy);
+
     QWidget *header_right_widget = new QWidget;
     QHBoxLayout *header_right_widget_layout = new QHBoxLayout(header_right_widget);
     GeneralAddButton *add_button = new GeneralAddButton;
@@ -172,16 +181,10 @@ void NetworkMainWidget::initUI()
     headerLayout()->addWidget(header);
     headerLayout()->addWidget(new DSeparatorHorizontal);
 
-    m_vpnConnectsWidget = new VPNConnectsWidget(m_dbusNetwork, this);
-
-    DArrowLineExpand *expand_proxy = new DArrowLineExpand;
     SystemProxyWidget *widget_proxy = new SystemProxyWidget(m_dbusNetwork);
 
     expand_proxy->setTitle(tr("System Proxy"));
     expand_proxy->setContent(widget_proxy);
-
-    mainLayout()->addWidget(m_vpnConnectsWidget);
-    mainLayout()->addWidget(expand_proxy);
 
     connect(this, &NetworkMainWidget::currentMainWidgetChanged,
             this, [header_right_widget, this](const QWidget *w){
