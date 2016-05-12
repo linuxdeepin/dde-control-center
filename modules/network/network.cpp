@@ -15,7 +15,9 @@
 #include "controlcenterproxyinterface.h"
 
 QFrame *NetworkModule::getContent() {
+    qDebug() << "new Network begin";
     static Network *frame = new Network;
+    qDebug() << "new Network end";
     return frame->getContent();
 }
 

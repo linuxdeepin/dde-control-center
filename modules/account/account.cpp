@@ -49,9 +49,11 @@ AccountModule::~AccountModule()
 
 QFrame *AccountModule::getContent()
 {
+    qDebug() << "new Account begin";
     if (!account) {
         account = new Account;
     }
+    qDebug() << "new Account end";
     return account->getContent();
 }
 

@@ -15,7 +15,9 @@
 
 QFrame *ShortcutsModule::getContent()
 {
+    qDebug() << "new Shortcuts begin";
     static Shortcuts *frame = new Shortcuts;
+    qDebug() << "new Shortcuts end";
     return frame->getContent();
 }
 

@@ -31,7 +31,7 @@ void PluginLoader::runLoader()
         qDebug() << "end load file" << module.path;
         instance->moveToThread(qApp->thread());
         emit pluginLoad(module.id, instance);
-        QThread::msleep(400);
+        QThread::msleep(500);
     }
 }
 
@@ -185,7 +185,7 @@ void ContentView::loadPluginInstance(const QString &id, QObject *instance)
 #ifdef DCC_CACHE_MODULES
     ModuleMetaData module = m_pluginsManager->pluginMetaData(id);
     if (!m_pluginsCache.contains(module.path)) {
-        qDebug() << "maint thread begin load" << module.path << instance;
+        qDebug() << "main thread begin load" << module.id << instance;
         m_moduleCache[module.path] = instance;
         m_pluginsCache[module.path] = loadPlugin(module);
     }
@@ -208,6 +208,7 @@ QWidget *ContentView::loadModuleContent()
     ModuleMetaData module = moduleInfo.first;
     ModuleInterface *m_interface = moduleInfo.second;
 
+    qDebug() << "loadModuleContent" << module.id << "begin";
     if (!m_interface) {
         return content;
     }
@@ -226,7 +227,7 @@ QWidget *ContentView::loadModuleContent()
         return content;
     }
     m_lastPluginInterface->setProxy(m_controlCenterProxy);
-    qDebug() << "loadPlugin end" << content;
+    qDebug() << "loadModuleContent" << module.id << "end" << content;
 
 #ifdef DCC_CACHE_MODULES
     m_pluginsCache[module.path] = content;
@@ -276,7 +277,7 @@ QWidget *ContentView::loadPlugin(ModuleMetaData module)
     QWidget *content = NULL;
 
 #ifdef ARCH_MIPSEL
-    QTimer::singleShot(300, this, &ContentView::loadModuleContent);
+    QTimer::singleShot(10, this, &ContentView::loadModuleContent);
     emit m_pluginsManager->pluginLoaded(module);
 #else
     content = loadModuleContent();

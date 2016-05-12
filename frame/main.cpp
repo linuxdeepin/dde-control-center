@@ -73,6 +73,7 @@ int main(int argv, char *args[])
     // initialize logging
     DLogManager::registerFileAppender();
     DLogManager::registerConsoleAppender();
+    qDebug() << "dde-control-center start";
 
     // install translators
     QTranslator translator;

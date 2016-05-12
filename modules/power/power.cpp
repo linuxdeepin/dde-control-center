@@ -16,10 +16,12 @@
 #include "constants.h"
 
 QFrame *PowerModule::getContent() {
+    qDebug() << "new Power begin";
     static Power *frame = NULL;
     if (!frame) {
         frame = new Power;
     }
+    qDebug() << "new Power end";
     return frame->getContent();
 }
 

@@ -35,6 +35,7 @@ HomeScreen::HomeScreen(QWidget *parent) :
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
 
+    qDebug() << "begin init HomeScreen";
     m_pluginsManager = PluginsManager::getInstance(this);
 
     struct passwd *pws;
@@ -47,26 +48,45 @@ HomeScreen::HomeScreen(QWidget *parent) :
     m_grid->setContentsMargins(1, 0, 1, 0);
     m_grid->setSpacing(2);
 
+    DVBoxWidget *centerBox = new DVBoxWidget;
+    centerBox->layout()->addLayout(m_grid);
+
 #ifndef ARCH_MIPSEL
     const QList<ModuleMetaData> pluginsList = m_pluginsManager->pluginsList();
     const int pluginsCount = pluginsList.count();
-    for (int i(0); i != pluginsCount; ++i)
+    for (int i(0); i != pluginsCount; ++i) {
         insertPlugin(i, pluginsList.at(i));
+    }
 #endif
 
-    DVBoxWidget *centerBox = new DVBoxWidget;
-    centerBox->layout()->addLayout(m_grid);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSpacing(0);
+    this->setLayout(mainLayout);
+
+    QWidget *topOuterWidget = new QWidget(this);
+    topOuterWidget->setFixedHeight(DCC::HomeScreen_TopWidgetHeight);
+    topOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
 
     m_centerArea = new QScrollArea(this);
     m_centerArea->setFrameStyle(QFrame::NoFrame);
     m_centerArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_centerArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_centerArea->setWidget(centerBox);
     m_centerArea->setStyleSheet("background-color:transparent;");
+    m_opacityEffect = new QGraphicsOpacityEffect;
+    m_opacityEffect->setOpacity(1.0);
+    m_centerArea->setGraphicsEffect(m_opacityEffect);
 
-    QWidget *topOuterWidget = new QWidget(this);
-    topOuterWidget->setFixedHeight(DCC::HomeScreen_TopWidgetHeight);
-    topOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
+    QWidget *bottomOuterWidget = new QWidget(this);
+    bottomOuterWidget->setFixedHeight(DCC::HomeScreen_BottomWidgetHeight);
+    bottomOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
+
+    mainLayout->addWidget(topOuterWidget);
+    mainLayout->addWidget(m_centerArea);
+    mainLayout->addSpacing(1);
+    mainLayout->addWidget(bottomOuterWidget);
+
+    m_centerArea->setWidget(centerBox);
 
     m_userAvatar = new UserAvatar;
     m_userAvatar->setFixedSize(80, 80);
@@ -101,8 +121,8 @@ HomeScreen::HomeScreen(QWidget *parent) :
     m_topWidget->setLayout(topVBox);
 
     DImageButton *bottomButton = new DImageButton(DCC::IconPath + "power-button-normal.png",
-                                                  DCC::IconPath + "power-button-hover.png",
-                                                  DCC::IconPath + "power-button-press.png");
+            DCC::IconPath + "power-button-hover.png",
+            DCC::IconPath + "power-button-press.png");
     bottomButton->setAttribute(Qt::WA_TranslucentBackground);
 
     QLabel *bottomLabel = new QLabel(tr("Shutdown"));
@@ -116,28 +136,10 @@ HomeScreen::HomeScreen(QWidget *parent) :
     bottomVLayout->setSpacing(0);
     bottomVLayout->setContentsMargins(0, 0, 0, 5);
 
-    QWidget *bottomOuterWidget = new QWidget(this);
-    bottomOuterWidget->setFixedHeight(DCC::HomeScreen_BottomWidgetHeight);
-    bottomOuterWidget->setFixedWidth(DCC::ControlCenterWidth);
-
     m_bottomWidget = new QWidget(bottomOuterWidget);
     m_bottomWidget->setObjectName("BottomWidget");
     m_bottomWidget->setLayout(bottomVLayout);
     m_bottomWidget->setFixedSize(bottomOuterWidget->size());
-
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addWidget(topOuterWidget);
-    mainLayout->addWidget(m_centerArea);
-    mainLayout->addSpacing(1);
-    mainLayout->addWidget(bottomOuterWidget);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
-    mainLayout->setSpacing(0);
-
-    this->setLayout(mainLayout);
-
-    m_opacityEffect = new QGraphicsOpacityEffect;
-    m_opacityEffect->setOpacity(1.0);
-    m_centerArea->setGraphicsEffect(m_opacityEffect);
 
     m_topAni = new QPropertyAnimation(m_topWidget, "geometry");
     m_topAni->setDuration(DCC::CommonAnimationDuration);
@@ -164,8 +166,8 @@ HomeScreen::HomeScreen(QWidget *parent) :
     connect(m_pluginsManager, &PluginsManager::pluginLoaded, this, &HomeScreen::onPluginLoaded);
 #endif
 
-
     loadUserAvatar();
+    qDebug() << "end init HomeScreen";
 }
 
 HomeScreen::~HomeScreen()
@@ -254,14 +256,17 @@ void HomeScreen::loadUserAvatar()
     const QString &file = m_settings->value("User/Icon").toString();
 
     qDebug() << "avatar = " << file;
-    for (const QString &k : m_settings->allKeys())
+    for (const QString &k : m_settings->allKeys()) {
         qDebug() << k << " = " << m_settings->value(k).toString();
+    }
 
-    if (!file.isEmpty())
+    if (!file.isEmpty()) {
         m_userAvatar->setIcon(file);
-    else
+    } else
         // use default icon
+    {
         m_userAvatar->setIcon("/var/lib/AccountsService/icons/default.png");
+    }
 }
 
 void HomeScreen::insertPlugin(const int position, const ModuleMetaData &meta)
@@ -270,29 +275,32 @@ void HomeScreen::insertPlugin(const int position, const ModuleMetaData &meta)
 
     QList<QWidget *> plugins;
     QLayoutItem *plugin;
-    while ((plugin = m_grid->takeAt(0)) != nullptr)
+    while ((plugin = m_grid->takeAt(0)) != nullptr) {
         plugins.append(plugin->widget());
+    }
 
     plugins.insert(position, button);
 
     const int count = plugins.count();
-    for (int i(0); i != count; ++i)
+    for (int i(0); i != count; ++i) {
         m_grid->addWidget(plugins.at(i), i / 3, i % 3);
+    }
 
     connect(button, &ModuleButton::clicked, this, &HomeScreen::moduleSelected);
 }
 
 void HomeScreen::removePlugin(const ModuleMetaData &meta)
 {
-    for (int r(0); r != m_grid->count(); ++r)
-    {
+    for (int r(0); r != m_grid->count(); ++r) {
         QLayoutItem *item = m_grid->itemAt(r);
         ModuleButton *btn = qobject_cast<ModuleButton *>(item->widget());
-        if (!btn)
+        if (!btn) {
             continue;
+        }
 
-        if (btn->pluginId() != meta.id)
+        if (btn->pluginId() != meta.id) {
             continue;
+        }
 
         m_grid->removeWidget(btn);
         delete btn;
@@ -311,12 +319,14 @@ void HomeScreen::relayoutPlugins()
 {
     QList<QLayoutItem *> plugins;
     QLayoutItem *plugin;
-    while ((plugin = m_grid->takeAt(0)) != nullptr)
+    while ((plugin = m_grid->takeAt(0)) != nullptr) {
         plugins.append(plugin);
+    }
 
     const int count = plugins.count();
-    for (int i(0); i != count; ++i)
+    for (int i(0); i != count; ++i) {
         m_grid->addItem(plugins.at(i), i / 3, i % 3);
+    }
 }
 
 // class ModuleButton

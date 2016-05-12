@@ -25,10 +25,12 @@
 
 QFrame *DisplayModule::getContent()
 {
+    qDebug() << "new Display begin";
     static Display *display = NULL;
     if (!display) {
         display = new Display;
     }
+    qDebug() << "new Display end";
     return display->getContent();
 }
 

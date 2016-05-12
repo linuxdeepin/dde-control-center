@@ -31,10 +31,12 @@ DWIDGET_USE_NAMESPACE
 
 QFrame *SoundModule::getContent()
 {
+    qDebug() << "new Sound begin";
     static Sound *sound = NULL;
     if (!sound) {
         sound = new Sound;
     }
+    qDebug() << "new Sound end";
     return sound->getContent();
 }
 

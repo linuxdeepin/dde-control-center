@@ -58,8 +58,9 @@ void AccountMainWidget::initHeader()
     QString currentUserPath = m_account->FindUserById(sessionManager.currentUid()).value();
     DBusAccountUser dau(currentUserPath);
     bool adminCurrentLogin = dau.accountType() == 1;
-    if (!adminCurrentLogin)
+    if (!adminCurrentLogin) {
         headerButtonContent->setFixedHeight(0);
+    }
 
     QHBoxLayout *buttonLayout = new QHBoxLayout(headerButtonContent);
     buttonLayout->setContentsMargins(0, 0, 0, 0);
@@ -79,7 +80,7 @@ void AccountMainWidget::initHeader()
     //user list label//////////////////////////////////////////
     DTextButton *listButton = new DTextButton(tr("User List"));
     listButton->setFixedHeight(DTK_WIDGET_NAMESPACE::BUTTON_HEIGHT);
-    connect(listButton, &DTextButton::clicked, [=]{
+    connect(listButton, &DTextButton::clicked, [ = ] {
         m_headerStackWidget->setVisible(true);
         m_headerStackWidget->setCurrentIndex(0);
         m_state = StateNormal;
@@ -97,12 +98,13 @@ void AccountMainWidget::initHeader()
     m_buttonToolTip = new DynamicLabel(m_header);
     m_buttonToolTip->stackUnder(m_headerStackWidget);
 
-    connect(this, &AccountMainWidget::cancelDelete, [=]{
-       if (m_deleteUserButton){
-           m_deleteUserButton->setChecked(false);
+    connect(this, &AccountMainWidget::cancelDelete, [ = ] {
+        if (m_deleteUserButton)
+        {
+            m_deleteUserButton->setChecked(false);
 
-           m_state = StateNormal;
-       }
+            m_state = StateNormal;
+        }
     });
 
     connect(m_deleteUserButton, &GeneralRemoveButton::stateChanged, this, &AccountMainWidget::onDeleteButtonStateChanged);
@@ -111,11 +113,10 @@ void AccountMainWidget::initHeader()
     connect(m_addUserButton, &GeneralAddButton::clicked, this, &AccountMainWidget::onAddButtonClicked);
     connect(m_addUserButton, &GeneralAddButton::mouseEnter, this, &AccountMainWidget::onAddButtonMouseEntered);
     connect(m_addUserButton, &GeneralAddButton::mouseLeave, m_buttonToolTip, &DynamicLabel::hideLabel);
-    connect(this, &AccountMainWidget::stateChanged, this, [=](PanelState state) {
+    connect(this, &AccountMainWidget::stateChanged, this, [ = ](PanelState state) {
         if (state == StateDeleting) {
             m_addUserButton->setEnabled(false);
-        }
-        else {
+        } else {
             m_addUserButton->setEnabled(true);
         }
     });
@@ -124,18 +125,23 @@ void AccountMainWidget::initHeader()
 void AccountMainWidget::initListPanel()
 {
     m_listPanel = new UserListPanel();
+    m_listScrollArea = new QScrollArea();
+    m_stackWidget->addWidget(m_listScrollArea);
+
+    m_listScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_listScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_listScrollArea->setWidgetResizable(true);
     connect(this, &AccountMainWidget::requestDelete, m_listPanel, &UserListPanel::requestDelete);
     connect(this, &AccountMainWidget::hideForSetting, m_listPanel, &UserListPanel::hideForSetting);
     connect(this, &AccountMainWidget::showForNormal, m_listPanel, &UserListPanel::showForNormal);
-    connect(m_listPanel, &UserListPanel::changeToSetting, [=](bool setting){
-        if (setting){
+    connect(m_listPanel, &UserListPanel::changeToSetting, [ = ](bool setting) {
+        if (setting) {
             m_headerStackWidget->setVisible(true);
             m_headerStackWidget->setCurrentIndex(1);
 
             m_state = StateSetting;
             emit hideForSetting();
-        }
-        else{
+        } else {
             m_headerStackWidget->setVisible(true);
             m_headerStackWidget->setCurrentIndex(0);
 
@@ -143,27 +149,21 @@ void AccountMainWidget::initListPanel()
             emit showForNormal();
         }
     });
-    connect(m_listPanel, &UserListPanel::cancelDelete, [=]{
+    connect(m_listPanel, &UserListPanel::cancelDelete, [ = ] {
         emit cancelDelete();
         emit requestDelete(false);
         setPanelState(StateNormal);
     });
-    m_listScrollArea = new QScrollArea();
-    m_listScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_listScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_listScrollArea->setWidgetResizable(true);
     m_listScrollArea->setWidget(m_listPanel);
-
-    m_stackWidget->addWidget(m_listScrollArea);
 }
 
 void AccountMainWidget::initCreatePanel()
 {
     m_createPanel = new CreateUserPanel();
-    connect(m_createPanel, &CreateUserPanel::createCancel, [=]{
+    connect(m_createPanel, &CreateUserPanel::createCancel, [ = ] {
         setPanelState(StateNormal);
     });
-    connect(m_createPanel, &CreateUserPanel::createConfirm, [=]{
+    connect(m_createPanel, &CreateUserPanel::createConfirm, [ = ] {
         setPanelState(StateNormal);
     });
 
@@ -174,8 +174,8 @@ void AccountMainWidget::initHeaderStackWidget()
 {
     m_headerStackWidget = new QStackedWidget();
 
-    connect(this, &AccountMainWidget::stateChanged, [=](PanelState state){
-        switch (state){
+    connect(this, &AccountMainWidget::stateChanged, [ = ](PanelState state) {
+        switch (state) {
         case StateNormal:
             m_stackWidget->setCurrentIndex(0);
             m_headerStackWidget->setVisible(true);
@@ -204,12 +204,12 @@ void AccountMainWidget::initHeaderStackWidget()
 void AccountMainWidget::initDBusAccount()
 {
     m_account = new DBusAccount(this);
-    connect(m_account, &DBusAccount::UserListChanged, [=] {
-        if (m_account->userList().count() <= 1){
+    connect(m_account, &DBusAccount::UserListChanged, [ = ] {
+        if (m_account->userList().count() <= 1)
+        {
             m_deleteUserButton->setVisible(false);
             m_deleteUserButton->setEnabled(false);
-        }
-        else {
+        } else {
             m_deleteUserButton->setVisible(true);
             m_deleteUserButton->setEnabled(true);
         }
@@ -235,7 +235,7 @@ void AccountMainWidget::onAddButtonMouseEntered()
     QPoint tp = m_account->userList().count() <= 1 ? m_addUserButton->mapTo(this, QPoint(0, 0)) : m_deleteUserButton->mapTo(this, QPoint(0, 0));
     //the x or width value is valid after all component ready,infact it only need move once
     m_buttonToolTip->move(tp.x() - m_buttonToolTip->width() - DTK_WIDGET_NAMESPACE::TEXT_RIGHT_MARGIN,
-                  (m_header->height() - m_buttonToolTip->height()) / 2);
+                          (m_header->height() - m_buttonToolTip->height()) / 2);
 
     m_buttonToolTip->showLabel();
 }
@@ -243,19 +243,22 @@ void AccountMainWidget::onAddButtonMouseEntered()
 void AccountMainWidget::onDeleteButtonStateChanged()
 {
     DImageButton::State buttonState = m_deleteUserButton->getState();
-    if (buttonState == DImageButton::Hover || buttonState == DImageButton::Press)
+    if (buttonState == DImageButton::Hover || buttonState == DImageButton::Press) {
         return;
+    }
 
     switch (buttonState) {
     case DImageButton::Checked:
-        if (m_state == StateDeleting)
+        if (m_state == StateDeleting) {
             break;
+        }
         setPanelState(StateDeleting);
         emit requestDelete(true);
         break;
     default:
-        if (m_state == StateNormal)
+        if (m_state == StateNormal) {
             break;
+        }
         setPanelState(StateNormal);
         emit requestDelete(false);
         break;
@@ -268,7 +271,7 @@ void AccountMainWidget::onDeleteButtonMouseEntered()
     m_buttonToolTip->setText(tr("Delete Account"));
     //the x or width value is valid after all component ready,infact it only need move once
     m_buttonToolTip->move(m_deleteUserButton->mapTo(this, QPoint(0, 0)).x() - m_buttonToolTip->width() - DTK_WIDGET_NAMESPACE::TEXT_RIGHT_MARGIN,
-                  (m_header->height() - m_buttonToolTip->height()) / 2);
+                          (m_header->height() - m_buttonToolTip->height()) / 2);
 
     m_buttonToolTip->showLabel();
 }

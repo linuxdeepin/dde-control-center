@@ -29,7 +29,9 @@
 DWIDGET_USE_NAMESPACE
 
 QFrame *PersonalizationModule::getContent() {
+    qDebug() << "new Personalization begin";
     static Personalization *frame = new Personalization;
+    qDebug() << "new Personalization end";
     return frame->getContent();
 }
 

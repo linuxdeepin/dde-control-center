@@ -30,9 +30,11 @@ DWIDGET_USE_NAMESPACE
 
 QFrame *DatetimeModuele::getContent()
 {
+    qDebug() << "new Datetime begin";
     if (NULL == datetime) {
         datetime = new Datetime;
     }
+    qDebug() << "new Datetime end";
     return datetime->getContent();
 }
 

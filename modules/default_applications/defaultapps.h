@@ -44,7 +44,10 @@ class DefaultAppsModule : public QObject, ModuleInterface
     Q_INTERFACES(ModuleInterface)
 
 public:
+    DefaultAppsModule();
+
     QFrame *getContent() Q_DECL_OVERRIDE;
+    DBusDefaultMedia m_dbusDefaultMedia;
 };
 
 class DefaultApps : public QObject
@@ -87,7 +90,7 @@ private:
     ModuleHeader *m_header;
 
     DBusDefaultApps m_dbusDefaultApps;
-    DBusDefaultMedia m_dbusDefaultMedia;
+    DBusDefaultMedia *m_dbusDefaultMedia;
 
     DExpandGroup *m_appGrp;
     DExpandGroup *m_mediaGrp;
@@ -111,6 +114,20 @@ private:
 
     DSwitchButton *m_autoPlaySwitch;
     QElapsedTimer m_timer;
+};
+
+class DBusDefaultMediaThread : public QObject
+{
+    Q_OBJECT
+
+public:
+    DBusDefaultMediaThread(DBusDefaultMedia *dbus);
+    void run();
+signals:
+    void dbusConnected();
+
+private:
+    DBusDefaultMedia *m_dbus;
 };
 
 

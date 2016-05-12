@@ -35,6 +35,10 @@
 
 DWIDGET_USE_NAMESPACE
 
+DefaultAppsModule::DefaultAppsModule()
+{
+}
+
 QFrame *DefaultAppsModule::getContent()
 {
     qDebug() << "new DefaultApps begin";
@@ -46,14 +50,34 @@ QFrame *DefaultAppsModule::getContent()
     return frame->getContent();
 }
 
+DBusDefaultMediaThread::DBusDefaultMediaThread(DBusDefaultMedia *dbus)
+{
+    m_dbus = dbus;
+}
+
+void DBusDefaultMediaThread::run()
+{
+    qDebug() << QThread::currentThread();
+    m_dbus->autoOpen();
+    qDebug() << qApp->thread();
+    emit dbusConnected();
+}
+
 DefaultApps::DefaultApps() :
-    m_dbusDefaultApps(this),
-    m_dbusDefaultMedia(this)
+    m_dbusDefaultApps(this)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Default Applications"));
 
     Q_INIT_RESOURCE(widgets_theme_dark);
     Q_INIT_RESOURCE(widgets_theme_light);
+
+    m_dbusDefaultMedia = new DBusDefaultMedia;
+    DBusDefaultMediaThread *dbusConnetor = new DBusDefaultMediaThread(m_dbusDefaultMedia);
+    QThread *dbusThread = new QThread;
+    connect(dbusThread, &QThread::started, dbusConnetor, &DBusDefaultMediaThread::run);
+    connect(dbusThread, &QThread::finished, dbusConnetor, &DBusDefaultMediaThread::deleteLater);
+    connect(dbusThread, &QThread::finished, dbusThread, &QThread::deleteLater);
+    dbusConnetor->moveToThread(dbusThread);
 
     m_centralWidget = new QFrame;
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -139,13 +163,15 @@ DefaultApps::DefaultApps() :
     scrollContent->layout()->addWidget(m_modSoftware);
     scrollContent->layout()->addStretch(1);
 
-
     qDebug() << "begin update";
     m_centralWidget->updateGeometry();
     m_centralWidget->update();
     qDebug() << "end update";
 
-    QTimer::singleShot(600, this, SLOT(lazyLoad()));
+    connect(dbusConnetor, &DBusDefaultMediaThread::dbusConnected,
+            this, &DefaultApps::lazyLoad);
+    dbusThread->start();
+
     connect(m_header, &ModuleHeader::resetButtonClicked, this, &DefaultApps::resetDefaults, Qt::QueuedConnection);
     connect(m_autoPlaySwitch, &DSwitchButton::checkedChanged, this, &DefaultApps::setMediaOptionVisible);
     connect(&m_dbusDefaultApps, &DBusDefaultApps::Change, this, &DefaultApps::updateListCheckedIndex);
@@ -178,7 +204,7 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
     QString appListJson;
 
     if (isMediaApps(category)) {
-        appListJson = m_dbusDefaultMedia.ListApps(mime);
+        appListJson = m_dbusDefaultMedia->ListApps(mime);
     } else {
         appListJson = m_dbusDefaultApps.ListApps(mime);
     }
@@ -220,7 +246,7 @@ DArrowLineExpand *DefaultApps::createDefaultAppsExpand(const DefaultApps::Defaul
             app = new SetDefAppsThread(&m_dbusDefaultApps, mime, appName, mimeList);
             connect(t, &QThread::started, qobject_cast<SetDefAppsThread *>(app), &SetDefAppsThread::run);
         } else {
-            app = new SetDefMediaThread(&m_dbusDefaultMedia, mime, appName, mimeList);
+            app = new SetDefMediaThread(m_dbusDefaultMedia, mime, appName, mimeList);
             connect(t, &QThread::started, qobject_cast<SetDefMediaThread *>(app), &SetDefMediaThread::run);
         }
         connect(t, &QThread::finished, t, &QThread::deleteLater);
@@ -253,7 +279,7 @@ void DefaultApps::setMediaOptionVisible(const bool visible)
     m_modSoftware->setVisible(visible);
 
     m_autoPlaySwitch->setChecked(visible);
-    m_dbusDefaultMedia.EnableAutoOpen(visible);
+    m_dbusDefaultMedia->EnableAutoOpen(visible);
 }
 
 void DefaultApps::resetDefaults()
@@ -261,8 +287,8 @@ void DefaultApps::resetDefaults()
     qDebug() << "reset";
 
     m_dbusDefaultApps.Reset().waitForFinished();
-    m_dbusDefaultMedia.Reset().waitForFinished();
-    setMediaOptionVisible(m_dbusDefaultMedia.autoOpen());
+    m_dbusDefaultMedia->Reset().waitForFinished();
+    setMediaOptionVisible(m_dbusDefaultMedia->autoOpen());
 }
 
 void DefaultApps::updateListCheckedIndex()
@@ -288,7 +314,7 @@ void DefaultApps::updateListCheckedIndex()
 void DefaultApps::updateCheckedItem(const DefaultApps::DefaultAppsCategory &category)
 {
     const QString &mime = getTypeByCategory(category);
-    const QString &defApp = isMediaApps(category) ? m_dbusDefaultMedia.GetDefaultApp(mime)
+    const QString &defApp = isMediaApps(category) ? m_dbusDefaultMedia->GetDefaultApp(mime)
                             : m_dbusDefaultApps.GetDefaultApp(mime);
     const QJsonObject &defaultApp = QJsonDocument::fromJson(defApp.toStdString().c_str()).object();
     const QString defAppValue = defaultApp.value("Id").toString();
@@ -351,7 +377,7 @@ void DefaultApps::arrowLineExpandSetContent(QJsonArray json, int acategory, DArr
             connect(t, &QThread::started, qobject_cast<SetDefAppsThread *>(app), &SetDefAppsThread::run);
 
         } else {
-            app = new SetDefMediaThread(&m_dbusDefaultMedia, mime, appName, mimeList);
+            app = new SetDefMediaThread(m_dbusDefaultMedia, mime, appName, mimeList);
             connect(t, &QThread::started, qobject_cast<SetDefMediaThread *>(app), &SetDefMediaThread::run);
         }
         app->moveToThread(t);
@@ -368,6 +394,7 @@ void DefaultApps::arrowLineExpandSetContent(QJsonArray json, int acategory, DArr
 
 void DefaultApps::createTask()
 {
+    qDebug() << "createTask start";
     QThread *workThread = new QThread;
     RunnableTask *task = new RunnableTask(m_taskMap, &m_appsBtnList);
     connect(workThread, &QThread::started, task, &RunnableTask::run);
@@ -376,13 +403,16 @@ void DefaultApps::createTask()
     connect(workThread, &QThread::finished, workThread, &QThread::deleteLater);
     task->moveToThread(workThread);
     workThread->start();
+    qDebug() << "createTask end";
 }
 
 void DefaultApps::lazyLoad()
 {
-    qDebug() << "lazyLoad start";
-    const bool isMediaOpen = m_dbusDefaultMedia.autoOpen();
+    qDebug() << "m_dbusDefaultMedia start";
+    const bool isMediaOpen = m_dbusDefaultMedia->autoOpen();
+    qDebug() << "setMediaOptionVisible start";
     setMediaOptionVisible(isMediaOpen);
+    qDebug() << "insert start";
 
     m_taskMap.insert(Browser, m_modBrowser);
     m_taskMap.insert(Mail, m_modMail);
