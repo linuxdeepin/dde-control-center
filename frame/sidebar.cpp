@@ -55,6 +55,7 @@ void SideBar::switchToModule(const ModuleMetaData &meta)
 {
     SidebarModel *model = qobject_cast<SidebarModel *>(m_sidebarView->model());
     model->setSelectedPluginId(meta.id);
+    m_sidebarView->scrollToItem(meta.name);
 }
 
 void SideBar::resizeEvent(QResizeEvent *e)

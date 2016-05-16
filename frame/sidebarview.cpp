@@ -129,6 +129,15 @@ void SidebarView::scrollUp()
     verticalScrollBar()->setValue(verticalScrollBar()->value() - 1);
 }
 
+void SidebarView::scrollToItem(const QString &name)
+{
+    const int count = model()->rowCount();
+
+    for (int i(0); i != count; ++i)
+        if (model()->index(i, 0).data().toString() == name)
+            return scrollTo(model()->index(i, 0));
+}
+
 QSize SidebarView::sizeHint() const
 {
     return QSize(24, 48 * model()->rowCount());

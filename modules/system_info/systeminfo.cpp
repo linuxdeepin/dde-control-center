@@ -99,10 +99,7 @@ SystemInfo::SystemInfo()
 
 #ifdef DCC_SYSINFO_UPDATE
     m_updateInfoWidget = new UpdateWidget;
-    centeralLayout->addWidget(m_updateExpand);
 #endif
-
-    centeralLayout->addStretch(1);
 
     m_infoWidget->setLayout(infoLayout);
     m_infoWidget->setStyleSheet("QLabel {color:#aaa; font-size:12px;} QWidget {background-color:#1a1b1b;}");
@@ -211,16 +208,18 @@ SystemInfo::SystemInfo()
     m_updateExpand = new UpdateArrowExpand;
     m_updateExpand->setContent(m_updateWidget);
     m_updateExpand->setUpdatableNums(0); // 0 for default
+    centeralLayout->addWidget(m_updateExpand);
 
     expandGrp->addExpand(m_updateExpand);
 #endif // DCC_SYSINFO_UPDATE
-
 
     scanlicenses();
     foreach(DArrowLineExpand * expand, m_extralicenses) {
         expandGrp->addExpand(expand);
         centeralLayout->addWidget(expand);
     }
+
+    centeralLayout->addStretch(1);
 
 
 #ifdef DCC_SYSINFO_UPDATE

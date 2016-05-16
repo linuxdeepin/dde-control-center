@@ -33,6 +33,7 @@ public:
 public slots:
     void scrollDown();
     void scrollUp();
+    void scrollToItem(const QString &name);
 
 signals:
     void moduleSelected(const ModuleMetaData &meta) const;
