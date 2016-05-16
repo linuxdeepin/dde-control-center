@@ -28,8 +28,8 @@ signals:
     void mouseLeave();
 
 protected:
-    void enterEvent(QEvent *);
-    void leaveEvent(QEvent *);
+    void enterEvent(QEvent *e);
+    void leaveEvent(QEvent *e);
 };
 
 #endif // GENERALADDBUTTON_H
