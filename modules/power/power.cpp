@@ -15,21 +15,21 @@
 #include "power.h"
 #include "constants.h"
 
-QFrame *PowerModule::getContent() {
+QFrame *PowerModule::getContent()
+{
     qDebug() << "new Power begin";
-    static Power *frame = NULL;
-    if (!frame) {
-        frame = new Power;
+    if (NULL == m_power) {
+        m_power = new Power(this);
     }
     qDebug() << "new Power end";
-    return frame->getContent();
+    return m_power->getContent();
 }
 
-Power::Power()
-    :QObject(),
-    m_frame(new QFrame),
-    m_powerInterface(new PowerInterface),
-    m_powerTitleManagement(new PowerManagement)
+Power::Power(QObject *parent)
+    : QObject(parent),
+      m_frame(new QFrame),
+      m_powerInterface(new PowerInterface),
+      m_powerTitleManagement(new PowerManagement)
 
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Power Management"));
@@ -46,10 +46,10 @@ Power::~Power()
 {
     qDebug() << "~Power()";
     m_frame->deleteLater();
-
 }
 
-void Power::initUI() {
+void Power::initUI()
+{
     m_screenBlackTimeWidget = new ChooseDelayTimeWidget(tr("Display will suspend after"));
     m_sleepTimeWidget = new ChooseDelayTimeWidget(tr("Computer will suspend after"));
     dsHorizontalFirst = new DSeparatorHorizontal;
@@ -60,12 +60,12 @@ void Power::initUI() {
     m_lidCloseSwitchWidget = new PowerSwitchWidget(tr("The notebook will suspend when close the lid"));
     dsHorizontalFourth = new DSeparatorHorizontal;
 
-    QVBoxLayout* m_Layout = new QVBoxLayout(m_frame);
+    QVBoxLayout *m_Layout = new QVBoxLayout(m_frame);
     m_Layout->setMargin(0);
     m_Layout->setSpacing(0);
     m_Layout->addWidget(m_powerTitleManagement);
     m_Layout->addWidget(m_screenBlackTimeWidget);
-    m_Layout->addSpacing (4);
+    m_Layout->addSpacing(4);
     m_Layout->addWidget(m_sleepTimeWidget);
     m_Layout->addWidget(dsHorizontalFirst);
     m_Layout->addWidget(m_screenBlackSwitchWidget);
@@ -79,7 +79,8 @@ void Power::initUI() {
 
 }
 
-void Power::updateUI() {
+void Power::updateUI()
+{
     //for testint battery
 //    BatteryItem a= {"BAT0", true, 99, 1};
 //    BatteryItem b= {"BAT1", true, 100, 4};
@@ -98,38 +99,44 @@ void Power::updateUI() {
     handleLidActionChanged();
 }
 
-void Power::handleScreenBlackDelayChanged() {
+void Power::handleScreenBlackDelayChanged()
+{
     qDebug() << "handleScreenBlackDelayChanged!";
     int screenBlackTime = m_powerInterface->getScreenBlackDelay();
     qDebug() << "screenBlackTime:" << screenBlackTime;
     m_screenBlackTimeWidget->setCurrentTime(screenBlackTime);
 }
 
-void Power::handleSleepDelayChanged() {
+void Power::handleSleepDelayChanged()
+{
     qDebug() << "handleSleepDelayChanged!";
     int sleepTime = m_powerInterface->getSleepDelay();
     m_sleepTimeWidget->setCurrentTime(sleepTime);
 }
 
-void Power::handleScreenBlackLockChanged() {
+void Power::handleScreenBlackLockChanged()
+{
     qDebug() << "handleScreenBlackLockChanged!";
     bool screenBlackNeed = m_powerInterface->getScreenBlackNeedPassWd();
     qDebug() << "****updateUI:" << screenBlackNeed;
     m_screenBlackSwitchWidget->setChecked(screenBlackNeed);
 }
 
-void Power::handleSleepLockChanged() {
+void Power::handleSleepLockChanged()
+{
     bool sleepNeed = m_powerInterface->getSleepNeedPassWd();
     m_sleepSwitchWidget->setChecked(sleepNeed);
 }
 
-void Power::handleBatteryStateChanged() {
+void Power::handleBatteryStateChanged()
+{
     qDebug() << "handleBatteryStateChanged:" << m_powerInterface->getDBusPowerIterface()->onBattery();
     m_powerTitleManagement->setOnBattery(m_powerInterface->getDBusPowerIterface()->onBattery());
     m_powerTitleManagement->addBatterys(m_powerInterface->getBatteryInfos());
 }
 
-void Power::handleLidActionChanged() {
+void Power::handleLidActionChanged()
+{
     if (m_powerInterface->getDBusPowerIterface()->lidIsPresent()) {
         bool lidCloseNeed = m_powerInterface->getLidCloseNeedPassWd();
         m_lidCloseSwitchWidget->setChecked(lidCloseNeed);
@@ -139,7 +146,8 @@ void Power::handleLidActionChanged() {
     }
 }
 
-void Power::initConnect() {
+void Power::initConnect()
+{
     connect(m_screenBlackTimeWidget, &ChooseDelayTimeWidget::currentTimeChanged, m_powerInterface, &PowerInterface::setScreenBlackDelay);
     connect(m_sleepTimeWidget, &ChooseDelayTimeWidget::currentTimeChanged, m_powerInterface, &PowerInterface::setSleepDelay);
     connect(m_screenBlackSwitchWidget, &PowerSwitchWidget::checkedChanged, m_powerInterface, &PowerInterface::setScreenBlackNeedPassWd);
@@ -162,7 +170,7 @@ void Power::initConnect() {
     connect(m_powerInterface->getDBusPowerIterface(), &DBusPower::SleepLockChanged, this, &Power::handleSleepLockChanged);
 }
 
-QFrame* Power::getContent()
+QFrame *Power::getContent()
 {
     return m_frame;
 }

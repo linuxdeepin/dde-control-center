@@ -13,12 +13,16 @@
 #include "grub.h"
 #include "grubwidget.h"
 
-QFrame *GrubModule::getContent() {
-    static Grub *frame = new Grub;
-    return frame->getContent();
+QFrame *GrubModule::getContent()
+{
+    if (NULL == m_grub) {
+        m_grub = new Grub(this);
+    }
+    return m_grub->getContent();
 }
 
-Grub::Grub():
+Grub::Grub(QObject *parent):
+    QObject(parent),
     m_grubWidget(new GrubWidget())
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Boot Menu"));

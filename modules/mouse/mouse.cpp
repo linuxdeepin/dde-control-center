@@ -20,16 +20,19 @@
 
 DWIDGET_USE_NAMESPACE
 
-QFrame *MouseModule::getContent() {
-    static Mouse *frame = new Mouse;
-    return frame->getContent();
+QFrame *MouseModule::getContent()
+{
+    if (NULL == m_mouse) {
+        m_mouse = new Mouse(this);
+    }
+    return m_mouse->getContent();
 }
 
 /// as long as the qslider can't have float value,
-/// 	here , we have some value expanded. So pay attention.
+///     here , we have some value expanded. So pay attention.
 
 
-Mouse::Mouse()
+Mouse::Mouse(QObject *parent): QObject(parent)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Mouse and Touchpad"));
 
@@ -38,19 +41,19 @@ Mouse::Mouse()
 
     m_label = new QLabel();
     m_label->setStyleSheet(QString("QLabel{color: %1;font-size:12px;}").arg(DCC::TextNormalColor.name()));
-    QVBoxLayout * layout = new QVBoxLayout(m_label);
+    QVBoxLayout *layout = new QVBoxLayout(m_label);
     layout->setMargin(0);
     layout->setSpacing(0);
 
     m_mouseInterface = new ComDeepinDaemonInputDeviceMouseInterface("com.deepin.daemon.InputDevices",
-                                                                    "/com/deepin/daemon/InputDevice/Mouse",
-                                                                    QDBusConnection::sessionBus(), this);
+            "/com/deepin/daemon/InputDevice/Mouse",
+            QDBusConnection::sessionBus(), this);
     m_touchpadInterface = new ComDeepinDaemonInputDeviceTouchPadInterface("com.deepin.daemon.InputDevices",
-                                                                          "/com/deepin/daemon/InputDevice/TouchPad",
-                                                                          QDBusConnection::sessionBus(), this);
+            "/com/deepin/daemon/InputDevice/TouchPad",
+            QDBusConnection::sessionBus(), this);
     m_trackpointInterface = new TrackPointInterface("com.deepin.daemon.InputDevices",
-                                                    "/com/deepin/daemon/InputDevice/Mouse",
-                                                    QDBusConnection::sessionBus(), this);
+            "/com/deepin/daemon/InputDevice/Mouse",
+            QDBusConnection::sessionBus(), this);
 
     //////////////////////////////////////////////////////////////-- top header
     m_topHeaderLine = new ModuleHeader(tr("Mouse And Touchpad"));
@@ -249,22 +252,22 @@ Mouse::Mouse()
     connect(m_topHeaderLine, &ModuleHeader::resetButtonClicked, this, &Mouse::reset);
     connect(m_mousePrimaryButtonSetting, SIGNAL(currentChanged(int)), this, SLOT(setMousePrimaryButton(int)));
     connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::leftHandedChanged,
-            [&](bool arg){
-            m_mousePrimaryButtonSetting->setCurrentIndex((int)arg);
+    [&](bool arg) {
+        m_mousePrimaryButtonSetting->setCurrentIndex((int)arg);
     });
     connect(m_mousePointSpeedSetTimer, &QTimer::timeout, this, &Mouse::setMousePointSpeed);
     connect(m_mousePointSpeedSlider, &DSlider::valueChanged, m_mousePointSpeedSetTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::motionAccelerationChanged,
-            [&](double value){
-        if(value != m_mousePointSpeed){
-            m_mousePointSpeedSlider->setValue((3.2-value) *1000);
+    [&](double value) {
+        if (value != m_mousePointSpeed) {
+            m_mousePointSpeedSlider->setValue((3.2 - value) * 1000);
             m_mousePointSpeed = value;
         }
     });
     connect(m_doubleClickIntervalSlider, &DSlider::valueChanged, m_doubleClickIntervalTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_doubleClickIntervalTimer, &QTimer::timeout, this, &Mouse::setMouseDoubleClickInterval);
     connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::doubleClickChanged,
-            [&](int value){
+    [&](int value) {
         m_doubleClickIntervalSlider->setValue(1000 - value);
     });
     connect(m_forbiddenTouchpadWhenMouseSwitchButton, SIGNAL(checkedChanged(bool)),
@@ -281,9 +284,9 @@ Mouse::Mouse()
     connect(m_touchpadPointSpeedSetTimer, &QTimer::timeout, this, &Mouse::setTouchpadPointSpeed);
     connect(m_touchpadPointSpeedSlider, &DSlider::valueChanged, m_touchpadPointSpeedSetTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::motionAccelerationChanged,
-            [&](double value){
-        if(value != m_touchpadPointSpeed){
-            m_touchpadPointSpeedSlider->setValue((3.2-value)*1000);
+    [&](double value) {
+        if (value != m_touchpadPointSpeed) {
+            m_touchpadPointSpeedSlider->setValue((3.2 - value) * 1000);
             m_touchpadPointSpeed = value;
         }
     });
@@ -306,15 +309,15 @@ Mouse::Mouse()
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::dragThresholdChanged,
             m_touchpadDragThreshold, &DSlider::setValue);
     connect(m_touchpadPrimaryButtonSetting, &DSegmentedControl::currentChanged,
-            [&](int arg){
+    [&](int arg) {
         m_touchpadInterface->setLeftHanded(arg);
     });
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::leftHandedChanged,
-            [&](bool arg){
+    [&](bool arg) {
         m_touchpadPrimaryButtonSetting->setCurrentIndex((int)arg);
     });
     connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::existChanged,
-            [&](bool arg){
+    [&](bool arg) {
         m_mouseSettingPanel->setVisible(arg);
         m_secondHSeparator->setVisible(arg);
     });
@@ -340,16 +343,18 @@ Mouse::Mouse()
     ////////////////////////////////////////////////////////////// init those widgets state
 }
 
-void Mouse::reset() {
+void Mouse::reset()
+{
     m_mouseInterface->Reset().waitForFinished();
     m_touchpadInterface->Reset().waitForFinished();
     m_trackpointInterface->setMotionAcceleration(1.0);
     m_trackpointSpeed = 1.0;
 }
 
-void Mouse::setWidgetsValue() {
+void Mouse::setWidgetsValue()
+{
     m_mouseInterface->deviceList().printValue();
-    if (m_mouseInterface->leftHanded() == true){
+    if (m_mouseInterface->leftHanded() == true) {
         m_mousePrimaryButtonSetting->setCurrentIndex(1);
     } else {
         m_mousePrimaryButtonSetting->setCurrentIndex(0);
@@ -357,18 +362,18 @@ void Mouse::setWidgetsValue() {
 
     m_mousePointSpeed = m_mouseInterface->motionAcceleration();
     m_mousePointSpeedSlider->blockSignals(true);
-    m_mousePointSpeedSlider->setRange(200, 3000);	// 3 ~ 0.2
-    m_mousePointSpeedSlider->setValue((3.2-m_mousePointSpeed) * 1000);
+    m_mousePointSpeedSlider->setRange(200, 3000);   // 3 ~ 0.2
+    m_mousePointSpeedSlider->setValue((3.2 - m_mousePointSpeed) * 1000);
     m_mousePointSpeedSlider->blockSignals(false);
 
     m_doubleClickIntervalSlider->blockSignals(true);
-    m_doubleClickIntervalSlider->setRange(0, 900);	// 100 ~ 1000
+    m_doubleClickIntervalSlider->setRange(0, 900);  // 100 ~ 1000
     m_doubleClickIntervalSlider->blockSignals(false);
     m_doubleClickIntervalSlider->setValue(1000 - m_mouseInterface->doubleClick());
 
     m_forbiddenTouchpadWhenMouseSwitchButton->setChecked(m_mouseInterface->disableTpad());
 
-    if (m_touchpadInterface->tPadEnable()){
+    if (m_touchpadInterface->tPadEnable()) {
         m_touchpadSwitchButton->setChecked(true);
     } else {
         m_touchpadSwitchButton->setChecked(false);
@@ -378,14 +383,14 @@ void Mouse::setWidgetsValue() {
 
     m_touchpadPointSpeed = m_touchpadInterface->motionAcceleration();
     m_touchpadPointSpeedSlider->blockSignals(true);
-    m_touchpadPointSpeedSlider->setRange(200, 3000);	// 3 ~ 0.2
-    m_touchpadPointSpeedSlider->setValue((3.2-m_touchpadPointSpeed) * 1000);
+    m_touchpadPointSpeedSlider->setRange(200, 3000);    // 3 ~ 0.2
+    m_touchpadPointSpeedSlider->setValue((3.2 - m_touchpadPointSpeed) * 1000);
     m_touchpadPointSpeedSlider->blockSignals(false);
 
     // NOTE: the minimum value should be zore, otherwise setValue
     // will cause the valueChanged singal to be triggered, which in turn
     // will cause the value stored in the backend to be changed.
-    m_touchpadDragThreshold->setRange(0, 10);	// not sure
+    m_touchpadDragThreshold->setRange(0, 10);   // not sure
     m_touchpadDragThreshold->setValue(m_touchpadInterface->dragThreshold());
 
     m_touchpadNatureScrollSwitch->setChecked(m_touchpadInterface->naturalScroll());
@@ -402,8 +407,8 @@ void Mouse::setWidgetsValue() {
 
 void Mouse::setMousePrimaryButton(int index)
 {
-    if(m_mouseInterface->leftHanded() != index){
-        if (index == 0){
+    if (m_mouseInterface->leftHanded() != index) {
+        if (index == 0) {
             m_mouseInterface->setLeftHanded(false);
         } else {
             m_mouseInterface->setLeftHanded(true);
@@ -416,8 +421,8 @@ void Mouse::setMousePointSpeed()
     const int speed = m_mousePointSpeedSlider->value();
 
     // the value should be scaled
-    if(m_mouseInterface->motionAcceleration()*1000 + speed != 3200){
-        m_mouseInterface->setMotionAcceleration((3200 - speed)/1000.0);
+    if (m_mouseInterface->motionAcceleration() * 1000 + speed != 3200) {
+        m_mouseInterface->setMotionAcceleration((3200 - speed) / 1000.0);
     }
 }
 
@@ -425,21 +430,21 @@ void Mouse::setMouseDoubleClickInterval()
 {
     const int interval = m_doubleClickIntervalSlider->value();
 
-    if(m_mouseInterface->doubleClick() + interval != 1000){
+    if (m_mouseInterface->doubleClick() + interval != 1000) {
         m_mouseInterface->setDoubleClick(1000 - interval);
     }
 }
 
 void Mouse::disableTouchpadWhenMousePluggedIn(bool flag)
 {
-    if(m_mouseInterface->disableTpad() != flag){
+    if (m_mouseInterface->disableTpad() != flag) {
         m_mouseInterface->setDisableTpad(flag);
     }
 }
 
 void Mouse::enableTouchpad(bool flag)
 {
-    if(m_touchpadInterface->tPadEnable() != flag){
+    if (m_touchpadInterface->tPadEnable() != flag) {
         m_touchpadInterface->setTPadEnable(flag);
     }
 }
@@ -448,35 +453,35 @@ void Mouse::setTouchpadPointSpeed()
 {
     const int speed = m_touchpadPointSpeedSlider->value();
 
-    if(m_touchpadInterface->motionAcceleration()*1000 + speed != 3200){
-        m_touchpadInterface->setMotionAcceleration((3200 - speed)/1000.0);
+    if (m_touchpadInterface->motionAcceleration() * 1000 + speed != 3200) {
+        m_touchpadInterface->setMotionAcceleration((3200 - speed) / 1000.0);
     }
 }
 
 void Mouse::enableTouchpadNatureScroll(bool flag)
 {
-    if(m_touchpadInterface->naturalScroll() != flag){
+    if (m_touchpadInterface->naturalScroll() != flag) {
         m_touchpadInterface->setNaturalScroll(flag);
     }
 }
 
 void Mouse::enableTouchpadTapToClick(bool flag)
 {
-    if(m_touchpadInterface->tapClick() != flag){
+    if (m_touchpadInterface->tapClick() != flag) {
         m_touchpadInterface->setTapClick(flag);
     }
 }
 
 void Mouse::enableTouchpadTwoFingerScroll(bool flag)
 {
-    if(m_touchpadInterface->vertScroll() != flag){
+    if (m_touchpadInterface->vertScroll() != flag) {
         m_touchpadInterface->setVertScroll(flag);
     }
 }
 
 void Mouse::enableTouchpadEdgeScroll(bool flag)
 {
-    if(m_touchpadInterface->edgeScroll() != flag){
+    if (m_touchpadInterface->edgeScroll() != flag) {
         m_touchpadInterface->setEdgeScroll(flag);
     }
 }
@@ -493,12 +498,12 @@ void Mouse::onTouchPadExistChanged()
     m_touchpadSettingPanel->setVisible(touchpadExist && m_touchpadInterface->tPadEnable());
     m_fourthHSeparator->setVisible(touchpadExist && m_touchpadInterface->tPadEnable());
 
-    if(touchpadExist) {
+    if (touchpadExist) {
         connect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)),
                 m_touchpadSettingPanel, SLOT(setVisible(bool)));
     } else  {
         disconnect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)),
-                m_touchpadSettingPanel, SLOT(setVisible(bool)));
+                   m_touchpadSettingPanel, SLOT(setVisible(bool)));
     }
 }
 
@@ -516,7 +521,7 @@ void Mouse::setTrackpointSpeed()
     const int speed = m_trackpointSpeedSlider->value();
 
     // the value should be scaled
-    if(speed != (10 - m_trackpointInterface->motionAcceleration()) * 10){
+    if (speed != (10 - m_trackpointInterface->motionAcceleration()) * 10) {
         m_trackpointInterface->setMotionAcceleration(10.0 - (speed / 10.0));
 
         qDebug() << "set trackpoint speed to" << 10.0 - (speed / 10.0);
@@ -530,16 +535,16 @@ Mouse::~Mouse()
     m_label->deleteLater();
 }
 
-QFrame* Mouse::getContent()
+QFrame *Mouse::getContent()
 {
     return m_label;
 }
 
 
 ContainerWidget::ContainerWidget(QWidget *parent)
-    :QWidget(parent)
+    : QWidget(parent)
 {
-    QVBoxLayout * layout = new QVBoxLayout(this);
+    QVBoxLayout *layout = new QVBoxLayout(this);
     setLayout(layout);
 
     m_labelWidth = 100;
@@ -550,16 +555,16 @@ ContainerWidget::~ContainerWidget()
 {
 }
 
-void ContainerWidget::addRow(const QString & text, QWidget * widget)
+void ContainerWidget::addRow(const QString &text, QWidget *widget)
 {
-    QWidget * container = new QWidget(this);
+    QWidget *container = new QWidget(this);
     layout()->addWidget(container);
     container->setMinimumHeight(m_rowHeight);
 
-    QHBoxLayout * containerLayout = new QHBoxLayout(container);
+    QHBoxLayout *containerLayout = new QHBoxLayout(container);
     container->setLayout(containerLayout);
 
-    QLabel * label = new QLabel(text);
+    QLabel *label = new QLabel(text);
     label->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     label->setWordWrap(true);
     label->setFixedWidth(m_labelWidth);
@@ -570,16 +575,16 @@ void ContainerWidget::addRow(const QString & text, QWidget * widget)
     containerLayout->setMargin(0);
 }
 
-void ContainerWidget::addRow(const QString & text, int stretch, QWidget * widget, int spacing)
+void ContainerWidget::addRow(const QString &text, int stretch, QWidget *widget, int spacing)
 {
-    QWidget * container = new QWidget(this);
+    QWidget *container = new QWidget(this);
     layout()->addWidget(container);
     container->setMinimumHeight(m_rowHeight);
 
-    QHBoxLayout * containerLayout = new QHBoxLayout(container);
+    QHBoxLayout *containerLayout = new QHBoxLayout(container);
     container->setLayout(containerLayout);
 
-    QLabel * label = new QLabel(text);
+    QLabel *label = new QLabel(text);
     label->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     label->setFixedWidth(m_labelWidth);
     label->setWordWrap(true);

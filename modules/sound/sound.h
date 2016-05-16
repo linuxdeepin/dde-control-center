@@ -33,16 +33,6 @@ DWIDGET_USE_NAMESPACE
 class QFrame;
 class ModuleHeader;
 
-class SoundModule: public QObject, ModuleInterface
-{
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "sound.json")
-    Q_INTERFACES(ModuleInterface)
-
-public:
-    QFrame *getContent() Q_DECL_OVERRIDE;
-};
-
 class SoundDBusPreLoad : public QObject
 {
     Q_OBJECT
@@ -62,7 +52,7 @@ class Sound: public QObject, ModuleInterface
     Q_OBJECT
 
 public:
-    Sound();
+    Sound(QObject *parent = NULL);
     ~Sound() Q_DECL_OVERRIDE;
     QFrame *getContent() Q_DECL_OVERRIDE;
 
@@ -127,6 +117,19 @@ private:
     void updateOutputDevices();
     void updateInputDevices();
     Q_SLOT void meterVolumeChanged(const QDBusMessage &msg);
+};
+
+class SoundModule: public QObject, ModuleInterface
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "sound.json")
+    Q_INTERFACES(ModuleInterface)
+
+public:
+    QFrame *getContent() Q_DECL_OVERRIDE;
+
+private:
+    Sound *m_sound = NULL;
 };
 
 #endif

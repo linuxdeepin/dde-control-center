@@ -26,15 +26,15 @@
 QFrame *DisplayModule::getContent()
 {
     qDebug() << "new Display begin";
-    static Display *display = NULL;
-    if (!display) {
-        display = new Display;
+    if (NULL == m_display) {
+        m_display = new Display(this);
     }
     qDebug() << "new Display end";
-    return display->getContent();
+    return m_display->getContent();
 }
 
-Display::Display()
+Display::Display(QObject *parent):
+    QObject(parent)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Display"));
     Q_INIT_RESOURCE(widgets_theme_dark);
@@ -49,9 +49,8 @@ QFrame *Display::getContent()
 
 void Display::init()
 {
-    m_dbusDisplay = new DisplayInterface(this);
-
     m_frame = new ScrollFrame;
+    m_dbusDisplay = new DisplayInterface(m_frame);
     m_frame->setFixedWidth(DCC::ModuleContentWidth);
     m_frame->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 

@@ -44,13 +44,15 @@ DWIDGET_USE_NAMESPACE
 QFrame *KeyboardModule::getContent()
 {
     qDebug() << "new Keyboard begin";
-    static Keyboard *frame = new Keyboard;
+    if (NULL == m_keyboard) {
+        m_keyboard = new Keyboard(this);
+    }
     qDebug() << "new Keyboard end";
-    return frame->getContent();
+    return m_keyboard->getContent();
 }
 
-Keyboard::Keyboard() :
-    QObject(),
+Keyboard::Keyboard(QObject *parent) :
+    QObject(parent),
     m_frame(new QFrame),
     m_letterClassifyList(nullptr),
     m_settings(new QSettings("deepin", "dde-control-center-kayboard", this)),
@@ -71,8 +73,6 @@ Keyboard::Keyboard() :
 
 Keyboard::~Keyboard()
 {
-    qDebug() << "~Keyboard and Language";
-    m_frame->deleteLater();
 }
 
 void Keyboard::initBackend()

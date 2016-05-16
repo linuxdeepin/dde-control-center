@@ -37,25 +37,12 @@ class QFrame;
 
 class RunnableTask;
 
-class DefaultAppsModule : public QObject, ModuleInterface
-{
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "default_applications.json")
-    Q_INTERFACES(ModuleInterface)
-
-public:
-    DefaultAppsModule();
-
-    QFrame *getContent() Q_DECL_OVERRIDE;
-    DBusDefaultMedia m_dbusDefaultMedia;
-};
-
 class DefaultApps : public QObject
 {
     Q_OBJECT
 
 public:
-    DefaultApps();
+    DefaultApps(QObject *parent = NULL);
     ~DefaultApps();
     QFrame *getContent();
 
@@ -63,7 +50,6 @@ public:
         Browser, Mail, Text, Music, Video, Picture, Terminal,
         CD_Audio, DVD_Video, MusicPlayer, Camera, Software,
     };
-
 
 private:
     DArrowLineExpand *createDefaultAppsExpand(const DefaultAppsCategory &category, DArrowLineExpand *defaultApps);
@@ -75,7 +61,6 @@ private:
     void updateCheckedItem(const DefaultAppsCategory &category);
 
     void createTask();
-
 
 private:
     bool isMediaApps(const DefaultAppsCategory &category) const;
@@ -130,7 +115,6 @@ private:
     DBusDefaultMedia *m_dbus;
 };
 
-
 class SetDefAppsThread : public QObject
 {
     Q_OBJECT
@@ -161,4 +145,17 @@ private:
     QStringList list;
 };
 
+class DefaultAppsModule : public QObject, ModuleInterface
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "default_applications.json")
+    Q_INTERFACES(ModuleInterface)
+
+public:
+    QFrame *getContent() Q_DECL_OVERRIDE;
+
+private:
+    DBusDefaultMedia m_dbusDefaultMedia;
+    DefaultApps *m_defaultApps = NULL;
+};
 #endif

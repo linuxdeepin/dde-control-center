@@ -41,21 +41,13 @@ DWIDGET_USE_NAMESPACE
 
 class QLabel;
 class QFrame;
-class PowerModule: public QObject, ModuleInterface
+
+class Power: public QObject
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "power.json")
-    Q_INTERFACES(ModuleInterface)
 
 public:
-    QFrame *getContent() Q_DECL_OVERRIDE;
-};
-
-class Power: public QObject {
-    Q_OBJECT
-
-public:
-    Power();
+    Power(QObject *parent = NULL);
     ~Power();
 
 public slots:
@@ -77,25 +69,37 @@ private:
     QString m_suspendTime;
     QFrame *m_frame;
     //dbus backend
-    PowerInterface* m_powerInterface;
-    PowerManagement* m_powerTitleManagement;
+    PowerInterface *m_powerInterface;
+    PowerManagement *m_powerTitleManagement;
 
-    ChooseDelayTimeWidget* m_screenBlackTimeWidget;
-    ChooseDelayTimeWidget* m_sleepTimeWidget;
+    ChooseDelayTimeWidget *m_screenBlackTimeWidget;
+    ChooseDelayTimeWidget *m_sleepTimeWidget;
     //separatorHorizontal line
     DSeparatorHorizontal *dsHorizontalFirst;
     DSeparatorHorizontal *dsHorizontalSecond;
     DSeparatorHorizontal *dsHorizontalThird;
     DSeparatorHorizontal *dsHorizontalFourth;
 
-    PowerSwitchWidget* m_screenBlackSwitchWidget;
-    PowerSwitchWidget* m_sleepSwitchWidget;
-    PowerSwitchWidget* m_lidCloseSwitchWidget;
+    PowerSwitchWidget *m_screenBlackSwitchWidget;
+    PowerSwitchWidget *m_sleepSwitchWidget;
+    PowerSwitchWidget *m_lidCloseSwitchWidget;
 
     void initUI();
     void updateUI();
     void initConnect();
-
-
 };
+
+class PowerModule: public QObject, ModuleInterface
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "power.json")
+    Q_INTERFACES(ModuleInterface)
+
+public:
+    QFrame *getContent() Q_DECL_OVERRIDE;
+
+private:
+    Power *m_power = NULL;
+};
+
 #endif

@@ -36,23 +36,26 @@ DWIDGET_USE_NAMESPACE
 QFrame *SystemInfoModule::getContent()
 {
     qDebug() << "Begin new SystemInfo";
-    if (!frame) {
-        frame = new SystemInfo;
+    if (NULL == m_systeminfo) {
+        m_systeminfo = new SystemInfo(this);
     }
     qDebug() << "End new SystemInfo";
-    return frame->getContent();
+    return m_systeminfo->getContent();
 }
 
 void SystemInfoModule::preUnload()
 {
-    if (frame) {
-        return frame->preUnload();
+    if (m_systeminfo) {
+        return m_systeminfo->preUnload();
     }
 }
 
-
-SystemInfo::SystemInfo()
-    : m_dbusSystemInfo("com.deepin.daemon.SystemInfo", "/com/deepin/daemon/SystemInfo", QDBusConnection::sessionBus(), this)
+SystemInfo::SystemInfo(QObject *parent)
+    : QObject(parent),
+      m_dbusSystemInfo("com.deepin.daemon.SystemInfo",
+                       "/com/deepin/daemon/SystemInfo",
+                       QDBusConnection::sessionBus(),
+                       this)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "System Information"));
 
@@ -96,10 +99,6 @@ SystemInfo::SystemInfo()
     centeralLayout->addWidget(m_infoWidget);
     centeralLayout->addWidget(new DSeparatorHorizontal);
     centeralLayout->addWidget(license);
-
-#ifdef DCC_SYSINFO_UPDATE
-    m_updateInfoWidget = new UpdateWidget;
-#endif
 
     m_infoWidget->setLayout(infoLayout);
     m_infoWidget->setStyleSheet("QLabel {color:#aaa; font-size:12px;} QWidget {background-color:#1a1b1b;}");
@@ -194,6 +193,7 @@ SystemInfo::SystemInfo()
     licenseWidget->setFixedWidth(DCC::ModuleContentWidth);
 
 #ifdef DCC_SYSINFO_UPDATE
+    m_updateInfoWidget = new UpdateWidget;
     m_mirrorsControlWidget = new MirrorsControlWidget;
     m_mirrorsControlWidget->hide();
 
@@ -219,8 +219,10 @@ SystemInfo::SystemInfo()
         centeralLayout->addWidget(expand);
     }
 
+#ifdef DCC_SYSINFO_UPDATE
+    centeralLayout->addWidget(m_updateExpand);
+#endif
     centeralLayout->addStretch(1);
-
 
 #ifdef DCC_SYSINFO_UPDATE
     connect(m_updateInfoWidget, &UpdateWidget::updatableNumsChanged, this, &SystemInfo::onUpdatableNumsChange);

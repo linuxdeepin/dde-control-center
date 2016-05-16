@@ -23,7 +23,7 @@ class Bluetooth: public QObject
     Q_OBJECT
 
 public:
-    Bluetooth();
+    Bluetooth(QObject *parent = NULL);
     ~Bluetooth();
     QFrame *getContent();
 
@@ -40,8 +40,9 @@ class BluetoothModule: public QObject, ModuleInterface
 public:
     QFrame *getContent() Q_DECL_OVERRIDE;
     void setProxy(ControlCenterProxyInterface *proxy) Q_DECL_OVERRIDE;
+
 private:
-    Bluetooth *bluetooth = NULL;
+    Bluetooth *m_bluetooth = NULL;
 };
 
 #endif

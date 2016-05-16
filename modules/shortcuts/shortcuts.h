@@ -17,6 +17,17 @@
 
 class QFrame;
 class MainWidget;
+
+class Shortcuts: public QObject
+{
+    Q_OBJECT
+public:
+    Shortcuts(QObject *parent = NULL);
+    QFrame *getContent();
+private:
+    QFrame *m_mainWidget = NULL;
+};
+
 class ShortcutsModule: public QObject, ModuleInterface
 {
     Q_OBJECT
@@ -25,16 +36,10 @@ class ShortcutsModule: public QObject, ModuleInterface
 
 public:
     QFrame *getContent() Q_DECL_OVERRIDE;
+
+private:
+    Shortcuts *m_shortcuts = NULL;
 };
 
-class Shortcuts: public QObject
-{
-    Q_OBJECT
-public:
-    Shortcuts();
-    QFrame *getContent();
-private:
-    QFrame *m_mainWidget = NULL;
-};
 #endif // SHORTCUTS_H
 

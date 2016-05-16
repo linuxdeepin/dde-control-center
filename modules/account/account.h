@@ -22,7 +22,7 @@ class Account: public QObject
     Q_OBJECT
 
 public:
-    Account();
+    Account(QObject *parent = NULL);
     ~Account();
     QFrame *getContent();
     void preUnload();
@@ -45,7 +45,7 @@ private slots:
     void preUnload() Q_DECL_OVERRIDE;
 
 private:
-    Account *account = NULL;
+    Account *m_account = NULL;
 };
 
 

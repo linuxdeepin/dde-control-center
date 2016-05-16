@@ -34,22 +34,12 @@ class ContainerWidget;
 class ModuleHeader;
 class QLabel;
 class QFrame;
-class MouseModule: public QObject, ModuleInterface
-{
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "mouse.json")
-    Q_INTERFACES(ModuleInterface)
-
-public:
-    QFrame *getContent() Q_DECL_OVERRIDE;
-};
-
 class Mouse: public QObject
 {
     Q_OBJECT
 
 public:
-    Mouse();
+    Mouse(QObject *parent = NULL);
     ~Mouse();
     QFrame *getContent();
 
@@ -142,6 +132,20 @@ public:
 private:
     int m_labelWidth;
     int m_rowHeight;
+};
+
+
+class MouseModule: public QObject, ModuleInterface
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "mouse.json")
+    Q_INTERFACES(ModuleInterface)
+
+public:
+    QFrame *getContent() Q_DECL_OVERRIDE;
+
+private:
+    Mouse   *m_mouse = NULL;
 };
 
 #endif // MOUSE_H

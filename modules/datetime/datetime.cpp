@@ -31,26 +31,15 @@ DWIDGET_USE_NAMESPACE
 QFrame *DatetimeModuele::getContent()
 {
     qDebug() << "new Datetime begin";
-    if (NULL == datetime) {
-        datetime = new Datetime;
+    if (NULL == m_datetime) {
+        m_datetime = new Datetime(this);
     }
     qDebug() << "new Datetime end";
-    return datetime->getContent();
+    return m_datetime->getContent();
 }
 
-DatetimeModuele::DatetimeModuele()
-{
-    qDebug() << "DatetimeModuele()";
-}
-
-DatetimeModuele::~DatetimeModuele()
-{
-    qDebug() << "~DatetimeModuele()";
-}
-
-
-Datetime::Datetime() :
-    QObject(),
+Datetime::Datetime(QObject *parent) :
+    QObject(parent),
     m_frame(new QFrame()),
     m_dbusInter(this),
     m_timezoneListWidget(new SearchList),

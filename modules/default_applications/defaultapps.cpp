@@ -35,19 +35,14 @@
 
 DWIDGET_USE_NAMESPACE
 
-DefaultAppsModule::DefaultAppsModule()
-{
-}
-
 QFrame *DefaultAppsModule::getContent()
 {
     qDebug() << "new DefaultApps begin";
-    static DefaultApps *frame = NULL;
-    if (!frame) {
-        frame = new DefaultApps;
+    if (NULL == m_defaultApps) {
+        m_defaultApps = new DefaultApps(this);
     }
     qDebug() << "new DefaultApps end";
-    return frame->getContent();
+    return m_defaultApps->getContent();
 }
 
 DBusDefaultMediaThread::DBusDefaultMediaThread(DBusDefaultMedia *dbus)
@@ -57,13 +52,12 @@ DBusDefaultMediaThread::DBusDefaultMediaThread(DBusDefaultMedia *dbus)
 
 void DBusDefaultMediaThread::run()
 {
-    qDebug() << QThread::currentThread();
     m_dbus->autoOpen();
-    qDebug() << qApp->thread();
     emit dbusConnected();
 }
 
-DefaultApps::DefaultApps() :
+DefaultApps::DefaultApps(QObject *parent) :
+    QObject(parent),
     m_dbusDefaultApps(this)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Default Applications"));

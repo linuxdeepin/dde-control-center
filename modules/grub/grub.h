@@ -17,6 +17,20 @@
 
 class QFrame;
 class GrubWidget;
+
+class Grub: public QObject
+{
+    Q_OBJECT
+
+public:
+    Grub(QObject *parent = NULL);
+    ~Grub();
+    QFrame *getContent();
+
+private:
+    QFrame *m_grubWidget;
+};
+
 class GrubModule: public QObject, ModuleInterface
 {
     Q_OBJECT
@@ -25,19 +39,9 @@ class GrubModule: public QObject, ModuleInterface
 
 public:
     QFrame *getContent() Q_DECL_OVERRIDE;
-};
-
-class Grub: public QObject
-{
-    Q_OBJECT
-
-public:
-    Grub();
-    ~Grub();
-    QFrame *getContent();
 
 private:
-    QFrame *m_grubWidget;
+    Grub *m_grub = NULL;
 };
 
 #endif // GRUB

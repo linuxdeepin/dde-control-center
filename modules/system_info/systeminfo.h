@@ -35,7 +35,7 @@ class SystemInfo : public QObject
     Q_OBJECT
 
 public:
-    SystemInfo();
+    SystemInfo(QObject *parent = NULL);
     ~SystemInfo() Q_DECL_OVERRIDE;
     QFrame *getContent();
     void preUnload();
@@ -77,7 +77,8 @@ public:
     QFrame *getContent() Q_DECL_OVERRIDE;
     void preUnload() Q_DECL_OVERRIDE;
 
-    SystemInfo *frame = NULL;
+private:
+    SystemInfo *m_systeminfo = NULL;
 };
 
 #endif // SYSTEMINFO_H

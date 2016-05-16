@@ -13,7 +13,7 @@
 #include "account.h"
 #include "ui/accountmainwidget.h"
 
-Account::Account()
+Account::Account(QObject *parent): QObject(parent)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "User Accounts"));
     Q_INIT_RESOURCE(widgets_theme_dark);
@@ -38,7 +38,7 @@ void Account::preUnload()
 
 AccountModule::AccountModule()
 {
-    account = NULL;
+    m_account = NULL;
     qDebug() << "AccountModule" << "load";
 }
 
@@ -50,14 +50,14 @@ AccountModule::~AccountModule()
 QFrame *AccountModule::getContent()
 {
     qDebug() << "new Account begin";
-    if (!account) {
-        account = new Account;
+    if (!m_account) {
+        m_account = new Account(this);
     }
     qDebug() << "new Account end";
-    return account->getContent();
+    return m_account->getContent();
 }
 
 void AccountModule::preUnload()
 {
-    account->preUnload();
+    m_account->preUnload();
 }

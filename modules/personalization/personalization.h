@@ -36,21 +36,11 @@ DWIDGET_USE_NAMESPACE
 class QFrame;
 class DBusWorker;
 
-class PersonalizationModule: public QObject, ModuleInterface
-{
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "personalization.json")
-    Q_INTERFACES(ModuleInterface)
-
-public:
-    QFrame *getContent() Q_DECL_OVERRIDE;
-};
-
 class Personalization: public QObject
 {
     Q_OBJECT
 public:
-    Personalization();
+    Personalization(QObject *parent = NULL);
     ~Personalization();
     QFrame *getContent();
 
@@ -169,6 +159,19 @@ private:
     int m_itemWidth = 140;
     int m_itemHeight = 90;
     int m_maxExpandContentHeight = 0;
+};
+
+class PersonalizationModule: public QObject, ModuleInterface
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "personalization.json")
+    Q_INTERFACES(ModuleInterface)
+
+public:
+    QFrame *getContent() Q_DECL_OVERRIDE;
+
+private:
+    Personalization *m_personalization = NULL;
 };
 
 #endif // PERSONALIZATION_H

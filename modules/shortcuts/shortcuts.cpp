@@ -16,12 +16,14 @@
 QFrame *ShortcutsModule::getContent()
 {
     qDebug() << "new Shortcuts begin";
-    static Shortcuts *frame = new Shortcuts;
+    if (NULL == m_shortcuts) {
+        m_shortcuts = new Shortcuts(this);
+    }
     qDebug() << "new Shortcuts end";
-    return frame->getContent();
+    return m_shortcuts->getContent();
 }
 
-Shortcuts::Shortcuts()
+Shortcuts::Shortcuts(QObject *parent): QObject(parent)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Keyboard Shortcuts"));
     Q_INIT_RESOURCE(widgets_theme_dark);

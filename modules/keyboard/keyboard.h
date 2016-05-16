@@ -33,22 +33,13 @@ class QVBoxLayout;
 class KeyboardLayoutDelegate;
 class DbusLangSelector;
 class LocaleInfo;
-class KeyboardModule: public QObject, ModuleInterface
-{
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "keyboard.json")
-    Q_INTERFACES(ModuleInterface)
-
-public:
-    QFrame *getContent() Q_DECL_OVERRIDE;
-};
 
 class Keyboard: public QObject, QRunnable
 {
     Q_OBJECT
 
 public:
-    Keyboard();
+    Keyboard(QObject *parent = NULL);
     ~Keyboard();
     QFrame *getContent();
 
@@ -83,6 +74,19 @@ private:
     QMap<QString, QString> m_mapUserLayoutInfo;
     QMap<QString, int> m_mapUserLayoutIndex;
     QList<KeyboardLayoutDelegate *> m_selectLayoutList;
+};
+
+class KeyboardModule: public QObject, ModuleInterface
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "keyboard.json")
+    Q_INTERFACES(ModuleInterface)
+
+public:
+    QFrame *getContent() Q_DECL_OVERRIDE;
+
+private:
+    Keyboard *m_keyboard = NULL;
 };
 
 #endif //   KEYBOARD_H

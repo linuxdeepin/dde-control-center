@@ -28,14 +28,18 @@
 
 DWIDGET_USE_NAMESPACE
 
-QFrame *PersonalizationModule::getContent() {
+QFrame *PersonalizationModule::getContent()
+{
     qDebug() << "new Personalization begin";
-    static Personalization *frame = new Personalization;
+    if (NULL == m_personalization) {
+        m_personalization = new Personalization(this);
+    }
     qDebug() << "new Personalization end";
-    return frame->getContent();
+    return m_personalization->getContent();
 }
 
-Personalization::Personalization(): m_margins(0, 5, 0, 5)
+Personalization::Personalization(QObject *parent):
+    QObject(parent), m_margins(0, 5, 0, 5)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Personalization"));
     qRegisterMetaType<ImageInfoList>("ImageInfoList");
@@ -46,10 +50,17 @@ Personalization::Personalization(): m_margins(0, 5, 0, 5)
     emit dataRequested();
 }
 
+Personalization::~Personalization()
+{
+    qDebug() << "~Personalization()";
+    m_workerThread->quit();
+    m_workerThread->wait();
+}
+
 void Personalization::initUI()
 {
     m_frame = new QFrame();
-    m_expandGroup = new DExpandGroup(this);
+    m_expandGroup = new DExpandGroup();
     m_headerLine = new DHeaderLine();
     m_headerLine->setStyleSheet("font-size: 16px;color:white");
     m_headerLine->setFixedHeight(50);
@@ -63,6 +74,9 @@ void Personalization::initUI()
     initFontExpand();
 
     QVBoxLayout *mainLayout = new QVBoxLayout();
+    mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+
     mainLayout->addWidget(m_headerLine);
     mainLayout->addWidget(horizontalSeparator);
     mainLayout->addWidget(m_windowExpand);
@@ -71,8 +85,7 @@ void Personalization::initUI()
     mainLayout->addWidget(m_wallpaperExpand);
     mainLayout->addWidget(m_fontExpand);
     mainLayout->addStretch(1);
-    mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+
     m_frame->setLayout(mainLayout);
     m_expandGroup->addExpand(m_windowExpand);
     m_expandGroup->addExpand(m_iconExpand);
@@ -80,7 +93,6 @@ void Personalization::initUI()
     m_expandGroup->addExpand(m_wallpaperExpand);
     m_expandGroup->addExpand(m_fontExpand);
 }
-
 
 void Personalization::initControllers()
 {
@@ -622,13 +634,4 @@ void Personalization::handleDataDeleteRefrehed(QString id)
         QString type = m_dbusWorker->staticTypeKeys.value("TypeBackground");
         m_dbusWorker->deleteItem(type, id);
     }
-}
-
-
-Personalization::~Personalization()
-{
-    qDebug() << "~Personalization()";
-    m_workerThread->quit();
-    m_workerThread->wait();
-    m_frame->deleteLater();
 }

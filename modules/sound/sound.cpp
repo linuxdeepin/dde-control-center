@@ -32,12 +32,11 @@ DWIDGET_USE_NAMESPACE
 QFrame *SoundModule::getContent()
 {
     qDebug() << "new Sound begin";
-    static Sound *sound = NULL;
-    if (!sound) {
-        sound = new Sound;
+    if (NULL == m_sound) {
+        m_sound = new Sound;
     }
     qDebug() << "new Sound end";
-    return sound->getContent();
+    return m_sound->getContent();
 }
 
 SoundDBusPreLoad::SoundDBusPreLoad(DBusSoundEffects *dbus)
@@ -53,8 +52,8 @@ void SoundDBusPreLoad::run()
     emit dbusConnected();
 }
 
-Sound::Sound() :
-    QObject(),
+Sound::Sound(QObject *parent) :
+    QObject(parent),
     m_frame(new QFrame),
     m_inputFeedbackSlider(NULL),
     m_mainWidget(new QFrame),

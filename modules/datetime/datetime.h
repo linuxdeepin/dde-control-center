@@ -38,7 +38,7 @@ class Datetime: public QObject
     Q_OBJECT
 
 public:
-    Datetime();
+    Datetime(QObject *parent = NULL);
     ~Datetime();
     QFrame *getContent();
 
@@ -97,12 +97,10 @@ class DatetimeModuele: public QObject, ModuleInterface
     Q_INTERFACES(ModuleInterface)
 
 public:
-    DatetimeModuele();
-    ~DatetimeModuele() Q_DECL_OVERRIDE;
     QFrame *getContent() Q_DECL_OVERRIDE;
 
 private:
-    Datetime *datetime = NULL;
+    Datetime *m_datetime = NULL;
 };
 
 

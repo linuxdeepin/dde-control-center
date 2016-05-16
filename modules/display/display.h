@@ -30,22 +30,12 @@ class ListWidget;
 class CustomSettings;
 class ScrollFrame;
 
-class DisplayModule: public QObject, ModuleInterface
-{
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "display.json")
-    Q_INTERFACES(ModuleInterface)
-
-public:
-    QFrame *getContent() Q_DECL_OVERRIDE;
-};
-
 class Display: public QObject
 {
     Q_OBJECT
 
 public:
-    Display();
+    Display(QObject *parent = NULL);
     QFrame *getContent();
 
 private slots:
@@ -62,6 +52,19 @@ private:
     ListWidget *m_widgetList = NULL;
     QStringList m_monitorNameList;
     CustomSettings *m_singleSettings = NULL;
+};
+
+class DisplayModule: public QObject, ModuleInterface
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "display.json")
+    Q_INTERFACES(ModuleInterface)
+
+public:
+    QFrame *getContent() Q_DECL_OVERRIDE;
+
+private:
+    Display *m_display = NULL;
 };
 
 #endif // DISPLAY_H
