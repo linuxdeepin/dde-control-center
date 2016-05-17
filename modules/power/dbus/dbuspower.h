@@ -34,6 +34,14 @@ double batteryPercentage;
 uint batteryState;
 };
 
+#define BatteryStateUnkonwn             0
+#define BatteryStateCharing             1
+#define BatteryStateDischarging         2
+#define BatteryStateEmpty               3
+#define BatteryStateFullyCharged        4
+#define BatteryStatePendingCharge       5
+#define BatteryStatePendingDischarge    6
+
 /*
  * Proxy class for interface com.deepin.daemon.Power
  */
