@@ -24,6 +24,11 @@ QFrame *NetworkModule::getContent()
     return m_network->getContent();
 }
 
+void NetworkModule::setProxy(ControlCenterProxyInterface *proxy)
+{
+    m_network->setProxy(proxy);
+}
+
 Network::Network(QObject *parent): QObject(parent)
 {
     Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Network"));

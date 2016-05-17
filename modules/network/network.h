@@ -28,12 +28,10 @@ public:
     QFrame *getContent();
 
     ControlCenterProxyInterface *getInterface() const;
+    void setProxy(ControlCenterProxyInterface *proxy) Q_DECL_OVERRIDE;
 
 signals:
     void dccVisibleChanged(bool visible);
-
-protected:
-    void setProxy(ControlCenterProxyInterface *proxy) Q_DECL_OVERRIDE;
 
 private:
     NetworkMainWidget *m_mainWidget;
@@ -47,6 +45,7 @@ class NetworkModule: public QObject, ModuleInterface
 
 public:
     QFrame *getContent() Q_DECL_OVERRIDE;
+    void setProxy(ControlCenterProxyInterface *proxy) Q_DECL_OVERRIDE;
 
 private:
     Network *m_network = NULL;
