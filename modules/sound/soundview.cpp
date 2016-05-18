@@ -21,6 +21,8 @@ namespace Plugin
 namespace Sound
 {
 
+static const int TitleLabelWidth = 110;
+
 SoundView::SoundView(SoundControl *control, QWidget *parent):
     QFrame(parent),
     m_control(control)
@@ -127,12 +129,12 @@ void SoundView::initAdvanceOptions(const SoundModel &model)
     connect(advanced_button, &DLinkButton::clicked, [this, advanced_button, advanced_expand] {
         if (advanced_expand->expand())
         {
-//            this->setFixedHeight(150);
+            //            this->setFixedHeight(150);
             ///When the height of the sum of the hide when advanced settings
             advanced_expand->setExpand(false);
             advanced_button->setText(tr("Show Advanced...") + "      ");
         } else{
-//            this->setFixedHeight(650);
+            //            this->setFixedHeight(650);
             ///When the height of the sum of the show when advanced settings
             advanced_expand->setExpand(true);
             advanced_button->setText(tr("Hide Advanced...") + "      ");
@@ -208,7 +210,11 @@ void SoundView::initOutputOption(const SoundModel &model)
     speakerForm->setRowMinimumHeight(1, 36);
 
     // Output volume line
-    speakerForm->addWidget(new NormalLabel(tr("Output Volume")), 0, 0, Qt::AlignVCenter);
+    NormalLabel *outputVolumeLabel = new NormalLabel(tr("Output Volume"));
+    outputVolumeLabel->setFixedWidth(TitleLabelWidth);
+    outputVolumeLabel->setWordWrap(true);
+
+    speakerForm->addWidget(outputVolumeLabel, 0, 0, Qt::AlignVCenter);
     m_outputVolumeSlider = new DSlider(Qt::Horizontal);
     m_outputVolumeSlider->setRange(0, 150);
     m_outputVolumeSlider->setLeftTip("-");
@@ -219,7 +225,11 @@ void SoundView::initOutputOption(const SoundModel &model)
     speakerForm->addWidget(m_outputVolumeSlider, 0, 1, Qt::AlignVCenter);
 
     // Left/Right balance line
-    speakerForm->addWidget(new NormalLabel(tr("Left/Right Balance")), 1, 0, Qt::AlignVCenter);
+    NormalLabel *balanceLabel = new NormalLabel(tr("Left/Right Balance"));
+    balanceLabel->setFixedWidth(TitleLabelWidth);
+    balanceLabel->setWordWrap(true);
+
+    speakerForm->addWidget(balanceLabel, 1, 0, Qt::AlignVCenter);
     m_leftRightBalanceSlider = new DSlider(Qt::Horizontal);
     m_leftRightBalanceSlider->setHandleType(DSlider::SharpHandler);
     m_leftRightBalanceSlider->setRange(-100, 100);
@@ -328,7 +338,11 @@ void SoundView::initInputOption(const SoundModel &model)
     microphoneForm->setRowMinimumHeight(1, 36);
 #endif
     // microphone volume line
-    microphoneForm->addWidget(new NormalLabel(tr("Input Volume")), 0, 0, Qt::AlignVCenter);
+    NormalLabel *inputVolumeLabel = new NormalLabel(tr("Input Volume"));
+    inputVolumeLabel->setFixedWidth(TitleLabelWidth);
+    inputVolumeLabel->setWordWrap(true);
+
+    microphoneForm->addWidget(inputVolumeLabel, 0, 0, Qt::AlignVCenter);
     m_inputVolumeSlider = new DSlider(Qt::Horizontal);
     m_inputVolumeSlider->setRange(0, 150);
     m_inputVolumeSlider->setLeftTip("-");
@@ -340,7 +354,11 @@ void SoundView::initInputOption(const SoundModel &model)
 
 #ifndef DCC_DISABLE_MICROPHONE_FEEDBACK
     // microphone feedback line
-    microphoneForm->addWidget(new NormalLabel(tr("Feedback Volume")), 1, 0, Qt::AlignVCenter);
+    NormalLabel *feedbackVolumeLabel = new NormalLabel(tr("Feedback Volume"));
+    feedbackVolumeLabel->setFixedWidth(TitleLabelWidth);
+    feedbackVolumeLabel->setWordWrap(true);
+
+    microphoneForm->addWidget(feedbackVolumeLabel, 1, 0, Qt::AlignVCenter);
     m_inputFeedbackSlider = new DSlider(Qt::Horizontal);
     QString feedbackSliderStyle = m_inputFeedbackSlider->styleSheet();
     feedbackSliderStyle += "Dtk--Widget--DSlider::handle[handleType=\"1\"] {background: none;}Dtk--Widget--DSlider::add-page:horizontal[handleType=\"1\"]{border-width: 0px 2px 1px 0px;}";
