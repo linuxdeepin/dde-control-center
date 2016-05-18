@@ -252,7 +252,7 @@ QFrame *SystemInfo::getContent()
 void SystemInfo::preUnload()
 {
     // TODO/FIXME: 由于 QScrollArea 的绘图Bug，在动画切换的时候会穿透到桌面，所以这里先隐藏
-#ifdef DCC_SYSINFO_UPDATE
+#if DCC_SYSINFO_UPDATE && !defined(ARCH_MIPSEL) // modules are cached on mipsel, so don't hide widget.
     m_updateExpand->setVisible(false);
 #endif
 }
