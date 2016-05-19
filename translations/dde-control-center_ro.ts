@@ -1,65 +1,13 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="ro" version="2.1">
 <context>
-    <name>AbstractPanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="74"/>
-        <source>Remote Assistance</source>
-        <translation>Asistenţă remote</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="77"/>
-        <source>Ok</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="83"/>
-        <source>No network connections are available, please retry after connected</source>
-        <translation>Nu sunt disponibile conexiuni de reţea, încercaţi din nou după ce v-aţi conectat</translation>
-    </message>
-</context>
-<context>
-    <name>AccessPanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="24"/>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="80"/>
-        <source>Accessing</source>
-        <translation>Se accesează</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="91"/>
-        <source>You are accessing the desktop shared by other users, you can choose to continue or disconnect</source>
-        <translation>Accesați desktopul partajat de alți utilizatori, puteți continua sau să vă deconectați</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="101"/>
-        <source>Remote Assistance</source>
-        <translation>Asistență la distanță</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="111"/>
-        <source>Failed to establish the connection, you can retry to connect</source>
-        <translation>Stabilirea conexiunii a eșuat, puteți reîncerca să vă conectați</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="112"/>
-        <source>Cancel</source>
-        <translation>Anulare</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="117"/>
-        <source>Retry</source>
-        <translation>Reîncearcă</translation>
-    </message>
-</context>
-<context>
     <name>AccountConfirmButtonLine</name>
     <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="108"/>
+        <location filename="../modules/account/ui/controlline.cpp" line="83"/>
         <source>Cancel</source>
         <translation>Anulare</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="110"/>
+        <location filename="../modules/account/ui/controlline.cpp" line="85"/>
         <source>Confirm</source>
         <translation>Confirmă</translation>
     </message>
@@ -72,7 +20,7 @@
         <translation>Conturi utilizator</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="80"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="81"/>
         <source>User List</source>
         <translation>Listă utilizator</translation>
     </message>
@@ -82,22 +30,9 @@
         <translation>Adaugare  cont</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="268"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="271"/>
         <source>Delete Account</source>
         <translation>Ștergere cont</translation>
-    </message>
-</context>
-<context>
-    <name>AccountTypeLine</name>
-    <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="85"/>
-        <source>Normal User</source>
-        <translation>Utilizator obișnuit</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="86"/>
-        <source>Administrator</source>
-        <translation>Administrator</translation>
     </message>
 </context>
 <context>
@@ -294,32 +229,6 @@
     </message>
 </context>
 <context>
-    <name>ConnectedView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectedview.cpp" line="32"/>
-        <source>Disconnect</source>
-        <translation>Deconectare</translation>
-    </message>
-</context>
-<context>
-    <name>ConnectingView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="31"/>
-        <source>Cancel</source>
-        <translation>Anulare</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="67"/>
-        <source>Establishing connection, please wait...</source>
-        <translation>Se stabilește conexiunea, vă rugăm așteptați...</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="84"/>
-        <source>This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully</source>
-        <translation>Acest panou va fi ascuns automat şi fereastra de sesiune la distanţă se va deschide pe desktop după ce conexiunea a fost stabilită cu succes</translation>
-    </message>
-</context>
-<context>
     <name>CreateUserPanel</name>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="63"/>
@@ -328,67 +237,51 @@
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="311"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="294"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="300"/>
         <source>new user</source>
         <translation>utilizator nou</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="96"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="105"/>
-        <source>Normal User</source>
-        <translation>Utilizator obișnuit</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="102"/>
-        <source>Administrator</source>
-        <translation>Administrator</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="142"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="127"/>
         <source>Username</source>
         <translation>Nume utilizator</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="143"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="128"/>
         <source>Password</source>
         <translation>Parola</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="144"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="129"/>
         <source>Repeat Password</source>
         <translation>Repetă parola</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="145"/>
-        <source>Account Type</source>
-        <translation>Tip cont</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="146"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="130"/>
         <source>Auto-login</source>
         <translation>Conectare automată</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="183"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="188"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="277"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="166"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
         <source>Password can not be empty.</source>
         <translation>Parola nu poate fi goală.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="192"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="274"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="290"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="327"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="334"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="175"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="257"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="273"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="310"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
         <source>The two passwords do not match.</source>
         <translation>Cele două parole nu corespund.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="262"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="272"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="287"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="245"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="255"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
         <source>Username can not be empty.</source>
         <translation>Câmpul nume utilizator nu poate fi gol.</translation>
     </message>
@@ -563,32 +456,32 @@
 <context>
     <name>Datetime</name>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="53"/>
+        <location filename="../modules/datetime/datetime.cpp" line="63"/>
         <source>Date</source>
         <translation>Dată</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="61"/>
+        <location filename="../modules/datetime/datetime.cpp" line="71"/>
         <source>Time Zone</source>
         <translation>Fus Orar</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="68"/>
+        <location filename="../modules/datetime/datetime.cpp" line="78"/>
         <source>Sync Automatically</source>
         <translation>Sincronizare automată</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="75"/>
+        <location filename="../modules/datetime/datetime.cpp" line="85"/>
         <source>Use 24-hour clock</source>
         <translation>Utilizare ceas cu format de 24 ore</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="80"/>
+        <location filename="../modules/datetime/datetime.cpp" line="90"/>
         <source>Reset</source>
         <translation>Resetare</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="92"/>
+        <location filename="../modules/datetime/datetime.cpp" line="102"/>
         <source>Date and Time</source>
         <translation>Data şi ora</translation>
     </message>
@@ -596,73 +489,73 @@
 <context>
     <name>DefaultApps</name>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="49"/>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="54"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="83"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="123"/>
         <source>Default Applications</source>
         <translation>Aplicații implicite</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="57"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="121"/>
         <source>AutoPlay</source>
         <translation> Redare automată</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="63"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
         <source>Browser</source>
         <translation>Browser-ul</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="65"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
         <source>Mail</source>
         <translation>Poștă</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="67"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
         <source>Text</source>
         <translation>Text</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="69"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
         <source>Music</source>
         <translation>Muzică</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="71"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
         <source>Video</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="73"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
         <source>Picture</source>
         <translation>Imagine</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="75"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
         <source>Terminal</source>
         <translation>Terminalul</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="78"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
         <source>CD Audio</source>
         <translation>Audio CD</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="81"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
         <source>DVD Video</source>
         <translation>Video DVD</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="84"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
         <source>Music Player</source>
         <translation>Player-ul muzical</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="87"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="127"/>
         <source>Camera</source>
         <translation>Camera Web</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="90"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
         <source>Software</source>
         <translation>Software</translation>
     </message>
@@ -696,22 +589,22 @@
         <translation>Reîncercare</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="106"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
         <source>removable disk</source>
         <translation>disc amovibil</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
         <source>network disk</source>
         <translation>disc rețea</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="112"/>
         <source>local disk</source>
         <translation>disc local</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
         <translation>Instalare %1 &quot; %2 &quot; eşuată, încercaţi din nou.</translation>
     </message>
@@ -724,47 +617,47 @@
         <translation>Afişaj</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="157"/>
+        <location filename="../modules/display/display.cpp" line="161"/>
         <source>Display Mode</source>
         <translation>Mod afişare</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="163"/>
+        <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy</source>
         <translation>Copiere</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="164"/>
+        <location filename="../modules/display/display.cpp" line="168"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>Copiere conținutului de pe ecran principal pe alte ecrane.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="174"/>
+        <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend</source>
         <translation>Extindere</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="175"/>
+        <location filename="../modules/display/display.cpp" line="179"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>Extinderea conținutului ecranului  pentru a afişa conținutul pe diferite ecrane.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="186"/>
+        <location filename="../modules/display/display.cpp" line="190"/>
         <source>Custom Settings</source>
         <translation>Setări particularizate</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="187"/>
+        <location filename="../modules/display/display.cpp" line="191"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>Puteți aplica şi alte setări particularizate pentru ecranele selectate.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="197"/>
+        <location filename="../modules/display/display.cpp" line="201"/>
         <source>Only Displayed on %1</source>
         <translation>Afişat doar pe %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="198"/>
+        <location filename="../modules/display/display.cpp" line="202"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>Conținutulde ecranului  este afișat doar pe %1 dar nu şi pe alte ecrane.</translation>
     </message>
@@ -820,43 +713,6 @@
     </message>
 </context>
 <context>
-    <name>GeneratedView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="42"/>
-        <source>Copy Code</source>
-        <translation>Copiere cod</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="44"/>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="79"/>
-        <source>Copied to clipboard successfully</source>
-        <translation>Copiat cu succes pe clipboard</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="53"/>
-        <source>Cancel</source>
-        <translation>Anulare</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="89"/>
-        <source>To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input</source>
-        <translation>Pentru a vedea ecranul vostru, vă rog să puneți la dispoziție celui care vă asistă codul de mai sus. Sesiunea va începe imediat ce codul de verificare va fi introdus</translation>
-    </message>
-</context>
-<context>
-    <name>GeneratingView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatingview.cpp" line="32"/>
-        <source>Cancel</source>
-        <translation>Anulare</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatingview.cpp" line="65"/>
-        <source>Generating the verification code, please wait...</source>
-        <translation>Se generează codul de verificare, vă rugăm așteptați...</translation>
-    </message>
-</context>
-<context>
     <name>GrubWidget</name>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="30"/>
@@ -903,7 +759,7 @@
 <context>
     <name>HomeScreen</name>
     <message>
-        <location filename="../frame/homescreen.cpp" line="108"/>
+        <location filename="../frame/homescreen.cpp" line="128"/>
         <source>Shutdown</source>
         <translation>Închide</translation>
     </message>
@@ -932,84 +788,59 @@
     </message>
 </context>
 <context>
-    <name>InputView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="32"/>
-        <source>Connect</source>
-        <translation>Conectare</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="41"/>
-        <source>Cancel</source>
-        <translation>Anulare</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="81"/>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="82"/>
-        <source>Start remote access after clicking on &quot;Connect&quot;</source>
-        <translation>Pornește accesul de la distanță după apăsarea butonului &quot;Conectare&quot;</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="83"/>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="95"/>
-        <source>Please enter the verification code in the input field above</source>
-        <translation>Introduceţi codul de verificare în câmpul de mai sus</translation>
-    </message>
-</context>
-<context>
     <name>Keyboard</name>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="139"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="150"/>
         <source>Keyboard and Language</source>
         <translation>Tastatură şi limbă</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="152"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="163"/>
         <source>Repeat Delay</source>
         <translation>Repetare amânare</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="173"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
         <source>Repeat Rate</source>
         <translation>Rată repetare</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="194"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="205"/>
         <source>Cursor Blink Rate</source>
         <translation>Rată de clipire a cursorului</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="216"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="227"/>
         <source>Test Area</source>
         <translation>Zonă de testare</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="230"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="241"/>
         <source>Caps Lock prompt</source>
         <translation>Caps Lock </translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="247"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="258"/>
         <source>Language</source>
         <translation>Limba</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="252"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="263"/>
         <source>Keyboard Layout</source>
         <translation>Aspect tastatură</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="253"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="264"/>
         <source>Remove Keyboard Layout</source>
         <translation>Îndepărtează afișarea tastaturii</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="254"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="265"/>
         <source>Add Keyboard Layout</source>
         <translation>Adaugare aspect  tastatură</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="342"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="363"/>
         <source>Search</source>
         <translation>Căutare</translation>
     </message>
@@ -1025,34 +856,6 @@
         <location filename="../modules/network/listwidgetcontainer.cpp" line="102"/>
         <source>Connect</source>
         <translation>Conectare</translation>
-    </message>
-</context>
-<context>
-    <name>MainPanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="25"/>
-        <source>Remote Assistance</source>
-        <translation>Asistență la distanță</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="36"/>
-        <source>Share</source>
-        <translation>Partajare</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="36"/>
-        <source>Share your desktop to get remote assistance from other users</source>
-        <translation>Partajați-vă desktopul pentru a primi asistență de la distanță de la alți utilizatori</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="43"/>
-        <source>Access</source>
-        <translation>Acces</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="43"/>
-        <source>Access to the desktop shared by other users</source>
-        <translation>Acces la desktopul partajat cu alţi utilizatori</translation>
     </message>
 </context>
 <context>
@@ -1206,84 +1009,74 @@
         <translation>Închide</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="39"/>
-        <source>Sound</source>
-        <translation>Sunet</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/power.cpp" line="25"/>
+        <location filename="../modules/power/power.cpp" line="35"/>
         <source>Power Management</source>
         <translation>Administrare energie</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="42"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="63"/>
         <source>Default Applications</source>
         <translation>Aplicații implicite</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="30"/>
+        <location filename="../modules/mouse/mouse.cpp" line="37"/>
         <source>Mouse and Touchpad</source>
         <translation>Mouse şi panou tactil</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="39"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Information</source>
         <translation>Informații sistem</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="30"/>
+        <location filename="../modules/display/display.cpp" line="39"/>
         <source>Display</source>
         <translation>Afişaj</translation>
     </message>
     <message>
-        <location filename="../modules/account/account.cpp" line="17"/>
+        <location filename="../modules/account/account.cpp" line="18"/>
         <source>User Accounts</source>
         <translation>Conturi utilizator</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/shortcuts.cpp" line="19"/>
+        <location filename="../modules/shortcuts/shortcuts.cpp" line="28"/>
         <source>Keyboard Shortcuts</source>
         <translation>Comenzi rapide tastatură</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="33"/>
+        <location filename="../modules/personalization/personalization.cpp" line="44"/>
         <source>Personalization</source>
         <translation>Personalizare</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="51"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="61"/>
         <source>Keyboard and Language</source>
         <translation>Tastatură şi limbă</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="40"/>
+        <location filename="../modules/datetime/datetime.cpp" line="50"/>
         <source>Date and Time</source>
         <translation>Data şi ora</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="22"/>
+        <location filename="../modules/wacom/wacom.cpp" line="28"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grub.cpp" line="19"/>
+        <location filename="../modules/grub/grub.cpp" line="28"/>
         <source>Boot Menu</source>
         <translation>Meniu pornire</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/bluetooth.cpp" line="19"/>
+        <location filename="../modules/bluetooth/bluetooth.cpp" line="35"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../modules/network/network.cpp" line="19"/>
+        <location filename="../modules/network/network.cpp" line="34"/>
         <source>Network</source>
         <translation>Reţea</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/remoteassistance.cpp" line="42"/>
-        <source>Remote Assistance</source>
-        <translation>Asistență la distanță</translation>
     </message>
 </context>
 <context>
@@ -1307,77 +1100,77 @@
 <context>
     <name>Mouse</name>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="52"/>
+        <location filename="../modules/mouse/mouse.cpp" line="59"/>
         <source>Mouse And Touchpad</source>
         <translation>Mouse şi suport tactil</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="68"/>
-        <location filename="../modules/mouse/mouse.cpp" line="181"/>
+        <location filename="../modules/mouse/mouse.cpp" line="75"/>
+        <location filename="../modules/mouse/mouse.cpp" line="188"/>
         <source>Primary Button</source>
         <translation>Buton principal</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="71"/>
-        <location filename="../modules/mouse/mouse.cpp" line="154"/>
+        <location filename="../modules/mouse/mouse.cpp" line="78"/>
+        <location filename="../modules/mouse/mouse.cpp" line="161"/>
         <source>Left Button</source>
         <translation>Butonul din stânga</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="72"/>
-        <location filename="../modules/mouse/mouse.cpp" line="155"/>
+        <location filename="../modules/mouse/mouse.cpp" line="79"/>
+        <location filename="../modules/mouse/mouse.cpp" line="162"/>
         <source>Right Button</source>
         <translation>Butonul din dreapta</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="83"/>
-        <location filename="../modules/mouse/mouse.cpp" line="182"/>
-        <location filename="../modules/mouse/mouse.cpp" line="206"/>
+        <location filename="../modules/mouse/mouse.cpp" line="90"/>
+        <location filename="../modules/mouse/mouse.cpp" line="189"/>
+        <location filename="../modules/mouse/mouse.cpp" line="213"/>
         <source>Pointer Speed</source>
         <translation>Viteză indicator</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="100"/>
+        <location filename="../modules/mouse/mouse.cpp" line="107"/>
         <source>Double-click Speed</source>
         <translation>Viteză dublu click</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="117"/>
+        <location filename="../modules/mouse/mouse.cpp" line="124"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Dezactivare  panoul tactil la conectarea mouse-ului</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="143"/>
+        <location filename="../modules/mouse/mouse.cpp" line="150"/>
         <source>Touchpad</source>
         <translation>Panou tactil</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="183"/>
+        <location filename="../modules/mouse/mouse.cpp" line="190"/>
         <source>Drag Threshold</source>
         <translation>Glisare  limită</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="184"/>
+        <location filename="../modules/mouse/mouse.cpp" line="191"/>
         <source>Natural Scrolling</source>
         <translation>Derulare fizică</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="185"/>
+        <location filename="../modules/mouse/mouse.cpp" line="192"/>
         <source>Tap to click</source>
         <translation>Atinge pentru a efectua un click</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="186"/>
+        <location filename="../modules/mouse/mouse.cpp" line="193"/>
         <source>Two-finger scrolling</source>
         <translation>Derulare cu două degete</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="187"/>
+        <location filename="../modules/mouse/mouse.cpp" line="194"/>
         <source>Edge scrolling</source>
         <translation> Derulare margină</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="195"/>
+        <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
         <translation type="unfinished"/>
     </message>
@@ -1528,17 +1321,17 @@
 <context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="156"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="159"/>
         <source>Network</source>
         <translation>Reţea</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="163"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="172"/>
         <source>View detailed information</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="180"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="186"/>
         <source>System Proxy</source>
         <translation>Proxy sistem</translation>
     </message>
@@ -1591,81 +1384,160 @@
 <context>
     <name>Personalization</name>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="49"/>
+        <location filename="../modules/personalization/personalization.cpp" line="67"/>
         <source>Personalization</source>
         <translation>Personalizare</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="126"/>
+        <location filename="../modules/personalization/personalization.cpp" line="145"/>
         <source>Window</source>
         <translation>Fereastră</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="152"/>
+        <location filename="../modules/personalization/personalization.cpp" line="171"/>
         <source>Icon</source>
         <translation>Pictogramă</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="187"/>
+        <location filename="../modules/personalization/personalization.cpp" line="206"/>
         <source>Cursor</source>
         <translation>Cursor</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="220"/>
+        <location filename="../modules/personalization/personalization.cpp" line="239"/>
         <source>Wallpaper</source>
         <translation>Fundal de ecran</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="245"/>
+        <location filename="../modules/personalization/personalization.cpp" line="264"/>
         <source>Fonts</source>
         <translation>Fonturi</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="247"/>
+        <location filename="../modules/personalization/personalization.cpp" line="266"/>
         <source>Standard</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="248"/>
+        <location filename="../modules/personalization/personalization.cpp" line="267"/>
         <source>Monospaced</source>
         <translation>Monospațiat</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="249"/>
+        <location filename="../modules/personalization/personalization.cpp" line="268"/>
         <source>Size</source>
         <translation>Dimensiune</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="264"/>
-        <location filename="../modules/personalization/personalization.cpp" line="601"/>
+        <location filename="../modules/personalization/personalization.cpp" line="283"/>
+        <location filename="../modules/personalization/personalization.cpp" line="620"/>
         <source>Font</source>
         <translation>Fontul</translation>
     </message>
 </context>
 <context>
+    <name>Plugin::Sound::SoundView</name>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="67"/>
+        <source>Output Port</source>
+        <translation>Port de ieşire</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="79"/>
+        <source>Output device</source>
+        <translation>Dispozitiv de ieşire</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="96"/>
+        <source>Input Port</source>
+        <translation>Port de intrare</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="111"/>
+        <source>Input device</source>
+        <translation>Dispozitiv de introducere</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="124"/>
+        <location filename="../modules/sound/soundview.cpp" line="133"/>
+        <source>Show Advanced...</source>
+        <translation>Afişează avansate...</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="138"/>
+        <source>Hide Advanced...</source>
+        <translation>Ascunde avansate...</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="185"/>
+        <source>Sound effects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="200"/>
+        <source>Speaker</source>
+        <translation>Difuzor</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="211"/>
+        <source>Output Volume</source>
+        <translation>Volum ieşire</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="222"/>
+        <source>Left/Right Balance</source>
+        <translation>Echilibrare Stânga/Dreapta</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="226"/>
+        <source>Left</source>
+        <translation>Stânga</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="227"/>
+        <source>Right</source>
+        <translation>Dreapta</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="320"/>
+        <source>Microphone</source>
+        <translation>Microfon</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="331"/>
+        <source>Input Volume</source>
+        <translation>Volum intrare</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="343"/>
+        <source>Feedback Volume</source>
+        <translation>Volum părere</translation>
+    </message>
+</context>
+<context>
     <name>Power</name>
     <message>
-        <location filename="../modules/power/power.cpp" line="43"/>
+        <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="44"/>
+        <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="46"/>
+        <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="48"/>
+        <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="50"/>
+        <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
         <translation type="unfinished"/>
     </message>
@@ -1686,7 +1558,12 @@
         <translation>Energie</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="104"/>
+        <source>Charged</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="106"/>
         <source>On Charging %1</source>
         <translation>Se încarcă %1</translation>
     </message>
@@ -1731,40 +1608,6 @@
     </message>
 </context>
 <context>
-    <name>SharePanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="26"/>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="113"/>
-        <source>Sharing</source>
-        <translation>Partajarea</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="76"/>
-        <source>Sharing your desktop, your can continue to share or choose to disconnect</source>
-        <translation>Partajând desktopul puteţi continua să partajaţi sau puteţi alege să vă deconectaţi</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="103"/>
-        <source>Remote Assistance</source>
-        <translation>Asistență de la distanță</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="106"/>
-        <source>Cancel</source>
-        <translation>Anulare</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="111"/>
-        <source>Retry</source>
-        <translation>Reîncearcă</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="117"/>
-        <source>Failed to establish the connection, you can retry to connect</source>
-        <translation>Stabilirea conexiunii a eșuat, puteți reîncerca să vă conectați</translation>
-    </message>
-</context>
-<context>
     <name>ShortcutDbus</name>
     <message>
         <location filename="../modules/shortcuts/shortcutdbus.cpp" line="75"/>
@@ -1788,90 +1631,6 @@
     </message>
 </context>
 <context>
-    <name>Sound</name>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="62"/>
-        <source>Sound</source>
-        <translation>Sunet</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="109"/>
-        <source>Speaker</source>
-        <translation>Difuzor</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="119"/>
-        <source>Output Volume</source>
-        <translation>Volum ieşire</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="130"/>
-        <source>Left/Right Balance</source>
-        <translation>Echilibrare Stânga/Dreapta</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="134"/>
-        <source>Left</source>
-        <translation>Stânga</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="135"/>
-        <source>Right</source>
-        <translation>Dreapta</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="153"/>
-        <source>Microphone</source>
-        <translation>Microfon</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="165"/>
-        <source>Input Volume</source>
-        <translation>Volum intrare</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="177"/>
-        <source>Feedback Volume</source>
-        <translation>Volum părere</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="238"/>
-        <source>Output Port</source>
-        <translation>Port de ieşire</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="251"/>
-        <source>Output device</source>
-        <translation>Dispozitiv de ieşire</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="271"/>
-        <source>Input Port</source>
-        <translation>Port de intrare</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="285"/>
-        <source>Input device</source>
-        <translation>Dispozitiv de introducere</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="298"/>
-        <location filename="../modules/sound/sound.cpp" line="305"/>
-        <source>Show Advanced...</source>
-        <translation>Afişează avansate...</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="310"/>
-        <source>Hide Advanced...</source>
-        <translation>Ascunde avansate...</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="321"/>
-        <source>Sound effects</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>SoundPlugin</name>
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/soundplugin.cpp" line="32"/>
@@ -1882,52 +1641,52 @@
 <context>
     <name>SystemInfo</name>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="44"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
         <source>System Information</source>
         <translation>Informații sistem</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="50"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
         <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="55"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
         <source>Deepin Edition:</source>
         <translation>Ediţie Deepin:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="61"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
         <source>Distribution:</source>
         <translation>Distribuire:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="67"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
         <source>System Type:</source>
         <translation>Tip sistem:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="69"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
         <source>%1 Bit</source>
         <translation>%1 Bit</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="72"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
         <source>Processor:</source>
         <translation>Procesor:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
         <source>Memory:</source>
         <translation>Memorie:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
         <source>Disk:</source>
         <translation>Disc:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="154"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="165"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
         <translation>LICENȚĂ GENERALĂ PUBLICĂ GNU</translation>
     </message>
@@ -2085,37 +1844,32 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="110"/>
         <source>Recently Used</source>
         <translation>Recent utilizat</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="112"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
         <source>Avatar</source>
         <translation>Avatar</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="161"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="163"/>
         <source>Auto-login</source>
         <translation>Conectare automată</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="187"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="189"/>
         <source>Enable</source>
         <translation>Activare</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="220"/>
-        <source>Account Type</source>
-        <translation>Tip cont</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="275"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="246"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>Alegeţi o poză nouă pentru avatarul Dvs.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="276"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="247"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>Fișiere imagine (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -2123,32 +1877,32 @@
 <context>
     <name>UserExpandHeader</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="187"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="180"/>
         <source>Keep user&apos;s files</source>
         <translation>Păstrează fişierele  utilizatorului</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="188"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="181"/>
         <source>Delete user&apos;s files</source>
         <translation>Şterge  fişierele utilizatorului</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="190"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="183"/>
         <source>Cancel</source>
         <translation>Anulare</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="191"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="184"/>
         <source>Confirm</source>
         <translation>Confirmă</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="239"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="232"/>
         <source>Administrator</source>
         <translation>Administrator</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="241"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="234"/>
         <source>Normal User</source>
         <translation>Utilizator obișnuit</translation>
     </message>
@@ -2181,102 +1935,102 @@
 <context>
     <name>Wacom</name>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="47"/>
+        <location filename="../modules/wacom/wacom.cpp" line="56"/>
         <source>Page Up</source>
         <translation>Pagină  sus</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="48"/>
+        <location filename="../modules/wacom/wacom.cpp" line="57"/>
         <source>Page Down</source>
         <translation>Pagină  jos</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="49"/>
+        <location filename="../modules/wacom/wacom.cpp" line="58"/>
         <source>Left Click</source>
         <translation>Click stânga</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="50"/>
+        <location filename="../modules/wacom/wacom.cpp" line="59"/>
         <source>Right Click</source>
         <translation>Click dreapta</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="51"/>
+        <location filename="../modules/wacom/wacom.cpp" line="60"/>
         <source>Middle Click</source>
         <translation>Click din mijloc</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="69"/>
+        <location filename="../modules/wacom/wacom.cpp" line="78"/>
         <source>Tablet</source>
         <translation>Tabletă</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="83"/>
+        <location filename="../modules/wacom/wacom.cpp" line="92"/>
         <source>Tablet Orientation</source>
         <translation>Orientare tabletă</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="88"/>
+        <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Left Hand</source>
         <translation>Mâna stângă</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="89"/>
+        <location filename="../modules/wacom/wacom.cpp" line="98"/>
         <source>Right Hand</source>
         <translation>Mâna dreaptă</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="101"/>
+        <location filename="../modules/wacom/wacom.cpp" line="110"/>
         <source>Digital Pen Modes</source>
         <translation>Moduri ale stiloului digital</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="106"/>
+        <location filename="../modules/wacom/wacom.cpp" line="115"/>
         <source>Pen Mode</source>
         <translation>Modul stiloului digital</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="107"/>
+        <location filename="../modules/wacom/wacom.cpp" line="116"/>
         <source>Mouse Mode</source>
         <translation>Modul mouse</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="119"/>
+        <location filename="../modules/wacom/wacom.cpp" line="128"/>
         <source>Down Key</source>
         <translation>Tasta  jos</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="138"/>
+        <location filename="../modules/wacom/wacom.cpp" line="147"/>
         <source>Up Key</source>
         <translation>Tasta sus</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="157"/>
+        <location filename="../modules/wacom/wacom.cpp" line="166"/>
         <source>Pressure</source>
         <translation>Apăsare </translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="162"/>
+        <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Soft</source>
         <translation>Slabă</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="163"/>
+        <location filename="../modules/wacom/wacom.cpp" line="172"/>
         <source>Hard</source>
         <translation>Puternică</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="177"/>
+        <location filename="../modules/wacom/wacom.cpp" line="186"/>
         <source>Double-click Space</source>
         <translation>Spațiu  dublu click</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="182"/>
+        <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Narrow</source>
         <translation>Îngust</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="183"/>
+        <location filename="../modules/wacom/wacom.cpp" line="192"/>
         <source>Wide</source>
         <translation>Lat</translation>
     </message>
@@ -2297,13 +2051,13 @@
 <context>
     <name>WiredPlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="47"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="64"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="49"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="66"/>
         <source>Wired Network</source>
         <translation>Rețea conectată</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="71"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="73"/>
         <source>Network Not Connected</source>
         <translation>Rețeaua  nu este conectată</translation>
     </message>

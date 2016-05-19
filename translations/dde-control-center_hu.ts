@@ -1,65 +1,13 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
 <context>
-    <name>AbstractPanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="74"/>
-        <source>Remote Assistance</source>
-        <translation>Távoli segítségnyújtás</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="77"/>
-        <source>Ok</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="83"/>
-        <source>No network connections are available, please retry after connected</source>
-        <translation>Nincsenek elérhető hálózati kapcsolatok, kérjük, próbálkozzon újra csatlakozás után</translation>
-    </message>
-</context>
-<context>
-    <name>AccessPanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="24"/>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="80"/>
-        <source>Accessing</source>
-        <translation>Hozzáférés</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="91"/>
-        <source>You are accessing the desktop shared by other users, you can choose to continue or disconnect</source>
-        <translation>A többi felhasználóval megosztott asztalhoz csatlakozik, folytathatja vagy szétkapcsolhat</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="101"/>
-        <source>Remote Assistance</source>
-        <translation>Távsegítség</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="111"/>
-        <source>Failed to establish the connection, you can retry to connect</source>
-        <translation>A kapcsolódás létrehozása nem sikerült, megpróbálhat újra kapcsolódni</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="112"/>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="117"/>
-        <source>Retry</source>
-        <translation>Újra</translation>
-    </message>
-</context>
-<context>
     <name>AccountConfirmButtonLine</name>
     <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="108"/>
+        <location filename="../modules/account/ui/controlline.cpp" line="83"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="110"/>
+        <location filename="../modules/account/ui/controlline.cpp" line="85"/>
         <source>Confirm</source>
         <translation>Megerősítés</translation>
     </message>
@@ -72,7 +20,7 @@
         <translation>Felhasználói fiókok</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="80"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="81"/>
         <source>User List</source>
         <translation>Felhasználói lista</translation>
     </message>
@@ -82,22 +30,9 @@
         <translation>Felhasználói fiók hozzáadása</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="268"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="271"/>
         <source>Delete Account</source>
         <translation>Felhasználói fiók törlése</translation>
-    </message>
-</context>
-<context>
-    <name>AccountTypeLine</name>
-    <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="85"/>
-        <source>Normal User</source>
-        <translation>Általános felhasználó</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="86"/>
-        <source>Administrator</source>
-        <translation>Adminisztrátor</translation>
     </message>
 </context>
 <context>
@@ -294,32 +229,6 @@
     </message>
 </context>
 <context>
-    <name>ConnectedView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectedview.cpp" line="32"/>
-        <source>Disconnect</source>
-        <translation>Szétkapcsolás</translation>
-    </message>
-</context>
-<context>
-    <name>ConnectingView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="31"/>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="67"/>
-        <source>Establishing connection, please wait...</source>
-        <translation>Kapcsolat létesítése, kérjük várjon...</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="84"/>
-        <source>This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully</source>
-        <translation>Ez az ablak automatikusan el fog tűnni és a távsegítség ablak fog megjelenni a desktopon, miután a csatlakozás sikeresen létrejön</translation>
-    </message>
-</context>
-<context>
     <name>CreateUserPanel</name>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="63"/>
@@ -328,67 +237,51 @@
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="311"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="294"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="300"/>
         <source>new user</source>
         <translation>új felhasználó</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="96"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="105"/>
-        <source>Normal User</source>
-        <translation>Általános felhasználó</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="102"/>
-        <source>Administrator</source>
-        <translation>Adminisztrátor</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="142"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="127"/>
         <source>Username</source>
         <translation>Felhasználónév</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="143"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="128"/>
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="144"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="129"/>
         <source>Repeat Password</source>
         <translation>Jelszó ismét</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="145"/>
-        <source>Account Type</source>
-        <translation>Fiók típusa</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="146"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="130"/>
         <source>Auto-login</source>
         <translation>Automatikus belépés</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="183"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="188"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="277"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="166"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
         <source>Password can not be empty.</source>
         <translation>A jelszó nem lehet üres.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="192"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="274"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="290"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="327"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="334"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="175"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="257"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="273"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="310"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
         <source>The two passwords do not match.</source>
         <translation>A két jelszó nem egyezik.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="262"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="272"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="287"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="245"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="255"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
         <source>Username can not be empty.</source>
         <translation>A felhasználónév nem lehet üres.</translation>
     </message>
@@ -563,32 +456,32 @@
 <context>
     <name>Datetime</name>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="53"/>
+        <location filename="../modules/datetime/datetime.cpp" line="63"/>
         <source>Date</source>
         <translation>Dátum</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="61"/>
+        <location filename="../modules/datetime/datetime.cpp" line="71"/>
         <source>Time Zone</source>
         <translation>Időzóna</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="68"/>
+        <location filename="../modules/datetime/datetime.cpp" line="78"/>
         <source>Sync Automatically</source>
         <translation>Automatikus szinkronizálás</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="75"/>
+        <location filename="../modules/datetime/datetime.cpp" line="85"/>
         <source>Use 24-hour clock</source>
         <translation>24 órás formátum</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="80"/>
+        <location filename="../modules/datetime/datetime.cpp" line="90"/>
         <source>Reset</source>
         <translation>Visszaállítás</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="92"/>
+        <location filename="../modules/datetime/datetime.cpp" line="102"/>
         <source>Date and Time</source>
         <translation>Dátum és Idő</translation>
     </message>
@@ -596,73 +489,73 @@
 <context>
     <name>DefaultApps</name>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="49"/>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="54"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="83"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="123"/>
         <source>Default Applications</source>
         <translation>Alapértelmezett alkalmazások</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="57"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="121"/>
         <source>AutoPlay</source>
         <translation>Automatikus lejátszás</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="63"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
         <source>Browser</source>
         <translation>Böngésző</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="65"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
         <source>Mail</source>
         <translation>E-mail</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="67"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
         <source>Text</source>
         <translation>Szöveg</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="69"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
         <source>Music</source>
         <translation>Zene</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="71"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
         <source>Video</source>
         <translation>Videó</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="73"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
         <source>Picture</source>
         <translation>Fénykép</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="75"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
         <source>Terminal</source>
         <translation>Terminál</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="78"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
         <source>CD Audio</source>
         <translation>Audió CD</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="81"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
         <source>DVD Video</source>
         <translation>DVD videó</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="84"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
         <source>Music Player</source>
         <translation>Zenelejátszó</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="87"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="127"/>
         <source>Camera</source>
         <translation>Kamera</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="90"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
         <source>Software</source>
         <translation>szoftver</translation>
     </message>
@@ -696,22 +589,22 @@
         <translation>Újra</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="106"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
         <source>removable disk</source>
         <translation>eltávolítható lemez</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
         <source>network disk</source>
         <translation>hálózati lemez</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="112"/>
         <source>local disk</source>
         <translation>helyi lemez</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
         <translation>%1 &quot; %2 &quot; eltávolítása sikertelen, próbálkozzon újra.</translation>
     </message>
@@ -724,47 +617,47 @@
         <translation>Kijelző</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="157"/>
+        <location filename="../modules/display/display.cpp" line="161"/>
         <source>Display Mode</source>
         <translation>Kijelző üzemmód</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="163"/>
+        <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy</source>
         <translation>Másolás</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="164"/>
+        <location filename="../modules/display/display.cpp" line="168"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>Másolja az elsődleges képernyő tartalmát a többi képernyőre.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="174"/>
+        <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend</source>
         <translation>Kiterjeszt</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="175"/>
+        <location filename="../modules/display/display.cpp" line="179"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>Bővítse ki képernyője tartalmát, így különböző tartalmak jelennek meg a különböző képernyőkön.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="186"/>
+        <location filename="../modules/display/display.cpp" line="190"/>
         <source>Custom Settings</source>
         <translation>Egyén beállítások</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="187"/>
+        <location filename="../modules/display/display.cpp" line="191"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>Más egyéni beállításokat adhat meg a képernyőinek.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="197"/>
+        <location filename="../modules/display/display.cpp" line="201"/>
         <source>Only Displayed on %1</source>
         <translation>Megjelenítés csak a %1-n</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="198"/>
+        <location filename="../modules/display/display.cpp" line="202"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>A képernyő tartalmak csak a %1-n jelennek meg, a többin nem.</translation>
     </message>
@@ -820,43 +713,6 @@
     </message>
 </context>
 <context>
-    <name>GeneratedView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="42"/>
-        <source>Copy Code</source>
-        <translation>Kód másolása</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="44"/>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="79"/>
-        <source>Copied to clipboard successfully</source>
-        <translation>A vágólapra való átmásolás sikeres</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="53"/>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="89"/>
-        <source>To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input</source>
-        <translation>Ahhoz, hogy megoszthassa a desktopját, adja meg a fenti érvényesítő kódot annak, aki segíteni fog önnek. A munkamenet megosztás azonnal el fog kezdődni, ahogyan beírják az érvényesítő kódot</translation>
-    </message>
-</context>
-<context>
-    <name>GeneratingView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatingview.cpp" line="32"/>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatingview.cpp" line="65"/>
-        <source>Generating the verification code, please wait...</source>
-        <translation>Ellenőrzési kód generálása, kérem várjon...</translation>
-    </message>
-</context>
-<context>
     <name>GrubWidget</name>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="30"/>
@@ -903,7 +759,7 @@
 <context>
     <name>HomeScreen</name>
     <message>
-        <location filename="../frame/homescreen.cpp" line="108"/>
+        <location filename="../frame/homescreen.cpp" line="128"/>
         <source>Shutdown</source>
         <translation>Leállítás</translation>
     </message>
@@ -932,84 +788,59 @@
     </message>
 </context>
 <context>
-    <name>InputView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="32"/>
-        <source>Connect</source>
-        <translation>Csatlakozás</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="41"/>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="81"/>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="82"/>
-        <source>Start remote access after clicking on &quot;Connect&quot;</source>
-        <translation>Kezdje el a távoli hozzáférést miután a &quot;Csatlakozásra&quot; kattintott</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="83"/>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="95"/>
-        <source>Please enter the verification code in the input field above</source>
-        <translation>Kérjük, írja be az érvényesítő kódot a fenti mezőbe</translation>
-    </message>
-</context>
-<context>
     <name>Keyboard</name>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="139"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="150"/>
         <source>Keyboard and Language</source>
         <translation>Billentyűzet és Nyelv</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="152"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="163"/>
         <source>Repeat Delay</source>
         <translation>Ismétlés késleltetése</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="173"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
         <source>Repeat Rate</source>
         <translation>Ismétlés arány</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="194"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="205"/>
         <source>Cursor Blink Rate</source>
         <translation>Kurzor sebesség</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="216"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="227"/>
         <source>Test Area</source>
         <translation>Teszt mező</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="230"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="241"/>
         <source>Caps Lock prompt</source>
         <translation>Caps Lock figyelmeztető </translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="247"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="258"/>
         <source>Language</source>
         <translation>Nyelv</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="252"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="263"/>
         <source>Keyboard Layout</source>
         <translation>Billentyűzetkiosztás</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="253"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="264"/>
         <source>Remove Keyboard Layout</source>
         <translation>Billentyűzetkiosztás eltávolítáa</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="254"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="265"/>
         <source>Add Keyboard Layout</source>
         <translation>Szövegbevitel hozzáadása</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="342"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="363"/>
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
@@ -1025,34 +856,6 @@
         <location filename="../modules/network/listwidgetcontainer.cpp" line="102"/>
         <source>Connect</source>
         <translation>Csatlakozás</translation>
-    </message>
-</context>
-<context>
-    <name>MainPanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="25"/>
-        <source>Remote Assistance</source>
-        <translation>Távsegítség</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="36"/>
-        <source>Share</source>
-        <translation>Megosztás</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="36"/>
-        <source>Share your desktop to get remote assistance from other users</source>
-        <translation>Ossza meg az asztalát annak érdekében, hogy más felhasználóktól távoli segítségnyújtást kapjon </translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="43"/>
-        <source>Access</source>
-        <translation>Hozzáférés</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="43"/>
-        <source>Access to the desktop shared by other users</source>
-        <translation>Hozzáférés a mások által megosztott desktophoz</translation>
     </message>
 </context>
 <context>
@@ -1206,84 +1009,74 @@
         <translation>Leállítás</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="39"/>
-        <source>Sound</source>
-        <translation>Hang</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/power.cpp" line="25"/>
+        <location filename="../modules/power/power.cpp" line="35"/>
         <source>Power Management</source>
         <translation>Energiagazdálkodás</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="42"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="63"/>
         <source>Default Applications</source>
         <translation>Alapértelmezett alkalmazások</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="30"/>
+        <location filename="../modules/mouse/mouse.cpp" line="37"/>
         <source>Mouse and Touchpad</source>
         <translation>Egér és touchpad</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="39"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Information</source>
         <translation>Rendszerinformációk</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="30"/>
+        <location filename="../modules/display/display.cpp" line="39"/>
         <source>Display</source>
         <translation>Kijelző</translation>
     </message>
     <message>
-        <location filename="../modules/account/account.cpp" line="17"/>
+        <location filename="../modules/account/account.cpp" line="18"/>
         <source>User Accounts</source>
         <translation>Felhasználói fiókok</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/shortcuts.cpp" line="19"/>
+        <location filename="../modules/shortcuts/shortcuts.cpp" line="28"/>
         <source>Keyboard Shortcuts</source>
         <translation>Gyorsbillentyűk</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="33"/>
+        <location filename="../modules/personalization/personalization.cpp" line="44"/>
         <source>Personalization</source>
         <translation>Megjelenés</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="51"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="61"/>
         <source>Keyboard and Language</source>
         <translation>Billentyűzet és Nyelv</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="40"/>
+        <location filename="../modules/datetime/datetime.cpp" line="50"/>
         <source>Date and Time</source>
         <translation>Dátum és Idő</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="22"/>
+        <location filename="../modules/wacom/wacom.cpp" line="28"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grub.cpp" line="19"/>
+        <location filename="../modules/grub/grub.cpp" line="28"/>
         <source>Boot Menu</source>
         <translation>Boot menü</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/bluetooth.cpp" line="19"/>
+        <location filename="../modules/bluetooth/bluetooth.cpp" line="35"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../modules/network/network.cpp" line="19"/>
+        <location filename="../modules/network/network.cpp" line="34"/>
         <source>Network</source>
         <translation>Hálózat</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/remoteassistance.cpp" line="42"/>
-        <source>Remote Assistance</source>
-        <translation>Távoli segítségnyújtás</translation>
     </message>
 </context>
 <context>
@@ -1307,77 +1100,77 @@
 <context>
     <name>Mouse</name>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="52"/>
+        <location filename="../modules/mouse/mouse.cpp" line="59"/>
         <source>Mouse And Touchpad</source>
         <translation>Egér és touchpad</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="68"/>
-        <location filename="../modules/mouse/mouse.cpp" line="181"/>
+        <location filename="../modules/mouse/mouse.cpp" line="75"/>
+        <location filename="../modules/mouse/mouse.cpp" line="188"/>
         <source>Primary Button</source>
         <translation>Elsődleges gomb</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="71"/>
-        <location filename="../modules/mouse/mouse.cpp" line="154"/>
+        <location filename="../modules/mouse/mouse.cpp" line="78"/>
+        <location filename="../modules/mouse/mouse.cpp" line="161"/>
         <source>Left Button</source>
         <translation>Bal gomb</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="72"/>
-        <location filename="../modules/mouse/mouse.cpp" line="155"/>
+        <location filename="../modules/mouse/mouse.cpp" line="79"/>
+        <location filename="../modules/mouse/mouse.cpp" line="162"/>
         <source>Right Button</source>
         <translation>Jobb gomb</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="83"/>
-        <location filename="../modules/mouse/mouse.cpp" line="182"/>
-        <location filename="../modules/mouse/mouse.cpp" line="206"/>
+        <location filename="../modules/mouse/mouse.cpp" line="90"/>
+        <location filename="../modules/mouse/mouse.cpp" line="189"/>
+        <location filename="../modules/mouse/mouse.cpp" line="213"/>
         <source>Pointer Speed</source>
         <translation>Mutató sebesség</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="100"/>
+        <location filename="../modules/mouse/mouse.cpp" line="107"/>
         <source>Double-click Speed</source>
         <translation>Dupla-klikk sebesség</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="117"/>
+        <location filename="../modules/mouse/mouse.cpp" line="124"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Az egér használatánál érintőpad kikapcsolása</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="143"/>
+        <location filename="../modules/mouse/mouse.cpp" line="150"/>
         <source>Touchpad</source>
         <translation>Tapipad</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="183"/>
+        <location filename="../modules/mouse/mouse.cpp" line="190"/>
         <source>Drag Threshold</source>
         <translation>Húzza a küszöbre</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="184"/>
+        <location filename="../modules/mouse/mouse.cpp" line="191"/>
         <source>Natural Scrolling</source>
         <translation>Természetes görgetés</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="185"/>
+        <location filename="../modules/mouse/mouse.cpp" line="192"/>
         <source>Tap to click</source>
         <translation>Érintésre kattint </translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="186"/>
+        <location filename="../modules/mouse/mouse.cpp" line="193"/>
         <source>Two-finger scrolling</source>
         <translation>Két ujjas görgetés</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="187"/>
+        <location filename="../modules/mouse/mouse.cpp" line="194"/>
         <source>Edge scrolling</source>
         <translation>Éleken görgetés</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="195"/>
+        <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
         <translation type="unfinished"/>
     </message>
@@ -1528,17 +1321,17 @@
 <context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="156"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="159"/>
         <source>Network</source>
         <translation>Hálózat</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="163"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="172"/>
         <source>View detailed information</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="180"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="186"/>
         <source>System Proxy</source>
         <translation>Rendszer proxy</translation>
     </message>
@@ -1591,81 +1384,160 @@
 <context>
     <name>Personalization</name>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="49"/>
+        <location filename="../modules/personalization/personalization.cpp" line="67"/>
         <source>Personalization</source>
         <translation>Megjelenés</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="126"/>
+        <location filename="../modules/personalization/personalization.cpp" line="145"/>
         <source>Window</source>
         <translation>Ablak</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="152"/>
+        <location filename="../modules/personalization/personalization.cpp" line="171"/>
         <source>Icon</source>
         <translation>Ikon</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="187"/>
+        <location filename="../modules/personalization/personalization.cpp" line="206"/>
         <source>Cursor</source>
         <translation>Kurzor</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="220"/>
+        <location filename="../modules/personalization/personalization.cpp" line="239"/>
         <source>Wallpaper</source>
         <translation>Háttérkép</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="245"/>
+        <location filename="../modules/personalization/personalization.cpp" line="264"/>
         <source>Fonts</source>
         <translation>Betűtípusok</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="247"/>
+        <location filename="../modules/personalization/personalization.cpp" line="266"/>
         <source>Standard</source>
         <translation>Szokásos</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="248"/>
+        <location filename="../modules/personalization/personalization.cpp" line="267"/>
         <source>Monospaced</source>
         <translation>Rögzített szélességű</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="249"/>
+        <location filename="../modules/personalization/personalization.cpp" line="268"/>
         <source>Size</source>
         <translation>Méret</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="264"/>
-        <location filename="../modules/personalization/personalization.cpp" line="601"/>
+        <location filename="../modules/personalization/personalization.cpp" line="283"/>
+        <location filename="../modules/personalization/personalization.cpp" line="620"/>
         <source>Font</source>
         <translation>Betűtípus</translation>
     </message>
 </context>
 <context>
+    <name>Plugin::Sound::SoundView</name>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="67"/>
+        <source>Output Port</source>
+        <translation>Kimeneti port</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="79"/>
+        <source>Output device</source>
+        <translation>Kimeneti eszköz</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="96"/>
+        <source>Input Port</source>
+        <translation>Bemeneti port</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="111"/>
+        <source>Input device</source>
+        <translation>Bemeneti eszköz</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="124"/>
+        <location filename="../modules/sound/soundview.cpp" line="133"/>
+        <source>Show Advanced...</source>
+        <translation>További opciók...</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="138"/>
+        <source>Hide Advanced...</source>
+        <translation>További opciók elrejtése...</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="185"/>
+        <source>Sound effects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="200"/>
+        <source>Speaker</source>
+        <translation>Hangszóró</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="211"/>
+        <source>Output Volume</source>
+        <translation>Kimeneti hangerő</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="222"/>
+        <source>Left/Right Balance</source>
+        <translation>Bal/Jobb balansz</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="226"/>
+        <source>Left</source>
+        <translation>Balra</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="227"/>
+        <source>Right</source>
+        <translation>Jobbra</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="320"/>
+        <source>Microphone</source>
+        <translation>Mikrofon</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="331"/>
+        <source>Input Volume</source>
+        <translation>Bemeneti hangerő</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="343"/>
+        <source>Feedback Volume</source>
+        <translation>Visszajelzések volumene </translation>
+    </message>
+</context>
+<context>
     <name>Power</name>
     <message>
-        <location filename="../modules/power/power.cpp" line="43"/>
+        <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="44"/>
+        <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="46"/>
+        <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="48"/>
+        <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="50"/>
+        <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
         <translation type="unfinished"/>
     </message>
@@ -1686,7 +1558,12 @@
         <translation>Főkapcsoló</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="104"/>
+        <source>Charged</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="106"/>
         <source>On Charging %1</source>
         <translation>Töltés %1</translation>
     </message>
@@ -1731,40 +1608,6 @@
     </message>
 </context>
 <context>
-    <name>SharePanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="26"/>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="113"/>
-        <source>Sharing</source>
-        <translation>Megosztás</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="76"/>
-        <source>Sharing your desktop, your can continue to share or choose to disconnect</source>
-        <translation>Desktop megosztása folyamatban, folytathatja vagy leállíthatja a megosztást</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="103"/>
-        <source>Remote Assistance</source>
-        <translation>Távoli segítségnyújtás</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="106"/>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="111"/>
-        <source>Retry</source>
-        <translation>Újra</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="117"/>
-        <source>Failed to establish the connection, you can retry to connect</source>
-        <translation>A kapcsolat létrehozása sikertelen, próbáljon újra csatlakozni</translation>
-    </message>
-</context>
-<context>
     <name>ShortcutDbus</name>
     <message>
         <location filename="../modules/shortcuts/shortcutdbus.cpp" line="75"/>
@@ -1788,90 +1631,6 @@
     </message>
 </context>
 <context>
-    <name>Sound</name>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="62"/>
-        <source>Sound</source>
-        <translation>Hang</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="109"/>
-        <source>Speaker</source>
-        <translation>Hangszóró</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="119"/>
-        <source>Output Volume</source>
-        <translation>Kimeneti hangerő</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="130"/>
-        <source>Left/Right Balance</source>
-        <translation>Bal/Jobb balansz</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="134"/>
-        <source>Left</source>
-        <translation>Balra</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="135"/>
-        <source>Right</source>
-        <translation>Jobbra</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="153"/>
-        <source>Microphone</source>
-        <translation>Mikrofon</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="165"/>
-        <source>Input Volume</source>
-        <translation>Bemeneti hangerő</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="177"/>
-        <source>Feedback Volume</source>
-        <translation>Visszajelzések volumene </translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="238"/>
-        <source>Output Port</source>
-        <translation>Kimeneti port</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="251"/>
-        <source>Output device</source>
-        <translation>Kimeneti eszköz</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="271"/>
-        <source>Input Port</source>
-        <translation>Bemeneti port</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="285"/>
-        <source>Input device</source>
-        <translation>Bemeneti eszköz</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="298"/>
-        <location filename="../modules/sound/sound.cpp" line="305"/>
-        <source>Show Advanced...</source>
-        <translation>További opciók...</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="310"/>
-        <source>Hide Advanced...</source>
-        <translation>További opciók elrejtése...</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="321"/>
-        <source>Sound effects</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>SoundPlugin</name>
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/soundplugin.cpp" line="32"/>
@@ -1882,52 +1641,52 @@
 <context>
     <name>SystemInfo</name>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="44"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
         <source>System Information</source>
         <translation>Rendszerinformációk</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="50"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
         <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="55"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
         <source>Deepin Edition:</source>
         <translation>Deepin Verzió:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="61"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
         <source>Distribution:</source>
         <translation>Disztribúció:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="67"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
         <source>System Type:</source>
         <translation>Rendszertípus:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="69"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
         <source>%1 Bit</source>
         <translation>%1 bit</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="72"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
         <source>Processor:</source>
         <translation>Processzor:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
         <source>Memory:</source>
         <translation>Memória:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
         <source>Disk:</source>
         <translation>Lemez:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="154"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="165"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
         <translation>GNU ÁLTALÁNOS PUBLIKUS LICENC</translation>
     </message>
@@ -2085,37 +1844,32 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="110"/>
         <source>Recently Used</source>
         <translation>Legutóbb használt</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="112"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
         <source>Avatar</source>
         <translation>Profilkép</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="161"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="163"/>
         <source>Auto-login</source>
         <translation>Automatikus belépés</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="187"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="189"/>
         <source>Enable</source>
         <translation>Engedélyezés</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="220"/>
-        <source>Account Type</source>
-        <translation>Fiók típusa</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="275"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="246"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>Válasszon egy új profilképet</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="276"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="247"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>Képfájlok (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -2123,32 +1877,32 @@
 <context>
     <name>UserExpandHeader</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="187"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="180"/>
         <source>Keep user&apos;s files</source>
         <translation> Felhasználói fájlok megtartása</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="188"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="181"/>
         <source>Delete user&apos;s files</source>
         <translation> Felhasználói fájlok törlése</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="190"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="183"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="191"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="184"/>
         <source>Confirm</source>
         <translation>Megerősítés</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="239"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="232"/>
         <source>Administrator</source>
         <translation>Adminisztrátor</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="241"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="234"/>
         <source>Normal User</source>
         <translation>Általános felhasználó</translation>
     </message>
@@ -2181,102 +1935,102 @@
 <context>
     <name>Wacom</name>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="47"/>
+        <location filename="../modules/wacom/wacom.cpp" line="56"/>
         <source>Page Up</source>
         <translation>Oldal fel</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="48"/>
+        <location filename="../modules/wacom/wacom.cpp" line="57"/>
         <source>Page Down</source>
         <translation>Oldal le</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="49"/>
+        <location filename="../modules/wacom/wacom.cpp" line="58"/>
         <source>Left Click</source>
         <translation>Bal kattintás</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="50"/>
+        <location filename="../modules/wacom/wacom.cpp" line="59"/>
         <source>Right Click</source>
         <translation>Jobb kattintás</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="51"/>
+        <location filename="../modules/wacom/wacom.cpp" line="60"/>
         <source>Middle Click</source>
         <translation>Középső kattintás</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="69"/>
+        <location filename="../modules/wacom/wacom.cpp" line="78"/>
         <source>Tablet</source>
         <translation>Táblagép</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="83"/>
+        <location filename="../modules/wacom/wacom.cpp" line="92"/>
         <source>Tablet Orientation</source>
         <translation>Táblagép orientáció</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="88"/>
+        <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Left Hand</source>
         <translation>Bal kéz</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="89"/>
+        <location filename="../modules/wacom/wacom.cpp" line="98"/>
         <source>Right Hand</source>
         <translation>Jobb kéz</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="101"/>
+        <location filename="../modules/wacom/wacom.cpp" line="110"/>
         <source>Digital Pen Modes</source>
         <translation>Digitális pen üzemmódok</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="106"/>
+        <location filename="../modules/wacom/wacom.cpp" line="115"/>
         <source>Pen Mode</source>
         <translation>Toll üzemmód</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="107"/>
+        <location filename="../modules/wacom/wacom.cpp" line="116"/>
         <source>Mouse Mode</source>
         <translation>Egér üzemmód</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="119"/>
+        <location filename="../modules/wacom/wacom.cpp" line="128"/>
         <source>Down Key</source>
         <translation>Le gomb</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="138"/>
+        <location filename="../modules/wacom/wacom.cpp" line="147"/>
         <source>Up Key</source>
         <translation>Fel gomb</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="157"/>
+        <location filename="../modules/wacom/wacom.cpp" line="166"/>
         <source>Pressure</source>
         <translation>Nyomás</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="162"/>
+        <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Soft</source>
         <translation>Soft</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="163"/>
+        <location filename="../modules/wacom/wacom.cpp" line="172"/>
         <source>Hard</source>
         <translation>Kemény</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="177"/>
+        <location filename="../modules/wacom/wacom.cpp" line="186"/>
         <source>Double-click Space</source>
         <translation>Két kattintású hely</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="182"/>
+        <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Narrow</source>
         <translation>Keskeny</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="183"/>
+        <location filename="../modules/wacom/wacom.cpp" line="192"/>
         <source>Wide</source>
         <translation>Széles</translation>
     </message>
@@ -2297,13 +2051,13 @@
 <context>
     <name>WiredPlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="47"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="64"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="49"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="66"/>
         <source>Wired Network</source>
         <translation>Vezetékes hálózat </translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="71"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="73"/>
         <source>Network Not Connected</source>
         <translation>Nincs csatlakoztatva hálózat</translation>
     </message>

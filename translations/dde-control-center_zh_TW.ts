@@ -1,65 +1,13 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_TW" version="2.1">
 <context>
-    <name>AbstractPanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="74"/>
-        <source>Remote Assistance</source>
-        <translation>遠端協助</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="77"/>
-        <source>Ok</source>
-        <translation>確定</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="83"/>
-        <source>No network connections are available, please retry after connected</source>
-        <translation>沒有可使用的網路連線，請在連線後重試</translation>
-    </message>
-</context>
-<context>
-    <name>AccessPanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="24"/>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="80"/>
-        <source>Accessing</source>
-        <translation>存取</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="91"/>
-        <source>You are accessing the desktop shared by other users, you can choose to continue or disconnect</source>
-        <translation>你正存取由其他使用者分享的桌面，你可以選擇繼續或斷線</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="101"/>
-        <source>Remote Assistance</source>
-        <translation>遠端協助</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="111"/>
-        <source>Failed to establish the connection, you can retry to connect</source>
-        <translation>無法建立連線，你可以重試</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="112"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="117"/>
-        <source>Retry</source>
-        <translation>重試</translation>
-    </message>
-</context>
-<context>
     <name>AccountConfirmButtonLine</name>
     <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="108"/>
+        <location filename="../modules/account/ui/controlline.cpp" line="83"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="110"/>
+        <location filename="../modules/account/ui/controlline.cpp" line="85"/>
         <source>Confirm</source>
         <translation>確定</translation>
     </message>
@@ -72,7 +20,7 @@
         <translation>使用者帳號</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="80"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="81"/>
         <source>User List</source>
         <translation>使用者清單</translation>
     </message>
@@ -82,22 +30,9 @@
         <translation>新增帳號</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="268"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="271"/>
         <source>Delete Account</source>
         <translation>刪除帳號</translation>
-    </message>
-</context>
-<context>
-    <name>AccountTypeLine</name>
-    <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="85"/>
-        <source>Normal User</source>
-        <translation>普通使用者</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="86"/>
-        <source>Administrator</source>
-        <translation>管理員</translation>
     </message>
 </context>
 <context>
@@ -294,32 +229,6 @@
     </message>
 </context>
 <context>
-    <name>ConnectedView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectedview.cpp" line="32"/>
-        <source>Disconnect</source>
-        <translation>斷線</translation>
-    </message>
-</context>
-<context>
-    <name>ConnectingView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="31"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="67"/>
-        <source>Establishing connection, please wait...</source>
-        <translation>正在建立連線，請稍等 ...</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="84"/>
-        <source>This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully</source>
-        <translation>這個面板會自動隱藏且遠端通話視窗會在成功建立連接後於桌面開啟</translation>
-    </message>
-</context>
-<context>
     <name>CreateUserPanel</name>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="63"/>
@@ -328,67 +237,51 @@
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="311"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="294"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="300"/>
         <source>new user</source>
         <translation>新使用者</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="96"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="105"/>
-        <source>Normal User</source>
-        <translation>一般使用者</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="102"/>
-        <source>Administrator</source>
-        <translation>管理員</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="142"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="127"/>
         <source>Username</source>
         <translation>使用者名稱</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="143"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="128"/>
         <source>Password</source>
         <translation>密碼</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="144"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="129"/>
         <source>Repeat Password</source>
         <translation>再次輸入密碼</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="145"/>
-        <source>Account Type</source>
-        <translation>帳號類型</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="146"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="130"/>
         <source>Auto-login</source>
         <translation>自動登入</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="183"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="188"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="277"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="166"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
         <source>Password can not be empty.</source>
         <translation>密碼不能空白。</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="192"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="274"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="290"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="327"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="334"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="175"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="257"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="273"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="310"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
         <source>The two passwords do not match.</source>
         <translation>兩次輸入的密碼不相同。</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="262"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="272"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="287"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="245"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="255"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
         <source>Username can not be empty.</source>
         <translation>使用者名稱不能空白。</translation>
     </message>
@@ -563,32 +456,32 @@
 <context>
     <name>Datetime</name>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="53"/>
+        <location filename="../modules/datetime/datetime.cpp" line="63"/>
         <source>Date</source>
         <translation>日期</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="61"/>
+        <location filename="../modules/datetime/datetime.cpp" line="71"/>
         <source>Time Zone</source>
         <translation>時區</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="68"/>
+        <location filename="../modules/datetime/datetime.cpp" line="78"/>
         <source>Sync Automatically</source>
         <translation>自動同步</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="75"/>
+        <location filename="../modules/datetime/datetime.cpp" line="85"/>
         <source>Use 24-hour clock</source>
         <translation>24 小時制</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="80"/>
+        <location filename="../modules/datetime/datetime.cpp" line="90"/>
         <source>Reset</source>
         <translation>重設</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="92"/>
+        <location filename="../modules/datetime/datetime.cpp" line="102"/>
         <source>Date and Time</source>
         <translation>日期與時間</translation>
     </message>
@@ -596,73 +489,73 @@
 <context>
     <name>DefaultApps</name>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="49"/>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="54"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="83"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="123"/>
         <source>Default Applications</source>
         <translation>預設程式</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="57"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="121"/>
         <source>AutoPlay</source>
         <translation>自動播放</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="63"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
         <source>Browser</source>
         <translation>瀏覽器</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="65"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
         <source>Mail</source>
         <translation>電子郵件</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="67"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
         <source>Text</source>
         <translation>文字文件</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="69"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
         <source>Music</source>
         <translation>音樂</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="71"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
         <source>Video</source>
         <translation>影片</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="73"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
         <source>Picture</source>
         <translation>圖片</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="75"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
         <source>Terminal</source>
         <translation>終端機</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="78"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
         <source>CD Audio</source>
         <translation>CD音訊</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="81"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
         <source>DVD Video</source>
         <translation>DVD視訊</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="84"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
         <source>Music Player</source>
         <translation>音樂播放器</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="87"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="127"/>
         <source>Camera</source>
         <translation>照相機</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="90"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
         <source>Software</source>
         <translation>軟體</translation>
     </message>
@@ -696,22 +589,22 @@
         <translation>重試</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="106"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
         <source>removable disk</source>
         <translation>抽取式磁碟</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
         <source>network disk</source>
         <translation>網路硬碟</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="112"/>
         <source>local disk</source>
         <translation>本機硬碟</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
         <translation>無法解除安裝 %1&quot; %2 &quot;，請重試。</translation>
     </message>
@@ -724,47 +617,47 @@
         <translation>顯示</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="157"/>
+        <location filename="../modules/display/display.cpp" line="161"/>
         <source>Display Mode</source>
         <translation>播放模式</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="163"/>
+        <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy</source>
         <translation>複製畫面</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="164"/>
+        <location filename="../modules/display/display.cpp" line="168"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>將你的主螢幕內容複製到其他螢幕。</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="174"/>
+        <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend</source>
         <translation>延伸畫面</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="175"/>
+        <location filename="../modules/display/display.cpp" line="179"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>將你的螢幕內容延伸，在不同螢幕顯示不同內容。</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="186"/>
+        <location filename="../modules/display/display.cpp" line="190"/>
         <source>Custom Settings</source>
         <translation>個人化設定</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="187"/>
+        <location filename="../modules/display/display.cpp" line="191"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>你可以針對螢幕做其他個人化設定。</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="197"/>
+        <location filename="../modules/display/display.cpp" line="201"/>
         <source>Only Displayed on %1</source>
         <translation>僅在 %1 上顯示</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="198"/>
+        <location filename="../modules/display/display.cpp" line="202"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>僅在 %1 上顯示螢幕內容，其他螢幕不顯示。</translation>
     </message>
@@ -820,43 +713,6 @@
     </message>
 </context>
 <context>
-    <name>GeneratedView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="42"/>
-        <source>Copy Code</source>
-        <translation>複製驗證碼</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="44"/>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="79"/>
-        <source>Copied to clipboard successfully</source>
-        <translation>成功複製到剪貼簿</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="53"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="89"/>
-        <source>To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input</source>
-        <translation>要開始分享你的桌面，請提供以上的驗證碼給協助你的人。你的分享工作階段將在驗證碼輸入後立刻開始。</translation>
-    </message>
-</context>
-<context>
-    <name>GeneratingView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatingview.cpp" line="32"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatingview.cpp" line="65"/>
-        <source>Generating the verification code, please wait...</source>
-        <translation>正在產生驗證碼，請稍等 ...</translation>
-    </message>
-</context>
-<context>
     <name>GrubWidget</name>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="30"/>
@@ -903,7 +759,7 @@
 <context>
     <name>HomeScreen</name>
     <message>
-        <location filename="../frame/homescreen.cpp" line="108"/>
+        <location filename="../frame/homescreen.cpp" line="128"/>
         <source>Shutdown</source>
         <translation>關機</translation>
     </message>
@@ -932,84 +788,59 @@
     </message>
 </context>
 <context>
-    <name>InputView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="32"/>
-        <source>Connect</source>
-        <translation>連線</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="41"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="81"/>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="82"/>
-        <source>Start remote access after clicking on &quot;Connect&quot;</source>
-        <translation>按一下 &quot; 連線 &quot; 後開始遠端存取</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="83"/>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="95"/>
-        <source>Please enter the verification code in the input field above</source>
-        <translation>請在上方輸入框內輸入驗證碼</translation>
-    </message>
-</context>
-<context>
     <name>Keyboard</name>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="139"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="150"/>
         <source>Keyboard and Language</source>
         <translation>鍵盤與語言</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="152"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="163"/>
         <source>Repeat Delay</source>
         <translation>重復延遲</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="173"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
         <source>Repeat Rate</source>
         <translation>重複速度</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="194"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="205"/>
         <source>Cursor Blink Rate</source>
         <translation>游標閃爍頻率</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="216"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="227"/>
         <source>Test Area</source>
         <translation>測試區</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="230"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="241"/>
         <source>Caps Lock prompt</source>
         <translation>大寫鍵提示</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="247"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="258"/>
         <source>Language</source>
         <translation>語言</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="252"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="263"/>
         <source>Keyboard Layout</source>
         <translation>鍵盤佈局</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="253"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="264"/>
         <source>Remove Keyboard Layout</source>
         <translation>移除鍵盤佈局設定</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="254"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="265"/>
         <source>Add Keyboard Layout</source>
         <translation>增加鍵盤佈局設定</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="342"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="363"/>
         <source>Search</source>
         <translation>搜尋</translation>
     </message>
@@ -1025,34 +856,6 @@
         <location filename="../modules/network/listwidgetcontainer.cpp" line="102"/>
         <source>Connect</source>
         <translation>連線</translation>
-    </message>
-</context>
-<context>
-    <name>MainPanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="25"/>
-        <source>Remote Assistance</source>
-        <translation>遠端協助</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="36"/>
-        <source>Share</source>
-        <translation>共用</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="36"/>
-        <source>Share your desktop to get remote assistance from other users</source>
-        <translation>分享你的桌面取得來自其他使用者的遠端協助</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="43"/>
-        <source>Access</source>
-        <translation>造訪</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="43"/>
-        <source>Access to the desktop shared by other users</source>
-        <translation>進入其他使用者分享的桌面</translation>
     </message>
 </context>
 <context>
@@ -1206,84 +1009,74 @@
         <translation>關機</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="39"/>
-        <source>Sound</source>
-        <translation>聲音</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/power.cpp" line="25"/>
+        <location filename="../modules/power/power.cpp" line="35"/>
         <source>Power Management</source>
         <translation>電源管理</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="42"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="63"/>
         <source>Default Applications</source>
         <translation>預設程式</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="30"/>
+        <location filename="../modules/mouse/mouse.cpp" line="37"/>
         <source>Mouse and Touchpad</source>
         <translation>滑鼠與觸控板</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="39"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Information</source>
         <translation>系統資訊</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="30"/>
+        <location filename="../modules/display/display.cpp" line="39"/>
         <source>Display</source>
         <translation>顯示</translation>
     </message>
     <message>
-        <location filename="../modules/account/account.cpp" line="17"/>
+        <location filename="../modules/account/account.cpp" line="18"/>
         <source>User Accounts</source>
         <translation>使用者帳號</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/shortcuts.cpp" line="19"/>
+        <location filename="../modules/shortcuts/shortcuts.cpp" line="28"/>
         <source>Keyboard Shortcuts</source>
         <translation>捷徑鍵</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="33"/>
+        <location filename="../modules/personalization/personalization.cpp" line="44"/>
         <source>Personalization</source>
         <translation>個人化</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="51"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="61"/>
         <source>Keyboard and Language</source>
         <translation>鍵盤與語言</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="40"/>
+        <location filename="../modules/datetime/datetime.cpp" line="50"/>
         <source>Date and Time</source>
         <translation>日期與時間</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="22"/>
+        <location filename="../modules/wacom/wacom.cpp" line="28"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grub.cpp" line="19"/>
+        <location filename="../modules/grub/grub.cpp" line="28"/>
         <source>Boot Menu</source>
         <translation>啟動程式選單</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/bluetooth.cpp" line="19"/>
+        <location filename="../modules/bluetooth/bluetooth.cpp" line="35"/>
         <source>Bluetooth</source>
         <translation>藍牙</translation>
     </message>
     <message>
-        <location filename="../modules/network/network.cpp" line="19"/>
+        <location filename="../modules/network/network.cpp" line="34"/>
         <source>Network</source>
         <translation>網路</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/remoteassistance.cpp" line="42"/>
-        <source>Remote Assistance</source>
-        <translation>遠端協助</translation>
     </message>
 </context>
 <context>
@@ -1307,77 +1100,77 @@
 <context>
     <name>Mouse</name>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="52"/>
+        <location filename="../modules/mouse/mouse.cpp" line="59"/>
         <source>Mouse And Touchpad</source>
         <translation>滑鼠與觸控板</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="68"/>
-        <location filename="../modules/mouse/mouse.cpp" line="181"/>
+        <location filename="../modules/mouse/mouse.cpp" line="75"/>
+        <location filename="../modules/mouse/mouse.cpp" line="188"/>
         <source>Primary Button</source>
         <translation>主按鍵</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="71"/>
-        <location filename="../modules/mouse/mouse.cpp" line="154"/>
+        <location filename="../modules/mouse/mouse.cpp" line="78"/>
+        <location filename="../modules/mouse/mouse.cpp" line="161"/>
         <source>Left Button</source>
         <translation>左鍵</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="72"/>
-        <location filename="../modules/mouse/mouse.cpp" line="155"/>
+        <location filename="../modules/mouse/mouse.cpp" line="79"/>
+        <location filename="../modules/mouse/mouse.cpp" line="162"/>
         <source>Right Button</source>
         <translation>右鍵</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="83"/>
-        <location filename="../modules/mouse/mouse.cpp" line="182"/>
-        <location filename="../modules/mouse/mouse.cpp" line="206"/>
+        <location filename="../modules/mouse/mouse.cpp" line="90"/>
+        <location filename="../modules/mouse/mouse.cpp" line="189"/>
+        <location filename="../modules/mouse/mouse.cpp" line="213"/>
         <source>Pointer Speed</source>
         <translation>指標移動速度</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="100"/>
+        <location filename="../modules/mouse/mouse.cpp" line="107"/>
         <source>Double-click Speed</source>
         <translation>滑鼠鍵按兩下速度</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="117"/>
+        <location filename="../modules/mouse/mouse.cpp" line="124"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>接上滑鼠時停用觸控板</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="143"/>
+        <location filename="../modules/mouse/mouse.cpp" line="150"/>
         <source>Touchpad</source>
         <translation>觸控板</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="183"/>
+        <location filename="../modules/mouse/mouse.cpp" line="190"/>
         <source>Drag Threshold</source>
         <translation>拖動閥值</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="184"/>
+        <location filename="../modules/mouse/mouse.cpp" line="191"/>
         <source>Natural Scrolling</source>
         <translation>自然捲動</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="185"/>
+        <location filename="../modules/mouse/mouse.cpp" line="192"/>
         <source>Tap to click</source>
         <translation>輕觸點選</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="186"/>
+        <location filename="../modules/mouse/mouse.cpp" line="193"/>
         <source>Two-finger scrolling</source>
         <translation>雙指捲動</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="187"/>
+        <location filename="../modules/mouse/mouse.cpp" line="194"/>
         <source>Edge scrolling</source>
         <translation>邊緣捲動</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="195"/>
+        <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
         <translation type="unfinished"/>
     </message>
@@ -1528,17 +1321,17 @@
 <context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="156"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="159"/>
         <source>Network</source>
         <translation>網路</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="163"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="172"/>
         <source>View detailed information</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="180"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="186"/>
         <source>System Proxy</source>
         <translation>系統 Proxy</translation>
     </message>
@@ -1591,81 +1384,160 @@
 <context>
     <name>Personalization</name>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="49"/>
+        <location filename="../modules/personalization/personalization.cpp" line="67"/>
         <source>Personalization</source>
         <translation>個人化</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="126"/>
+        <location filename="../modules/personalization/personalization.cpp" line="145"/>
         <source>Window</source>
         <translation>視窗</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="152"/>
+        <location filename="../modules/personalization/personalization.cpp" line="171"/>
         <source>Icon</source>
         <translation>圖示</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="187"/>
+        <location filename="../modules/personalization/personalization.cpp" line="206"/>
         <source>Cursor</source>
         <translation>滑鼠游標</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="220"/>
+        <location filename="../modules/personalization/personalization.cpp" line="239"/>
         <source>Wallpaper</source>
         <translation>桌布</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="245"/>
+        <location filename="../modules/personalization/personalization.cpp" line="264"/>
         <source>Fonts</source>
         <translation>字型</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="247"/>
+        <location filename="../modules/personalization/personalization.cpp" line="266"/>
         <source>Standard</source>
         <translation>標準</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="248"/>
+        <location filename="../modules/personalization/personalization.cpp" line="267"/>
         <source>Monospaced</source>
         <translation>等寬</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="249"/>
+        <location filename="../modules/personalization/personalization.cpp" line="268"/>
         <source>Size</source>
         <translation>大小</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="264"/>
-        <location filename="../modules/personalization/personalization.cpp" line="601"/>
+        <location filename="../modules/personalization/personalization.cpp" line="283"/>
+        <location filename="../modules/personalization/personalization.cpp" line="620"/>
         <source>Font</source>
         <translation>字型</translation>
     </message>
 </context>
 <context>
+    <name>Plugin::Sound::SoundView</name>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="67"/>
+        <source>Output Port</source>
+        <translation>輸出埠</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="79"/>
+        <source>Output device</source>
+        <translation>輸出裝置</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="96"/>
+        <source>Input Port</source>
+        <translation>輸入埠</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="111"/>
+        <source>Input device</source>
+        <translation>輸入裝置</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="124"/>
+        <location filename="../modules/sound/soundview.cpp" line="133"/>
+        <source>Show Advanced...</source>
+        <translation>顯示進階設定 ...</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="138"/>
+        <source>Hide Advanced...</source>
+        <translation>隱藏進階設定 ...</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="185"/>
+        <source>Sound effects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="200"/>
+        <source>Speaker</source>
+        <translation>揚聲器</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="211"/>
+        <source>Output Volume</source>
+        <translation>輸出音量</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="222"/>
+        <source>Left/Right Balance</source>
+        <translation>左 / 右平衡</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="226"/>
+        <source>Left</source>
+        <translation>靠左對齊</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="227"/>
+        <source>Right</source>
+        <translation>靠右對齊</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="320"/>
+        <source>Microphone</source>
+        <translation>麥克風</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="331"/>
+        <source>Input Volume</source>
+        <translation>輸入音量</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="343"/>
+        <source>Feedback Volume</source>
+        <translation>接收音量</translation>
+    </message>
+</context>
+<context>
     <name>Power</name>
     <message>
-        <location filename="../modules/power/power.cpp" line="43"/>
+        <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="44"/>
+        <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="46"/>
+        <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="48"/>
+        <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="50"/>
+        <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
         <translation type="unfinished"/>
     </message>
@@ -1686,7 +1558,12 @@
         <translation>電源</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="104"/>
+        <source>Charged</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="106"/>
         <source>On Charging %1</source>
         <translation>充電中 %1</translation>
     </message>
@@ -1731,40 +1608,6 @@
     </message>
 </context>
 <context>
-    <name>SharePanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="26"/>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="113"/>
-        <source>Sharing</source>
-        <translation>正在分享</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="76"/>
-        <source>Sharing your desktop, your can continue to share or choose to disconnect</source>
-        <translation>分享你的桌面，你可以繼續分享或斷線</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="103"/>
-        <source>Remote Assistance</source>
-        <translation>遠端協助</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="106"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="111"/>
-        <source>Retry</source>
-        <translation>重試</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="117"/>
-        <source>Failed to establish the connection, you can retry to connect</source>
-        <translation>無法建立連線，你可以重試</translation>
-    </message>
-</context>
-<context>
     <name>ShortcutDbus</name>
     <message>
         <location filename="../modules/shortcuts/shortcutdbus.cpp" line="75"/>
@@ -1788,90 +1631,6 @@
     </message>
 </context>
 <context>
-    <name>Sound</name>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="62"/>
-        <source>Sound</source>
-        <translation>聲音</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="109"/>
-        <source>Speaker</source>
-        <translation>揚聲器</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="119"/>
-        <source>Output Volume</source>
-        <translation>輸出音量</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="130"/>
-        <source>Left/Right Balance</source>
-        <translation>左 / 右平衡</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="134"/>
-        <source>Left</source>
-        <translation>靠左對齊</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="135"/>
-        <source>Right</source>
-        <translation>靠右對齊</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="153"/>
-        <source>Microphone</source>
-        <translation>麥克風</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="165"/>
-        <source>Input Volume</source>
-        <translation>輸入音量</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="177"/>
-        <source>Feedback Volume</source>
-        <translation>接收音量</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="238"/>
-        <source>Output Port</source>
-        <translation>輸出埠</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="251"/>
-        <source>Output device</source>
-        <translation>輸出裝置</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="271"/>
-        <source>Input Port</source>
-        <translation>輸入埠</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="285"/>
-        <source>Input device</source>
-        <translation>輸入裝置</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="298"/>
-        <location filename="../modules/sound/sound.cpp" line="305"/>
-        <source>Show Advanced...</source>
-        <translation>顯示進階設定 ...</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="310"/>
-        <source>Hide Advanced...</source>
-        <translation>隱藏進階設定 ...</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="321"/>
-        <source>Sound effects</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>SoundPlugin</name>
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/soundplugin.cpp" line="32"/>
@@ -1882,52 +1641,52 @@
 <context>
     <name>SystemInfo</name>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="44"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
         <source>System Information</source>
         <translation>系統資訊</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="50"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
         <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>版權所有 (c) 2011-2016 武漢深度科技有限公司</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="55"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
         <source>Deepin Edition:</source>
         <translation>Deepin 版本 :</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="61"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
         <source>Distribution:</source>
         <translation>分布 :</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="67"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
         <source>System Type:</source>
         <translation>系統類型 :</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="69"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
         <source>%1 Bit</source>
         <translation>%1位元</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="72"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
         <source>Processor:</source>
         <translation>處理器 :</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
         <source>Memory:</source>
         <translation>記憶體 :</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
         <source>Disk:</source>
         <translation>硬碟 :</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="154"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="165"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
         <translation>GNU 通用公共許可證</translation>
     </message>
@@ -2085,37 +1844,32 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="110"/>
         <source>Recently Used</source>
         <translation>最近使用</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="112"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
         <source>Avatar</source>
         <translation>大頭貼照</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="161"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="163"/>
         <source>Auto-login</source>
         <translation>自動登入</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="187"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="189"/>
         <source>Enable</source>
         <translation>開啟</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="220"/>
-        <source>Account Type</source>
-        <translation>帳號類型</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="275"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="246"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>選擇一張新圖片作為你的大頭貼照</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="276"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="247"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>影像檔案 (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -2123,32 +1877,32 @@
 <context>
     <name>UserExpandHeader</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="187"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="180"/>
         <source>Keep user&apos;s files</source>
         <translation>保留使用者檔案</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="188"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="181"/>
         <source>Delete user&apos;s files</source>
         <translation>刪除使用者檔案</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="190"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="183"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="191"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="184"/>
         <source>Confirm</source>
         <translation>確定</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="239"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="232"/>
         <source>Administrator</source>
         <translation>管理員</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="241"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="234"/>
         <source>Normal User</source>
         <translation>普通使用者</translation>
     </message>
@@ -2181,102 +1935,102 @@
 <context>
     <name>Wacom</name>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="47"/>
+        <location filename="../modules/wacom/wacom.cpp" line="56"/>
         <source>Page Up</source>
         <translation>上一頁</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="48"/>
+        <location filename="../modules/wacom/wacom.cpp" line="57"/>
         <source>Page Down</source>
         <translation>下一頁</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="49"/>
+        <location filename="../modules/wacom/wacom.cpp" line="58"/>
         <source>Left Click</source>
         <translation>按滑鼠左鍵</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="50"/>
+        <location filename="../modules/wacom/wacom.cpp" line="59"/>
         <source>Right Click</source>
         <translation>按滑鼠右鍵</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="51"/>
+        <location filename="../modules/wacom/wacom.cpp" line="60"/>
         <source>Middle Click</source>
         <translation>按滑鼠中鍵</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="69"/>
+        <location filename="../modules/wacom/wacom.cpp" line="78"/>
         <source>Tablet</source>
         <translation>數位板</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="83"/>
+        <location filename="../modules/wacom/wacom.cpp" line="92"/>
         <source>Tablet Orientation</source>
         <translation>數位板方向</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="88"/>
+        <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Left Hand</source>
         <translation>左手</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="89"/>
+        <location filename="../modules/wacom/wacom.cpp" line="98"/>
         <source>Right Hand</source>
         <translation>右手</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="101"/>
+        <location filename="../modules/wacom/wacom.cpp" line="110"/>
         <source>Digital Pen Modes</source>
         <translation>數位筆模式</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="106"/>
+        <location filename="../modules/wacom/wacom.cpp" line="115"/>
         <source>Pen Mode</source>
         <translation>觸控筆模式</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="107"/>
+        <location filename="../modules/wacom/wacom.cpp" line="116"/>
         <source>Mouse Mode</source>
         <translation>滑鼠模式</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="119"/>
+        <location filename="../modules/wacom/wacom.cpp" line="128"/>
         <source>Down Key</source>
         <translation>下鍵</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="138"/>
+        <location filename="../modules/wacom/wacom.cpp" line="147"/>
         <source>Up Key</source>
         <translation>上鍵</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="157"/>
+        <location filename="../modules/wacom/wacom.cpp" line="166"/>
         <source>Pressure</source>
         <translation>壓感</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="162"/>
+        <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Soft</source>
         <translation>輕</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="163"/>
+        <location filename="../modules/wacom/wacom.cpp" line="172"/>
         <source>Hard</source>
         <translation>重</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="177"/>
+        <location filename="../modules/wacom/wacom.cpp" line="186"/>
         <source>Double-click Space</source>
         <translation>連按兩下間隔</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="182"/>
+        <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Narrow</source>
         <translation>小</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="183"/>
+        <location filename="../modules/wacom/wacom.cpp" line="192"/>
         <source>Wide</source>
         <translation>大</translation>
     </message>
@@ -2297,13 +2051,13 @@
 <context>
     <name>WiredPlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="47"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="64"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="49"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="66"/>
         <source>Wired Network</source>
         <translation>有線網路</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="71"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="73"/>
         <source>Network Not Connected</source>
         <translation>網路未連線</translation>
     </message>

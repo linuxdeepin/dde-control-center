@@ -1,65 +1,13 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="eo" version="2.1">
 <context>
-    <name>AbstractPanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="74"/>
-        <source>Remote Assistance</source>
-        <translation>Malproksima asistado</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="77"/>
-        <source>Ok</source>
-        <translation>Bone</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/abstractpanel.cpp" line="83"/>
-        <source>No network connections are available, please retry after connected</source>
-        <translation>Neniu reto ligoj estas haveblaj, bonvolu konekti kaj reprovu</translation>
-    </message>
-</context>
-<context>
-    <name>AccessPanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="24"/>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="80"/>
-        <source>Accessing</source>
-        <translation>Aliranta</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="91"/>
-        <source>You are accessing the desktop shared by other users, you can choose to continue or disconnect</source>
-        <translation>Vi aliras la labortablo partoprenita de aliaj uzantoj, vi povas elekti por daŭrigi aŭ malkonekti</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="101"/>
-        <source>Remote Assistance</source>
-        <translation>Malproksima asistado</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="111"/>
-        <source>Failed to establish the connection, you can retry to connect</source>
-        <translation> Starigi la konfirmon kodon malsukcesis, vi povas reprovi konekti</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="112"/>
-        <source>Cancel</source>
-        <translation>Nuligi</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/accesspanel.cpp" line="117"/>
-        <source>Retry</source>
-        <translation>Reprovi</translation>
-    </message>
-</context>
-<context>
     <name>AccountConfirmButtonLine</name>
     <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="108"/>
+        <location filename="../modules/account/ui/controlline.cpp" line="83"/>
         <source>Cancel</source>
         <translation>Forigi</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="110"/>
+        <location filename="../modules/account/ui/controlline.cpp" line="85"/>
         <source>Confirm</source>
         <translation>Konfirmi</translation>
     </message>
@@ -72,7 +20,7 @@
         <translation>Kontoj de la uzanto</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="80"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="81"/>
         <source>User List</source>
         <translation>Uzantoj listo</translation>
     </message>
@@ -82,22 +30,9 @@
         <translation>Aldoni konton</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/accountmainwidget.cpp" line="268"/>
+        <location filename="../modules/account/ui/accountmainwidget.cpp" line="271"/>
         <source>Delete Account</source>
         <translation>Forigi konton</translation>
-    </message>
-</context>
-<context>
-    <name>AccountTypeLine</name>
-    <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="85"/>
-        <source>Normal User</source>
-        <translation>Normala uzanto</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/controlline.cpp" line="86"/>
-        <source>Administrator</source>
-        <translation>Administranto</translation>
     </message>
 </context>
 <context>
@@ -294,32 +229,6 @@
     </message>
 </context>
 <context>
-    <name>ConnectedView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectedview.cpp" line="32"/>
-        <source>Disconnect</source>
-        <translation>Malkonekti</translation>
-    </message>
-</context>
-<context>
-    <name>ConnectingView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="31"/>
-        <source>Cancel</source>
-        <translation>Nuligi</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="67"/>
-        <source>Establishing connection, please wait...</source>
-        <translation>Establante rilaton, bonvolu atendi...</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/connectingview.cpp" line="84"/>
-        <source>This panel will be hidden automatically and the remote session window will be opened on the desktop after connection is established successfully</source>
-        <translation>Tiu panelo estos aŭtomate kaŝita kaj la malproksima kunsido fenestro estos malfermita sur la labortablo post ke la konekto starigos sukcese</translation>
-    </message>
-</context>
-<context>
     <name>CreateUserPanel</name>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="63"/>
@@ -328,67 +237,51 @@
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="311"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="294"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="300"/>
         <source>new user</source>
         <translation>nova uzanto</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="96"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="105"/>
-        <source>Normal User</source>
-        <translation>Normala uzanto</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="102"/>
-        <source>Administrator</source>
-        <translation>Administranto</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="142"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="127"/>
         <source>Username</source>
         <translation>Uzantonomo</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="143"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="128"/>
         <source>Password</source>
         <translation>Pasvorto</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="144"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="129"/>
         <source>Repeat Password</source>
         <translation>Ripeti pasvorton</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="145"/>
-        <source>Account Type</source>
-        <translation>Konto tipo</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="146"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="130"/>
         <source>Auto-login</source>
         <translation> Aŭtomata ensaluto</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="183"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="188"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="277"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="166"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
         <source>Password can not be empty.</source>
         <translation>Pasvorto ne povas esti malplena</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="192"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="274"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="290"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="327"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="334"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="175"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="257"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="273"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="310"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
         <source>The two passwords do not match.</source>
         <translation>La du pasvortoj ne kongruas</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="262"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="272"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="287"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="245"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="255"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
         <source>Username can not be empty.</source>
         <translation>Uzantonomo ne povas esti malplena</translation>
     </message>
@@ -563,32 +456,32 @@
 <context>
     <name>Datetime</name>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="53"/>
+        <location filename="../modules/datetime/datetime.cpp" line="63"/>
         <source>Date</source>
         <translation>Dato</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="61"/>
+        <location filename="../modules/datetime/datetime.cpp" line="71"/>
         <source>Time Zone</source>
         <translation>Horzono</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="68"/>
+        <location filename="../modules/datetime/datetime.cpp" line="78"/>
         <source>Sync Automatically</source>
         <translation> Aŭtomate sinkronigi</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="75"/>
+        <location filename="../modules/datetime/datetime.cpp" line="85"/>
         <source>Use 24-hour clock</source>
         <translation>Uzi 24-horajn horloĝon</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="80"/>
+        <location filename="../modules/datetime/datetime.cpp" line="90"/>
         <source>Reset</source>
         <translation>Restarigi</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="92"/>
+        <location filename="../modules/datetime/datetime.cpp" line="102"/>
         <source>Date and Time</source>
         <translation>Dato kaj horo</translation>
     </message>
@@ -596,73 +489,73 @@
 <context>
     <name>DefaultApps</name>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="49"/>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="54"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="83"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="123"/>
         <source>Default Applications</source>
         <translation>Defaŭltaj aplikaĵoj</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="57"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="121"/>
         <source>AutoPlay</source>
         <translation>Aŭtomata ludo</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="63"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
         <source>Browser</source>
         <translation>Retfoliumilo</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="65"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
         <source>Mail</source>
         <translation>Retpoŝto</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="67"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
         <source>Text</source>
         <translation>Teksto</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="69"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
         <source>Music</source>
         <translation>Muziko</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="71"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
         <source>Video</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="73"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
         <source>Picture</source>
         <translation>Bildo</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="75"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
         <source>Terminal</source>
         <translation>Terminalo</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="78"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
         <source>CD Audio</source>
         <translation>Aŭda CD</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="81"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
         <source>DVD Video</source>
         <translation>Videa DVD</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="84"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
         <source>Music Player</source>
         <translation>Muzikludanto</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="87"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="127"/>
         <source>Camera</source>
         <translation>Kamerao</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="90"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
         <source>Software</source>
         <translation>Programaro</translation>
     </message>
@@ -696,22 +589,22 @@
         <translation>Reprovi</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="106"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
         <source>removable disk</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
         <source>network disk</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="112"/>
         <source>local disk</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
         <translation type="unfinished"/>
     </message>
@@ -724,47 +617,47 @@
         <translation>Ekrano</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="157"/>
+        <location filename="../modules/display/display.cpp" line="161"/>
         <source>Display Mode</source>
         <translation>Modo de la ekrano</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="163"/>
+        <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy</source>
         <translation>Kopii</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="164"/>
+        <location filename="../modules/display/display.cpp" line="168"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>Kopii la enhavojn de via unuaranga ekrano al aliaj ekranoj.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="174"/>
+        <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend</source>
         <translation>Etendi</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="175"/>
+        <location filename="../modules/display/display.cpp" line="179"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>Etendi vian ekranon enhavojn por montri malsamajn enhavojn sur malsamaj ekranoj.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="186"/>
+        <location filename="../modules/display/display.cpp" line="190"/>
         <source>Custom Settings</source>
         <translation>Personigitaj agordojn</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="187"/>
+        <location filename="../modules/display/display.cpp" line="191"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>Vi povas fari aliajn personaligitajn agordojn al la viaj ekranoj.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="197"/>
+        <location filename="../modules/display/display.cpp" line="201"/>
         <source>Only Displayed on %1</source>
         <translation>Nud montrita sur la %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="198"/>
+        <location filename="../modules/display/display.cpp" line="202"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>Ekrano enhavoj estas montritaj nur sur% 1 sed ne sur aliaj ekranoj.</translation>
     </message>
@@ -820,43 +713,6 @@
     </message>
 </context>
 <context>
-    <name>GeneratedView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="42"/>
-        <source>Copy Code</source>
-        <translation>Kopio kodo</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="44"/>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="79"/>
-        <source>Copied to clipboard successfully</source>
-        <translation>Kopiita al la tondujo sukcese</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="53"/>
-        <source>Cancel</source>
-        <translation>Nuligi</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatedview.cpp" line="89"/>
-        <source>To start sharing your desktop, please provide the above verification code to whom will assist you. Your shared session will begin immediately after verification code input</source>
-        <translation>Por komenci partopreni vian labortablon, bonvolu provizi la supren konfirmon kodon al kiuj helpas vin. Via partoprenita sesio komencos tuj post enigi konfirmon kodon</translation>
-    </message>
-</context>
-<context>
-    <name>GeneratingView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatingview.cpp" line="32"/>
-        <source>Cancel</source>
-        <translation>Nuligi</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/generatingview.cpp" line="65"/>
-        <source>Generating the verification code, please wait...</source>
-        <translation>Generante la konfirmon kodon, bonvolu atendi...</translation>
-    </message>
-</context>
-<context>
     <name>GrubWidget</name>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="30"/>
@@ -903,7 +759,7 @@
 <context>
     <name>HomeScreen</name>
     <message>
-        <location filename="../frame/homescreen.cpp" line="108"/>
+        <location filename="../frame/homescreen.cpp" line="128"/>
         <source>Shutdown</source>
         <translation>Elŝalti</translation>
     </message>
@@ -932,84 +788,59 @@
     </message>
 </context>
 <context>
-    <name>InputView</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="32"/>
-        <source>Connect</source>
-        <translation>Kunligi</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="41"/>
-        <source>Cancel</source>
-        <translation>Nuligi</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="81"/>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="82"/>
-        <source>Start remote access after clicking on &quot;Connect&quot;</source>
-        <translation>Komenci malproksima aliro post klaki sur &quot;konekti&quot;</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="83"/>
-        <location filename="../modules/remote_assistance/view/inputview.cpp" line="95"/>
-        <source>Please enter the verification code in the input field above</source>
-        <translation>Bonvolu eniri la konfirmo kodo en la enigo kampo malsupre</translation>
-    </message>
-</context>
-<context>
     <name>Keyboard</name>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="139"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="150"/>
         <source>Keyboard and Language</source>
         <translation>Klavaro kaj lingvo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="152"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="163"/>
         <source>Repeat Delay</source>
         <translation>Ripeti prokaston</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="173"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
         <source>Repeat Rate</source>
         <translation>Ripeti ritmon</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="194"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="205"/>
         <source>Cursor Blink Rate</source>
         <translation>Intermite kursoro ritmo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="216"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="227"/>
         <source>Test Area</source>
         <translation>Areo de provo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="230"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="241"/>
         <source>Caps Lock prompt</source>
         <translation>Majuskla bloko postulo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="247"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="258"/>
         <source>Language</source>
         <translation>Lingvo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="252"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="263"/>
         <source>Keyboard Layout</source>
         <translation>klavara dizajno</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="253"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="264"/>
         <source>Remove Keyboard Layout</source>
         <translation>Forigi klavararanĝon</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="254"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="265"/>
         <source>Add Keyboard Layout</source>
         <translation>Aldoni klavararanĝon</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="342"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="363"/>
         <source>Search</source>
         <translation type="unfinished"/>
     </message>
@@ -1025,34 +856,6 @@
         <location filename="../modules/network/listwidgetcontainer.cpp" line="102"/>
         <source>Connect</source>
         <translation>Kunligi</translation>
-    </message>
-</context>
-<context>
-    <name>MainPanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="25"/>
-        <source>Remote Assistance</source>
-        <translation>Malproksima asistado</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="36"/>
-        <source>Share</source>
-        <translation>Partopreni</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="36"/>
-        <source>Share your desktop to get remote assistance from other users</source>
-        <translation>Partopreni vian labortablon por havi malproksiman helpon de aliaj uzantoj</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="43"/>
-        <source>Access</source>
-        <translation>Aliri</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/mainpanel.cpp" line="43"/>
-        <source>Access to the desktop shared by other users</source>
-        <translation>Aliro al la labortablo partoprenita de aliaj uzantoj</translation>
     </message>
 </context>
 <context>
@@ -1206,84 +1009,74 @@
         <translation>Elŝalti</translation>
     </message>
     <message>
-        <location filename="../modules/sound/sound.cpp" line="39"/>
-        <source>Sound</source>
-        <translation>Sono</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/power.cpp" line="25"/>
+        <location filename="../modules/power/power.cpp" line="35"/>
         <source>Power Management</source>
         <translation>Energia administrado</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="42"/>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="63"/>
         <source>Default Applications</source>
         <translation>Defaŭltaj aplikaĵoj</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="30"/>
+        <location filename="../modules/mouse/mouse.cpp" line="37"/>
         <source>Mouse and Touchpad</source>
         <translation>Muso kaj tuŝbloko</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="39"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Information</source>
         <translation>Sistemo informoj</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="30"/>
+        <location filename="../modules/display/display.cpp" line="39"/>
         <source>Display</source>
         <translation>Ekrano</translation>
     </message>
     <message>
-        <location filename="../modules/account/account.cpp" line="17"/>
+        <location filename="../modules/account/account.cpp" line="18"/>
         <source>User Accounts</source>
         <translation>Kontoj de la uzanto</translation>
     </message>
     <message>
-        <location filename="../modules/shortcuts/shortcuts.cpp" line="19"/>
+        <location filename="../modules/shortcuts/shortcuts.cpp" line="28"/>
         <source>Keyboard Shortcuts</source>
         <translation>Ŝparvojoj de la klavaro</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="33"/>
+        <location filename="../modules/personalization/personalization.cpp" line="44"/>
         <source>Personalization</source>
         <translation>Personigo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboard.cpp" line="51"/>
+        <location filename="../modules/keyboard/keyboard.cpp" line="61"/>
         <source>Keyboard and Language</source>
         <translation>Klavaro kaj lingvo</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="40"/>
+        <location filename="../modules/datetime/datetime.cpp" line="50"/>
         <source>Date and Time</source>
         <translation>Dato kaj horo</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="22"/>
+        <location filename="../modules/wacom/wacom.cpp" line="28"/>
         <source>Wacom</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/grub/grub.cpp" line="19"/>
+        <location filename="../modules/grub/grub.cpp" line="28"/>
         <source>Boot Menu</source>
         <translation>Starto menuo</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/bluetooth.cpp" line="19"/>
+        <location filename="../modules/bluetooth/bluetooth.cpp" line="35"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../modules/network/network.cpp" line="19"/>
+        <location filename="../modules/network/network.cpp" line="34"/>
         <source>Network</source>
         <translation>Reto</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/remoteassistance.cpp" line="42"/>
-        <source>Remote Assistance</source>
-        <translation>Malproksima asistado</translation>
     </message>
 </context>
 <context>
@@ -1307,77 +1100,77 @@
 <context>
     <name>Mouse</name>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="52"/>
+        <location filename="../modules/mouse/mouse.cpp" line="59"/>
         <source>Mouse And Touchpad</source>
         <translation>Muso kaj tuŝbloko</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="68"/>
-        <location filename="../modules/mouse/mouse.cpp" line="181"/>
+        <location filename="../modules/mouse/mouse.cpp" line="75"/>
+        <location filename="../modules/mouse/mouse.cpp" line="188"/>
         <source>Primary Button</source>
         <translation> Unuaranga butono</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="71"/>
-        <location filename="../modules/mouse/mouse.cpp" line="154"/>
+        <location filename="../modules/mouse/mouse.cpp" line="78"/>
+        <location filename="../modules/mouse/mouse.cpp" line="161"/>
         <source>Left Button</source>
         <translation>Maldekstra butono</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="72"/>
-        <location filename="../modules/mouse/mouse.cpp" line="155"/>
+        <location filename="../modules/mouse/mouse.cpp" line="79"/>
+        <location filename="../modules/mouse/mouse.cpp" line="162"/>
         <source>Right Button</source>
         <translation>Dekstra butono</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="83"/>
-        <location filename="../modules/mouse/mouse.cpp" line="182"/>
-        <location filename="../modules/mouse/mouse.cpp" line="206"/>
+        <location filename="../modules/mouse/mouse.cpp" line="90"/>
+        <location filename="../modules/mouse/mouse.cpp" line="189"/>
+        <location filename="../modules/mouse/mouse.cpp" line="213"/>
         <source>Pointer Speed</source>
         <translation>Indikilrapido</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="100"/>
+        <location filename="../modules/mouse/mouse.cpp" line="107"/>
         <source>Double-click Speed</source>
         <translation>Eltempiĝo de duobla alklako</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="117"/>
+        <location filename="../modules/mouse/mouse.cpp" line="124"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Malŝalti la tuŝplaton kiam al la kunligo de la muso</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="143"/>
+        <location filename="../modules/mouse/mouse.cpp" line="150"/>
         <source>Touchpad</source>
         <translation>Tuŝbloko</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="183"/>
+        <location filename="../modules/mouse/mouse.cpp" line="190"/>
         <source>Drag Threshold</source>
         <translation>Trensojlo</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="184"/>
+        <location filename="../modules/mouse/mouse.cpp" line="191"/>
         <source>Natural Scrolling</source>
         <translation>Natura rulado</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="185"/>
+        <location filename="../modules/mouse/mouse.cpp" line="192"/>
         <source>Tap to click</source>
         <translation>Frapi por klaki</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="186"/>
+        <location filename="../modules/mouse/mouse.cpp" line="193"/>
         <source>Two-finger scrolling</source>
         <translation>Du-fingroj rulado</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="187"/>
+        <location filename="../modules/mouse/mouse.cpp" line="194"/>
         <source>Edge scrolling</source>
         <translation>Bordrulado</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mouse.cpp" line="195"/>
+        <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
         <translation type="unfinished"/>
     </message>
@@ -1528,17 +1321,17 @@
 <context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="156"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="159"/>
         <source>Network</source>
         <translation>Reto</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="163"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="172"/>
         <source>View detailed information</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="180"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="186"/>
         <source>System Proxy</source>
         <translation>Proxy de la sistemo</translation>
     </message>
@@ -1591,81 +1384,160 @@
 <context>
     <name>Personalization</name>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="49"/>
+        <location filename="../modules/personalization/personalization.cpp" line="67"/>
         <source>Personalization</source>
         <translation>Personigo</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="126"/>
+        <location filename="../modules/personalization/personalization.cpp" line="145"/>
         <source>Window</source>
         <translation>Fenestro</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="152"/>
+        <location filename="../modules/personalization/personalization.cpp" line="171"/>
         <source>Icon</source>
         <translation>Ikono</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="187"/>
+        <location filename="../modules/personalization/personalization.cpp" line="206"/>
         <source>Cursor</source>
         <translation>Indikilo</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="220"/>
+        <location filename="../modules/personalization/personalization.cpp" line="239"/>
         <source>Wallpaper</source>
         <translation>Fonbildo</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="245"/>
+        <location filename="../modules/personalization/personalization.cpp" line="264"/>
         <source>Fonts</source>
         <translation>Presliteroj</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="247"/>
+        <location filename="../modules/personalization/personalization.cpp" line="266"/>
         <source>Standard</source>
         <translation>Standarta</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="248"/>
+        <location filename="../modules/personalization/personalization.cpp" line="267"/>
         <source>Monospaced</source>
         <translation>Samspacita</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="249"/>
+        <location filename="../modules/personalization/personalization.cpp" line="268"/>
         <source>Size</source>
         <translation>Dimensio</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="264"/>
-        <location filename="../modules/personalization/personalization.cpp" line="601"/>
+        <location filename="../modules/personalization/personalization.cpp" line="283"/>
+        <location filename="../modules/personalization/personalization.cpp" line="620"/>
         <source>Font</source>
         <translation>Preslitero</translation>
     </message>
 </context>
 <context>
+    <name>Plugin::Sound::SoundView</name>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="67"/>
+        <source>Output Port</source>
+        <translation>Eliga pordo</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="79"/>
+        <source>Output device</source>
+        <translation>Eligilo</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="96"/>
+        <source>Input Port</source>
+        <translation>Eniga pordo</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="111"/>
+        <source>Input device</source>
+        <translation>Enigilo</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="124"/>
+        <location filename="../modules/sound/soundview.cpp" line="133"/>
+        <source>Show Advanced...</source>
+        <translation>Montri antaŭajn...</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="138"/>
+        <source>Hide Advanced...</source>
+        <translation>Kaŝi antaŭajn...</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="185"/>
+        <source>Sound effects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="200"/>
+        <source>Speaker</source>
+        <translation>Laŭtparolilo</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="211"/>
+        <source>Output Volume</source>
+        <translation>Eliga laŭteco</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="222"/>
+        <source>Left/Right Balance</source>
+        <translation>Mal/dekstra  ekvilibrigo</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="226"/>
+        <source>Left</source>
+        <translation>Maldekstra</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="227"/>
+        <source>Right</source>
+        <translation>Dekstra</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="320"/>
+        <source>Microphone</source>
+        <translation>Mikrofono</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="331"/>
+        <source>Input Volume</source>
+        <translation>Eniga laŭteco</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="343"/>
+        <source>Feedback Volume</source>
+        <translation>Retroefiko laŭteco</translation>
+    </message>
+</context>
+<context>
     <name>Power</name>
     <message>
-        <location filename="../modules/power/power.cpp" line="43"/>
+        <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="44"/>
+        <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="46"/>
+        <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="48"/>
+        <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/power.cpp" line="50"/>
+        <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
         <translation type="unfinished"/>
     </message>
@@ -1686,7 +1558,12 @@
         <translation>Ŝalto</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="104"/>
+        <source>Charged</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="106"/>
         <source>On Charging %1</source>
         <translation type="unfinished"/>
     </message>
@@ -1731,40 +1608,6 @@
     </message>
 </context>
 <context>
-    <name>SharePanel</name>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="26"/>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="113"/>
-        <source>Sharing</source>
-        <translation>Partoprenanta</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="76"/>
-        <source>Sharing your desktop, your can continue to share or choose to disconnect</source>
-        <translation>Partoprenante vian labortablon, vi povas daŭrigi partopreni aŭ elekti por malkonekti</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="103"/>
-        <source>Remote Assistance</source>
-        <translation>Malproksima asistado</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="106"/>
-        <source>Cancel</source>
-        <translation>Nuligi</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="111"/>
-        <source>Retry</source>
-        <translation>Reprovi</translation>
-    </message>
-    <message>
-        <location filename="../modules/remote_assistance/view/sharepanel.cpp" line="117"/>
-        <source>Failed to establish the connection, you can retry to connect</source>
-        <translation> Starigi la konfirmon kodon malsukcesis, vi povas reprovi konekti</translation>
-    </message>
-</context>
-<context>
     <name>ShortcutDbus</name>
     <message>
         <location filename="../modules/shortcuts/shortcutdbus.cpp" line="75"/>
@@ -1788,90 +1631,6 @@
     </message>
 </context>
 <context>
-    <name>Sound</name>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="62"/>
-        <source>Sound</source>
-        <translation>Sono</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="109"/>
-        <source>Speaker</source>
-        <translation>Laŭtparolilo</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="119"/>
-        <source>Output Volume</source>
-        <translation>Eliga laŭteco</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="130"/>
-        <source>Left/Right Balance</source>
-        <translation>Mal/dekstra  ekvilibrigo</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="134"/>
-        <source>Left</source>
-        <translation>Maldekstra</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="135"/>
-        <source>Right</source>
-        <translation>Dekstra</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="153"/>
-        <source>Microphone</source>
-        <translation>Mikrofono</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="165"/>
-        <source>Input Volume</source>
-        <translation>Eniga laŭteco</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="177"/>
-        <source>Feedback Volume</source>
-        <translation>Retroefiko laŭteco</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="238"/>
-        <source>Output Port</source>
-        <translation>Eliga pordo</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="251"/>
-        <source>Output device</source>
-        <translation>Eligilo</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="271"/>
-        <source>Input Port</source>
-        <translation>Eniga pordo</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="285"/>
-        <source>Input device</source>
-        <translation>Enigilo</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="298"/>
-        <location filename="../modules/sound/sound.cpp" line="305"/>
-        <source>Show Advanced...</source>
-        <translation>Montri antaŭajn...</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="310"/>
-        <source>Hide Advanced...</source>
-        <translation>Kaŝi antaŭajn...</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="321"/>
-        <source>Sound effects</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>SoundPlugin</name>
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/soundplugin.cpp" line="32"/>
@@ -1882,52 +1641,52 @@
 <context>
     <name>SystemInfo</name>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="44"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
         <source>System Information</source>
         <translation>Sistemo informoj</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="50"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
         <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="55"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
         <source>Deepin Edition:</source>
         <translation>Deepin eldono</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="61"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
         <source>Distribution:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="67"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
         <source>System Type:</source>
         <translation>Tipo de sistemo</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="69"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
         <source>%1 Bit</source>
         <translation>%1 Bitoj</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="72"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
         <source>Processor:</source>
         <translation>Procezilo</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
         <source>Memory:</source>
         <translation>Memoro</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
         <source>Disk:</source>
         <translation>Disko</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="154"/>
+        <location filename="../modules/system_info/systeminfo.cpp" line="165"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
         <translation>GNU Ĝenerala Publika Permesilo</translation>
     </message>
@@ -2085,37 +1844,32 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="110"/>
         <source>Recently Used</source>
         <translation>Ĵus uzitaj</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="112"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
         <source>Avatar</source>
         <translation>Avataro</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="161"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="163"/>
         <source>Auto-login</source>
         <translation> Aŭtomata ensaluto</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="187"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="189"/>
         <source>Enable</source>
         <translation>Kapabligi</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="220"/>
-        <source>Account Type</source>
-        <translation>Konto tipo</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="275"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="246"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>Elekti novan bildon por via Avataro</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="276"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="247"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>Bildo dosieroj (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -2123,32 +1877,32 @@
 <context>
     <name>UserExpandHeader</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="187"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="180"/>
         <source>Keep user&apos;s files</source>
         <translation> Pluteni uzanton dosierojn</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="188"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="181"/>
         <source>Delete user&apos;s files</source>
         <translation> Forigi uzanton dosierojn</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="190"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="183"/>
         <source>Cancel</source>
         <translation>Forigi</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="191"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="184"/>
         <source>Confirm</source>
         <translation>Konfirmi</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="239"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="232"/>
         <source>Administrator</source>
         <translation>Administranto</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="241"/>
+        <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="234"/>
         <source>Normal User</source>
         <translation>Normala uzanto</translation>
     </message>
@@ -2181,102 +1935,102 @@
 <context>
     <name>Wacom</name>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="47"/>
+        <location filename="../modules/wacom/wacom.cpp" line="56"/>
         <source>Page Up</source>
         <translation>Paĝo supre</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="48"/>
+        <location filename="../modules/wacom/wacom.cpp" line="57"/>
         <source>Page Down</source>
         <translation>Paĝo sube</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="49"/>
+        <location filename="../modules/wacom/wacom.cpp" line="58"/>
         <source>Left Click</source>
         <translation>Maldekstra alklako</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="50"/>
+        <location filename="../modules/wacom/wacom.cpp" line="59"/>
         <source>Right Click</source>
         <translation>Dekstra alklako</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="51"/>
+        <location filename="../modules/wacom/wacom.cpp" line="60"/>
         <source>Middle Click</source>
         <translation>Centra alklako</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="69"/>
+        <location filename="../modules/wacom/wacom.cpp" line="78"/>
         <source>Tablet</source>
         <translation>Tabuleto</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="83"/>
+        <location filename="../modules/wacom/wacom.cpp" line="92"/>
         <source>Tablet Orientation</source>
         <translation>Orientado de la tabuleto</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="88"/>
+        <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Left Hand</source>
         <translation>Maldekstra mano</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="89"/>
+        <location filename="../modules/wacom/wacom.cpp" line="98"/>
         <source>Right Hand</source>
         <translation>Dekstra mano</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="101"/>
+        <location filename="../modules/wacom/wacom.cpp" line="110"/>
         <source>Digital Pen Modes</source>
         <translation>Manieroj de la diĝita plumo</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="106"/>
+        <location filename="../modules/wacom/wacom.cpp" line="115"/>
         <source>Pen Mode</source>
         <translation>Maniero de la plumo</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="107"/>
+        <location filename="../modules/wacom/wacom.cpp" line="116"/>
         <source>Mouse Mode</source>
         <translation>Maniero de la muso</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="119"/>
+        <location filename="../modules/wacom/wacom.cpp" line="128"/>
         <source>Down Key</source>
         <translation>Subŝlosilo</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="138"/>
+        <location filename="../modules/wacom/wacom.cpp" line="147"/>
         <source>Up Key</source>
         <translation>Surŝlosilo</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="157"/>
+        <location filename="../modules/wacom/wacom.cpp" line="166"/>
         <source>Pressure</source>
         <translation>Premo</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="162"/>
+        <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Soft</source>
         <translation>Malpeza</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="163"/>
+        <location filename="../modules/wacom/wacom.cpp" line="172"/>
         <source>Hard</source>
         <translation>Peza</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="177"/>
+        <location filename="../modules/wacom/wacom.cpp" line="186"/>
         <source>Double-click Space</source>
         <translation>duobla alklaka spaco</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="182"/>
+        <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Narrow</source>
         <translation>Mallarĝa</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="183"/>
+        <location filename="../modules/wacom/wacom.cpp" line="192"/>
         <source>Wide</source>
         <translation>Larĝa</translation>
     </message>
@@ -2297,13 +2051,13 @@
 <context>
     <name>WiredPlugin</name>
     <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="47"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="64"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="49"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="66"/>
         <source>Wired Network</source>
         <translation>Kabla reto</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="71"/>
+        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="73"/>
         <source>Network Not Connected</source>
         <translation>Reto nekonektita</translation>
     </message>
