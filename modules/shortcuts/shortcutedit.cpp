@@ -21,6 +21,13 @@
 
 DWIDGET_USE_NAMESPACE
 
+static const QMap<QString, QString> OverrideKeyMap = [] () -> QMap<QString, QString> {
+    QMap<QString, QString> map;
+    map["Super_L"] = "<Super>";
+    map["Super_R"] = "<Super>";
+    return map;
+}();
+
 ShortcutEdit::ShortcutEdit(ShortcutDbus *dbus, QWidget *parent) :
     QFrame(parent),
     m_layout(new QHBoxLayout),
@@ -81,7 +88,7 @@ ShortcutEdit::ShortcutEdit(ShortcutDbus *dbus, QWidget *parent) :
 
 QString ShortcutEdit::shortcut() const
 {
-    return m_label->text();
+    return m_shortcut;
 }
 
 bool ShortcutEdit::editing() const
@@ -91,7 +98,8 @@ bool ShortcutEdit::editing() const
 
 void ShortcutEdit::setShortcut(QString shortcut)
 {
-    m_label->setText(shortcut);
+    m_shortcut = shortcut;
+    m_label->setText(OverrideKeyMap.value(shortcut, shortcut));
 }
 
 void ShortcutEdit::setEnableEdit(bool arg)

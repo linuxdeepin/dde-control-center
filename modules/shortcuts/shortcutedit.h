@@ -45,6 +45,7 @@ private:
     QLabel *m_label;
     QLineEdit *m_edit;
     ShortcutDbus *m_dbus;
+    QString m_shortcut;
 };
 
 #endif // SHORTCUTEDIT_H
