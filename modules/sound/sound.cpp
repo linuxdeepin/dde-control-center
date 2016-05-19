@@ -21,6 +21,8 @@ namespace Sound
 
 SoundModule::SoundModule()
 {
+    Q_UNUSED(QT_TRANSLATE_NOOP("ModuleName", "Sound"));
+
     qRegisterMetaType<Plugin::Sound::SoundModel>();
 
     m_control = new SoundControl();

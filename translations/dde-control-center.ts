@@ -1080,6 +1080,11 @@
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="24"/>
+        <source>Sound</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MonitorGround</name>
