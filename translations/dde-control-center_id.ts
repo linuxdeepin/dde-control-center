@@ -1078,6 +1078,11 @@
         <source>Network</source>
         <translation>Jaringan</translation>
     </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="24"/>
+        <source>Sound</source>
+        <translation>Suara</translation>
+    </message>
 </context>
 <context>
     <name>MonitorGround</name>

@@ -1078,6 +1078,11 @@
         <source>Network</source>
         <translation>網路</translation>
     </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="24"/>
+        <source>Sound</source>
+        <translation>聲音</translation>
+    </message>
 </context>
 <context>
     <name>MonitorGround</name>

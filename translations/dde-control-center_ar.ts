@@ -1078,6 +1078,11 @@
         <source>Network</source>
         <translation>الشبكة</translation>
     </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="24"/>
+        <source>Sound</source>
+        <translation>الصوت</translation>
+    </message>
 </context>
 <context>
     <name>MonitorGround</name>
@@ -1560,7 +1565,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="104"/>
         <source>Charged</source>
-        <translation type="unfinished"/>
+        <translation>مشحون</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="106"/>

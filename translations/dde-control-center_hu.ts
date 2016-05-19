@@ -1078,6 +1078,11 @@
         <source>Network</source>
         <translation>Hálózat</translation>
     </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="24"/>
+        <source>Sound</source>
+        <translation>Hang</translation>
+    </message>
 </context>
 <context>
     <name>MonitorGround</name>

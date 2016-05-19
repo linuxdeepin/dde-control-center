@@ -1078,6 +1078,11 @@
         <source>Network</source>
         <translation>Reto</translation>
     </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="24"/>
+        <source>Sound</source>
+        <translation>Sono</translation>
+    </message>
 </context>
 <context>
     <name>MonitorGround</name>
