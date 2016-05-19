@@ -287,6 +287,12 @@ void SoundControl::handleDBusDefaultSinkChanged()
     emit this->defaultSinkChanged(model);
 }
 
+void SoundControl::reset() {
+    if (m_dbusAudio) {
+        m_dbusAudio->Reset();
+    }
+}
+
 void SoundControl::init()
 {
     if (!m_prepareModel.initialized) {

@@ -88,6 +88,8 @@ public slots:
     void setInputVolume(double, bool);
     void setInputMute(bool);
 
+    void reset();
+
 signals:
     void initialized(const Plugin::Sound::SoundModel &model);
     void effectsEnabledChanged(bool);

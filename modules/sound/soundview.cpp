@@ -1,6 +1,9 @@
 #include "soundview.h"
 #include "soundcontrol.h"
 
+#include <QApplication>
+#include <QScreen>
+
 #include <dswitchlineexpand.h>
 #include <dslider.h>
 #include <dbuttonlist.h>
@@ -28,11 +31,6 @@ SoundView::SoundView(SoundControl *control, QWidget *parent):
     m_control(control)
 {
     qDebug() << "SoundView init";
-    m_mainLayout = new QVBoxLayout(this);
-    m_mainLayout->setSpacing(0);
-    m_mainLayout->setMargin(0);
-    m_mainLayout->setContentsMargins(0, 0, 0, 0);
-    m_mainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
 
     // add
     connect(this, &SoundView::requestInit, m_control, &SoundControl::init);
@@ -251,6 +249,10 @@ void SoundView::initOutputOption(const SoundModel &model)
         m_control->setMute(!expanded);
     });
 
+    connect(m_control, &SoundControl::muteChanged, this, [ = ](bool mute) {
+        m_speakerExpand->setExpand(!mute);
+    });
+
     connect(m_outputVolumeSlider, &DSlider::valueChanged, [ = ](int value) {
         blockOutputVolumeSignal = true;
         int sliderInterval = m_SetOutputVolumeRecorder.elapsed();
@@ -316,12 +318,9 @@ void SoundView::initOutputOption(const SoundModel &model)
         }
     });
 
-    connect(m_control, &SoundControl::muteChanged, this, [ = ](bool mute) {
-        m_speakerExpand->setExpand(!mute);
-    });
+
     m_speakerExpand->setVisible(model.sink.defaultPortActive);
 }
-
 
 void SoundView::initInputOption(const SoundModel &model)
 {
@@ -438,6 +437,35 @@ void SoundView::initInputOption(const SoundModel &model)
 
 void SoundView::init(const SoundModel &model)
 {
+    m_mainWidgetVLayout = new QVBoxLayout(this);
+    m_mainWidgetVLayout->setSpacing(0);
+    m_mainWidgetVLayout->setMargin(0);
+
+    m_frame = new QFrame;
+    m_frame->setFixedWidth(DCC::ModuleContentWidth);
+    m_frame->setObjectName("SoundMainFrame");
+    m_frame->setStyleSheet("QFrame#SoundMainFrame{background:transparent}");
+
+    m_scrollArea = new DScrollArea;
+    m_scrollArea->setFixedSize(DCC::ModuleContentWidth, qApp->primaryScreen()->geometry().height() - 60);
+    m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_scrollArea->setWidget(m_frame);
+
+    ///////////////////////////////////////////////////////-- Title
+    m_moduleHeader = new ModuleHeader(tr("Sound"), true, this);
+    connect(m_moduleHeader, &ModuleHeader::resetButtonClicked, m_control, &SoundControl::reset);
+    m_mainWidgetVLayout->addWidget(m_moduleHeader);
+    m_mainWidgetVLayout->addWidget(new DSeparatorHorizontal);
+    m_mainWidgetVLayout->addWidget(m_scrollArea);
+    m_mainWidgetVLayout->addStretch(1);
+
+    m_mainLayout = new QVBoxLayout(m_frame);
+    m_mainLayout->setSpacing(0);
+    m_mainLayout->setMargin(0);
+    m_mainLayout->setContentsMargins(0, 0, 0, 0);
+    m_mainLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
+
     initOutputOption(model);
     initInputOption(model);
     initEffectOptions(model);

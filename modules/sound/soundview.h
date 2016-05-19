@@ -62,8 +62,8 @@ private:
     struct SoundControl *m_control  = nullptr;
 
 private://UI
+    QFrame              *m_frame            = nullptr;
     QVBoxLayout         *m_mainLayout       = nullptr;
-    QFrame              *m_mainWidget       = nullptr;
     ModuleHeader        *m_moduleHeader     = nullptr;
     DSwitchLineExpand   *m_speakerExpand    = nullptr;
     DSwitchLineExpand   *m_microphoneExpand = nullptr;
