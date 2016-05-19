@@ -118,13 +118,16 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
 
         connect(m_dbusDisplay, &DisplayInterface::PrimaryChanged, m_primaryMonitorList, [this] {
             QString str = m_dbusDisplay->primary();
+            int checkedIndex = -1;
             for (int i = 0; i < m_primaryMonitorList->count(); ++i)
             {
                 IconButton *button = m_primaryMonitorList->getButtonByIndex(i);
                 if (button && button->text() == str) {
-                    m_primaryMonitorList->checkButtonByIndex(i);
+                    checkedIndex = i;
                 }
             }
+            if (checkedIndex != -1)
+                m_primaryMonitorList->checkButtonByIndex(checkedIndex);
         }, Qt::DirectConnection);
 
         connect(m_primaryMonitorList, &DButtonList::buttonChecked, m_dbusDisplay, &DisplayInterface::SetPrimary);
@@ -167,6 +170,7 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
     m_brightnessHeaderLine->setRightContent(tmp_slider);
     m_brightnessHeaderLine->setFixedHeight(30);
 
+    int currentPrimaryIndex = -1;
     for (int i = 0; i < m_dbusMonitors.count(); ++i) {
         MonitorInterface *dbusMonitor = m_dbusMonitors[i];
 
@@ -177,7 +181,7 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
 
             m_primaryMonitorList->addButton(dbusMonitor->name());
             if (dbusMonitor->name() == m_dbusDisplay->primary()) {
-                m_primaryMonitorList->checkButtonByIndex(i);
+                currentPrimaryIndex = i;
             }
             m_primaryMonitorList->setFixedHeight(m_primaryMonitorList->count()*MENU_ITEM_HEIGHT);
         }
@@ -285,6 +289,8 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
             }
         }, Qt::DirectConnection);
     }
+    if (currentPrimaryIndex != -1)
+        m_primaryMonitorList->checkButtonByIndex(currentPrimaryIndex);
 
     QHBoxLayout *buttonLayout = new QHBoxLayout;
 

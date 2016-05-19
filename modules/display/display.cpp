@@ -160,6 +160,8 @@ void Display::updateUI()
         DArrowLineExpand *displayModeExpand = new DArrowLineExpand;
         displayModeExpand->setTitle(tr("Display Mode"));
 
+        // delete old pointer
+        delete m_widgetList;
         m_widgetList = new ListWidget;
         m_widgetList->setItemSize(DCC::ModuleContentWidth, 90);
 
@@ -268,7 +270,7 @@ void Display::onDisplayModeChanged()
         m_widgetList->getWidget(1)->setProperty("checked", true);
         break;
     }
-    case 3: {
+    default:
         QString str = m_dbusDisplay->primary();
 
         for (int i = 2; i < m_widgetList->count() - 1; ++i) {
@@ -279,9 +281,8 @@ void Display::onDisplayModeChanged()
         }
         break;
     }
-    default:
-        break;
-    }
+
+    m_widgetList->setStyleSheet(m_widgetList->styleSheet());
 }
 
 
