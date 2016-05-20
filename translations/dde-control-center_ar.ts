@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="41"/>
         <source>VPN</source>
-        <translation>شبكة افتراضة خاصة</translation>
+        <translation>VPN </translation>
     </message>
 </context>
 <context>
@@ -309,74 +309,74 @@
         <translation>تدوير لليسار</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="77"/>
-        <location filename="../modules/display/customsettings.cpp" line="84"/>
+        <location filename="../modules/display/customsettings.cpp" line="75"/>
+        <location filename="../modules/display/customsettings.cpp" line="82"/>
         <source>Brightness</source>
         <translation>السطوع</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="94"/>
+        <location filename="../modules/display/customsettings.cpp" line="92"/>
         <source>Enable Monitor</source>
         <translation>تمكين الشاشة</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="107"/>
+        <location filename="../modules/display/customsettings.cpp" line="105"/>
         <source>Please select the monitor you want to enable (checkable)</source>
         <translation>يرجى تحديد الشاشة التي تريد تمكينها (قابلة للتحديد) </translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="112"/>
+        <location filename="../modules/display/customsettings.cpp" line="110"/>
         <source>Primary</source>
         <translation>أساسي</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="137"/>
+        <location filename="../modules/display/customsettings.cpp" line="138"/>
         <source>Resolution</source>
         <translation>الدقة</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="141"/>
+        <location filename="../modules/display/customsettings.cpp" line="142"/>
         <source>Rotation</source>
         <translation>دوارن</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="160"/>
-        <location filename="../modules/display/customsettings.cpp" line="190"/>
-        <location filename="../modules/display/customsettings.cpp" line="209"/>
+        <location filename="../modules/display/customsettings.cpp" line="161"/>
+        <location filename="../modules/display/customsettings.cpp" line="192"/>
+        <location filename="../modules/display/customsettings.cpp" line="211"/>
         <source>Monitor %1</source>
         <translation>الشاشة %1 </translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="313"/>
-        <location filename="../modules/display/customsettings.cpp" line="476"/>
+        <location filename="../modules/display/customsettings.cpp" line="317"/>
+        <location filename="../modules/display/customsettings.cpp" line="480"/>
         <source>Apply</source>
         <translation>تطبيق</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="315"/>
-        <location filename="../modules/display/customsettings.cpp" line="478"/>
+        <location filename="../modules/display/customsettings.cpp" line="319"/>
+        <location filename="../modules/display/customsettings.cpp" line="482"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>تأكيد</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="340"/>
+        <location filename="../modules/display/customsettings.cpp" line="344"/>
         <source>Do you want to keep these display settings?</source>
         <translation>هل تريد الاحتفاظ بهذه اﻹعدادات</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="341"/>
-        <location filename="../modules/display/customsettings.cpp" line="349"/>
+        <location filename="../modules/display/customsettings.cpp" line="345"/>
+        <location filename="../modules/display/customsettings.cpp" line="353"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation>العودة إلى إعدادات العرض السابقة في &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; ثانية</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="343"/>
+        <location filename="../modules/display/customsettings.cpp" line="347"/>
         <source>Revert</source>
         <translation>عكس</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="344"/>
+        <location filename="../modules/display/customsettings.cpp" line="348"/>
         <source>Keep Changes</source>
         <translation>الاحتفاظ بالتغييرات</translation>
     </message>
@@ -617,47 +617,47 @@
         <translation>العرض</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="161"/>
+        <location filename="../modules/display/display.cpp" line="158"/>
         <source>Display Mode</source>
         <translation>وضع العرض</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="167"/>
+        <location filename="../modules/display/display.cpp" line="166"/>
         <source>Copy</source>
         <translation>نسخ</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="168"/>
+        <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>انسخ محتوى الشاشة الرئيسية الى الشاشات الاخرى</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="178"/>
+        <location filename="../modules/display/display.cpp" line="177"/>
         <source>Extend</source>
         <translation>تمدد</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="179"/>
+        <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>عرض مختلف، ويمكن تطبيقها بشكل مستقل على كل الشاشات</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="190"/>
+        <location filename="../modules/display/display.cpp" line="189"/>
         <source>Custom Settings</source>
-        <translation>اعدادات مخصصة</translation>
+        <translation>إعدادات مخصصة</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="191"/>
+        <location filename="../modules/display/display.cpp" line="190"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>بامكانك القيام باعدادات خاصة لشاشاتك</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="201"/>
+        <location filename="../modules/display/display.cpp" line="200"/>
         <source>Only Displayed on %1</source>
         <translation>تظهر فقط على 1٪</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="202"/>
+        <location filename="../modules/display/display.cpp" line="201"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>العرض هو 1٪ فقط ولكن ليس على شاشات أخرى.</translation>
     </message>
@@ -868,12 +868,12 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="154"/>
         <source>Name</source>
-        <translation>اسم</translation>
+        <translation>الاسم</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="158"/>
         <source>Command</source>
-        <translation>أمر</translation>
+        <translation>الأمر</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="181"/>
@@ -883,7 +883,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="182"/>
         <source>Add Shortcut</source>
-        <translation>انشاء اختصار</translation>
+        <translation>إنشاء اختصار</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="183"/>
@@ -1011,12 +1011,12 @@
     <message>
         <location filename="../modules/power/power.cpp" line="35"/>
         <source>Power Management</source>
-        <translation>ادارة الطاقة</translation>
+        <translation>إدارة الطاقة</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="63"/>
         <source>Default Applications</source>
-        <translation>التطبيقات الأفتراضية</translation>
+        <translation>التطبيقات الافتراضية</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="37"/>
@@ -1059,7 +1059,7 @@
         <translation>التاريخ والوقت</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="28"/>
+        <location filename="../modules/wacom/wacom.cpp" line="32"/>
         <source>Wacom</source>
         <translation type="unfinished"/>
     </message>
@@ -1195,7 +1195,7 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="49"/>
         <source>802.11 WiFi AdHoc</source>
-        <translation>wifi 802.11 مخصص</translation>
+        <translation>wifi 802.11 AdHoc</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="50"/>
@@ -1225,7 +1225,7 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="55"/>
         <source>VPN</source>
-        <translation>شبكة إلكترونية خاصة</translation>
+        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="56"/>
@@ -1373,7 +1373,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="104"/>
         <source>New Password</source>
-        <translation>كلمة سر جديدة</translation>
+        <translation>كلمة مرور جديدة</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="106"/>
@@ -1445,7 +1445,7 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="67"/>
         <source>Output Port</source>
-        <translation>منفذ الخروج</translation>
+        <translation>منفذ اﻹخراج</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="79"/>
@@ -1455,7 +1455,7 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="96"/>
         <source>Input Port</source>
-        <translation>منفذ الدخول</translation>
+        <translation>منفذ اﻹدخال</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="111"/>
@@ -1489,34 +1489,39 @@
         <translation>حجم الانتاج</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="222"/>
+        <location filename="../modules/sound/soundview.cpp" line="226"/>
         <source>Left/Right Balance</source>
         <translation>تبديل يمين/يسار</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="226"/>
+        <location filename="../modules/sound/soundview.cpp" line="234"/>
         <source>Left</source>
         <translation>يسار</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="227"/>
+        <location filename="../modules/sound/soundview.cpp" line="235"/>
         <source>Right</source>
         <translation>يمين</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="320"/>
+        <location filename="../modules/sound/soundview.cpp" line="329"/>
         <source>Microphone</source>
         <translation>المايكروفون</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="331"/>
+        <location filename="../modules/sound/soundview.cpp" line="340"/>
         <source>Input Volume</source>
         <translation>مدخل الصوت</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="343"/>
+        <location filename="../modules/sound/soundview.cpp" line="356"/>
         <source>Feedback Volume</source>
         <translation>الحجم الارتدادي</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="456"/>
+        <source>Sound</source>
+        <translation>الصوت</translation>
     </message>
 </context>
 <context>
@@ -1583,7 +1588,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="109"/>
         <source>Add</source>
-        <translation>أضف</translation>
+        <translation>إضافة</translation>
     </message>
 </context>
 <context>
@@ -1615,12 +1620,12 @@
 <context>
     <name>ShortcutDbus</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="75"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="86"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="97"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="132"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="160"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="193"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="79"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="90"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="101"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="136"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="164"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="197"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="230"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="234"/>
         <source>None</source>
@@ -1630,7 +1635,7 @@
 <context>
     <name>ShortcutEdit</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutedit.cpp" line="38"/>
+        <location filename="../modules/shortcuts/shortcutedit.cpp" line="45"/>
         <source>Please input new shortcut</source>
         <translation>الرجاء إدخال اختصار جديد</translation>
     </message>
@@ -1925,7 +1930,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnapplet.cpp" line="58"/>
         <source>VPN</source>
-        <translation>شبكة إلكترونية خاصة</translation>
+        <translation>VPN </translation>
     </message>
 </context>
 <context>
@@ -1934,108 +1939,108 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnplugin.cpp" line="49"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnplugin.cpp" line="66"/>
         <source>VPN</source>
-        <translation>شبكة إلكترونية خاصة</translation>
+        <translation>VPN</translation>
     </message>
 </context>
 <context>
     <name>Wacom</name>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="56"/>
+        <location filename="../modules/wacom/wacom.cpp" line="61"/>
         <source>Page Up</source>
         <translation>صفحة عليا</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="57"/>
+        <location filename="../modules/wacom/wacom.cpp" line="62"/>
         <source>Page Down</source>
         <translation>صفحة سفلى</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="58"/>
+        <location filename="../modules/wacom/wacom.cpp" line="63"/>
         <source>Left Click</source>
         <translation>النقر يسارا</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="59"/>
+        <location filename="../modules/wacom/wacom.cpp" line="64"/>
         <source>Right Click</source>
         <translation>النقر يمينا</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="60"/>
+        <location filename="../modules/wacom/wacom.cpp" line="65"/>
         <source>Middle Click</source>
         <translation>النقر في الوسط</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="78"/>
+        <location filename="../modules/wacom/wacom.cpp" line="83"/>
         <source>Tablet</source>
         <translation>جهاز لوحي</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="92"/>
+        <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Tablet Orientation</source>
         <translation>استدارة الجهاز اللوحي</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="97"/>
+        <location filename="../modules/wacom/wacom.cpp" line="102"/>
         <source>Left Hand</source>
         <translation>اليد اليسرى</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="98"/>
+        <location filename="../modules/wacom/wacom.cpp" line="103"/>
         <source>Right Hand</source>
         <translation>اليد اليمنى</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="110"/>
+        <location filename="../modules/wacom/wacom.cpp" line="115"/>
         <source>Digital Pen Modes</source>
         <translation>وضع قلم رقمي</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="115"/>
+        <location filename="../modules/wacom/wacom.cpp" line="120"/>
         <source>Pen Mode</source>
         <translation>وضع القلم</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="116"/>
+        <location filename="../modules/wacom/wacom.cpp" line="121"/>
         <source>Mouse Mode</source>
         <translation>وضع المؤشر</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="128"/>
+        <location filename="../modules/wacom/wacom.cpp" line="133"/>
         <source>Down Key</source>
         <translation>المفتاح السفلي</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="147"/>
+        <location filename="../modules/wacom/wacom.cpp" line="152"/>
         <source>Up Key</source>
         <translation>المفتاح العلوي</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="166"/>
+        <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Pressure</source>
         <translation>ضغط</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="171"/>
+        <location filename="../modules/wacom/wacom.cpp" line="176"/>
         <source>Soft</source>
         <translation>لين</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="172"/>
+        <location filename="../modules/wacom/wacom.cpp" line="177"/>
         <source>Hard</source>
         <translation>قاسٍ</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="186"/>
+        <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Double-click Space</source>
         <translation>نقر مزدوج على السطح</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="191"/>
+        <location filename="../modules/wacom/wacom.cpp" line="196"/>
         <source>Narrow</source>
         <translation>ضيق</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="192"/>
+        <location filename="../modules/wacom/wacom.cpp" line="197"/>
         <source>Wide</source>
         <translation>واسع</translation>
     </message>
@@ -2073,7 +2078,7 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="77"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="203"/>
         <source>Wireless Network</source>
-        <translation>شبكة لا سلكية</translation>
+        <translation>شبكة لاسلكية</translation>
     </message>
 </context>
 <context>
@@ -2094,7 +2099,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="48"/>
         <source>Wireless Network</source>
-        <translation>شبكة لا سلكية</translation>
+        <translation>شبكة لاسلكية</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="263"/>

@@ -309,74 +309,74 @@
         <translation>Kierrä vasemmalle</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="77"/>
-        <location filename="../modules/display/customsettings.cpp" line="84"/>
+        <location filename="../modules/display/customsettings.cpp" line="75"/>
+        <location filename="../modules/display/customsettings.cpp" line="82"/>
         <source>Brightness</source>
         <translation>Kirkkaus</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="94"/>
+        <location filename="../modules/display/customsettings.cpp" line="92"/>
         <source>Enable Monitor</source>
         <translation>Aseta näyttö päälle</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="107"/>
+        <location filename="../modules/display/customsettings.cpp" line="105"/>
         <source>Please select the monitor you want to enable (checkable)</source>
         <translation>Valitse näyttö, jolle haluat sallia käyttöoikeudet (tarkastettavissa)</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="112"/>
+        <location filename="../modules/display/customsettings.cpp" line="110"/>
         <source>Primary</source>
         <translation>Ensisijainen</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="137"/>
+        <location filename="../modules/display/customsettings.cpp" line="138"/>
         <source>Resolution</source>
         <translation>Resoluutio</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="141"/>
+        <location filename="../modules/display/customsettings.cpp" line="142"/>
         <source>Rotation</source>
         <translation>Kääntö</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="160"/>
-        <location filename="../modules/display/customsettings.cpp" line="190"/>
-        <location filename="../modules/display/customsettings.cpp" line="209"/>
+        <location filename="../modules/display/customsettings.cpp" line="161"/>
+        <location filename="../modules/display/customsettings.cpp" line="192"/>
+        <location filename="../modules/display/customsettings.cpp" line="211"/>
         <source>Monitor %1</source>
         <translation>Näyttö %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="313"/>
-        <location filename="../modules/display/customsettings.cpp" line="476"/>
+        <location filename="../modules/display/customsettings.cpp" line="317"/>
+        <location filename="../modules/display/customsettings.cpp" line="480"/>
         <source>Apply</source>
         <translation>Käytä</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="315"/>
-        <location filename="../modules/display/customsettings.cpp" line="478"/>
+        <location filename="../modules/display/customsettings.cpp" line="319"/>
+        <location filename="../modules/display/customsettings.cpp" line="482"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>Vahvista</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="340"/>
+        <location filename="../modules/display/customsettings.cpp" line="344"/>
         <source>Do you want to keep these display settings?</source>
         <translation>Haluatko pitää nämä näytön asetukset?</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="341"/>
-        <location filename="../modules/display/customsettings.cpp" line="349"/>
+        <location filename="../modules/display/customsettings.cpp" line="345"/>
+        <location filename="../modules/display/customsettings.cpp" line="353"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation>Siirrytään takaisin edellisiin asetuksiin &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; sekunnin kuluttua.</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="343"/>
+        <location filename="../modules/display/customsettings.cpp" line="347"/>
         <source>Revert</source>
         <translation>Palauta asetukset</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="344"/>
+        <location filename="../modules/display/customsettings.cpp" line="348"/>
         <source>Keep Changes</source>
         <translation>Pidä asetukset</translation>
     </message>
@@ -617,47 +617,47 @@
         <translation>Näyttö</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="161"/>
+        <location filename="../modules/display/display.cpp" line="158"/>
         <source>Display Mode</source>
         <translation>Näyttötila</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="167"/>
+        <location filename="../modules/display/display.cpp" line="166"/>
         <source>Copy</source>
         <translation>Kopioi</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="168"/>
+        <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>Kopioi pääasiallisen näyttösi sisältö muille näytöille.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="178"/>
+        <location filename="../modules/display/display.cpp" line="177"/>
         <source>Extend</source>
         <translation>Laajenna</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="179"/>
+        <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>Ulota näyttösi sisältö näyttämään eri sisältöjä eri näytöillä.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="190"/>
+        <location filename="../modules/display/display.cpp" line="189"/>
         <source>Custom Settings</source>
         <translation>Mukautetut asetukset</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="191"/>
+        <location filename="../modules/display/display.cpp" line="190"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>Voit muokata kuvaruutujesi asetuksia myös muilla tavoin.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="201"/>
+        <location filename="../modules/display/display.cpp" line="200"/>
         <source>Only Displayed on %1</source>
         <translation>Näkyvillä vain %1:ssä</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="202"/>
+        <location filename="../modules/display/display.cpp" line="201"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>Näytön sisältö esitetään vain yhdellä, muttei muilla näytöillä. </translation>
     </message>
@@ -1059,7 +1059,7 @@
         <translation>Päivä ja aika</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="28"/>
+        <location filename="../modules/wacom/wacom.cpp" line="32"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
@@ -1489,34 +1489,39 @@
         <translation>Äänenvoimakkuus</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="222"/>
+        <location filename="../modules/sound/soundview.cpp" line="226"/>
         <source>Left/Right Balance</source>
         <translation>Vasen/Oikea tasapaino</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="226"/>
+        <location filename="../modules/sound/soundview.cpp" line="234"/>
         <source>Left</source>
         <translation>Vasen</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="227"/>
+        <location filename="../modules/sound/soundview.cpp" line="235"/>
         <source>Right</source>
         <translation>Oikea</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="320"/>
+        <location filename="../modules/sound/soundview.cpp" line="329"/>
         <source>Microphone</source>
         <translation>Mikrofoni</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="331"/>
+        <location filename="../modules/sound/soundview.cpp" line="340"/>
         <source>Input Volume</source>
         <translation>Sisääntulon voimakkuus</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="343"/>
+        <location filename="../modules/sound/soundview.cpp" line="356"/>
         <source>Feedback Volume</source>
         <translation>Äänenvoimakkuuden kierto</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="456"/>
+        <source>Sound</source>
+        <translation>Ääni</translation>
     </message>
 </context>
 <context>
@@ -1615,12 +1620,12 @@
 <context>
     <name>ShortcutDbus</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="75"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="86"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="97"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="132"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="160"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="193"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="79"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="90"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="101"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="136"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="164"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="197"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="230"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="234"/>
         <source>None</source>
@@ -1630,7 +1635,7 @@
 <context>
     <name>ShortcutEdit</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutedit.cpp" line="38"/>
+        <location filename="../modules/shortcuts/shortcutedit.cpp" line="45"/>
         <source>Please input new shortcut</source>
         <translation>Anna uusi pikanäppäin</translation>
     </message>
@@ -1940,102 +1945,102 @@
 <context>
     <name>Wacom</name>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="56"/>
+        <location filename="../modules/wacom/wacom.cpp" line="61"/>
         <source>Page Up</source>
         <translation>Page Up</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="57"/>
+        <location filename="../modules/wacom/wacom.cpp" line="62"/>
         <source>Page Down</source>
         <translation>Page Down</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="58"/>
+        <location filename="../modules/wacom/wacom.cpp" line="63"/>
         <source>Left Click</source>
         <translation>Vasen klikkaus</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="59"/>
+        <location filename="../modules/wacom/wacom.cpp" line="64"/>
         <source>Right Click</source>
         <translation>Oikea klikkaus</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="60"/>
+        <location filename="../modules/wacom/wacom.cpp" line="65"/>
         <source>Middle Click</source>
         <translation>Keskiklikkaus</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="78"/>
+        <location filename="../modules/wacom/wacom.cpp" line="83"/>
         <source>Tablet</source>
         <translation>Tablet</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="92"/>
+        <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Tablet Orientation</source>
         <translation>Tablet Suuntautuminen</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="97"/>
+        <location filename="../modules/wacom/wacom.cpp" line="102"/>
         <source>Left Hand</source>
         <translation>Vasenkätinen</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="98"/>
+        <location filename="../modules/wacom/wacom.cpp" line="103"/>
         <source>Right Hand</source>
         <translation>Oikeakätinen</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="110"/>
+        <location filename="../modules/wacom/wacom.cpp" line="115"/>
         <source>Digital Pen Modes</source>
         <translation>Digitaaliset kynän tilat</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="115"/>
+        <location filename="../modules/wacom/wacom.cpp" line="120"/>
         <source>Pen Mode</source>
         <translation>Kynän tila</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="116"/>
+        <location filename="../modules/wacom/wacom.cpp" line="121"/>
         <source>Mouse Mode</source>
         <translation>Hiiren tila</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="128"/>
+        <location filename="../modules/wacom/wacom.cpp" line="133"/>
         <source>Down Key</source>
         <translation>Alas-näppäin</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="147"/>
+        <location filename="../modules/wacom/wacom.cpp" line="152"/>
         <source>Up Key</source>
         <translation>Ylös-näppäin</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="166"/>
+        <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Pressure</source>
         <translation>Paine</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="171"/>
+        <location filename="../modules/wacom/wacom.cpp" line="176"/>
         <source>Soft</source>
         <translation>Pehmeä</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="172"/>
+        <location filename="../modules/wacom/wacom.cpp" line="177"/>
         <source>Hard</source>
         <translation>Kova</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="186"/>
+        <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Double-click Space</source>
         <translation>Kaksoispainallus alue</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="191"/>
+        <location filename="../modules/wacom/wacom.cpp" line="196"/>
         <source>Narrow</source>
         <translation>Kapea</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="192"/>
+        <location filename="../modules/wacom/wacom.cpp" line="197"/>
         <source>Wide</source>
         <translation>Laaja</translation>
     </message>

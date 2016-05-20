@@ -309,74 +309,74 @@
         <translation>Putar kiri</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="77"/>
-        <location filename="../modules/display/customsettings.cpp" line="84"/>
+        <location filename="../modules/display/customsettings.cpp" line="75"/>
+        <location filename="../modules/display/customsettings.cpp" line="82"/>
         <source>Brightness</source>
         <translation>Kecerahan</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="94"/>
+        <location filename="../modules/display/customsettings.cpp" line="92"/>
         <source>Enable Monitor</source>
         <translation>Benarkan Monitor</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="107"/>
+        <location filename="../modules/display/customsettings.cpp" line="105"/>
         <source>Please select the monitor you want to enable (checkable)</source>
         <translation>Sila pilih monitor yang mahu dibenarkan (boleh ditanda)</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="112"/>
+        <location filename="../modules/display/customsettings.cpp" line="110"/>
         <source>Primary</source>
         <translation>Utama</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="137"/>
+        <location filename="../modules/display/customsettings.cpp" line="138"/>
         <source>Resolution</source>
         <translation>Resolusi</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="141"/>
+        <location filename="../modules/display/customsettings.cpp" line="142"/>
         <source>Rotation</source>
         <translation>Putaran</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="160"/>
-        <location filename="../modules/display/customsettings.cpp" line="190"/>
-        <location filename="../modules/display/customsettings.cpp" line="209"/>
+        <location filename="../modules/display/customsettings.cpp" line="161"/>
+        <location filename="../modules/display/customsettings.cpp" line="192"/>
+        <location filename="../modules/display/customsettings.cpp" line="211"/>
         <source>Monitor %1</source>
         <translation>Monitor %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="313"/>
-        <location filename="../modules/display/customsettings.cpp" line="476"/>
+        <location filename="../modules/display/customsettings.cpp" line="317"/>
+        <location filename="../modules/display/customsettings.cpp" line="480"/>
         <source>Apply</source>
         <translation>Laksana</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="315"/>
-        <location filename="../modules/display/customsettings.cpp" line="478"/>
+        <location filename="../modules/display/customsettings.cpp" line="319"/>
+        <location filename="../modules/display/customsettings.cpp" line="482"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>Sahkan</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="340"/>
+        <location filename="../modules/display/customsettings.cpp" line="344"/>
         <source>Do you want to keep these display settings?</source>
         <translation>Anda mahu kekalkan tetapan paparan ini?</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="341"/>
-        <location filename="../modules/display/customsettings.cpp" line="349"/>
+        <location filename="../modules/display/customsettings.cpp" line="345"/>
+        <location filename="../modules/display/customsettings.cpp" line="353"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation>Mengembalikan tetapan paparan terdahulu dalam tempoh &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; saat.</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="343"/>
+        <location filename="../modules/display/customsettings.cpp" line="347"/>
         <source>Revert</source>
         <translation>Kembali</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="344"/>
+        <location filename="../modules/display/customsettings.cpp" line="348"/>
         <source>Keep Changes</source>
         <translation>Kekal Perubahan</translation>
     </message>
@@ -617,47 +617,47 @@
         <translation>Paparan</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="161"/>
+        <location filename="../modules/display/display.cpp" line="158"/>
         <source>Display Mode</source>
         <translation>Mod Paparan</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="167"/>
+        <location filename="../modules/display/display.cpp" line="166"/>
         <source>Copy</source>
         <translation>Salin</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="168"/>
+        <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>Salin kandungan skrin utama anda ke skrin lain.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="178"/>
+        <location filename="../modules/display/display.cpp" line="177"/>
         <source>Extend</source>
         <translation>Lanjut</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="179"/>
+        <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>Lanjutkan kandungan skrin anda ke kandungan paparan lain pada skrin berlainan.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="190"/>
+        <location filename="../modules/display/display.cpp" line="189"/>
         <source>Custom Settings</source>
         <translation>Tetapan Suai</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="191"/>
+        <location filename="../modules/display/display.cpp" line="190"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>Anda boleh buat tetapan suai pada skrin anda.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="201"/>
+        <location filename="../modules/display/display.cpp" line="200"/>
         <source>Only Displayed on %1</source>
         <translation>Hanya Dipapar pada %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="202"/>
+        <location filename="../modules/display/display.cpp" line="201"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>Kandungan skrin hanya dipapar pada %1 tetapi buka pada skrin lain.</translation>
     </message>
@@ -1059,7 +1059,7 @@
         <translation>Tarikh dan Waktu</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="28"/>
+        <location filename="../modules/wacom/wacom.cpp" line="32"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
@@ -1489,34 +1489,39 @@
         <translation>Volum Output</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="222"/>
+        <location filename="../modules/sound/soundview.cpp" line="226"/>
         <source>Left/Right Balance</source>
         <translation>Imbangan Kiri/Kanan</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="226"/>
+        <location filename="../modules/sound/soundview.cpp" line="234"/>
         <source>Left</source>
         <translation>Kiri</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="227"/>
+        <location filename="../modules/sound/soundview.cpp" line="235"/>
         <source>Right</source>
         <translation>Kanan</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="320"/>
+        <location filename="../modules/sound/soundview.cpp" line="329"/>
         <source>Microphone</source>
         <translation>Mikrofon</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="331"/>
+        <location filename="../modules/sound/soundview.cpp" line="340"/>
         <source>Input Volume</source>
         <translation>Volum Input</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="343"/>
+        <location filename="../modules/sound/soundview.cpp" line="356"/>
         <source>Feedback Volume</source>
         <translation>Volum Maklumbalas</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="456"/>
+        <source>Sound</source>
+        <translation>Bunyi</translation>
     </message>
 </context>
 <context>
@@ -1615,12 +1620,12 @@
 <context>
     <name>ShortcutDbus</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="75"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="86"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="97"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="132"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="160"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="193"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="79"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="90"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="101"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="136"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="164"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="197"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="230"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="234"/>
         <source>None</source>
@@ -1630,7 +1635,7 @@
 <context>
     <name>ShortcutEdit</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutedit.cpp" line="38"/>
+        <location filename="../modules/shortcuts/shortcutedit.cpp" line="45"/>
         <source>Please input new shortcut</source>
         <translation>Sila masukkan pintasan baharu</translation>
     </message>
@@ -1940,102 +1945,102 @@
 <context>
     <name>Wacom</name>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="56"/>
+        <location filename="../modules/wacom/wacom.cpp" line="61"/>
         <source>Page Up</source>
         <translation>Halaman Ke Atas</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="57"/>
+        <location filename="../modules/wacom/wacom.cpp" line="62"/>
         <source>Page Down</source>
         <translation>Halaman Ke Bawah</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="58"/>
+        <location filename="../modules/wacom/wacom.cpp" line="63"/>
         <source>Left Click</source>
         <translation>Klik Kiri</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="59"/>
+        <location filename="../modules/wacom/wacom.cpp" line="64"/>
         <source>Right Click</source>
         <translation>Klik Kanan</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="60"/>
+        <location filename="../modules/wacom/wacom.cpp" line="65"/>
         <source>Middle Click</source>
         <translation>Klik Tengah</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="78"/>
+        <location filename="../modules/wacom/wacom.cpp" line="83"/>
         <source>Tablet</source>
         <translation>Tablet</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="92"/>
+        <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Tablet Orientation</source>
         <translation>Orientasi Tablet</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="97"/>
+        <location filename="../modules/wacom/wacom.cpp" line="102"/>
         <source>Left Hand</source>
         <translation>Tangan Kiri</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="98"/>
+        <location filename="../modules/wacom/wacom.cpp" line="103"/>
         <source>Right Hand</source>
         <translation>Tangan Kanan</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="110"/>
+        <location filename="../modules/wacom/wacom.cpp" line="115"/>
         <source>Digital Pen Modes</source>
         <translation>Mod Pen Digital</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="115"/>
+        <location filename="../modules/wacom/wacom.cpp" line="120"/>
         <source>Pen Mode</source>
         <translation>Mod Pen</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="116"/>
+        <location filename="../modules/wacom/wacom.cpp" line="121"/>
         <source>Mouse Mode</source>
         <translation>Mod Tetikus</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="128"/>
+        <location filename="../modules/wacom/wacom.cpp" line="133"/>
         <source>Down Key</source>
         <translation>Kunci Turun</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="147"/>
+        <location filename="../modules/wacom/wacom.cpp" line="152"/>
         <source>Up Key</source>
         <translation>Kunci Naik</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="166"/>
+        <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Pressure</source>
         <translation>Tekanan</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="171"/>
+        <location filename="../modules/wacom/wacom.cpp" line="176"/>
         <source>Soft</source>
         <translation>Soft</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="172"/>
+        <location filename="../modules/wacom/wacom.cpp" line="177"/>
         <source>Hard</source>
         <translation>Keras</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="186"/>
+        <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Double-click Space</source>
         <translation>Jarak Dwi-klik</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="191"/>
+        <location filename="../modules/wacom/wacom.cpp" line="196"/>
         <source>Narrow</source>
         <translation>Sempit</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="192"/>
+        <location filename="../modules/wacom/wacom.cpp" line="197"/>
         <source>Wide</source>
         <translation>Lebar</translation>
     </message>

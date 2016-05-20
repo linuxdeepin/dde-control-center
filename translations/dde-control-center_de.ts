@@ -309,74 +309,74 @@
         <translation>Nach Links drehen</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="77"/>
-        <location filename="../modules/display/customsettings.cpp" line="84"/>
+        <location filename="../modules/display/customsettings.cpp" line="75"/>
+        <location filename="../modules/display/customsettings.cpp" line="82"/>
         <source>Brightness</source>
         <translation>Helligkeit</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="94"/>
+        <location filename="../modules/display/customsettings.cpp" line="92"/>
         <source>Enable Monitor</source>
         <translation>Bildschirm aktivieren</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="107"/>
+        <location filename="../modules/display/customsettings.cpp" line="105"/>
         <source>Please select the monitor you want to enable (checkable)</source>
         <translation>Bitte wählen Sie den/die Bildschirm/e aus, den/die Sie aktivieren möchten (ankreuzbar)</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="112"/>
+        <location filename="../modules/display/customsettings.cpp" line="110"/>
         <source>Primary</source>
         <translation>Primär</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="137"/>
+        <location filename="../modules/display/customsettings.cpp" line="138"/>
         <source>Resolution</source>
         <translation>Auflösung</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="141"/>
+        <location filename="../modules/display/customsettings.cpp" line="142"/>
         <source>Rotation</source>
         <translation>Drehung</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="160"/>
-        <location filename="../modules/display/customsettings.cpp" line="190"/>
-        <location filename="../modules/display/customsettings.cpp" line="209"/>
+        <location filename="../modules/display/customsettings.cpp" line="161"/>
+        <location filename="../modules/display/customsettings.cpp" line="192"/>
+        <location filename="../modules/display/customsettings.cpp" line="211"/>
         <source>Monitor %1</source>
         <translation>Bildschirm %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="313"/>
-        <location filename="../modules/display/customsettings.cpp" line="476"/>
+        <location filename="../modules/display/customsettings.cpp" line="317"/>
+        <location filename="../modules/display/customsettings.cpp" line="480"/>
         <source>Apply</source>
         <translation>Übernehmen</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="315"/>
-        <location filename="../modules/display/customsettings.cpp" line="478"/>
+        <location filename="../modules/display/customsettings.cpp" line="319"/>
+        <location filename="../modules/display/customsettings.cpp" line="482"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>Bestätigen</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="340"/>
+        <location filename="../modules/display/customsettings.cpp" line="344"/>
         <source>Do you want to keep these display settings?</source>
         <translation>Möchten Sie die Bildschirmeinstellungen beibehalten?</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="341"/>
-        <location filename="../modules/display/customsettings.cpp" line="349"/>
+        <location filename="../modules/display/customsettings.cpp" line="345"/>
+        <location filename="../modules/display/customsettings.cpp" line="353"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation>Wiederherstellung der vorigen Anzeigeeinstellungen erfolgt in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; Sekunden.</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="343"/>
+        <location filename="../modules/display/customsettings.cpp" line="347"/>
         <source>Revert</source>
         <translation>Zurücksetzen</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="344"/>
+        <location filename="../modules/display/customsettings.cpp" line="348"/>
         <source>Keep Changes</source>
         <translation>Änderungen Beibehalten</translation>
     </message>
@@ -617,47 +617,47 @@
         <translation>Anzeige</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="161"/>
+        <location filename="../modules/display/display.cpp" line="158"/>
         <source>Display Mode</source>
         <translation>Anzeigemodus</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="167"/>
+        <location filename="../modules/display/display.cpp" line="166"/>
         <source>Copy</source>
         <translation>Kopieren</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="168"/>
+        <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy the contents of your primary screen to other screens.</source>
         <translation>Kopieren Sie die Inhalte Ihres Hauptbildschirmes auf andere Bildschirme.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="178"/>
+        <location filename="../modules/display/display.cpp" line="177"/>
         <source>Extend</source>
         <translation>Erweitern</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="179"/>
+        <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
         <translation>Erweitern Sie Ihre Bildschirminhalte, um verschiedene Inhalte auf verschiedenen Bildschirmen anzuzeigen.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="190"/>
+        <location filename="../modules/display/display.cpp" line="189"/>
         <source>Custom Settings</source>
         <translation>Benutzerdefinierte Einstellungen</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="191"/>
+        <location filename="../modules/display/display.cpp" line="190"/>
         <source>You can do other custom settings to your screens.</source>
         <translation>Sie können andere Kundeneinstellungen auf Ihren Bildschirmen durchführen.</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="201"/>
+        <location filename="../modules/display/display.cpp" line="200"/>
         <source>Only Displayed on %1</source>
         <translation>Nur auf %1 angezeigt</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="202"/>
+        <location filename="../modules/display/display.cpp" line="201"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
         <translation>Bildschirminhalte werden nur auf %1, aber nicht auf anderen Bildschirmen angezeigt.</translation>
     </message>
@@ -1059,7 +1059,7 @@
         <translation>Datum und Zeit</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="28"/>
+        <location filename="../modules/wacom/wacom.cpp" line="32"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
@@ -1489,34 +1489,39 @@
         <translation>Ausgangslautstärke</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="222"/>
+        <location filename="../modules/sound/soundview.cpp" line="226"/>
         <source>Left/Right Balance</source>
         <translation>Links/Rechts-Balance</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="226"/>
+        <location filename="../modules/sound/soundview.cpp" line="234"/>
         <source>Left</source>
         <translation>Links</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="227"/>
+        <location filename="../modules/sound/soundview.cpp" line="235"/>
         <source>Right</source>
         <translation>Rechts</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="320"/>
+        <location filename="../modules/sound/soundview.cpp" line="329"/>
         <source>Microphone</source>
         <translation>Mikrofon</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="331"/>
+        <location filename="../modules/sound/soundview.cpp" line="340"/>
         <source>Input Volume</source>
         <translation>Input Volume</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="343"/>
+        <location filename="../modules/sound/soundview.cpp" line="356"/>
         <source>Feedback Volume</source>
         <translation>Lautstärke Systemklänge</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundview.cpp" line="456"/>
+        <source>Sound</source>
+        <translation>Ton</translation>
     </message>
 </context>
 <context>
@@ -1615,12 +1620,12 @@
 <context>
     <name>ShortcutDbus</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="75"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="86"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="97"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="132"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="160"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="193"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="79"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="90"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="101"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="136"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="164"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="197"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="230"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="234"/>
         <source>None</source>
@@ -1630,7 +1635,7 @@
 <context>
     <name>ShortcutEdit</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutedit.cpp" line="38"/>
+        <location filename="../modules/shortcuts/shortcutedit.cpp" line="45"/>
         <source>Please input new shortcut</source>
         <translation>Bitte neues Kürzel eingeben</translation>
     </message>
@@ -1940,102 +1945,102 @@
 <context>
     <name>Wacom</name>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="56"/>
+        <location filename="../modules/wacom/wacom.cpp" line="61"/>
         <source>Page Up</source>
         <translation>Bild auf</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="57"/>
+        <location filename="../modules/wacom/wacom.cpp" line="62"/>
         <source>Page Down</source>
         <translation>Bild ab</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="58"/>
+        <location filename="../modules/wacom/wacom.cpp" line="63"/>
         <source>Left Click</source>
         <translation>Linksklick</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="59"/>
+        <location filename="../modules/wacom/wacom.cpp" line="64"/>
         <source>Right Click</source>
         <translation>Rechtsklick</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="60"/>
+        <location filename="../modules/wacom/wacom.cpp" line="65"/>
         <source>Middle Click</source>
         <translation>Mittelklick</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="78"/>
+        <location filename="../modules/wacom/wacom.cpp" line="83"/>
         <source>Tablet</source>
         <translation>Tablet</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="92"/>
+        <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Tablet Orientation</source>
         <translation>Tablet-Ausrichtung</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="97"/>
+        <location filename="../modules/wacom/wacom.cpp" line="102"/>
         <source>Left Hand</source>
         <translation>Linke Hand</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="98"/>
+        <location filename="../modules/wacom/wacom.cpp" line="103"/>
         <source>Right Hand</source>
         <translation>Rechte Hand</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="110"/>
+        <location filename="../modules/wacom/wacom.cpp" line="115"/>
         <source>Digital Pen Modes</source>
         <translation>Digitalstiftmodus</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="115"/>
+        <location filename="../modules/wacom/wacom.cpp" line="120"/>
         <source>Pen Mode</source>
         <translation>Stiftmodus</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="116"/>
+        <location filename="../modules/wacom/wacom.cpp" line="121"/>
         <source>Mouse Mode</source>
         <translation>Mausmodus</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="128"/>
+        <location filename="../modules/wacom/wacom.cpp" line="133"/>
         <source>Down Key</source>
         <translation>Nach-unten-Taste</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="147"/>
+        <location filename="../modules/wacom/wacom.cpp" line="152"/>
         <source>Up Key</source>
         <translation>Nach-oben-Taste</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="166"/>
+        <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Pressure</source>
         <translation>Druck</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="171"/>
+        <location filename="../modules/wacom/wacom.cpp" line="176"/>
         <source>Soft</source>
         <translation>Soft</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="172"/>
+        <location filename="../modules/wacom/wacom.cpp" line="177"/>
         <source>Hard</source>
         <translation>Hart</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="186"/>
+        <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Double-click Space</source>
         <translation>Doppelklickbereich</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="191"/>
+        <location filename="../modules/wacom/wacom.cpp" line="196"/>
         <source>Narrow</source>
         <translation>Eng</translation>
     </message>
     <message>
-        <location filename="../modules/wacom/wacom.cpp" line="192"/>
+        <location filename="../modules/wacom/wacom.cpp" line="197"/>
         <source>Wide</source>
         <translation>Breit</translation>
     </message>
