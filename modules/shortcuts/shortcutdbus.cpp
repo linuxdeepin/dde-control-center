@@ -56,7 +56,11 @@ ShortcutDbus::ShortcutDbus(QObject *parent)
 #if !defined(PLATFORM_SUNWAY) && !defined(ARCH_MIPSEL)
          << "screenshot-window" << "screenshot-delayed"
 #endif
-         << "terminal" << "terminal-quake" << "logout" << "switch-layout"
+         << "terminal"
+#if !defined(PLATFORM_SUNWAY) && !defined(ARCH_MIPSEL)
+         << "terminal-quake"
+#endif
+         << "logout" << "switch-layout"
          << "preview-workspace" << "expose-windows" << "expose-all-windows"
          << "switch-group" << "switch-group-backward" << "switch-applications"
 #if !defined(PLATFORM_SUNWAY) && !defined(ARCH_MIPSEL)
