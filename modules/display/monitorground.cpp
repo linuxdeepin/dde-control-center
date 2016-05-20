@@ -121,7 +121,6 @@ void MonitorGround::removeMonitor(Monitor *monitor)
     }
 
     m_monitors.removeOne(monitor);
-
     monitor->setParent(NULL);
     MonitorInterface* dbus = monitor->dbusInterface();
 
@@ -141,6 +140,8 @@ void MonitorGround::removeMonitor(Monitor *monitor)
 
     updateOpenedCount();
     relayout();
+
+    monitor->deleteLater();
 }
 
 void MonitorGround::clear()
@@ -317,7 +318,8 @@ void MonitorGround::onMonitorMouseRelease()
 
     QRect rect = monitor->resolution();
 
-    rect.moveTopLeft(monitor->mapToRealPoint());
+    if (monitor->hasChanged())
+        rect.moveTopLeft(monitor->mapToRealPoint());
 
     monitor->setResolution(rect);
 

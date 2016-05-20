@@ -124,6 +124,11 @@ bool Monitor::isPrimary() const
     return m_isPrimary;
 }
 
+bool Monitor::hasChanged() const
+{
+    return pos() != m_oldPos;
+}
+
 const Monitor *Monitor::child() const
 {
     return m_child;
@@ -262,7 +267,7 @@ void Monitor::paintEvent(QPaintEvent *e)
         pa.drawText(rect(), m_name, nameOption);
 
         if(m_draging || hasFocus()){
-            const QPoint point = m_draging ? mapToRealPoint() : resolution().topLeft();
+            const QPoint point = m_draging && hasChanged() ? mapToRealPoint() : resolution().topLeft();
 
             pa.drawText(10, 20, QString("(%1,%2)").arg(point.x()).arg(point.y()));
         }

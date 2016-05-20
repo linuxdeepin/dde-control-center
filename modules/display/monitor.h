@@ -42,6 +42,7 @@ public:
     bool draging() const;
     bool eyeing() const;
     bool isPrimary() const;
+    bool hasChanged() const;
     const Monitor *child() const;
 
     QRect parentRect() const;
