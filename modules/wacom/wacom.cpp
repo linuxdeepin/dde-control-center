@@ -19,7 +19,11 @@ DWIDGET_USE_NAMESPACE
 
 QFrame *WacomModule::getContent()
 {
-    static Wacom *frame = new Wacom;
+    static Wacom *frame = nullptr;
+    if (frame) {
+        frame->deleteLater();
+    }
+    frame = new Wacom;
     return frame->getContent();
 }
 
@@ -37,7 +41,8 @@ Wacom::Wacom() : QObject()
 
 Wacom::~Wacom()
 {
-    m_frame->deleteLater();
+    // m_frame is deleted in control center.
+//    m_frame->deleteLater();
 }
 
 QFrame *Wacom::getContent()
