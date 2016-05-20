@@ -157,6 +157,12 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("JoinMonitor"), argumentList);
     }
 
+    inline QDBusPendingReply<QStringList> ListOutputNames()
+    {
+        QList<QVariant> argumentList;
+        return asyncCallWithArgumentList(QStringLiteral("ListOutputNames"), argumentList);
+    }
+
     inline QDBusPendingReply<QString> QueryCurrentPlanName()
     {
         QList<QVariant> argumentList;

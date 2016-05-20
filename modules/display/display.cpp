@@ -105,10 +105,7 @@ void Display::updateUI()
     m_monitors.clear();
     m_dbusMonitors.clear();
 
-    QDBusPendingReply<QString> reply_tmp = m_dbusDisplay->QueryCurrentPlanName();
-    reply_tmp.waitForFinished();
-    QStringList tmp_list = reply_tmp.value().split(",");
-
+    QStringList tmp_list = m_dbusDisplay->ListOutputNames();
     QString primargName = m_dbusDisplay->primary();
 
     for (int i = 0; i < pathList.count(); ++i) {

@@ -67,9 +67,7 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
 
     m_dbusMonitors = list;
 
-    QDBusPendingReply<QString> reply_tmp = m_dbusDisplay->QueryCurrentPlanName();
-    reply_tmp.waitForFinished();
-    m_monitorNameList = reply_tmp.value().split(",");
+    m_monitorNameList = m_dbusDisplay->ListOutputNames();
 
     DExpandGroup *expandGroup = new DExpandGroup(this);
 
