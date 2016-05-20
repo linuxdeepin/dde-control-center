@@ -71,8 +71,12 @@ int main(int argv, char *args[])
 #endif
 
     // initialize logging
-    DLogManager::registerFileAppender();
+#ifdef QT_DEBUG
     DLogManager::registerConsoleAppender();
+#else
+    DLogManager::registerFileAppender();
+#endif
+
     qDebug() << "dde-control-center start";
 
     // install translators
