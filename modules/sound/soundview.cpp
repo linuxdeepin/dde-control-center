@@ -257,7 +257,7 @@ void SoundView::initOutputOption(const SoundModel &model)
         blockOutputVolumeSignal = true;
         int sliderInterval = m_SetOutputVolumeRecorder.elapsed();
         if (sliderInterval > 50) {
-            m_control->setOutputVolume(value / 100.0, false);
+            m_control->setOutputVolume(double(value) / 100, false);
         }
         m_SetOutputVolumeRecorder.restart();
 
@@ -270,7 +270,7 @@ void SoundView::initOutputOption(const SoundModel &model)
                 m_SetOutputVolumeTimer->deleteLater();
                 m_SetOutputVolumeTimer = NULL;
                 auto value = m_outputVolumeSlider->value();
-                m_control->setOutputVolume(value / 100.0, false);
+                m_control->setOutputVolume(double(value) / 100, false);
                 blockOutputVolumeSignal = false;
             });
         }
@@ -278,9 +278,12 @@ void SoundView::initOutputOption(const SoundModel &model)
     });
 
     connect(m_control, &SoundControl::volumeChanged, this, [ = ](double v) {
-        if (qAbs(v * 100 - m_outputVolumeSlider->value()) > 1) {
+
+        const int value = std::rint(v * 100);
+
+        if (qAbs(value - m_outputVolumeSlider->value()) > 1) {
             if (!blockOutputVolumeSignal) {
-                m_outputVolumeSlider->setValue(v * 100);
+                m_outputVolumeSlider->setValue(value);
             }
         }
     });
@@ -289,7 +292,7 @@ void SoundView::initOutputOption(const SoundModel &model)
         blockBalanceSignal = true;
         int sliderInterval = m_SetBalanceRecorder.elapsed();
         if (sliderInterval > 50) {
-            m_control->setBalance(value / 100.0, false);
+            m_control->setBalance(double(value) / 100, false);
 
         }
         m_SetBalanceRecorder.restart();
@@ -303,7 +306,7 @@ void SoundView::initOutputOption(const SoundModel &model)
                 m_SetBalanceTimer->deleteLater();
                 m_SetBalanceTimer = NULL;
                 int sliderValue = m_leftRightBalanceSlider->value();
-                m_control->setBalance(sliderValue / 100.0, false);
+                m_control->setBalance(double(sliderValue) / 100, false);
                 blockBalanceSignal = false;
             });
         }
@@ -311,9 +314,11 @@ void SoundView::initOutputOption(const SoundModel &model)
     });
 
     connect(m_control, &SoundControl::balanceChanged, this, [ = ](double v) {
-        if (qAbs(v * 100 - m_leftRightBalanceSlider->value()) > 1) {
+        const int value = std::rint(v * 100);
+
+        if (qAbs(value - m_leftRightBalanceSlider->value()) > 1) {
             if (!blockBalanceSignal) {
-                m_leftRightBalanceSlider->setValue(v * 100);
+                m_leftRightBalanceSlider->setValue(value);
             }
         }
     });
@@ -397,7 +402,7 @@ void SoundView::initInputOption(const SoundModel &model)
         blockInputVolumeSignal = true;
         int sliderInterval = m_SetInputVolumeRecorder.elapsed();
         if (sliderInterval > 50) {
-            m_control->setInputVolume(value / 100.0, false);
+            m_control->setInputVolume(double(value) / 100, false);
 
         }
         m_SetInputVolumeRecorder.restart();
@@ -411,17 +416,20 @@ void SoundView::initInputOption(const SoundModel &model)
                 m_SetInputVolumeTimer->deleteLater();
                 m_SetInputVolumeTimer = NULL;
                 int sliderValue = m_inputVolumeSlider->value();
-                m_control->setInputVolume(sliderValue / 100.0, false);
+                m_control->setInputVolume(double(sliderValue) / 100, false);
                 blockInputVolumeSignal = false;
             });
         }
         m_SetInputVolumeTimer->start(200);
     });
 
-    connect(m_control, &SoundControl::inputVolumeChanged, this, [ = ](double value) {
-        if (qAbs(value * 100 - m_inputVolumeSlider->value()) > 1) {
+    connect(m_control, &SoundControl::inputVolumeChanged, this, [ = ](double v) {
+
+        const int value = std::rint(v * 100);
+
+        if (qAbs(value - m_inputVolumeSlider->value()) > 1) {
             if (!blockInputVolumeSignal) {
-                m_inputVolumeSlider->setValue(value * 100);
+                m_inputVolumeSlider->setValue(value);
             }
         }
     });
@@ -558,14 +566,14 @@ void SoundView::updateInputPortsUI(const SoundModel &model)
 
 void SoundView::updateMicrophoneUI(const SoundModel &model)
 {
-    m_inputVolumeSlider->setValue(model.source.volume * 100);
+    m_inputVolumeSlider->setValue(std::rint(model.source.volume * 100));
     m_microphoneExpand->setExpand(!model.source.mute);
 }
 
 void SoundView::updateSpeakerUI(const SoundModel &model)
 {
-    m_outputVolumeSlider->setValue(model.sink.volume * 100);
-    m_leftRightBalanceSlider->setValue(model.sink.balance * 100);
+    m_outputVolumeSlider->setValue(std::rint(model.sink.volume * 100));
+    m_leftRightBalanceSlider->setValue(std::rint(model.sink.balance * 100));
     m_speakerExpand->setExpand(!model.sink.mute);
 }
 
