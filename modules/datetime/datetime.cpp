@@ -375,7 +375,19 @@ void Datetime::removeTimeZone(TimezoneWidget *zone)
     }
 
     qDebug() << "remove zone: " << zone->zoneName();
-    m_dbusInter.DeleteUserTimezone(zone->zoneName()).waitForFinished();
+//    m_dbusInter.DeleteUserTimezone(zone->zoneName()).waitForFinished();
+
+    // we need to ensure zone name is in the user zone list.
+    const ZoneInfo info = getZoneInfoByName(zone->zoneName());
+    for (const QString zone : m_dbusInter.userTimezones())
+    {
+        if (getZoneInfoByName(zone).getUTCOffset() == info.getUTCOffset())
+        {
+            m_dbusInter.DeleteUserTimezone(zone).waitForFinished();
+            break;
+        }
+    }
+
     //toRemoveTimezoneMode();
     const int i = m_timezoneListWidget->indexOf(zone);
     m_timezoneListWidget->removeItem(i);
