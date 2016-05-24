@@ -142,6 +142,8 @@ void PasswordFrame::resetData()
 {
     m_lineNew->setText("");
     m_lineRepeat->setText("");
+    m_lineNew->hideWarning();
+    m_lineRepeat->hideWarning();
 }
 
 bool PasswordFrame::validate()
