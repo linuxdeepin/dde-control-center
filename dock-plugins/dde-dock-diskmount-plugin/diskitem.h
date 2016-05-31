@@ -44,6 +44,7 @@ private slots:
 
 private:
     DBusDiskMount *m_diskMount = NULL;
+    bool m_ejectable;
     QString m_id = "";
     QString m_diskUuid = "";
     QString m_diskType;

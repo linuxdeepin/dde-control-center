@@ -37,7 +37,7 @@ void DiskItem::updateData()
         if (info.id == m_id)
         {
             m_diskUuid = info.id;
-
+            m_ejectable = info.canEject;
             m_diskType = info.type;
             m_titleLabel->setText(info.name);
             m_diskIcon->setIcon(info.icon);
@@ -66,7 +66,10 @@ void DiskItem::sendNotification(const QString &title, const QString &msg)
 void DiskItem::umountDisk()
 {
     qDebug() << "[DiskMountPlugin] Try to umount Disk: "<< m_diskUuid;
-    m_diskMount->Unmount(m_diskUuid);
+    if (m_ejectable)
+        m_diskMount->Eject(m_diskUuid);
+    else
+        m_diskMount->Unmount(m_diskUuid);
 
 //    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_diskMount->Unmount(m_diskUuid));
 //    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher]{
