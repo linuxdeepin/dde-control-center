@@ -150,12 +150,13 @@ void GrubWidget::setDefaultEntry(const QString &entry)
     }
 }
 
-void GrubWidget::updatingChanged(bool updating)
+void GrubWidget::updatingChanged()
 {
     m_tooltip->setStyleSheet(m_tooltip->styleSheet()+"QLabel{color:#DF8000;}");
-    if(updating){
+
+    if (m_themeDbus->updating() || m_grubDbus->updating()){
         m_tooltip->setText(tr("Updating..."));
-    }else{
+    } else {
         m_tooltip->setText(tr("Successfully updated, reboot to view."));
         QTimer::singleShot(2000, this, SLOT(resetTooltip()));
     }

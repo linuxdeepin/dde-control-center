@@ -54,7 +54,7 @@ private:
 
     void init();
     Q_SLOT void setDefaultEntry(const QString &entry);
-    Q_SLOT void updatingChanged(bool updating);
+    Q_SLOT void updatingChanged();
     Q_SLOT void resetTooltip();
 };
 
