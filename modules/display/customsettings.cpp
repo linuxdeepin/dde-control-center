@@ -331,12 +331,7 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
     connect(m_applyButton, &DTextButton::clicked, buttonLayout, [this] {
         m_monitorGround->applyEdit();
 
-        if (m_dbusDisplay->displayMode() != 0)
-        {
-            m_dbusDisplay->SaveChanges().waitForFinished();
-            m_dbusDisplay->SwitchMode(0, "");
-        } else if (m_dbusDisplay->hasChanged())
-        {
+        if (m_dbusDisplay->hasChanged()) {
             DDialog dialog;
             int time_left = 30;
 
