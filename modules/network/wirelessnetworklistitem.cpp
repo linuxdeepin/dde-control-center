@@ -372,6 +372,17 @@ void WirelessNetworkListItem::init()
     });
     connect(m_dbusNetwork, &DBusNetwork::ActiveConnectionsChanged,
             this, &WirelessNetworkListItem::onActiveConnectionsChanged);
+
+    NetworkMainWidget *main_widget = DCCNetwork::parentNetworkMainWidget(this);
+
+    connect(main_widget, &NetworkMainWidget::deviceUpdated, this, [this, main_widget] {
+        const QString &vendor = this->vendor();
+
+        if (main_widget->wirelessCount() > 1)
+            setTitle(tr("Wireless Network") + " (" + (vendor.isEmpty() ? tr("Interface") : vendor) + ")");
+        else
+            setTitle(tr("Wireless Network"));
+    });
 }
 
 void WirelessNetworkListItem::updateItemIndex(NetworkGenericListItem *item)

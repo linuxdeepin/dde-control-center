@@ -11,6 +11,7 @@
 #include "networkglobal.h"
 #include "dbus/dbusnetwork.h"
 #include "networkgenericlistitem.h"
+#include "networkmainwidget.h"
 
 ModemNetworkListItem::ModemNetworkListItem(DBusNetwork *dbus, QWidget *parent) :
     AbstractDeviceWidget(tr("Modem Network"), dbus, parent)
@@ -69,5 +70,16 @@ void ModemNetworkListItem::init()
     connect(m_item, &NetworkGenericListItem::clearButtonClicked,
             this, [this] {
         m_dbusNetwork->DisconnectDevice(QDBusObjectPath(path()));
+    });
+
+    NetworkMainWidget *main_widget = DCCNetwork::parentNetworkMainWidget(this);
+
+    connect(main_widget, &NetworkMainWidget::deviceUpdated, this, [this, main_widget] {
+        const QString &vendor = this->vendor();
+
+        if (main_widget->modemCount() > 1)
+            setTitle(tr("Modem Network") + " (" + (vendor.isEmpty() ? tr("Interface") : vendor) + ")");
+        else
+            setTitle(tr("Modem Network"));
     });
 }

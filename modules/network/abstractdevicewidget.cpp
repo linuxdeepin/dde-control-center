@@ -216,9 +216,6 @@ void AbstractDeviceWidget::setVendor(QString vendor)
 
     m_vendor = vendor;
 
-    if(usbDevice() && !vendor.isEmpty())
-        setTitle(vendor);
-
     emit vendorChanged(vendor);
 }
 

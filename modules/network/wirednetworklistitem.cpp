@@ -15,6 +15,7 @@
 #include "wirednetworklistitem.h"
 #include "networkgenericlistitem.h"
 #include "dbus/dbusnetwork.h"
+#include "networkmainwidget.h"
 
 WiredNetworkListItem::WiredNetworkListItem(DBusNetwork *dbus, QWidget *parent) :
     AbstractDeviceWidget(tr("Wired Network"), dbus, parent)
@@ -79,6 +80,17 @@ void WiredNetworkListItem::init()
         }
     });
     connect(this, &WiredNetworkListItem::pathChanged, item, &NetworkGenericListItem::setDevicePath);
+
+    NetworkMainWidget *main_widget = DCCNetwork::parentNetworkMainWidget(this);
+
+    connect(main_widget, &NetworkMainWidget::deviceUpdated, this, [this, main_widget] {
+        const QString &vendor = this->vendor();
+
+        if (main_widget->wiredCount() > 1)
+            setTitle(tr("Wired Network") + " (" + (vendor.isEmpty() ? tr("Interface") : vendor) + ")");
+        else
+            setTitle(tr("Wired Network"));
+    });
 }
 
 void WiredNetworkListItem::onConnectsChanged()

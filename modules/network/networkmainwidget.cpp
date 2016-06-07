@@ -78,6 +78,21 @@ bool NetworkMainWidget::dccIsVisible() const
     return m_networkModule->getInterface()->isVisible();
 }
 
+int NetworkMainWidget::wiredCount() const
+{
+    return m_wiredCount;
+}
+
+int NetworkMainWidget::modemCount() const
+{
+    return m_modemCount;
+}
+
+int NetworkMainWidget::wirelessCount() const
+{
+    return m_wirelessCount;
+}
+
 void NetworkMainWidget::updateDeviceByMap(const QString &type, const QVariantMap &map,
                                           int index, QList<AbstractDeviceWidget *> &tmp_list)
 {
@@ -116,40 +131,56 @@ void NetworkMainWidget::updateUI()
 
     QList<AbstractDeviceWidget*> tmp_list = m_mapPathToObject.values();
 
-    m_wiredCount = m_wirelessCount = m_modemCount = 0;
+    int tmp_wiredCount = 0, tmp_wirelessCount = 0, tmp_modemCount = 0;
 
-    for(const QJsonValue &value : json_obj[DeviceType::Wired].toArray()) {
+    QJsonArray array = json_obj[DeviceType::Wired].toArray();
+
+    m_wiredCount = array.count();
+
+    for(const QJsonValue &value : array) {
         const QVariantMap &map = value.toObject().toVariantMap();
         if(map["State"].toInt() == DeviceState::Unavailable
-                && map["Vendor"].toString().toLower() == "apply")
+                && map["Vendor"].toString().toLower() == "apply") {
+            --m_wiredCount;
             continue;
+        }
 
-        ++m_wiredCount;
+        ++tmp_wiredCount;
 
-        updateDeviceByMap(DeviceType::Wired, map, m_wiredCount - 1, tmp_list);
+        updateDeviceByMap(DeviceType::Wired, map, tmp_wiredCount - 1, tmp_list);
     }
 
-    for(const QJsonValue &value : json_obj[DeviceType::Modem].toArray()) {
-        ++m_modemCount;
+    array = json_obj[DeviceType::Modem].toArray();
+
+    m_modemCount = array.count();
+
+    for(const QJsonValue &value : array) {
+        ++tmp_modemCount;
 
         const QVariantMap &map = value.toObject().toVariantMap();
 
-        updateDeviceByMap(DeviceType::Modem, map, m_wiredCount + m_modemCount - 1, tmp_list);
+        updateDeviceByMap(DeviceType::Modem, map, tmp_wiredCount + tmp_modemCount - 1, tmp_list);
     }
 
-    for(const QJsonValue &value : json_obj[DeviceType::Wireless].toArray()) {
-        ++m_wirelessCount;
+    array = json_obj[DeviceType::Wireless].toArray();
+
+    m_wirelessCount = array.count();
+
+    for(const QJsonValue &value : array) {
+        ++tmp_wirelessCount;
 
         const QVariantMap &map = value.toObject().toVariantMap();
 
         updateDeviceByMap(DeviceType::Wireless, map,
-                          m_wiredCount + m_modemCount + m_wirelessCount - 1, tmp_list);
+                          tmp_wiredCount + tmp_modemCount + tmp_wirelessCount - 1, tmp_list);
     }
 
     for(AbstractDeviceWidget *widget : tmp_list) {
         m_mapPathToObject.remove(widget->path());
         widget->deleteLater();
     }
+
+    emit deviceUpdated();
 }
 
 void NetworkMainWidget::initUI()

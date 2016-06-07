@@ -31,6 +31,13 @@ public:
 
     bool dccIsVisible() const;
 
+    int wiredCount() const;
+    int modemCount() const;
+    int wirelessCount() const;
+
+signals:
+    void deviceUpdated();
+
 private:
     void updateDeviceByMap(const QString &type, const QVariantMap &map,
                            int index, QList<AbstractDeviceWidget *> &tmp_list);
