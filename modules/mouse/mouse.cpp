@@ -225,6 +225,7 @@ Mouse::Mouse(QObject *parent): QObject(parent)
 
     m_primaryButtonSetting->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     m_pointSpeedLabel->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+    m_pointSpeedLabel->setWordWrap(true);
     m_doubleClickSpeedLabel->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     m_forbiddenTouchpadWhenMouseLabel->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
 
