@@ -1,4 +1,4 @@
-# Control Center |../common/deepin-controlcenter.svg|
+# Control Center|../common/deepin-controlcenter.svg|
 
 ## Overview|../common/icon_overview.svg|
 
@@ -22,7 +22,7 @@ On Control Center panel, you can:
 
 Control Center panel is mainly composed of system administrator account, system basic settings and power button.
 
-> ![notes](icon/notes.svg): Please refer to [Open Launcher and Control Center](dman:///dde#[Open Launcher and Control Center) and [Boot and Shutdown](dman:///dde#Boot and Shutdown) for specific operations of open/exit Control Center and power display interface.
+> ![notes](icon/notes.svg): Please refer to [Open Launcher and Control Center](dman:///dde#Open Launcher and Control Center) and [Boot and Shutdown](dman:///dde#Boot and Shutdown) for specific operations of open/exit Control Center and power display interface.
 
  ![0|panel](png/panel.png)
 
@@ -90,7 +90,7 @@ Control Center panel is mainly composed of system administrator account, system 
 </tbody>
 </table>
 
-## Account Settings |../common/icon_account.svg|
+## Account Settings|../common/icon_account.svg|
 By setting account, provide safety guarantee to your computer, protect your privacy and data.
 
 ### Auto-login
@@ -217,7 +217,7 @@ When connected to multiple monitors, if you already set the display mode to Copy
 
  ![0|discerndisplay](png/discerndisplay.png)
 
-## Default Application Settings |../common/icon_defaultapp.svg|
+## Default Application Settings|../common/icon_defaultapp.svg|
 
 ### Default Startup Settings
 When multiple application of the same type are installed in the system. You can select one of them to be the default startup application.
@@ -243,7 +243,7 @@ If autoplay is enabled, then the computer will automatically execute further ope
 
  ![0|autoplay](png/autoplay.png)
 
-## Personalization |../common/icon_personalization.svg|
+## Personalization|../common/icon_personalization.svg|
  
 You can change the appearance of the desktop to your favorite style by using different wallpapers, icons, window types and so on.
  
@@ -303,7 +303,7 @@ You can set your favorite image as wallpaper.
 
  ![0|typeface](png/typeface.png)
 
-## Network Settings |../common/icon_network.svg|
+## Network Settings|../common/icon_network.svg|
 Experience the fun surfing the Internet! You can browse news, play online video, download files, chat with friends, shop online and so on.
 
 ### View Network
@@ -404,7 +404,7 @@ You can breakthrough network limitations by setting proxy server, which makes yo
 
  ![0|agentnetwork](png/agentnetwork.png)
 
-## Sound Settings |../common/icon_sound.svg|
+## Sound Settings|../common/icon_sound.svg|
 You can adjust system volume by executing one of the following operations:
 
 - Move the mouse pointer over  ![audio_icon](icon/audio_icon.svg) and drag the volume slider.
@@ -447,7 +447,7 @@ You can make more detailed settings to input and output in advanced setting opti
 
  ![0|advancedset](png/advancedset.png)
 
-## Date and Time |../common/icon_dateandtime.svg|
+## Date and Time|../common/icon_dateandtime.svg|
 System has made initialize settings for date and time, you can check if the date and time is correct on Dock.
 
 ### View Date and Time
@@ -532,7 +532,7 @@ If you are in other countries or regions and need to set your computer to local 
 
 ![0|addtimezone](png/addtimezone.png)
 
-## Power Management |../common/icon_powermanagement.svg|
+## Power Management|../common/icon_powermanagement.svg|
 It will provide strong power for your work and entertainment to configure power management protocols.
 
 ### Display Suspended
@@ -563,7 +563,7 @@ On Control Center panel, click on **Power Management**.
 
  ![0|rouseneedpw](png/rouseneedpw.png)
 
-## Mouse and Touchpad |../common/icon_mouse.svg|
+## Mouse and Touchpad|../common/icon_mouse.svg|
 You can set mouse and use touchpad to operate the computer based on your habit.
 
 ### Mouse Settings
@@ -644,7 +644,7 @@ TrackPoint will be built in ThinkPad computers, you can set the moving speed of 
 
  ![0|trackpoint](png/trackpoint.png)
 
-## Keyboard and Language |../common/icon_keyboardandlanguage.svg|
+## Keyboard and Language|../common/icon_keyboardandlanguage.svg|
 Based on your nationality and region, you can select your keyboard input habit and layout.
 
 ### Enable Caps Lock Notification
@@ -701,7 +701,7 @@ The system default keyboard layout is US keyboard, you can add other keyboard la
 
  ![0|keyboardset](png/keyboardset.png)
 
-## Shortcut Settings |../common/icon_shortcuts.svg|
+## Shortcut Settings|../common/icon_shortcuts.svg|
 Use shortcuts wisely to save your valuable time.
 
 ### View Shortcuts
@@ -866,7 +866,7 @@ Customize more shortcuts to simplify your operations.
 
  ![0|customshortcut](png/customshortcut.png)
 
-## Boot Menu Settings |../common/icon_bootmenu.svg|
+## Boot Menu Settings|../common/icon_bootmenu.svg|
 Multiple system means multiple choices, boot menu makes your system boot vividly.
 
 ### Boot Background Settings
@@ -904,7 +904,7 @@ You can set different color for the texts on the boot interface to distinguish o
 
  ![0|fontcolor](png/fontcolor.png)
 
-## System Information |../common/icon_systeminfo.svg|
+## System Information|../common/icon_systeminfo.svg|
 You can view system edition and computer hardware information and GNU general public license, update and upgrade system/applications.
 
 ### View System Information
