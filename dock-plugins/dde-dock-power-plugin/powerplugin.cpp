@@ -73,11 +73,10 @@ int PowerPlugin::getBatteryPercentage() {
     int totalBatPercentage = 0;
     BatteryPercentageMap::const_iterator i = pertMap.constBegin();
     while (i != pertMap.constEnd()) {
-
        totalBatPercentage += pertMap.value(i.key());
        i++;
     }
-    return totalBatPercentage;
+    return  pertMap.count() == 0 ? 0 : totalBatPercentage / pertMap.count();
 }
 
 bool PowerPlugin::getBatteryIsPresent() {
