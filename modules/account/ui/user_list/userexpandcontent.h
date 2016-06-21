@@ -45,7 +45,6 @@ private slots:
     void changeControlCenterHideable(bool hideable);
 
 private:
-    void initSegmentedControl();
     void initAvatarPanel();
     void initAutoLogin();
     void initUserEnable();
@@ -55,16 +54,13 @@ private:
     void onAccountEnableChanged(bool enabled);
 
     void updateSize(bool note = true);
-    void updatemAvatarGridSize(int stackIndex);
+    void updatemAvatarGridSize();
 
 private:
     QVBoxLayout *m_mainLayout = NULL;
     DBusAccountUser *m_accountUser = NULL;
     AvatarGrid *m_allAvatarGrid = NULL;
-    AvatarGrid *m_historyAvatarGrid = NULL;
     QStackedWidget *m_stackWidget = NULL;
-    QFrame *m_segmentedFrame = NULL;
-    DSegmentedControl *m_segmentedControl = NULL;
     PasswordFrame *m_passwordFrame = NULL;
     AccountSwitchLine *m_autoLoginLine = NULL;
     AccountSwitchLine *m_lockLine = NULL;

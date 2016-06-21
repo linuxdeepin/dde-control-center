@@ -63,7 +63,6 @@ void UserExpandContent::initDBusData()
             QString currentUserPath = da->FindUserById(sessionManager.currentUid()).value();
             m_isCurrentUser = m_userPath == currentUserPath;
 
-            initSegmentedControl();
             initAvatarPanel();
             initAutoLogin();
             initUserEnable();
@@ -104,52 +103,31 @@ void UserExpandContent::changeControlCenterHideable(bool hideable)
     }
 }
 
-void UserExpandContent::initSegmentedControl()
-{
-    m_segmentedControl = new DSegmentedControl(this);
-    m_segmentedControl->addSegmented(tr("Recently Used"));
-    m_segmentedControl->addSegmented(tr("Avatar"));
-    m_segmentedControl->setCurrentIndex(1);
-
-    m_segmentedFrame = new QFrame;
-    QVBoxLayout *frameLayout = new QVBoxLayout(m_segmentedFrame);
-    frameLayout->setContentsMargins(0, LAYOUT_SPACING, 0, LAYOUT_SPACING);
-    frameLayout->setAlignment(Qt::AlignCenter);
-    frameLayout->addWidget(m_segmentedControl);
-    m_mainLayout->addWidget(m_segmentedFrame, 0, Qt::AlignHCenter);
-}
-
 void UserExpandContent::initAvatarPanel()
 {
-    m_historyAvatarGrid = new AvatarGrid(AvatarGrid::HistoryGrid, m_userPath, this);
     m_allAvatarGrid = new AvatarGrid(AvatarGrid::NormalGrid, m_userPath, this);
 
-    connect(m_historyAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
     connect(m_allAvatarGrid, &AvatarGrid::avatarSelected, this, &UserExpandContent::onAvatarSelected);
 
     m_stackWidget = new QStackedWidget(this);
-    connect(m_segmentedControl, &DSegmentedControl::currentChanged, m_stackWidget, &QStackedWidget::setCurrentIndex);
-    connect(m_stackWidget, &QStackedWidget::currentChanged, [=](int index){
-        m_historyAvatarGrid->setAvatars(m_accountUser->historyIcons());
+    connect(m_stackWidget, &QStackedWidget::currentChanged, [=](int){
         m_allAvatarGrid->setAvatars(m_accountUser->iconList() << ADD_AVATAR_ICON);
 
-        updatemAvatarGridSize(index);
+        updatemAvatarGridSize();
 
         if (m_autoLoginLine)    //after initialization
             updateSize();
     });
     connect(m_accountUser, &DBusAccountUser::IconListChanged, [=]{
         m_allAvatarGrid->setAvatars(m_accountUser->iconList() << ADD_AVATAR_ICON);
-        updatemAvatarGridSize(m_stackWidget->currentIndex());
+        updatemAvatarGridSize();
         updateSize(true);
     });
     connect(m_accountUser, &DBusAccountUser::HistoryIconsChanged, [=] {
-        m_historyAvatarGrid->setAvatars(m_accountUser->historyIcons());
-        updatemAvatarGridSize(m_stackWidget->currentIndex());
+        updatemAvatarGridSize();
         updateSize(true);
     });
 
-    m_stackWidget->addWidget(m_historyAvatarGrid);
     m_stackWidget->addWidget(m_allAvatarGrid);
     m_stackWidget->setCurrentIndex(1);
 
@@ -271,13 +249,11 @@ void UserExpandContent::onAvatarSelected(const QString &avatar)
 void UserExpandContent::onAccountEnableChanged(bool enabled)
 {
     if (enabled) {
-        m_segmentedFrame->setFixedHeight(DTK_WIDGET_NAMESPACE::BUTTON_HEIGHT + LAYOUT_SPACING * 2);
-        updatemAvatarGridSize(m_stackWidget->currentIndex());
+        updatemAvatarGridSize();
         m_autoLoginLine->setFixedHeight(DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
         m_passwordFrame->setFixedHeight(DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
     }
     else {
-        m_segmentedFrame->setFixedHeight(0);
         m_stackWidget->setFixedHeight(0);
         m_autoLoginLine->setFixedHeight(0);
         m_passwordFrame->reset();
@@ -291,7 +267,6 @@ void UserExpandContent::updateSize(bool note)
 {
     int totalHeight = 0;
     totalHeight += m_stackWidget->height();
-    totalHeight += m_segmentedFrame->height();
     totalHeight += m_passwordFrame->height();
     totalHeight += m_autoLoginLine->height();
     totalHeight += m_lockLine->height();
@@ -302,21 +277,9 @@ void UserExpandContent::updateSize(bool note)
         emit sizeChanged();
 }
 
-void UserExpandContent::updatemAvatarGridSize(int stackIndex)
+void UserExpandContent::updatemAvatarGridSize()
 {
-    QSize ns;
-    switch (stackIndex) {
-    case 0:
-        ns = m_historyAvatarGrid->size();
-        break;
-    case 1:
-        ns = m_allAvatarGrid->size();
-        break;
-    default:
-        break;
-    }
-
-    m_stackWidget->setFixedSize(ns);
+    m_stackWidget->setFixedSize(m_allAvatarGrid->size());
 }
 
 
