@@ -4,8 +4,8 @@ TEMPLATE = subdirs
 SUBDIRS = widgets \
           frame \
           modules \
-          helper \
-          dock-plugins
+          helper #\
+          #dock-plugins
 
 # Automating generation .qm files from .ts files
 CONFIG(release, debug|release) {
