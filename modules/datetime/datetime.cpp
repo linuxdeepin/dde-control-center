@@ -141,11 +141,17 @@ Datetime::Datetime(QObject *parent) :
             m_calendar->setCurrentDate(QDate::currentDate());
     });
     connect(m_autoSyncSwitcher, &DSwitchButton::checkedChanged, [this] {
+        m_autoSyncSwitcher->blockSignals(true);
         QDBusPendingReply<> reply = m_dbusInter.SetNTP(m_autoSyncSwitcher->checked());
         reply.waitForFinished();
         if (reply.isError())
             m_autoSyncSwitcher->setChecked(m_dbusInter.nTP());
+        m_autoSyncSwitcher->blockSignals(false);
     });
+    connect(&m_dbusInter, &DBusTimedate::NTPChanged, [this]{
+        m_autoSyncSwitcher->setChecked(m_dbusInter.nTP());
+    });
+
     connect(m_timeWidget, &TimeWidget::applyTime, [this](const QDateTime & time) -> void {
         qDebug() << "set time: " << time << time.currentMSecsSinceEpoch();
         m_dbusInter.SetDate(time.date().year(), time.date().month(), time.date().day(), time.time().hour(), time.time().minute(), time.time().second(), time.time().msec()).waitForFinished();
