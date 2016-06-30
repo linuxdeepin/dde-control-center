@@ -235,6 +235,7 @@ Mouse::Mouse(QObject *parent): QObject(parent)
     onTouchPadExistChanged();////update widgets visible property
     onTrackpointExistChanged();
     m_mouseSettingPanel->setVisible(m_mouseInterface->exist());
+    m_secondHSeparator->setVisible(m_mouseInterface->exist());
 
     layout->addWidget(m_topHeaderLine);
     layout->addWidget(m_firstHSeparator);
@@ -275,8 +276,10 @@ Mouse::Mouse(QObject *parent): QObject(parent)
             this, SLOT(disableTouchpadWhenMousePluggedIn(bool)));
     connect(m_mouseInterface, &ComDeepinDaemonInputDeviceMouseInterface::disableTpadChanged,
             m_forbiddenTouchpadWhenMouseSwitchButton, &DSwitchButton::setChecked);
-    connect(m_forbiddenTouchpadWhenMouseSwitchButton, SIGNAL(checkedChanged(bool)),
-            m_touchpadSwitchButton, SLOT(setHidden(bool)));
+    connect(m_forbiddenTouchpadWhenMouseSwitchButton,  &DSwitchButton::checkedChanged,
+            [&](bool arg) {
+            m_touchpadSwitchButton->setChecked(!arg);
+    });
     connect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)), this, SLOT(enableTouchpad(bool)));
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::tpadEnableChanged,
             m_touchpadSwitchButton, &DSwitchButton::setChecked);
@@ -321,6 +324,11 @@ Mouse::Mouse(QObject *parent): QObject(parent)
     [&](bool arg) {
         m_mouseSettingPanel->setVisible(arg);
         m_secondHSeparator->setVisible(arg);
+        if (m_touchpadInterface->exist()) {
+            m_touchpadSwitchButton->setVisible(arg);
+            bool touchpadEnable = !arg || !m_mouseInterface->disableTpad();
+            m_touchpadSwitchButton->setChecked(touchpadEnable);
+        }
     });
     connect(m_touchpadInterface, &ComDeepinDaemonInputDeviceTouchPadInterface::existChanged,
             this, &Mouse::onTouchPadExistChanged);
