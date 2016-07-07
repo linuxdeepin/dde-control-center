@@ -4,6 +4,7 @@
 
 #include <QTime>
 #include <QFrame>
+#include "soundcontrol.h"
 
 class ModuleHeader;
 class QVBoxLayout;
@@ -49,13 +50,15 @@ public slots:
     void updateSpeakerUI(const SoundModel &model);
     void updateMicrophoneUI(const SoundModel &model);
     void updateInputPortsUI(const SoundModel &model);
-    void updateInputDevicesUI(const SoundModel &model);
-
     void updateOutputPortsUI(const SoundModel &model);
-    void updateOutputDevicesUI(const SoundModel &model);
+
+
+//        void updateInputDevicesUI(const SoundModel &model);
+//        void updateOutputDevicesUI(const SoundModel &model);
 
 signals:
     void requestInit();
+    void portChange(uint card, QString name, int direction);
 
 private:
     struct SoundModel   *m_model    = nullptr;
@@ -76,10 +79,10 @@ private://UI
     DButtonList *m_outputPortsList          = nullptr;
     DBaseExpand *m_inputPortsExpand         = nullptr;
     DButtonList *m_inputPortsList           = nullptr;
-    DBaseExpand *m_outputDevicesExpand      = nullptr;
-    DButtonList *m_outputDevicesList        = nullptr;
-    DBaseExpand *m_inputDevicesExpand       = nullptr;
-    DButtonList *m_inputDevicesList         = nullptr;
+//    DBaseExpand *m_outputDevicesExpand      = nullptr;
+//    DButtonList *m_outputDevicesList        = nullptr;
+//    DBaseExpand *m_inputDevicesExpand       = nullptr;
+//    DButtonList *m_inputDevicesList         = nullptr;
     QVBoxLayout *m_mainWidgetVLayout        = nullptr;
     DScrollArea *m_scrollArea               = nullptr;
     DHeaderLine *m_soundEffectsLine         = nullptr;
@@ -94,6 +97,11 @@ private://UI
     QTime       m_SetInputVolumeRecorder;
     QTime       m_SetBalanceRecorder;
     QTime       m_SetOutputVolumeRecorder;
+
+    QList<SoundPort>    m_sinkPorts;
+    QList<QString>      m_sinkPortsName;
+    QList<SoundPort>    m_sourcePorts;
+    QList<QString>      m_sourcePortsName;
 };
 
 }

@@ -41,7 +41,7 @@ SoundView::SoundView(SoundControl *control, QWidget *parent):
 
 void SoundView::initAdvanceOptions(const SoundModel &model)
 {
-    ///advanced settings expand widget
+    // advanced settings expand widget
     DVBoxWidget *advanced_widget = new DVBoxWidget;
     advanced_widget->setFixedWidth(DCC::ModuleContentWidth);
 
@@ -54,10 +54,6 @@ void SoundView::initAdvanceOptions(const SoundModel &model)
     advanced_expand->setContent(advanced_widget);
     advanced_expand->setSeparatorVisible(false);
     advanced_expand->setExpandedSeparatorVisible(false);
-
-    DBaseLine *space = new DBaseLine;
-    space->setStyleSheet("background-color:#252627;");
-    advanced_layout->addWidget(space);
 
     ///////////////////////////////////////////////////////--Advanced settings
     // Output ports
@@ -72,23 +68,6 @@ void SoundView::initAdvanceOptions(const SoundModel &model)
     updateOutputPortsUI(model);
     advanced_layout->addWidget(m_outputPortsExpand);
 
-    // Output devices
-    m_outputDevicesExpand = new DBaseExpand;
-    m_outputDevicesExpand->setExpand(true);
-
-    HeaderLine *outputDevicesLine = new HeaderLine(tr("Output device"), m_outputDevicesExpand);
-    m_outputDevicesExpand->setHeader(outputDevicesLine);
-
-    m_outputDevicesList = new DButtonList(m_outputDevicesExpand);
-    m_outputDevicesExpand->setContent(m_outputDevicesList);
-    updateOutputDevicesUI(model);
-
-    advanced_layout->addWidget(m_outputDevicesExpand);
-
-    DBaseLine *space1 = new DBaseLine;
-    space1->setStyleSheet("background-color:#252627;");
-    advanced_layout->addWidget(space1);
-
     // Input ports
     m_inputPortsExpand = new DBaseExpand;
     m_inputPortsExpand->setExpand(true);
@@ -102,21 +81,6 @@ void SoundView::initAdvanceOptions(const SoundModel &model)
     updateInputPortsUI(model);
 
     advanced_layout->addWidget(m_inputPortsExpand);
-
-    // Input devices
-    m_inputDevicesExpand = new DBaseExpand;
-    m_inputDevicesExpand->setExpandedSeparatorVisible(false);
-    m_inputDevicesExpand->setExpand(true);
-
-    HeaderLine *inputDevicesLine = new HeaderLine(tr("Input device"), m_inputDevicesExpand);
-    m_inputDevicesExpand->setHeader(inputDevicesLine);
-
-    m_inputDevicesList = new DButtonList(m_inputDevicesExpand);
-    m_inputDevicesExpand->setContent(m_inputDevicesList);
-    updateInputDevicesUI(model);
-
-
-    advanced_layout->addWidget(m_inputDevicesExpand);
     advanced_layout->addWidget(new DSeparatorHorizontal);
     advanced_layout->addStretch(1);
 
@@ -143,39 +107,38 @@ void SoundView::initAdvanceOptions(const SoundModel &model)
     m_mainLayout->addSpacing(10);
     m_mainLayout->addWidget(advanced_button, 0, Qt::AlignRight);
 
+    connect(m_control, &SoundControl::cardsChanged, this, &SoundView::updateOutputPortsUI);
 
-    connect(m_control, &SoundControl::sinksChanged, this, &SoundView::updateOutputDevicesUI);
-    connect(m_control, &SoundControl::sinksChanged, this, &SoundView::updateOutputPortsUI);
-    connect(m_control, &SoundControl::defaultSinkChanged, this, &SoundView::updateOutputPortsUI);
-
-    connect(m_control, &SoundControl::sourcesChanged, this, &SoundView::updateInputDevicesUI);
-    connect(m_control, &SoundControl::sourcesChanged, this, &SoundView::updateInputPortsUI);
-    connect(m_control, &SoundControl::defaultSourceChanged, this, &SoundView::updateInputPortsUI);
-
-    connect(m_outputDevicesList, &DButtonList::buttonCheckedIndexChanged,
-            m_control, &SoundControl::setDefaultDeviceByIndex);
     connect(m_outputPortsList, &DButtonList::buttonCheckedIndexChanged,
-            m_control, &SoundControl::setDefaultPortByIndex);
+    [&](int index) {
+        emit portChange(m_sinkPorts[index].card, m_sinkPorts[index].name, Output);
+    });
 
-    connect(m_control, &SoundControl::activePortChanged, [ = ](const SoundModel & model) {
-        if (model.sink.portList.contains(model.sink.activePort)) {
-            m_outputPortsList->checkButtonByIndex(model.sink.portList.indexOf(model.sink.activePort));
+    connect(m_control, &SoundControl::outputActivePortChanged, [ = ](const SoundModel & model) {
+        for (int index = 0; index < m_sinkPorts.length(); ++index) {
+            if (m_sinkPorts.at(index).name == model.activeSinkPort) {
+                m_outputPortsList->checkButtonByIndex(index);
+            }
         }
         updateSpeakerUI(model);
     });
 
+    connect(m_control, &SoundControl::cardsChanged, this, &SoundView::updateInputPortsUI);
     connect(m_inputPortsList, &DButtonList::buttonCheckedIndexChanged,
-            m_control, &SoundControl::setDefaultInputPortByIndex);
-    connect(m_inputDevicesList, &DButtonList::buttonCheckedIndexChanged,
-            m_control, &SoundControl::setDefaultInputDeviceByIndex);
+    [&](int index) {
+        emit portChange(m_sourcePorts[index].card, m_sourcePorts[index].name, Input);
+    });
+
+    connect(this, &SoundView::portChange, m_control, &SoundControl::setPort);
 
     connect(m_control, &SoundControl::inputActivePortChanged, [ = ](const SoundModel & model) {
-        if (model.source.portList.contains(model.source.activePort)) {
-            m_inputPortsList->checkButtonByIndex(model.source.portList.indexOf(model.source.activePort));
+        for (int index = 0; index < m_sourcePorts.length(); ++index) {
+            if (m_sourcePorts.at(index).name == model.activeSourcePort) {
+                m_inputPortsList->checkButtonByIndex(index);
+            }
         }
         updateMicrophoneUI(model);
     });
-
 }
 
 void SoundView::initEffectOptions(const SoundModel &model)
@@ -245,11 +208,13 @@ void SoundView::initOutputOption(const SoundModel &model)
     m_speakerExpand->setContent(speakerExpandContent);
     m_mainLayout->addWidget(m_speakerExpand);
 
+    connect(m_control, &SoundControl::outputChanged, this, &SoundView::updateSpeakerUI);
+
     connect(m_speakerExpand, &DBaseExpand::expandChange, [ = ](bool expanded) {
         m_control->setMute(!expanded);
     });
 
-    connect(m_control, &SoundControl::muteChanged, this, [ = ](bool mute) {
+    connect(m_control, &SoundControl::outputMuteChanged, this, [ = ](bool mute) {
         m_speakerExpand->setExpand(!mute);
     });
 
@@ -277,7 +242,7 @@ void SoundView::initOutputOption(const SoundModel &model)
         m_SetOutputVolumeTimer->start(200);
     });
 
-    connect(m_control, &SoundControl::volumeChanged, this, [ = ](double v) {
+    connect(m_control, &SoundControl::outputVolumeChanged, this, [ = ](double v) {
 
         const int value = std::rint(v * 100);
 
@@ -313,7 +278,7 @@ void SoundView::initOutputOption(const SoundModel &model)
         m_SetBalanceTimer->start(200);
     });
 
-    connect(m_control, &SoundControl::balanceChanged, this, [ = ](double v) {
+    connect(m_control, &SoundControl::outputBalanceChanged, this, [ = ](double v) {
         const int value = std::rint(v * 100);
 
         if (qAbs(value - m_leftRightBalanceSlider->value()) > 1) {
@@ -370,7 +335,7 @@ void SoundView::initInputOption(const SoundModel &model)
     m_inputFeedbackSlider->setRange(0, 100);
     m_inputFeedbackSlider->setEnabled(false);
 
-    connect(m_control, &SoundControl::meterVolumeChanged,
+    connect(m_control, &SoundControl::inputMeterVolumeChanged,
             m_inputFeedbackSlider, &DSlider::setValue);
 
     connect(m_inputFeedbackSlider, &DSlider::valueChanged, [ = ](int value) {
@@ -397,6 +362,7 @@ void SoundView::initInputOption(const SoundModel &model)
 
     m_microphoneExpand->setContent(mircophoneExpandContent);
     m_mainLayout->addWidget(m_microphoneExpand);
+    connect(m_control, &SoundControl::inputChanged, this, &SoundView::updateMicrophoneUI);
 
     connect(m_inputVolumeSlider, &DSlider::valueChanged, [ = ](int value) {
         blockInputVolumeSignal = true;
@@ -480,83 +446,57 @@ void SoundView::init(const SoundModel &model)
     initAdvanceOptions(model);
     m_mainLayout->addSpacing(10);
     m_mainLayout->addStretch(1);
+
 }
 
 void SoundView::updateOutputPortsUI(const SoundModel &model)
 {
     m_outputPortsList->clear();
+    m_sinkPortsName.clear();
     m_outputPortsList->setFixedSize(DCC::ModuleContentWidth, 0);
 
-    const QStringList &outputPorts = model.sink.portList;
-    const QString activePort = model.sink.activePort;
+    const QString activePort = model.activeSinkPort;
+    m_sinkPorts = model.sinkPorts;
+    QStringList outputPorts;
+    foreach(SoundPort port, model.sinkPorts) {
+        m_sinkPortsName << port.name;
+        outputPorts << port.description;
+    }
 
+    qDebug() << "activePort" << activePort;
     if (outputPorts.length() > 0) {
         m_outputPortsList->addButtons(outputPorts);
         m_outputPortsList->setFixedSize(DCC::ModuleContentWidth, outputPorts.length() * m_outputPortsList->itemWidget(m_outputPortsList->item(0))->height());
-        if (outputPorts.contains(activePort)) {
-            m_outputPortsList->checkButtonByIndex(outputPorts.indexOf(activePort));
+        if (m_sinkPortsName.contains(activePort)) {
+            m_outputPortsList->checkButtonByIndex(m_sinkPortsName.indexOf(activePort));
         }
         m_outputPortsExpand->show();
     } else {
         m_outputPortsExpand->hide();
     }
-    m_speakerExpand->setVisible(model.sink.defaultPortActive);
-}
-
-void SoundView::updateOutputDevicesUI(const SoundModel &model)
-{
-    const QStringList &outputDevices = model.sink.devicesList;
-    const QString &defaultDevices = model.sink.defaultDevices;
-
-    if (outputDevices.length() > 0) {
-        m_outputDevicesList->clear();
-        m_outputDevicesList->addButtons(model.sink.devicesList);
-        m_outputDevicesList->setFixedSize(DCC::ModuleContentWidth,
-                                          outputDevices.length() * m_outputDevicesList->itemWidget(m_outputDevicesList->item(0))->height());
-        if (outputDevices.contains(defaultDevices)) {
-            m_outputDevicesList->checkButtonByIndex(outputDevices.indexOf(defaultDevices));
-        }
-        m_outputDevicesExpand->show();
-    } else {
-        m_outputDevicesExpand->hide();
-    }
-}
-
-void SoundView::updateInputDevicesUI(const SoundModel &model)
-{
-    const QStringList &inputDevices = model.source.devicesList;
-    const QString &defaultDevices = model.source.defaultDevices;
-    if (inputDevices.length() > 0) {
-        m_inputDevicesList->clear();
-        m_inputDevicesList->addButtons(inputDevices);
-        m_inputDevicesList->setFixedSize(DCC::ModuleContentWidth,
-                                         inputDevices.length() * m_inputDevicesList->itemWidget(m_inputDevicesList->item(0))->height());
-        if (inputDevices.contains(defaultDevices)) {
-            m_inputDevicesList->checkButtonByIndex(inputDevices.indexOf(defaultDevices));
-        }
-        m_inputDevicesExpand->show();
-    } else {
-        m_inputDevicesExpand->hide();
-    }
-    m_microphoneExpand->setVisible(model.source.defaultSourceActive);
 }
 
 void SoundView::updateInputPortsUI(const SoundModel &model)
 {
     m_inputPortsList->clear();
+    m_sourcePortsName.clear();
 
-    QString defaultPort = model.source.activeSourcePort.name;
+    QString defaultPort = model.activeSourcePort;
+    m_sourcePorts = model.sourcePorts;
     QStringList inputPorts;
-    foreach(SourcePortStruct port, model.source.sourcePortList) {
-        inputPorts << port.name;
+    foreach(SoundPort port, model.sourcePorts) {
+        m_sourcePortsName << port.name;
+        inputPorts << port.description;
     }
 
     if (inputPorts.length() > 0) {
         m_inputPortsList->addButtons(inputPorts);
         m_inputPortsList->setFixedSize(DCC::ModuleContentWidth,
                                        inputPorts.length() * m_inputPortsList->itemWidget(m_inputPortsList->item(0))->height());
-        if (inputPorts.contains(defaultPort)) {
-            m_inputPortsList->checkButtonByIndex(inputPorts.indexOf(defaultPort));
+        if (m_sourcePortsName.contains(defaultPort)) {
+            m_inputPortsList->blockSignals(true);
+            m_inputPortsList->checkButtonByIndex(m_sourcePortsName.indexOf(defaultPort));
+            m_inputPortsList->blockSignals(false);
         }
         m_inputPortsExpand->show();
     } else {
@@ -568,6 +508,7 @@ void SoundView::updateMicrophoneUI(const SoundModel &model)
 {
     m_inputVolumeSlider->setValue(std::rint(model.source.volume * 100));
     m_microphoneExpand->setExpand(!model.source.mute);
+    m_microphoneExpand->setVisible(model.source.defaultSourceActive);
 }
 
 void SoundView::updateSpeakerUI(const SoundModel &model)
@@ -575,6 +516,7 @@ void SoundView::updateSpeakerUI(const SoundModel &model)
     m_outputVolumeSlider->setValue(std::rint(model.sink.volume * 100));
     m_leftRightBalanceSlider->setValue(std::rint(model.sink.balance * 100));
     m_speakerExpand->setExpand(!model.sink.mute);
+    m_speakerExpand->setVisible(model.sink.defaultPortActive);
 }
 
 SoundView::~SoundView()

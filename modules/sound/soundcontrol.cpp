@@ -1,5 +1,7 @@
 #include "soundcontrol.h"
 
+#include <QJsonDocument>
+
 namespace Plugin
 {
 namespace Sound
@@ -8,7 +10,7 @@ namespace Sound
 SoundControl::SoundControl(QObject *parent): QObject(parent)
 {
     qDebug() << "SoundControl init";
-    m_prepareModel.initialized = false;
+    m_Model.initialized = false;
 
     m_dbusAudio = new DBusAudio(this);
 
@@ -25,108 +27,181 @@ SoundControl::~SoundControl()
 
 void SoundControl::prepare()
 {
-    prepareModel(m_prepareModel);
+    prepareModel(m_Model);
 }
 
 void SoundControl::prepareModel(SoundModel &model)
 {
+    model.activeSinkPort = m_dbusAudio->activeSinkPort();
+    model.activeSourcePort = m_dbusAudio->activeSourcePort();
+    model.sink.defaultSink = m_dbusAudio->defaultSink();
+    model.source.defaultSource = m_dbusAudio->defaultSource();
+
+    updatePorts(model);
+    connect(m_dbusAudio, &DBusAudio::CardsChanged, this, &SoundControl::handleDBusCardsChanged);
+
     updateSinks(model);
 
     connect(m_dbusAudio, &DBusAudio::SinksChanged, this, &SoundControl::handleDBusSinksChanged);
     connect(m_dbusAudio, &DBusAudio::DefaultSinkChanged, this, &SoundControl::handleDBusDefaultSinkChanged);
+    connect(m_dbusAudio, &DBusAudio::ActiveSinkPortChanged,
+    [&] {
+        if (m_Model.activeSinkPort != m_dbusAudio->activeSinkPort())
+        {
+            m_Model.activeSinkPort = m_dbusAudio->activeSinkPort();
+            if (m_defaultsink) {
+                m_Model.sink.volume    = m_defaultsink->volume();
+                m_Model.sink.balance   = m_defaultsink->balance();
+                m_Model.sink.mute      = m_defaultsink->mute();
+            }
+            emit outputActivePortChanged(m_Model);
+        }
+    });
 
     updateSources(model);
-
     connect(m_dbusAudio, &DBusAudio::SourcesChanged, this, &SoundControl::handleDBusSourcesChanged);
     connect(m_dbusAudio, &DBusAudio::DefaultSourceChanged, this, &SoundControl::handleDBusDefaultSourceChanged);
+    connect(m_dbusAudio, &DBusAudio::ActiveSourcePortChanged,
+    [&] {
+        if (m_Model.activeSourcePort != m_dbusAudio->activeSourcePort())
+        {
+            m_Model.activeSourcePort = m_dbusAudio->activeSourcePort();
+            if (m_defaultSource) {
+                m_Model.source.volume    = m_defaultSource->volume();
+                m_Model.source.mute      = m_defaultSource->mute();
+            }
+            emit inputActivePortChanged(m_Model);
+        }
+    });
 
     connect(m_effects, &DBusSoundEffects::EnabledChanged, [this] {
         emit this->effectsEnabledChanged(m_effects->enabled());
     });
     model.effect.enabled = m_effects->enabled();
-
     model.initialized = true;
+}
+
+void SoundControl::updatePorts(SoundModel &model)
+{
+    model.sinkPorts.clear();
+    model.sourcePorts.clear();
+
+    QString cardInfo = m_dbusAudio->cards();
+    QJsonParseError err;
+    auto cardsJson = QJsonDocument::fromJson(cardInfo.toUtf8(), &err);
+    if (QJsonParseError::NoError != err.error) {
+        qWarning() << "parse dbus cards info failed" << err.errorString();
+        return;
+    }
+
+    for (QJsonValue card : cardsJson.array()) {
+        uint cardIndex = card.toObject()["Id"].toInt();
+        QJsonArray ports = card.toObject()["Ports"].toArray();
+        for (QJsonValue port : ports) {
+            SoundPort p;
+            p.card = cardIndex;
+            p.name = port.toObject()["Name"].toString();
+            p.description = port.toObject()["Description"].toString();
+            p.available = static_cast<PortStatus>(port.toObject()["Available"].toInt());
+            p.direction = static_cast<PortDirection>(port.toObject()["Direction"].toInt());
+            switch (p.direction) {
+            case Output:
+                model.sinkPorts.push_back(p);
+                break;
+            case Input:
+                model.sourcePorts.push_back(p);
+                break;
+            default:
+                qWarning() << "unkonw port type"  << p.name << p.direction;
+                break;
+            }
+        }
+    }
 }
 
 void SoundControl::updateSinks(SoundModel &model)
 {
-    qDebug() << "updateSinks";
     m_sinks.clear();
 
-    QString defaultSinkName = m_dbusAudio->defaultSink();
-    DBusAudioSink *activeSink = nullptr;
+    QString defaultSinkName = model.sink.defaultSink;
+    DBusAudioSink *sinkFound = nullptr;
 
     QList<QDBusObjectPath> sinkPaths = m_dbusAudio->sinks();
+    QString pathfound = "";
     foreach(QDBusObjectPath path, sinkPaths) {
         auto sink = new DBusAudioSink(path.path(), this);
         if (defaultSinkName == sink->name()) {
-            activeSink = sink;
+            sinkFound = sink;
+            pathfound = path.path();
         }
         m_sinks << sink;
     }
 
-    model.sink.defaultPortActive = false;
-
-    if (m_sinks.isEmpty()) {
-        qWarning() << "sink is empty";
+    if (pathfound == model.sink.defaultSinkPath) {
+        qDebug() << "sink not change";
         return;
     }
 
-    // check default port is vaild
+    if (pathfound.isEmpty()) {
+        qDebug() << "sink not found";
+        model.sink.defaultPortActive = false;
+        model.sink.defaultSinkPath = "";
+        emit outputChanged(model);
+        return;
+    }
+
+    model.sink.defaultSinkPath = pathfound;
+    model.sink.defaultPortActive = true;
+
     if (m_defaultsink) {
         m_defaultsink->deleteLater();
     }
-    m_defaultsink = activeSink;
+    m_defaultsink = sinkFound;
 
-    if (activeSink) {
-        model.sink.volume         = m_defaultsink->volume();
-        model.sink.balance        = m_defaultsink->balance();
-        model.sink.mute           = m_defaultsink->mute();
-        model.sink.defaultPortActive = true;
+    model.sink.volume         = m_defaultsink->volume();
+    model.sink.balance        = m_defaultsink->balance();
+    model.sink.mute           = m_defaultsink->mute();
 
-        connect(m_defaultsink, &DBusAudioSink::ActivePortChanged, this, &SoundControl::handleActivePortChanged);
-        connect(m_defaultsink, &DBusAudioSink::VolumeChanged, this, &SoundControl::handleVolumeChnaged);
-        connect(m_defaultsink, &DBusAudioSink::BalanceChanged, this, &SoundControl::handleBalanceChanged);
-        connect(m_defaultsink, &DBusAudioSink::MuteChanged, this, &SoundControl::handleMuteChanged);
-    } else {
-        activeSink = m_sinks.first();
-    }
+    connect(m_defaultsink, &DBusAudioSink::VolumeChanged, this, &SoundControl::handleVolumeChnaged);
+    connect(m_defaultsink, &DBusAudioSink::BalanceChanged, this, &SoundControl::handleBalanceChanged);
+    connect(m_defaultsink, &DBusAudioSink::MuteChanged, this, &SoundControl::handleMuteChanged);
 
-    model.sink.activePort =  activeSink->activePort().name;
-    model.sink.portList.clear();
-    for (auto &port : activeSink->ports()) {
-        model.sink.portList << port.name;
-    }
-
-    model.sink.defaultDevices = activeSink->description();
-    model.sink.devicesList.clear();
-    for (auto sink : m_sinks) {
-        model.sink.devicesList << sink->description();
-    }
+    emit outputChanged(model);
 }
 
 void SoundControl::updateSources(SoundModel &model)
 {
-    qDebug() << "updateSources";
     m_sources.clear();
 
-    QString defaultSourceName = m_dbusAudio->defaultSource();
+    QString defaultSourceName = model.source.defaultSource;
     DBusAudioSource *activeSource = nullptr;
 
     QList<QDBusObjectPath> sourcePaths = m_dbusAudio->sources();
+    QString pathfound = "";
     foreach(QDBusObjectPath path, sourcePaths) {
         auto source = new DBusAudioSource(path.path(), this);
         if (defaultSourceName == source->name()) {
             activeSource = source;
+            pathfound = path.path();
         }
         m_sources << source;
     }
 
-    model.source.defaultSourceActive          = false;
-    if (m_sources.isEmpty()) {
-        qWarning() << "source is empty";
+    if (pathfound == model.source.defaultSourcePath) {
+        qDebug() << "source not change";
         return;
     }
+
+    if (pathfound.isEmpty()) {
+        qDebug() << "source not found";
+        model.source.defaultSourceActive = false;
+        model.source.defaultSourcePath = "";
+        emit inputChanged(model);
+        return;
+    }
+
+    model.source.defaultSourceActive    = true;
+    model.source.defaultSourcePath = pathfound;
 
     if (m_defaultSource) {
         m_defaultSource->deleteLater();
@@ -134,36 +209,11 @@ void SoundControl::updateSources(SoundModel &model)
 
     m_defaultSource = activeSource;
 
-    if (!activeSource) {
-        activeSource = m_sources.first();
-    }
-
-    model.source.volume             = activeSource->volume();
-    model.source.mute               = activeSource->mute();
-    model.source.activeSourcePort   = activeSource->activePort();
-    model.source.sourcePortList     = activeSource->ports();
-
-    model.source.activePort =  activeSource->activePort().name;
-    model.source.portList.clear();
-    for (auto &port : activeSource->ports()) {
-        model.source.portList << port.name;
-    }
-
-    model.source.defaultDevices     = activeSource->description();
-    model.source.devicesList.clear();
-    for (auto source : m_sources) {
-        model.source.devicesList << source->description();
-    }
-
-    if (!m_defaultSource) {
-        return;
-    }
+    model.source.volume             = m_defaultSource->volume();
+    model.source.mute               = m_defaultSource->mute();
 
     connect(m_defaultSource, &DBusAudioSource::VolumeChanged, this, &SoundControl::handleInputVolumeChnaged);
     connect(m_defaultSource, &DBusAudioSource::MuteChanged, this, &SoundControl::handleInputMuteChnaged);
-    connect(m_defaultSource, &DBusAudioSource::ActivePortChanged, this, &SoundControl::handleInputActivePortChanged);
-
-    model.source.defaultSourceActive    = true;
 
 #ifndef DCC_DISABLE_MICROPHONE_FEEDBACK
     // init meter
@@ -192,26 +242,13 @@ void SoundControl::updateSources(SoundModel &model)
                                           this, SLOT(handleMeterVolumeChanged(QDBusMessage)));
     m_meterTimer->start(5000);
 #endif
-}
-
-void SoundControl::handleActivePortChanged()
-{
-    SoundModel model;
-    updateSinks(model);
-    emit activePortChanged(model);
-}
-
-void SoundControl::handleInputActivePortChanged()
-{
-    SoundModel model;
-    updateSources(model);
-    emit inputActivePortChanged(model);
+    emit inputChanged(model);
 }
 
 void SoundControl::handleVolumeChnaged()
 {
     if (m_defaultsink) {
-        emit volumeChanged(m_defaultsink->volume());
+        emit outputVolumeChanged(m_defaultsink->volume());
     }
 }
 
@@ -232,14 +269,14 @@ void SoundControl::handleInputMuteChnaged()
 void SoundControl::handleBalanceChanged()
 {
     if (m_defaultsink) {
-        emit balanceChanged(m_defaultsink->balance());
+        emit outputBalanceChanged(m_defaultsink->balance());
     }
 }
 
 void SoundControl::handleMuteChanged()
 {
     if (m_defaultsink) {
-        emit muteChanged(m_defaultsink->mute());
+        emit outputMuteChanged(m_defaultsink->mute());
     }
 }
 
@@ -250,7 +287,7 @@ void SoundControl::handleMeterVolumeChanged(const QDBusMessage &msg)
     QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
     if (changedProps.contains("Volume")) {
 //        qDebug() << "meter change to " << changedProps.value("Volume").toDouble();
-        emit meterVolumeChanged(changedProps.value("Volume").toDouble() * 100);
+        emit inputMeterVolumeChanged(changedProps.value("Volume").toDouble() * 100);
     }
 }
 
@@ -261,44 +298,59 @@ void SoundControl::setEffectsEnabled(bool enable)
 
 void SoundControl::handleDBusSourcesChanged()
 {
-    SoundModel  model;
-    updateSources(model);
-    emit this->sourcesChanged(model);
+    updateSources(m_Model);
 }
 
 void SoundControl::handleDBusDefaultSourceChanged()
 {
-    SoundModel  model;
-    updateSources(model);
-    emit this->defaultSourceChanged(model);
+    m_Model.source.defaultSource = m_dbusAudio->defaultSource();
 }
 
 void SoundControl::handleDBusSinksChanged()
 {
-    SoundModel  model;
-    updateSinks(model);
-    emit this->sinksChanged(model);
+    updateSinks(m_Model);
 }
 
 void SoundControl::handleDBusDefaultSinkChanged()
 {
-    SoundModel  model;
-    updateSinks(model);
-    emit this->defaultSinkChanged(model);
+    qDebug() << "handleDBusDefaultSinkChanged";
+    m_Model.sink.defaultSink = m_dbusAudio->defaultSink();
 }
 
-void SoundControl::reset() {
+void SoundControl::reset()
+{
     if (m_dbusAudio) {
         m_dbusAudio->Reset();
     }
 }
 
+void SoundControl::handleDBusCardsChanged()
+{
+    updatePorts(m_Model);
+    emit cardsChanged(m_Model);
+}
+
 void SoundControl::init()
 {
-    if (!m_prepareModel.initialized) {
-        prepareModel(m_prepareModel);
+    if (!m_Model.initialized) {
+        prepareModel(m_Model);
     }
-    emit this->initialized(m_prepareModel);
+
+    handleDBusCardsChanged();
+    emit this->initialized(m_Model);
+}
+
+void SoundControl::setPort(uint card, const QString &name, int direction)
+{
+    if (direction == Output && name != m_Model.activeSinkPort) {
+        m_Model.activeSinkPort = name;
+        m_dbusAudio->SetPort(card, name, direction);
+    }
+
+    if (direction == Input && name != m_Model.activeSourcePort) {
+        m_Model.activeSourcePort = name;
+        m_dbusAudio->SetPort(card, name, direction);
+    }
 }
 
 void SoundControl::setDefaultDeviceByIndex(int index)
@@ -309,7 +361,7 @@ void SoundControl::setDefaultDeviceByIndex(int index)
     }
 }
 
-void SoundControl::setDefaultPortByIndex(int index)
+void SoundControl::setDefaultOutputPortByIndex(int index)
 {
     if (m_defaultsink) {
         SinkPortStruct port =  m_defaultsink->ports().value(index);

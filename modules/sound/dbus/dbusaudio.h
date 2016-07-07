@@ -71,6 +71,18 @@ public:
 
     ~DBusAudio();
 
+    Q_PROPERTY(QString ActiveSinkPort READ activeSinkPort NOTIFY ActiveSinkPortChanged)
+    inline QString activeSinkPort() const
+    { return qvariant_cast< QString >(property("ActiveSinkPort")); }
+
+    Q_PROPERTY(QString ActiveSourcePort READ activeSourcePort NOTIFY ActiveSourcePortChanged)
+    inline QString activeSourcePort() const
+    { return qvariant_cast< QString >(property("ActiveSourcePort")); }
+
+    Q_PROPERTY(QString Cards READ cards NOTIFY CardsChanged)
+    inline QString cards() const
+    { return qvariant_cast< QString >(property("Cards")); }
+
     Q_PROPERTY(QString DefaultSink READ defaultSink NOTIFY DefaultSinkChanged)
     inline QString defaultSink() const
     { return qvariant_cast< QString >(property("DefaultSink")); }
@@ -128,8 +140,18 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("SetDefaultSource"), argumentList);
     }
 
+    inline QDBusPendingReply<> SetPort(uint in0, const QString &in1, int in2)
+    {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2);
+        return asyncCallWithArgumentList(QStringLiteral("SetPort"), argumentList);
+    }
+
 Q_SIGNALS: // SIGNALS
 // begin property changed signals
+    void ActiveSinkPortChanged();
+    void ActiveSourcePortChanged();
+    void CardsChanged();
     void DefaultSinkChanged();
     void DefaultSourceChanged();
     void MaxUIVolumeChanged();

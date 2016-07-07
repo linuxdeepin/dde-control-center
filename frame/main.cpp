@@ -71,6 +71,7 @@ int main(int argv, char *args[])
 #endif
 
     // initialize logging
+    DLogManager::registerConsoleAppender();
 #ifdef QT_DEBUG
     DLogManager::registerConsoleAppender();
 #else
