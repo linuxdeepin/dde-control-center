@@ -44,3 +44,5 @@ INSTALLS = binary desktop service icons qm_files docs
 isEqual(ARCH_MIPSEL, YES){
     INSTALLS += autostart
 }
+
+TRANSLATIONS    = translations/dde-control-center.ts

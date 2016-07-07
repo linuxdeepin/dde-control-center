@@ -17,6 +17,8 @@
 #include <dsegmentedcontrol.h>
 #include <dbuttonlist.h>
 #include <dbuttongrid.h>
+#include <dlabel.h>
+#include <dswitchbutton.h>
 
 #include "moduleheader.h"
 
@@ -53,9 +55,9 @@ GrubWidget::~GrubWidget()
 
 bool GrubWidget::eventFilter(QObject *obj, QEvent *e)
 {
-    if(obj == m_grubBackground){
-        if(e->type() == QEvent::Resize){
-            m_tooltip->move(0, m_grubBackground->height()-m_tooltip->height());
+    if (obj == m_grubBackground) {
+        if (e->type() == QEvent::Resize) {
+            m_tooltip->move(0, m_grubBackground->height() - m_tooltip->height());
         }
     }
 
@@ -73,6 +75,19 @@ void GrubWidget::init()
     m_tooltip->resize(310, 20);
     m_tooltip->setText(tr("Drag and drop an image to change background."));
     m_tooltip->setAlignment(Qt::AlignCenter);
+
+    DSwitchButton *m_enableThemeSwitch = new DSwitchButton;
+    DHeaderLine *m_enableThemeLine = new DHeaderLine;
+    m_enableThemeLine->setTitle(tr("Theme"));
+    m_enableThemeLine->setContent(m_enableThemeSwitch);
+    m_enableThemeSwitch->setChecked(true);
+    m_enableThemeLine->setFixedHeight(RADIO_ITEM_HEIGHT);
+
+    connect(m_enableThemeSwitch, &DSwitchButton::checkedChanged,
+            m_grubDbus, &GrubDbus::setEnableTheme);
+
+    connect(m_grubDbus, &GrubDbus::EnableThemeChanged,
+            m_enableThemeSwitch, &DSwitchButton::setChecked);
 
     QStringList title_list = m_grubDbus->GetSimpleEntryTitles();
     m_bootEntryList->setItemWidth(310);
@@ -94,15 +109,15 @@ void GrubWidget::init()
     m_arrowDefaultBoot->setContent(m_bootEntryList);
 
     DButtonGrid *timeout_select = new DButtonGrid(1, 7);
-    m_timeoutList<<"1s"<<"5s"<<"10s"<<"15s"<<"20s"<<"25s"<<"30s";
+    m_timeoutList << "1s" << "5s" << "10s" << "15s" << "20s" << "25s" << "30s";
     timeout_select->addButtons(m_timeoutList);
     timeout_select->setItemSize(30, RADIO_ITEM_HEIGHT);
     timeout_select->setFixedHeight(RADIO_ITEM_HEIGHT);
     timeout_select->checkButtonByIndex(m_timeoutList.indexOf(QString("%1s").arg(m_grubDbus->timeout())));
-    connect(m_grubDbus, &GrubDbus::TimeoutChanged, [=](int timeout){
+    connect(m_grubDbus, &GrubDbus::TimeoutChanged, [ = ](int timeout) {
         timeout_select->checkButtonByIndex(m_timeoutList.indexOf(QString("%1s").arg(timeout)));
     });
-    connect(timeout_select, &DButtonGrid::buttonChecked, [=](QString title){
+    connect(timeout_select, &DButtonGrid::buttonChecked, [ = ](QString title) {
         m_grubDbus->setTimeout(title.replace('s', "").toInt());
     });
 
@@ -125,15 +140,24 @@ void GrubWidget::init()
     m_arrowSelectedTextColor->setTitle(tr("Selected Text Color"));
     m_arrowSelectedTextColor->setContent(picker2);
 
+    DLabel *hits = new DLabel;
+    hits->setText(tr("The startup speed can be improved by disabling the theme"));
+    hits->setContentsMargins(16, 10, 16, 10);
+    hits->setWordWrap(true);
+    hits->setStyleSheet("font-size:11px;color:grey;");
+
     m_layout->setSpacing(0);
     m_layout->addWidget(m_header);
     m_layout->addWidget(new DSeparatorHorizontal());
     m_layout->addWidget(m_grubBackground);
     m_layout->addWidget(new DSeparatorHorizontal());
+    m_layout->addWidget(m_enableThemeLine);
+    m_layout->addWidget(new DSeparatorHorizontal());
     m_layout->addWidget(m_arrowDefaultBoot);
     m_layout->addWidget(m_arrowBootDelay);
     m_layout->addWidget(m_arrowTextColor);
     m_layout->addWidget(m_arrowSelectedTextColor);
+    m_layout->addWidget(hits);
     m_layout->addStretch(1);
 
     setLayout(m_layout);
@@ -144,7 +168,7 @@ void GrubWidget::setDefaultEntry(const QString &entry)
     QStringList title_list = m_grubDbus->GetSimpleEntryTitles();
     int default_index = title_list.indexOf(entry);
 
-    if(default_index >= 0 && default_index < m_bootEntryList->count()){
+    if (default_index >= 0 && default_index < m_bootEntryList->count()) {
         m_bootEntryList->checkButtonByIndex(default_index);
         m_bootMenuTitle->checkButtonByIndex(default_index);
     }
@@ -152,9 +176,9 @@ void GrubWidget::setDefaultEntry(const QString &entry)
 
 void GrubWidget::updatingChanged()
 {
-    m_tooltip->setStyleSheet(m_tooltip->styleSheet()+"QLabel{color:#DF8000;}");
+    m_tooltip->setStyleSheet(m_tooltip->styleSheet() + "QLabel{color:#DF8000;}");
 
-    if (m_themeDbus->updating() || m_grubDbus->updating()){
+    if (m_themeDbus->updating() || m_grubDbus->updating()) {
         m_tooltip->setText(tr("Updating..."));
     } else {
         m_tooltip->setText(tr("Successfully updated, reboot to view."));
@@ -164,6 +188,6 @@ void GrubWidget::updatingChanged()
 
 void GrubWidget::resetTooltip()
 {
-    m_tooltip->setStyleSheet(m_tooltip->styleSheet()+"QLabel{color:white;}");
+    m_tooltip->setStyleSheet(m_tooltip->styleSheet() + "QLabel{color:white;}");
     m_tooltip->setText(tr("Drag and drop an image to change background."));
 }
