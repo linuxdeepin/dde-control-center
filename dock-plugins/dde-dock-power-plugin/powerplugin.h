@@ -52,6 +52,8 @@ private slots:
     void updateIcon();
     int getBatteryPercentage();
     bool getBatteryIsPresent();
+    uint getBatteryState();
+
 private:
     void initSettings();
     void onEnabledChanged();

@@ -132,7 +132,7 @@ void Power::handleBatteryStateChanged()
 {
     qDebug() << "handleBatteryStateChanged:" << m_powerInterface->getDBusPowerIterface()->onBattery();
     m_powerTitleManagement->setOnBattery(m_powerInterface->getDBusPowerIterface()->onBattery());
-    m_powerTitleManagement->addBatterys(m_powerInterface->getBatteryInfos());
+    m_powerTitleManagement->addBatterys(m_powerInterface->getVirtualBatteryInfos());
 }
 
 void Power::handleLidActionChanged()

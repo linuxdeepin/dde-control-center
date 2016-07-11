@@ -35,7 +35,7 @@ public slots:
     void handleSleepNeedPassWd();
     void handleLidCloseAction();
     void handleBatteryPercentageChanged();
-    QList<BatteryItem> getBatteryInfos();
+    QList<BatteryItem> getVirtualBatteryInfos();
 
     DBusPower* getDBusPowerIterface();
 private:

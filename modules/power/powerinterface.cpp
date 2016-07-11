@@ -4,7 +4,7 @@ PowerInterface::PowerInterface(QObject *parent)
     : QObject(parent),
       m_dbusPower(new DBusPower)
 {
-    getBatteryInfos();
+    getVirtualBatteryInfos();
     initConnection();
 }
 
@@ -98,29 +98,29 @@ void PowerInterface::handleLidCloseAction() {
     }
 }
 
-QList<BatteryItem> PowerInterface::getBatteryInfos() {
+//! getVirtualBatteryInfos will return all battery cap as one virtual battery.
+/*!
+  \return The virtaul battary item list
+*/
+QList<BatteryItem> PowerInterface::getVirtualBatteryInfos() {
+    QList<BatteryItem> batterys;
+    BatteryItem virtualBattery;
     BatteryInfoMap infoMap = m_dbusPower->batteryIsPresent();
     BatteryStateMap stateMap = m_dbusPower->batteryState();
     BatteryPercentageMap pertMap = m_dbusPower->batteryPercentage();
-    qDebug() << "infoMap" << infoMap.size();
-    BatteryItem tmpItem;QList<BatteryItem> tmpItemList;
-    BatteryInfoMap::const_iterator i = infoMap.constBegin();
-    while (i != infoMap.constEnd()) {
-       tmpItem.batteryName = i.key();
-       tmpItem.batteryIsAccess = i.value();
-       tmpItem.batteryPercentage = pertMap.value(i.key());
-       tmpItem.batteryState = stateMap.value(i.key());
-       tmpItemList.append(tmpItem);
-       qDebug() << tmpItem.batteryName << tmpItem.batteryIsAccess << tmpItem.batteryState
-                << tmpItem.batteryPercentage;
-       i++;
-    }
-    return tmpItemList;
+
+    virtualBattery.batteryName = "Display";
+    virtualBattery.batteryIsAccess = infoMap.value(virtualBattery.batteryName, false);
+    virtualBattery.batteryPercentage = pertMap.value(virtualBattery.batteryName, 0);
+    virtualBattery.batteryState = stateMap.value(virtualBattery.batteryName, BatteryStateUnkonwn);
+    batterys.push_back(virtualBattery);
+
+    return batterys;
 }
 
 void PowerInterface::handleBatteryPercentageChanged() {
     QList<BatteryItem> tmpItemList;
-    tmpItemList = getBatteryInfos();
+    tmpItemList = getVirtualBatteryInfos();
     qDebug() << "***handleBatteryPercentageChanged:" << tmpItemList.length();
     emit batteryPercentageChanged(tmpItemList);
 }

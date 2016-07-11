@@ -16,6 +16,7 @@
 #include "powerplugin.h"
 
 const QString POWER_PLUGIN_ID = "power_plugin_id";
+const QString VirtualBatteryName = "Display";
 
 enum MenuItemType{
     SeparatorHorizontal = -1,
@@ -70,24 +71,17 @@ QString PowerPlugin::getName(QString)
 
 int PowerPlugin::getBatteryPercentage() {
     BatteryPercentageMap pertMap = m_dbusPower->batteryPercentage();
-    int totalBatPercentage = 0;
-    BatteryPercentageMap::const_iterator i = pertMap.constBegin();
-    while (i != pertMap.constEnd()) {
-       totalBatPercentage += pertMap.value(i.key());
-       i++;
-    }
-    return  pertMap.count() == 0 ? 0 : totalBatPercentage / pertMap.count();
+    return int(pertMap.value(VirtualBatteryName, 0));
 }
 
 bool PowerPlugin::getBatteryIsPresent() {
     BatteryInfoMap infoMap = m_dbusPower->batteryIsPresent();
-    bool isPresent = false;
-    BatteryInfoMap::const_iterator j = infoMap.constBegin();
-    while( j != infoMap.constEnd()) {
-        isPresent = (infoMap.value(j.key()) || isPresent);
-        j++;
-    }
-    return isPresent;
+    return infoMap.value(VirtualBatteryName, false);
+}
+
+uint PowerPlugin::getBatteryState() {
+    BatteryStateMap stateMap  = m_dbusPower->batteryState();
+    return stateMap.value(VirtualBatteryName, BatteryStateUnkonwn);
 }
 
 QString PowerPlugin::getTitle(QString)
@@ -99,7 +93,7 @@ QString PowerPlugin::getTitle(QString)
     QString batteryPercentage = QString("%1%").arg(QString::number(int(getBatteryPercentage())));
 
     if (!m_dbusPower->onBattery()) {
-        if (m_dbusPower->batteryState().first() == BatteryStateFullyCharged)
+        if (getBatteryState() == BatteryStateUnkonwn)
             return tr("Charged");
         else
             return tr("On Charging %1").arg(batteryPercentage);
