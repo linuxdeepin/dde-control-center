@@ -216,6 +216,22 @@ void MonitorGround::cancelEdit()
     relayout();
 }
 
+void MonitorGround::adjustMonitorPosition()
+{
+    QRect rect;
+    for (auto m : m_monitors)
+    {
+        QRect r = m->resolution();
+        if (rect.intersects(r))
+        {
+            r.moveLeft(rect.right() + 1);
+            m->setResolution(r);
+        }
+
+        rect = rect.united(r);
+    }
+}
+
 void MonitorGround::relayout()
 {
     QRect max_rect;

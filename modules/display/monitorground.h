@@ -37,6 +37,7 @@ public slots:
     void setEditable(bool editable);
     void setEditing(bool editing);
     void cancelEdit();
+    void adjustMonitorPosition();
 
 signals:
     void editingChanged(bool editing);

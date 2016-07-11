@@ -97,8 +97,9 @@ void CustomSettings::updateUI(const QList<MonitorInterface *> &list)
         m_enableMonitorList->setCheckable(true);
 
         connect(m_enableMonitorList, &ListWidget::checkedChanged, [this](int index, bool arg) {
-            m_dbusMonitors[index]->SwitchOn(arg);
+            m_dbusMonitors[index]->SwitchOn(arg).waitForFinished();
             m_enableMonitorList->setEnableUncheck(m_enableMonitorList->checkedList().count() > 1);
+            m_monitorGround->adjustMonitorPosition();
         });
 
         TitleAndWidget *enableTitle = new TitleAndWidget(m_enableMonitorList, false);
