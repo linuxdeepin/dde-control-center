@@ -81,7 +81,7 @@
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="23"/>
         <source>Add PPPoE Connection</source>
-        <translation>إضافة اتصال عبر بروتوكول PPPoE </translation>
+        <translation>إضافة اتصال عبر PPPoE </translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="26"/>
@@ -102,7 +102,7 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="39"/>
         <source>VPN Type</source>
-        <translation>نمط VPN</translation>
+        <translation>نوع الشبكة الخاصة VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="57"/>
@@ -255,7 +255,7 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="129"/>
         <source>Repeat Password</source>
-        <translation>أعد كلمة السر</translation>
+        <translation>أعد كلمة المرور</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="130"/>
@@ -267,7 +267,7 @@
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
         <source>Password can not be empty.</source>
-        <translation>لا يمكن ترك كلمة السر فارغة.</translation>
+        <translation>لا يمكن ترك كلمة المرور فارغةً.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="175"/>
@@ -337,7 +337,7 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="142"/>
         <source>Rotation</source>
-        <translation>دوارن</translation>
+        <translation>دوران</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="161"/>
@@ -348,37 +348,37 @@
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="317"/>
-        <location filename="../modules/display/customsettings.cpp" line="480"/>
+        <location filename="../modules/display/customsettings.cpp" line="475"/>
         <source>Apply</source>
         <translation>تطبيق</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="319"/>
-        <location filename="../modules/display/customsettings.cpp" line="482"/>
+        <location filename="../modules/display/customsettings.cpp" line="477"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>تأكيد</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="344"/>
+        <location filename="../modules/display/customsettings.cpp" line="339"/>
         <source>Do you want to keep these display settings?</source>
-        <translation>هل تريد الاحتفاظ بهذه اﻹعدادات</translation>
+        <translation>هل تريد الاحتفاظ إعدادات العرض هذه ؟</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="345"/>
-        <location filename="../modules/display/customsettings.cpp" line="353"/>
+        <location filename="../modules/display/customsettings.cpp" line="340"/>
+        <location filename="../modules/display/customsettings.cpp" line="348"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation>العودة إلى إعدادات العرض السابقة في &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; ثانية</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="347"/>
+        <location filename="../modules/display/customsettings.cpp" line="342"/>
         <source>Revert</source>
-        <translation>عكس</translation>
+        <translation>إرجاع</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="348"/>
+        <location filename="../modules/display/customsettings.cpp" line="343"/>
         <source>Keep Changes</source>
-        <translation>الاحتفاظ بالتغييرات</translation>
+        <translation>حفظ التغييرات</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.h" line="54"/>
@@ -450,7 +450,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="207"/>
         <source>Date&amp;Time settings(_T)</source>
-        <translation> إعدادات الوقت والتاريخ  (_T)</translation>
+        <translation> إعدادات الوقت والتاريخ</translation>
     </message>
 </context>
 <context>
@@ -492,7 +492,7 @@
         <location filename="../modules/default_applications/defaultapps.cpp" line="83"/>
         <location filename="../modules/default_applications/defaultapps.cpp" line="123"/>
         <source>Default Applications</source>
-        <translation>التطبيقات الأفتراضية</translation>
+        <translation>التطبيقات الافتراضية</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="121"/>
@@ -500,54 +500,9 @@
         <translation>التشغيل التلقائي</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
-        <source>Browser</source>
-        <translation>المتصفح</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
-        <source>Mail</source>
-        <translation>البريد</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
-        <source>Text</source>
-        <translation>نصوص</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
-        <source>Music</source>
-        <translation>الصوتيات</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
-        <source>Video</source>
-        <translation>فيديو</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
-        <source>Picture</source>
-        <translation>صور</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
-        <source>Terminal</source>
-        <translation>الطرفية</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
-        <source>CD Audio</source>
-        <translation>قرص صوتي</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
-        <source>DVD Video</source>
-        <translation>قرص فيديو</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
-        <source>Music Player</source>
-        <translation>مشغل الموسيقى</translation>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
+        <source>Software</source>
+        <translation>برامج</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="127"/>
@@ -555,9 +510,54 @@
         <translation>كاميرا</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
-        <source>Software</source>
-        <translation>برامج</translation>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
+        <source>Music Player</source>
+        <translation>مشغل الصوتيات</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
+        <source>DVD Video</source>
+        <translation>قرص فيديو</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
+        <source>CD Audio</source>
+        <translation>قرص صوتي</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
+        <source>Terminal</source>
+        <translation>الطرفية</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
+        <source>Picture</source>
+        <translation>صور</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
+        <source>Video</source>
+        <translation>فيديو</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
+        <source>Music</source>
+        <translation>الصوتيات</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
+        <source>Text</source>
+        <translation>نصوص</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
+        <source>Mail</source>
+        <translation>البريد</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
+        <source>Browser</source>
+        <translation>المتصفح</translation>
     </message>
 </context>
 <context>
@@ -589,22 +589,22 @@
         <translation>إعادة المحاولة</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="111"/>
         <source>removable disk</source>
         <translation>إزالة القرص</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
         <source>network disk</source>
         <translation>قرص شبكة</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="112"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
         <source>local disk</source>
         <translation>قرص محلي</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="118"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
         <translation>تعذرت إزالة تثبيت %1 &quot; %2 &quot;, يرجى المحاولة .</translation>
     </message>
@@ -629,7 +629,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy the contents of your primary screen to other screens.</source>
-        <translation>انسخ محتوى الشاشة الرئيسية الى الشاشات الاخرى</translation>
+        <translation>نسخ محتوى الشاشة الرئيسية إلى الشاشات اﻷخرى.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="177"/>
@@ -639,7 +639,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
-        <translation>عرض مختلف، ويمكن تطبيقها بشكل مستقل على كل الشاشات</translation>
+        <translation>تمديد محتويات الشاشة لعرض محتويات مختلفة على شاشات مختلفة.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="189"/>
@@ -649,7 +649,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="190"/>
         <source>You can do other custom settings to your screens.</source>
-        <translation>بامكانك القيام باعدادات خاصة لشاشاتك</translation>
+        <translation>يمكنك القيام بإعدادات مخصصة لشاشاتك</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="200"/>
@@ -659,7 +659,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="201"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
-        <translation>العرض هو 1٪ فقط ولكن ليس على شاشات أخرى.</translation>
+        <translation>يتم عرض محتويات الشاشة فقط على 1٪ فقط  وليس على شاشة أخرى.</translation>
     </message>
 </context>
 <context>
@@ -696,7 +696,7 @@
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="61"/>
         <source>Current system lacks component for %1</source>
-        <translation>%1النظام الحالي يفتقر لعنصر</translation>
+        <translation>النظام الحالي بحاجة إلى مكون  لـ  %1</translation>
     </message>
 </context>
 <context>
@@ -715,45 +715,55 @@
 <context>
     <name>GrubWidget</name>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="30"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="32"/>
         <source>Boot Menu</source>
         <translation>قائمة الإقلاع</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="74"/>
-        <location filename="../modules/grub/grubwidget.cpp" line="167"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="76"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="192"/>
         <source>Drag and drop an image to change background.</source>
         <translation>سحب وافلات لتغيير الخلفية</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="93"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="81"/>
+        <source>Theme</source>
+        <translation>السمة</translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/grubwidget.cpp" line="108"/>
         <source>Default Boot</source>
-        <translation>إقلاع افتراضي</translation>
+        <translation>اﻹقلاع الافتراضي</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="109"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="124"/>
         <source>Boot delay</source>
-        <translation>إقلاع بطيء</translation>
+        <translation>مهلة الإقلاع</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="117"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="132"/>
         <source>Text Color</source>
-        <translation>لون الخط</translation>
+        <translation>لون النص</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="125"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="140"/>
         <source>Selected Text Color</source>
-        <translation>لون الخط المحدد</translation>
+        <translation>لون النص المحدد</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="157"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="144"/>
+        <source>The startup speed can be improved by disabling the theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Updating...</source>
         <translation>يتم التحديث...</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="159"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="184"/>
         <source>Successfully updated, reboot to view.</source>
-        <translation>تم التحديث بنجاح ، أعد التشغيل لرؤيته .</translation>
+        <translation>تم التحديث بنجاح ، أعد التشغيل لعرضه .</translation>
     </message>
 </context>
 <context>
@@ -797,17 +807,17 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="163"/>
         <source>Repeat Delay</source>
-        <translation>تأخر الإعادة</translation>
+        <translation>مهلة التأحير</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
         <source>Repeat Rate</source>
-        <translation>معدل الإعادة</translation>
+        <translation>معدل التكرار</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="205"/>
         <source>Cursor Blink Rate</source>
-        <translation>معدل مؤشر الومض</translation>
+        <translation>معدل وميض المؤشر </translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="227"/>
@@ -817,7 +827,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="241"/>
         <source>Caps Lock prompt</source>
-        <translation>لوحة مفاتيح الارقام مقفلة</translation>
+        <translation>تفعيل مفتاح &quot;Caps Lock&quot;</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="258"/>
@@ -827,7 +837,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="263"/>
         <source>Keyboard Layout</source>
-        <translation>تصميم لوحة المفاتيح</translation>
+        <translation>تخطيط لوحة المفاتيح</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="264"/>
@@ -855,7 +865,7 @@
     <message>
         <location filename="../modules/network/listwidgetcontainer.cpp" line="102"/>
         <source>Connect</source>
-        <translation>اتصل</translation>
+        <translation>اتصال</translation>
     </message>
 </context>
 <context>
@@ -917,7 +927,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="384"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
-        <translation>الاختصار \ &quot;٪ 1 \&quot; غير صالح، يرجى إنشاء اختصار جديد</translation>
+        <translation>الاختصار &quot;%1&quot; غير صالح، الرجاء إنشاء اختصار جديد</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="398"/>
@@ -927,7 +937,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="408"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
-        <translation>تضارب الوجود مع \ &quot;٪ 2 \&quot; في فئة \ &quot;٪ 1 \&quot; &quot;.</translation>
+        <translation>هناك تعارض بين &quot;٪ 2&quot;  مع تلك المستخدمة في الفئة &quot;٪ 1&quot;.</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="415"/>
@@ -986,14 +996,21 @@
 <context>
     <name>ModemNetworkListItem</name>
     <message>
-        <location filename="../modules/network/modemnetworklistitem.cpp" line="16"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="17"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="83"/>
         <source>Modem Network</source>
         <translation>مودم الشبكة</translation>
     </message>
     <message>
-        <location filename="../modules/network/modemnetworklistitem.cpp" line="40"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="41"/>
         <source>Restore the connection</source>
         <translation>استعادة الاتصال</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
+        <source>Interface</source>
+        <translation>واجهة</translation>
     </message>
 </context>
 <context>
@@ -1009,6 +1026,21 @@
         <translation>إيقاف تشغيل</translation>
     </message>
     <message>
+        <location filename="../modules/account/account.cpp" line="18"/>
+        <source>User Accounts</source>
+        <translation>حسابات المستخدمين</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/display.cpp" line="39"/>
+        <source>Display</source>
+        <translation>العرض</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="24"/>
+        <source>Sound</source>
+        <translation>الصوت</translation>
+    </message>
+    <message>
         <location filename="../modules/power/power.cpp" line="35"/>
         <source>Power Management</source>
         <translation>إدارة الطاقة</translation>
@@ -1021,7 +1053,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="37"/>
         <source>Mouse and Touchpad</source>
-        <translation>الفأرة ولوح اللمس</translation>
+        <translation>الفأرة ولوحة اللمس</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
@@ -1029,19 +1061,9 @@
         <translation>معلومات النظام</translation>
     </message>
     <message>
-        <location filename="../modules/display/display.cpp" line="39"/>
-        <source>Display</source>
-        <translation>العرض</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/account.cpp" line="18"/>
-        <source>User Accounts</source>
-        <translation>حسابات المستخدمين</translation>
-    </message>
-    <message>
         <location filename="../modules/shortcuts/shortcuts.cpp" line="28"/>
         <source>Keyboard Shortcuts</source>
-        <translation>اختصارات لوحة المفاتيح</translation>
+        <translation>الاختصارات</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="44"/>
@@ -1061,7 +1083,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="32"/>
         <source>Wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom </translation>
     </message>
     <message>
         <location filename="../modules/grub/grub.cpp" line="28"/>
@@ -1078,18 +1100,13 @@
         <source>Network</source>
         <translation>الشبكة</translation>
     </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="24"/>
-        <source>Sound</source>
-        <translation>الصوت</translation>
-    </message>
 </context>
 <context>
     <name>MonitorGround</name>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="46"/>
         <source>Recognize</source>
-        <translation type="unfinished"/>
+        <translation>التعرف على</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="47"/>
@@ -1137,12 +1154,12 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="107"/>
         <source>Double-click Speed</source>
-        <translation>سرعة الضغطة  المزدوجة</translation>
+        <translation>سرعة النقر المزدوج</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="124"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>تعطيل لوحة اللمس عند إدخال الماوس</translation>
+        <translation>تعطيل لوحة اللمس عند إدخال الفأرة</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="150"/>
@@ -1152,7 +1169,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="190"/>
         <source>Drag Threshold</source>
-        <translation>عتبة التمرير</translation>
+        <translation>عتبة السحب</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="191"/>
@@ -1162,22 +1179,22 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="192"/>
         <source>Tap to click</source>
-        <translation>اضغط لانقر</translation>
+        <translation>النقر بلوحة اللمس</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="193"/>
         <source>Two-finger scrolling</source>
-        <translation>مرر اصبعين</translation>
+        <translation>التمرير بإصبعين</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="194"/>
         <source>Edge scrolling</source>
-        <translation>انتقل إلى حافة</translation>
+        <translation>التمرير الجانبي</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
-        <translation type="unfinished"/>
+        <translation>Trackpoint </translation>
     </message>
 </context>
 <context>
@@ -1210,17 +1227,17 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="52"/>
         <source>Mobile</source>
-        <translation>جوال</translation>
+        <translation>هاتف محمول</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="53"/>
         <source>Mobile GSM</source>
-        <translation>بطاقة خط جوال</translation>
+        <translation>بطاقة &quot;GSM&quot; للهاتف المحمول</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="54"/>
         <source>Mobile CDMA</source>
-        <translation>محمول cdma</translation>
+        <translation>بطاقة &quot;CDMA&quot; للهاتف المحمول</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="55"/>
@@ -1250,7 +1267,7 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="60"/>
         <source>VPN OpenConnect</source>
-        <translation>يفتح اتصالVPN</translation>
+        <translation>VPN OpenConnect</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="74"/>
@@ -1295,22 +1312,22 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="115"/>
         <source>Gateway</source>
-        <translation>بوابة</translation>
+        <translation>البوابة</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="116"/>
         <source>Primary DNS</source>
-        <translation>الاسم الاساسي لمجال النظام</translation>
+        <translation>DNS رئيسي</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="117"/>
         <source>Secondary DNS</source>
-        <translation>الاسم الثاني لمجال النظام</translation>
+        <translation>DNS ثانوي</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="118"/>
         <source>Third DNS</source>
-        <translation>الاسم الثالث لمجال النظام</translation>
+        <translation>DNS ثالث</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="119"/>
@@ -1326,19 +1343,19 @@
 <context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="159"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="190"/>
         <source>Network</source>
         <translation>الشبكة</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="172"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="203"/>
         <source>View detailed information</source>
         <translation>عرض معلومات مفصلة </translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="186"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="217"/>
         <source>System Proxy</source>
-        <translation>نظام الوكيل</translation>
+        <translation>وكيل النظام</translation>
     </message>
 </context>
 <context>
@@ -1346,7 +1363,7 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="94"/>
         <source>Double-click this area to change your time</source>
-        <translation>انقر نقرا مزدوجا فوق هذه المنطقة لتغيير وقتك</translation>
+        <translation>انقر نقراً مزدوجاً فوق هذه المنطقة لتغيير وقتك</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="122"/>
@@ -1361,7 +1378,7 @@
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="50"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="67"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="75"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="155"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="157"/>
         <source>The two passwords do not match.</source>
         <translation>كلمتا المرور غير متطابقتين</translation>
     </message>
@@ -1381,9 +1398,9 @@
         <translation>تكرار</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="150"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="152"/>
         <source>Password can not be empty.</source>
-        <translation>لا يمكن ترك كلمة السر فارغة.</translation>
+        <translation>لا يمكن ترك كلمة المرور فارغة.</translation>
     </message>
 </context>
 <context>
@@ -1416,7 +1433,7 @@
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="264"/>
         <source>Fonts</source>
-        <translation>خطوط</translation>
+        <translation>الخطوط</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="266"/>
@@ -1426,7 +1443,7 @@
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="267"/>
         <source>Monospaced</source>
-        <translation>مسافة احادية</translation>
+        <translation>مسافة أحادية</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="268"/>
@@ -1466,12 +1483,12 @@
         <location filename="../modules/sound/soundview.cpp" line="124"/>
         <location filename="../modules/sound/soundview.cpp" line="133"/>
         <source>Show Advanced...</source>
-        <translation>اظهار متقدم ...</translation>
+        <translation>إظهار اﻹعدادات المتقدمة ...</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="138"/>
         <source>Hide Advanced...</source>
-        <translation>إخفاء متقدم ...</translation>
+        <translation>إخفاء اﻹعدادات المتقدمة ...</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="185"/>
@@ -1486,7 +1503,7 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="211"/>
         <source>Output Volume</source>
-        <translation>حجم الانتاج</translation>
+        <translation>حجم اﻹخراج</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="226"/>
@@ -1504,22 +1521,22 @@
         <translation>يمين</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="329"/>
+        <location filename="../modules/sound/soundview.cpp" line="334"/>
         <source>Microphone</source>
         <translation>المايكروفون</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="340"/>
+        <location filename="../modules/sound/soundview.cpp" line="345"/>
         <source>Input Volume</source>
         <translation>مدخل الصوت</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="356"/>
+        <location filename="../modules/sound/soundview.cpp" line="361"/>
         <source>Feedback Volume</source>
-        <translation>الحجم الارتدادي</translation>
+        <translation>حجم الصوت المرتجع</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="456"/>
+        <location filename="../modules/sound/soundview.cpp" line="464"/>
         <source>Sound</source>
         <translation>الصوت</translation>
     </message>
@@ -1529,27 +1546,27 @@
     <message>
         <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>الشاشة ستدخل في وضع اﻹسبات بعد</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation>الحاسوب سيدخل وضع التعليق بعد</translation>
+        <translation>الحاسوب سيدخل وضع اﻹسبات بعد</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
-        <translation type="unfinished"/>
+        <translation>كلمة المرور مطلوبة لتنشيط الشاشة</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
-        <translation type="unfinished"/>
+        <translation>كلمة المرور مطلوبة لتنشيط الحاسوب</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation type="unfinished"/>
+        <translation>الحاسوب سوف يدخل وضع اﻹسبات بعد إغلاق الغطاء</translation>
     </message>
 </context>
 <context>
@@ -1568,12 +1585,12 @@
         <translation>الطاقة</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="104"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
         <source>Charged</source>
         <translation>مشحون</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="106"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="105"/>
         <source>On Charging %1</source>
         <translation>قيد الشحن %1</translation>
     </message>
@@ -1651,39 +1668,9 @@
 <context>
     <name>SystemInfo</name>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
-        <source>System Information</source>
-        <translation>معلومات النظام</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
-        <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>جميع الحقوق محفوظة  2011 -2016  شركة ووهان ديبين التقنية المحدودة .</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
-        <source>Deepin Edition:</source>
-        <translation>إصدار Deepin :</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
-        <source>Distribution:</source>
-        <translation>التوزيعة :</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
-        <source>System Type:</source>
-        <translation>نوع النظام :</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
-        <source>%1 Bit</source>
-        <translation>%1 بت</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
-        <source>Processor:</source>
-        <translation>المعالج :</translation>
+        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
+        <source>Disk:</source>
+        <translation>القرص :</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
@@ -1691,9 +1678,40 @@
         <translation>الذاكرة :</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
-        <source>Disk:</source>
-        <translation>القرص :</translation>
+        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
+        <source>Processor:</source>
+        <translation>المعالج :</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
+        <source>%1 Bit</source>
+        <translation>%1 بت</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
+        <source>System Type:</source>
+        <translation>نوع النظام :</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
+        <source>Distribution:</source>
+        <translation>التوزيعة :</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
+        <source>Deepin Edition:</source>
+        <translation>إصدار Deepin :</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
+        <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>جميع الحقوق محفوظة  2011 -2016  
+شركة ووهان ديبين التقنية المحدودة .</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
+        <source>System Information</source>
+        <translation>معلومات النظام</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="165"/>
@@ -1724,17 +1742,17 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="32"/>
         <source>Auto</source>
-        <translation>ذاتي</translation>
+        <translation>تلقائي</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="49"/>
         <source>Apply system wide</source>
-        <translation>تطبيق العرض على النظام</translation>
+        <translation>تطبيق نظام العرض الواسع</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="52"/>
         <source>Ignore the following proxy configuration for hosts and domains</source>
-        <translation>تجاهل الوكيل التالي ﻹعدادات المضيفين والنطاقات</translation>
+        <translation>تجاهل إعدادات الوكيل التالية للنطاقات والمضيفين</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="79"/>
@@ -1749,17 +1767,17 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="81"/>
         <source>FTP Proxy</source>
-        <translation>ملقم FTP</translation>
+        <translation>وكيل FTP</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="82"/>
         <source>Socks Proxy</source>
-        <translation>ملقم Socks</translation>
+        <translation>وكيل Socks</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="97"/>
         <source>Configuration URL</source>
-        <translation>إعداد عنوان انترنت</translation>
+        <translation>إعداد الرابط</translation>
     </message>
 </context>
 <context>
@@ -1803,7 +1821,7 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="259"/>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>حالة نظامك حتى اﻵن</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="263"/>
@@ -1833,7 +1851,7 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Some patches need to be updated</source>
-        <translation>بعث الترقيعات بحاجة إلى تحديث</translation>
+        <translation>بعض الترقيعات بحاجة إلى تحديث</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="312"/>
@@ -1854,32 +1872,22 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="110"/>
-        <source>Recently Used</source>
-        <translation>استخدمت حديثا</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
-        <source>Avatar</source>
-        <translation>الصورة الرمزية</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="163"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="141"/>
         <source>Auto-login</source>
         <translation>دخول تلقائي</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="189"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="167"/>
         <source>Enable</source>
         <translation>تمكين</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="246"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>اختر صورة جديدة لصورتك الرمزية</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="247"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>ملفات صور (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -1922,7 +1930,7 @@
     <message>
         <location filename="../modules/network/vpnconnectswidget.cpp" line="17"/>
         <source>VPN Connections</source>
-        <translation>اتصالات الشبكة الافتراضية الخاصة vpn</translation>
+        <translation>اتصالات شبكة vpn</translation>
     </message>
 </context>
 <context>
@@ -1947,22 +1955,22 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="61"/>
         <source>Page Up</source>
-        <translation>صفحة عليا</translation>
+        <translation>أعلى الصفحة</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="62"/>
         <source>Page Down</source>
-        <translation>صفحة سفلى</translation>
+        <translation>أسفل الصفحة</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="63"/>
         <source>Left Click</source>
-        <translation>النقر يسارا</translation>
+        <translation>الزر الأيسر</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="64"/>
         <source>Right Click</source>
-        <translation>النقر يمينا</translation>
+        <translation>الزر اﻷيمن</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="65"/>
@@ -2048,14 +2056,21 @@
 <context>
     <name>WiredNetworkListItem</name>
     <message>
-        <location filename="../modules/network/wirednetworklistitem.cpp" line="20"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="21"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="92"/>
         <source>Wired Network</source>
         <translation>شبكة سلكية</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirednetworklistitem.cpp" line="29"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="30"/>
         <source>Wired Connection</source>
-        <translation>الربط بالكيبل</translation>
+        <translation>اتصال سلكي</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
+        <source>Interface</source>
+        <translation>واجهة</translation>
     </message>
 </context>
 <context>
@@ -2085,13 +2100,20 @@
     <name>WirelessNetworkListItem</name>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="25"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="384"/>
         <source>Wireless Network</source>
-        <translation>شبكة لا سلكية</translation>
+        <translation>شبكة لاسلكية</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="241"/>
         <source>Connect to hidden access point</source>
-        <translation>الاتصال من نقطة وصول مخفية</translation>
+        <translation>الاتصال بنقطة وصول مخفية</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
+        <source>Interface</source>
+        <translation>واجهة</translation>
     </message>
 </context>
 <context>
@@ -2109,12 +2131,12 @@
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="271"/>
         <source>Connect</source>
-        <translation>اتصل</translation>
+        <translation>اتصال</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="296"/>
         <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation type="unfinished"/>
+        <translation>الرجاء أدخل كلمة السر لـ &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt; </translation>
     </message>
 </context>
 </TS>

@@ -128,7 +128,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="42"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>עדכון</translation>
     </message>
 </context>
 <context>
@@ -348,35 +348,35 @@
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="317"/>
-        <location filename="../modules/display/customsettings.cpp" line="480"/>
+        <location filename="../modules/display/customsettings.cpp" line="475"/>
         <source>Apply</source>
         <translation>החלה</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="319"/>
-        <location filename="../modules/display/customsettings.cpp" line="482"/>
+        <location filename="../modules/display/customsettings.cpp" line="477"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>אישור</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="344"/>
+        <location filename="../modules/display/customsettings.cpp" line="339"/>
         <source>Do you want to keep these display settings?</source>
         <translation>האם ברצונך להשאיר הגדרות תצוגה אלו?</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="345"/>
-        <location filename="../modules/display/customsettings.cpp" line="353"/>
+        <location filename="../modules/display/customsettings.cpp" line="340"/>
+        <location filename="../modules/display/customsettings.cpp" line="348"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="347"/>
+        <location filename="../modules/display/customsettings.cpp" line="342"/>
         <source>Revert</source>
         <translation>החזר לקדמותו</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="348"/>
+        <location filename="../modules/display/customsettings.cpp" line="343"/>
         <source>Keep Changes</source>
         <translation>שמור שינויים</translation>
     </message>
@@ -500,54 +500,9 @@
         <translation>הפעלה אוטומטית</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
-        <source>Browser</source>
-        <translation>דפדפן</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
-        <source>Mail</source>
-        <translation>דוא״ל</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
-        <source>Text</source>
-        <translation>טקסט</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
-        <source>Music</source>
-        <translation>מוזיקה</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
-        <source>Video</source>
-        <translation>וידאו</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
-        <source>Picture</source>
-        <translation>תמונות</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
-        <source>Terminal</source>
-        <translation>מסוף</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
-        <source>CD Audio</source>
-        <translation>דיסק מוזיקה</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
-        <source>DVD Video</source>
-        <translation>דיסק DVD</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
-        <source>Music Player</source>
-        <translation>נגן מוזיקה</translation>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
+        <source>Software</source>
+        <translation>תכנה</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="127"/>
@@ -555,9 +510,54 @@
         <translation>מצלמה</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
-        <source>Software</source>
-        <translation>תכנה</translation>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
+        <source>Music Player</source>
+        <translation>נגן מוזיקה</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
+        <source>DVD Video</source>
+        <translation>דיסק DVD</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
+        <source>CD Audio</source>
+        <translation>דיסק מוזיקה</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
+        <source>Terminal</source>
+        <translation>מסוף</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
+        <source>Picture</source>
+        <translation>תמונות</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
+        <source>Video</source>
+        <translation>וידאו</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
+        <source>Music</source>
+        <translation>מוזיקה</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
+        <source>Text</source>
+        <translation>טקסט</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
+        <source>Mail</source>
+        <translation>דוא״ל</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
+        <source>Browser</source>
+        <translation>דפדפן</translation>
     </message>
 </context>
 <context>
@@ -589,22 +589,22 @@
         <translation>הפעלה מחדש</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="111"/>
         <source>removable disk</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
         <source>network disk</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="112"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
         <source>local disk</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="118"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
         <translation type="unfinished"/>
     </message>
@@ -715,43 +715,53 @@
 <context>
     <name>GrubWidget</name>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="30"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="32"/>
         <source>Boot Menu</source>
         <translation>תפריט אתחול</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="74"/>
-        <location filename="../modules/grub/grubwidget.cpp" line="167"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="76"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="192"/>
         <source>Drag and drop an image to change background.</source>
         <translation>ניתן לגרור תמונה על מנת לשנות את הרקע.</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="93"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="81"/>
+        <source>Theme</source>
+        <translation>עיצוב</translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/grubwidget.cpp" line="108"/>
         <source>Default Boot</source>
         <translation>בררת המחדל של האתחול</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="109"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="124"/>
         <source>Boot delay</source>
         <translation>עיכוב אתחול</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="117"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="132"/>
         <source>Text Color</source>
         <translation>צבע טקסט</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="125"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="140"/>
         <source>Selected Text Color</source>
         <translation>בחירת צבע טקסט</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="157"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="144"/>
+        <source>The startup speed can be improved by disabling the theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Updating...</source>
         <translation>מתבצע עדכון…</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="159"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="184"/>
         <source>Successfully updated, reboot to view.</source>
         <translation>העדכון הושלם בהצלחה, נא להפעיל מחדש כדי לצפות בו.</translation>
     </message>
@@ -986,14 +996,21 @@
 <context>
     <name>ModemNetworkListItem</name>
     <message>
-        <location filename="../modules/network/modemnetworklistitem.cpp" line="16"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="17"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="83"/>
         <source>Modem Network</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/modemnetworklistitem.cpp" line="40"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="41"/>
         <source>Restore the connection</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
+        <source>Interface</source>
+        <translation>ממשק</translation>
     </message>
 </context>
 <context>
@@ -1007,6 +1024,21 @@
         <location filename="../frame/sidebarmodel.cpp" line="126"/>
         <source>Shutdown</source>
         <translation>כיבוי</translation>
+    </message>
+    <message>
+        <location filename="../modules/account/account.cpp" line="18"/>
+        <source>User Accounts</source>
+        <translation>חשבונות משתמשים</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/display.cpp" line="39"/>
+        <source>Display</source>
+        <translation>תצוגה</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="24"/>
+        <source>Sound</source>
+        <translation>שמע</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="35"/>
@@ -1027,16 +1059,6 @@
         <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Information</source>
         <translation>מידע על המערכת</translation>
-    </message>
-    <message>
-        <location filename="../modules/display/display.cpp" line="39"/>
-        <source>Display</source>
-        <translation>תצוגה</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/account.cpp" line="18"/>
-        <source>User Accounts</source>
-        <translation>חשבונות משתמשים</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/shortcuts.cpp" line="28"/>
@@ -1077,11 +1099,6 @@
         <location filename="../modules/network/network.cpp" line="34"/>
         <source>Network</source>
         <translation>רשת</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="24"/>
-        <source>Sound</source>
-        <translation>שמע</translation>
     </message>
 </context>
 <context>
@@ -1326,17 +1343,17 @@
 <context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="159"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="190"/>
         <source>Network</source>
         <translation>רשת</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="172"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="203"/>
         <source>View detailed information</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="186"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="217"/>
         <source>System Proxy</source>
         <translation>פרוקסי מערכת</translation>
     </message>
@@ -1361,7 +1378,7 @@
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="50"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="67"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="75"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="155"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="157"/>
         <source>The two passwords do not match.</source>
         <translation>שתי הססמאות אינן תואמות.</translation>
     </message>
@@ -1381,7 +1398,7 @@
         <translation>חזרה שנית</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="150"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="152"/>
         <source>Password can not be empty.</source>
         <translation>הססמה לא יכולה להיות ריקה.</translation>
     </message>
@@ -1504,22 +1521,22 @@
         <translation>ימין</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="329"/>
+        <location filename="../modules/sound/soundview.cpp" line="334"/>
         <source>Microphone</source>
         <translation>מיקרופון</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="340"/>
+        <location filename="../modules/sound/soundview.cpp" line="345"/>
         <source>Input Volume</source>
         <translation>עוצמת קלט שמע</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="356"/>
+        <location filename="../modules/sound/soundview.cpp" line="361"/>
         <source>Feedback Volume</source>
         <translation>עצמת החזרת שמע</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="456"/>
+        <location filename="../modules/sound/soundview.cpp" line="464"/>
         <source>Sound</source>
         <translation>שמע</translation>
     </message>
@@ -1568,12 +1585,12 @@
         <translation>צריכת חשמל</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="104"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
         <source>Charged</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="106"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="105"/>
         <source>On Charging %1</source>
         <translation type="unfinished"/>
     </message>
@@ -1651,13 +1668,33 @@
 <context>
     <name>SystemInfo</name>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
-        <source>System Information</source>
-        <translation>מידע על המערכת</translation>
+        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
+        <source>Disk:</source>
+        <translation>כונן:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
-        <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
+        <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
+        <source>Memory:</source>
+        <translation>זיכרון:</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
+        <source>Processor:</source>
+        <translation>מעבד:</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
+        <source>%1 Bit</source>
+        <translation>%1 סיביות</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
+        <source>System Type:</source>
+        <translation>סוג המערכת:</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
+        <source>Distribution:</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1666,34 +1703,14 @@
         <translation>מהדורת דיפין:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
-        <source>Distribution:</source>
+        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
+        <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
-        <source>System Type:</source>
-        <translation>סוג המערכת:</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
-        <source>%1 Bit</source>
-        <translation>%1 סיביות</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
-        <source>Processor:</source>
-        <translation>מעבד:</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
-        <source>Memory:</source>
-        <translation>זיכרון:</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
-        <source>Disk:</source>
-        <translation>כונן:</translation>
+        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
+        <source>System Information</source>
+        <translation>מידע על המערכת</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="165"/>
@@ -1795,7 +1812,7 @@
     <message>
         <location filename="../modules/system_info/updatearrowexpand.cpp" line="32"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>עדכון</translation>
     </message>
 </context>
 <context>
@@ -1854,32 +1871,22 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="110"/>
-        <source>Recently Used</source>
-        <translation>בשימוש לאחרונה</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
-        <source>Avatar</source>
-        <translation>תמונת משתמש</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="163"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="141"/>
         <source>Auto-login</source>
         <translation>כניסה אוטומטית</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="189"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="167"/>
         <source>Enable</source>
         <translation>הפעלה</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="246"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>בחירת תמונת משתמש חדשה</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="247"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>קובצי תמונה (‎*.jpg *.png *.jpeg)</translation>
     </message>
@@ -2048,14 +2055,21 @@
 <context>
     <name>WiredNetworkListItem</name>
     <message>
-        <location filename="../modules/network/wirednetworklistitem.cpp" line="20"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="21"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="92"/>
         <source>Wired Network</source>
         <translation>רשת קווית</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirednetworklistitem.cpp" line="29"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="30"/>
         <source>Wired Connection</source>
         <translation>חיבור קווי</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
+        <source>Interface</source>
+        <translation>ממשק</translation>
     </message>
 </context>
 <context>
@@ -2085,6 +2099,8 @@
     <name>WirelessNetworkListItem</name>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="25"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="384"/>
         <source>Wireless Network</source>
         <translation>רשת אלחוטית</translation>
     </message>
@@ -2092,6 +2108,11 @@
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="241"/>
         <source>Connect to hidden access point</source>
         <translation>התחבר לנקודת גישה נסתרת</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
+        <source>Interface</source>
+        <translation>ממשק</translation>
     </message>
 </context>
 <context>

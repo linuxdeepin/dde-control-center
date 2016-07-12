@@ -348,35 +348,35 @@
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="317"/>
-        <location filename="../modules/display/customsettings.cpp" line="480"/>
+        <location filename="../modules/display/customsettings.cpp" line="475"/>
         <source>Apply</source>
         <translation>Appliquer</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="319"/>
-        <location filename="../modules/display/customsettings.cpp" line="482"/>
+        <location filename="../modules/display/customsettings.cpp" line="477"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>Confirmer</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="344"/>
+        <location filename="../modules/display/customsettings.cpp" line="339"/>
         <source>Do you want to keep these display settings?</source>
         <translation>Voulez vous garder ces paramètres d’affichage ?</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="345"/>
-        <location filename="../modules/display/customsettings.cpp" line="353"/>
+        <location filename="../modules/display/customsettings.cpp" line="340"/>
+        <location filename="../modules/display/customsettings.cpp" line="348"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation>Retour aux paramètres d&apos;affichage précédent dans  &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt;  secondes.</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="347"/>
+        <location filename="../modules/display/customsettings.cpp" line="342"/>
         <source>Revert</source>
         <translation>Rétablir</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="348"/>
+        <location filename="../modules/display/customsettings.cpp" line="343"/>
         <source>Keep Changes</source>
         <translation>Garder les changements</translation>
     </message>
@@ -440,7 +440,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="203"/>
         <source>Show week</source>
-        <translation>Afficher les semaines</translation>
+        <translation>Afficher le jour</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="204"/>
@@ -500,54 +500,9 @@
         <translation>Lecture automatique</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
-        <source>Browser</source>
-        <translation>Navigateur</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
-        <source>Mail</source>
-        <translation>Courrier</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
-        <source>Text</source>
-        <translation>Texte</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
-        <source>Music</source>
-        <translation>Musique</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
-        <source>Video</source>
-        <translation>Vidéo</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
-        <source>Picture</source>
-        <translation>Image</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
-        <source>Terminal</source>
-        <translation>Terminal</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
-        <source>CD Audio</source>
-        <translation>CD Audio</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
-        <source>DVD Video</source>
-        <translation>DVD Vidéo</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
-        <source>Music Player</source>
-        <translation>Lecteur de musique</translation>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
+        <source>Software</source>
+        <translation>Logiciel</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="127"/>
@@ -555,9 +510,54 @@
         <translation>Photo</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
-        <source>Software</source>
-        <translation>Logiciel</translation>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
+        <source>Music Player</source>
+        <translation>Lecteur de musique</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
+        <source>DVD Video</source>
+        <translation>DVD Vidéo</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
+        <source>CD Audio</source>
+        <translation>CD Audio</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
+        <source>Terminal</source>
+        <translation>Terminal</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
+        <source>Picture</source>
+        <translation>Image</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
+        <source>Video</source>
+        <translation>Vidéo</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
+        <source>Music</source>
+        <translation>Musique</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
+        <source>Text</source>
+        <translation>Texte</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
+        <source>Mail</source>
+        <translation>Courrier</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
+        <source>Browser</source>
+        <translation>Navigateur</translation>
     </message>
 </context>
 <context>
@@ -589,22 +589,22 @@
         <translation>Réessayer</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="111"/>
         <source>removable disk</source>
         <translation>Disque amovible</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
         <source>network disk</source>
         <translation>Disque réseau</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="112"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
         <source>local disk</source>
         <translation>Disque local</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="118"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
         <translation>Échec de la désinstallation %1 &quot; %2 &quot;,  veuillez réessayer</translation>
     </message>
@@ -715,43 +715,53 @@
 <context>
     <name>GrubWidget</name>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="30"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="32"/>
         <source>Boot Menu</source>
         <translation>Démarrage</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="74"/>
-        <location filename="../modules/grub/grubwidget.cpp" line="167"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="76"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="192"/>
         <source>Drag and drop an image to change background.</source>
         <translation>Glissez/déposez une image pour changer de fond d&apos;écran.</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="93"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="81"/>
+        <source>Theme</source>
+        <translation>Thème</translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/grubwidget.cpp" line="108"/>
         <source>Default Boot</source>
         <translation>Démarrage par défault</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="109"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="124"/>
         <source>Boot delay</source>
         <translation>Délai de démarrage</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="117"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="132"/>
         <source>Text Color</source>
         <translation>Couleur du texte</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="125"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="140"/>
         <source>Selected Text Color</source>
         <translation>Couleur de texte sélectionnée</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="157"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="144"/>
+        <source>The startup speed can be improved by disabling the theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Updating...</source>
         <translation>Mise à jour...</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="159"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="184"/>
         <source>Successfully updated, reboot to view.</source>
         <translation>Mise à jour terminée, redémarrer pour appliquer.</translation>
     </message>
@@ -942,7 +952,7 @@
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="114"/>
         <source>Timeout</source>
         <extracomment>the mirror cant reachable</extracomment>
-        <translation>Mauvais</translation>
+        <translation>Très lent</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="116"/>
@@ -986,14 +996,21 @@
 <context>
     <name>ModemNetworkListItem</name>
     <message>
-        <location filename="../modules/network/modemnetworklistitem.cpp" line="16"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="17"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="83"/>
         <source>Modem Network</source>
         <translation>Modem Réseau</translation>
     </message>
     <message>
-        <location filename="../modules/network/modemnetworklistitem.cpp" line="40"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="41"/>
         <source>Restore the connection</source>
         <translation>Rétablir la connection</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
+        <source>Interface</source>
+        <translation>Interface</translation>
     </message>
 </context>
 <context>
@@ -1007,6 +1024,21 @@
         <location filename="../frame/sidebarmodel.cpp" line="126"/>
         <source>Shutdown</source>
         <translation>Arrêter</translation>
+    </message>
+    <message>
+        <location filename="../modules/account/account.cpp" line="18"/>
+        <source>User Accounts</source>
+        <translation>Comptes utilisateurs</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/display.cpp" line="39"/>
+        <source>Display</source>
+        <translation>Affichage</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="24"/>
+        <source>Sound</source>
+        <translation>Son</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="35"/>
@@ -1027,16 +1059,6 @@
         <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Information</source>
         <translation>Informations du système</translation>
-    </message>
-    <message>
-        <location filename="../modules/display/display.cpp" line="39"/>
-        <source>Display</source>
-        <translation>Affichage</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/account.cpp" line="18"/>
-        <source>User Accounts</source>
-        <translation>Comptes utilisateurs</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/shortcuts.cpp" line="28"/>
@@ -1077,11 +1099,6 @@
         <location filename="../modules/network/network.cpp" line="34"/>
         <source>Network</source>
         <translation>Réseau</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="24"/>
-        <source>Sound</source>
-        <translation>Son</translation>
     </message>
 </context>
 <context>
@@ -1326,17 +1343,17 @@
 <context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="159"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="190"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="172"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="203"/>
         <source>View detailed information</source>
         <translation>Informations détaillées</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="186"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="217"/>
         <source>System Proxy</source>
         <translation>Proxy système</translation>
     </message>
@@ -1361,7 +1378,7 @@
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="50"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="67"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="75"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="155"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="157"/>
         <source>The two passwords do not match.</source>
         <translation>Les mots de passe ne correspondent pas.</translation>
     </message>
@@ -1381,7 +1398,7 @@
         <translation>Répéter</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="150"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="152"/>
         <source>Password can not be empty.</source>
         <translation>Le mot de passe ne peut être vide.</translation>
     </message>
@@ -1504,22 +1521,22 @@
         <translation>Droite</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="329"/>
+        <location filename="../modules/sound/soundview.cpp" line="334"/>
         <source>Microphone</source>
         <translation>Micro</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="340"/>
+        <location filename="../modules/sound/soundview.cpp" line="345"/>
         <source>Input Volume</source>
         <translation>Volume d&apos;entrée</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="356"/>
+        <location filename="../modules/sound/soundview.cpp" line="361"/>
         <source>Feedback Volume</source>
         <translation>Volume des effets</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="456"/>
+        <location filename="../modules/sound/soundview.cpp" line="464"/>
         <source>Sound</source>
         <translation>Son</translation>
     </message>
@@ -1534,7 +1551,7 @@
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation>L&apos;ordinateur s&apos;éteindra après</translation>
+        <translation>L&apos;ordinateur se mettra en veille après</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="56"/>
@@ -1549,7 +1566,7 @@
     <message>
         <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation>L&apos;ordinateur portable se mettra en veille lors de sa fermeture </translation>
+        <translation>L&apos;ordinateur portable se mettra en veille en fermant le couvercle</translation>
     </message>
 </context>
 <context>
@@ -1568,12 +1585,12 @@
         <translation>Alimentation</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="104"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
         <source>Charged</source>
-        <translation type="unfinished"/>
+        <translation>Chargé</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="106"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="105"/>
         <source>On Charging %1</source>
         <translation>En charge %1</translation>
     </message>
@@ -1651,39 +1668,9 @@
 <context>
     <name>SystemInfo</name>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
-        <source>System Information</source>
-        <translation>Informations du système</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
-        <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Droits de copie (c) 2011-2016 Wuhan Deepin Technologie Co., Ltée.</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
-        <source>Deepin Edition:</source>
-        <translation>Édition Deepin</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
-        <source>Distribution:</source>
-        <translation>Infos systèmes </translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
-        <source>System Type:</source>
-        <translation>Système</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
-        <source>%1 Bit</source>
-        <translation>%1 Bit</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
-        <source>Processor:</source>
-        <translation>Processeur</translation>
+        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
+        <source>Disk:</source>
+        <translation>Disque</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
@@ -1691,9 +1678,39 @@
         <translation>Mémoire</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
-        <source>Disk:</source>
-        <translation>Disque</translation>
+        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
+        <source>Processor:</source>
+        <translation>Processeur</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
+        <source>%1 Bit</source>
+        <translation>%1 Bit</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
+        <source>System Type:</source>
+        <translation>Système</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
+        <source>Distribution:</source>
+        <translation>Infos systèmes </translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
+        <source>Deepin Edition:</source>
+        <translation>Édition Deepin</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
+        <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>Droits de copie (c) 2011-2016 Wuhan Deepin Technologie Co., Ltée.</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
+        <source>System Information</source>
+        <translation>Informations du système</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="165"/>
@@ -1854,32 +1871,22 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="110"/>
-        <source>Recently Used</source>
-        <translation>Utilisé récemment </translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
-        <source>Avatar</source>
-        <translation>Avatar</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="163"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="141"/>
         <source>Auto-login</source>
         <translation>Connexion automatique</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="189"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="167"/>
         <source>Enable</source>
         <translation>Activé</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="246"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>Sélectionnez une image pour votre Avatar</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="247"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>Fichiers images (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -2048,14 +2055,21 @@
 <context>
     <name>WiredNetworkListItem</name>
     <message>
-        <location filename="../modules/network/wirednetworklistitem.cpp" line="20"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="21"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="92"/>
         <source>Wired Network</source>
         <translation>Réseau filaire</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirednetworklistitem.cpp" line="29"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="30"/>
         <source>Wired Connection</source>
         <translation>Connexion filaire</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
+        <source>Interface</source>
+        <translation>Interface</translation>
     </message>
 </context>
 <context>
@@ -2085,6 +2099,8 @@
     <name>WirelessNetworkListItem</name>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="25"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="384"/>
         <source>Wireless Network</source>
         <translation>Réseau sans fil</translation>
     </message>
@@ -2092,6 +2108,11 @@
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="241"/>
         <source>Connect to hidden access point</source>
         <translation>Se connecter à un point d&apos;accès caché </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
+        <source>Interface</source>
+        <translation>Interface</translation>
     </message>
 </context>
 <context>

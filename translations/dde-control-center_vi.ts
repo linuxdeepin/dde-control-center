@@ -1,15 +1,15 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="vi" version="2.1">
 <context>
     <name>AccountConfirmButtonLine</name>
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="83"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Hủy</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="85"/>
         <source>Confirm</source>
-        <translation>Подтвердить</translation>
+        <translation>Xác nhận</translation>
     </message>
 </context>
 <context>
@@ -17,22 +17,22 @@
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="44"/>
         <source>User Accounts</source>
-        <translation>Учетные записи</translation>
+        <translation>Các Tài khoản Người dùng</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="81"/>
         <source>User List</source>
-        <translation>Список пользователей</translation>
+        <translation>Danh sách Người dùng</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="234"/>
         <source>Add Account</source>
-        <translation>Добавить учетную запись</translation>
+        <translation>Thêm Tài khoản</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="271"/>
         <source>Delete Account</source>
-        <translation>Удалить учетную запись</translation>
+        <translation>Xóa Tài khoản</translation>
     </message>
 </context>
 <context>
@@ -40,17 +40,17 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="202"/>
         <source>Other devices</source>
-        <translation>Другие устройства</translation>
+        <translation>Các Thiết bị khác</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="224"/>
         <source>My devices</source>
-        <translation>Моё устройство</translation>
+        <translation>Các Thiết bị của tôi</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="231"/>
         <source>Open bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Открыть bluetooth для поиска ближайших устройств (колонок, клавиатуры, мышек)</translation>
+        <translation>Mở bluetooth để tìm những thiết bị kế cận (loa, bàn phím, chuột)</translation>
     </message>
 </context>
 <context>
@@ -58,12 +58,12 @@
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="29"/>
         <source>Add Network Connection</source>
-        <translation>Добавить сетевое подключение</translation>
+        <translation>Thêm Kết nối Mạng</translation>
     </message>
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="36"/>
         <source>Next</source>
-        <translation>Далее</translation>
+        <translation>Kế tiếp</translation>
     </message>
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="41"/>
@@ -81,12 +81,12 @@
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="23"/>
         <source>Add PPPoE Connection</source>
-        <translation>Добавить подключение PPPoE</translation>
+        <translation>Thêm Kết nối PPPoE</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="26"/>
         <source>Add</source>
-        <translation>Добавить</translation>
+        <translation>Thêm</translation>
     </message>
 </context>
 <context>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../widgets/addrmdoneline.cpp" line="25"/>
         <source>Done</source>
-        <translation>Выполнено</translation>
+        <translation>Xong</translation>
     </message>
 </context>
 <context>
@@ -102,17 +102,17 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="39"/>
         <source>VPN Type</source>
-        <translation>Тип VPN</translation>
+        <translation>Dạng VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="57"/>
         <source>Basic Information</source>
-        <translation>Основная информация</translation>
+        <translation>Thông tin Cơ bản</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="74"/>
         <source>Add</source>
-        <translation>Добавить</translation>
+        <translation>Thêm</translation>
     </message>
 </context>
 <context>
@@ -120,7 +120,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/appframe.cpp" line="42"/>
         <source>Applications</source>
-        <translation>Приложения</translation>
+        <translation>Các Ứng dụng</translation>
     </message>
 </context>
 <context>
@@ -128,7 +128,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="42"/>
         <source>Update</source>
-        <translation>Обновление</translation>
+        <translation>Cập nhật</translation>
     </message>
 </context>
 <context>
@@ -136,12 +136,12 @@
     <message>
         <location filename="../widgets/applybuttonline.cpp" line="14"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Hủy</translation>
     </message>
     <message>
         <location filename="../widgets/applybuttonline.cpp" line="16"/>
         <source>Apply</source>
-        <translation>Применить</translation>
+        <translation>Áp dụng</translation>
     </message>
 </context>
 <context>
@@ -159,43 +159,43 @@
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="54"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="69"/>
         <source>Never</source>
-        <translation>Никогда</translation>
+        <translation>Không bao giờ</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="48"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="63"/>
         <source>1 Minute</source>
-        <translation>1 минута</translation>
+        <translation>1 Phút</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="49"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="64"/>
         <source>5 Minutes</source>
-        <translation>5 минут</translation>
+        <translation>5 Phút</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="50"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="65"/>
         <source>10 Minutes</source>
-        <translation>10 минут</translation>
+        <translation>10 Phút</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="51"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="66"/>
         <source>15 Minutes</source>
-        <translation>15 минут</translation>
+        <translation>15 Phút</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="52"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="67"/>
         <source>30 Minutes</source>
-        <translation>30 минут</translation>
+        <translation>30 Phút</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="53"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="68"/>
         <source>1 Hour</source>
-        <translation>1 час</translation>
+        <translation>1 Giờ</translation>
     </message>
 </context>
 <context>
@@ -204,7 +204,7 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="48"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="60"/>
         <source>Network</source>
-        <translation>Сеть</translation>
+        <translation>Mạng</translation>
     </message>
 </context>
 <context>
@@ -212,12 +212,12 @@
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="19"/>
         <source>Disconnect</source>
-        <translation>Отключение</translation>
+        <translation>Ngắt kết nối</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="21"/>
         <source>Ignore</source>
-        <translation>Игнорировать</translation>
+        <translation>Bỏ qua</translation>
     </message>
 </context>
 <context>
@@ -225,7 +225,7 @@
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="34"/>
         <source>Connect to hidden access point</source>
-        <translation>Подключение к скрытой точке доступа</translation>
+        <translation>Kết nối với điểm truy cập ẩn</translation>
     </message>
 </context>
 <context>
@@ -233,41 +233,41 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="63"/>
         <source>Add User</source>
-        <translation>Добавить пользователя</translation>
+        <translation>Thêm Người dùng</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="294"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="300"/>
         <source>new user</source>
-        <translation>новый пользователь</translation>
+        <translation>người dùng mới</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="127"/>
         <source>Username</source>
-        <translation>Имя пользователя</translation>
+        <translation>Tên người dùng</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="128"/>
         <source>Password</source>
-        <translation>Пароль</translation>
+        <translation>Mật mã</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="129"/>
         <source>Repeat Password</source>
-        <translation>Повторите пароль</translation>
+        <translation>Lặp lại Mật mã</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="130"/>
         <source>Auto-login</source>
-        <translation>Автовход</translation>
+        <translation>Đăng nhập tự động</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="166"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
         <source>Password can not be empty.</source>
-        <translation>Пароль не может быть пустым.</translation>
+        <translation>Mật mã không thể để trống.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="175"/>
@@ -276,14 +276,14 @@
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="310"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
         <source>The two passwords do not match.</source>
-        <translation>Пара паролей не совпадают.</translation>
+        <translation>Hai mật mã không khớp nhau.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="245"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="255"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
         <source>Username can not be empty.</source>
-        <translation>Имя пользователя не может быть пустым.</translation>
+        <translation>Tên người dùng không thể trống.</translation>
     </message>
 </context>
 <context>
@@ -291,99 +291,99 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="38"/>
         <source>Normal</source>
-        <translation>Обычный режим</translation>
+        <translation>Bình thường</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="39"/>
         <source>Rotate right</source>
-        <translation>Повернуть вправо</translation>
+        <translation>Quay qua phải</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="40"/>
         <source>Upside down</source>
-        <translation>Перевернуть</translation>
+        <translation>Lật ngược</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="41"/>
         <source>Rotate left</source>
-        <translation>Повернуть влево</translation>
+        <translation>Quay qua trái</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="75"/>
         <location filename="../modules/display/customsettings.cpp" line="82"/>
         <source>Brightness</source>
-        <translation>Яркость</translation>
+        <translation>Độ sáng</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="92"/>
         <source>Enable Monitor</source>
-        <translation>Включить монитор</translation>
+        <translation>Cho mở Màn hình</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="105"/>
         <source>Please select the monitor you want to enable (checkable)</source>
-        <translation>Выберете монитор, который желаете включить (кликабельно)</translation>
+        <translation>Xin hãy chọn màn hình bạn muốn để cho mở (có thể kiểm tra được)</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="110"/>
         <source>Primary</source>
-        <translation>Основной</translation>
+        <translation>Đầu tiên</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="138"/>
         <source>Resolution</source>
-        <translation>Разрешение</translation>
+        <translation>Độ phân giải</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="142"/>
         <source>Rotation</source>
-        <translation>Вращение</translation>
+        <translation>Quay</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="161"/>
         <location filename="../modules/display/customsettings.cpp" line="192"/>
         <location filename="../modules/display/customsettings.cpp" line="211"/>
         <source>Monitor %1</source>
-        <translation>Монитор %1</translation>
+        <translation>Màn hình %1</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="317"/>
         <location filename="../modules/display/customsettings.cpp" line="475"/>
         <source>Apply</source>
-        <translation>Применить</translation>
+        <translation>Áp dụng</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="319"/>
         <location filename="../modules/display/customsettings.cpp" line="477"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
-        <translation>Подтвердить</translation>
+        <translation>Xác nhận</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="339"/>
         <source>Do you want to keep these display settings?</source>
-        <translation>Желаете оставить эти настройки дисплея?</translation>
+        <translation>Bạn có muốn giữ những thiết lập hiển thị này?</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="340"/>
         <location filename="../modules/display/customsettings.cpp" line="348"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
-        <translation>Возврат к предыдущим настройкам экрана через &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; секунд.</translation>
+        <translation>Trở lại những thiết lập hiển thị trước trong &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; giây</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="342"/>
         <source>Revert</source>
-        <translation>Вернуться</translation>
+        <translation>Trở lại</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="343"/>
         <source>Keep Changes</source>
-        <translation>Оставить изменения</translation>
+        <translation>Giữ Các Thay đổi</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.h" line="54"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Hủy</translation>
     </message>
 </context>
 <context>
@@ -391,17 +391,17 @@
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="18"/>
         <source>Set Date</source>
-        <translation>Установить дату</translation>
+        <translation>Thiết lập Ngày</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="26"/>
         <source>Confirm</source>
-        <translation>Подтвердить</translation>
+        <translation>Xác nhận</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="27"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Hủy</translation>
     </message>
 </context>
 <context>
@@ -414,13 +414,13 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="146"/>
         <source> hh:mm </source>
-        <translation> hh:mm </translation>
+        <translation>hh:mm</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="146"/>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="280"/>
         <source> hh:mm A</source>
-        <translation> hh:mm A</translation>
+        <translation>hh:mm A</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="147"/>
@@ -435,22 +435,22 @@
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="201"/>
         <source>Switch display mode</source>
-        <translation>Переключить режим отображения</translation>
+        <translation>Đổi cách thức hiển thị</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="203"/>
         <source>Show week</source>
-        <translation>Показывать неделю</translation>
+        <translation>Hiển thị tuần</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="204"/>
         <source>Show date</source>
-        <translation>Показывать дату</translation>
+        <translation>Hiển thị ngày</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="207"/>
         <source>Date&amp;Time settings(_T)</source>
-        <translation>Настройки Даты&amp;Время(_T)</translation>
+        <translation>Những thiết lập Ngày&amp;Thời gian (_T)</translation>
     </message>
 </context>
 <context>
@@ -458,32 +458,32 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="63"/>
         <source>Date</source>
-        <translation>Дата</translation>
+        <translation>Ngày</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="71"/>
         <source>Time Zone</source>
-        <translation>Часовой пояс</translation>
+        <translation>Múi Giờ</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="78"/>
         <source>Sync Automatically</source>
-        <translation>Автосинхронизация</translation>
+        <translation>Tự động Đồng bộ</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="85"/>
         <source>Use 24-hour clock</source>
-        <translation>Использовать 24-часовой формат</translation>
+        <translation>Sử dụng đồng hồ 24-giờ</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="90"/>
         <source>Reset</source>
-        <translation>Сброс</translation>
+        <translation>Thiết đặt lại</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="102"/>
         <source>Date and Time</source>
-        <translation>Дата и время</translation>
+        <translation>Ngày và Thời gian</translation>
     </message>
 </context>
 <context>
@@ -492,72 +492,72 @@
         <location filename="../modules/default_applications/defaultapps.cpp" line="83"/>
         <location filename="../modules/default_applications/defaultapps.cpp" line="123"/>
         <source>Default Applications</source>
-        <translation>Приложения по умолчанию</translation>
+        <translation>Những ứng dụng Mặc định</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="121"/>
         <source>AutoPlay</source>
-        <translation>Автовоспроизведение</translation>
+        <translation>Tự động Chạy</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
         <source>Software</source>
-        <translation>Программное обеспечение</translation>
+        <translation>Phần mềm</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="127"/>
         <source>Camera</source>
-        <translation>Камера</translation>
+        <translation>Máy quay</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
         <source>Music Player</source>
-        <translation>Музыкальный проигрыватель</translation>
+        <translation>Chương trình Chơi nhạc</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
         <source>DVD Video</source>
-        <translation>DVD-видео</translation>
+        <translation>DVD Phim</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
         <source>CD Audio</source>
-        <translation>CD-аудио</translation>
+        <translation>CD Âm thanh</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
         <source>Terminal</source>
-        <translation>Терминал</translation>
+        <translation>Đầu cuối</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
         <source>Picture</source>
-        <translation>Изображение</translation>
+        <translation>Hình ảnh</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
         <source>Video</source>
-        <translation>Видео</translation>
+        <translation>Phim ảnh</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
         <source>Music</source>
-        <translation>Музыка</translation>
+        <translation>Âm nhạc</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
         <source>Text</source>
-        <translation>Текст</translation>
+        <translation>Văn bản</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
         <source>Mail</source>
-        <translation>Почта</translation>
+        <translation>Thư</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
         <source>Browser</source>
-        <translation>Браузер</translation>
+        <translation>Trình duyệt</translation>
     </message>
 </context>
 <context>
@@ -565,7 +565,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/deviceframe.cpp" line="34"/>
         <source>Device</source>
-        <translation>Устройство</translation>
+        <translation>Thiết bị</translation>
     </message>
 </context>
 <context>
@@ -573,12 +573,12 @@
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="97"/>
         <source>Connected</source>
-        <translation>Подключен</translation>
+        <translation>Đã kết nối</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="99"/>
         <source>Unconnect</source>
-        <translation>Не подключено</translation>
+        <translation>Không kết nối</translation>
     </message>
 </context>
 <context>
@@ -586,27 +586,27 @@
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="61"/>
         <source>Retry</source>
-        <translation>Повторить</translation>
+        <translation>Thử lại</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="111"/>
         <source>removable disk</source>
-        <translation>съёмный диск</translation>
+        <translation>ổ đĩa rời</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
         <source>network disk</source>
-        <translation>сетевой диск</translation>
+        <translation>ổ đĩa mạng</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
         <source>local disk</source>
-        <translation>локальный диск</translation>
+        <translation>ổ đĩa nội bộ</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="118"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
-        <translation>Не удачное удаление %1 &quot; %2 &quot;, повторите.</translation>
+        <translation>Gỡ bỏ cài đặt %1 &quot; %2 &quot; thất bại, xin hãy thử lại.</translation>
     </message>
 </context>
 <context>
@@ -614,52 +614,52 @@
     <message>
         <location filename="../modules/display/display.cpp" line="60"/>
         <source>Display</source>
-        <translation>Дисплей</translation>
+        <translation>Hiển thị</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="158"/>
         <source>Display Mode</source>
-        <translation>Режим отображения</translation>
+        <translation>Chế độ Hiển thị</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="166"/>
         <source>Copy</source>
-        <translation>Копировать</translation>
+        <translation>Sao chép</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy the contents of your primary screen to other screens.</source>
-        <translation>Копировать содержание основного экрана на другие.</translation>
+        <translation>Sao chép nội dung của màn hình chính tới những màn hình khác.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="177"/>
         <source>Extend</source>
-        <translation>Расширить</translation>
+        <translation>Mở rộng</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
-        <translation>Расширьте содержание вашего экрана, для отображения содержания на других экранах.</translation>
+        <translation>Mở rộng nội dung màn hình của bạn để thể hiện những nội dung khác trên những màn hình khác.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="189"/>
         <source>Custom Settings</source>
-        <translation>Пользовательские Настройки</translation>
+        <translation>Những Thiết lập Riêng.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="190"/>
         <source>You can do other custom settings to your screens.</source>
-        <translation>Вы можете делать другие пользовательские настройки экранов.</translation>
+        <translation>Bạn có thể thực hiện những thiết lập riêng khác với màn hình của bạn.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="200"/>
         <source>Only Displayed on %1</source>
-        <translation>Отображается только на %1</translation>
+        <translation>Chỉ được Hiển thị trên %1</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="201"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
-        <translation>Содержимое экрана отображается только на %1, не отображаясь на других экранах.</translation>
+        <translation>Nội dung màn hình chỉ được hiển thị trên %1 nhưng không có trên các màn hình khác.</translation>
     </message>
 </context>
 <context>
@@ -668,22 +668,22 @@
         <location filename="../modules/network/editconnectionpage.cpp" line="37"/>
         <location filename="../modules/network/editconnectionpage.cpp" line="93"/>
         <source>Delete this network</source>
-        <translation>Удалить эту сеть</translation>
+        <translation>Xóa mạng này</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="45"/>
         <source>Delete</source>
-        <translation>Удалить</translation>
+        <translation>Xóa</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="46"/>
         <source>Save</source>
-        <translation>Сохранить</translation>
+        <translation>Lưu</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="54"/>
         <source>Are you sure you want to delete this network?</source>
-        <translation>Вы действительно хотите удалить эту сеть?</translation>
+        <translation>Bạn có chắc là muốn xóa mạng này không?</translation>
     </message>
 </context>
 <context>
@@ -691,12 +691,12 @@
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="32"/>
         <source>Click to install</source>
-        <translation>Нажать для установки</translation>
+        <translation>Nhấn để cài đặt</translation>
     </message>
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="61"/>
         <source>Current system lacks component for %1</source>
-        <translation>Текущей системе не хватает компонента для %1</translation>
+        <translation>Hệ thống hiện tại thiếu thành phần cho %1</translation>
     </message>
 </context>
 <context>
@@ -704,12 +704,12 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="173"/>
         <source>Set</source>
-        <translation>Установить</translation>
+        <translation>Thiết lập</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="175"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Hủy</translation>
     </message>
 </context>
 <context>
@@ -717,38 +717,38 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="32"/>
         <source>Boot Menu</source>
-        <translation>Меню загрузки</translation>
+        <translation>Danh sách Khởi động</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="76"/>
         <location filename="../modules/grub/grubwidget.cpp" line="192"/>
         <source>Drag and drop an image to change background.</source>
-        <translation>Перетащите изображение для смены фона</translation>
+        <translation>Kéo và thả một tấm hình để thay đổi nền.</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="81"/>
         <source>Theme</source>
-        <translation>Тема</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="108"/>
         <source>Default Boot</source>
-        <translation>Загрузка по умолчанию</translation>
+        <translation>Khởi động mặc định</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="124"/>
         <source>Boot delay</source>
-        <translation>Задержка загрузки</translation>
+        <translation>Chậm trễ Khởi động</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="132"/>
         <source>Text Color</source>
-        <translation>Цвет текста</translation>
+        <translation>Màu văn bản</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="140"/>
         <source>Selected Text Color</source>
-        <translation>Выбранный цвета текста</translation>
+        <translation>Màu Văn bản được chọn</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="144"/>
@@ -758,12 +758,12 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Updating...</source>
-        <translation>Обновление...</translation>
+        <translation>Đang cập nhật...</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="184"/>
         <source>Successfully updated, reboot to view.</source>
-        <translation>Обновление успешно, перезагрузите чтобы увидеть.</translation>
+        <translation>Cập nhật thành công, khởi động lại để xem.</translation>
     </message>
 </context>
 <context>
@@ -771,7 +771,7 @@
     <message>
         <location filename="../frame/homescreen.cpp" line="128"/>
         <source>Shutdown</source>
-        <translation>Выключить</translation>
+        <translation>Tắt</translation>
     </message>
 </context>
 <context>
@@ -779,22 +779,22 @@
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="28"/>
         <source>Password</source>
-        <translation>Пароль</translation>
+        <translation>Mật mã</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="30"/>
         <source>Auto-connect</source>
-        <translation>Авто-подключение</translation>
+        <translation>Tự động kết nối</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="37"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Hủy</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="38"/>
         <source>Connect</source>
-        <translation>Подключение</translation>
+        <translation>Kết nối</translation>
     </message>
 </context>
 <context>
@@ -802,57 +802,57 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="150"/>
         <source>Keyboard and Language</source>
-        <translation>Язык и  клавиатура</translation>
+        <translation>Bàn phím và Ngôn ngữ</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="163"/>
         <source>Repeat Delay</source>
-        <translation>Задержка повторения</translation>
+        <translation>Chậm trễ Lặp lại</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
         <source>Repeat Rate</source>
-        <translation>Скорость повтора</translation>
+        <translation>Tốc độ lặp lại</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="205"/>
         <source>Cursor Blink Rate</source>
-        <translation>Частота мигания курсора</translation>
+        <translation>Tốc độ Chớp Con trỏ</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="227"/>
         <source>Test Area</source>
-        <translation>Полигон</translation>
+        <translation>Khu vực Thử nghiệm</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="241"/>
         <source>Caps Lock prompt</source>
-        <translation>Индикатор Caps Lock</translation>
+        <translation>Nhắc Caps Lock</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="258"/>
         <source>Language</source>
-        <translation>Язык</translation>
+        <translation>Ngôn ngữ</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="263"/>
         <source>Keyboard Layout</source>
-        <translation>Раскладка клавиатуры</translation>
+        <translation>Bố trí bàn phím</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="264"/>
         <source>Remove Keyboard Layout</source>
-        <translation>Удалить раскладку клавиатуры</translation>
+        <translation>Xóa Bố trí Bàn phím</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="265"/>
         <source>Add Keyboard Layout</source>
-        <translation>Добавить раскладку клавиатуры</translation>
+        <translation>Thêm Bố trí Bàn phím</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="363"/>
         <source>Search</source>
-        <translation>Поиск</translation>
+        <translation>Tìm kiếm</translation>
     </message>
 </context>
 <context>
@@ -860,12 +860,12 @@
     <message>
         <location filename="../modules/network/listwidgetcontainer.cpp" line="101"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Hủy</translation>
     </message>
     <message>
         <location filename="../modules/network/listwidgetcontainer.cpp" line="102"/>
         <source>Connect</source>
-        <translation>Подключение</translation>
+        <translation>Kết nối</translation>
     </message>
 </context>
 <context>
@@ -873,76 +873,76 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="38"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Cочетания клавиш</translation>
+        <translation>Những Phím tắt Bàn phím</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="154"/>
         <source>Name</source>
-        <translation>Имя</translation>
+        <translation>tên</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="158"/>
         <source>Command</source>
-        <translation>Команда</translation>
+        <translation>Lệnh</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="181"/>
         <source>Delete Shortcut</source>
-        <translation>Удалить сочетание</translation>
+        <translation>Xóa Phím tắt</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="182"/>
         <source>Add Shortcut</source>
-        <translation>Добавить сочетание</translation>
+        <translation>Thêm Phím tắt</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="183"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="243"/>
         <source>Custom</source>
-        <translation>Пользовательский</translation>
+        <translation>Tùy biến</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="240"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="312"/>
         <source>System</source>
-        <translation>Система</translation>
+        <translation>Hệ thống</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="241"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="313"/>
         <source>Window</source>
-        <translation>Окно</translation>
+        <translation>Cửa sổ</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="242"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="314"/>
         <source>Workspace</source>
-        <translation>Рабочее окружение</translation>
+        <translation>Không gian làm việc</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="271"/>
         <source>Search</source>
-        <translation>Поиск</translation>
+        <translation>Tìm kiếm</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="384"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
-        <translation>Сочетание «%1» некорректно, попробуйте новое.</translation>
+        <translation>Phím tắt &quot;%1&quot; không có giá trị, xin hãy đánh lại phím tắt mới.</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="398"/>
         <source>The shortcut you set </source>
-        <translation>Ваше сочетание клавиш, установлено.</translation>
+        <translation>Phím tắt bạn thiết lập</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="408"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
-        <translation>конфликты с используемым для &quot;%2&quot; в категории &quot;%1&quot;</translation>
+        <translation>mâu thuẫn với cái được sử dụng cho &quot;%2&quot; trong mục &quot;%1&quot;.</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="415"/>
         <source>Do you want to replace it?</source>
-        <translation>Желаете заменить это?</translation>
+        <translation>Bạn có muốn thay thế nó?</translation>
     </message>
 </context>
 <context>
@@ -952,22 +952,22 @@
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="114"/>
         <source>Timeout</source>
         <extracomment>the mirror cant reachable</extracomment>
-        <translation>Таймаут</translation>
+        <translation>Hết giờ</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="116"/>
         <source>Slow</source>
-        <translation>Медленно</translation>
+        <translation>Chậm</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="118"/>
         <source>Medium</source>
-        <translation>Нормально</translation>
+        <translation>Trung bình</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="120"/>
         <source>Fast</source>
-        <translation>Быстро</translation>
+        <translation>Nhanh</translation>
     </message>
 </context>
 <context>
@@ -975,22 +975,22 @@
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="27"/>
         <source>Switch</source>
-        <translation>Переключить</translation>
+        <translation>Đổi</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="28"/>
         <source>Done</source>
-        <translation>Выполнено</translation>
+        <translation>Xong</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="38"/>
         <source>Auto check update</source>
-        <translation>Авто-проверка обновлений</translation>
+        <translation>Tự động kiểm tra cập nhật</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="41"/>
         <source>Mirrors</source>
-        <translation>Зеркала</translation>
+        <translation>Máy chủ</translation>
     </message>
 </context>
 <context>
@@ -1000,17 +1000,17 @@
         <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="83"/>
         <source>Modem Network</source>
-        <translation>Модемная связь</translation>
+        <translation>Mạng Modem</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="41"/>
         <source>Restore the connection</source>
-        <translation>Восстановить соединение</translation>
+        <translation>Phục hồi kết nối</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
         <source>Interface</source>
-        <translation>Интерфейс</translation>
+        <translation>Giao diện</translation>
     </message>
 </context>
 <context>
@@ -1018,67 +1018,67 @@
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="117"/>
         <source>Home</source>
-        <translation>Домашняя</translation>
+        <translation>Trang chủ</translation>
     </message>
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="126"/>
         <source>Shutdown</source>
-        <translation>Выключить</translation>
+        <translation>Tắt</translation>
     </message>
     <message>
         <location filename="../modules/account/account.cpp" line="18"/>
         <source>User Accounts</source>
-        <translation>Учетные записи</translation>
+        <translation>Các Tài khoản Người dùng</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="39"/>
         <source>Display</source>
-        <translation>Дисплей</translation>
+        <translation>Hiển thị</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="24"/>
         <source>Sound</source>
-        <translation>Звук</translation>
+        <translation>Âm thanh</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="35"/>
         <source>Power Management</source>
-        <translation>Управление питанием</translation>
+        <translation>Quản lý Năng lượng</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="63"/>
         <source>Default Applications</source>
-        <translation>Приложения по умолчанию</translation>
+        <translation>Những ứng dụng Mặc định</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="37"/>
         <source>Mouse and Touchpad</source>
-        <translation>Мышь и сенсорная панель</translation>
+        <translation>Chuột và Miếng cảm ứng</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Information</source>
-        <translation>Информация о системе</translation>
+        <translation>Thông tin Hệ thống</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/shortcuts.cpp" line="28"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Cочетания клавиш</translation>
+        <translation>Những Phím tắt Bàn phím</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="44"/>
         <source>Personalization</source>
-        <translation>Персонализация</translation>
+        <translation>Cá nhân hóa</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="61"/>
         <source>Keyboard and Language</source>
-        <translation>Язык и  клавиатура</translation>
+        <translation>Bàn phím và Ngôn ngữ</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="50"/>
         <source>Date and Time</source>
-        <translation>Дата и время</translation>
+        <translation>Ngày và Thời gian</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="32"/>
@@ -1088,7 +1088,7 @@
     <message>
         <location filename="../modules/grub/grub.cpp" line="28"/>
         <source>Boot Menu</source>
-        <translation>Меню загрузки</translation>
+        <translation>Danh sách Khởi động</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/bluetooth.cpp" line="35"/>
@@ -1098,7 +1098,7 @@
     <message>
         <location filename="../modules/network/network.cpp" line="34"/>
         <source>Network</source>
-        <translation>Сеть</translation>
+        <translation>Mạng</translation>
     </message>
 </context>
 <context>
@@ -1106,17 +1106,17 @@
     <message>
         <location filename="../modules/display/monitorground.cpp" line="46"/>
         <source>Recognize</source>
-        <translation>Распознать</translation>
+        <translation>Nhận biết</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="47"/>
         <source>Edit</source>
-        <translation>Редактировать</translation>
+        <translation>Chỉnh sửa</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="48"/>
         <source>Split</source>
-        <translation>Сплит</translation>
+        <translation>Chia</translation>
     </message>
 </context>
 <context>
@@ -1124,77 +1124,77 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="59"/>
         <source>Mouse And Touchpad</source>
-        <translation>Мышь и Сенсорная панель</translation>
+        <translation>Chuột Và Miếng cảm ứng</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="75"/>
         <location filename="../modules/mouse/mouse.cpp" line="188"/>
         <source>Primary Button</source>
-        <translation>Основная кнопка</translation>
+        <translation>Nút Đầu tiên</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="78"/>
         <location filename="../modules/mouse/mouse.cpp" line="161"/>
         <source>Left Button</source>
-        <translation>Левая кнопка</translation>
+        <translation>Nút Trái</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="79"/>
         <location filename="../modules/mouse/mouse.cpp" line="162"/>
         <source>Right Button</source>
-        <translation>Правая кнопка</translation>
+        <translation>Nút Phải</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="90"/>
         <location filename="../modules/mouse/mouse.cpp" line="189"/>
         <location filename="../modules/mouse/mouse.cpp" line="213"/>
         <source>Pointer Speed</source>
-        <translation>Скорость указателя</translation>
+        <translation>Tốc độ Con trỏ</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="107"/>
         <source>Double-click Speed</source>
-        <translation>Скорость двойного клика</translation>
+        <translation>Tốc độ Nhấn đúp</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="124"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Отключать тачпад при подключении мыши</translation>
+        <translation>Vô hiệu hóa miếng cảm ứng khi gắn chuột vào</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="150"/>
         <source>Touchpad</source>
-        <translation>Тачпад</translation>
+        <translation>Miếng cảm ứng</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="190"/>
         <source>Drag Threshold</source>
-        <translation>Начало перетаскивания</translation>
+        <translation>Ngưỡng kéo</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="191"/>
         <source>Natural Scrolling</source>
-        <translation>Естественная прокрутка</translation>
+        <translation>Cuộn tự nhiên</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="192"/>
         <source>Tap to click</source>
-        <translation>Коснитесь для клика</translation>
+        <translation>Chạm vào để nhấp</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="193"/>
         <source>Two-finger scrolling</source>
-        <translation>Прокрутка двумя пальцами</translation>
+        <translation>Cuộn hai ngón tay</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="194"/>
         <source>Edge scrolling</source>
-        <translation>Прокрутка у края</translation>
+        <translation>Cuộn ở mép</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
-        <translation>Трэкпоинт</translation>
+        <translation>Điểm trên đường</translation>
     </message>
 </context>
 <context>
@@ -1202,22 +1202,22 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="47"/>
         <source>Ethernet</source>
-        <translation>Ethernet</translation>
+        <translation>Hệ thống mạng</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="48"/>
         <source>802.11 WiFi</source>
-        <translation>802.11 WiFi</translation>
+        <translation>WiFi 802.11</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="49"/>
         <source>802.11 WiFi AdHoc</source>
-        <translation>802.11 WiFi AdHoc</translation>
+        <translation>WiFi Chuyên biệt 802.11</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="50"/>
         <source>802.11 WiFi Hotspot</source>
-        <translation>802.11 WiFi Hotspot</translation>
+        <translation>WiFi Điểm nóng 802.11</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="51"/>
@@ -1227,17 +1227,17 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="52"/>
         <source>Mobile</source>
-        <translation>Мобильная</translation>
+        <translation>Di động</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="53"/>
         <source>Mobile GSM</source>
-        <translation>Мобильный GSM</translation>
+        <translation>GSM Di động</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="54"/>
         <source>Mobile CDMA</source>
-        <translation>Мобильный CDMA</translation>
+        <translation>CDMA Di động</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="55"/>
@@ -1262,82 +1262,82 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="59"/>
         <source>VPN OpenVPN</source>
-        <translation>VPN OpenVPN</translation>
+        <translation>VPN VPN Mở</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="60"/>
         <source>VPN OpenConnect</source>
-        <translation>VPN OpenConnect</translation>
+        <translation>Kết nối Mở VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="74"/>
         <source>Not Connected</source>
-        <translation>Не подключено</translation>
+        <translation>Không có kết nối</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="76"/>
         <source>Connected</source>
-        <translation>Подключен</translation>
+        <translation>Đã kết nối</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="88"/>
         <source>(default)</source>
-        <translation>(по умолчанию)</translation>
+        <translation>(mặc định)</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="107"/>
         <source>Interface</source>
-        <translation>Интерфейс</translation>
+        <translation>Giao diện</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="111"/>
         <source>Security</source>
-        <translation>Безопасность</translation>
+        <translation>Bảo mật</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="112"/>
         <source>Device Addr</source>
-        <translation>Адрес устройства</translation>
+        <translation>Địa chỉ thiết bị</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="113"/>
         <source>IP Address</source>
-        <translation>IP-адрес</translation>
+        <translation>Địa chỉ IP</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="114"/>
         <source>Subnet Mask</source>
-        <translation>Маска подсети</translation>
+        <translation>Mặt nạ mạng con</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="115"/>
         <source>Gateway</source>
-        <translation>Шлюз</translation>
+        <translation>Cổng vào</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="116"/>
         <source>Primary DNS</source>
-        <translation>Основной DNS</translation>
+        <translation>DNS Đầu</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="117"/>
         <source>Secondary DNS</source>
-        <translation>Вторичный DNS</translation>
+        <translation>DNS Thứ hai</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="118"/>
         <source>Third DNS</source>
-        <translation>Третий DNS</translation>
+        <translation>DNS thứ ba</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="119"/>
         <source>Device Speed</source>
-        <translation>Скорость устройства</translation>
+        <translation>Tốc độ thiết bị</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="124"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Hủy</translation>
     </message>
 </context>
 <context>
@@ -1345,17 +1345,17 @@
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="190"/>
         <source>Network</source>
-        <translation>Сеть</translation>
+        <translation>Mạng</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="203"/>
         <source>View detailed information</source>
-        <translation>Показать детальную информацию</translation>
+        <translation>Xem thông tin chi tiết</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="217"/>
         <source>System Proxy</source>
-        <translation>Системный прокси</translation>
+        <translation>Ủy thác hệ thống</translation>
     </message>
 </context>
 <context>
@@ -1363,7 +1363,7 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="94"/>
         <source>Double-click this area to change your time</source>
-        <translation>Двойной клик в этой области для смены времени</translation>
+        <translation>Nhấn đúp khu vực này để thay đổi thời gian của bạn</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="122"/>
@@ -1380,27 +1380,27 @@
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="75"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="157"/>
         <source>The two passwords do not match.</source>
-        <translation>Пара паролей не совпадают.</translation>
+        <translation>Hai mật mã không khớp nhau.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="83"/>
         <source>Password</source>
-        <translation>Пароль</translation>
+        <translation>Mật mã</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="104"/>
         <source>New Password</source>
-        <translation>Новый пароль</translation>
+        <translation>Mật mã mới</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="106"/>
         <source>Repeat</source>
-        <translation>Повторить</translation>
+        <translation>Lặp lại</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="152"/>
         <source>Password can not be empty.</source>
-        <translation>Пароль не может быть пустым.</translation>
+        <translation>Mật mã không thể để trống.</translation>
     </message>
 </context>
 <context>
@@ -1408,53 +1408,53 @@
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="67"/>
         <source>Personalization</source>
-        <translation>Персонализация</translation>
+        <translation>Cá nhân hóa</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="145"/>
         <source>Window</source>
-        <translation>Окно</translation>
+        <translation>Cửa sổ</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="171"/>
         <source>Icon</source>
-        <translation>Значки</translation>
+        <translation>Biểu tượng</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="206"/>
         <source>Cursor</source>
-        <translation>Курсор</translation>
+        <translation>Con trỏ</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="239"/>
         <source>Wallpaper</source>
-        <translation>Обои</translation>
+        <translation>Hình nền</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="264"/>
         <source>Fonts</source>
-        <translation>Шрифты</translation>
+        <translation>Phông chữ</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="266"/>
         <source>Standard</source>
-        <translation>Стандартный</translation>
+        <translation>Tiêu chuẩn</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="267"/>
         <source>Monospaced</source>
-        <translation>Моноширинный</translation>
+        <translation>Cách đơn</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="268"/>
         <source>Size</source>
-        <translation>Размер</translation>
+        <translation>Kích thước</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="283"/>
         <location filename="../modules/personalization/personalization.cpp" line="620"/>
         <source>Font</source>
-        <translation>Шрифт</translation>
+        <translation>Phông chữ</translation>
     </message>
 </context>
 <context>
@@ -1462,83 +1462,83 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="67"/>
         <source>Output Port</source>
-        <translation>Порт вывода</translation>
+        <translation>Đầu ra</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="79"/>
         <source>Output device</source>
-        <translation>Устройство вывода</translation>
+        <translation>Thiết bị đầu ra</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="96"/>
         <source>Input Port</source>
-        <translation>Порт Ввода</translation>
+        <translation>Đầu vào</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="111"/>
         <source>Input device</source>
-        <translation>Устройство ввода</translation>
+        <translation>Thiết bị đầu vào</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="124"/>
         <location filename="../modules/sound/soundview.cpp" line="133"/>
         <source>Show Advanced...</source>
-        <translation>Показать дополнительные…</translation>
+        <translation>Hiển thị Nâng cao...</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="138"/>
         <source>Hide Advanced...</source>
-        <translation>Скрыть дополнительные…</translation>
+        <translation>Ẩn Nâng cao...</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="185"/>
         <source>Sound effects</source>
-        <translation>Эффекты звука</translation>
+        <translation>Hiệu ứng âm thanh</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="200"/>
         <source>Speaker</source>
-        <translation>Динамик</translation>
+        <translation>Loa</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="211"/>
         <source>Output Volume</source>
-        <translation>Выходной уровень</translation>
+        <translation>Âm thanh đầu ra</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="226"/>
         <source>Left/Right Balance</source>
-        <translation>Баланс Левый/Правый</translation>
+        <translation>Cân bằng Trái/Phải</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="234"/>
         <source>Left</source>
-        <translation>Левый</translation>
+        <translation>Trái</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="235"/>
         <source>Right</source>
-        <translation>Правый</translation>
+        <translation>Phải</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="334"/>
         <source>Microphone</source>
-        <translation>Микрофон</translation>
+        <translation>Micro</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="345"/>
         <source>Input Volume</source>
-        <translation>Входной уровень</translation>
+        <translation>Âm thanh đầu vào</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="361"/>
         <source>Feedback Volume</source>
-        <translation>Уровень обратной связи</translation>
+        <translation>Âm thanh phản hồi</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="464"/>
         <source>Sound</source>
-        <translation>Звук</translation>
+        <translation>Âm thanh</translation>
     </message>
 </context>
 <context>
@@ -1546,27 +1546,27 @@
     <message>
         <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
-        <translation>После, экран будет погашен</translation>
+        <translation>Hiển thị sẽ dừng sau khi</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation>После, компьютер будет приостановлен</translation>
+        <translation>Máy tính sẽ dừng sau khi</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
-        <translation>Запрос пароля при пробуждении экрана</translation>
+        <translation>Cần có mật mã để đánh thức hiển thị</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
-        <translation>Запрос пароля при пробуждении компьютера</translation>
+        <translation>Cần có mật mã để đánh thức máy tính</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation>Ноутбук будет приостановлен когда закроется крышка</translation>
+        <translation>Máy tính bản này sẽ dừng khi đóng nắp</translation>
     </message>
 </context>
 <context>
@@ -1574,7 +1574,7 @@
     <message>
         <location filename="../modules/power/powermanagement.cpp" line="26"/>
         <source>Power Management</source>
-        <translation>Управление питанием</translation>
+        <translation>Quản lý Điện năng</translation>
     </message>
 </context>
 <context>
@@ -1582,17 +1582,17 @@
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="58"/>
         <source>Power</source>
-        <translation>Питание</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
         <source>Charged</source>
-        <translation>Заряжен</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="105"/>
         <source>On Charging %1</source>
-        <translation>На зарядке %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1600,12 +1600,12 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="108"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Hủy</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="109"/>
         <source>Add</source>
-        <translation>Добавить</translation>
+        <translation>Thêm</translation>
     </message>
 </context>
 <context>
@@ -1613,12 +1613,12 @@
     <message>
         <location filename="../widgets/moduleheader.cpp" line="59"/>
         <source>Reset Successfully</source>
-        <translation>Успешный сброс</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../widgets/moduleheader.cpp" line="61"/>
         <source>Reset</source>
-        <translation>Сброс</translation>
+        <translation>Thiết đặt lại</translation>
     </message>
 </context>
 <context>
@@ -1626,12 +1626,12 @@
     <message>
         <location filename="../modules/shortcuts/selectdialog.cpp" line="37"/>
         <source>Replace</source>
-        <translation>Заменить</translation>
+        <translation>Thay thế</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/selectdialog.cpp" line="38"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Hủy</translation>
     </message>
 </context>
 <context>
@@ -1646,7 +1646,7 @@
         <location filename="../modules/shortcuts/shortcutdbus.h" line="230"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="234"/>
         <source>None</source>
-        <translation>Ничего</translation>
+        <translation>Không</translation>
     </message>
 </context>
 <context>
@@ -1654,7 +1654,7 @@
     <message>
         <location filename="../modules/shortcuts/shortcutedit.cpp" line="45"/>
         <source>Please input new shortcut</source>
-        <translation>Введите новые сочетания клавиш</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1662,7 +1662,7 @@
     <message>
         <location filename="../dock-plugins/dde-dock-sound-plugin/soundplugin.cpp" line="32"/>
         <source>Sound</source>
-        <translation>Звук</translation>
+        <translation>Âm thanh</translation>
     </message>
 </context>
 <context>
@@ -1670,52 +1670,52 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
         <source>Disk:</source>
-        <translation>Диск:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
         <source>Memory:</source>
-        <translation>Память:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
         <source>Processor:</source>
-        <translation>Процессор:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
         <source>%1 Bit</source>
-        <translation>%1 Бит</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
         <source>System Type:</source>
-        <translation>Тип системы:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
         <source>Distribution:</source>
-        <translation>Распределение:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
         <source>Deepin Edition:</source>
-        <translation>Deepin версия:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
         <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Правообладатель (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
         <source>System Information</source>
-        <translation>Информация о системе</translation>
+        <translation>Thông tin Hệ thống</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="165"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
-        <translation>GNU GENERAL PUBLIC LICENSE</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1723,7 +1723,7 @@
     <message>
         <location filename="../modules/network/systemproxyline.cpp" line="27"/>
         <source>Port</source>
-        <translation>Порт</translation>
+        <translation>Cổng</translation>
     </message>
 </context>
 <context>
@@ -1731,52 +1731,52 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="32"/>
         <source>None</source>
-        <translation>Ничего</translation>
+        <translation>Không</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="32"/>
         <source>Manual</source>
-        <translation>Вручную</translation>
+        <translation>Tự chỉnh</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="32"/>
         <source>Auto</source>
-        <translation>Автоматически</translation>
+        <translation>Tự động</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="49"/>
         <source>Apply system wide</source>
-        <translation>Применить для всей системы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="52"/>
         <source>Ignore the following proxy configuration for hosts and domains</source>
-        <translation>игнорировать следующую конфигурацию для хостов и доменов</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="79"/>
         <source>HTTP Proxy</source>
-        <translation>HTTP-прокси</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="80"/>
         <source>HTTPS Proxy</source>
-        <translation>HTTPS-прокси</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="81"/>
         <source>FTP Proxy</source>
-        <translation>FTP-прокси</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="82"/>
         <source>Socks Proxy</source>
-        <translation>Socks-прокси</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="97"/>
         <source>Configuration URL</source>
-        <translation>URL конфигурации</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1784,27 +1784,27 @@
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="21"/>
         <source>Close</source>
-        <translation>Закрыть</translation>
+        <translation>Đóng lại</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="22"/>
         <source>Confirm</source>
-        <translation>Подтвердить</translation>
+        <translation>Xác nhận</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="23"/>
         <source>Add</source>
-        <translation>Добавить</translation>
+        <translation>Thêm</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="49"/>
         <source>Remove Timezone</source>
-        <translation>Удалить часовой пояс</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="56"/>
         <source>Add Timezone</source>
-        <translation>Добавить часовой пояс</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1812,7 +1812,7 @@
     <message>
         <location filename="../modules/system_info/updatearrowexpand.cpp" line="32"/>
         <source>Update</source>
-        <translation>Обновление</translation>
+        <translation>Cập nhật</translation>
     </message>
 </context>
 <context>
@@ -1820,52 +1820,52 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="259"/>
         <source>Your system is up to date</source>
-        <translation>Ваша система актуальна</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="263"/>
         <source>Click to view available  updates</source>
-        <translation>Клик для просмотра доступных обновлений</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="284"/>
         <source>Total download size: %1</source>
-        <translation>Общий объём загрузки: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>Unknown</source>
-        <translation>Неизвестный</translation>
+        <translation>Không rõ</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="295"/>
         <source>%1 software need to be updated</source>
-        <translation>%1 программ должны быть обновлены</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
         <source>Patches</source>
-        <translation>Патчи</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Some patches need to be updated</source>
-        <translation>Некоторые патчи должны быть обновлены</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="312"/>
         <source>Some patches and %1 software need to be updated</source>
-        <translation>Некоторые патчи и %1 программ должны быть обновлены</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="363"/>
         <source>Checking for updates</source>
-        <translation>Проверка обновлений</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="364"/>
         <source>Check for updates, please wait</source>
-        <translation>Проверка обновлений, подождите</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1873,22 +1873,22 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="141"/>
         <source>Auto-login</source>
-        <translation>Автовход</translation>
+        <translation>Đăng nhập tự động</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="167"/>
         <source>Enable</source>
-        <translation>Включить</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
         <source>Choose a new picture for your Avatar</source>
-        <translation>Выбрать новое изображение для аватара</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
-        <translation>файлы изображений (*.jpg *.png *.jpeg)</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1896,32 +1896,32 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="180"/>
         <source>Keep user&apos;s files</source>
-        <translation>Оставить файлы пользователя</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="181"/>
         <source>Delete user&apos;s files</source>
-        <translation>Удалить файлы пользователя</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="183"/>
         <source>Cancel</source>
-        <translation>Отмена</translation>
+        <translation>Hủy</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="184"/>
         <source>Confirm</source>
-        <translation>Подтвердить</translation>
+        <translation>Xác nhận</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="232"/>
         <source>Administrator</source>
-        <translation>Администратор</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="234"/>
         <source>Normal User</source>
-        <translation>Обычный пользователь</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1929,7 +1929,7 @@
     <message>
         <location filename="../modules/network/vpnconnectswidget.cpp" line="17"/>
         <source>VPN Connections</source>
-        <translation>VPN-соединения</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1954,102 +1954,102 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="61"/>
         <source>Page Up</source>
-        <translation>Страница вверх</translation>
+        <translation>Nhảy lên một đoạn</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="62"/>
         <source>Page Down</source>
-        <translation>Страница вниз</translation>
+        <translation>Nhảy xuống một đoạn</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="63"/>
         <source>Left Click</source>
-        <translation>Левый клик</translation>
+        <translation>Nhấp chuột trái</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="64"/>
         <source>Right Click</source>
-        <translation>Правый клик</translation>
+        <translation>Nhấp chuột phải</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="65"/>
         <source>Middle Click</source>
-        <translation>Средний клик</translation>
+        <translation>Nhấp chuột giữa</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="83"/>
         <source>Tablet</source>
-        <translation>Планшет</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Tablet Orientation</source>
-        <translation>Ориентация планшета</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="102"/>
         <source>Left Hand</source>
-        <translation>Левая рука</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="103"/>
         <source>Right Hand</source>
-        <translation>Правая рука</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="115"/>
         <source>Digital Pen Modes</source>
-        <translation>Режим цифрового пера</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="120"/>
         <source>Pen Mode</source>
-        <translation>Режим пера</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="121"/>
         <source>Mouse Mode</source>
-        <translation>Режим мыши</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="133"/>
         <source>Down Key</source>
-        <translation>Кнопка вниз</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="152"/>
         <source>Up Key</source>
-        <translation>Кнопка вверх</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Pressure</source>
-        <translation>Нажатие</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="176"/>
         <source>Soft</source>
-        <translation>Мягко</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="177"/>
         <source>Hard</source>
-        <translation>Твердо</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Double-click Space</source>
-        <translation>Двойной клик по пустому месту</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="196"/>
         <source>Narrow</source>
-        <translation>Узкий</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="197"/>
         <source>Wide</source>
-        <translation>Широкий</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2059,17 +2059,17 @@
         <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="92"/>
         <source>Wired Network</source>
-        <translation>Проводная сеть</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="30"/>
         <source>Wired Connection</source>
-        <translation>Проводное соединение</translation>
+        <translation>Kết nối có dây</translation>
     </message>
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
         <source>Interface</source>
-        <translation>Интерфейс</translation>
+        <translation>Giao diện</translation>
     </message>
 </context>
 <context>
@@ -2078,12 +2078,12 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="49"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="66"/>
         <source>Wired Network</source>
-        <translation>Проводная сеть</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="73"/>
         <source>Network Not Connected</source>
-        <translation>Сеть не подключена</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2092,7 +2092,7 @@
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="77"/>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="203"/>
         <source>Wireless Network</source>
-        <translation>Беспроводная сеть</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2102,17 +2102,17 @@
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="384"/>
         <source>Wireless Network</source>
-        <translation>Беспроводная сеть</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="241"/>
         <source>Connect to hidden access point</source>
-        <translation>Подключение к скрытой точке доступа</translation>
+        <translation>Kết nối với điểm truy cập ẩn</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
         <source>Interface</source>
-        <translation>Интерфейс</translation>
+        <translation>Giao diện</translation>
     </message>
 </context>
 <context>
@@ -2120,22 +2120,22 @@
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="48"/>
         <source>Wireless Network</source>
-        <translation>Беспроводная сеть</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="263"/>
         <source>Auto-connect</source>
-        <translation>Авто-подключение</translation>
+        <translation>Tự động kết nối</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="271"/>
         <source>Connect</source>
-        <translation>Подключение</translation>
+        <translation>Kết nối</translation>
     </message>
     <message>
         <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="296"/>
         <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation>Введите пароль для&lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

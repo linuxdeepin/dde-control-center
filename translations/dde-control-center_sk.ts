@@ -165,37 +165,37 @@
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="48"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="63"/>
         <source>1 Minute</source>
-        <translation type="unfinished"/>
+        <translation>1 minúta</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="49"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="64"/>
         <source>5 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>5 minút</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="50"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="65"/>
         <source>10 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>10 minút</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="51"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="66"/>
         <source>15 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>15 minút</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="52"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="67"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>30 minút</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="53"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="68"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 hodina</translation>
     </message>
 </context>
 <context>
@@ -348,35 +348,35 @@
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="317"/>
-        <location filename="../modules/display/customsettings.cpp" line="480"/>
+        <location filename="../modules/display/customsettings.cpp" line="475"/>
         <source>Apply</source>
         <translation>Použiť</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="319"/>
-        <location filename="../modules/display/customsettings.cpp" line="482"/>
+        <location filename="../modules/display/customsettings.cpp" line="477"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>Potvrdiť</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="344"/>
+        <location filename="../modules/display/customsettings.cpp" line="339"/>
         <source>Do you want to keep these display settings?</source>
         <translation>Chcete ponechať tieto nastavenia zobrazovania?</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="345"/>
-        <location filename="../modules/display/customsettings.cpp" line="353"/>
+        <location filename="../modules/display/customsettings.cpp" line="340"/>
+        <location filename="../modules/display/customsettings.cpp" line="348"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation>Vrátenie k predošlému nastaveniu zobrazenia za &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; sekúnd.</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="347"/>
+        <location filename="../modules/display/customsettings.cpp" line="342"/>
         <source>Revert</source>
         <translation>Vrátiť</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="348"/>
+        <location filename="../modules/display/customsettings.cpp" line="343"/>
         <source>Keep Changes</source>
         <translation>Ponechať zmeny</translation>
     </message>
@@ -500,54 +500,9 @@
         <translation>Automaticky prehrať</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
-        <source>Browser</source>
-        <translation>Prehliadač</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
-        <source>Mail</source>
-        <translation>Pošta</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
-        <source>Text</source>
-        <translation>Text</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
-        <source>Music</source>
-        <translation>Hudba</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
-        <source>Video</source>
-        <translation>Video</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
-        <source>Picture</source>
-        <translation>Obrázok</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
-        <source>Terminal</source>
-        <translation>Terminál</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
-        <source>CD Audio</source>
-        <translation>CD Audio</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
-        <source>DVD Video</source>
-        <translation>DVD Video</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
-        <source>Music Player</source>
-        <translation>Hudobný prehrávač</translation>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
+        <source>Software</source>
+        <translation>Softvér</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="127"/>
@@ -555,9 +510,54 @@
         <translation>Kamera</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
-        <source>Software</source>
-        <translation>Softvér</translation>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
+        <source>Music Player</source>
+        <translation>Hudobný prehrávač</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
+        <source>DVD Video</source>
+        <translation>DVD Video</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
+        <source>CD Audio</source>
+        <translation>CD Audio</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
+        <source>Terminal</source>
+        <translation>Terminál</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
+        <source>Picture</source>
+        <translation>Obrázok</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
+        <source>Video</source>
+        <translation>Video</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
+        <source>Music</source>
+        <translation>Hudba</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
+        <source>Text</source>
+        <translation>Text</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
+        <source>Mail</source>
+        <translation>Pošta</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
+        <source>Browser</source>
+        <translation>Prehliadač</translation>
     </message>
 </context>
 <context>
@@ -589,22 +589,22 @@
         <translation>Skúsiť znova</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="111"/>
         <source>removable disk</source>
         <translation>vymeniteľný disk</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
         <source>network disk</source>
         <translation>sieťový disk</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="112"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
         <source>local disk</source>
         <translation>lokálny disk</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="118"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
         <translation>Nepodarilo sa odinštalovať %1 &quot; %2&quot;, prosím skúste to znova.</translation>
     </message>
@@ -715,43 +715,53 @@
 <context>
     <name>GrubWidget</name>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="30"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="32"/>
         <source>Boot Menu</source>
         <translation>Bootovacie menu</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="74"/>
-        <location filename="../modules/grub/grubwidget.cpp" line="167"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="76"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="192"/>
         <source>Drag and drop an image to change background.</source>
         <translation>Uchop a pusti obrázok pre zmenu pozadia</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="93"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="81"/>
+        <source>Theme</source>
+        <translation>Téma</translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/grubwidget.cpp" line="108"/>
         <source>Default Boot</source>
         <translation>Predvolený boot</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="109"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="124"/>
         <source>Boot delay</source>
         <translation>Zdržanie bootovania</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="117"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="132"/>
         <source>Text Color</source>
         <translation>Farba textu</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="125"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="140"/>
         <source>Selected Text Color</source>
         <translation>Farba vybratého textu</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="157"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="144"/>
+        <source>The startup speed can be improved by disabling the theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Updating...</source>
         <translation>Obnovuje sa...</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="159"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="184"/>
         <source>Successfully updated, reboot to view.</source>
         <translation>Úspešne aktualizované, reštartujte pre zobrazenie.</translation>
     </message>
@@ -986,14 +996,21 @@
 <context>
     <name>ModemNetworkListItem</name>
     <message>
-        <location filename="../modules/network/modemnetworklistitem.cpp" line="16"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="17"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="83"/>
         <source>Modem Network</source>
         <translation>Modemová sieť</translation>
     </message>
     <message>
-        <location filename="../modules/network/modemnetworklistitem.cpp" line="40"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="41"/>
         <source>Restore the connection</source>
         <translation>Obnovenie spojenia</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
+        <source>Interface</source>
+        <translation>Rozhranie</translation>
     </message>
 </context>
 <context>
@@ -1007,6 +1024,21 @@
         <location filename="../frame/sidebarmodel.cpp" line="126"/>
         <source>Shutdown</source>
         <translation>Vypnúť</translation>
+    </message>
+    <message>
+        <location filename="../modules/account/account.cpp" line="18"/>
+        <source>User Accounts</source>
+        <translation>Používateľské účty</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/display.cpp" line="39"/>
+        <source>Display</source>
+        <translation>Zobraziť</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="24"/>
+        <source>Sound</source>
+        <translation>Zvuk</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="35"/>
@@ -1027,16 +1059,6 @@
         <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Information</source>
         <translation>Informácie o systéme</translation>
-    </message>
-    <message>
-        <location filename="../modules/display/display.cpp" line="39"/>
-        <source>Display</source>
-        <translation>Zobraziť</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/account.cpp" line="18"/>
-        <source>User Accounts</source>
-        <translation>Používateľské účty</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/shortcuts.cpp" line="28"/>
@@ -1077,11 +1099,6 @@
         <location filename="../modules/network/network.cpp" line="34"/>
         <source>Network</source>
         <translation>Sieť</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="24"/>
-        <source>Sound</source>
-        <translation>Zvuk</translation>
     </message>
 </context>
 <context>
@@ -1177,7 +1194,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
-        <translation type="unfinished"/>
+        <translation>Trackpoint</translation>
     </message>
 </context>
 <context>
@@ -1326,17 +1343,17 @@
 <context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="159"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="190"/>
         <source>Network</source>
         <translation>Sieť</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="172"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="203"/>
         <source>View detailed information</source>
         <translation>Zobraziť detailné informácie</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="186"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="217"/>
         <source>System Proxy</source>
         <translation>System Proxy</translation>
     </message>
@@ -1361,7 +1378,7 @@
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="50"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="67"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="75"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="155"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="157"/>
         <source>The two passwords do not match.</source>
         <translation>Heslá sa nezhodujú. </translation>
     </message>
@@ -1381,7 +1398,7 @@
         <translation>Opakovať</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="150"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="152"/>
         <source>Password can not be empty.</source>
         <translation>Heslo nesmie byť prázdne. </translation>
     </message>
@@ -1476,7 +1493,7 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="185"/>
         <source>Sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Zvukové efekty</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="200"/>
@@ -1504,22 +1521,22 @@
         <translation>Vpravo</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="329"/>
+        <location filename="../modules/sound/soundview.cpp" line="334"/>
         <source>Microphone</source>
         <translation>Mikrofón</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="340"/>
+        <location filename="../modules/sound/soundview.cpp" line="345"/>
         <source>Input Volume</source>
         <translation>Vstupná hlasitosť</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="356"/>
+        <location filename="../modules/sound/soundview.cpp" line="361"/>
         <source>Feedback Volume</source>
         <translation>Objem spätnej väzby</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="456"/>
+        <location filename="../modules/sound/soundview.cpp" line="464"/>
         <source>Sound</source>
         <translation>Zvuk</translation>
     </message>
@@ -1529,27 +1546,27 @@
     <message>
         <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Displej sa vypne po</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Počítač sa vypne po</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
-        <translation type="unfinished"/>
+        <translation>Vyžadované heslo k prebudeniu displeja</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
-        <translation type="unfinished"/>
+        <translation>Vyžadované heslo k prebudeniu počítača</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation type="unfinished"/>
+        <translation>Notebook sa po zatvorení vypne</translation>
     </message>
 </context>
 <context>
@@ -1568,12 +1585,12 @@
         <translation>Napájanie</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="104"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
         <source>Charged</source>
-        <translation type="unfinished"/>
+        <translation>Nabitý</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="106"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="105"/>
         <source>On Charging %1</source>
         <translation>Nabíjanie %1</translation>
     </message>
@@ -1651,39 +1668,9 @@
 <context>
     <name>SystemInfo</name>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
-        <source>System Information</source>
-        <translation>Informácie o systéme</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
-        <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
-        <source>Deepin Edition:</source>
-        <translation>Deepin vydanie:</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
-        <source>Distribution:</source>
-        <translation>Distribúcia:</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
-        <source>System Type:</source>
-        <translation>Typ systému:</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
-        <source>%1 Bit</source>
-        <translation>%1 Bit</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
-        <source>Processor:</source>
-        <translation>Procesor:</translation>
+        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
+        <source>Disk:</source>
+        <translation>Disk:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
@@ -1691,9 +1678,39 @@
         <translation>Pamäť:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
-        <source>Disk:</source>
-        <translation>Disk:</translation>
+        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
+        <source>Processor:</source>
+        <translation>Procesor:</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
+        <source>%1 Bit</source>
+        <translation>%1 Bit</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
+        <source>System Type:</source>
+        <translation>Typ systému:</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
+        <source>Distribution:</source>
+        <translation>Distribúcia:</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
+        <source>Deepin Edition:</source>
+        <translation>Deepin vydanie:</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
+        <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
+        <source>System Information</source>
+        <translation>Informácie o systéme</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="165"/>
@@ -1854,32 +1871,22 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="110"/>
-        <source>Recently Used</source>
-        <translation>Nedávno použité</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
-        <source>Avatar</source>
-        <translation>Avatar</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="163"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="141"/>
         <source>Auto-login</source>
         <translation>Automatické prihlásenie</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="189"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="167"/>
         <source>Enable</source>
         <translation>Povoliť</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="246"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>Vyberte nový obrázok pre Avatara</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="247"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>Súbory obrázkov (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -2048,14 +2055,21 @@
 <context>
     <name>WiredNetworkListItem</name>
     <message>
-        <location filename="../modules/network/wirednetworklistitem.cpp" line="20"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="21"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="92"/>
         <source>Wired Network</source>
         <translation>Drôtová sieť</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirednetworklistitem.cpp" line="29"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="30"/>
         <source>Wired Connection</source>
         <translation>Káblové pripojenie</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
+        <source>Interface</source>
+        <translation>Rozhranie</translation>
     </message>
 </context>
 <context>
@@ -2085,6 +2099,8 @@
     <name>WirelessNetworkListItem</name>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="25"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="384"/>
         <source>Wireless Network</source>
         <translation>Bezdrôtová sieť</translation>
     </message>
@@ -2092,6 +2108,11 @@
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="241"/>
         <source>Connect to hidden access point</source>
         <translation>Pripojiť k skrytému bodu prístupu</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
+        <source>Interface</source>
+        <translation>Rozhranie</translation>
     </message>
 </context>
 <context>

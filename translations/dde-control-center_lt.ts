@@ -165,37 +165,37 @@
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="48"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="63"/>
         <source>1 Minute</source>
-        <translation type="unfinished"/>
+        <translation>1 minutės</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="49"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="64"/>
         <source>5 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>5 minučių</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="50"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="65"/>
         <source>10 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>10 minučių</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="51"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="66"/>
         <source>15 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>15 minučių</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="52"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="67"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>30 minučių</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="53"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="68"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 valandos</translation>
     </message>
 </context>
 <context>
@@ -348,35 +348,35 @@
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="317"/>
-        <location filename="../modules/display/customsettings.cpp" line="480"/>
+        <location filename="../modules/display/customsettings.cpp" line="475"/>
         <source>Apply</source>
         <translation>Taikyti</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="319"/>
-        <location filename="../modules/display/customsettings.cpp" line="482"/>
+        <location filename="../modules/display/customsettings.cpp" line="477"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>Patvirtinti</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="344"/>
+        <location filename="../modules/display/customsettings.cpp" line="339"/>
         <source>Do you want to keep these display settings?</source>
         <translation>Ar norite palikti šiuos ekrano nustatymus?</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="345"/>
-        <location filename="../modules/display/customsettings.cpp" line="353"/>
+        <location filename="../modules/display/customsettings.cpp" line="340"/>
+        <location filename="../modules/display/customsettings.cpp" line="348"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation>Grįžtama prie ankstesnių ekrano nustatymų po &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; sekundžių.</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="347"/>
+        <location filename="../modules/display/customsettings.cpp" line="342"/>
         <source>Revert</source>
         <translation>Sugrąžinti</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="348"/>
+        <location filename="../modules/display/customsettings.cpp" line="343"/>
         <source>Keep Changes</source>
         <translation>Palikti pakeitimus</translation>
     </message>
@@ -500,54 +500,9 @@
         <translation>Automatinis atkūrimas</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
-        <source>Browser</source>
-        <translation>Naršyklė</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
-        <source>Mail</source>
-        <translation>Paštas</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
-        <source>Text</source>
-        <translation>Tekstas</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
-        <source>Music</source>
-        <translation>Muzika</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
-        <source>Video</source>
-        <translation>Vaizdo įrašai</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
-        <source>Picture</source>
-        <translation>Paveikslai</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
-        <source>Terminal</source>
-        <translation>Terminalas</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
-        <source>CD Audio</source>
-        <translation>Garso CD</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
-        <source>DVD Video</source>
-        <translation>Vaizdo DVD</translation>
-    </message>
-    <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
-        <source>Music Player</source>
-        <translation>Muzikos grotuvas</translation>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
+        <source>Software</source>
+        <translation>Programinė įranga</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="127"/>
@@ -555,9 +510,54 @@
         <translation>Kamera</translation>
     </message>
     <message>
-        <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
-        <source>Software</source>
-        <translation>Programinė įranga</translation>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
+        <source>Music Player</source>
+        <translation>Muzikos grotuvas</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
+        <source>DVD Video</source>
+        <translation>Vaizdo DVD</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
+        <source>CD Audio</source>
+        <translation>Garso CD</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
+        <source>Terminal</source>
+        <translation>Terminalas</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
+        <source>Picture</source>
+        <translation>Paveikslai</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
+        <source>Video</source>
+        <translation>Vaizdo įrašai</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
+        <source>Music</source>
+        <translation>Muzika</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
+        <source>Text</source>
+        <translation>Tekstas</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
+        <source>Mail</source>
+        <translation>Paštas</translation>
+    </message>
+    <message>
+        <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
+        <source>Browser</source>
+        <translation>Naršyklė</translation>
     </message>
 </context>
 <context>
@@ -589,22 +589,22 @@
         <translation>Bandyti vėl</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="108"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="111"/>
         <source>removable disk</source>
         <translation>keičiamasis diskas</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="110"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
         <source>network disk</source>
         <translation>tinklo diskas</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="112"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
         <source>local disk</source>
         <translation>vietinis diskas</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
+        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="118"/>
         <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
         <translation>Nepavyko pašalinti %1 &quot; %2 &quot;, prašome bandyti vėl.</translation>
     </message>
@@ -649,7 +649,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="190"/>
         <source>You can do other custom settings to your screens.</source>
-        <translation>Galite pritaikyti kitus asmeninius nustatymus savo ekranams.</translation>
+        <translation>Galite savo ekranams pritaikyti kitus asmeninius nustatymus.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="200"/>
@@ -715,43 +715,53 @@
 <context>
     <name>GrubWidget</name>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="30"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="32"/>
         <source>Boot Menu</source>
         <translation>Paleidimo meniu</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="74"/>
-        <location filename="../modules/grub/grubwidget.cpp" line="167"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="76"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="192"/>
         <source>Drag and drop an image to change background.</source>
         <translation>Nutempkite paveikslą čia, kad pakeistumėte foną.</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="93"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="81"/>
+        <source>Theme</source>
+        <translation>Tema</translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/grubwidget.cpp" line="108"/>
         <source>Default Boot</source>
         <translation>Numatytasis paleidimas</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="109"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="124"/>
         <source>Boot delay</source>
         <translation>Paleidimo delsa</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="117"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="132"/>
         <source>Text Color</source>
         <translation>Teksto spalva</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="125"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="140"/>
         <source>Selected Text Color</source>
         <translation>Pasirinkto teksto spalva</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="157"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="144"/>
+        <source>The startup speed can be improved by disabling the theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Updating...</source>
         <translation>Atnaujinama...</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="159"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="184"/>
         <source>Successfully updated, reboot to view.</source>
         <translation>Sėkmingai atnaujinta, paleiskite iš naujo, norėdami pamatyti.</translation>
     </message>
@@ -817,7 +827,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="241"/>
         <source>Caps Lock prompt</source>
-        <translation>Didžiųjų raidžių užrakto užklausa</translation>
+        <translation>Didžiųjų raidžių užrakto informacija</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="258"/>
@@ -986,14 +996,21 @@
 <context>
     <name>ModemNetworkListItem</name>
     <message>
-        <location filename="../modules/network/modemnetworklistitem.cpp" line="16"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="17"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="83"/>
         <source>Modem Network</source>
         <translation>Modemo tinklas</translation>
     </message>
     <message>
-        <location filename="../modules/network/modemnetworklistitem.cpp" line="40"/>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="41"/>
         <source>Restore the connection</source>
         <translation>Atkurti ryšį</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
+        <source>Interface</source>
+        <translation>Sąsaja</translation>
     </message>
 </context>
 <context>
@@ -1007,6 +1024,21 @@
         <location filename="../frame/sidebarmodel.cpp" line="126"/>
         <source>Shutdown</source>
         <translation>Išjungti</translation>
+    </message>
+    <message>
+        <location filename="../modules/account/account.cpp" line="18"/>
+        <source>User Accounts</source>
+        <translation>Naudotojų paskyros</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/display.cpp" line="39"/>
+        <source>Display</source>
+        <translation>Ekranas</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/sound.cpp" line="24"/>
+        <source>Sound</source>
+        <translation>Garsas</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="35"/>
@@ -1027,16 +1059,6 @@
         <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Information</source>
         <translation>Sistemos informacija</translation>
-    </message>
-    <message>
-        <location filename="../modules/display/display.cpp" line="39"/>
-        <source>Display</source>
-        <translation>Ekranas</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/account.cpp" line="18"/>
-        <source>User Accounts</source>
-        <translation>Naudotojų paskyros</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/shortcuts.cpp" line="28"/>
@@ -1078,11 +1100,6 @@
         <source>Network</source>
         <translation>Tinklas</translation>
     </message>
-    <message>
-        <location filename="../modules/sound/sound.cpp" line="24"/>
-        <source>Sound</source>
-        <translation>Garsas</translation>
-    </message>
 </context>
 <context>
     <name>MonitorGround</name>
@@ -1119,13 +1136,13 @@
         <location filename="../modules/mouse/mouse.cpp" line="78"/>
         <location filename="../modules/mouse/mouse.cpp" line="161"/>
         <source>Left Button</source>
-        <translation>Kairysis mygtukas</translation>
+        <translation>Kairysis</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="79"/>
         <location filename="../modules/mouse/mouse.cpp" line="162"/>
         <source>Right Button</source>
-        <translation>Dešinysis mygtukas</translation>
+        <translation>Dešinysis</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="90"/>
@@ -1162,7 +1179,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="192"/>
         <source>Tap to click</source>
-        <translation>Prisiliesti, kad pasppausti</translation>
+        <translation>Bakstelėti, norint paspausti</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="193"/>
@@ -1200,7 +1217,7 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="50"/>
         <source>802.11 WiFi Hotspot</source>
-        <translation>802.11 WiFi Saitvietė</translation>
+        <translation>802.11 WiFi prieigos taškas</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="51"/>
@@ -1326,17 +1343,17 @@
 <context>
     <name>NetworkMainWidget</name>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="159"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="190"/>
         <source>Network</source>
         <translation>Tinklas</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="172"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="203"/>
         <source>View detailed information</source>
         <translation>Žiūrėti išsamesnę informaciją</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmainwidget.cpp" line="186"/>
+        <location filename="../modules/network/networkmainwidget.cpp" line="217"/>
         <source>System Proxy</source>
         <translation>Sistemos įgaliotasis serveris</translation>
     </message>
@@ -1361,7 +1378,7 @@
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="50"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="67"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="75"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="155"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="157"/>
         <source>The two passwords do not match.</source>
         <translation>Slaptažodžiai nesutampa.</translation>
     </message>
@@ -1381,7 +1398,7 @@
         <translation>Pakartokite</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="150"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="152"/>
         <source>Password can not be empty.</source>
         <translation>Slaptažodis negali būti tuščias.</translation>
     </message>
@@ -1504,22 +1521,22 @@
         <translation>Dešinė</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="329"/>
+        <location filename="../modules/sound/soundview.cpp" line="334"/>
         <source>Microphone</source>
         <translation>Mikrofonas</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="340"/>
+        <location filename="../modules/sound/soundview.cpp" line="345"/>
         <source>Input Volume</source>
         <translation>Įvesties garsis</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="356"/>
+        <location filename="../modules/sound/soundview.cpp" line="361"/>
         <source>Feedback Volume</source>
         <translation>Atsakomasis garsis</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="456"/>
+        <location filename="../modules/sound/soundview.cpp" line="464"/>
         <source>Sound</source>
         <translation>Garsas</translation>
     </message>
@@ -1529,27 +1546,27 @@
     <message>
         <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Ekranas išsijungs po</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Kompiuteris bus pristabdytas po</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
-        <translation type="unfinished"/>
+        <translation>Po ekrano išsijungimo reikalauti slaptažodžio</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
-        <translation type="unfinished"/>
+        <translation>Po kompiuterio pristabdymo reikalauti slaptažodžio</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation type="unfinished"/>
+        <translation>Uždarius dangtį, kompiuteris bus pristabdytas po</translation>
     </message>
 </context>
 <context>
@@ -1568,14 +1585,14 @@
         <translation>Energija</translation>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="104"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
         <source>Charged</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="106"/>
+        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="105"/>
         <source>On Charging %1</source>
-        <translation>Kraunasi %1</translation>
+        <translation>Įkraunama %1</translation>
     </message>
 </context>
 <context>
@@ -1651,39 +1668,9 @@
 <context>
     <name>SystemInfo</name>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
-        <source>System Information</source>
-        <translation>Sistemos informacija</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
-        <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Autorių Teisės (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
-        <source>Deepin Edition:</source>
-        <translation>Deepin laida:</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
-        <source>Distribution:</source>
-        <translation>Distribucija:</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
-        <source>System Type:</source>
-        <translation>Sistemos tipas:</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
-        <source>%1 Bit</source>
-        <translation>%1 bitų</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
-        <source>Processor:</source>
-        <translation>Procesorius:</translation>
+        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
+        <source>Disk:</source>
+        <translation>Diskas:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
@@ -1691,9 +1678,39 @@
         <translation>Atmintis:</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
-        <source>Disk:</source>
-        <translation>Diskas:</translation>
+        <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
+        <source>Processor:</source>
+        <translation>Procesorius:</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
+        <source>%1 Bit</source>
+        <translation>%1 bitų</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
+        <source>System Type:</source>
+        <translation>Sistemos tipas:</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
+        <source>Distribution:</source>
+        <translation>Distribucija:</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
+        <source>Deepin Edition:</source>
+        <translation>Deepin laida:</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
+        <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>Autorių Teisės (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
+        <source>System Information</source>
+        <translation>Sistemos informacija</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="165"/>
@@ -1719,12 +1736,12 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="32"/>
         <source>Manual</source>
-        <translation>Rankinis būdas</translation>
+        <translation>Rankinis</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="32"/>
         <source>Auto</source>
-        <translation>Automatiškas būdas</translation>
+        <translation>Automatinis</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="49"/>
@@ -1734,27 +1751,27 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="52"/>
         <source>Ignore the following proxy configuration for hosts and domains</source>
-        <translation>Ignoruoti sekančią apeigos konfigūraciją domenams ir talpintojams</translation>
+        <translation>Nepaisyti sekančios įgaliotųjų serverių konfigūracijos serveriams ir domenams</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="79"/>
         <source>HTTP Proxy</source>
-        <translation>HTTP apeiga</translation>
+        <translation>HTTP įgaliotasis serveris</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="80"/>
         <source>HTTPS Proxy</source>
-        <translation>HTTPS apeiga</translation>
+        <translation>HTTPS įgaliotasis serveris</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="81"/>
         <source>FTP Proxy</source>
-        <translation>FTP apeiga</translation>
+        <translation>FTP įgaliotasis serveris</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="82"/>
         <source>Socks Proxy</source>
-        <translation>Socks apeiga</translation>
+        <translation>Socks įgaliotasis serveris</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="97"/>
@@ -1854,32 +1871,22 @@
 <context>
     <name>UserExpandContent</name>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="110"/>
-        <source>Recently Used</source>
-        <translation>Paskiausiai naudoti</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="111"/>
-        <source>Avatar</source>
-        <translation>Avataras</translation>
-    </message>
-    <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="163"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="141"/>
         <source>Auto-login</source>
         <translation>Automatinis prisijungimas</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="189"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="167"/>
         <source>Enable</source>
         <translation>Įjungti</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="246"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
         <source>Choose a new picture for your Avatar</source>
         <translation>Pasirinkti naują nuotrauką savo avatarui</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="247"/>
+        <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
         <translation>Paveikslų failai (*.jpg *.png *.jpeg)</translation>
     </message>
@@ -2048,14 +2055,21 @@
 <context>
     <name>WiredNetworkListItem</name>
     <message>
-        <location filename="../modules/network/wirednetworklistitem.cpp" line="20"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="21"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="92"/>
         <source>Wired Network</source>
         <translation>Laidinis tinklas</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirednetworklistitem.cpp" line="29"/>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="30"/>
         <source>Wired Connection</source>
         <translation>Laidinis ryšys</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
+        <source>Interface</source>
+        <translation>Sąsaja</translation>
     </message>
 </context>
 <context>
@@ -2085,6 +2099,8 @@
     <name>WirelessNetworkListItem</name>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="25"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="384"/>
         <source>Wireless Network</source>
         <translation>Belaidis tinklas</translation>
     </message>
@@ -2092,6 +2108,11 @@
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="241"/>
         <source>Connect to hidden access point</source>
         <translation>Prisijungti prie paslėpto prieigos taško</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
+        <source>Interface</source>
+        <translation>Sąsaja</translation>
     </message>
 </context>
 <context>
