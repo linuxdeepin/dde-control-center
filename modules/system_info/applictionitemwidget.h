@@ -81,8 +81,10 @@ private:
     QLabel *m_appIcon;
     QLabel *m_appName;
     QLabel *m_appVersion;
+    QLabel *m_appChangelog;
     DCircleProgress *m_progress;
     QPushButton *m_updateBtn;
+    QPushButton *m_expandChangelogBtn;
     DBusUpdateJobManager *m_dbusJobManagerInter;
     DBusUpdateJob *m_dbusJobInter = nullptr;
     HSeparatorWidget *m_separator;
@@ -95,6 +97,9 @@ private:
     bool m_selected = false;
     bool m_jobRunning = false;
     bool m_hovered = false;
+
+    QString elidedChangelog() const;
+    int changelogLines() const;
 };
 
 #endif // APPLICTIONITEMWIDGET_H

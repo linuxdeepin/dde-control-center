@@ -17,6 +17,18 @@
 
 #include <dthememanager.h>
 
+static const int ChangelogLineHeight = 20;
+static const QString LinkButtonStyle = "QPushButton { "
+                                       "background-color:transparent;"
+                                       "border:none;"
+                                       "color:#01BDFF;"
+                                       "}"
+                                       "QPushButton:hover {"
+                                       "color:#01BDFF;"
+                                       "}"
+                                       "QPushButton:pressed {"
+                                       "}";
+
 ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     : QFrame(parent)
 {
@@ -31,6 +43,11 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     m_appVersion = new QLabel;
     m_appVersion->setStyleSheet("padding:2px 0;");
     m_appVersion->setObjectName("AppVersion");
+    m_appChangelog = new QLabel;
+    m_appChangelog->setWordWrap(true);
+    m_appChangelog->setAlignment(Qt::AlignTop);
+    m_appChangelog->setStyleSheet("padding:2px 0;");
+    m_appChangelog->setObjectName("AppChangelog");
     m_progress = new DCircleProgress;
     m_progress->setObjectName("AppProgress");
     m_progress->setStyleSheet(QString());
@@ -42,46 +59,62 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     m_updateBtn->setText(tr("Update"));
     m_updateBtn->setObjectName("UpdateButton");
     m_updateBtn->hide();
+    m_expandChangelogBtn = new QPushButton;
+    m_expandChangelogBtn->setStyleSheet(LinkButtonStyle);
+    m_expandChangelogBtn->setText("Detail");
     m_separator = new HSeparatorWidget;
+    m_separator->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_separator->setFixedWidth(DCC::ModuleContentWidth - 48);
 
-    QVBoxLayout *infoLayout = new QVBoxLayout;
+    QVBoxLayout *nameVersionLayout = new QVBoxLayout;
+    nameVersionLayout->addStretch();
+    nameVersionLayout->addWidget(m_appName);
+    nameVersionLayout->addWidget(m_appVersion);
+    nameVersionLayout->addStretch();
+    nameVersionLayout->setSpacing(0);
+    nameVersionLayout->setMargin(0);
+
+    QHBoxLayout *infoLayout = new QHBoxLayout;
+    infoLayout->addSpacing(12);
+    infoLayout->addWidget(m_appIcon);
+    infoLayout->addLayout(nameVersionLayout);
     infoLayout->addStretch();
-    infoLayout->addWidget(m_appName);
-    infoLayout->addSpacing(0);
-    infoLayout->addWidget(m_appVersion);
-    infoLayout->addStretch();
-    infoLayout->setSpacing(0);
+    infoLayout->addWidget(m_updateBtn);
+    infoLayout->addWidget(m_progress);
+    infoLayout->addSpacing(12);
     infoLayout->setMargin(0);
 
-    QHBoxLayout *mainLayout = new QHBoxLayout;
-//    mainLayout->addSpacing(10);
+    QHBoxLayout *changelogLayout = new QHBoxLayout;
+    changelogLayout->addSpacing(44);
+    changelogLayout->addWidget(m_appChangelog);
+    changelogLayout->addWidget(m_expandChangelogBtn);
+    changelogLayout->addSpacing(12);
+    changelogLayout->setMargin(0);
+
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addSpacing(10);
     mainLayout->addLayout(infoLayout);
+    mainLayout->addLayout(changelogLayout);
     mainLayout->addStretch();
-    mainLayout->addWidget(m_progress);
-    mainLayout->addWidget(m_updateBtn);
-//    mainLayout->addSpacing(15);
+    mainLayout->addWidget(m_separator, 0, Qt::AlignRight);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
 
-    QVBoxLayout *rightLayout = new QVBoxLayout;
-    rightLayout->addLayout(mainLayout);
-    rightLayout->addWidget(m_separator);
-    rightLayout->setSpacing(0);
-    rightLayout->setContentsMargins(10, 0, 12, 0);
-
-    QHBoxLayout *mLayout = new QHBoxLayout;
-    mLayout->addSpacing(13);
-    mLayout->addWidget(m_appIcon);
-    mLayout->addLayout(rightLayout);
-    mLayout->setSpacing(0);
-    mLayout->setMargin(0);
-
-    setFixedHeight(50);
+    setFixedHeight(60);
     setFixedWidth(DCC::ModuleContentWidth);
-    setLayout(mLayout);
+    setLayout(mainLayout);
 
     connect(m_updateBtn, &QPushButton::clicked, this, &ApplictionItemWidget::toggleUpdateJob);
     connect(m_progress, &DCircleProgress::clicked, this, &ApplictionItemWidget::progressClicked);
+    connect(m_expandChangelogBtn, &QPushButton::clicked, [this]{
+        int lines = changelogLines();
+        int expandHeight = (lines - 2) * ChangelogLineHeight;
+
+        m_expandChangelogBtn->hide();
+        m_appChangelog->setText(m_updateInfo.m_changelog);
+        m_appChangelog->setFixedHeight(m_appChangelog->height() + expandHeight);
+        setFixedHeight(height() + expandHeight);
+    });
 }
 
 void ApplictionItemWidget::setAppUpdateInfo(const AppUpdateInfo &info)
@@ -93,6 +126,14 @@ void ApplictionItemWidget::setAppUpdateInfo(const AppUpdateInfo &info)
     m_appIcon->setPixmap(QPixmap(iconPath).scaled(32, 32, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
     m_appName->setText(info.m_name);
     m_appVersion->setText(info.m_avilableVersion);
+
+    if (!info.m_changelog.isEmpty()) {
+        setFixedHeight(100);
+        m_appChangelog->setText(elidedChangelog());
+    } else {
+        m_appChangelog->hide();
+        m_expandChangelogBtn->hide();
+    }
 }
 
 void ApplictionItemWidget::disableUpdate()
@@ -244,5 +285,53 @@ void ApplictionItemWidget::restartJob()
 const QString ApplictionItemWidget::getIconPath(const AppUpdateInfo &info) const
 {
     return Helper::searchAppIcon(QStringList() << info.m_icon << info.m_name << "application-x-desktop", 32);
+}
+
+QString ApplictionItemWidget::elidedChangelog() const
+{
+    const QString text = m_updateInfo.m_changelog;
+
+    const QFontMetrics fm(m_appChangelog->font());
+    const QRect rect(0, 0, 200, ChangelogLineHeight * 2);
+    const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
+
+    if (rect.contains(fm.boundingRect(rect, textFlag, text)))
+        return text;
+
+    QString str(text + "...");
+
+    while (true)
+    {
+        if (str.size() < 4)
+            break;
+
+        QRect boundingRect = fm.boundingRect(rect, textFlag, str);
+        if (rect.contains(boundingRect))
+            break;
+
+        str.remove(str.size() - 4, 1);
+    }
+
+    return str;
+}
+
+int ApplictionItemWidget::changelogLines() const
+{
+    const QString text = m_updateInfo.m_changelog;
+
+    QRect rect(0, 0, 240, ChangelogLineHeight * 2);
+    const QFontMetrics fm(m_appChangelog->font());
+    const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
+
+    while (true)
+    {
+        QRect boundingRect = fm.boundingRect(rect, textFlag, text);
+        if (rect.contains(boundingRect))
+            break;
+
+        rect.setHeight(rect.height() + ChangelogLineHeight);
+    }
+
+    return rect.height() / ChangelogLineHeight;
 }
 

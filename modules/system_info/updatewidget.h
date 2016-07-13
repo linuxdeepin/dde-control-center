@@ -19,6 +19,7 @@
 #include <dimagebutton.h>
 #include <dseparatorhorizontal.h>
 #include <dloadingindicator.h>
+#include <dboxwidget.h>
 
 #include "updateprogress.h"
 #include "applictionitemwidget.h"
@@ -29,6 +30,7 @@
 
 DWIDGET_USE_NAMESPACE
 
+class QScrollArea;
 class UpdateWidget : public QWidget
 {
     Q_OBJECT
@@ -96,16 +98,21 @@ private:
     DImageButton *m_checkUpdateBtn;
     DImageButton *m_updateButton;
     UpdateProgress *m_updateProgress;
-    DListWidget *m_appsList;
+    DVBoxWidget *m_appsVBox;
     DBusUpdateJob *m_dbusSystemUpgrade = nullptr;
     DBusUpdateJob *m_dbusCheckupdate = nullptr;
     DBusLastoreUpdater *m_dbusUpdateInter;
     DBusUpdateJobManager *m_dbusJobManagerInter;
+    QScrollArea * m_appsScrollArea;
     DSeparatorHorizontal *m_appSeparator;
     QList<QString> m_updatableAppsList;
     QList<QString> m_updatablePackagesList;
 
     UpgradeState m_upgradeStatus = NotStart;
+
+    QList<AppUpdateInfo> getUpdateInfoList() const;
+    QStringList updatableApps() const;
+    QStringList updatablePackages() const;
 };
 
 #endif // UPDATEWIDGET_H

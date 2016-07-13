@@ -31,6 +31,7 @@ public:
     QString m_icon;
     QString m_currentVersion;
     QString m_avilableVersion;
+    QString m_changelog;
 };
 
 typedef QList<AppUpdateInfo> AppUpdateInfoList;

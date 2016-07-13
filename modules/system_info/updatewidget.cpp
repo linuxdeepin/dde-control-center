@@ -15,6 +15,7 @@
 
 #include <QVBoxLayout>
 #include <QResizeEvent>
+#include <QScrollArea>
 #include <QDBusPendingCallWatcher>
 #include <QMap>
 
@@ -59,16 +60,17 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_updateProgress->setLineWidth(2);
     m_updateProgress->setValue(0);
     m_updateProgress->hide();
-    m_appsList = new DListWidget;
-    m_appsList->setMinimumHeight(0);
-    m_appsList->setFixedWidth(DCC::ModuleContentWidth);
-    m_appsList->setItemSize(DCC::ModuleContentWidth, 50);
-    m_appsList->setEnableVerticalScroll(true);
-    m_appsList->setObjectName("AppList");
-    m_appsList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     m_appSeparator = new DSeparatorHorizontal;
     m_dbusUpdateInter = new DBusLastoreUpdater("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
     m_dbusJobManagerInter = new DBusUpdateJobManager("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_appsVBox = new DVBoxWidget;
+    m_appsVBox->setFixedHeight(1000);
+    m_appsScrollArea = new QScrollArea(this);
+    m_appsScrollArea->setFrameStyle(QFrame::NoFrame);
+    m_appsScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_appsScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_appsScrollArea->setStyleSheet("background-color:transparent;");
+    m_appsScrollArea->setWidget(m_appsVBox);
 
     QVBoxLayout *tipsWidgetLayout = new QVBoxLayout;
     tipsWidgetLayout->addSpacing(10);
@@ -98,7 +100,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     mainLayout->addWidget(m_tipsWidget);
     mainLayout->addLayout(updateInfoLayout);
     mainLayout->addWidget(new DSeparatorHorizontal);
-    mainLayout->addWidget(m_appsList);
+    mainLayout->addWidget(m_appsScrollArea);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
 
@@ -123,8 +125,8 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     connect(m_updateProgress, &DCircleProgress::clicked, this, &UpdateWidget::toggleUpdateState);
     connect(this, &UpdateWidget::updatableNumsChanged, this, &UpdateWidget::updateInfo, Qt::QueuedConnection);
 //    connect(m_dbusJobManagerInter, &DBusUpdateJobManager::UpgradableAppsChanged, this, &UpdateWidget::loadAppList);
-    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatableAppsChanged, this, &UpdateWidget::loadAppList, Qt::QueuedConnection);
-    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatablePackagesChanged, this, &UpdateWidget::loadAppList, Qt::QueuedConnection);
+//    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatableAppsChanged, this, &UpdateWidget::loadAppList, Qt::QueuedConnection);
+//    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatablePackagesChanged, this, &UpdateWidget::loadAppList, Qt::QueuedConnection);
 //    connect(m_checkUpdateBtn, &DImageButton::clicked, this, &UpdateWidget::loadAppList);
 //    connect(m_checkUpdateBtn, &DImageButton::clicked, m_dbusJobManagerInter, &DBusUpdateJobManager::UpdateSource);
     connect(m_checkUpdateBtn, &DImageButton::clicked, this, &UpdateWidget::checkUpdate);
@@ -132,14 +134,18 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
 void UpdateWidget::resizeEvent(QResizeEvent *e)
 {
-    m_appsList->setMaximumHeight(e->size().height() - 75);
+    m_appsVBox->setMaximumHeight(e->size().height() - 75);
 }
 
 void UpdateWidget::loadAppList()
 {
     qDebug() << "reload app list" << ", stat = " << m_upgradeStatus;
 
-    m_appsList->clear();
+    QLayoutItem *item;
+    while((item = m_appsVBox->layout()->takeAt(0)) != NULL) {
+        item->widget()->deleteLater();
+        delete item;
+    }
     m_updateProgress->hide();
     m_updateButton->show();
 
@@ -167,27 +173,29 @@ void UpdateWidget::loadAppList()
         }
     }
 
-    QList<AppUpdateInfo> updateInfoList = m_dbusUpdateInter->ApplicationUpdateInfos(QLocale().name()).value();
+    QList<AppUpdateInfo> updateInfoList = getUpdateInfoList();
+
+//    QList<AppUpdateInfo> updateInfoList = m_dbusUpdateInter->ApplicationUpdateInfos(QLocale().name()).value();
     ApplictionItemWidget *appItemWidget;
 
-    for (const AppUpdateInfo &info : updateInfoList)
+    for (AppUpdateInfo &info : updateInfoList)
     {
         qDebug() << "add app: " << info.m_name << m_upgradeStatus;
 
         appItemWidget = new ApplictionItemWidget;
         appItemWidget->setAppUpdateInfo(info);
-        if (m_upgradeStatus == SysUpGrading || m_upgradeStatus == SysFail)
+        if (m_upgradeStatus == SysUpGrading || m_upgradeStatus == SysFail || info.m_packageId == "dde")
             appItemWidget->disableUpdate();
         if (jobMap.contains(info.m_packageId))
             appItemWidget->connectToJob(jobMap.value(info.m_packageId));
 
-        m_appsList->addWidget(appItemWidget);
+        m_appsVBox->layout()->addWidget(appItemWidget);
 
         connect(appItemWidget, &ApplictionItemWidget::jobFinished, this, &UpdateWidget::removeJob);
     }
 
-    m_updatableAppsList = m_dbusUpdateInter->updatableApps();
-    m_updatablePackagesList = m_dbusUpdateInter->updatablePackages();
+    m_updatableAppsList = updatableApps();
+    m_updatablePackagesList = updatablePackages();
 
     qDebug() << "updatableApps: " << m_updatableAppsList;
     qDebug() << "updatablePackages: " << m_updatablePackagesList;
@@ -239,10 +247,10 @@ void UpdateWidget::removeJob()
     if (!appItemWidget)
         return;
 
-    m_appsList->removeWidget(m_appsList->indexOf(appItemWidget));
+    m_appsVBox->layout()->removeWidget(appItemWidget);
 
     // TODO:FIXME: nums ?
-    emit updatableNumsChanged(m_appsList->count(), 1);
+    emit updatableNumsChanged(m_appsVBox->layout()->count(), 1);
 }
 
 void UpdateWidget::updateInfo(const int apps, const int packages)
@@ -262,7 +270,7 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
         m_updateButton->hide();
         m_updateCountTips->setText(tr("Click to view available  updates"));
         m_updateSizeTips->clear();
-        m_appsList->hide();
+        m_appsVBox->hide();
         m_appSeparator->hide();
         m_updateSizeTips->hide();
     }
@@ -271,7 +279,7 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
         m_tipsWidget->hide();
         m_checkingIndicator->hide();
         m_updateButton->show();
-        m_appsList->show();
+        m_appsVBox->show();
         m_appSeparator->show();
         m_updateSizeTips->show();
 
@@ -297,23 +305,27 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
 
     // have package update, insert "Deepin system upgrade item"
     // insert only apps num equal m_appList count, if these item already inserted, count == apps + 1
-    if (packages != apps && apps == m_appsList->count())
+    // NOTE-hualet, 2016-7-20: system update is now represented by package dde,
+    // so there's no need to take care of it specially.
+    /*
+    if (packages != apps && apps == m_appsVBox->layout()->count())
     {
         ApplictionItemWidget *sysItem = new ApplictionItemWidget;
         sysItem->setAppName("Deepin");
         sysItem->setAppIcon(QPixmap(":/images/images/deepin.svg"));
         sysItem->setAppVer(tr("Patches"));
         sysItem->disableUpdate();
-        m_appsList->insertWidget(0, sysItem);
+        m_appsVBox->layout()->insertWidget(0, sysItem);
         m_updateCountTips->setText(tr("Some patches need to be updated"));
     }
+    */
 
     if (apps && packages != apps)
         m_updateCountTips->setText(QString(tr("Some patches and %1 software need to be updated")).arg(apps));
 
     // hide last separator
-    if(m_appsList->count() > 0) {
-        ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsList->getWidget(m_appsList->count() - 1));
+    if(m_appsVBox->layout()->count() > 0) {
+        ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsVBox->layout()->itemAt(m_appsVBox->layout()->count() - 1)->widget());
         if (item)
             item->hideSeparator();
     }
@@ -355,7 +367,7 @@ void UpdateWidget::loadCheckUpdateJob(DBusUpdateJob *updateJob)
     m_dbusCheckupdate = updateJob;
 
     m_appSeparator->hide();
-    m_appsList->hide();
+    m_appsVBox->hide();
     m_tipsWidget->show();
     m_updateButton->hide();
     m_updateSizeTips->hide();
@@ -430,6 +442,93 @@ void UpdateWidget::checkUpdateStateChanged()
         m_dbusCheckupdate->deleteLater();
         m_dbusCheckupdate = nullptr;
     }
+}
+
+QList<AppUpdateInfo> UpdateWidget::getUpdateInfoList() const
+{
+    QList<AppUpdateInfo> infos;
+
+    QFile updateInfos("/var/lib/lastore/update_infos.json");
+    if (updateInfos.open(QFile::ReadOnly)) {
+        QByteArray data = updateInfos.readAll();
+        QJsonDocument doc = QJsonDocument::fromJson(data);
+        QJsonArray packages = doc.array();
+
+        for (QJsonValue val : packages) {
+            QJsonObject pack = val.toObject();
+            QString packageName = pack["Package"].toString();
+            QString metadataDir = "/lastore/metadata/" + packageName;
+
+            if (QFile::exists(metadataDir)) {
+                AppUpdateInfo info;
+                info.m_packageId = packageName;
+                info.m_currentVersion = pack["CurrentVersion"].toString();
+                info.m_avilableVersion = pack["LastVersion"].toString();
+                info.m_icon = metadataDir + "/meta/icons/" + packageName + ".svg";
+
+                QFile manifest(metadataDir + "/meta/manifest.json");
+                if (manifest.open(QFile::ReadOnly)) {
+                    QByteArray data = manifest.readAll();
+                    QJsonDocument doc = QJsonDocument::fromJson(data);
+                    QJsonObject object = doc.object();
+                    QJsonObject locales = object["locales"].toObject();
+                    QJsonObject locale = locales[QLocale::system().name()].toObject();
+                    QJsonObject changelog = locale["changelog"].toObject();
+
+                    info.m_name = locale["name"].toString();
+
+                    for (QString version : changelog.keys()) {
+                        // TODO: valid version compare mechanism.
+                        if (version.compare(info.m_currentVersion, Qt::CaseInsensitive) > 0) {
+                            if (info.m_changelog.isNull() || info.m_changelog.isEmpty()) {
+                                info.m_changelog = info.m_changelog + changelog.value(version).toString();
+                            } else {
+                                info.m_changelog = info.m_changelog + '\n' + changelog.value(version).toString();
+                            }
+                        }
+                    }
+                }
+
+                infos << info;
+            }
+        }
+    }
+
+    return infos;
+}
+
+QStringList UpdateWidget::updatableApps() const
+{
+    QStringList apps;
+    QStringList pkgs = updatablePackages();
+
+    for (const QString& pkg : pkgs) {
+        if (QFile::exists("/lastore/metadata/" + pkg)) {
+            apps << pkg;
+        }
+    }
+
+    return apps;
+}
+
+QStringList UpdateWidget::updatablePackages() const
+{
+    QStringList pkgs;
+
+    QFile updateInfos("/var/lib/lastore/update_infos.json");
+    if (updateInfos.open(QFile::ReadOnly)) {
+        QByteArray data = updateInfos.readAll();
+        QJsonDocument doc = QJsonDocument::fromJson(data);
+        QJsonArray packages = doc.array();
+
+        for (QJsonValue val : packages) {
+            QJsonObject pack = val.toObject();
+
+            pkgs << pack["Package"].toString();
+        }
+    }
+
+    return pkgs;
 }
 
 void UpdateWidget::systemUpgrade()
@@ -511,12 +610,12 @@ void UpdateWidget::toggleUpdateState()
 
 void UpdateWidget::disableAppsUpgrade()
 {
-    qDebug() << "disable Apps upgrade, size = " << m_appsList->count();
+    qDebug() << "disable Apps upgrade, size = " << m_appsVBox->layout()->count();
 
-    const int count = m_appsList->count();
+    const int count = m_appsVBox->layout()->count();
     for (int i(0); i != count; ++i)
     {
-        ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsList->getWidget(i));
+        ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsVBox->layout()->itemAt(i)->widget());
         item->disableUpdate();
     }
 }
