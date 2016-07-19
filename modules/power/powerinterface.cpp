@@ -109,6 +109,10 @@ QList<BatteryItem> PowerInterface::getVirtualBatteryInfos() {
     BatteryStateMap stateMap = m_dbusPower->batteryState();
     BatteryPercentageMap pertMap = m_dbusPower->batteryPercentage();
 
+    if (stateMap.find(virtualBattery.batteryName) == stateMap.end()) {
+        return batterys;
+    }
+
     virtualBattery.batteryName = "Display";
     virtualBattery.batteryIsAccess = infoMap.value(virtualBattery.batteryName, false);
     virtualBattery.batteryPercentage = pertMap.value(virtualBattery.batteryName, 0);

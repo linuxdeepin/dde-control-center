@@ -299,11 +299,11 @@ void PowerPlugin::updateIcon()
 
     QString iconName;
 
-    if (!m_dbusPower->isValid()){
+    if (!m_dbusPower->isValid()|| m_dbusPower->batteryState().isEmpty()){
         iconName = getBatteryIcon(-1, false, m_mode != Dock::FashionMode);
+        qDebug() << iconName;
     }else{
         bool batteryPresent =  getBatteryIsPresent();
-
         if (batteryPresent) {
             int batteryPercentage = getBatteryPercentage();
             iconName = getBatteryIcon(batteryPercentage, !m_dbusPower->onBattery(),
@@ -327,7 +327,12 @@ QString PowerPlugin::getBatteryIcon(int percentage, bool plugged, bool symbolic)
 {
     QString percentageStr;
 
-    if (percentage < 10 && percentage >= 0) {
+    if (percentage <0 || percentage>100) {
+        if(!symbolic)
+            return "battery-unknown";
+        else
+            return "battery-unknown-symbolic";
+    } else if (percentage < 10) {
         percentageStr = "000";
     } else if (percentage < 30) {
         percentageStr = "020";
@@ -339,11 +344,6 @@ QString PowerPlugin::getBatteryIcon(int percentage, bool plugged, bool symbolic)
         percentageStr = "080";
     } else if (percentage <= 100){
         percentageStr = "100";
-    } else {
-        if(!symbolic)
-            return "battery-unknow";
-        else
-            percentageStr = "000";
     }
 
     if (symbolic) {
