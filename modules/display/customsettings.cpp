@@ -549,7 +549,14 @@ DSlider *CustomSettings::getBrightnessSlider(const QString &name)
     DSlider *brightnessSlider = new DSlider(Qt::Horizontal);
     brightnessSlider->setSingleStep(1);
     brightnessSlider->setPageStep(1);
+    // The monitor packed with loongson currently doesn't support backlight adjustion.
+    // And the fallback mechanism doesn't have a good effect, either. So I just work
+    // around this situation by raising the minimum brightness value.
+#ifdef ARCH_MIPSEL
+    brightnessSlider->setRange(2, 10);
+#else
     brightnessSlider->setRange(1, 10);
+#endif
     brightnessSlider->setMinimumWidth(290);
 
     updateBrightnessSlider(name, brightnessSlider);
