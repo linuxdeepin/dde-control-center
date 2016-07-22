@@ -553,7 +553,7 @@ DSlider *CustomSettings::getBrightnessSlider(const QString &name)
     // And the fallback mechanism doesn't have a good effect, either. So I just work
     // around this situation by raising the minimum brightness value.
 #ifdef ARCH_MIPSEL
-    brightnessSlider->setRange(2, 10);
+    brightnessSlider->setRange(3, 10);
 #else
     brightnessSlider->setRange(1, 10);
 #endif
