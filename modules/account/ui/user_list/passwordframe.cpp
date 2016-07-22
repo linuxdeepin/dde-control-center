@@ -7,7 +7,10 @@
  * (at your option) any later version.
  **/
 
+#include <libintl.h>
+
 #include "passwordframe.h"
+#include "dbus/dbusaccount.h"
 
 PasswordFrame::PasswordFrame(QWidget *parent) : QStackedWidget(parent)
 {
@@ -29,6 +32,11 @@ void PasswordFrame::reset()
 {
     resetData();
     setCurrentIndex(0);
+}
+
+void PasswordFrame::warnPassword(QString msg)
+{
+    m_lineNew->showWarning(msg);
 }
 
 bool PasswordFrame::eventFilter(QObject *obj, QEvent *event)
@@ -155,6 +163,17 @@ bool PasswordFrame::validate()
 
     if (m_lineRepeat->text() != m_lineNew->text()){
         m_lineRepeat->showWarning(tr("The two passwords do not match."));
+        return false;
+    }
+
+    // TODO hualet: pull the dbus code into some util files.
+    // I know it's not decent to include the below code in pure UI code.
+    DBusAccount * da = new DBusAccount(this);
+    QDBusPendingReply<bool, QString, int> reply = da->IsPasswordValid(m_lineNew->text());
+    bool valid = reply.argumentAt(0).isValid() ? reply.argumentAt(0).toBool() : false;
+    QString warningMsg = reply.argumentAt(1).isValid() ? reply.argumentAt(1).toString() : "";
+    if (!valid){
+        m_lineNew->showWarning(dgettext("dde-daemon", warningMsg.toUtf8().data()));
         return false;
     }
 

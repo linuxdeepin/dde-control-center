@@ -33,6 +33,7 @@ public:
     explicit PasswordFrame(QWidget *parent = 0);
     void preDestroy();
     void reset();
+    void warnPassword(QString);
 
 signals:
     void sizeChanged();

@@ -155,9 +155,9 @@ void CreateUserPanel::initConfirmLine()
 bool CreateUserPanel::validate()
 {
     QDBusPendingReply<bool, QString, int> reply = m_account->IsUsernameValid(m_nameLine->text().toLower());
-    bool nameValid = reply.argumentAt(0).isValid() ? reply.argumentAt(0).toBool() : false;
+    bool valid = reply.argumentAt(0).isValid() ? reply.argumentAt(0).toBool() : false;
     QString warningMsg = reply.argumentAt(1).isValid() ? reply.argumentAt(1).toString() : "";
-    if (!nameValid){
+    if (!valid){
         m_nameLine->showWarning(dgettext("dde-daemon", warningMsg.toUtf8().data()));
         return false;
     }
@@ -169,6 +169,16 @@ bool CreateUserPanel::validate()
 
     if (m_passwdRepeat->text().isEmpty()){
         m_passwdRepeat->showWarning(tr("Password can not be empty."));
+        return false;
+    }
+
+    reply = m_account->IsPasswordValid(m_passwdNew->text().toLower());
+    reply.waitForFinished();
+    valid = reply.argumentAt(0).isValid() ? reply.argumentAt(0).toBool() : false;
+    warningMsg = reply.argumentAt(1).isValid() ? reply.argumentAt(1).toString() : "";
+    if (!valid) {
+        m_passwdNew->showWarning(dgettext("dde-daemon", warningMsg.toUtf8().data()));
+        return false;
     }
 
     if (m_passwdRepeat->text() != m_passwdNew->text()){

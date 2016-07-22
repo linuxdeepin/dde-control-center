@@ -125,7 +125,7 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("FindUserByName"), argumentList);
     }
 
-    inline QDBusPendingReply<bool> IsPasswordValid(const QString &in0)
+    inline QDBusPendingReply<bool, QString, int> IsPasswordValid(const QString &in0)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(in0);
