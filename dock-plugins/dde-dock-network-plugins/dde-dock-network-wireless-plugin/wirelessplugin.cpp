@@ -281,11 +281,12 @@ void WirelessPlugin::onNeedSecrets(const QString &path, const QString &uuid, con
                 m_passworkInputDialog->setTextAlert(true);
             }
         });
-        connect(m_passworkInputDialog.data(), &DInputDialog::cancelButtonClicked,
-                m_passworkInputDialog, &DInputDialog::close);
+        connect(m_passworkInputDialog.data(), &DInputDialog::cancelButtonClicked, [this] {
+            m_passworkInputDialog.data()->close();
+            m_dbusNetwork->CancelSecret(m_targetConnectPath, m_tragetConnectUuid);
+        });
         connect(m_passworkInputDialog.data(), &DInputDialog::closed, [this] {
             m_passworkInputDialog->deleteLater();
-            m_dbusNetwork->CancelSecret(m_targetConnectPath, m_tragetConnectUuid);
         });
         connect(m_dbusNetwork, &DBusNetwork::NeedSecretsFinished, m_passworkInputDialog.data(), &DInputDialog::close);
 
