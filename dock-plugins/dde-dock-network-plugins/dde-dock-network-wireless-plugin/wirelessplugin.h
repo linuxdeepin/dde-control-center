@@ -72,7 +72,7 @@ private:
     void onEnabledChanged(const QString &id);
     void onDevicesChanged();
 
-    Q_SLOT void onNeedSecrets(const QString &path, const QString &uuid, const QString &ssid, bool in3);
+    Q_SLOT void onNeedSecrets(const QString &path, const QString &uuid, const QString &ssid, bool autoConnect);
 
     QString settingEnabledKey(const QString &id);
 };

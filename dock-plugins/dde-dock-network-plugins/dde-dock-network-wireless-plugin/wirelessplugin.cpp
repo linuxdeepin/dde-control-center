@@ -238,7 +238,7 @@ void WirelessPlugin::onDevicesChanged()
     }
 }
 
-void WirelessPlugin::onNeedSecrets(const QString &path, const QString &uuid, const QString &ssid, bool in3)
+void WirelessPlugin::onNeedSecrets(const QString &path, const QString &uuid, const QString &ssid, bool autoConnect)
 {
     QDBusInterface interface("com.deepin.dde.ControlCenter",
                              "/com/deepin/dde/ControlCenter/Network",
@@ -250,8 +250,6 @@ void WirelessPlugin::onNeedSecrets(const QString &path, const QString &uuid, con
         return;
     }
 
-    Q_UNUSED(in3)
-
     m_targetConnectPath = path;
     m_tragetConnectUuid = uuid;
 
@@ -261,6 +259,7 @@ void WirelessPlugin::onNeedSecrets(const QString &path, const QString &uuid, con
         DCheckBox *check_box = new DCheckBox;
 
         check_box->setText(tr("Auto-connect"));
+        check_box->setChecked(autoConnect);
 
         QIcon::setThemeName("deepin");
 
