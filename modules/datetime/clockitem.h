@@ -35,8 +35,6 @@ private slots:
     void updateDateTime();
 
 private:
-    QDateTime m_datetime;
-
     Clock *m_clock;
     dcc::widgets::NormalLabel *m_label;
 };

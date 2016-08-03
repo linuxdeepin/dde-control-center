@@ -22,7 +22,6 @@ namespace datetime {
 
 ClockItem::ClockItem(QWidget *parent) :
     SettingsItem(parent),
-    m_datetime(QDateTime::currentDateTime()),
     m_clock(new Clock),
     m_label(new NormalLabel)
 {
@@ -52,7 +51,7 @@ ClockItem::ClockItem(QWidget *parent) :
 void ClockItem::updateDateTime()
 {
     m_clock->update();
-    m_label->setText(m_datetime.date().toString(Qt::SystemLocaleLongDate));
+    m_label->setText(QDate::currentDate().toString(Qt::SystemLocaleLongDate));
 }
 
 } // namespace datetime
