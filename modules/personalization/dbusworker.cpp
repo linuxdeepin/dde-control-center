@@ -43,6 +43,7 @@ DBusWorker::DBusWorker(QObject *parent) : QObject(parent)
         if (str1 == staticTypeKeys.value("TypeBackground")) {
             getDetails(staticTypeKeys.value("TypeBackground"), m_backgroundKeys, m_backgroundObjs, m_backgroundDetails);
             emit backgroundDetailsChanged(m_backgroundDetails);
+            emit backgroundKeysChanged(m_backgroundKeys);
             emit backgroundChanged(val);
             return;
         }
