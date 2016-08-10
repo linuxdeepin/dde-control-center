@@ -57,9 +57,6 @@ public:
     void initCursorExpand();
     DArrowLineExpand *getCursorExpand();
 
-    void initWallPaperExpand();
-    DArrowLineExpand *getWallPaperExpand();
-
     void initFontExpand();
     DArrowLineExpand *getFontExpand();
 
@@ -73,7 +70,6 @@ public slots:
     void updateWindow(const QString &window);
     void updateIcon(const QString &icon);
     void updateCursor(const QString &window);
-    void updateWallpaper(const QString &window);
     void updateStandardFont(const QString &window);
     void updateMonospaceFont(const QString &window);
 
@@ -85,7 +81,6 @@ public slots:
     void updateWindowButtons(const ImageInfoList &imageInfos);
     void updateIconButtons(const ImageInfoList &imageInfos);
     void updateCursorButtons(const ImageInfoList &imageInfos);
-    void updateWallpaperButtons(const ImageInfoList &imageInfos);
     void updateStandardFontCombox(const QStringList &standardFonts);
     void updateMonospaceFontCombox(const QStringList &monospaceFonts);
 
@@ -94,20 +89,16 @@ public slots:
     void setWindowByIndex(int index);
     void setIconByIndex(int index);
     void setCursorByIndex(int index);
-    void setBackgroundByIndex(int index);
     void setStandardFontByIndex(int index);
     void setMonospaceFontByIndex(int index);
     void setFontLabel(int fontSize);
     void setFontSize(int fontSize);
-
-    void handleDataDeleteRefrehed(QString id);
 
 private:
     QMargins m_margins;
     ImageInfoList m_windowImageInfos;
     ImageInfoList m_iconImageInfos;
     ImageInfoList m_cursorImageInfos;
-    ImageInfoList m_wallpaperImageInfos;
 
     QFrame *m_frame = NULL;
 
@@ -124,10 +115,6 @@ private:
     DArrowLineExpand *m_cursorExpand = NULL;
     DButtonGrid *m_cursorButtonGrid = NULL;
     QScrollArea *m_cursorContentArea = NULL;
-
-    DArrowLineExpand *m_wallpaperExpand = NULL;
-    DButtonGrid *m_wallpaperButtonGrid = NULL;
-    QFrame *m_wallpaperContentFrame = NULL;
 
     DArrowLineExpand *m_fontExpand = NULL;
     QFrame *m_fontContentFrame = NULL;

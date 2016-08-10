@@ -70,7 +70,6 @@ void Personalization::initUI()
     initWindowExpand();
     initIconExpand();
     initCursorExpand();
-    initWallPaperExpand();
     initFontExpand();
 
     QVBoxLayout *mainLayout = new QVBoxLayout();
@@ -82,7 +81,6 @@ void Personalization::initUI()
     mainLayout->addWidget(m_windowExpand);
     mainLayout->addWidget(m_iconExpand);
     mainLayout->addWidget(m_cursorExpand);
-    mainLayout->addWidget(m_wallpaperExpand);
     mainLayout->addWidget(m_fontExpand);
     mainLayout->addStretch(1);
 
@@ -90,7 +88,6 @@ void Personalization::initUI()
     m_expandGroup->addExpand(m_windowExpand);
     m_expandGroup->addExpand(m_iconExpand);
     m_expandGroup->addExpand(m_cursorExpand);
-    m_expandGroup->addExpand(m_wallpaperExpand);
     m_expandGroup->addExpand(m_fontExpand);
 }
 
@@ -105,7 +102,6 @@ void Personalization::initControllers()
     connect(m_dbusWorker, &DBusWorker::windowChanged, this, &Personalization::updateWindow);
     connect(m_dbusWorker, &DBusWorker::iconChanged, this, &Personalization::updateIcon);
     connect(m_dbusWorker, &DBusWorker::cursorChanged, this, &Personalization::updateCursor);
-    connect(m_dbusWorker, &DBusWorker::backgroundChanged, this, &Personalization::updateWallpaper);
     connect(m_dbusWorker, &DBusWorker::standardFontChanged, this, &Personalization::updateStandardFont);
     connect(m_dbusWorker, &DBusWorker::monospaceFontChanged, this, &Personalization::updateMonospaceFont);
 
@@ -117,7 +113,6 @@ void Personalization::initControllers()
     connect(m_dbusWorker, &DBusWorker::windowDetailsChanged, this, &Personalization::updateWindowButtons);
     connect(m_dbusWorker, &DBusWorker::iconDetailsChanged, this, &Personalization::updateIconButtons);
     connect(m_dbusWorker, &DBusWorker::cursorDetailsChanged, this, &Personalization::updateCursorButtons);
-    connect(m_dbusWorker, &DBusWorker::backgroundDetailsChanged, this, &Personalization::updateWallpaperButtons);
     connect(m_dbusWorker, &DBusWorker::standardFontDetailsChanged, this, &Personalization::updateStandardFontCombox);
     connect(m_dbusWorker, &DBusWorker::monospaceFontDetailsChanged, this, &Personalization::updateMonospaceFontCombox);
 
@@ -132,8 +127,6 @@ void Personalization::initConnect()
     connect(m_windowButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setWindowByIndex);
     connect(m_iconButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setIconByIndex);
     connect(m_cursorButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setCursorByIndex);
-    connect(m_wallpaperButtonGrid, &DButtonGrid::buttonCheckedIndexChanged, this, &Personalization::setBackgroundByIndex);
-    connect(m_wallpaperButtonGrid, &DButtonGrid::requestRefreshed, this, &Personalization::handleDataDeleteRefrehed);
     connect(m_standardFontCombox, SIGNAL(currentIndexChanged(int)), this, SLOT(setStandardFontByIndex(int)));
     connect(m_monospaceFontCombox, SIGNAL(currentIndexChanged(int)), this, SLOT(setMonospaceFontByIndex(int)));
 
@@ -233,31 +226,6 @@ DArrowLineExpand *Personalization::getCursorExpand()
     return m_cursorExpand;
 }
 
-void Personalization::initWallPaperExpand()
-{
-    m_wallpaperExpand = new DArrowLineExpand(m_frame);
-    m_wallpaperExpand->setTitle(tr("Wallpaper"));
-
-    m_wallpaperButtonGrid = new DButtonGrid(1, 2);
-    m_wallpaperButtonGrid->setItemSize(m_itemWidth, m_itemHeight);
-
-    m_wallpaperContentFrame = new QFrame;
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addWidget(m_wallpaperButtonGrid, 0, Qt::AlignCenter);
-    mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(m_margins);
-    m_wallpaperContentFrame->setLayout(mainLayout);
-
-    m_buttonGrids.append(m_wallpaperButtonGrid);
-    m_contentFrames.append(m_wallpaperContentFrame);
-}
-
-DArrowLineExpand *Personalization::getWallPaperExpand()
-{
-    return m_cursorExpand;
-}
-
-
 void Personalization::initFontExpand()
 {
     m_fontExpand = new DArrowLineExpand(m_frame);
@@ -340,16 +308,6 @@ void Personalization::updateCursor(const QString &cursor)
         m_cursorButtonGrid->checkButtonByIndex(index);
     } else {
         qCritical() << "There is no cursor named:" << cursor;
-    }
-}
-
-void Personalization::updateWallpaper(const QString &background)
-{
-    int index = getValidKeyIndex(m_wallpaperImageInfos, background);
-    if (index >= 0) {
-        m_wallpaperButtonGrid->checkButtonByIndex(index);
-    } else {
-        qCritical() << "There is no background named:" << background;
     }
 }
 
@@ -462,30 +420,6 @@ void Personalization::updateCursorButtons(const ImageInfoList &imageInfos)
     m_cursorExpand->setContent(m_cursorContentArea);
 }
 
-void Personalization::updateWallpaperButtons(const ImageInfoList &imageInfos)
-{
-    m_wallpaperImageInfos = imageInfos;
-    m_wallpaperButtonGrid->clear();
-    m_wallpaperButtonGrid->addImageButtons(imageInfos, false);
-    int w = m_wallpaperButtonGrid->width() + m_margins.left() + m_margins.right();
-    int h = m_wallpaperButtonGrid->height() + m_margins.top() + m_margins.bottom();
-    m_maxExpandContentHeight = qApp->desktop()->height() \
-                               - m_headerLine->height()\
-                               - 2\
-                               - 32 * 6;
-    qDebug() << "before fixed size" << "w = " << w << "h = " << h ;
-    qDebug() << "before fixed size" << "m_maxExpandContentHeight = " << m_maxExpandContentHeight;
-    if (h > m_maxExpandContentHeight) {
-        m_wallpaperButtonGrid->setFixedHeight(m_maxExpandContentHeight - m_margins.top() - m_margins.bottom());
-        m_wallpaperContentFrame->setFixedSize(w, m_maxExpandContentHeight);
-    } else {
-        m_wallpaperContentFrame->setFixedSize(w, h);
-    }
-
-
-    m_wallpaperExpand->setContent(m_wallpaperContentFrame);
-}
-
 void Personalization::updateStandardFontCombox(const QStringList &standardFonts)
 {
     m_standardFonts.clear();
@@ -532,6 +466,10 @@ void Personalization::handleDataFinished()
         expand->setExpand(false);
     }
     initConnect();
+
+
+    // expand the window themes expand.
+    getWindowExpand()->setExpand(true);
 }
 
 int Personalization::getValidKeyIndex(const ImageInfoList &infoList, const QString &key) const
@@ -571,16 +509,6 @@ void Personalization::setCursorByIndex(int index)
         m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeCursorTheme"), key);
     } else {
         qCritical() << "set cursor Error" <<  m_cursorKeys << index;
-    }
-}
-
-void Personalization::setBackgroundByIndex(int index)
-{
-    if (m_backgroundKeys.length() > index) {
-        QString key = m_wallpaperImageInfos.at(index).value("key");
-        m_dbusWorker->setTheme(m_dbusWorker->staticTypeKeys.value("TypeBackground"), key);
-    } else {
-        qCritical() << "set background Error" <<  m_backgroundKeys << index;
     }
 }
 
@@ -626,12 +554,4 @@ void Personalization::setFontLabel(int fontSize)
 QFrame *Personalization::getContent()
 {
     return m_frame;
-}
-
-void Personalization::handleDataDeleteRefrehed(QString id)
-{
-    if (sender() == m_wallpaperButtonGrid) {
-        QString type = m_dbusWorker->staticTypeKeys.value("TypeBackground");
-        m_dbusWorker->deleteItem(type, id);
-    }
 }
