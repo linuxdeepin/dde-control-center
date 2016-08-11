@@ -65,27 +65,28 @@ protected:
 
 private:
     void systemUpgrade();
-    void loadUpgradeJob(DBusUpdateJob *newJob);
+    void loadDownloadJob(DBusUpdateJob *newJob);
     void toggleUpdateState();
     void disableAppsUpgrade();
     void loadCheckUpdateJob(DBusUpdateJob *updateJob);
+    void downloadPackages();
 
 private:
     enum UpgradeState {
         NotStart,
         SysCheckUpdate,
-        SysUpGrading,
+        Downloading,
         SysFail,
     };
 
 private slots:
     void loadAppList();
-    void updateUpgradeProcess();
-    void updateUpgradeState();
+    void updateDownloadProgress();
+    void updateDownloadStatus();
     void removeJob();
     void updateInfo(const int apps, const int packages);
     void checkUpdate();
-    void refreshProgress(UpgradeState state);
+    void refreshDownloadStatus(UpgradeState state);
     void restartUpgrade();
     void checkUpdateStateChanged();
 
@@ -96,10 +97,11 @@ private:
     QWidget *m_tipsWidget;
     DLoadingIndicator *m_checkingIndicator;
     DImageButton *m_checkUpdateBtn;
+    DImageButton *m_downloadButton;
     DImageButton *m_updateButton;
-    UpdateProgress *m_updateProgress;
+    UpdateProgress *m_downloadProgress;
     DVBoxWidget *m_appsVBox;
-    DBusUpdateJob *m_dbusSystemUpgrade = nullptr;
+    DBusUpdateJob *m_downloadJob= nullptr;
     DBusUpdateJob *m_dbusCheckupdate = nullptr;
     DBusLastoreUpdater *m_dbusUpdateInter;
     DBusUpdateJobManager *m_dbusJobManagerInter;
@@ -108,7 +110,7 @@ private:
     QList<QString> m_updatableAppsList;
     QList<QString> m_updatablePackagesList;
 
-    UpgradeState m_upgradeStatus = NotStart;
+    UpgradeState m_downloadStatus = NotStart;
 
     QList<AppUpdateInfo> getUpdateInfoList() const;
     QStringList updatableApps() const;

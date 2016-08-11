@@ -9,8 +9,11 @@
         <file>images/pause.png</file>
         <file>images/start.png</file>
         <file>images/upgrade_hover.png</file>
+        <file>images/download_hover.png</file>
         <file>images/upgrade_normal.png</file>
+        <file>images/download_normal.png</file>
         <file>images/upgrade_press.png</file>
+        <file>images/download_press.png</file>
         <file>images/check_update_press.svg</file>
         <file>images/check_update_normal.svg</file>
         <file>images/check_update_hover.svg</file>

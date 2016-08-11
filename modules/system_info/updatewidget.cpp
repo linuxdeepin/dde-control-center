@@ -41,6 +41,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_updateCountTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::MinimumExpanding);
     m_updateSizeTips = new QLabel;
     m_updateSizeTips->setObjectName("Tips");
+    m_updateSizeTips->setWordWrap(true);
     m_checkUpdateBtn = new DImageButton;
     m_checkUpdateBtn->setNormalPic(":/images/images/check_update_normal.svg");
     m_checkUpdateBtn->setHoverPic(":/images/images/check_update_hover.svg");
@@ -50,16 +51,21 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_checkingIndicator->setWidgetSource(m_checkUpdateBtn);
     m_checkingIndicator->setFixedSize(32, 32);
     m_checkingIndicator->setSmooth(true);
+    m_downloadButton = new DImageButton;
+    m_downloadButton->setNormalPic(":/images/images/download_normal.png");
+    m_downloadButton->setHoverPic(":/images/images/download_hover.png");
+    m_downloadButton->setPressPic(":/images/images/download_press.png");
     m_updateButton = new DImageButton;
     m_updateButton->setNormalPic(":/images/images/upgrade_normal.png");
     m_updateButton->setHoverPic(":/images/images/upgrade_hover.png");
     m_updateButton->setPressPic(":/images/images/upgrade_press.png");
-    m_updateProgress = new UpdateProgress;
-    m_updateProgress->setObjectName("UpgradeProcess");
-    m_updateProgress->setFixedSize(33, 33);
-    m_updateProgress->setLineWidth(2);
-    m_updateProgress->setValue(0);
-    m_updateProgress->hide();
+    m_updateButton->hide();
+    m_downloadProgress = new UpdateProgress;
+    m_downloadProgress->setObjectName("UpgradeProcess");
+    m_downloadProgress->setFixedSize(33, 33);
+    m_downloadProgress->setLineWidth(2);
+    m_downloadProgress->setValue(0);
+    m_downloadProgress->hide();
     m_appSeparator = new DSeparatorHorizontal;
     m_dbusUpdateInter = new DBusLastoreUpdater("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
     m_dbusJobManagerInter = new DBusUpdateJobManager("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
@@ -91,8 +97,9 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     updateInfoLayout->addLayout(tipsLayout);
     updateInfoLayout->addStretch();
     updateInfoLayout->addWidget(m_checkingIndicator);
+    updateInfoLayout->addWidget(m_downloadButton);
     updateInfoLayout->addWidget(m_updateButton);
-    updateInfoLayout->addWidget(m_updateProgress);
+    updateInfoLayout->addWidget(m_downloadProgress);
     updateInfoLayout->setSpacing(0);
     updateInfoLayout->setContentsMargins(15, 8, 18, 8);
 
@@ -122,7 +129,8 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     setFixedWidth(DCC::ModuleContentWidth);
 
     connect(m_updateButton, &DImageButton::clicked, this, &UpdateWidget::systemUpgrade);
-    connect(m_updateProgress, &DCircleProgress::clicked, this, &UpdateWidget::toggleUpdateState);
+    connect(m_downloadButton, &DImageButton::clicked, this, &UpdateWidget::downloadPackages);
+    connect(m_downloadProgress, &DCircleProgress::clicked, this, &UpdateWidget::toggleUpdateState);
     connect(this, &UpdateWidget::updatableNumsChanged, this, &UpdateWidget::updateInfo, Qt::QueuedConnection);
 //    connect(m_dbusJobManagerInter, &DBusUpdateJobManager::UpgradableAppsChanged, this, &UpdateWidget::loadAppList);
 //    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatableAppsChanged, this, &UpdateWidget::loadAppList, Qt::QueuedConnection);
@@ -139,15 +147,14 @@ void UpdateWidget::resizeEvent(QResizeEvent *e)
 
 void UpdateWidget::loadAppList()
 {
-    qDebug() << "reload app list" << ", stat = " << m_upgradeStatus;
+    qDebug() << "reload app list" << ", stat = " << m_downloadStatus;
 
     QLayoutItem *item;
     while((item = m_appsVBox->layout()->takeAt(0)) != NULL) {
         item->widget()->deleteLater();
         delete item;
     }
-    m_updateProgress->hide();
-    m_updateButton->show();
+    m_downloadProgress->hide();
 
     // load JobList
     QMap<QString, DBusUpdateJob *> jobMap;
@@ -160,12 +167,11 @@ void UpdateWidget::loadAppList()
 
         if (dbusJob->type() == "update") {
             jobMap.insert(dbusJob->packageId(), dbusJob);
-        } else if (dbusJob->type() == "dist_upgrade") {
-            // system upgrade job
-            refreshProgress(SysUpGrading);
-            loadUpgradeJob(dbusJob);
+        } else if (dbusJob->type() == "download") {
+            refreshDownloadStatus(Downloading);
+            loadDownloadJob(dbusJob);
         } else if (dbusJob->type() == "update_source") {
-            refreshProgress(SysCheckUpdate);
+            refreshDownloadStatus(SysCheckUpdate);
             loadCheckUpdateJob(dbusJob);
         } else {
             // TODO/FIXME: not handled job
@@ -180,11 +186,11 @@ void UpdateWidget::loadAppList()
 
     for (AppUpdateInfo &info : updateInfoList)
     {
-        qDebug() << "add app: " << info.m_name << m_upgradeStatus;
+        qDebug() << "add app: " << info.m_name << m_downloadStatus;
 
         appItemWidget = new ApplictionItemWidget;
         appItemWidget->setAppUpdateInfo(info);
-        if (m_upgradeStatus == SysUpGrading || m_upgradeStatus == SysFail || info.m_packageId == "dde")
+        if (m_downloadStatus == Downloading || m_downloadStatus == SysFail || info.m_packageId == "dde")
             appItemWidget->disableUpdate();
         if (jobMap.contains(info.m_packageId))
             appItemWidget->connectToJob(jobMap.value(info.m_packageId));
@@ -204,41 +210,41 @@ void UpdateWidget::loadAppList()
     emit updatableNumsChanged(m_updatableAppsList.count(), m_updatablePackagesList.count());
 }
 
-void UpdateWidget::updateUpgradeProcess()
+void UpdateWidget::updateDownloadProgress()
 {
-    if (!m_dbusSystemUpgrade || !m_dbusSystemUpgrade->isValid())
+    if (!m_downloadJob || !m_downloadJob->isValid())
         return;
 
-    const double progress = m_dbusSystemUpgrade->progress();
+    const double progress = m_downloadJob->progress();
     const int percent = int(100 * progress);
 
-    m_updateProgress->showLoading();
-    m_updateProgress->setValue(percent);
-    m_updateProgress->setText(QString("%1").arg(percent));
+    m_downloadProgress->showLoading();
+    m_downloadProgress->setValue(percent);
+    m_downloadProgress->setText(QString("%1").arg(percent));
 
     qDebug() << "progress: " << progress << percent;
 }
 
-void UpdateWidget::updateUpgradeState()
+void UpdateWidget::updateDownloadStatus()
 {
-    if (!m_dbusSystemUpgrade || !m_dbusSystemUpgrade->isValid())
+    if (!m_downloadJob || !m_downloadJob->isValid())
         return;
 
-    const QString status = m_dbusSystemUpgrade->status();
-    const QString type = m_dbusSystemUpgrade->type();
-    const QString id = m_dbusSystemUpgrade->id();
+    const QString status = m_downloadJob->status();
+    const QString type = m_downloadJob->type();
+    const QString id = m_downloadJob->id();
 
     qDebug() << "state: " << type << status << id;
 
     // TODO/FIXME: 当Job为end状态时，马上会被销毁，所以把status为空的状态当做end状态处理
     if (status == "succeed" || status == "end" || status.isEmpty())
     {
-        refreshProgress(NotStart);
-        return loadAppList();
+        m_downloadProgress->hide();
+        m_updateButton->show();
     }
 
     if (status == "failed")
-        refreshProgress(SysFail);
+        refreshDownloadStatus(SysFail);
 }
 
 void UpdateWidget::removeJob()
@@ -249,16 +255,15 @@ void UpdateWidget::removeJob()
 
     m_appsVBox->layout()->removeWidget(appItemWidget);
 
-    // TODO:FIXME: nums ?
     emit updatableNumsChanged(m_appsVBox->layout()->count(), 1);
 }
 
 void UpdateWidget::updateInfo(const int apps, const int packages)
 {
-    const bool upgrading = m_upgradeStatus != NotStart;
-    qDebug() << "updatable apps num: " << apps << packages << "upgrading = " << upgrading << m_upgradeStatus;
+    const bool upgrading = m_downloadStatus != NotStart;
+    qDebug() << "updatable apps num: " << apps << packages << "upgrading = " << upgrading << m_downloadStatus;
 
-    if (m_upgradeStatus == SysCheckUpdate)
+    if (m_downloadStatus == SysCheckUpdate)
         return;
 
     // no update
@@ -267,7 +272,7 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
         m_updateStatTips->setText(tr("Your system is up to date"));
         m_tipsWidget->show();
         m_checkingIndicator->show();
-        m_updateButton->hide();
+        m_downloadButton->hide();
         m_updateCountTips->setText(tr("Click to view available  updates"));
         m_updateSizeTips->clear();
         m_appsVBox->hide();
@@ -278,7 +283,6 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
     {
         m_tipsWidget->hide();
         m_checkingIndicator->hide();
-        m_updateButton->show();
         m_appsVBox->show();
         m_appSeparator->show();
         m_updateSizeTips->show();
@@ -288,10 +292,21 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
         connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
             qlonglong size = watcher->reply().arguments().first().toLongLong();
 
-            if (size != -1)
-                m_updateSizeTips->setText(QString(tr("Total download size: %1")).arg(formatCap(size, 1000)));
-            else
+            if (size != -1) {
+                // packages are already downloaded.
+                if (size == 0)  {
+                    m_updateSizeTips->setText(tr("Download completed, please click on the update icon to install"));
+                    m_downloadButton->hide();
+                    m_updateButton->show();
+                } else {
+                    if (m_downloadStatus == NotStart) {
+                        m_downloadButton->show();
+                    }
+                    m_updateSizeTips->setText(QString(tr("Total download size: %1")).arg(formatCap(size, 1000)));
+                }
+            } else {
                 m_updateSizeTips->setText(tr("Unknown"));
+            }
 
             watcher->deleteLater();
         });
@@ -331,11 +346,11 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
     }
 
     // hide when upgrading
-    if (upgrading)
-    {
-        m_updateButton->hide();
-        m_checkingIndicator->hide();
-    }
+//    if (upgrading)
+//    {
+//        m_updateButton->hide();
+//        m_checkingIndicator->hide();
+//    }
 
 //    if (m_upgradeStatus == NotStart)
 //    {
@@ -345,9 +360,9 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
 
 void UpdateWidget::checkUpdate()
 {
-    if (m_upgradeStatus == SysCheckUpdate)
+    if (m_downloadStatus == SysCheckUpdate)
         return;
-    refreshProgress(SysCheckUpdate);
+    refreshDownloadStatus(SysCheckUpdate);
 
     QDBusPendingReply<QDBusObjectPath> reply = m_dbusJobManagerInter->UpdateSource();
     reply.waitForFinished();
@@ -370,6 +385,7 @@ void UpdateWidget::loadCheckUpdateJob(DBusUpdateJob *updateJob)
     m_appsVBox->hide();
     m_tipsWidget->show();
     m_updateButton->hide();
+    m_downloadButton->hide();
     m_updateSizeTips->hide();
     m_checkingIndicator->setLoading(true);
     m_updateCountTips->setText(tr("Checking for updates"));
@@ -379,34 +395,61 @@ void UpdateWidget::loadCheckUpdateJob(DBusUpdateJob *updateJob)
     checkUpdateStateChanged();
 }
 
-void UpdateWidget::refreshProgress(UpdateWidget::UpgradeState state)
+void UpdateWidget::downloadPackages()
 {
-    if (m_upgradeStatus == state)
+    m_downloadProgress->setValue(0);
+    m_downloadProgress->show();
+    m_downloadProgress->showLoading();
+    m_downloadButton->hide();
+    m_checkingIndicator->hide();
+
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->PrepareDistUpgrade(), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
+        const QDBusPendingReply<QDBusObjectPath> &reply = *watcher;
+        const QDBusObjectPath &path = reply;
+
+        qDebug() << "start download job: " << path.path() << reply.error();
+        DBusUpdateJob *job = new DBusUpdateJob("com.deepin.lastore", path.path(), QDBusConnection::systemBus(), this);
+
+        if (job->isValid())
+            loadDownloadJob(job);
+        else
+            job->deleteLater();
+
+        watcher->deleteLater();
+    });
+}
+
+void UpdateWidget::refreshDownloadStatus(UpdateWidget::UpgradeState state)
+{
+    if (m_downloadStatus == state)
         return;
 
     qDebug() << "upgrade status = " << state;
-    m_upgradeStatus = state;
+    m_downloadStatus = state;
 
     switch (state)
     {
     case NotStart:
     case SysFail:
-        m_updateProgress->hideLoading();
-        m_updateProgress->topLabel()->setPixmap(QPixmap(":/images/images/start.png"));
+        m_downloadButton->hide();
+        m_downloadProgress->hideLoading();
+        m_downloadProgress->topLabel()->setPixmap(QPixmap(":/images/images/start.png"));
         break;
-    case SysUpGrading:
-        m_updateProgress->topLabel()->clear();
-        m_updateProgress->showLoading();
+    case Downloading:
+        m_downloadButton->hide();
+        m_downloadProgress->topLabel()->clear();
+        m_downloadProgress->showLoading();
         disableAppsUpgrade();
         break;
-    default:            qDebug() << "refresh Progress" << state << m_upgradeStatus;
+    default:            qDebug() << "refresh Progress" << state << m_downloadStatus;
     }
 }
 
 void UpdateWidget::restartUpgrade()
 {
-    refreshProgress(SysUpGrading);
-    m_dbusJobManagerInter->StartJob(m_dbusSystemUpgrade->id());
+    refreshDownloadStatus(Downloading);
+    m_dbusJobManagerInter->StartJob(m_downloadJob->id());
 }
 
 void UpdateWidget::checkUpdateStateChanged()
@@ -415,14 +458,14 @@ void UpdateWidget::checkUpdateStateChanged()
         return;
 
     const QString &stat = m_dbusCheckupdate->status();
-    qDebug() << stat << m_upgradeStatus;
+    qDebug() << stat << m_downloadStatus;
 
     if (/*stat.isEmpty() || */stat == "end" || stat == "failed")
     {
         // TODO:
-        if (m_upgradeStatus == SysCheckUpdate)
+        if (m_downloadStatus == SysCheckUpdate)
         {
-            refreshProgress(NotStart);
+            refreshDownloadStatus(NotStart);
             m_checkingIndicator->setLoading(false);
             m_checkingIndicator->setRotate(0);
 
@@ -533,57 +576,59 @@ QStringList UpdateWidget::updatablePackages() const
 
 void UpdateWidget::systemUpgrade()
 {
-    if (m_upgradeStatus != NotStart)
-        return;
+    QProcess::startDetached("/usr/lib/deepin-daemon/dde-offline-upgrader -s");
 
-    m_updateProgress->setValue(0);
-    m_updateProgress->show();
-    m_updateProgress->showLoading();
-    m_updateButton->hide();
-    m_checkingIndicator->hide();
+//    if (m_upgradeStatus != NotStart)
+//        return;
 
-    // sys upgrade
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->DistUpgrade(), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
-        const QDBusPendingReply<QDBusObjectPath> &reply = *watcher;
-        const QDBusObjectPath &path = reply;
+//    m_updateProgress->setValue(0);
+//    m_updateProgress->show();
+//    m_updateProgress->showLoading();
+//    m_updateButton->hide();
+//    m_checkingIndicator->hide();
 
-        qDebug() << "start upgrade job: " << path.path() << reply.error();
-        DBusUpdateJob *job = new DBusUpdateJob("com.deepin.lastore", path.path(), QDBusConnection::systemBus(), this);
+//    // sys upgrade
+//    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_dbusJobManagerInter->DistUpgrade(), this);
+//    connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
+//        const QDBusPendingReply<QDBusObjectPath> &reply = *watcher;
+//        const QDBusObjectPath &path = reply;
 
-        if (job->isValid())
-            loadUpgradeJob(job);
-        else
-            job->deleteLater();
+//        qDebug() << "start upgrade job: " << path.path() << reply.error();
+//        DBusUpdateJob *job = new DBusUpdateJob("com.deepin.lastore", path.path(), QDBusConnection::systemBus(), this);
 
-        watcher->deleteLater();
-    });
+//        if (job->isValid())
+//            loadUpgradeJob(job);
+//        else
+//            job->deleteLater();
+
+//        watcher->deleteLater();
+//    });
 }
 
-void UpdateWidget::loadUpgradeJob(DBusUpdateJob *newJob)
+void UpdateWidget::loadDownloadJob(DBusUpdateJob *newJob)
 {
-    if (m_dbusSystemUpgrade)
-        m_dbusSystemUpgrade->deleteLater();
+    if (m_downloadJob)
+        m_downloadJob->deleteLater();
 
-    qDebug() << "load upgrade job " << newJob->id() << newJob->status();
+    qDebug() << "load download job " << newJob->id() << newJob->status();
 
-    m_dbusSystemUpgrade = newJob;
-    const QString &status = m_dbusSystemUpgrade->status();
+    m_downloadJob = newJob;
+    const QString &status = m_downloadJob->status();
     if (status == "success" || status == "end")
     {
-        refreshProgress(NotStart);
+        refreshDownloadStatus(NotStart);
         return;
     }
 
-    refreshProgress(SysUpGrading);
+    refreshDownloadStatus(Downloading);
 
-    m_updateProgress->setValue(0);
-    m_updateProgress->show();
-    m_updateProgress->showLoading();
+    m_downloadProgress->setValue(0);
+    m_downloadProgress->show();
+    m_downloadProgress->showLoading();
     m_updateButton->hide();
 
-    connect(m_dbusSystemUpgrade, &DBusUpdateJob::ProgressChanged, this, &UpdateWidget::updateUpgradeProcess);
-    connect(m_dbusSystemUpgrade, &DBusUpdateJob::StatusChanged, this, &UpdateWidget::updateUpgradeState);
+    connect(m_downloadJob, &DBusUpdateJob::ProgressChanged, this, &UpdateWidget::updateDownloadProgress);
+    connect(m_downloadJob, &DBusUpdateJob::StatusChanged, this, &UpdateWidget::updateDownloadStatus);
 
 //    if (status == "ready")
 //    {
@@ -591,20 +636,20 @@ void UpdateWidget::loadUpgradeJob(DBusUpdateJob *newJob)
 //        refreshProgress(Running);
 //    }
 
-    updateUpgradeProcess();
+    updateDownloadProgress();
 
     if (status == "failed")
-        refreshProgress(SysFail);
+        refreshDownloadStatus(SysFail);
 
 //    updateUpgradeState();
 }
 
 void UpdateWidget::toggleUpdateState()
 {
-    switch (m_upgradeStatus)
+    switch (m_downloadStatus)
     {
     case SysFail:      restartUpgrade();       break;
-    default:        qDebug() << "toggleUpgrade: " << m_upgradeStatus << __FILE__ << __LINE__;
+    default:        qDebug() << "toggleUpgrade: " << m_downloadStatus << __FILE__ << __LINE__;
     }
 }
 

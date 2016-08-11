@@ -97,6 +97,12 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("DistUpgrade"), argumentList);
     }
 
+    inline QDBusPendingReply<QDBusObjectPath> PrepareDistUpgrade()
+    {
+        QList<QVariant> argumentList;
+        return asyncCallWithArgumentList(QStringLiteral("PrepareDistUpgrade"), argumentList);
+    }
+
     inline QDBusPendingReply<QDBusObjectPath> DownloadPackage(const QString &in0, const QString &in1)
     {
         QList<QVariant> argumentList;
