@@ -582,7 +582,7 @@ QStringList UpdateWidget::updatablePackages() const
 
 void UpdateWidget::systemUpgrade()
 {
-    QProcess::startDetached("/usr/lib/deepin-daemon/dde-offline-upgrader -s");
+    QProcess::startDetached("/usr/lib/deepin-daemon/dde-offline-upgrader");
 
 //    if (m_upgradeStatus != NotStart)
 //        return;
