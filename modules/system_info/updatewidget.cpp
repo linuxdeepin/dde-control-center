@@ -167,7 +167,7 @@ void UpdateWidget::loadAppList()
 
         if (dbusJob->type() == "update") {
             jobMap.insert(dbusJob->packageId(), dbusJob);
-        } else if (dbusJob->type() == "download") {
+        } else if (dbusJob->type() == "prepare_dist_upgrade") {
             refreshDownloadStatus(Downloading);
             loadDownloadJob(dbusJob);
         } else if (dbusJob->type() == "update_source") {
