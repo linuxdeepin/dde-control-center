@@ -315,7 +315,15 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
     // app update
     if (apps)
     {
-        m_updateCountTips->setText(QString(tr("%1 software need to be updated")).arg(apps));
+        if (packages == apps) {
+            m_updateCountTips->setText(QString(tr("%1 software need to be updated")).arg(apps));
+        } else {
+            m_updateCountTips->setText(QString(tr("Some patches and %1 software need to be updated")).arg(apps));
+        }
+    } else {
+        if (packages) {
+            m_updateCountTips->setText(tr("Some patches need to be updated"));
+        }
     }
 
     // have package update, insert "Deepin system upgrade item"
@@ -335,8 +343,6 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
     }
     */
 
-    if (apps && packages != apps)
-        m_updateCountTips->setText(QString(tr("Some patches and %1 software need to be updated")).arg(apps));
 
     // hide last separator
     if(m_appsVBox->layout()->count() > 0) {
