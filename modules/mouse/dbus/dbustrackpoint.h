@@ -118,6 +118,14 @@ public:
     inline void setWheelHorizScroll(bool value)
     { setProperty("WheelHorizScroll", QVariant::fromValue(value)); }
 
+
+public Q_SLOTS: // METHODS
+    inline QDBusPendingReply<> Reset()
+    {
+        QList<QVariant> argumentList;
+        return asyncCallWithArgumentList(QStringLiteral("Reset"), argumentList);
+    }
+
 public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
 // begin property changed signals

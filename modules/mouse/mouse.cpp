@@ -338,13 +338,13 @@ Mouse::Mouse(QObject *parent): QObject(parent)
     connect(m_trackpointSpeedSetTimer, &QTimer::timeout, this, &Mouse::setTrackpointSpeed);
     connect(m_trackpointSpeedSlider, &DSlider::valueChanged, m_trackpointSpeedSetTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_trackpointInterface, &com::deepin::daemon::InputDevice::TrackPoint::MotionAccelerationChanged, [&] {
-//        const double value = m_trackpointInterface->motionAcceleration();
-//        if(value != m_trackpointSpeed){
-//            m_trackpointSpeedSlider->setValue((10 - value) * 10);
-//            m_trackpointSpeed = value;
+        const double value = m_trackpointInterface->motionAcceleration();
+        if(value != m_trackpointSpeed){
+            m_trackpointSpeedSlider->setValue((10 - value) * 10);
+            m_trackpointSpeed = value;
 
 //            qDebug() << "set trackpoint speed to" << value;
-//        }
+        }
     });
 
     ////////////////////////////////////////////////////////////// init those widgets state
@@ -356,8 +356,8 @@ void Mouse::reset()
 {
     m_mouseInterface->Reset().waitForFinished();
     m_touchpadInterface->Reset().waitForFinished();
-    m_trackpointInterface->setMotionAcceleration(1.0);
-    m_trackpointSpeed = 1.0;
+    m_trackpointInterface->Reset().waitForFinished();
+//    m_trackpointInterface->setMotionAcceleration(1.0);
 }
 
 void Mouse::setWidgetsValue()
