@@ -76,7 +76,7 @@ void PowerManagement::addBatterys(QList<BatteryItem> bats) {
 
         if (i == bats.length() - 1) {
             m_batteryPercentage = m_batteryPercentage / bats.length();
-            m_batteryPercentageLabel->setText(QString("%1%").arg(m_batteryPercentage));
+            m_batteryPercentageLabel->setText(QString("%1%").arg(QString::number(m_batteryPercentage, 'f', 1)));
             m_batteryPercentageLabel->setStyleSheet("font-size: 10pt;");
         }
     }
