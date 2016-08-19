@@ -44,7 +44,7 @@
 <td>点击可对默认启动程序进行设置。
 </td>
 <td><img src="icon/personal.svg" class="inline" /></td>
-<td>点击可对主题、窗口、图标、光标、壁纸、字体进行设置。
+<td>点击可对窗口、图标、光标、字体进行设置。
 </td>
 </tr>
 <tr>
@@ -267,35 +267,7 @@
 2. 在 **光标** 折叠框中，选择一款光标进行切换。
 
  ![0|cursor](png/cursor.png)
- 
-### 设置壁纸
- 
-#### 系统自带壁纸
- 
-系统默认会自带不同类型的壁纸，您可以选择喜欢的壁纸进行切换。
- 
-1. 在控制中心面板，点击 **个性化**。
- 
-2. 在 **壁纸** 折叠框中，选择一款壁纸图片进行切换。
- 
- ![0|innerwallpaper](png/innerwallpaper.png)
- 
-#### 获取外部图片
- 
-您还可以将自己喜欢的图片设置为桌面壁纸。
- 
-1. 打开外部获取的图片，右键单击 **设为桌面壁纸**。
- 
-2. 将自动切换当前图片作为桌面壁纸。
- 
-3. 如果要删除外部壁纸，进入控制中心点击 **个性化** > **壁纸**。
- 
-4. 点击图片右上角按钮将其删除。
- 
-> ![attention](icon/attention.svg)：如果您需要删除外部壁纸，必须先切换到其他壁纸，外部壁纸的右上角删除按钮才会出现。
- 
- ![0|extwallpaper](png/extwallpaper.png)
- 
+
 ### 设置字体
 
 1. 在控制中心面板，点击 **个性化**。
@@ -407,8 +379,8 @@
 ## 声音设置|../common/icon_sound.svg|
 设置系统音量大小，您可以通过执行以下操作之一来调节：
 
-- 将鼠标指针置于 ![audio_icon](icon/audio_icon.svg) 上，拖动音量滑块。
-- 在任务栏上，点击 ![audio_icon](icon/audio_icon.svg) 或点击 ![concenter](icon/concenter-24.svg) > **声音** 进入控制中心面板来设置声音。
+- 点击 ![audio_icon](icon/audio_icon.svg) ，拖动音量滑块。
+- 点击 ![concenter](icon/concenter-24.svg) > **声音** 进入控制中心面板来设置声音。
 - 通过应用程序本身具有的音量控件来设置。
 
 ### 设置扬声器
@@ -454,15 +426,8 @@
  
 - 当任务栏为时尚模式显示时，时间将以 ![clocktime](icon/clocktime_icon.svg) 形式显示在任务栏上。将鼠标指针置于 ![clocktime](icon/clocktime_icon.svg) 上可以查看日期。
  
-- 当任务栏为高效模式或经典模式显示时，时间将以 ![numbertime](icon/numbertime_icon.svg) 形式显示在任务栏的右下角。将鼠标指针置于 ![numbertime](icon/numbertime_icon.svg) 上可以查看日期。
+- 当任务栏为高效模式显示时，时间将以 ![numbertime](icon/numbertime_icon.svg) 形式显示在任务栏的右下角。将鼠标指针置于 ![numbertime](icon/numbertime_icon.svg) 上可以查看日期。
 
- 
-> ![tips](icon/tips.svg)：点击时间或右键单击时间 > **时间设置** 可以打开控制中心面板来进行日期和时间设置。
- 
-### 切换显示方式
-
-- 当任务栏为时尚模式显示时，右键单击 ![clocktime](icon/clocktime_icon.svg)  > **切换显示方式**，时间将以 ![simulationtime](icon/simulationtime_icon.svg) 形式显示。
-- 当任务栏为高效模式或经典模式显示时，右键单击 ![numbertime](icon/numbertime_icon.svg)  >  **显示日期** 或 **显示星期几**，在任务栏上将显示日期或星期。
 
 ### 显示24小时制
 24小时制区别于12小时制，在24小时制中，下午1点，被写成13点。

@@ -1,6 +1,6 @@
-# Control Center|../common/deepin-controlcenter.svg|
+# Control Center |../common/deepin-controlcenter.svg|
 
-## Overview|../common/icon_overview.svg|
+## Overview |../common/icon_overview.svg|
 
 By Control Center, deepin manages the basic system settings, which includes account management, network settings, date and time, personalization, screen display settings and so on.
 
@@ -8,21 +8,21 @@ After logging in deepin desktop environment, the Control Center panel will be op
 
 On Control Center panel, you can:
 
-- Change the keyboard property.
+- Change the keyboard property
 - Adjust system volume.
 - Optimize power function.
 - Personalize desktop display.
 - Change network connection.
-- Create new account.
+- Create new account
 - Change system date and time display.
 - Enter shutdown interface.
-- System and application update and upgrade.
+- System and application update and upgrade
 
 ## Guide|../common/icon_guide.svg|
 
 Control Center panel is mainly composed of system administrator account, system basic settings and power button.
 
-> ![notes](icon/notes.svg): Please refer to [Open Launcher and Control Center](dman:///dde#Open Launcher and Control Center) and [Boot and Shutdown](dman:///dde#Boot and Shutdown) for specific operations of open/exit Control Center and power display interface.
+> ![notes](icon/notes.svg): Please refer to [Open Launcher and Control Center](dman:///dde#Open Launcher and Control Center) and [Boot and Shut down](dman:///dde#Boot and Shut down) for specific operations of open/exit Control Center and power display interface.
 
  ![0|panel](png/panel.png)
 
@@ -44,7 +44,7 @@ Control Center panel is mainly composed of system administrator account, system 
 <td>Click to set default startup applications.
 </td>
 <td><img src="icon/personal.svg" class="inline" /></td>
-<td>Click to set theme, window, icon, cursor, wallpaper and font.
+<td>Click to set window, icon, cursor and font.
 </td>
 </tr>
 <tr>
@@ -90,7 +90,7 @@ Control Center panel is mainly composed of system administrator account, system 
 </tbody>
 </table>
 
-## Account Settings|../common/icon_account.svg|
+## Account Settings |../common/icon_account.svg|
 By setting account, provide safety guarantee to your computer, protect your privacy and data.
 
 ### Auto-login
@@ -217,7 +217,7 @@ When connected to multiple monitors, if you already set the display mode to Copy
 
  ![0|discerndisplay](png/discerndisplay.png)
 
-## Default Application Settings|../common/icon_defaultapp.svg|
+## Default Application Settings |../common/icon_defaultapp.svg|
 
 ### Default Startup Settings
 When multiple application of the same type are installed in the system. You can select one of them to be the default startup application.
@@ -243,7 +243,7 @@ If autoplay is enabled, then the computer will automatically execute further ope
 
  ![0|autoplay](png/autoplay.png)
 
-## Personalization|../common/icon_personalization.svg|
+## Personalization |../common/icon_personalization.svg|
  
 You can change the appearance of the desktop to your favorite style by using different wallpapers, icons, window types and so on.
  
@@ -267,35 +267,7 @@ You can change the appearance of the desktop to your favorite style by using dif
 2. In **Cursor** collapse box, select a cursor type to switch.
 
  ![0|cursor](png/cursor.png)
- 
-### Wallpaper Settings
- 
-#### Built-in Wallpaper
- 
-There are some different built-in wallpapers in the system, you can select your favorite wallpaper to switch.
- 
-1. On Control Center panel, click on **Personalization**.
- 
-2. In **Wallpaper** collapse box, select a wallpaper to switch.
- 
- ![0|innerwallpaper](png/innerwallpaper.png)
- 
-#### Acquire External Image
- 
-You can set your favorite image as wallpaper.
- 
-1. Open externally acquired image, right click and select **Set as Wallpaper**.
- 
-2. Wallpaper will automatically be switched to current image.
- 
-3. To delete external wallpaper, call out Control Center and click on **Personalization** > **Wallpaper**.
- 
-4. Click on the button in the upper-right corner of the image to delete.
- 
-> ![attention](icon/attention.svg): To delete a external wallpaper, you have to switch to another image first, then a delete button will appear on the upper right corner of the external wallpaper.
- 
- ![0|extwallpaper](png/extwallpaper.png)
- 
+
 ### Font Settings
 
 1. On Control Center panel, click on **Personalization**.
@@ -303,7 +275,7 @@ You can set your favorite image as wallpaper.
 
  ![0|typeface](png/typeface.png)
 
-## Network Settings|../common/icon_network.svg|
+## Network Settings |../common/icon_network.svg|
 Experience the fun surfing the Internet! You can browse news, play online video, download files, chat with friends, shop online and so on.
 
 ### View Network
@@ -404,11 +376,11 @@ You can breakthrough network limitations by setting proxy server, which makes yo
 
  ![0|agentnetwork](png/agentnetwork.png)
 
-## Sound Settings|../common/icon_sound.svg|
+## Sound Settings |../common/icon_sound.svg|
 You can adjust system volume by executing one of the following operations:
 
-- Move the mouse pointer over  ![audio_icon](icon/audio_icon.svg) and drag the volume slider.
-- On Dock, click on ![audio_icon](icon/audio_icon.svg) or ![concenter](icon/concenter-24.svg) > **Sound** to enter Control Center to set sound.
+- Click on ![audio_icon](icon/audio_icon.svg) to drag the volume slider.
+- Click on ![concenter](icon/concenter-24.svg) > **Sound** to set sound in Control Center.
 - Use volume control that is built in the application to set.
 
 ### Speaker Settings
@@ -447,22 +419,15 @@ You can make more detailed settings to input and output in advanced setting opti
 
  ![0|advancedset](png/advancedset.png)
 
-## Date and Time|../common/icon_dateandtime.svg|
+## Date and Time |../common/icon_dateandtime.svg|
 System has made initialize settings for date and time, you can check if the date and time is correct on Dock.
 
 ### View Date and Time
  
 - In Fashion mode, time will be displayed on Dock as ![clocktime](icon/clocktime_icon.svg). Move the mouse pointer over ![clocktime](icon/clocktime_icon.svg) to view date.
  
-- In Efficient or Classic mode, time will be displayed on the lower right corner of the Dock as ![numbertime](icon/numbertime_icon.png). Move the mouse pointer over ![numbertime](icon/numbertime_icon.svg) to view date.
+- When Dock is displayed in Efficient mode,  ![numbertime](icon/numbertime_icon.svg) will show the time at the lower right corner on Dock. Move the mouse pointer over ![numbertime](icon/numbertime_icon.svg) to view date.
 
- 
-> ![tips](icon/tips.svg): Click or right click on Time > **Datetime settings** to open Control Center panel to set date and time.
- 
-### Switch Display Mode
-
-- In Fashion mode, right click on ![clocktime](icon/clocktime_icon.svg) > **Switch display mode**, time will display as [simulationtime](icon/simulationtime_icon.svg).
-- In Efficient or Classic mode, right click on [numbertime](icon/numbertime_icon.svg) > **Show date** or **Show week** to display on Dock the date or day.
 
 ### Display 24-hour Clock
 24-hour clock is different from 12-hour clock. In 24-hour clock, 1:00 p.m. is 13:00.
@@ -532,7 +497,7 @@ If you are in other countries or regions and need to set your computer to local 
 
 ![0|addtimezone](png/addtimezone.png)
 
-## Power Management|../common/icon_powermanagement.svg|
+## Power Management |../common/icon_powermanagement.svg|
 It will provide strong power for your work and entertainment to configure power management protocols.
 
 ### Display Suspended
@@ -540,7 +505,7 @@ Display will suspend after the time set.
 
 1. On Control Center panel, click on **Power Management**.
 2. Select the suspended time in the "Display will suspend after" option.
-3. Display will suspend after the time set.
+3. The display will suspend after the time set.
 
  ![0|pushpower](png/pushpower.png)
 
@@ -549,7 +514,7 @@ Computer will suspend after the time set.
 
 1. On Control Center panel, click on **Power Management**.
 2. Select the suspended time in the "Computer will suspend after" option.
-3. Computer will suspend after the time set.
+3. The computer will suspend after the time set.
 
  ![0|closenotebook](png/closenotebook.png)
 
@@ -559,11 +524,11 @@ Enable wake-up password or other functions to protect your personal files.
 On Control Center panel, click on **Power Management**.
 - Click on  **Password required to wake the display**, password will be required to log in when waking the display for the next time.
 - Click on  **Password required to wake the computer**, password will be required to log in when waking the computer for the next time.
-- Click on  **The notebook will suspend when close the lid**, the notebook will suspend when close the lid in the next time. 
+- Click on  **The notebook will suspend when close the lid**, the notebook will suspend when close the lid in the next time.
 
  ![0|rouseneedpw](png/rouseneedpw.png)
 
-## Mouse and Touchpad|../common/icon_mouse.svg|
+## Mouse and Touchpad |../common/icon_mouse.svg|
 You can set mouse and use touchpad to operate the computer based on your habit.
 
 ### Mouse Settings
@@ -640,11 +605,11 @@ Description for touchpad scrolling is as the following:
 TrackPoint will be built in ThinkPad computers, you can set the moving speed of TrackPoint.
 
 1. On Control Center panel, click on **Mouse and Touchpad**.
-2. In **ThinkPad TrackPoint** option, drag the slider leftwards/rightwards to adjust the pointer moving speed.
+2. In **TrackPoint** option, drag the slider leftwards/rightwards to adjust the pointer moving speed.
 
  ![0|trackpoint](png/trackpoint.png)
 
-## Keyboard and Language|../common/icon_keyboardandlanguage.svg|
+## Keyboard and Language |../common/icon_keyboardandlanguage.svg|
 Based on your nationality and region, you can select your keyboard input habit and layout.
 
 ### Enable Caps Lock Notification
@@ -659,7 +624,7 @@ Enable Caps Lock notification to notify you when you press Caps Lock to avoid ty
 While installing the system, you can select system default display language. After logging in, you can change the default account password.
 
 1. On Control Center panel, click on **Keyboard and Language**.
-2. In **Language** collapse box, the language currently displayed in the system will have a ![checkbutton_icon](icon/checkbutton_icon.svg) in front of it.
+2. In **Language** collapsing box, the language currently displayed in the system will have a ![checkbutton_icon](icon/checkbutton_icon.svg) in front of it.
 3. Select language to switch, the system will automatically start installing language packages.
 4. After completing language package, a notification will pop up and say "System language has been changed, please log in after log out".
 5. Log out and log in again, and the displaying language has been changed.
@@ -701,7 +666,7 @@ The system default keyboard layout is US keyboard, you can add other keyboard la
 
  ![0|keyboardset](png/keyboardset.png)
 
-## Shortcut Settings|../common/icon_shortcuts.svg|
+## Shortcut Settings |../common/icon_shortcuts.svg|
 Use shortcuts wisely to save your valuable time.
 
 ### View Shortcuts
@@ -866,7 +831,7 @@ Customize more shortcuts to simplify your operations.
 
  ![0|customshortcut](png/customshortcut.png)
 
-## Boot Menu Settings|../common/icon_bootmenu.svg|
+## Boot Menu Settings |../common/icon_bootmenu.svg|
 Multiple system means multiple choices, boot menu makes your system boot vividly.
 
 ### Boot Background Settings
@@ -904,7 +869,7 @@ You can set different color for the texts on the boot interface to distinguish o
 
  ![0|fontcolor](png/fontcolor.png)
 
-## System Information|../common/icon_systeminfo.svg|
+## System Information |../common/icon_systeminfo.svg|
 You can view system edition and computer hardware information and GNU general public license, update and upgrade system/applications.
 
 ### View System Information
@@ -935,17 +900,17 @@ You can check if there is update for the system and applications. Meanwhile, you
 #### Enable Auto-update
 
 1. On Control Center panel, click on **System Information**.
-2. In **Update** collapse box, click on ![setting](icon/setting_icon.svg).
+2. In **Update** collapsing box, click on ![setting](icon/setting_icon.svg).
 3. Click on **Auto check update** switch button to enable automatic update check.
 4. Click on **Done**.
-5. It will remind with a red number subscript in the collapse box when there is update for the system and applications.
+5. It will remind with a red number subscript in the collapsing box when there is update for the system and applications.
 
  ![0|checkautoupdate](png/checkautoupdate.png)
 
 #### Switch Mirrors
 
 1. On Control Center panel, click on **System Information**.
-2. In **Update** collapse box, click on ![setting](icon/setting_icon.svg).
+2. In **Update** collapsing box, click on ![setting](icon/setting_icon.svg).
 3. Click on **Switch** in the **Mirrors** option.
 4. Select applicable mirror to refresh software package list.
 5. Click on **Done**.
@@ -954,10 +919,10 @@ You can check if there is update for the system and applications. Meanwhile, you
 
  ![0|changesource](png/changesource.png)
 
-#### Upgrade Applications and System
+### Upgrade Applications and System
 
 1. On Control Center panel, click on **System Information**.
-2. View the system and application upgrade details in the collapse box of "Update".
+2. View the system and application upgrade details in the collapsing box of "Update".
 3. Click on ![upgrade](icon/upgrade_icon.svg), the components of system and applications will be upgraded together.
 4. Hover the mouse pointer on the application to be upgraded, click on ![update](icon/update_icon.svg) to upgrade this application only.
 
