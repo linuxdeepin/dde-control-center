@@ -116,17 +116,9 @@
     </message>
 </context>
 <context>
-    <name>AppFrame</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-sound-plugin/appframe.cpp" line="42"/>
-        <source>Applications</source>
-        <translation>Enhet</translation>
-    </message>
-</context>
-<context>
     <name>ApplictionItemWidget</name>
     <message>
-        <location filename="../modules/system_info/applictionitemwidget.cpp" line="42"/>
+        <location filename="../modules/system_info/applictionitemwidget.cpp" line="59"/>
         <source>Update</source>
         <translation>Oppdater</translation>
     </message>
@@ -165,46 +157,37 @@
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="48"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="63"/>
         <source>1 Minute</source>
-        <translation type="unfinished"/>
+        <translation>1 minutt</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="49"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="64"/>
         <source>5 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>5 minutter</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="50"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="65"/>
         <source>10 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>10 minutter</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="51"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="66"/>
         <source>15 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>15 minutter</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="52"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="67"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>30 minutter</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="53"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="68"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>ComplexPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="48"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="60"/>
-        <source>Network</source>
-        <translation>Nettverk</translation>
+        <translation>1 time</translation>
     </message>
 </context>
 <context>
@@ -237,8 +220,8 @@
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="294"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="300"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="304"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="310"/>
         <source>new user</source>
         <translation>ny bruker</translation>
     </message>
@@ -265,23 +248,23 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="166"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
         <source>Password can not be empty.</source>
         <translation>Passord kan ikke forbli blankt.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="175"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="257"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="273"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="310"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="185"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="267"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="283"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="320"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="327"/>
         <source>The two passwords do not match.</source>
         <translation>Passordene må stemme overens.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="245"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="255"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="265"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="280"/>
         <source>Username can not be empty.</source>
         <translation>Brukernavn kan ikke være tomt.</translation>
     </message>
@@ -320,63 +303,63 @@
         <translation>Skru på skjerm</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="105"/>
+        <location filename="../modules/display/customsettings.cpp" line="106"/>
         <source>Please select the monitor you want to enable (checkable)</source>
         <translation>Vennligst velg skjermen du vil skru på (avhukbar)</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="110"/>
+        <location filename="../modules/display/customsettings.cpp" line="111"/>
         <source>Primary</source>
         <translation>Primær</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="138"/>
+        <location filename="../modules/display/customsettings.cpp" line="139"/>
         <source>Resolution</source>
         <translation>Oppløsning</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="142"/>
+        <location filename="../modules/display/customsettings.cpp" line="143"/>
         <source>Rotation</source>
         <translation>Rotasjon</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="161"/>
-        <location filename="../modules/display/customsettings.cpp" line="192"/>
-        <location filename="../modules/display/customsettings.cpp" line="211"/>
+        <location filename="../modules/display/customsettings.cpp" line="162"/>
+        <location filename="../modules/display/customsettings.cpp" line="193"/>
+        <location filename="../modules/display/customsettings.cpp" line="212"/>
         <source>Monitor %1</source>
         <translation>Skjerm %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="317"/>
-        <location filename="../modules/display/customsettings.cpp" line="475"/>
+        <location filename="../modules/display/customsettings.cpp" line="318"/>
+        <location filename="../modules/display/customsettings.cpp" line="476"/>
         <source>Apply</source>
         <translation>Påfør</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="319"/>
-        <location filename="../modules/display/customsettings.cpp" line="477"/>
+        <location filename="../modules/display/customsettings.cpp" line="320"/>
+        <location filename="../modules/display/customsettings.cpp" line="478"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>Bekreft </translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="339"/>
+        <location filename="../modules/display/customsettings.cpp" line="340"/>
         <source>Do you want to keep these display settings?</source>
         <translation>Ønsker du å beholde disse skjerminnstillingene?</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="340"/>
-        <location filename="../modules/display/customsettings.cpp" line="348"/>
+        <location filename="../modules/display/customsettings.cpp" line="341"/>
+        <location filename="../modules/display/customsettings.cpp" line="349"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation>Reverter til forrige skjerminnstillinger om &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; sekunder.</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="342"/>
+        <location filename="../modules/display/customsettings.cpp" line="343"/>
         <source>Revert</source>
         <translation>Tilbakestille</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="343"/>
+        <location filename="../modules/display/customsettings.cpp" line="344"/>
         <source>Keep Changes</source>
         <translation>Beholde Endringer</translation>
     </message>
@@ -402,55 +385,6 @@
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="27"/>
         <source>Cancel</source>
         <translation>Avbryt</translation>
-    </message>
-</context>
-<context>
-    <name>DateTimePlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="145"/>
-        <source>MMM dd</source>
-        <translation>MMM dd</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="146"/>
-        <source> hh:mm </source>
-        <translation>hh:mm</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="146"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="280"/>
-        <source> hh:mm A</source>
-        <translation>hh:mm A</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="147"/>
-        <source>ddd</source>
-        <translation>ddd</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="148"/>
-        <source>ddd MMM dd</source>
-        <translation>ddd MMM dd</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="201"/>
-        <source>Switch display mode</source>
-        <translation>Brytt visningsmodus</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="203"/>
-        <source>Show week</source>
-        <translation>Vis uke</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="204"/>
-        <source>Show date</source>
-        <translation>Vis dato</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="207"/>
-        <source>Date&amp;Time settings(_T)</source>
-        <translation>Dato og tidsinstillinger(_T)</translation>
     </message>
 </context>
 <context>
@@ -561,14 +495,6 @@
     </message>
 </context>
 <context>
-    <name>DeviceFrame</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-sound-plugin/deviceframe.cpp" line="34"/>
-        <source>Device</source>
-        <translation>Enhet</translation>
-    </message>
-</context>
-<context>
     <name>DeviceItemWidget</name>
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="97"/>
@@ -579,34 +505,6 @@
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="99"/>
         <source>Unconnect</source>
         <translation>Koble fra</translation>
-    </message>
-</context>
-<context>
-    <name>DiskItem</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="61"/>
-        <source>Retry</source>
-        <translation>Prøv igjen</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="111"/>
-        <source>removable disk</source>
-        <translation>Fjern disken</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
-        <source>network disk</source>
-        <translation>Nettverksdisk</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
-        <source>local disk</source>
-        <translation>Lokal disk</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="118"/>
-        <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
-        <translation>Feil ved avinstallering av %1 &quot; %2 &quot;. Vennligst prøv igjen.</translation>
     </message>
 </context>
 <context>
@@ -753,7 +651,7 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="144"/>
         <source>The startup speed can be improved by disabling the theme</source>
-        <translation type="unfinished"/>
+        <translation>Oppstartshastigheten kan økes ved å skru av temaet</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="182"/>
@@ -1194,7 +1092,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
-        <translation type="unfinished"/>
+        <translation>Sporingspunkt</translation>
     </message>
 </context>
 <context>
@@ -1367,7 +1265,6 @@
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="122"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="259"/>
         <source>dddd, dd MMMM yyyy</source>
         <translation>yyyy-MM-dd dddd</translation>
     </message>
@@ -1375,30 +1272,30 @@
 <context>
     <name>PasswordFrame</name>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="50"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="67"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="58"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="75"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="157"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="83"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="165"/>
         <source>The two passwords do not match.</source>
         <translation>Passordene må stemme overens.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="83"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="91"/>
         <source>Password</source>
         <translation>Passord</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="104"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="112"/>
         <source>New Password</source>
         <translation>Nytt Passord</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="106"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="114"/>
         <source>Repeat</source>
         <translation>Gjenta</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="152"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="160"/>
         <source>Password can not be empty.</source>
         <translation>Passord kan ikke forbli blankt.</translation>
     </message>
@@ -1411,48 +1308,43 @@
         <translation>Personalisering</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="145"/>
+        <location filename="../modules/personalization/personalization.cpp" line="138"/>
         <source>Window</source>
         <translation>Vindu</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="171"/>
+        <location filename="../modules/personalization/personalization.cpp" line="164"/>
         <source>Icon</source>
         <translation>Ikon</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="206"/>
+        <location filename="../modules/personalization/personalization.cpp" line="199"/>
         <source>Cursor</source>
         <translation>Markør</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="239"/>
-        <source>Wallpaper</source>
-        <translation>Bakgrunn</translation>
-    </message>
-    <message>
-        <location filename="../modules/personalization/personalization.cpp" line="264"/>
+        <location filename="../modules/personalization/personalization.cpp" line="232"/>
         <source>Fonts</source>
         <translation>Fonter</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="266"/>
+        <location filename="../modules/personalization/personalization.cpp" line="234"/>
         <source>Standard</source>
         <translation>Standard </translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="267"/>
+        <location filename="../modules/personalization/personalization.cpp" line="235"/>
         <source>Monospaced</source>
         <translation>Monospaced</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="268"/>
+        <location filename="../modules/personalization/personalization.cpp" line="236"/>
         <source>Size</source>
         <translation>Størrelse</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="283"/>
-        <location filename="../modules/personalization/personalization.cpp" line="620"/>
+        <location filename="../modules/personalization/personalization.cpp" line="251"/>
+        <location filename="../modules/personalization/personalization.cpp" line="548"/>
         <source>Font</source>
         <translation>Skrifttype</translation>
     </message>
@@ -1460,83 +1352,73 @@
 <context>
     <name>Plugin::Sound::SoundView</name>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="67"/>
+        <location filename="../modules/sound/soundview.cpp" line="63"/>
         <source>Output Port</source>
         <translation>Utgangs Port</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="79"/>
-        <source>Output device</source>
-        <translation>Utdataenhet</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/soundview.cpp" line="96"/>
+        <location filename="../modules/sound/soundview.cpp" line="75"/>
         <source>Input Port</source>
         <translation>Inngangs Port </translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="111"/>
-        <source>Input device</source>
-        <translation>Inngangs enhet</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/soundview.cpp" line="124"/>
-        <location filename="../modules/sound/soundview.cpp" line="133"/>
+        <location filename="../modules/sound/soundview.cpp" line="88"/>
+        <location filename="../modules/sound/soundview.cpp" line="97"/>
         <source>Show Advanced...</source>
         <translation>Vis Avansert...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="138"/>
+        <location filename="../modules/sound/soundview.cpp" line="102"/>
         <source>Hide Advanced...</source>
         <translation>Gjem Avansert...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="185"/>
+        <location filename="../modules/sound/soundview.cpp" line="148"/>
         <source>Sound effects</source>
-        <translation type="unfinished"/>
+        <translation>lydeffekter</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="200"/>
+        <location filename="../modules/sound/soundview.cpp" line="163"/>
         <source>Speaker</source>
         <translation>Høyttaler</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="211"/>
+        <location filename="../modules/sound/soundview.cpp" line="174"/>
         <source>Output Volume</source>
         <translation>Utgangs Volum</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="226"/>
+        <location filename="../modules/sound/soundview.cpp" line="189"/>
         <source>Left/Right Balance</source>
         <translation>Venstre/Høyre Balanse</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="234"/>
+        <location filename="../modules/sound/soundview.cpp" line="197"/>
         <source>Left</source>
         <translation>Venstre</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="235"/>
+        <location filename="../modules/sound/soundview.cpp" line="198"/>
         <source>Right</source>
         <translation>Høyre</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="334"/>
+        <location filename="../modules/sound/soundview.cpp" line="299"/>
         <source>Microphone</source>
         <translation>Mikrofon</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="345"/>
+        <location filename="../modules/sound/soundview.cpp" line="310"/>
         <source>Input Volume</source>
         <translation>Inngangs Volum</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="361"/>
+        <location filename="../modules/sound/soundview.cpp" line="326"/>
         <source>Feedback Volume</source>
         <translation>Feedbackvolu</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="464"/>
+        <location filename="../modules/sound/soundview.cpp" line="430"/>
         <source>Sound</source>
         <translation>Lyd</translation>
     </message>
@@ -1546,27 +1428,27 @@
     <message>
         <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Skjermen vil bli slukket etter</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Datamaskinen vil bli slukket etter</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
-        <translation type="unfinished"/>
+        <translation>Passordet trengte å vekke skjermen</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
-        <translation type="unfinished"/>
+        <translation>Passordet trengte å vekke datamaskinen</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation type="unfinished"/>
+        <translation>Notatboken vil bli slukket når du lukker lokket</translation>
     </message>
 </context>
 <context>
@@ -1575,24 +1457,6 @@
         <location filename="../modules/power/powermanagement.cpp" line="26"/>
         <source>Power Management</source>
         <translation>Strømstyring</translation>
-    </message>
-</context>
-<context>
-    <name>PowerPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="58"/>
-        <source>Power</source>
-        <translation>Strøm</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
-        <source>Charged</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="105"/>
-        <source>On Charging %1</source>
-        <translation>Ved bytte %1</translation>
     </message>
 </context>
 <context>
@@ -1637,12 +1501,12 @@
 <context>
     <name>ShortcutDbus</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="79"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="90"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="101"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="136"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="164"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="197"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="77"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="88"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="99"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="134"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="162"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="195"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="230"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="234"/>
         <source>None</source>
@@ -1655,14 +1519,6 @@
         <location filename="../modules/shortcuts/shortcutedit.cpp" line="45"/>
         <source>Please input new shortcut</source>
         <translation>Vennligst legg inn ny snarvei</translation>
-    </message>
-</context>
-<context>
-    <name>SoundPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-sound-plugin/soundplugin.cpp" line="32"/>
-        <source>Sound</source>
-        <translation>Lyd</translation>
     </message>
 </context>
 <context>
@@ -1818,52 +1674,52 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="259"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="272"/>
         <source>Your system is up to date</source>
         <translation>Systemet er oppdatert</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="263"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="276"/>
         <source>Click to view available  updates</source>
         <translation>Klikk for å vise oppdateringene</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="284"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="298"/>
+        <source>Download completed, please click on the update icon to install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
         <source>Total download size: %1</source>
         <translation>Total nedlastningstørrelse: %1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Unknown</source>
         <translation>Ukjent</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="295"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="319"/>
         <source>%1 software need to be updated</source>
         <translation>%1 programvare trenger en oppdatering</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
-        <source>Patches</source>
-        <translation>Patcher</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="325"/>
         <source>Some patches need to be updated</source>
         <translation>Noen patcher trenger å oppdateres</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="312"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation>Noen patcher og %1 programvare trenger å oppdateres</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="363"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="397"/>
         <source>Checking for updates</source>
         <translation>Sjekker for oppdateringer</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="364"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="398"/>
         <source>Check for updates, please wait</source>
         <translation>Sjekker for oppdateringer. Vennligst vent</translation>
     </message>
@@ -1930,23 +1786,6 @@
         <location filename="../modules/network/vpnconnectswidget.cpp" line="17"/>
         <source>VPN Connections</source>
         <translation>VPN-tilkoblinger</translation>
-    </message>
-</context>
-<context>
-    <name>VpnApplet</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnapplet.cpp" line="58"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-</context>
-<context>
-    <name>VpnPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnplugin.cpp" line="49"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnplugin.cpp" line="66"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
     </message>
 </context>
 <context>
@@ -2073,29 +1912,6 @@
     </message>
 </context>
 <context>
-    <name>WiredPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="49"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="66"/>
-        <source>Wired Network</source>
-        <translation>Kablet Nettverk</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="73"/>
-        <source>Network Not Connected</source>
-        <translation>Nettverk Ikke Tilkoblet</translation>
-    </message>
-</context>
-<context>
-    <name>WirelessApplet</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="77"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="203"/>
-        <source>Wireless Network</source>
-        <translation>Trådløs Nettverk</translation>
-    </message>
-</context>
-<context>
     <name>WirelessNetworkListItem</name>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="25"/>
@@ -2113,29 +1929,6 @@
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
         <source>Interface</source>
         <translation>Grensesnitt</translation>
-    </message>
-</context>
-<context>
-    <name>WirelessPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="48"/>
-        <source>Wireless Network</source>
-        <translation>Trådløs Nettverk</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="263"/>
-        <source>Auto-connect</source>
-        <translation>Auto-tilkobling</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="271"/>
-        <source>Connect</source>
-        <translation>Koble til </translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="296"/>
-        <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation>Vennligst oppgi passord for &lt;font color=&quot;#faca57&quot;&gt; %1 &lt;/font&gt;</translation>
     </message>
 </context>
 </TS>

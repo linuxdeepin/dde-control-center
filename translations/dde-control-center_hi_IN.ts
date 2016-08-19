@@ -116,17 +116,9 @@
     </message>
 </context>
 <context>
-    <name>AppFrame</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-sound-plugin/appframe.cpp" line="42"/>
-        <source>Applications</source>
-        <translation>अनुप्रयोग</translation>
-    </message>
-</context>
-<context>
     <name>ApplictionItemWidget</name>
     <message>
-        <location filename="../modules/system_info/applictionitemwidget.cpp" line="42"/>
+        <location filename="../modules/system_info/applictionitemwidget.cpp" line="59"/>
         <source>Update</source>
         <translation>अद्यतन</translation>
     </message>
@@ -199,15 +191,6 @@
     </message>
 </context>
 <context>
-    <name>ComplexPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="48"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="60"/>
-        <source>Network</source>
-        <translation>संचार</translation>
-    </message>
-</context>
-<context>
     <name>ConfrimWidget</name>
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="19"/>
@@ -237,8 +220,8 @@
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="294"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="300"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="304"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="310"/>
         <source>new user</source>
         <translation>नया प्रयोक्ता </translation>
     </message>
@@ -265,23 +248,23 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="166"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
         <source>Password can not be empty.</source>
         <translation>कूटशब्द खाली न हो।</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="175"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="257"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="273"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="310"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="185"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="267"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="283"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="320"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="327"/>
         <source>The two passwords do not match.</source>
         <translation>दो कूटशब्द मेल नहीं खा रहे।</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="245"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="255"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="265"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="280"/>
         <source>Username can not be empty.</source>
         <translation>उपयोगकर्ता नाम खाली न हो।</translation>
     </message>
@@ -320,63 +303,63 @@
         <translation>मॉनिटर सक्षम करें </translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="105"/>
+        <location filename="../modules/display/customsettings.cpp" line="106"/>
         <source>Please select the monitor you want to enable (checkable)</source>
         <translation>कृपया आप उस मॉनिटर का चयन करें, जिसे आप सक्षम बनाना चाहते हैं (चेक करने योग्य)</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="110"/>
+        <location filename="../modules/display/customsettings.cpp" line="111"/>
         <source>Primary</source>
         <translation>प्राथमिक</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="138"/>
+        <location filename="../modules/display/customsettings.cpp" line="139"/>
         <source>Resolution</source>
         <translation>आकार</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="142"/>
+        <location filename="../modules/display/customsettings.cpp" line="143"/>
         <source>Rotation</source>
         <translation>परिक्रमण</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="161"/>
-        <location filename="../modules/display/customsettings.cpp" line="192"/>
-        <location filename="../modules/display/customsettings.cpp" line="211"/>
+        <location filename="../modules/display/customsettings.cpp" line="162"/>
+        <location filename="../modules/display/customsettings.cpp" line="193"/>
+        <location filename="../modules/display/customsettings.cpp" line="212"/>
         <source>Monitor %1</source>
         <translation>मॉनिटर %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="317"/>
-        <location filename="../modules/display/customsettings.cpp" line="475"/>
+        <location filename="../modules/display/customsettings.cpp" line="318"/>
+        <location filename="../modules/display/customsettings.cpp" line="476"/>
         <source>Apply</source>
         <translation>लागू करें</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="319"/>
-        <location filename="../modules/display/customsettings.cpp" line="477"/>
+        <location filename="../modules/display/customsettings.cpp" line="320"/>
+        <location filename="../modules/display/customsettings.cpp" line="478"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>पुष्टि</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="339"/>
+        <location filename="../modules/display/customsettings.cpp" line="340"/>
         <source>Do you want to keep these display settings?</source>
         <translation>क्या आप दिखने की व्यवस्था को सहेजना चाहते हैं?</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="340"/>
-        <location filename="../modules/display/customsettings.cpp" line="348"/>
+        <location filename="../modules/display/customsettings.cpp" line="341"/>
+        <location filename="../modules/display/customsettings.cpp" line="349"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
         <translation>&lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; सेकंडों में पूर्व डिस्प्ले सेटिंग में रिवर्ट हो रहा है। </translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="342"/>
+        <location filename="../modules/display/customsettings.cpp" line="343"/>
         <source>Revert</source>
         <translation>पूर्ववत्</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="343"/>
+        <location filename="../modules/display/customsettings.cpp" line="344"/>
         <source>Keep Changes</source>
         <translation>परिवर्तन रखें</translation>
     </message>
@@ -402,55 +385,6 @@
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="27"/>
         <source>Cancel</source>
         <translation>रद्द करो</translation>
-    </message>
-</context>
-<context>
-    <name>DateTimePlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="145"/>
-        <source>MMM dd</source>
-        <translation>MMM dd</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="146"/>
-        <source> hh:mm </source>
-        <translation> hh:mm </translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="146"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="280"/>
-        <source> hh:mm A</source>
-        <translation> hh:mm A</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="147"/>
-        <source>ddd</source>
-        <translation>ddd</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="148"/>
-        <source>ddd MMM dd</source>
-        <translation>ddd MMM dd</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="201"/>
-        <source>Switch display mode</source>
-        <translation>डिस्प्ले मोड स्विच </translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="203"/>
-        <source>Show week</source>
-        <translation>वीक दिखाएं </translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="204"/>
-        <source>Show date</source>
-        <translation>तिथि दिखाएं </translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="207"/>
-        <source>Date&amp;Time settings(_T)</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -561,14 +495,6 @@
     </message>
 </context>
 <context>
-    <name>DeviceFrame</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-sound-plugin/deviceframe.cpp" line="34"/>
-        <source>Device</source>
-        <translation>उपकरण</translation>
-    </message>
-</context>
-<context>
     <name>DeviceItemWidget</name>
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="97"/>
@@ -579,34 +505,6 @@
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="99"/>
         <source>Unconnect</source>
         <translation>अनकनेक्ट करें </translation>
-    </message>
-</context>
-<context>
-    <name>DiskItem</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="61"/>
-        <source>Retry</source>
-        <translation>पुनः प्रयास</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="111"/>
-        <source>removable disk</source>
-        <translation>हटाए जाने योग्य डिस्क </translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
-        <source>network disk</source>
-        <translation>नेटवर्क डिस्क </translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
-        <source>local disk</source>
-        <translation>लोकल डिस्क </translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="118"/>
-        <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
-        <translation>%1 &quot; %2 &quot; अनइंस्टॉल करने में विफल रहा, कृपया पुनः प्रयास करें।</translation>
     </message>
 </context>
 <context>
@@ -1367,7 +1265,6 @@
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="122"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="259"/>
         <source>dddd, dd MMMM yyyy</source>
         <translation>yyyy-MM-dd dddd</translation>
     </message>
@@ -1375,30 +1272,30 @@
 <context>
     <name>PasswordFrame</name>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="50"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="67"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="58"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="75"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="157"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="83"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="165"/>
         <source>The two passwords do not match.</source>
         <translation>दो कूटशब्द मेल नहीं खा रहे।</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="83"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="91"/>
         <source>Password</source>
         <translation>कूटशब्द</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="104"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="112"/>
         <source>New Password</source>
         <translation>नया कूटशब्द</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="106"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="114"/>
         <source>Repeat</source>
         <translation>दोहराएँ</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="152"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="160"/>
         <source>Password can not be empty.</source>
         <translation>कूटशब्द खाली न हो।</translation>
     </message>
@@ -1411,48 +1308,43 @@
         <translation>अनुकूलीकरण </translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="145"/>
+        <location filename="../modules/personalization/personalization.cpp" line="138"/>
         <source>Window</source>
         <translation>विंडो</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="171"/>
+        <location filename="../modules/personalization/personalization.cpp" line="164"/>
         <source>Icon</source>
         <translation>आयकन </translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="206"/>
+        <location filename="../modules/personalization/personalization.cpp" line="199"/>
         <source>Cursor</source>
         <translation>कर्सर </translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="239"/>
-        <source>Wallpaper</source>
-        <translation>वॉलपेपर </translation>
-    </message>
-    <message>
-        <location filename="../modules/personalization/personalization.cpp" line="264"/>
+        <location filename="../modules/personalization/personalization.cpp" line="232"/>
         <source>Fonts</source>
         <translation>फॉन्ट्स </translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="266"/>
+        <location filename="../modules/personalization/personalization.cpp" line="234"/>
         <source>Standard</source>
         <translation>मानक</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="267"/>
+        <location filename="../modules/personalization/personalization.cpp" line="235"/>
         <source>Monospaced</source>
         <translation>मोनोस्पेस्ड </translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="268"/>
+        <location filename="../modules/personalization/personalization.cpp" line="236"/>
         <source>Size</source>
         <translation>आकार</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="283"/>
-        <location filename="../modules/personalization/personalization.cpp" line="620"/>
+        <location filename="../modules/personalization/personalization.cpp" line="251"/>
+        <location filename="../modules/personalization/personalization.cpp" line="548"/>
         <source>Font</source>
         <translation>फॉन्ट</translation>
     </message>
@@ -1460,83 +1352,73 @@
 <context>
     <name>Plugin::Sound::SoundView</name>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="67"/>
+        <location filename="../modules/sound/soundview.cpp" line="63"/>
         <source>Output Port</source>
         <translation>आउटपुट पोर्ट </translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="79"/>
-        <source>Output device</source>
-        <translation>आउटपुट उपकरण </translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/soundview.cpp" line="96"/>
+        <location filename="../modules/sound/soundview.cpp" line="75"/>
         <source>Input Port</source>
         <translation>इनपुट पोर्ट </translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="111"/>
-        <source>Input device</source>
-        <translation>इनपुट उपकरण </translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/soundview.cpp" line="124"/>
-        <location filename="../modules/sound/soundview.cpp" line="133"/>
+        <location filename="../modules/sound/soundview.cpp" line="88"/>
+        <location filename="../modules/sound/soundview.cpp" line="97"/>
         <source>Show Advanced...</source>
         <translation>उन्नत दिखाएं...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="138"/>
+        <location filename="../modules/sound/soundview.cpp" line="102"/>
         <source>Hide Advanced...</source>
         <translation>उन्नत छुपाएं </translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="185"/>
+        <location filename="../modules/sound/soundview.cpp" line="148"/>
         <source>Sound effects</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="200"/>
+        <location filename="../modules/sound/soundview.cpp" line="163"/>
         <source>Speaker</source>
         <translation>स्पीकर </translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="211"/>
+        <location filename="../modules/sound/soundview.cpp" line="174"/>
         <source>Output Volume</source>
         <translation>आउटपुट वॉल्यूम </translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="226"/>
+        <location filename="../modules/sound/soundview.cpp" line="189"/>
         <source>Left/Right Balance</source>
         <translation>बायां/दायां संतुलन </translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="234"/>
+        <location filename="../modules/sound/soundview.cpp" line="197"/>
         <source>Left</source>
         <translation>बाएँ</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="235"/>
+        <location filename="../modules/sound/soundview.cpp" line="198"/>
         <source>Right</source>
         <translation>दाएँ</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="334"/>
+        <location filename="../modules/sound/soundview.cpp" line="299"/>
         <source>Microphone</source>
         <translation>माइक्रोफोन </translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="345"/>
+        <location filename="../modules/sound/soundview.cpp" line="310"/>
         <source>Input Volume</source>
         <translation>इनपुट वॉल्यूम </translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="361"/>
+        <location filename="../modules/sound/soundview.cpp" line="326"/>
         <source>Feedback Volume</source>
         <translation>फीडबैक वॉल्यूम </translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="464"/>
+        <location filename="../modules/sound/soundview.cpp" line="430"/>
         <source>Sound</source>
         <translation>ध्वनि</translation>
     </message>
@@ -1575,24 +1457,6 @@
         <location filename="../modules/power/powermanagement.cpp" line="26"/>
         <source>Power Management</source>
         <translation>बिजली प्रबंधन </translation>
-    </message>
-</context>
-<context>
-    <name>PowerPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="58"/>
-        <source>Power</source>
-        <translation>शक्ति</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
-        <source>Charged</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="105"/>
-        <source>On Charging %1</source>
-        <translation>%1 चार्ज होने पर </translation>
     </message>
 </context>
 <context>
@@ -1637,12 +1501,12 @@
 <context>
     <name>ShortcutDbus</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="79"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="90"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="101"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="136"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="164"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="197"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="77"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="88"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="99"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="134"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="162"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="195"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="230"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="234"/>
         <source>None</source>
@@ -1655,14 +1519,6 @@
         <location filename="../modules/shortcuts/shortcutedit.cpp" line="45"/>
         <source>Please input new shortcut</source>
         <translation>कृपया नया शॉर्टकट डालें</translation>
-    </message>
-</context>
-<context>
-    <name>SoundPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-sound-plugin/soundplugin.cpp" line="32"/>
-        <source>Sound</source>
-        <translation>ध्वनि</translation>
     </message>
 </context>
 <context>
@@ -1818,52 +1674,52 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="259"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="272"/>
         <source>Your system is up to date</source>
         <translation>आपका सिस्टम अद्यतन है </translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="263"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="276"/>
         <source>Click to view available  updates</source>
         <translation>उपलब्ध अध्यतन देखने के लिए क्लिक करें </translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="284"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="298"/>
+        <source>Download completed, please click on the update icon to install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
         <source>Total download size: %1</source>
         <translation>कुल डाउनलोड साइज: %1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Unknown</source>
         <translation>अज्ञात</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="295"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="319"/>
         <source>%1 software need to be updated</source>
         <translation>%1 सॉफ्टवेयर को अद्यतन करने की जरूरत है</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
-        <source>Patches</source>
-        <translation>पैचेज </translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="325"/>
         <source>Some patches need to be updated</source>
         <translation>कुछ पैचों को अद्यतन करने की जरूरत है</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="312"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation>कुछ पैचों तथा %1 सॉफ्टवेयर को अद्यतन करने की जरूरत है </translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="363"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="397"/>
         <source>Checking for updates</source>
         <translation>अद्यतन के लिए जांच कर रहा है </translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="364"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="398"/>
         <source>Check for updates, please wait</source>
         <translation>अद्यतन के लिए जांच कर रहा है, कृपया प्रतीक्षा करें </translation>
     </message>
@@ -1930,23 +1786,6 @@
         <location filename="../modules/network/vpnconnectswidget.cpp" line="17"/>
         <source>VPN Connections</source>
         <translation>VPN कनेक्शन </translation>
-    </message>
-</context>
-<context>
-    <name>VpnApplet</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnapplet.cpp" line="58"/>
-        <source>VPN</source>
-        <translation>वीपीएन</translation>
-    </message>
-</context>
-<context>
-    <name>VpnPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnplugin.cpp" line="49"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnplugin.cpp" line="66"/>
-        <source>VPN</source>
-        <translation>वीपीएन</translation>
     </message>
 </context>
 <context>
@@ -2073,29 +1912,6 @@
     </message>
 </context>
 <context>
-    <name>WiredPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="49"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="66"/>
-        <source>Wired Network</source>
-        <translation>वायर्ड नेटवर्क </translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="73"/>
-        <source>Network Not Connected</source>
-        <translation>संचार से जुड़ा नहीं है</translation>
-    </message>
-</context>
-<context>
-    <name>WirelessApplet</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="77"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="203"/>
-        <source>Wireless Network</source>
-        <translation>बिना वायर के संचार</translation>
-    </message>
-</context>
-<context>
     <name>WirelessNetworkListItem</name>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="25"/>
@@ -2113,29 +1929,6 @@
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
         <source>Interface</source>
         <translation>इंटरफेस </translation>
-    </message>
-</context>
-<context>
-    <name>WirelessPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="48"/>
-        <source>Wireless Network</source>
-        <translation>बिना वायर के संचार</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="263"/>
-        <source>Auto-connect</source>
-        <translation>स्वतः-जुड़ना</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="271"/>
-        <source>Connect</source>
-        <translation>जोड़ें</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="296"/>
-        <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation>कृपया &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt; का पासवर्ड एंटर करें </translation>
     </message>
 </context>
 </TS>

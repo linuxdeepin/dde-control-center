@@ -50,7 +50,7 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="231"/>
         <source>Open bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>Odpri bluetooth za iskanje naprav v bližini (zvočniki, tipkovnica, miška)</translation>
     </message>
 </context>
 <context>
@@ -102,7 +102,7 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="39"/>
         <source>VPN Type</source>
-        <translation>VPN vrsta</translation>
+        <translation>vrsta VPN </translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="57"/>
@@ -116,17 +116,9 @@
     </message>
 </context>
 <context>
-    <name>AppFrame</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-sound-plugin/appframe.cpp" line="42"/>
-        <source>Applications</source>
-        <translation>Programje</translation>
-    </message>
-</context>
-<context>
     <name>ApplictionItemWidget</name>
     <message>
-        <location filename="../modules/system_info/applictionitemwidget.cpp" line="42"/>
+        <location filename="../modules/system_info/applictionitemwidget.cpp" line="59"/>
         <source>Update</source>
         <translation>Posodobi</translation>
     </message>
@@ -165,46 +157,37 @@
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="48"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="63"/>
         <source>1 Minute</source>
-        <translation type="unfinished"/>
+        <translation>1 minuta</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="49"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="64"/>
         <source>5 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>5 minut</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="50"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="65"/>
         <source>10 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>10 minut</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="51"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="66"/>
         <source>15 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>15 minut</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="52"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="67"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>30 minut</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="53"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="68"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>ComplexPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="48"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-complex-plugin/complexplugin.cpp" line="60"/>
-        <source>Network</source>
-        <translation>Omrežje</translation>
+        <translation>1 ura</translation>
     </message>
 </context>
 <context>
@@ -212,12 +195,12 @@
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="19"/>
         <source>Disconnect</source>
-        <translation>Odpovezan</translation>
+        <translation>Prekini povezavo</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="21"/>
         <source>Ignore</source>
-        <translation>Ignoriraj</translation>
+        <translation>Prezri</translation>
     </message>
 </context>
 <context>
@@ -225,7 +208,7 @@
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="34"/>
         <source>Connect to hidden access point</source>
-        <translation>Povežite se s skrito dostopno točko</translation>
+        <translation>Poveži se s skrito dostopno točko</translation>
     </message>
 </context>
 <context>
@@ -237,8 +220,8 @@
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="294"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="300"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="304"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="310"/>
         <source>new user</source>
         <translation>Nov uporabnik</translation>
     </message>
@@ -265,23 +248,23 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="166"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="260"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
         <source>Password can not be empty.</source>
-        <translation>Geslo ne sme biti prazno</translation>
+        <translation>Geslo ne sme biti prazno.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="175"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="257"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="273"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="310"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="317"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="185"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="267"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="283"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="320"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="327"/>
         <source>The two passwords do not match.</source>
         <translation>Gesli se ne ujemata.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="245"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="255"/>
-        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="265"/>
+        <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="280"/>
         <source>Username can not be empty.</source>
         <translation>Uporabniško ime ne sme biti prazno.</translation>
     </message>
@@ -317,68 +300,68 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="92"/>
         <source>Enable Monitor</source>
-        <translation>Omogoči Monitor</translation>
+        <translation>Omogoči zaslon</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="105"/>
+        <location filename="../modules/display/customsettings.cpp" line="106"/>
         <source>Please select the monitor you want to enable (checkable)</source>
-        <translation>Prosimo izberi monitor, ki ga želiš omogočiti (klik)</translation>
+        <translation>Prosimo, izberi zaslon, ki ga želiš omogočiti (označi)</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="110"/>
+        <location filename="../modules/display/customsettings.cpp" line="111"/>
         <source>Primary</source>
         <translation>Primarni</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="138"/>
+        <location filename="../modules/display/customsettings.cpp" line="139"/>
         <source>Resolution</source>
         <translation>Ločljivost</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="142"/>
+        <location filename="../modules/display/customsettings.cpp" line="143"/>
         <source>Rotation</source>
         <translation>Zasuk</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="161"/>
-        <location filename="../modules/display/customsettings.cpp" line="192"/>
-        <location filename="../modules/display/customsettings.cpp" line="211"/>
+        <location filename="../modules/display/customsettings.cpp" line="162"/>
+        <location filename="../modules/display/customsettings.cpp" line="193"/>
+        <location filename="../modules/display/customsettings.cpp" line="212"/>
         <source>Monitor %1</source>
-        <translation>Monitor %1</translation>
+        <translation>Zaslon %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="317"/>
-        <location filename="../modules/display/customsettings.cpp" line="475"/>
+        <location filename="../modules/display/customsettings.cpp" line="318"/>
+        <location filename="../modules/display/customsettings.cpp" line="476"/>
         <source>Apply</source>
         <translation>Uporabi</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="319"/>
-        <location filename="../modules/display/customsettings.cpp" line="477"/>
+        <location filename="../modules/display/customsettings.cpp" line="320"/>
+        <location filename="../modules/display/customsettings.cpp" line="478"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
         <translation>Potrdi</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="339"/>
+        <location filename="../modules/display/customsettings.cpp" line="340"/>
         <source>Do you want to keep these display settings?</source>
         <translation>Ali hočeš obdržati te nastavitve prikaza?</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="340"/>
-        <location filename="../modules/display/customsettings.cpp" line="348"/>
+        <location filename="../modules/display/customsettings.cpp" line="341"/>
+        <location filename="../modules/display/customsettings.cpp" line="349"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
-        <translation>Vrnitev v prejšnje nastavitve zaslona v &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; sekundah.</translation>
+        <translation>Vrnitev na prejšnje nastavitve zaslona v &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; sekundah.</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="342"/>
+        <location filename="../modules/display/customsettings.cpp" line="343"/>
         <source>Revert</source>
         <translation>Povrni</translation>
     </message>
     <message>
-        <location filename="../modules/display/customsettings.cpp" line="343"/>
+        <location filename="../modules/display/customsettings.cpp" line="344"/>
         <source>Keep Changes</source>
-        <translation>Obdrži spremenbe</translation>
+        <translation>Obdrži spremembe</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.h" line="54"/>
@@ -405,55 +388,6 @@
     </message>
 </context>
 <context>
-    <name>DateTimePlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="145"/>
-        <source>MMM dd</source>
-        <translation>MMM dd</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="146"/>
-        <source> hh:mm </source>
-        <translation>hh:mm</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="146"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="280"/>
-        <source> hh:mm A</source>
-        <translation>hh:mm A</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="147"/>
-        <source>ddd</source>
-        <translation>ddd</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="148"/>
-        <source>ddd MMM dd</source>
-        <translation>ddd MMM dd</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="201"/>
-        <source>Switch display mode</source>
-        <translation>Preklopi način prikaza</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="203"/>
-        <source>Show week</source>
-        <translation>Prikaži teden</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="204"/>
-        <source>Show date</source>
-        <translation>Prikaži datum</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="207"/>
-        <source>Date&amp;Time settings(_T)</source>
-        <translation>Nastavitve Datuma in Časa(_T)</translation>
-    </message>
-</context>
-<context>
     <name>Datetime</name>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="63"/>
@@ -468,7 +402,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="78"/>
         <source>Sync Automatically</source>
-        <translation>Samodejno sihroniziraj</translation>
+        <translation>Samodejno sinhroniziraj</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="85"/>
@@ -492,7 +426,7 @@
         <location filename="../modules/default_applications/defaultapps.cpp" line="83"/>
         <location filename="../modules/default_applications/defaultapps.cpp" line="123"/>
         <source>Default Applications</source>
-        <translation>Privzete aplikacije</translation>
+        <translation>Privzeti programi</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="121"/>
@@ -537,7 +471,7 @@
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
         <source>Video</source>
-        <translation>Videovsebina</translation>
+        <translation>Videoposnetek</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
@@ -561,52 +495,16 @@
     </message>
 </context>
 <context>
-    <name>DeviceFrame</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-sound-plugin/deviceframe.cpp" line="34"/>
-        <source>Device</source>
-        <translation>Naprava</translation>
-    </message>
-</context>
-<context>
     <name>DeviceItemWidget</name>
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="97"/>
         <source>Connected</source>
-        <translation>Priključen</translation>
+        <translation>Povezan</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="99"/>
         <source>Unconnect</source>
-        <translation>Ne povezan</translation>
-    </message>
-</context>
-<context>
-    <name>DiskItem</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="61"/>
-        <source>Retry</source>
-        <translation>Ponovno poskusi</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="111"/>
-        <source>removable disk</source>
-        <translation>izmenljiv disk</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="113"/>
-        <source>network disk</source>
-        <translation>omrežni disk</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="115"/>
-        <source>local disk</source>
-        <translation>lokalni disk</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-diskmount-plugin/diskitem.cpp" line="118"/>
-        <source>Failed to uninstall %1 &quot; %2 &quot;, please retry.</source>
-        <translation>Ne morem odstraniti %1 &quot; %2 &quot;, poskusite ponovno.</translation>
+        <translation>Nepovezan</translation>
     </message>
 </context>
 <context>
@@ -614,12 +512,12 @@
     <message>
         <location filename="../modules/display/display.cpp" line="60"/>
         <source>Display</source>
-        <translation>Zaslon</translation>
+        <translation>Prikazovalnik</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="158"/>
         <source>Display Mode</source>
-        <translation>Zaslonski način</translation>
+        <translation>Način prikaza</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="166"/>
@@ -629,7 +527,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy the contents of your primary screen to other screens.</source>
-        <translation>Kloniraj vsebino glavnega zaslona na druge zaslone.</translation>
+        <translation>Kopiraj vsebino glavnega zaslona na druge zaslone.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="177"/>
@@ -639,7 +537,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
-        <translation type="unfinished"/>
+        <translation>Razširi vsebino zaslona, da bo možno na različnih zaslonih prikazovati različno vsebino.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="189"/>
@@ -649,7 +547,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="190"/>
         <source>You can do other custom settings to your screens.</source>
-        <translation type="unfinished"/>
+        <translation>Svoje zaslone lahko še drugače nastaviš.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="200"/>
@@ -683,7 +581,7 @@
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="54"/>
         <source>Are you sure you want to delete this network?</source>
-        <translation>Ali ste prepričani,da želite izbrisati to omrežje?</translation>
+        <translation>Ali si prepričan, da želiš izbrisati to omrežje?</translation>
     </message>
 </context>
 <context>
@@ -696,7 +594,7 @@
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="61"/>
         <source>Current system lacks component for %1</source>
-        <translation>Sedanji sistem nima komponento za %1</translation>
+        <translation>Sedanji sistem nima sestavnih delov za %1</translation>
     </message>
 </context>
 <context>
@@ -717,13 +615,13 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="32"/>
         <source>Boot Menu</source>
-        <translation>Boot meni</translation>
+        <translation>Meni zagona</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="76"/>
         <location filename="../modules/grub/grubwidget.cpp" line="192"/>
         <source>Drag and drop an image to change background.</source>
-        <translation>Povleci in spusti sliko, da spremenite ozadje.</translation>
+        <translation>Povleci in spusti sliko, da spremeniš ozadje.</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="81"/>
@@ -738,7 +636,7 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="124"/>
         <source>Boot delay</source>
-        <translation>Boot zamuda</translation>
+        <translation>Zamuda zagona</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="132"/>
@@ -753,7 +651,7 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="144"/>
         <source>The startup speed can be improved by disabling the theme</source>
-        <translation type="unfinished"/>
+        <translation>Zagon sistema lahko pospešiš tako, da onemogočiš temo.</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="182"/>
@@ -794,7 +692,7 @@
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="38"/>
         <source>Connect</source>
-        <translation>Povezi </translation>
+        <translation>Poveži </translation>
     </message>
 </context>
 <context>
@@ -812,7 +710,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
         <source>Repeat Rate</source>
-        <translation>Ponovite oceno</translation>
+        <translation>Hitrost ponovitve</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="205"/>
@@ -822,7 +720,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="227"/>
         <source>Test Area</source>
-        <translation>Besedilno območje</translation>
+        <translation>Poskusno območje</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="241"/>
@@ -842,7 +740,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="264"/>
         <source>Remove Keyboard Layout</source>
-        <translation>Odstrani Postavitev Tipkovnice</translation>
+        <translation>Odstrani tipkovnični razpored</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="265"/>
@@ -865,7 +763,7 @@
     <message>
         <location filename="../modules/network/listwidgetcontainer.cpp" line="102"/>
         <source>Connect</source>
-        <translation>Povezi </translation>
+        <translation>Poveži </translation>
     </message>
 </context>
 <context>
@@ -927,22 +825,22 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="384"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
-        <translation>Bližnjica &quot;%1&quot; ni veljavna, vpiši novo krajšnjco.</translation>
+        <translation>Bližnjica &quot;%1&quot; ni veljavna, vpiši novo.</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="398"/>
         <source>The shortcut you set </source>
-        <translation>Bljižnica nastavljena</translation>
+        <translation>Nastavljena bližnjica</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="408"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
-        <translation type="unfinished"/>
+        <translation>je enaka, kot bližnjica za &quot;%2&quot; v kategoriji &quot;%1&quot; .</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="415"/>
         <source>Do you want to replace it?</source>
-        <translation>Ali jo želite zamenjati?</translation>
+        <translation>Ali jo hočete zamenjati?</translation>
     </message>
 </context>
 <context>
@@ -952,7 +850,7 @@
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="114"/>
         <source>Timeout</source>
         <extracomment>the mirror cant reachable</extracomment>
-        <translation type="unfinished"/>
+        <translation>Prekinitev</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="116"/>
@@ -975,7 +873,7 @@
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="27"/>
         <source>Switch</source>
-        <translation>Stikalo</translation>
+        <translation>Zamenjaj</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="28"/>
@@ -985,7 +883,7 @@
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="38"/>
         <source>Auto check update</source>
-        <translation>Samodejno preveri za posodobitvami.</translation>
+        <translation>Samodejno preveri za posodobitve.</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="41"/>
@@ -1000,7 +898,7 @@
         <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="83"/>
         <source>Modem Network</source>
-        <translation type="unfinished"/>
+        <translation>Modemsko omrežje</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="41"/>
@@ -1033,7 +931,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="39"/>
         <source>Display</source>
-        <translation>Zaslon</translation>
+        <translation>Prikaz</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="24"/>
@@ -1043,17 +941,17 @@
     <message>
         <location filename="../modules/power/power.cpp" line="35"/>
         <source>Power Management</source>
-        <translation>Upravljanje porabe</translation>
+        <translation>Upravljanje porabe energije</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="63"/>
         <source>Default Applications</source>
-        <translation>Privzete aplikacije</translation>
+        <translation>Privzeti programi</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="37"/>
         <source>Mouse and Touchpad</source>
-        <translation>Miška in Touchpad</translation>
+        <translation>Miška in drsna ploščica</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
@@ -1073,7 +971,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="61"/>
         <source>Keyboard and Language</source>
-        <translation>Tipkovnica in jeziki</translation>
+        <translation>Tipkovnica in jezik</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="50"/>
@@ -1083,12 +981,12 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="32"/>
         <source>Wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
     <message>
         <location filename="../modules/grub/grub.cpp" line="28"/>
         <source>Boot Menu</source>
-        <translation>Boot meni</translation>
+        <translation>Meni zagona</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/bluetooth.cpp" line="35"/>
@@ -1116,7 +1014,7 @@
     <message>
         <location filename="../modules/display/monitorground.cpp" line="48"/>
         <source>Split</source>
-        <translation>razdeli</translation>
+        <translation>Razdeli</translation>
     </message>
 </context>
 <context>
@@ -1124,13 +1022,13 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="59"/>
         <source>Mouse And Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Miška in drsna ploščica</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="75"/>
         <location filename="../modules/mouse/mouse.cpp" line="188"/>
         <source>Primary Button</source>
-        <translation>Primarni gumb</translation>
+        <translation>Prednostni gumb</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="78"/>
@@ -1154,22 +1052,22 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="107"/>
         <source>Double-click Speed</source>
-        <translation>Dvo-klikna hitrost</translation>
+        <translation>Hitrost dvoklika</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="124"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Izklopi drsno ploščo ob vklopu miške</translation>
+        <translation>Izklopi drsno ploščico ob vklopu miške</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="150"/>
         <source>Touchpad</source>
-        <translation>Sledilna ploščica</translation>
+        <translation>Drsna ploščica</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="190"/>
         <source>Drag Threshold</source>
-        <translation type="unfinished"/>
+        <translation>Meja za začetek potega</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="191"/>
@@ -1194,7 +1092,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
-        <translation type="unfinished"/>
+        <translation>Gumb drsnik</translation>
     </message>
 </context>
 <context>
@@ -1202,12 +1100,12 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="47"/>
         <source>Ethernet</source>
-        <translation>Internet</translation>
+        <translation>Ethernet</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="48"/>
         <source>802.11 WiFi</source>
-        <translation>802.1 WiFi</translation>
+        <translation>802.11 WiFi</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="49"/>
@@ -1217,7 +1115,7 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="50"/>
         <source>802.11 WiFi Hotspot</source>
-        <translation>802.11 WiFi Točka</translation>
+        <translation>802.11 WiFi vroča točka</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="51"/>
@@ -1232,12 +1130,12 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="53"/>
         <source>Mobile GSM</source>
-        <translation>Mobile GSM</translation>
+        <translation>Mobilni GSM</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="54"/>
         <source>Mobile CDMA</source>
-        <translation>Mobile CDMA</translation>
+        <translation>Mobilni CDMA</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="55"/>
@@ -1277,12 +1175,12 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="76"/>
         <source>Connected</source>
-        <translation>Priključen</translation>
+        <translation>Povezan</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="88"/>
         <source>(default)</source>
-        <translation>(default)</translation>
+        <translation>(privzeto)</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="107"/>
@@ -1322,7 +1220,7 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="117"/>
         <source>Secondary DNS</source>
-        <translation>Drugi DNS</translation>
+        <translation>Drugoten DNS</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="118"/>
@@ -1363,11 +1261,10 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="94"/>
         <source>Double-click this area to change your time</source>
-        <translation>Dvokliknite to področje, da spremenite svoj čas</translation>
+        <translation>Dvoklikni to področje, da spremeniš svoj čas</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="122"/>
-        <location filename="../dock-plugins/dde-dock-datetime-plugin/datetimeplugin.cpp" line="259"/>
         <source>dddd, dd MMMM yyyy</source>
         <translation>yyyy-MM-dd dddd</translation>
     </message>
@@ -1375,32 +1272,32 @@
 <context>
     <name>PasswordFrame</name>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="50"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="67"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="58"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="75"/>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="157"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="83"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="165"/>
         <source>The two passwords do not match.</source>
         <translation>Gesli se ne ujemata.</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="83"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="91"/>
         <source>Password</source>
         <translation>Geslo</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="104"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="112"/>
         <source>New Password</source>
         <translation>Novo geslo</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="106"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="114"/>
         <source>Repeat</source>
         <translation>Ponovitev</translation>
     </message>
     <message>
-        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="152"/>
+        <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="160"/>
         <source>Password can not be empty.</source>
-        <translation>Geslo ne sme biti prazno</translation>
+        <translation>Geslo ne sme biti prazno.</translation>
     </message>
 </context>
 <context>
@@ -1411,48 +1308,43 @@
         <translation>Prilagoditev</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="145"/>
+        <location filename="../modules/personalization/personalization.cpp" line="138"/>
         <source>Window</source>
         <translation>Okno</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="171"/>
+        <location filename="../modules/personalization/personalization.cpp" line="164"/>
         <source>Icon</source>
         <translation>Ikona</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="206"/>
+        <location filename="../modules/personalization/personalization.cpp" line="199"/>
         <source>Cursor</source>
         <translation>Kurzor</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="239"/>
-        <source>Wallpaper</source>
-        <translation>Ozadje</translation>
-    </message>
-    <message>
-        <location filename="../modules/personalization/personalization.cpp" line="264"/>
+        <location filename="../modules/personalization/personalization.cpp" line="232"/>
         <source>Fonts</source>
         <translation>Pisave</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="266"/>
+        <location filename="../modules/personalization/personalization.cpp" line="234"/>
         <source>Standard</source>
-        <translation>Obi;ajen</translation>
+        <translation>Standardno</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="267"/>
+        <location filename="../modules/personalization/personalization.cpp" line="235"/>
         <source>Monospaced</source>
         <translation>Enojni presledek</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="268"/>
+        <location filename="../modules/personalization/personalization.cpp" line="236"/>
         <source>Size</source>
         <translation>Velikost </translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalization.cpp" line="283"/>
-        <location filename="../modules/personalization/personalization.cpp" line="620"/>
+        <location filename="../modules/personalization/personalization.cpp" line="251"/>
+        <location filename="../modules/personalization/personalization.cpp" line="548"/>
         <source>Font</source>
         <translation>Pisava</translation>
     </message>
@@ -1460,83 +1352,73 @@
 <context>
     <name>Plugin::Sound::SoundView</name>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="67"/>
+        <location filename="../modules/sound/soundview.cpp" line="63"/>
         <source>Output Port</source>
         <translation>Izhodna vrata</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="79"/>
-        <source>Output device</source>
-        <translation>Izhodna naprave</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/soundview.cpp" line="96"/>
+        <location filename="../modules/sound/soundview.cpp" line="75"/>
         <source>Input Port</source>
         <translation>Vhodna vrata</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="111"/>
-        <source>Input device</source>
-        <translation>Izhodne naprave</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/soundview.cpp" line="124"/>
-        <location filename="../modules/sound/soundview.cpp" line="133"/>
+        <location filename="../modules/sound/soundview.cpp" line="88"/>
+        <location filename="../modules/sound/soundview.cpp" line="97"/>
         <source>Show Advanced...</source>
-        <translation>Pokaži Napredno...</translation>
+        <translation>Pokaži napredno...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="138"/>
+        <location filename="../modules/sound/soundview.cpp" line="102"/>
         <source>Hide Advanced...</source>
-        <translation>Skrij dodatno...</translation>
+        <translation>Skrij napredno...</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="185"/>
+        <location filename="../modules/sound/soundview.cpp" line="148"/>
         <source>Sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Zvočni učinki</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="200"/>
+        <location filename="../modules/sound/soundview.cpp" line="163"/>
         <source>Speaker</source>
         <translation>Zvočnik</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="211"/>
+        <location filename="../modules/sound/soundview.cpp" line="174"/>
         <source>Output Volume</source>
         <translation>Izhodna glasnost</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="226"/>
+        <location filename="../modules/sound/soundview.cpp" line="189"/>
         <source>Left/Right Balance</source>
-        <translation>Levo/desno ravnovesje</translation>
+        <translation>Ravnovesje levo/desno</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="234"/>
+        <location filename="../modules/sound/soundview.cpp" line="197"/>
         <source>Left</source>
         <translation>Levo</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="235"/>
+        <location filename="../modules/sound/soundview.cpp" line="198"/>
         <source>Right</source>
         <translation>Desno</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="334"/>
+        <location filename="../modules/sound/soundview.cpp" line="299"/>
         <source>Microphone</source>
         <translation>Mikrofon</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="345"/>
+        <location filename="../modules/sound/soundview.cpp" line="310"/>
         <source>Input Volume</source>
         <translation>Vhodna glasnost</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="361"/>
+        <location filename="../modules/sound/soundview.cpp" line="326"/>
         <source>Feedback Volume</source>
-        <translation type="unfinished"/>
+        <translation>Povratna glasnost</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundview.cpp" line="464"/>
+        <location filename="../modules/sound/soundview.cpp" line="430"/>
         <source>Sound</source>
         <translation>Zvok</translation>
     </message>
@@ -1546,27 +1428,27 @@
     <message>
         <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Zaslon se bo ugasnil, ko mine</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Računalnik se bo ugasnil, ko mine</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
-        <translation type="unfinished"/>
+        <translation>Za bujenje zaslona je potrebno geslo</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
-        <translation type="unfinished"/>
+        <translation>Za bujenje računalnika je potrebno geslo</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation type="unfinished"/>
+        <translation>Prenosnik bo ob zaprtju ugasnil</translation>
     </message>
 </context>
 <context>
@@ -1574,25 +1456,7 @@
     <message>
         <location filename="../modules/power/powermanagement.cpp" line="26"/>
         <source>Power Management</source>
-        <translation>Upravljanje porabe</translation>
-    </message>
-</context>
-<context>
-    <name>PowerPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="58"/>
-        <source>Power</source>
-        <translation>Napajanje</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="103"/>
-        <source>Charged</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-power-plugin/powerplugin.cpp" line="105"/>
-        <source>On Charging %1</source>
-        <translation>Polnjenje %1</translation>
+        <translation>Upravljanje porabe energije</translation>
     </message>
 </context>
 <context>
@@ -1613,7 +1477,7 @@
     <message>
         <location filename="../widgets/moduleheader.cpp" line="59"/>
         <source>Reset Successfully</source>
-        <translation>Uspešen ponovni zagon</translation>
+        <translation>Uspešna ponastavitev</translation>
     </message>
     <message>
         <location filename="../widgets/moduleheader.cpp" line="61"/>
@@ -1637,16 +1501,16 @@
 <context>
     <name>ShortcutDbus</name>
     <message>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="79"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="90"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="101"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="136"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="164"/>
-        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="197"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="77"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="88"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="99"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="134"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="162"/>
+        <location filename="../modules/shortcuts/shortcutdbus.cpp" line="195"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="230"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="234"/>
         <source>None</source>
-        <translation>Nihče</translation>
+        <translation>Nobenih</translation>
     </message>
 </context>
 <context>
@@ -1654,15 +1518,7 @@
     <message>
         <location filename="../modules/shortcuts/shortcutedit.cpp" line="45"/>
         <source>Please input new shortcut</source>
-        <translation>Prosimo vpišite novo bližnjico</translation>
-    </message>
-</context>
-<context>
-    <name>SoundPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-sound-plugin/soundplugin.cpp" line="32"/>
-        <source>Sound</source>
-        <translation>Zvok</translation>
+        <translation>Prosimo, vpiši novo bližnjico</translation>
     </message>
 </context>
 <context>
@@ -1670,17 +1526,17 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
         <source>Disk:</source>
-        <translation>Disk</translation>
+        <translation>Disk:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
         <source>Memory:</source>
-        <translation>Spomin</translation>
+        <translation>Spomin:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
         <source>Processor:</source>
-        <translation>Procesor</translation>
+        <translation>Procesor:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
@@ -1695,12 +1551,12 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
         <source>Distribution:</source>
-        <translation>Porazdelitev:</translation>
+        <translation>Distribucija:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
         <source>Deepin Edition:</source>
-        <translation>Deepin Izdaja:</translation>
+        <translation>Deepin izdaja:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
@@ -1731,7 +1587,7 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="32"/>
         <source>None</source>
-        <translation>Nihče</translation>
+        <translation>Nobenih</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="32"/>
@@ -1741,7 +1597,7 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="32"/>
         <source>Auto</source>
-        <translation>Avtomatsko </translation>
+        <translation>Samodejno</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="49"/>
@@ -1751,7 +1607,7 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="52"/>
         <source>Ignore the following proxy configuration for hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>Prezri slednjo konfiguracijo proxy za gostitelje in domene</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="79"/>
@@ -1776,7 +1632,7 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="97"/>
         <source>Configuration URL</source>
-        <translation>Konfiguracija URLja</translation>
+        <translation>Konfiguracija URL-ja</translation>
     </message>
 </context>
 <context>
@@ -1818,54 +1674,54 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="259"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="272"/>
         <source>Your system is up to date</source>
         <translation>Tvoj sistem je posodobljen</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="263"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="276"/>
         <source>Click to view available  updates</source>
-        <translation>Klikni za pregled razpoložljivih posodobitev.</translation>
+        <translation>Klikni za pregled razpoložljivih posodobitev</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="284"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="298"/>
+        <source>Download completed, please click on the update icon to install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
         <source>Total download size: %1</source>
         <translation>Celotna velikost prenosa: %1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Unknown</source>
-        <translation>Neznan</translation>
+        <translation>Neznano</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="295"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="319"/>
         <source>%1 software need to be updated</source>
         <translation>%1 programske opreme je treba posodobiti</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
-        <source>Patches</source>
-        <translation>Popravki</translation>
-    </message>
-    <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="325"/>
         <source>Some patches need to be updated</source>
         <translation>Nekatere pakete je potrebno posodobiti</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="312"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation>Nekatere pakete in %1 programske opreme je potrebno posodobiti</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="363"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="397"/>
         <source>Checking for updates</source>
         <translation>Preverjanje za posodobitvami</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="364"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="398"/>
         <source>Check for updates, please wait</source>
-        <translation>Preverjam za posodobitvami, prosimo počakajte.</translation>
+        <translation>Preverjam za posodobitvami, prosimo počakaj</translation>
     </message>
 </context>
 <context>
@@ -1883,12 +1739,12 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
         <source>Choose a new picture for your Avatar</source>
-        <translation>Izberi novo sliko za vaš profil</translation>
+        <translation>Izberi novo sliko za svoj profil</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
-        <translation>Slikovni tipi (*.jpg *.png *.jpeg)</translation>
+        <translation>Slikovne datoteke (*.jpg *.png *.jpeg)</translation>
     </message>
 </context>
 <context>
@@ -1921,7 +1777,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="234"/>
         <source>Normal User</source>
-        <translation>Navadni uproabnik</translation>
+        <translation>Navadni uporabnik</translation>
     </message>
 </context>
 <context>
@@ -1929,24 +1785,7 @@
     <message>
         <location filename="../modules/network/vpnconnectswidget.cpp" line="17"/>
         <source>VPN Connections</source>
-        <translation>VPN povezava</translation>
-    </message>
-</context>
-<context>
-    <name>VpnApplet</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnapplet.cpp" line="58"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-</context>
-<context>
-    <name>VpnPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnplugin.cpp" line="49"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-vpn-plugin/vpnplugin.cpp" line="66"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
+        <translation>VPN povezave</translation>
     </message>
 </context>
 <context>
@@ -1984,7 +1823,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Tablet Orientation</source>
-        <translation>Orientacija Tablice</translation>
+        <translation>Orientacija tablice</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="102"/>
@@ -1999,7 +1838,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="115"/>
         <source>Digital Pen Modes</source>
-        <translation>Način digitalnega peresa</translation>
+        <translation>Načini digitalnega peresa</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="120"/>
@@ -2029,7 +1868,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="176"/>
         <source>Soft</source>
-        <translation>Soft</translation>
+        <translation>Mehko</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="177"/>
@@ -2039,7 +1878,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Double-click Space</source>
-        <translation>Presledek med dvo-klikom</translation>
+        <translation>Presledek med dvoklikom</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="196"/>
@@ -2064,35 +1903,12 @@
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="30"/>
         <source>Wired Connection</source>
-        <translation>Wired povezava</translation>
+        <translation>Žična povezava</translation>
     </message>
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
         <source>Interface</source>
         <translation>Vmesnik</translation>
-    </message>
-</context>
-<context>
-    <name>WiredPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="49"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="66"/>
-        <source>Wired Network</source>
-        <translation>Žično omrežje</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wired-plugin/wiredplugin.cpp" line="73"/>
-        <source>Network Not Connected</source>
-        <translation>Omrežna povezava ni povezana</translation>
-    </message>
-</context>
-<context>
-    <name>WirelessApplet</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="77"/>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessapplet.cpp" line="203"/>
-        <source>Wireless Network</source>
-        <translation>Brezžično omrežje</translation>
     </message>
 </context>
 <context>
@@ -2107,35 +1923,12 @@
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="241"/>
         <source>Connect to hidden access point</source>
-        <translation>Povežite se s skrito dostopno točko</translation>
+        <translation>Poveži se s skrito dostopno točko</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
         <source>Interface</source>
         <translation>Vmesnik</translation>
-    </message>
-</context>
-<context>
-    <name>WirelessPlugin</name>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="48"/>
-        <source>Wireless Network</source>
-        <translation>Brezžično omrežje</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="263"/>
-        <source>Auto-connect</source>
-        <translation>Samodejno poveži</translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="271"/>
-        <source>Connect</source>
-        <translation>Povezi </translation>
-    </message>
-    <message>
-        <location filename="../dock-plugins/dde-dock-network-plugins/dde-dock-network-wireless-plugin/wirelessplugin.cpp" line="296"/>
-        <source>Please enter the password of &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</source>
-        <translation>Prosimo vnesite geslo &lt;font color=&quot;#faca57&quot;&gt;%1&lt;/font&gt;</translation>
     </message>
 </context>
 </TS>
