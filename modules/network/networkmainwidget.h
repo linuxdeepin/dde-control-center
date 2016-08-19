@@ -52,7 +52,6 @@ private:
     VPNConnectsWidget *m_vpnConnectsWidget;
 
     Network *m_networkModule;
-
 signals:
     void dccVisibleChanged(bool visible);
 };

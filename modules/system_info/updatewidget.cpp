@@ -70,13 +70,18 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_dbusUpdateInter = new DBusLastoreUpdater("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
     m_dbusJobManagerInter = new DBusUpdateJobManager("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
     m_appsVBox = new DVBoxWidget;
-    m_appsVBox->setFixedHeight(1000);
+//    m_appsVBox->setFixedHeight(1000);
     m_appsScrollArea = new QScrollArea(this);
     m_appsScrollArea->setFrameStyle(QFrame::NoFrame);
     m_appsScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_appsScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_appsScrollArea->setStyleSheet("background-color:transparent;");
     m_appsScrollArea->setWidget(m_appsVBox);
+    m_appsScrollArea->setMinimumHeight(0);
+    m_appsScrollArea->setContentsMargins(0, 0, 0, 0);
+//    m_appsScrollArea->hide();
+//    m_appsScrollArea->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+//    m_appsScrollArea->setFixedHeight(0);
 
     QVBoxLayout *tipsWidgetLayout = new QVBoxLayout;
     tipsWidgetLayout->addSpacing(10);
@@ -107,7 +112,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     mainLayout->addWidget(m_tipsWidget);
     mainLayout->addLayout(updateInfoLayout);
     mainLayout->addWidget(new DSeparatorHorizontal);
-    mainLayout->addWidget(m_appsScrollArea);
+//    mainLayout->addWidget(m_appsScrollArea);
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
 
@@ -119,7 +124,8 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
     QVBoxLayout *mainVLayout = new QVBoxLayout;
     mainVLayout->addWidget(interalWidget);
-    mainVLayout->addWidget(m_appSeparator);
+    mainVLayout->addWidget(m_appsScrollArea);
+//    mainVLayout->addWidget(m_appSeparator);
     mainVLayout->addStretch(1);
     mainVLayout->setSpacing(0);
     mainVLayout->setMargin(0);
@@ -142,7 +148,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
 void UpdateWidget::resizeEvent(QResizeEvent *e)
 {
-    m_appsVBox->setMaximumHeight(e->size().height() - 75);
+    m_appsScrollArea->setFixedHeight(e->size().height() - 75);
 }
 
 void UpdateWidget::loadAppList()
@@ -184,6 +190,7 @@ void UpdateWidget::loadAppList()
 //    QList<AppUpdateInfo> updateInfoList = m_dbusUpdateInter->ApplicationUpdateInfos(QLocale().name()).value();
     ApplictionItemWidget *appItemWidget;
 
+    m_appsVBox->hide();
     for (AppUpdateInfo &info : updateInfoList)
     {
         qDebug() << "add app: " << info.m_name << m_downloadStatus;
@@ -199,6 +206,8 @@ void UpdateWidget::loadAppList()
 
         connect(appItemWidget, &ApplictionItemWidget::jobFinished, this, &UpdateWidget::removeJob);
     }
+    m_appsVBox->setFixedHeight(m_appsVBox->sizeHint().height());
+    m_appsVBox->show();
 
     m_updatableAppsList = updatableApps();
     m_updatablePackagesList = updatablePackages();
