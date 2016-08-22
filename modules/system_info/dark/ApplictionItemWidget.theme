@@ -1,4 +1,4 @@
-ApplictionItemWidget[hovered="true"] {
+ApplictionItemWidget {
     background-color:#66000000;
 }
 

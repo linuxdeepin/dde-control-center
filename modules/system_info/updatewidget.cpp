@@ -125,7 +125,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     QVBoxLayout *mainVLayout = new QVBoxLayout;
     mainVLayout->addWidget(interalWidget);
     mainVLayout->addWidget(m_appsScrollArea);
-//    mainVLayout->addWidget(m_appSeparator);
+    mainVLayout->addWidget(m_appSeparator);
     mainVLayout->addStretch(1);
     mainVLayout->setSpacing(0);
     mainVLayout->setMargin(0);
