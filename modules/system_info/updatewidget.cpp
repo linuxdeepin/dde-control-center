@@ -140,7 +140,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     connect(this, &UpdateWidget::updatableNumsChanged, this, &UpdateWidget::updateInfo, Qt::QueuedConnection);
 //    connect(m_dbusJobManagerInter, &DBusUpdateJobManager::UpgradableAppsChanged, this, &UpdateWidget::loadAppList);
 //    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatableAppsChanged, this, &UpdateWidget::loadAppList, Qt::QueuedConnection);
-//    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatablePackagesChanged, this, &UpdateWidget::loadAppList, Qt::QueuedConnection);
+    connect(m_dbusUpdateInter, &DBusLastoreUpdater::UpdatablePackagesChanged, this, &UpdateWidget::loadAppList, Qt::QueuedConnection);
 //    connect(m_checkUpdateBtn, &DImageButton::clicked, this, &UpdateWidget::loadAppList);
 //    connect(m_checkUpdateBtn, &DImageButton::clicked, m_dbusJobManagerInter, &DBusUpdateJobManager::UpdateSource);
     connect(m_checkUpdateBtn, &DImageButton::clicked, this, &UpdateWidget::checkUpdate);
@@ -483,19 +483,7 @@ void UpdateWidget::checkUpdateStateChanged()
             refreshDownloadStatus(NotStart);
             m_checkingIndicator->setLoading(false);
             m_checkingIndicator->setRotate(0);
-
-            updateInfo(m_updatableAppsList.count(), m_updatablePackagesList.count());
-
-            // no updates
-            if (!m_updatableAppsList.count() && !m_updatablePackagesList.count())
-            {
-//                if (stat == "end")
-//                    m_updateCountTips->setText(tr("No updates avaliable"));
-//                else
-//                    m_updateCountTips->setText(tr("Check update failed"));
-            }
         }
-//            m_updateCountTips->setText(tr("imde"));
 
         m_dbusCheckupdate->deleteLater();
         m_dbusCheckupdate = nullptr;
