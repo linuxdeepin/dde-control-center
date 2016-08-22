@@ -46,7 +46,7 @@ private:
     QStringList keyWords() const Q_DECL_OVERRIDE {return QStringList();}
     void setData(const QVariant &) Q_DECL_OVERRIDE {}
     QVariant getData() Q_DECL_OVERRIDE {return QVariant();}
-    void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE {emit clicked(); m_checkBtn->setChecked(!m_checkBtn->isChecked()); e->accept();}
+    void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE {m_checkBtn->setChecked(!m_checkBtn->isChecked()); emit clicked(); e->accept();}
 
 private:
     QLabel *m_zones;

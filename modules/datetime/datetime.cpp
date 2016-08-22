@@ -414,7 +414,7 @@ void Datetime::timezoneItemChoosed()
     const TimezoneItemWidget *item = qobject_cast<TimezoneItemWidget *>(sender());
 
     if (item) {
-        if (!item->selected()) {
+        if (item->selected()) {
             m_choosedZoneList.append(item->zoneName());
         } else {
             m_choosedZoneList.removeOne(item->zoneName());
