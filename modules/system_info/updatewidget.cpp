@@ -483,6 +483,8 @@ void UpdateWidget::checkUpdateStateChanged()
             refreshDownloadStatus(NotStart);
             m_checkingIndicator->setLoading(false);
             m_checkingIndicator->setRotate(0);
+
+            updateInfo(m_updatableAppsList.count(), m_updatablePackagesList.count());
         }
 
         m_dbusCheckupdate->deleteLater();
