@@ -24,6 +24,7 @@ UpdateProgress::UpdateProgress(QWidget *parent) :
     m_picSeq->setPictureSequence(seq);
     m_picSeq->setFixedSize(35, 35);
     m_picSeq->move(-2, -2);
+    m_picSeq->play();
 
     this->setProperty("backgroundColor", QColor(255, 255, 255, 200));
 }
