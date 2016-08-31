@@ -840,7 +840,7 @@
 1. 在控制中心面板，点击 **启动菜单**。
 2. 按住鼠标左键不放，将需要使用的图片拖拽到预览窗口中更换背景。
 
-> ![notes](icon/notes.svg)：当您更换背景图片成功后，需要重启才能生效。
+> ![notes](icon/notes.svg)：您可以通过关闭主题背景开关来改善开机选择启动项的速度。
 
  ![0|startbackground](png/startbackground.png)
 
