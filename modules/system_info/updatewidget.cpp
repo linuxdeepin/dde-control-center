@@ -282,6 +282,7 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
         m_tipsWidget->show();
         m_checkingIndicator->show();
         m_downloadButton->hide();
+        m_updateButton->hide();
         m_updateCountTips->setText(tr("Click to view available  updates"));
         m_updateSizeTips->clear();
         m_appsVBox->hide();
