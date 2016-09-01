@@ -322,6 +322,10 @@ void SoundControl::reset()
     if (m_dbusAudio) {
         m_dbusAudio->Reset();
     }
+
+    // effects dbus service is not always running, so we may not receive changed singal, need to reset check button state
+    if (m_effects)
+        emit this->effectsEnabledChanged(true);
 }
 
 void SoundControl::handleDBusCardsChanged()
