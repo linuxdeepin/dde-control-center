@@ -82,6 +82,7 @@ private:
     ControlCenterProxy *m_controlProxy;
     QThread *m_pluginLoadThread = NULL;
     QString m_dbusFullScreenKey = QString();
+    QPointer<const QScreen> primaryScreen;
 
     bool m_visible = false;
     bool m_hideInLeft = true;

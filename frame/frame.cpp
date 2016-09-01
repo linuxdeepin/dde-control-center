@@ -81,17 +81,20 @@ Frame::Frame(QWidget *parent) :
 
     auto updateGeometry = [display_dbus, this] {
         QRect primaryRect = display_dbus->primaryRect();
+        const QString &primaryScreenName = display_dbus->primary();
 
-        qDebug() << "change screen, primary is: " << display_dbus->primary();
+        qDebug() << "change screen, primary is: " << primaryScreenName;
+
+        if (primaryScreen)
+            disconnect(primaryScreen, &QScreen::geometryChanged, this, &Frame::updateGeometry);
 
         for (const QScreen *screen : qApp->screens())
         {
-            if (screen->name() == display_dbus->primary()) {
+            if (screen->name() == primaryScreenName) {
+                primaryScreen = screen;
                 primaryRect = screen->geometry();
                 connect(screen, &QScreen::geometryChanged, this, &Frame::updateGeometry);
                 break;
-            } else {
-                disconnect(screen, &QScreen::geometryChanged, this, &Frame::updateGeometry);
             }
         }
 
