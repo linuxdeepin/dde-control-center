@@ -21,14 +21,14 @@
 #include <dswitchbutton.h>
 
 #include "moduleheader.h"
+#include "constants.h"
 
 #include "grubwidget.h"
 #include "dbustheme.h"
 #include "bootmenulist.h"
 
 GrubWidget::GrubWidget(QWidget *parent):
-    QFrame(parent),
-    m_layout(new QVBoxLayout()),
+    ScrollFrame(parent),
     m_header(new ModuleHeader(tr("Boot Menu"))),
     m_arrowDefaultBoot(new DArrowLineExpand()),
     m_arrowBootDelay(new DArrowLineExpand()),
@@ -66,13 +66,13 @@ bool GrubWidget::eventFilter(QObject *obj, QEvent *e)
 
 void GrubWidget::init()
 {
-    m_layout->setMargin(0);
+    m_header->setFixedSize(DCC::ModuleContentWidth, DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
 
     connect(m_header, &ModuleHeader::resetButtonClicked, m_grubDbus, &GrubDbus::Reset);
 
     m_tooltip = new QLabel(m_grubBackground);
     m_tooltip->setStyleSheet("QLabel{background:rbga(0,0,0,110);color:white;}");
-    m_tooltip->resize(310, 20);
+    m_tooltip->resize(DCC::ModuleContentWidth, 20);
     m_tooltip->setText(tr("Drag and drop an image to change background."));
     m_tooltip->setAlignment(Qt::AlignCenter);
 
@@ -90,9 +90,9 @@ void GrubWidget::init()
             m_enableThemeSwitch, &DSwitchButton::setChecked);
 
     QStringList title_list = m_grubDbus->GetSimpleEntryTitles();
-    m_bootEntryList->setItemWidth(310);
+    m_bootEntryList->setItemWidth(DCC::ModuleContentWidth);
     m_bootEntryList->addButtons(title_list);
-    m_bootEntryList->setFixedSize(310, m_bootEntryList->count()*MENU_ITEM_HEIGHT);
+    m_bootEntryList->setFixedSize(DCC::ModuleContentWidth, m_bootEntryList->count()*MENU_ITEM_HEIGHT);
     m_bootMenuTitle = new BootMenuList(m_grubBackground);
     m_bootMenuTitle->addButtons(title_list);
     m_bootMenuTitle->move(50, 50);
@@ -146,21 +146,19 @@ void GrubWidget::init()
     hits->setWordWrap(true);
     hits->setStyleSheet("font-size:11px;color:grey;");
 
-    m_layout->setSpacing(0);
-    m_layout->addWidget(m_header);
-    m_layout->addWidget(new DSeparatorHorizontal());
-    m_layout->addWidget(m_grubBackground);
-    m_layout->addWidget(new DSeparatorHorizontal());
-    m_layout->addWidget(m_enableThemeLine);
-    m_layout->addWidget(new DSeparatorHorizontal());
-    m_layout->addWidget(m_arrowDefaultBoot);
-    m_layout->addWidget(m_arrowBootDelay);
-    m_layout->addWidget(m_arrowTextColor);
-    m_layout->addWidget(m_arrowSelectedTextColor);
-    m_layout->addWidget(hits);
-    m_layout->addStretch(1);
+    headerLayout()->addWidget(m_header);
 
-    setLayout(m_layout);
+    mainLayout()->setSpacing(0);
+    mainLayout()->addWidget(new DSeparatorHorizontal());
+    mainLayout()->addWidget(m_grubBackground);
+    mainLayout()->addWidget(new DSeparatorHorizontal());
+    mainLayout()->addWidget(m_enableThemeLine);
+    mainLayout()->addWidget(new DSeparatorHorizontal());
+    mainLayout()->addWidget(m_arrowDefaultBoot);
+    mainLayout()->addWidget(m_arrowBootDelay);
+    mainLayout()->addWidget(m_arrowTextColor);
+    mainLayout()->addWidget(m_arrowSelectedTextColor);
+    mainLayout()->addWidget(hits);
 }
 
 void GrubWidget::setDefaultEntry(const QString &entry)

@@ -20,12 +20,13 @@
 
 #include "grubbackground.h"
 #include "dbusgrub.h"
+#include "scrollframe.h"
 
 DWIDGET_USE_NAMESPACE
 
 class ModuleHeader;
 class BootMenuList;
-class GrubWidget : public QFrame
+class GrubWidget : public ScrollFrame
 {
     Q_OBJECT
 
@@ -37,7 +38,6 @@ protected:
     bool eventFilter(QObject *, QEvent *) Q_DECL_OVERRIDE;
 
 private:
-    QVBoxLayout *m_layout;
     ModuleHeader *m_header;
     DArrowLineExpand *m_arrowDefaultBoot;
     DArrowLineExpand *m_arrowBootDelay;
