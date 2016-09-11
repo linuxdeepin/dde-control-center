@@ -76,36 +76,45 @@ Frame::Frame(QWidget *parent) :
     m_contentView->setFixedSize(DCC::ControlCenterWidth, frameHeight);
     m_homeScreen->setFixedSize(DCC::ControlCenterWidth, frameHeight);
 
-    DisplayInterface *display_dbus = new DisplayInterface(this);
+    m_displayInter = new DisplayInterface(this);
+//    DisplayInterface *display_dbus = new DisplayInterface(this);
     DBusLauncher *m_dbusLauncher = new DBusLauncher(this);
 
-    auto updateGeometry = [display_dbus, this] {
-        QRect primaryRect = display_dbus->primaryRect();
-        const QString &primaryScreenName = display_dbus->primary();
+    m_posAdjustTimer = new QTimer(this);
+    m_posAdjustTimer->setInterval(500);
+    m_posAdjustTimer->setSingleShot(true);
 
-        qDebug() << "change screen, primary is: " << primaryScreenName;
+//    auto updateGeometry = [display_dbus, this] {
+//        QRect primaryRect = display_dbus->primaryRect();
+//        const QString &primaryScreenName = display_dbus->primary();
 
-        if (primaryScreen)
-            disconnect(primaryScreen, &QScreen::geometryChanged, this, &Frame::updateGeometry);
+//        qDebug() << "change screen, primary is: " << primaryScreenName;
 
-        for (const QScreen *screen : qApp->screens())
-        {
-            if (screen->name() == primaryScreenName) {
-                primaryScreen = screen;
-                primaryRect = screen->geometry();
-                connect(screen, &QScreen::geometryChanged, this, &Frame::updateGeometry);
-                break;
-            }
-        }
+//        if (primaryScreen)
+//            disconnect(primaryScreen, &QScreen::geometryChanged, this, &Frame::updateGeometry);
 
-        this->updateGeometry(primaryRect);
-    };
+//        for (const QScreen *screen : qApp->screens())
+//        {
+//            if (screen->name() == primaryScreenName) {
+//                primaryScreen = screen;
+//                primaryRect = screen->geometry();
+//                connect(screen, &QScreen::geometryChanged, this, &Frame::updateGeometry);
+//                break;
+//            }
+//        }
 
-    connect(display_dbus, &DisplayInterface::PrimaryChanged, this, updateGeometry);
+//        this->updateGeometry(primaryRect);
+//    };
+
+    connect(m_posAdjustTimer, &QTimer::timeout, this, &Frame::updateGeometry);
+    connect(m_displayInter, &DisplayInterface::PrimaryRectChanged, m_posAdjustTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_displayInter, &DisplayInterface::ScreenHeightChanged, m_posAdjustTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_displayInter, &DisplayInterface::ScreenWidthChanged, m_posAdjustTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+//    connect(display_dbus, &DisplayInterface::PrimaryChanged, this, updateGeometry);
     connect(m_dbusLauncher, &DBusLauncher::Shown, [this] {hide(true);});
 
     connect(m_homeScreen, &HomeScreen::powerBtnClicked, [this] {hide(true);});
-    connect(this, &Frame::hideInLeftChanged, this, updateGeometry);
+    connect(this, &Frame::hideInLeftChanged, m_posAdjustTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
 //    connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
     connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide, Qt::QueuedConnection);
     connect(m_hideAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged, Qt::QueuedConnection);
@@ -124,6 +133,8 @@ Frame::Frame(QWidget *parent) :
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     setFocusPolicy(Qt::StrongFocus);
     setHideInLeft(false);
+
+    updateGeometry();
 
 #ifdef ARCH_MIPSEL
     setCursor(Qt::WaitCursor);
@@ -334,8 +345,9 @@ void Frame::setHideInLeft(bool hideInLeft)
     emit hideInLeftChanged(hideInLeft);
 }
 
-void Frame::updateGeometry(const QRect &primaryRect)
+void Frame::updateGeometry()
 {
+    const QRect primaryRect = m_displayInter->primaryRect();
     qDebug() << "updateGeometry: " << primaryRect;
 
     int posX;

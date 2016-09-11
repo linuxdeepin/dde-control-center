@@ -19,6 +19,7 @@
 #include "modulemetadata.h"
 #include "dbus/dbuscontrolcenter.h"
 #include "dbus/dbusxmousearea.h"
+#include "dbus/displayinterface.h"
 
 class QStackedLayout;
 class QKeyEvent;
@@ -45,7 +46,7 @@ public:
 
 public slots:
     void setHideInLeft(bool hideInLeft);
-    void updateGeometry(const QRect &primaryRect);
+    void updateGeometry();
     void setAutoHide(bool autoHide);
     void toggle(bool inLeft);
     void selectModule(const QString &pluginId);
@@ -83,6 +84,9 @@ private:
     QThread *m_pluginLoadThread = NULL;
     QString m_dbusFullScreenKey = QString();
     QPointer<const QScreen> primaryScreen;
+
+    DisplayInterface *m_displayInter;
+    QTimer *m_posAdjustTimer;
 
     bool m_visible = false;
     bool m_hideInLeft = true;
