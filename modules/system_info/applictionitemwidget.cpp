@@ -61,7 +61,7 @@ ApplictionItemWidget::ApplictionItemWidget(QWidget *parent)
     m_updateBtn->hide();
     m_expandChangelogBtn = new QPushButton;
     m_expandChangelogBtn->setStyleSheet(LinkButtonStyle);
-    m_expandChangelogBtn->setText("Detail");
+    m_expandChangelogBtn->setText(tr("Details"));
     m_separator = new HSeparatorWidget;
     m_separator->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     m_separator->setFixedWidth(DCC::ModuleContentWidth - 48);
