@@ -122,6 +122,11 @@
         <source>Update</source>
         <translation>更新</translation>
     </message>
+    <message>
+        <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
+        <source>Details</source>
+        <translation>详情</translation>
+    </message>
 </context>
 <context>
     <name>ApplyButtonLine</name>
@@ -619,7 +624,7 @@
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="76"/>
-        <location filename="../modules/grub/grubwidget.cpp" line="192"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="190"/>
         <source>Drag and drop an image to change background.</source>
         <translation>拖拽图片到此以更换背景</translation>
     </message>
@@ -654,12 +659,12 @@
         <translation>您可以通过关闭主题背景开关来改善开机选择启动项的速度</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="180"/>
         <source>Updating...</source>
         <translation>正在更新...</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="184"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Successfully updated, reboot to view.</source>
         <translation>更新成功，重启可查看。</translation>
     </message>
@@ -1674,52 +1679,52 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="272"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="281"/>
         <source>Your system is up to date</source>
         <translation>您的系统已经是最新的</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="276"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>Click to view available  updates</source>
         <translation>点击按钮查看更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="298"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Download completed, please click on the update icon to install</source>
         <translation>下载完成，请点击右侧更新按扭安装</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
         <source>Total download size: %1</source>
         <translation>总下载大小：%1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="318"/>
         <source>Unknown</source>
         <translation>未知</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="319"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="329"/>
         <source>%1 software need to be updated</source>
         <translation>您有%1个软件需要更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="325"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="335"/>
         <source>Some patches need to be updated</source>
         <translation>您的系统需要更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="331"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation>您的系统和%1个软件需要更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="397"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="407"/>
         <source>Checking for updates</source>
         <translation>正在检查更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="398"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="408"/>
         <source>Check for updates, please wait</source>
         <translation>检查更新中，请稍候</translation>
     </message>

@@ -122,6 +122,11 @@
         <source>Update</source>
         <translation>アップデートする</translation>
     </message>
+    <message>
+        <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
+        <source>Details</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ApplyButtonLine</name>
@@ -619,7 +624,7 @@
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="76"/>
-        <location filename="../modules/grub/grubwidget.cpp" line="192"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="190"/>
         <source>Drag and drop an image to change background.</source>
         <translation>画像をドラッグ・アンド・ドロップで背景を変える。</translation>
     </message>
@@ -654,12 +659,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="180"/>
         <source>Updating...</source>
         <translation>更新をインストール中</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="184"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Successfully updated, reboot to view.</source>
         <translation>アップデートが成功しました。再起動して表示してください。</translation>
     </message>
@@ -1674,52 +1679,52 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="272"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="281"/>
         <source>Your system is up to date</source>
         <translation>あなたのシステムは最新です</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="276"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>Click to view available  updates</source>
         <translation>利用可能な最新版を見るにはクリックして下さい</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="298"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Download completed, please click on the update icon to install</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
         <source>Total download size: %1</source>
         <translation>合計ダウンロードサイズ: %1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="318"/>
         <source>Unknown</source>
         <translation>不明</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="319"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="329"/>
         <source>%1 software need to be updated</source>
         <translation>％1ソフトはアップデートが必要です</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="325"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="335"/>
         <source>Some patches need to be updated</source>
         <translation>更新の必要なパッチがあります</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="331"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation>いくつかのパッチと%1ソフトフェアをアップデートする必要があります</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="397"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="407"/>
         <source>Checking for updates</source>
         <translation>更新を確認中</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="398"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="408"/>
         <source>Check for updates, please wait</source>
         <translation>更新をチェックする。お待ちください</translation>
     </message>

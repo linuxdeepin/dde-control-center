@@ -40,17 +40,17 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="202"/>
         <source>Other devices</source>
-        <translation type="unfinished"/>
+        <translation>Aliaj iloj</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="224"/>
         <source>My devices</source>
-        <translation type="unfinished"/>
+        <translation>Miaj iloj</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="231"/>
         <source>Open bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>Malfermi bluetooth por trovi proksimajn artefaktojn (Laŭtparolilo, klavaro, muso)</translation>
     </message>
 </context>
 <context>
@@ -120,6 +120,11 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="59"/>
         <source>Update</source>
+        <translation>Ĝisdatigi</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
+        <source>Details</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -157,37 +162,37 @@
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="48"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="63"/>
         <source>1 Minute</source>
-        <translation type="unfinished"/>
+        <translation>1 minuto</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="49"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="64"/>
         <source>5 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>5 minutoj</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="50"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="65"/>
         <source>10 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>10 minutoj</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="51"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="66"/>
         <source>15 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>15 minutoj</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="52"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="67"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>30 minutoj</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="53"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="68"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 horo</translation>
     </message>
 </context>
 <context>
@@ -200,7 +205,7 @@
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="21"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>Ignori</translation>
     </message>
 </context>
 <context>
@@ -351,7 +356,7 @@
         <location filename="../modules/display/customsettings.cpp" line="341"/>
         <location filename="../modules/display/customsettings.cpp" line="349"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
-        <translation type="unfinished"/>
+        <translation>Restarigo de antaŭajn ekranjn agordojn en &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; sekundoj.</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="343"/>
@@ -504,7 +509,7 @@
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="99"/>
         <source>Unconnect</source>
-        <translation type="unfinished"/>
+        <translation>Malkonekti</translation>
     </message>
 </context>
 <context>
@@ -619,7 +624,7 @@
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="76"/>
-        <location filename="../modules/grub/grubwidget.cpp" line="192"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="190"/>
         <source>Drag and drop an image to change background.</source>
         <translation>Treni kaj faligi bildon por ŝanĝi fonon.</translation>
     </message>
@@ -651,15 +656,15 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="144"/>
         <source>The startup speed can be improved by disabling the theme</source>
-        <translation type="unfinished"/>
+        <translation>La ekkuro rapido povas esti plibonigita per malŝalti la temon</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="180"/>
         <source>Updating...</source>
         <translation>Aktualigante...</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="184"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Successfully updated, reboot to view.</source>
         <translation>Sukcese aktualigita, rekomenci por vidi</translation>
     </message>
@@ -750,7 +755,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="363"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Serĉi</translation>
     </message>
 </context>
 <context>
@@ -820,7 +825,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="271"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Serĉi</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="384"/>
@@ -850,22 +855,22 @@
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="114"/>
         <source>Timeout</source>
         <extracomment>the mirror cant reachable</extracomment>
-        <translation type="unfinished"/>
+        <translation>Tempolimo</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="116"/>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Malrapida</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="118"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Meznivele rapida</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="120"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rapida</translation>
     </message>
 </context>
 <context>
@@ -873,7 +878,7 @@
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="27"/>
         <source>Switch</source>
-        <translation type="unfinished"/>
+        <translation>Ŝalti</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="28"/>
@@ -883,12 +888,12 @@
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="38"/>
         <source>Auto check update</source>
-        <translation type="unfinished"/>
+        <translation>Ĉeki ĝisdatigoj aŭtomate</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="41"/>
         <source>Mirrors</source>
-        <translation type="unfinished"/>
+        <translation>Fontoj</translation>
     </message>
 </context>
 <context>
@@ -898,12 +903,12 @@
         <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="83"/>
         <source>Modem Network</source>
-        <translation type="unfinished"/>
+        <translation>Modemo reto</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="41"/>
         <source>Restore the connection</source>
-        <translation type="unfinished"/>
+        <translation>Reestigi la konekton</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
@@ -981,7 +986,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="32"/>
         <source>Wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
     <message>
         <location filename="../modules/grub/grub.cpp" line="28"/>
@@ -1004,7 +1009,7 @@
     <message>
         <location filename="../modules/display/monitorground.cpp" line="46"/>
         <source>Recognize</source>
-        <translation type="unfinished"/>
+        <translation>Rekoni</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="47"/>
@@ -1092,7 +1097,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
-        <translation type="unfinished"/>
+        <translation>Trakpunkto</translation>
     </message>
 </context>
 <context>
@@ -1248,7 +1253,7 @@
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="203"/>
         <source>View detailed information</source>
-        <translation type="unfinished"/>
+        <translation>Vidi detalajn informojn</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="217"/>
@@ -1375,7 +1380,7 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="148"/>
         <source>Sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Sono efektoj</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="163"/>
@@ -1428,27 +1433,27 @@
     <message>
         <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Ekrano pendados post</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Komputilo pendados post</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
-        <translation type="unfinished"/>
+        <translation>Pasvorto necesa por veki la ekranon</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
-        <translation type="unfinished"/>
+        <translation>Pasvorto necesa por veki la komputilon</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation type="unfinished"/>
+        <translation>La portebla-PC pendados kiam la kovrilo estos fermita</translation>
     </message>
 </context>
 <context>
@@ -1551,7 +1556,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
         <source>Distribution:</source>
-        <translation type="unfinished"/>
+        <translation>Distribuo:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
@@ -1561,7 +1566,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
         <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Aŭtorrajto (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
@@ -1607,7 +1612,7 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="52"/>
         <source>Ignore the following proxy configuration for hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>Ignori la sekvan prokurilon agordon por gastigantoj kaj domajnoj</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="79"/>
@@ -1668,60 +1673,60 @@
     <message>
         <location filename="../modules/system_info/updatearrowexpand.cpp" line="32"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Ĝisdatigi</translation>
     </message>
 </context>
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="272"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="281"/>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>Via sistemo estas ĝisdatigita</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="276"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>Click to view available  updates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="298"/>
-        <source>Download completed, please click on the update icon to install</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
-        <source>Total download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Klaki por vidi disponeblaj ĝisdatigoj</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <source>Download completed, please click on the update icon to install</source>
+        <translation>Elŝuto kompletigita, bonvolu klaki sur la ĝisdatigo ikono por instali</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
+        <source>Total download size: %1</source>
+        <translation>Totala grandeco de la elŝuto: %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="318"/>
         <source>Unknown</source>
         <translation>Nekonata</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="319"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="329"/>
         <source>%1 software need to be updated</source>
-        <translation type="unfinished"/>
+        <translation>%1 programaro bezonas esti ĝisdatigita</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="325"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="335"/>
         <source>Some patches need to be updated</source>
-        <translation type="unfinished"/>
+        <translation>Kelkaj flikrimedoj bezonas esti ĝisdatigitaj</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="331"/>
         <source>Some patches and %1 software need to be updated</source>
-        <translation type="unfinished"/>
+        <translation>Kelkaj flikrimedoj kaj %1 programaro bezonas esti ĝisdatigitaj</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="397"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="407"/>
         <source>Checking for updates</source>
-        <translation type="unfinished"/>
+        <translation>Kontrolanta por ĝisdatigoj</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="398"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="408"/>
         <source>Check for updates, please wait</source>
-        <translation type="unfinished"/>
+        <translation>Kontrolanta por ĝisdatigoj, bonvolu atendi</translation>
     </message>
 </context>
 <context>

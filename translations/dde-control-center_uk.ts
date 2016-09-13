@@ -122,6 +122,11 @@
         <source>Update</source>
         <translation>Оновити</translation>
     </message>
+    <message>
+        <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
+        <source>Details</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ApplyButtonLine</name>
@@ -619,7 +624,7 @@
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="76"/>
-        <location filename="../modules/grub/grubwidget.cpp" line="192"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="190"/>
         <source>Drag and drop an image to change background.</source>
         <translation>Перетягніть сюди зображення, щоб змінити фон.</translation>
     </message>
@@ -654,12 +659,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="180"/>
         <source>Updating...</source>
         <translation>Оновлення...</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="184"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Successfully updated, reboot to view.</source>
         <translation>Успішно оновлено, перезавантажте, щоб переглянути.</translation>
     </message>
@@ -1675,52 +1680,52 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="272"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="281"/>
         <source>Your system is up to date</source>
         <translation>Ваша система оновлена</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="276"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>Click to view available  updates</source>
         <translation>Клацніть, щоб переглянути доступні оновлення</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="298"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Download completed, please click on the update icon to install</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
         <source>Total download size: %1</source>
         <translation>Загальний розмір завантаження: %1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="318"/>
         <source>Unknown</source>
         <translation>Невідомо</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="319"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="329"/>
         <source>%1 software need to be updated</source>
         <translation>%1 програма потребує оновлення</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="325"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="335"/>
         <source>Some patches need to be updated</source>
         <translation>Потрібно оновити деякі патчі</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="331"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation>Деякі патчі й 1% програмне забезпечення потребують оновлення</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="397"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="407"/>
         <source>Checking for updates</source>
         <translation>Перевірка наявності оновлень</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="398"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="408"/>
         <source>Check for updates, please wait</source>
         <translation>Перевірка оновлень, будь ласка, зачекайте</translation>
     </message>

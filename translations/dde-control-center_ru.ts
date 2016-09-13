@@ -81,7 +81,7 @@
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="23"/>
         <source>Add PPPoE Connection</source>
-        <translation>Добавить подключение PPPoE</translation>
+        <translation>Добавить PPPoE cоеднение</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="26"/>
@@ -121,6 +121,11 @@
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="59"/>
         <source>Update</source>
         <translation>Обновление</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
+        <source>Details</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -274,7 +279,7 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="38"/>
         <source>Normal</source>
-        <translation>Обычный режим</translation>
+        <translation>Обычный</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="39"/>
@@ -305,7 +310,7 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="106"/>
         <source>Please select the monitor you want to enable (checkable)</source>
-        <translation>Выберете монитор, который хотите включить (кликабельно)</translation>
+        <translation>Выберете монитор, который хотите включить (доступно для просмотра)</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="111"/>
@@ -527,7 +532,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy the contents of your primary screen to other screens.</source>
-        <translation>Копирование содержимого основного экрана на другие экраны.</translation>
+        <translation>Копировать содержимое основного экрана на другие экраны</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="177"/>
@@ -537,7 +542,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
-        <translation>Расширьте содержание вашего экрана, для отображения содержания на других экранах.</translation>
+        <translation>Расширьте содержимое вашего экрана, чтобы отобразить различное содержание на разных экранах.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="189"/>
@@ -589,7 +594,7 @@
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="32"/>
         <source>Click to install</source>
-        <translation>Нажать для установки</translation>
+        <translation>Нажмите, чтобы установить</translation>
     </message>
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="61"/>
@@ -619,7 +624,7 @@
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="76"/>
-        <location filename="../modules/grub/grubwidget.cpp" line="192"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="190"/>
         <source>Drag and drop an image to change background.</source>
         <translation>Перетащите изображение, чтобы изменить фон.</translation>
     </message>
@@ -654,12 +659,12 @@
         <translation>Отключение темы позволит увеличить скорость загрузки</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="180"/>
         <source>Updating...</source>
         <translation>Обновление...</translation>
     </message>
     <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="184"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Successfully updated, reboot to view.</source>
         <translation>Успешно обновлено, перезагрузите компьютер для просмотра.</translation>
     </message>
@@ -705,12 +710,12 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="163"/>
         <source>Repeat Delay</source>
-        <translation>Задержка повторения</translation>
+        <translation>Задержка повтора</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
         <source>Repeat Rate</source>
-        <translation>Частота повторения</translation>
+        <translation>Частота повтора</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="205"/>
@@ -830,12 +835,12 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="398"/>
         <source>The shortcut you set </source>
-        <translation>Ваше сочетание клавиш, установлено.</translation>
+        <translation>Ярлык быстрого доступа установлен.</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="408"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
-        <translation>Категория &quot;%1&quot; конфликтует с категорией &quot;%2&quot;</translation>
+        <translation>конфликты с используемым для &quot;%2&quot; в категории &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="415"/>
@@ -1067,7 +1072,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="190"/>
         <source>Drag Threshold</source>
-        <translation>Начало перетаскивания</translation>
+        <translation>Предел перетаскивания</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="191"/>
@@ -1175,7 +1180,7 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="76"/>
         <source>Connected</source>
-        <translation>Подключен</translation>
+        <translation>Подключено</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="88"/>
@@ -1248,7 +1253,7 @@
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="203"/>
         <source>View detailed information</source>
-        <translation>Показать подробную информацию</translation>
+        <translation>Посмотреть подробную информацию</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="217"/>
@@ -1261,12 +1266,12 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="94"/>
         <source>Double-click this area to change your time</source>
-        <translation>Двойной клик в этой области для смены времени</translation>
+        <translation>Дважды щелкните эту область, чтобы изменить время</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="122"/>
         <source>dddd, dd MMMM yyyy</source>
-        <translation>дддд, дд ММММ гггг</translation>
+        <translation>dddd, dd MMMM yyyy</translation>
     </message>
 </context>
 <context>
@@ -1438,17 +1443,17 @@
     <message>
         <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
-        <translation>Запрос пароля при пробуждении экрана</translation>
+        <translation>Требовать пароль для пробуждения экрана</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
-        <translation>Запрос пароля при пробуждении компьютера</translation>
+        <translation>Требовать пароль для пробуждения компьютера</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation>После закрытия крышки компьютер будет приостановлен</translation>
+        <translation>Ноутбук будет приостановлен после закрытия крышки</translation>
     </message>
 </context>
 <context>
@@ -1674,54 +1679,54 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="272"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="281"/>
         <source>Your system is up to date</source>
         <translation>Ваша система находится в актуальном состоянии</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="276"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>Click to view available  updates</source>
         <translation>Нажмите для просмотра доступных обновлений</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="298"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Download completed, please click on the update icon to install</source>
-        <translation type="unfinished"/>
+        <translation>Загрузка завершена, пожалуйста нажмите на значок обновления, чтобы установить</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
         <source>Total download size: %1</source>
         <translation>Общий объём загрузки: %1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="318"/>
         <source>Unknown</source>
         <translation>Неизвестный</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="319"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="329"/>
         <source>%1 software need to be updated</source>
         <translation>%1 программного обеспечения необходимо обновить</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="325"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="335"/>
         <source>Some patches need to be updated</source>
-        <translation>Некоторые патчи (Заплатки) должны быть обновлены</translation>
+        <translation>Некоторые патчи должны быть обновлены</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="331"/>
         <source>Some patches and %1 software need to be updated</source>
-        <translation>Некоторые патчи (заплатки ) и %1 программ(ы) должны быть обновлены</translation>
+        <translation>Некоторые патчи и %1 программное обеспечение необходимо обновить</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="397"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="407"/>
         <source>Checking for updates</source>
         <translation>Проверка обновлений</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="398"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="408"/>
         <source>Check for updates, please wait</source>
-        <translation>Проверка обновлений, подождите</translation>
+        <translation>Проверка обновлений, пожалуйста подождите</translation>
     </message>
 </context>
 <context>
@@ -1744,7 +1749,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
-        <translation>файлы изображений (*.jpg *.png *.jpeg)</translation>
+        <translation>Файлы изображений (*.jpg *.png *.jpeg)</translation>
     </message>
 </context>
 <context>
@@ -1803,17 +1808,17 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="63"/>
         <source>Left Click</source>
-        <translation>Левый клик</translation>
+        <translation>Щелчок левой кнопкой</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="64"/>
         <source>Right Click</source>
-        <translation>Правый клик</translation>
+        <translation>Щелчок правой кнопкой</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="65"/>
         <source>Middle Click</source>
-        <translation>Средний клик</translation>
+        <translation>Щелчок средней кнопкой</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="83"/>
@@ -1868,12 +1873,12 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="176"/>
         <source>Soft</source>
-        <translation>Мягко</translation>
+        <translation>Мягкий</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="177"/>
         <source>Hard</source>
-        <translation>Твердо</translation>
+        <translation>Жесткий</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="191"/>

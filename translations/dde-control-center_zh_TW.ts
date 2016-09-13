@@ -122,6 +122,11 @@
         <source>Update</source>
         <translation>更新</translation>
     </message>
+    <message>
+        <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
+        <source>Details</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ApplyButtonLine</name>
@@ -200,7 +205,7 @@
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="21"/>
         <source>Ignore</source>
-        <translation>忽略</translation>
+        <translation>解除配對</translation>
     </message>
 </context>
 <context>
@@ -310,7 +315,7 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="111"/>
         <source>Primary</source>
-        <translation>主要分割區</translation>
+        <translation>主要螢幕</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="139"/>
@@ -602,7 +607,7 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="173"/>
         <source>Set</source>
-        <translation>儲存</translation>
+        <translation>儲存設定</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="175"/>
@@ -619,7 +624,7 @@
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="76"/>
-        <location filename="../modules/grub/grubwidget.cpp" line="192"/>
+        <location filename="../modules/grub/grubwidget.cpp" line="190"/>
         <source>Drag and drop an image to change background.</source>
         <translation>拖拽圖片到此以更換背景。</translation>
     </message>
@@ -631,12 +636,12 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="108"/>
         <source>Default Boot</source>
-        <translation>預設啟動</translation>
+        <translation>預設要啟動的系統</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="124"/>
         <source>Boot delay</source>
-        <translation>啟動延遲</translation>
+        <translation>延遲時間</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="132"/>
@@ -646,20 +651,20 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="140"/>
         <source>Selected Text Color</source>
-        <translation>反白選擇項目的文字顏色</translation>
+        <translation>被選擇項目的文字顏色</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="144"/>
         <source>The startup speed can be improved by disabling the theme</source>
-        <translation>禁止主題可以加快開機速度</translation>
+        <translation>停用主題可以加快開機速度</translation>
+    </message>
+    <message>
+        <location filename="../modules/grub/grubwidget.cpp" line="180"/>
+        <source>Updating...</source>
+        <translation>正在更新啟動程式設定…</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="182"/>
-        <source>Updating...</source>
-        <translation>正在升級…</translation>
-    </message>
-    <message>
-        <location filename="../modules/grub/grubwidget.cpp" line="184"/>
         <source>Successfully updated, reboot to view.</source>
         <translation>成功更新，重新啟動即可檢視。</translation>
     </message>
@@ -669,7 +674,7 @@
     <message>
         <location filename="../frame/homescreen.cpp" line="128"/>
         <source>Shutdown</source>
-        <translation>關機</translation>
+        <translation>電源控制</translation>
     </message>
 </context>
 <context>
@@ -705,7 +710,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="163"/>
         <source>Repeat Delay</source>
-        <translation>重復延遲</translation>
+        <translation>重複延遲</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
@@ -745,7 +750,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="265"/>
         <source>Add Keyboard Layout</source>
-        <translation>增加鍵盤佈局設定</translation>
+        <translation>新增鍵盤佈局設定</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="363"/>
@@ -781,17 +786,17 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="158"/>
         <source>Command</source>
-        <translation>命令</translation>
+        <translation>指令</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="181"/>
         <source>Delete Shortcut</source>
-        <translation>刪除捷徑</translation>
+        <translation>刪除捷徑鍵</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="182"/>
         <source>Add Shortcut</source>
-        <translation>新增捷徑</translation>
+        <translation>新增捷徑鍵</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="183"/>
@@ -825,7 +830,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="384"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
-        <translation>無效的捷徑鍵 &quot;%1&quot;，請重新輸入。</translation>
+        <translation>無效的捷徑鍵「 %1 」，請重新輸入。</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="398"/>
@@ -903,7 +908,7 @@
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="41"/>
         <source>Restore the connection</source>
-        <translation>還原連線</translation>
+        <translation>重設連線</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
@@ -921,7 +926,7 @@
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="126"/>
         <source>Shutdown</source>
-        <translation>關機</translation>
+        <translation>電源控制</translation>
     </message>
     <message>
         <location filename="../modules/account/account.cpp" line="18"/>
@@ -1052,7 +1057,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="107"/>
         <source>Double-click Speed</source>
-        <translation>滑鼠鍵按兩下速度</translation>
+        <translation>連按兩下速度</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="124"/>
@@ -1354,12 +1359,12 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="63"/>
         <source>Output Port</source>
-        <translation>輸出埠</translation>
+        <translation>輸出使用</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="75"/>
         <source>Input Port</source>
-        <translation>輸入埠</translation>
+        <translation>輸入使用</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="88"/>
@@ -1674,52 +1679,52 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="272"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="281"/>
         <source>Your system is up to date</source>
         <translation>你的系統已更新到最新版本</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="276"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>Click to view available  updates</source>
         <translation>按一下檢視可用更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="298"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Download completed, please click on the update icon to install</source>
-        <translation type="unfinished"/>
+        <translation>更新下載完成，請點擊更新圖示安裝</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
         <source>Total download size: %1</source>
         <translation>總計下載大小：%1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="318"/>
         <source>Unknown</source>
         <translation>未知的</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="319"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="329"/>
         <source>%1 software need to be updated</source>
         <translation>%1 個軟體需要更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="325"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="335"/>
         <source>Some patches need to be updated</source>
         <translation>一些修補程式需要更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="321"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="331"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation>一些修補程式與 %1 個軟體需要更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="397"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="407"/>
         <source>Checking for updates</source>
         <translation>檢查更新</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="398"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="408"/>
         <source>Check for updates, please wait</source>
         <translation>正在檢查更新，請稍等</translation>
     </message>
@@ -1878,7 +1883,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Double-click Space</source>
-        <translation>連按兩下間隔</translation>
+        <translation>連按兩下空格鍵</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="196"/>
