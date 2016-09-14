@@ -161,6 +161,8 @@ void AddVpnPage::init()
     boxWidget_vpn_info->addWidget(new EditLineComboBox("alias-vpn-strongswan", "method", m_dbus));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "user",
                                                     m_dbus, EditLineInput::Normal, true));
+    boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "password",
+                                                    m_dbus, EditLineInput::Password, true));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "usercert", m_dbus,
                                                     EditLineInput::FileChooser, true));
     boxWidget_vpn_info->addWidget(new EditLineInput("alias-vpn-strongswan", "userkey", m_dbus,
