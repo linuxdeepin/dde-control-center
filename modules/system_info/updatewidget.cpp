@@ -509,11 +509,36 @@ QList<AppUpdateInfo> UpdateWidget::getUpdateInfoList() const
             QString metadataDir = "/lastore/metadata/" + packageName;
 
             if (QFile::exists(metadataDir)) {
+                auto compareVersion = [](QString version1, QString version2) {
+                    QProcess p;
+                    p.setArguments(QStringList() << "/usr/bin/dpkg" << "--compare-versions" << version1 << "gt" << version2);
+                    p.waitForFinished();
+                    return p.exitCode() == 0;
+                };
+
+                auto fetchVersionedChangelog = [compareVersion](QJsonObject changelog, QString & currentVersion) {
+                    QString result;
+
+                    for (QString version : changelog.keys()) {
+                        if (compareVersion(version, currentVersion)) {
+                            if (result.isNull() || result.isEmpty()) {
+                                result = result + changelog.value(version).toString();
+                            } else {
+                                result = result + '\n' + changelog.value(version).toString();
+                            }
+                        }
+                    }
+
+                    return result;
+                };
+
                 AppUpdateInfo info;
                 info.m_packageId = packageName;
                 info.m_currentVersion = pack["CurrentVersion"].toString();
                 info.m_avilableVersion = pack["LastVersion"].toString();
                 info.m_icon = metadataDir + "/meta/icons/" + packageName + ".svg";
+                info.m_name = pack["name"].toString();
+                info.m_changelog = fetchVersionedChangelog(pack["changelog"].toObject(), info.m_currentVersion);
 
                 QFile manifest(metadataDir + "/meta/manifest.json");
                 if (manifest.open(QFile::ReadOnly)) {
@@ -523,19 +548,12 @@ QList<AppUpdateInfo> UpdateWidget::getUpdateInfoList() const
                     QJsonObject locales = object["locales"].toObject();
                     QJsonObject locale = locales[QLocale::system().name()].toObject();
                     QJsonObject changelog = locale["changelog"].toObject();
+                    QString versionedChangelog = fetchVersionedChangelog(changelog, info.m_currentVersion);
 
-                    info.m_name = locale["name"].toString();
-
-                    for (QString version : changelog.keys()) {
-                        // TODO: valid version compare mechanism.
-                        if (version.compare(info.m_currentVersion, Qt::CaseInsensitive) > 0) {
-                            if (info.m_changelog.isNull() || info.m_changelog.isEmpty()) {
-                                info.m_changelog = info.m_changelog + changelog.value(version).toString();
-                            } else {
-                                info.m_changelog = info.m_changelog + '\n' + changelog.value(version).toString();
-                            }
-                        }
-                    }
+                    if (!locale["name"].toString().isEmpty())
+                        info.m_name = locale["name"].toString();
+                    if (!versionedChangelog.isEmpty())
+                        info.m_changelog = versionedChangelog;
                 }
 
                 infos << info;
