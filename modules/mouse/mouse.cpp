@@ -514,6 +514,9 @@ void Mouse::onTouchPadExistChanged()
         disconnect(m_touchpadSwitchButton, SIGNAL(checkedChanged(bool)),
                    m_touchpadSettingPanel, SLOT(setVisible(bool)));
     }
+
+    bool mouseExist = m_mouseInterface->exist();
+    m_touchpadSwitchButton->setVisible(touchpadExist&&mouseExist);
 }
 
 void Mouse::onTrackpointExistChanged()
