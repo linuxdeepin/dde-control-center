@@ -21,10 +21,10 @@ class FrameProxyInterface
 {
 public:
     // Module请求更改主Widget大小；
-    virtual void changeSize(QString * moduleId, QSize size);
+    virtual void changeSize(QString moduleId, QSize size);
 
     // Module请求进入第三级页面；
-    virtual void pushWidget(QString * moduleId, QWidget * w);
+    virtual void pushWidget(QString moduleId, QWidget * w);
 };
 
 }
