@@ -1,7 +1,0 @@
-ListWidget{
-    background-color: transparent;
-}
-
-ListWidget QWidget#MainWidget{
-    background-color: transparent;
-}
