@@ -1,5 +1,5 @@
 include(./common.pri)
-include(./interfaces/interface.pri)
+include(./interfaces/interfaces.pri)
 include(./helper/helper.pri)
 include(./modules/modules.pri)
 include(./widgets/widgets.pri)
