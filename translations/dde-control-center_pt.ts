@@ -125,7 +125,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>Detalhes</translation>
     </message>
 </context>
 <context>
@@ -656,7 +656,7 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="144"/>
         <source>The startup speed can be improved by disabling the theme</source>
-        <translation>A velocidade de iniciação pode ser aumentada ao desactivar o tema</translation>
+        <translation>A velocidade de inicialização pode ser melhorada desativando o tema</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="180"/>

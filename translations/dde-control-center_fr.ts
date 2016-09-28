@@ -94,7 +94,7 @@
     <message>
         <location filename="../widgets/addrmdoneline.cpp" line="25"/>
         <source>Done</source>
-        <translation>Fait</translation>
+        <translation>Terminé</translation>
     </message>
 </context>
 <context>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>Détails</translation>
     </message>
 </context>
 <context>

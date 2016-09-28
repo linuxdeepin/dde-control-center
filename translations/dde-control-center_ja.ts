@@ -9,7 +9,7 @@
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="85"/>
         <source>Confirm</source>
-        <translation>確認する</translation>
+        <translation>確認</translation>
     </message>
 </context>
 <context>
@@ -22,7 +22,7 @@
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="81"/>
         <source>User List</source>
-        <translation>ユーザーリスト</translation>
+        <translation>ユーザー一覧</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="234"/>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="23"/>
         <source>Add PPPoE Connection</source>
-        <translation>PPPoE接続を追加</translation>
+        <translation>PPPoE 接続を追加</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="26"/>
@@ -102,7 +102,7 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="39"/>
         <source>VPN Type</source>
-        <translation>VPNタイプ</translation>
+        <translation>VPN の種類</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="57"/>
@@ -112,7 +112,7 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="74"/>
         <source>Add</source>
-        <translation>加えてください</translation>
+        <translation>追加</translation>
     </message>
 </context>
 <context>
@@ -120,12 +120,12 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="59"/>
         <source>Update</source>
-        <translation>アップデートする</translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>削除</translation>
     </message>
 </context>
 <context>
@@ -138,7 +138,7 @@
     <message>
         <location filename="../widgets/applybuttonline.cpp" line="16"/>
         <source>Apply</source>
-        <translation>適用する</translation>
+        <translation>適用</translation>
     </message>
 </context>
 <context>
@@ -156,43 +156,43 @@
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="54"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="69"/>
         <source>Never</source>
-        <translation>無い</translation>
+        <translation>なし</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="48"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="63"/>
         <source>1 Minute</source>
-        <translation type="unfinished"/>
+        <translation>1 分</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="49"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="64"/>
         <source>5 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>5 分</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="50"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="65"/>
         <source>10 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>10 分</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="51"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="66"/>
         <source>15 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>15 分</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="52"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="67"/>
         <source>30 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>30 分</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="53"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="68"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 時間</translation>
     </message>
 </context>
 <context>
@@ -213,7 +213,7 @@
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="34"/>
         <source>Connect to hidden access point</source>
-        <translation>隠れたアクセスポイントに接続</translation>
+        <translation>隠れたアクセスポイントへ接続</translation>
     </message>
 </context>
 <context>
@@ -243,7 +243,7 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="129"/>
         <source>Repeat Password</source>
-        <translation>パスワードを繰り返す</translation>
+        <translation>パスワード 再度</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="130"/>
@@ -255,7 +255,7 @@
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
         <source>Password can not be empty.</source>
-        <translation>パスワードは空文字では進めません。</translation>
+        <translation>パスワードを空欄にできません。</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="185"/>
@@ -264,7 +264,7 @@
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="320"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="327"/>
         <source>The two passwords do not match.</source>
-        <translation>２つのパスワードが一致しません。</translation>
+        <translation>2 つのパスワードが一致しません。</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="255"/>
@@ -284,12 +284,12 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="39"/>
         <source>Rotate right</source>
-        <translation>右に回転する</translation>
+        <translation>右に回転</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="40"/>
         <source>Upside down</source>
-        <translation>上下逆さま</translation>
+        <translation>逆さま</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="41"/>
@@ -310,12 +310,12 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="106"/>
         <source>Please select the monitor you want to enable (checkable)</source>
-        <translation>可能にする (チェック可能にする) モニターを選んでください </translation>
+        <translation>有効にする (確認できる) モニターを選んでください </translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="111"/>
         <source>Primary</source>
-        <translation>プライマー</translation>
+        <translation>プライマリー</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="139"/>
@@ -356,7 +356,7 @@
         <location filename="../modules/display/customsettings.cpp" line="341"/>
         <location filename="../modules/display/customsettings.cpp" line="349"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
-        <translation>&lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt;秒で 前のディスプレイ設定に戻す。</translation>
+        <translation>&lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt;秒後、前のディスプレイ設定に戻ります。</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="343"/>
@@ -366,7 +366,7 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="344"/>
         <source>Keep Changes</source>
-        <translation>変更し続けてください</translation>
+        <translation>変更を保持する</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.h" line="54"/>
@@ -379,7 +379,7 @@
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="18"/>
         <source>Set Date</source>
-        <translation>日付を設定する</translation>
+        <translation>日付の設定</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="26"/>
@@ -407,12 +407,12 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="78"/>
         <source>Sync Automatically</source>
-        <translation>自動で同期します</translation>
+        <translation>自動で同期する</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="85"/>
         <source>Use 24-hour clock</source>
-        <translation>24時間時計を使用してください</translation>
+        <translation>24時間表示</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="90"/>
@@ -456,12 +456,12 @@
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
         <source>DVD Video</source>
-        <translation>DVDビデオ</translation>
+        <translation>DVD ビデオ</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
         <source>CD Audio</source>
-        <translation>CDオーディオ</translation>
+        <translation>CD オーディオ</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
@@ -471,7 +471,7 @@
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
         <source>Picture</source>
-        <translation>写真</translation>
+        <translation>ピクチャー</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
@@ -481,7 +481,7 @@
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
         <source>Music</source>
-        <translation>音楽</translation>
+        <translation>ミュージック</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
@@ -491,7 +491,7 @@
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
         <source>Mail</source>
-        <translation>郵送する</translation>
+        <translation>メール</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
@@ -504,7 +504,7 @@
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="97"/>
         <source>Connected</source>
-        <translation>接続されています</translation>
+        <translation>接続済</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="99"/>
@@ -522,7 +522,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="158"/>
         <source>Display Mode</source>
-        <translation>ディスプレイモード</translation>
+        <translation>表示モード</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="166"/>
@@ -532,7 +532,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy the contents of your primary screen to other screens.</source>
-        <translation>あなたの最初のスクリーンの内容を他の画面にコピーします。</translation>
+        <translation>プライマリー画面の内容を他の画面にコピーします。</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="177"/>
@@ -542,7 +542,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
-        <translation>異なるスクリーンで異なるコンテンツを表示するため、スクリーンコンテンツを拡張しましょう。</translation>
+        <translation>異なる画面で異なる内容を表示するため、画面内容を拡張します。</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="189"/>
@@ -557,7 +557,7 @@
     <message>
         <location filename="../modules/display/display.cpp" line="200"/>
         <source>Only Displayed on %1</source>
-        <translation>%1にのみ表示されます</translation>
+        <translation>%1 にのみ表示されます</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="201"/>
@@ -576,7 +576,7 @@
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="45"/>
         <source>Delete</source>
-        <translation>削除してください</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="46"/>
@@ -586,7 +586,7 @@
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="54"/>
         <source>Are you sure you want to delete this network?</source>
-        <translation>本当にこのネットワークを削除してもよいですか？</translation>
+        <translation>このネットワークを削除してもよろしいですか？</translation>
     </message>
 </context>
 <context>
@@ -599,7 +599,7 @@
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="61"/>
         <source>Current system lacks component for %1</source>
-        <translation>現在のシステムは%1の為の要素が欠如しています</translation>
+        <translation>現在のシステムは %1 の要素が欠如しています</translation>
     </message>
 </context>
 <context>
@@ -620,13 +620,13 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="32"/>
         <source>Boot Menu</source>
-        <translation>ブートメニュー</translation>
+        <translation>起動メニュー</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="76"/>
         <location filename="../modules/grub/grubwidget.cpp" line="190"/>
         <source>Drag and drop an image to change background.</source>
-        <translation>画像をドラッグ・アンド・ドロップで背景を変える。</translation>
+        <translation>画像のドラッグアンドドロップで背景を変更します。</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="81"/>
@@ -636,37 +636,37 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="108"/>
         <source>Default Boot</source>
-        <translation>デフォルトブート</translation>
+        <translation>標準の起動</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="124"/>
         <source>Boot delay</source>
-        <translation>ブート遅延</translation>
+        <translation>起動時間</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="132"/>
         <source>Text Color</source>
-        <translation>文字の色</translation>
+        <translation>文字色</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="140"/>
         <source>Selected Text Color</source>
-        <translation>選択された文字色</translation>
+        <translation>選択文字色</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="144"/>
         <source>The startup speed can be improved by disabling the theme</source>
-        <translation type="unfinished"/>
+        <translation>起動速度はテーマを無効にすることによって改善することができます</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="180"/>
         <source>Updating...</source>
-        <translation>更新をインストール中</translation>
+        <translation>更新中...</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Successfully updated, reboot to view.</source>
-        <translation>アップデートが成功しました。再起動して表示してください。</translation>
+        <translation>更新しました。再起動で表示します。</translation>
     </message>
 </context>
 <context>
@@ -697,7 +697,7 @@
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="38"/>
         <source>Connect</source>
-        <translation>接続する</translation>
+        <translation>接続</translation>
     </message>
 </context>
 <context>
@@ -710,7 +710,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="163"/>
         <source>Repeat Delay</source>
-        <translation>ディレイを繰り返す</translation>
+        <translation>リピート時間</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
@@ -720,7 +720,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="205"/>
         <source>Cursor Blink Rate</source>
-        <translation>カーソルの点滅の速さ</translation>
+        <translation>カーソル点滅速度</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="227"/>
@@ -740,22 +740,22 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="263"/>
         <source>Keyboard Layout</source>
-        <translation>キーボードのレイアウト</translation>
+        <translation>キーボードレイアウト</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="264"/>
         <source>Remove Keyboard Layout</source>
-        <translation>キーボードのレイアウトを削除</translation>
+        <translation>キーボードレイアウトの削除</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="265"/>
         <source>Add Keyboard Layout</source>
-        <translation>キーボードのレイアウトを追加</translation>
+        <translation>キーボードレイアウトの追加</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="363"/>
         <source>Search</source>
-        <translation>検索する</translation>
+        <translation>検索</translation>
     </message>
 </context>
 <context>
@@ -768,7 +768,7 @@
     <message>
         <location filename="../modules/network/listwidgetcontainer.cpp" line="102"/>
         <source>Connect</source>
-        <translation>接続する</translation>
+        <translation>接続</translation>
     </message>
 </context>
 <context>
@@ -776,7 +776,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="38"/>
         <source>Keyboard Shortcuts</source>
-        <translation>キーボードのショートカット</translation>
+        <translation>キーボードショートカット</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="154"/>
@@ -791,12 +791,12 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="181"/>
         <source>Delete Shortcut</source>
-        <translation>ショートカットを削除</translation>
+        <translation>ショートカットの削除</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="182"/>
         <source>Add Shortcut</source>
-        <translation>ショートカットを追加</translation>
+        <translation>ショートカットの追加</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="183"/>
@@ -820,7 +820,7 @@
         <location filename="../modules/shortcuts/mainwidget.cpp" line="242"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="314"/>
         <source>Workspace</source>
-        <translation>作業領域</translation>
+        <translation>ワークスペース</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="271"/>
@@ -830,7 +830,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="384"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
-        <translation>ショートカット「%1」は無効です、新しいショートカットをタイプし直して下さい。</translation>
+        <translation>ショートカット &quot;%1&quot; は無効です、新しいショートカットを入力しなおしてください。</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="398"/>
@@ -840,7 +840,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="408"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
-        <translation>「%1」カテゴリーの「%2」へ使用されたものと矛盾する</translation>
+        <translation>&quot;%1&quot; カテゴリは &quot;%2&quot; で使用されるものと競合しています。</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="415"/>
@@ -855,22 +855,22 @@
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="114"/>
         <source>Timeout</source>
         <extracomment>the mirror cant reachable</extracomment>
-        <translation type="unfinished"/>
+        <translation>タイムアウト</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="116"/>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>遅い</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="118"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>中</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="120"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>速い</translation>
     </message>
 </context>
 <context>
@@ -878,7 +878,7 @@
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="27"/>
         <source>Switch</source>
-        <translation type="unfinished"/>
+        <translation>切替</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="28"/>
@@ -888,7 +888,7 @@
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="38"/>
         <source>Auto check update</source>
-        <translation>オートチェックアップデート</translation>
+        <translation>更新確認を自動で行う</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="41"/>
@@ -903,17 +903,17 @@
         <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="83"/>
         <source>Modem Network</source>
-        <translation>モデム・ネットワーク</translation>
+        <translation>モデムネットワーク</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="41"/>
         <source>Restore the connection</source>
-        <translation type="unfinished"/>
+        <translation>接続を元に戻す</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
         <source>Interface</source>
-        <translation>インターフェース</translation>
+        <translation>インターフェイス</translation>
     </message>
 </context>
 <context>
@@ -941,7 +941,7 @@
     <message>
         <location filename="../modules/sound/sound.cpp" line="24"/>
         <source>Sound</source>
-        <translation>音</translation>
+        <translation>サウンド</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="35"/>
@@ -976,7 +976,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="61"/>
         <source>Keyboard and Language</source>
-        <translation>キーボードおよび言語</translation>
+        <translation>キーボードと言語</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="50"/>
@@ -986,12 +986,12 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="32"/>
         <source>Wacom</source>
-        <translation>ワコム</translation>
+        <translation>Wacom</translation>
     </message>
     <message>
         <location filename="../modules/grub/grub.cpp" line="28"/>
         <source>Boot Menu</source>
-        <translation>ブートメニュー</translation>
+        <translation>起動メニュー</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/bluetooth.cpp" line="35"/>
@@ -1009,7 +1009,7 @@
     <message>
         <location filename="../modules/display/monitorground.cpp" line="46"/>
         <source>Recognize</source>
-        <translation>承認する</translation>
+        <translation>承認</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="47"/>
@@ -1019,7 +1019,7 @@
     <message>
         <location filename="../modules/display/monitorground.cpp" line="48"/>
         <source>Split</source>
-        <translation>分ける</translation>
+        <translation>分割線</translation>
     </message>
 </context>
 <context>
@@ -1033,7 +1033,7 @@
         <location filename="../modules/mouse/mouse.cpp" line="75"/>
         <location filename="../modules/mouse/mouse.cpp" line="188"/>
         <source>Primary Button</source>
-        <translation>プライマリー・ボタン</translation>
+        <translation>主ボタン</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="78"/>
@@ -1052,17 +1052,17 @@
         <location filename="../modules/mouse/mouse.cpp" line="189"/>
         <location filename="../modules/mouse/mouse.cpp" line="213"/>
         <source>Pointer Speed</source>
-        <translation>ポインタースピード</translation>
+        <translation>ポインターの速度</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="107"/>
         <source>Double-click Speed</source>
-        <translation>ダブルクリック・スピード</translation>
+        <translation>ダブルクリックの速度</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="124"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>マウスを挿入するとタッチパッドが無効になります。</translation>
+        <translation>マウスを挿した時タッチパッドを無効にする</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="150"/>
@@ -1072,7 +1072,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="190"/>
         <source>Drag Threshold</source>
-        <translation>閾値をドラッグ</translation>
+        <translation>ドラッグのしきい値</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="191"/>
@@ -1082,7 +1082,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="192"/>
         <source>Tap to click</source>
-        <translation>タップしてクリックする</translation>
+        <translation>タップでクリックする</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="193"/>
@@ -1092,12 +1092,12 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="194"/>
         <source>Edge scrolling</source>
-        <translation>エッジ・スクロール</translation>
+        <translation>隅でスクロール</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
-        <translation type="unfinished"/>
+        <translation>トラックポイント</translation>
     </message>
 </context>
 <context>
@@ -1110,17 +1110,17 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="48"/>
         <source>802.11 WiFi</source>
-        <translation>802.11 WiFi</translation>
+        <translation>802.11 Wi-Fi</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="49"/>
         <source>802.11 WiFi AdHoc</source>
-        <translation>802.11無線LANアドホック</translation>
+        <translation>802.11 Wi-Fi アドホック</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="50"/>
         <source>802.11 WiFi Hotspot</source>
-        <translation>802.11WiFiホットスポット</translation>
+        <translation>802.11 Wi-Fi ホットスポット</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="51"/>
@@ -1135,12 +1135,12 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="53"/>
         <source>Mobile GSM</source>
-        <translation>モバイルGSM</translation>
+        <translation>モバイル GSM</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="54"/>
         <source>Mobile CDMA</source>
-        <translation>モバイルCDMA</translation>
+        <translation>モバイル CDMA</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="55"/>
@@ -1175,12 +1175,12 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="74"/>
         <source>Not Connected</source>
-        <translation>接続されていません</translation>
+        <translation>未接続</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="76"/>
         <source>Connected</source>
-        <translation>接続されました</translation>
+        <translation>接続済</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="88"/>
@@ -1190,7 +1190,7 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="107"/>
         <source>Interface</source>
-        <translation>インターフェース</translation>
+        <translation>インターフェイス</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="111"/>
@@ -1220,22 +1220,22 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="116"/>
         <source>Primary DNS</source>
-        <translation>プライマリーDNS</translation>
+        <translation>プライマリ DNS</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="117"/>
         <source>Secondary DNS</source>
-        <translation>セカンダリDNS</translation>
+        <translation>セカンダリ DNS</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="118"/>
         <source>Third DNS</source>
-        <translation>サードDNS</translation>
+        <translation>サード DNS</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="119"/>
         <source>Device Speed</source>
-        <translation>デバイスのスピード</translation>
+        <translation>デバイスの速度</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="124"/>
@@ -1253,12 +1253,12 @@
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="203"/>
         <source>View detailed information</source>
-        <translation type="unfinished"/>
+        <translation>詳細情報の表示</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="217"/>
         <source>System Proxy</source>
-        <translation>システムのプロキシ</translation>
+        <translation>システムプロキシ</translation>
     </message>
 </context>
 <context>
@@ -1282,7 +1282,7 @@
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="83"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="165"/>
         <source>The two passwords do not match.</source>
-        <translation>２つのパスワードが一致しません。</translation>
+        <translation>2 つのパスワードが一致しません。</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="91"/>
@@ -1302,7 +1302,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="160"/>
         <source>Password can not be empty.</source>
-        <translation>パスワードをは空にできません。</translation>
+        <translation>パスワードは空欄にできません。</translation>
     </message>
 </context>
 <context>
@@ -1310,7 +1310,7 @@
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="67"/>
         <source>Personalization</source>
-        <translation>個人化</translation>
+        <translation>パーソナライズ</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="138"/>
@@ -1335,7 +1335,7 @@
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="234"/>
         <source>Standard</source>
-        <translation>スタンダード</translation>
+        <translation>標準</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="235"/>
@@ -1370,17 +1370,17 @@
         <location filename="../modules/sound/soundview.cpp" line="88"/>
         <location filename="../modules/sound/soundview.cpp" line="97"/>
         <source>Show Advanced...</source>
-        <translation>上級の…を表示してください</translation>
+        <translation>高度設定を表示...</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="102"/>
         <source>Hide Advanced...</source>
-        <translation>アドバンストを隠す...</translation>
+        <translation>高度設定を隠す...</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="148"/>
         <source>Sound effects</source>
-        <translation type="unfinished"/>
+        <translation>音のエフェクト</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="163"/>
@@ -1395,7 +1395,7 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="189"/>
         <source>Left/Right Balance</source>
-        <translation>左/右のバランス</translation>
+        <translation>左右のバランス</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="197"/>
@@ -1415,17 +1415,17 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="310"/>
         <source>Input Volume</source>
-        <translation>ボリュームを入力</translation>
+        <translation>入力音量</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="326"/>
         <source>Feedback Volume</source>
-        <translation>評価の量</translation>
+        <translation>フィードバック音量</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="430"/>
         <source>Sound</source>
-        <translation>音</translation>
+        <translation>サウンド</translation>
     </message>
 </context>
 <context>
@@ -1433,27 +1433,27 @@
     <message>
         <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>表示を後にサスペントにする</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>コンピューターを後にサスペントにする</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
-        <translation type="unfinished"/>
+        <translation>表示復旧時の必要なパスワード</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
-        <translation type="unfinished"/>
+        <translation>コンピューター復旧時に必要なパスワード</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation type="unfinished"/>
+        <translation>蓋を閉じた時ノートブックをサスペンドにする</translation>
     </message>
 </context>
 <context>
@@ -1474,7 +1474,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="109"/>
         <source>Add</source>
-        <translation>追加する</translation>
+        <translation>追加</translation>
     </message>
 </context>
 <context>
@@ -1482,7 +1482,7 @@
     <message>
         <location filename="../widgets/moduleheader.cpp" line="59"/>
         <source>Reset Successfully</source>
-        <translation>正常にリセットしました</translation>
+        <translation>リセットしました</translation>
     </message>
     <message>
         <location filename="../widgets/moduleheader.cpp" line="61"/>
@@ -1536,7 +1536,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
         <source>Memory:</source>
-        <translation>メモリー</translation>
+        <translation>メモリ:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
@@ -1551,22 +1551,22 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
         <source>System Type:</source>
-        <translation>システム・タイプ</translation>
+        <translation>システムの種類:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
         <source>Distribution:</source>
-        <translation>分布:</translation>
+        <translation>ディストリビューション:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
         <source>Deepin Edition:</source>
-        <translation>Deepinのエディション:</translation>
+        <translation>Deepin エディション:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
         <source>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Copyright (c) 2011-2016 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
@@ -1576,7 +1576,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="165"/>
         <source>GNU GENERAL PUBLIC LICENSE</source>
-        <translation>GNU一般公的使用許諾</translation>
+        <translation>GNU 一般公的使用許諾</translation>
     </message>
 </context>
 <context>
@@ -1607,37 +1607,37 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="49"/>
         <source>Apply system wide</source>
-        <translation>システムの幅を適用する</translation>
+        <translation>システム幅の適用</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="52"/>
         <source>Ignore the following proxy configuration for hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>ホストとドメインで次のプロキシ設定を無視する</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="79"/>
         <source>HTTP Proxy</source>
-        <translation>HTTPプロキシ</translation>
+        <translation>HTTP プロキシ</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="80"/>
         <source>HTTPS Proxy</source>
-        <translation>HTTPSプロキシ</translation>
+        <translation>HTTPS プロキシ</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="81"/>
         <source>FTP Proxy</source>
-        <translation>FTPプロキシ</translation>
+        <translation>FTP プロキシ</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="82"/>
         <source>Socks Proxy</source>
-        <translation>Socksプロキシー</translation>
+        <translation>Socks プロキシ</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="97"/>
         <source>Configuration URL</source>
-        <translation>コンフィグレーションURL</translation>
+        <translation>設定 URL</translation>
     </message>
 </context>
 <context>
@@ -1655,7 +1655,7 @@
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="23"/>
         <source>Add</source>
-        <translation>追加する</translation>
+        <translation>追加</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="49"/>
@@ -1665,7 +1665,7 @@
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="56"/>
         <source>Add Timezone</source>
-        <translation>タイムゾーンを追加する</translation>
+        <translation>タイムゾーンの追加</translation>
     </message>
 </context>
 <context>
@@ -1681,17 +1681,17 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="281"/>
         <source>Your system is up to date</source>
-        <translation>あなたのシステムは最新です</translation>
+        <translation>システムは最新です</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>Click to view available  updates</source>
-        <translation>利用可能な最新版を見るにはクリックして下さい</translation>
+        <translation>クリックで利用可能な更新を表示</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Download completed, please click on the update icon to install</source>
-        <translation type="unfinished"/>
+        <translation>ダウンロードは完了しました。インストールするには更新アイコンをクリックしてください</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
@@ -1706,17 +1706,17 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="329"/>
         <source>%1 software need to be updated</source>
-        <translation>％1ソフトはアップデートが必要です</translation>
+        <translation>%1 つのソフトウェアを更新する必要があります</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="335"/>
         <source>Some patches need to be updated</source>
-        <translation>更新の必要なパッチがあります</translation>
+        <translation>いくつかのパッチを更新する必要があります</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="331"/>
         <source>Some patches and %1 software need to be updated</source>
-        <translation>いくつかのパッチと%1ソフトフェアをアップデートする必要があります</translation>
+        <translation>いくつかのパッチと %1 つのソフトフェアを更新する必要があります</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="407"/>
@@ -1726,7 +1726,7 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="408"/>
         <source>Check for updates, please wait</source>
-        <translation>更新をチェックする。お待ちください</translation>
+        <translation>更新を確認しています。お待ちください</translation>
     </message>
 </context>
 <context>
@@ -1734,7 +1734,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="141"/>
         <source>Auto-login</source>
-        <translation>オートログイン</translation>
+        <translation>自動ログイン</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="167"/>
@@ -1745,12 +1745,12 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
         <source>Choose a new picture for your Avatar</source>
-        <translation>あなたのアバター用に新しい写真を選択</translation>
+        <translation>アバターとして新しい写真を選択</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
-        <translation>画像ファイル（*.jpg *.png *.jpeg）</translation>
+        <translation>画像ファイル (*.jpg *.png *.jpeg)</translation>
     </message>
 </context>
 <context>
@@ -1758,12 +1758,12 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="180"/>
         <source>Keep user&apos;s files</source>
-        <translation>ユーザーのファイルをキープしてください</translation>
+        <translation>ユーザーファイルを保持</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="181"/>
         <source>Delete user&apos;s files</source>
-        <translation>ユーザー・ファイルを削除</translation>
+        <translation>ユーザーファイルを削除</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="183"/>
@@ -1773,7 +1773,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="184"/>
         <source>Confirm</source>
-        <translation>確認してください</translation>
+        <translation>確認</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="232"/>
@@ -1783,7 +1783,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="234"/>
         <source>Normal User</source>
-        <translation>ノーマス・ユーザー</translation>
+        <translation>通常ユーザー</translation>
     </message>
 </context>
 <context>
@@ -1791,7 +1791,7 @@
     <message>
         <location filename="../modules/network/vpnconnectswidget.cpp" line="17"/>
         <source>VPN Connections</source>
-        <translation>VPN接続</translation>
+        <translation>VPN 接続</translation>
     </message>
 </context>
 <context>
@@ -1799,12 +1799,12 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="61"/>
         <source>Page Up</source>
-        <translation>ページ・アップ</translation>
+        <translation>Page Up</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="62"/>
         <source>Page Down</source>
-        <translation>ページ・ダウン</translation>
+        <translation>Page Down</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="63"/>
@@ -1819,7 +1819,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="65"/>
         <source>Middle Click</source>
-        <translation>ミドル・クリック</translation>
+        <translation>中央クリック</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="83"/>
@@ -1829,7 +1829,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Tablet Orientation</source>
-        <translation>タブレットのオリエンテーション</translation>
+        <translation>タブレットの向き</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="102"/>
@@ -1859,17 +1859,17 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="133"/>
         <source>Down Key</source>
-        <translation>ダウンキー</translation>
+        <translation>下キー</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="152"/>
         <source>Up Key</source>
-        <translation>上のキー</translation>
+        <translation>上キー</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Pressure</source>
-        <translation>プレッシャ―</translation>
+        <translation>圧力</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="176"/>
@@ -1884,7 +1884,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Double-click Space</source>
-        <translation>ダブルクリックのスペース</translation>
+        <translation>ダブルクリックの間隔</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="196"/>
@@ -1894,7 +1894,7 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="197"/>
         <source>Wide</source>
-        <translation>広い</translation>
+        <translation>広める</translation>
     </message>
 </context>
 <context>
@@ -1909,7 +1909,7 @@
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="30"/>
         <source>Wired Connection</source>
-        <translation>ワイヤ接続</translation>
+        <translation>無線接続</translation>
     </message>
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
@@ -1924,17 +1924,17 @@
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="384"/>
         <source>Wireless Network</source>
-        <translation>ワイヤレス・ネットワーク</translation>
+        <translation>無線ネットワーク</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="241"/>
         <source>Connect to hidden access point</source>
-        <translation>隠れアクセスポイントに接続する</translation>
+        <translation>隠しアクセスポイントへ接続</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
         <source>Interface</source>
-        <translation>インターフェース</translation>
+        <translation>インターフェイス</translation>
     </message>
 </context>
 </TS>

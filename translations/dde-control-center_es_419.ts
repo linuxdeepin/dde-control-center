@@ -125,7 +125,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>Detalles</translation>
     </message>
 </context>
 <context>
@@ -845,7 +845,7 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="415"/>
         <source>Do you want to replace it?</source>
-        <translation>Querés reemplazarlo?</translation>
+        <translation>¿Quiere reemplazarlo?</translation>
     </message>
 </context>
 <context>

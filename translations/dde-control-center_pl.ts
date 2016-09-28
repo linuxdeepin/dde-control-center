@@ -125,7 +125,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>Szczegóły</translation>
     </message>
 </context>
 <context>

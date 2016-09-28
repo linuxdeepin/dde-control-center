@@ -125,7 +125,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>Išsamiau</translation>
     </message>
 </context>
 <context>
@@ -1453,7 +1453,7 @@
     <message>
         <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation>Uždarius dangtį, kompiuteris bus pristabdytas po</translation>
+        <translation>Uždarius dangtį, kompiuteris bus pristabdytas</translation>
     </message>
 </context>
 <context>

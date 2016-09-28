@@ -1,15 +1,15 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="bg" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ast" version="2.1">
 <context>
     <name>AccountConfirmButtonLine</name>
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="83"/>
         <source>Cancel</source>
-        <translation>Отказ</translation>
+        <translation>Encaboxar</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/controlline.cpp" line="85"/>
         <source>Confirm</source>
-        <translation>Потвърждение</translation>
+        <translation>Confirmar</translation>
     </message>
 </context>
 <context>
@@ -17,22 +17,22 @@
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="44"/>
         <source>User Accounts</source>
-        <translation>Потребителски профили</translation>
+        <translation>Cuentes d&apos;usuariu</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="81"/>
         <source>User List</source>
-        <translation>Списък с потребители</translation>
+        <translation>Llistáu d&apos;usuarios</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="234"/>
         <source>Add Account</source>
-        <translation>Добавяне на Профил</translation>
+        <translation>Amestar cuenta</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/accountmainwidget.cpp" line="271"/>
         <source>Delete Account</source>
-        <translation>Изтриване на профил</translation>
+        <translation>Desaniciar cuenta</translation>
     </message>
 </context>
 <context>
@@ -40,17 +40,17 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="202"/>
         <source>Other devices</source>
-        <translation>Други устройства</translation>
+        <translation>Otros preseos</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="224"/>
         <source>My devices</source>
-        <translation>Моите устройства</translation>
+        <translation>Los mios preseos</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="231"/>
         <source>Open bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Отворете bluetooth, за да откриете близки устройства (високоговорител, клавиатура, мишка)</translation>
+        <translation>Priendi&apos;l bluetooth p&apos;alcontrar preseos averaos (altavoces, tecláu, mur)</translation>
     </message>
 </context>
 <context>
@@ -58,12 +58,12 @@
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="29"/>
         <source>Add Network Connection</source>
-        <translation>Добавяне на мрежова връзка</translation>
+        <translation>Amestar conexón de rede</translation>
     </message>
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="36"/>
         <source>Next</source>
-        <translation>Следващ</translation>
+        <translation>Siguiente</translation>
     </message>
     <message>
         <location filename="../modules/network/addconnectpage.cpp" line="41"/>
@@ -81,12 +81,12 @@
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="23"/>
         <source>Add PPPoE Connection</source>
-        <translation>Добавяне на PPPoE връзка</translation>
+        <translation>Amestar conexón PPPoE</translation>
     </message>
     <message>
         <location filename="../modules/network/adddslpage.cpp" line="26"/>
         <source>Add</source>
-        <translation>Добави</translation>
+        <translation>Amestar</translation>
     </message>
 </context>
 <context>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../widgets/addrmdoneline.cpp" line="25"/>
         <source>Done</source>
-        <translation>Готово</translation>
+        <translation>Fecho</translation>
     </message>
 </context>
 <context>
@@ -102,17 +102,17 @@
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="39"/>
         <source>VPN Type</source>
-        <translation>Вид на VPN</translation>
+        <translation>Triba de VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="57"/>
         <source>Basic Information</source>
-        <translation>Основна Информация</translation>
+        <translation>Información básica</translation>
     </message>
     <message>
         <location filename="../modules/network/addvpnpage.cpp" line="74"/>
         <source>Add</source>
-        <translation>Добави</translation>
+        <translation>Amestar</translation>
     </message>
 </context>
 <context>
@@ -120,12 +120,12 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="59"/>
         <source>Update</source>
-        <translation>Актуализиране</translation>
+        <translation>Anovar</translation>
     </message>
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
         <source>Details</source>
-        <translation>Детайли</translation>
+        <translation>Detalles</translation>
     </message>
 </context>
 <context>
@@ -133,12 +133,12 @@
     <message>
         <location filename="../widgets/applybuttonline.cpp" line="14"/>
         <source>Cancel</source>
-        <translation>Отказ</translation>
+        <translation>Encaboxar</translation>
     </message>
     <message>
         <location filename="../widgets/applybuttonline.cpp" line="16"/>
         <source>Apply</source>
-        <translation>Прилагане</translation>
+        <translation>Aplicar</translation>
     </message>
 </context>
 <context>
@@ -156,43 +156,43 @@
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="54"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="69"/>
         <source>Never</source>
-        <translation>Никога</translation>
+        <translation>Enxamás</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="48"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="63"/>
         <source>1 Minute</source>
-        <translation>1 минута</translation>
+        <translation>1 minuntu</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="49"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="64"/>
         <source>5 Minutes</source>
-        <translation>5 минути</translation>
+        <translation>5 minutos</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="50"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="65"/>
         <source>10 Minutes</source>
-        <translation>10 минути</translation>
+        <translation>10 minutos</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="51"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="66"/>
         <source>15 Minutes</source>
-        <translation>15 минути</translation>
+        <translation>15 minutos</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="52"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="67"/>
         <source>30 Minutes</source>
-        <translation>30 минути</translation>
+        <translation>30 minutos</translation>
     </message>
     <message>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="53"/>
         <location filename="../modules/power/widgets/choosedelaytimewidget.cpp" line="68"/>
         <source>1 Hour</source>
-        <translation>1 час</translation>
+        <translation>1 hora</translation>
     </message>
 </context>
 <context>
@@ -200,12 +200,12 @@
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="19"/>
         <source>Disconnect</source>
-        <translation>Прекъсване</translation>
+        <translation>Desconeutar</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/confrimwidget.cpp" line="21"/>
         <source>Ignore</source>
-        <translation>Игнорирай</translation>
+        <translation>Inorar</translation>
     </message>
 </context>
 <context>
@@ -213,7 +213,7 @@
     <message>
         <location filename="../modules/network/connecttohiddenappage.cpp" line="34"/>
         <source>Connect to hidden access point</source>
-        <translation>Свързване към скрити точки за достъп</translation>
+        <translation>Coneutase a un puntu d&apos;accesu anubríu</translation>
     </message>
 </context>
 <context>
@@ -221,41 +221,41 @@
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="63"/>
         <source>Add User</source>
-        <translation>Добавяне на Потребител</translation>
+        <translation>Amestar usuariu</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="93"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="304"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="310"/>
         <source>new user</source>
-        <translation>нов потребител</translation>
+        <translation>usuariu nuevu</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="127"/>
         <source>Username</source>
-        <translation>Потребителско име</translation>
+        <translation>Nome d&apos;usuauriu</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="128"/>
         <source>Password</source>
-        <translation>Парола</translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="129"/>
         <source>Repeat Password</source>
-        <translation>Повторете паролата</translation>
+        <translation>Repitir contraseña</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="130"/>
         <source>Auto-login</source>
-        <translation>Автоматично влизане</translation>
+        <translation>Aniciu sesión automáticu</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="166"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="171"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="270"/>
         <source>Password can not be empty.</source>
-        <translation>Паролата не може да остане празна.</translation>
+        <translation>La contraseña nun pue tar balera.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="185"/>
@@ -264,14 +264,14 @@
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="320"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="327"/>
         <source>The two passwords do not match.</source>
-        <translation>Двете пароли не съвпадат.</translation>
+        <translation>Les dos contraseñes nun concasen.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="255"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="265"/>
         <location filename="../modules/account/ui/user_create/createuserpanel.cpp" line="280"/>
         <source>Username can not be empty.</source>
-        <translation>Потребителско име не може да бъде празно</translation>
+        <translation>El nome d&apos;usuariu nun pue tar baleru.</translation>
     </message>
 </context>
 <context>
@@ -279,99 +279,99 @@
     <message>
         <location filename="../modules/display/customsettings.cpp" line="38"/>
         <source>Normal</source>
-        <translation>Нормално</translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="39"/>
         <source>Rotate right</source>
-        <translation>Завъртане надясно</translation>
+        <translation>Voltiar a la drecha</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="40"/>
         <source>Upside down</source>
-        <translation>Обръщане надолу</translation>
+        <translation>Boca abaxo</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="41"/>
         <source>Rotate left</source>
-        <translation>Завъртане наляво</translation>
+        <translation>Voltiar a la izquierda</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="75"/>
         <location filename="../modules/display/customsettings.cpp" line="82"/>
         <source>Brightness</source>
-        <translation>Яркост</translation>
+        <translation>Rellumu</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="92"/>
         <source>Enable Monitor</source>
-        <translation>Включване на монитор</translation>
+        <translation>Habilitar monitor</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="106"/>
         <source>Please select the monitor you want to enable (checkable)</source>
-        <translation>Моля, изберете монитор, който искате да включите (проверите)</translation>
+        <translation>Esbilla&apos;l monitor que quies habilitar (pue conseñase), por favor</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="111"/>
         <source>Primary</source>
-        <translation>Главен</translation>
+        <translation>Primariu</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="139"/>
         <source>Resolution</source>
-        <translation>Резолюция</translation>
+        <translation>Resolución</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="143"/>
         <source>Rotation</source>
-        <translation>Завъртане</translation>
+        <translation>Rotación</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="162"/>
         <location filename="../modules/display/customsettings.cpp" line="193"/>
         <location filename="../modules/display/customsettings.cpp" line="212"/>
         <source>Monitor %1</source>
-        <translation>Монитор %1</translation>
+        <translation>Monitor %1</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="318"/>
         <location filename="../modules/display/customsettings.cpp" line="476"/>
         <source>Apply</source>
-        <translation>Прилагане</translation>
+        <translation>Aplicar</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="320"/>
         <location filename="../modules/display/customsettings.cpp" line="478"/>
         <location filename="../modules/display/customsettings.h" line="55"/>
         <source>Confirm</source>
-        <translation>Потвърждение</translation>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="340"/>
         <source>Do you want to keep these display settings?</source>
-        <translation>Искате ли да запазите тези настройки на дисплея?</translation>
+        <translation>¿Quies caltener estos axustes de pantalla?</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="341"/>
         <location filename="../modules/display/customsettings.cpp" line="349"/>
         <source>Reverting to previous display settings in &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; seconds.</source>
-        <translation>Връщане към предишните настройки на дисплея след &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; секунди.</translation>
+        <translation>Desfaciendo los axustes previos de pantalla en &lt;font color=&apos;white&apos;&gt;%1&lt;/font&gt; segundos.</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="343"/>
         <source>Revert</source>
-        <translation>Връщане</translation>
+        <translation>Desfacer</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.cpp" line="344"/>
         <source>Keep Changes</source>
-        <translation>Запази промените</translation>
+        <translation>Caltener cambeos</translation>
     </message>
     <message>
         <location filename="../modules/display/customsettings.h" line="54"/>
         <source>Cancel</source>
-        <translation>Отказ</translation>
+        <translation>Encaboxar</translation>
     </message>
 </context>
 <context>
@@ -379,17 +379,17 @@
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="18"/>
         <source>Set Date</source>
-        <translation>Задаване на Дата</translation>
+        <translation>Afitar data</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="26"/>
         <source>Confirm</source>
-        <translation>Потвърждение</translation>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datecontrolwidget.cpp" line="27"/>
         <source>Cancel</source>
-        <translation>Отказ</translation>
+        <translation>Encaboxar</translation>
     </message>
 </context>
 <context>
@@ -397,32 +397,32 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="63"/>
         <source>Date</source>
-        <translation>Дата</translation>
+        <translation>Data</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="71"/>
         <source>Time Zone</source>
-        <translation>Часова зона</translation>
+        <translation>Fusu horariu</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="78"/>
         <source>Sync Automatically</source>
-        <translation>Автоматично синхронизиране</translation>
+        <translation>Sincronizar automáticamente</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="85"/>
         <source>Use 24-hour clock</source>
-        <translation>Използвай 24-часов формат</translation>
+        <translation>Usar reló de 24h</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="90"/>
         <source>Reset</source>
-        <translation>Рестартиране</translation>
+        <translation>Reaniciar</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="102"/>
         <source>Date and Time</source>
-        <translation>Дата и час</translation>
+        <translation>Data y hora</translation>
     </message>
 </context>
 <context>
@@ -431,72 +431,72 @@
         <location filename="../modules/default_applications/defaultapps.cpp" line="83"/>
         <location filename="../modules/default_applications/defaultapps.cpp" line="123"/>
         <source>Default Applications</source>
-        <translation>Програми по подразбиране</translation>
+        <translation>Aplicaciones por defeutu</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="121"/>
         <source>AutoPlay</source>
-        <translation>Автоматично изпълнение</translation>
+        <translation>Reproducción automática</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="125"/>
         <source>Software</source>
-        <translation>Софтуер</translation>
+        <translation>Software</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="127"/>
         <source>Camera</source>
-        <translation>Уеб камера</translation>
+        <translation>Cámara</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="129"/>
         <source>Music Player</source>
-        <translation>Музикален плеър</translation>
+        <translation>Reproductor de música</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="131"/>
         <source>DVD Video</source>
-        <translation>Видео DVD</translation>
+        <translation>DVD de videu</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="133"/>
         <source>CD Audio</source>
-        <translation>Аудио CD</translation>
+        <translation>CD d&apos;audiu</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="134"/>
         <source>Terminal</source>
-        <translation>Терминал</translation>
+        <translation>Terminal</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="135"/>
         <source>Picture</source>
-        <translation>Картина</translation>
+        <translation>Semeya</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="136"/>
         <source>Video</source>
-        <translation>Видео</translation>
+        <translation>Videu</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="137"/>
         <source>Music</source>
-        <translation>Музика</translation>
+        <translation>Música</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="138"/>
         <source>Text</source>
-        <translation>Текст</translation>
+        <translation>Testu</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="139"/>
         <source>Mail</source>
-        <translation>Ел. поща</translation>
+        <translation>Corréu</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="140"/>
         <source>Browser</source>
-        <translation>Браузър</translation>
+        <translation>Restolador</translation>
     </message>
 </context>
 <context>
@@ -504,12 +504,12 @@
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="97"/>
         <source>Connected</source>
-        <translation>Свързано</translation>
+        <translation>Coneutáu</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/deviceitemwidget.cpp" line="99"/>
         <source>Unconnect</source>
-        <translation>Несвързан</translation>
+        <translation>Desconeutáu</translation>
     </message>
 </context>
 <context>
@@ -517,52 +517,52 @@
     <message>
         <location filename="../modules/display/display.cpp" line="60"/>
         <source>Display</source>
-        <translation>Дисплей</translation>
+        <translation>Pantalla</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="158"/>
         <source>Display Mode</source>
-        <translation>Режим на екрана</translation>
+        <translation>Mou de pantalla</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="166"/>
         <source>Copy</source>
-        <translation>Копиране</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="167"/>
         <source>Copy the contents of your primary screen to other screens.</source>
-        <translation>Копирайте съдържанието на основния си екран с други екрани</translation>
+        <translation>Copia los conteníos de les tos pantalles primaries a otres.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="177"/>
         <source>Extend</source>
-        <translation>Разпростиране</translation>
+        <translation>Estender</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="178"/>
         <source>Extend your screen contents to display different contents on different screens.</source>
-        <translation>Разширете съдържанието на екрана за да се показва различно съдържание на различните екрани.</translation>
+        <translation>Estiende los conteníos de la to pantalla p&apos;amosar diferentes conteníos en pantalles distintes</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="189"/>
         <source>Custom Settings</source>
-        <translation>Потребителски настройки</translation>
+        <translation>Axustes personalizaos</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="190"/>
         <source>You can do other custom settings to your screens.</source>
-        <translation>Можете да направите други потребителски настройки на вашите екрани</translation>
+        <translation>Pues facer otros axustes personalizaos a les tos pantalles.</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="200"/>
         <source>Only Displayed on %1</source>
-        <translation>Показва само на 1 %</translation>
+        <translation>Namái s&apos;amuesa en %1</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="201"/>
         <source>Screen contents are only displayed on %1 but not on other screens.</source>
-        <translation>Съдържанието на екрана се показват само на 1 % , но не на други екрани</translation>
+        <translation>Los conteníos de pantalla namái s&apos;amuesen en %1.</translation>
     </message>
 </context>
 <context>
@@ -571,22 +571,22 @@
         <location filename="../modules/network/editconnectionpage.cpp" line="37"/>
         <location filename="../modules/network/editconnectionpage.cpp" line="93"/>
         <source>Delete this network</source>
-        <translation>Премахване на тази мрежа</translation>
+        <translation>Desaniciar esta rede</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="45"/>
         <source>Delete</source>
-        <translation>Изтриване</translation>
+        <translation>Desaniciar</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="46"/>
         <source>Save</source>
-        <translation>Запазване</translation>
+        <translation>Guardar</translation>
     </message>
     <message>
         <location filename="../modules/network/editconnectionpage.cpp" line="54"/>
         <source>Are you sure you want to delete this network?</source>
-        <translation>Сигурен ли сте, че искате да премахнете тази мрежа?</translation>
+        <translation>¿De xuru que quies desaniciar esta rede?</translation>
     </message>
 </context>
 <context>
@@ -594,12 +594,12 @@
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="32"/>
         <source>Click to install</source>
-        <translation>Кликнете за да инсталирате</translation>
+        <translation>Primi pa instalar</translation>
     </message>
     <message>
         <location filename="../modules/network/editlinemissingpackage.cpp" line="61"/>
         <source>Current system lacks component for %1</source>
-        <translation>В текущата система липсва компонент за %1</translation>
+        <translation>Anguaño al sistema fálta-y el componente pa %1</translation>
     </message>
 </context>
 <context>
@@ -607,12 +607,12 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="173"/>
         <source>Set</source>
-        <translation>Задаване</translation>
+        <translation>Afitar</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="175"/>
         <source>Cancel</source>
-        <translation>Отказ</translation>
+        <translation>Encaboxar</translation>
     </message>
 </context>
 <context>
@@ -620,53 +620,53 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="32"/>
         <source>Boot Menu</source>
-        <translation>Boot Меню</translation>
+        <translation>Menú d&apos;arranque</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="76"/>
         <location filename="../modules/grub/grubwidget.cpp" line="190"/>
         <source>Drag and drop an image to change background.</source>
-        <translation>Плъзнете и поставете изображението за да промените фона на работният плот</translation>
+        <translation>Arrastra y suelta una imaxe pa camudar el fondu de pantalla.</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="81"/>
         <source>Theme</source>
-        <translation>Тема</translation>
+        <translation>Tema</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="108"/>
         <source>Default Boot</source>
-        <translation>Зареждане по подразбиране</translation>
+        <translation>Arranque por defeutu</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="124"/>
         <source>Boot delay</source>
-        <translation>Забавяне преди зареждане</translation>
+        <translation>Retrasu d&apos;arranque</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="132"/>
         <source>Text Color</source>
-        <translation>Цвят на текста</translation>
+        <translation>Color de testu</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="140"/>
         <source>Selected Text Color</source>
-        <translation>Избран цвят на текста</translation>
+        <translation>Color del testu esbilláu</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="144"/>
         <source>The startup speed can be improved by disabling the theme</source>
-        <translation>Скоростта на стартиране се подобрява при премахване на темите</translation>
+        <translation>La velocidá l&apos;arranque pue ameyorase deshabilitando&apos;l tema</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="180"/>
         <source>Updating...</source>
-        <translation>Актуализиране...</translation>
+        <translation>Anovando...</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="182"/>
         <source>Successfully updated, reboot to view.</source>
-        <translation>Успешна актуализацията, рестартирайте за да се приложат промените.</translation>
+        <translation>Anovóse con ésitu, reanicia pa velo.</translation>
     </message>
 </context>
 <context>
@@ -674,7 +674,7 @@
     <message>
         <location filename="../frame/homescreen.cpp" line="128"/>
         <source>Shutdown</source>
-        <translation>Изключване</translation>
+        <translation>Apagar</translation>
     </message>
 </context>
 <context>
@@ -682,22 +682,22 @@
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="28"/>
         <source>Password</source>
-        <translation>Парола</translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="30"/>
         <source>Auto-connect</source>
-        <translation>Автоматично свързване</translation>
+        <translation>Conexón automática</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="37"/>
         <source>Cancel</source>
-        <translation>Отмяна</translation>
+        <translation>Encaboxar</translation>
     </message>
     <message>
         <location filename="../modules/network/inputpassworddialog.cpp" line="38"/>
         <source>Connect</source>
-        <translation>Свързване</translation>
+        <translation>Coneutar</translation>
     </message>
 </context>
 <context>
@@ -705,57 +705,57 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="150"/>
         <source>Keyboard and Language</source>
-        <translation>Клавиатура и език</translation>
+        <translation>Tecláu y llingua</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="163"/>
         <source>Repeat Delay</source>
-        <translation>Забавяне преди повторение</translation>
+        <translation>Retrasu de repitición</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="184"/>
         <source>Repeat Rate</source>
-        <translation>Скорост на повторение</translation>
+        <translation>Tasa de repitición</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="205"/>
         <source>Cursor Blink Rate</source>
-        <translation>Скорост на мигане на курсора</translation>
+        <translation>Tasa de parpaguiu</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="227"/>
         <source>Test Area</source>
-        <translation>Тестова зона</translation>
+        <translation>Área de pruebes</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="241"/>
         <source>Caps Lock prompt</source>
-        <translation>Бърз клавиш Caps Lock</translation>
+        <translation>Diálogu emerxente de mayúscules</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="258"/>
         <source>Language</source>
-        <translation>Език</translation>
+        <translation>Llingua</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="263"/>
         <source>Keyboard Layout</source>
-        <translation>Клавиатурни подредби</translation>
+        <translation>Distribución de tecláu</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="264"/>
         <source>Remove Keyboard Layout</source>
-        <translation>Премахване на клавиатурна подредба</translation>
+        <translation>Desaniciar distribución de tecláu</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="265"/>
         <source>Add Keyboard Layout</source>
-        <translation>Добавяне на клавиатурна подредба</translation>
+        <translation>Amestar distribución de tecláu</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="363"/>
         <source>Search</source>
-        <translation>Търсене</translation>
+        <translation>Guetar</translation>
     </message>
 </context>
 <context>
@@ -763,12 +763,12 @@
     <message>
         <location filename="../modules/network/listwidgetcontainer.cpp" line="101"/>
         <source>Cancel</source>
-        <translation>Отмяна</translation>
+        <translation>Encaboxar</translation>
     </message>
     <message>
         <location filename="../modules/network/listwidgetcontainer.cpp" line="102"/>
         <source>Connect</source>
-        <translation>Свързване</translation>
+        <translation>Coneutar</translation>
     </message>
 </context>
 <context>
@@ -776,76 +776,76 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="38"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Клавишни комбинации</translation>
+        <translation>Atayos de tecláu</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="154"/>
         <source>Name</source>
-        <translation>Име</translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="158"/>
         <source>Command</source>
-        <translation>Команда</translation>
+        <translation>Comandu</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="181"/>
         <source>Delete Shortcut</source>
-        <translation>Изтриване на клавишна комбинация</translation>
+        <translation>Desaniciar atayu</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="182"/>
         <source>Add Shortcut</source>
-        <translation>Добавяне на клавишна комбинация</translation>
+        <translation>Amestar atayu</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="183"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="243"/>
         <source>Custom</source>
-        <translation>Потребителски</translation>
+        <translation>Personalizáu</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="240"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="312"/>
         <source>System</source>
-        <translation>Система</translation>
+        <translation>Sistemna</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="241"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="313"/>
         <source>Window</source>
-        <translation>Прозорец</translation>
+        <translation>Ventana</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="242"/>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="314"/>
         <source>Workspace</source>
-        <translation>Работно място</translation>
+        <translation>Estaya de trabayu</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="271"/>
         <source>Search</source>
-        <translation>Търсене</translation>
+        <translation>Guetar</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="384"/>
         <source>Shortcut &quot;%1&quot; is invalid, please retype new shortcut.</source>
-        <translation>Клавишна комбинация &quot;%1&quot; е невалидна, моля напишете нова.</translation>
+        <translation>Nun ye válidu l&apos;atayu «%1», rescribi un atayu nuevu.</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="398"/>
         <source>The shortcut you set </source>
-        <translation>Задали сте клавишната комбинация</translation>
+        <translation>L&apos;atayu qu&apos;afitesti</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="408"/>
         <source>conflicts with the one used for &quot;%2&quot; in the &quot;%1&quot; category.</source>
-        <translation>конфликт с този, използван за &quot;%2&quot; в категорията &quot;%1&quot;.</translation>
+        <translation>tien conflictos col qu&apos;usesti pa «%2» na estaya «%1».</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="415"/>
         <source>Do you want to replace it?</source>
-        <translation>Искате ли да го замените?</translation>
+        <translation>¿Quies trocalu?</translation>
     </message>
 </context>
 <context>
@@ -855,22 +855,22 @@
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="114"/>
         <source>Timeout</source>
         <extracomment>the mirror cant reachable</extracomment>
-        <translation>Изтекло</translation>
+        <translation>Tiempu escosao</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="116"/>
         <source>Slow</source>
-        <translation>Бавно</translation>
+        <translation>Lento</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="118"/>
         <source>Medium</source>
-        <translation>Средно</translation>
+        <translation>Medio</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="120"/>
         <source>Fast</source>
-        <translation>Бързо</translation>
+        <translation>Rápido</translation>
     </message>
 </context>
 <context>
@@ -878,22 +878,22 @@
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="27"/>
         <source>Switch</source>
-        <translation>Превключвател</translation>
+        <translation>Camudar</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="28"/>
         <source>Done</source>
-        <translation>Готово</translation>
+        <translation>Fecho</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="38"/>
         <source>Auto check update</source>
-        <translation>Автоматична проверка на актуализация</translation>
+        <translation>Auto-comprobación d&apos;anovamientos</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirrorscontrolwidget.cpp" line="41"/>
         <source>Mirrors</source>
-        <translation>Огледала</translation>
+        <translation>Espeyos</translation>
     </message>
 </context>
 <context>
@@ -903,17 +903,17 @@
         <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="83"/>
         <source>Modem Network</source>
-        <translation>Мрежа на модем</translation>
+        <translation>Rede módem</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="41"/>
         <source>Restore the connection</source>
-        <translation>Възстановяване на връзката</translation>
+        <translation>Restaurar la conexón</translation>
     </message>
     <message>
         <location filename="../modules/network/modemnetworklistitem.cpp" line="81"/>
         <source>Interface</source>
-        <translation>Интерфейс</translation>
+        <translation>Interfaz</translation>
     </message>
 </context>
 <context>
@@ -921,67 +921,67 @@
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="117"/>
         <source>Home</source>
-        <translation>Домашна папка</translation>
+        <translation>Aniciu</translation>
     </message>
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="126"/>
         <source>Shutdown</source>
-        <translation>Изключване</translation>
+        <translation>Apagar</translation>
     </message>
     <message>
         <location filename="../modules/account/account.cpp" line="18"/>
         <source>User Accounts</source>
-        <translation>Потребителски акаунти</translation>
+        <translation>Cuentes d&apos;usuariu</translation>
     </message>
     <message>
         <location filename="../modules/display/display.cpp" line="39"/>
         <source>Display</source>
-        <translation>Дисплей</translation>
+        <translation>Pantalla</translation>
     </message>
     <message>
         <location filename="../modules/sound/sound.cpp" line="24"/>
         <source>Sound</source>
-        <translation>Звук</translation>
+        <translation>Soníu</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="35"/>
         <source>Power Management</source>
-        <translation>Управление на захранването</translation>
+        <translation>Xestión d&apos;enerxía</translation>
     </message>
     <message>
         <location filename="../modules/default_applications/defaultapps.cpp" line="63"/>
         <source>Default Applications</source>
-        <translation>Програми по подразбиране</translation>
+        <translation>Aplicaciones por defeutu</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="37"/>
         <source>Mouse and Touchpad</source>
-        <translation>Мишка и Тъчпад</translation>
+        <translation>Mur y panel táutil</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="60"/>
         <source>System Information</source>
-        <translation>Системна информация</translation>
+        <translation>Información del sistema</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/shortcuts.cpp" line="28"/>
         <source>Keyboard Shortcuts</source>
-        <translation>Клавишни комбинации</translation>
+        <translation>Atayos de tecláu</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="44"/>
         <source>Personalization</source>
-        <translation>Персонализация</translation>
+        <translation>Personalización</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="61"/>
         <source>Keyboard and Language</source>
-        <translation>Клавиатура и език</translation>
+        <translation>Tecláu y llingua</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="50"/>
         <source>Date and Time</source>
-        <translation>Дата и час</translation>
+        <translation>Data y hora</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="32"/>
@@ -991,7 +991,7 @@
     <message>
         <location filename="../modules/grub/grub.cpp" line="28"/>
         <source>Boot Menu</source>
-        <translation>Boot Меню</translation>
+        <translation>Menú d&apos;arranque</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/bluetooth.cpp" line="35"/>
@@ -1001,7 +1001,7 @@
     <message>
         <location filename="../modules/network/network.cpp" line="34"/>
         <source>Network</source>
-        <translation>Мрежа</translation>
+        <translation>Rede</translation>
     </message>
 </context>
 <context>
@@ -1009,17 +1009,17 @@
     <message>
         <location filename="../modules/display/monitorground.cpp" line="46"/>
         <source>Recognize</source>
-        <translation>Разпознаване</translation>
+        <translation>Reconocer</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="47"/>
         <source>Edit</source>
-        <translation>Редактиране</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorground.cpp" line="48"/>
         <source>Split</source>
-        <translation>Разделяне</translation>
+        <translation>Dividir</translation>
     </message>
 </context>
 <context>
@@ -1027,77 +1027,77 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="59"/>
         <source>Mouse And Touchpad</source>
-        <translation>Мишка и тъчпад</translation>
+        <translation>Mur y panel táutil</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="75"/>
         <location filename="../modules/mouse/mouse.cpp" line="188"/>
         <source>Primary Button</source>
-        <translation>Главен бутон</translation>
+        <translation>Botón primariu</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="78"/>
         <location filename="../modules/mouse/mouse.cpp" line="161"/>
         <source>Left Button</source>
-        <translation>Ляв бутон</translation>
+        <translation>Botón esquierdu</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="79"/>
         <location filename="../modules/mouse/mouse.cpp" line="162"/>
         <source>Right Button</source>
-        <translation>Десен бутон</translation>
+        <translation>Botón drechu</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="90"/>
         <location filename="../modules/mouse/mouse.cpp" line="189"/>
         <location filename="../modules/mouse/mouse.cpp" line="213"/>
         <source>Pointer Speed</source>
-        <translation>Скорост на показалеца</translation>
+        <translation>Velocidá&apos;l punteru</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="107"/>
         <source>Double-click Speed</source>
-        <translation>Скорост при двойно кликване</translation>
+        <translation>Velocidá de clic doblu</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="124"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Забрани тъчпада, когато е включена мишката</translation>
+        <translation>Deshabilitar panel táutil al coneutar un mur</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="150"/>
         <source>Touchpad</source>
-        <translation>Тъчпад</translation>
+        <translation>Panel táutil</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="190"/>
         <source>Drag Threshold</source>
-        <translation>Праг на чувствителност при плъзгане</translation>
+        <translation>Igua d&apos;arrastre</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="191"/>
         <source>Natural Scrolling</source>
-        <translation>Нормално превъртане</translation>
+        <translation>Desplazamientu natural</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="192"/>
         <source>Tap to click</source>
-        <translation>Докоснете за да кликнете</translation>
+        <translation>Calcar pa facer clic</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="193"/>
         <source>Two-finger scrolling</source>
-        <translation>Превъртане с два пръста</translation>
+        <translation>Desplazamientu con dos deos</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="194"/>
         <source>Edge scrolling</source>
-        <translation>Превъртане по краищата</translation>
+        <translation>Desplazamientu de berbesos</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
-        <translation>Указател</translation>
+        <translation>Trackpoint</translation>
     </message>
 </context>
 <context>
@@ -1120,7 +1120,7 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="50"/>
         <source>802.11 WiFi Hotspot</source>
-        <translation>802.11 WiFi Hotspot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="51"/>
@@ -1130,17 +1130,17 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="52"/>
         <source>Mobile</source>
-        <translation>Мобилен</translation>
+        <translation>Móvil</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="53"/>
         <source>Mobile GSM</source>
-        <translation>Мобилен GSM</translation>
+        <translation>GSM móvil</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="54"/>
         <source>Mobile CDMA</source>
-        <translation>Мобилен CDMA</translation>
+        <translation>CDMA móvil</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="55"/>
@@ -1175,72 +1175,72 @@
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="74"/>
         <source>Not Connected</source>
-        <translation>Не е свързано</translation>
+        <translation>Non coneutáu</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="76"/>
         <source>Connected</source>
-        <translation>Свързано</translation>
+        <translation>Coneutáu</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="88"/>
         <source>(default)</source>
-        <translation>(по подразбиране)</translation>
+        <translation>(por defeutu)</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="107"/>
         <source>Interface</source>
-        <translation>Интерфейс</translation>
+        <translation>Interfaz</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="111"/>
         <source>Security</source>
-        <translation>Сигурност</translation>
+        <translation>Seguranza</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="112"/>
         <source>Device Addr</source>
-        <translation>Адрес на устройство</translation>
+        <translation>Direición de preséu</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="113"/>
         <source>IP Address</source>
-        <translation>IP Адрес</translation>
+        <translation>Direición IP</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="114"/>
         <source>Subnet Mask</source>
-        <translation>Маска на подмрежата</translation>
+        <translation>Mázcara de sorede</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="115"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>Pasera</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="116"/>
         <source>Primary DNS</source>
-        <translation>Главен DNS</translation>
+        <translation>DNS primaria</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="117"/>
         <source>Secondary DNS</source>
-        <translation>Втори DNS</translation>
+        <translation>DNS secundaria</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="118"/>
         <source>Third DNS</source>
-        <translation>Трети DNS</translation>
+        <translation>DNS terciaria</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="119"/>
         <source>Device Speed</source>
-        <translation>Скорост на устройството</translation>
+        <translation>Velocidá de preséu</translation>
     </message>
     <message>
         <location filename="../modules/network/networkinfo.cpp" line="124"/>
         <source>Cancel</source>
-        <translation>Отмяна</translation>
+        <translation>Encaboxar</translation>
     </message>
 </context>
 <context>
@@ -1248,17 +1248,17 @@
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="190"/>
         <source>Network</source>
-        <translation>Мрежа</translation>
+        <translation>Rede</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="203"/>
         <source>View detailed information</source>
-        <translation>Преглед на детайлна информация</translation>
+        <translation>Ver información detallada</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmainwidget.cpp" line="217"/>
         <source>System Proxy</source>
-        <translation>Системен прокси сървър</translation>
+        <translation>Proxy del sistema</translation>
     </message>
 </context>
 <context>
@@ -1266,7 +1266,7 @@
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="94"/>
         <source>Double-click this area to change your time</source>
-        <translation>Кликнете два пъти в тази област , за да промените времето.</translation>
+        <translation>Clic doblu nesti área pa camudar la to hora</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timewidget.cpp" line="122"/>
@@ -1282,27 +1282,27 @@
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="83"/>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="165"/>
         <source>The two passwords do not match.</source>
-        <translation>Двете пароли не съвпадат.</translation>
+        <translation>El dos contraseñes nun concasen.</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="91"/>
         <source>Password</source>
-        <translation>Парола</translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="112"/>
         <source>New Password</source>
-        <translation>Нова парола</translation>
+        <translation>Contraseña nueva</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="114"/>
         <source>Repeat</source>
-        <translation>Повторение</translation>
+        <translation>Repitir</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/passwordframe.cpp" line="160"/>
         <source>Password can not be empty.</source>
-        <translation>Паролата не може да остане празна.</translation>
+        <translation>La contraseña nun pue tar balera.</translation>
     </message>
 </context>
 <context>
@@ -1310,48 +1310,48 @@
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="67"/>
         <source>Personalization</source>
-        <translation>Персонализация</translation>
+        <translation>Personalización</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="138"/>
         <source>Window</source>
-        <translation>Прозорец</translation>
+        <translation>Ventana</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="164"/>
         <source>Icon</source>
-        <translation>Икона</translation>
+        <translation>Iconu</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="199"/>
         <source>Cursor</source>
-        <translation>Курсор</translation>
+        <translation>Cursor</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="232"/>
         <source>Fonts</source>
-        <translation>Шрифтове</translation>
+        <translation>Fontes</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="234"/>
         <source>Standard</source>
-        <translation>Стандартен</translation>
+        <translation>Estándar</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="235"/>
         <source>Monospaced</source>
-        <translation>Еднократно</translation>
+        <translation>Monoespaciada</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="236"/>
         <source>Size</source>
-        <translation>Размер</translation>
+        <translation>Tamañu</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="251"/>
         <location filename="../modules/personalization/personalization.cpp" line="548"/>
         <source>Font</source>
-        <translation>Шрифт</translation>
+        <translation>Fonte</translation>
     </message>
 </context>
 <context>
@@ -1359,73 +1359,73 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="63"/>
         <source>Output Port</source>
-        <translation>Изходен порт</translation>
+        <translation>Puertu de salida</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="75"/>
         <source>Input Port</source>
-        <translation>Входен порт</translation>
+        <translation>Puertu d&apos;entrada</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="88"/>
         <location filename="../modules/sound/soundview.cpp" line="97"/>
         <source>Show Advanced...</source>
-        <translation>Покажи разширените настройки...</translation>
+        <translation>Amosar avanzao...</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="102"/>
         <source>Hide Advanced...</source>
-        <translation>Скрий разширените настройки...</translation>
+        <translation>Anubrir avanzao...</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="148"/>
         <source>Sound effects</source>
-        <translation>Звукови ефекти</translation>
+        <translation>Efeutos de soníu</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="163"/>
         <source>Speaker</source>
-        <translation>Говорители</translation>
+        <translation>Altavoz</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="174"/>
         <source>Output Volume</source>
-        <translation>Сила на звука на изхода</translation>
+        <translation>Volume de salida</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="189"/>
         <source>Left/Right Balance</source>
-        <translation>Ляв/Десен Баланс</translation>
+        <translation>Balance izquierda/drecha</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="197"/>
         <source>Left</source>
-        <translation>Ляво</translation>
+        <translation>Izquierda</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="198"/>
         <source>Right</source>
-        <translation>Дясно</translation>
+        <translation>Drecha</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="299"/>
         <source>Microphone</source>
-        <translation>Микрофон</translation>
+        <translation>Micrófonu</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="310"/>
         <source>Input Volume</source>
-        <translation>Сила на звука на входа</translation>
+        <translation>Volume d&apos;entrada</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="326"/>
         <source>Feedback Volume</source>
-        <translation>Секция за отзиви</translation>
+        <translation>Volume de feedback</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="430"/>
         <source>Sound</source>
-        <translation>Звук</translation>
+        <translation>Soníu</translation>
     </message>
 </context>
 <context>
@@ -1433,27 +1433,27 @@
     <message>
         <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
-        <translation>Мониторът ще заспи след</translation>
+        <translation>La pantalla suspenderáse dempués de</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation>Компютърът ще заспи след</translation>
+        <translation>L&apos;ordenador suspenderáse dempués de</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="56"/>
         <source>Password required to wake the display</source>
-        <translation>Парола за събуждане на монитора</translation>
+        <translation>Ríquese la contraseña pa esconsoñar la pantalla</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="58"/>
         <source>Password required to wake the computer</source>
-        <translation>Парола за събуждане на компютъра</translation>
+        <translation>Ríquese la contraseña pa esconsoñar l&apos;ordenador</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="60"/>
         <source>The notebook will suspend when close the lid</source>
-        <translation>Лаптопа ще заспи с затварянето на капака</translation>
+        <translation>El portátil suspenderáse al baxar la tapa</translation>
     </message>
 </context>
 <context>
@@ -1461,7 +1461,7 @@
     <message>
         <location filename="../modules/power/powermanagement.cpp" line="26"/>
         <source>Power Management</source>
-        <translation>Управление на захранването</translation>
+        <translation>Xestión d&apos;enerxía</translation>
     </message>
 </context>
 <context>
@@ -1469,12 +1469,12 @@
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="108"/>
         <source>Cancel</source>
-        <translation>Отказ</translation>
+        <translation>Encaboxar</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/mainwidget.cpp" line="109"/>
         <source>Add</source>
-        <translation>Добави</translation>
+        <translation>Amestar</translation>
     </message>
 </context>
 <context>
@@ -1482,12 +1482,12 @@
     <message>
         <location filename="../widgets/moduleheader.cpp" line="59"/>
         <source>Reset Successfully</source>
-        <translation>Рестартирането е успешно</translation>
+        <translation>Reafitóse con ésitu</translation>
     </message>
     <message>
         <location filename="../widgets/moduleheader.cpp" line="61"/>
         <source>Reset</source>
-        <translation>Рестартиране</translation>
+        <translation>Reaniciar</translation>
     </message>
 </context>
 <context>
@@ -1495,12 +1495,12 @@
     <message>
         <location filename="../modules/shortcuts/selectdialog.cpp" line="37"/>
         <source>Replace</source>
-        <translation>Замяна</translation>
+        <translation>Trocar</translation>
     </message>
     <message>
         <location filename="../modules/shortcuts/selectdialog.cpp" line="38"/>
         <source>Cancel</source>
-        <translation>Отказ</translation>
+        <translation>Encaboxar</translation>
     </message>
 </context>
 <context>
@@ -1515,7 +1515,7 @@
         <location filename="../modules/shortcuts/shortcutdbus.h" line="230"/>
         <location filename="../modules/shortcuts/shortcutdbus.h" line="234"/>
         <source>None</source>
-        <translation>Нищо</translation>
+        <translation>Nada</translation>
     </message>
 </context>
 <context>
@@ -1523,7 +1523,7 @@
     <message>
         <location filename="../modules/shortcuts/shortcutedit.cpp" line="45"/>
         <source>Please input new shortcut</source>
-        <translation>Моля, въведете нова клавишна комбинация</translation>
+        <translation>Introduz nun atayu nuevu, por favor</translation>
     </message>
 </context>
 <context>
@@ -1531,37 +1531,37 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="73"/>
         <source>Disk:</source>
-        <translation>Диск:</translation>
+        <translation>Discu:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="75"/>
         <source>Memory:</source>
-        <translation>Памет:</translation>
+        <translation>Memoria:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="77"/>
         <source>Processor:</source>
-        <translation>Процесор:</translation>
+        <translation>Procesador:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="78"/>
         <source>%1 Bit</source>
-        <translation>%1 Bit</translation>
+        <translation>%1Bits</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
         <source>System Type:</source>
-        <translation>Тип на системата:</translation>
+        <translation>Triba de sistema:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
         <source>Distribution:</source>
-        <translation>Дистрибуция:</translation>
+        <translation>Distribución:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
         <source>Deepin Edition:</source>
-        <translation>Издание на Deepin:</translation>
+        <translation>Edición de Deepin:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
@@ -1571,7 +1571,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="89"/>
         <source>System Information</source>
-        <translation>Системна информация</translation>
+        <translation>Información del sistema</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="165"/>
@@ -1584,7 +1584,7 @@
     <message>
         <location filename="../modules/network/systemproxyline.cpp" line="27"/>
         <source>Port</source>
-        <translation>Порт</translation>
+        <translation>Puertu</translation>
     </message>
 </context>
 <context>
@@ -1592,52 +1592,52 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="32"/>
         <source>None</source>
-        <translation>Нищо</translation>
+        <translation>Nada</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="32"/>
         <source>Manual</source>
-        <translation>Ръчно</translation>
+        <translation>Manual</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="32"/>
         <source>Auto</source>
-        <translation>Автоматично</translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="49"/>
         <source>Apply system wide</source>
-        <translation>Приложи за цялата система</translation>
+        <translation>Aplicar pa tol sistema</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="52"/>
         <source>Ignore the following proxy configuration for hosts and domains</source>
-        <translation>Пренебрегване на прокси настройките за хостове и домейни</translation>
+        <translation>Inorar la configuración del proxy de darréu p&apos;agospios y dominios</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="79"/>
         <source>HTTP Proxy</source>
-        <translation>HTTP Прокси</translation>
+        <translation>Proxy HTTP</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="80"/>
         <source>HTTPS Proxy</source>
-        <translation>HTTPS Прокси</translation>
+        <translation>Proxy HTTPS</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="81"/>
         <source>FTP Proxy</source>
-        <translation>FTP Прокси</translation>
+        <translation>Proxy FTP</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="82"/>
         <source>Socks Proxy</source>
-        <translation>Socks Прокси</translation>
+        <translation>Proxy socks</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="97"/>
         <source>Configuration URL</source>
-        <translation>Конфигуриране на URL</translation>
+        <translation>URL de configuración</translation>
     </message>
 </context>
 <context>
@@ -1645,27 +1645,27 @@
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="21"/>
         <source>Close</source>
-        <translation>Затваряне</translation>
+        <translation>Zarrar</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="22"/>
         <source>Confirm</source>
-        <translation>Потвърждение</translation>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="23"/>
         <source>Add</source>
-        <translation>Добави</translation>
+        <translation>Amestar</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="49"/>
         <source>Remove Timezone</source>
-        <translation>Премахване на часова зона</translation>
+        <translation>Desaniciar fusu horariu</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezonectrlwidget.cpp" line="56"/>
         <source>Add Timezone</source>
-        <translation>Добавяне на часова зона</translation>
+        <translation>Amestar fusu horariu</translation>
     </message>
 </context>
 <context>
@@ -1673,7 +1673,7 @@
     <message>
         <location filename="../modules/system_info/updatearrowexpand.cpp" line="32"/>
         <source>Update</source>
-        <translation>Актуализирайте</translation>
+        <translation>Anovar</translation>
     </message>
 </context>
 <context>
@@ -1681,52 +1681,52 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="281"/>
         <source>Your system is up to date</source>
-        <translation>Вашата система  е актуализирана</translation>
+        <translation>El to sistema ta anováu</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
         <source>Click to view available  updates</source>
-        <translation>Кликнете, за да видите достъпните актуализации</translation>
+        <translation>Primi pa ver los anovamientos disponibles</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Download completed, please click on the update icon to install</source>
-        <translation>Свалянето приключи, щракнете на иконата обнови за инсталиране </translation>
+        <translation>Completóse la descarga. Primi nel iconu d&apos;anovamientu pa instalar, por favor.</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
         <source>Total download size: %1</source>
-        <translation>Свалено общ размер: %1</translation>
+        <translation>Tamañu total de descarga: %1</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="318"/>
         <source>Unknown</source>
-        <translation>Неизвестно</translation>
+        <translation>Desconocíu</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="329"/>
         <source>%1 software need to be updated</source>
-        <translation>%1 софтуерът се нуждае от актуализиране</translation>
+        <translation>Precisen anovase %1 aplicaciones</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="335"/>
         <source>Some patches need to be updated</source>
-        <translation>Някои части се нуждаят от актуализиране</translation>
+        <translation>Precisen anovase dellos parches</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="331"/>
         <source>Some patches and %1 software need to be updated</source>
-        <translation>Някои части и  %1 софтуер се нуждаят от актуализиране</translation>
+        <translation>Precisen anovase dellos parches y %1 programes</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="407"/>
         <source>Checking for updates</source>
-        <translation>Проверяване за актуализации</translation>
+        <translation>Comprobando anovamientos</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="408"/>
         <source>Check for updates, please wait</source>
-        <translation>Проверка за актуализации, моля, изчакайте</translation>
+        <translation>Comprobando anovamientos. Espera, por favor</translation>
     </message>
 </context>
 <context>
@@ -1734,22 +1734,22 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="141"/>
         <source>Auto-login</source>
-        <translation>Автоматично влизане</translation>
+        <translation>Aniciu sesión automáticu</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="167"/>
         <source>Enable</source>
-        <translation>Включено</translation>
+        <translation>Habilitar</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="224"/>
         <source>Choose a new picture for your Avatar</source>
-        <translation>Изберете нова картина за вашият Аватар</translation>
+        <translation>Escueyi una semeya pal to avatar</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandcontent.cpp" line="225"/>
         <source>Image files (*.jpg *.png *.jpeg)</source>
-        <translation>Image files (*.jpg *.png *.jpeg)</translation>
+        <translation>Ficheros d&apos;imaxe (*.jpg *.png *.jpeg)</translation>
     </message>
 </context>
 <context>
@@ -1757,32 +1757,32 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="180"/>
         <source>Keep user&apos;s files</source>
-        <translation>Запази потребителските файлове</translation>
+        <translation>Caltener los ficheros del usuariu</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="181"/>
         <source>Delete user&apos;s files</source>
-        <translation>Изтрий потребителските файлове</translation>
+        <translation>Desaniciar los ficheros del usuariu</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="183"/>
         <source>Cancel</source>
-        <translation>Отказ</translation>
+        <translation>Encaboxar</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="184"/>
         <source>Confirm</source>
-        <translation>Потвърждение</translation>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="232"/>
         <source>Administrator</source>
-        <translation>Администратор</translation>
+        <translation>Alministrador</translation>
     </message>
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="234"/>
         <source>Normal User</source>
-        <translation> Нормален Потребител</translation>
+        <translation>Usuariu normal</translation>
     </message>
 </context>
 <context>
@@ -1790,7 +1790,7 @@
     <message>
         <location filename="../modules/network/vpnconnectswidget.cpp" line="17"/>
         <source>VPN Connections</source>
-        <translation>VPN Връзки</translation>
+        <translation>Conexones VPN</translation>
     </message>
 </context>
 <context>
@@ -1798,102 +1798,102 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="61"/>
         <source>Page Up</source>
-        <translation> Страница нагоре</translation>
+        <translation>Xubir páxina</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="62"/>
         <source>Page Down</source>
-        <translation>Страница надолу</translation>
+        <translation>Baxar páxina</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="63"/>
         <source>Left Click</source>
-        <translation>Ляво щракване</translation>
+        <translation>Clic esquierdu</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="64"/>
         <source>Right Click</source>
-        <translation>Дясно щракване</translation>
+        <translation>Clic drechu</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="65"/>
         <source>Middle Click</source>
-        <translation>Средно щракване</translation>
+        <translation>Clic d&apos;en mediu</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="83"/>
         <source>Tablet</source>
-        <translation>Таблет</translation>
+        <translation>Tableta</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="97"/>
         <source>Tablet Orientation</source>
-        <translation>Ориентация на таблет</translation>
+        <translation>Orientación de tableta</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="102"/>
         <source>Left Hand</source>
-        <translation>лява ръка</translation>
+        <translation>Manzorga</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="103"/>
         <source>Right Hand</source>
-        <translation>дясна ръка</translation>
+        <translation>Mandrecha</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="115"/>
         <source>Digital Pen Modes</source>
-        <translation>Режими Цифрова писалка</translation>
+        <translation>Moos de llápiz dixital</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="120"/>
         <source>Pen Mode</source>
-        <translation>Режим Писалка</translation>
+        <translation>Mou de llápiz</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="121"/>
         <source>Mouse Mode</source>
-        <translation>Режим на мишката</translation>
+        <translation>Mou mur</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="133"/>
         <source>Down Key</source>
-        <translation>Долен клавиш</translation>
+        <translation>Tecla abaxo</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="152"/>
         <source>Up Key</source>
-        <translation>Горен клавиш</translation>
+        <translation>Tecla arriba</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="171"/>
         <source>Pressure</source>
-        <translation>Натиск</translation>
+        <translation>Presión</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="176"/>
         <source>Soft</source>
-        <translation>Меко</translation>
+        <translation>Suave</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="177"/>
         <source>Hard</source>
-        <translation>Твърдо</translation>
+        <translation>Fuerte</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="191"/>
         <source>Double-click Space</source>
-        <translation>Разстояние при двойно кликване</translation>
+        <translation>Espaciu de clic doblu</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="196"/>
         <source>Narrow</source>
-        <translation>Точен</translation>
+        <translation>Curtiu</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="197"/>
         <source>Wide</source>
-        <translation>Широчина</translation>
+        <translation>Llargu</translation>
     </message>
 </context>
 <context>
@@ -1903,17 +1903,17 @@
         <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="92"/>
         <source>Wired Network</source>
-        <translation>Кабелна мрежа</translation>
+        <translation>Rede cableada</translation>
     </message>
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="30"/>
         <source>Wired Connection</source>
-        <translation>Кабелна връзка</translation>
+        <translation>Conexón cableada</translation>
     </message>
     <message>
         <location filename="../modules/network/wirednetworklistitem.cpp" line="90"/>
         <source>Interface</source>
-        <translation>Интерфейс</translation>
+        <translation>INterfaz</translation>
     </message>
 </context>
 <context>
@@ -1923,17 +1923,17 @@
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="384"/>
         <source>Wireless Network</source>
-        <translation>Wireless мрежа</translation>
+        <translation>Rede inalámbrica</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="241"/>
         <source>Connect to hidden access point</source>
-        <translation>Свързване към скрити точки за достъп</translation>
+        <translation>Coneutase a un puntu d&apos;accesu anubríu</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelessnetworklistitem.cpp" line="382"/>
         <source>Interface</source>
-        <translation>Интерфейс</translation>
+        <translation>INterfaz</translation>
     </message>
 </context>
 </TS>

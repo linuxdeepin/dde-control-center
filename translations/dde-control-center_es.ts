@@ -125,7 +125,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>Detalles</translation>
     </message>
 </context>
 <context>
@@ -656,7 +656,7 @@
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="144"/>
         <source>The startup speed can be improved by disabling the theme</source>
-        <translation type="unfinished"/>
+        <translation>La velocidad de inicio se puede mejorar mediante la desactivación del tema</translation>
     </message>
     <message>
         <location filename="../modules/grub/grubwidget.cpp" line="180"/>
@@ -1097,7 +1097,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="202"/>
         <source>Trackpoint</source>
-        <translation type="unfinished"/>
+        <translation>Punto de búsqueda</translation>
     </message>
 </context>
 <context>
@@ -1359,12 +1359,12 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="63"/>
         <source>Output Port</source>
-        <translation>Puerto de Salida</translation>
+        <translation>Puerto de salida</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="75"/>
         <source>Input Port</source>
-        <translation>Puerto de Entrada</translation>
+        <translation>Puerto de entrada</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="88"/>
@@ -1390,12 +1390,12 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="174"/>
         <source>Output Volume</source>
-        <translation>Salida del Volumen</translation>
+        <translation>Volumen de salida</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="189"/>
         <source>Left/Right Balance</source>
-        <translation>Equilibrio izquierda/derecha</translation>
+        <translation>Balance izquierda/derecha</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="197"/>
@@ -1415,12 +1415,12 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="310"/>
         <source>Input Volume</source>
-        <translation>Entrada del Volumen</translation>
+        <translation>Volumen de entrada</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="326"/>
         <source>Feedback Volume</source>
-        <translation>Volumen de Realimentación</translation>
+        <translation>Volumen de realimentación</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="430"/>
@@ -1692,7 +1692,7 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Download completed, please click on the update icon to install</source>
-        <translation type="unfinished"/>
+        <translation>Descarga completa, haga clic en el icono de actualización para instalar</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="315"/>

@@ -125,7 +125,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>Подробнее</translation>
     </message>
 </context>
 <context>
@@ -725,7 +725,7 @@
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="227"/>
         <source>Test Area</source>
-        <translation>Проверьте</translation>
+        <translation>Проверьте здесь</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="241"/>
@@ -855,7 +855,7 @@
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="114"/>
         <source>Timeout</source>
         <extracomment>the mirror cant reachable</extracomment>
-        <translation>Таймаут</translation>
+        <translation>Ожидает</translation>
     </message>
     <message>
         <location filename="../modules/system_info/mirroritemwidget.cpp" line="116"/>
@@ -971,7 +971,7 @@
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="44"/>
         <source>Personalization</source>
-        <translation>Персонализация</translation>
+        <translation>Персональные настройки</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboard.cpp" line="61"/>
@@ -1072,7 +1072,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="190"/>
         <source>Drag Threshold</source>
-        <translation>Предел перетаскивания</translation>
+        <translation>Чувствительность</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="191"/>
@@ -1082,7 +1082,7 @@
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="192"/>
         <source>Tap to click</source>
-        <translation>Коснитесь для клика</translation>
+        <translation>Включить нажатие</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mouse.cpp" line="193"/>
@@ -1310,7 +1310,7 @@
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="67"/>
         <source>Personalization</source>
-        <translation>Персонализация</translation>
+        <translation>Персональные настройки</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalization.cpp" line="138"/>

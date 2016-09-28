@@ -125,7 +125,7 @@
     <message>
         <location filename="../modules/system_info/applictionitemwidget.cpp" line="64"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>Detalhes</translation>
     </message>
 </context>
 <context>
@@ -1691,7 +1691,7 @@
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
         <source>Download completed, please click on the update icon to install</source>
-        <translation type="unfinished"/>
+        <translation>Download concluído, clique no ícone para instalar atualização</translation>
     </message>
     <message>
         <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
