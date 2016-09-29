@@ -1,7 +1,7 @@
 #include(./common.pri)
-include(./interfaces/interfaces.pri)
 #include(./modules/modules.pri)
 #include(./widgets/widgets.pri)
+#include(./interfaces/interfaces.pri)
 
 TEMPLATE = subdirs
 SUBDIRS  = \

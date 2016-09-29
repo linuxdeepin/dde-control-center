@@ -1,3 +1,15 @@
+
+DEFINES += QT_MESSAGELOGCONTEXT
+
 HEADERS += \
-    $$PWD/moduleinterface.h \
-    $$PWD/frameproxyinterface.h
+    $$PWD/frameproxyinterface.h \
+    $$PWD/plugininterface.h
+
+SOURCES += \
+
+INCLUDEPATH += $$PWD
+
+isEmpty(PREFIX)
+{
+    PREFIX = /usr
+}

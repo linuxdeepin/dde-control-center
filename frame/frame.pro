@@ -1,18 +1,23 @@
+
+include(../interfaces/interfaces.pri)
+
 QT += widgets dbus svg
-
-HEADERS    = \
-    frame.h
-
-SOURCES    = \
-            main.cpp \
-    frame.cpp
 
 TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../
-
+TEMPLATE   = app
 CONFIG += c++11 link_pkgconfig
 #LIBS += -L../widgets -lwidgets
 PKGCONFIG      += dtkwidget dtkbase dtkutil
+
+HEADERS    = \
+    frame.h \
+    pluginscontroller.h
+
+SOURCES    = \
+            main.cpp \
+    frame.cpp \
+    pluginscontroller.cpp
 
 #RESOURCES += \
 #    qss.qrc \
