@@ -14,11 +14,14 @@ class PluginsController : public QObject, public FrameProxyInterface
 public:
     explicit PluginsController(QObject *parent = 0);
 
+signals:
+    void pluginAdded(QWidget * const w);
+
+public slots:
+    void loadPlugins();
+
 private:
     void pushWidget(QString mid, QWidget *w);
-
-private slots:
-    void loadPlugins();
 };
 
 #endif // PLUGINSCONTROLLER_H

@@ -1,7 +1,7 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include "pluginscontroller.h"
+#include "mainwidget.h"
 
 #include <QMainWindow>
 
@@ -12,8 +12,11 @@ class Frame : public QMainWindow
 public:
     explicit Frame(QWidget *parent = 0);
 
+private slots:
+    void init();
+
 private:
-    PluginsController *m_pluginsController;
+    MainWidget *m_mainWidget;
 };
 
 #endif // FRAME_H

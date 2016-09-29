@@ -12,12 +12,16 @@ PKGCONFIG      += dtkwidget dtkbase dtkutil
 
 HEADERS    = \
     frame.h \
-    pluginscontroller.h
+    pluginscontroller.h \
+    framewidget.h \
+    mainwidget.h
 
 SOURCES    = \
             main.cpp \
     frame.cpp \
-    pluginscontroller.cpp
+    pluginscontroller.cpp \
+    framewidget.cpp \
+    mainwidget.cpp
 
 #RESOURCES += \
 #    qss.qrc \

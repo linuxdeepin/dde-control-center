@@ -1,5 +1,4 @@
 
-
 #include "plugininterface.h"
 #include "exampleplugin.h"
 

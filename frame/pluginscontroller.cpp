@@ -5,12 +5,11 @@
 #include <QDir>
 #include <QLibrary>
 #include <QPluginLoader>
+#include <QWidget>
 
 PluginsController::PluginsController(QObject *parent)
     : QObject(parent)
 {
-
-    QMetaObject::invokeMethod(this, "loadPlugins", Qt::QueuedConnection);
 }
 
 void PluginsController::pushWidget(QString mid, QWidget *w)
@@ -36,10 +35,11 @@ void PluginsController::loadPlugins()
             continue;
 
         // load library
-        QPluginLoader *pluginLoader = new QPluginLoader(file, this);
+        QPluginLoader *pluginLoader = new QPluginLoader(pluginsDir.absoluteFilePath(file), this);
         PluginInterface *interface = qobject_cast<PluginInterface *>(pluginLoader->instance());
         if (!interface)
         {
+            qDebug() << pluginLoader->errorString();
             pluginLoader->unload();
             pluginLoader->deleteLater();
             return;
@@ -48,5 +48,8 @@ void PluginsController::loadPlugins()
 //        m_pluginList.insert(interface, QMap<QString, PluginsItem *>());
 //        interface->init(this);
         interface->initialize(this);
+        QWidget *w = interface->centeralWidget();
+        w->setVisible(false);
+        emit pluginAdded(w);
     }
 }
