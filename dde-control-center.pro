@@ -1,10 +1,12 @@
-include(./common.pri)
+#include(./common.pri)
 include(./interfaces/interfaces.pri)
-include(./helper/helper.pri)
-include(./modules/modules.pri)
-include(./widgets/widgets.pri)
+#include(./modules/modules.pri)
+#include(./widgets/widgets.pri)
 
-TEMPLATE = app
+TEMPLATE = subdirs
+SUBDIRS  = \
+            plugins \
+            frame
 
 # Automating generation .qm files from .ts files
 CONFIG(release, debug|release) {
@@ -13,8 +15,8 @@ CONFIG(release, debug|release) {
 
 # add install files
 widgets.depends = helper
-frame.depends = widgets
-modules.depends = widgets
+#frame.depends = widgets
+#modules.depends = widgets
 
 binary.path = $${PREFIX}/bin
 binary.files = dde-control-center
