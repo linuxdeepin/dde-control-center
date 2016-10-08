@@ -9,6 +9,9 @@ class SettingsWidget : public ContentWidget
 
 public:
     explicit SettingsWidget(QWidget *parent = 0);
+
+private:
+    QWidget *m_settingsWidget;
 };
 
 #endif // SETTINGSWIDGET_H

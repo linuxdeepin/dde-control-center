@@ -2,9 +2,12 @@
 
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QResizeEvent>
 
 ContentWidget::ContentWidget(QWidget *parent)
-    : QWidget(parent)
+    : QWidget(parent),
+
+      m_content(nullptr)
 {
     QPushButton *backBtn = new QPushButton;
     backBtn->setText("Back");
@@ -13,6 +16,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_title->setText("Title");
 
     m_contentArea = new QScrollArea;
+    m_contentArea->installEventFilter(this);
     m_contentArea->setFrameStyle(QFrame::NoFrame);
     m_contentArea->setStyleSheet("background-color:red;");
 
@@ -29,4 +33,23 @@ ContentWidget::ContentWidget(QWidget *parent)
     connect(backBtn, &QPushButton::clicked, this, &ContentWidget::back);
 
     setLayout(centeralLayout);
+}
+
+QWidget *ContentWidget::setContent(QWidget * const w)
+{
+    QWidget *lastWidget = m_content;
+
+    m_content = w;
+    m_content->setFixedWidth(m_contentArea->width());
+    m_contentArea->setWidget(m_content);
+
+    return lastWidget;
+}
+
+bool ContentWidget::eventFilter(QObject *watched, QEvent *event)
+{
+    if (m_content && watched == m_contentArea && event->type() == QEvent::Resize)
+        m_content->setFixedWidth(static_cast<QResizeEvent *>(event)->size().width());
+
+    return false;
 }

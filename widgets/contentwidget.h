@@ -16,8 +16,16 @@ signals:
     void back();
 
 protected:
+    QWidget *setContent(QWidget * const w);
+
+private:
+    bool eventFilter(QObject *watched, QEvent *event);
+
+protected:
     QLabel *m_title;
     QScrollArea *m_contentArea;
+
+    QWidget *m_content;
 };
 
 #endif // CONTENTWIDGET_H
