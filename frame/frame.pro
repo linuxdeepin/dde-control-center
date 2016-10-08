@@ -14,14 +14,16 @@ HEADERS    = \
     frame.h \
     pluginscontroller.h \
     framewidget.h \
-    mainwidget.h
+    mainwidget.h \
+    contentwidget.h
 
 SOURCES    = \
             main.cpp \
     frame.cpp \
     pluginscontroller.cpp \
     framewidget.cpp \
-    mainwidget.cpp
+    mainwidget.cpp \
+    contentwidget.cpp
 
 #RESOURCES += \
 #    qss.qrc \

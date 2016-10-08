@@ -14,7 +14,7 @@ FrameWidget::FrameWidget(Frame *parent)
 bool FrameWidget::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched == parent() && event->type() == QEvent::Resize)
-        setFixedSize(static_cast<QWidget *>(watched)->size());
+        setFixedSize(static_cast<QResizeEvent *>(event)->size());
 
     return false;
 }

@@ -3,6 +3,10 @@
 
 #include <QWidget>
 
+///
+/// FrameWidget can auto adjust size to fit parent Frame
+///
+
 class Frame;
 class FrameWidget : public QWidget
 {

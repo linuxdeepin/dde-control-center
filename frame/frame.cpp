@@ -1,4 +1,5 @@
 #include "frame.h"
+#include "contentwidget.h"
 
 #include <QScreen>
 #include <QApplication>
@@ -6,7 +7,7 @@
 Frame::Frame(QWidget *parent)
     : QMainWindow(parent),
 
-      m_mainWidget(nullptr)
+      m_allSettingsPage(nullptr)
 {
     setFixedSize(300, 900);
     move(qApp->primaryScreen()->geometry().center() - rect().center());
@@ -14,8 +15,45 @@ Frame::Frame(QWidget *parent)
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
 }
 
+void Frame::pushWidget(FrameWidget * const w)
+{
+    Q_ASSERT(!m_frameWidgetStack.empty());
+
+    m_frameWidgetStack.last()->hide();
+    m_frameWidgetStack.push(w);
+    w->show();
+}
+
+void Frame::popWidget()
+{
+    Q_ASSERT(m_frameWidgetStack.size() > 1);
+
+    m_frameWidgetStack.pop()->hide();
+    m_frameWidgetStack.last()->show();
+}
+
 void Frame::init()
 {
-    m_mainWidget = new MainWidget(this);
-    m_mainWidget->setVisible(true);
+    // main page
+    MainWidget *w = new MainWidget(this);
+    w->setVisible(true);
+
+    connect(w, &MainWidget::showAllSettings, this, &Frame::showAllSettings);
+
+    m_frameWidgetStack.push(w);
+}
+
+void Frame::showAllSettings()
+{
+    if (!m_allSettingsPage)
+    {
+        ContentWidget *settingsWidget = new ContentWidget;
+        QVBoxLayout *settingsLayout = new QVBoxLayout;
+        settingsLayout->addWidget(settingsWidget);
+
+        m_allSettingsPage = new FrameWidget(this);
+        m_allSettingsPage->setLayout(settingsLayout);
+    }
+
+    pushWidget(m_allSettingsPage);
 }

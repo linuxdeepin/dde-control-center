@@ -14,6 +14,9 @@ class MainWidget : public FrameWidget
 public:
     explicit MainWidget(Frame *parent = 0);
 
+signals:
+    void showAllSettings() const;
+
 private:
     void showPlugin(QWidget * const w);
 
@@ -29,6 +32,7 @@ private:
     // ui widgets
     QHBoxLayout *m_pluginsLayout;
     QPushButton *m_nextPluginBtn;
+    QPushButton *m_allSettingsBtn;
 };
 
 #endif // MAINWIDGET_H

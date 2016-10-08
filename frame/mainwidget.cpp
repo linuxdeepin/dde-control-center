@@ -8,18 +8,22 @@ MainWidget::MainWidget(Frame *parent)
       m_lastPluginWidget(nullptr),
 
       m_pluginsLayout(new QHBoxLayout),
-      m_nextPluginBtn(new QPushButton)
+      m_nextPluginBtn(new QPushButton),
+      m_allSettingsBtn(new QPushButton)
 {
     m_nextPluginBtn->setText("Next");
+    m_allSettingsBtn->setText("All settings");
 
     QVBoxLayout *centeralLayout = new QVBoxLayout;
     centeralLayout->addLayout(m_pluginsLayout);
     centeralLayout->addWidget(m_nextPluginBtn);
+    centeralLayout->addWidget(m_allSettingsBtn);
 
     setLayout(centeralLayout);
 
     connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded);
     connect(m_nextPluginBtn, &QPushButton::clicked, this, &MainWidget::showNextPlugin);
+    connect(m_allSettingsBtn, &QPushButton::clicked, this, &MainWidget::showAllSettings);
 
     m_pluginsController->loadPlugins();
 }
