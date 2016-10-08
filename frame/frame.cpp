@@ -50,6 +50,8 @@ void Frame::showAllSettings()
         ContentWidget *settingsWidget = new ContentWidget;
         QVBoxLayout *settingsLayout = new QVBoxLayout;
         settingsLayout->addWidget(settingsWidget);
+        settingsLayout->setSpacing(0);
+        settingsLayout->setMargin(0);
 
         m_allSettingsPage = new FrameWidget(this);
         m_allSettingsPage->setLayout(settingsLayout);

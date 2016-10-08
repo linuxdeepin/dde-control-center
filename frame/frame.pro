@@ -1,5 +1,6 @@
 
 include(../interfaces/interfaces.pri)
+include(../widgets/widgets.pri)
 
 QT += widgets dbus svg
 
@@ -10,20 +11,18 @@ CONFIG += c++11 link_pkgconfig
 #LIBS += -L../widgets -lwidgets
 PKGCONFIG      += dtkwidget dtkbase dtkutil
 
-HEADERS    = \
+HEADERS    += \
     frame.h \
     pluginscontroller.h \
     framewidget.h \
-    mainwidget.h \
-    contentwidget.h
+    mainwidget.h
 
-SOURCES    = \
+SOURCES    += \
             main.cpp \
     frame.cpp \
     pluginscontroller.cpp \
     framewidget.cpp \
-    mainwidget.cpp \
-    contentwidget.cpp
+    mainwidget.cpp
 
 #RESOURCES += \
 #    qss.qrc \

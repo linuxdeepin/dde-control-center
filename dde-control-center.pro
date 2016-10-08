@@ -1,6 +1,5 @@
 #include(./common.pri)
 #include(./modules/modules.pri)
-#include(./widgets/widgets.pri)
 #include(./interfaces/interfaces.pri)
 
 TEMPLATE = subdirs

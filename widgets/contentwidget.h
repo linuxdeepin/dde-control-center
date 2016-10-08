@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QScrollArea>
 
 class ContentWidget : public QWidget
 {
@@ -16,6 +17,7 @@ signals:
 
 private:
     QLabel *m_title;
+    QScrollArea *m_contentArea;
 };
 
 #endif // CONTENTWIDGET_H
