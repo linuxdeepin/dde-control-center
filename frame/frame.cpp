@@ -1,5 +1,5 @@
 #include "frame.h"
-#include "contentwidget.h"
+#include "settingswidget.h"
 
 #include <QScreen>
 #include <QApplication>
@@ -47,7 +47,7 @@ void Frame::showAllSettings()
 {
     if (!m_allSettingsPage)
     {
-        ContentWidget *settingsWidget = new ContentWidget;
+        SettingsWidget *settingsWidget = new SettingsWidget;
         QVBoxLayout *settingsLayout = new QVBoxLayout;
         settingsLayout->addWidget(settingsWidget);
         settingsLayout->setSpacing(0);
@@ -56,7 +56,7 @@ void Frame::showAllSettings()
         m_allSettingsPage = new FrameWidget(this);
         m_allSettingsPage->setLayout(settingsLayout);
 
-        connect(settingsWidget, &ContentWidget::back, this, &Frame::popWidget);
+        connect(settingsWidget, &SettingsWidget::back, this, &Frame::popWidget);
     }
 
     pushWidget(m_allSettingsPage);

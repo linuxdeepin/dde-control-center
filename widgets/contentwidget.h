@@ -15,7 +15,7 @@ public:
 signals:
     void back();
 
-private:
+protected:
     QLabel *m_title;
     QScrollArea *m_contentArea;
 };

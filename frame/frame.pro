@@ -2,6 +2,9 @@
 include(../interfaces/interfaces.pri)
 include(../widgets/widgets.pri)
 
+# modules
+include(../modules/modules.pri)
+
 QT += widgets dbus svg
 
 TARGET     = dde-control-center
@@ -15,14 +18,16 @@ HEADERS    += \
     frame.h \
     pluginscontroller.h \
     framewidget.h \
-    mainwidget.h
+    mainwidget.h \
+    settingswidget.h
 
 SOURCES    += \
             main.cpp \
     frame.cpp \
     pluginscontroller.cpp \
     framewidget.cpp \
-    mainwidget.cpp
+    mainwidget.cpp \
+    settingswidget.cpp
 
 #RESOURCES += \
 #    qss.qrc \
