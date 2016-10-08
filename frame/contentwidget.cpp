@@ -19,5 +19,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     QVBoxLayout *centeralLayout = new QVBoxLayout;
     centeralLayout->addLayout(titleLayout);
 
+    connect(backBtn, &QPushButton::clicked, this, &ContentWidget::back);
+
     setLayout(centeralLayout);
 }

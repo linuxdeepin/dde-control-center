@@ -53,6 +53,8 @@ void Frame::showAllSettings()
 
         m_allSettingsPage = new FrameWidget(this);
         m_allSettingsPage->setLayout(settingsLayout);
+
+        connect(settingsWidget, &ContentWidget::back, this, &Frame::popWidget);
     }
 
     pushWidget(m_allSettingsPage);
