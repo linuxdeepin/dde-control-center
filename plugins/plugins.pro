@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
 SUBDIRS = \
         example \
-        calculator
+        calculator \
+        notify
