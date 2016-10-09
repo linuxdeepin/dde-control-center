@@ -18,4 +18,5 @@ SettingsWidget::SettingsWidget(QWidget *parent)
     m_settingsWidget = new QWidget;
     m_settingsWidget->setLayout(settingsLayout);
     setContent(m_settingsWidget);
+    setTitle(tr("All Settings"));
 }

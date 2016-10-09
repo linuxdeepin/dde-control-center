@@ -12,6 +12,8 @@ class ContentWidget : public QWidget
 public:
     explicit ContentWidget(QWidget *parent = 0);
 
+    void setTitle(const QString &title);
+
 signals:
     void back();
 

@@ -11,9 +11,11 @@ ContentWidget::ContentWidget(QWidget *parent)
 {
     QPushButton *backBtn = new QPushButton;
     backBtn->setText("Back");
+    backBtn->setFixedWidth(32);
 
     m_title = new QLabel;
     m_title->setText("Title");
+    m_title->setAlignment(Qt::AlignCenter);
 
     m_contentArea = new QScrollArea;
     m_contentArea->installEventFilter(this);
@@ -33,6 +35,11 @@ ContentWidget::ContentWidget(QWidget *parent)
     connect(backBtn, &QPushButton::clicked, this, &ContentWidget::back);
 
     setLayout(centeralLayout);
+}
+
+void ContentWidget::setTitle(const QString &title)
+{
+    m_title->setText(title);
 }
 
 QWidget *ContentWidget::setContent(QWidget * const w)
