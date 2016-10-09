@@ -9,7 +9,7 @@ Frame::Frame(QWidget *parent)
 
       m_allSettingsPage(nullptr)
 {
-    setFixedSize(300, 900);
+    setFixedSize(300, 600);
     move(qApp->primaryScreen()->geometry().center() - rect().center());
 
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
@@ -47,7 +47,7 @@ void Frame::showAllSettings()
 {
     if (!m_allSettingsPage)
     {
-        SettingsWidget *settingsWidget = new SettingsWidget;
+        SettingsWidget *settingsWidget = new SettingsWidget(this);
         QVBoxLayout *settingsLayout = new QVBoxLayout;
         settingsLayout->addWidget(settingsWidget);
         settingsLayout->setSpacing(0);

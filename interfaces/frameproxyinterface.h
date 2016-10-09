@@ -10,16 +10,15 @@
 #ifndef FRAMEPROXYINTERFACE_H
 #define FRAMEPROXYINTERFACE_H
 
-class QWidget;
-class QString;
+class FrameWidget;
 
 namespace dde {
 
 class FrameProxyInterface
 {
 public:
-    // Module请求进入第三级页面；
-    virtual void pushWidget(QString moduleId, QWidget *w) = 0;
+    // Module request to into next page
+    virtual void pushWidget(FrameWidget * const w) = 0;
 };
 
 }

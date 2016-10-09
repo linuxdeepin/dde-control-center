@@ -1,7 +1,8 @@
 #include "modulewidget.h"
 
-ModuleWidget::ModuleWidget(QWidget *parent)
-    : QWidget(parent)
+ModuleWidget::ModuleWidget(FrameProxyInterface *frame)
+    : QWidget(nullptr),
+      m_frameProxy(frame)
 {
     m_moduleIcon = new QLabel;
     m_moduleIcon->setFixedSize(32, 32);
@@ -22,8 +23,6 @@ ModuleWidget::ModuleWidget(QWidget *parent)
     m_centeralLayout->addLayout(titleLayout);
     m_centeralLayout->setSpacing(0);
     m_centeralLayout->setMargin(0);
-    // spacing at end of every module
-    m_centeralLayout->addSpacing(15);
 
     setLayout(m_centeralLayout);
 }

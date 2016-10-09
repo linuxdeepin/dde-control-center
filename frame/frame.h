@@ -2,11 +2,13 @@
 #define FRAME_H
 
 #include "mainwidget.h"
+#include "settingswidget.h"
+#include "frameproxyinterface.h"
 
 #include <QMainWindow>
 #include <QStack>
 
-class Frame : public QMainWindow
+class Frame : public QMainWindow, public FrameProxyInterface
 {
     Q_OBJECT
 

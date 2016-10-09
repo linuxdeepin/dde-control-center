@@ -1,4 +1,5 @@
 #include "settingswidget.h"
+#include "frame.h"
 
 #include "accounts/accounts.h"
 #include "display/display.h"
@@ -6,12 +7,12 @@
 #include <QVBoxLayout>
 #include <QResizeEvent>
 
-SettingsWidget::SettingsWidget(QWidget *parent)
-    : ContentWidget(parent)
+SettingsWidget::SettingsWidget(Frame *frame)
+    : ContentWidget(frame)
 {
     QVBoxLayout *settingsLayout = new QVBoxLayout;
-    settingsLayout->addWidget(new Accounts);
-    settingsLayout->addWidget(new Display);
+    settingsLayout->addWidget(new Accounts(frame));
+    settingsLayout->addWidget(new Display(frame));
     settingsLayout->setSpacing(0);
     settingsLayout->setMargin(0);
 

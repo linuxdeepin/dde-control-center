@@ -21,7 +21,7 @@ public slots:
     void loadPlugins();
 
 private:
-    void pushWidget(QString mid, QWidget *w);
+    void pushWidget(FrameWidget * const) {}
 };
 
 #endif // PLUGINSCONTROLLER_H

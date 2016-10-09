@@ -12,14 +12,6 @@ PluginsController::PluginsController(QObject *parent)
 {
 }
 
-void PluginsController::pushWidget(QString mid, QWidget *w)
-{
-    Q_UNUSED(mid)
-    Q_UNUSED(w)
-
-    // TODO
-}
-
 void PluginsController::loadPlugins()
 {
 #ifdef QT_DEBUG

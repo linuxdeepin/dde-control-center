@@ -3,12 +3,13 @@
 
 #include "contentwidget.h"
 
+class Frame;
 class SettingsWidget : public ContentWidget
 {
     Q_OBJECT
 
 public:
-    explicit SettingsWidget(QWidget *parent = 0);
+    explicit SettingsWidget(Frame *frame);
 
 private:
     QWidget *m_settingsWidget;
