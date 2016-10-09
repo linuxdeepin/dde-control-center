@@ -3,6 +3,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QResizeEvent>
+#include <QTimer>
 
 ContentWidget::ContentWidget(QWidget *parent)
     : QWidget(parent),

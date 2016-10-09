@@ -14,12 +14,12 @@ MainWidget::MainWidget(Frame *parent)
     m_nextPluginBtn->setText("Next");
     m_allSettingsBtn->setText("All settings");
 
-    QVBoxLayout *centeralLayout = new QVBoxLayout;
+    QVBoxLayout *centeralLayout = static_cast<QVBoxLayout *>(layout());
     centeralLayout->addLayout(m_pluginsLayout);
     centeralLayout->addWidget(m_nextPluginBtn);
     centeralLayout->addWidget(m_allSettingsBtn);
-
-    setLayout(centeralLayout);
+    centeralLayout->setSpacing(0);
+    centeralLayout->setMargin(0);
 
     connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded);
     connect(m_nextPluginBtn, &QPushButton::clicked, this, &MainWidget::showNextPlugin);

@@ -9,6 +9,8 @@ Frame::Frame(QWidget *parent)
 
       m_allSettingsPage(nullptr)
 {
+//    setWindowFlags(Qt::X11BypassWindowManagerHint);
+//    setAttribute(Qt::WA_TranslucentBackground);
     setFixedSize(300, 600);
     move(qApp->primaryScreen()->geometry().center() - rect().center());
 
@@ -19,12 +21,8 @@ void Frame::pushWidget(ContentWidget * const w)
 {
     Q_ASSERT(!m_frameWidgetStack.empty());
 
-    QVBoxLayout *fl = new QVBoxLayout;
-    fl->addWidget(w);
-    fl->setSpacing(0);
-    fl->setMargin(0);
     FrameWidget *fw = new FrameWidget(this);
-    fw->setLayout(fl);
+    fw->setContent(w);
 
     m_frameWidgetStack.last()->hide();
     m_frameWidgetStack.push(fw);
@@ -37,12 +35,8 @@ void Frame::popWidget()
 {
     Q_ASSERT(m_frameWidgetStack.size() > 1);
 
-    FrameWidget *fw = m_frameWidgetStack.pop();
-    fw->layout()->takeAt(0)->widget()->setParent(nullptr);
-    fw->hide();
-    fw->deleteLater();
-
-    m_frameWidgetStack.last()->show();
+    m_frameWidgetStack.pop()->destory();
+    m_frameWidgetStack.last()->showBack();
 }
 
 void Frame::init()
