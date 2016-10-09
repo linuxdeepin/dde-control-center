@@ -10,7 +10,7 @@
 #ifndef FRAMEPROXYINTERFACE_H
 #define FRAMEPROXYINTERFACE_H
 
-class FrameWidget;
+class ContentWidget;
 
 namespace dde {
 
@@ -18,7 +18,7 @@ class FrameProxyInterface
 {
 public:
     // Module request to into next page
-    virtual void pushWidget(FrameWidget * const w) = 0;
+    virtual void pushWidget(ContentWidget * const w) = 0;
 };
 
 }

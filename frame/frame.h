@@ -2,6 +2,7 @@
 #define FRAME_H
 
 #include "mainwidget.h"
+#include "contentwidget.h"
 #include "settingswidget.h"
 #include "frameproxyinterface.h"
 
@@ -16,7 +17,7 @@ public:
     explicit Frame(QWidget *parent = 0);
 
 public slots:
-    void pushWidget(FrameWidget * const w);
+    void pushWidget(ContentWidget * const w);
     void popWidget();
 
 private slots:
@@ -25,7 +26,7 @@ private slots:
     void showAllSettings();
 
 private:
-    FrameWidget *m_allSettingsPage;
+    SettingsWidget *m_allSettingsPage;
     QStack<FrameWidget *> m_frameWidgetStack;
 };
 

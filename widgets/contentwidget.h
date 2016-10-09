@@ -13,12 +13,10 @@ public:
     explicit ContentWidget(QWidget *parent = 0);
 
     void setTitle(const QString &title);
+    QWidget *setContent(QWidget * const w);
 
 signals:
     void back();
-
-protected:
-    QWidget *setContent(QWidget * const w);
 
 private:
     bool eventFilter(QObject *watched, QEvent *event);

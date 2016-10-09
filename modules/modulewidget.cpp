@@ -36,3 +36,8 @@ void ModuleWidget::setIcon(const QPixmap &icon)
 {
     m_moduleIcon->setPixmap(icon);
 }
+
+void ModuleWidget::pushWidget(ContentWidget * const w)
+{
+    m_frameProxy->pushWidget(w);
+}

@@ -19,6 +19,8 @@ public:
     void setTitle(const QString &title);
     void setIcon(const QPixmap &icon);
 
+    void pushWidget(ContentWidget * const w);
+
 protected:
     QLabel *m_moduleIcon;
     QLabel *m_moduleTitle;

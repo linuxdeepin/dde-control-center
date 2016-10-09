@@ -15,20 +15,33 @@ Frame::Frame(QWidget *parent)
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
 }
 
-void Frame::pushWidget(FrameWidget * const w)
+void Frame::pushWidget(ContentWidget * const w)
 {
     Q_ASSERT(!m_frameWidgetStack.empty());
 
+    QVBoxLayout *fl = new QVBoxLayout;
+    fl->addWidget(w);
+    fl->setSpacing(0);
+    fl->setMargin(0);
+    FrameWidget *fw = new FrameWidget(this);
+    fw->setLayout(fl);
+
     m_frameWidgetStack.last()->hide();
-    m_frameWidgetStack.push(w);
-    w->show();
+    m_frameWidgetStack.push(fw);
+    fw->show();
+
+    connect(w, &ContentWidget::back, this, &Frame::popWidget, Qt::UniqueConnection);
 }
 
 void Frame::popWidget()
 {
     Q_ASSERT(m_frameWidgetStack.size() > 1);
 
-    m_frameWidgetStack.pop()->hide();
+    FrameWidget *fw = m_frameWidgetStack.pop();
+    fw->layout()->takeAt(0)->widget()->setParent(nullptr);
+    fw->hide();
+    fw->deleteLater();
+
     m_frameWidgetStack.last()->show();
 }
 
@@ -46,18 +59,7 @@ void Frame::init()
 void Frame::showAllSettings()
 {
     if (!m_allSettingsPage)
-    {
-        SettingsWidget *settingsWidget = new SettingsWidget(this);
-        QVBoxLayout *settingsLayout = new QVBoxLayout;
-        settingsLayout->addWidget(settingsWidget);
-        settingsLayout->setSpacing(0);
-        settingsLayout->setMargin(0);
-
-        m_allSettingsPage = new FrameWidget(this);
-        m_allSettingsPage->setLayout(settingsLayout);
-
-        connect(settingsWidget, &SettingsWidget::back, this, &Frame::popWidget);
-    }
+        m_allSettingsPage = new SettingsWidget(this);
 
     pushWidget(m_allSettingsPage);
 }

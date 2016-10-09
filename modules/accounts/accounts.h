@@ -2,6 +2,7 @@
 #define ACCOUNTS_H
 
 #include "modulewidget.h"
+#include "contentwidget.h"
 #include "frameproxyinterface.h"
 
 #include <QPushButton>
@@ -15,6 +16,8 @@ public:
 
 private:
     QPushButton *m_nextPage;
+
+    ContentWidget *m_detail;
 };
 
 #endif // ACCOUNTS_H
