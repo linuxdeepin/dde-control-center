@@ -174,6 +174,7 @@ void UpdateWidget::loadAppList()
 
         appItemWidget = new ApplictionItemWidget;
         appItemWidget->setAppUpdateInfo(info);
+
         if (m_downloadStatus == Downloading || m_downloadStatus == SysFail || info.m_packageId == "dde")
             appItemWidget->disableUpdate();
 
@@ -506,6 +507,64 @@ void UpdateWidget::checkUpdateStateChanged()
     }
 }
 
+AppUpdateInfo UpdateWidget::getUpdateInfo(const QString &packageName, const QString &currentVersion, const QString &lastVersion) const
+{
+    auto compareVersion = [](QString version1, QString version2) {
+        if (version1.isEmpty() || version2.isEmpty()) return false;
+
+        QProcess p;
+        p.setArguments(QStringList() << "/usr/bin/dpkg" << "--compare-versions" << version1 << "gt" << version2);
+        p.waitForFinished();
+        return p.exitCode() == 0;
+    };
+
+    auto fetchVersionedChangelog = [compareVersion](QJsonObject changelog, QString & currentVersion) {
+        QString result;
+
+        for (QString version : changelog.keys()) {
+            if (compareVersion(version, currentVersion)) {
+                if (result.isNull() || result.isEmpty()) {
+                    result = result + changelog.value(version).toString();
+                } else {
+                    result = result + '\n' + changelog.value(version).toString();
+                }
+            }
+        }
+
+        return result;
+    };
+
+    QString metadataDir = "/lastore/metadata/" + packageName;
+
+    AppUpdateInfo info;
+    info.m_packageId = packageName;
+    info.m_currentVersion = currentVersion;
+    info.m_avilableVersion = lastVersion;
+    info.m_icon = metadataDir + "/meta/icons/" + packageName + ".svg";
+
+    QFile manifest(metadataDir + "/meta/manifest.json");
+    if (manifest.open(QFile::ReadOnly)) {
+        QByteArray data = manifest.readAll();
+        QJsonDocument doc = QJsonDocument::fromJson(data);
+        QJsonObject object = doc.object();
+
+        info.m_name = object["name"].toString();
+        info.m_changelog == fetchVersionedChangelog(object["changelog"].toObject(), info.m_currentVersion);
+
+        QJsonObject locales = object["locales"].toObject();
+        QJsonObject locale = locales[QLocale::system().name()].toObject();
+        QJsonObject changelog = locale["changelog"].toObject();
+        QString versionedChangelog = fetchVersionedChangelog(changelog, info.m_currentVersion);
+
+        if (!locale["name"].toString().isEmpty())
+            info.m_name = locale["name"].toString();
+        if (!versionedChangelog.isEmpty())
+            info.m_changelog = versionedChangelog;
+    }
+
+    return info;
+}
+
 QList<AppUpdateInfo> UpdateWidget::getUpdateInfoList() const
 {
     QList<AppUpdateInfo> infos;
@@ -516,61 +575,36 @@ QList<AppUpdateInfo> UpdateWidget::getUpdateInfoList() const
         QJsonDocument doc = QJsonDocument::fromJson(data);
         QJsonArray packages = doc.array();
 
+        int pkgCount = packages.count();
+        int appCount = 0;
+        bool foundDDEChangelog = false;
+
         for (QJsonValue val : packages) {
             QJsonObject pack = val.toObject();
             QString packageName = pack["Package"].toString();
             QString metadataDir = "/lastore/metadata/" + packageName;
 
             if (QFile::exists(metadataDir)) {
-                auto compareVersion = [](QString version1, QString version2) {
-                    QProcess p;
-                    p.setArguments(QStringList() << "/usr/bin/dpkg" << "--compare-versions" << version1 << "gt" << version2);
-                    p.waitForFinished();
-                    return p.exitCode() == 0;
-                };
-
-                auto fetchVersionedChangelog = [compareVersion](QJsonObject changelog, QString & currentVersion) {
-                    QString result;
-
-                    for (QString version : changelog.keys()) {
-                        if (compareVersion(version, currentVersion)) {
-                            if (result.isNull() || result.isEmpty()) {
-                                result = result + changelog.value(version).toString();
-                            } else {
-                                result = result + '\n' + changelog.value(version).toString();
-                            }
-                        }
-                    }
-
-                    return result;
-                };
-
-                AppUpdateInfo info;
-                info.m_packageId = packageName;
-                info.m_currentVersion = pack["CurrentVersion"].toString();
-                info.m_avilableVersion = pack["LastVersion"].toString();
-                info.m_icon = metadataDir + "/meta/icons/" + packageName + ".svg";
-                info.m_name = pack["name"].toString();
-                info.m_changelog = fetchVersionedChangelog(pack["changelog"].toObject(), info.m_currentVersion);
-
-                QFile manifest(metadataDir + "/meta/manifest.json");
-                if (manifest.open(QFile::ReadOnly)) {
-                    QByteArray data = manifest.readAll();
-                    QJsonDocument doc = QJsonDocument::fromJson(data);
-                    QJsonObject object = doc.object();
-                    QJsonObject locales = object["locales"].toObject();
-                    QJsonObject locale = locales[QLocale::system().name()].toObject();
-                    QJsonObject changelog = locale["changelog"].toObject();
-                    QString versionedChangelog = fetchVersionedChangelog(changelog, info.m_currentVersion);
-
-                    if (!locale["name"].toString().isEmpty())
-                        info.m_name = locale["name"].toString();
-                    if (!versionedChangelog.isEmpty())
-                        info.m_changelog = versionedChangelog;
+                const QString currentVer = pack["CurrentVersion"].toString();
+                const QString lastVer = pack["LastVersion"].toString();
+                AppUpdateInfo info = getUpdateInfo(packageName, currentVer, lastVer);
+                if (packageName == "dde" && !info.m_changelog.isEmpty()) {
+                    infos.prepend(info);
+                    foundDDEChangelog = true;
+                } else {
+                    infos << info;
+                    appCount++;
                 }
-
-                infos << info;
             }
+        }
+
+        if (pkgCount > appCount && !foundDDEChangelog) {
+            // If there's no actual package dde update, but there're system patches available,
+            // then fake one dde update item.
+            AppUpdateInfo ddeUpdateInfo = getUpdateInfo("dde", "", "");
+            ddeUpdateInfo.m_name = "Deepin";
+            ddeUpdateInfo.m_avilableVersion = tr("Patches");
+            infos.prepend(ddeUpdateInfo);
         }
     }
 
@@ -587,6 +621,10 @@ QStringList UpdateWidget::updatableApps() const
             apps << pkg;
         }
     }
+
+    // don't treat package dde like a normal App, it's just a carrier
+    // of the changelog of this system update.
+    apps.removeAll("dde");
 
     return apps;
 }

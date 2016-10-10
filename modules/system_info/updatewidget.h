@@ -113,6 +113,8 @@ private:
 
     UpgradeState m_downloadStatus = NotStart;
 
+
+    AppUpdateInfo getUpdateInfo(const QString &packageName, const QString &currentVersion, const QString &lastVersion) const;
     QList<AppUpdateInfo> getUpdateInfoList() const;
     QStringList updatableApps() const;
     QStringList updatablePackages() const;
