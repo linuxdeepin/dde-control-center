@@ -56,6 +56,7 @@ public:
     inline void setAppName(const QString &name) {m_appName->setText(name);}
     inline void setAppVer(const QString &ver) {m_appVersion->setText(ver);}
     inline void setAppIcon(const QPixmap &icon) {m_appIcon->setPixmap(icon);}
+    inline AppUpdateInfo appUpdateInfo() const { return m_updateInfo; }
     void setAppUpdateInfo(const AppUpdateInfo &info);
     void disableUpdate();
 

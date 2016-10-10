@@ -130,7 +130,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     mainVLayout->setSpacing(0);
     mainVLayout->setMargin(0);
 
-    QTimer::singleShot(500, this, SLOT(loadAppList()));
+    QTimer::singleShot(500, this, SLOT(restoreJobs()));
     setLayout(mainVLayout);
     setFixedWidth(DCC::ModuleContentWidth);
 
@@ -162,29 +162,6 @@ void UpdateWidget::loadAppList()
     }
     m_downloadProgress->hide();
 
-    // load JobList
-    QMap<QString, DBusUpdateJob *> jobMap;
-    QList<QDBusObjectPath> jobList = m_dbusJobManagerInter->jobList();
-    DBusUpdateJob *dbusJob;
-    for (QDBusObjectPath &job : jobList)
-    {
-        dbusJob = new DBusUpdateJob("com.deepin.lastore", job.path(), QDBusConnection::systemBus(), this);
-        qDebug() << "fond job: " << dbusJob->packageId() << dbusJob->status() << dbusJob->type();
-
-        if (dbusJob->type() == "update") {
-            jobMap.insert(dbusJob->packageId(), dbusJob);
-        } else if (dbusJob->type() == "prepare_dist_upgrade") {
-            refreshDownloadStatus(Downloading);
-            loadDownloadJob(dbusJob);
-        } else if (dbusJob->type() == "update_source") {
-            refreshDownloadStatus(SysCheckUpdate);
-            loadCheckUpdateJob(dbusJob);
-        } else {
-            // TODO/FIXME: not handled job
-            qWarning() << "not handled job: " << dbusJob->packageId() << dbusJob->status() << dbusJob->type();
-        }
-    }
-
     QList<AppUpdateInfo> updateInfoList = getUpdateInfoList();
 
 //    QList<AppUpdateInfo> updateInfoList = m_dbusUpdateInter->ApplicationUpdateInfos(QLocale().name()).value();
@@ -199,8 +176,6 @@ void UpdateWidget::loadAppList()
         appItemWidget->setAppUpdateInfo(info);
         if (m_downloadStatus == Downloading || m_downloadStatus == SysFail || info.m_packageId == "dde")
             appItemWidget->disableUpdate();
-        if (jobMap.contains(info.m_packageId))
-            appItemWidget->connectToJob(jobMap.value(info.m_packageId));
 
         m_appsVBox->layout()->addWidget(appItemWidget);
 
@@ -436,6 +411,44 @@ void UpdateWidget::downloadPackages()
     });
 }
 
+void UpdateWidget::restoreJobs()
+{
+    // load JobList
+    QMap<QString, DBusUpdateJob *> jobMap;
+    QList<QDBusObjectPath> jobList = m_dbusJobManagerInter->jobList();
+    DBusUpdateJob *dbusJob;
+    for (QDBusObjectPath &job : jobList)
+    {
+        dbusJob = new DBusUpdateJob("com.deepin.lastore", job.path(), QDBusConnection::systemBus(), this);
+        qDebug() << "fond job: " << dbusJob->packageId() << dbusJob->status() << dbusJob->type();
+
+        if (dbusJob->type() == "update") {
+            jobMap.insert(dbusJob->packageId(), dbusJob);
+        } else if (dbusJob->type() == "prepare_dist_upgrade") {
+            refreshDownloadStatus(Downloading);
+            loadDownloadJob(dbusJob);
+        } else if (dbusJob->type() == "update_source") {
+            refreshDownloadStatus(SysCheckUpdate);
+            loadCheckUpdateJob(dbusJob);
+        } else {
+            // TODO/FIXME: not handled job
+            qWarning() << "not handled job: " << dbusJob->packageId() << dbusJob->status() << dbusJob->type();
+        }
+    }
+
+    loadAppList();
+
+    const int count = m_appsVBox->layout()->count();
+    for (int i(0); i != count; ++i)
+    {
+        ApplictionItemWidget *item = qobject_cast<ApplictionItemWidget *>(m_appsVBox->layout()->itemAt(i)->widget());
+        AppUpdateInfo info = item->appUpdateInfo();
+
+        if (jobMap.contains(info.m_packageId))
+            item->connectToJob(jobMap.value(info.m_packageId));
+    }
+}
+
 void UpdateWidget::refreshDownloadStatus(UpdateWidget::UpgradeState state)
 {
     if (m_downloadStatus == state)
@@ -485,7 +498,7 @@ void UpdateWidget::checkUpdateStateChanged()
             m_checkingIndicator->setLoading(false);
             m_checkingIndicator->setRotate(0);
 
-            updateInfo(m_updatableAppsList.count(), m_updatablePackagesList.count());
+            loadAppList();
         }
 
         m_dbusCheckupdate->deleteLater();

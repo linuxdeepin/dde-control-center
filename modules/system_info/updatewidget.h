@@ -80,6 +80,7 @@ private:
     };
 
 private slots:
+    void restoreJobs();
     void loadAppList();
     void updateDownloadProgress();
     void updateDownloadStatus();
