@@ -1,0 +1,46 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="violent storm">icon/暴风.svg</file>
+        <file alias="storm">icon/暴风雨.svg</file>
+        <file>icon/暴雪.svg</file>
+        <file alias="very heavy rain">icon/暴雨.svg</file>
+        <file alias="hail">icon/冰雹.svg</file>
+        <file>icon/大暴雨.svg</file>
+        <file alias="heavy snow">icon/大雪.svg</file>
+        <file alias="heavy intensity rain">icon/大雨.svg</file>
+        <file alias="freezing rain">icon/冻雨.svg</file>
+        <file alias="few clouds">icon/多云.svg</file>
+        <file>icon/浮尘.svg</file>
+        <file alias="hurricane">icon/飓风.svg</file>
+        <file>icon/雷暴.svg</file>
+        <file alias="heavy thunderstorm">icon/雷暴夹大雨.svg</file>
+        <file alias="thunderstorm">icon/雷阵雨.svg</file>
+        <file>icon/雷阵雨伴有冰雹.svg</file>
+        <file alias="cold">icon/冷.svg</file>
+        <file alias="tornado">icon/龙卷风.svg</file>
+        <file alias="gale">icon/强风.svg</file>
+        <file>icon/强沙尘暴.svg</file>
+        <file alias="clear sky">icon/晴.svg</file>
+        <file alias="hot">icon/热.svg</file>
+        <file alias="tropical storm">icon/热带风暴.svg</file>
+        <file>icon/沙尘暴.svg</file>
+        <file>icon/特大暴雪.svg</file>
+        <file alias="extreme rain">icon/特大暴雨.svg</file>
+        <file alias="windy">icon/微风.svg</file>
+        <file>icon/雾.svg</file>
+        <file>icon/雾霾.svg</file>
+        <file alias="light snow">icon/小雪.svg</file>
+        <file alias="drizzle">icon/小雨.svg</file>
+        <file>icon/扬沙.svg</file>
+        <file alias="clear sky night">icon/夜-晴.svg</file>
+        <file alias="overcast clouds night">icon/夜-阴天.svg</file>
+        <file alias="shower snow night">icon/夜-阵雪.svg</file>
+        <file alias="shower rain night">icon/夜-阵雨.svg</file>
+        <file alias="overcast clouds">icon/阴天.svg</file>
+        <file alias="sleet">icon/雨夹雪.svg</file>
+        <file alias="shower snow">icon/阵雪.svg</file>
+        <file alias="shower rain">icon/阵雨.svg</file>
+        <file alias="snow">icon/中雪.svg</file>
+        <file alias="moderate rain">icon/中雨.svg</file>
+    </qresource>
+</RCC>

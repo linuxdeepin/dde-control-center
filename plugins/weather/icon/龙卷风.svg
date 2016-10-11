@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.2 (33826) - http://www.bohemiancoding.com/sketch -->
+    <title>龙卷风</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="龙卷风" stroke="#FFFFFF" stroke-width="2">
+            <path d="M12,9 L39,9" id="Path-5"></path>
+            <path d="M14,13 L40,13" id="Path-5"></path>
+            <path d="M13,17 L37,17" id="Path-5"></path>
+            <path d="M10,21 L34,21" id="Path-5"></path>
+            <path d="M9,25 L30,25" id="Path-5"></path>
+            <path d="M10,29 L24,29" id="Path-5"></path>
+            <path d="M14,33 L22,33" id="Path-5"></path>
+            <path d="M17,37 L22,37" id="Path-5"></path>
+            <path d="M21,40 L23,40" id="Path-5"></path>
+        </g>
+    </g>
+</svg>

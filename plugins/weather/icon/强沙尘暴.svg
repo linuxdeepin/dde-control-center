@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.2 (33826) - http://www.bohemiancoding.com/sketch -->
+    <title>强沙尘暴</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="强沙尘暴">
+            <circle id="Oval-5" fill="#DEB40A" cx="11.5" cy="28.5" r="1.5"></circle>
+            <circle id="Oval-5" fill="#DEB40A" cx="17.5" cy="36.5" r="1.5"></circle>
+            <circle id="Oval-5" fill="#DEB40A" cx="8.5" cy="12.5" r="1.5"></circle>
+            <circle id="Oval-5" fill="#DEB40A" cx="36.5" cy="12.5" r="1.5"></circle>
+            <circle id="Oval-5" fill="#DEB40A" cx="41.5" cy="20.5" r="1.5"></circle>
+            <circle id="Oval-5" fill="#DEB40A" cx="40.5" cy="28.5" r="1.5"></circle>
+            <circle id="Oval-5" fill="#DEB40A" cx="39.5" cy="36.5" r="1.5"></circle>
+            <circle id="Oval-5" fill="#DEB40A" cx="7.5" cy="20.5" r="1.5"></circle>
+            <ellipse id="Oval-7" stroke="#DEB40A" stroke-width="2" cx="22.5" cy="13" rx="6.5" ry="2"></ellipse>
+            <path d="M13.5,21.8824068 C13.5,24.2335818 18.6487254,26 25,26 C31.3512746,26 36.5,24.2740839 36.5,22 C36.5,20 33.0165339,18.9301559 33.0165339,18.9301559" id="Oval-7" stroke="#DEB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M14.3697068,15 C11.965798,16 12.5667752,17.5 12.5667752,17.5 C12.5667752,19.4329966 17.1409084,21 22.7833876,21 C28.4258668,21 33,19.4329966 33,17.5 C33,16.5157922 31.8141761,15.6264666 29.905285,14.9905539" id="Oval-7" stroke="#DEB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M17.5,28.0833333 C17.5,29.6941639 21.4175084,31 26.25,31 C31.0824916,31 35,29.6941639 35,28.0833333" id="Oval-7" stroke="#DEB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M21,32.5 C21,35 23.9101491,36 27.5,36 C31.0898509,36 34,34 34,32.5" id="Oval-7" stroke="#DEB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M24,38 C25,40 28,40 28,40 C29.5,40 31,39.5 32,38" id="Oval-7" stroke="#DEB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>

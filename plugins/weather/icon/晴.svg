@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.2 (33826) - http://www.bohemiancoding.com/sketch -->
+    <title>晴</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="晴">
+            <g id="Group" transform="translate(7.000000, 7.000000)">
+                <path d="M16.9996912,11 C13.6916465,11 11,13.6916465 11,16.9996912 C11,20.3083535 13.6916465,23 16.9996912,23 C20.3083535,23 23,20.3083535 23,16.9996912 C23,13.6916465 20.3083535,11 16.9996912,11 L16.9996912,11 Z" id="Fill-1" fill="#FFDB0E"></path>
+                <path d="M17,0 L17,7" id="Path-2" stroke="#FFDB0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M17,27 L17,34" id="Path-2" stroke="#FFDB0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M30.5,13.5 L30.5,20.5" id="Path-2" stroke="#FFDB0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(30.500000, 17.000000) rotate(-270.000000) translate(-30.500000, -17.000000) "></path>
+                <path d="M3.5,13.5 L3.5,20.5" id="Path-2" stroke="#FFDB0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(3.500000, 17.000000) rotate(-270.000000) translate(-3.500000, -17.000000) "></path>
+                <path d="M26.5459415,3.95405845 L26.5459415,10.9540585" id="Path-2" stroke="#FFDB0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(26.545942, 7.454058) rotate(-315.000000) translate(-26.545942, -7.454058) "></path>
+                <path d="M7.45405845,23.0459415 L7.45405845,30.0459415" id="Path-2" stroke="#FFDB0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(7.454058, 26.545942) rotate(-315.000000) translate(-7.454058, -26.545942) "></path>
+                <path d="M26.5459415,23.0459415 L26.5459415,30.0459415" id="Path-2" stroke="#FFDB0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(26.545942, 26.545942) rotate(-225.000000) translate(-26.545942, -26.545942) "></path>
+                <path d="M7.45405845,3.95405845 L7.45405845,10.9540585" id="Path-2" stroke="#FFDB0E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(7.454058, 7.454058) rotate(-225.000000) translate(-7.454058, -7.454058) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

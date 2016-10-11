@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.2 (33826) - http://www.bohemiancoding.com/sketch -->
+    <title>沙尘暴</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="沙尘暴">
+            <g id="Group" transform="translate(7.000000, 7.000000)">
+                <path d="M0,16 L27,16" id="Path-5" stroke="#DFB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M0,12 L17,12" id="Path-5" stroke="#DFB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M0,20 L25,20" id="Path-5" stroke="#DFB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M22.5544736,25.1739919 C23.0925744,25.6858487 23.8204949,26 24.6217894,26 C26.2786437,26 27.6217894,24.6568542 27.6217894,23 C27.6217894,21.3431458 26.2786437,20 24.6217894,20" id="Oval-4" stroke="#DFB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M17.0673159,12 C18.1347078,12 19,11.1347078 19,10.0673159 C19,8.99992389 18.1347078,8.13463172 17.0673159,8.13463172" id="Oval-4" stroke="#DFB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(18.033658, 10.067316) scale(1, -1) translate(-18.033658, -10.067316) "></path>
+                <path d="M20.8631477,31.7553339 C22.141742,33.1358497 23.9699545,34 26,34 C29.8659932,34 33,30.8659932 33,27 C33,23.1340068 29.8659932,20 26,20" id="Oval" stroke="#DEB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M22.5544736,14.6233198 C23.4513083,15.4764145 24.6645092,16 26,16 C28.7614237,16 31,13.7614237 31,11 C31,8.23857625 28.7614237,6 26,6" id="Oval-4" stroke="#DFB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(26.777237, 11.000000) scale(1, -1) translate(-26.777237, -11.000000) "></path>
+                <circle id="Oval-5" fill="#DEB40A" cx="17.5" cy="1.5" r="1.5"></circle>
+                <circle id="Oval-5" fill="#DEB40A" cx="34.5" cy="17.5" r="1.5"></circle>
+                <circle id="Oval-5" fill="#DEB40A" cx="15.5" cy="24.5" r="1.5"></circle>
+                <circle id="Oval-5" fill="#DEB40A" cx="10.5" cy="30.5" r="1.5"></circle>
+                <circle id="Oval-5" fill="#DEB40A" cx="1.5" cy="7.5" r="1.5"></circle>
+                <circle id="Oval-5" fill="#DEB40A" cx="2.5" cy="26.5" r="1.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

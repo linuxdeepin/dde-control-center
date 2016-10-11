@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.2 (33826) - http://www.bohemiancoding.com/sketch -->
+    <title>中雨</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="中雨">
+            <path d="M33.2513237,13.8848755 C32.7710498,13.8848755 32.2920498,13.9383144 31.8238783,14.0445324 C30.3263665,10.4186047 26.8319599,8 23.0509176,8 C18.3328954,8 14.4091723,11.4748474 13.6282495,16.3008412 L13.5951272,16.3008412 C10.509654,16.3008412 8,18.9252845 8,22.1507505 C8,25.3762164 10.509654,28 13.5951272,28 L33.2513237,28 C36.9724909,28 40,24.8339106 40,20.9427676 C40,17.0509649 36.9724909,13.8848755 33.2513237,13.8848755 L33.2513237,13.8848755 Z" id="Fill-2" fill="#FFFFFF"></path>
+            <path d="M17,33 L19,36" id="Path-3" stroke="#53C0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M24,33 L26,36" id="Path-3" stroke="#53C0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M31,33 L33,36" id="Path-3" stroke="#53C0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>
