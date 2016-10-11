@@ -12,9 +12,10 @@
 
 #include <QObject>
 #include <QWidget>
-#include "datasourcethread.h"
-#include "viewer.h"
+#include "notifydatathread.h"
+#include "notifyviewer.h"
 #include <QVBoxLayout>
+#include <QTime>
 
 class NotifyManager : public QWidget
 {
@@ -23,12 +24,11 @@ public:
     explicit NotifyManager(QWidget *parent = 0);
     ~NotifyManager();
 
-signals:
-
 public slots:
     void setValue(QByteArray s);
+
 private:
-    DataSourceThread *m_dataSource;
+    NotifyDataThread *m_dataSource;
     Viewer *m_viewer;
     QVBoxLayout *m_layout;
 };

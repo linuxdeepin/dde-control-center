@@ -13,19 +13,17 @@ DISTFILES       += $$PLUGIN_NAME.json
 
 HEADERS += \
     notifyplugin.h \
-    viewer.h \
     notifymanager.h \
-    numbutton.h \
     appicon.h \
-    datasourcethread.h
+    notifyviewer.h \
+    notifydatathread.h
 
 SOURCES += \
     notifyplugin.cpp \
-    viewer.cpp \
     notifymanager.cpp \
-    numbutton.cpp \
     appicon.cpp \
-    datasourcethread.cpp
+    notifyviewer.cpp \
+    notifydatathread.cpp
 
 target.path = $${PREFIX}/lib/dde-control-center/plugins/
 INSTALLS += target

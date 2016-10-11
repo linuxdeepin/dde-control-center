@@ -7,8 +7,8 @@
  * (at your option) any later version.
  **/
 
-#ifndef DATASOURCETHREAD_H
-#define DATASOURCETHREAD_H
+#ifndef NOTIFYDATATHREAD_H
+#define NOTIFYDATATHREAD_H
 
 #include <QObject>
 #include <QWidget>
@@ -22,21 +22,19 @@
 #include <QTimer>
 
 #include <QDebug>
-class DataSourceThread : public QThread
+class NotifyDataThread : public QThread
 {
     Q_OBJECT
 public:
-    explicit DataSourceThread(QObject *parent = 0);
-    ~DataSourceThread();
+    explicit NotifyDataThread(QObject *parent = 0);
+    ~NotifyDataThread();
     void run();
 
 signals:
-    void ValueChanged(QByteArray s);
-
-public slots:
+    void ValueChanged(const QByteArray &s) const;
 
 private:
         QProcess *m_process;
 };
 
-#endif // DATASOURCETHREAD_H
+#endif // NOTIFYDATATHREAD_H

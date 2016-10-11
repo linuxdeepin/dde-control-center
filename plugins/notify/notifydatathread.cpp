@@ -7,18 +7,18 @@
  * (at your option) any later version.
  **/
 
-#include "datasourcethread.h"
+#include "notifydatathread.h"
 
-DataSourceThread::DataSourceThread(QObject *parent)
+NotifyDataThread::NotifyDataThread(QObject *parent)
 {
     Q_UNUSED(parent);
 }
 
-DataSourceThread::~DataSourceThread() {
+NotifyDataThread::~NotifyDataThread() {
     m_process->deleteLater();
 }
 
-void DataSourceThread::run() {
+void NotifyDataThread::run() {
     m_process = new QProcess();
     m_process->start("dbus-monitor",QStringList("interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'"));
     connect(m_process, &QProcess::readyReadStandardOutput, [=] {
@@ -50,7 +50,7 @@ void DataSourceThread::run() {
                     QJsonDocument document;
                     document.setObject(json);
                     QByteArray byte_array = document.toJson(QJsonDocument::Compact);
-                    emit DataSourceThread::ValueChanged(byte_array);
+                    emit NotifyDataThread::ValueChanged(byte_array);
                 }
             }
         });

@@ -13,9 +13,13 @@
 #include <QObject>
 #include <QWidget>
 #include <QGridLayout>
-#include "numbutton.h"
+#include <QLabel>
 #include <dimagebutton.h>
 #include <appicon.h>
+#include <QPropertyAnimation>
+#include <QEasingCurve>
+#include <QStyleOption>
+#include <QPainter>
 
 class NumButton;
 DWIDGET_USE_NAMESPACE
@@ -25,11 +29,11 @@ class Viewer : public QWidget
 public:
     explicit Viewer(QWidget *parent = 0);
     ~Viewer();
-
-signals:
-
-public slots:
-    void setValue(QString appName,QString appIcon,QString summary,QString body,QString time);
+    void setAppName(const QString &s);
+    void setAppIcon(const QString &s);
+    void setAppSummary(const QString &s);
+    void setAppBody(const QString &s);
+    void setAppTime(const QString &s);
 
 protected:
     virtual void enterEvent(QEvent *event);
@@ -37,7 +41,7 @@ protected:
     virtual void paintEvent(QPaintEvent *event);
 
 private:
-    NumButton *m_appName,*m_summary,*m_body,*m_time;
+    QLabel *m_appName,*m_summary,*m_body,*m_time;
     DImageButton *m_close;
     AppIcon *m_appIcon;
     QGridLayout *m_mainlayout;
