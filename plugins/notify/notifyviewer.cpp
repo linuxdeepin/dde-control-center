@@ -72,7 +72,7 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
 
     this->setLayout(m_mainlayout);
     connect(m_close, &DImageButton::clicked, [=]{
-        QPropertyAnimation *m_anim1=new QPropertyAnimation(this, "pos");
+        m_anim1=new QPropertyAnimation(this, "pos",this);
         m_anim1->setDuration(600);
         m_anim1->setStartValue(QPoint(this->x(), this->y()));
         m_anim1->setEndValue(QPoint(300, this->y()));
@@ -83,17 +83,6 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
             this->deleteLater();
         });
     });
-}
-
-Viewer::~Viewer() {
-    m_appName->deleteLater();
-    m_summary->deleteLater();
-    m_body->deleteLater();
-    m_time->deleteLater();
-    m_close->deleteLater();
-    m_appIcon->deleteLater();
-    m_mainlayout->deleteLater();
-    m_hboxlayout->deleteLater();
 }
 
 void Viewer::setAppName(const QString &s) {

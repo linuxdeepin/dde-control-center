@@ -28,7 +28,6 @@ class Viewer : public QWidget
     Q_OBJECT
 public:
     explicit Viewer(QWidget *parent = 0);
-    ~Viewer();
     void setAppName(const QString &s);
     void setAppIcon(const QString &s);
     void setAppSummary(const QString &s);
@@ -46,6 +45,7 @@ private:
     AppIcon *m_appIcon;
     QGridLayout *m_mainlayout;
     QHBoxLayout *m_hboxlayout;
+    QPropertyAnimation *m_anim1;
 };
 
 #endif // VIEWER_H

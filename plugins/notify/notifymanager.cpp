@@ -10,8 +10,8 @@
 #include "notifymanager.h"
 
 NotifyManager::NotifyManager(QWidget *parent) : QWidget(parent) {
-    m_layout = new QVBoxLayout();
-    m_dataSource = new NotifyDataThread();
+    m_layout = new QVBoxLayout;
+    m_dataSource = new NotifyDataThread(this);
     m_layout->addStretch();
     m_layout->setDirection(QVBoxLayout::BottomToTop);
     m_layout->setContentsMargins(0, 0, 0, 0);
