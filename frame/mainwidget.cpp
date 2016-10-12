@@ -15,6 +15,7 @@ MainWidget::MainWidget(Frame *parent)
       m_currentTimeLbl(new QLabel),
       m_currentDateLbl(new QLabel),
       m_pluginsLayout(new QHBoxLayout),
+      m_pluginsIndicator(new DPageIndicator),
       m_nextPluginBtn(new QPushButton),
       m_allSettingsBtn(new QPushButton)
 {
@@ -24,6 +25,10 @@ MainWidget::MainWidget(Frame *parent)
     m_userAvatarBtn->setPixmap(QPixmap());
     m_currentTimeLbl->setText("time");
     m_currentDateLbl->setText("date");
+
+    m_pluginsIndicator->setFixedHeight(20);
+    m_pluginsIndicator->setPageCount(4);
+    m_pluginsIndicator->setCurrentPage(0);
 
     QVBoxLayout *timedateLayout = new QVBoxLayout;
     timedateLayout->addWidget(m_currentTimeLbl);
@@ -40,6 +45,7 @@ MainWidget::MainWidget(Frame *parent)
     QVBoxLayout *centeralLayout = static_cast<QVBoxLayout *>(layout());
     centeralLayout->addLayout(headerLayout);
     centeralLayout->addLayout(m_pluginsLayout);
+    centeralLayout->addWidget(m_pluginsIndicator);
     centeralLayout->addWidget(m_nextPluginBtn);
     centeralLayout->addWidget(m_allSettingsBtn);
     centeralLayout->setSpacing(0);
@@ -70,6 +76,8 @@ void MainWidget::pluginAdded(QWidget * const w)
 
 void MainWidget::showNextPlugin()
 {
+    m_pluginsIndicator->nextPage();
+
     const int index = m_pluginsLayout->indexOf(m_lastPluginWidget);
     QLayoutItem *item = m_pluginsLayout->itemAt(index + 1);
     if (item && item->widget())

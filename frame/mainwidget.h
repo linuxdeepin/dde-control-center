@@ -9,6 +9,7 @@
 #include <QLabel>
 
 #include <dimagebutton.h>
+#include <dpageindicator.h>
 
 class MainWidget : public FrameWidget
 {
@@ -37,6 +38,7 @@ private:
     QLabel *m_currentTimeLbl;
     QLabel *m_currentDateLbl;
     QHBoxLayout *m_pluginsLayout;
+    Dtk::Widget::DPageIndicator *m_pluginsIndicator;
     QPushButton *m_nextPluginBtn;
     QPushButton *m_allSettingsBtn;
 };
