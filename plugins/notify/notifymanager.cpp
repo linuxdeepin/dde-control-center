@@ -22,9 +22,6 @@ NotifyManager::NotifyManager(QWidget *parent) : QWidget(parent) {
 }
 
 NotifyManager::~NotifyManager() {
-    m_dataSource->deleteLater();
-    m_viewer->deleteLater();
-    m_layout->deleteLater();
 }
 
 void NotifyManager::setValue(QByteArray s) {
