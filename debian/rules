@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+export QT_SELECT = qt5
+include /usr/share/dpkg/default.mk
+
+%:
+	dh $@ --parallel
+
+ifeq ($(DEB_BUILD_ARCH), alpha)
+override_dh_auto_configure:
+	dh_auto_configure -- WITH_MODULE_GRUB=NO WITH_MODULE_WACOM=NO WITH_MODULE_BLUETOOTH=NO WITH_MODULE_SYSINFO_UPDATE=NO WITH_MODULE_REMOTE_ASSIST=NO DCC_DISABLE_MICROPHONE_FEEDBACK=YES PLATFORM_SUNWAY=YES DCC_DISABLE_POWER_ACTION=YES DCC_DISABLE_LANG_SETTING=YES
+else ifeq ($(DEB_BUILD_ARCH), mipsel)
+override_dh_auto_configure:
+	dh_auto_configure -- DCC_DISABLE_LANG_SETTING=YES DCC_DISABLE_ANIMATION=YES DCC_CACHE_MODULES=YES ARCH_MIPSEL=YES WITH_MODULE_GRUB=NO  WITH_MODULE_WACOM=NO WITH_MODULE_SYSINFO_UPDATE=NO  WITH_MODULE_REMOTE_ASSIST=NO
+else
+override_dh_auto_configure:
+	dh_auto_configure -- QMAKE_CC=clang QMAKE_CXX=clang++
+endif
+
+override_dh_strip:
+	dh_strip --dbg-package=dde-control-center-dbg
