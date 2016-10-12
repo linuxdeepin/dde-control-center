@@ -6,6 +6,9 @@
 
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QLabel>
+
+#include <dimagebutton.h>
 
 class MainWidget : public FrameWidget
 {
@@ -30,6 +33,9 @@ private:
     QWidget *m_lastPluginWidget;
 
     // ui widgets
+    Dtk::Widget::DImageButton *m_userAvatarBtn;
+    QLabel *m_currentTimeLbl;
+    QLabel *m_currentDateLbl;
     QHBoxLayout *m_pluginsLayout;
     QPushButton *m_nextPluginBtn;
     QPushButton *m_allSettingsBtn;

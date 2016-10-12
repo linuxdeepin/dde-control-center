@@ -12,7 +12,7 @@ FrameWidget::FrameWidget(Frame *parent)
       m_slideAni(new QPropertyAnimation(this, "pos")),
       m_content(nullptr)
 {
-    m_slideAni->setEasingCurve(QEasingCurve::InOutCubic);
+    m_slideAni->setEasingCurve(QEasingCurve::InOutQuint);
     m_slideAni->setDuration(200);
 
     QVBoxLayout *centeralLayout = new QVBoxLayout;

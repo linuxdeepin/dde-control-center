@@ -23,10 +23,10 @@ void Frame::pushWidget(ContentWidget * const w)
 
     FrameWidget *fw = new FrameWidget(this);
     fw->setContent(w);
+    fw->show();
 
     m_frameWidgetStack.last()->hide();
     m_frameWidgetStack.push(fw);
-    fw->show();
 
     connect(w, &ContentWidget::back, this, &Frame::popWidget, Qt::UniqueConnection);
 }
@@ -35,6 +35,7 @@ void Frame::popWidget()
 {
     Q_ASSERT(m_frameWidgetStack.size() > 1);
 
+    // destory the container
     m_frameWidgetStack.pop()->destory();
     m_frameWidgetStack.last()->showBack();
 }
