@@ -20,6 +20,7 @@ Build-Depends: debhelper (>= 9),
  libdtkbase-dev,
  libdtkutil-dev,
  libdtkwidget-dev,
+ libgeoip-dev,
 Standards-Version: 3.9.5
 Homepage: http://gitcafe.com/Deepin/dde-control-center.git
 

@@ -1,11 +1,13 @@
 #include "weatherrequest.h"
 #include "weatherinterface.h"
+#include "networkutil.h"
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonValue>
 #include <QJsonObject>
 #include <QFile>
 #include <QTimer>
+#include <QProcess>
 
 WeatherRequest::WeatherRequest(QObject *parent) :
     QObject(parent)
@@ -20,9 +22,10 @@ WeatherRequest::WeatherRequest(QObject *parent) :
     m_maps["clouds"] = new CloudsImp();
     //m_maps["rain"] = new RainImp();
 
+    NetworkUtil util;
+    m_city = util.city();
     m_url = QUrl(QString("http://api.openweathermap.org/data/2.5/forecast/daily?"
-                 "q=%1&mode=json&units=metric&cnt=7&APPID=a106333152baafe953f41c112767b167").arg("wuhan"));
-
+                 "q=%1&mode=json&units=metric&cnt=7&APPID=a106333152baafe953f41c112767b167").arg(m_city));
     m_location = QUrl(QString("http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"));
 
     m_manager = new QNetworkAccessManager(this);
@@ -46,10 +49,16 @@ WeatherRequest::~WeatherRequest()
 
 void WeatherRequest::setCity(const QString &city)
 {
+    m_city = city;
     m_url = QUrl(QString("http://api.openweathermap.org/data/2.5/forecast/daily?"
                  "q=%1&mode=json&units=metric&cnt=7&APPID=a106333152baafe953f41c112767b167").arg(city));
 
     m_manager->get(QNetworkRequest(m_url));
+}
+
+QString WeatherRequest::city() const
+{
+    return m_city;
 }
 
 int WeatherRequest::count() const

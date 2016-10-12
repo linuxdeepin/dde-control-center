@@ -1,6 +1,7 @@
 #include "weatherwidget.h"
 #include "weatheritem.h"
 #include <QPainter>
+#include <networkutil.h>
 
 WeatherWidget::WeatherWidget(QWidget *parent)
     :QWidget(parent),
@@ -129,7 +130,7 @@ void WeatherWidget::paintEvent(QPaintEvent *event)
             QRect statusArea(rect.width() - 50 - iconRect.left()-10,cityArea.bottom(),70, rect.height()/2 -6);
             font.setPixelSize(16);
             painter.setFont(font);
-            painter.drawText(cityArea, Qt::AlignBottom | Qt::AlignHCenter, QString("武汉市"));
+            painter.drawText(cityArea, Qt::AlignBottom | Qt::AlignHCenter, QString(m_request->city()));
             font.setPixelSize(10);
             painter.setFont(font);
             painter.drawText(statusArea, Qt::AlignTop|Qt::AlignHCenter, QString("刚刚更新"));

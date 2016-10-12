@@ -20,8 +20,10 @@ public:
     ~WeatherRequest();
 
     void setCity(const QString& city);
+    QString city() const;
     int count() const;
     WeatherItem dayAt(int index);
+
 
 signals:
     void refreshData(QList<WeatherItem> &items);
@@ -34,6 +36,7 @@ private:
     QUrl m_url;
     QUrl m_location;
     QTimer *m_timer;
+    QString m_city;
     QList<WeatherItem> m_items;
     QNetworkAccessManager *m_manager;
     QMap<QString, WInterface*> m_maps;

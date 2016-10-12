@@ -6,7 +6,7 @@ PLUGIN_NAME 	= weather
 QT              += widgets svg network
 TEMPLATE         = lib
 CONFIG          += plugin c++11 link_pkgconfig
-PKGCONFIG       +=
+PKGCONFIG       += geoip
 
 TARGET          = $$qtLibraryTarget($$PLUGIN_NAME)
 DESTDIR          = $$_PRO_FILE_PWD_/../
@@ -17,14 +17,16 @@ HEADERS += \
     weatherinterface.h \
     weatherrequest.h \
     weatherwidget.h \
-    weatherplugin.h
+    weatherplugin.h \
+    networkutil.h
 
 SOURCES += \
     weatheritem.cpp \
     weatherinterface.cpp \
     weatherrequest.cpp \
     weatherwidget.cpp \
-    weatherplugin.cpp
+    weatherplugin.cpp \
+    networkutil.cpp
 
 RESOURCES += \
     weather.qrc
