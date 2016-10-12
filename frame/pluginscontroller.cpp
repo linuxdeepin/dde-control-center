@@ -17,7 +17,7 @@ void PluginsController::loadPlugins()
 #ifdef QT_DEBUG
     const QDir pluginsDir("plugins");
 #else
-    const QDir pluginsDir("../lib/dde-dock/plugins");
+    const QDir pluginsDir("../lib/dde-control-center/plugins");
 #endif
     const QStringList plugins = pluginsDir.entryList(QDir::Files);
 
@@ -28,6 +28,8 @@ void PluginsController::loadPlugins()
 
         // load library
         QPluginLoader *pluginLoader = new QPluginLoader(pluginsDir.absoluteFilePath(file), this);
+        qDebug() << "load plugin: " << pluginLoader->metaData();
+
         PluginInterface *interface = qobject_cast<PluginInterface *>(pluginLoader->instance());
         if (!interface)
         {
@@ -35,10 +37,10 @@ void PluginsController::loadPlugins()
             pluginLoader->unload();
             pluginLoader->deleteLater();
             return;
+        } else {
+            qDebug() << "get plugin interface: " << interface;
         }
 
-//        m_pluginList.insert(interface, QMap<QString, PluginsItem *>());
-//        interface->init(this);
         interface->initialize(this);
         QWidget *w = interface->centeralWidget();
         w->setVisible(false);
