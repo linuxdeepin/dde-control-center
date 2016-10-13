@@ -72,9 +72,7 @@ int main(int argv, char *args[])
 
     // initialize logging
     DLogManager::registerConsoleAppender();
-#ifdef QT_DEBUG
-    DLogManager::registerConsoleAppender();
-#else
+#ifndef QT_DEBUG
     DLogManager::registerFileAppender();
 #endif
 
