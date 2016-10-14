@@ -3,6 +3,7 @@
 
 #include "accounts/accounts.h"
 #include "display/display.h"
+#include "datetime/datetime.h"
 
 #include <QVBoxLayout>
 #include <QResizeEvent>
@@ -13,6 +14,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     QVBoxLayout *settingsLayout = new QVBoxLayout;
     settingsLayout->addWidget(new Accounts(frame));
     settingsLayout->addWidget(new Display(frame));
+    settingsLayout->addWidget(new Datetime(frame));
     settingsLayout->setSpacing(0);
     settingsLayout->setMargin(0);
 

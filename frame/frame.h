@@ -5,7 +5,6 @@
 #include "contentwidget.h"
 #include "settingswidget.h"
 #include "frameproxyinterface.h"
-
 #include <QMainWindow>
 #include <QStack>
 
