@@ -1679,52 +1679,57 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="281"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="257"/>
         <source>Your system is up to date</source>
         <translation>귀하의 시스템은 최신 상태입니다</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="262"/>
         <source>Click to view available  updates</source>
         <translation>클릭해서 이용 가능한 업데이트 보기</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="284"/>
         <source>Download completed, please click on the update icon to install</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="291"/>
         <source>Total download size: %1</source>
         <translation>총 다운로드 크기: %1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="318"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="294"/>
         <source>Unknown</source>
         <translation>알 수 없음</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="329"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
         <source>%1 software need to be updated</source>
         <translation>%1 소프트웨어는 업데이트가 필요합니다.</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="335"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="311"/>
         <source>Some patches need to be updated</source>
         <translation>몇 가지 패치가 업데이트를 필요로 합니다</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="331"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="606"/>
+        <source>Patches</source>
+        <translation>패치</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="307"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation>몇 가지 패치와 %1 소프트웨어가 업데이트를 필요로 합니다</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="407"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="383"/>
         <source>Checking for updates</source>
         <translation>업데이트 확인 중</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="408"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="384"/>
         <source>Check for updates, please wait</source>
         <translation>업데이트를 확인하세요, 기다려주세요</translation>
     </message>

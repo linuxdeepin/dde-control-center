@@ -1679,52 +1679,57 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="281"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="257"/>
         <source>Your system is up to date</source>
         <translation>Systemet är uppdaterat</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="262"/>
         <source>Click to view available  updates</source>
         <translation>Klicka för att se tillgängliga uppdateringar</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="284"/>
         <source>Download completed, please click on the update icon to install</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="291"/>
         <source>Total download size: %1</source>
         <translation>Total nedladdningsstorlek: %1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="318"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="294"/>
         <source>Unknown</source>
         <translation>Okänd</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="329"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
         <source>%1 software need to be updated</source>
         <translation>%1 programvara behöver uppdateras</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="335"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="311"/>
         <source>Some patches need to be updated</source>
         <translation>Vissa korrigeringar behöver uppdateras</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="331"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="606"/>
+        <source>Patches</source>
+        <translation>Programfixar</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="307"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation>Vissa patchar och %1-mjukvaran behöver uppdateras</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="407"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="383"/>
         <source>Checking for updates</source>
         <translation>Söker efter uppdateringar.</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="408"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="384"/>
         <source>Check for updates, please wait</source>
         <translation>Söker efter uppdateringar, vänligen vänta</translation>
     </message>

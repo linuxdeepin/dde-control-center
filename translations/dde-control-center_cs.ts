@@ -1679,52 +1679,57 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="281"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="257"/>
         <source>Your system is up to date</source>
         <translation>Váš systém je aktuální</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="262"/>
         <source>Click to view available  updates</source>
         <translation>Klepnutím zobrazíte dostupné aktualizace</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="284"/>
         <source>Download completed, please click on the update icon to install</source>
         <translation>Stahování je dokončeno, pro instalaci klikněte na ikonu aktualizace </translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="291"/>
         <source>Total download size: %1</source>
         <translation>Celková velikost ke stažení: %1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="318"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="294"/>
         <source>Unknown</source>
         <translation>Neznámý</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="329"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
         <source>%1 software need to be updated</source>
         <translation>Software %1 je nutné aktualizovat</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="335"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="311"/>
         <source>Some patches need to be updated</source>
         <translation>Některé opravy je nutné aktualizovat</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="331"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="606"/>
+        <source>Patches</source>
+        <translation>Opravy</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="307"/>
         <source>Some patches and %1 software need to be updated</source>
         <translation>Některé opravy a software %1 je nutné aktualizovat.</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="407"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="383"/>
         <source>Checking for updates</source>
         <translation>Vyhledávání aktualizací</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="408"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="384"/>
         <source>Check for updates, please wait</source>
         <translation>Systém kontroluje aktualizace. Počkejte, prosím</translation>
     </message>

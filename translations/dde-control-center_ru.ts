@@ -921,7 +921,7 @@
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="117"/>
         <source>Home</source>
-        <translation>Домашняя</translation>
+        <translation>Главное меню</translation>
     </message>
     <message>
         <location filename="../frame/sidebarmodel.cpp" line="126"/>
@@ -1359,7 +1359,7 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="63"/>
         <source>Output Port</source>
-        <translation>Порт вывода</translation>
+        <translation>Порт Вывода</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="75"/>
@@ -1370,12 +1370,12 @@
         <location filename="../modules/sound/soundview.cpp" line="88"/>
         <location filename="../modules/sound/soundview.cpp" line="97"/>
         <source>Show Advanced...</source>
-        <translation>Показать дополнительные…</translation>
+        <translation>Показать Дополнительные…</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="102"/>
         <source>Hide Advanced...</source>
-        <translation>Скрыть дополнительные…</translation>
+        <translation>Скрыть Дополнительные…</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="148"/>
@@ -1390,7 +1390,7 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="174"/>
         <source>Output Volume</source>
-        <translation>Выходной уровень</translation>
+        <translation>Выходной Уровень</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="189"/>
@@ -1415,12 +1415,12 @@
     <message>
         <location filename="../modules/sound/soundview.cpp" line="310"/>
         <source>Input Volume</source>
-        <translation>Входной уровень</translation>
+        <translation>Входной Уровень</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="326"/>
         <source>Feedback Volume</source>
-        <translation>Уровень обратной связи</translation>
+        <translation>Уровень Обратной связи</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundview.cpp" line="430"/>
@@ -1433,12 +1433,12 @@
     <message>
         <location filename="../modules/power/power.cpp" line="53"/>
         <source>Display will suspend after</source>
-        <translation>Далее экран будет погашен</translation>
+        <translation>Экран будет погашен через:</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="54"/>
         <source>Computer will suspend after</source>
-        <translation>Далее компьютер будет приостановлен</translation>
+        <translation>Компьютер будет приостановлен через:</translation>
     </message>
     <message>
         <location filename="../modules/power/power.cpp" line="56"/>
@@ -1551,7 +1551,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="79"/>
         <source>System Type:</source>
-        <translation>Тип системы:</translation>
+        <translation>Тип Системы:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="82"/>
@@ -1561,7 +1561,7 @@
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="83"/>
         <source>Deepin Edition:</source>
-        <translation>Deepin версия:</translation>
+        <translation>Deepin Версия:</translation>
     </message>
     <message>
         <location filename="../modules/system_info/systeminfo.cpp" line="84"/>
@@ -1612,7 +1612,7 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="52"/>
         <source>Ignore the following proxy configuration for hosts and domains</source>
-        <translation>игнорировать следующую конфигурацию для хостов и доменов</translation>
+        <translation>Игнорировать следующую конфигурацию для хостов и доменов</translation>
     </message>
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="79"/>
@@ -1637,7 +1637,7 @@
     <message>
         <location filename="../modules/network/systemproxywidget.cpp" line="97"/>
         <source>Configuration URL</source>
-        <translation>URL конфигурации</translation>
+        <translation>Конфигурация URL</translation>
     </message>
 </context>
 <context>
@@ -1679,54 +1679,59 @@
 <context>
     <name>UpdateWidget</name>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="281"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="257"/>
         <source>Your system is up to date</source>
         <translation>Ваша система находится в актуальном состоянии</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="286"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="262"/>
         <source>Click to view available  updates</source>
-        <translation>Нажмите для просмотра доступных обновлений</translation>
+        <translation>Нажмите для поиска доступных обновлений</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="308"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="284"/>
         <source>Download completed, please click on the update icon to install</source>
         <translation>Загрузка завершена, пожалуйста нажмите на значок обновления, чтобы установить</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="315"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="291"/>
         <source>Total download size: %1</source>
         <translation>Общий объём загрузки: %1</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="318"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="294"/>
         <source>Unknown</source>
         <translation>Неизвестный</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="329"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="305"/>
         <source>%1 software need to be updated</source>
-        <translation>%1 программного обеспечения необходимо обновить</translation>
+        <translation>%1 программ необходимо обновить</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="335"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="311"/>
         <source>Some patches need to be updated</source>
-        <translation>Некоторые патчи должны быть обновлены</translation>
+        <translation>Некоторые патчи необходимо обновить</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="331"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="606"/>
+        <source>Patches</source>
+        <translation>Патчи (Заплатки)</translation>
+    </message>
+    <message>
+        <location filename="../modules/system_info/updatewidget.cpp" line="307"/>
         <source>Some patches and %1 software need to be updated</source>
-        <translation>Некоторые патчи и %1 программное обеспечение необходимо обновить</translation>
+        <translation>Некоторые патчи и %1 программ необходимо обновить</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="407"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="383"/>
         <source>Checking for updates</source>
-        <translation>Проверка обновлений</translation>
+        <translation>Поиск обновлений</translation>
     </message>
     <message>
-        <location filename="../modules/system_info/updatewidget.cpp" line="408"/>
+        <location filename="../modules/system_info/updatewidget.cpp" line="384"/>
         <source>Check for updates, please wait</source>
-        <translation>Проверка обновлений, пожалуйста подождите</translation>
+        <translation>Поиск обновлений, пожалуйста подождите</translation>
     </message>
 </context>
 <context>
@@ -1782,7 +1787,7 @@
     <message>
         <location filename="../modules/account/ui/user_list/userexpandheader.cpp" line="234"/>
         <source>Normal User</source>
-        <translation>Обычный пользователь</translation>
+        <translation>Обычный Пользователь</translation>
     </message>
 </context>
 <context>
@@ -1858,12 +1863,12 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="133"/>
         <source>Down Key</source>
-        <translation>Кнопка вниз</translation>
+        <translation>Клавиша Вниз</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="152"/>
         <source>Up Key</source>
-        <translation>Кнопка вверх</translation>
+        <translation>Клавиша Вверх</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="171"/>
@@ -1873,12 +1878,12 @@
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="176"/>
         <source>Soft</source>
-        <translation>Мягкий</translation>
+        <translation>Мягко</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="177"/>
         <source>Hard</source>
-        <translation>Жесткий</translation>
+        <translation>Жестко</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacom.cpp" line="191"/>
