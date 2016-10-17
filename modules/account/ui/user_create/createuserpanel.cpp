@@ -172,7 +172,7 @@ bool CreateUserPanel::validate()
         return false;
     }
 
-    reply = m_account->IsPasswordValid(m_passwdNew->text().toLower());
+    reply = m_account->IsPasswordValid(m_passwdNew->text());
     reply.waitForFinished();
     valid = reply.argumentAt(0).isValid() ? reply.argumentAt(0).toBool() : false;
     warningMsg = reply.argumentAt(1).isValid() ? reply.argumentAt(1).toString() : "";
