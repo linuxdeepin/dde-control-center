@@ -23,7 +23,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_contentArea->setFrameStyle(QFrame::NoFrame);
     m_contentArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_contentArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_contentArea->setStyleSheet("background-color:red;");
+//    m_contentArea->setStyleSheet("background-color:red;");
 
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->addWidget(backBtn);

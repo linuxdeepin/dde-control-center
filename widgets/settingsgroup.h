@@ -21,19 +21,19 @@ class SettingsItem;
 class SettingsGroup : public QFrame
 {
     Q_OBJECT
+
 public:
     explicit SettingsGroup(QFrame *parent = 0);
 
     void appendItem(SettingsItem * item);
+    void setSpacing(const int spaceing);
 
 private:
     bool eventFilter(QObject *watched, QEvent *event);
-
     void updateHeadTail();
     void updateHeight();
 
-    int m_spacing;
-
+private:
     QVBoxLayout * m_layout;
 };
 

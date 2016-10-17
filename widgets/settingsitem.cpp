@@ -16,7 +16,17 @@ SettingsItem::SettingsItem(QFrame *parent)
       m_isHead(false),
       m_isTail(false)
 {
-    setStyleSheet("dcc--SettingsItem { background:white }");
+    setStyleSheet("dcc--SettingsItem {"
+                  "background-color:gray;"
+                  "}"
+                  "dcc--SettingsItem[isHead=true] {"
+                  "border-top-left-radius:10px;"
+                  "border-top-right-radius:10px;"
+                  "}"
+                  "dcc--SettingsItem[isTail=true] {"
+                  "border-bottom-left-radius:10px;"
+                  "border-bottom-right-radius:10px;"
+                  "}");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
 
@@ -27,16 +37,17 @@ bool SettingsItem::isHead() const
 
 void SettingsItem::setIsHead(bool head)
 {
-    static const QString HeadStyleSheet = "dcc--SettingsItem { border-top-left-radius:10px; border-top-right-radius:10px; } ";
+//    static const QString HeadStyleSheet = "dcc--SettingsItem { border-top-left-radius:10px; border-top-right-radius:10px; } ";
 
     if (head == m_isHead) return;
     m_isHead = head;
 
-    if (head) {
-        setStyleSheet(styleSheet() + HeadStyleSheet);
-    } else {
-        setStyleSheet(styleSheet().replace(HeadStyleSheet, ""));
-    }
+    setStyleSheet(styleSheet());
+//    if (head) {
+//        setStyleSheet(styleSheet() + HeadStyleSheet);
+//    } else {
+//        setStyleSheet(styleSheet().replace(HeadStyleSheet, ""));
+//    }
 }
 
 bool SettingsItem::isTail() const
@@ -46,16 +57,17 @@ bool SettingsItem::isTail() const
 
 void SettingsItem::setIsTail(bool tail)
 {
-    static const QString TailStyleSheet = "dcc--SettingsItem { border-bottom-left-radius:10px; border-bottom-right-radius:10px; } ";
+//    static const QString TailStyleSheet = "dcc--SettingsItem { border-bottom-left-radius:10px; border-bottom-right-radius:10px; } ";
 
     if (tail == m_isTail) return;
     m_isTail = tail;
 
-    if (tail) {
-        setStyleSheet(styleSheet() + TailStyleSheet);
-    } else {
-        setStyleSheet(styleSheet().replace(TailStyleSheet, ""));
-    }
+    setStyleSheet(styleSheet());
+//    if (tail) {
+//        setStyleSheet(styleSheet() + TailStyleSheet);
+//    } else {
+//        setStyleSheet(styleSheet().replace(TailStyleSheet, ""));
+//    }
 }
 
 }

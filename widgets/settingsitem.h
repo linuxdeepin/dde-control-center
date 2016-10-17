@@ -17,6 +17,9 @@ namespace dcc {
 class SettingsItem : public QFrame
 {
     Q_OBJECT
+    Q_PROPERTY(bool isHead READ isHead DESIGNABLE true SCRIPTABLE true)
+    Q_PROPERTY(bool isTail READ isTail DESIGNABLE true SCRIPTABLE true)
+
 public:
     explicit SettingsItem(QFrame *parent = 0);
 

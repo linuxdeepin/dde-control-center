@@ -1,10 +1,39 @@
 #include "accounts.h"
 
+#include "settingsgroup.h"
+#include "settingsitem.h"
+
 #include <QPushButton>
+
+using namespace dcc;
 
 Accounts::Accounts(dde::FrameProxyInterface *frame)
     : ModuleWidget(frame)
 {
+
+    QLabel *avatarLabel = new QLabel;
+    avatarLabel->setText("Avatar");
+
+    QHBoxLayout *avatarLayout = new QHBoxLayout;
+    avatarLayout->addWidget(avatarLabel);
+
+    SettingsItem *avatarItem = new SettingsItem;
+    avatarItem->setLayout(avatarLayout);
+
+    QLabel *pwdLbl = new QLabel;
+    pwdLbl->setText("Pwd");
+
+    QHBoxLayout *pwdLayout = new QHBoxLayout;
+    pwdLayout->addWidget(pwdLbl);
+
+    SettingsItem *passwordItem = new SettingsItem;
+    passwordItem->setLayout(pwdLayout);
+
+    SettingsGroup *basicSettings = new SettingsGroup;
+    basicSettings->appendItem(avatarItem);
+    basicSettings->appendItem(passwordItem);
+
+    m_centeralLayout->addWidget(basicSettings);
 
     m_nextPage = new QPushButton;
     m_nextPage->setText("Next Page >");

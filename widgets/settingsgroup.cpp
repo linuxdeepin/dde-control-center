@@ -17,11 +17,10 @@ namespace dcc {
 
 SettingsGroup::SettingsGroup(QFrame *parent) :
     QFrame(parent),
-    m_spacing(10),
     m_layout(new QVBoxLayout)
 {
     m_layout->setMargin(0);
-    m_layout->setSpacing(10);
+    m_layout->setSpacing(2);
     setLayout(m_layout);
 }
 
@@ -31,6 +30,13 @@ void SettingsGroup::appendItem(SettingsItem *item)
     item->installEventFilter(this);
 
     updateHeadTail();
+}
+
+void SettingsGroup::setSpacing(const int spaceing)
+{
+    m_layout->setSpacing(spaceing);
+
+    updateHeight();
 }
 
 bool SettingsGroup::eventFilter(QObject *, QEvent *event)
@@ -64,16 +70,17 @@ void SettingsGroup::updateHeadTail()
 
 void SettingsGroup::updateHeight()
 {
-    int height = -m_spacing;
+    const int spaceing = m_layout->spacing();
+    int height = 0;
 
     for (QObject * child : children()) {
         SettingsItem * item = qobject_cast<SettingsItem*>(child);
         if (item) {
-            height += (item->height() + m_spacing);
+            height += (item->height() + spaceing);
         }
     }
 
-    setFixedHeight(height);
+    setFixedHeight(height ? height - spaceing : 0);
 }
 
 } // namespace dcc end
