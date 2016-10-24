@@ -2,6 +2,9 @@
 #include "weatheritem.h"
 #include <QPainter>
 #include <networkutil.h>
+#include <QGraphicsPathItem>
+
+DWIDGET_USE_NAMESPACE
 
 WeatherWidget::WeatherWidget(QWidget *parent)
     :QWidget(parent),
@@ -73,15 +76,62 @@ WeatherWidget::WeatherWidget(QWidget *parent)
     m_iconsDict["storm"] = "://storm";
     m_iconsDict["violent storm"] = "://violent storm";
 
+    m_view = new DPictureSequenceView(this);
+    m_view->setFixedSize(50,50);
+    QStringList lists;
+    for(int i = 0; i<100; i++)
+    {
+        QString arg = QString().setNum(i);
+        if(arg.length() == 1)
+            arg = "0"+arg;
+        QString path = QString(":/icon/load_weather/load_weather_000%1").arg(arg);
+        lists<<path;
+    }
+    m_view->setPictureSequence(lists);
+
     connect(m_request, SIGNAL(refreshData(QList<WeatherItem>&)),
             this, SLOT(refreshView(QList<WeatherItem>&)));
 }
 
-void WeatherWidget::paintEvent(QPaintEvent *)
+void WeatherWidget::paintEvent(QPaintEvent *e)
 {
+    QWidget::paintEvent(e);
     int count = m_request->count();
     if(count == 0)
+    {
+        QPainter painter(this);
+        QPixmap pix(":/icon/load_weather/weather_loading.png");
+        painter.drawPixmap(rect().center() + QPoint(-pix.width()/2, -pix.height()/2), pix);
+        /*
+        QString arg = QString().setNum(i);
+        if(arg.length() == 1)
+            arg = "0"+arg;
+        QString path = QString(":/icon/load_weather/load_weather_000%1").arg(arg);
+        QPixmap rotate(path);
+        painter.drawPixmap(rect().center() + QPoint(-rotate.width()/2, -rotate.height()/2), rotate);
+        --i;
+        i = (i<0)?99:i;
+        */
+        QTime time = QTime::currentTime();
+        QRect rect(0,0,width(), 50);
+        rect.moveTop(this->rect().center().y()+pix.height()/2+25);
+
+        QPen pen(Qt::white);
+        painter.setPen(pen);
+        QFont font = painter.font();
+        font.setPixelSize(15);
+        painter.setFont(font);
+
+        if(m_time.secsTo(time) > 10)
+        {
+            painter.drawText(rect, Qt::AlignCenter, tr("Sorry, unable to get weather!"));
+        }
+        else
+        {
+            painter.drawText(rect, Qt::AlignCenter, tr("Loading weather..."));
+        }
         return;
+    }
 
     int h = (height() - 20)/count;
     int fh = h + 20;
@@ -157,6 +207,13 @@ void WeatherWidget::mousePressEvent(QMouseEvent *)
     update();
 }
 
+void WeatherWidget::resizeEvent(QResizeEvent *e)
+{
+    QRect rect(0,0,50,50);
+    rect.moveCenter(this->rect().center());
+    m_view->setGeometry(rect);
+}
+
 QString WeatherWidget::icon(const WeatherItem &item)
 {
     QStringList nights;
@@ -180,7 +237,22 @@ QString WeatherWidget::icon(const WeatherItem &item)
     }
 }
 
-void WeatherWidget::refreshView(QList<WeatherItem> &)
+void WeatherWidget::refreshView(QList<WeatherItem> &items)
 {
+    if(items.count() == 0)
+    {
+        m_view->show();
+        m_view->play();
+        if(!m_time.isValid())
+            m_time = QTime::currentTime();
+    }
+    else
+    {
+        m_view->hide();
+        m_view->stop();
+        if(m_time.isValid())
+            m_time = QTime();
+    }
+
     update();
 }

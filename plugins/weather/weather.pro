@@ -6,7 +6,7 @@ PLUGIN_NAME 	= weather
 QT              += widgets svg network
 TEMPLATE         = lib
 CONFIG          += plugin c++11 link_pkgconfig
-PKGCONFIG       += geoip
+PKGCONFIG       += dtkbase dtkwidget gtk+-2.0 geoip
 
 TARGET          = $$qtLibraryTarget($$PLUGIN_NAME)
 DESTDIR          = $$_PRO_FILE_PWD_/../

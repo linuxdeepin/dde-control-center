@@ -21,11 +21,8 @@ WeatherRequest::WeatherRequest(QObject *parent) :
     m_maps["deg"] = new DegImp();
     m_maps["clouds"] = new CloudsImp();
     //m_maps["rain"] = new RainImp();
+    m_loader = new LoaderCity(this);
 
-    NetworkUtil util;
-    m_city = util.city();
-    m_url = QUrl(QString("http://api.openweathermap.org/data/2.5/forecast/daily?"
-                 "q=%1&mode=json&units=metric&cnt=7&APPID=a106333152baafe953f41c112767b167").arg(m_city));
     m_location = QUrl(QString("http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"));
 
     m_manager = new QNetworkAccessManager(this);
@@ -36,9 +33,9 @@ WeatherRequest::WeatherRequest(QObject *parent) :
     connect(m_manager, SIGNAL(finished(QNetworkReply*)), this,
             SLOT(replyFinished(QNetworkReply*)));
     connect(m_timer, SIGNAL(timeout()), this, SLOT(slotTimeout()));
-
+    connect(m_loader, SIGNAL(city(const QString&)), this, SLOT(setCity(const QString&)));
 //    m_url = QUrl(QString("http://www.ipip.net/ip.html"));
-    m_manager->get(QNetworkRequest(m_url));
+    m_loader->start();
 }
 
 WeatherRequest::~WeatherRequest()
@@ -80,8 +77,6 @@ void WeatherRequest::replyFinished(QNetworkReply *reply)
     m_items.clear();
     QByteArray ba = reply->readAll();
     reply->deleteLater();
-    if(ba.isEmpty())
-        return;
 
     QJsonObject jobj = QJsonDocument::fromJson(ba).object();
     if(jobj.contains("list"))
@@ -108,10 +103,8 @@ void WeatherRequest::replyFinished(QNetworkReply *reply)
             }
         }
     }
-    if(m_items.count() == 7)
-    {
-        emit refreshData(m_items);
-    }
+    emit refreshData(m_items);
+
     if(!m_timer->isActive())
     {
         m_timer->start();
@@ -121,4 +114,16 @@ void WeatherRequest::replyFinished(QNetworkReply *reply)
 void WeatherRequest::slotTimeout()
 {
     m_manager->get(QNetworkRequest(m_url));
+}
+
+LoaderCity::LoaderCity(QObject *parent)
+    :QThread(parent)
+{
+
+}
+
+void LoaderCity::run()
+{
+    NetworkUtil util;
+    emit city(util.city());
 }
