@@ -8,6 +8,7 @@ class WInterface
 {
 public:
     virtual void readData(WeatherItem& item, const QJsonValue& value) = 0;
+    virtual ~WInterface() {}
 };
 
 class DtImp : public WInterface

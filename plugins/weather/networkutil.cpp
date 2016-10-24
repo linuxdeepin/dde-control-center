@@ -14,10 +14,10 @@ extern "C" {
 #ifdef   __cplusplus
  }
 #endif
-static const char * _mk_NA( const char * p )
-{
-    return p ? p : "N/A";
-}
+//static const char * _mk_NA( const char * p )
+//{
+//    return p ? p : "N/A";
+//}
 
 NetworkUtil::NetworkUtil()
 {

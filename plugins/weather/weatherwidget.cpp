@@ -77,7 +77,7 @@ WeatherWidget::WeatherWidget(QWidget *parent)
             this, SLOT(refreshView(QList<WeatherItem>&)));
 }
 
-void WeatherWidget::paintEvent(QPaintEvent *event)
+void WeatherWidget::paintEvent(QPaintEvent *)
 {
     int count = m_request->count();
     if(count == 0)
@@ -152,7 +152,7 @@ void WeatherWidget::paintEvent(QPaintEvent *event)
     }
 }
 
-void WeatherWidget::mousePressEvent(QMouseEvent *event)
+void WeatherWidget::mousePressEvent(QMouseEvent *)
 {
     update();
 }
@@ -180,7 +180,7 @@ QString WeatherWidget::icon(const WeatherItem &item)
     }
 }
 
-void WeatherWidget::refreshView(QList<WeatherItem> &items)
+void WeatherWidget::refreshView(QList<WeatherItem> &)
 {
     update();
 }
