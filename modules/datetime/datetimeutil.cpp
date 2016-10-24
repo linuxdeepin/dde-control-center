@@ -14,7 +14,16 @@ DatetimeUtil::DatetimeUtil()
 
 QStringList DatetimeUtil::city2UTC(const QString &city)
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase(QLatin1String("QSQLITE"), "timezone");
+    QSqlDatabase db;
+    if(QSqlDatabase::contains("timezone"))
+    {
+        db = QSqlDatabase::database(QLatin1String("timezone"));
+    }
+    else
+    {
+        db = QSqlDatabase::addDatabase(QLatin1String("QSQLITE"), "timezone");
+    }
+
     db.setDatabaseName(CITIES_DATABASE_PATH);
 
     if (!db.open())
@@ -48,5 +57,41 @@ QStringList DatetimeUtil::city2UTC(const QString &city)
             }
         }
     }
+
+    db.close();
     return timezones;
 }
+
+int DatetimeUtil::dayOfMonth(int year, int month)
+{
+    QDate date(year, month, 1);
+    return date.daysInMonth();
+}
+
+int DatetimeUtil::hoursBetweenTwoTimeZone(const QTimeZone &tz, const QTimeZone &cur)
+{
+    QDateTime dt = QDateTime::currentDateTime().toTimeZone(tz);
+    QDateTime curDt = QDateTime::currentDateTime();
+
+    QDateTime sys = cur.isValid() ? curDt.toTimeZone(cur) : curDt;
+
+    int utc1 = dt.offsetFromUtc()/3600;
+    int utc2 = sys.offsetFromUtc()/3600;
+
+    return (utc1 - utc2);
+}
+
+int DatetimeUtil::hoursBetweenTwoTimeZone(const QString &tz, const QString &cur)
+{
+    QTimeZone one = QTimeZone(tz.toStdString().c_str());
+    if(cur.isNull())
+    {
+        return hoursBetweenTwoTimeZone(one);
+    }
+    else
+    {
+        QTimeZone two = QTimeZone(cur.toStdString().c_str());
+        return hoursBetweenTwoTimeZone(one, two);
+    }
+}
+

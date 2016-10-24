@@ -5,9 +5,15 @@ DEFINES += CITIES_DATABASE_PATH=\\\"$$CITIES_PATH\\\"
 HEADERS += \
     $$PWD/datetime.h \
     $$PWD/datetimeutil.h \
-    $$PWD/clock.h
+    $$PWD/clock.h \
+    $$PWD/datesettings.h \
+    $$PWD/datetimewidget.h \
+    $$PWD/timezoneitem.h
 
 SOURCES += \
     $$PWD/datetime.cpp \
     $$PWD/datetimeutil.cpp \
-    $$PWD/clock.cpp
+    $$PWD/clock.cpp \
+    $$PWD/datesettings.cpp \
+    $$PWD/datetimewidget.cpp \
+    $$PWD/timezoneitem.cpp

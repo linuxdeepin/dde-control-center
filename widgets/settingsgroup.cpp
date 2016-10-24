@@ -42,6 +42,7 @@ void SettingsGroup::setSpacing(const int spaceing)
 bool SettingsGroup::eventFilter(QObject *, QEvent *event)
 {
     if (event->type() == QEvent::Resize) {
+
         updateHeight();
     }
 

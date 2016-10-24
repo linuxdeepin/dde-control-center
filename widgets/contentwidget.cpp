@@ -19,6 +19,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_title->setAlignment(Qt::AlignCenter);
 
     m_contentArea = new QScrollArea;
+    m_contentArea->setWidgetResizable(true);
     m_contentArea->installEventFilter(this);
     m_contentArea->setFrameStyle(QFrame::NoFrame);
     m_contentArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
