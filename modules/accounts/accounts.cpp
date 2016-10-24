@@ -3,6 +3,7 @@
 #include "settingsgroup.h"
 #include "settingsitem.h"
 #include "nextpagewidget.h"
+#include "switchwidget.h"
 
 #include <QPushButton>
 
@@ -34,6 +35,7 @@ Accounts::Accounts(dde::FrameProxyInterface *frame)
     basicSettings->appendItem(avatarItem);
     basicSettings->appendItem(passwordItem);
     basicSettings->appendItem(new NextPageWidget);
+    basicSettings->appendItem(new SwitchWidget);
 
     m_centeralLayout->addWidget(basicSettings);
 
