@@ -7,6 +7,7 @@
 #include "update/updatemodule.h"
 #include "sound/soundmodule.h"
 #include "datetime/datetimemodule.h"
+#include "defapp/defaultappsmodule.h"
 
 #include <QVBoxLayout>
 #include <QResizeEvent>
@@ -28,6 +29,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new UpdateModule(this));
     loadModule(new SoundModule(this));
     loadModule(new DatetimeModule(this));
+    loadModule(new DefaultAppsModule(this));
 
     m_settingsWidget = new QWidget;
     m_settingsWidget->setLayout(m_settingsLayout);

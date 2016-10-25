@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>list_delete_hover.png</file>
+        <file>list_delete_normal.png</file>
+        <file>list_delete_press.png</file>
+        <file>select.png</file>
+    </qresource>
+</RCC>
