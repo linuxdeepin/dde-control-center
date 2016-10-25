@@ -222,7 +222,7 @@ void UpdateWidget::updateDownloadStatus()
     qDebug() << "state: " << type << status << id;
 
     // TODO/FIXME: 当Job为end状态时，马上会被销毁，所以把status为空的状态当做end状态处理
-    if (status == "succeed" || status == "end" || status.isEmpty())
+    if (status == "succeed")
     {
         m_downloadProgress->hide();
         m_updateButton->show();
@@ -240,7 +240,7 @@ void UpdateWidget::removeJob()
 
     m_appsVBox->layout()->removeWidget(appItemWidget);
 
-    emit updatableNumsChanged(m_appsVBox->layout()->count(), 1);
+    emit updatableNumsChanged(m_appsVBox->layout()->count(), updatablePackages().length());
 }
 
 void UpdateWidget::updateInfo(const int apps, const int packages)
@@ -613,14 +613,9 @@ QList<AppUpdateInfo> UpdateWidget::getUpdateInfoList() const
 
 QStringList UpdateWidget::updatableApps() const
 {
-    QStringList apps;
-    QStringList pkgs = updatablePackages();
+    QStringList apps = m_dbusUpdateInter->updatableApps();
 
-    for (const QString& pkg : pkgs) {
-        if (QFile::exists("/lastore/metadata/" + pkg)) {
-            apps << pkg;
-        }
-    }
+    qDebug() << "updatable apps: " << apps;
 
     // don't treat package dde like a normal App, it's just a carrier
     // of the changelog of this system update.
@@ -631,20 +626,9 @@ QStringList UpdateWidget::updatableApps() const
 
 QStringList UpdateWidget::updatablePackages() const
 {
-    QStringList pkgs;
+    QStringList pkgs = m_dbusUpdateInter->updatablePackages();
 
-    QFile updateInfos("/var/lib/lastore/update_infos.json");
-    if (updateInfos.open(QFile::ReadOnly)) {
-        QByteArray data = updateInfos.readAll();
-        QJsonDocument doc = QJsonDocument::fromJson(data);
-        QJsonArray packages = doc.array();
-
-        for (QJsonValue val : packages) {
-            QJsonObject pack = val.toObject();
-
-            pkgs << pack["Package"].toString();
-        }
-    }
+    qDebug() << "updatable packages: " << pkgs;
 
     return pkgs;
 }
@@ -689,7 +673,7 @@ void UpdateWidget::loadDownloadJob(DBusUpdateJob *newJob)
 
     m_downloadJob = newJob;
     const QString &status = m_downloadJob->status();
-    if (status == "success" || status == "end")
+    if (status == "success")
     {
         refreshDownloadStatus(NotStart);
         return;
