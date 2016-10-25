@@ -7,8 +7,8 @@
 #include <QDebug>
 #include <QPushButton>
 
-Datetime::Datetime(dde::FrameProxyInterface *frame)
-    :ModuleWidget(frame)
+Datetime::Datetime()
+    :ModuleWidget()
 {
     this->installEventFilter(parent());
     setTitle(tr("Time and Date"));
@@ -52,12 +52,12 @@ Datetime::Datetime(dde::FrameProxyInterface *frame)
     m_centeralLayout->addWidget(timeSettings);
 
     DateSettings* ds = new DateSettings();
-    m_dateSettings = new ContentWidget();
+    m_dateSettings = new ContentWidget;
     m_dateSettings->setTitle(tr("Date time details"));
     m_dateSettings->setContent(ds);
 
     connect(addBtn, SIGNAL(clicked()), this, SLOT(slotClick()));
-    connect(timeBtn, &QPushButton::clicked, [this] { pushWidget(m_dateSettings); });
+//    connect(timeBtn, &QPushButton::clicked, [this] { pushWidget(m_dateSettings); });
 }
 
 void Datetime::addTimezone(const QString &city)

@@ -33,6 +33,11 @@ QWidget *FrameWidget::setContent(QWidget * const c)
     return lastContent;
 }
 
+QWidget *FrameWidget::content()
+{
+    return m_content;
+}
+
 void FrameWidget::show()
 {
     QWidget::show();
@@ -80,7 +85,10 @@ bool FrameWidget::eventFilter(QObject *watched, QEvent *event)
 void FrameWidget::destorySelf()
 {
     if (m_content)
+    {
         m_content->setParent(nullptr);
+        emit contentDetached(m_content);
+    }
 
     deleteLater();
 }

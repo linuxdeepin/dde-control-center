@@ -8,7 +8,7 @@
 #include <QMainWindow>
 #include <QStack>
 
-class Frame : public QMainWindow, public FrameProxyInterface
+class Frame : public QMainWindow
 {
     Q_OBJECT
 
@@ -23,6 +23,7 @@ private slots:
     void init();
 
     void showAllSettings();
+    void contentDetached(QWidget * const c);
 
 private:
     SettingsWidget *m_allSettingsPage;

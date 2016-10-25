@@ -8,7 +8,7 @@ class Display : public ModuleWidget
     Q_OBJECT
 
 public:
-    explicit Display(FrameProxyInterface *frame);
+    explicit Display();
 };
 
 #endif // DISPLAY_H

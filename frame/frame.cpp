@@ -29,6 +29,7 @@ void Frame::pushWidget(ContentWidget * const w)
     m_frameWidgetStack.push(fw);
 
     connect(w, &ContentWidget::back, this, &Frame::popWidget, Qt::UniqueConnection);
+    connect(fw, &FrameWidget::contentDetached, this, &Frame::contentDetached, Qt::UniqueConnection);
 }
 
 void Frame::popWidget()
@@ -57,4 +58,11 @@ void Frame::showAllSettings()
         m_allSettingsPage = new SettingsWidget(this);
 
     pushWidget(m_allSettingsPage);
+}
+
+void Frame::contentDetached(QWidget * const c)
+{
+    ContentWidget *cw = qobject_cast<ContentWidget *>(c);
+    if (cw && cw != m_allSettingsPage)
+        m_allSettingsPage->contentPopuped(cw);
 }

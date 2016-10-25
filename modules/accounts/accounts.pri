@@ -1,7 +1,9 @@
 HEADERS += \
-    $$PWD/accounts.h
+    $$PWD/accountsmodule.h \
+    $$PWD/accountswidget.h
 
 SOURCES += \
-    $$PWD/accounts.cpp
+    $$PWD/accountsmodule.cpp \
+    $$PWD/accountswidget.cpp
 
 INCLUDEPATH += $$PWD/..

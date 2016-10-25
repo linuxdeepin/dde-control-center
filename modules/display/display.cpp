@@ -2,8 +2,8 @@
 
 #include <QPushButton>
 
-Display::Display(dde::FrameProxyInterface *frame)
-    : ModuleWidget(frame)
+Display::Display()
+    : ModuleWidget()
 {
 
     for (int i(0); i != 20; ++i)

@@ -21,7 +21,7 @@ public slots:
     void loadPlugins();
 
 private:
-    void pushWidget(ContentWidget * const) {}
+    void pushWidget(ModuleInterface * const, ContentWidget * const) {}
 };
 
 #endif // PLUGINSCONTROLLER_H

@@ -17,11 +17,15 @@ public:
     explicit FrameWidget(Frame *parent = 0);
 
     QWidget *setContent(QWidget * const c);
+    QWidget *content();
 
     void show();
     void hide();
     void showBack();
     void destory();
+
+signals:
+    void contentDetached(QWidget * const w) const;
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event);

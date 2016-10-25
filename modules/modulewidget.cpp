@@ -1,8 +1,7 @@
 #include "modulewidget.h"
 
-ModuleWidget::ModuleWidget(FrameProxyInterface *frame)
-    : QWidget(nullptr),
-      m_frameProxy(frame)
+ModuleWidget::ModuleWidget()
+    : QWidget(nullptr)
 {
     m_moduleIcon = new QLabel;
     m_moduleIcon->setFixedSize(32, 32);
@@ -35,9 +34,4 @@ void ModuleWidget::setTitle(const QString &title)
 void ModuleWidget::setIcon(const QPixmap &icon)
 {
     m_moduleIcon->setPixmap(icon);
-}
-
-void ModuleWidget::pushWidget(ContentWidget * const w)
-{
-    m_frameProxy->pushWidget(w);
 }

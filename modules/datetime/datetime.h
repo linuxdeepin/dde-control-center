@@ -1,10 +1,13 @@
 #ifndef DATETIME_H
 #define DATETIME_H
 
-#include <modulewidget.h>
 #include "datesettings.h"
+#include "contentwidget.h"
+
+#include <modulewidget.h>
 #include <settingsgroup.h>
 #include <settingsitem.h>
+
 using namespace dcc;
 
 class Datetime : public ModuleWidget
@@ -12,7 +15,7 @@ class Datetime : public ModuleWidget
     Q_OBJECT
 
 public:
-    explicit Datetime(FrameProxyInterface *frame);
+    explicit Datetime();
     void addTimezone(const QString& city);
 
 public slots:
