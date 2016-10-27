@@ -27,13 +27,17 @@ AccountsWidget::AccountsWidget()
     connect(m_nextPage, &QPushButton::clicked, this, &AccountsWidget::showAccountsDetail);
 }
 
-void AccountsWidget::onUserListChanged(const QStringList &ul)
+void AccountsWidget::addUser(User *user)
 {
-    for (const QString &u : ul)
-    {
-        NextPageWidget *w = new NextPageWidget;
-        w->setTitle(u);
+    NextPageWidget *w = new NextPageWidget;
+    w->setTitle(user->name());
 
-        m_userGroup->appendItem(w);
-    }
+    m_userGroup->appendItem(w);
+
+    connect(user, &User::nameChanged, w, &NextPageWidget::setTitle);
+}
+
+void AccountsWidget::removeUser(User *user)
+{
+    // TODO
 }

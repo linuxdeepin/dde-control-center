@@ -3,27 +3,30 @@
 AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),
-
-      m_accountsInter(new Accounts("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this)),
-
-      m_accountsWidget(nullptr),
-      m_accountsDetail(nullptr)
+      m_userList(new UserModel(this)),
+      m_accountsWidget(new AccountsWidget),
+      m_accountsDetail(nullptr),
+      m_accountsWorker(new AccountsWorker(m_userList, this))
 {
+    connect(m_accountsWidget, &AccountsWidget::showAccountsDetail, this, &AccountsModule::showAccountsDetail);
 }
 
 void AccountsModule::initialize()
 {
-    m_accountsInter->setSync(false);
+//    m_accountsInter->setSync(false);
 
-    connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsModule::onUserListChanged);
+//    connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsModule::onUserListChanged);
 
-    onUserListChanged(m_accountsInter->userList());
+//    onUserListChanged(m_accountsInter->userList());
+
+    connect(m_userList, &UserModel::userAdded, m_accountsWidget, &AccountsWidget::addUser);
+    connect(m_userList, &UserModel::userRemoved, m_accountsWidget, &AccountsWidget::removeUser);
 }
 
 void AccountsModule::moduleActive()
 {
-    m_accountsInter->blockSignals(false);
-    m_accountsInter->getAllProperties();
+//    m_accountsInter->blockSignals(false);
+//    m_accountsInter->getAllProperties();
 }
 
 void AccountsModule::moduleDeactive()
@@ -34,17 +37,11 @@ void AccountsModule::moduleDeactive()
         m_accountsWidget = nullptr;
     }
 
-    m_accountsInter->blockSignals(true);
+//    m_accountsInter->blockSignals(true);
 }
 
 ModuleWidget *AccountsModule::moduleWidget()
 {
-    if (!m_accountsWidget)
-    {
-        m_accountsWidget = new AccountsWidget;
-        connect(m_accountsWidget, &AccountsWidget::showAccountsDetail, this, &AccountsModule::showAccountsDetail);
-    }
-
     return m_accountsWidget;
 }
 
@@ -74,10 +71,4 @@ void AccountsModule::contentPopped(ContentWidget * const w)
         m_accountsDetail = nullptr;
 
     w->deleteLater();
-}
-
-void AccountsModule::onUserListChanged(const QStringList &users)
-{
-    if (m_accountsWidget)
-        m_accountsWidget->onUserListChanged(users);
 }

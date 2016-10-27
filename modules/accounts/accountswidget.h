@@ -4,6 +4,10 @@
 #include "modulewidget.h"
 #include "contentwidget.h"
 #include "settingsgroup.h"
+#include "nextpagewidget.h"
+#include "user.h"
+
+#include <com_deepin_daemon_accounts_accountsuser.h>
 
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -19,7 +23,8 @@ signals:
     void showAccountsDetail() const;
 
 public slots:
-    void onUserListChanged(const QStringList &ul);
+    void addUser(User *user);
+    void removeUser(User *user);
 
 private:
     dcc::SettingsGroup *m_userGroup;
