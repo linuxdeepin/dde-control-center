@@ -4,9 +4,11 @@ include(display/display.pri)
 include(datetime/datetime.pri)
 include(power/power.pri)
 include(update/update.pri)
+include(sound/sound.pri)
 
 HEADERS += \
-    $$PWD/modulewidget.h
+    $$PWD/modulewidget.h \
+    $$PWD/moduleworker.h
 
 SOURCES += \
     $$PWD/modulewidget.cpp
