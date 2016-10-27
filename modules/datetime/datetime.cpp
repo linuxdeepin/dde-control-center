@@ -3,6 +3,10 @@
 #include "datetimeutil.h"
 #include "timezoneitem.h"
 #include "datesettings.h"
+#include "nextpagewidget.h"
+#include "switchwidget.h"
+#include "timezonehead.h"
+
 #include <QFrame>
 #include <QDebug>
 #include <QPushButton>
@@ -14,37 +18,26 @@ Datetime::Datetime()
     setTitle(tr("Time and Date"));
     Clock* clock = new Clock();
     clock->setDisplay(true);
-    SettingsGroup* g = new SettingsGroup();
-    g->appendItem(clock);
+    SettingsGroup* clockGroup = new SettingsGroup();
+    clockGroup->appendItem(clock);
+    m_centeralLayout->addWidget(clockGroup);
 
     m_group = new SettingsGroup();
-    m_centeralLayout->addWidget(g);
-    SettingsItem *f  = new SettingsItem();
-    QPushButton* btn = new QPushButton();
-    btn->setFixedHeight(30);
-    QHBoxLayout* layout = new QHBoxLayout();
-    layout->addWidget(btn);
-    f->setLayout(layout);
-    m_group->appendItem(f);
+    m_headItem = new TimezoneHead();
+    m_group->appendItem(m_headItem);
     m_centeralLayout->addSpacerItem(new QSpacerItem(300,20));
     m_centeralLayout->addWidget(m_group);
 
     SettingsGroup* addTimezone = new SettingsGroup();
-    SettingsItem* addItem = new SettingsItem();
-    QHBoxLayout* addLayout = new QHBoxLayout();
-    QPushButton* addBtn = new QPushButton(tr("Add Timezone"));
-    addLayout->addWidget(addBtn);
-    addItem->setLayout(addLayout);
-    addTimezone->appendItem(addItem);
+    m_addItem = new NextPageWidget();
+    m_addItem->setTitle(tr("Add Timezone"));
+    addTimezone->appendItem(m_addItem);
 
     SettingsGroup* timeSettings = new SettingsGroup();
-    SettingsItem* timeItem = new SettingsItem();
-    QHBoxLayout* timeLayout = new QHBoxLayout();
-    QPushButton* timeBtn = new QPushButton(tr("Time Settings"));
-    timeLayout->addWidget(timeBtn);
-    timeItem->setLayout(timeLayout);
-
+    NextPageWidget* timeItem = new NextPageWidget();
+    timeItem->setTitle(tr("Time Settings"));
     timeSettings->appendItem(timeItem);
+//    timeSettings->appendItem(new SwitchWidget());
 
     m_centeralLayout->addSpacerItem(new QSpacerItem(300,20));
     m_centeralLayout->addWidget(addTimezone);
@@ -56,15 +49,20 @@ Datetime::Datetime()
     m_dateSettings->setTitle(tr("Date time details"));
     m_dateSettings->setContent(ds);
 
-    connect(addBtn, SIGNAL(clicked()), this, SLOT(slotClick()));
+    connect(m_addItem, SIGNAL(clicked()), this, SLOT(slotClick()));
 //    connect(timeBtn, &QPushButton::clicked, [this] { pushWidget(m_dateSettings); });
+    connect(m_headItem, SIGNAL(editChanged(bool)), this, SLOT(slotEditMode(bool)));
 }
 
 void Datetime::addTimezone(const QString &city)
 {
     TimezoneItem* item = new TimezoneItem();
+    connect(m_headItem, SIGNAL(editChanged(bool)), item, SLOT(slotStatus(bool)));
+    connect(item, SIGNAL(destroySelf()), m_headItem, SLOT(initStatus()));
+
     item->setCity(city);
     item->setFixedHeight(40);
+    item->slotStatus(m_bEdit);
     m_group->appendItem(item);
 }
 
@@ -75,4 +73,10 @@ void Datetime::slotClick()
 
     for(int i = 0; i<lists.count(); i++)
         addTimezone(lists[i]);
+}
+
+void Datetime::slotEditMode(bool edit)
+{
+    m_bEdit = edit;
+    m_addItem->setEnabled(!m_bEdit);
 }

@@ -17,6 +17,8 @@ public:
 
     void setTitle(const QString &title);
     void setValue(const QString &value);
+//    void setDisplay(bool display);
+//    bool display() const;
 
 signals:
     void clicked() const;

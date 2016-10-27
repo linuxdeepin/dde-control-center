@@ -7,6 +7,8 @@
 #include <modulewidget.h>
 #include <settingsgroup.h>
 #include <settingsitem.h>
+#include "timezonehead.h"
+#include "nextpagewidget.h"
 
 using namespace dcc;
 
@@ -18,10 +20,17 @@ public:
     explicit Datetime();
     void addTimezone(const QString& city);
 
+signals:
+    void editChanged(bool edit);
+
 public slots:
     void slotClick();
+    void slotEditMode(bool edit);
 
 private:
+    bool m_bEdit;
+    TimezoneHead* m_headItem;
+    NextPageWidget* m_addItem;
     SettingsGroup* m_group;
     ContentWidget* m_dateSettings;
 };

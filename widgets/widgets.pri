@@ -10,7 +10,8 @@ HEADERS += \
     $$PWD/settingsitem.h \
     $$PWD/contentwidget.h \
     $$PWD/nextpagewidget.h \
-    $$PWD/switchwidget.h
+    $$PWD/switchwidget.h \
+    $$PWD/timezoneitem.h
 
 SOURCES += \ 
     $$PWD/settingsgroup.cpp \
@@ -18,7 +19,8 @@ SOURCES += \
     $$PWD/settingsitem.cpp \
     $$PWD/contentwidget.cpp \
     $$PWD/nextpagewidget.cpp \
-    $$PWD/switchwidget.cpp
+    $$PWD/switchwidget.cpp \
+    $$PWD/timezoneitem.cpp
 
 RESOURCES += \
     $$PWD/dark/dcc_widgets_dark.qrc \

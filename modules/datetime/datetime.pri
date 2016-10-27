@@ -8,7 +8,7 @@ HEADERS += \
     $$PWD/clock.h \
     $$PWD/datesettings.h \
     $$PWD/datetimewidget.h \
-    $$PWD/timezoneitem.h
+    $$PWD/timezonehead.h
 
 SOURCES += \
     $$PWD/datetime.cpp \
@@ -16,4 +16,9 @@ SOURCES += \
     $$PWD/clock.cpp \
     $$PWD/datesettings.cpp \
     $$PWD/datetimewidget.cpp \
-    $$PWD/timezoneitem.cpp
+    $$PWD/timezonehead.cpp
+
+RESOURCES += \
+    $$PWD/datetime.qrc
+
+DISTFILES +=

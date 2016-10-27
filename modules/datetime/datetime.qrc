@@ -1,1 +1,12 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/">
+        <file>icon/add_disabled.png</file>
+        <file>icon/add_hover.png</file>
+        <file>icon/add_normal.png</file>
+        <file>icon/add_press.png</file>
+        <file>icon/reduce_hover.png</file>
+        <file>icon/reduce_normal.png</file>
+        <file>icon/reduce_press.png</file>
+        <file>icon/reducedisabled.png</file>
+    </qresource>
+</RCC>

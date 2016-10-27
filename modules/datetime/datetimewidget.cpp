@@ -6,13 +6,20 @@
 #include <QDate>
 #include <QIntValidator>
 
-DateWidget::DateWidget(Type type, QWidget *parent)
-    : QFrame(parent),
+DateWidget::DateWidget(Type type, QFrame *parent)
+    : SettingsItem(parent),
       m_type(type)
 {
     setFixedSize(QSize(300,35));
-    setStyleSheet("QWidget{background-color:#F0F8FF; opacity: 255; border-radius: 4px}");
+    setStyleSheet("QWidget{background-color:gray; opacity: 255}");
     m_lineEdit = new QLineEdit(this);
+    m_addBtn = new DImageButton(":/icon/add_normal.png",
+                                ":/icon/add_hover.png",
+                                ":/icon/add_press.png",this);
+
+    m_reducedBtn = new DImageButton(":/icon/reduce_normal.png",
+                                ":/icon/reduce_hover.png",
+                                ":/icon/reduce_press.png",this);
 
     if(m_type == Year)
     {
@@ -45,7 +52,10 @@ DateWidget::DateWidget(Type type, QWidget *parent)
     m_lineEdit->setStyleSheet("QLineEdit{border:0px}");
     m_lineEdit->setStyleSheet("QLineEdit{background-color: transparent; border: 0px}");
     m_lineEdit->hide();
+
     connect(m_lineEdit, SIGNAL(returnPressed()),this,SLOT(setText()));
+    connect(m_addBtn, SIGNAL(clicked()), this, SLOT(slotAdd()));
+    connect(m_reducedBtn, SIGNAL(clicked()), this, SLOT(slotReduced()));
 }
 
 QString DateWidget::dateString() const
@@ -84,19 +94,18 @@ void DateWidget::paintEvent(QPaintEvent *e)
     painter.setPen(Qt::black);
     painter.setRenderHint(QPainter::Antialiasing);
 
-    QRect vplus = QRect(rect.width()-rect.height()*0.5-20 ,rect.height()*0.2,1,rect.height()*0.6);
+    QRect vplus = QRect(rect.width()-rect.height()*0.5 ,rect.height()*0.2,1,rect.height()*0.6);
     QRect hplus = QRect(0,0,vplus.height(),1);
     hplus.moveCenter(vplus.center());
     m_plus = QRect(hplus.left(),vplus.top(),hplus.width(), hplus.width());
-
-    painter.drawRect(vplus);
-    painter.drawRect(hplus);
+//    painter.drawRect(vplus);
+//    painter.drawRect(hplus);
 
     QRect vsub = hplus;
-    vsub.moveLeft(rect.height()*0.2 + 20);
-    painter.drawRect(vsub);
-    m_sub = QRect(vsub.left(), vplus.top(), vsub.width(), vsub.width());
+    vsub.moveLeft(rect.height()*0.2);
+//    painter.drawRect(vsub);
 
+    m_sub = QRect(vsub.left(), vplus.top(), vsub.width(), vsub.width());
 
     QRect text = QRect(0,0,30,rect.height());
     text.moveCenter(rect.center());
@@ -109,6 +118,13 @@ void DateWidget::paintEvent(QPaintEvent *e)
     QRect date = QRect(text.right()+5, text.top(), 37, text.height());
     painter.drawText(date, Qt::AlignLeft|Qt::AlignVCenter, m_unit);
 
+    QRect addRect = m_addBtn->geometry();
+    addRect.moveCenter(m_plus.center());
+    m_addBtn->setGeometry(addRect);
+
+    QRect reduceRect = m_reducedBtn->geometry();
+    reduceRect.moveCenter(m_sub.center());
+    m_reducedBtn->setGeometry(reduceRect);
 }
 
 void DateWidget::mousePressEvent(QMouseEvent *e)
@@ -151,6 +167,7 @@ void DateWidget::wheelEvent(QWheelEvent *e)
 {
     if(m_lineEdit->isVisible())
     {
+        m_lineEdit->setFocus();
         QPoint angle = e->angleDelta();
         int date = m_dateText.toInt();
 
@@ -179,11 +196,33 @@ void DateWidget::setText()
     update();
 }
 
-
-TimeWidget::TimeWidget(QWidget *parent)
-    :QFrame(parent)
+void DateWidget::slotAdd()
 {
-    setFixedSize(180, 60);
+    int date = m_dateText.toInt();
+    ++date;
+    date = (date > m_max) ? 1 : date;
+    m_dateText.setNum(date);
+    m_lineEdit->setText(m_dateText);
+    emit dataChanged(m_type, m_dateText.toInt());
+    update();
+}
+
+void DateWidget::slotReduced()
+{
+    int date = m_dateText.toInt();
+    --date;
+    date = (date < 1 ) ? m_max : date;
+    m_dateText.setNum(date);
+    m_lineEdit->setText(m_dateText);
+    emit dataChanged(m_type, m_dateText.toInt());
+    update();
+}
+
+
+TimeWidget::TimeWidget(QFrame *parent)
+    :SettingsItem(parent)
+{
+    setFixedSize(300, 60);
     m_font.setPixelSize(32);
 
     QTime time = QTime::currentTime();
@@ -191,7 +230,9 @@ TimeWidget::TimeWidget(QWidget *parent)
     m_minuteText = QString("%1").arg(time.minute());
 
     m_hour = QRect(0,0,75,height());
+    m_hour.moveRight(this->rect().center().x() - 10);
     m_minute = QRect(width()-75, 0, 75, height());
+    m_minute.moveLeft(this->rect().center().x() + 10);
 
     m_hourEdit = new QLineEdit(this);
     m_hourEdit->setFont(m_font);

@@ -29,3 +29,8 @@ void SwitchWidget::setChecked(const bool checked)
 {
     m_switchBtn->setChecked(checked);
 }
+
+void SwitchWidget::setTitle(const QString &title)
+{
+    m_title->setText(title);
+}

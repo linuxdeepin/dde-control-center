@@ -3,8 +3,13 @@
 
 #include <QFrame>
 #include <QLineEdit>
+#include <dimagebutton.h>
+#include "settingsitem.h"
 
-class DateWidget : public QFrame
+DWIDGET_USE_NAMESPACE
+using namespace dcc;
+
+class DateWidget : public SettingsItem
 {
     Q_OBJECT
 
@@ -16,7 +21,7 @@ public:
     };
 
 public:
-    explicit DateWidget(Type type, QWidget *parent = 0);
+    explicit DateWidget(Type type, QFrame *parent = 0);
     QString dateString() const;
     void setMax(int max);
     int max() const;
@@ -31,6 +36,8 @@ signals:
 
 public slots:
     void setText();
+    void slotAdd();
+    void slotReduced();
 
 private:
     QLineEdit *m_lineEdit;
@@ -40,16 +47,17 @@ private:
     Type m_type;
     QString m_unit;
     QString m_dateText;
-
+    DImageButton* m_addBtn;
+    DImageButton* m_reducedBtn;
     int m_max;
 };
 
-class TimeWidget : public QFrame
+class TimeWidget : public SettingsItem
 {
     Q_OBJECT
 
 public:
-    explicit TimeWidget(QWidget* parent = 0);
+    explicit TimeWidget(QFrame* parent = 0);
 
 public slots:
     void setHourText();
