@@ -67,7 +67,8 @@ void DateWidget::setMax(int max)
 {
     m_max = max;
 
-    const QValidator* validator = m_lineEdit->validator();
+//    const QValidator* validator = m_lineEdit->validator();
+    // FIXME: mem leak?
     QIntValidator* val = new QIntValidator(1, max, this);
     m_lineEdit->setValidator(val);
 

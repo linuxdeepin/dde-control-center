@@ -76,7 +76,7 @@ void Clock::paintEvent(QPaintEvent *)
     int m = QTime::currentTime().minute();
     int h = QTime::currentTime().hour();
     */
-    int s = time.second();
+//    int s = time.second();
     int m = time.minute();
     int h = time.hour();
 

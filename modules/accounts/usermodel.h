@@ -23,7 +23,7 @@ public:
     ~UserModel();
 
     User * getUser(const QString &id);
-    void addUser(const QString &id, User * user);
+    void addUser(const QString &id, User *user);
     void removeUser(const QString &id);
 
 signals:

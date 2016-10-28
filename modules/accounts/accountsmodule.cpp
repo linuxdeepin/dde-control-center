@@ -5,8 +5,9 @@ AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
       ModuleInterface(frame),
       m_userList(new UserModel(this)),
       m_accountsWidget(new AccountsWidget),
-      m_accountsDetail(nullptr),
-      m_accountsWorker(new AccountsWorker(m_userList, this))
+      m_accountsWorker(new AccountsWorker(m_userList, this)),
+
+      m_accountsDetail(nullptr)
 {
     connect(m_accountsWidget, &AccountsWidget::showAccountsDetail, this, &AccountsModule::showAccountsDetail);
 }

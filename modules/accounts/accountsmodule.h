@@ -8,7 +8,6 @@
 #include "usermodel.h"
 
 #include <com_deepin_daemon_accounts.h>
-#include <com_deepin_daemon_accounts_accountsuser.h>
 
 class AccountsModule : public QObject, public ModuleInterface
 {

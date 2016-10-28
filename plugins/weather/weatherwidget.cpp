@@ -209,6 +209,8 @@ void WeatherWidget::mousePressEvent(QMouseEvent *)
 
 void WeatherWidget::resizeEvent(QResizeEvent *e)
 {
+    Q_UNUSED(e);
+
     QRect rect(0,0,50,50);
     rect.moveCenter(this->rect().center());
     m_view->setGeometry(rect);

@@ -39,5 +39,5 @@ void AccountsWidget::addUser(User *user)
 
 void AccountsWidget::removeUser(User *user)
 {
-    // TODO
+    Q_UNUSED(user);
 }

@@ -4,10 +4,13 @@
 #include <QObject>
 
 #include <com_deepin_daemon_accounts.h>
-#include <com_deepin_daemon_accounts_accountsuser.h>
+#include <com_deepin_daemon_accounts_user.h>
 
 #include "user.h"
 #include "usermodel.h"
+
+using com::deepin::daemon::Accounts;
+using AccountsUser = com::deepin::daemon::accounts::User;
 
 class AccountsWorker : public QObject
 {
@@ -23,7 +26,7 @@ private:
     Accounts *m_accountsInter;
     QMap<AccountsUser *, QString> m_userInters;
 
-    UserModel * m_userList;
+    UserModel *m_userList;
 };
 
 #endif // ACCOUNTSWORKER_H

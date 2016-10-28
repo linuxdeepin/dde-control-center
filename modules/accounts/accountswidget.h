@@ -7,8 +7,6 @@
 #include "nextpagewidget.h"
 #include "user.h"
 
-#include <com_deepin_daemon_accounts_accountsuser.h>
-
 #include <QPushButton>
 #include <QVBoxLayout>
 
