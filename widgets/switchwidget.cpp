@@ -27,7 +27,9 @@ SwitchWidget::SwitchWidget(QFrame *parent)
 
 void SwitchWidget::setChecked(const bool checked)
 {
+    m_switchBtn->blockSignals(true);
     m_switchBtn->setChecked(checked);
+    m_switchBtn->blockSignals(false);
 }
 
 void SwitchWidget::setTitle(const QString &title)

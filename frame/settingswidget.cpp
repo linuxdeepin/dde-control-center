@@ -2,11 +2,8 @@
 #include "modulewidget.h"
 #include "frame.h"
 
-//#include "accounts/accounts.h"
-//#include "display/display.h"
-//#include "datetime/datetime.h"
-
 #include "accounts/accountsmodule.h"
+#include "power/powermodule.h"
 
 #include <QVBoxLayout>
 #include <QResizeEvent>
@@ -29,6 +26,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     m_settingsLayout->setMargin(0);
 
     loadModule(new AccountsModule(this));
+    loadModule(new PowerModule(this));
 
     m_settingsWidget = new QWidget;
     m_settingsWidget->setLayout(m_settingsLayout);
