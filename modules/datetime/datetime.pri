@@ -8,7 +8,11 @@ HEADERS += \
     $$PWD/clock.h \
     $$PWD/datesettings.h \
     $$PWD/datetimewidget.h \
-    $$PWD/timezonehead.h
+    $$PWD/timezonehead.h \
+    $$PWD/datetimemodule.h \
+    $$PWD/datetimework.h \
+    $$PWD/chosedialog.h \
+    $$PWD/datetimemodel.h
 
 SOURCES += \
     $$PWD/datetime.cpp \
@@ -16,7 +20,11 @@ SOURCES += \
     $$PWD/clock.cpp \
     $$PWD/datesettings.cpp \
     $$PWD/datetimewidget.cpp \
-    $$PWD/timezonehead.cpp
+    $$PWD/timezonehead.cpp \
+    $$PWD/datetimemodule.cpp \
+    $$PWD/datetimework.cpp \
+    $$PWD/chosedialog.cpp \
+    $$PWD/datetimemodel.cpp
 
 RESOURCES += \
     $$PWD/datetime.qrc

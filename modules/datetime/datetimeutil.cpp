@@ -1,4 +1,5 @@
 #include "datetimeutil.h"
+#include <cmath>
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
@@ -68,20 +69,20 @@ int DatetimeUtil::dayOfMonth(int year, int month)
     return date.daysInMonth();
 }
 
-int DatetimeUtil::hoursBetweenTwoTimeZone(const QTimeZone &tz, const QTimeZone &cur)
+float DatetimeUtil::hoursBetweenTwoTimeZone(const QTimeZone &tz, const QTimeZone &cur)
 {
     QDateTime dt = QDateTime::currentDateTime().toTimeZone(tz);
     QDateTime curDt = QDateTime::currentDateTime();
 
     QDateTime sys = cur.isValid() ? curDt.toTimeZone(cur) : curDt;
 
-    int utc1 = dt.offsetFromUtc()/3600;
-    int utc2 = sys.offsetFromUtc()/3600;
+    float utc1 = dt.offsetFromUtc()/3600.0;
+    float utc2 = sys.offsetFromUtc()/3600.0;
 
     return (utc1 - utc2);
 }
 
-int DatetimeUtil::hoursBetweenTwoTimeZone(const QString &tz, const QString &cur)
+float DatetimeUtil::hoursBetweenTwoTimeZone(const QString &tz, const QString &cur)
 {
     QTimeZone one = QTimeZone(tz.toStdString().c_str());
     if(cur.isNull())
@@ -94,4 +95,3 @@ int DatetimeUtil::hoursBetweenTwoTimeZone(const QString &tz, const QString &cur)
         return hoursBetweenTwoTimeZone(one, two);
     }
 }
-

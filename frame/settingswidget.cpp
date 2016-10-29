@@ -6,6 +6,7 @@
 #include "power/powermodule.h"
 #include "update/updatemodule.h"
 #include "sound/soundmodule.h"
+#include "datetime/datetimemodule.h"
 
 #include <QVBoxLayout>
 #include <QResizeEvent>
@@ -31,6 +32,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new PowerModule(this));
     loadModule(new UpdateModule(this));
     loadModule(new SoundModule(this));
+    loadModule(new DatetimeModule(this));
 
     m_settingsWidget = new QWidget;
     m_settingsWidget->setLayout(m_settingsLayout);

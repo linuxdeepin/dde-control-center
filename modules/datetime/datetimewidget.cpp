@@ -58,9 +58,9 @@ DateWidget::DateWidget(Type type, QFrame *parent)
     connect(m_reducedBtn, SIGNAL(clicked()), this, SLOT(slotReduced()));
 }
 
-QString DateWidget::dateString() const
+int DateWidget::data() const
 {
-    return m_dateText;
+    return m_dateText.toInt();
 }
 
 void DateWidget::setMax(int max)
@@ -186,6 +186,7 @@ void DateWidget::wheelEvent(QWheelEvent *e)
         m_dateText.setNum(date);
         m_lineEdit->setText(m_dateText);
         emit dataChanged(m_type, m_dateText.toInt());
+        e->accept();
     }
 }
 
@@ -255,6 +256,16 @@ TimeWidget::TimeWidget(QFrame *parent)
 
     connect(m_hourEdit, SIGNAL(returnPressed()), this, SLOT(setHourText()));
     connect(m_minuteEdit, SIGNAL(returnPressed()), this, SLOT(setMinuteText()));
+}
+
+int TimeWidget::hour() const
+{
+    return m_hourText.toInt();
+}
+
+int TimeWidget::minute() const
+{
+    return m_minuteText.toInt();
 }
 
 void TimeWidget::setHourText()

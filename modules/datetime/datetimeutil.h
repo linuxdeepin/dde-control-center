@@ -15,8 +15,8 @@ public:
     int dayOfMonth(int year, int month);
 
     // 两个时区之间相差几个小时
-    int hoursBetweenTwoTimeZone(const QTimeZone& tz, const QTimeZone& cur = QTimeZone());
-    int hoursBetweenTwoTimeZone(const QString& tz, const QString& cur = QString());
+    float hoursBetweenTwoTimeZone(const QTimeZone& tz, const QTimeZone& cur = QTimeZone());
+    float hoursBetweenTwoTimeZone(const QString& tz, const QString& cur = QString());
 };
 
 #endif // DATETIMEUTIL_H

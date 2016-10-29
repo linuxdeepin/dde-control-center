@@ -68,3 +68,20 @@ bool TimezoneHead::eventFilter(QObject *watched, QEvent *event)
     }
     return false;
 }
+
+TimeButton::TimeButton(QFrame *parent)
+    :SettingsItem(parent)
+{
+    m_confirm = new QPushButton(tr("Confirm"));
+    m_cancel = new QPushButton(tr("Cancel"));
+
+    QHBoxLayout *layout =new QHBoxLayout();
+    layout->setSpacing(1);
+    layout->addWidget(m_cancel);
+    layout->addWidget(m_confirm);
+
+    setLayout(layout);
+
+    connect(m_confirm, SIGNAL(clicked()), this, SIGNAL(confirm()));
+    connect(m_cancel, SIGNAL(clicked()), this, SIGNAL(cancel()));
+}

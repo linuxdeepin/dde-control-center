@@ -20,24 +20,26 @@ DWIDGET_USE_NAMESPACE
 using namespace dcc;
 
 DateSettings::DateSettings(QWidget *parent)
-    :QWidget(parent),
+    :ContentWidget(parent),
       m_clock(new Clock()),
       m_timeWidget(new TimeWidget()),
+      m_dayWidget(new DateWidget(DateWidget::Day)),
       m_yearWidget(new DateWidget(DateWidget::Year)),
-      m_monthWidget(new DateWidget(DateWidget::Month)),
-      m_dayWidget(new DateWidget(DateWidget::Day))
+      m_monthWidget(new DateWidget(DateWidget::Month))
 {
+    setTitle(tr("Date time details"));
     m_clock->setDisplay(true);
 //    setStyleSheet("QWidget{background-color: rgba(25,25,26,70%) }");
 
-    QVBoxLayout* layout = new QVBoxLayout(this);
+    QWidget *widget = new QWidget();
+    QVBoxLayout* layout = new QVBoxLayout(widget);
     layout->setSpacing(1);
     layout->setMargin(0);
 
     SettingsGroup* autosyncGroup = new SettingsGroup();
-    SwitchWidget* autoItem = new SwitchWidget();
-    autoItem->setTitle(tr("Auto-­Sync"));
-    autosyncGroup->appendItem(autoItem);
+    m_autoItem = new SwitchWidget();
+    m_autoItem->setTitle(tr("Auto-­Sync"));
+    autosyncGroup->appendItem(m_autoItem);
 
     SettingsGroup* datetimeGroup = new SettingsGroup();
     datetimeGroup->appendItem(m_clock);
@@ -45,6 +47,10 @@ DateSettings::DateSettings(QWidget *parent)
     datetimeGroup->appendItem(m_yearWidget);
     datetimeGroup->appendItem(m_monthWidget);
     datetimeGroup->appendItem(m_dayWidget);
+
+    m_okGroup = new SettingsGroup();
+    m_timeBtn = new TimeButton();
+    m_okGroup->appendItem(m_timeBtn);
 
     SettingsGroup* timezoneGroup = new SettingsGroup();
     NextPageWidget* timezoneItem = new NextPageWidget();
@@ -54,31 +60,82 @@ DateSettings::DateSettings(QWidget *parent)
 
     layout->addWidget(autosyncGroup);
     layout->addWidget(datetimeGroup);
+    layout->addSpacerItem(new QSpacerItem(300,10));
+    layout->addWidget(m_okGroup);
+    layout->addSpacerItem(new QSpacerItem(300,20));
     layout->addWidget(timezoneGroup);
 
+    setContent(widget);
+
+    connect(m_timeBtn, SIGNAL(confirm()), this, SLOT(slotConfirm()));
+    connect(m_autoItem, SIGNAL(checkedChanegd(const bool)), this, SIGNAL(autoSyncChanged(const bool)));
+//    connect(autoItem, SIGNAL(checkedChanegd(const bool)), this, SLOT(slotAutoSync(bool)));
     connect(m_yearWidget, SIGNAL(dataChanged(DateWidget::Type,int)), this, SLOT(slotMonthChange(DateWidget::Type, int)));
     connect(m_monthWidget, SIGNAL(dataChanged(DateWidget::Type,int)), this, SLOT(slotMonthChange(DateWidget::Type, int)));
     connect(m_dayWidget, SIGNAL(dataChanged(DateWidget::Type,int)), this, SLOT(slotMonthChange(DateWidget::Type, int)));
+}
+
+void DateSettings::setNTP(bool ntp)
+{
+    slotAutoSync(ntp);
 }
 
 void DateSettings::slotMonthChange(DateWidget::Type type, int data)
 {
     if(type == DateWidget::Year)
     {
-        QDate date(data, m_monthWidget->dateString().toInt(), 1);
+        QDate date(data, m_monthWidget->data(), 1);
         int day = date.daysInMonth();
         m_dayWidget->setMax(day);
     }
     else if(type == DateWidget::Month)
     {
-        QDate date(m_yearWidget->dateString().toInt(), data, 1);
+        QDate date(m_yearWidget->data(), data, 1);
         int day = date.daysInMonth();
         m_dayWidget->setMax(day);
     }
     else
     {
-//        QDate date(m_monthWidget->dateString().toInt(), data, m_dayWidget->dateString().toInt());
+//        QDate date(m_monthWidget->data(), data, m_dayWidget->data());
 //        int day = date.daysInMonth();
 //        m_dayWidget->setMax(day);
+    }
+}
+
+void DateSettings::slotConfirm()
+{
+    int year = m_yearWidget->data();
+    int month = m_monthWidget->data();
+    int day = m_dayWidget->data();
+
+    int hour = m_timeWidget->hour();
+    int minute = m_timeWidget->minute();
+
+    emit dateChanged(year, month, day, hour, minute);
+}
+
+void DateSettings::slotCancel()
+{
+}
+
+void DateSettings::slotAutoSync(const bool checked)
+{
+    m_autoItem->setChecked(checked);
+
+    if(checked)
+    {
+        m_timeWidget->hide();
+        m_yearWidget->hide();
+        m_monthWidget->hide();
+        m_dayWidget->hide();
+        m_okGroup->hide();
+    }
+    else
+    {
+        m_timeWidget->show();
+        m_yearWidget->show();
+        m_monthWidget->show();
+        m_dayWidget->show();
+        m_okGroup->show();
     }
 }

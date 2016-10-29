@@ -49,24 +49,46 @@ void Clock::paintEvent(QPaintEvent *)
     //painter.translate(100, 100);
     painter.setWindow(-100, -100, 200, 200);
 
-    painter.save();
-    painter.setPen(Qt::white);
-    painter.setBrush(Qt::white);
-    painter.setRenderHint(QPainter::Antialiasing);
-    painter.drawEllipse(painter.window().adjusted(40,40,-40,-40));
-    painter.restore();
 
-    painter.save();
-    for (int i = 1; i <= 12 ; ++i)
+    if(m_display)
     {
-        matrix.rotate(30);
-        painter.setPen(QPen(Qt::black, 5));
-        QPoint pos = matrix.transform().map(QPoint(0, -50));
-        QRect rect(0,0,15,15);
-        rect.moveCenter(pos);
-        painter.drawText(rect, Qt::AlignCenter, QString().setNum(i));
+        painter.save();
+        painter.setPen(Qt::white);
+        painter.setBrush(Qt::white);
+        painter.setRenderHint(QPainter::Antialiasing);
+        painter.drawEllipse(painter.window().adjusted(40,40,-40,-40));
+        painter.restore();
+
+        painter.save();
+        for (int i = 1; i <= 12 ; ++i)
+        {
+            matrix.rotate(30);
+            painter.setPen(QPen(Qt::black, 5));
+            QPoint pos = matrix.transform().map(QPoint(0, -50));
+            QRect rect(0,0,15,15);
+            rect.moveCenter(pos);
+            painter.drawText(rect, Qt::AlignCenter, QString().setNum(i));
+        }
+        painter.restore();
     }
-    painter.restore();
+    else
+    {
+        painter.save();
+        painter.setPen(Qt::white);
+
+        if(time.hour() > 18 || time.hour() <6)
+        {
+            painter.setBrush(Qt::black);
+            painter.setOpacity(0.5);
+        }
+        else
+        {
+            painter.setBrush(Qt::white);
+        }
+        painter.setRenderHint(QPainter::Antialiasing);
+        painter.drawEllipse(painter.window().adjusted(40,40,-40,-40));
+        painter.restore();
+    }
 
     static int clock = 1;
     if(clock > 12)
@@ -96,8 +118,8 @@ void Clock::paintEvent(QPaintEvent *)
 
     painter.save();
     painter.rotate(((h % 12) +  static_cast<double>(m / 60.0)) * 30);
-    painter.setBrush(Qt::blue);
-    painter.setPen(Qt::blue);
+    painter.setBrush(QColor("#07c5fb"));
+    painter.setPen(QColor("#07c5fb"));
     painter.setOpacity(0.5);
     painter.setRenderHint(QPainter::Antialiasing);
     painter.drawConvexPolygon(hour, 4);
@@ -105,8 +127,8 @@ void Clock::paintEvent(QPaintEvent *)
 
     painter.save();
     painter.rotate(m * 6);
-    painter.setBrush(Qt::red);
-    painter.setPen(Qt::red);
+    painter.setBrush(QColor("#f97676"));
+    painter.setPen(QColor("#f97676"));
     painter.setOpacity(0.5);
     painter.setRenderHint(QPainter::Antialiasing);
     painter.drawConvexPolygon(min, 4);

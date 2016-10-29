@@ -44,13 +44,8 @@ Datetime::Datetime()
     m_centeralLayout->addSpacerItem(new QSpacerItem(300,20));
     m_centeralLayout->addWidget(timeSettings);
 
-    DateSettings* ds = new DateSettings();
-    m_dateSettings = new ContentWidget;
-    m_dateSettings->setTitle(tr("Date time details"));
-    m_dateSettings->setContent(ds);
-
     connect(m_addItem, SIGNAL(clicked()), this, SLOT(slotClick()));
-//    connect(timeBtn, &QPushButton::clicked, [this] { pushWidget(m_dateSettings); });
+    connect(timeItem, SIGNAL(clicked()), this, SIGNAL(editDatetime()));
     connect(m_headItem, SIGNAL(editChanged(bool)), this, SLOT(slotEditMode(bool)));
 }
 

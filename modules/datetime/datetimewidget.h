@@ -22,7 +22,7 @@ public:
 
 public:
     explicit DateWidget(Type type, QFrame *parent = 0);
-    QString dateString() const;
+    int data() const;
     void setMax(int max);
     int max() const;
 
@@ -58,6 +58,8 @@ class TimeWidget : public SettingsItem
 
 public:
     explicit TimeWidget(QFrame* parent = 0);
+    int hour() const;
+    int minute() const;
 
 public slots:
     void setHourText();

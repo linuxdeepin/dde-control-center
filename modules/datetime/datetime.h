@@ -22,6 +22,7 @@ public:
 
 signals:
     void editChanged(bool edit);
+    void editDatetime();
 
 public slots:
     void slotClick();

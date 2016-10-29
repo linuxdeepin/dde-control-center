@@ -59,7 +59,7 @@ void TimezoneItem::setCity(const QString &city)
     DatetimeUtil util;
 
     QStringList lists = util.city2UTC(city);
-    int del = util.hoursBetweenTwoTimeZone(lists[0]);
+    float del = util.hoursBetweenTwoTimeZone(lists[0]);
     QString str;
     if(del > 0)
     {
