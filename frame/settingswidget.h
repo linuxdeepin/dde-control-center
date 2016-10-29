@@ -21,6 +21,7 @@ public slots:
 
 private slots:
     void loadModule(ModuleInterface * const module);
+    void refershModuleActivable();
 
 private:
     Frame *m_frame;
@@ -29,6 +30,7 @@ private:
     QWidget *m_settingsWidget;
 
     QList<ModuleInterface *> m_moduleInterfaces;
+    QMap<ModuleInterface *, bool> m_moduleActivable;
     QMap<ModuleInterface *, QList<ContentWidget *>> m_moduleWidgets;
 };
 

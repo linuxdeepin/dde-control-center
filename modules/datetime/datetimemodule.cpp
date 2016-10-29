@@ -24,11 +24,11 @@ void DatetimeModule::moduleActive()
 
 void DatetimeModule::moduleDeactive()
 {
-    if(m_datetimeWidget)
-    {
-        m_datetimeWidget->deleteLater();
-        m_datetimeWidget = nullptr;
-    }
+//    if(m_datetimeWidget)
+//    {
+//        m_datetimeWidget->deleteLater();
+//        m_datetimeWidget = nullptr;
+//    }
 }
 
 ModuleWidget *DatetimeModule::moduleWidget()

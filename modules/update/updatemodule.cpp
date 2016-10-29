@@ -18,12 +18,12 @@ void UpdateModule::initialize()
 
 void UpdateModule::moduleActive()
 {
-
+//    qDebug() << "update active";
 }
 
 void UpdateModule::moduleDeactive()
 {
-
+//    qDebug() << "update deactive";
 }
 
 void UpdateModule::contentPopped(ContentWidget * const w)

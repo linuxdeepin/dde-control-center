@@ -19,6 +19,12 @@ PowerWidget::PowerWidget()
 
     m_centeralLayout->addWidget(m_suspendSettings);
 
+    for (int i(0); i != 10; ++i)
+    {
+        SwitchWidget *w = new SwitchWidget;
+        m_suspendSettings->appendItem(w);
+    }
+
     setTitle(tr("Power"));
 
     connect(m_displayNeedPassword, &SwitchWidget::checkedChanegd, this, &PowerWidget::requestSetScreenBlackLock);

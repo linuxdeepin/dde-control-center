@@ -32,11 +32,11 @@ void AccountsModule::moduleActive()
 
 void AccountsModule::moduleDeactive()
 {
-    if (m_accountsWidget)
-    {
-        m_accountsWidget->deleteLater();
-        m_accountsWidget = nullptr;
-    }
+//    if (m_accountsWidget)
+//    {
+//        m_accountsWidget->deleteLater();
+//        m_accountsWidget = nullptr;
+//    }
 
 //    m_accountsInter->blockSignals(true);
 }
