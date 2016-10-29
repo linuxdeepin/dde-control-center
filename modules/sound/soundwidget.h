@@ -13,6 +13,7 @@
 #include "modulewidget.h"
 #include "settingsgroup.h"
 #include "switchwidget.h"
+#include "widgets/titledsettingsitem.h"
 
 using namespace dcc;
 
@@ -26,9 +27,16 @@ public:
 private:
     SettingsGroup *m_speakerGroup;
     SwitchWidget *m_speakerSwitch;
+    TitledSettingsItem *m_outputVolumeSliderItem;
+    TitledSettingsItem *m_outputBalanceSliderItem;
 
     SettingsGroup *m_microphoneGroup;
     SwitchWidget *m_microphoneSwitch;
+    TitledSettingsItem *m_inputVolumeSliderItem;
+    TitledSettingsItem *m_inputFeedbackSliderItem;
+
+    SettingsGroup *m_soundEffectGroup;
+    SwitchWidget *m_soundEffectSwitch;
 };
 
 #endif // SOUNDWIDGET_H
