@@ -4,6 +4,7 @@
 
 #include "accounts/accountsmodule.h"
 #include "power/powermodule.h"
+#include "update/updatemodule.h"
 
 #include <QVBoxLayout>
 #include <QResizeEvent>
@@ -27,6 +28,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     loadModule(new AccountsModule(this));
     loadModule(new PowerModule(this));
+    loadModule(new UpdateModule(this));
 
     m_settingsWidget = new QWidget;
     m_settingsWidget->setLayout(m_settingsLayout);

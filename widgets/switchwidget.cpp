@@ -19,7 +19,10 @@ SwitchWidget::SwitchWidget(QFrame *parent)
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addWidget(m_switchBtn);
+    mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins(5, 0, 5, 0);
 
+    setFixedHeight(36);
     setLayout(mainLayout);
 
     connect(m_switchBtn, &DSwitchButton::checkedChanged, this, &SwitchWidget::checkedChanegd);

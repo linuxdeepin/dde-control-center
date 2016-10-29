@@ -27,7 +27,10 @@ NextPageWidget::NextPageWidget(QFrame *parent)
     mainLayout->addStretch();
     mainLayout->addWidget(m_value);
     mainLayout->addWidget(m_nextPageBtn);
+    mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins(5, 0, 5, 0);
 
+    setFixedHeight(36);
     setLayout(mainLayout);
 
     connect(m_nextPageBtn, &DImageButton::clicked, this, &NextPageWidget::clicked);

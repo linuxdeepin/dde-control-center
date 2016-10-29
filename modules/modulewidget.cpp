@@ -20,7 +20,7 @@ ModuleWidget::ModuleWidget()
 
     m_centeralLayout = new QVBoxLayout;
     m_centeralLayout->addLayout(titleLayout);
-    m_centeralLayout->setSpacing(0);
+    m_centeralLayout->setSpacing(5);
     m_centeralLayout->setMargin(0);
 
     setLayout(m_centeralLayout);
