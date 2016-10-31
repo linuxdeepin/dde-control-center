@@ -421,10 +421,13 @@ void UpdateWidget::restoreJobs()
     for (QDBusObjectPath &job : jobList)
     {
         dbusJob = new DBusUpdateJob("com.deepin.lastore", job.path(), QDBusConnection::systemBus(), this);
-        qDebug() << "fond job: " << dbusJob->packageId() << dbusJob->status() << dbusJob->type();
+        QStringList packages = dbusJob->packages();
+        qDebug() << "found job: " << packages << dbusJob->status() << dbusJob->type();
 
         if (dbusJob->type() == "update") {
-            jobMap.insert(dbusJob->packageId(), dbusJob);
+            for (QString package : packages) {
+                jobMap.insert(package, dbusJob);
+            }
         } else if (dbusJob->type() == "prepare_dist_upgrade") {
             refreshDownloadStatus(Downloading);
             loadDownloadJob(dbusJob);
@@ -433,7 +436,7 @@ void UpdateWidget::restoreJobs()
             loadCheckUpdateJob(dbusJob);
         } else {
             // TODO/FIXME: not handled job
-            qWarning() << "not handled job: " << dbusJob->packageId() << dbusJob->status() << dbusJob->type();
+            qWarning() << "not handled job: " << dbusJob->packages() << dbusJob->status() << dbusJob->type();
         }
     }
 

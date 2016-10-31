@@ -154,7 +154,7 @@ void ApplictionItemWidget::connectToJob(DBusUpdateJob *dbusJob)
 
     m_dbusJobInter = dbusJob;
 
-    qDebug() << "connect to: " << m_dbusJobInter->packageId();
+    qDebug() << "connect to: " << dbusJob->path();
 
     // set state to runnning
     if (!m_jobRunning)
@@ -275,7 +275,7 @@ void ApplictionItemWidget::progressClicked()
 
 void ApplictionItemWidget::restartJob()
 {
-    qDebug() << "restart job: " << m_dbusJobInter->packageId();
+    qDebug() << "restart job: " << m_dbusJobInter->path();
 
     m_dbusJobManagerInter->StartJob(m_dbusJobInter->id());
 

@@ -83,9 +83,9 @@ public:
     inline QString id() const
     { return qvariant_cast< QString >(property("Id")); }
 
-    Q_PROPERTY(QString PackageId READ packageId NOTIFY PackageIdChanged)
-    inline QString packageId() const
-    { return qvariant_cast< QString >(property("PackageId")); }
+    Q_PROPERTY(QStringList Packages READ packages NOTIFY PackagesChanged)
+    inline QStringList packages() const
+    { return qvariant_cast< QStringList >(property("Packages")); }
 
     Q_PROPERTY(double Progress READ progress NOTIFY ProgressChanged)
     inline double progress() const
@@ -107,7 +107,7 @@ Q_SIGNALS: // SIGNALS
     void DescriptionChanged();
     void ElapsedTimeChanged();
     void IdChanged();
-    void PackageIdChanged();
+    void PackagesChanged();
     void ProgressChanged();
     void StatusChanged();
     void TypeChanged();
