@@ -5,15 +5,21 @@ User::User(QObject *parent)
 {
 }
 
-QString User::name() const
+const QString User::name() const
 {
     return m_name;
 }
 
 void User::setName(const QString &name)
 {
-    if (m_name == name) return;
-
     m_name = name;
+
     emit nameChanged(m_name);
+}
+
+void User::setAutoLogin(const bool autoLogin)
+{
+    m_autoLogin = autoLogin;
+
+    emit autoLoginChanged(m_autoLogin);
 }

@@ -10,7 +10,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged);
 
     m_accountsInter->setSync(false);
-    m_accountsInter->getAllProperties();
+    m_accountsInter->userList();
 }
 
 void AccountsWorker::onUserListChanged(const QStringList &userList)
@@ -26,8 +26,11 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
         m_userInters.insert(userInter, userPath);
 
         User * user = new User(m_userList);
-        user->setName(userInter->userName());
         connect(userInter, &AccountsUser::UserNameChanged, user, &User::setName);
+        connect(userInter, &AccountsUser::AutomaticLoginChanged, user, &User::setAutoLogin);
+
+        user->setName(userInter->userName());
+        user->setAutoLogin(userInter->automaticLogin());
 
         m_userList->addUser(userPath, user);
     }

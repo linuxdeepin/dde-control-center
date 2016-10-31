@@ -1,13 +1,12 @@
 #include "accountsmodule.h"
+#include "accountsdetailwidget.h"
 
 AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),
       m_userList(new UserModel(this)),
       m_accountsWidget(new AccountsWidget),
-      m_accountsWorker(new AccountsWorker(m_userList, this)),
-
-      m_accountsDetail(nullptr)
+      m_accountsWorker(new AccountsWorker(m_userList, this))
 {
     connect(m_accountsWidget, &AccountsWidget::showAccountsDetail, this, &AccountsModule::showAccountsDetail);
 }
@@ -51,25 +50,13 @@ const QString AccountsModule::name() const
     return "Accounts";
 }
 
-void AccountsModule::showAccountsDetail()
+void AccountsModule::showAccountsDetail(User *account)
 {
-    if (!m_accountsDetail)
-    {
-        QLabel *lbl = new QLabel;
-        lbl->setText("account detail widget");
-        lbl->setStyleSheet("background-color:gray;");
-        m_accountsDetail = new ContentWidget;
-        m_accountsDetail->setTitle("account detail");
-        m_accountsDetail->setContent(lbl);
-    }
-
-    m_frameProxy->pushWidget(this, m_accountsDetail);
+    AccountsDetailWidget *w = new AccountsDetailWidget(account);
+    m_frameProxy->pushWidget(this, w);
 }
 
 void AccountsModule::contentPopped(ContentWidget * const w)
 {
-    if (w == m_accountsDetail)
-        m_accountsDetail = nullptr;
-
     w->deleteLater();
 }

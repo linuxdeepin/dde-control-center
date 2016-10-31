@@ -18,7 +18,7 @@ public:
     explicit AccountsWidget();
 
 signals:
-    void showAccountsDetail() const;
+    void showAccountsDetail(User *account) const;
 
 public slots:
     void addUser(User *user);

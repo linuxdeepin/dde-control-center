@@ -25,7 +25,7 @@ public:
     const QString name() const;
 
 private:
-    void showAccountsDetail();
+    void showAccountsDetail(User *account);
     void contentPopped(ContentWidget * const w);
 
 private:
@@ -33,8 +33,6 @@ private:
 
     AccountsWidget *m_accountsWidget;
     AccountsWorker *m_accountsWorker;
-
-    ContentWidget *m_accountsDetail;
 };
 
 #endif // ACCOUNTSMODULE_H

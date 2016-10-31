@@ -22,16 +22,7 @@ AccountsWidget::AccountsWidget()
     m_centeralLayout->addWidget(m_nextPage);
     m_centeralLayout->addStretch(0);
 
-    for (int i(0); i != 10; ++i)
-    {
-        NextPageWidget *w = new NextPageWidget;
-        w->setTitle(QString::number(i));
-        m_userGroup->appendItem(w);
-    }
-
     setTitle(tr("Accounts"));
-
-    connect(m_nextPage, &QPushButton::clicked, this, &AccountsWidget::showAccountsDetail);
 }
 
 void AccountsWidget::addUser(User *user)
@@ -42,6 +33,7 @@ void AccountsWidget::addUser(User *user)
     m_userGroup->appendItem(w);
 
     connect(user, &User::nameChanged, w, &NextPageWidget::setTitle);
+    connect(w, &NextPageWidget::clicked, [=] { emit showAccountsDetail(user); });
 }
 
 void AccountsWidget::removeUser(User *user)
