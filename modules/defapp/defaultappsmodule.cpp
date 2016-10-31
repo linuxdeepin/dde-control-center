@@ -52,7 +52,7 @@ void DefaultAppsModule::showDefaultAppsDetail()
         m_defaultAppsDetail = new DefAppViewer;
         m_defaultAppsDetail->setModel(m_defAppModel);
         connect(m_defaultAppsDetail,&DefAppViewer::SetDefaultApp,m_defAppWorker,&DefAppWorker::onSetDefaultAppChanged); //设置默认程序
-        connect(m_defaultAppsDetail,&DefAppViewer::Reset,m_defAppWorker,&DefAppWorker::onResetChanged);  //恢复默认
+        connect(m_defaultAppsDetail,&DefAppViewer::Reset,m_defAppWorker,&DefAppWorker::onResetTriggered);  //恢复默认
     }
     //    m_defaultAppsDetail->refresh();
 

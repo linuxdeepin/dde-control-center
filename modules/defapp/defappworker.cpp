@@ -2,11 +2,12 @@
 
 const QString ManagerService = "com.deepin.api.Mime";
 
-DefAppWorker::DefAppWorker(DefAppModel *m_defAppModel, QObject *parent):
+DefAppWorker::DefAppWorker(DefAppModel *m_defAppModel, QObject *parent) :
+    QObject(parent),
+
     m_defAppModel(m_defAppModel),
     m_dbusManager(new Manager(ManagerService, "/com/deepin/api/Manager", QDBusConnection::sessionBus(), this))
 {
-    Q_UNUSED(parent);
     m_stringToCategory.insert("Browser",  Browser);
     m_stringToCategory.insert("Mail",     Mail);
     m_stringToCategory.insert("Text",     Text);
@@ -17,8 +18,10 @@ DefAppWorker::DefAppWorker(DefAppModel *m_defAppModel, QObject *parent):
 
     m_dbusManager->setUseCache(true);
     m_dbusManager->setSync(false);
+
     connect(m_dbusManager, &Manager::Change, this, &DefAppWorker::onGetListAppsChanged);
     connect(m_dbusManager, &Manager::Change, this, &DefAppWorker::onGetDefaultAppChanged);
+
     onGetListAppsChanged();
     onGetDefaultAppChanged();
 }
@@ -29,7 +32,7 @@ void DefAppWorker::onSetDefaultAppChanged(QString name,QString category) {
         if(i.key() == category) {
             QStringList mimelist = getTypeListByCategory(i.value());
             for (const QString &mime : mimelist) {
-                m_dbusManager->SetDefaultApp(mime, name).waitForFinished();
+                m_dbusManager->SetDefaultApp(mime, name);
                 qDebug()<< "已经设置" << name << mime;
             }
         }
@@ -41,6 +44,7 @@ void DefAppWorker::onGetDefaultAppChanged() {
     for (QMap<QString, DefAppWorker::DefaultAppsCategory>::const_iterator mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
         QDBusPendingReply<QString> rep = m_dbusManager->GetDefaultApp(getTypeByCategory(mimelist.value()));
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(rep, this);
+        // FIXME:
         QDBusPendingReply<QString> reple = *watcher;
         watcher->deleteLater();
         const QJsonObject &defaultApp = QJsonDocument::fromJson(reple.value().toStdString().c_str()).object();
@@ -52,28 +56,41 @@ void DefAppWorker::onGetDefaultAppChanged() {
 
 void DefAppWorker::onGetListAppsChanged() {
     //遍历QMap去获取dbus数据
-    QStringList list;
-    for (QMap<QString, DefAppWorker::DefaultAppsCategory>::const_iterator mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
+    for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist)
+    {
         QDBusPendingReply<QString> rep = m_dbusManager->ListApps(getTypeByCategory(mimelist.value()));
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(rep, this);
-        QDBusPendingReply<QString> reple = *watcher;
-        watcher->deleteLater();
-        const  QJsonArray &defaultApp = QJsonDocument::fromJson(reple.value().toUtf8()).array();
-        for (int i = 0; i != defaultApp.size(); ++i) {
-            const QString &defAppName = defaultApp.at(i).toObject().take("Name").toString();
-            const QString &defAppId = defaultApp.at(i).toObject().take("Id").toString();
-            list.clear();
-            list.append(defAppName);
-            list.append(defAppId);
-            list.append(mimelist.key());
-            m_appsList.insertMulti(mimelist.key(), list);
-        }
+        watcher->setProperty("mime", mimelist.key());
+
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getDefaultAppFinished);
     }
-    m_defAppModel->setList(m_appsList);
 }
 
-void DefAppWorker::onResetChanged() {
+void DefAppWorker::onResetTriggered() {
     m_dbusManager->Reset();
+}
+
+void DefAppWorker::getDefaultAppFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QString> reply = *w;
+
+    const QString mime = w->property("mime").toString();
+
+    QStringList list;
+    const  QJsonArray &defaultApp = QJsonDocument::fromJson(reply.value().toUtf8()).array();
+    for (int i = 0; i != defaultApp.size(); ++i) {
+        const QString &defAppName = defaultApp.at(i).toObject().take("Name").toString();
+        const QString &defAppId = defaultApp.at(i).toObject().take("Id").toString();
+        list.clear();
+        list.append(defAppName);
+        list.append(defAppId);
+        list.append(mime);
+        m_appsList.insertMulti(mime, list);
+    }
+
+    m_defAppModel->setList(m_appsList);
+
+    w->deleteLater();
 }
 
 const QString DefAppWorker::getTypeByCategory(const DefaultAppsCategory &category){

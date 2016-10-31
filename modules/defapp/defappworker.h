@@ -31,7 +31,10 @@ public slots:
     void onSetDefaultAppChanged(QString name,QString category);
     void onGetDefaultAppChanged();
     void onGetListAppsChanged();
-    void onResetChanged();
+    void onResetTriggered();
+
+private slots:
+    void getDefaultAppFinished(QDBusPendingCallWatcher *w);
 
 private:
     DefAppModel *m_defAppModel;
