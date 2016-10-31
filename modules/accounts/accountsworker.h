@@ -20,13 +20,18 @@ public:
     explicit AccountsWorker(UserModel * userList, QObject *parent = 0);
 
 public slots:
+    void setAutoLogin(User *user, const bool autoLogin);
     void onUserListChanged(const QStringList &userList);
 
 private:
-    Accounts *m_accountsInter;
-    QMap<AccountsUser *, QString> m_userInters;
+    AccountsUser *userInter(const QString &userName) const;
 
-    UserModel *m_userList;
+private:
+    Accounts *m_accountsInter;
+    QSet<QString> m_userSet;
+    QMap<User *, AccountsUser *> m_userInters;
+
+    UserModel *m_userModel;
 };
 
 #endif // ACCOUNTSWORKER_H

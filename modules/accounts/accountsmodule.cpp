@@ -53,6 +53,9 @@ const QString AccountsModule::name() const
 void AccountsModule::showAccountsDetail(User *account)
 {
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
+
+    connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
+
     m_frameProxy->pushWidget(this, w);
 }
 

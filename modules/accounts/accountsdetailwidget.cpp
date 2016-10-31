@@ -23,6 +23,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     m_accountSettings->appendItem(m_autoLogin);
 
     connect(user, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
+    connect(m_autoLogin, &SwitchWidget::checkedChanegd, [=] (const bool autoLogin) { emit requestSetAutoLogin(user, autoLogin); });
 
     setContent(m_accountSettings);
     setTitle(user->name());

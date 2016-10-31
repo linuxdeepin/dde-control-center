@@ -14,6 +14,9 @@ class AccountsDetailWidget : public ContentWidget
 public:
     explicit AccountsDetailWidget(User *user, QWidget *parent = 0);
 
+signals:
+    void requestSetAutoLogin(User *user, const bool autoLogin) const;
+
 private:
     dcc::SettingsGroup *m_accountSettings;
     dcc::NextPageWidget *m_modifyAvatar;
