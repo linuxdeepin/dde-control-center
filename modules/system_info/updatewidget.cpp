@@ -239,6 +239,7 @@ void UpdateWidget::removeJob()
         return;
 
     m_appsVBox->layout()->removeWidget(appItemWidget);
+    appItemWidget->deleteLater();
 
     emit updatableNumsChanged(m_appsVBox->layout()->count(), updatablePackages().length());
 }
