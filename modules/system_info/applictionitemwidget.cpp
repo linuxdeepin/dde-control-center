@@ -233,7 +233,7 @@ void ApplictionItemWidget::updateJobStatus()
     const QString &status = m_dbusJobInter->status();
 //    const QString &id = m_dbusJobInter->id();
 
-    if (status == "success")
+    if (status == "success" || status == "succeed" || status == "end" || status.isEmpty())
     {
         // CleanJob 由后端处理
 //        QMetaObject::invokeMethod(m_dbusJobManagerInter, "CleanJob", Qt::QueuedConnection, Q_ARG(QString, id));

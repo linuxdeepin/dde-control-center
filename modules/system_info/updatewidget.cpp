@@ -222,7 +222,7 @@ void UpdateWidget::updateDownloadStatus()
     qDebug() << "state: " << type << status << id;
 
     // TODO/FIXME: 当Job为end状态时，马上会被销毁，所以把status为空的状态当做end状态处理
-    if (status == "succeed")
+    if (status == "succeed" || status == "success" || status == "end" || status.isEmpty())
     {
         m_downloadProgress->hide();
         m_updateButton->show();
@@ -673,7 +673,7 @@ void UpdateWidget::loadDownloadJob(DBusUpdateJob *newJob)
 
     m_downloadJob = newJob;
     const QString &status = m_downloadJob->status();
-    if (status == "success")
+    if (status == "success" || status == "succeed" || status == "end" || status.isEmpty())
     {
         refreshDownloadStatus(NotStart);
         return;
