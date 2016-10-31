@@ -27,10 +27,10 @@ public slots:
     void slotEditDatetime();
 
 private:
-    Datetime* m_datetimeWidget;
-    DateSettings* m_dateSettings;
     DatetimeWork* m_work;
     DatetimeModel* m_model;
+    Datetime* m_datetimeWidget;
+    DateSettings* m_dateSettings;
 };
 
 #endif // DATETIMEMODULE_H

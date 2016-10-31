@@ -8,6 +8,29 @@
 #include <QTimeZone>
 #include <QDebug>
 
+Timezone::Timezone(bool valid)
+    :m_valid(valid)
+{
+
+}
+
+bool Timezone::operator ==(const Timezone &tz)
+{
+    return (this->m_city == tz.m_city);
+}
+
+void Timezone::millerTranstion(int w, int h)
+{
+    double PI = 3.141592653589793;
+    double y = m_lon / 180;
+    double rlat = m_lat * PI / 180;
+    double x = 1.25 * log( tan( 0.25 * PI + 0.4 * rlat ) );
+    x = x / 2.3034125433763912;
+
+    m_x =  w/2*(y + 1);
+    m_y =  h/2*(1 - x);
+}
+
 DatetimeUtil::DatetimeUtil()
 {
 
@@ -16,16 +39,16 @@ DatetimeUtil::DatetimeUtil()
 QStringList DatetimeUtil::city2UTC(const QString &city)
 {
     QSqlDatabase db;
-    if(QSqlDatabase::contains("timezone"))
+    if(QSqlDatabase::contains(timezone_database))
     {
-        db = QSqlDatabase::database(QLatin1String("timezone"));
+        db = QSqlDatabase::database(QLatin1String(timezone_database));
     }
     else
     {
-        db = QSqlDatabase::addDatabase(QLatin1String("QSQLITE"), "timezone");
+        db = QSqlDatabase::addDatabase(QLatin1String("QSQLITE"), timezone_database);
     }
 
-    db.setDatabaseName(CITIES_DATABASE_PATH);
+    db.setDatabaseName(CITIES_DATABASE_PATH + QString(timezone_database) + ".db");
 
     if (!db.open())
     {

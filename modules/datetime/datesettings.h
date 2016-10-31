@@ -33,9 +33,9 @@ private:
     SwitchWidget* m_autoItem;
     TimeButton* m_timeBtn;
     TimeWidget* m_timeWidget;
+    DateWidget* m_dayWidget;
     DateWidget* m_yearWidget;
     DateWidget* m_monthWidget;
-    DateWidget* m_dayWidget;
 
     SettingsGroup *m_okGroup;
 };

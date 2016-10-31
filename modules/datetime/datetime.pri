@@ -1,5 +1,5 @@
 
-CITIES_PATH=$$PWD/../../data/timezone.db
+CITIES_PATH=$$PWD/../../data/
 DEFINES += CITIES_DATABASE_PATH=\\\"$$CITIES_PATH\\\"
 
 HEADERS += \

@@ -1,6 +1,5 @@
 #include "datetime.h"
 #include "contentwidget.h"
-#include "datetimeutil.h"
 #include "timezoneitem.h"
 #include "datesettings.h"
 #include "nextpagewidget.h"
@@ -12,7 +11,8 @@
 #include <QPushButton>
 
 Datetime::Datetime()
-    :ModuleWidget()
+    :ModuleWidget(),
+      m_choseDlg(new ChoseDialog())
 {
     this->installEventFilter(parent());
     setTitle(tr("Time and Date"));
@@ -47,31 +47,43 @@ Datetime::Datetime()
     connect(m_addItem, SIGNAL(clicked()), this, SLOT(slotClick()));
     connect(timeItem, SIGNAL(clicked()), this, SIGNAL(editDatetime()));
     connect(m_headItem, SIGNAL(editChanged(bool)), this, SLOT(slotEditMode(bool)));
+    connect(m_choseDlg, SIGNAL(addTimezone(Timezone)), this, SLOT(addTimezone(Timezone)));
 }
 
-void Datetime::addTimezone(const QString &city)
+Datetime::~Datetime()
 {
+    m_choseDlg->deleteLater();
+}
+
+void Datetime::addTimezone(const Timezone &tz)
+{
+    if(m_addeds.contains(tz))
+    {
+        return;
+    }
     TimezoneItem* item = new TimezoneItem();
     connect(m_headItem, SIGNAL(editChanged(bool)), item, SLOT(slotStatus(bool)));
     connect(item, SIGNAL(destroySelf()), m_headItem, SLOT(initStatus()));
 
-    item->setCity(city);
+    item->setCity(tz);
     item->setFixedHeight(40);
     item->slotStatus(m_bEdit);
     m_group->appendItem(item);
+    m_addeds.append(tz);
 }
 
 void Datetime::slotClick()
 {
-    QStringList lists;
-    lists<<"Wuhan"<<"Shahrak"<<"Chimanimani";
-
-    for(int i = 0; i<lists.count(); i++)
-        addTimezone(lists[i]);
+    m_choseDlg->show();
 }
 
 void Datetime::slotEditMode(bool edit)
 {
     m_bEdit = edit;
     m_addItem->setEnabled(!m_bEdit);
+}
+
+void Datetime::slotRemoveTimezone(const Timezone &tz)
+{
+    m_addeds.removeOne(tz);
 }

@@ -8,5 +8,6 @@
         <file>icon/reduce_normal.png</file>
         <file>icon/reduce_press.png</file>
         <file>icon/reducedisabled.png</file>
+        <file>icon/map.svg</file>
     </qresource>
 </RCC>

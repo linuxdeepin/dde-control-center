@@ -53,13 +53,13 @@ void TimezoneItem::setTimeZone(const QString &timezone)
     m_timezone = timezone;
 }
 
-void TimezoneItem::setCity(const QString &city)
+void TimezoneItem::setCity(const Timezone &tz)
 {
-    m_city->setText(city);
+    m_curTimezone = tz;
+    m_city->setText(tz.m_city);
     DatetimeUtil util;
 
-    QStringList lists = util.city2UTC(city);
-    float del = util.hoursBetweenTwoTimeZone(lists[0]);
+    float del = util.hoursBetweenTwoTimeZone(tz.m_timezone);
     QString str;
     if(del > 0)
     {
@@ -70,7 +70,7 @@ void TimezoneItem::setCity(const QString &city)
         str = QString("比本地晚%1个小时").arg(-del);
     }
     setDetails(str);
-    m_clock->setTimezone(lists[0]);
+    m_clock->setTimezone(tz.m_timezone);
 }
 
 void TimezoneItem::setDetails(const QString &details)
@@ -93,6 +93,7 @@ void TimezoneItem::slotStatus(bool flags)
 void TimezoneItem::slotRemoveSelf()
 {
     emit destroySelf();
+    emit removeTimezone(m_curTimezone);
     this->deleteLater();
 }
 

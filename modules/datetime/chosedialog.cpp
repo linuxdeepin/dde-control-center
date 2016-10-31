@@ -1,6 +1,6 @@
 #include "chosedialog.h"
-#include "datetimeutil.h"
 
+#include <QMenu>
 #include <cmath>
 #include <QPainter>
 #include <QHBoxLayout>
@@ -14,11 +14,14 @@
 #include <QSqlField>
 #include <QTimeZone>
 #include <QDebug>
+#include <QJsonValue>
+#include <QJsonObject>
+#include <QJsonDocument>
 
 ChoseDialog::ChoseDialog(QWidget *parent)
     :QDialog(parent)
 {
-    initData();
+    m_widget = new MapWidget();
     QVBoxLayout* layout = new QVBoxLayout();
     QLabel *title = new QLabel;
     title->setText(tr("Add Timezone"));
@@ -32,18 +35,11 @@ ChoseDialog::ChoseDialog(QWidget *parent)
     m_search = new QLineEdit();
     m_search->setText(tr("search"));
     m_search->setFixedWidth(300);
-    QStringList citys;
-    QList<Timezone*>::iterator it = m_timezones.begin();
-    for(; it != m_timezones.end(); it++)
-    {
-        citys<<(*it)->m_city;
-    }
-    QCompleter *completer = new QCompleter(citys);
+
+    QCompleter *completer = new QCompleter(m_widget->citys());
     completer->setCaseSensitivity(Qt::CaseInsensitive);
     m_search->setCompleter(completer);
 
-    m_widget = new MapWidget();
-    m_widget->setTimezones(m_timezones);
     m_cancel = new QPushButton(tr("Cancel"));
     m_cancel->setFixedWidth(200);
     m_add = new QPushButton(tr("Add"));
@@ -61,22 +57,39 @@ ChoseDialog::ChoseDialog(QWidget *parent)
     layout->addWidget(m_add, 0, Qt::AlignHCenter);
 
     setLayout(layout);
+
+    connect(m_cancel, SIGNAL(clicked()), this, SLOT(hide()));
+    connect(m_add, SIGNAL(clicked()), this, SLOT(onAdd()));
+    connect(m_search, SIGNAL(returnPressed()), this, SLOT(onReturn()));
+    connect(m_widget, SIGNAL(cityChanged(QString)), m_search, SLOT(setText(QString)));
 }
 
-void ChoseDialog::initData()
+void ChoseDialog::onReturn()
+{
+    QString city = m_search->text().simplified();
+
+    m_widget->onLocateCity(city);
+}
+
+void ChoseDialog::onAdd()
+{
+    emit addTimezone(m_widget->timezone());
+    hide();
+}
+
+void MapWidget::initData()
 {
     m_timezones.clear();
     QSqlDatabase db;
-    if(QSqlDatabase::contains("timezone"))
+    if(QSqlDatabase::contains(timezone_database))
     {
-        db = QSqlDatabase::database(QLatin1String("timezone"));
+        db = QSqlDatabase::database(QLatin1String(timezone_database));
     }
     else
     {
-        db = QSqlDatabase::addDatabase(QLatin1String("QSQLITE"), "timezone");
+        db = QSqlDatabase::addDatabase(QLatin1String("QSQLITE"), timezone_database);
     }
-
-    db.setDatabaseName(CITIES_DATABASE_PATH);
+    db.setDatabaseName(CITIES_DATABASE_PATH + QString(timezone_database) + ".db");
 
     if (!db.open())
     {
@@ -87,7 +100,7 @@ void ChoseDialog::initData()
 
     QSqlQuery query(db);
 
-    QString schema = QString("SELECT timezone, latitude, longitude, name from tzcity");
+    QString schema = QString("SELECT timezone, lat, lon, name from tzcity");
 
     if(!query.exec(schema))
     {
@@ -106,20 +119,24 @@ void ChoseDialog::initData()
             {
                 timezone->m_timezone = field.value().toString();
             }
-            else if(field.name() == "latitude")
+            else if(field.name() == "lat")
             {
                 timezone->m_lat = field.value().toDouble();
             }
-            else if(field.name() == "longitude")
+            else if(field.name() == "lon")
             {
                 timezone->m_lon = field.value().toDouble();
             }
             else
             {
                 timezone->m_city = field.value().toString();
+                if(!m_timezoneLists.contains(timezone->m_city))
+                {
+                    m_timezoneLists.append(timezone->m_city);
+                }
             }
         }
-        timezone->millerTranstion();
+        timezone->millerTranstion(m_map.size().width(), m_map.size().height());
         m_timezones.append(timezone);
     }
     db.commit();
@@ -127,10 +144,17 @@ void ChoseDialog::initData()
 }
 
 MapWidget::MapWidget(QWidget *parent)
+    :QFrame(parent),
+      m_menu(new QMenu(this)),
+      m_curTimezone(Timezone(false))
 {
-    m_map = QPixmap("/home/xingkd/Desktop/map_light.png");
+    m_map = QPixmap(":/icon/map.svg");
     setFixedSize(m_map.size());
-    setMouseTracking(true);
+    setStyleSheet("background-color: blue; opacity: 0.2;");
+
+    initData();
+
+    connect(m_menu, SIGNAL(triggered(QAction*)), this, SLOT(onChoseCity(QAction*)));
 }
 
 void MapWidget::setTimezones(QList<Timezone *> timezones)
@@ -138,43 +162,92 @@ void MapWidget::setTimezones(QList<Timezone *> timezones)
     m_timezones = timezones;
 }
 
-void MapWidget::paintEvent(QPaintEvent *e)
+QStringList MapWidget::citys() const
+{
+    return m_timezoneLists;
+}
+
+Timezone MapWidget::timezone() const
+{
+    return m_curTimezone;
+}
+
+void MapWidget::onLocateCity(const QString &city)
+{
+    QList<Timezone*>::iterator it = m_timezones.begin();
+    for(; it != m_timezones.end(); it++)
+    {
+        if((*it)->m_city == city)
+        {
+            m_curTimezone = *(*it);
+            break;
+        }
+    }
+    update();
+}
+
+void MapWidget::onChoseCity(QAction *act)
+{
+    QJsonObject json = act->data().toJsonObject();
+    m_curTimezone.m_city = json.value("name").toString();
+    m_curTimezone.m_x = json.value("x").toDouble();
+    m_curTimezone.m_y = json.value("y").toDouble();
+    m_curTimezone.m_timezone = json.value("timezone").toString();
+    m_curTimezone.m_valid = true;
+
+    emit cityChanged(m_curTimezone.m_city);
+    update();
+}
+
+void MapWidget::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
 
     painter.drawPixmap(0,0,m_map);
 
-    QList<Timezone*>::iterator it = m_timezones.begin();
     painter.setBrush(Qt::red);
-    for(; it != m_timezones.end(); it++)
+
+    if(m_curTimezone.m_valid)
     {
         QRect rect(0, 0, 5, 5);
-        QPoint center(this->size().width()/2*(*it)->m_x, this->size().height()/2*(*it)->m_y);
-        rect.moveCenter(center);
+        rect.moveCenter(QPoint(m_curTimezone.m_x, m_curTimezone.m_y));
         painter.drawRect(rect);
     }
-
 }
 
 void MapWidget::mousePressEvent(QMouseEvent *e)
 {
+    m_menu->clear();
+    QRect rect(0,0,5,5);
+    rect.moveCenter(e->pos());
+    QList<Timezone*>::iterator it = m_timezones.begin();
 
-}
-
-void MapWidget::mouseMoveEvent(QMouseEvent *e)
-{
-    QString str = QString("x:%1 , y:%2").arg(e->pos().x()).arg(e->pos().y());
-    setToolTip(str);
-}
-
-void Timezone::millerTranstion()
-{
-    double PI = 3.141592653589793;
-    double y = m_lon / 180;
-    double rlat = m_lat * PI / 180;
-    double x = 1.25 * log( tan( 0.25 * PI + 0.4 * rlat ) );
-    x = x / 2.3034125433763912;
-
-    m_x =  (y + 1);
-    m_y =  (1 - x);
+    int count = 0;
+    for(; it != m_timezones.end(); it++)
+    {
+        QPoint pos = QPoint((*it)->m_x, (*it)->m_y);
+        if(rect.contains(pos))
+        {
+            QAction* act = m_menu->addAction((*it)->m_city);
+            count++;
+            QJsonObject jobj{
+                {"name",(*it)->m_city},
+                {"x",(*it)->m_x},
+                {"y",(*it)->m_y},
+                {"timezone",(*it)->m_timezone},
+            };
+            act->setData(jobj);
+            m_curTimezone = *(*it);
+        }
+    }
+    if(count > 1)
+    {
+        m_curTimezone.m_valid = false;
+        m_menu->exec(QCursor::pos());
+    }
+    else
+    {
+        emit cityChanged(m_curTimezone.m_city);
+    }
+    update();
 }

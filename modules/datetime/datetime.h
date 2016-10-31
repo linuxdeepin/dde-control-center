@@ -3,6 +3,8 @@
 
 #include "datesettings.h"
 #include "contentwidget.h"
+#include "datetimeutil.h"
+#include "chosedialog.h"
 
 #include <modulewidget.h>
 #include <settingsgroup.h>
@@ -18,22 +20,26 @@ class Datetime : public ModuleWidget
 
 public:
     explicit Datetime();
-    void addTimezone(const QString& city);
+    ~Datetime();
 
 signals:
     void editChanged(bool edit);
     void editDatetime();
 
 public slots:
+    void addTimezone(const Timezone& tz);
     void slotClick();
     void slotEditMode(bool edit);
+    void slotRemoveTimezone(const Timezone& tz);
 
 private:
     bool m_bEdit;
+    QList<Timezone> m_addeds;
     TimezoneHead* m_headItem;
     NextPageWidget* m_addItem;
     SettingsGroup* m_group;
     ContentWidget* m_dateSettings;
+    ChoseDialog* m_choseDlg;
 };
 
 #endif // DATETIME_H

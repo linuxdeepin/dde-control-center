@@ -4,6 +4,24 @@
 #include <QString>
 #include <QTimeZone>
 
+static const char* timezone_database = "timezone";
+
+struct Timezone
+{
+    explicit Timezone(bool valid = true);
+    bool operator ==(const Timezone& tz);
+
+    void millerTranstion(int w, int h);
+
+    double m_lon;
+    double m_lat;
+    double m_x;
+    double m_y;
+    bool m_valid;
+    QString m_city;
+    QString m_timezone;
+};
+
 class DatetimeUtil
 {
 public:

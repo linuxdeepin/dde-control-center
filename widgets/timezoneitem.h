@@ -3,6 +3,7 @@
 
 #include "settingsitem.h"
 #include "datetime/clock.h"
+#include "datetime/datetimeutil.h"
 
 #include <QLabel>
 #include <QString>
@@ -20,7 +21,7 @@ class TimezoneItem : public SettingsItem
 public:
     explicit TimezoneItem(QFrame *parent =0);
     void setTimeZone(const QString& timezone);
-    void setCity(const QString& city);
+    void setCity(const Timezone& tz);
     void setDetails(const QString& details);
 
     void toRemoveMode();
@@ -28,6 +29,7 @@ public:
 
 signals:
     void destroySelf();
+    void removeTimezone(const Timezone& tz);
 
 public slots:
     void slotStatus(bool flags);
@@ -41,6 +43,8 @@ private:
     DImageButton* m_removeBtn;
     QHBoxLayout* m_layout;
     QFrame* m_back;
+
+    Timezone m_curTimezone;
 };
 
 }
