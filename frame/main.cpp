@@ -10,12 +10,16 @@
 #include "frame.h"
 
 #include <DApplication>
+#include <DLog>
 
 DWIDGET_USE_NAMESPACE
+DUTIL_USE_NAMESPACE
 
 int main(int argc, char *argv[])
 {
     DApplication app(argc, argv);
+
+    DLogManager::registerConsoleAppender();
 
     Frame f;
     f.show();
