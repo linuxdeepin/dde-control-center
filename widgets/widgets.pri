@@ -11,7 +11,8 @@ HEADERS += \
     $$PWD/nextpagewidget.h \
     $$PWD/switchwidget.h \
     $$PWD/timezoneitem.h \
-    $$PWD/optionwidget.h
+    $$PWD/optionwidget.h \
+    $$PWD/lineeditwidget.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -21,7 +22,8 @@ SOURCES += \
     $$PWD/nextpagewidget.cpp \
     $$PWD/switchwidget.cpp \
     $$PWD/timezoneitem.cpp \
-    $$PWD/optionwidget.cpp
+    $$PWD/optionwidget.cpp \
+    $$PWD/lineeditwidget.cpp
 
 RESOURCES += \
     $$PWD/dark/dcc_widgets_dark.qrc \
