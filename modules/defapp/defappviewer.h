@@ -21,15 +21,15 @@ public:
     void setModel(DefAppModel * const model);
 
 signals:
-    void SetDefaultApp(QString name,QString mime);
+    void SetDefaultApp(const QString &name, const QString &mime);
     void Reset();
-
-public slots:
-    void getDefaultApp(QMap<QString,QString> list);
-    void createAppsList(QMap<QString,QStringList> list);
+    void autoOpenChanged(const bool state);
 
 private slots:
-    void setMediaOptionVisible(const bool visible);
+    void setAutoChanged(const bool visible);
+
+private:
+    void onEdit();
 
 private:
     QVBoxLayout         *m_mainlayout;
@@ -48,6 +48,8 @@ private:
     DefCategoryWidget *m_modMusicPlayer = nullptr;
     DefCategoryWidget *m_modCamera = nullptr;
     DefCategoryWidget *m_modSoftware = nullptr;
+
+    dcc::SwitchWidget *m_switchWidget = nullptr;
 
 };
 

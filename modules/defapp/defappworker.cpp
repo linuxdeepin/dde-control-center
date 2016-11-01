@@ -1,32 +1,47 @@
 #include "defappworker.h"
 
 const QString ManagerService = "com.deepin.api.Mime";
+const QString MediaService   = "com.deepin.api.Mime";
 
-DefAppWorker::DefAppWorker(DefAppModel *m_defAppModel, QObject *parent) :
+DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     QObject(parent),
-
-    m_defAppModel(m_defAppModel),
-    m_dbusManager(new Manager(ManagerService, "/com/deepin/api/Manager", QDBusConnection::sessionBus(), this))
+    m_defAppModel(model),
+    m_dbusManager(new Manager(ManagerService, "/com/deepin/api/Manager", QDBusConnection::sessionBus(), this)),
+    m_dbusMedia(new Media(MediaService, "/com/deepin/api/Media", QDBusConnection::sessionBus(),this))
 {
-    m_stringToCategory.insert("Browser",  Browser);
-    m_stringToCategory.insert("Mail",     Mail);
-    m_stringToCategory.insert("Text",     Text);
-    m_stringToCategory.insert("Music",    Music);
-    m_stringToCategory.insert("Video",    Video);
-    m_stringToCategory.insert("Picture",  Picture);
-    m_stringToCategory.insert("Terminal", Terminal);
+    m_stringToCategory.insert("Browser",     Browser);
+    m_stringToCategory.insert("Mail",        Mail);
+    m_stringToCategory.insert("Text",        Text);
+    m_stringToCategory.insert("Music",       Music);
+    m_stringToCategory.insert("Video",       Video);
+    m_stringToCategory.insert("Picture",     Picture);
+    m_stringToCategory.insert("Terminal",    Terminal);
+    m_stringToCategory.insert("CD_Audio",    CD_Audio);
+    m_stringToCategory.insert("DVD_Video",   DVD_Video);
+    m_stringToCategory.insert("MusicPlayer", MusicPlayer);
+    m_stringToCategory.insert("Camera",      Camera);
+    m_stringToCategory.insert("Software",    Software);
 
-    m_dbusManager->setUseCache(true);
-    m_dbusManager->setSync(false);
 
-    connect(m_dbusManager, &Manager::Change, this, &DefAppWorker::onGetListAppsChanged);
+    connect(m_dbusManager, &Manager::serviceValidChanged, this, &DefAppWorker::serviceStartFinished, Qt::QueuedConnection);
+    connect(m_dbusMedia,   &Media::serviceValidChanged,   this, &DefAppWorker::serviceStartFinished, Qt::QueuedConnection);
+
     connect(m_dbusManager, &Manager::Change, this, &DefAppWorker::onGetDefaultAppChanged);
+    connect(m_dbusManager, &Manager::Change, this, &DefAppWorker::onGetListAppsChanged);
 
-    onGetListAppsChanged();
-    onGetDefaultAppChanged();
+    connect(m_dbusMedia, &Media::AutoOpenChanged, m_defAppModel, static_cast<void (DefAppModel::*)(const bool)>(&DefAppModel::setAutoOpen));
+
+    if (m_dbusManager->isValid() && m_dbusMedia->isValid()) {
+        qDebug() << "dbus is Valid";
+        serviceStartFinished();
+    } else {
+        qDebug() << "dbus is not Valid";
+        m_dbusManager->setSync(false);
+        m_dbusMedia->setSync(false);
+    }
 }
 
-void DefAppWorker::onSetDefaultAppChanged(QString name,QString category) {
+void DefAppWorker::onSetDefaultAppChanged(const QString &name, const QString &category) {
     QMap<QString, DefAppWorker::DefaultAppsCategory>::const_iterator i;
     for (i = m_stringToCategory.constBegin(); i != m_stringToCategory.constEnd(); ++i) {
         if(i.key() == category) {
@@ -42,40 +57,49 @@ void DefAppWorker::onSetDefaultAppChanged(QString name,QString category) {
 void DefAppWorker::onGetDefaultAppChanged() {
     //得到默认程序
     for (QMap<QString, DefAppWorker::DefaultAppsCategory>::const_iterator mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
-        QDBusPendingReply<QString> rep = m_dbusManager->GetDefaultApp(getTypeByCategory(mimelist.value()));
+        QDBusPendingReply<QString> rep;
+        if(isMediaApps(mimelist.value())) {
+            rep = m_dbusMedia->GetDefaultApp(getTypeByCategory(mimelist.value()));
+        } else {
+            rep = m_dbusManager->GetDefaultApp(getTypeByCategory(mimelist.value()));
+        }
+
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(rep, this);
-        // FIXME:
-        QDBusPendingReply<QString> reple = *watcher;
-        watcher->deleteLater();
-        const QJsonObject &defaultApp = QJsonDocument::fromJson(reple.value().toStdString().c_str()).object();
-        const QString &defAppId = defaultApp.value("Id").toString();
-        m_defapp.insertMulti(mimelist.key(), defAppId);
+        watcher->setProperty("mime", mimelist.key());
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getDefaultAppFinished);
+
     }
-    m_defAppModel->setDefApp(m_defapp);
 }
 
 void DefAppWorker::onGetListAppsChanged() {
     //遍历QMap去获取dbus数据
-    for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist)
-    {
-        QDBusPendingReply<QString> rep = m_dbusManager->ListApps(getTypeByCategory(mimelist.value()));
+    for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist){
+        QDBusPendingReply<QString> rep;
+        if(isMediaApps(mimelist.value())) {
+            rep = m_dbusMedia->ListApps(getTypeByCategory(mimelist.value()));
+        } else {
+            rep = m_dbusManager->ListApps(getTypeByCategory(mimelist.value()));
+        }
+
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(rep, this);
         watcher->setProperty("mime", mimelist.key());
-
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getDefaultAppFinished);
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getListAppFinished);
     }
 }
 
 void DefAppWorker::onResetTriggered() {
     m_dbusManager->Reset();
+    m_dbusMedia->Reset();
 }
 
-void DefAppWorker::getDefaultAppFinished(QDBusPendingCallWatcher *w)
-{
+void DefAppWorker::onAutoOpenChanged(const bool state) {
+    m_dbusMedia->EnableAutoOpen(state);
+}
+
+void DefAppWorker::getListAppFinished(QDBusPendingCallWatcher *w) {
+    QList<QStringList> t;
     QDBusPendingReply<QString> reply = *w;
-
     const QString mime = w->property("mime").toString();
-
     QStringList list;
     const  QJsonArray &defaultApp = QJsonDocument::fromJson(reply.value().toUtf8()).array();
     for (int i = 0; i != defaultApp.size(); ++i) {
@@ -85,12 +109,51 @@ void DefAppWorker::getDefaultAppFinished(QDBusPendingCallWatcher *w)
         list.append(defAppName);
         list.append(defAppId);
         list.append(mime);
-        m_appsList.insertMulti(mime, list);
+        t.append(list);
+    }
+    m_defAppModel->setAppList(mime,t);
+    w->deleteLater();
+}
+
+void DefAppWorker::getDefaultAppFinished(QDBusPendingCallWatcher *w) {
+    QDBusPendingReply<QString> reply = *w;
+    const QString mime = w->property("mime").toString();
+    const QJsonObject &defaultApp = QJsonDocument::fromJson(reply.value().toStdString().c_str()).object();
+    const QString &defAppId = defaultApp.value("Id").toString();
+    m_defAppModel->setDefault(mime,defAppId);
+    w->deleteLater();
+}
+
+void DefAppWorker::serviceStartFinished() {
+    if (!m_dbusMedia->isValid() || !m_dbusManager->isValid())
+        return;
+
+    qDebug() << m_dbusMedia->isValid() << m_dbusManager->isValid();
+
+    onGetListAppsChanged();
+    onGetDefaultAppChanged();
+    m_defAppModel->setAutoOpen(m_dbusMedia->autoOpen());
+}
+
+bool DefAppWorker::isMediaApps(const DefaultAppsCategory &category) const {
+    switch (category) {
+    case DefAppWorker::DefaultAppsCategory::Browser:
+    case DefAppWorker::DefaultAppsCategory::Mail:
+    case DefAppWorker::DefaultAppsCategory::Text:
+    case DefAppWorker::DefaultAppsCategory::Music:
+    case DefAppWorker::DefaultAppsCategory::Video:
+    case DefAppWorker::DefaultAppsCategory::Picture:
+    case DefAppWorker::DefaultAppsCategory::Terminal:      return false;
+    case DefAppWorker::DefaultAppsCategory::CD_Audio:
+    case DefAppWorker::DefaultAppsCategory::DVD_Video:
+    case DefAppWorker::DefaultAppsCategory::MusicPlayer:
+    case DefAppWorker::DefaultAppsCategory::Camera:
+    case DefAppWorker::DefaultAppsCategory::Software:      return true;
+    default:;
     }
 
-    m_defAppModel->setList(m_appsList);
-
-    w->deleteLater();
+    // for remove complier warnings.
+    return true;
 }
 
 const QString DefAppWorker::getTypeByCategory(const DefaultAppsCategory &category){

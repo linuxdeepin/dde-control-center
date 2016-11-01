@@ -3,10 +3,33 @@
 
 #include <QObject>
 #include <QStringList>
-#include <QMultiMap>
-
+#include <QDebug>
 
 class DefAppWorker;
+
+class Category : public QObject {
+    Q_OBJECT
+public:
+    Category(QObject *parent = 0);
+    void setList(const QList<QStringList> &list);   //设置list到暂存区
+    void setDefault(const QString &id);
+
+    inline const QString getName() const { return m_category;}
+    inline void setCategory(const QString &category){ m_category = category;}
+    inline const QList<QStringList> getList() const { return m_list;}
+    inline const QString getDefault(){ return m_id;}
+
+signals:
+    void itemsAdded(const QStringList &list);
+    void itemsRemoved(const QStringList &list);
+    void defaultChanged(const QString &id);
+
+private:
+    QList<QStringList> m_list; //暂存list
+    QString m_category;
+    QString m_id;
+};
+
 class DefAppModel : public QObject
 {
     Q_OBJECT
@@ -15,18 +38,35 @@ class DefAppModel : public QObject
 
 public:
     explicit DefAppModel(QObject *parent = 0);
-    inline QMultiMap<QString,QStringList> setList() {return m_appsList;}
-    inline QMultiMap<QString,QString> setDefApp() {return m_defapp;}
+    inline bool setAutoOpen() {return m_autoOpen;}
+    Category *getCategory(const QString &category);
 
 signals:
-    void ListAppChanged(QMap<QString,QStringList> List);  //列表改变信号
-    void DefaultAppsChanged(QMap<QString,QString> app); //默认程序改变信号
+    void AutoOpenChanged(bool state);
+
+private slots:
+    void setAppList(const QString &category, QList<QStringList> &list); //该函数遍历对象来设置list
+    void setDefault(const QString &category, const QString &id);
+    void setAutoOpen(const bool state);
 
 private:
-    void setList(QMultiMap<QString,QStringList> List);
-    void setDefApp(QMultiMap<QString,QString> app);
+    bool m_autoOpen;
 
-    QMultiMap<QString,QStringList> m_appsList;
-    QMultiMap<QString,QString> m_defapp;
+    Category *m_modBrowser = nullptr;
+    Category *m_modMail = nullptr;
+    Category *m_modText = nullptr;
+    Category *m_modMusic = nullptr;
+    Category *m_modVideo = nullptr;
+    Category *m_modPicture = nullptr;
+    Category *m_modTerminal = nullptr;
+
+    Category *m_modCDAudio = nullptr;
+    Category *m_modDVDVideo = nullptr;
+    Category *m_modMusicPlayer = nullptr;
+    Category *m_modCamera = nullptr;
+    Category *m_modSoftware = nullptr;
+
+    QList<Category*> m_categoryList;
 };
+
 #endif // DEFAPPMODEL_H

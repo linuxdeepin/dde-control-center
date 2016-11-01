@@ -36,7 +36,7 @@ public slots:
     void setId(const QString &id);
     void setIcon(const QString &icon);
     void setIcon(const QPixmap &icon);
-    void setChecked(bool checked);
+    void setChecked(const bool checked);
     void setDelete();
     void setMime(const QString &mime);
 
@@ -55,9 +55,9 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
-    void set(QString mime, QString id);
-    void deleteClicked();
-    void checkedChanged(bool checked) const;
+    void set(const QString &mime, const QString &id);
+    void deleteClicked(const QString &id);
+    void checkedChanged(const bool checked) const;
     void checkedIconChanged(const QPixmap &icon) const;
 };
 

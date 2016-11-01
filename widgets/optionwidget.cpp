@@ -68,8 +68,8 @@ void dcc::OptionWidget::setDelete() {   //删除
     m_checkedIconLabel->setVisible(false);
     //send delete dbus
 
-    connect(m_delete,&DImageButton::clicked,[=]{
-        this->deleteLater();
+    connect(m_delete, &DImageButton::clicked, [=]{
+        emit deleteClicked(id());
     });
 }
 
@@ -101,7 +101,7 @@ bool dcc::OptionWidget::checked() const {
     return m_checked;
 }
 
-void dcc::OptionWidget::setChecked(bool checked) {    //判断是否显示设置图标
+void dcc::OptionWidget::setChecked(const bool checked) {    //判断是否显示设置图标
     m_checkedIconLabel->setVisible(checked);
     m_delete->setVisible(false);
     setCheckedIcon(QPixmap(":/select.png"));

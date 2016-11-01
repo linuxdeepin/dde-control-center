@@ -7,21 +7,29 @@
 #include "optionwidget.h"
 
 #include <QWidget>
+#include "defappmodel.h"
 
 class DefCategoryWidget : public ModuleWidget
 {
     Q_OBJECT
 public:
     explicit DefCategoryWidget();
-    void add(QString name, QString value, QString mime);
+    void setCategory(Category * const category);
+    void addItems(const QStringList &list);
+    void removeItems(const QStringList &list);
 
 signals:
-    void setDefaultApp(QString name,QString id);
+    void setDefaultApp(const QString &name, const QString &id);
 
 public slots:
-    void onDeleteRunner();
-    void onSetRunner(QString mime, QString value);
-    void onDefaultAppSet(QString id);
+    void onSetRunner(const QString &mime, const QString &value);
+    void onDefaultAppSet(const QString &id);
+    void onEdit();
+
+private:
+    void addItem(const QString &name, const QString &value, const QString &mime);
+    void removeItem(const QString &id);
+    dcc::OptionWidget * findObject(const QString &id);
 
 private:
     dcc::SettingsGroup *m_userGroup;
