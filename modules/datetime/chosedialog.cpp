@@ -73,8 +73,11 @@ void ChoseDialog::onReturn()
 
 void ChoseDialog::onAdd()
 {
-    emit addTimezone(m_widget->timezone());
-    hide();
+    if(m_widget->timezone().m_valid)
+    {
+        emit addTimezone(m_widget->timezone());
+        hide();
+    }
 }
 
 void MapWidget::initData()

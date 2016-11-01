@@ -143,7 +143,7 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
     painter.setPen(pen1);
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setBrush(col);
-    painter.drawRect(rect());
+//    painter.drawRect(rect());
     for(int i= 0; i<count; i++)
     {
         QRect rect(0,y,width(),((i == 0) ? fh : h));
