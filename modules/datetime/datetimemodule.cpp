@@ -3,18 +3,18 @@
 DatetimeModule::DatetimeModule(FrameProxyInterface *frame, QObject *parent)
     :QObject(parent),
       ModuleInterface(frame),
-      m_work(new DatetimeWork(this)),
-      m_model(new DatetimeModel(this)),
       m_datetimeWidget(nullptr),
       m_dateSettings(nullptr)
 {
-    connect(m_work, SIGNAL(NTPChanged(bool)), m_model, SLOT(setNTP(bool)));
-    m_model->setNTP(m_work->nTP());
 }
 
 void DatetimeModule::initialize()
 {
+    m_work = new DatetimeWork(this);
+    m_model = new DatetimeModel(this);
 
+    connect(m_work, SIGNAL(NTPChanged(bool)), m_model, SLOT(setNTP(bool)));
+    m_model->setNTP(m_work->nTP());
 }
 
 void DatetimeModule::moduleActive()
