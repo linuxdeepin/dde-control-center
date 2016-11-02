@@ -21,7 +21,11 @@ public slots:
 
 private slots:
     void loadModule(ModuleInterface * const module);
+    void onModuleInitFinished(ModuleInterface * const inter);
     void refershModuleActivable();
+
+private:
+    ~SettingsWidget();
 
 private:
     Frame *m_frame;

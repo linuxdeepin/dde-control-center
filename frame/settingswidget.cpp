@@ -1,6 +1,7 @@
 #include "settingswidget.h"
 #include "modulewidget.h"
 #include "frame.h"
+#include "moduleinitthread.h"
 
 #include "accounts/accountsmodule.h"
 #include "power/powermodule.h"
@@ -37,8 +38,6 @@ SettingsWidget::SettingsWidget(Frame *frame)
     setTitle(tr("All Settings"));
 
     connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, this, &SettingsWidget::refershModuleActivable);
-
-    refershModuleActivable();
 }
 
 void SettingsWidget::contentPopuped(ContentWidget * const w)
@@ -68,18 +67,21 @@ void SettingsWidget::loadModule(ModuleInterface * const module)
     Q_ASSERT(!m_moduleInterfaces.contains(module));
     Q_ASSERT(!m_moduleWidgets.contains(module));
 
-    module->initialize();
-    qDebug() << "load Module" << module->name();
-
     m_moduleInterfaces.append(module);
     m_moduleWidgets.insert(module, QList<ContentWidget *>());
 
-    // add widget
-    ModuleWidget *w = module->moduleWidget();
-    Q_ASSERT(w);
+    ModuleInitThread *thrd = new ModuleInitThread(module, this);
+    connect(thrd, &ModuleInitThread::moduleInitFinished, this, &SettingsWidget::onModuleInitFinished);
+    connect(thrd, &ModuleInitThread::finished, thrd, &ModuleInitThread::deleteLater);
+    thrd->start();
+}
+
+void SettingsWidget::onModuleInitFinished(ModuleInterface * const module)
+{
+    Q_ASSERT(m_moduleInterfaces.contains(module));
 
     m_moduleActivable[module] = true;
-    m_settingsLayout->addWidget(w);
+    m_settingsLayout->addWidget(module->moduleWidget());
 }
 
 void SettingsWidget::refershModuleActivable()
@@ -101,4 +103,9 @@ void SettingsWidget::refershModuleActivable()
         else
             module->moduleDeactive();
     }
+}
+
+SettingsWidget::~SettingsWidget()
+{
+    qDeleteAll(m_moduleInterfaces);
 }

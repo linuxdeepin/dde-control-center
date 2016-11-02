@@ -19,7 +19,8 @@ HEADERS    += \
     pluginscontroller.h \
     framewidget.h \
     mainwidget.h \
-    settingswidget.h
+    settingswidget.h \
+    moduleinitthread.h
 
 SOURCES    += \
             main.cpp \
@@ -27,7 +28,8 @@ SOURCES    += \
     pluginscontroller.cpp \
     framewidget.cpp \
     mainwidget.cpp \
-    settingswidget.cpp
+    settingswidget.cpp \
+    moduleinitthread.cpp
 
 #RESOURCES += \
 #    qss.qrc \

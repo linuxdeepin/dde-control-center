@@ -25,6 +25,8 @@ public:
     const QString name() const;
 
 private:
+    ~AccountsModule();
+
     void showAccountsDetail(User *account);
     void contentPopped(ContentWidget * const w);
 

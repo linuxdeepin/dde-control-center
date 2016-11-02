@@ -50,6 +50,11 @@ const QString AccountsModule::name() const
     return "Accounts";
 }
 
+AccountsModule::~AccountsModule()
+{
+
+}
+
 void AccountsModule::showAccountsDetail(User *account)
 {
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
