@@ -3,18 +3,30 @@
 
 #include <QScreen>
 #include <QApplication>
+#include <QKeyEvent>
 
 Frame::Frame(QWidget *parent)
     : QMainWindow(parent),
 
-      m_allSettingsPage(nullptr)
+      m_allSettingsPage(nullptr),
+
+      m_displayInter(new Display("com.deepin.daemon.Display", "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this))
 {
+    m_displayInter->setSync(false);
+
+    setWindowFlags(Qt::FramelessWindowHint);
 //    setWindowFlags(Qt::X11BypassWindowManagerHint);
 //    setAttribute(Qt::WA_TranslucentBackground);
-    setFixedSize(300, 600);
-    move(qApp->primaryScreen()->geometry().center() - rect().center());
+    setFixedWidth(360);
+
+    connect(m_displayInter, &Display::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
 
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
+}
+
+void Frame::startup()
+{
+    show();
 }
 
 void Frame::pushWidget(ContentWidget * const w)
@@ -50,6 +62,9 @@ void Frame::init()
     connect(w, &MainWidget::showAllSettings, this, &Frame::showAllSettings);
 
     m_frameWidgetStack.push(w);
+
+    // frame position adjust
+    onScreenRectChanged(m_displayInter->primaryRect());
 }
 
 void Frame::showAllSettings()
@@ -65,4 +80,27 @@ void Frame::contentDetached(QWidget * const c)
     ContentWidget *cw = qobject_cast<ContentWidget *>(c);
     if (cw && cw != m_allSettingsPage)
         m_allSettingsPage->contentPopuped(cw);
+}
+
+void Frame::onScreenRectChanged(const QRect &primaryRect)
+{
+    // pass invalid data
+    if (primaryRect.isEmpty())
+        return;
+
+    setFixedHeight(primaryRect.height());
+    QMainWindow::move(primaryRect.topLeft());
+}
+
+void Frame::keyPressEvent(QKeyEvent *e)
+{
+    QMainWindow::keyPressEvent(e);
+
+    switch (e->key())
+    {
+#ifdef QT_DEBUG
+    case Qt::Key_Escape:    qApp->quit();       break;
+#endif
+    default:;
+    }
 }

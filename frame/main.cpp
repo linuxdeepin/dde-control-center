@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     DLogManager::registerConsoleAppender();
 
     Frame f;
-    f.show();
+    QTimer::singleShot(0, &f, &Frame::startup);
 
     return app.exec();
 }

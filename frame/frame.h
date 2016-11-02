@@ -5,8 +5,13 @@
 #include "contentwidget.h"
 #include "settingswidget.h"
 #include "frameproxyinterface.h"
+
+#include <com_deepin_daemon_display.h>
+
 #include <QMainWindow>
 #include <QStack>
+
+using Display = com::deepin::daemon::Display;
 
 class Frame : public QMainWindow
 {
@@ -16,6 +21,8 @@ public:
     explicit Frame(QWidget *parent = 0);
 
 public slots:
+    void startup();
+
     void pushWidget(ContentWidget * const w);
     void popWidget();
 
@@ -25,8 +32,16 @@ private slots:
     void showAllSettings();
     void contentDetached(QWidget * const c);
 
+    void onScreenRectChanged(const QRect &primaryRect);
+
+private:
+    void keyPressEvent(QKeyEvent *e);
+
 private:
     SettingsWidget *m_allSettingsPage;
+
+    Display *m_displayInter;
+
     QStack<FrameWidget *> m_frameWidgetStack;
 };
 
