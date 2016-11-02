@@ -14,7 +14,7 @@ Frame::Frame(QWidget *parent)
 {
     m_displayInter->setSync(false);
 
-    setWindowFlags(Qt::FramelessWindowHint);
+    setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
 //    setWindowFlags(Qt::X11BypassWindowManagerHint);
 //    setAttribute(Qt::WA_TranslucentBackground);
     setFixedWidth(360);
@@ -26,7 +26,8 @@ Frame::Frame(QWidget *parent)
 
 void Frame::startup()
 {
-    show();
+    QMainWindow::show();
+    QTimer::singleShot(0, this, [=] { m_frameWidgetStack.last()->show(); });
 }
 
 void Frame::pushWidget(ContentWidget * const w)
@@ -57,7 +58,7 @@ void Frame::init()
 {
     // main page
     MainWidget *w = new MainWidget(this);
-    w->setVisible(true);
+    w->setVisible(false);
 
     connect(w, &MainWidget::showAllSettings, this, &Frame::showAllSettings);
 
@@ -78,8 +79,14 @@ void Frame::showAllSettings()
 void Frame::contentDetached(QWidget * const c)
 {
     ContentWidget *cw = qobject_cast<ContentWidget *>(c);
-    if (cw && cw != m_allSettingsPage)
-        m_allSettingsPage->contentPopuped(cw);
+    Q_ASSERT(cw);
+
+    if (cw != m_allSettingsPage)
+        return m_allSettingsPage->contentPopuped(cw);
+
+    // delete all settings panel
+    m_allSettingsPage->deleteLater();
+    m_allSettingsPage = nullptr;
 }
 
 void Frame::onScreenRectChanged(const QRect &primaryRect)
@@ -100,7 +107,16 @@ void Frame::keyPressEvent(QKeyEvent *e)
     {
 #ifdef QT_DEBUG
     case Qt::Key_Escape:    qApp->quit();       break;
+    case Qt::Key_F1:        hide();             break;
 #endif
     default:;
     }
+}
+
+void Frame::hide()
+{
+    FrameWidget *w = m_frameWidgetStack.last();
+
+    w->hideBack();
+    QTimer::singleShot(w->animationDuration(), this, &QMainWindow::hide);
 }

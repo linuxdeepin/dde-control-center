@@ -22,7 +22,10 @@ public:
     void show();
     void hide();
     void showBack();
+    void hideBack();
     void destory();
+
+    int animationDuration() const;
 
 signals:
     void contentDetached(QWidget * const w) const;

@@ -36,6 +36,7 @@ private slots:
 
 private:
     void keyPressEvent(QKeyEvent *e);
+    void hide();
 
 private:
     SettingsWidget *m_allSettingsPage;
