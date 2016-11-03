@@ -27,6 +27,9 @@ public slots:
     void slotEditDatetime();
 
 private:
+    ~DatetimeModule();
+
+private:
     DatetimeWork* m_work;
     DatetimeModel* m_model;
     Datetime* m_datetimeWidget;

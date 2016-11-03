@@ -10,8 +10,8 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frame, QObject *parent)
 
 void DatetimeModule::initialize()
 {
-    m_work = new DatetimeWork(this);
-    m_model = new DatetimeModel(this);
+    m_work = new DatetimeWork;
+    m_model = new DatetimeModel;
 
     connect(m_work, SIGNAL(NTPChanged(bool)), m_model, SLOT(setNTP(bool)));
     m_model->setNTP(m_work->nTP());
@@ -68,4 +68,10 @@ void DatetimeModule::slotEditDatetime()
     }
 
     m_frameProxy->pushWidget(this, m_dateSettings);
+}
+
+DatetimeModule::~DatetimeModule()
+{
+    m_work->deleteLater();
+    m_model->deleteLater();
 }
