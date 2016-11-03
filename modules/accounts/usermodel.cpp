@@ -25,6 +25,11 @@ User * UserModel::getUser(const QString &id)
     return m_userList.value(id, nullptr);
 }
 
+QList<User *> UserModel::userList() const
+{
+    return m_userList.values();
+}
+
 void UserModel::addUser(const QString &id, User *user)
 {
     m_userList[id] = user;

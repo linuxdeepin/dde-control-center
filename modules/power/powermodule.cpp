@@ -19,6 +19,9 @@ void PowerModule::initialize()
 {
     m_powerModel = new PowerModel;
     m_powerWorker = new PowerWorker(m_powerModel);
+
+    m_powerModel->moveToThread(qApp->thread());
+    m_powerWorker->moveToThread(qApp->thread());
 }
 
 void PowerModule::moduleActive()

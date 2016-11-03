@@ -13,6 +13,9 @@ void AccountsModule::initialize()
 {
     m_userList = new UserModel;
     m_accountsWorker = new AccountsWorker(m_userList);
+
+    m_userList->moveToThread(qApp->thread());
+    m_accountsWorker->moveToThread(qApp->thread());
 }
 
 void AccountsModule::moduleActive()
@@ -32,6 +35,9 @@ ModuleWidget *AccountsModule::moduleWidget()
         connect(m_accountsWidget, &AccountsWidget::showAccountsDetail, this, &AccountsModule::showAccountsDetail);
         connect(m_userList, &UserModel::userAdded, m_accountsWidget, &AccountsWidget::addUser);
         connect(m_userList, &UserModel::userRemoved, m_accountsWidget, &AccountsWidget::removeUser);
+
+        for (auto user : m_userList->userList())
+            m_accountsWidget->addUser(user);
     }
 
     return m_accountsWidget;
@@ -53,6 +59,7 @@ void AccountsModule::showAccountsDetail(User *account)
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
 
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
+//    connect(w, &AccountsDetailWidget::requestSetAutoLogin, [=] (User *u, bool b) { m_accountsWorker->setAutoLogin(u, b); });
 
     m_frameProxy->pushWidget(this, w);
 }

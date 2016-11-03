@@ -15,6 +15,9 @@ void DatetimeModule::initialize()
 
     connect(m_work, SIGNAL(NTPChanged(bool)), m_model, SLOT(setNTP(bool)));
     m_model->setNTP(m_work->nTP());
+
+    m_work->moveToThread(qApp->thread());
+    m_model->moveToThread(qApp->thread());
 }
 
 void DatetimeModule::moduleActive()
