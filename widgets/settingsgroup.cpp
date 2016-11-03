@@ -57,22 +57,15 @@ bool SettingsGroup::eventFilter(QObject *, QEvent *event)
 
 void SettingsGroup::updateHeadTail()
 {
-    SettingsItem * head = nullptr;
-    SettingsItem * tail = nullptr;
+    const int count = m_layout->count();
+    for (int i(0); i != count; ++i)
+    {
+        SettingsItem *item = qobject_cast<SettingsItem *>(m_layout->itemAt(i)->widget());
+        Q_ASSERT(item);
 
-    for (QObject * child : children()) {
-        SettingsItem * item = qobject_cast<SettingsItem*>(child);
-        if (item) {
-            item->setIsHead(false);
-            item->setIsTail(false);
-
-            if (!head) head = item;
-            tail = item;
-        }
+        item->setIsHead(i == 0);
+        item->setIsTail(i == count - 1);
     }
-
-    if (head) head->setIsHead(true);
-    if (tail) tail->setIsTail(true);
 }
 
 void SettingsGroup::updateHeight()
