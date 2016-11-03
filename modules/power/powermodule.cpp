@@ -4,16 +4,21 @@ PowerModule::PowerModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),
 
-      m_powerModel(new PowerModel(this)),
-      m_powerWidget(nullptr),
-      m_powerWorker(new PowerWorker(m_powerModel, this))
+      m_powerWidget(nullptr)
 {
 
 }
 
+PowerModule::~PowerModule()
+{
+    m_powerModel->deleteLater();
+    m_powerWorker->deleteLater();
+}
+
 void PowerModule::initialize()
 {
-
+    m_powerModel = new PowerModel;
+    m_powerWorker = new PowerWorker(m_powerModel);
 }
 
 void PowerModule::moduleActive()

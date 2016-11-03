@@ -16,12 +16,15 @@ public:
     explicit PowerModule(FrameProxyInterface *frame, QObject *parent = 0);
 
 private:
+    ~PowerModule();
+
     void initialize();
     void moduleActive();
     void moduleDeactive();
     void contentPopped(ContentWidget * const w);
     ModuleWidget *moduleWidget();
     const QString name() const;
+
 
 private:
     PowerModel *m_powerModel;
