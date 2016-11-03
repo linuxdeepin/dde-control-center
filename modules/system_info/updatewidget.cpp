@@ -288,6 +288,8 @@ void UpdateWidget::updateInfo(const int apps, const int packages)
                 } else {
                     if (m_downloadStatus == NotStart) {
                         m_downloadButton->show();
+                    } else if (m_downloadStatus == SysFail || m_downloadStatus == Downloading) {
+                        m_downloadProgress->show();
                     }
                     m_updateSizeTips->setText(QString(tr("Total download size: %1")).arg(formatCap(size, 1000)));
                 }
@@ -429,9 +431,9 @@ void UpdateWidget::restoreJobs()
             for (QString package : packages) {
                 jobMap.insert(package, dbusJob);
             }
-        } else if (dbusJob->type() == "prepare_dist_upgrade") {
-            refreshDownloadStatus(Downloading);
+        } else if (dbusJob->type() == "download") {
             loadDownloadJob(dbusJob);
+            updateDownloadStatus();
         } else if (dbusJob->type() == "update_source") {
             refreshDownloadStatus(SysCheckUpdate);
             loadCheckUpdateJob(dbusJob);
