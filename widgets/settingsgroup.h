@@ -26,6 +26,7 @@ public:
     explicit SettingsGroup(QFrame *parent = 0);
 
     void appendItem(SettingsItem * item);
+    void removeItem(SettingsItem * item);
     void setSpacing(const int spaceing);
 
 private:

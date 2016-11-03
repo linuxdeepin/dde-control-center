@@ -32,6 +32,14 @@ void SettingsGroup::appendItem(SettingsItem *item)
     updateHeadTail();
 }
 
+void SettingsGroup::removeItem(SettingsItem *item)
+{
+    m_layout->removeWidget(item);
+    item->removeEventFilter(this);
+
+    updateHeadTail();
+}
+
 void SettingsGroup::setSpacing(const int spaceing)
 {
     m_layout->setSpacing(spaceing);
@@ -41,10 +49,8 @@ void SettingsGroup::setSpacing(const int spaceing)
 
 bool SettingsGroup::eventFilter(QObject *, QEvent *event)
 {
-    if (event->type() == QEvent::Resize) {
-
+    if (event->type() == QEvent::Resize)
         updateHeight();
-    }
 
     return false;
 }
