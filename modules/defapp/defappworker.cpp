@@ -31,6 +31,14 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
 
     connect(m_dbusMedia, &Media::AutoOpenChanged, m_defAppModel, static_cast<void (DefAppModel::*)(const bool)>(&DefAppModel::setAutoOpen));
 
+    active();
+}
+
+void DefAppWorker::active()
+{
+    m_dbusManager->blockSignals(false);
+    m_dbusMedia->blockSignals(false);
+    // refersh data
     if (m_dbusManager->isValid() && m_dbusMedia->isValid()) {
         qDebug() << "dbus is Valid";
         serviceStartFinished();
@@ -39,6 +47,12 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
         m_dbusManager->setSync(false);
         m_dbusMedia->setSync(false);
     }
+}
+
+void DefAppWorker::deactive()
+{
+    m_dbusManager->blockSignals(true);
+    m_dbusMedia->blockSignals(true);
 }
 
 void DefAppWorker::onSetDefaultAppChanged(const QString &name, const QString &category) {

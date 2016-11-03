@@ -24,6 +24,7 @@ class DefaultAppsModule : public QObject, public ModuleInterface
 
 public:
     explicit DefaultAppsModule(FrameProxyInterface *frame, QObject *parent = 0);
+    ~DefaultAppsModule();
 
     void initialize();
     void moduleActive();
@@ -35,12 +36,7 @@ public:
 
 private:
     void showDefaultAppsDetail();
-
     void contentPopped(ContentWidget * const w);
-
-private slots:
-//    void onUserListChanged(const QStringList &users);
-//    void onDBusManagerDefAppList(QString list);
 
 private:
     DefAppModel       *m_defAppModel;

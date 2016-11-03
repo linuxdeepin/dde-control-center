@@ -3,40 +3,43 @@
 DefaultAppsModule::DefaultAppsModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),
-      m_defAppModel(new DefAppModel(this)),
-      m_defAppWorker(new DefAppWorker(m_defAppModel,this)),
-      m_defaultappsWidget(new DefaultAppsWidget),
+      m_defaultappsWidget(nullptr),
       m_defaultAppsDetail(nullptr)
 {
-    connect(m_defaultappsWidget, &DefaultAppsWidget::showDefaultAppsDetail, this, &DefaultAppsModule::showDefaultAppsDetail);
+
+}
+
+DefaultAppsModule::~DefaultAppsModule()
+{
+    m_defAppModel->deleteLater();
+    m_defAppWorker->deleteLater();
 }
 
 void DefaultAppsModule::initialize()
 {
-
+    m_defAppModel  = new DefAppModel;
+    m_defAppWorker = new DefAppWorker(m_defAppModel);
+    m_defAppModel->moveToThread(qApp->thread());
+    m_defAppWorker->moveToThread(qApp->thread());
 }
 
 void DefaultAppsModule::moduleActive()
 {
-    //    m_defaultAppsInter->blockSignals(false);
-    //    m_defaultAppsInter->getAllProperties();
-    qDebug()<<"Active";
+    m_defAppWorker->active();
 }
 
 //模块非活动时禁用dbus
 void DefaultAppsModule::moduleDeactive()
 {
-//    if (m_defaultappsWidget)
-//    {
-//        m_defaultappsWidget->deleteLater();
-//        m_defaultappsWidget = nullptr;
-//    }
-    qDebug()<<"Deactive";
-    //    m_defaultAppsInter->blockSignals(true);
+    m_defAppWorker->deactive();
 }
 
 ModuleWidget *DefaultAppsModule::moduleWidget()
 {
+    if (!m_defaultappsWidget) {
+        m_defaultappsWidget = new DefaultAppsWidget;
+        connect(m_defaultappsWidget, &DefaultAppsWidget::showDefaultAppsDetail, this, &DefaultAppsModule::showDefaultAppsDetail);
+    }
     return m_defaultappsWidget;
 }
 
@@ -56,8 +59,6 @@ void DefaultAppsModule::showDefaultAppsDetail()
         connect(m_defaultAppsDetail, &DefAppViewer::autoOpenChanged, m_defAppWorker, &DefAppWorker::onAutoOpenChanged);
 
     }
-    //    m_defaultAppsDetail->refresh();
-
     m_frameProxy->pushWidget(this, m_defaultAppsDetail);
 }
 

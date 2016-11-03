@@ -17,6 +17,8 @@ class DefAppWorker : public QObject
     Q_OBJECT
 public:
     explicit DefAppWorker(DefAppModel *m_defAppModel, QObject *parent = 0);
+    void active();
+    void deactive();
 
 public slots:
     void onSetDefaultAppChanged(const QString &name, const QString &category);
