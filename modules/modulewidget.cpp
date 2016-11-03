@@ -1,5 +1,8 @@
 #include "modulewidget.h"
 
+#include <QEvent>
+#include <QDebug>
+
 ModuleWidget::ModuleWidget()
     : QWidget(nullptr)
 {
@@ -34,4 +37,12 @@ void ModuleWidget::setTitle(const QString &title)
 void ModuleWidget::setIcon(const QPixmap &icon)
 {
     m_moduleIcon->setPixmap(icon);
+}
+
+bool ModuleWidget::event(QEvent *event)
+{
+    if (event->type() == QEvent::LayoutRequest)
+        setFixedHeight(m_centeralLayout->sizeHint().height());
+
+    return QWidget::event(event);
 }

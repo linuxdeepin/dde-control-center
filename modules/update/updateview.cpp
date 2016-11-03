@@ -1,5 +1,7 @@
 #include "updateview.h"
 
+#include <QDebug>
+
 using namespace dcc;
 
 UpdateView::UpdateView()
@@ -25,6 +27,13 @@ UpdateView::UpdateView()
         NextPageWidget *w = new NextPageWidget;
         w->setTitle(QString::number(i));
         m_settingsGroup->appendItem(w);
+
+        connect(m_updateItem, &NextPageWidget::clicked, [=] {
+            m_settingsGroup->removeItem(w);
+            w->deleteLater();
+
+            qDebug() << "item deleted";
+        });
     }
 
     connect(m_updateItem, &NextPageWidget::clicked, this, &UpdateView::showUpdateWidget);

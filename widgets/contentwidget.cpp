@@ -4,6 +4,7 @@
 #include <QPushButton>
 #include <QResizeEvent>
 #include <QTimer>
+#include <QDebug>
 
 ContentWidget::ContentWidget(QWidget *parent)
     : QWidget(parent),
@@ -51,8 +52,12 @@ QWidget *ContentWidget::setContent(QWidget * const w)
     QWidget *lastWidget = m_content;
 
     m_content = w;
+    m_content->installEventFilter(this);
     m_content->setFixedWidth(m_contentArea->width());
     m_contentArea->setWidget(m_content);
+
+    if (lastWidget)
+        lastWidget->removeEventFilter(this);
 
     return lastWidget;
 }
@@ -61,6 +66,9 @@ bool ContentWidget::eventFilter(QObject *watched, QEvent *event)
 {
     if (m_content && watched == m_contentArea && event->type() == QEvent::Resize)
         m_content->setFixedWidth(static_cast<QResizeEvent *>(event)->size().width());
+
+    if (watched == m_content && event->type() == QEvent::LayoutRequest)
+        m_content->setFixedHeight(m_content->layout()->sizeHint().height());
 
     return false;
 }

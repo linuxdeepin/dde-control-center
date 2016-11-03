@@ -15,6 +15,9 @@ public:
     void setTitle(const QString &title);
     void setIcon(const QPixmap &icon);
 
+private:
+    bool event(QEvent *event);
+
 protected:
     QLabel *m_moduleIcon;
     QLabel *m_moduleTitle;

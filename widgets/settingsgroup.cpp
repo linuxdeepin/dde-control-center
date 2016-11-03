@@ -12,6 +12,7 @@
 
 #include <QVBoxLayout>
 #include <QEvent>
+#include <QDebug>
 
 namespace dcc {
 
@@ -30,6 +31,7 @@ void SettingsGroup::appendItem(SettingsItem *item)
     item->installEventFilter(this);
 
     updateHeadTail();
+    updateHeight();
 }
 
 void SettingsGroup::removeItem(SettingsItem *item)
@@ -38,6 +40,7 @@ void SettingsGroup::removeItem(SettingsItem *item)
     item->removeEventFilter(this);
 
     updateHeadTail();
+    updateHeight();
 }
 
 void SettingsGroup::setSpacing(const int spaceing)
@@ -70,17 +73,7 @@ void SettingsGroup::updateHeadTail()
 
 void SettingsGroup::updateHeight()
 {
-    const int spaceing = m_layout->spacing();
-    int height = 0;
-
-    for (QObject * child : children()) {
-        SettingsItem * item = qobject_cast<SettingsItem*>(child);
-        if (item) {
-            height += (item->height() + spaceing);
-        }
-    }
-
-    setFixedHeight(height ? height - spaceing : 0);
+    setFixedHeight(m_layout->sizeHint().height());
 }
 
 } // namespace dcc end
