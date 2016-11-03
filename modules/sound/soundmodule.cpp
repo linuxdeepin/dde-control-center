@@ -13,15 +13,19 @@ SoundModule::SoundModule(FrameProxyInterface * frame, QObject *parent) :
     QObject(parent),
     ModuleInterface(frame),
 
-    m_soundWidget(nullptr),
-    m_soundWorker(new SoundWorker(this))
+    m_soundWidget(nullptr)
 {
 
 }
 
+SoundModule::~SoundModule()
+{
+    m_soundWorker->deleteLater();
+}
+
 void SoundModule::initialize()
 {
-
+    m_soundWorker = new SoundWorker;
 }
 
 const QString SoundModule::name() const

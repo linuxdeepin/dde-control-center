@@ -22,6 +22,10 @@ class SoundModule : public QObject, public ModuleInterface
 public:
     explicit SoundModule(FrameProxyInterface * frame, QObject *parent = 0);
 
+
+private:
+    ~SoundModule();
+
     void initialize() Q_DECL_OVERRIDE;
     const QString name() const Q_DECL_OVERRIDE;
     void moduleActive() Q_DECL_OVERRIDE;
