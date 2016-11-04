@@ -18,10 +18,17 @@ namespace dcc {
 
 SettingsGroup::SettingsGroup(QFrame *parent) :
     QFrame(parent),
-    m_layout(new QVBoxLayout)
+    m_layout(new QVBoxLayout),
+    m_updateHeightTimer(new QTimer(this))
 {
     m_layout->setMargin(0);
     m_layout->setSpacing(1);
+
+    m_updateHeightTimer->setSingleShot(true);
+    m_updateHeightTimer->setInterval(100);
+
+    connect(m_updateHeightTimer, &QTimer::timeout, this, &SettingsGroup::updateHeight, Qt::QueuedConnection);
+
     setLayout(m_layout);
 }
 
@@ -31,7 +38,7 @@ void SettingsGroup::appendItem(SettingsItem *item)
     item->installEventFilter(this);
 
     updateHeadTail();
-    updateHeight();
+    m_updateHeightTimer->start();
 }
 
 void SettingsGroup::removeItem(SettingsItem *item)
@@ -40,20 +47,20 @@ void SettingsGroup::removeItem(SettingsItem *item)
     item->removeEventFilter(this);
 
     updateHeadTail();
-    updateHeight();
+    m_updateHeightTimer->start();
 }
 
 void SettingsGroup::setSpacing(const int spaceing)
 {
     m_layout->setSpacing(spaceing);
 
-    updateHeight();
+    m_updateHeightTimer->start();
 }
 
 bool SettingsGroup::eventFilter(QObject *, QEvent *event)
 {
     if (event->type() == QEvent::Resize)
-        updateHeight();
+        m_updateHeightTimer->start();
 
     return false;
 }
@@ -73,6 +80,8 @@ void SettingsGroup::updateHeadTail()
 
 void SettingsGroup::updateHeight()
 {
+    Q_ASSERT(sender() == m_updateHeightTimer);
+
     setFixedHeight(m_layout->sizeHint().height());
 }
 

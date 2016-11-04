@@ -11,6 +11,7 @@
 #define SETTINGSGROUP_H
 
 #include <QFrame>
+#include <QTimer>
 
 class QVBoxLayout;
 
@@ -30,12 +31,16 @@ public:
     void setSpacing(const int spaceing);
 
 private:
-    bool eventFilter(QObject *watched, QEvent *event);
+    bool eventFilter(QObject *, QEvent *event);
     void updateHeadTail();
+
+private slots:
     void updateHeight();
 
 private:
-    QVBoxLayout * m_layout;
+    QVBoxLayout *m_layout;
+
+    QTimer *m_updateHeightTimer;
 };
 
 }
