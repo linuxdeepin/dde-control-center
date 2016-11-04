@@ -80,8 +80,19 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface * const module)
 {
     Q_ASSERT(m_moduleInterfaces.contains(module));
 
+    // get right position to insert
+    int index = 0;
+    for (int i(0); i != m_moduleInterfaces.size(); ++i)
+    {
+        if (m_moduleInterfaces[i] == module)
+            break;
+
+        if (m_moduleActivable.contains(m_moduleInterfaces[i]))
+            ++index;
+    }
+
     m_moduleActivable[module] = true;
-    m_settingsLayout->addWidget(module->moduleWidget());
+    m_settingsLayout->insertWidget(index, module->moduleWidget());
 }
 
 void SettingsWidget::refershModuleActivable()
