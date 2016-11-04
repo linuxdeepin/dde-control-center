@@ -36,6 +36,8 @@ private:
     QList<ModuleInterface *> m_moduleInterfaces;
     QMap<ModuleInterface *, bool> m_moduleActivable;
     QMap<ModuleInterface *, QList<ContentWidget *>> m_moduleWidgets;
+
+    QTimer *m_refershModuleActivableTimer;
 };
 
 #endif // SETTINGSWIDGET_H

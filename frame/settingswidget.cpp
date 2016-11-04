@@ -20,7 +20,9 @@ SettingsWidget::SettingsWidget(Frame *frame)
       m_frame(frame),
 
       m_settingsLayout(new QVBoxLayout),
-      m_settingsWidget(new QWidget)
+      m_settingsWidget(new QWidget),
+
+      m_refershModuleActivableTimer(new QTimer(this))
 {
     m_settingsLayout->setSpacing(30);
     m_settingsLayout->setMargin(0);
@@ -37,7 +39,11 @@ SettingsWidget::SettingsWidget(Frame *frame)
     setContent(m_settingsWidget);
     setTitle(tr("All Settings"));
 
-    connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, this, &SettingsWidget::refershModuleActivable);
+    m_refershModuleActivableTimer->setSingleShot(true);
+    m_refershModuleActivableTimer->setInterval(100);
+
+    connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, m_refershModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_refershModuleActivableTimer, &QTimer::timeout, this, &SettingsWidget::refershModuleActivable);
 }
 
 void SettingsWidget::contentPopuped(ContentWidget * const w)
@@ -73,6 +79,7 @@ void SettingsWidget::loadModule(ModuleInterface * const module)
     ModuleInitThread *thrd = new ModuleInitThread(module, this);
     connect(thrd, &ModuleInitThread::moduleInitFinished, this, &SettingsWidget::onModuleInitFinished);
     connect(thrd, &ModuleInitThread::finished, thrd, &ModuleInitThread::deleteLater);
+    connect(thrd, &ModuleInitThread::finished, m_refershModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     thrd->start();
 }
 
@@ -91,7 +98,7 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface * const module)
             ++index;
     }
 
-    m_moduleActivable[module] = true;
+    m_moduleActivable[module] = false;
     m_settingsLayout->insertWidget(index, module->moduleWidget());
 }
 
