@@ -13,6 +13,9 @@ DefaultAppsModule::~DefaultAppsModule()
 {
     m_defAppModel->deleteLater();
     m_defAppWorker->deleteLater();
+
+    if (m_defaultappsWidget)
+        m_defaultappsWidget->deleteLater();
 }
 
 void DefaultAppsModule::initialize()

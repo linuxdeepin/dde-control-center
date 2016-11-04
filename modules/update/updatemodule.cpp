@@ -11,6 +11,12 @@ UpdateModule::UpdateModule(FrameProxyInterface *frame, QObject *parent)
 
 }
 
+UpdateModule::~UpdateModule()
+{
+    if (m_updateView)
+        m_updateView->deleteLater();
+}
+
 void UpdateModule::initialize()
 {
 

@@ -21,6 +21,9 @@ SoundModule::SoundModule(FrameProxyInterface * frame, QObject *parent) :
 SoundModule::~SoundModule()
 {
     m_soundWorker->deleteLater();
+
+    if (m_soundWidget)
+        m_soundWidget->deleteLater();
 }
 
 void SoundModule::initialize()

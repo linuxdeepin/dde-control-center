@@ -15,6 +15,7 @@ public:
     explicit UpdateModule(FrameProxyInterface *frame, QObject *parent = 0);
 
 private:
+    ~UpdateModule();
     void initialize();
     void moduleActive();
     void moduleDeactive();
