@@ -22,20 +22,6 @@ UpdateView::UpdateView()
 
     setTitle(tr("Update"));
 
-    for (int i(0); i != 10; ++i)
-    {
-        NextPageWidget *w = new NextPageWidget;
-        w->setTitle(QString::number(i));
-        m_settingsGroup->appendItem(w);
-
-        connect(m_updateItem, &NextPageWidget::clicked, [=] {
-            m_settingsGroup->removeItem(w);
-            w->deleteLater();
-
-            qDebug() << "item deleted";
-        });
-    }
-
     connect(m_updateItem, &NextPageWidget::clicked, this, &UpdateView::showUpdateWidget);
     connect(m_settingsItem, &NextPageWidget::clicked, this, &UpdateView::showSettingsWidget);
 }

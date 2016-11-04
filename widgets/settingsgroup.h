@@ -26,9 +26,12 @@ class SettingsGroup : public QFrame
 public:
     explicit SettingsGroup(QFrame *parent = 0);
 
+    void insertItem(const int index, SettingsItem * item);
     void appendItem(SettingsItem * item);
     void removeItem(SettingsItem * item);
     void setSpacing(const int spaceing);
+
+    int itemCount() const;
 
 private:
     bool eventFilter(QObject *, QEvent *event);

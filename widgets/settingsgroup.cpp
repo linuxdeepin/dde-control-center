@@ -25,20 +25,25 @@ SettingsGroup::SettingsGroup(QFrame *parent) :
     m_layout->setSpacing(1);
 
     m_updateHeightTimer->setSingleShot(true);
-    m_updateHeightTimer->setInterval(100);
+    m_updateHeightTimer->setInterval(1);
 
     connect(m_updateHeightTimer, &QTimer::timeout, this, &SettingsGroup::updateHeight, Qt::QueuedConnection);
 
     setLayout(m_layout);
 }
 
-void SettingsGroup::appendItem(SettingsItem *item)
+void SettingsGroup::insertItem(const int index, SettingsItem *item)
 {
-    m_layout->addWidget(item);
+    m_layout->insertWidget(index, item);
     item->installEventFilter(this);
 
     updateHeadTail();
     m_updateHeightTimer->start();
+}
+
+void SettingsGroup::appendItem(SettingsItem *item)
+{
+    insertItem(m_layout->count(), item);
 }
 
 void SettingsGroup::removeItem(SettingsItem *item)
@@ -55,6 +60,11 @@ void SettingsGroup::setSpacing(const int spaceing)
     m_layout->setSpacing(spaceing);
 
     m_updateHeightTimer->start();
+}
+
+int SettingsGroup::itemCount() const
+{
+    return m_layout->count();
 }
 
 bool SettingsGroup::eventFilter(QObject *, QEvent *event)
