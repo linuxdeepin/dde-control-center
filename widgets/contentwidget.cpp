@@ -6,18 +6,25 @@
 #include <QTimer>
 #include <QDebug>
 
+#include <dimagebutton.h>
+#include <dseparatorhorizontal.h>
+
+DWIDGET_USE_NAMESPACE
+
 ContentWidget::ContentWidget(QWidget *parent)
     : QWidget(parent),
 
       m_content(nullptr)
 {
-    QPushButton *backBtn = new QPushButton;
-    backBtn->setText("Back");
-    backBtn->setFixedWidth(32);
+    DImageButton *backBtn = new DImageButton;
+    backBtn->setFixedSize(24, 22);
+    backBtn->setNormalPic(":/icon/previous_normal.png");
+    backBtn->setHoverPic(":/icon/previous_hover.png");
+    backBtn->setPressPic(":/icon/previous_press.png");
 
     m_title = new QLabel;
-    m_title->setText("Title");
     m_title->setAlignment(Qt::AlignCenter);
+    m_title->setStyleSheet("color: white;");
 
     m_contentArea = new QScrollArea;
     m_contentArea->setWidgetResizable(true);
@@ -25,19 +32,22 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_contentArea->setFrameStyle(QFrame::NoFrame);
     m_contentArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_contentArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-//    m_contentArea->setStyleSheet("background-color:red;");
 
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->addWidget(backBtn);
     titleLayout->addWidget(m_title);
+    titleLayout->addSpacing(backBtn->width());
 
     QVBoxLayout *centeralLayout = new QVBoxLayout;
     centeralLayout->addLayout(titleLayout);
+    centeralLayout->addSpacing(15);
+    centeralLayout->addWidget(new DSeparatorHorizontal);
+    centeralLayout->addSpacing(15);
     centeralLayout->addWidget(m_contentArea);
-    centeralLayout->setMargin(0);
+    centeralLayout->setContentsMargins(8, 8, 8, 0);
     centeralLayout->setSpacing(0);
 
-    connect(backBtn, &QPushButton::clicked, this, &ContentWidget::back);
+    connect(backBtn, &DImageButton::clicked, this, &ContentWidget::back);
 
     setLayout(centeralLayout);
 }

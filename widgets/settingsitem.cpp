@@ -17,15 +17,15 @@ SettingsItem::SettingsItem(QFrame *parent)
       m_isTail(false)
 {
     setStyleSheet("dcc--SettingsItem {"
-                  "background-color:gray;"
+                  "background-color: rgba(238, 238, 238, .2);"
                   "}"
                   "dcc--SettingsItem[isHead=true] {"
-                  "border-top-left-radius:10px;"
-                  "border-top-right-radius:10px;"
+                  "border-top-left-radius: 5px;"
+                  "border-top-right-radius: 5px;"
                   "}"
                   "dcc--SettingsItem[isTail=true] {"
-                  "border-bottom-left-radius:10px;"
-                  "border-bottom-right-radius:10px;"
+                  "border-bottom-left-radius: 5px;"
+                  "border-bottom-right-radius: 5px;"
                   "}");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }

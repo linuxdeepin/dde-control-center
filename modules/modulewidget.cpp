@@ -12,7 +12,9 @@ ModuleWidget::ModuleWidget()
     m_moduleTitle = new QLabel;
     m_moduleTitle->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
     m_moduleTitle->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    m_moduleTitle->setStyleSheet("background-color:cyan;");
+    m_moduleTitle->setStyleSheet("color: white;"
+                                 "font-size: 16px;"
+                                 "margin: 0 0 0 5px;");
 
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->addWidget(m_moduleIcon);
@@ -23,7 +25,7 @@ ModuleWidget::ModuleWidget()
 
     m_centeralLayout = new QVBoxLayout;
     m_centeralLayout->addLayout(titleLayout);
-    m_centeralLayout->setSpacing(5);
+    m_centeralLayout->setSpacing(8);
     m_centeralLayout->setMargin(0);
 
     setLayout(m_centeralLayout);

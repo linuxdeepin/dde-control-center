@@ -21,7 +21,7 @@ SettingsGroup::SettingsGroup(QFrame *parent) :
     m_layout(new QVBoxLayout)
 {
     m_layout->setMargin(0);
-    m_layout->setSpacing(2);
+    m_layout->setSpacing(1);
     setLayout(m_layout);
 }
 

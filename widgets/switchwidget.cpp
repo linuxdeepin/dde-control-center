@@ -11,6 +11,8 @@ SwitchWidget::SwitchWidget(QFrame *parent)
 {
 
     m_title = new QLabel;
+    m_title->setStyleSheet("color: white;"
+                           "margin: 0 0 0 8px;");
     m_title->setText("title");
 
     m_switchBtn = new DSwitchButton;

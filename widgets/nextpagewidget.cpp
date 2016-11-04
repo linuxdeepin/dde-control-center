@@ -10,10 +10,10 @@ NextPageWidget::NextPageWidget(QFrame *parent)
     : SettingsItem(parent)
 {
     m_title = new QLabel;
-    m_title->setText("title");
+    m_title->setStyleSheet("color: white;"
+                           "margin: 0 0 0 8px;");
 
     m_value = new QLabel;
-    m_value->setText("");
 
     m_nextPageBtn = new DImageButton(":/icon/next_normal.png",
                                      ":/icon/next_hover.png",

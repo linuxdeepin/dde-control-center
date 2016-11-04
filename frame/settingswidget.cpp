@@ -22,7 +22,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
       m_settingsLayout(new QVBoxLayout),
       m_settingsWidget(new QWidget)
 {
-    m_settingsLayout->setSpacing(0);
+    m_settingsLayout->setSpacing(30);
     m_settingsLayout->setMargin(0);
 
     loadModule(new AccountsModule(this));

@@ -19,6 +19,8 @@ Frame::Frame(QWidget *parent)
 //    setAttribute(Qt::WA_TranslucentBackground);
     setFixedWidth(360);
 
+    setPalette(QPalette(QColor(19, 89, 177)));
+
     connect(m_displayInter, &Display::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
 
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
