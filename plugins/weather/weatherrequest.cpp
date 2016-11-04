@@ -32,6 +32,7 @@ WeatherRequest::WeatherRequest(QObject *parent) :
 
     connect(m_manager, SIGNAL(finished(QNetworkReply*)), this,
             SLOT(replyFinished(QNetworkReply*)));
+
     connect(m_timer, SIGNAL(timeout()), this, SLOT(slotTimeout()));
     connect(m_loader, SIGNAL(city(const QString&)), this, SLOT(setCity(const QString&)));
 //    m_url = QUrl(QString("http://www.ipip.net/ip.html"));
@@ -70,6 +71,11 @@ WeatherItem WeatherRequest::dayAt(int index)
         return m_items[index];
     }
     return WeatherItem();
+}
+
+void WeatherRequest::sendRefreshSignal()
+{
+    emit refreshData(m_items);
 }
 
 void WeatherRequest::replyFinished(QNetworkReply *reply)

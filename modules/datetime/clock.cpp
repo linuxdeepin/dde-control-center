@@ -4,6 +4,7 @@
 #include <QTime>
 #include <QtMath>
 #include <QDebug>
+#include <QResizeEvent>
 
 const QPoint sec[4] = {QPoint(0, 10), QPoint(2, 0), QPoint(0, -75), QPoint(-2, 0)};
 //const QPoint min[4] = {QPoint(0, 8), QPoint(3, 0), QPoint(0, -55), QPoint(-3, 0)};
@@ -17,7 +18,6 @@ Clock::Clock(QFrame *parent)
     :SettingsItem(parent),
       m_display(false)
 {
-    setFixedSize(300,300);
     m_timezone = QTimeZone::systemTimeZone();
     m_timer = new QTimer(this);
     connect(m_timer, SIGNAL(timeout()), this, SLOT(update()));
@@ -41,14 +41,20 @@ void Clock::setDisplay(bool display)
 
 void Clock::paintEvent(QPaintEvent *)
 {
+    QSize size = this->size();
+    int minw = size.width() > size.height() ? size.height() : size.width();
+    QRect rect = QRect(0,0,minw,minw);
+    rect.moveCenter(this->rect().center());
+
     QPainter painter(this);
     QPainter matrix(this);
+    painter.setViewport(rect);
+    matrix.setViewport(rect);
     QTime time = QDateTime::currentDateTime().toTimeZone(m_timezone).time();
     matrix.setWindow(-100, -100, 200, 200);
     painter.setRenderHint(QPainter::Antialiasing);
     //painter.translate(100, 100);
     painter.setWindow(-100, -100, 200, 200);
-
 
     if(m_display)
     {
@@ -140,5 +146,11 @@ void Clock::paintEvent(QPaintEvent *)
 //    painter.setPen(Qt::red);
 //    painter.setRenderHint(QPainter::Antialiasing);
 //    painter.drawConvexPolygon(sec, 4);
-//    painter.restore();
+    //    painter.restore();
+}
+
+void Clock::resizeEvent(QResizeEvent *e)
+{
+    SettingsItem::resizeEvent(e);
+    setFixedHeight(e->size().width());
 }

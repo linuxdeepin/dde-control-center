@@ -21,6 +21,7 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event);
+    void resizeEvent(QResizeEvent *e);
 
 private:
     QTimer *m_timer;

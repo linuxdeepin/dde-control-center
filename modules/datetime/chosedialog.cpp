@@ -21,6 +21,7 @@
 ChoseDialog::ChoseDialog(QWidget *parent)
     :QDialog(parent)
 {
+    setPalette(QPalette(QColor(19, 89, 177)));
     m_widget = new MapWidget();
     QVBoxLayout* layout = new QVBoxLayout();
     QLabel *title = new QLabel;
@@ -153,7 +154,6 @@ MapWidget::MapWidget(QWidget *parent)
 {
     m_map = QPixmap(":/icon/map.svg");
     setFixedSize(m_map.size());
-    setStyleSheet("background-color: blue; opacity: 0.2;");
 
     initData();
 

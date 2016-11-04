@@ -26,6 +26,7 @@ public:
     int count() const;
     WeatherItem dayAt(int index);
 
+    void sendRefreshSignal();
 
 signals:
     void refreshData(QList<WeatherItem> &items);

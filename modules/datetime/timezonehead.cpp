@@ -9,6 +9,7 @@ TimezoneHead::TimezoneHead(QFrame *parent)
     setMouseTracking(true);
     setFixedHeight(30);
     m_title = new QLabel;
+    m_title->setStyleSheet("color: white;");
     m_title->setText("Timezone List");
 
     m_edit = new QLabel;

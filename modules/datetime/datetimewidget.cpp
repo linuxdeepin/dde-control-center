@@ -10,8 +10,7 @@ DateWidget::DateWidget(Type type, QFrame *parent)
     : SettingsItem(parent),
       m_type(type)
 {
-    setFixedSize(QSize(300,35));
-    setStyleSheet("QWidget{background-color:gray; opacity: 255}");
+    setFixedHeight(36);
     m_lineEdit = new QLineEdit(this);
     m_addBtn = new DImageButton(":/icon/add_normal.png",
                                 ":/icon/add_hover.png",
@@ -224,7 +223,7 @@ void DateWidget::slotReduced()
 TimeWidget::TimeWidget(QFrame *parent)
     :SettingsItem(parent)
 {
-    setFixedSize(300, 60);
+    setFixedHeight(60);
     m_font.setPixelSize(32);
 
     QTime time = QTime::currentTime();
@@ -238,7 +237,6 @@ TimeWidget::TimeWidget(QFrame *parent)
 
     m_hourEdit = new QLineEdit(this);
     m_hourEdit->setFont(m_font);
-    m_hourEdit->setGeometry(m_hour);
     m_hourEdit->setStyleSheet("QLineEdit{background-color: transparent; border: 0px}");
     m_hourEdit->setAlignment(Qt::AlignCenter);
     m_hourEdit->setText(m_hourText);
@@ -247,7 +245,6 @@ TimeWidget::TimeWidget(QFrame *parent)
 
     m_minuteEdit = new QLineEdit(this);
     m_minuteEdit->setFont(m_font);
-    m_minuteEdit->setGeometry(m_minute);
     m_minuteEdit->setStyleSheet("QLineEdit{background-color: transparent; border: 0px}");
     m_minuteEdit->setAlignment(Qt::AlignCenter);
     m_minuteEdit->setText(m_minuteText);
@@ -370,6 +367,16 @@ void TimeWidget::wheelEvent(QWheelEvent *e)
         m_minuteText.setNum(minute);
         m_minuteEdit->setText(m_minuteText);
     }
+}
+
+void TimeWidget::showEvent(QShowEvent *e)
+{
+    m_hour = QRect(0,0,75,height());
+    m_hour.moveRight(this->rect().center().x() - 10);
+    m_minute = QRect(width()-75, 0, 75, height());
+    m_minute.moveLeft(this->rect().center().x() + 10);
+    m_hourEdit->setGeometry(m_hour);
+    m_minuteEdit->setGeometry(m_minute);
 }
 
 

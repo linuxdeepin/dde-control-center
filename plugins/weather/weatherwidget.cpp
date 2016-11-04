@@ -91,6 +91,7 @@ WeatherWidget::WeatherWidget(QWidget *parent)
 
     connect(m_request, SIGNAL(refreshData(QList<WeatherItem>&)),
             this, SLOT(refreshView(QList<WeatherItem>&)));
+    m_request->sendRefreshSignal();
 }
 
 void WeatherWidget::paintEvent(QPaintEvent *e)

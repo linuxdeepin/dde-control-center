@@ -69,6 +69,7 @@ protected:
     void paintEvent(QPaintEvent *);
     void mousePressEvent(QMouseEvent *e);
     void wheelEvent(QWheelEvent *e);
+    void showEvent(QShowEvent *e);
 
 private:
     QLineEdit *m_hourEdit;
