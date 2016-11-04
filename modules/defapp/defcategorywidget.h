@@ -5,37 +5,49 @@
 #include "contentwidget.h"
 #include "settingsgroup.h"
 #include "optionwidget.h"
-
-#include <QWidget>
 #include "defappmodel.h"
+#include "defcategoryheadwidget.h"
+#include "defcategoryaddwidget.h"
+#include <QWidget>
+#include <QVBoxLayout>
 
 class DefCategoryWidget : public ModuleWidget
 {
     Q_OBJECT
 public:
-    explicit DefCategoryWidget();
+    explicit DefCategoryWidget(const QString &name);
     void setCategory(Category * const category);
-    void addItems(const QStringList &list);
-    void removeItems(const QStringList &list);
 
 signals:
-    void setDefaultApp(const QString &name, const QString &id);
+    void setDefaultApp(const QString &category, const QJsonObject &item);
+    void addUserApp(const QString &category, const QJsonObject &item);
+    void delUserApp(const QJsonObject &item);
+    void requestFrameAutoHide(const bool autoHide) const;
 
 public slots:
-    void onSetRunner(const QString &mime, const QString &value);
+    void onSetRunner(const QString &category, const QString &value);
     void onDefaultAppSet(const QString &id);
-    void onEdit();
+    void slotEditMode(const bool editable);
 
 private:
-    void addItem(const QString &name, const QString &value, const QString &mime);
-    void removeItem(const QString &id);
-    dcc::OptionWidget * findObject(const QString &id);
+    void AppsItemChanged();
+    void UserItemChanged();
+    void addItem(const QJsonObject &item);
+    void addUserItem(const QJsonObject &item);
+    void removeItem(const QJsonObject &item);
+    dcc::OptionWidget * getObject(const QString &id);
+    int itemCount();
 
 private:
-    dcc::SettingsGroup *m_userGroup;
-    QWidget            *m_listWidget;
-    dcc::OptionWidget  *m_optionWidget;
-    QLayoutItem        *m_userGroupLayout;
+    dcc::SettingsGroup    *m_userGroup;
+    QWidget               *m_listWidget;
+    QVBoxLayout           *m_listLayout;
+    dcc::OptionWidget     *m_optionWidget;
+    QLayoutItem           *m_userGroupLayout;
+    DefCategoryHeadWidget *m_headWidget;
+    DefCategoryAddWidget  *m_addWidget;
+    QString                m_categoryName;
+    Category              *m_category;
 
 };
 #endif // DEFCATEGORYWIDGET_H

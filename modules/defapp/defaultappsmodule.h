@@ -37,6 +37,7 @@ public:
 private:
     void showDefaultAppsDetail();
     void contentPopped(ContentWidget * const w);
+    void setFrameAutoHide(const bool autoHide);
 
 private:
     DefAppModel       *m_defAppModel;

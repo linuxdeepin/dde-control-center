@@ -11,36 +11,23 @@ DefAppViewer::DefAppViewer() {
 
 //下级菜单，该函数会初始化界面
 QWidget* DefAppViewer::defappDetail() {
-    //以后删除title，使用SettingsGroup的head
-    m_modBrowser = new DefCategoryWidget;
-    m_modBrowser->setTitle(tr("Browser"));
-    m_modMail = new DefCategoryWidget;
-    m_modMail->setTitle(tr("Mail"));
-    m_modText = new DefCategoryWidget;
-    m_modText->setTitle(tr("Text"));
-    m_modMusic = new DefCategoryWidget;
-    m_modMusic->setTitle(tr("Music"));
-    m_modVideo = new DefCategoryWidget;
-    m_modVideo->setTitle(tr("Video"));
-    m_modPicture = new DefCategoryWidget;
-    m_modPicture->setTitle(tr("Picture"));
-    m_modTerminal = new DefCategoryWidget;
-    m_modTerminal->setTitle(tr("Terminal"));
-    m_modCDAudio = new DefCategoryWidget;
+    m_modBrowser = new DefCategoryWidget(tr("Browser"));
+    m_modMail = new DefCategoryWidget(tr("Mail"));
+    m_modText = new DefCategoryWidget(tr("Text"));
+    m_modMusic = new DefCategoryWidget(tr("Music"));
+    m_modVideo = new DefCategoryWidget(tr("Video"));
+    m_modPicture = new DefCategoryWidget(tr("Picture"));
+    m_modTerminal = new DefCategoryWidget(tr("Terminal"));
+    m_modCDAudio = new DefCategoryWidget(tr("CD Audio"));
     m_modCDAudio->hide();
-    m_modCDAudio->setTitle(tr("CD Audio"));
-    m_modDVDVideo = new DefCategoryWidget;
+    m_modDVDVideo = new DefCategoryWidget(tr("DVD Video"));
     m_modDVDVideo->hide();
-    m_modDVDVideo->setTitle(tr("DVD Video"));
-    m_modMusicPlayer = new DefCategoryWidget;
+    m_modMusicPlayer = new DefCategoryWidget(tr("Music Player"));
     m_modMusicPlayer->hide();
-    m_modMusicPlayer->setTitle(tr("Music Player"));
-    m_modCamera = new DefCategoryWidget;
+    m_modCamera = new DefCategoryWidget(tr("Camera"));
     m_modCamera->hide();
-    m_modCamera->setTitle(tr("Camera"));
-    m_modSoftware = new DefCategoryWidget;
+    m_modSoftware = new DefCategoryWidget(tr("Software"));
     m_modSoftware->hide();
-    m_modSoftware->setTitle(tr("Software"));
 
     m_switchWidget = new dcc::SwitchWidget();
     connect(m_switchWidget, &dcc::SwitchWidget::checkedChanegd, this, &DefAppViewer::autoOpenChanged);
@@ -48,9 +35,6 @@ QWidget* DefAppViewer::defappDetail() {
     QPushButton *button = new QPushButton("Reset");
     connect(button,&QPushButton::clicked,this,&DefAppViewer::Reset);
 
-    QPushButton *editButton = new QPushButton("Edit");
-    connect(editButton, &QPushButton::clicked, this ,&DefAppViewer::onEdit);
-    m_mainlayout->addWidget(editButton);
     m_mainlayout->addWidget(button);
     m_mainlayout->addWidget(m_modBrowser);
     m_mainlayout->addWidget(m_modMail);
@@ -66,13 +50,64 @@ QWidget* DefAppViewer::defappDetail() {
     m_mainlayout->addWidget(m_modCamera);
     m_mainlayout->addWidget(m_modSoftware);
 
-    connect(m_modBrowser,  &DefCategoryWidget::setDefaultApp, this, &DefAppViewer::SetDefaultApp);
-    connect(m_modMail,     &DefCategoryWidget::setDefaultApp, this, &DefAppViewer::SetDefaultApp);
-    connect(m_modText,     &DefCategoryWidget::setDefaultApp, this, &DefAppViewer::SetDefaultApp);
-    connect(m_modMusic,    &DefCategoryWidget::setDefaultApp, this, &DefAppViewer::SetDefaultApp);
-    connect(m_modVideo,    &DefCategoryWidget::setDefaultApp, this, &DefAppViewer::SetDefaultApp);
-    connect(m_modPicture,  &DefCategoryWidget::setDefaultApp, this, &DefAppViewer::SetDefaultApp);
-    connect(m_modTerminal, &DefCategoryWidget::setDefaultApp, this, &DefAppViewer::SetDefaultApp);
+    connect(m_modBrowser,  &DefCategoryWidget::setDefaultApp,    this, &DefAppViewer::SetDefaultApp);
+    connect(m_modMail,     &DefCategoryWidget::setDefaultApp,    this, &DefAppViewer::SetDefaultApp);
+    connect(m_modText,     &DefCategoryWidget::setDefaultApp,    this, &DefAppViewer::SetDefaultApp);
+    connect(m_modMusic,    &DefCategoryWidget::setDefaultApp,    this, &DefAppViewer::SetDefaultApp);
+    connect(m_modVideo,    &DefCategoryWidget::setDefaultApp,    this, &DefAppViewer::SetDefaultApp);
+    connect(m_modPicture,  &DefCategoryWidget::setDefaultApp,    this, &DefAppViewer::SetDefaultApp);
+    connect(m_modTerminal, &DefCategoryWidget::setDefaultApp,    this, &DefAppViewer::SetDefaultApp);
+
+    connect(m_modCDAudio, &DefCategoryWidget::setDefaultApp,     this, &DefAppViewer::SetDefaultApp);
+    connect(m_modDVDVideo, &DefCategoryWidget::setDefaultApp,    this, &DefAppViewer::SetDefaultApp);
+    connect(m_modMusicPlayer, &DefCategoryWidget::setDefaultApp, this, &DefAppViewer::SetDefaultApp);
+    connect(m_modCamera, &DefCategoryWidget::setDefaultApp,      this, &DefAppViewer::SetDefaultApp);
+    connect(m_modSoftware, &DefCategoryWidget::setDefaultApp,    this, &DefAppViewer::SetDefaultApp);
+
+
+    connect(m_modBrowser,  &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
+    connect(m_modMail,     &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
+    connect(m_modText,     &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
+    connect(m_modMusic,    &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
+    connect(m_modVideo,    &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
+    connect(m_modPicture,  &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
+    connect(m_modTerminal, &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
+
+    connect(m_modCDAudio, &DefCategoryWidget::addUserApp,     this, &DefAppViewer::AddUserApp);
+    connect(m_modDVDVideo, &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
+    connect(m_modMusicPlayer, &DefCategoryWidget::addUserApp, this, &DefAppViewer::AddUserApp);
+    connect(m_modCamera, &DefCategoryWidget::addUserApp,      this, &DefAppViewer::AddUserApp);
+    connect(m_modSoftware, &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
+
+    connect(m_modBrowser,  &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
+    connect(m_modMail,     &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
+    connect(m_modText,     &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
+    connect(m_modMusic,    &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
+    connect(m_modVideo,    &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
+    connect(m_modPicture,  &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
+    connect(m_modTerminal, &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
+
+    connect(m_modCDAudio, &DefCategoryWidget::delUserApp,     this, &DefAppViewer::DelUserApp);
+    connect(m_modDVDVideo, &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
+    connect(m_modMusicPlayer, &DefCategoryWidget::delUserApp, this, &DefAppViewer::DelUserApp);
+    connect(m_modCamera, &DefCategoryWidget::delUserApp,      this, &DefAppViewer::DelUserApp);
+    connect(m_modSoftware, &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
+
+
+    connect(m_modBrowser,  &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
+    connect(m_modMail,     &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
+    connect(m_modText,     &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
+    connect(m_modMusic,    &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
+    connect(m_modVideo,    &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
+    connect(m_modPicture,  &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
+    connect(m_modTerminal, &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
+
+    connect(m_modCDAudio, &DefCategoryWidget::requestFrameAutoHide,     this, &DefAppViewer::requestFrameAutoHide);
+    connect(m_modDVDVideo, &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
+    connect(m_modMusicPlayer, &DefCategoryWidget::requestFrameAutoHide, this, &DefAppViewer::requestFrameAutoHide);
+    connect(m_modCamera, &DefCategoryWidget::requestFrameAutoHide,      this, &DefAppViewer::requestFrameAutoHide);
+    connect(m_modSoftware, &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
+
 
     return m_mainwidget;
 }
@@ -105,14 +140,3 @@ void DefAppViewer::setAutoChanged(const bool visible) {
     m_switchWidget->setChecked(visible);
 }
 
-void DefAppViewer::onEdit()
-{
-    for (int cc = m_mainlayout->layout()->count()-1; cc >= 0; --cc) {
-        QLayoutItem *it = m_mainlayout->layout()->itemAt(cc);
-        DefCategoryWidget *orderHistory = qobject_cast<DefCategoryWidget *>(it->widget());
-        if (orderHistory != 0)
-        {
-            orderHistory->onEdit();
-        }
-    }
-}

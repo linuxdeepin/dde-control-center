@@ -1,5 +1,5 @@
 #include "defappworker.h"
-
+#include "optionwidget.h"
 const QString ManagerService = "com.deepin.api.Mime";
 const QString MediaService   = "com.deepin.api.Mime";
 
@@ -7,7 +7,7 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     QObject(parent),
     m_defAppModel(model),
     m_dbusManager(new Manager(ManagerService, "/com/deepin/api/Manager", QDBusConnection::sessionBus(), this)),
-    m_dbusMedia(new Media(MediaService, "/com/deepin/api/Media", QDBusConnection::sessionBus(),this))
+    m_dbusMedia(new Media(MediaService, "/com/deepin/api/Media", QDBusConnection::sessionBus(), this))
 {
     m_stringToCategory.insert("Browser",     Browser);
     m_stringToCategory.insert("Mail",        Mail);
@@ -26,8 +26,8 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     connect(m_dbusManager, &Manager::serviceValidChanged, this, &DefAppWorker::serviceStartFinished, Qt::QueuedConnection);
     connect(m_dbusMedia,   &Media::serviceValidChanged,   this, &DefAppWorker::serviceStartFinished, Qt::QueuedConnection);
 
-    connect(m_dbusManager, &Manager::Change, this, &DefAppWorker::onGetDefaultAppChanged);
-    connect(m_dbusManager, &Manager::Change, this, &DefAppWorker::onGetListAppsChanged);
+    connect(m_dbusManager, &Manager::Change, this, &DefAppWorker::onGetDefaultApp);
+    connect(m_dbusManager, &Manager::Change, this, &DefAppWorker::onGetListApps);
 
     connect(m_dbusMedia, &Media::AutoOpenChanged, m_defAppModel, static_cast<void (DefAppModel::*)(const bool)>(&DefAppModel::setAutoOpen));
 
@@ -55,24 +55,19 @@ void DefAppWorker::deactive()
     m_dbusMedia->blockSignals(true);
 }
 
-void DefAppWorker::onSetDefaultAppChanged(const QString &name, const QString &category) {
-    QMap<QString, DefAppWorker::DefaultAppsCategory>::const_iterator i;
-    for (i = m_stringToCategory.constBegin(); i != m_stringToCategory.constEnd(); ++i) {
-        if(i.key() == category) {
-            QStringList mimelist = getTypeListByCategory(i.value());
-            for (const QString &mime : mimelist) {
-//                m_dbusManager->SetDefaultApp(mime, name);
-                qDebug()<< "已经设置" << name << mime;
-            }
-        }
-    }
+void DefAppWorker::onSetDefaultApp(const QString &category, const QJsonObject &item)
+{
+    QStringList mimelist = getTypeListByCategory(m_stringToCategory[category]);
+    m_dbusManager->SetDefaultApp(mimelist, item["Id"].toString());
+    onGetDefaultApp();
 }
 
-void DefAppWorker::onGetDefaultAppChanged() {
+void DefAppWorker::onGetDefaultApp()
+{
     //得到默认程序
     for (QMap<QString, DefAppWorker::DefaultAppsCategory>::const_iterator mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
         QDBusPendingReply<QString> rep;
-        if(isMediaApps(mimelist.value())) {
+        if (isMediaApps(mimelist.value())) {
             rep = m_dbusMedia->GetDefaultApp(getTypeByCategory(mimelist.value()));
         } else {
             rep = m_dbusManager->GetDefaultApp(getTypeByCategory(mimelist.value()));
@@ -85,71 +80,107 @@ void DefAppWorker::onGetDefaultAppChanged() {
     }
 }
 
-void DefAppWorker::onGetListAppsChanged() {
+void DefAppWorker::onGetListApps()
+{
     //遍历QMap去获取dbus数据
-    for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist){
+    for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
         QDBusPendingReply<QString> rep;
-        if(isMediaApps(mimelist.value())) {
+        if (isMediaApps(mimelist.value())) {
             rep = m_dbusMedia->ListApps(getTypeByCategory(mimelist.value()));
         } else {
             rep = m_dbusManager->ListApps(getTypeByCategory(mimelist.value()));
         }
-
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(rep, this);
         watcher->setProperty("mime", mimelist.key());
         connect(watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getListAppFinished);
     }
+    //get user app list
+    for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
+        QDBusPendingReply<QString> rep;
+        rep = m_dbusManager->ListUserApps(getTypeByCategory(mimelist.value()));
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(rep, this);
+        watcher->setProperty("mime", mimelist.key());
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getUserAppFinished);
+    }
 }
 
-void DefAppWorker::onResetTriggered() {
+void DefAppWorker::onResetTriggered()
+{
     m_dbusManager->Reset();
     m_dbusMedia->Reset();
 }
 
-void DefAppWorker::onAutoOpenChanged(const bool state) {
+void DefAppWorker::onAutoOpenChanged(const bool state)
+{
     m_dbusMedia->EnableAutoOpen(state);
 }
 
-void DefAppWorker::getListAppFinished(QDBusPendingCallWatcher *w) {
-    QList<QStringList> t;
+void DefAppWorker::onAddUserApp(const QString &category, const QJsonObject &item)
+{
+    QStringList mimelist = getTypeListByCategory(m_stringToCategory[category]);
+    m_dbusManager->AddUserApp(mimelist, item["Id"].toString());
+    onGetListApps();
+}
+
+void DefAppWorker::onDelUserApp(const QJsonObject &item)
+{
+    m_dbusManager->DeleteUserApp(item["Id"].toString());
+    onGetListApps();
+}
+
+void DefAppWorker::getListAppFinished(QDBusPendingCallWatcher *w)
+{
+    QList<QJsonObject> t;
     QDBusPendingReply<QString> reply = *w;
     const QString mime = w->property("mime").toString();
-    QStringList list;
     const  QJsonArray &defaultApp = QJsonDocument::fromJson(reply.value().toUtf8()).array();
     for (int i = 0; i != defaultApp.size(); ++i) {
-        const QString &defAppName = defaultApp.at(i).toObject().take("Name").toString();
-        const QString &defAppId = defaultApp.at(i).toObject().take("Id").toString();
-        list.clear();
-        list.append(defAppName);
-        list.append(defAppId);
-        list.append(mime);
-        t.append(list);
+        const QJsonObject object = defaultApp.at(i).toObject();
+        t.insert(t.end(), object);
     }
-    m_defAppModel->setAppList(mime,t);
+    m_defAppModel->setAppList(mime, t);
     w->deleteLater();
 }
 
-void DefAppWorker::getDefaultAppFinished(QDBusPendingCallWatcher *w) {
+void DefAppWorker::getUserAppFinished(QDBusPendingCallWatcher *w)
+{
+    QList<QJsonObject> t;
+    QDBusPendingReply<QString> reply = *w;
+    const QString mime = w->property("mime").toString();
+    const  QJsonArray &defaultApp = QJsonDocument::fromJson(reply.value().toUtf8()).array();
+    for (int i = 0; i != defaultApp.size(); ++i) {
+        const QJsonObject object  = defaultApp.at(i).toObject();
+        t.insert(t.end(), object);
+    }
+    m_defAppModel->setUserList(mime, t);
+    w->deleteLater();
+}
+
+void DefAppWorker::getDefaultAppFinished(QDBusPendingCallWatcher *w)
+{
     QDBusPendingReply<QString> reply = *w;
     const QString mime = w->property("mime").toString();
     const QJsonObject &defaultApp = QJsonDocument::fromJson(reply.value().toStdString().c_str()).object();
     const QString &defAppId = defaultApp.value("Id").toString();
-    m_defAppModel->setDefault(mime,defAppId);
+    m_defAppModel->setDefault(mime, defAppId);
     w->deleteLater();
 }
 
-void DefAppWorker::serviceStartFinished() {
-    if (!m_dbusMedia->isValid() || !m_dbusManager->isValid())
+void DefAppWorker::serviceStartFinished()
+{
+    if (!m_dbusMedia->isValid() || !m_dbusManager->isValid()) {
         return;
+    }
 
     qDebug() << m_dbusMedia->isValid() << m_dbusManager->isValid();
 
-    onGetListAppsChanged();
-    onGetDefaultAppChanged();
+    onGetListApps();
+    onGetDefaultApp();
     m_defAppModel->setAutoOpen(m_dbusMedia->autoOpen());
 }
 
-bool DefAppWorker::isMediaApps(const DefaultAppsCategory &category) const {
+bool DefAppWorker::isMediaApps(const DefaultAppsCategory &category) const
+{
     switch (category) {
     case DefAppWorker::DefaultAppsCategory::Browser:
     case DefAppWorker::DefaultAppsCategory::Mail:
@@ -170,32 +201,34 @@ bool DefAppWorker::isMediaApps(const DefaultAppsCategory &category) const {
     return true;
 }
 
-const QString DefAppWorker::getTypeByCategory(const DefaultAppsCategory &category){
+const QString DefAppWorker::getTypeByCategory(const DefaultAppsCategory &category)
+{
     return getTypeListByCategory(category)[0];
 }
 
-const QStringList DefAppWorker::getTypeListByCategory(const DefaultAppsCategory &category) {
+const QStringList DefAppWorker::getTypeListByCategory(const DefaultAppsCategory &category)
+{
     switch (category) {
     case Browser:       return QStringList() << "x-scheme-handler/http" << "x-scheme-handler/ftp" << "x-scheme-handler/https"
-                                             << "text/html" << "text/xml" << "text/xhtml_xml" << "text/xhtml+xml";
+                                   << "text/html" << "text/xml" << "text/xhtml_xml" << "text/xhtml+xml";
     case Mail:          return QStringList() << "x-scheme-handler/mailto" << "message/rfc822" << "application/x-extension-eml"
-                                             << "application/x-xpinstall";
+                                   << "application/x-xpinstall";
     case Text:          return QStringList() << "text/plain";
     case Music:         return QStringList() << "audio/mpeg" << "audio/mp3" << "audio/x-mp3" << "audio/mpeg3" << "audio/x-mpeg-3"
-                                             << "audio/x-mpeg" << "audio/flac" << "audio/x-flac" << "application/x-flac"
-                                             << "audio/ape" << "audio/x-ape" << "application/x-ape" << "audio/ogg" << "audio/x-ogg"
-                                             << "audio/musepack" << "application/musepack" << "audio/x-musepack"
-                                             << "application/x-musepack" << "audio/mpc" << "audio/x-mpc" << "audio/vorbis"
-                                             << "audio/x-vorbis" << "audio/x-wav" << "audio/x-ms-wma";
+                                   << "audio/x-mpeg" << "audio/flac" << "audio/x-flac" << "application/x-flac"
+                                   << "audio/ape" << "audio/x-ape" << "application/x-ape" << "audio/ogg" << "audio/x-ogg"
+                                   << "audio/musepack" << "application/musepack" << "audio/x-musepack"
+                                   << "application/x-musepack" << "audio/mpc" << "audio/x-mpc" << "audio/vorbis"
+                                   << "audio/x-vorbis" << "audio/x-wav" << "audio/x-ms-wma";
     case Video:         return QStringList() << "video/mp4" << "audio/mp4" << "audio/x-matroska" << "video/x-matroska"
-                                             << "application/x-matroska" << "video/avi" << "video/msvideo" << "video/x-msvideo"
-                                             << "video/ogg" << "application/ogg" << "application/x-ogg" << "video/3gpp" << "video/3gpp2"
-                                             << "video/flv" << "video/x-flv" << "video/x-flic" << "video/mpeg" << "video/x-mpeg"
-                                             << "video/x-ogm" << "application/x-shockwave-flash" << "video/x-theora" << "video/quicktime"
-                                             << "video/x-ms-asf" << "application/vnd.rn-realmedia" << "video/x-ms-wmv";
+                                   << "application/x-matroska" << "video/avi" << "video/msvideo" << "video/x-msvideo"
+                                   << "video/ogg" << "application/ogg" << "application/x-ogg" << "video/3gpp" << "video/3gpp2"
+                                   << "video/flv" << "video/x-flv" << "video/x-flic" << "video/mpeg" << "video/x-mpeg"
+                                   << "video/x-ogm" << "application/x-shockwave-flash" << "video/x-theora" << "video/quicktime"
+                                   << "video/x-ms-asf" << "application/vnd.rn-realmedia" << "video/x-ms-wmv";
     case Picture:       return QStringList() << "image/jpeg" << "image/pjpeg" << "image/bmp" << "image/x-bmp" << "image/png"
-                                             << "image/x-png" << "image/tiff" << "image/svg+xml" << "image/x-xbitmap" << "image/gif"
-                                             << "image/x-xpixmap";
+                                   << "image/x-png" << "image/tiff" << "image/svg+xml" << "image/x-xbitmap" << "image/gif"
+                                   << "image/x-xpixmap";
     case Terminal:      return QStringList() << "application/x-terminal";
     case CD_Audio:      return QStringList() << "x-content/audio-cdda";
     case DVD_Video:     return QStringList() << "x-content/video-dvd";

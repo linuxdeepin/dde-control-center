@@ -14,8 +14,9 @@ DefaultAppsModule::~DefaultAppsModule()
     m_defAppModel->deleteLater();
     m_defAppWorker->deleteLater();
 
-    if (m_defaultappsWidget)
+    if (m_defaultappsWidget) {
         m_defaultappsWidget->deleteLater();
+    }
 }
 
 void DefaultAppsModule::initialize()
@@ -24,6 +25,7 @@ void DefaultAppsModule::initialize()
     m_defAppWorker = new DefAppWorker(m_defAppModel);
     m_defAppModel->moveToThread(qApp->thread());
     m_defAppWorker->moveToThread(qApp->thread());
+
 }
 
 void DefaultAppsModule::moduleActive()
@@ -57,19 +59,28 @@ void DefaultAppsModule::showDefaultAppsDetail()
     if (!m_defaultAppsDetail) {
         m_defaultAppsDetail = new DefAppViewer;
         m_defaultAppsDetail->setModel(m_defAppModel);
-        connect(m_defaultAppsDetail, &DefAppViewer::SetDefaultApp,   m_defAppWorker, &DefAppWorker::onSetDefaultAppChanged); //设置默认程序
+        connect(m_defaultAppsDetail, &DefAppViewer::SetDefaultApp,   m_defAppWorker, &DefAppWorker::onSetDefaultApp); //设置默认程序
         connect(m_defaultAppsDetail, &DefAppViewer::Reset,           m_defAppWorker, &DefAppWorker::onResetTriggered);  //恢复默认
         connect(m_defaultAppsDetail, &DefAppViewer::autoOpenChanged, m_defAppWorker, &DefAppWorker::onAutoOpenChanged);
+        connect(m_defaultAppsDetail, &DefAppViewer::AddUserApp,      m_defAppWorker, &DefAppWorker::onAddUserApp);
+        connect(m_defaultAppsDetail, &DefAppViewer::DelUserApp,      m_defAppWorker, &DefAppWorker::onDelUserApp);
 
+        connect(m_defaultAppsDetail, &DefAppViewer::requestFrameAutoHide, this, &DefaultAppsModule::setFrameAutoHide);
     }
     m_frameProxy->pushWidget(this, m_defaultAppsDetail);
 }
 
-void DefaultAppsModule::contentPopped(ContentWidget * const w)
+void DefaultAppsModule::contentPopped(ContentWidget *const w)
 {
-    if (w == m_defaultAppsDetail)
+    if (w == m_defaultAppsDetail) {
         m_defaultAppsDetail = nullptr;
+    }
 
     w->deleteLater();
+}
+
+void DefaultAppsModule::setFrameAutoHide(const bool autoHide)
+{
+    m_frameProxy->setFrameAutoHide(this, autoHide);
 }
 

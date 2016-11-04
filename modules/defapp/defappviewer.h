@@ -21,15 +21,15 @@ public:
     void setModel(DefAppModel * const model);
 
 signals:
-    void SetDefaultApp(const QString &name, const QString &mime);
+    void SetDefaultApp(const QString &category, const QJsonObject &item);
+    void AddUserApp(const QString &category, const QJsonObject &item);
+    void DelUserApp(const QJsonObject &item);
     void Reset();
     void autoOpenChanged(const bool state);
+    void requestFrameAutoHide(const bool autoHide) const;
 
 private slots:
     void setAutoChanged(const bool visible);
-
-private:
-    void onEdit();
 
 private:
     QVBoxLayout         *m_mainlayout;

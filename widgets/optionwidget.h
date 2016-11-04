@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QPushButton>
 #include <dimagebutton.h>
+#include <QJsonObject>
 
 namespace dcc {
 
@@ -22,41 +23,42 @@ class OptionWidget : public SettingsItem
 
 public:
     explicit OptionWidget(QWidget *parent = 0);
+    const QJsonObject getItem(){ return m_CategoryItem;}
+    void setItem(const QJsonObject &item);
     const QString id()    const;
     const QString name()  const;
     const QString displayName() const;
     const QString mime() const;
     bool checked() const;
     void setCheckedIcon(const QPixmap &icon);
+    bool userCheck() const;
     QHBoxLayout *layout();
 
 public slots:
-    void setName(const QString &name);
-    void setDisplayName(const QString &displayname);
-    void setId(const QString &id);
-    void setIcon(const QString &icon);
-    void setIcon(const QPixmap &icon);
     void setChecked(const bool checked);
-    void setDelete();
+    void setDelete(const bool delchecked);
     void setMime(const QString &mime);
+    void setUserCheck(const bool check);
 
 private:
     QHBoxLayout  *m_mainlayout;
     QLabel       *m_optionIcon;
-    QString       m_optionName;
+    QLabel       *m_execPath;
     DImageButton *m_delete;
     QLabel       *m_checkedIconLabel;
     QLabel       *m_displayName;
     bool          m_checked           = false;
+    bool          m_delchecked        = false;
+    bool          m_userCheck         = false;
     QString       m_mime;
-    QString       m_optionid;
+    QJsonObject m_CategoryItem;
 
 protected:
     void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
-    void set(const QString &mime, const QString &id);
-    void deleteClicked(const QString &id);
+    void removeItem(const QJsonObject &item);
+    void setDefault(const QString &mime, const QString &id);
     void checkedChanged(const bool checked) const;
     void checkedIconChanged(const QPixmap &icon) const;
 };

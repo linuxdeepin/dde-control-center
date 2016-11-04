@@ -21,14 +21,17 @@ public:
     void deactive();
 
 public slots:
-    void onSetDefaultAppChanged(const QString &name, const QString &category);
-    void onGetDefaultAppChanged();
-    void onGetListAppsChanged();
+    void onSetDefaultApp(const QString &category, const QJsonObject &item);
+    void onGetDefaultApp();
+    void onGetListApps();
     void onResetTriggered();
     void onAutoOpenChanged(const bool state);
+    void onAddUserApp(const QString &category, const QJsonObject &item);
+    void onDelUserApp(const QJsonObject &item);
 
 private slots:
     void getListAppFinished(QDBusPendingCallWatcher *w);
+    void getUserAppFinished(QDBusPendingCallWatcher *w);
     void getDefaultAppFinished(QDBusPendingCallWatcher *w);
     void serviceStartFinished();
 
@@ -41,6 +44,7 @@ private:
         Browser, Mail, Text, Music, Video, Picture, Terminal,
         CD_Audio, DVD_Video, MusicPlayer, Camera, Software,
     };
+
     QMap<QString, DefaultAppsCategory> m_stringToCategory;
 
 private:

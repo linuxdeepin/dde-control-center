@@ -1,55 +1,62 @@
 #include "defappmodel.h"
+#include <string.h>
 
-
-DefAppModel::DefAppModel(QObject *parent) {
+DefAppModel::DefAppModel(QObject *parent)
+{
     Q_UNUSED(parent);
-    m_modBrowser = new Category(this);
-    m_modBrowser->setCategory("Browser");
-    m_modMail = new Category(this);
-    m_modMail->setCategory("Mail");
-    m_modText = new Category(this);
-    m_modText->setCategory("Text");
-    m_modMusic = new Category(this);
-    m_modMusic->setCategory("Music");
-    m_modVideo = new Category(this);
-    m_modVideo->setCategory("Video");
-    m_modPicture = new Category(this);
-    m_modPicture->setCategory("Picture");
-    m_modTerminal = new Category(this);
-    m_modTerminal->setCategory("Terminal");
+    Category *modBrowser = new Category(this);
+    modBrowser->setCategory("Browser");
+    Category *modMail = new Category(this);
+    modMail->setCategory("Mail");
+    Category *modText = new Category(this);
+    modText->setCategory("Text");
+    Category *modMusic = new Category(this);
+    modMusic->setCategory("Music");
+    Category *modVideo = new Category(this);
+    modVideo->setCategory("Video");
+    Category *modPicture = new Category(this);
+    modPicture->setCategory("Picture");
+    Category *modTerminal = new Category(this);
+    modTerminal->setCategory("Terminal");
 
-    m_modCDAudio = new Category(this);
-    m_modCDAudio->setCategory("CD_Audio");
-    m_modDVDVideo = new Category(this);
-    m_modDVDVideo->setCategory("DVD_Video");
-    m_modMusicPlayer = new Category(this);
-    m_modMusicPlayer->setCategory("MusicPlayer");
-    m_modCamera = new Category(this);
-    m_modCamera->setCategory("Camera");
-    m_modSoftware = new Category(this);
-    m_modSoftware->setCategory("Software");
+    Category *modCDAudio = new Category(this);
+    modCDAudio->setCategory("CD_Audio");
+    Category *modDVDVideo = new Category(this);
+    modDVDVideo->setCategory("DVD_Video");
+    Category *modMusicPlayer = new Category(this);
+    modMusicPlayer->setCategory("MusicPlayer");
+    Category *modCamera = new Category(this);
+    modCamera->setCategory("Camera");
+    Category *modSoftware = new Category(this);
+    modSoftware->setCategory("Software");
 
 
-    m_categoryList.append(m_modBrowser);
-    m_categoryList.append(m_modMail);
-    m_categoryList.append(m_modText);
-    m_categoryList.append(m_modMusic);
-    m_categoryList.append(m_modVideo);
-    m_categoryList.append(m_modPicture);
-    m_categoryList.append(m_modTerminal);
-    m_categoryList.append(m_modCDAudio);
-    m_categoryList.append(m_modDVDVideo);
-    m_categoryList.append(m_modMusicPlayer);
-    m_categoryList.append(m_modCamera);
-    m_categoryList.append(m_modSoftware);
+    m_categoryList.append(modBrowser);
+    m_categoryList.append(modMail);
+    m_categoryList.append(modText);
+    m_categoryList.append(modMusic);
+    m_categoryList.append(modVideo);
+    m_categoryList.append(modPicture);
+    m_categoryList.append(modTerminal);
+    m_categoryList.append(modCDAudio);
+    m_categoryList.append(modDVDVideo);
+    m_categoryList.append(modMusicPlayer);
+    m_categoryList.append(modCamera);
+    m_categoryList.append(modSoftware);
 
 }
 
-Category *DefAppModel::getCategory(const QString &category) {
-    for (int cc = m_categoryList.count()-1; cc >= 0; --cc) {
+DefAppModel::~DefAppModel()
+{
+
+}
+
+Category *DefAppModel::getCategory(const QString &category)
+{
+    for (int cc = m_categoryList.count() - 1; cc >= 0; --cc) {
         Category *orderHistory = qobject_cast<Category *>(m_categoryList.at(cc));
         if (orderHistory != 0) {
-            if(orderHistory->getName() == category) {
+            if (orderHistory->getName() == category) {
                 return orderHistory;
             }
         }
@@ -57,90 +64,64 @@ Category *DefAppModel::getCategory(const QString &category) {
     return nullptr;
 }
 
-void DefAppModel::setAppList(const QString &category, QList<QStringList> &list) {
-    if (!getCategory(category)) {
+void DefAppModel::setAppList(const QString &category, QList<QJsonObject> &list)
+{
+    Category *orderHistory = getCategory(category);
+    if (!orderHistory) {
         return;
     }
-    getCategory(category)->setList(list);
+    orderHistory->setappList(list);
 }
 
-void DefAppModel::setDefault(const QString &category, const QString &id) {
-    if (!getCategory(category)) {
+void DefAppModel::setUserList(const QString &category, QList<QJsonObject> &list)
+{
+    Category *orderHistory = getCategory(category);
+    if (!orderHistory) {
         return;
     }
-    getCategory(category)->setDefault(id);
+    orderHistory->setuserList(list);
 }
 
-void DefAppModel::setAutoOpen(const bool state) {
-    qDebug()<<"Model state :"<<state;
+void DefAppModel::setDefault(const QString &category, const QString &id)
+{
+    Category *orderHistory = getCategory(category);
+    if (!orderHistory) {
+        return;
+    }
+    orderHistory->setDefault(id);
+}
+
+void DefAppModel::setAutoOpen(const bool state)
+{
+    qDebug() << "Model state :" << state;
     if (m_autoOpen != state) {
         m_autoOpen = state;
         emit AutoOpenChanged(m_autoOpen);
     }
 }
 
-Category::Category(QObject *parent) {
+
+Category::Category(QObject *parent)
+{
     Q_UNUSED(parent);
+}
+
+void Category::setuserList(const QList<QJsonObject> &list)
+{
+    m_userlist = list;
+    emit userItemChanged();
+}
+
+void Category::setappList(const QList<QJsonObject> &list)
+{
+    m_applist = list;
+    emit itemsChanged();
 }
 
 void Category::setDefault(const QString &id)
 {
-    if (m_id != id){
+    if (m_id != id) {
         m_id = id;
         emit defaultChanged(id);
-    }
-}
-
-void Category::setList(const QList<QStringList> &list) {
-    //对比list，进行内容的对比，并发出信号，然后保存最新的list
-    if (m_list != list) {
-        if (m_list.isEmpty()){
-            m_list = list;
-        } else {
-            if (m_list.count() > list.count()) {
-                //如果原数据比新数据大，则删除了部分程序，发出删除的信号
-                QMap<QStringList,int> listmap;
-                for (QStringList s : m_list) {
-                    listmap.insert(s,1);
-                }
-                for (QStringList s : list) {
-                    int cc  = listmap.value(s);
-                    if(cc != 0) {
-                        listmap.insert(s,++cc);
-                        continue;
-                    }
-                    listmap.insert(s,1);
-                }
-                QMap<QStringList,int>::const_iterator it = listmap.constBegin();
-                while (it != listmap.constEnd()) {
-                    if (it.value() == 1) {
-                        emit itemsRemoved(it.key());
-                    }
-                    ++it;
-                }
-                qDebug()<<"delete "<<it.key();
-            } else {
-                QMap<QStringList,int> listmap;
-                for (QStringList s : list) {
-                    listmap.insert(s,1);
-                }
-                for (QStringList s : m_list) {
-                    int cc  = listmap.value(s);
-                    if (cc != 0) {
-                        listmap.insert(s,++cc);
-                        continue;
-                    }
-                    listmap.insert(s,1);
-                }
-                QMap<QStringList,int>::const_iterator it = listmap.constBegin();
-                while (it != listmap.constEnd()) {
-                    if (it.value() == 1) {
-                        emit itemsAdded(it.key());
-                    }
-                    ++it;
-                }
-            }
-            m_list = list;
-        }
     }
 }
