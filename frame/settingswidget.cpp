@@ -9,6 +9,7 @@
 #include "sound/soundmodule.h"
 #include "datetime/datetimemodule.h"
 #include "defapp/defaultappsmodule.h"
+#include "bluetooth/bluetoothmodule.h"
 
 #include <QVBoxLayout>
 #include <QResizeEvent>
@@ -30,6 +31,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new AccountsModule(this));
     loadModule(new PowerModule(this));
     loadModule(new UpdateModule(this));
+    loadModule(new BluetoothModule(this));
     loadModule(new SoundModule(this));
     loadModule(new DatetimeModule(this));
     loadModule(new DefaultAppsModule(this));
