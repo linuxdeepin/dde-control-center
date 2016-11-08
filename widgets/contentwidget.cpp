@@ -5,6 +5,8 @@
 #include <QResizeEvent>
 #include <QTimer>
 #include <QDebug>
+#include <QScroller>
+#include <QScrollBar>
 
 #include <dimagebutton.h>
 #include <dseparatorhorizontal.h>
@@ -32,6 +34,10 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_contentArea->setFrameStyle(QFrame::NoFrame);
     m_contentArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_contentArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    // Supporting flick gestures and make wheel scrolling more smooth.
+    m_contentArea->viewport()->installEventFilter(this);
+    QScroller::grabGesture(m_contentArea->viewport(), QScroller::LeftMouseButtonGesture);
 
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->addWidget(backBtn);
@@ -74,8 +80,29 @@ QWidget *ContentWidget::setContent(QWidget * const w)
 
 bool ContentWidget::eventFilter(QObject *watched, QEvent *event)
 {
-    if (m_content && watched == m_contentArea && event->type() == QEvent::Resize)
+    if (m_content && watched == m_contentArea && event->type() == QEvent::Resize ) {
         m_content->setFixedWidth(static_cast<QResizeEvent *>(event)->size().width());
+    }
+
+    if (m_content && watched == m_contentArea->viewport() && event->type() == QEvent::Wheel) {
+        const QWheelEvent *wheel = static_cast<QWheelEvent*>(event);
+
+        QWidget * viewport = qobject_cast<QWidget*>(m_contentArea->viewport());
+        QScroller *scroller = QScroller::scroller(viewport);
+        QScrollBar *vBar = m_contentArea->verticalScrollBar();
+
+        const float curPos = viewport->height() * (vBar->value() * 1.0 / (vBar->maximum() - vBar->minimum()));
+        const float delta = -wheel->delta();
+
+        // FIXME(hualet): overshoots happen while scrolling down, but not scrolling up.
+        if (delta > 0) {
+            scroller->scrollTo(QPointF(0, curPos + delta));
+        } else {
+            scroller->scrollTo(QPointF(0, curPos + delta * 1.2));
+        }
+
+        return true;
+    }
 
     if (watched == m_content && event->type() == QEvent::LayoutRequest)
         m_content->setFixedHeight(m_content->layout()->sizeHint().height());
