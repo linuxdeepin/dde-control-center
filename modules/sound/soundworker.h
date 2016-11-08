@@ -18,7 +18,7 @@ class SoundWorker : public QObject, public ModuleWorker
 {
     Q_OBJECT
 public:
-    SoundWorker(QObject * parent = 0);
+    explicit SoundWorker(QObject * parent = 0);
 
     void activate() Q_DECL_OVERRIDE;
     void deactivate() Q_DECL_OVERRIDE;

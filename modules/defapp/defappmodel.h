@@ -9,8 +9,9 @@ class DefAppWorker;
 
 class Category : public QObject {
     Q_OBJECT
+
 public:
-    Category(QObject *parent = 0);
+    explicit Category(QObject *parent = 0);
     void setList(const QList<QStringList> &list);   //设置list到暂存区
     void setDefault(const QString &id);
 

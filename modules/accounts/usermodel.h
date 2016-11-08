@@ -19,7 +19,7 @@ class UserModel : public QObject
 {
     Q_OBJECT
 public:
-    UserModel(QObject *parent = 0);
+    explicit UserModel(QObject *parent = 0);
     ~UserModel();
 
     User * getUser(const QString &id);

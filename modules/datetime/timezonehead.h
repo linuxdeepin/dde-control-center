@@ -12,7 +12,7 @@ class TimezoneHead : public SettingsItem
     Q_OBJECT
 
 public:
-    TimezoneHead(QFrame *parent = 0);
+    explicit TimezoneHead(QFrame *parent = 0);
 
 signals:
     void editChanged(bool edit);

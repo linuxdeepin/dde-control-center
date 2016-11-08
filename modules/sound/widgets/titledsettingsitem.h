@@ -19,7 +19,7 @@ using namespace dcc;
 class TitledSettingsItem : public SettingsItem
 {
 public:
-    TitledSettingsItem(QFrame * parent = 0);
+    explicit TitledSettingsItem(QFrame * parent = 0);
 
     QString title() const;
     void setTitle(const QString &title);
