@@ -5,14 +5,14 @@ include(../widgets/widgets.pri)
 # modules
 include(../modules/modules.pri)
 
-QT += widgets dbus svg sql
+QT += widgets dbus svg sql x11extras
 
 TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../
 TEMPLATE   = app
 CONFIG += c++11 link_pkgconfig
 #LIBS += -L../widgets -lwidgets
-PKGCONFIG      += dtkwidget dtkbase dtkutil dframeworkdbus
+PKGCONFIG      += dtkwidget dtkbase dtkutil dframeworkdbus xcb
 
 HEADERS    += \
     frame.h \

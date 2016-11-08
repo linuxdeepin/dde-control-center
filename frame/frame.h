@@ -9,13 +9,13 @@
 #include <com_deepin_daemon_display.h>
 #include <com_deepin_api_xmousearea.h>
 
-#include <QMainWindow>
+#include <QFrame>
 #include <QStack>
 
-using Display = com::deepin::daemon::Display;
 using XMouseArea = com::deepin::api::XMouseArea;
+using DBusDisplay = com::deepin::daemon::Display;
 
-class Frame : public QMainWindow
+class Frame : public QFrame
 {
     Q_OBJECT
 
@@ -27,6 +27,10 @@ public slots:
 
     void pushWidget(ContentWidget * const w);
     void popWidget();
+
+protected:
+    void paintEvent(QPaintEvent *);
+    void resizeEvent(QResizeEvent *event);
 
 private slots:
     void init();
@@ -45,8 +49,8 @@ private:
 private:
     SettingsWidget *m_allSettingsPage;
 
-    Display *m_displayInter;
     XMouseArea *m_mouseAreaInter;
+    DBusDisplay *m_displayInter;
 
     QString m_mouseAreaKey;
     QStack<FrameWidget *> m_frameWidgetStack;
