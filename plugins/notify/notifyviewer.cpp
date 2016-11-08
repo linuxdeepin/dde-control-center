@@ -61,9 +61,10 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
 
     m_close->setVisible(false);
     m_hboxlayout = new QHBoxLayout;
+    m_hboxlayout->setSpacing(0);
     m_hboxlayout->addStretch();
-    m_hboxlayout->addWidget(m_time,                   Qt::AlignRight);
-    m_hboxlayout->addWidget(m_close,                  Qt::AlignRight);
+    m_hboxlayout->addWidget(m_time, 0,                   Qt::AlignLeft);
+    m_hboxlayout->addWidget(m_close, 0,                  Qt::AlignLeft);
     m_mainlayout->addWidget(m_appIcon,    0, 0, 3, 3, Qt::AlignVCenter);
     m_mainlayout->addWidget(m_appName,    0, 3,       Qt::AlignLeft);
     m_mainlayout->addLayout(m_hboxlayout, 0, 4,       Qt::AlignRight);
