@@ -23,7 +23,7 @@ NetworkUtil::NetworkUtil()
 {
 }
 
-QString NetworkUtil::getHtml(const QString &url)
+const QString NetworkUtil::getHtml(const QString &url)
 {
     QNetworkAccessManager *manager = new QNetworkAccessManager();
     QNetworkReply *reply = manager->get(QNetworkRequest(QUrl(url)));
@@ -37,7 +37,7 @@ QString NetworkUtil::getHtml(const QString &url)
     return QString(responseData);
 }
 
-QString NetworkUtil::getNetIP(QString code)
+const QString NetworkUtil::getNetIP(QString code)
 {
     if(code.isEmpty())
     {
@@ -56,7 +56,7 @@ QString NetworkUtil::getNetIP(QString code)
     return (ip.count() > 1) ? ip[1] : QString("0.0.0.0");
 }
 
-QString NetworkUtil::ip2city(const QString &ip)
+const QString NetworkUtil::ip2city(const QString &ip)
 {
    GeoIP * gi = GeoIP_open_type(GEOIP_CITY_EDITION_REV1, GEOIP_STANDARD | GEOIP_SILENCE);
    uint32_t ipnum = _GeoIP_lookupaddress(ip.toStdString().c_str());
@@ -80,7 +80,7 @@ QString NetworkUtil::ip2city(const QString &ip)
    }
 }
 
-QString NetworkUtil::city()
+const QString NetworkUtil::city()
 {
     QString ip = getNetIP(getHtml("http://whois.pconline.com.cn/"));
     QString city = ip2city(ip);

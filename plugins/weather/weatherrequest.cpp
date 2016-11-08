@@ -92,7 +92,7 @@ void WeatherRequest::replyFinished(QNetworkReply *reply)
         {
             QJsonArray array = value.toArray();
             QJsonArray::iterator it = array.begin();
-            for(;it != array.end(); it++)
+            for(;it != array.end(); ++it)
             {
                 if((*it).isObject())
                 {
@@ -100,7 +100,7 @@ void WeatherRequest::replyFinished(QNetworkReply *reply)
                     QStringList keys = m_maps.keys();
                     QStringList::iterator keyIt = keys.begin();
                     WeatherItem item;
-                    for(; keyIt != keys.end(); keyIt++)
+                    for(; keyIt != keys.end(); ++keyIt)
                     {
                         m_maps[*keyIt]->readData(item,obj.take(*keyIt));
                     }

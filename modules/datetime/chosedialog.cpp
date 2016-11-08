@@ -178,7 +178,7 @@ Timezone MapWidget::timezone() const
 void MapWidget::onLocateCity(const QString &city)
 {
     QList<Timezone*>::iterator it = m_timezones.begin();
-    for(; it != m_timezones.end(); it++)
+    for(; it != m_timezones.end(); ++it)
     {
         if((*it)->m_city == city)
         {
@@ -226,7 +226,7 @@ void MapWidget::mousePressEvent(QMouseEvent *e)
     QList<Timezone*>::iterator it = m_timezones.begin();
 
     int count = 0;
-    for(; it != m_timezones.end(); it++)
+    for(; it != m_timezones.end(); ++it)
     {
         QPoint pos = QPoint((*it)->m_x, (*it)->m_y);
         if(rect.contains(pos))

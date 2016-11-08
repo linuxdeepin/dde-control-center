@@ -8,10 +8,10 @@ class NetworkUtil
 public:
     NetworkUtil();
 
-    QString getHtml(const QString& url);
-    QString getNetIP(QString code);
-    QString ip2city(const QString& ip);
-    QString city();
+    static const QString getHtml(const QString& url);
+    static const QString getNetIP(QString code);
+    static const QString ip2city(const QString& ip);
+    static const QString city();
 };
 
 #endif // NETWORKUTIL_H

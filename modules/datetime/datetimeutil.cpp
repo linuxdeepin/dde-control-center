@@ -14,7 +14,7 @@ Timezone::Timezone(bool valid)
 
 }
 
-bool Timezone::operator ==(const Timezone &tz)
+bool Timezone::operator ==(const Timezone &tz) const
 {
     return (this->m_city == tz.m_city);
 }
@@ -36,7 +36,7 @@ DatetimeUtil::DatetimeUtil()
 
 }
 
-QStringList DatetimeUtil::city2UTC(const QString &city)
+const QStringList DatetimeUtil::city2UTC(const QString &city)
 {
     QSqlDatabase db;
     if(QSqlDatabase::contains(timezone_database))
