@@ -18,6 +18,8 @@ DUTIL_USE_NAMESPACE
 int main(int argc, char *argv[])
 {
     DApplication app(argc, argv);
+    app.setStyle("ddark");
+    app.setStyleSheet("QWidget { background: transparent }");
 
     DLogManager::registerConsoleAppender();
 

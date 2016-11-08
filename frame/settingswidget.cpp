@@ -36,8 +36,8 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new DatetimeModule(this));
     loadModule(new DefaultAppsModule(this));
 
-    m_settingsWidget = new QWidget;
     m_settingsWidget->setLayout(m_settingsLayout);
+
     setContent(m_settingsWidget);
     setTitle(tr("All Settings"));
 

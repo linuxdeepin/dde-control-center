@@ -21,7 +21,6 @@
 ChoseDialog::ChoseDialog(QWidget *parent)
     :QDialog(parent)
 {
-    setPalette(QPalette(QColor(19, 89, 177)));
     m_widget = new MapWidget();
     QVBoxLayout* layout = new QVBoxLayout();
     QLabel *title = new QLabel;

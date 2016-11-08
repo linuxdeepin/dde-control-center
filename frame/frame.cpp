@@ -57,8 +57,6 @@ Frame::Frame(QWidget *parent)
     //    setAttribute(Qt::WA_TranslucentBackground);
     setFixedWidth(360);
 
-    setPalette(QPalette(QColor(19, 89, 177)));
-
     connect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased);
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
 
@@ -99,8 +97,8 @@ void Frame::paintEvent(QPaintEvent * event)
     QPainter painter(this);
 
     QPalette pl( palette() );
-    QColor bgColor( pl.color(QPalette::Background) );
-    bgColor.setAlphaF(0.8);
+    QColor bgColor( pl.color(QPalette::Window) );
+    bgColor.setAlphaF(0.5);
 
     painter.fillRect(event->rect(), bgColor);
 
