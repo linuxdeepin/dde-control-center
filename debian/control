@@ -1,0 +1,40 @@
+Source: dde-control-center
+Section: admin
+Priority: optional
+Maintainer: Deepin Sysdev <sysdev@deepin.com>
+Build-Depends: debhelper (>= 9),
+ pkg-config,
+ dpkg-dev,
+ libx11-dev,
+ qt5-qmake,
+ qt5-default,
+ clang [linux-any],
+ qtdeclarative5-dev,
+ deepin-gettext-tools,
+ dde-dock-dev,
+ libdtkwidget-dev,
+ qtmultimedia5-dev,
+ libqt5svg5-dev,
+ qttools5-dev-tools,
+ libgtk2.0-dev,
+ libdtkbase-dev,
+ libdtkutil-dev,
+ libdtkwidget-dev,
+Standards-Version: 3.9.5
+Homepage: http://gitcafe.com/Deepin/dde-control-center.git
+
+Package: dde-control-center
+Architecture: any
+Depends: ${shlibs:Depends},
+ ${misc:Depends},
+ dde-account-faces,
+ dde-daemon,
+ dde-api (>=2.92.1),
+ deepin-artwork-themes,
+ libqt5multimedia5-plugins,
+ gstreamer1.0-plugins-bad,
+ xkb-data,
+ tzdata-l10n,
+ netselect,
+Description: New control center for linux deepin
+ New control center for linux deepin

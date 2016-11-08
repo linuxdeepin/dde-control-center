@@ -1,0 +1,210 @@
+dde-control-center (3.0.14) unstable; urgency=low
+
+  * Autobuild Tag 3.0.14 
+
+ -- TagBuilder <tagbuilder@deepin.com>  Fri, 12 Aug 2016 18:43:22 +0000
+
+dde-control-center (3.0.13-1) unstable; urgency=low
+
+  * Autobuild Tag 3.0.13 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Thu, 26 May 2016 17:24:07 +0000
+
+dde-control-center (3.0.12-1) unstable; urgency=low
+
+  * Autobuild Tag 3.0.12 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Mon, 23 May 2016 14:49:33 +0000
+
+dde-control-center (3.0.10-7) unstable; urgency=low
+
+  * Rebuild Version 3.0.10 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Mon, 25 Apr 2016 11:20:16 +0000
+
+dde-control-center (3.0.10-6) unstable; urgency=low
+
+  * Rebuild Version 3.0.10 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Thu, 21 Apr 2016 16:16:22 +0000
+
+dde-control-center (3.0.10-5) unstable; urgency=low
+
+  * Rebuild Version 3.0.10 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Wed, 09 Mar 2016 15:25:09 +0000
+
+dde-control-center (3.0.10-4) unstable; urgency=low
+
+  * Rebuild Version 3.0.10 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Wed, 09 Mar 2016 12:33:35 +0000
+
+dde-control-center (3.0.10-3) unstable; urgency=low
+
+  * Rebuild Version 3.0.10 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Wed, 09 Mar 2016 11:38:29 +0000
+
+dde-control-center (3.0.10-2) unstable; urgency=low
+
+  * Rebuild Version 3.0.10 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Wed, 09 Mar 2016 11:07:31 +0000
+
+dde-control-center (3.0.10-1) unstable; urgency=low
+
+  * Autobuild Tag 3.0.10 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Mon, 07 Mar 2016 17:01:12 +0000
+
+dde-control-center (3.0.9-3) stable; urgency=low
+
+  * Rebuild Version 3.0.9 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Thu, 25 Feb 2016 16:16:18 +0000
+
+dde-control-center (3.0.9-2) stable; urgency=low
+
+  * Rebuild Version 3.0.9 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Thu, 25 Feb 2016 11:24:31 +0000
+
+dde-control-center (3.0.9-1) stable; urgency=low
+
+  * Autobuild Tag 3.0.9 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Thu, 25 Feb 2016 11:09:23 +0000
+
+dde-control-center (3.0.8-1) stable; urgency=low
+
+  * Autobuild Tag 3.0.8 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Mon, 22 Feb 2016 17:01:22 +0000
+
+dde-control-center (3.0.7-1) stable; urgency=low
+
+  * Autobuild Tag 3.0.7 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Wed, 27 Jan 2016 18:51:35 +0000
+
+dde-control-center (3.0.6-1) stable; urgency=low
+
+  * Autobuild Tag 3.0.6 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Fri, 22 Jan 2016 20:10:14 +0000
+
+dde-control-center (3.0.5-3) stable; urgency=low
+
+  * Rebuild Version 3.0.5 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Fri, 15 Jan 2016 17:44:02 +0000
+
+dde-control-center (3.0.5-2) stable; urgency=low
+
+  * Rebuild Version 3.0.5 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Fri, 15 Jan 2016 16:02:54 +0000
+
+dde-control-center (3.0.5-1) stable; urgency=low
+
+  * Autobuild Tag 3.0.5 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Fri, 15 Jan 2016 15:44:01 +0000
+
+dde-control-center (3.0.4-1) stable; urgency=low
+
+  * Autobuild Tag 3.0.4 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Tue, 12 Jan 2016 20:08:17 +0000
+
+dde-control-center (3.0.3-1) stable; urgency=low
+
+  * Autobuild Tag 3.0.3 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Wed, 06 Jan 2016 16:42:35 +0000
+
+dde-control-center (3.0.2-1) stable; urgency=low
+
+  * Autobuild Tag 3.0.2 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Wed, 30 Dec 2015 15:16:56 +0000
+
+dde-control-center (3.0.1-1) stable; urgency=low
+
+  * Autobuild Tag 3.0.1 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Tue, 29 Dec 2015 21:43:24 +0000
+
+dde-control-center (3.0.0-1) stable; urgency=low
+
+  * Autobuild Tag 3.0.0 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Mon, 28 Dec 2015 21:15:54 +0000
+
+dde-control-center (2.91.6-2) stable; urgency=low
+
+  * Rebuild Version 2.91.6 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Tue, 22 Dec 2015 13:22:00 +0000
+
+dde-control-center (2.91.6-1) stable; urgency=low
+
+  * Autobuild Tag 2.91.6 
+
+ -- TagBuilder <tagbuilder@linuxdeepin.com>  Mon, 21 Dec 2015 22:37:34 +0000
+
+dde-control-center (2.91.5-2) stable; urgency=low
+
+  * Rebuild Version 2.91.5 
+
+ -- TagBuilder <tabbuilder@linuxdeepin.com>  Sun, 20 Dec 2015 12:43:15 +0000
+
+dde-control-center (2.91.5-1) stable; urgency=low
+
+  * Autobuild Tag 2.91.5 
+
+ -- TagBuilder <tabbuilder@linuxdeepin.com>  Sat, 19 Dec 2015 15:58:24 +0000
+
+dde-control-center (2.91.4-1) stable; urgency=low
+
+  * Autobuild Tag 2.91.4 
+
+ -- TagBuilder <tabbuilder@linuxdeepin.com>  Thu, 10 Dec 2015 20:33:06 +0000
+
+dde-control-center (2.91.3-1) stable; urgency=low
+
+  * Autobuild Tag 2.91.3 
+
+ -- TagBuilder <tabbuilder@linuxdeepin.com>  Wed, 09 Dec 2015 22:25:45 +0000
+
+dde-control-center (2.91.2-1) stable; urgency=low
+
+  * Autobuild Tag 2.91.2 
+
+ -- TagBuilder <tabbuilder@linuxdeepin.com>  Fri, 20 Nov 2015 17:02:56 +0000
+
+dde-control-center (2.91.1-1) stable; urgency=low
+
+  * Autobuild Tag 2.91.1 
+
+ -- TagBuilder <tabbuilder@linuxdeepin.com>  Fri, 20 Nov 2015 09:52:29 +0000
+
+dde-control-center (2.90.1+r1494~g999cab5) experimental; urgency=low
+
+  ** Build revision: 999cab57c67c88f9a9065963c61c0cd262897918  @  origin/release/2.3 **
+
+  [upstreamer]
+  * Use DPalette to replace DConstants
+  * Hide remoting module for 2015 test
+  * Show error message when failed to connect to remote peer
+  * Fixed: show error page on peerIdFailed
+  * Merge branch 'develop' into release/2.3
+
+ -- None <None>  Thu, 02 Jul 2015 13:55:11 +0000
+
+dde-control-center (0.0.0) unstable; urgency=medium
+
+  * Unstable release.
+
+ -- 宋文武 <songwenwu@linuxdeepin.com>  Tue, 02 Dec 2014 10:19:15 +0800
