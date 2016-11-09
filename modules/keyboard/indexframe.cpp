@@ -74,6 +74,8 @@ void IndexFrame::paintEvent(QPaintEvent *)
 
 void IndexFrame::mousePressEvent(QMouseEvent *e)
 {
+    Q_UNUSED(e);
+
     m_pressed = true;
     emit click(m_letters[m_index]);
 
@@ -82,6 +84,8 @@ void IndexFrame::mousePressEvent(QMouseEvent *e)
 
 void IndexFrame::mouseReleaseEvent(QMouseEvent *e)
 {
+    Q_UNUSED(e);
+
     m_pressed = false;
 
     update();

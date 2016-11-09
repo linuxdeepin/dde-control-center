@@ -127,6 +127,8 @@ QList<QString> IndexModel::letters() const
 
 int IndexModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
+
     return m_datas.count();
 }
 

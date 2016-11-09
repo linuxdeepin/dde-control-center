@@ -4,7 +4,7 @@
 #include <QString>
 #include <QTimeZone>
 
-static const char* timezone_database = "timezone";
+static const char *const timezone_database = "timezone";
 
 struct Timezone
 {

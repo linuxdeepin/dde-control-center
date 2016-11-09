@@ -371,6 +371,8 @@ void TimeWidget::wheelEvent(QWheelEvent *e)
 
 void TimeWidget::showEvent(QShowEvent *e)
 {
+    Q_UNUSED(e);
+
     m_hour = QRect(0,0,75,height());
     m_hour.moveRight(this->rect().center().x() - 10);
     m_minute = QRect(width()-75, 0, 75, height());
