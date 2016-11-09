@@ -1,5 +1,5 @@
-#ifndef TIMEZONEHEAD_H
-#define TIMEZONEHEAD_H
+#ifndef SETTINGSHEAD_H
+#define SETTINGSHEAD_H
 
 #include "settingsitem.h"
 #include <QPushButton>
@@ -7,12 +7,13 @@
 
 namespace dcc {
 
-class TimezoneHead : public SettingsItem
+class SettingsHead : public SettingsItem
 {
     Q_OBJECT
 
 public:
-    explicit TimezoneHead(QFrame *parent = 0);
+    explicit SettingsHead(QFrame *parent = 0);
+    void setTitle(const QString& title);
 
 signals:
     void editChanged(bool edit);
@@ -45,4 +46,4 @@ private:
     QPushButton* m_cancel;
 };
 }
-#endif // TIMEZONEHEAD_H
+#endif // SETTINGSHEAD_H

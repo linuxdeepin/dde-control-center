@@ -9,6 +9,7 @@
 #include "sound/soundmodule.h"
 #include "datetime/datetimemodule.h"
 #include "defapp/defaultappsmodule.h"
+#include "keyboard/keyboardmodule.h"
 #include "bluetooth/bluetoothmodule.h"
 
 #include <QVBoxLayout>
@@ -34,6 +35,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new BluetoothModule(this));
     loadModule(new SoundModule(this));
     loadModule(new DatetimeModule(this));
+    loadModule(new KeyboardModule(this));
     loadModule(new DefaultAppsModule(this));
 
     m_settingsWidget->setLayout(m_settingsLayout);

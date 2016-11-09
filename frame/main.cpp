@@ -21,10 +21,13 @@ int main(int argc, char *argv[])
     app.setStyle("ddark");
     app.setStyleSheet("QWidget { background: transparent }");
 
+    qApp->setQuitOnLastWindowClosed(false);
+
     DLogManager::registerConsoleAppender();
 
     Frame f;
     QTimer::singleShot(0, &f, &Frame::startup);
+
 
     return app.exec();
 }

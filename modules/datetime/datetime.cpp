@@ -4,7 +4,7 @@
 #include "datesettings.h"
 #include "nextpagewidget.h"
 #include "switchwidget.h"
-#include "timezonehead.h"
+#include "settingshead.h"
 
 #include <QFrame>
 #include <QDebug>
@@ -23,7 +23,8 @@ Datetime::Datetime()
     m_centeralLayout->addWidget(clockGroup);
 
     m_group = new SettingsGroup();
-    m_headItem = new TimezoneHead();
+    m_headItem = new SettingsHead();
+    m_headItem->setTitle(tr("Timezone List"));
     m_group->appendItem(m_headItem);
     m_centeralLayout->addSpacerItem(new QSpacerItem(300,20));
     m_centeralLayout->addWidget(m_group);

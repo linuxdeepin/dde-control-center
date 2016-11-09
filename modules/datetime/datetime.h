@@ -9,7 +9,7 @@
 #include <modulewidget.h>
 #include <settingsgroup.h>
 #include <settingsitem.h>
-#include "timezonehead.h"
+#include "settingshead.h"
 #include "nextpagewidget.h"
 
 using namespace dcc;
@@ -35,7 +35,7 @@ public slots:
 private:
     bool m_bEdit;
     QList<Timezone> m_addeds;
-    TimezoneHead* m_headItem;
+    SettingsHead* m_headItem;
     NextPageWidget* m_addItem;
     SettingsGroup* m_group;
     ContentWidget* m_dateSettings;

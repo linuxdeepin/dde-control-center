@@ -4,7 +4,7 @@
 #include <QWidget>
 #include "clock.h"
 #include "datetimewidget.h"
-#include "timezonehead.h"
+#include "settingshead.h"
 #include "switchwidget.h"
 #include "settingsgroup.h"
 #include "contentwidget.h"

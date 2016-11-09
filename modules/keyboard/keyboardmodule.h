@@ -6,6 +6,9 @@
 #include "keyboardwidget.h"
 #include "keyboardmodel.h"
 #include "keyboardwork.h"
+#include "langwidget.h"
+#include "shortcutwidget.h"
+#include "keyboarddetails.h"
 
 class KeyboardModule : public QObject, public ModuleInterface
 {
@@ -24,13 +27,29 @@ public:
 
     void contentPopped(ContentWidget * const w);
 
-private:
-    ~KeyboardModule();
+public slots:
+    void onPushKeyboard();
+    void onPushKBDetails();
+    void onPushLanguage();
+    void onPushShortcut();
+    void onKeyboardBack();
+    void setCurrentLayout(const QString &value);
+    void setCurrentLang();
 
 private:
+    ~KeyboardModule();
+    void append(const MetaData& md);
+
+private:
+    QList<MetaData> m_datas;
+    QList<QString> m_letters;
     KeyboardWork* m_work;
     KeyboardModel* m_model;
     KeyboardWidget* m_keyboardWidget;
+    KeyboardDetails* m_kbDetails;
+    KeyboardLayoutWidget* m_kbLayoutWidget;
+    ShortcutWidget* m_shortcutWidget;
+    LangWidget* m_langWidget;
 };
 
 #endif // KEYBOARDMODULE_H

@@ -1,16 +1,15 @@
-#include "timezonehead.h"
+#include "settingshead.h"
 #include <QHBoxLayout>
 #include <QMouseEvent>
 using namespace dcc;
 
-TimezoneHead::TimezoneHead(QFrame *parent)
+SettingsHead::SettingsHead(QFrame *parent)
     :SettingsItem(parent)
 {
     setMouseTracking(true);
     setFixedHeight(30);
     m_title = new QLabel;
     m_title->setStyleSheet("color: white;");
-    m_title->setText("Timezone List");
 
     m_edit = new QLabel;
     m_edit->setAlignment(Qt::AlignCenter);
@@ -28,13 +27,18 @@ TimezoneHead::TimezoneHead(QFrame *parent)
     setLayout(mainLayout);
 }
 
-void TimezoneHead::initStatus()
+void SettingsHead::setTitle(const QString &title)
+{
+    m_title->setText(title);
+}
+
+void SettingsHead::initStatus()
 {
     emit editChanged(false);
     m_edit->setText(tr("Edit"));
 }
 
-void TimezoneHead::mouseMoveEvent(QMouseEvent *e)
+void SettingsHead::mouseMoveEvent(QMouseEvent *e)
 {
     if(!m_edit->rect().contains(e->pos()))
     {
@@ -42,7 +46,7 @@ void TimezoneHead::mouseMoveEvent(QMouseEvent *e)
     }
 }
 
-bool TimezoneHead::eventFilter(QObject *watched, QEvent *event)
+bool SettingsHead::eventFilter(QObject *watched, QEvent *event)
 {
     if(watched == m_edit)
     {

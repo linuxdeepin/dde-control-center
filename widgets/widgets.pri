@@ -9,6 +9,7 @@ HEADERS += \
     $$PWD/settingsitem.h \
     $$PWD/contentwidget.h \
     $$PWD/nextpagewidget.h \
+    $$PWD/settingshead.h \
     $$PWD/switchwidget.h \
     $$PWD/timezoneitem.h \
     $$PWD/optionwidget.h \
@@ -20,6 +21,7 @@ SOURCES += \
     $$PWD/settingsitem.cpp \
     $$PWD/contentwidget.cpp \
     $$PWD/nextpagewidget.cpp \
+    $$PWD/settingshead.cpp \
     $$PWD/switchwidget.cpp \
     $$PWD/timezoneitem.cpp \
     $$PWD/optionwidget.cpp \
