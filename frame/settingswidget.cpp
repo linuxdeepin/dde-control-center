@@ -11,6 +11,7 @@
 #include "power/powermodule.h"
 #include "sound/soundmodule.h"
 #include "update/updatemodule.h"
+#include "mouse/mousemodule.h"
 
 #include <QResizeEvent>
 #include <QScrollBar>
@@ -31,6 +32,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     loadModule(new AccountsModule(this));
     loadModule(new PowerModule(this));
+    loadModule(new MouseModule(this));
     loadModule(new UpdateModule(this));
     loadModule(new BluetoothModule(this));
     loadModule(new SoundModule(this));

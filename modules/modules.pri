@@ -8,6 +8,7 @@ include(defapp/defapp.pri)
 include(sound/sound.pri)
 include(bluetooth/bluetooth.pri)
 include(keyboard/keyboard.pri)
+include(mouse/mouse.pri)
 
 HEADERS += \
     $$PWD/modulewidget.h \
