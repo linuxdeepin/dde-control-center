@@ -15,8 +15,13 @@ class SettingsWidget : public ContentWidget, public FrameProxyInterface
 public:
     explicit SettingsWidget(Frame *frame);
 
+signals:
+    void requestAutohide(const bool autoHide) const;
+
 public slots:
     void contentPopuped(ContentWidget * const w);
+
+    void setFrameAutoHide(ModuleInterface * const inter, const bool autoHide);
     void pushWidget(ModuleInterface * const inter, ContentWidget * const w);
 
 private slots:

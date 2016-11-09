@@ -20,6 +20,8 @@ class FrameProxyInterface
 public:
     // Module request to into next page
     virtual void pushWidget(ModuleInterface * const inter, ContentWidget * const w) = 0;
+
+    virtual void setFrameAutoHide(ModuleInterface * const inter, const bool autoHide) = 0;
 };
 
 }

@@ -47,7 +47,9 @@ Frame::Frame(QWidget *parent)
       m_allSettingsPage(nullptr),
 
       m_mouseAreaInter(new XMouseArea("com.deepin.api.XMouseArea", "/com/deepin/api/XMouseArea", QDBusConnection::sessionBus(), this)),
-      m_displayInter(new DBusDisplay("com.deepin.daemon.Display", "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this))
+      m_displayInter(new DBusDisplay("com.deepin.daemon.Display", "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)),
+
+      m_autoHide(true)
 {
     m_displayInter->setSync(false);
 
@@ -128,10 +130,19 @@ void Frame::init()
     onScreenRectChanged(m_displayInter->primaryRect());
 }
 
+void Frame::setAutoHide(const bool autoHide)
+{
+    m_autoHide = autoHide;
+}
+
 void Frame::showAllSettings()
 {
     if (!m_allSettingsPage)
+    {
         m_allSettingsPage = new SettingsWidget(this);
+
+        connect(m_allSettingsPage, &SettingsWidget::requestAutohide, this, &Frame::setAutoHide);
+    }
 
     pushWidget(m_allSettingsPage);
 }
@@ -170,6 +181,12 @@ void Frame::onMouseButtonReleased(const int button, const int x, const int y, co
     if (rect().contains(x, y))
         return;
 
+    if (!m_autoHide)
+    {
+        qDebug() << "prohibit auto-hide because m_autoHide is false";
+        return;
+    }
+
     // ready to hide frame
     qDebug() << "ready to hide frame";
 }
@@ -199,6 +216,8 @@ void Frame::show()
 
 void Frame::hide()
 {
+    m_autoHide = true;
+
     FrameWidget *w = m_frameWidgetStack.last();
 
     w->hideBack();

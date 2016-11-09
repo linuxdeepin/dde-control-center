@@ -64,6 +64,13 @@ void SettingsWidget::contentPopuped(ContentWidget * const w)
     it.value().pop_back();
 }
 
+void SettingsWidget::setFrameAutoHide(ModuleInterface * const inter, const bool autoHide)
+{
+    Q_ASSERT(m_moduleInterfaces.contains(inter));
+
+    emit requestAutohide(autoHide);
+}
+
 void SettingsWidget::pushWidget(ModuleInterface * const inter, ContentWidget * const w)
 {
     Q_ASSERT(!m_moduleWidgets[inter].contains(w));

@@ -34,6 +34,7 @@ protected:
 
 private slots:
     void init();
+    void setAutoHide(const bool autoHide);
 
     void showAllSettings();
     void contentDetached(QWidget * const c);
@@ -54,6 +55,8 @@ private:
 
     QString m_mouseAreaKey;
     QStack<FrameWidget *> m_frameWidgetStack;
+
+    bool m_autoHide;
 };
 
 #endif // FRAME_H
