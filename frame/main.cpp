@@ -8,6 +8,7 @@
  **/
 
 #include "frame.h"
+#include "dbuscontrolcenterservice.h"
 
 #include <DApplication>
 #include <DLog>
@@ -35,7 +36,32 @@ int main(int argc, char *argv[])
     DLogManager::registerConsoleAppender();
 
     Frame f;
-    QTimer::singleShot(0, &f, &Frame::startup);
+    QTimer::singleShot(1, &f, &Frame::startup);
+
+    DBusControlCenterService adaptor(&f);
+    Q_UNUSED(adaptor);
+    QDBusConnection conn = QDBusConnection::sessionBus();
+    if (!conn.registerService("com.deepin.dde.ControlCenter") ||
+            !conn.registerObject("/com/deepin/dde/ControlCenter", &f)) {
+        qDebug() << "dbus service already registered!";
+
+//        // call exist service
+//        DBusControlCenter c;
+
+//        if (parser.isSet(toggleOption)) {
+//            c.Toggle();
+//        }
+
+//        if (!positionalArgs.isEmpty()) {
+//            c.ShowModule(positionalArgs.at(0));
+//        } else if (parser.isSet(showOption)) {
+//            c.Show();
+//        }
+
+#ifndef QT_DEBUG
+        return 0;
+#endif
+    }
 
 
     return app.exec();

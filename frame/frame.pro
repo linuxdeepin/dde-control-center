@@ -20,7 +20,8 @@ HEADERS    += \
     framewidget.h \
     mainwidget.h \
     settingswidget.h \
-    moduleinitthread.h
+    moduleinitthread.h \
+    dbuscontrolcenterservice.h
 
 SOURCES    += \
             main.cpp \
@@ -29,7 +30,8 @@ SOURCES    += \
     framewidget.cpp \
     mainwidget.cpp \
     settingswidget.cpp \
-    moduleinitthread.cpp
+    moduleinitthread.cpp \
+    dbuscontrolcenterservice.cpp
 
 #RESOURCES += \
 #    qss.qrc \

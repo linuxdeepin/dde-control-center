@@ -1,20 +1,20 @@
 #include "settingswidget.h"
-#include "modulewidget.h"
 #include "frame.h"
 #include "moduleinitthread.h"
+#include "modulewidget.h"
 
 #include "accounts/accountsmodule.h"
-#include "power/powermodule.h"
-#include "update/updatemodule.h"
-#include "sound/soundmodule.h"
+#include "bluetooth/bluetoothmodule.h"
 #include "datetime/datetimemodule.h"
 #include "defapp/defaultappsmodule.h"
 #include "keyboard/keyboardmodule.h"
-#include "bluetooth/bluetoothmodule.h"
+#include "power/powermodule.h"
+#include "sound/soundmodule.h"
+#include "update/updatemodule.h"
 
-#include <QVBoxLayout>
 #include <QResizeEvent>
 #include <QScrollBar>
+#include <QVBoxLayout>
 
 SettingsWidget::SettingsWidget(Frame *frame)
     : ContentWidget(frame),
@@ -50,13 +50,13 @@ SettingsWidget::SettingsWidget(Frame *frame)
     connect(m_refershModuleActivableTimer, &QTimer::timeout, this, &SettingsWidget::refershModuleActivable);
 }
 
-void SettingsWidget::contentPopuped(ContentWidget * const w)
+void SettingsWidget::contentPopuped(ContentWidget *const w)
 {
     QMap<ModuleInterface *, QList<ContentWidget *>>::iterator it =
-            std::find_if(m_moduleWidgets.begin(), m_moduleWidgets.end(),
-                         [=] (const QList<ContentWidget *> &list) {
-        return !list.isEmpty() && list.back() == w;
-    });
+        std::find_if(m_moduleWidgets.begin(), m_moduleWidgets.end(),
+                     [=](const QList<ContentWidget *> &list) {
+                         return !list.isEmpty() && list.back() == w;
+                     });
 
     Q_ASSERT(it != m_moduleWidgets.end());
 
@@ -64,14 +64,14 @@ void SettingsWidget::contentPopuped(ContentWidget * const w)
     it.value().pop_back();
 }
 
-void SettingsWidget::setFrameAutoHide(ModuleInterface * const inter, const bool autoHide)
+void SettingsWidget::setFrameAutoHide(ModuleInterface *const inter, const bool autoHide)
 {
     Q_ASSERT(m_moduleInterfaces.contains(inter));
 
     emit requestAutohide(autoHide);
 }
 
-void SettingsWidget::pushWidget(ModuleInterface * const inter, ContentWidget * const w)
+void SettingsWidget::pushWidget(ModuleInterface *const inter, ContentWidget *const w)
 {
     Q_ASSERT(!m_moduleWidgets[inter].contains(w));
 
@@ -79,7 +79,7 @@ void SettingsWidget::pushWidget(ModuleInterface * const inter, ContentWidget * c
     m_frame->pushWidget(w);
 }
 
-void SettingsWidget::loadModule(ModuleInterface * const module)
+void SettingsWidget::loadModule(ModuleInterface *const module)
 {
     Q_ASSERT(!m_moduleInterfaces.contains(module));
     Q_ASSERT(!m_moduleWidgets.contains(module));
@@ -94,7 +94,7 @@ void SettingsWidget::loadModule(ModuleInterface * const module)
     thrd->start();
 }
 
-void SettingsWidget::onModuleInitFinished(ModuleInterface * const module)
+void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
 {
     Q_ASSERT(m_moduleInterfaces.contains(module));
 

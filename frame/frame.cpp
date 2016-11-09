@@ -1,29 +1,30 @@
 #include "frame.h"
 #include "settingswidget.h"
 
-#include <QScreen>
 #include <QApplication>
 #include <QKeyEvent>
 #include <QPainter>
+#include <QScreen>
 #include <QWindow>
 #include <QX11Info>
 
 #include <xcb/xproto.h>
 
-static void BlurWindowBackground(const WId windowId, const QRect& region)
+static void BlurWindowBackground(const WId windowId, const QRect &region)
 {
     xcb_connection_t *connection = QX11Info::connection();
     const char *name = "_NET_WM_DEEPIN_BLUR_REGION";
-    xcb_intern_atom_cookie_t cookie = xcb_intern_atom (connection,
-                                                       0,
-                                                       strlen(name),
-                                                       name);
+    xcb_intern_atom_cookie_t cookie = xcb_intern_atom(connection,
+                                                      0,
+                                                      strlen(name),
+                                                      name);
 
-    xcb_intern_atom_reply_t *reply = xcb_intern_atom_reply (connection,
-                                                            cookie,
-                                                            NULL);
-    if (reply) {
-        const int data[] = { region.x(), region.y(), region.width(), region.height() };
+    xcb_intern_atom_reply_t *reply = xcb_intern_atom_reply(connection,
+                                                           cookie,
+                                                           NULL);
+    if (reply)
+    {
+        const int data[] = {region.x(), region.y(), region.width(), region.height()};
 
         xcb_change_property(connection,
                             XCB_PROP_MODE_REPLACE,
@@ -39,7 +40,7 @@ static void BlurWindowBackground(const WId windowId, const QRect& region)
     }
 }
 
-#define BUTTON_LEFT     1
+#define BUTTON_LEFT 1
 
 Frame::Frame(QWidget *parent)
     : QFrame(parent),
@@ -70,7 +71,7 @@ void Frame::startup()
     show();
 }
 
-void Frame::pushWidget(ContentWidget * const w)
+void Frame::pushWidget(ContentWidget *const w)
 {
     Q_ASSERT(!m_frameWidgetStack.empty());
 
@@ -94,12 +95,12 @@ void Frame::popWidget()
     m_frameWidgetStack.last()->showBack();
 }
 
-void Frame::paintEvent(QPaintEvent * event)
+void Frame::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
 
-    QPalette pl( palette() );
-    QColor bgColor( pl.color(QPalette::Window) );
+    QPalette pl(palette());
+    QColor bgColor(pl.color(QPalette::Window));
     bgColor.setAlphaF(0.5);
 
     painter.fillRect(event->rect(), bgColor);
@@ -109,7 +110,7 @@ void Frame::paintEvent(QPaintEvent * event)
 
 void Frame::resizeEvent(QResizeEvent *event)
 {
-    const QSize size( event->size() );
+    const QSize size(event->size());
     const QRect region(QPoint(0, 0), size);
     BlurWindowBackground(winId(), region);
 
@@ -147,7 +148,7 @@ void Frame::showAllSettings()
     pushWidget(m_allSettingsPage);
 }
 
-void Frame::contentDetached(QWidget * const c)
+void Frame::contentDetached(QWidget *const c)
 {
     ContentWidget *cw = qobject_cast<ContentWidget *>(c);
     Q_ASSERT(cw);
@@ -167,7 +168,7 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
         return;
 
     setFixedHeight(primaryRect.height());
-    QFrame::move(primaryRect.topLeft());
+    QFrame::move(primaryRect.right() - width(), primaryRect.y());
 }
 
 void Frame::onMouseButtonReleased(const int button, const int x, const int y, const QString &key)
@@ -178,7 +179,9 @@ void Frame::onMouseButtonReleased(const int button, const int x, const int y, co
     if (button != BUTTON_LEFT)
         return;
 
-    if (rect().contains(x, y))
+    const QPoint p(pos());
+
+    if (rect().contains(x - p.x(), y - p.y()))
         return;
 
     if (!m_autoHide)
@@ -188,7 +191,7 @@ void Frame::onMouseButtonReleased(const int button, const int x, const int y, co
     }
 
     // ready to hide frame
-    qDebug() << "ready to hide frame";
+    hide();
 }
 
 void Frame::keyPressEvent(QKeyEvent *e)
@@ -198,8 +201,12 @@ void Frame::keyPressEvent(QKeyEvent *e)
     switch (e->key())
     {
 #ifdef QT_DEBUG
-    case Qt::Key_Escape:    qApp->quit();       break;
-    case Qt::Key_F1:        hide();             break;
+    case Qt::Key_Escape:
+        qApp->quit();
+        break;
+    case Qt::Key_F1:
+        hide();
+        break;
 #endif
     default:;
     }
@@ -223,6 +230,7 @@ void Frame::hide()
     w->hideBack();
 
     QTimer::singleShot(w->animationDuration(), this, &QFrame::hide);
+
     // unregister global mouse area
     m_mouseAreaInter->UnregisterArea(m_mouseAreaKey);
 }

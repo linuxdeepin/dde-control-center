@@ -19,6 +19,8 @@ class Frame : public QFrame
 {
     Q_OBJECT
 
+    friend class DBusControlCenterService;
+
 public:
     explicit Frame(QWidget *parent = 0);
 
