@@ -14,8 +14,8 @@ KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
 
 void KeyboardModule::initialize()
 {
-    m_work = new KeyboardWork(this);
-    m_model = new KeyboardModel(this);
+    m_model = new KeyboardModel();
+    m_work = new KeyboardWork(m_model);
     connect(m_work, SIGNAL(curLang(QString)), m_model, SLOT(setLang(QString)));
     connect(m_work, SIGNAL(curLayout(QString)), m_model, SLOT(setLayout(QString)));
     connect(m_work, SIGNAL(addLayout(QString)), m_model, SLOT(addUserLayout(QString)));
@@ -70,11 +70,11 @@ void KeyboardModule::initialize()
 
     m_model->setLayoutLists(m_work->layoutLists());
     m_model->setLayout(m_work->curLayout());
-    m_model->setLang(m_work->curLang());
+//    m_model->setLang(m_work->curLang());
     m_model->setUserLayout(m_work->userLayout());
 
-    m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
+    m_work->moveToThread(qApp->thread());
 }
 
 void KeyboardModule::moduleActive()
