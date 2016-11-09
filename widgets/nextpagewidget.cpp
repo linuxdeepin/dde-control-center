@@ -9,11 +9,11 @@ DWIDGET_USE_NAMESPACE
 NextPageWidget::NextPageWidget(QFrame *parent)
     : SettingsItem(parent)
 {
-    m_title = new QLabel;
+    m_title = new NormalLabel;
     m_title->setStyleSheet("color: white;"
                            "margin: 0 0 0 8px;");
 
-    m_value = new QLabel;
+    m_value = new NormalLabel;
 
     m_nextPageBtn = new DImageButton(":/icon/next_normal.png",
                                      ":/icon/next_hover.png",

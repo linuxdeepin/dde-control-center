@@ -46,6 +46,7 @@ void SettingsHead::mouseMoveEvent(QMouseEvent *e)
     }
 }
 
+// FIXME:
 bool SettingsHead::eventFilter(QObject *watched, QEvent *event)
 {
     if(watched == m_edit)

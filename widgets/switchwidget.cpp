@@ -10,7 +10,7 @@ SwitchWidget::SwitchWidget(QFrame *parent)
     : SettingsItem(parent)
 {
 
-    m_title = new QLabel;
+    m_title = new NormalLabel;
     m_title->setStyleSheet("color: white;"
                            "margin: 0 0 0 8px;");
     m_title->setText("title");

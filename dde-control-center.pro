@@ -9,7 +9,7 @@ SUBDIRS  = \
 
 # Automating generation .qm files from .ts files
 CONFIG(release, debug|release) {
-    system($$PWD/translate_generation.sh)
+#    system($$PWD/translate_generation.sh)
 }
 
 # add install files

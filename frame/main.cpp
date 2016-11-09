@@ -21,6 +21,15 @@ int main(int argc, char *argv[])
     app.setStyle("ddark");
     app.setStyleSheet("QWidget { background: transparent }");
 
+    QFont font(qApp->font());
+
+    font.setPointSize(6);
+    qApp->setFont(font, "SmallLabel");
+    font.setPointSize(10);
+    qApp->setFont(font, "NormalLabel");
+    font.setPointSize(14);
+    qApp->setFont(font, "LargeLabel");
+
     qApp->setQuitOnLastWindowClosed(false);
 
     DLogManager::registerConsoleAppender();

@@ -1,6 +1,8 @@
 #ifndef MODULEWIDGET_H
 #define MODULEWIDGET_H
 
+#include "labels/largelabel.h"
+
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
@@ -20,7 +22,7 @@ private:
 
 protected:
     QLabel *m_moduleIcon;
-    QLabel *m_moduleTitle;
+    LargeLabel *m_moduleTitle;
     QVBoxLayout *m_centeralLayout;
 };
 

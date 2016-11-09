@@ -9,11 +9,11 @@ ModuleWidget::ModuleWidget()
     m_moduleIcon = new QLabel;
     m_moduleIcon->setFixedSize(32, 32);
     m_moduleIcon->setStyleSheet("background-color:pink;");
-    m_moduleTitle = new QLabel;
+    m_moduleTitle = new LargeLabel;
     m_moduleTitle->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
     m_moduleTitle->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     m_moduleTitle->setStyleSheet("color: white;"
-                                 "font-size: 16px;"
+//                                 "font-size: 16px;"
                                  "margin: 0 0 0 5px;");
 
     QHBoxLayout *titleLayout = new QHBoxLayout;

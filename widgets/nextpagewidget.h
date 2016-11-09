@@ -2,6 +2,7 @@
 #define NEXTPAGEWIDGET_H
 
 #include "settingsitem.h"
+#include "labels/normallabel.h"
 
 #include <QLabel>
 #include <dimagebutton.h>
@@ -24,8 +25,8 @@ signals:
     void clicked() const;
 
 private:
-    QLabel *m_title;
-    QLabel *m_value;
+    NormalLabel *m_title;
+    NormalLabel *m_value;
     Dtk::Widget::DImageButton *m_nextPageBtn;
 };
 

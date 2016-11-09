@@ -13,7 +13,10 @@ HEADERS += \
     $$PWD/switchwidget.h \
     $$PWD/timezoneitem.h \
     $$PWD/optionwidget.h \
-    $$PWD/lineeditwidget.h
+    $$PWD/lineeditwidget.h \
+    $$PWD/labels/normallabel.h \
+    $$PWD/labels/largelabel.h \
+    $$PWD/labels/smalllabel.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -25,7 +28,10 @@ SOURCES += \
     $$PWD/switchwidget.cpp \
     $$PWD/timezoneitem.cpp \
     $$PWD/optionwidget.cpp \
-    $$PWD/lineeditwidget.cpp
+    $$PWD/lineeditwidget.cpp \
+    $$PWD/labels/normallabel.cpp \
+    $$PWD/labels/largelabel.cpp \
+    $$PWD/labels/smalllabel.cpp
 
 RESOURCES += \
     $$PWD/dark/dcc_widgets_dark.qrc \
