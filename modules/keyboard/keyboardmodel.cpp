@@ -49,6 +49,11 @@ void KeyboardModel::delUserLayout(const QString &value)
     m_userLayout.removeOne(value);
 }
 
+void KeyboardModel::setLocaleList(const QList<MetaData> &langs)
+{
+    m_langs = langs;
+}
+
 QString KeyboardModel::curLang() const
 {
     return m_lang;
@@ -62,4 +67,9 @@ void KeyboardModel::setUserLayout(const QStringList &list)
 QStringList KeyboardModel::userLayout() const
 {
     return m_userLayout;
+}
+
+QList<MetaData> KeyboardModel::langLists() const
+{
+    return m_langs;
 }

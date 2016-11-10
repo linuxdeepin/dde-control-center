@@ -3,6 +3,7 @@
 KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
     :QObject(parent),
       ModuleInterface(frame),
+      m_loaded(false),
       m_keyboardWidget(nullptr),
       m_kbDetails(nullptr),
       m_kbLayoutWidget(nullptr),
@@ -20,6 +21,7 @@ void KeyboardModule::initialize()
     connect(m_work, SIGNAL(curLayout(QString)), m_model, SLOT(setLayout(QString)));
     connect(m_work, SIGNAL(addLayout(QString)), m_model, SLOT(addUserLayout(QString)));
     connect(m_work,SIGNAL(delLayout(QString)), m_model, SLOT(delUserLayout(QString)));
+    connect(m_work, SIGNAL(langValid(QList<MetaData>)), m_model, SLOT(setLocaleList(QList<MetaData>)));
     connect(m_work, SIGNAL(UserLayoutListChanged(QStringList)), m_model, SLOT(setUserLayout(QStringList)));
 
     m_datas.clear();
@@ -159,9 +161,13 @@ void KeyboardModule::onPushKBDetails()
 
 void KeyboardModule::onPushLanguage()
 {
+    if(!m_model->langLists().count())
+        return;
+
     if(!m_langWidget)
     {
         m_langWidget = new LangWidget();
+        m_langWidget->setModelData(m_model->langLists());
     }
 
     m_frameProxy->pushWidget(this, m_langWidget);

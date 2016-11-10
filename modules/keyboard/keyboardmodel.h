@@ -17,6 +17,7 @@ public:
     QString curLayout() const;
     QString curLang() const;
     QStringList userLayout() const;
+    QList<MetaData> langLists() const;
 
 signals:
     void curLayout(const QString& layout);
@@ -28,12 +29,14 @@ public slots:
     void setUserLayout(const QStringList& list);
     void addUserLayout(const QString& value);
     void delUserLayout(const QString& value);
+    void setLocaleList(const QList<MetaData>& langs);
 
 private:
     QString m_layout;
     QString m_lang;
     QStringList m_userLayout;
     QMap<QString, QString> m_layouts;
+    QList<MetaData> m_langs;
 };
 
 #endif // KEYBOARDMODEL_H

@@ -75,6 +75,7 @@ bool MetaData::operator >(const MetaData &md) const
 
 QDebug &operator<<(QDebug dbg, const MetaData &md)
 {
+    dbg.nospace()<<"key: "<<md.key()<<endl;
     dbg.nospace()<<"text: "<<md.text()<<endl;
     /*
     dbg.nospace()<<"MetaData ( pinyin: "<<md.pinyin()<<" , ";
