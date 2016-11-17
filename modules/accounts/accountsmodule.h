@@ -30,6 +30,9 @@ private:
     void showAccountsDetail(User *account);
     void contentPopped(ContentWidget * const w);
 
+private slots:
+    void setFrameAutoHide(const bool autoHide);
+
 private:
     UserModel *m_userList;
 

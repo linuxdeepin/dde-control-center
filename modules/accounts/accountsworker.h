@@ -19,6 +19,9 @@ class AccountsWorker : public QObject
 public:
     explicit AccountsWorker(UserModel * userList, QObject *parent = 0);
 
+signals:
+    void requestFrameAutoHide(const bool autoHide) const;
+
 public slots:
     void setAutoLogin(User *user, const bool autoLogin);
     void onUserListChanged(const QStringList &userList);

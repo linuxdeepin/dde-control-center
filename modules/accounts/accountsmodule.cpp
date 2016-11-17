@@ -16,6 +16,8 @@ void AccountsModule::initialize()
 
     m_userList->moveToThread(qApp->thread());
     m_accountsWorker->moveToThread(qApp->thread());
+
+    connect(m_accountsWorker, &AccountsWorker::requestFrameAutoHide, this, &AccountsModule::setFrameAutoHide);
 }
 
 void AccountsModule::moduleActive()
@@ -70,4 +72,9 @@ void AccountsModule::showAccountsDetail(User *account)
 void AccountsModule::contentPopped(ContentWidget * const w)
 {
     w->deleteLater();
+}
+
+void AccountsModule::setFrameAutoHide(const bool autoHide)
+{
+    m_frameProxy->setFrameAutoHide(this, autoHide);
 }

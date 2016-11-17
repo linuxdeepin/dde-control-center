@@ -19,8 +19,11 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
     Q_ASSERT(ui);
 
     // because this operate need root permission, we must wait for finished and refersh result
+    emit requestFrameAutoHide(false);
     ui->SetAutomaticLogin(autoLogin).waitForFinished();
     user->setAutoLogin(ui->automaticLogin());
+    // delay 100ms because click event is coming after we reset auto hide to `true`
+    QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
 }
 
 void AccountsWorker::onUserListChanged(const QStringList &userList)
