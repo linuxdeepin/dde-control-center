@@ -27,6 +27,7 @@ public:
 private:
     ~AccountsModule();
 
+    void showPasswordPage(User *account);
     void showAccountsDetail(User *account);
     void contentPopped(ContentWidget * const w);
 

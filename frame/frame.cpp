@@ -168,7 +168,7 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
         return;
 
     setFixedHeight(primaryRect.height());
-    QFrame::move(primaryRect.right() - width(), primaryRect.y());
+    QFrame::move(primaryRect.right() - width() + 1, primaryRect.y());
 }
 
 void Frame::onMouseButtonReleased(const int button, const int x, const int y, const QString &key)
@@ -185,10 +185,7 @@ void Frame::onMouseButtonReleased(const int button, const int x, const int y, co
         return;
 
     if (!m_autoHide)
-    {
-        qDebug() << "prohibit auto-hide because m_autoHide is false";
         return;
-    }
 
     // ready to hide frame
     hide();

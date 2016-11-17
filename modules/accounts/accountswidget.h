@@ -26,7 +26,6 @@ public slots:
 
 private:
     dcc::SettingsGroup *m_userGroup;
-    QPushButton *m_nextPage;
 };
 
 #endif // ACCOUNTSWIDGET_H

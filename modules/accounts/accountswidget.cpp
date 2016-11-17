@@ -17,11 +17,6 @@ AccountsWidget::AccountsWidget()
 {
     m_centeralLayout->addWidget(m_userGroup);
 
-    m_nextPage = new QPushButton;
-    m_nextPage->setText("Next Page >");
-    m_centeralLayout->addWidget(m_nextPage);
-//    m_centeralLayout->addStretch(0);
-
     setTitle(tr("Accounts"));
 }
 

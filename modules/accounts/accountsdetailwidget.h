@@ -15,6 +15,8 @@ public:
     explicit AccountsDetailWidget(User *user, QWidget *parent = 0);
 
 signals:
+    void showPwdSettings(User *user) const;
+
     void requestSetAutoLogin(User *user, const bool autoLogin) const;
 
 private:
