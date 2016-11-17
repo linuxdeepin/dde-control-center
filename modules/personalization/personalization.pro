@@ -27,3 +27,5 @@ target.path = $${PREFIX}/lib/dde-control-center/modules/
 INSTALLS += target
 
 RESOURCES +=
+# fix complier error at gcc6
+QMAKE_CFLAGS_ISYSTEM = ""

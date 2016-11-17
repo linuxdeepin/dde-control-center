@@ -68,6 +68,20 @@ public:
     ~DBusDefaultApps();
 
 public Q_SLOTS: // METHODS
+    inline QDBusPendingReply<> AddUserApp(const QStringList &in0, const QString &in1)
+    {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
+        return asyncCallWithArgumentList(QStringLiteral("AddUserApp"), argumentList);
+    }
+
+    inline QDBusPendingReply<> DeleteUserApp(const QString &in0)
+    {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(in0);
+        return asyncCallWithArgumentList(QStringLiteral("DeleteUserApp"), argumentList);
+    }
+
     inline QDBusPendingReply<QString> GetDefaultApp(const QString &in0)
     {
         QList<QVariant> argumentList;
@@ -82,13 +96,20 @@ public Q_SLOTS: // METHODS
         return asyncCallWithArgumentList(QStringLiteral("ListApps"), argumentList);
     }
 
+    inline QDBusPendingReply<QString> ListUserApps(const QString &in0)
+    {
+        QList<QVariant> argumentList;
+        argumentList << QVariant::fromValue(in0);
+        return asyncCallWithArgumentList(QStringLiteral("ListUserApps"), argumentList);
+    }
+
     inline QDBusPendingReply<> Reset()
     {
         QList<QVariant> argumentList;
         return asyncCallWithArgumentList(QStringLiteral("Reset"), argumentList);
     }
 
-    inline QDBusPendingReply<> SetDefaultApp(const QString &in0, const QString &in1)
+    inline QDBusPendingReply<> SetDefaultApp(const QStringList &in0, const QString &in1)
     {
         QList<QVariant> argumentList;
         argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
