@@ -1,6 +1,7 @@
 #include "accountsmodule.h"
 #include "accountsdetailwidget.h"
 #include "modifypasswordpage.h"
+#include "modifyavatarpage.h"
 
 AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
@@ -60,6 +61,13 @@ AccountsModule::~AccountsModule()
         m_accountsWidget->deleteLater();
 }
 
+void AccountsModule::showAvatarPage(User *account)
+{
+    ModifyAvatarPage *w = new ModifyAvatarPage(account);
+
+    m_frameProxy->pushWidget(this, w);
+}
+
 void AccountsModule::showPasswordPage(User *account)
 {
     ModifyPasswordPage *w = new ModifyPasswordPage(account);
@@ -73,6 +81,7 @@ void AccountsModule::showAccountsDetail(User *account)
 
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::showPwdSettings, this, &AccountsModule::showPasswordPage);
+    connect(w, &AccountsDetailWidget::showAvatarSettings, this, &AccountsModule::showAvatarPage);
 
     m_frameProxy->pushWidget(this, w);
 }

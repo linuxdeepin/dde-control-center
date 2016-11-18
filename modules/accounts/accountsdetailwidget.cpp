@@ -25,6 +25,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     connect(user, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
     connect(m_autoLogin, &SwitchWidget::checkedChanegd, [=] (const bool autoLogin) { emit requestSetAutoLogin(user, autoLogin); });
     connect(m_modifyPassword, &NextPageWidget::clicked, [=] { emit showPwdSettings(user); });
+    connect(m_modifyAvatar, &NextPageWidget::clicked, [=] { emit showAvatarSettings(user); });
 
     setContent(m_accountSettings);
     setTitle(user->name());

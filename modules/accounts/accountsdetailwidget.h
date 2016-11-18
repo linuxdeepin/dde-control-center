@@ -16,6 +16,7 @@ public:
 
 signals:
     void showPwdSettings(User *user) const;
+    void showAvatarSettings(User *user) const;
 
     void requestSetAutoLogin(User *user, const bool autoLogin) const;
 

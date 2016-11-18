@@ -40,9 +40,13 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
         User * user = new User(m_userModel);
         connect(userInter, &AccountsUser::UserNameChanged, user, &User::setName);
         connect(userInter, &AccountsUser::AutomaticLoginChanged, user, &User::setAutoLogin);
+        connect(userInter, &AccountsUser::HistoryIconsChanged, user, &User::appendAvatarList);
+        connect(userInter, &AccountsUser::IconListChanged, user, &User::appendAvatarList);
 
         user->setName(userInter->userName());
         user->setAutoLogin(userInter->automaticLogin());
+        user->appendAvatarList(userInter->iconList());
+        user->appendAvatarList(userInter->historyIcons());
 
         m_userInters[user] = userInter;
         m_userModel->addUser(userPath, user);

@@ -23,3 +23,11 @@ void User::setAutoLogin(const bool autoLogin)
 
     emit autoLoginChanged(m_autoLogin);
 }
+
+void User::appendAvatarList(const QList<QString> &avatars)
+{
+    for (auto avatar : avatars)
+        m_avatarList << avatar;
+
+    emit avatarListChanged(m_avatarList.values());
+}
