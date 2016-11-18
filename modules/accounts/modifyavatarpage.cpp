@@ -1,4 +1,5 @@
 #include "modifyavatarpage.h"
+#include "avatarwidget.h"
 
 #include <QDebug>
 
@@ -33,10 +34,7 @@ void ModifyAvatarPage::updateAvatarList(const QList<QString> &avatars)
     // append new data
     for (int i(0); i != avatars.size(); ++i)
     {
-        // TODO: optimize
-        QLabel *l = new QLabel;
-        l->setPixmap(QPixmap(avatars[i].right(avatars[i].length() - 7)));
-
-        m_avatarsLayout->addWidget(l, i / 4, i % 4);
+        AvatarWidget *w = new AvatarWidget(avatars[i], this);
+        m_avatarsLayout->addWidget(w, i / 4, i % 4, Qt::AlignCenter);
     }
 }
