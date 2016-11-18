@@ -15,6 +15,7 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
 {
     QWidget* widget = new QWidget();
     QVBoxLayout* layout = new QVBoxLayout();
+    layout->setMargin(0);
 
     SettingsGroup* group = new SettingsGroup();
     SettingsItem* indexItem = new SettingsItem();

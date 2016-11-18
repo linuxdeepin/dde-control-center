@@ -10,19 +10,24 @@ KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
       m_shortcutWidget(nullptr),
       m_langWidget(nullptr)
 {
-
 }
 
 void KeyboardModule::initialize()
 {
     m_model = new KeyboardModel();
+    m_shortcutModel = new ShortcutModel();
     m_work = new KeyboardWork(m_model);
+
     connect(m_work, SIGNAL(curLang(QString)), m_model, SLOT(setLang(QString)));
     connect(m_work, SIGNAL(curLayout(QString)), m_model, SLOT(setLayout(QString)));
     connect(m_work, SIGNAL(addLayout(QString)), m_model, SLOT(addUserLayout(QString)));
     connect(m_work,SIGNAL(delLayout(QString)), m_model, SLOT(delUserLayout(QString)));
     connect(m_work, SIGNAL(langValid(QList<MetaData>)), m_model, SLOT(setLocaleList(QList<MetaData>)));
     connect(m_work, SIGNAL(UserLayoutListChanged(QStringList)), m_model, SLOT(setUserLayout(QStringList)));
+    connect(m_work, SIGNAL(shortcutInfo(QString)), m_shortcutModel, SLOT(onParseInfo(QString)));
+    connect(m_shortcutModel, SIGNAL(parseFinish()), this, SLOT(onParseFinish()));
+
+    m_work->getProperty();
 
     m_datas.clear();
     m_letters.clear();
@@ -72,10 +77,10 @@ void KeyboardModule::initialize()
 
     m_model->setLayoutLists(m_work->layoutLists());
     m_model->setLayout(m_work->curLayout());
-//    m_model->setLang(m_work->curLang());
     m_model->setUserLayout(m_work->userLayout());
 
     m_model->moveToThread(qApp->thread());
+    m_shortcutModel->moveToThread(qApp->thread());
     m_work->moveToThread(qApp->thread());
 }
 
@@ -175,10 +180,18 @@ void KeyboardModule::onPushLanguage()
 
 void KeyboardModule::onPushShortcut()
 {
+    if(!m_loaded)
+    {
+        return;
+    }
+
     if(!m_shortcutWidget)
     {
         m_shortcutWidget = new ShortcutWidget();
     }
+    m_shortcutWidget->addShortcut(m_shortcutModel->systemInfo(), ShortcutWidget::System);
+    m_shortcutWidget->addShortcut(m_shortcutModel->windowInfo(), ShortcutWidget::Window);
+    m_shortcutWidget->addShortcut(m_shortcutModel->workspaceInfo(), ShortcutWidget::Workspace);
 
     m_frameProxy->pushWidget(this, m_shortcutWidget);
 }
@@ -198,6 +211,11 @@ void KeyboardModule::onKeyboardBack()
             }
         }
     }
+}
+
+void KeyboardModule::onParseFinish()
+{
+    m_loaded = true;
 }
 
 void KeyboardModule::setCurrentLayout(const QString& value)

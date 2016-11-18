@@ -17,6 +17,7 @@ class KeyboardWork : public QObject
 
 public:
     explicit KeyboardWork(QObject *parent = 0);
+    void getProperty();
 
     QString curLang() const;
     QString curLayout() const;

@@ -5,6 +5,7 @@
 #include "moduleinterface.h"
 #include "keyboardwidget.h"
 #include "keyboardmodel.h"
+#include "shortcutmodel.h"
 #include "keyboardwork.h"
 #include "langwidget.h"
 #include "shortcutwidget.h"
@@ -33,6 +34,8 @@ public slots:
     void onPushLanguage();
     void onPushShortcut();
     void onKeyboardBack();
+    void onParseFinish();
+
     void setCurrentLayout(const QString &value);
     void setCurrentLang();
 
@@ -45,6 +48,7 @@ private:
     QList<MetaData> m_datas;
     QList<QString> m_letters;
     KeyboardWork* m_work;
+    ShortcutModel* m_shortcutModel;
     KeyboardModel* m_model;
     KeyboardWidget* m_keyboardWidget;
     KeyboardDetails* m_kbDetails;

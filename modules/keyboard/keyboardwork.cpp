@@ -3,6 +3,9 @@
 KeyboardWork::KeyboardWork(QObject *parent)
     : QObject(parent)
 {
+    qRegisterMetaType<LocaleInfo>("LocaleInfo");
+    qDBusRegisterMetaType<LocaleInfo>();
+
     m_keyboardInter = new KeyboardInter("com.deepin.daemon.InputDevices",
                                         "/com/deepin/daemon/InputDevice/Keyboard",
                                         QDBusConnection::sessionBus(), this);
@@ -15,10 +18,6 @@ KeyboardWork::KeyboardWork(QObject *parent)
                                           "/com/deepin/daemon/Keybinding",
                                           QDBusConnection::sessionBus(), this);
 
-    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->List(), this);
-    connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
-            SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
-
     m_keyboardInter->setSync(false);
     m_langSelector->setSync(false);
     m_keybindInter->setSync(false);
@@ -26,6 +25,13 @@ KeyboardWork::KeyboardWork(QObject *parent)
     connect(m_keyboardInter, SIGNAL(UserLayoutListChanged(QStringList)), this, SIGNAL(UserLayoutListChanged(QStringList)));
     connect(m_keyboardInter, SIGNAL(CurrentLayoutChanged(QString)), this, SIGNAL(curLayout(QString)));
     connect(m_langSelector, SIGNAL(serviceValidChanged(bool)), this ,SLOT(onValid(bool)));
+}
+
+void KeyboardWork::getProperty()
+{
+    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->List(), this);
+    connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
+            SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
 }
 
 KeyboardLayoutList KeyboardWork::layoutLists() const

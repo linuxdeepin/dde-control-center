@@ -147,7 +147,7 @@ QVariant IndexModel::data(const QModelIndex &index, int role) const
     }
     else if(role == Qt::BackgroundColorRole)
     {
-        return QBrush(QColor(19, 89, 177));
+        return QBrush(Qt::transparent);
     }
     else
         return QVariant();
