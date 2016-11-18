@@ -3,9 +3,12 @@
 
 #include "contentwidget.h"
 #include "moduleinterface.h"
+#include "translucentframe.h"
 
 #include <QMap>
 #include <QVBoxLayout>
+
+using namespace dcc;
 
 class Frame;
 class SettingsWidget : public ContentWidget, public FrameProxyInterface
@@ -36,7 +39,7 @@ private:
     Frame *m_frame;
 
     QVBoxLayout *m_settingsLayout;
-    QWidget *m_settingsWidget;
+    TranslucentFrame *m_settingsWidget;
 
     QList<ModuleInterface *> m_moduleInterfaces;
     QMap<ModuleInterface *, bool> m_moduleActivable;

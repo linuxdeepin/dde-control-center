@@ -4,12 +4,16 @@
 #include <QWidget>
 #include <QPropertyAnimation>
 
+#include "translucentframe.h"
+
 ///
 /// FrameWidget can auto adjust size to fit parent Frame
 ///
 
+using namespace dcc;
+
 class Frame;
-class FrameWidget : public QWidget
+class FrameWidget : public TranslucentFrame
 {
     Q_OBJECT
 

@@ -22,7 +22,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
       m_frame(frame),
 
       m_settingsLayout(new QVBoxLayout),
-      m_settingsWidget(new QWidget),
+      m_settingsWidget(new TranslucentFrame),
 
       m_refershModuleActivableTimer(new QTimer(this))
 {

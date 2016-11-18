@@ -1,3 +1,11 @@
+QScrollArea {
+    background: transparent;
+}
+
+QScrollArea QFrame {
+    background: transparent;
+}
+
 dcc--TranslucentFrame {
     background: transparent;
 }

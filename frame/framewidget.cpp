@@ -7,7 +7,7 @@
 #include <QVBoxLayout>
 
 FrameWidget::FrameWidget(Frame *parent)
-    : QWidget(parent),
+    : TranslucentFrame(parent),
 
       m_slideAni(new QPropertyAnimation(this, "pos")),
       m_content(nullptr)
