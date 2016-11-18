@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/dcc/widgets/themes/common/">
+	    <file>common.qss</file>
+    </qresource>
+</RCC>

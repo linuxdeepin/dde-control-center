@@ -61,7 +61,7 @@ void DefAppWorker::onSetDefaultAppChanged(const QString &name, const QString &ca
         if(i.key() == category) {
             QStringList mimelist = getTypeListByCategory(i.value());
             for (const QString &mime : mimelist) {
-                m_dbusManager->SetDefaultApp(mime, name);
+//                m_dbusManager->SetDefaultApp(mime, name);
                 qDebug()<< "已经设置" << name << mime;
             }
         }

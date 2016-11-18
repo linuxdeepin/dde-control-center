@@ -16,7 +16,8 @@ HEADERS += \
     $$PWD/lineeditwidget.h \
     $$PWD/labels/normallabel.h \
     $$PWD/labels/largelabel.h \
-    $$PWD/labels/smalllabel.h
+    $$PWD/labels/smalllabel.h \
+    $$PWD/translucentframe.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -31,10 +32,12 @@ SOURCES += \
     $$PWD/lineeditwidget.cpp \
     $$PWD/labels/normallabel.cpp \
     $$PWD/labels/largelabel.cpp \
-    $$PWD/labels/smalllabel.cpp
+    $$PWD/labels/smalllabel.cpp \
+    $$PWD/translucentframe.cpp
 
 RESOURCES += \
-    $$PWD/dark/dcc_widgets_dark.qrc \
-    $$PWD/light/dcc_widgets_light.qrc \
+    $$PWD/themes/dark/dcc_widgets_dark.qrc \
+    $$PWD/themes/light/dcc_widgets_light.qrc \
+    $$PWD/themes/common/dcc_widgets_common.qrc \
     $$PWD/UI/ui.qrc
 

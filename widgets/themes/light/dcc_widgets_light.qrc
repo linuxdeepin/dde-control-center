@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/dcc/widgets/themes/light/">
+	    <file>light.qss</file>
+    </qresource>
+</RCC>

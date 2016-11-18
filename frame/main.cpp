@@ -12,15 +12,59 @@
 
 #include <DApplication>
 #include <DLog>
+#include <QStyle>
 
 DWIDGET_USE_NAMESPACE
 DUTIL_USE_NAMESPACE
+
+static QString getQssFromFile(const QString &name)
+{
+    QString qss = "";
+
+    QFile f(name);
+    if (f.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qss = f.readAll();
+        f.close();
+    }
+
+    return qss;
+}
+
+static QString getStyleSheetFromDir(QDir dir, const QString &theme)
+{
+    QString ret;
+
+    QStringList subDirs;
+    subDirs << "common" << theme;
+    for (QString subDir : subDirs) {
+        dir.cd(subDir);
+        QString qssFile = QString("%1.qss").arg(subDir);
+        ret.append(getQssFromFile(dir.filePath(qssFile)));
+        dir.cdUp();
+    }
+
+    return ret;
+}
+
+static QString styleSheetFromTheme(const QString &theme)
+{
+    QString ret;
+
+    ret.append(getStyleSheetFromDir(QDir(":/dcc/widgets/themes/"), theme));
+
+    return ret;
+}
+
+static void onThemeChange(const QString &theme)
+{
+    qApp->setStyleSheet(styleSheetFromTheme(theme));
+}
 
 int main(int argc, char *argv[])
 {
     DApplication app(argc, argv);
     app.setStyle("ddark");
-    app.setStyleSheet("QWidget { background: transparent }");
+    onThemeChange("dark");
 
     QFont font(qApp->font());
 

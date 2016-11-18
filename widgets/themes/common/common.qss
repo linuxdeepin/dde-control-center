@@ -1,0 +1,3 @@
+dcc--TranslucentFrame {
+    background: transparent;
+}
