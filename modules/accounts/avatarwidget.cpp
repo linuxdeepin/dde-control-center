@@ -11,12 +11,17 @@
 AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
     : QWidget(parent),
 
+    m_hover(false),
+    m_deleable(false),
+    m_selected(false),
+
     m_delBtn(new QPushButton)
 {
     QUrl url(avatar);
     m_avatar = QPixmap(url.toLocalFile()).scaled(PIX_SIZE, PIX_SIZE, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
     m_delBtn->setText("x");
+//    m_delBtn->setVisible(false);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_delBtn);
@@ -24,6 +29,18 @@ AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
 
     setLayout(mainLayout);
     setFixedSize(PIX_SIZE, PIX_SIZE);
+}
+
+void AvatarWidget::setSelected(const bool selected)
+{
+    m_selected = selected;
+    update();
+}
+
+void AvatarWidget::setDeletable(const bool deletable)
+{
+    m_deleable = deletable;
+    update();
 }
 
 void AvatarWidget::paintEvent(QPaintEvent *e)
@@ -38,11 +55,27 @@ void AvatarWidget::paintEvent(QPaintEvent *e)
     painter.drawPixmap(e->rect(), m_avatar, e->rect());
 
     QPen pen(Qt::white);
-    pen.setWidth(5);
+    pen.setWidth(8);
+    if (m_selected)
+        pen.setColor(Qt::blue);
 
     painter.setPen(pen);
     painter.setBrush(Qt::transparent);
     painter.drawEllipse(rect());
 
     QWidget::paintEvent(e);
+}
+
+void AvatarWidget::enterEvent(QEvent *)
+{
+    m_hover = true;
+    m_delBtn->setVisible(m_deleable);
+    update();
+}
+
+void AvatarWidget::leaveEvent(QEvent *)
+{
+    m_hover = false;
+    m_delBtn->setVisible(false);
+    update();
 }

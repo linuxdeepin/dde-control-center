@@ -9,8 +9,9 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 {
     connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged);
 
+    onUserListChanged(m_accountsInter->userList());
+
     m_accountsInter->setSync(false);
-    m_accountsInter->userList();
 }
 
 void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
@@ -40,13 +41,13 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
         User * user = new User(m_userModel);
         connect(userInter, &AccountsUser::UserNameChanged, user, &User::setName);
         connect(userInter, &AccountsUser::AutomaticLoginChanged, user, &User::setAutoLogin);
-        connect(userInter, &AccountsUser::HistoryIconsChanged, user, &User::appendAvatarList);
-        connect(userInter, &AccountsUser::IconListChanged, user, &User::appendAvatarList);
+        connect(userInter, &AccountsUser::IconListChanged, user, &User::setAvatars);
+        connect(userInter, &AccountsUser::IconFileChanged, user, &User::setCurrentAvatar);
 
         user->setName(userInter->userName());
         user->setAutoLogin(userInter->automaticLogin());
-        user->appendAvatarList(userInter->iconList());
-        user->appendAvatarList(userInter->historyIcons());
+        user->setAvatars(userInter->iconList());
+        user->setCurrentAvatar(userInter->iconFile());
 
         m_userInters[user] = userInter;
         m_userModel->addUser(userPath, user);

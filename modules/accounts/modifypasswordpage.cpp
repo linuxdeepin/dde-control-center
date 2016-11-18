@@ -1,5 +1,6 @@
 #include "modifypasswordpage.h"
 #include "settingsgroup.h"
+#include "translucentframe.h"
 
 #include <QVBoxLayout>
 
@@ -36,7 +37,7 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
 
-    QWidget *mainWidget = new QWidget;
+    TranslucentFrame *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(mainLayout);
 
     setContent(mainWidget);

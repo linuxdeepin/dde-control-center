@@ -11,10 +11,19 @@ class AvatarWidget : public QWidget
 public:
     explicit AvatarWidget(const QString &avatar, QWidget *parent = 0);
 
+    void setSelected(const bool selected = true);
+    void setDeletable(const bool deletable = true);
+
 protected:
     void paintEvent(QPaintEvent *e);
+    void enterEvent(QEvent *);
+    void leaveEvent(QEvent *);
 
 private:
+    bool m_hover;
+    bool m_deleable;
+    bool m_selected;
+
     QPixmap m_avatar;
 
     QPushButton *m_delBtn;

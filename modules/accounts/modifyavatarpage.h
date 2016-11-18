@@ -17,6 +17,7 @@ private slots:
     void updateAvatarList(const QList<QString> &avatars);
 
 private:
+    User *m_userInter;
     QGridLayout *m_avatarsLayout;
 };
 

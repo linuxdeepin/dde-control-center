@@ -20,18 +20,23 @@ public:
     inline bool autoLogin() const { return m_autoLogin; }
     void setAutoLogin(const bool autoLogin);
 
-    inline const QList<QString> avatarList() const { return m_avatarList.values(); }
-    void appendAvatarList(const QList<QString> &avatars);
+    inline const QList<QString> &avatars() const { return m_avatars; }
+    void setAvatars(const QList<QString> &avatars);
+
+    inline const QString currentAvatar() const { return m_currentAvatar; }
+    void setCurrentAvatar(const QString &avatar);
 
 signals:
     void nameChanged(const QString &name) const;
+    void currentAvatarChanged(const QString &avatar) const;
     void autoLoginChanged(const bool autoLogin) const;
     void avatarListChanged(const QList<QString> &avatars) const;
 
 private:
     bool m_autoLogin;
     QString m_name;
-    QSet<QString> m_avatarList;
+    QString m_currentAvatar;
+    QList<QString> m_avatars;
 };
 
 #endif // USER_H
