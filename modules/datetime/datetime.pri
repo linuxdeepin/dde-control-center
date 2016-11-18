@@ -11,7 +11,8 @@ HEADERS += \
     $$PWD/datetimemodule.h \
     $$PWD/datetimework.h \
     $$PWD/chosedialog.h \
-    $$PWD/datetimemodel.h
+    $$PWD/datetimemodel.h \
+    $$PWD/timezoneitem.h
 
 SOURCES += \
     $$PWD/datetime.cpp \
@@ -22,7 +23,8 @@ SOURCES += \
     $$PWD/datetimemodule.cpp \
     $$PWD/datetimework.cpp \
     $$PWD/chosedialog.cpp \
-    $$PWD/datetimemodel.cpp
+    $$PWD/datetimemodel.cpp \
+    $$PWD/timezoneitem.cpp
 
 RESOURCES += \
     $$PWD/datetime.qrc

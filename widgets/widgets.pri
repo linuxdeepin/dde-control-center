@@ -11,14 +11,12 @@ HEADERS += \
     $$PWD/nextpagewidget.h \
     $$PWD/settingshead.h \
     $$PWD/switchwidget.h \
-    $$PWD/timezoneitem.h \
     $$PWD/optionwidget.h \
     $$PWD/lineeditwidget.h \
     $$PWD/labels/normallabel.h \
     $$PWD/labels/largelabel.h \
     $$PWD/labels/smalllabel.h \
-    $$PWD/translucentframe.h \
-    $$PWD/shortcutitem.h
+    $$PWD/translucentframe.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -28,14 +26,12 @@ SOURCES += \
     $$PWD/nextpagewidget.cpp \
     $$PWD/settingshead.cpp \
     $$PWD/switchwidget.cpp \
-    $$PWD/timezoneitem.cpp \
     $$PWD/optionwidget.cpp \
     $$PWD/lineeditwidget.cpp \
     $$PWD/labels/normallabel.cpp \
     $$PWD/labels/largelabel.cpp \
     $$PWD/labels/smalllabel.cpp \
-    $$PWD/translucentframe.cpp \
-    $$PWD/shortcutitem.cpp
+    $$PWD/translucentframe.cpp
 
 RESOURCES += \
     $$PWD/themes/dark/dcc_widgets_dark.qrc \
