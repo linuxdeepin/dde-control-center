@@ -34,6 +34,12 @@ QList<ShortcutInfo *> ShortcutModel::workspaceInfo() const
     return m_workspaceInfos;
 }
 
+QList<ShortcutInfo *> ShortcutModel::infos() const
+{
+    return m_infos;
+}
+
+#include <QDebug>
 void ShortcutModel::onParseInfo(const QString &info)
 {
     m_systemInfos.clear();
@@ -77,6 +83,7 @@ void ShortcutModel::onParseInfo(const QString &info)
         if(accels.isEmpty())
             accels = tr("None");
         info->accels = accels;
+
         info->name = obj["Name"].toString();
         info->id = obj["Id"].toString();
         m_infos.append(info);

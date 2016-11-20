@@ -1,6 +1,9 @@
 #include "shortcutwidget.h"
 #include "shortcutitem.h"
+
 #include <QVBoxLayout>
+#include <QLineEdit>
+
 using namespace dcc;
 
 ShortcutWidget::ShortcutWidget(QWidget *parent)
@@ -14,6 +17,8 @@ ShortcutWidget::ShortcutWidget(QWidget *parent)
     m_custonGroup = new SettingsGroup();
 
     QVBoxLayout* layout = new QVBoxLayout();
+    layout->setMargin(0);
+    layout->setSpacing(30);
     layout->addWidget(m_systemGroup);
     layout->addWidget(m_windowGroup);
     layout->addWidget(m_workspaceGroup);
@@ -28,6 +33,7 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutWidget::Inf
     for(int i = 0; i<list.count(); i++)
     {
         ShortcutItem* item = new ShortcutItem();
+        connect(item, SIGNAL(shortcutChangd(QString)), this, SIGNAL(shortcutChanged(QString)));
         item->setTitle(list.at(i)->name);
         item->setShortcutString(list.at(i)->accels);
 
@@ -40,4 +46,9 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutWidget::Inf
         else if(type == ShortcutWidget::Custom)
             m_custonGroup->appendItem(item);
     }
+}
+
+void ShortcutWidget::onSearch(const QString &text)
+{
+    Q_UNUSED(text);
 }

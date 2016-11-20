@@ -63,6 +63,11 @@ void ContentWidget::setTitle(const QString &title)
     m_title->setText(title);
 }
 
+void ContentWidget::sendBackSignal()
+{
+    emit back();
+}
+
 QWidget *ContentWidget::setContent(QWidget * const w)
 {
     QWidget *lastWidget = m_content;

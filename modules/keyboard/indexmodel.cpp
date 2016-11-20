@@ -92,7 +92,9 @@ IndexModel::IndexModel(QObject *parent)
 
 void IndexModel::setMetaData(const QList<MetaData> &datas)
 {
+    beginResetModel();
     m_datas = datas;
+    endResetModel();
 }
 
 QList<MetaData> IndexModel::metaData() const

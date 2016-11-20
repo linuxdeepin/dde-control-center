@@ -1,4 +1,5 @@
 #include "keyboardmodule.h"
+#include "keyitem.h"
 
 KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
     :QObject(parent),
@@ -8,7 +9,8 @@ KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
       m_kbDetails(nullptr),
       m_kbLayoutWidget(nullptr),
       m_shortcutWidget(nullptr),
-      m_langWidget(nullptr)
+      m_langWidget(nullptr),
+      m_scContent(nullptr)
 {
 }
 
@@ -127,6 +129,8 @@ void KeyboardModule::contentPopped(ContentWidget * const w)
         m_shortcutWidget = nullptr;
     else if(w == m_langWidget)
         m_langWidget = nullptr;
+    else if(w == m_scContent)
+        m_scContent = nullptr;
 
     w->deleteLater();
 }
@@ -178,6 +182,7 @@ void KeyboardModule::onPushLanguage()
     {
         m_langWidget = new LangWidget();
         m_langWidget->setModelData(m_model->langLists());
+        connect(m_langWidget, SIGNAL(click(QModelIndex)), this, SLOT(onSetLocale(QModelIndex)));
     }
 
     m_frameProxy->pushWidget(this, m_langWidget);
@@ -193,12 +198,18 @@ void KeyboardModule::onPushShortcut()
     if(!m_shortcutWidget)
     {
         m_shortcutWidget = new ShortcutWidget();
+        connect(m_shortcutWidget, SIGNAL(shortcutChanged(QString)), this, SLOT(onShortcutChecked(QString)));
     }
     m_shortcutWidget->addShortcut(m_shortcutModel->systemInfo(), ShortcutWidget::System);
     m_shortcutWidget->addShortcut(m_shortcutModel->windowInfo(), ShortcutWidget::Window);
     m_shortcutWidget->addShortcut(m_shortcutModel->workspaceInfo(), ShortcutWidget::Workspace);
 
     m_frameProxy->pushWidget(this, m_shortcutWidget);
+}
+
+void KeyboardModule::onPushShortcutControl(const QString &shortcut)
+{
+    Q_UNUSED(shortcut);
 }
 
 void KeyboardModule::onKeyboardBack()
@@ -231,6 +242,73 @@ void KeyboardModule::setCurrentLayout(const QString& value)
 void KeyboardModule::setCurrentLang()
 {
 
+}
+
+void KeyboardModule::onSetLocale(const QModelIndex &index)
+{
+    QVariant var = index.data();
+    MetaData md = var.value<MetaData>();
+
+    qDebug()<<Q_FUNC_INFO<<md.key();
+    m_work->setLang(md.key());
+}
+
+void KeyboardModule::onShortcutChecked(const QString &shortcut)
+{
+    QString dest = shortcut;
+    dest = dest.replace("<", "");
+    dest = dest.replace(">", "-");
+    QStringList dests = dest.split("-");
+    QList<ShortcutInfo*> infos = m_shortcutModel->infos();
+
+    QList<ShortcutInfo*>::iterator itinfo = infos.begin();
+    QStringList checkeds;
+    for(; itinfo != infos.end(); ++itinfo)
+    {
+        ShortcutInfo* info = (*itinfo);
+        QString src = info->accels;
+        src.replace("Control", "Ctrl");
+        src = src.replace("<", "");
+        src = src.replace(">", "-");
+        QStringList srcs = src.split("-");
+        if(srcs.count() == dests.count())
+        {
+            int score = 0;
+            for(int i = 0; i< dests.count() - 1; i++)
+            {
+                if(srcs.contains(dests.at(i)))
+                {
+                    score++;
+                }
+            }
+
+            if(score == dests.count() - 1)
+            {
+                checkeds<<srcs.last();
+            }
+        }
+    }
+
+    QList<KeyItem*> items = KeyItem::keyboards();
+    QList<KeyItem*>::iterator it = items.begin();
+    for(; it != items.end(); ++it)
+    {
+//        if(checkeds.contains(dests.last()))
+        {
+            if(checkeds.contains((*it)->mainKey()) || dests.contains((*it)->mainKey()))
+            {
+                (*it)->setPress(true);
+            }
+            else
+                (*it)->setPress(false);
+        }
+    }
+
+    if(!m_scContent)
+    {
+        m_scContent = new ShortcutContent();
+    }
+    m_frameProxy->pushWidget(this, m_scContent);
 }
 
 KeyboardModule::~KeyboardModule()

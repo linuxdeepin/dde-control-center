@@ -7,6 +7,7 @@
 #include "indexmodel.h"
 
 #include <QVBoxLayout>
+#include <QLineEdit>
 
 using namespace dcc;
 
@@ -26,6 +27,7 @@ LangWidget::LangWidget(QWidget *parent)
     hlayout->setSpacing(0);
 
     m_model = new IndexModel();
+    m_searchModel = new IndexModel();
     m_view = new IndexView();
 
     m_delegate = new IndexDelegate();
@@ -36,10 +38,15 @@ LangWidget::LangWidget(QWidget *parent)
     indexItem->setLayout(hlayout);
 
     group->appendItem(indexItem);
+    m_search = new QLineEdit();
+    layout->addWidget(m_search);
     layout->addWidget(group);
     widget->setLayout(layout);
 
     setContent(widget);
+
+    connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
+    connect(m_view, SIGNAL(clicked(QModelIndex)), this, SIGNAL(click(QModelIndex)));
 }
 
 void LangWidget::setModelData(const QList<MetaData> &datas)
@@ -47,4 +54,27 @@ void LangWidget::setModelData(const QList<MetaData> &datas)
     m_model->setMetaData(datas);
     m_view->setModel(m_model);
     m_view->setItemDelegate(m_delegate);
+}
+
+void LangWidget::onSearch(const QString &text)
+{
+    if(text.length() == 0)
+    {
+        m_view->setModel(m_model);
+    }
+    else
+    {
+        QList<MetaData> datas = m_model->metaData();
+        QList<MetaData>::iterator it = datas.begin();
+        QList<MetaData> sdatas;
+        for(; it != datas.end(); ++it)
+        {
+            if((*it).text().contains(text, Qt::CaseInsensitive))
+            {
+                sdatas.append(*it);
+            }
+        }
+        m_searchModel->setMetaData(sdatas);
+        m_view->setModel(m_searchModel);
+    }
 }

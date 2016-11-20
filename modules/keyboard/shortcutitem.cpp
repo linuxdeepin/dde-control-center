@@ -1,5 +1,7 @@
 #include "shortcutitem.h"
 #include <QLabel>
+#include <QLineEdit>
+#include <QMouseEvent>
 
 using namespace dcc;
 
@@ -19,8 +21,15 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 
     layout->addWidget(m_title);
     layout->setAlignment(m_title, Qt::AlignLeft);
-    layout->addLayout(m_hlayout);
+    layout->addLayout(m_hlayout);    
     layout->setAlignment(m_hlayout, Qt::AlignRight);
+
+    m_shortcutEdit = new QLineEdit();
+    m_shortcutEdit->setFixedWidth(60);
+    m_shortcutEdit->hide();
+
+    layout->addWidget(m_shortcutEdit);
+
     setLayout(layout);
 
     setFixedHeight(36);
@@ -33,6 +42,7 @@ void ShortcutItem::setShortcutString(QString shortcut)
         child->widget()->deleteLater();
         delete child;
     }
+    shortcut = shortcut.replace("Control", "Ctrl");
     shortcut = shortcut.replace("<", "");
     shortcut = shortcut.replace(">", "-");
     QStringList shortcuts = shortcut.split("-");
@@ -40,7 +50,8 @@ void ShortcutItem::setShortcutString(QString shortcut)
     for(int i = 0 ; i < shortcuts.count(); i++)
     {
         QLabel* label = new QLabel();
-        label->setStyleSheet("background-color: white; border: 3px; transparent: 0.8;");
+        label->setFixedHeight(28);
+        label->setStyleSheet("background-color: white; border: 3px;");
         label->setText(shortcuts.at(i));
         label->setAlignment(Qt::AlignCenter);
         m_hlayout->addWidget(label);
@@ -51,4 +62,13 @@ void ShortcutItem::setShortcutString(QString shortcut)
 void ShortcutItem::setTitle(const QString &title)
 {
     m_title->setText(title);
+}
+
+void ShortcutItem::mousePressEvent(QMouseEvent *e)
+{
+    Q_UNUSED(e);
+
+    static int i = 0;
+    emit shortcutChangd( i%2 == 0 ? "Ctrl-Shift-A" : "Super-Y");
+    i++;
 }

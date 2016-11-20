@@ -13,6 +13,7 @@ public:
     explicit ContentWidget(QWidget *parent = 0);
 
     void setTitle(const QString &title);
+    void sendBackSignal();
     QWidget *setContent(QWidget * const w);
 
 signals:

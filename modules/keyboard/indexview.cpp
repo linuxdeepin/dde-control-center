@@ -12,6 +12,7 @@ IndexView::IndexView(QWidget *parent)
 //    setSelectionMode(QAbstractItemView::MultiSelection);
 //    setPalette(QPalette(QColor(19, 89, 177)));
     setStyleSheet("border: 0px");
+    setFixedHeight(600);
 }
 
 void IndexView::onClick(const QString &ch)

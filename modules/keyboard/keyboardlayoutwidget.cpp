@@ -7,11 +7,13 @@
 #include "settingsitem.h"
 
 #include <QHBoxLayout>
+#include <QLineEdit>
 
 using namespace dcc;
 
 KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
-    :ContentWidget(parent)
+    :ContentWidget(parent),
+      textLength(0)
 {
     QWidget* widget = new QWidget();
     QVBoxLayout* layout = new QVBoxLayout();
@@ -26,10 +28,11 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     hlayout->setSpacing(0);
 
     m_model = new IndexModel();
+    m_searchModel = new IndexModel();
+
     m_view = new IndexView();
     m_delegate = new IndexDelegate();
 
-    m_view->setFixedHeight(600);
     m_indexframe = new IndexFrame();
 
     hlayout->addWidget(m_view);
@@ -38,10 +41,21 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
 
     connect(m_indexframe, SIGNAL(click(QString)), m_view, SLOT(onClick(QString)));
     group->appendItem(indexItem);
+    m_search = new QLineEdit();
+    layout->addWidget(m_search);
     layout->addWidget(group);
     widget->setLayout(layout);
 
     setContent(widget);
+
+    connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
+}
+
+KeyboardLayoutWidget::~KeyboardLayoutWidget()
+{
+    m_searchModel->deleteLater();
+    m_model->deleteLater();
+    m_delegate->deleteLater();
 }
 
 void KeyboardLayoutWidget::setMetaData(const QList<MetaData> &datas)
@@ -70,4 +84,29 @@ QList<MetaData> KeyboardLayoutWidget::selectData() const
     }
 
     return datas;
+}
+
+void KeyboardLayoutWidget::onSearch(const QString &text)
+{
+    if(text.length() == 0)
+    {
+        m_view->setModel(m_model);
+        m_indexframe->show();
+    }
+    else
+    {
+        QList<MetaData> datas = m_model->metaData();
+        QList<MetaData>::iterator it = datas.begin();
+        QList<MetaData> sdatas;
+        for(; it != datas.end(); ++it)
+        {
+            if((*it).text().contains(text, Qt::CaseInsensitive))
+            {
+                sdatas.append(*it);
+            }
+        }
+        m_searchModel->setMetaData(sdatas);
+        m_view->setModel(m_searchModel);
+        m_indexframe->hide();
+    }
 }

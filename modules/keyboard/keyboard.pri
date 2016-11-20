@@ -13,7 +13,10 @@ HEADERS += \
     $$PWD/keyboarddetails.h \
     $$PWD/checkitem.h \
     $$PWD/shortcutmodel.h \
-    $$PWD/shortcutitem.h
+    $$PWD/shortcutitem.h \
+    $$PWD/keyitem.h \
+    $$PWD/keyboardcontrol.h \
+    $$PWD/shortcutcontent.h
 
 SOURCES += \
     $$PWD/keyboardmodule.cpp \
@@ -30,4 +33,7 @@ SOURCES += \
     $$PWD/keyboarddetails.cpp \
     $$PWD/checkitem.cpp \
     $$PWD/shortcutmodel.cpp \
-    $$PWD/shortcutitem.cpp
+    $$PWD/shortcutitem.cpp \
+    $$PWD/keyitem.cpp \
+    $$PWD/keyboardcontrol.cpp \
+    $$PWD/shortcutcontent.cpp

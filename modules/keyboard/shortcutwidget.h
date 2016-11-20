@@ -7,6 +7,8 @@
 
 using namespace dcc;
 
+class QLineEdit;
+
 class ShortcutWidget : public ContentWidget
 {
     Q_OBJECT
@@ -24,11 +26,19 @@ public:
 
     void addShortcut(QList<ShortcutInfo*> list, ShortcutWidget::InfoType type);
 
+signals:
+    void shortcutChanged(const QString& shortcut);
+
+public slots:
+    void onSearch(const QString &text);
+
 private:
+    QLineEdit* m_search;
     SettingsGroup* m_systemGroup;
     SettingsGroup* m_windowGroup;
     SettingsGroup* m_workspaceGroup;
     SettingsGroup* m_custonGroup;
+    SettingsGroup* m_searchGroup;
 };
 
 #endif // SHORTCUTWIDGET_H

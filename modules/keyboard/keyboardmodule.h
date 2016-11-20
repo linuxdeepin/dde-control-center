@@ -10,6 +10,8 @@
 #include "langwidget.h"
 #include "shortcutwidget.h"
 #include "keyboarddetails.h"
+#include "keyboardcontrol.h"
+#include "shortcutcontent.h"
 
 class KeyboardModule : public QObject, public ModuleInterface
 {
@@ -34,12 +36,16 @@ public slots:
     void onPushKBDetails();
     void onPushLanguage();
     void onPushShortcut();
+    void onPushShortcutControl(const QString& shortcut);
     void onKeyboardBack();
     void onParseFinish();
 
     void setCurrentLayout(const QString &value);
     void setCurrentLang();
 
+    void onSetLocale(const QModelIndex &index);
+
+    void onShortcutChecked(const QString& shortcut);
 private:
     ~KeyboardModule();
     void append(const MetaData& md);
@@ -56,6 +62,7 @@ private:
     KeyboardLayoutWidget* m_kbLayoutWidget;
     ShortcutWidget* m_shortcutWidget;
     LangWidget* m_langWidget;
+    ShortcutContent* m_scContent;
 };
 
 #endif // KEYBOARDMODULE_H

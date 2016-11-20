@@ -34,6 +34,7 @@ public:
     QList<ShortcutInfo*> systemInfo() const;
     QList<ShortcutInfo*> windowInfo() const;
     QList<ShortcutInfo*> workspaceInfo() const;
+    QList<ShortcutInfo*> infos() const;
 
 signals:
     void parseFinish();

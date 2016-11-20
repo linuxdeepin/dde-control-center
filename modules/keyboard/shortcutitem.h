@@ -7,6 +7,8 @@
 
 using namespace dcc;
 
+class QLineEdit;
+
 class ShortcutItem : public SettingsItem
 {
     Q_OBJECT
@@ -17,7 +19,14 @@ public:
     void setShortcutString(QString shortcut);
     void setTitle(const QString& title);
 
+signals:
+    void shortcutChangd(const QString& shortcut);
+
+protected:
+    void mousePressEvent(QMouseEvent *e);
+
 private:
+    QLineEdit* m_shortcutEdit;
     QHBoxLayout* m_hlayout;
     QLabel* m_title;
 };
