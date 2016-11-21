@@ -2,5 +2,11 @@
     <qresource prefix="/widgets">
         <file>themes/dark/dark.qss</file>
         <file>themes/common/common.qss</file>
+        <file>icons/next_hover.png</file>
+        <file>icons/next_normal.png</file>
+        <file>icons/next_press.png</file>
+        <file>icons/back_press.png</file>
+        <file>icons/back_normal.png</file>
+        <file>icons/back_hover.png</file>
     </qresource>
 </RCC>

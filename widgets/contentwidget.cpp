@@ -20,9 +20,6 @@ ContentWidget::ContentWidget(QWidget *parent)
 {
     DImageButton *backBtn = new DImageButton;
     backBtn->setFixedSize(24, 22);
-    backBtn->setNormalPic(":/icon/previous_normal.png");
-    backBtn->setHoverPic(":/icon/previous_hover.png");
-    backBtn->setPressPic(":/icon/previous_press.png");
 
     m_title = new QLabel;
     m_title->setAlignment(Qt::AlignCenter);
@@ -56,6 +53,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     connect(backBtn, &DImageButton::clicked, this, &ContentWidget::back);
 
     setLayout(centeralLayout);
+    setObjectName("ContentWidget");
 }
 
 void ContentWidget::setTitle(const QString &title)
@@ -85,9 +83,8 @@ QWidget *ContentWidget::setContent(QWidget * const w)
 
 bool ContentWidget::eventFilter(QObject *watched, QEvent *event)
 {
-    if (m_content && watched == m_contentArea && event->type() == QEvent::Resize ) {
+    if (m_content && watched == m_contentArea && event->type() == QEvent::Resize)
         m_content->setFixedWidth(static_cast<QResizeEvent *>(event)->size().width());
-    }
 
     if (m_content && watched == m_contentArea->viewport() && event->type() == QEvent::Wheel) {
         const QWheelEvent *wheel = static_cast<QWheelEvent*>(event);

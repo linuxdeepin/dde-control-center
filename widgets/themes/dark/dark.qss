@@ -1,0 +1,15 @@
+/* NextPageWidget qss */
+#NextPageWidget > Dtk--Widget--DImageButton
+{
+    qproperty-normalPic: url(:/widgets/icons/next_normal.png);
+    qproperty-hoverPic: url(:/widgets/icons/next_hover.png);
+    qproperty-pressPic: url(:/widgets/icons/next_press.png);
+}
+
+/* ContentWidget qss */
+#ContentWidget > Dtk--Widget--DImageButton
+{
+    qproperty-normalPic: url(:/widgets/icons/back_normal.png);
+    qproperty-hoverPic: url(:/widgets/icons/back_hover.png);
+    qproperty-pressPic: url(:/widgets/icons/back_press.png);
+}

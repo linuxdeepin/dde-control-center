@@ -15,10 +15,7 @@ NextPageWidget::NextPageWidget(QFrame *parent)
 
     m_value = new NormalLabel;
 
-    m_nextPageBtn = new DImageButton(":/icon/next_normal.png",
-                                     ":/icon/next_hover.png",
-                                     ":/icon/next_press.png");
-
+    m_nextPageBtn = new DImageButton;
     m_nextPageBtn->setFixedSize(32, 32);
 //    m_nextPageBtn->setStyleSheet("background-color:red;");
 
@@ -32,6 +29,7 @@ NextPageWidget::NextPageWidget(QFrame *parent)
 
     setFixedHeight(36);
     setLayout(mainLayout);
+    setObjectName("NextPageWidget");
 
     connect(m_nextPageBtn, &DImageButton::clicked, this, &NextPageWidget::clicked);
 }
