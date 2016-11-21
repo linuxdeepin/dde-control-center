@@ -12,6 +12,7 @@
 #include "sound/soundmodule.h"
 #include "update/updatemodule.h"
 #include "mouse/mousemodule.h"
+#include "wacom/wacomemodule.h"
 
 #include <QResizeEvent>
 #include <QScrollBar>
@@ -43,6 +44,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new DatetimeModule(this));
     loadModule(new KeyboardModule(this));
     loadModule(new DefaultAppsModule(this));
+    loadModule(new WacomModule(this));
 
     m_settingsWidget->setLayout(m_settingsLayout);
 

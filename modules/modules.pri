@@ -9,6 +9,7 @@ include(sound/sound.pri)
 include(bluetooth/bluetooth.pri)
 include(keyboard/keyboard.pri)
 include(mouse/mouse.pri)
+include(wacom/wacom.pri)
 
 HEADERS += \
     $$PWD/modulewidget.h \
