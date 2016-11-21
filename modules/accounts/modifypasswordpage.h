@@ -14,7 +14,15 @@ class ModifyPasswordPage : public ContentWidget
 public:
     explicit ModifyPasswordPage(User *user, QWidget *parent = 0);
 
+signals:
+    void requestChangePassword(User *userInter, const QString &password) const;
+
+private slots:
+    void passwordSubmit();
+
 private:
+    User *m_userInter;
+
     dcc::LineEditWidget *m_pwdEdit;
     dcc::LineEditWidget *m_pwdEditRepeat;
     QPushButton *m_cancel;

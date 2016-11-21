@@ -25,6 +25,7 @@ signals:
 public slots:
     void setAutoLogin(User *user, const bool autoLogin);
     void onUserListChanged(const QStringList &userList);
+    void setPassword(User *user, const QString &passwd);
 
 private:
     AccountsUser *userInter(const QString &userName) const;

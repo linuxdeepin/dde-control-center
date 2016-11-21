@@ -56,3 +56,11 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
     // TODO: process removed user
     m_userSet = userSet;
 }
+
+void AccountsWorker::setPassword(User *user, const QString &passwd)
+{
+    AccountsUser *userInter = m_userInters[user];
+    Q_ASSERT(userInter);
+
+    userInter->SetPassword(passwd);
+}

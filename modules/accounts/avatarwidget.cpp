@@ -21,7 +21,7 @@ AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
     m_avatar = QPixmap(url.toLocalFile()).scaled(PIX_SIZE, PIX_SIZE, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
     m_delBtn->setText("x");
-//    m_delBtn->setVisible(false);
+    m_delBtn->setVisible(false);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_delBtn);

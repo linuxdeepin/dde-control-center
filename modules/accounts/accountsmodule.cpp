@@ -77,6 +77,8 @@ void AccountsModule::showPasswordPage(User *account)
 {
     ModifyPasswordPage *w = new ModifyPasswordPage(account);
 
+    connect(w, &ModifyPasswordPage::requestChangePassword, m_accountsWorker, &AccountsWorker::setPassword);
+
     m_frameProxy->pushWidget(this, w);
 }
 

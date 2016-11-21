@@ -3,11 +3,14 @@
 #include "translucentframe.h"
 
 #include <QVBoxLayout>
+#include <QDebug>
 
 using namespace dcc;
 
 ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     : ContentWidget(parent),
+
+      m_userInter(user),
 
       m_pwdEdit(new LineEditWidget),
       m_pwdEditRepeat(new LineEditWidget),
@@ -15,7 +18,9 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
       m_cancel(new QPushButton),
       m_accept(new QPushButton)
 {
+    m_pwdEdit->textEdit()->setEchoMode(QLineEdit::Password);
     m_pwdEdit->setTitle(tr("New Password"));
+    m_pwdEditRepeat->textEdit()->setEchoMode(QLineEdit::Password);
     m_pwdEditRepeat->setTitle(tr("Repeat Password"));
 
     m_cancel->setText(tr("Cancel"));
@@ -42,4 +47,22 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
 
     setContent(mainWidget);
     setTitle(tr("Password") + " - " + user->name());
+
+    connect(m_accept, &QPushButton::clicked, this, &ModifyPasswordPage::passwordSubmit);
+    connect(m_cancel, &QPushButton::clicked, this, &ModifyPasswordPage::back);
+}
+
+void ModifyPasswordPage::passwordSubmit()
+{
+    const QString pwd0 = m_pwdEdit->textEdit()->text();
+    const QString pwd1 = m_pwdEditRepeat->textEdit()->text();
+
+    if (pwd0 == pwd1)
+    {
+        emit requestChangePassword(m_userInter, pwd0);
+        return;
+    }
+
+    // TODO: password not match
+    qDebug() << "password not match";
 }
