@@ -34,8 +34,6 @@ SOURCES += \
     $$PWD/translucentframe.cpp
 
 RESOURCES += \
-    $$PWD/themes/dark/dcc_widgets_dark.qrc \
-    $$PWD/themes/light/dcc_widgets_light.qrc \
-    $$PWD/themes/common/dcc_widgets_common.qrc \
-    $$PWD/UI/ui.qrc
+    $$PWD/UI/ui.qrc \
+    $$PWD/resources.qrc
 

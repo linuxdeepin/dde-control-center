@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/dcc/widgets/themes/dark/">
-	    <file>dark.qss</file>
-    </qresource>
-</RCC>

@@ -17,9 +17,11 @@
 DWIDGET_USE_NAMESPACE
 DUTIL_USE_NAMESPACE
 
-static QString getQssFromFile(const QString &name)
+static const QString getQssFromFile(const QString &name)
 {
-    QString qss = "";
+    qDebug() << "load qss file: " << name;
+
+    QString qss;
 
     QFile f(name);
     if (f.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -27,37 +29,44 @@ static QString getQssFromFile(const QString &name)
         f.close();
     }
 
-    return qss;
+    return std::move(qss);
 }
 
-static QString getStyleSheetFromDir(QDir dir, const QString &theme)
+static const QString getStyleSheetFromDir(QDir dir)
 {
     QString ret;
 
-    QStringList subDirs;
-    subDirs << "common" << theme;
-    for (QString subDir : subDirs) {
-        dir.cd(subDir);
-        QString qssFile = QString("%1.qss").arg(subDir);
-        ret.append(getQssFromFile(dir.filePath(qssFile)));
-        dir.cdUp();
+    for (auto name : dir.entryInfoList(QDir::Files | QDir::NoDotAndDotDot))
+        ret.append(getQssFromFile(name.absoluteFilePath()));
+
+    return std::move(ret);
+}
+
+static const QString styleSheetFromTheme(const QString &theme)
+{
+    QStringList moduleList = { "widgets", "account" };
+    QString ret;
+
+    const QString resources = ":/%1/themes/" + theme;
+    for (auto module : moduleList)
+    {
+        QString dir = resources.arg(module);
+        ret.append(getStyleSheetFromDir(dir));
     }
 
-    return ret;
-}
-
-static QString styleSheetFromTheme(const QString &theme)
-{
-    QString ret;
-
-    ret.append(getStyleSheetFromDir(QDir(":/dcc/widgets/themes/"), theme));
-
-    return ret;
+    return std::move(ret);
 }
 
 static void onThemeChange(const QString &theme)
 {
-    qApp->setStyleSheet(styleSheetFromTheme(theme));
+    QString qss;
+    qss.append(styleSheetFromTheme("common"));
+    qss.append(styleSheetFromTheme(theme));
+
+    qDebug() << "set theme:" << theme;
+    qDebug().noquote() << "qss: " << endl << qss;
+
+    qApp->setStyleSheet(qss);
 }
 
 int main(int argc, char *argv[])
@@ -86,7 +95,7 @@ int main(int argc, char *argv[])
     Q_UNUSED(adaptor);
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("com.deepin.dde.ControlCenter") ||
-            !conn.registerObject("/com/deepin/dde/ControlCenter", &f)) {
+        !conn.registerObject("/com/deepin/dde/ControlCenter", &f)) {
         qDebug() << "dbus service already registered!";
 
 //        // call exist service
