@@ -7,6 +7,10 @@ MouseSettings::MouseSettings(QObject *parent)
     m_mainLayout = new QVBoxLayout;
     speedSlider = new SpeedSlider;
     speedSlider->setTitle(tr("Pointer Speed"));
+    speedSlider->setMaxValue(MouseMoveSpeedMax);
+    speedSlider->setMinValue(MouseMoveSpeedMin);
+    speedSlider->setStep(MouseMoveSpeedStep);
+
     m_mainGroup->appendItem(speedSlider);
 
     switchWidget = new SwitchWidget;
@@ -28,9 +32,6 @@ void MouseSettings::setModel(MouseModelMouseSettings *const baseSettings)
     connect(m_baseSettings, &MouseModelMouseSettings::sliderValueChanged, this, &MouseSettings::setSliderValue);
     setSwitchState(m_baseSettings->getSwitchState());
     setSliderValue(m_baseSettings->getSliderValue());
-    setSliderMaxValue(m_baseSettings->getSliderMaxValue());
-    setSliderMinValue(m_baseSettings->getSliderMinValue());
-    setSliderStep(m_baseSettings->getSliderStep());
 }
 
 void MouseSettings::setSwitchTitle(const QString &title)
@@ -46,19 +47,4 @@ void MouseSettings::setSwitchState(const bool state)
 void MouseSettings::setSliderValue(const int &value)
 {
     speedSlider->setValue(value);
-}
-
-void MouseSettings::setSliderMaxValue(const int &value)
-{
-    speedSlider->setMaxValue(value);
-}
-
-void MouseSettings::setSliderMinValue(const int &value)
-{
-    speedSlider->setMinValue(value);
-}
-
-void MouseSettings::setSliderStep(const int &value)
-{
-    speedSlider->setStep(value);
 }

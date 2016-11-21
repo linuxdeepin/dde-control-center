@@ -8,6 +8,11 @@
 #include "../mousemodel.h"
 #include <QObject>
 
+const int TrackMoveSpeedMax  = 3000;
+const int TrackMoveSpeedMin  = 200;
+const int TrackMoveSpeedStep = 400;
+
+using namespace dcc;
 class ThinkpadSettings : public SettingsItem
 {
     Q_OBJECT
@@ -21,9 +26,6 @@ signals:
 
 public slots:
     void setSliderValue(const int &value);
-    void setSliderMaxValue(const int &value);
-    void setSliderMinValue(const int &value);
-    void setSliderStep(const int &value);
 
 private:
     QVBoxLayout *m_mainLayout;

@@ -35,31 +35,20 @@ void MouseWorker::active()
 
     MouseModelBaseSettings *modelBase = m_model->getBaseSettings();
     modelBase->setSliderValue(m_dbusMouse->doubleClick());
-    modelBase->setSliderMaxValue(1000);
-    modelBase->setSliderMinValue(100);
-    modelBase->setSliderStep((1000 - 100) / 7);
     modelBase->setLeftHandState(m_dbusMouse->leftHanded());
     modelBase->setNaturalScroll(m_dbusMouse->naturalScroll());
     modelBase->setDisIfTyping(m_dbusTouchPad->disableIfTyping());
 
     MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
     modelMouse->setSliderValue(std::round(3.2 - m_dbusMouse->motionAcceleration()) * 1000);
-    modelMouse->setSliderMaxValue(3000);
-    modelMouse->setSliderMinValue(200);
-    modelMouse->setSliderStep((3000 - 200) / 7);
     modelMouse->setSwitchState(m_dbusMouse->disableTpad());
 
     MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
     modelTouch->setSliderValue(std::round(3.2 - m_dbusTouchPad->motionAcceleration()) * 1000);
-    modelTouch->setSliderMaxValue(3000);
-    modelTouch->setSliderMinValue(200);
-    modelTouch->setSliderStep((3000 - 200) / 7);
     modelTouch->setSwitchState(m_dbusTouchPad->tapClick());
 
     MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
     modelTrack->setSliderValue(std::round(3.2 - m_dbusTrackPoint->motionAcceleration()) * 1000);
-    modelTrack->setSliderMaxValue(3000);
-    modelTrack->setSliderMinValue(200);
 }
 
 void MouseWorker::deactive()

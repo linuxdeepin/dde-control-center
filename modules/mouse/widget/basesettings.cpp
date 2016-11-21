@@ -20,6 +20,9 @@ BaseSettings::BaseSettings(QObject *parent)
 
     douSlider = new SpeedSlider;
     douSlider->setTitle(tr("Double Speed"));
+    douSlider->setMaxValue(DouClickSpeedMax);
+    douSlider->setMinValue(DouClickSpeedMin);
+    douSlider->setStep(DouClickSpeedStep);
 
     m_mainGroup->appendItem(douSlider);
 
@@ -47,9 +50,6 @@ void BaseSettings::setModel(MouseModelBaseSettings *const baseSettings)
     setNaturalScroll(m_baseSettings->getNaturalScroll());
     setDisIfTypingState(m_baseSettings->getDisIfTyping());
     setSliderValue(m_baseSettings->getSliderValue());
-    setSliderMaxValue(m_baseSettings->getSliderMaxValue());
-    setSliderMinValue(m_baseSettings->getSliderMinValue());
-    setSliderStep(m_baseSettings->getSliderStep());
 }
 
 void BaseSettings::setLeftHandState(const bool state)
@@ -70,19 +70,4 @@ void BaseSettings::setDisIfTypingState(const bool state)
 void BaseSettings::setSliderValue(const int &value)
 {
     douSlider->setValue(value);
-}
-
-void BaseSettings::setSliderMaxValue(const int &value)
-{
-    douSlider->setMaxValue(value);
-}
-
-void BaseSettings::setSliderMinValue(const int &value)
-{
-    douSlider->setMinValue(value);
-}
-
-void BaseSettings::setSliderStep(const int &value)
-{
-    douSlider->setStep(value);
 }

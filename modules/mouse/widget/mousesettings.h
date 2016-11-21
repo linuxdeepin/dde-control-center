@@ -7,6 +7,11 @@
 #include "../mousemodel.h"
 #include <QObject>
 #include <QVBoxLayout>
+
+const int MouseMoveSpeedMax  = 3000;
+const int MouseMoveSpeedMin  = 200;
+const int MouseMoveSpeedStep = 400;
+
 using namespace dcc;
 class MouseSettings : public SettingsItem
 {
@@ -24,9 +29,6 @@ public slots:
     void setSwitchTitle(const QString &title);
     void setSwitchState(const bool state);
     void setSliderValue(const int &value);
-    void setSliderMaxValue(const int &value);
-    void setSliderMinValue(const int &value);
-    void setSliderStep(const int &value);
 
 private:
     QVBoxLayout *m_mainLayout;

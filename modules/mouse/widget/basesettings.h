@@ -9,6 +9,10 @@
 #include <QObject>
 #include <QVBoxLayout>
 
+const int DouClickSpeedMax  = 1000;
+const int DouClickSpeedMin  = 100;
+const int DouClickSpeedStep = 128;
+
 using namespace dcc;
 class BaseSettings : public SettingsItem
 {
@@ -29,9 +33,6 @@ public slots:
     void setNaturalScroll(const bool state);
     void setDisIfTypingState(const bool state);
     void setSliderValue(const int &value);
-    void setSliderMaxValue(const int &value);
-    void setSliderMinValue(const int &value);
-    void setSliderStep(const int &value);
 
 private:
     QVBoxLayout   *m_mainLayout;
