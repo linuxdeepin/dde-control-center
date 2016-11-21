@@ -18,7 +18,6 @@ ModifyAvatarPage::ModifyAvatarPage(User *user, QWidget *parent)
 
     TranslucentFrame *avatarsWidget = new TranslucentFrame;
     avatarsWidget->setLayout(m_avatarsLayout);
-    avatarsWidget->setStyleSheet("background-color: transparent;");
 
     setContent(avatarsWidget);
     setTitle(user->name());

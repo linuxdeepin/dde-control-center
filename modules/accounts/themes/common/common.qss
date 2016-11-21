@@ -1,0 +1,6 @@
+/* accounts module common style */
+#PasswordWidget QLineEdit
+{
+    background-color: transparent;
+    border: none;
+}

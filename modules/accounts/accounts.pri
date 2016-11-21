@@ -21,3 +21,6 @@ SOURCES += \
     $$PWD/avatarwidget.cpp
 
 INCLUDEPATH += $$PWD/..
+
+RESOURCES += \
+    $$PWD/accounts.qrc

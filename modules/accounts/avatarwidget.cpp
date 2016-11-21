@@ -5,6 +5,7 @@
 #include <QPainter>
 #include <QPaintEvent>
 #include <QVBoxLayout>
+#include <QApplication>
 
 #define PIX_SIZE    80
 
@@ -29,6 +30,7 @@ AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
 
     setLayout(mainLayout);
     setFixedSize(PIX_SIZE, PIX_SIZE);
+    setObjectName("AvatarWidget");
 }
 
 void AvatarWidget::setSelected(const bool selected)

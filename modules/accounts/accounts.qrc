@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/accounts">
+        <file>themes/common/common.qss</file>
+    </qresource>
+</RCC>
