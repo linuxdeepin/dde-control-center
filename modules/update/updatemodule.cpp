@@ -29,7 +29,12 @@ void UpdateModule::moduleActive()
 
 void UpdateModule::moduleDeactive()
 {
-//    qDebug() << "update deactive";
+    //    qDebug() << "update deactive";
+}
+
+void UpdateModule::reset()
+{
+
 }
 
 void UpdateModule::contentPopped(ContentWidget * const w)

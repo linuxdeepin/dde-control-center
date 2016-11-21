@@ -35,6 +35,9 @@ public:
     // initialize的时候不能做资源占用较高的操作；
     virtual void initialize() = 0;
 
+    // reset module settings
+    virtual void reset() = 0;
+
     ///
     /// \brief name
     /// your module name

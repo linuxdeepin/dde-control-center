@@ -25,6 +25,11 @@ void MouseModule::moduleDeactive()
     m_worker->deactive();
 }
 
+void MouseModule::reset()
+{
+
+}
+
 ModuleWidget *MouseModule::moduleWidget()
 {
     if (!m_mouseWidget) {

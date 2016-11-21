@@ -37,6 +37,11 @@ void PowerModule::moduleDeactive()
     m_powerWorker->deactive();
 }
 
+void PowerModule::reset()
+{
+
+}
+
 void PowerModule::contentPopped(ContentWidget * const w)
 {
     Q_UNUSED(w);

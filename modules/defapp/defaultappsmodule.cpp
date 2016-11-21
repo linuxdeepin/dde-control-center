@@ -39,6 +39,11 @@ void DefaultAppsModule::moduleDeactive()
     m_defAppWorker->deactive();
 }
 
+void DefaultAppsModule::reset()
+{
+
+}
+
 ModuleWidget *DefaultAppsModule::moduleWidget()
 {
     if (!m_defaultappsWidget) {

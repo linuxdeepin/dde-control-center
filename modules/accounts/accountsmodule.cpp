@@ -30,6 +30,11 @@ void AccountsModule::moduleDeactive()
 {
 }
 
+void AccountsModule::reset()
+{
+
+}
+
 ModuleWidget *AccountsModule::moduleWidget()
 {
     if (!m_accountsWidget)

@@ -48,6 +48,11 @@ void SoundModule::moduleDeactive()
     m_soundWorker->deactivate();
 }
 
+void SoundModule::reset()
+{
+
+}
+
 ModuleWidget *SoundModule::moduleWidget()
 {
     if (!m_soundWidget) {

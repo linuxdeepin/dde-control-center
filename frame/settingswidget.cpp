@@ -22,11 +22,15 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
       m_frame(frame),
 
+      m_resetBtn(new QPushButton),
       m_settingsLayout(new QVBoxLayout),
       m_settingsWidget(new TranslucentFrame),
 
       m_refershModuleActivableTimer(new QTimer(this))
 {
+    m_resetBtn->setText(tr("Reset all settings"));
+
+    m_settingsLayout->addWidget(m_resetBtn);
     m_settingsLayout->setSpacing(30);
     m_settingsLayout->setMargin(0);
 
@@ -48,6 +52,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     m_refershModuleActivableTimer->setSingleShot(true);
     m_refershModuleActivableTimer->setInterval(100);
 
+    connect(m_resetBtn, &QPushButton::clicked, this, &SettingsWidget::resetAllSettings);
     connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, m_refershModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_refershModuleActivableTimer, &QTimer::timeout, this, &SettingsWidget::refershModuleActivable);
 }
@@ -134,6 +139,12 @@ void SettingsWidget::refershModuleActivable()
         else
             module->moduleDeactive();
     }
+}
+
+void SettingsWidget::resetAllSettings()
+{
+    for (auto *inter : m_moduleInterfaces)
+        inter->reset();
 }
 
 SettingsWidget::~SettingsWidget()

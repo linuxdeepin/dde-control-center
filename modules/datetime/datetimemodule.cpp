@@ -31,7 +31,12 @@ void DatetimeModule::moduleDeactive()
 //    {
 //        m_datetimeWidget->deleteLater();
 //        m_datetimeWidget = nullptr;
-//    }
+    //    }
+}
+
+void DatetimeModule::reset()
+{
+
 }
 
 ModuleWidget *DatetimeModule::moduleWidget()

@@ -19,6 +19,7 @@ private:
     void initialize();
     void moduleActive();
     void moduleDeactive();
+    void reset();
     void contentPopped(ContentWidget * const w);
     ModuleWidget* moduleWidget();
     const QString name() const;

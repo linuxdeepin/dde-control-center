@@ -30,6 +30,7 @@ private:
     const QString name() const Q_DECL_OVERRIDE;
     void moduleActive() Q_DECL_OVERRIDE;
     void moduleDeactive() Q_DECL_OVERRIDE;
+    void reset() Q_DECL_OVERRIDE;
     ModuleWidget *moduleWidget() Q_DECL_OVERRIDE;
     void contentPopped(ContentWidget * const w) Q_DECL_OVERRIDE;
 

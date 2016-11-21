@@ -32,6 +32,11 @@ void BluetoothModule::moduleDeactive()
 
 }
 
+void BluetoothModule::reset()
+{
+
+}
+
 void BluetoothModule::contentPopped(ContentWidget * const w)
 {
     w->deleteLater();

@@ -21,6 +21,7 @@ public:
     void initialize();
     void moduleActive();
     void moduleDeactive();
+    void reset();
 
     ModuleWidget *moduleWidget();
 

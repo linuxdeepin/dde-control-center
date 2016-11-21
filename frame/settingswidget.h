@@ -7,6 +7,7 @@
 
 #include <QMap>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 using namespace dcc;
 
@@ -31,6 +32,7 @@ private slots:
     void loadModule(ModuleInterface * const module);
     void onModuleInitFinished(ModuleInterface * const inter);
     void refershModuleActivable();
+    void resetAllSettings();
 
 private:
     ~SettingsWidget();
@@ -38,6 +40,7 @@ private:
 private:
     Frame *m_frame;
 
+    QPushButton *m_resetBtn;
     QVBoxLayout *m_settingsLayout;
     TranslucentFrame *m_settingsWidget;
 

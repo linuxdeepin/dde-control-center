@@ -94,6 +94,11 @@ void KeyboardModule::moduleDeactive()
 
 }
 
+void KeyboardModule::reset()
+{
+
+}
+
 ModuleWidget *KeyboardModule::moduleWidget()
 {
     if(!m_keyboardWidget)
