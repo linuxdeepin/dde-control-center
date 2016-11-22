@@ -5,6 +5,8 @@
 #include "switchwidget.h"
 #include "settingsgroup.h"
 #include "../mousemodel.h"
+#include "translucentframe.h"
+#include "moduletitle.h"
 #include <QObject>
 #include <QVBoxLayout>
 
@@ -13,11 +15,11 @@ const int MouseMoveSpeedMin  = 200;
 const int MouseMoveSpeedStep = 400;
 
 using namespace dcc;
-class MouseSettings : public SettingsItem
+class MouseSettings : public TranslucentFrame
 {
     Q_OBJECT
 public:
-    explicit MouseSettings(QObject *parent = 0);
+    explicit MouseSettings(const QString &title, QObject *parent = 0);
     void setModel(MouseModelMouseSettings *const baseSettings);
 
 signals:
@@ -32,6 +34,7 @@ public slots:
 
 private:
     QVBoxLayout *m_mainLayout;
+    ModuleTitle   *m_title;
     SettingsGroup *m_mainGroup;
     MouseModelMouseSettings *m_baseSettings;
     SpeedSlider *speedSlider;

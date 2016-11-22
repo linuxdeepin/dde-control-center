@@ -9,10 +9,10 @@ BaseSettings::BaseSettings(QObject *parent)
     m_naturalScroll = new SwitchWidget;
     m_isTyping   = new SwitchWidget;
     m_baseSettings = new MouseModelBaseSettings;
-
     m_leftHand->setTitle(tr("Left Handed"));
     m_naturalScroll->setTitle(tr("Natural Scroll"));
     m_isTyping->setTitle(tr("Disable the touchpad when typing"));
+
 
     m_mainGroup->appendItem(m_leftHand);
     m_mainGroup->appendItem(m_naturalScroll);
@@ -34,6 +34,8 @@ BaseSettings::BaseSettings(QObject *parent)
     connect(m_isTyping, &SwitchWidget::checkedChanegd, this, &BaseSettings::requestSetDisTyping);
     connect(m_naturalScroll, &SwitchWidget::checkedChanegd, this, &BaseSettings::requestSetNaturalScroll);
     connect(douSlider, &SpeedSlider::requestSetSliderValue, this, &BaseSettings::requestSetSliderValue);
+
+    setObjectName("BaseSettings");
 
 }
 

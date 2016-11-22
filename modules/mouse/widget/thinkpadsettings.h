@@ -6,6 +6,8 @@
 #include "switchwidget.h"
 #include "settingsgroup.h"
 #include "../mousemodel.h"
+#include "translucentframe.h"
+#include "moduletitle.h"
 #include <QObject>
 
 const int TrackMoveSpeedMax  = 3000;
@@ -13,7 +15,7 @@ const int TrackMoveSpeedMin  = 200;
 const int TrackMoveSpeedStep = 400;
 
 using namespace dcc;
-class ThinkpadSettings : public SettingsItem
+class ThinkpadSettings : public TranslucentFrame
 {
     Q_OBJECT
 public:
@@ -29,6 +31,7 @@ public slots:
 
 private:
     QVBoxLayout *m_mainLayout;
+    ModuleTitle   *m_title;
     SettingsGroup *m_mainGroup;
     MouseModelThinkpadSettings *m_baseSettings;
     SpeedSlider *speedSlider;

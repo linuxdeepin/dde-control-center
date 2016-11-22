@@ -1,16 +1,18 @@
 #include "mousesettings.h"
 
-MouseSettings::MouseSettings(QObject *parent)
+MouseSettings::MouseSettings(const QString &title, QObject *parent)
 {
     Q_UNUSED(parent);
     m_mainGroup = new SettingsGroup;
     m_mainLayout = new QVBoxLayout;
     speedSlider = new SpeedSlider;
+    m_title    = new ModuleTitle(title);
     speedSlider->setTitle(tr("Pointer Speed"));
     speedSlider->setMaxValue(MouseMoveSpeedMax);
     speedSlider->setMinValue(MouseMoveSpeedMin);
     speedSlider->setStep(MouseMoveSpeedStep);
 
+    m_mainGroup->appendItem(m_title);
     m_mainGroup->appendItem(speedSlider);
 
     switchWidget = new SwitchWidget;
@@ -21,7 +23,7 @@ MouseSettings::MouseSettings(QObject *parent)
     setLayout(m_mainLayout);
     connect(switchWidget, &SwitchWidget::checkedChanegd, this, &MouseSettings::requestSetSwitch);
     connect(speedSlider, &SpeedSlider::requestSetSliderValue, this, &MouseSettings::requestSetSliderValue);
-
+    setObjectName("MouseSettings");
 }
 
 void MouseSettings::setModel(MouseModelMouseSettings *const baseSettings)

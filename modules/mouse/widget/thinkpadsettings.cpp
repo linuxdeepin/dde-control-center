@@ -6,6 +6,7 @@ ThinkpadSettings::ThinkpadSettings(QObject *parent)
     m_mainGroup = new SettingsGroup;
     m_mainLayout = new QVBoxLayout;
     speedSlider = new SpeedSlider;
+    m_title     = new ModuleTitle(tr("Thinkpad Track Point"));
     speedSlider->setTitle(tr("Pointer Speed"));
     speedSlider->setMaxValue(TrackMoveSpeedMax);
     speedSlider->setMinValue(TrackMoveSpeedMin);
@@ -17,6 +18,7 @@ ThinkpadSettings::ThinkpadSettings(QObject *parent)
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
     connect(speedSlider, &SpeedSlider::requestSetSliderValue, this, &ThinkpadSettings::requestSetSliderValue);
+    setObjectName("ThinkpadSettings");
 }
 
 void ThinkpadSettings::setModel(MouseModelThinkpadSettings *const baseSettings)

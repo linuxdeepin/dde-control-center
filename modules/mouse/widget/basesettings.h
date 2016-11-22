@@ -6,6 +6,7 @@
 #include "switchwidget.h"
 #include "speedslider.h"
 #include "../mousemodel.h"
+#include "translucentframe.h"
 #include <QObject>
 #include <QVBoxLayout>
 
@@ -14,7 +15,7 @@ const int DouClickSpeedMin  = 100;
 const int DouClickSpeedStep = 128;
 
 using namespace dcc;
-class BaseSettings : public SettingsItem
+class BaseSettings : public TranslucentFrame
 {
     Q_OBJECT
 public:

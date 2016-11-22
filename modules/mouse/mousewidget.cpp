@@ -18,23 +18,23 @@ MouseWidget::MouseWidget()
     m_centeralLayout->addWidget(m_userGroup);
 
     m_baseSettings = new BaseSettings;
-    m_baseSettings->setStyleSheet("background-color:transparent;");
+//    m_baseSettings->setStyleSheet("background-color:transparent;");
     m_centeralLayout->addWidget(m_baseSettings);
 
-    m_mouseSettings = new MouseSettings;
-    m_mouseSettings->setStyleSheet("background-color:transparent;");
+    m_mouseSettings = new MouseSettings(tr("Mouse"));
+//    m_mouseSettings->setStyleSheet("background-color:transparent;");
     m_mouseSettings->setSwitchTitle(QString(tr("Disable the touchpad when inserting the mouse")));
     m_centeralLayout->addWidget(m_mouseSettings);
 
 
-    m_touchSettings = new MouseSettings;
-    m_touchSettings->setStyleSheet("background-color:transparent;");
+    m_touchSettings = new MouseSettings(tr("TouchPad"));
+//    m_touchSettings->setStyleSheet("background-color:transparent;");
     m_touchSettings->setSwitchTitle(QString(tr("Tap Click")));
     m_centeralLayout->addWidget(m_touchSettings);
 
 
     m_ThinkapdSettings = new ThinkpadSettings;
-    m_ThinkapdSettings->setStyleSheet("background-color:transparent;");
+//    m_ThinkapdSettings->setStyleSheet("background-color:transparent;");
     m_centeralLayout->addWidget(m_ThinkapdSettings);
 
     connect(m_baseSettings, &BaseSettings::requestSetLeftHand, this, &MouseWidget::requestSetLeftHand);

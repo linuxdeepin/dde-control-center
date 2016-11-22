@@ -24,6 +24,7 @@ SpeedSlider::SpeedSlider(QObject *parent)
     hboxlayout->addWidget(rightValue);
     m_mainLayout->addLayout(hboxlayout);
     setLayout(m_mainLayout);
+    setObjectName("SpeedSlider");
     connect(m_speedSlider, &QSlider::valueChanged, this, &SpeedSlider::requestSetSliderValue);
 }
 
