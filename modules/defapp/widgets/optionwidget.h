@@ -12,7 +12,8 @@
 #include <dimagebutton.h>
 #include <QJsonObject>
 
-namespace dcc {
+namespace dcc
+{
 
 DWIDGET_USE_NAMESPACE
 
@@ -23,7 +24,7 @@ class OptionWidget : public SettingsItem
 
 public:
     explicit OptionWidget(QWidget *parent = 0);
-    const QJsonObject getItem(){ return m_CategoryItem;}
+    const QJsonObject getItem() { return m_CategoryItem;}
     void setItem(const QJsonObject &item);
     const QString id()    const;
     const QString name()  const;

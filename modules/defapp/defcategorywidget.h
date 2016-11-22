@@ -4,12 +4,14 @@
 #include "modulewidget.h"
 #include "contentwidget.h"
 #include "settingsgroup.h"
-#include "optionwidget.h"
+#include "widgets/optionwidget.h"
 #include "defappmodel.h"
-#include "defcategoryheadwidget.h"
-#include "defcategoryaddwidget.h"
+#include "widgets/defcategoryheadwidget.h"
+#include "widgets/defcategoryaddwidget.h"
 #include <QWidget>
 #include <QVBoxLayout>
+
+namespace dcc {
 
 class DefCategoryWidget : public ModuleWidget
 {
@@ -50,4 +52,6 @@ private:
     Category              *m_category;
 
 };
+
+}
 #endif // DEFCATEGORYWIDGET_H

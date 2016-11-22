@@ -9,7 +9,6 @@ DefCategoryHeadWidget::DefCategoryHeadWidget(const QString &name) {
 
     m_edit = new FuncButton;
     m_edit->setAlignment(Qt::AlignCenter);
-    m_edit->setStyleSheet("QLabel{color: #01bdff}");
     m_edit->setText(tr("Edit"));
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
@@ -21,6 +20,7 @@ DefCategoryHeadWidget::DefCategoryHeadWidget(const QString &name) {
     setLayout(mainLayout);
 
     connect(m_edit, &FuncButton::clicked, this, &DefCategoryHeadWidget::clicked);
+    setObjectName("DefCategoryHeadWidget");
 }
 
 void DefCategoryHeadWidget::setedit(const bool edit)

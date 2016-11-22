@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QList>
-#include "optionwidget.h"
+#include "widgets/optionwidget.h"
 #include <QDebug>
 #include <vector>
 #include <iterator>

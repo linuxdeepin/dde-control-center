@@ -18,6 +18,7 @@ DefCategoryAddWidget::DefCategoryAddWidget(QObject *parent)
 
     setLayout(mainLayout);
     connect(m_add, &FuncButton::clicked, this, &DefCategoryAddWidget::clicked);
+    setObjectName("DefCategoryAddWidget");
 }
 
 void DefCategoryAddWidget::clicked()
@@ -25,14 +26,14 @@ void DefCategoryAddWidget::clicked()
     //暂时使用该对话框，测试添加代码
     if(isEnabled()) {
         emit requestFrameAutoHide(false);
-        OpenWithOtherDialog * dialog = new OpenWithOtherDialog;
-        if(dialog->exec() == DDialog::Accepted) {
-            QString path = dialog->getDesktopFile();
-//            emit addUserItem(m_category,path);
-            QTimer::singleShot(1000, this, [=] { emit requestFrameAutoHide(true); });
+        QFileDialog dialog;
+        if(dialog.exec() == QDialog::Accepted) {
+            QString path = dialog.selectedFiles()[0];
+            //            emit addUserItem(m_category,path);
+
         }
-        delete dialog;
     }
+    QTimer::singleShot(1000, this, [=] { emit requestFrameAutoHide(true); });
 }
 
 

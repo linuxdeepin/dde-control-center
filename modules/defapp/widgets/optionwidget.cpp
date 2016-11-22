@@ -1,13 +1,8 @@
 #include "optionwidget.h"
 
 
-dcc::OptionWidget::OptionWidget(QWidget *): m_delete(new DImageButton(":/list_delete_normal.png",
-            ":/list_delete_hover.png",
-            ":/list_delete_press.png", nullptr))
+dcc::OptionWidget::OptionWidget(QWidget *): m_delete(new DImageButton)
 {
-
-
-
     m_checkedIconLabel = new QLabel;
     m_checkedIconLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_optionIcon = new QLabel;
@@ -51,6 +46,7 @@ dcc::OptionWidget::OptionWidget(QWidget *): m_delete(new DImageButton(":/list_de
     m_mainlayout->setContentsMargins(5, 0, 5, 0);
 
     setLayout(m_mainlayout);
+    setObjectName("OptionWidget");
 }
 
 void dcc::OptionWidget::setItem(const QJsonObject &item)
@@ -117,7 +113,7 @@ void dcc::OptionWidget::setChecked(const bool checked)      //判断是否显示
 {
     m_checkedIconLabel->setVisible(checked);
     m_delete->setVisible(false);
-    setCheckedIcon(QPixmap(":/select.png"));
+    setCheckedIcon(QPixmap(":/defapp/icons/select.png"));
     m_checked = checked;
     emit checkedChanged(m_checked);
 }

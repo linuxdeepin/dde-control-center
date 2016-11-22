@@ -1,0 +1,11 @@
+#DefCategoryHeadWidget QLabel {
+    color: black;
+}
+
+#DefCategoryAddWidget FuncButton {
+    color: black;
+}
+
+#OptionWidget QLabel {
+    color: black;
+}

@@ -1,5 +1,5 @@
 #include "defappworker.h"
-#include "optionwidget.h"
+#include "widgets/optionwidget.h"
 const QString ManagerService = "com.deepin.api.Mime";
 const QString MediaService   = "com.deepin.api.Mime";
 

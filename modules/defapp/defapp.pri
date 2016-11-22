@@ -5,10 +5,10 @@ HEADERS += \
     $$PWD/defappworker.h \
     $$PWD/defappviewer.h \
     $$PWD/defappmodel.h \
-    $$PWD/defcategoryheadwidget.h \
-    $$PWD/defcategoryaddwidget.h \
-    $$PWD/funcbutton.h \
-    $$PWD/openwithotherdialog.h
+    $$PWD/widgets/defcategoryheadwidget.h \
+    $$PWD/widgets/defcategoryaddwidget.h \
+    $$PWD/widgets/funcbutton.h \
+    $$PWD/widgets/optionwidget.h
 
 SOURCES += \
     $$PWD/defappwidget.cpp \
@@ -17,12 +17,12 @@ SOURCES += \
     $$PWD/defappworker.cpp \
     $$PWD/defappviewer.cpp \
     $$PWD/defappmodel.cpp \
-    $$PWD/defcategoryheadwidget.cpp \
-    $$PWD/defcategoryaddwidget.cpp \
-    $$PWD/funcbutton.cpp \
-    $$PWD/openwithotherdialog.cpp
+    $$PWD/widgets/defcategoryheadwidget.cpp \
+    $$PWD/widgets/defcategoryaddwidget.cpp \
+    $$PWD/widgets/funcbutton.cpp \
+    $$PWD/widgets/optionwidget.cpp
 
 INCLUDEPATH += $$PWD/..
 
 RESOURCES += \
-    $$PWD/qrc.qrc
+    $$PWD/defapp.qrc

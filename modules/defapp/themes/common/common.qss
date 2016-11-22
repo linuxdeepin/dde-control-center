@@ -1,0 +1,9 @@
+#OptionWidget > Dtk--Widget--DImageButton
+{
+    qproperty-normalPic: url(:/defapp/icons/list_delete_normal.png);
+    qproperty-normalPic: url(:/defapp/icons/list_delete_hover.png);
+    qproperty-normalPic: url(:/defapp/icons/list_delete_press.png);
+}
+#DefCategoryHeadWidget FuncButton {
+    color: #01bdff;
+}

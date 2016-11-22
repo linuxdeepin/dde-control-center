@@ -10,6 +10,7 @@
 #include <QObject>
 #include <QWidget>
 
+namespace dcc {
 
 class DefAppViewer : public ContentWidget
 {
@@ -53,4 +54,5 @@ private:
 
 };
 
+}
 #endif // DEFAPPVIEWER_H

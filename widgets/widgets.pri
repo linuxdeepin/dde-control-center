@@ -11,7 +11,6 @@ HEADERS += \
     $$PWD/nextpagewidget.h \
     $$PWD/settingshead.h \
     $$PWD/switchwidget.h \
-    $$PWD/optionwidget.h \
     $$PWD/lineeditwidget.h \
     $$PWD/labels/normallabel.h \
     $$PWD/labels/largelabel.h \
@@ -26,7 +25,6 @@ SOURCES += \
     $$PWD/nextpagewidget.cpp \
     $$PWD/settingshead.cpp \
     $$PWD/switchwidget.cpp \
-    $$PWD/optionwidget.cpp \
     $$PWD/lineeditwidget.cpp \
     $$PWD/labels/normallabel.cpp \
     $$PWD/labels/largelabel.cpp \
@@ -34,6 +32,5 @@ SOURCES += \
     $$PWD/translucentframe.cpp
 
 RESOURCES += \
-    $$PWD/UI/ui.qrc \
     $$PWD/resources.qrc
 

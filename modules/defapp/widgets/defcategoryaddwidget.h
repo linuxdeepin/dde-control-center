@@ -4,7 +4,6 @@
 #include <QObject>
 #include "settingsitem.h"
 #include "funcbutton.h"
-#include "openwithotherdialog.h"
 #include <QPushButton>
 #include <QLabel>
 #include <QFileDialog>
@@ -31,7 +30,6 @@ public slots:
 private:
     FuncButton *m_add;
     QString m_category;
-//    QDialog;
 };
 
 
