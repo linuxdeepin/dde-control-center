@@ -22,6 +22,8 @@ KeyboardWork::KeyboardWork(QObject *parent)
     m_langSelector->setSync(false);
     m_keybindInter->setSync(false);
 
+    connect(m_keybindInter, SIGNAL(Added(QString,int)), this,SIGNAL(Added(QString,int)));
+    connect(m_keybindInter, SIGNAL(KeyEvent(bool,QString)), this, SIGNAL(KeyEvent(bool,QString)));
     connect(m_keyboardInter, SIGNAL(UserLayoutListChanged(QStringList)), this, SIGNAL(UserLayoutListChanged(QStringList)));
     connect(m_keyboardInter, SIGNAL(CurrentLayoutChanged(QString)), this, SIGNAL(curLayout(QString)));
     connect(m_langSelector, SIGNAL(serviceValidChanged(bool)), this ,SLOT(onValid(bool)));
@@ -40,6 +42,20 @@ KeyboardLayoutList KeyboardWork::layoutLists() const
     KeyboardLayoutList tmp_map = list.value();
 
     return tmp_map;
+}
+
+void KeyboardWork::modifyShortcut(ShortcutInfo *info, const QString &key)
+{
+    if (!info) {
+        return;
+    }
+    QString str;
+    if (info->accels != tr("None")) {
+        m_keybindInter->ModifiedAccel(info->id, info->type, info->accels, false, str).value();//remove
+    }
+    if (!key.isEmpty() && key != tr("None")) {
+        m_keybindInter->ModifiedAccel(info->id, info->type, key, true, str).value();
+    }
 }
 
 void KeyboardWork::addUserLayout(const QString &value)
@@ -77,6 +93,7 @@ void KeyboardWork::onLocaleListFinish(QDBusPendingCallWatcher *watch)
         return;
     }
 
+    QString key = m_langSelector->currentLocale();
     LocaleList list = reply.value();
     for(int i = 0; i<list.count(); i++)
     {

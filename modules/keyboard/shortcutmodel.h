@@ -41,6 +41,9 @@ signals:
 
 public slots:
     void onParseInfo(const QString& info);
+    void onAdded(const QString& in0, int in1);
+    void onDeleted(const QString& in0, int in1);
+    void onKeyEvent(bool in0, const QString& in1);
 
 private:
     QString m_info;

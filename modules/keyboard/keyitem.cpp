@@ -8,6 +8,7 @@ KeyItem::KeyItem(int row, int col, const QString &main, const QString &vice)
       m_viceKey(vice),
       m_row(row),
       m_col(col),
+      m_keycode(-1),
       m_press(false)
 {
 

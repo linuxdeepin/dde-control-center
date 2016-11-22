@@ -27,7 +27,7 @@ public:
     void addShortcut(QList<ShortcutInfo*> list, ShortcutWidget::InfoType type);
 
 signals:
-    void shortcutChanged(const QString& shortcut);
+    void shortcutChanged(bool valid, ShortcutInfo* info, const QString& shortcut);
 
 public slots:
     void onSearch(const QString &text);

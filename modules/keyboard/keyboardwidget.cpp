@@ -19,7 +19,6 @@ KeyboardWidget::KeyboardWidget()
     SettingsGroup* langGroup = new SettingsGroup();
     m_langItem = new NextPageWidget();
     m_langItem->setTitle(tr("System Language"));
-    m_langItem->setValue(tr("Simplified Chinese"));
     langGroup->appendItem(m_langItem);
 
     SettingsGroup* scGroup = new SettingsGroup();
@@ -35,4 +34,14 @@ KeyboardWidget::KeyboardWidget()
     connect(m_keyItem,SIGNAL(clicked()), this, SIGNAL(keyoard()));
     connect(m_langItem, SIGNAL(clicked()), this, SIGNAL(language()));
     connect(m_scItem, SIGNAL(clicked()), this, SIGNAL(shortcut()));
+}
+
+void KeyboardWidget::setKBValue(const QString &value)
+{
+    m_keyItem->setValue(value);
+}
+
+void KeyboardWidget::setLangValue(const QString &value)
+{
+    m_langItem->setValue(value);
 }

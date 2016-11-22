@@ -42,10 +42,11 @@ public slots:
 
     void setCurrentLayout(const QString &value);
     void setCurrentLang();
+    void setUILayout(const QString& value);
+    void setUILang(const QString& value);
 
     void onSetLocale(const QModelIndex &index);
-
-    void onShortcutChecked(const QString& shortcut);
+    void onShortcutChecked(bool valid, ShortcutInfo *info, const QString& shortcut);
 private:
     ~KeyboardModule();
     void append(const MetaData& md);

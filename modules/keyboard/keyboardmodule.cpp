@@ -20,6 +20,8 @@ void KeyboardModule::initialize()
     m_shortcutModel = new ShortcutModel();
     m_work = new KeyboardWork(m_model);
 
+    connect(m_model, SIGNAL(curLang(QString)),this, SLOT(setUILang(QString)));
+    connect(m_model, SIGNAL(curLayout(QString)), this, SLOT(setUILayout(QString)));
     connect(m_work, SIGNAL(curLang(QString)), m_model, SLOT(setLang(QString)));
     connect(m_work, SIGNAL(curLayout(QString)), m_model, SLOT(setLayout(QString)));
     connect(m_work, SIGNAL(addLayout(QString)), m_model, SLOT(addUserLayout(QString)));
@@ -106,6 +108,9 @@ ModuleWidget *KeyboardModule::moduleWidget()
     if(!m_keyboardWidget)
     {
         m_keyboardWidget = new KeyboardWidget();
+        m_keyboardWidget->setKBValue(m_model->curLayout());
+        m_keyboardWidget->setLangValue(m_model->curLang());
+
         connect(m_keyboardWidget, SIGNAL(keyoard()), this, SLOT(onPushKBDetails()));
         connect(m_keyboardWidget, SIGNAL(language()), this, SLOT(onPushLanguage()));
         connect(m_keyboardWidget, SIGNAL(shortcut()), this, SLOT(onPushShortcut()));
@@ -198,7 +203,7 @@ void KeyboardModule::onPushShortcut()
     if(!m_shortcutWidget)
     {
         m_shortcutWidget = new ShortcutWidget();
-        connect(m_shortcutWidget, SIGNAL(shortcutChanged(QString)), this, SLOT(onShortcutChecked(QString)));
+        connect(m_shortcutWidget, SIGNAL(shortcutChanged(bool, ShortcutInfo* , QString)), this, SLOT(onShortcutChecked(bool, ShortcutInfo*, QString)));
     }
     m_shortcutWidget->addShortcut(m_shortcutModel->systemInfo(), ShortcutWidget::System);
     m_shortcutWidget->addShortcut(m_shortcutModel->windowInfo(), ShortcutWidget::Window);
@@ -244,71 +249,98 @@ void KeyboardModule::setCurrentLang()
 
 }
 
+void KeyboardModule::setUILayout(const QString &value)
+{
+    qDebug()<<Q_FUNC_INFO<<m_keyboardWidget;
+
+    if(m_keyboardWidget)
+    {
+        m_keyboardWidget->setKBValue(value);
+    }
+}
+
+void KeyboardModule::setUILang(const QString &key)
+{
+    if(m_keyboardWidget)
+    {
+        QString value = m_model->langByKey(key);
+        m_keyboardWidget->setLangValue(value);
+    }
+}
+
 void KeyboardModule::onSetLocale(const QModelIndex &index)
 {
     QVariant var = index.data();
     MetaData md = var.value<MetaData>();
 
-    qDebug()<<Q_FUNC_INFO<<md.key();
     m_work->setLang(md.key());
+    m_keyboardWidget->setLangValue(md.text());
 }
 
-void KeyboardModule::onShortcutChecked(const QString &shortcut)
+void KeyboardModule::onShortcutChecked(bool valid, ShortcutInfo* info, const QString &shortcut)
 {
-    QString dest = shortcut;
-    dest = dest.replace("<", "");
-    dest = dest.replace(">", "-");
-    QStringList dests = dest.split("-");
-    QList<ShortcutInfo*> infos = m_shortcutModel->infos();
-
-    QList<ShortcutInfo*>::iterator itinfo = infos.begin();
-    QStringList checkeds;
-    for(; itinfo != infos.end(); ++itinfo)
+    if(valid)
     {
-        ShortcutInfo* info = (*itinfo);
-        QString src = info->accels;
-        src.replace("Control", "Ctrl");
-        src = src.replace("<", "");
-        src = src.replace(">", "-");
-        QStringList srcs = src.split("-");
-        if(srcs.count() == dests.count())
+        m_work->modifyShortcut(info, shortcut);
+    }
+    else
+    {
+        QString dest = shortcut;
+        dest.replace("Control","Ctrl");
+        dest = dest.replace("<", "");
+        dest = dest.replace(">", "-");
+        QStringList dests = dest.split("-");
+        QList<ShortcutInfo*> infos = m_shortcutModel->infos();
+
+        QList<ShortcutInfo*>::iterator itinfo = infos.begin();
+        QStringList checkeds;
+        for(; itinfo != infos.end(); ++itinfo)
         {
-            int score = 0;
-            for(int i = 0; i< dests.count() - 1; i++)
+            ShortcutInfo* info = (*itinfo);
+            QString src = info->accels;
+            src.replace("Control", "Ctrl");
+            src = src.replace("<", "");
+            src = src.replace(">", "-");
+            QStringList srcs = src.split("-");
+            if(srcs.count() == dests.count())
             {
-                if(srcs.contains(dests.at(i)))
+                int score = 0;
+                for(int i = 0; i< dests.count() - 1; i++)
                 {
-                    score++;
+                    if(srcs.contains(dests.at(i)))
+                    {
+                        score++;
+                    }
+                }
+
+                if(score == dests.count() - 1)
+                {
+                    checkeds<<srcs.last();
                 }
             }
-
-            if(score == dests.count() - 1)
-            {
-                checkeds<<srcs.last();
-            }
         }
-    }
 
-    QList<KeyItem*> items = KeyItem::keyboards();
-    QList<KeyItem*>::iterator it = items.begin();
-    for(; it != items.end(); ++it)
-    {
-//        if(checkeds.contains(dests.last()))
+        QList<KeyItem*> items = KeyItem::keyboards();
+        QList<KeyItem*>::iterator it = items.begin();
+        for(; it != items.end(); ++it)
         {
-            if(checkeds.contains((*it)->mainKey()) || dests.contains((*it)->mainKey()))
+    //        if(checkeds.contains(dests.last()))
             {
-                (*it)->setPress(true);
+                if(checkeds.contains((*it)->mainKey()) || dests.contains((*it)->mainKey()))
+                {
+                    (*it)->setPress(true);
+                }
+                else
+                    (*it)->setPress(false);
             }
-            else
-                (*it)->setPress(false);
         }
-    }
 
-    if(!m_scContent)
-    {
-        m_scContent = new ShortcutContent();
+        if(!m_scContent)
+        {
+            m_scContent = new ShortcutContent();
+        }
+        m_frameProxy->pushWidget(this, m_scContent);
     }
-    m_frameProxy->pushWidget(this, m_scContent);
 }
 
 KeyboardModule::~KeyboardModule()

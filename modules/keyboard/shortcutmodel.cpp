@@ -106,6 +106,21 @@ void ShortcutModel::onParseInfo(const QString &info)
     emit parseFinish();
 }
 
+void ShortcutModel::onAdded(const QString &in0, int in1)
+{
+    qDebug()<<Q_FUNC_INFO<<in0<<in1;
+}
+
+void ShortcutModel::onDeleted(const QString &in0, int in1)
+{
+    qDebug()<<Q_FUNC_INFO<<in0<<in1;
+}
+
+void ShortcutModel::onKeyEvent(bool in0, const QString &in1)
+{
+    qDebug()<<Q_FUNC_INFO<<in0<<in1;
+}
+
 ShortcutInfo::ShortcutInfo()
 {
     used = false;

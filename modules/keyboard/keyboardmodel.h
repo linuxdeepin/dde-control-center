@@ -13,6 +13,7 @@ public:
     void setLayoutLists(QMap<QString, QString> lists);
 
     QString layoutByValue(const QString& value);
+    QString langByKey(const QString& key) const;
 
     QString curLayout() const;
     QString curLang() const;

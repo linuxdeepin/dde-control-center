@@ -44,8 +44,8 @@ void KeyboardControl::keyPressEvent(QKeyEvent *e)
     if(m_modifiers)
     {
         QList<KeyItem*> list = KeyItem::keyboards();
-        QList<KeyItem*>::Iterator it = list.begin();
-        for(; it != list.end(); it++)
+        QList<KeyItem*>::iterator it = list.begin();
+        for(; it != list.end(); ++it)
         {
             KeyItem* info = *it;
             if(info->keycode() == e->nativeScanCode())
@@ -93,6 +93,13 @@ void KeyboardControl::keyReleaseEvent(QKeyEvent *e)
     }
 
     update();
+}
+
+void KeyboardControl::showEvent(QShowEvent *e)
+{
+    Q_UNUSED(e);
+
+    setFocus();
 }
 
 void KeyboardControl::append(KeyItem *item)

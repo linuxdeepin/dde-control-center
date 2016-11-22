@@ -15,6 +15,7 @@ protected:
     void paintEvent(QPaintEvent *);
     void keyPressEvent(QKeyEvent *e);
     void keyReleaseEvent(QKeyEvent *e);
+    void showEvent(QShowEvent* e);
 
     void append(KeyItem* item);
 signals:

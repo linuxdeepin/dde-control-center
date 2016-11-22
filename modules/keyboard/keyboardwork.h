@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "indexmodel.h"
+#include "shortcutmodel.h"
 #include <com_deepin_daemon_inputdevice_keyboard.h>
 #include <com_deepin_daemon_langselector.h>
 #include <com_deepin_daemon_keybinding.h>
@@ -23,6 +24,7 @@ public:
     QString curLayout() const;
     QStringList userLayout() const;
     KeyboardLayoutList layoutLists() const;
+    void modifyShortcut(ShortcutInfo* info, const QString& key);
 
 signals:
     void langValid(const QList<MetaData>& langs);
@@ -32,6 +34,9 @@ signals:
     void addLayout(const QString& layout);
     void UserLayoutListChanged(const QStringList & value) const;
     void shortcutInfo(const QString& info);
+    void Added(const QString &in0, int in1);
+    void Deleted(const QString &in0, int in1);
+    void KeyEvent(bool in0, const QString &in1);
 
 public slots:
     void setLang(const QString& value);

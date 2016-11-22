@@ -16,13 +16,28 @@ QString KeyboardModel::layoutByValue(const QString &value)
     return m_layouts.value(value);
 }
 
-void KeyboardModel::setLayout(const QString &value)
+QString KeyboardModel::langByKey(const QString &key) const
 {
+    QList<MetaData>::const_iterator it = m_langs.begin();
+    for(; it != m_langs.end(); ++it)
+    {
+        if((*it).key() == key)
+        {
+            return (*it).text();
+        }
+    }
+
+    return QString();
+}
+
+void KeyboardModel::setLayout(const QString &key)
+{
+    QString value = m_layouts.value(key);
     if(m_layout == value)
         return ;
 
-    m_layout = m_layouts.value(value);
-    emit curLayout(value);
+    m_layout = value;
+    emit curLayout(m_layout);
 }
 
 QString KeyboardModel::curLayout() const
@@ -56,7 +71,7 @@ void KeyboardModel::setLocaleList(const QList<MetaData> &langs)
 
 QString KeyboardModel::curLang() const
 {
-    return m_lang;
+    return langByKey(m_lang);
 }
 
 void KeyboardModel::setUserLayout(const QStringList &list)

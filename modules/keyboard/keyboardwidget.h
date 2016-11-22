@@ -15,15 +15,14 @@ class KeyboardWidget : public ModuleWidget
 public:
     explicit KeyboardWidget();
 
-    void setKBValue(const QString& value);
-    void setLangValue(const QString& value);
-
 signals:
     void keyoard();
     void language();
     void shortcut();
 
 public slots:
+    void setKBValue(const QString& value);
+    void setLangValue(const QString& value);
 
 private:
     NextPageWidget* m_keyItem;

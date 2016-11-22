@@ -30,12 +30,12 @@ ShortcutWidget::ShortcutWidget(QWidget *parent)
 
 void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutWidget::InfoType type)
 {
-    for(int i = 0; i<list.count(); i++)
+    QList<ShortcutInfo*>::iterator it = list.begin();
+    for(; it != list.end(); ++it)
     {
         ShortcutItem* item = new ShortcutItem();
-        connect(item, SIGNAL(shortcutChangd(QString)), this, SIGNAL(shortcutChanged(QString)));
-        item->setTitle(list.at(i)->name);
-        item->setShortcutString(list.at(i)->accels);
+        connect(item, SIGNAL(shortcutChangd(bool, ShortcutInfo*, QString)), this, SIGNAL(shortcutChanged(bool, ShortcutInfo*, QString)));
+        item->setShortcutInfo((*it));
 
         if(type == ShortcutWidget::System)
             m_systemGroup->appendItem(item);
