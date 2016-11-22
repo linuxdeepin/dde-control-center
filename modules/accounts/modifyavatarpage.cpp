@@ -3,17 +3,22 @@
 #include "translucentframe.h"
 
 #include <QDebug>
+#include <QFileDialog>
+
+#include <dimagebutton.h>
 
 using namespace dcc;
+
+DWIDGET_USE_NAMESPACE
 
 ModifyAvatarPage::ModifyAvatarPage(User *user, QWidget *parent)
     : ContentWidget(parent),
 
       m_userInter(user),
-
       m_avatarsLayout(new QGridLayout)
 {
     m_avatarsLayout->setSpacing(0);
+    m_avatarsLayout->setVerticalSpacing(15);
     m_avatarsLayout->setContentsMargins(0, 0, 0, 0);
 
     TranslucentFrame *avatarsWidget = new TranslucentFrame;
@@ -37,6 +42,7 @@ void ModifyAvatarPage::updateAvatarList(const QList<QString> &avatars)
     }
 
     const QString current = m_userInter->currentAvatar();
+    qDebug() << avatars;
 
     // append avatars
     int count = 0;
@@ -48,4 +54,8 @@ void ModifyAvatarPage::updateAvatarList(const QList<QString> &avatars)
         m_avatarsLayout->addWidget(w, count / 4, count % 4, Qt::AlignCenter);
         ++count;
     }
+
+    DImageButton *btn = new DImageButton;
+    connect(btn, &DImageButton::clicked, [=] { emit requestAddNewAvatar(m_userInter); });
+    m_avatarsLayout->addWidget(btn, count / 4, count % 4, Qt::AlignCenter);
 }

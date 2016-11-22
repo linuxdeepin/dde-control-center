@@ -24,6 +24,7 @@ signals:
 
 public slots:
     void createAccount();
+    void addNewAvatar(User *user);
     void deleteAccount(User *user);
     void setAutoLogin(User *user, const bool autoLogin);
     void onUserListChanged(const QStringList &userList);

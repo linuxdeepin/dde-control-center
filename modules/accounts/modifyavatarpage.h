@@ -13,6 +13,9 @@ class ModifyAvatarPage : public ContentWidget
 public:
     explicit ModifyAvatarPage(User *user, QWidget *parent = 0);
 
+signals:
+    void requestAddNewAvatar(User *user) const;
+
 private slots:
     void updateAvatarList(const QList<QString> &avatars);
 

@@ -1,5 +1,7 @@
 #include "accountsworker.h"
 
+#include <QFileDialog>
+
 const QString AccountsService("com.deepin.daemon.Accounts");
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
@@ -17,6 +19,24 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 void AccountsWorker::createAccount()
 {
     qDebug() << Q_FUNC_INFO;
+}
+
+void AccountsWorker::addNewAvatar(User *user)
+{
+    AccountsUser *userInter = m_userInters[user];
+    Q_ASSERT(userInter);
+
+    emit requestFrameAutoHide(false);
+    QFileDialog fd;
+    do {
+        if (fd.exec() != QFileDialog::Accepted)
+            break;
+
+        const QString file = fd.selectedFiles().first();
+        userInter->SetIconFile(file).waitForFinished();
+    } while (false);
+
+    QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
 }
 
 void AccountsWorker::deleteAccount(User *user)

@@ -14,7 +14,11 @@ public:
     void setSelected(const bool selected = true);
     void setDeletable(const bool deletable = true);
 
+signals:
+    void clicked() const;
+
 protected:
+    void mouseReleaseEvent(QMouseEvent *e);
     void paintEvent(QPaintEvent *e);
     void enterEvent(QEvent *);
     void leaveEvent(QEvent *);

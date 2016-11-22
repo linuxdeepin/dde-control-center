@@ -7,7 +7,7 @@
 #include <QVBoxLayout>
 #include <QApplication>
 
-#define PIX_SIZE    80
+#define PIX_SIZE    60
 
 AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
     : QWidget(parent),
@@ -45,6 +45,14 @@ void AvatarWidget::setDeletable(const bool deletable)
     update();
 }
 
+void AvatarWidget::mouseReleaseEvent(QMouseEvent *e)
+{
+    if (rect().contains(e->pos()))
+        emit clicked();
+
+    QWidget::mouseReleaseEvent(e);
+}
+
 void AvatarWidget::paintEvent(QPaintEvent *e)
 {
     QPainterPath painterPath;
@@ -56,10 +64,10 @@ void AvatarWidget::paintEvent(QPaintEvent *e)
 
     painter.drawPixmap(e->rect(), m_avatar, e->rect());
 
-    QPen pen(Qt::white);
-    pen.setWidth(8);
+    QPen pen(Qt::transparent);
+    pen.setWidth(4);
     if (m_selected)
-        pen.setColor(Qt::blue);
+        pen.setColor(Qt::white);
 
     painter.setPen(pen);
     painter.setBrush(Qt::transparent);
