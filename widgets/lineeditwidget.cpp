@@ -10,15 +10,16 @@ LineEditWidget::LineEditWidget(QFrame *parent)
       m_title(new QLabel),
       m_edit(new QLineEdit)
 {
-    m_title->setFixedWidth(100);
+    m_title->setFixedWidth(140);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->addWidget(m_title);
     mainLayout->addWidget(m_edit);
     mainLayout->setSpacing(0);
-    mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(8, 4, 0, 4);
 
     setLayout(mainLayout);
+    setObjectName("LineEditWidget");
 }
 
 void LineEditWidget::setTitle(const QString &title)

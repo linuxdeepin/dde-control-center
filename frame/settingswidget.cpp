@@ -93,6 +93,8 @@ void SettingsWidget::loadModule(ModuleInterface *const module)
     Q_ASSERT(!m_moduleInterfaces.contains(module));
     Q_ASSERT(!m_moduleWidgets.contains(module));
 
+    qDebug() << "load module: " << module->name();
+
     m_moduleInterfaces.append(module);
     m_moduleWidgets.insert(module, QList<ContentWidget *>());
 
@@ -107,6 +109,8 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
 {
     Q_ASSERT(m_moduleInterfaces.contains(module));
 
+    qDebug() << "module initialize: " << module->name();
+
     // get right position to insert
     int index = 0;
     for (int i(0); i != m_moduleInterfaces.size(); ++i)
@@ -120,6 +124,8 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
 
     m_moduleActivable[module] = false;
     m_settingsLayout->insertWidget(index, module->moduleWidget());
+
+    qDebug() << "load module finished: " << module->name();
 }
 
 void SettingsWidget::refershModuleActivable()

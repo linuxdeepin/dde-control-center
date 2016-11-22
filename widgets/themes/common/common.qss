@@ -9,3 +9,14 @@ QScrollArea QFrame {
 dcc--TranslucentFrame {
     background: transparent;
 }
+
+#LineEditWidget QLineEdit
+{
+    background: transparent;
+    border: none;
+}
+
+#LineEditWidget QLabel
+{
+    color: white;
+}

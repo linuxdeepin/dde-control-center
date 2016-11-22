@@ -47,7 +47,6 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
             continue;
 
         AccountsUser *userInter = new AccountsUser(AccountsService, userPath, QDBusConnection::systemBus(), this);
-        userInter->setSync(false);
 
         User * user = new User(m_userModel);
         connect(userInter, &AccountsUser::UserNameChanged, user, &User::setName);
@@ -59,6 +58,8 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
         user->setAutoLogin(userInter->automaticLogin());
         user->setAvatars(userInter->iconList());
         user->setCurrentAvatar(userInter->iconFile());
+
+        userInter->setSync(false);
 
         m_userInters[user] = userInter;
         m_userModel->addUser(userPath, user);

@@ -1,5 +1,6 @@
 #include "accountsdetailwidget.h"
 #include "nextpagewidget.h"
+#include "translucentframe.h"
 
 #include <QVBoxLayout>
 
@@ -35,7 +36,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     mainLayout->addWidget(m_deleteAccount);
     mainLayout->setMargin(0);
 
-    QWidget *mainWidget = new QWidget;
+    QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(mainLayout);
 
     connect(user, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
