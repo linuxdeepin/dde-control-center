@@ -1,8 +1,10 @@
 #include "defappviewer.h"
 
+#include "translucentframe.h"
+
 DefAppViewer::DefAppViewer() {
     m_mainlayout = new QVBoxLayout;
-    m_mainwidget = new QWidget;
+    m_mainwidget = new TranslucentFrame;
     m_mainwidget->setLayout(m_mainlayout);
     QWidget *m_defAppViewer = defappDetail();
     setTitle("Set Default Applications");
