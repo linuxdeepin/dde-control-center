@@ -100,7 +100,11 @@ void Frame::paintEvent(QPaintEvent *event)
     QPainter painter(this);
 
     QPalette pl(palette());
+#ifndef QT_DEBUG
     QColor bgColor(pl.color(QPalette::Window));
+#else
+    QColor bgColor(pl.color(QPalette::Highlight));
+#endif
     bgColor.setAlphaF(0.9);
 
     painter.fillRect(event->rect(), bgColor);
