@@ -3,6 +3,7 @@
 
 #include <QObject>
 
+class ShortcutItem;
 struct ShortcutInfo
 {
     ShortcutInfo();
@@ -13,6 +14,8 @@ struct ShortcutInfo
     QString pinyin;
     QString upper;
     quint32 type;
+    ShortcutItem* item;
+
     bool used;
     bool operator==(const ShortcutInfo &info) const
     {

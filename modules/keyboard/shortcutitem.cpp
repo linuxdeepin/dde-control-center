@@ -46,6 +46,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 void ShortcutItem::setShortcutInfo(ShortcutInfo *info)
 {
     m_info = info;
+    m_info->item = this;
     m_title->setText(info->name);
 }
 
@@ -70,12 +71,11 @@ void ShortcutItem::onKeyEvent(bool in0, QString key)
         if(key.toLower() == "backspace" || key.toLower() == "delete"){
             m_shortcutEdit->hide();
         }else{
-            bool result = m_inter->CheckAvaliable(key);
             m_shortcutEdit->hide();
-            emit shortcutChangd(result, m_info, key);
-            if(result){
-                m_info->accels = key;
-                update();
+            if(m_info->accels != key)
+            {
+                bool result = m_inter->CheckAvaliable(key);
+                emit shortcutChangd(result, m_info, key);
             }
         }
     }

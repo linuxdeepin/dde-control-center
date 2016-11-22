@@ -19,9 +19,9 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     vlayout->addWidget(m_city);
     vlayout->addWidget(m_details);
 
-    m_removeBtn = new DImageButton(":/icon/list_delete_normal.png",
-                                   ":/icon/list_delete_hover.png",
-                                   ":/icon/list_delete_press.png");
+    m_removeBtn = new DImageButton(":/datetime/icon/list_delete_normal.png",
+                                   ":/datetime/icon/list_delete_hover.png",
+                                   ":/datetime/icon/list_delete_press.png");
     m_removeBtn->setFixedSize(18,18);
 
     m_back = new QFrame();
@@ -94,7 +94,6 @@ void TimezoneItem::slotRemoveSelf()
 {
     emit destroySelf();
     emit removeTimezone(m_curTimezone);
-    this->deleteLater();
 }
 
 void TimezoneItem::toRemoveMode()

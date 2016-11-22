@@ -7,7 +7,7 @@
 #include <QApplication>
 
 KeyboardControl::KeyboardControl(QFrame *parent)
-    : QFrame(parent),
+    : SettingsItem(parent),
       m_modifiers(false),
       m_keycount(0)
 {
@@ -21,6 +21,11 @@ KeyboardControl::KeyboardControl(QFrame *parent)
 KeyboardControl::~KeyboardControl()
 {
     KeyItem::deleteItems();
+}
+
+void KeyboardControl::setConflictString(const QStringList &list)
+{
+    m_conflicts = list;
 }
 
 void KeyboardControl::paintEvent(QPaintEvent *)
@@ -69,7 +74,7 @@ void KeyboardControl::keyReleaseEvent(QKeyEvent *e)
     QList<KeyItem*>::Iterator it = list.begin();
     for(; it != list.end(); it++)
     {
-        if((*it)->keycode() == e->nativeScanCode())
+        if((*it)->keycode() == e->nativeScanCode() && !m_conflicts.contains((*it)->mainKey()))
             (*it)->setPress(false);
     }
 
@@ -84,10 +89,13 @@ void KeyboardControl::keyReleaseEvent(QKeyEvent *e)
 
         QString str;
         for(int i = 0; i<m_stack.count(); i++)
-            str += m_stack.at(i)->mainKey() + ((i == m_stack.count()-1) ? "" : "-");
-
+        {
+            if(i == m_stack.count()-1)
+                str += m_stack.at(i)->mainKey();
+            else
+                str += "<"+m_stack.at(i)->mainKey()+">";
+        }
         emit shortcutChanged(str);
-        qDebug()<<Q_FUNC_INFO<<str;
         m_stack.clear();
         m_last = NULL;
     }

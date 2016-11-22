@@ -15,7 +15,8 @@ HEADERS += \
     $$PWD/labels/normallabel.h \
     $$PWD/labels/largelabel.h \
     $$PWD/labels/smalllabel.h \
-    $$PWD/translucentframe.h
+    $$PWD/translucentframe.h \
+    $$PWD/searchinput.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -29,7 +30,8 @@ SOURCES += \
     $$PWD/labels/normallabel.cpp \
     $$PWD/labels/largelabel.cpp \
     $$PWD/labels/smalllabel.cpp \
-    $$PWD/translucentframe.cpp
+    $$PWD/translucentframe.cpp \
+    $$PWD/searchinput.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

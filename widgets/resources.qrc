@@ -8,5 +8,8 @@
         <file>icons/back_press.png</file>
         <file>icons/back_normal.png</file>
         <file>icons/back_hover.png</file>
+        <file>icons/search_hover.png</file>
+        <file>icons/search_normal.png</file>
+        <file>icons/search_press.png</file>
     </qresource>
 </RCC>

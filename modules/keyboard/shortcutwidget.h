@@ -4,6 +4,7 @@
 #include "contentwidget.h"
 #include "shortcutmodel.h"
 #include "settingsgroup.h"
+#include "searchinput.h"
 
 using namespace dcc;
 
@@ -28,6 +29,7 @@ public:
 
 signals:
     void shortcutChanged(bool valid, ShortcutInfo* info, const QString& shortcut);
+    void customShortcut();
 
 public slots:
     void onSearch(const QString &text);

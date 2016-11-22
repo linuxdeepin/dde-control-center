@@ -32,8 +32,7 @@ ChoseDialog::ChoseDialog(QWidget *parent)
     QLabel *sub = new QLabel;
     sub->setText(tr("please choose the timezone city by click map"));
 
-    m_search = new QLineEdit();
-    m_search->setText(tr("search"));
+    m_search = new SearchInput();
     m_search->setFixedWidth(300);
 
     QCompleter *completer = new QCompleter(m_widget->citys());
@@ -151,7 +150,7 @@ MapWidget::MapWidget(QWidget *parent)
       m_menu(new QMenu(this)),
       m_curTimezone(Timezone(false))
 {
-    m_map = QPixmap(":/icon/map.svg");
+    m_map = QPixmap(":/datetime/icon/map.svg");
     setFixedSize(m_map.size());
 
     initData();

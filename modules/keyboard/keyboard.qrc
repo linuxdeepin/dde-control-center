@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/keyboard">
+        <file>icon/list_delete_hover.png</file>
+        <file>icon/list_delete_normal.png</file>
+        <file>icon/list_delete_press.png</file>
+        <file>icon/select.png</file>
+    </qresource>
+</RCC>

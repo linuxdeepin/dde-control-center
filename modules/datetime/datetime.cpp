@@ -87,5 +87,11 @@ void Datetime::slotEditMode(bool edit)
 
 void Datetime::slotRemoveTimezone(const Timezone &tz)
 {
-    m_addeds.removeOne(tz);
+    TimezoneItem* item = qobject_cast<TimezoneItem*>(sender());
+    if(item)
+    {
+        m_addeds.removeOne(tz);
+        m_group->removeItem(item);
+        item->deleteLater();
+    }
 }

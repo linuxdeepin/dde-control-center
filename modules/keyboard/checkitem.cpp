@@ -46,9 +46,9 @@ void CheckItem::setChecked(bool checked)
     m_checked = checked;
     if(m_checked)
     {
-        m_checkBtn->setNormalPic(":/icon/select.png");
-        m_checkBtn->setHoverPic(":/icon/select.png");
-        m_checkBtn->setPressPic(":/icon/select.png");
+        m_checkBtn->setNormalPic(":/keyboard/icon/select.png");
+        m_checkBtn->setHoverPic(":/keyboard/icon/select.png");
+        m_checkBtn->setPressPic(":/keyboard/icon/select.png");
         m_checkBtn->show();
     }
     else
@@ -63,9 +63,9 @@ void CheckItem::onEditMode(bool value)
     {
         if(value)
         {
-            m_checkBtn->setNormalPic(":/icon/list_delete_normal.png");
-            m_checkBtn->setHoverPic(":/icon/list_delete_hover.png");
-            m_checkBtn->setPressPic(":/icon/list_delete_press.png");
+            m_checkBtn->setNormalPic(":/keyboard/icon/list_delete_normal.png");
+            m_checkBtn->setHoverPic(":/keyboard/icon/list_delete_hover.png");
+            m_checkBtn->setPressPic(":/keyboard/icon/list_delete_press.png");
             m_checkBtn->show();
         }
         else

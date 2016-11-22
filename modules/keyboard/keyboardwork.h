@@ -24,7 +24,7 @@ public:
     QString curLayout() const;
     QStringList userLayout() const;
     KeyboardLayoutList layoutLists() const;
-    void modifyShortcut(ShortcutInfo* info, const QString& key);
+    void modifyShortcut(ShortcutInfo* info, const QString& key, bool clear = false);
 
 signals:
     void langValid(const QList<MetaData>& langs);

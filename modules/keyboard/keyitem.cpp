@@ -250,7 +250,10 @@ void KeyItem::paint(QPainter *painter, const QRect &rect)
             if(m_press)
             {
                 painter->save();
-                painter->setBrush(Qt::red);
+                if(m_modifies)
+                    painter->setBrush(Qt::red);
+                else
+                    painter->setBrush(Qt::green);
                 painter->setOpacity(0.5);
                 painter->drawRect(m_rect);
                 painter->restore();
@@ -265,7 +268,10 @@ void KeyItem::paint(QPainter *painter, const QRect &rect)
     if(m_press && (m_keycode != 108 && m_keycode != 62))
     {
         painter->save();
-        painter->setBrush(Qt::green);
+        if(m_modifies)
+            painter->setBrush(Qt::red);
+        else
+            painter->setBrush(Qt::green);
         painter->setOpacity(0.5);
         painter->drawRect(m_rect);
         painter->restore();

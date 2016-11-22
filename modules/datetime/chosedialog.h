@@ -2,10 +2,12 @@
 #define CHOSEDIALOG_H
 
 #include "datetimeutil.h"
-
+#include "searchinput.h"
 #include <QDialog>
 #include <QLineEdit>
 #include <QPushButton>
+
+using namespace dcc;
 
 class MapWidget;
 class ChoseDialog : public QDialog
@@ -25,7 +27,7 @@ public slots:
 
 private:
     MapWidget* m_widget;
-    QLineEdit* m_search;
+    SearchInput* m_search;
     QPushButton* m_cancel;
     QPushButton* m_add;
 };

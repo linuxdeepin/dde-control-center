@@ -12,6 +12,7 @@
 #include "keyboarddetails.h"
 #include "keyboardcontrol.h"
 #include "shortcutcontent.h"
+#include "customcontent.h"
 
 class KeyboardModule : public QObject, public ModuleInterface
 {
@@ -37,6 +38,8 @@ public slots:
     void onPushLanguage();
     void onPushShortcut();
     void onPushShortcutControl(const QString& shortcut);
+    void onPushCustonShortcut();
+
     void onKeyboardBack();
     void onParseFinish();
 
@@ -64,6 +67,7 @@ private:
     ShortcutWidget* m_shortcutWidget;
     LangWidget* m_langWidget;
     ShortcutContent* m_scContent;
+    CustomContent* m_customContent;
 };
 
 #endif // KEYBOARDMODULE_H

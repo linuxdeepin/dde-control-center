@@ -12,13 +12,13 @@ DateWidget::DateWidget(Type type, QFrame *parent)
 {
     setFixedHeight(36);
     m_lineEdit = new QLineEdit(this);
-    m_addBtn = new DImageButton(":/icon/add_normal.png",
-                                ":/icon/add_hover.png",
-                                ":/icon/add_press.png",this);
+    m_addBtn = new DImageButton(":/datetime/icon/add_normal.png",
+                                ":/datetime/icon/add_hover.png",
+                                ":/datetime/icon/add_press.png",this);
 
-    m_reducedBtn = new DImageButton(":/icon/reduce_normal.png",
-                                ":/icon/reduce_hover.png",
-                                ":/icon/reduce_press.png",this);
+    m_reducedBtn = new DImageButton(":/datetime/icon/reduce_normal.png",
+                                ":/datetime/icon/reduce_hover.png",
+                                ":/datetime/icon/reduce_press.png",this);
 
     if(m_type == Year)
     {
@@ -91,7 +91,6 @@ void DateWidget::paintEvent(QPaintEvent *e)
     QWidget::paintEvent(e);
     QPainter painter(this);
     QRect rect = this->rect();
-    painter.setPen(Qt::black);
     painter.setRenderHint(QPainter::Antialiasing);
 
     QRect vplus = QRect(rect.width()-rect.height()*0.5 ,rect.height()*0.2,1,rect.height()*0.6);

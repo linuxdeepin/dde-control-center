@@ -1,4 +1,5 @@
 #include "shortcutmodel.h"
+#include "shortcutitem.h"
 #include <QThreadPool>
 #include <QJsonDocument>
 #include <QJsonArray>
@@ -102,6 +103,10 @@ void ShortcutModel::onParseInfo(const QString &info)
             m_workspaceInfos.append(info);
             info->used = true;
         }
+        else if(info->type == 1)
+        {
+            m_customInfos.append(info);
+        }
     }
     emit parseFinish();
 }
@@ -124,4 +129,5 @@ void ShortcutModel::onKeyEvent(bool in0, const QString &in1)
 ShortcutInfo::ShortcutInfo()
 {
     used = false;
+    item = NULL;
 }

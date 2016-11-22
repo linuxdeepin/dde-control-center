@@ -16,7 +16,9 @@ HEADERS += \
     $$PWD/shortcutitem.h \
     $$PWD/keyitem.h \
     $$PWD/keyboardcontrol.h \
-    $$PWD/shortcutcontent.h
+    $$PWD/shortcutcontent.h \
+    $$PWD/inputitem.h \
+    $$PWD/customcontent.h
 
 SOURCES += \
     $$PWD/keyboardmodule.cpp \
@@ -36,4 +38,9 @@ SOURCES += \
     $$PWD/shortcutitem.cpp \
     $$PWD/keyitem.cpp \
     $$PWD/keyboardcontrol.cpp \
-    $$PWD/shortcutcontent.cpp
+    $$PWD/shortcutcontent.cpp \
+    $$PWD/inputitem.cpp \
+    $$PWD/customcontent.cpp
+
+RESOURCES += \
+    $$PWD/keyboard.qrc

@@ -3,6 +3,7 @@
 
 #include <QVBoxLayout>
 #include <QLineEdit>
+#include <QPushButton>
 
 using namespace dcc;
 
@@ -15,17 +16,23 @@ ShortcutWidget::ShortcutWidget(QWidget *parent)
     m_windowGroup = new SettingsGroup();
     m_workspaceGroup = new SettingsGroup();
     m_custonGroup = new SettingsGroup();
+    m_search = new SearchInput();
 
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
-    layout->setSpacing(30);
+    layout->setSpacing(10);
+    layout->addWidget(m_search);
     layout->addWidget(m_systemGroup);
     layout->addWidget(m_windowGroup);
     layout->addWidget(m_workspaceGroup);
     layout->addWidget(m_custonGroup);
 
+    QPushButton* btn = new QPushButton(tr("Add Custon Shortcut"));
+    layout->addWidget(btn);
     widget->setLayout(layout);
     setContent(widget);
+
+    connect(btn, SIGNAL(clicked()), this, SIGNAL(customShortcut()));
 }
 
 void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutWidget::InfoType type)

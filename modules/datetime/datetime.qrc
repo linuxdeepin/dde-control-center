@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/datetime">
         <file>icon/add_disabled.png</file>
         <file>icon/add_hover.png</file>
         <file>icon/add_normal.png</file>
@@ -9,5 +9,8 @@
         <file>icon/reduce_press.png</file>
         <file>icon/reducedisabled.png</file>
         <file>icon/map.svg</file>
+        <file>icon/list_delete_hover.png</file>
+        <file>icon/list_delete_normal.png</file>
+        <file>icon/list_delete_press.png</file>
     </qresource>
 </RCC>

@@ -41,7 +41,7 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
 
     connect(m_indexframe, SIGNAL(click(QString)), m_view, SLOT(onClick(QString)));
     group->appendItem(indexItem);
-    m_search = new QLineEdit();
+    m_search = new SearchInput();
     layout->addWidget(m_search);
     layout->addWidget(group);
     widget->setLayout(layout);

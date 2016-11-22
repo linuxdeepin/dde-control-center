@@ -6,6 +6,9 @@
 #include "indexview.h"
 #include "indexframe.h"
 #include "indexdelegate.h"
+#include "searchinput.h"
+
+using namespace dcc;
 
 class QLineEdit;
 
@@ -26,7 +29,7 @@ public slots:
 
 private:
     int textLength;
-    QLineEdit* m_search;
+    SearchInput* m_search;
     IndexDelegate* m_delegate;
     IndexView* m_view;
     IndexModel* m_model;

@@ -1,4 +1,6 @@
 #include "keyboardwork.h"
+#include "shortcutitem.h"
+
 #include <QDebug>
 KeyboardWork::KeyboardWork(QObject *parent)
     : QObject(parent)
@@ -18,6 +20,7 @@ KeyboardWork::KeyboardWork(QObject *parent)
                                           "/com/deepin/daemon/Keybinding",
                                           QDBusConnection::sessionBus(), this);
 
+    m_keybindInter->Reset();
     m_keyboardInter->setSync(false);
     m_langSelector->setSync(false);
     m_keybindInter->setSync(false);
@@ -44,17 +47,33 @@ KeyboardLayoutList KeyboardWork::layoutLists() const
     return tmp_map;
 }
 
-void KeyboardWork::modifyShortcut(ShortcutInfo *info, const QString &key)
+void KeyboardWork::modifyShortcut(ShortcutInfo *info, const QString &key, bool clear)
 {
     if (!info) {
         return;
     }
     QString str;
     if (info->accels != tr("None")) {
-        m_keybindInter->ModifiedAccel(info->id, info->type, info->accels, false, str).value();//remove
+        bool result = m_keybindInter->ModifiedAccel(info->id, info->type, info->accels, false, str).value();//remove
+        if(!result)
+        {
+            info->accels = str;
+            if(clear && info->item)
+                info->item->repaint();
+        }
+
     }
-    if (!key.isEmpty() && key != tr("None")) {
-        m_keybindInter->ModifiedAccel(info->id, info->type, key, true, str).value();
+    if(!clear)
+    {
+        if (!key.isEmpty() && key != tr("None")) {
+            bool result = m_keybindInter->ModifiedAccel(info->id, info->type, key, true, str).value();
+            if(!result)
+            {
+                info->accels = key;
+                if(info->item)
+                    info->item->repaint();
+            }
+        }
     }
 }
 
