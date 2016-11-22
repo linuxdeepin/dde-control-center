@@ -101,7 +101,7 @@ void Frame::paintEvent(QPaintEvent *event)
 
     QPalette pl(palette());
     QColor bgColor(pl.color(QPalette::Window));
-    bgColor.setAlphaF(0.5);
+    bgColor.setAlphaF(0.9);
 
     painter.fillRect(event->rect(), bgColor);
 
@@ -110,9 +110,11 @@ void Frame::paintEvent(QPaintEvent *event)
 
 void Frame::resizeEvent(QResizeEvent *event)
 {
+#ifndef QT_DEBUG
     const QSize size(event->size());
     const QRect region(QPoint(0, 0), size);
     BlurWindowBackground(winId(), region);
+#endif
 
     QFrame::resizeEvent(event);
 }
