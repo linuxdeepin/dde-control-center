@@ -114,6 +114,8 @@ void Frame::resizeEvent(QResizeEvent *event)
     const QSize size(event->size());
     const QRect region(QPoint(0, 0), size);
     BlurWindowBackground(winId(), region);
+#else
+    Q_UNUSED(BlurWindowBackground);
 #endif
 
     QFrame::resizeEvent(event);

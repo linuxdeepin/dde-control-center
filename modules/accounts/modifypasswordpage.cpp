@@ -47,7 +47,6 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
 
     setContent(mainWidget);
     setTitle(tr("Password") + " - " + user->name());
-    setObjectName("PasswordWidget");
 
     connect(m_accept, &QPushButton::clicked, this, &ModifyPasswordPage::passwordSubmit);
     connect(m_cancel, &QPushButton::clicked, this, &ModifyPasswordPage::back);

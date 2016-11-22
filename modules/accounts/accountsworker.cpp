@@ -14,6 +14,17 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     m_accountsInter->setSync(false);
 }
 
+void AccountsWorker::createAccount()
+{
+    qDebug() << Q_FUNC_INFO;
+}
+
+void AccountsWorker::deleteAccount(User *user)
+{
+    qDebug() << "delete user " << user->name();
+    qDebug() << Q_FUNC_INFO;
+}
+
 void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
 {
     AccountsUser *ui = m_userInters[user];
@@ -62,5 +73,7 @@ void AccountsWorker::setPassword(User *user, const QString &passwd)
     AccountsUser *userInter = m_userInters[user];
     Q_ASSERT(userInter);
 
-    userInter->SetPassword(passwd);
+    emit requestFrameAutoHide(false);
+    userInter->SetPassword(passwd).waitForFinished();
+    QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
 }

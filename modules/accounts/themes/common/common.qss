@@ -1,6 +1,5 @@
 /* accounts module common style */
-#PasswordWidget QLineEdit
+QPushButton#DeleteAccountButton
 {
-    background-color: transparent;
-    border: none;
+    color: red;
 }

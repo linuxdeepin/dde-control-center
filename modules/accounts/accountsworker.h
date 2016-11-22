@@ -23,6 +23,8 @@ signals:
     void requestFrameAutoHide(const bool autoHide) const;
 
 public slots:
+    void createAccount();
+    void deleteAccount(User *user);
     void setAutoLogin(User *user, const bool autoLogin);
     void onUserListChanged(const QStringList &userList);
     void setPassword(User *user, const QString &passwd);

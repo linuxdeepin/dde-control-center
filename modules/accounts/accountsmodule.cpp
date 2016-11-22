@@ -87,6 +87,8 @@ void AccountsModule::showAccountsDetail(User *account)
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
 
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
+    connect(w, &AccountsDetailWidget::requestCreateAccount, m_accountsWorker, &AccountsWorker::createAccount);
+    connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
     connect(w, &AccountsDetailWidget::showPwdSettings, this, &AccountsModule::showPasswordPage);
     connect(w, &AccountsDetailWidget::showAvatarSettings, this, &AccountsModule::showAvatarPage);
 
