@@ -8,9 +8,12 @@
  **/
 
 #include "soundwidget.h"
+#include "dccslider.h"
 
 #include <QVBoxLayout>
 #include <QSlider>
+
+using namespace dcc;
 
 SoundWidget::SoundWidget() :
     ModuleWidget(),
@@ -29,11 +32,11 @@ SoundWidget::SoundWidget() :
 
     m_speakerSwitch->setTitle(tr("Speaker"));
     m_outputVolumeSliderItem->setTitle(tr("Output Volume"));
-    QSlider * outputVolumeSlider = new QSlider;
+    QSlider * outputVolumeSlider = new DCCSlider;
     outputVolumeSlider->setOrientation(Qt::Horizontal);
     m_outputVolumeSliderItem->setWidget(outputVolumeSlider);
     m_outputBalanceSliderItem->setTitle(tr("Output Balance"));
-    QSlider * outputBalanceSlider = new QSlider;
+    QSlider * outputBalanceSlider = new DCCSlider;
     outputBalanceSlider->setOrientation(Qt::Horizontal);
     m_outputBalanceSliderItem->setWidget(outputBalanceSlider);
     m_speakerGroup->appendItem(m_speakerSwitch);
@@ -42,11 +45,11 @@ SoundWidget::SoundWidget() :
 
     m_microphoneSwitch->setTitle(tr("Microphone"));
     m_inputVolumeSliderItem->setTitle(tr("Input Volume"));
-    QSlider * inputVolumeSlider = new QSlider;
+    QSlider * inputVolumeSlider = new DCCSlider;
     inputVolumeSlider->setOrientation(Qt::Horizontal);
     m_inputVolumeSliderItem->setWidget(inputVolumeSlider);
     m_inputFeedbackSliderItem->setTitle(tr("Feedback Volume"));
-    QSlider * inputFeedbackSlider = new QSlider;
+    QSlider * inputFeedbackSlider = new DCCSlider;
     inputFeedbackSlider->setOrientation(Qt::Horizontal);
     m_inputFeedbackSliderItem->setWidget(inputFeedbackSlider);
     m_microphoneGroup->appendItem(m_microphoneSwitch);

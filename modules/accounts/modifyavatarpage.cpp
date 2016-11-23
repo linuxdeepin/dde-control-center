@@ -42,7 +42,6 @@ void ModifyAvatarPage::updateAvatarList(const QList<QString> &avatars)
     }
 
     const QString current = m_userInter->currentAvatar();
-    qDebug() << avatars;
 
     // append avatars
     int count = 0;
