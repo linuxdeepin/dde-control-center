@@ -10,17 +10,17 @@ InputItem::InputItem(QFrame *parent)
     QHBoxLayout* layout = new QHBoxLayout();
     m_choose = new QPushButton(tr(" ... "));
     m_title = new QLabel();
-    m_title->setFixedWidth(60);
+    m_title->setFixedWidth(40);
     m_input = new QLineEdit();
 
     layout->addWidget(m_title);
-    layout->addSpacerItem(new QSpacerItem(30,height()));
+    layout->addSpacerItem(new QSpacerItem(10,height()));
     layout->addWidget(m_input);
     layout->addWidget(m_choose);
     m_choose->hide();
     setLayout(layout);
 
-    connect(m_choose, SIGNAL(clicked()), this, SLOT(onClick()));
+    connect(m_choose, SIGNAL(clicked()), this, SIGNAL(click()));
 }
 
 void InputItem::setTitle(const QString &title)
@@ -38,31 +38,47 @@ void InputItem::setChooseVisible(bool visible)
     m_choose->setVisible(visible);
 }
 
+void InputItem::setRightText(const QString &text)
+{
+    if(m_choose)
+    {
+        m_choose->setText(text);
+    }
+}
+
+void InputItem::setReadOnly(bool read)
+{
+    m_input->setReadOnly(read);
+}
+
 void InputItem::onClick()
 {
     QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), tr("/usr/bin"));
     m_input->setText(file);
 }
 
-TitleValueItem::TitleValueItem(QFrame *parent)
+TitleButtonItem::TitleButtonItem(QFrame *parent)
     :SettingsItem(parent)
 {
     QHBoxLayout* layout =new QHBoxLayout();
     m_title = new QLabel();
-    m_value = new QLabel();
+    m_button = new QPushButton();
 
     layout->addWidget(m_title);
-    layout->addWidget(m_value);
+    layout->addStretch();
+    layout->addWidget(m_button);
 
     setLayout(layout);
+
+    connect(m_button, SIGNAL(clicked()), this, SIGNAL(click()));
 }
 
-void TitleValueItem::setTitle(const QString &title)
+void TitleButtonItem::setTitle(const QString &title)
 {
     m_title->setText(title);
 }
 
-void TitleValueItem::setValue(const QString &value)
+void TitleButtonItem::setValue(const QString &value)
 {
-    m_value->setText(value);
+    m_button->setText(value);
 }

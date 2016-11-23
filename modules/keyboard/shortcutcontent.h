@@ -3,14 +3,15 @@
 
 #include "contentwidget.h"
 #include "settingsgroup.h"
-#include "keyboardcontrol.h"
-#include "shortcutmodel.h"
-#include "keyboardwork.h"
 
 #include "inputitem.h"
 #include <QPushButton>
 
 using namespace dcc;
+
+class KeyboardWork;
+class ShortcutInfo;
+class KeyboardControl;
 
 class ShortcutContent  : public ContentWidget
 {
@@ -27,8 +28,9 @@ signals:
 
 public slots:
     void onClick();
+    void onReplace();
     void setShortcut(const QString& shortcut);
-
+    void onKeyEvent(bool press, QString shortcut);
 private:
     KeyboardWork* m_work;
     QPushButton* m_ok;

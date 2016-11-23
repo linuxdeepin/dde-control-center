@@ -10,6 +10,11 @@ KeyboardWidget::KeyboardWidget()
     this->installEventFilter(parent());
     setTitle(tr("Keyboard and Language"));
 
+    SettingsGroup *keyTest = new SettingsGroup();
+    m_upper = new SwitchWidget();
+    m_upper->setTitle(tr("大写键提示"));
+    keyTest->appendItem(m_upper);
+
     SettingsGroup* keyGroup = new SettingsGroup();
     m_keyItem = new NextPageWidget();
     m_keyItem->setTitle(tr("Keyboard Layout"));
@@ -27,6 +32,7 @@ KeyboardWidget::KeyboardWidget()
     scGroup->appendItem(m_scItem);
 
     m_centeralLayout->setSpacing(20);
+    m_centeralLayout->addWidget(keyTest);
     m_centeralLayout->addWidget(keyGroup);
     m_centeralLayout->addWidget(langGroup);
     m_centeralLayout->addWidget(scGroup);

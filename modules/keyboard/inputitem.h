@@ -20,8 +20,14 @@ public:
     void setValue(const QString& value);
 
     void setChooseVisible(bool visible);
+    void setRightText(const QString& text);
 
     QString value() const { return m_input->text(); }
+
+    void setReadOnly(bool read);
+
+signals:
+    void click();
 
 public slots:
     void onClick();
@@ -32,17 +38,20 @@ private:
     QPushButton* m_choose;
 };
 
-class TitleValueItem : public SettingsItem
+class TitleButtonItem : public SettingsItem
 {
     Q_OBJECT
 public:
-    explicit TitleValueItem(QFrame* parent = 0);
+    explicit TitleButtonItem(QFrame* parent = 0);
     void setTitle(const QString& title);
     void setValue(const QString& value);
 
+signals:
+    void click();
+
 private:
     QLabel *m_title;
-    QLabel *m_value;
+    QPushButton *m_button;
 };
 
 #endif // INPUTITEM_H

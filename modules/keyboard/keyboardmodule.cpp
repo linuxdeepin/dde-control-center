@@ -30,6 +30,7 @@ void KeyboardModule::initialize()
     connect(m_work, SIGNAL(langValid(QList<MetaData>)), m_model, SLOT(setLocaleList(QList<MetaData>)));
     connect(m_work, SIGNAL(UserLayoutListChanged(QStringList)), m_model, SLOT(setUserLayout(QStringList)));
     connect(m_work, SIGNAL(shortcutInfo(QString)), m_shortcutModel, SLOT(onParseInfo(QString)));
+    connect(m_work, SIGNAL(custonInfo(QString)), m_shortcutModel, SLOT(onCustomInfo(QString)));
     connect(m_shortcutModel, SIGNAL(parseFinish()), this, SLOT(onParseFinish()));
 
     m_work->getProperty();
@@ -143,6 +144,72 @@ void KeyboardModule::contentPopped(ContentWidget * const w)
     w->deleteLater();
 }
 
+ShortcutInfo *KeyboardModule::checkConflict(const QString &shortcut, QStringList &list)
+{
+    QString dest = shortcut;
+    dest.replace("Control","Ctrl");
+    dest = dest.replace("<", "");
+    dest = dest.replace(">", "-");
+    QStringList dests = dest.split("-");
+    QList<ShortcutInfo*> infos = m_shortcutModel->infos();
+
+    QList<ShortcutInfo*>::iterator itinfo = infos.begin();
+    ShortcutInfo* conflict = NULL;
+    QStringList checkeds;
+    for(; itinfo != infos.end(); ++itinfo)
+    {
+        ShortcutInfo* item = (*itinfo);
+        QString src = item->accels;
+        src.replace("Control", "Ctrl");
+        src = src.replace("<", "");
+        src = src.replace(">", "-");
+        QStringList srcs = src.split("-");
+        if(srcs.count() == dests.count())
+        {
+            int score = 0;
+            for(int i = 0; i< dests.count() - 1; i++)
+            {
+                if(srcs.contains(dests.at(i)))
+                {
+                    score++;
+                }
+            }
+
+            if(score == dests.count() - 1)
+            {
+                checkeds<<srcs.last();
+                if(dests.last() == srcs.last())
+                    conflict = item;
+            }
+        }
+    }
+
+    QList<KeyItem*> items = KeyItem::keyboards();
+    QList<KeyItem*>::iterator it = items.begin();
+    for(; it != items.end(); ++it)
+    {
+        if(conflict)
+        {
+            if(checkeds.contains((*it)->mainKey()) || dests.contains((*it)->mainKey()))
+            {
+                (*it)->setPress(true);
+            }
+            else
+            {
+                (*it)->setPress(false);
+            }
+        }
+        else
+        {
+            (*it)->setPress(false);
+        }
+    }
+    checkeds<<dests;
+    list = checkeds;
+    return conflict;
+}
+
+
 void KeyboardModule::onPushKeyboard()
 {
     if(!m_kbLayoutWidget)
@@ -208,10 +275,14 @@ void KeyboardModule::onPushShortcut()
         m_shortcutWidget = new ShortcutWidget();
         connect(m_shortcutWidget, SIGNAL(shortcutChanged(bool, ShortcutInfo* , QString)), this, SLOT(onShortcutChecked(bool, ShortcutInfo*, QString)));
         connect(m_shortcutWidget, SIGNAL(customShortcut()), this, SLOT(onPushCustonShortcut()));
+        connect(m_shortcutModel, SIGNAL(addCustonInfo(ShortcutInfo*)), m_shortcutWidget, SLOT(onCustomAdded(ShortcutInfo*)));
+        connect(m_shortcutWidget, SIGNAL(delShortcutInfo(ShortcutInfo*)), this, SLOT(onDelShortcut(ShortcutInfo*)));
+        connect(m_work, SIGNAL(searchChangd(ShortcutInfo*,QString)), m_shortcutWidget, SLOT(onSearchInfo(ShortcutInfo*,QString)));
     }
     m_shortcutWidget->addShortcut(m_shortcutModel->systemInfo(), ShortcutWidget::System);
     m_shortcutWidget->addShortcut(m_shortcutModel->windowInfo(), ShortcutWidget::Window);
     m_shortcutWidget->addShortcut(m_shortcutModel->workspaceInfo(), ShortcutWidget::Workspace);
+    m_shortcutWidget->addShortcut(m_shortcutModel->customInfo(), ShortcutWidget::Custom);
 
     m_frameProxy->pushWidget(this, m_shortcutWidget);
 }
@@ -225,7 +296,8 @@ void KeyboardModule::onPushCustonShortcut()
 {
     if(!m_customContent)
     {
-        m_customContent = new CustomContent();
+        m_customContent = new CustomContent(m_work);
+        connect(m_customContent, SIGNAL(shortcut(QString)), this, SLOT(onShortcutSet(QString)));
 //        connect(m_customContent, SIGNAL(click()), this, SLOT(onPushCustonShortcut()));
     }
 
@@ -366,6 +438,29 @@ void KeyboardModule::onShortcutChecked(bool valid, ShortcutInfo* info, const QSt
         }
         m_frameProxy->pushWidget(this, m_scContent);
     }
+}
+
+void KeyboardModule::onShortcutSet(const QString &shortcut)
+{
+    QStringList list;
+    ShortcutInfo* conflict = checkConflict(shortcut, list);
+
+    if(m_customContent)
+    {
+        m_customContent->setBottomTip(conflict);
+        m_customContent->setConflictString(list);
+    }
+}
+
+void KeyboardModule::onAdded(const QString &in0, int in1)
+{
+    qDebug()<<Q_FUNC_INFO<< m_work->query(in0,in1);
+}
+
+void KeyboardModule::onDelShortcut(ShortcutInfo *info)
+{
+    m_work->delShortcut(info);
+    m_shortcutModel->delInfo(info);
 }
 
 KeyboardModule::~KeyboardModule()

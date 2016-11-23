@@ -98,6 +98,19 @@ int SettingsGroup::itemCount() const
     return m_layout->count();
 }
 
+SettingsItem *SettingsGroup::getItem(int index)
+{
+    if(index < 0)
+        return NULL;
+
+    if(index < itemCount())
+    {
+        return qobject_cast<SettingsItem *>(m_layout->itemAt(index)->widget());
+    }
+
+    return NULL;
+}
+
 bool SettingsGroup::eventFilter(QObject *, QEvent *event)
 {
     if (event->type() == QEvent::Resize)

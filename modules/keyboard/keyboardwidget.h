@@ -3,8 +3,10 @@
 
 #include <QWidget>
 #include "modulewidget.h"
+
 #include "keyboardlayoutwidget.h"
 #include "nextpagewidget.h"
+#include "switchwidget.h"
 
 using namespace dcc;
 
@@ -28,6 +30,7 @@ private:
     NextPageWidget* m_keyItem;
     NextPageWidget* m_langItem;
     NextPageWidget* m_scItem;
+    SwitchWidget* m_upper;
 };
 
 #endif // KEYBOARDWIDGET_H

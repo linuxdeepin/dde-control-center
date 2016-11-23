@@ -1,5 +1,7 @@
 #include "shortcutcontent.h"
-
+#include "shortcutmodel.h"
+#include "keyboardwork.h"
+#include "shortcutitem.h"
 #include "keyboardcontrol.h"
 #include <QVBoxLayout>
 
@@ -14,7 +16,7 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
     layout->setMargin(0);
 
     SettingsGroup* group = new SettingsGroup();
-    TitleValueItem* item = new TitleValueItem();
+    TitleButtonItem* item = new TitleButtonItem();
     item->setTitle(tr("Maximized"));
     item->setValue(tr("Please Grab Shortcut Again"));
     group->appendItem(item);
@@ -36,13 +38,16 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
     widget->setLayout(layout);
     setContent(widget);
 
-    connect(m_ok, SIGNAL(clicked()), this, SLOT(onClick()));
+    connect(m_ok, SIGNAL(clicked()), this, SLOT(onReplace()));
+    connect(m_cancel, SIGNAL(clicked()), this, SIGNAL(back()));
+    connect(item,SIGNAL(click()), this, SLOT(onClick()));
     connect(m_control, SIGNAL(shortcutChanged(QString)), this, SLOT(setShortcut(QString)));
+    connect(m_work, SIGNAL(KeyEvent(bool,QString)), this, SLOT(onKeyEvent(bool,QString)));
 }
 
 void ShortcutContent::setBottomTip(ShortcutInfo* conflict)
 {
-    QString str = QString("此快捷键和%1快捷键冲突，您依然可以点替换使冲突的快捷键失效").arg(conflict->name);
+    QString str = tr("此快捷键和%1快捷键冲突，您依然可以点替换使冲突的快捷键失效").arg(conflict->name);
     m_bottomTip->setText(str);
     m_conflict = conflict;
 }
@@ -59,14 +64,43 @@ void ShortcutContent::setConflictString(const QStringList &list)
 
 void ShortcutContent::onClick()
 {
+    m_work->grabScreen();
+}
+
+void ShortcutContent::onReplace()
+{
     QString key = m_conflict->accels;
     m_work->modifyShortcut(m_conflict, tr("null"));
     m_work->modifyShortcut(m_curInfo, key);
+    m_conflict->item->displayConflict(true);
+    m_curInfo->item->displayConflict();
+    sendBackSignal();
 }
 
 void ShortcutContent::setShortcut(const QString &shortcut)
 {
-    qDebug()<<Q_FUNC_INFO<<shortcut;
     m_work->modifyShortcut(m_curInfo, shortcut);
     sendBackSignal();
+}
+
+void ShortcutContent::onKeyEvent(bool press, QString shortcut)
+{
+    QString key = shortcut;
+    key.replace("Control", "Ctrl");
+    key.replace("<","");
+    key.replace(">","-");
+    QStringList keys = key.split("-");
+    for(int i = 0; i<keys.count(); i++)
+    {
+        m_control->setPress(keys.at(i), press);
+    }
+    if(!press)
+    {
+        bool result = m_work->checkAvaliable(shortcut);
+        if(result)
+        {
+            m_work->modifyShortcut(m_curInfo, shortcut);
+            sendBackSignal();
+        }
+    }
 }

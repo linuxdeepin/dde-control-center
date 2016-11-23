@@ -20,12 +20,11 @@ KeyboardWork::KeyboardWork(QObject *parent)
                                           "/com/deepin/daemon/Keybinding",
                                           QDBusConnection::sessionBus(), this);
 
-    m_keybindInter->Reset();
     m_keyboardInter->setSync(false);
     m_langSelector->setSync(false);
     m_keybindInter->setSync(false);
 
-    connect(m_keybindInter, SIGNAL(Added(QString,int)), this,SIGNAL(Added(QString,int)));
+    connect(m_keybindInter, SIGNAL(Added(QString,int)), this,SLOT(onAdded(QString,int)));
     connect(m_keybindInter, SIGNAL(KeyEvent(bool,QString)), this, SIGNAL(KeyEvent(bool,QString)));
     connect(m_keyboardInter, SIGNAL(UserLayoutListChanged(QStringList)), this, SIGNAL(UserLayoutListChanged(QStringList)));
     connect(m_keyboardInter, SIGNAL(CurrentLayoutChanged(QString)), this, SIGNAL(curLayout(QString)));
@@ -53,6 +52,7 @@ void KeyboardWork::modifyShortcut(ShortcutInfo *info, const QString &key, bool c
         return;
     }
     QString str;
+    QString accels = info->accels;
     if (info->accels != tr("None")) {
         bool result = m_keybindInter->ModifiedAccel(info->id, info->type, info->accels, false, str).value();//remove
         if(!result)
@@ -72,9 +72,39 @@ void KeyboardWork::modifyShortcut(ShortcutInfo *info, const QString &key, bool c
                 info->accels = key;
                 if(info->item)
                     info->item->repaint();
+                emit searchChangd(info, info->name+accels);
             }
         }
     }
+}
+
+bool KeyboardWork::addCustonShortcut(const QString &name, const QString &command, const QString &accels, bool &result)
+{
+    m_keybindInter->Add(name, command, accels, result);
+
+    return !result;
+}
+
+void KeyboardWork::grabScreen()
+{
+    m_keybindInter->GrabScreen();
+}
+
+bool KeyboardWork::checkAvaliable(const QString &key)
+{
+    return m_keybindInter->CheckAvaliable(key);
+}
+
+QString KeyboardWork::query(const QString &id, qint32 type)
+{
+    QDBusPendingReply<QString> reply = m_keybindInter->Query(id, type);
+    reply.waitForFinished();
+    return reply.value();
+}
+
+void KeyboardWork::delShortcut(ShortcutInfo* info)
+{
+    m_keybindInter->Delete(info->id, info->type);
 }
 
 void KeyboardWork::addUserLayout(const QString &value)
@@ -138,6 +168,11 @@ void KeyboardWork::onRequestShortcut(QDBusPendingCallWatcher *watch)
     QString info = reply.value();
     emit shortcutInfo(info);
     watch->deleteLater();
+}
+
+void KeyboardWork::onAdded(const QString &in0, int in1)
+{
+    emit custonInfo(m_keybindInter->Query(in0, in1));
 }
 
 QStringList KeyboardWork::userLayout() const

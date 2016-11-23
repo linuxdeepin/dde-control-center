@@ -25,6 +25,12 @@ public:
     QStringList userLayout() const;
     KeyboardLayoutList layoutLists() const;
     void modifyShortcut(ShortcutInfo* info, const QString& key, bool clear = false);
+    bool addCustonShortcut(const QString& name, const QString& command, const QString& accels, bool &result);
+
+    void grabScreen();
+    bool checkAvaliable(const QString& key);
+    QString query(const QString& id, qint32 type);
+    void delShortcut(ShortcutInfo *info);
 
 signals:
     void langValid(const QList<MetaData>& langs);
@@ -34,9 +40,10 @@ signals:
     void addLayout(const QString& layout);
     void UserLayoutListChanged(const QStringList & value) const;
     void shortcutInfo(const QString& info);
-    void Added(const QString &in0, int in1);
+    void custonInfo(const QString& info);
     void Deleted(const QString &in0, int in1);
     void KeyEvent(bool in0, const QString &in1);
+    void searchChangd(ShortcutInfo* info, const QString& key);
 
 public slots:
     void setLang(const QString& value);
@@ -46,6 +53,7 @@ public slots:
     void onValid(bool value);
     void onLocaleListFinish(QDBusPendingCallWatcher* watch);
     void onRequestShortcut(QDBusPendingCallWatcher* watch);
+    void onAdded(const QString&in0, int in1);
 
 private:
     KeyboardInter* m_keyboardInter;

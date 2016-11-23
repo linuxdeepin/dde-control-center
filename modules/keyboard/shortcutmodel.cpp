@@ -6,6 +6,7 @@
 #include <QJsonValue>
 #include <QJsonObject>
 #include <QDBusInterface>
+#include <QDebug>
 
 ShortcutModel::ShortcutModel(QObject *parent) : QObject(parent)
 {
@@ -35,12 +36,30 @@ QList<ShortcutInfo *> ShortcutModel::workspaceInfo() const
     return m_workspaceInfos;
 }
 
+QList<ShortcutInfo *> ShortcutModel::customInfo() const
+{
+    return m_customInfos;
+}
+
 QList<ShortcutInfo *> ShortcutModel::infos() const
 {
     return m_infos;
 }
 
-#include <QDebug>
+void ShortcutModel::delInfo(ShortcutInfo *info)
+{
+    if(m_infos.contains(info))
+    {
+        m_infos.removeOne(info);
+    }
+    if(m_customInfos.contains(info))
+    {
+        m_customInfos.removeOne(info);
+    }
+
+    delete info;
+}
+
 void ShortcutModel::onParseInfo(const QString &info)
 {
     m_systemInfos.clear();
@@ -91,17 +110,14 @@ void ShortcutModel::onParseInfo(const QString &info)
         if(systemFilter.contains(info->id))
         {
             m_systemInfos.append(info);
-            info->used = true;
         }
         else if(windowFilter.contains(info->id))
         {
             m_windowInfos.append(info);
-            info->used = true;
         }
         else if(workspaceFilter.contains(info->id))
         {
             m_workspaceInfos.append(info);
-            info->used = true;
         }
         else if(info->type == 1)
         {
@@ -111,23 +127,24 @@ void ShortcutModel::onParseInfo(const QString &info)
     emit parseFinish();
 }
 
-void ShortcutModel::onAdded(const QString &in0, int in1)
+void ShortcutModel::onCustomInfo(const QString &json)
 {
-    qDebug()<<Q_FUNC_INFO<<in0<<in1;
-}
+    QJsonObject obj = QJsonDocument::fromJson(json.toStdString().c_str()).object();
+    ShortcutInfo *info = new ShortcutInfo();
+    info->type = obj["Type"].toInt();
+    QString accels = obj["Accels"].toArray().at(0).toString();
+    if(accels.isEmpty())
+        accels = tr("None");
+    info->accels = accels;
 
-void ShortcutModel::onDeleted(const QString &in0, int in1)
-{
-    qDebug()<<Q_FUNC_INFO<<in0<<in1;
-}
-
-void ShortcutModel::onKeyEvent(bool in0, const QString &in1)
-{
-    qDebug()<<Q_FUNC_INFO<<in0<<in1;
+    info->name = obj["Name"].toString();
+    info->id = obj["Id"].toString();
+    m_infos.append(info);
+    m_customInfos.append(info);
+    emit addCustonInfo(info);
 }
 
 ShortcutInfo::ShortcutInfo()
 {
-    used = false;
     item = NULL;
 }

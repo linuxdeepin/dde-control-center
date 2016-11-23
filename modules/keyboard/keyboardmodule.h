@@ -32,6 +32,8 @@ public:
 
     void contentPopped(ContentWidget * const w);
 
+    ShortcutInfo* checkConflict(const QString& shortcut, QStringList &list);
+
 public slots:
     void onPushKeyboard();
     void onPushKBDetails();
@@ -50,6 +52,10 @@ public slots:
 
     void onSetLocale(const QModelIndex &index);
     void onShortcutChecked(bool valid, ShortcutInfo *info, const QString& shortcut);
+    void onShortcutSet(const QString& shortcut);
+
+    void onAdded(const QString& in0, int in1);
+    void onDelShortcut(ShortcutInfo* info);
 private:
     ~KeyboardModule();
     void append(const MetaData& md);

@@ -38,6 +38,8 @@ public:
 
     int itemCount() const;
 
+    SettingsItem* getItem(int index);
+
 private:
     bool eventFilter(QObject *, QEvent *event);
     void updateHeadTail();

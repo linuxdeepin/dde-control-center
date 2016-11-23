@@ -1,4 +1,5 @@
 #include "shortcutitem.h"
+#include "shortcutmodel.h"
 #include <QLabel>
 #include <QLineEdit>
 #include <QMouseEvent>
@@ -9,15 +10,14 @@ using namespace dcc;
 
 ShortcutItem::ShortcutItem(QFrame *parent)
     :SettingsItem(parent),
-      m_hlayout(new QHBoxLayout()),
-      m_contain(false)
+      m_contain(false),
+      m_display(false),
+      m_info(NULL)
 {
     setMouseTracking(true);
     QHBoxLayout* layout = new QHBoxLayout();
-    layout->setMargin(0);
+    layout->setContentsMargins(15,0,20,0);
     layout->setSpacing(2);
-    m_hlayout->setMargin(0);
-    m_hlayout->setSpacing(5);
 
     m_title = new QLabel();
     m_title->setText("");
@@ -25,12 +25,17 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 
     layout->addWidget(m_title);
     layout->setAlignment(m_title, Qt::AlignLeft);
-    layout->addLayout(m_hlayout);    
-    layout->setAlignment(m_hlayout, Qt::AlignRight);
 
     m_shortcutEdit = new QLineEdit(this);
     m_shortcutEdit->setReadOnly(true);
     m_shortcutEdit->hide();
+
+    m_checkBtn = new DImageButton();
+
+    layout->addStretch();
+    layout->addWidget(m_checkBtn);
+    layout->setAlignment(m_checkBtn, Qt::AlignVCenter);
+    m_checkBtn->hide();
 
     setLayout(layout);
     setFixedHeight(36);
@@ -40,6 +45,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
                                           QDBusConnection::sessionBus(), this);
 
     connect(m_inter, SIGNAL(KeyEvent(bool,QString)), this, SLOT(onKeyEvent(bool,QString)));
+    connect(m_checkBtn, SIGNAL(clicked()), this, SLOT(onChecked()));
     connect(qApp, SIGNAL(focusChanged(QWidget*,QWidget*)), this, SLOT(onFocusChanged(QWidget*,QWidget*)));
 }
 
@@ -50,46 +56,99 @@ void ShortcutItem::setShortcutInfo(ShortcutInfo *info)
     m_title->setText(info->name);
 }
 
+void ShortcutItem::displayConflict(bool display)
+{
+    m_display = display;
+}
+
+ShortcutInfo *ShortcutItem::curInfo()
+{
+    return m_info;
+}
+
+void ShortcutItem::setChecked(bool checked)
+{
+    if(m_checked == checked)
+        return ;
+
+    m_checked = checked;
+    if(m_checked)
+    {
+        m_checkBtn->setNormalPic(":/keyboard/icon/select.png");
+        m_checkBtn->setHoverPic(":/keyboard/icon/select.png");
+        m_checkBtn->setPressPic(":/keyboard/icon/select.png");
+        m_checkBtn->show();
+    }
+    else
+        m_checkBtn->hide();
+
+    emit checkedChanged(m_checked);
+}
+
 void ShortcutItem::onFocusChanged(QWidget *old, QWidget *now)
 {
     if(!old && now != m_shortcutEdit)
         m_shortcutEdit->hide();
 }
 
-void ShortcutItem::onKeyEvent(bool in0, QString key)
+void ShortcutItem::onKeyEvent(bool press, QString shortcut)
 {
-    if(!in0)
+    if(!press)
     {
         if(!m_shortcutEdit->isVisible())
             return;
 
-        if(key.isEmpty() || key.toLower() == "escape"){
+        if(shortcut.isEmpty() || shortcut.toLower() == "escape"){
             m_shortcutEdit->hide();
             return;
         }
 
-        if(key.toLower() == "backspace" || key.toLower() == "delete"){
+        if(shortcut.toLower() == "backspace" || shortcut.toLower() == "delete"){
             m_shortcutEdit->hide();
         }else{
             m_shortcutEdit->hide();
-            if(m_info->accels != key)
+            if(m_info->accels != shortcut)
             {
-                bool result = m_inter->CheckAvaliable(key);
-                emit shortcutChangd(result, m_info, key);
+                bool result = m_inter->CheckAvaliable(shortcut);
+                emit shortcutChangd(result, m_info, shortcut);
             }
         }
     }
     else
     {
-        if(key.isEmpty())
+        if(shortcut.isEmpty())
             m_shortcutEdit->hide();
     }
+}
+
+void ShortcutItem::onEditMode(bool value)
+{
+    if(!m_checked)
+    {
+        if(value)
+        {
+            m_checkBtn->setNormalPic(":/keyboard/icon/list_delete_normal.png");
+            m_checkBtn->setHoverPic(":/keyboard/icon/list_delete_hover.png");
+            m_checkBtn->setPressPic(":/keyboard/icon/list_delete_press.png");
+            m_checkBtn->show();
+        }
+        else
+        {
+            m_checkBtn->hide();
+        }
+    }
+    update();
+}
+
+void ShortcutItem::onChecked()
+{
+    emit destroyed();
 }
 
 void ShortcutItem::paintEvent(QPaintEvent *e)
 {
     SettingsItem::paintEvent(e);
-    if(m_shortcutEdit->isVisible())
+    if(m_shortcutEdit->isVisible() || m_checkBtn->isVisible())
     {
        return;
     }
@@ -118,7 +177,19 @@ void ShortcutItem::paintEvent(QPaintEvent *e)
         painter.save();
         painter.setRenderHint(QPainter::Antialiasing);
         painter.setOpacity(m_contain ? 1.0 : 0.6);
-        painter.drawText(r,Qt::AlignCenter,str);
+        if(str == "null" && m_display)
+        {
+            QPen pen = painter.pen();
+            QColor col = pen.color();
+            pen.setColor(Qt::red);
+            painter.setPen(pen);
+            painter.drawText(r,Qt::AlignCenter,tr("冲突"));
+            pen.setColor(col);
+            painter.setPen(pen);
+        }
+        else
+            painter.drawText(r,Qt::AlignCenter,str);
+
         painter.restore();
         if(i == 0)
         {
@@ -141,6 +212,7 @@ void ShortcutItem::mousePressEvent(QMouseEvent *e)
         m_inter->GrabScreen();
         m_shortcutEdit->setFocus();
         m_shortcutEdit->show();
+        m_info->item = this;
     }
     else
     {

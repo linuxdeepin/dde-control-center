@@ -11,12 +11,9 @@ struct ShortcutInfo
     QString accels;
     QString id;
     QString name;
-    QString pinyin;
-    QString upper;
     quint32 type;
     ShortcutItem* item;
 
-    bool used;
     bool operator==(const ShortcutInfo &info) const
     {
         return id == info.id;
@@ -37,16 +34,18 @@ public:
     QList<ShortcutInfo*> systemInfo() const;
     QList<ShortcutInfo*> windowInfo() const;
     QList<ShortcutInfo*> workspaceInfo() const;
+    QList<ShortcutInfo*> customInfo() const;
     QList<ShortcutInfo*> infos() const;
+
+    void delInfo(ShortcutInfo* info);
 
 signals:
     void parseFinish();
+    void addCustonInfo(ShortcutInfo* info);
 
 public slots:
     void onParseInfo(const QString& info);
-    void onAdded(const QString& in0, int in1);
-    void onDeleted(const QString& in0, int in1);
-    void onKeyEvent(bool in0, const QString& in1);
+    void onCustomInfo(const QString& json);
 
 private:
     QString m_info;

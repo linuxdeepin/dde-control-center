@@ -14,8 +14,6 @@ KeyboardControl::KeyboardControl(QFrame *parent)
     setFrameShape(QFrame::NoFrame);
     setFocusPolicy(Qt::StrongFocus);
     setFixedHeight(180);
-
-    connect(qApp, SIGNAL(focusChanged(QWidget*,QWidget*)), this, SLOT(onFocusWidget(QWidget*,QWidget*)));
 }
 
 KeyboardControl::~KeyboardControl()
@@ -28,6 +26,20 @@ void KeyboardControl::setConflictString(const QStringList &list)
     m_conflicts = list;
 }
 
+void KeyboardControl::setPress(const QString &key, bool press)
+{
+    QList<KeyItem*> list = KeyItem::keyboards();
+    QList<KeyItem*>::iterator it = list.begin();
+    for(; it != list.end(); ++it)
+    {
+        if((*it)->mainKey() ==  key && !m_conflicts.contains(key))
+        {
+            (*it)->setPress(press);
+        }
+    }
+    update();
+}
+
 void KeyboardControl::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
@@ -37,119 +49,5 @@ void KeyboardControl::paintEvent(QPaintEvent *)
     {
         (*it)->paint(&painter, rect());
     }
-}
-
-void KeyboardControl::keyPressEvent(QKeyEvent *e)
-{
-    if(e->modifiers() != Qt::NoModifier)
-    {
-        m_modifiers = true;
-    }
-
-    if(m_modifiers)
-    {
-        QList<KeyItem*> list = KeyItem::keyboards();
-        QList<KeyItem*>::iterator it = list.begin();
-        for(; it != list.end(); ++it)
-        {
-            KeyItem* info = *it;
-            if(info->keycode() == e->nativeScanCode())
-            {
-                info->setPress(true);
-                if(!m_stack.contains(info) && info->modifies())
-                    append(info);
-                else
-                    m_last = info;
-            }
-        }
-    }
-
-    m_keycount++;
-    update();
-}
-
-void KeyboardControl::keyReleaseEvent(QKeyEvent *e)
-{
-    QList<KeyItem*> list = KeyItem::keyboards();
-    QList<KeyItem*>::Iterator it = list.begin();
-    for(; it != list.end(); it++)
-    {
-        if((*it)->keycode() == e->nativeScanCode() && !m_conflicts.contains((*it)->mainKey()))
-            (*it)->setPress(false);
-    }
-
-    m_keycount--;
-    if(m_keycount == 0 && m_stack.count() != 0)
-    {
-        m_modifiers = false;
-        if(m_last)
-        {
-            m_stack.append(m_last);
-        }
-
-        QString str;
-        for(int i = 0; i<m_stack.count(); i++)
-        {
-            if(i == m_stack.count()-1)
-                str += m_stack.at(i)->mainKey();
-            else
-                str += "<"+m_stack.at(i)->mainKey()+">";
-        }
-        emit shortcutChanged(str);
-        m_stack.clear();
-        m_last = NULL;
-    }
-
-    update();
-}
-
-void KeyboardControl::showEvent(QShowEvent *e)
-{
-    Q_UNUSED(e);
-
-    setFocus();
-}
-
-void KeyboardControl::append(KeyItem *item)
-{
-    QStringList list;
-    list<<"Ctrl"<<"Alt"<<"Super"<<"Shift"<<"Fn";
-
-    if(m_stack.count() == 0)
-    {
-        m_stack.append(item);
-        return;
-    }
-
-    int index = list.indexOf(item->mainKey());
-
-    int record = -1;
-    for(int i = 0; i< m_stack.count(); i++)
-    {
-        int index_1 = list.indexOf(m_stack.at(i)->mainKey());
-        if(index_1 < 0)
-            continue;
-
-        if(index < index_1)
-        {
-            record = i;
-        }
-    }
-
-    if(record != -1)
-        m_stack.insert(record,item);
-    else
-        m_stack.append(item);
-}
-
-void KeyboardControl::onFocusWidget(QWidget *old, QWidget *now)
-{
-    Q_UNUSED(old);
-    Q_UNUSED(now);
-
-    m_modifiers = false;
-    m_keycount = 0;
-    m_stack.clear();
-    m_last = NULL;
 }
 
