@@ -5,3 +5,9 @@ SmallLabel::SmallLabel(QWidget *parent)
 {
 
 }
+
+SmallLabel::SmallLabel(const QString &text, QWidget *parent)
+    : QLabel(text, parent)
+{
+
+}

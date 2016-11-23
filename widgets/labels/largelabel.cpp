@@ -5,3 +5,9 @@ LargeLabel::LargeLabel(QWidget *parent)
 {
 
 }
+
+LargeLabel::LargeLabel(const QString &text, QWidget *parent)
+    : QLabel(text, parent)
+{
+
+}

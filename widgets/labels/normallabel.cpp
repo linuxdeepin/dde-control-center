@@ -5,3 +5,9 @@ NormalLabel::NormalLabel(QWidget *parent)
 {
 
 }
+
+NormalLabel::NormalLabel(const QString &text, QWidget *parent)
+    : QLabel(text, parent)
+{
+
+}

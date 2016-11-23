@@ -9,6 +9,7 @@ class LargeLabel : public QLabel
 
 public:
     explicit LargeLabel(QWidget *parent = nullptr);
+    explicit LargeLabel(const QString &text, QWidget *parent = nullptr);
 };
 
 #endif // LARGELABEL_H

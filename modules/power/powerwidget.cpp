@@ -2,30 +2,42 @@
 
 #include <QDebug>
 
+#include "titledslideritem.h"
+
 using namespace dcc;
+using namespace dcc::widgets;
 
 PowerWidget::PowerWidget()
     : ModuleWidget(),
 
-      m_suspendSettings(new SettingsGroup),
+      m_sleepTimeoutSettings(new SettingsGroup),
+      m_monitorSleep(new TitledSliderItem(tr("Monitor will suspend after"))),
+      m_computerSleep(new TitledSliderItem(tr("Computer will suspend after"))),
+      m_passwordSettings(new SettingsGroup),
       m_displayNeedPassword(new SwitchWidget),
-      m_wakeNeedPassword(new SwitchWidget)
+      m_wakeNeedPassword(new SwitchWidget),
+      m_notebookSettings(new SettingsGroup),
+      m_sleepOnLidOff(new SwitchWidget)
 {
+    m_sleepTimeoutSettings->appendItem(m_monitorSleep);
+    m_sleepTimeoutSettings->appendItem(m_computerSleep);
+
     m_displayNeedPassword->setTitle(tr("Password required to wake the monitor"));
-    m_suspendSettings->appendItem(m_displayNeedPassword);
+    m_passwordSettings->appendItem(m_displayNeedPassword);
 
     m_wakeNeedPassword->setTitle(tr("Password required to wake the computer"));
-    m_suspendSettings->appendItem(m_wakeNeedPassword);
+    m_passwordSettings->appendItem(m_wakeNeedPassword);
 
-    m_centeralLayout->addWidget(m_suspendSettings);
+    m_sleepOnLidOff->setTitle(tr("Suspend on lid off"));
+    m_notebookSettings->appendItem(m_sleepOnLidOff);
 
-    for (int i(0); i != 10; ++i)
-    {
-        SwitchWidget *w = new SwitchWidget;
-        m_suspendSettings->appendItem(w);
-    }
+    m_centeralLayout->addWidget(m_sleepTimeoutSettings);
+    m_centeralLayout->addSpacing(20);
+    m_centeralLayout->addWidget(m_passwordSettings);
+    m_centeralLayout->addSpacing(20);
+    m_centeralLayout->addWidget(m_notebookSettings);
 
-    setTitle(tr("Power"));
+    setTitle(tr("Power Management"));
 
     connect(m_displayNeedPassword, &SwitchWidget::checkedChanegd, this, &PowerWidget::requestSetScreenBlackLock);
 }

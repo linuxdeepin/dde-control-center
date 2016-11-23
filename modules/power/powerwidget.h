@@ -19,9 +19,14 @@ signals:
     void requestSetScreenBlackLock(const bool lock) const;
 
 private:
-    dcc::SettingsGroup *m_suspendSettings;
+    dcc::SettingsGroup *m_sleepTimeoutSettings;
+    dcc::SettingsItem *m_monitorSleep;
+    dcc::SettingsItem *m_computerSleep;
+    dcc::SettingsGroup *m_passwordSettings;
     dcc::SwitchWidget *m_displayNeedPassword;
     dcc::SwitchWidget *m_wakeNeedPassword;
+    dcc::SettingsGroup *m_notebookSettings;
+    dcc::SwitchWidget *m_sleepOnLidOff;
 };
 
 #endif // POWERWIDGET_H

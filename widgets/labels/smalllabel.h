@@ -9,6 +9,7 @@ class SmallLabel : public QLabel
 
 public:
     explicit SmallLabel(QWidget *parent = 0);
+    explicit SmallLabel(const QString &text, QWidget *parent = 0);
 };
 
 #endif // SMALLLABEL_H

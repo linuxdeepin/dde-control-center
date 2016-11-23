@@ -9,6 +9,7 @@ class NormalLabel : public QLabel
 
 public:
     explicit NormalLabel(QWidget *parent = 0);
+    explicit NormalLabel(const QString &text, QWidget *parent = 0);
 };
 
 #endif // NORMALLABEL_H

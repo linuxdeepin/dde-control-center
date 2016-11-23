@@ -18,7 +18,8 @@ HEADERS += \
     $$PWD/translucentframe.h \
     $$PWD/searchinput.h \
     $$PWD/dccslider.h \
-    $$PWD/settingsheaderitem.h
+    $$PWD/settingsheaderitem.h \
+    $$PWD/titledslideritem.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -35,7 +36,8 @@ SOURCES += \
     $$PWD/translucentframe.cpp \
     $$PWD/searchinput.cpp \
     $$PWD/dccslider.cpp \
-    $$PWD/settingsheaderitem.cpp
+    $$PWD/settingsheaderitem.cpp \
+    $$PWD/titledslideritem.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc
