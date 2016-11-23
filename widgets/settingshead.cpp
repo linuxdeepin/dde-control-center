@@ -19,7 +19,6 @@ SettingsHead::SettingsHead(QFrame *parent)
     m_edit->setMouseTracking(true);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->setContentsMargins(15,0,20,0);
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addWidget(m_edit);

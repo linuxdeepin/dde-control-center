@@ -10,8 +10,7 @@ NextPageWidget::NextPageWidget(QFrame *parent)
     : SettingsItem(parent)
 {
     m_title = new NormalLabel;
-    m_title->setStyleSheet("color: white;"
-                           "margin: 0 0 0 8px;");
+    m_title->setStyleSheet("color: white;");
 
     m_value = new NormalLabel;
 
@@ -25,7 +24,6 @@ NextPageWidget::NextPageWidget(QFrame *parent)
     mainLayout->addWidget(m_value);
     mainLayout->addWidget(m_nextPageBtn);
     mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(5, 0, 5, 0);
 
     setFixedHeight(36);
     setLayout(mainLayout);

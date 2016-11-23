@@ -16,7 +16,7 @@ LineEditWidget::LineEditWidget(QFrame *parent)
     mainLayout->addWidget(m_title);
     mainLayout->addWidget(m_edit);
     mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(8, 4, 0, 4);
+    mainLayout->setMargin(0);
 
     setLayout(mainLayout);
     setObjectName("LineEditWidget");

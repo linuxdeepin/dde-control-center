@@ -9,10 +9,8 @@ DWIDGET_USE_NAMESPACE
 SwitchWidget::SwitchWidget(QFrame *parent)
     : SettingsItem(parent)
 {
-
     m_title = new NormalLabel;
-    m_title->setStyleSheet("color: white;"
-                           "margin: 0 0 0 8px;");
+    m_title->setStyleSheet("color: white;");
     m_title->setText("title");
 
     m_switchBtn = new DSwitchButton;
@@ -22,7 +20,6 @@ SwitchWidget::SwitchWidget(QFrame *parent)
     mainLayout->addStretch();
     mainLayout->addWidget(m_switchBtn);
     mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(5, 0, 5, 0);
 
     setFixedHeight(36);
     setLayout(mainLayout);

@@ -50,6 +50,8 @@ private:
     SettingsHeaderItem *m_headerItem;
 
     QTimer *m_updateHeightTimer;
+
+    void updateItemPaddings(SettingsItem *item);
 };
 
 }

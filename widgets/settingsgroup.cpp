@@ -17,6 +17,11 @@
 
 namespace dcc {
 
+static const int ItemMarginLeft = 20;
+static const int ItemMarginTop = 0;
+static const int ItemMarginRight = 10;
+static const int ItemMarginBottom = 0;
+
 SettingsGroup::SettingsGroup(QFrame *parent) :
     QFrame(parent),
     m_layout(new QVBoxLayout),
@@ -58,6 +63,8 @@ void SettingsGroup::setHeaderVisible(const bool visible)
 
 void SettingsGroup::insertItem(const int index, SettingsItem *item)
 {
+    updateItemPaddings(item);
+
     m_layout->insertWidget(index, item);
     item->installEventFilter(this);
 
@@ -117,6 +124,17 @@ void SettingsGroup::updateHeight()
     Q_ASSERT(sender() == m_updateHeightTimer);
 
     setFixedHeight(m_layout->sizeHint().height());
+}
+
+void SettingsGroup::updateItemPaddings(SettingsItem *item)
+{
+    QLayout * layout = qobject_cast<QLayout*>(item->layout());
+    if (layout) {
+        layout->setContentsMargins(ItemMarginLeft,
+                                   ItemMarginTop,
+                                   ItemMarginRight,
+                                   ItemMarginBottom);
+    }
 }
 
 } // namespace dcc end
