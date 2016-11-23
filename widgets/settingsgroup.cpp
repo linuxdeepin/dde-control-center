@@ -9,6 +9,7 @@
 
 #include "settingsgroup.h"
 #include "settingsitem.h"
+#include "settingsheaderitem.h"
 
 #include <QVBoxLayout>
 #include <QEvent>
@@ -19,6 +20,7 @@ namespace dcc {
 SettingsGroup::SettingsGroup(QFrame *parent) :
     QFrame(parent),
     m_layout(new QVBoxLayout),
+    m_headerItem(nullptr),
     m_updateHeightTimer(new QTimer(this))
 {
     m_layout->setMargin(0);
@@ -30,6 +32,28 @@ SettingsGroup::SettingsGroup(QFrame *parent) :
     connect(m_updateHeightTimer, &QTimer::timeout, this, &SettingsGroup::updateHeight, Qt::QueuedConnection);
 
     setLayout(m_layout);
+}
+
+SettingsGroup::~SettingsGroup()
+{
+    if (m_headerItem)
+        m_headerItem->deleteLater();
+}
+
+void SettingsGroup::setHeaderVisible(const bool visible)
+{
+    if (visible)
+    {
+        if (!m_headerItem)
+            m_headerItem = new SettingsHeaderItem;
+        insertItem(0, m_headerItem);
+    } else {
+        if (m_headerItem)
+        {
+            m_headerItem->deleteLater();
+            m_headerItem = nullptr;
+        }
+    }
 }
 
 void SettingsGroup::insertItem(const int index, SettingsItem *item)

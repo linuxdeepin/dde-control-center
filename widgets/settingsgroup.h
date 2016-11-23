@@ -18,6 +18,7 @@ class QVBoxLayout;
 namespace dcc {
 
 class SettingsItem;
+class SettingsHeaderItem;
 
 class SettingsGroup : public QFrame
 {
@@ -25,6 +26,10 @@ class SettingsGroup : public QFrame
 
 public:
     explicit SettingsGroup(QFrame *parent = 0);
+    ~SettingsGroup();
+
+    SettingsHeaderItem *headerItem() const { return m_headerItem; }
+    void setHeaderVisible(const bool visible);
 
     void insertItem(const int index, SettingsItem * item);
     void appendItem(SettingsItem * item);
@@ -42,6 +47,7 @@ private slots:
 
 private:
     QVBoxLayout *m_layout;
+    SettingsHeaderItem *m_headerItem;
 
     QTimer *m_updateHeightTimer;
 };

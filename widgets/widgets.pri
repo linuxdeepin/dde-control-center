@@ -17,7 +17,8 @@ HEADERS += \
     $$PWD/labels/smalllabel.h \
     $$PWD/translucentframe.h \
     $$PWD/searchinput.h \
-    $$PWD/dccslider.h
+    $$PWD/dccslider.h \
+    $$PWD/settingsheaderitem.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -33,7 +34,8 @@ SOURCES += \
     $$PWD/labels/smalllabel.cpp \
     $$PWD/translucentframe.cpp \
     $$PWD/searchinput.cpp \
-    $$PWD/dccslider.cpp
+    $$PWD/dccslider.cpp \
+    $$PWD/settingsheaderitem.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

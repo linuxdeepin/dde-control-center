@@ -21,7 +21,7 @@ class SettingsItem : public QFrame
     Q_PROPERTY(bool isTail READ isTail DESIGNABLE true SCRIPTABLE true)
 
 public:
-    explicit SettingsItem(QFrame *parent = 0);
+    explicit SettingsItem(QWidget *parent = 0);
 
     bool isHead() const;
     void setIsHead(bool head = true);

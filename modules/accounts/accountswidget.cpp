@@ -4,6 +4,7 @@
 #include "settingsgroup.h"
 #include "nextpagewidget.h"
 #include "switchwidget.h"
+#include "settingsheaderitem.h"
 
 #include <QPushButton>
 #include <QDebug>
@@ -15,6 +16,8 @@ AccountsWidget::AccountsWidget()
 
     m_userGroup(new SettingsGroup)
 {
+    m_userGroup->setHeaderVisible(true);
+    m_userGroup->headerItem()->setTitle(tr("Accounts"));
     m_centeralLayout->addWidget(m_userGroup);
 
     setTitle(tr("Accounts"));
