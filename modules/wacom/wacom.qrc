@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/wacom">
+        <file>themes/common/common.qss</file>
+        <file>themes/dark/dark.qss</file>
+        <file>themes/light/light.qss</file>
+    </qresource>
+</RCC>

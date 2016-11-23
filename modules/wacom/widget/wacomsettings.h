@@ -5,13 +5,14 @@
 #include "switchwidget.h"
 #include "settingsgroup.h"
 #include "../wacommodel.h"
+#include "translucentframe.h"
 #include <QObject>
 #include <QVBoxLayout>
 using namespace dcc;
 const int PressureMaxValue = 10;
 const int PressureMinValue = 1;
 const int PressureStep     = 1;
-class WacomSettings : public SettingsItem
+class WacomSettings : public TranslucentFrame
 {
     Q_OBJECT
 public:

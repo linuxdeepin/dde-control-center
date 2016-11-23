@@ -22,6 +22,7 @@ WacomPressure::WacomPressure(QObject *parent)
     hboxlayout->addWidget(rightValue);
     m_mainLayout->addLayout(hboxlayout);
     setLayout(m_mainLayout);
+    setObjectName("WacomPressure");
     connect(m_speedSlider, &QSlider::valueChanged, this, &WacomPressure::requestSetSliderValue);
 }
 

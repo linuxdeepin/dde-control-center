@@ -44,7 +44,7 @@ static const QString getStyleSheetFromDir(QDir dir)
 
 static const QString styleSheetFromTheme(const QString &theme)
 {
-    QStringList moduleList = { "widgets", "accounts", "defapp", "mouse" };
+    QStringList moduleList = { "widgets", "accounts", "defapp", "mouse", "wacom" };
     QString ret;
 
     const QString resources = ":/%1/themes/" + theme;

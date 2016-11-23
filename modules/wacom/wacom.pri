@@ -17,3 +17,6 @@ SOURCES += \
     $$PWD/widget/slider.cpp
 
 INCLUDEPATH += $$PWD/..
+
+RESOURCES += \
+    $$PWD/wacom.qrc
