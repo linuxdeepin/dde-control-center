@@ -1,6 +1,16 @@
 #include "mainwidget.h"
 
+#include "accounts/avatarwidget.h"
+
 #include <dimagebutton.h>
+
+#include <com_deepin_daemon_accounts.h>
+#include <com_deepin_daemon_accounts_user.h>
+
+#include <unistd.h>
+
+using AccountsInter = com::deepin::daemon::Accounts;
+using UserInter = com::deepin::daemon::accounts::User;
 
 DWIDGET_USE_NAMESPACE
 
@@ -11,7 +21,9 @@ MainWidget::MainWidget(Frame *parent)
 
       m_lastPluginWidget(nullptr),
 
-      m_userAvatarBtn(new DImageButton),
+      m_timeRefersh(new QTimer(this)),
+
+      m_userAvatarBtn(nullptr),
       m_currentTimeLbl(new QLabel),
       m_currentDateLbl(new QLabel),
       m_pluginsLayout(new QHBoxLayout),
@@ -19,12 +31,34 @@ MainWidget::MainWidget(Frame *parent)
       m_nextPluginBtn(new QPushButton),
       m_allSettingsBtn(new QPushButton)
 {
+    // TODO: get dbus data
+    const int uid = getuid();
+    AccountsInter accountsInter("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this);
+    for (auto user : accountsInter.userList())
+    {
+        UserInter userInter("com.deepin.daemon.Accounts", user, QDBusConnection::systemBus(), this);
+        if (userInter.uid().toInt() == uid)
+        {
+            m_userAvatarBtn = new AvatarWidget(userInter.iconFile());
+            break;
+        }
+    }
+
+    m_timeRefersh->setInterval(1000);
+    m_timeRefersh->setSingleShot(false);
+    m_timeRefersh->start();
+
     m_nextPluginBtn->setText("Next");
     m_allSettingsBtn->setText("All settings");
 
-    m_userAvatarBtn->setPixmap(QPixmap());
-    m_currentTimeLbl->setText("time");
-    m_currentDateLbl->setText("date");
+    m_currentTimeLbl->setStyleSheet("QLabel {"
+                                    "color: white;"
+                                    "font-size: 28px;"
+                                    "font-weight: 200;"
+                                    "}");
+    m_currentDateLbl->setStyleSheet("QLabel {"
+                                    "color: white;"
+                                    "}");
 
     m_pluginsIndicator->setFixedHeight(20);
     m_pluginsIndicator->setPageCount(4);
@@ -34,13 +68,13 @@ MainWidget::MainWidget(Frame *parent)
     timedateLayout->addWidget(m_currentTimeLbl);
     timedateLayout->addWidget(m_currentDateLbl);
     timedateLayout->setSpacing(0);
-    timedateLayout->setMargin(0);
+    timedateLayout->setContentsMargins(30, 0, 0, 0);
 
     QHBoxLayout *headerLayout = new QHBoxLayout;
     headerLayout->addWidget(m_userAvatarBtn);
     headerLayout->addLayout(timedateLayout);
     headerLayout->setSpacing(0);
-    headerLayout->setMargin(0);
+    headerLayout->setContentsMargins(30, 40, 0, 0);
 
     QVBoxLayout *centeralLayout = static_cast<QVBoxLayout *>(layout());
     centeralLayout->addLayout(headerLayout);
@@ -54,8 +88,10 @@ MainWidget::MainWidget(Frame *parent)
     connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded);
     connect(m_nextPluginBtn, &QPushButton::clicked, this, &MainWidget::showNextPlugin);
     connect(m_allSettingsBtn, &QPushButton::clicked, this, &MainWidget::showAllSettings);
+    connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
 
     m_pluginsController->loadPlugins();
+    refershTimedate();
 }
 
 void MainWidget::showPlugin(QWidget * const w)
@@ -84,4 +120,12 @@ void MainWidget::showNextPlugin()
         showPlugin(item->widget());
     else
         showPlugin(m_pluginsLayout->itemAt(0)->widget());
+}
+
+void MainWidget::refershTimedate()
+{
+    const QDateTime tm = QDateTime::currentDateTime();
+
+    m_currentTimeLbl->setText(tm.toString("HH:mm"));
+    m_currentDateLbl->setText(tm.toString(Qt::SystemLocaleShortDate));
 }

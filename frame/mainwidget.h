@@ -11,6 +11,7 @@
 #include <dimagebutton.h>
 #include <dpageindicator.h>
 
+class AvatarWidget;
 class MainWidget : public FrameWidget
 {
     Q_OBJECT
@@ -27,14 +28,16 @@ private:
 private slots:
     void pluginAdded(QWidget * const w);
     void showNextPlugin();
+    void refershTimedate();
 
 private:
     PluginsController *m_pluginsController;
 
     QWidget *m_lastPluginWidget;
+    QTimer *m_timeRefersh;
 
     // ui widgets
-    Dtk::Widget::DImageButton *m_userAvatarBtn;
+    AvatarWidget *m_userAvatarBtn;
     QLabel *m_currentTimeLbl;
     QLabel *m_currentDateLbl;
     QHBoxLayout *m_pluginsLayout;
