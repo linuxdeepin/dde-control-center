@@ -34,10 +34,6 @@ QWidget* DefAppViewer::defappDetail() {
     m_switchWidget = new dcc::SwitchWidget();
     connect(m_switchWidget, &dcc::SwitchWidget::checkedChanegd, this, &DefAppViewer::autoOpenChanged);
 
-    QPushButton *button = new QPushButton("Reset");
-    connect(button,&QPushButton::clicked,this,&DefAppViewer::Reset);
-
-    m_mainlayout->addWidget(button);
     m_mainlayout->addWidget(m_modBrowser);
     m_mainlayout->addWidget(m_modMail);
     m_mainlayout->addWidget(m_modText);
@@ -118,18 +114,18 @@ void DefAppViewer::setModel(DefAppModel * const model) {
     connect(model, &DefAppModel::AutoOpenChanged, this, &DefAppViewer::setAutoChanged);
     setAutoChanged(model->setAutoOpen());
 
-    m_modBrowser->setCategory(     model->getCategory("Browser"));
-    m_modMail->setCategory(        model->getCategory("Mail"));
-    m_modText->setCategory(        model->getCategory("Text"));
-    m_modMusic->setCategory(       model->getCategory("Music"));
-    m_modVideo->setCategory(       model->getCategory("Video"));
-    m_modPicture->setCategory(     model->getCategory("Picture"));
-    m_modTerminal->setCategory(    model->getCategory("Terminal"));
-    m_modCDAudio->setCategory(     model->getCategory("CD_Audio"));
-    m_modDVDVideo->setCategory(    model->getCategory("DVD_Video"));
-    m_modMusicPlayer->setCategory( model->getCategory("MusicPlayer"));
-    m_modCamera->setCategory(      model->getCategory("Camera"));
-    m_modSoftware->setCategory(    model->getCategory("Software"));
+    m_modBrowser->setCategory(     model->getModBrowser());
+    m_modMail->setCategory(        model->getModMail());
+    m_modText->setCategory(        model->getModText());
+    m_modMusic->setCategory(       model->getModMusic());
+    m_modVideo->setCategory(       model->getModVideo());
+    m_modPicture->setCategory(     model->getModPicture());
+    m_modTerminal->setCategory(    model->getModTerminal());
+    m_modCDAudio->setCategory(     model->getModCDAudio());
+    m_modDVDVideo->setCategory(    model->getModDVDVideo());
+    m_modMusicPlayer->setCategory( model->getModMusicPlayer());
+    m_modCamera->setCategory(      model->getModCamera());
+    m_modSoftware->setCategory(    model->getModSoftware());
 }
 
 void DefAppViewer::setAutoChanged(const bool visible) {

@@ -8,7 +8,8 @@ HEADERS += \
     $$PWD/widgets/defcategoryheadwidget.h \
     $$PWD/widgets/defcategoryaddwidget.h \
     $$PWD/widgets/funcbutton.h \
-    $$PWD/widgets/optionwidget.h
+    $$PWD/widgets/optionwidget.h \
+    $$PWD/model/category.h
 
 SOURCES += \
     $$PWD/defappwidget.cpp \
@@ -20,7 +21,8 @@ SOURCES += \
     $$PWD/widgets/defcategoryheadwidget.cpp \
     $$PWD/widgets/defcategoryaddwidget.cpp \
     $$PWD/widgets/funcbutton.cpp \
-    $$PWD/widgets/optionwidget.cpp
+    $$PWD/widgets/optionwidget.cpp \
+    $$PWD/model/category.cpp
 
 INCLUDEPATH += $$PWD/..
 

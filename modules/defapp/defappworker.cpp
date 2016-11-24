@@ -59,7 +59,6 @@ void DefAppWorker::onSetDefaultApp(const QString &category, const QJsonObject &i
 {
     QStringList mimelist = getTypeListByCategory(m_stringToCategory[category]);
     m_dbusManager->SetDefaultApp(mimelist, item["Id"].toString());
-    onGetDefaultApp();
 }
 
 void DefAppWorker::onGetDefaultApp()
@@ -134,25 +133,16 @@ void DefAppWorker::getListAppFinished(QDBusPendingCallWatcher *w)
     QDBusPendingReply<QString> reply = *w;
     const QString mime = w->property("mime").toString();
     const  QJsonArray &defaultApp = QJsonDocument::fromJson(reply.value().toUtf8()).array();
-    for (int i = 0; i != defaultApp.size(); ++i) {
-        const QJsonObject object = defaultApp.at(i).toObject();
-        t.insert(t.end(), object);
-    }
-    m_defAppModel->setAppList(mime, t);
+    saveListApp(mime, defaultApp);
     w->deleteLater();
 }
 
 void DefAppWorker::getUserAppFinished(QDBusPendingCallWatcher *w)
 {
-    QList<QJsonObject> t;
     QDBusPendingReply<QString> reply = *w;
     const QString mime = w->property("mime").toString();
     const  QJsonArray &defaultApp = QJsonDocument::fromJson(reply.value().toUtf8()).array();
-    for (int i = 0; i != defaultApp.size(); ++i) {
-        const QJsonObject object  = defaultApp.at(i).toObject();
-        t.insert(t.end(), object);
-    }
-    m_defAppModel->setUserList(mime, t);
+    saveUserApp(mime, defaultApp);
     w->deleteLater();
 }
 
@@ -162,8 +152,83 @@ void DefAppWorker::getDefaultAppFinished(QDBusPendingCallWatcher *w)
     const QString mime = w->property("mime").toString();
     const QJsonObject &defaultApp = QJsonDocument::fromJson(reply.value().toStdString().c_str()).object();
     const QString &defAppId = defaultApp.value("Id").toString();
-    m_defAppModel->setDefault(mime, defAppId);
+    saveDefaultApp(mime, defAppId);
     w->deleteLater();
+}
+
+void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json)
+{
+    Category *category = getCategory(mime);
+    QList<QJsonObject> t;
+    for (int i = 0; i != json.size(); ++i) {
+        const QJsonObject object = json.at(i).toObject();
+        t.insert(t.end(), object);
+    }
+    category->setCategory(mime);
+    category->setappList(t);
+}
+
+void DefAppWorker::saveUserApp(const QString &mime, const QJsonArray &json)
+{
+    Category *category = getCategory(mime);
+    QList<QJsonObject> t;
+    for (int i = 0; i != json.size(); ++i) {
+        const QJsonObject object = json.at(i).toObject();
+        t.insert(t.end(), object);
+    }
+    category->setCategory(mime);
+    category->setappList(t);
+}
+
+void DefAppWorker::saveDefaultApp(const QString &mime, const QString &app)
+{
+    Category *category = getCategory(mime);
+    category->setCategory(mime);
+    category->setDefault(app);
+}
+
+Category *DefAppWorker::getCategory(const QString &mime) const
+{
+    Category *category;
+    switch (m_stringToCategory[mime]) {
+    case Browser:
+        category = m_defAppModel->getModBrowser();
+        break;
+    case Mail:
+        category = m_defAppModel->getModMail();
+        break;
+    case Text:
+        category = m_defAppModel->getModText();
+        break;
+    case Music:
+        category = m_defAppModel->getModMusic();
+        break;
+    case Video:
+        category = m_defAppModel->getModVideo();
+        break;
+    case Picture:
+        category = m_defAppModel->getModPicture();
+        break;
+    case Terminal:
+        category = m_defAppModel->getModTerminal();
+        break;
+    case CD_Audio:
+        category = m_defAppModel->getModCDAudio();
+        break;
+    case DVD_Video:
+        category = m_defAppModel->getModDVDVideo();
+        break;
+    case MusicPlayer:
+        category = m_defAppModel->getModMusicPlayer();
+        break;
+    case Camera:
+        category = m_defAppModel->getModCamera();
+        break;
+    case Software:
+        category = m_defAppModel->getModSoftware();
+        break;
+    }
+    return category;
 }
 
 void DefAppWorker::serviceStartFinished()
@@ -200,6 +265,8 @@ bool DefAppWorker::isMediaApps(const DefaultAppsCategory &category) const
     // for remove complier warnings.
     return true;
 }
+
+
 
 const QString DefAppWorker::getTypeByCategory(const DefaultAppsCategory &category)
 {

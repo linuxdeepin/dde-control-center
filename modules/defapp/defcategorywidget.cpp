@@ -14,8 +14,8 @@ DefCategoryWidget::DefCategoryWidget(const QString &name)
     m_headWidget = new DefCategoryHeadWidget(name);
     m_addWidget  = new DefCategoryAddWidget;
 
-    m_userGroup->appendItem(m_headWidget); //head
-    m_userGroup->appendItem(m_addWidget);  //add
+    m_userGroup->insertItem(0, m_headWidget);
+    m_userGroup->insertItem(1, m_addWidget);
     m_centeralLayout->addWidget(m_userGroup);
 
     connect(m_addWidget,  &DefCategoryAddWidget::addUserItem,  this, &DefCategoryWidget::addUserApp);
@@ -26,9 +26,6 @@ DefCategoryWidget::DefCategoryWidget(const QString &name)
 
 void DefCategoryWidget::setCategory(Category *const category)
 {
-    if (!category) {
-        return;
-    }
     m_category = category;
     connect(category, &Category::itemsChanged, this, &DefCategoryWidget::AppsItemChanged);
     connect(category, &Category::userItemChanged, this, &DefCategoryWidget::UserItemChanged);
@@ -56,8 +53,8 @@ void DefCategoryWidget::addItem(const QJsonObject &item)
     m_optionWidget->setItem(item);
     m_optionWidget->setMime(m_category->getName());
     m_optionWidget->setFixedHeight(30);
-    m_userGroup->appendItem(m_optionWidget);
-    connect(m_optionWidget, &OptionWidget::setDefault, this, &DefCategoryWidget::onSetRunner);
+    m_userGroup->insertItem(1, m_optionWidget);
+    connect(m_optionWidget, &OptionWidget::setDefault, this, &DefCategoryWidget::onDefaultAppSet);
     connect(m_optionWidget, &OptionWidget::removeItem, this, &DefCategoryWidget::removeItem);
 }
 
@@ -68,8 +65,8 @@ void DefCategoryWidget::addUserItem(const QJsonObject &item)
     m_optionWidget->setMime(m_category->getName());
     m_optionWidget->setUserCheck(true);
     m_optionWidget->setFixedHeight(30);
-    m_userGroup->appendItem(m_optionWidget);
-    connect(m_optionWidget, &OptionWidget::setDefault, this, &DefCategoryWidget::onSetRunner);
+    m_userGroup->insertItem(1, m_optionWidget);
+    connect(m_optionWidget, &OptionWidget::setDefault, this, &DefCategoryWidget::onDefaultAppSet);
     connect(m_optionWidget, &OptionWidget::removeItem, this, &DefCategoryWidget::removeItem);
 }
 
@@ -107,26 +104,9 @@ int DefCategoryWidget::itemCount()
     return m_userGroup->layout()->count();
 }
 
-void DefCategoryWidget::onSetRunner(const QString &category, const QString &id)
-{
-    m_headWidget->setedit(true);
-    for (int cc = m_userGroup->layout()->count() - 1; cc >= 0; --cc) {
-        m_userGroupLayout = m_userGroup->layout()->itemAt(cc);
-        m_optionWidget = qobject_cast<OptionWidget *>(m_userGroupLayout->widget());
-        if (m_optionWidget != 0) {
-            //doing something for m_optionWidget
-            if (m_optionWidget->id() == id) {
-                m_optionWidget->setChecked(true);
-                //set dbus
-                emit setDefaultApp(category, m_optionWidget->getItem());
-            }
-            m_optionWidget->setChecked(false);
-        }
-    }
-}
-
 void DefCategoryWidget::onDefaultAppSet(const QString &id)
 {
+    qDebug() << "id " << id;
     for (int cc = m_userGroup->layout()->count() - 1; cc >= 0; --cc) {
         m_userGroupLayout = m_userGroup->layout()->itemAt(cc);
         m_optionWidget = qobject_cast<OptionWidget *>(m_userGroupLayout->widget());
@@ -134,6 +114,7 @@ void DefCategoryWidget::onDefaultAppSet(const QString &id)
             //doing something for m_optionWidget
             if (m_optionWidget->id() == id) {
                 m_optionWidget->setChecked(true);
+                emit setDefaultApp(m_category->getName(), m_optionWidget->getItem());
                 qDebug() << "已设置 " << id;
             } else {
                 m_optionWidget->setChecked(false);
@@ -144,8 +125,6 @@ void DefCategoryWidget::onDefaultAppSet(const QString &id)
 
 void DefCategoryWidget::slotEditMode(const bool editable)
 {
-
-    qDebug() << editable;
     //点击删除以后，禁用添加按钮
     m_addWidget->setEnabled(!editable);
     for (int cc = m_userGroup->layout()->count() - 1; cc >= 0; --cc) {
@@ -161,12 +140,12 @@ void DefCategoryWidget::AppsItemChanged()
 {
     //销毁所有对象，再重新添加。测试中
     for (int cc = m_userGroup->layout()->count() - 1; cc >= 0; --cc) {
+        if(cc == 0 || cc == m_userGroup->layout()->count() - 1) {
+            break;
+        }
         m_userGroupLayout = m_userGroup->layout()->itemAt(cc);
         m_optionWidget = qobject_cast<OptionWidget *>(m_userGroupLayout->widget());
         if (m_optionWidget != 0) {
-            if (m_userGroup->layout()->count() == 2) {
-                break;
-            }
             if (!m_optionWidget->userCheck()) {
                 m_userGroup->removeItem(m_optionWidget);
                 m_optionWidget->deleteLater();
@@ -187,12 +166,12 @@ void DefCategoryWidget::UserItemChanged()
 {
     //销毁所有对象，再重新添加。测试中
     for (int cc = m_userGroup->layout()->count() - 1; cc >= 0; --cc) {
+        if(cc == 0 || cc == m_userGroup->layout()->count() - 1) {
+            break;
+        }
         m_userGroupLayout = m_userGroup->layout()->itemAt(cc);
         m_optionWidget = qobject_cast<OptionWidget *>(m_userGroupLayout->widget());
         if (m_optionWidget != 0) {
-            if (m_userGroup->layout()->count() == 2) {
-                break;
-            }
             if (m_optionWidget->userCheck()) {
                 m_userGroup->removeItem(m_optionWidget);
                 m_optionWidget->deleteLater();

@@ -35,6 +35,9 @@ public:
 
     const QString name() const;
 
+signals:
+    void requestReset();
+
 private:
     void showDefaultAppsDetail();
     void contentPopped(ContentWidget * const w);

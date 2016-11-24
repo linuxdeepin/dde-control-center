@@ -59,7 +59,7 @@ protected:
 
 Q_SIGNALS:
     void removeItem(const QJsonObject &item);
-    void setDefault(const QString &mime, const QString &id);
+    void setDefault(const QString &id);
     void checkedChanged(const bool checked) const;
     void checkedIconChanged(const QPixmap &icon) const;
 };

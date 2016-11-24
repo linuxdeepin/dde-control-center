@@ -1,70 +1,47 @@
-#ifndef DEFAPPMODEL_H
+﻿#ifndef DEFAPPMODEL_H
 #define DEFAPPMODEL_H
 
+#include "model/category.h"
 #include <QObject>
-#include <QList>
-#include "widgets/optionwidget.h"
 #include <QDebug>
-#include <vector>
-#include <iterator>
-
-class DefAppWorker;
-
-
-class Category : public QObject
-{
-    Q_OBJECT
-
-public:
-    explicit Category(QObject *parent = 0);
-
-    void setappList(const QList<QJsonObject> &list);   //设置list到暂存区
-    void setuserList(const QList<QJsonObject> &list);
-    void setDefault(const QString &id);
-
-    inline const QString getName() const { return m_category;}
-    inline void setCategory(const QString &category) { m_category = category;}
-    inline const QList<QJsonObject> getappItem() const { return m_applist;}
-    inline const QList<QJsonObject> getuserItem() const { return m_userlist;}
-    inline const QString getDefault() { return m_id;}
-
-signals:
-    void itemsChanged();
-    void userItemChanged();
-    void defaultChanged(const QString &id);
-
-private:
-    QList<QJsonObject> m_applist; //暂存list
-    QList<QJsonObject> m_userlist;
-    QString m_category;
-    QString m_id;
-};
-
 class DefAppModel : public QObject
 {
     Q_OBJECT
-
-    friend class DefAppWorker;
-
 public:
     explicit DefAppModel(QObject *parent = 0);
     ~DefAppModel();
     inline bool setAutoOpen() {return m_autoOpen;}
-    Category *getCategory(const QString &category);
+    void setAutoOpen(const bool state);
+    Category *getModBrowser()     {return m_modBrowser;}
+    Category *getModMail()        {return m_modMail;}
+    Category *getModText()        {return m_modText;}
+    Category *getModMusic()       {return m_modMusic;}
+    Category *getModVideo()       {return m_modVideo;}
+    Category *getModPicture()     {return m_modPicture;}
+    Category *getModTerminal()    {return m_modTerminal;}
+    Category *getModCDAudio()     {return m_modCDAudio;}
+    Category *getModDVDVideo()    {return m_modDVDVideo;}
+    Category *getModMusicPlayer() {return m_modMusicPlayer;}
+    Category *getModCamera()      {return m_modCamera;}
+    Category *getModSoftware()    {return m_modSoftware;}
 
 signals:
     void AutoOpenChanged(bool state);
 
-private slots:
-    void setAppList(const QString &category, QList<QJsonObject> &list); //该函数遍历对象来设置list
-    void setUserList(const QString &category, QList<QJsonObject> &list);
-    void setDefault(const QString &category, const QString &id);
-    void setAutoOpen(const bool state);
-
-
 private:
     bool m_autoOpen;
-    QList<Category *> m_categoryList;
+    Category *m_modBrowser;
+    Category *m_modMail;
+    Category *m_modText;
+    Category *m_modMusic;
+    Category *m_modVideo;
+    Category *m_modPicture;
+    Category *m_modTerminal;
+    Category *m_modCDAudio;
+    Category *m_modDVDVideo;
+    Category *m_modMusicPlayer;
+    Category *m_modCamera;
+    Category *m_modSoftware;
 };
 
 #endif // DEFAPPMODEL_H

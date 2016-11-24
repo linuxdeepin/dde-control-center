@@ -41,7 +41,7 @@ void DefaultAppsModule::moduleDeactive()
 
 void DefaultAppsModule::reset()
 {
-
+    emit requestReset();
 }
 
 ModuleWidget *DefaultAppsModule::moduleWidget()
@@ -64,12 +64,11 @@ void DefaultAppsModule::showDefaultAppsDetail()
     if (!m_defaultAppsDetail) {
         m_defaultAppsDetail = new DefAppViewer;
         m_defaultAppsDetail->setModel(m_defAppModel);
+        connect(this, &DefaultAppsModule::requestReset,              m_defAppWorker, &DefAppWorker::onResetTriggered);  //恢复默认
         connect(m_defaultAppsDetail, &DefAppViewer::SetDefaultApp,   m_defAppWorker, &DefAppWorker::onSetDefaultApp); //设置默认程序
-        connect(m_defaultAppsDetail, &DefAppViewer::Reset,           m_defAppWorker, &DefAppWorker::onResetTriggered);  //恢复默认
         connect(m_defaultAppsDetail, &DefAppViewer::autoOpenChanged, m_defAppWorker, &DefAppWorker::onAutoOpenChanged);
         connect(m_defaultAppsDetail, &DefAppViewer::AddUserApp,      m_defAppWorker, &DefAppWorker::onAddUserApp);
         connect(m_defaultAppsDetail, &DefAppViewer::DelUserApp,      m_defAppWorker, &DefAppWorker::onDelUserApp);
-
         connect(m_defaultAppsDetail, &DefAppViewer::requestFrameAutoHide, this, &DefaultAppsModule::setFrameAutoHide);
     }
     m_frameProxy->pushWidget(this, m_defaultAppsDetail);

@@ -139,6 +139,7 @@ void dcc::OptionWidget::mouseReleaseEvent(QMouseEvent *)
 {
     if (QMouseEvent::MouseButtonRelease) {
         //do someting
-        emit setDefault(m_mime, m_CategoryItem["Id"].toString());
+        setChecked(true);
+        emit setDefault(m_CategoryItem["Id"].toString());
     }
 }

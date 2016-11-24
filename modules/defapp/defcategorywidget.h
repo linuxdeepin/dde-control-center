@@ -27,7 +27,6 @@ signals:
     void requestFrameAutoHide(const bool autoHide) const;
 
 public slots:
-    void onSetRunner(const QString &category, const QString &value);
     void onDefaultAppSet(const QString &id);
     void slotEditMode(const bool editable);
 

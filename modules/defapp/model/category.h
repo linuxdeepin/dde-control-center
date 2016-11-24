@@ -1,0 +1,37 @@
+#ifndef CATEGORY_H
+#define CATEGORY_H
+
+#include <QObject>
+#include <QList>
+#include <QJsonObject>
+
+class Category : public QObject
+{
+    Q_OBJECT
+
+public:
+    explicit Category(QObject *parent = 0);
+
+    void setappList(const QList<QJsonObject> &list);   //设置list到暂存区
+    void setuserList(const QList<QJsonObject> &list);
+    void setDefault(const QString &id);
+
+    inline const QString getName() const { return m_category;}
+    inline void setCategory(const QString &category) { m_category = category;}
+    inline const QList<QJsonObject> getappItem() const { return m_applist;}
+    inline const QList<QJsonObject> getuserItem() const { return m_userlist;}
+    inline const QString getDefault() { return m_id;}
+
+signals:
+    void itemsChanged();
+    void userItemChanged();
+    void defaultChanged(const QString &id);
+
+private:
+    QList<QJsonObject> m_applist; //暂存list
+    QList<QJsonObject> m_userlist;
+    QString m_category;
+    QString m_id;
+};
+
+#endif // CATEGORY_H

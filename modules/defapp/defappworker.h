@@ -2,7 +2,6 @@
 #define DEFAPPWORKER_H
 
 #include "defappmodel.h"
-
 #include <com_deepin_api_manager.h>
 #include <com_deepin_api_media.h>
 #include <QObject>
@@ -33,6 +32,9 @@ private slots:
     void getListAppFinished(QDBusPendingCallWatcher *w);
     void getUserAppFinished(QDBusPendingCallWatcher *w);
     void getDefaultAppFinished(QDBusPendingCallWatcher *w);
+    void saveListApp(const QString &mime, const QJsonArray &json);
+    void saveUserApp(const QString &mime, const QJsonArray &json);
+    void saveDefaultApp(const QString &mime, const QString &app);
     void serviceStartFinished();
 
 private:
@@ -51,6 +53,7 @@ private:
     const QString getTypeByCategory(const DefAppWorker::DefaultAppsCategory &category);
     const QStringList getTypeListByCategory(const DefAppWorker::DefaultAppsCategory &category);
     bool isMediaApps(const DefaultAppsCategory &category) const;
+    Category* getCategory(const QString &mime) const;
 };
 
 #endif // DEFAPPWORKER_H
