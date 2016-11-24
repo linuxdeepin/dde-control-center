@@ -49,6 +49,8 @@ private:
     QMap<ModuleInterface *, QList<ContentWidget *>> m_moduleWidgets;
 
     QTimer *m_refershModuleActivableTimer;
+
+    int m_moduleLoadDelay;
 };
 
 #endif // SETTINGSWIDGET_H

@@ -1,5 +1,11 @@
 HEADERS += \
-    $$PWD/display.h
+    $$PWD/displaymodule.h \
+    $$PWD/displaywidget.h \
+    $$PWD/displayworker.h
 
 SOURCES += \
-    $$PWD/display.cpp
+    $$PWD/displaymodule.cpp \
+    $$PWD/displaywidget.cpp \
+    $$PWD/displayworker.cpp
+
+INCLUDEPATH += $$PWD/..

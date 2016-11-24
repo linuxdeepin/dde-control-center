@@ -13,6 +13,7 @@
 #include "update/updatemodule.h"
 #include "mouse/mousemodule.h"
 #include "wacom/wacomemodule.h"
+#include "display/displaymodule.h"
 
 #include <QResizeEvent>
 #include <QScrollBar>
@@ -27,7 +28,9 @@ SettingsWidget::SettingsWidget(Frame *frame)
       m_settingsLayout(new QVBoxLayout),
       m_settingsWidget(new TranslucentFrame),
 
-      m_refershModuleActivableTimer(new QTimer(this))
+      m_refershModuleActivableTimer(new QTimer(this)),
+
+      m_moduleLoadDelay(0)
 {
     m_resetBtn->setText(tr("Reset all settings"));
 
@@ -36,6 +39,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     m_settingsLayout->setMargin(0);
 
     loadModule(new AccountsModule(this));
+    loadModule(new display::DisplayModule(this));
     loadModule(new PowerModule(this));
     loadModule(new MouseModule(this));
     loadModule(new UpdateModule(this));
@@ -102,7 +106,7 @@ void SettingsWidget::loadModule(ModuleInterface *const module)
     connect(thrd, &ModuleInitThread::moduleInitFinished, this, &SettingsWidget::onModuleInitFinished);
     connect(thrd, &ModuleInitThread::finished, thrd, &ModuleInitThread::deleteLater);
     connect(thrd, &ModuleInitThread::finished, m_refershModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    thrd->start();
+    QTimer::singleShot(m_moduleLoadDelay += 50, [=] { thrd->start(QThread::LowPriority); });
 }
 
 void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
