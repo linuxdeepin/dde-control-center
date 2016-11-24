@@ -16,6 +16,8 @@
 #include <QVBoxLayout>
 
 #include "labels/normallabel.h"
+#include "dccslider.h"
+#include "dccsliderannotated.h"
 
 namespace dcc {
 namespace widgets {
@@ -24,11 +26,11 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent) :
     SettingsItem(parent),
     m_titleLabel(new NormalLabel(title)),
     m_valueLabel(new NormalLabel),
-    m_slider(new QSlider),
+    m_slider(new DCCSliderAnnotated),
     m_leftIconLabel(new QLabel),
     m_rightIconLabel(new QLabel)
 {
-    m_slider->setOrientation(Qt::Horizontal);
+    m_slider->slider()->setOrientation(Qt::Horizontal);
     m_leftIconLabel->setVisible(false);
     m_rightIconLabel->setVisible(false);
 
@@ -49,9 +51,14 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent) :
     setFixedHeight(mainLayout->sizeHint().height());
 }
 
-QSlider *TitledSliderItem::slider() const
+DCCSlider *TitledSliderItem::slider() const
 {
-    return m_slider;
+    return m_slider->slider();
+}
+
+void TitledSliderItem::setAnnotations(const QStringList &annotations)
+{
+    m_slider->setAnnotations(annotations);
 }
 
 QString TitledSliderItem::leftIcon() const

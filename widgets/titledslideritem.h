@@ -13,11 +13,14 @@
 #include "settingsitem.h"
 
 class NormalLabel;
-class QSlider;
 class QLabel;
+class QSlider;
 
 namespace dcc {
+class DCCSlider;
 namespace widgets {
+
+class DCCSliderAnnotated;
 
 class TitledSliderItem : public SettingsItem
 {
@@ -28,7 +31,8 @@ public:
     Q_PROPERTY(QString leftIcon READ leftIcon WRITE setLeftIcon NOTIFY leftIconChanged)
     Q_PROPERTY(QString rightIcon READ rightIcon WRITE setRightIcon NOTIFY rightIconChanged)
 
-    QSlider *slider() const;
+    DCCSlider *slider() const;
+    void setAnnotations(const QStringList &annotations);
 
     QString leftIcon() const;
     void setLeftIcon(const QString &leftIcon);
@@ -46,7 +50,7 @@ signals:
 private:
     NormalLabel *m_titleLabel;
     NormalLabel *m_valueLabel;
-    QSlider *m_slider;
+    DCCSliderAnnotated *m_slider;
     QLabel *m_leftIconLabel;
     QLabel *m_rightIconLabel;
 

@@ -19,7 +19,8 @@ HEADERS += \
     $$PWD/searchinput.h \
     $$PWD/dccslider.h \
     $$PWD/settingsheaderitem.h \
-    $$PWD/titledslideritem.h
+    $$PWD/titledslideritem.h \
+    $$PWD/dccsliderannotated.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -37,7 +38,8 @@ SOURCES += \
     $$PWD/searchinput.cpp \
     $$PWD/dccslider.cpp \
     $$PWD/settingsheaderitem.cpp \
-    $$PWD/titledslideritem.cpp
+    $$PWD/titledslideritem.cpp \
+    $$PWD/dccsliderannotated.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

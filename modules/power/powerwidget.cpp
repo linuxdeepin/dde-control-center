@@ -3,6 +3,8 @@
 #include <QDebug>
 
 #include "titledslideritem.h"
+#include "dccslider.h"
+#include "dccsliderannotated.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -19,6 +21,19 @@ PowerWidget::PowerWidget()
       m_notebookSettings(new SettingsGroup),
       m_sleepOnLidOff(new SwitchWidget)
 {
+    QStringList annos;
+    annos << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
+
+    m_monitorSleep->slider()->setRange(1, 100);
+    m_monitorSleep->slider()->setTickPosition(QSlider::TicksBelow);
+    m_monitorSleep->slider()->setTickInterval(100 / 6);
+    m_monitorSleep->setAnnotations(annos);
+
+    m_computerSleep->slider()->setRange(1, 100);
+    m_computerSleep->slider()->setTickPosition(QSlider::TicksBelow);
+    m_computerSleep->slider()->setTickInterval(100 / 6);
+    m_computerSleep->setAnnotations(annos);
+
     m_sleepTimeoutSettings->appendItem(m_monitorSleep);
     m_sleepTimeoutSettings->appendItem(m_computerSleep);
 

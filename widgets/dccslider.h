@@ -9,7 +9,15 @@ class DCCSlider : public QSlider
 {
     Q_OBJECT
 public:
-    explicit DCCSlider(QWidget *parent = 0);
+    enum SliderType {
+        Normal,
+        Vernier,
+        Progress
+    };
+
+    explicit DCCSlider(SliderType type = Normal, QWidget *parent = 0);
+
+    void setType(SliderType type);
 
 protected:
     void wheelEvent(QWheelEvent *e);

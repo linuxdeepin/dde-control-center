@@ -6,6 +6,12 @@
 #include "switchwidget.h"
 #include "powermodel.h"
 
+namespace dcc {
+namespace widgets {
+class TitledSliderItem;
+}
+}
+
 class PowerWidget : public ModuleWidget
 {
     Q_OBJECT
@@ -20,8 +26,8 @@ signals:
 
 private:
     dcc::SettingsGroup *m_sleepTimeoutSettings;
-    dcc::SettingsItem *m_monitorSleep;
-    dcc::SettingsItem *m_computerSleep;
+    dcc::widgets::TitledSliderItem *m_monitorSleep;
+    dcc::widgets::TitledSliderItem *m_computerSleep;
     dcc::SettingsGroup *m_passwordSettings;
     dcc::SwitchWidget *m_displayNeedPassword;
     dcc::SwitchWidget *m_wakeNeedPassword;
