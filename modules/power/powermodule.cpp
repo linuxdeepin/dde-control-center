@@ -55,6 +55,8 @@ ModuleWidget *PowerModule::moduleWidget()
         m_powerWidget->setModel(m_powerModel);
 
         connect(m_powerWidget, &PowerWidget::requestSetScreenBlackLock, m_powerWorker, &PowerWorker::setScreenBlackLock);
+        connect(m_powerWidget, &PowerWidget::requestSetSleepLock, m_powerWorker, &PowerWorker::setSleepLock);
+        connect(m_powerWidget, &PowerWidget::requestSetSleepOnLidClosed, m_powerWorker, &PowerWorker::setSleepOnLidClosed);
     }
 
     return m_powerWidget;

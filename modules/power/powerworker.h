@@ -21,6 +21,16 @@ public:
 
 public slots:
     void setScreenBlackLock(const bool lock);
+    void setSleepLock(const bool lock);
+    void setSleepOnLidClosed(const bool sleep);
+    void setSleepDelay(const int delay);
+    void setScreenBlackDelay(const int delay);
+
+private slots:
+    void lidClosedActionChanged(const QString & value);
+
+private:
+    bool isActionSuspend(const QString &action);
 
 private:
     PowerModel *m_powerModel;

@@ -23,6 +23,16 @@ public:
 
 signals:
     void requestSetScreenBlackLock(const bool lock) const;
+    void requestSetSleepLock(const bool lock) const;
+    void requestSetSleepOnLidClosed(const bool sleep) const;
+
+private:
+    int delayToSliderValue(const int min, const int max, const int delay) const;
+    QString delayToLiteralString(const int delay) const;
+
+private slots:
+    void setScreenBlackDelay(const int delay);
+    void setSleepDelay(const int delay);
 
 private:
     dcc::SettingsGroup *m_sleepTimeoutSettings;
