@@ -5,6 +5,7 @@
 #include <QDBusObjectPath>
 
 #include "displayworker.h"
+#include "monitor.h"
 
 class DisplayModel : public QObject
 {
@@ -15,16 +16,16 @@ class DisplayModel : public QObject
 public:
     explicit DisplayModel(QObject *parent = 0);
 
-    const QList<MonitorInter *> monitorInterList() const { return m_monitors; }
+    const QList<Monitor *> monitorList() const { return m_monitors; }
 
 signals:
     void monitorListChanged() const;
 
 private:
-    void monitorAdded(MonitorInter *inter);
+    void monitorAdded(Monitor *mon);
 
 private:
-    QList<MonitorInter *> m_monitors;
+    QList<Monitor *> m_monitors;
 };
 
 #endif // DISPLAYMODEL_H

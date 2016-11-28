@@ -8,21 +8,19 @@
 
 const QString Tips(QT_TR_NOOP("Left click to rotate and right click to exit"));
 
-RotateDialog::RotateDialog(MonitorInter *inter, QWidget *parent)
+RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     : QDialog(parent),
 
-      m_displayInter(inter)
+      m_mon(mon)
 {
-    qDebug() << m_displayInter->width() << m_displayInter->height();
+    connect(m_mon, &Monitor::wChanged, this, &RotateDialog::setFixedWidth);
+    connect(m_mon, &Monitor::hChanged, this, &RotateDialog::setFixedHeight);
+    connect(m_mon, &Monitor::xChanged, [=] (const int x) { move(x, y()); });
+    connect(m_mon, &Monitor::yChanged, [=] (const int y) { move(x(), y); });
 
-    connect(m_displayInter, &MonitorInter::WidthChanged, this, &RotateDialog::setFixedWidth);
-    connect(m_displayInter, &MonitorInter::HeightChanged, this, &RotateDialog::setFixedHeight);
-    connect(m_displayInter, &MonitorInter::XChanged, [=] (const int x) { move(x, y()); });
-    connect(m_displayInter, &MonitorInter::YChanged, [=] (const int y) { move(x(), y); });
-
-    setFixedWidth(m_displayInter->width());
-    setFixedHeight(m_displayInter->height());
-    move(m_displayInter->x(), m_displayInter->y());
+    setFixedWidth(m_mon->w());
+    setFixedHeight(m_mon->h());
+    move(m_mon->x(), m_mon->y());
     setAttribute(Qt::WA_TranslucentBackground);
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
 }
@@ -70,5 +68,12 @@ void RotateDialog::paintEvent(QPaintEvent *e)
 
 void RotateDialog::rotate()
 {
-    qDebug() << "rotate";
+    const auto rotates = m_mon->rotateList();
+    const auto rotate = m_mon->rotate();
+
+    Q_ASSERT(rotates.contains(rotate));
+
+    const quint16 nextValue = rotates[(rotates.indexOf(rotate) + 1) % rotates.size()];
+
+    emit requestRotate(m_mon, nextValue);
 }

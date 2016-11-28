@@ -6,9 +6,9 @@ DisplayModel::DisplayModel(QObject *parent)
 
 }
 
-void DisplayModel::monitorAdded(MonitorInter *inter)
+void DisplayModel::monitorAdded(Monitor *mon)
 {
-    m_monitors.append(inter);
+    m_monitors.append(mon);
 
     emit monitorListChanged();
 }
