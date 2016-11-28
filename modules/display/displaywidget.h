@@ -18,6 +18,10 @@ class DisplayWidget : public ModuleWidget
 public:
     explicit DisplayWidget();
 
+signals:
+    void requestRotate() const;
+    void requestCustom() const;
+
 private:
     NextPageWidget *m_resolution;
     QPushButton *m_rotate;

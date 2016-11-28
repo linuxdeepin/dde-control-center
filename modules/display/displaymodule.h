@@ -5,6 +5,7 @@
 #include "modulewidget.h"
 #include "displaywidget.h"
 #include "displayworker.h"
+#include "displaymodel.h"
 
 namespace dcc {
 
@@ -16,6 +17,7 @@ class DisplayModule : public QObject, public ModuleInterface
 
 public:
     explicit DisplayModule(FrameProxyInterface *frame, QObject *parent = 0);
+    ~DisplayModule();
 
 private:
     void initialize();
@@ -27,6 +29,7 @@ private:
     ModuleWidget *moduleWidget();
 
 private:
+    DisplayModel *m_displayModel;
     DisplayWorker *m_displayWorker;
     DisplayWidget *m_displayWidget;
 };

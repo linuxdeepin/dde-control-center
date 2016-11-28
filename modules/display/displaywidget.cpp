@@ -14,6 +14,8 @@ DisplayWidget::DisplayWidget()
     m_rotate->setText(tr("Rotate"));
     m_custom->setText(tr("Custom"));
 
+    m_resolution->setTitle(tr("Resolution"));
+
     SettingsGroup *resolutions = new SettingsGroup;
     resolutions->appendItem(m_resolution);
 
@@ -22,4 +24,6 @@ DisplayWidget::DisplayWidget()
     m_centeralLayout->addWidget(m_custom);
 
     setTitle(tr("Display"));
+
+    connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
 }

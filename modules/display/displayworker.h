@@ -9,16 +9,26 @@
 using DisplayInter = com::deepin::daemon::Display;
 using MonitorInter = com::deepin::daemon::display::Monitor;
 
+class DisplayModel;
 class DisplayWorker : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit DisplayWorker(QObject *parent = 0);
+    explicit DisplayWorker(DisplayModel *model, QObject *parent = 0);
+
+public slots:
+    void rotate();
+
+private slots:
+    void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
 
 private:
+    void showRotateDialog(MonitorInter * const inter);
+
+private:
+    DisplayModel *m_model;
     DisplayInter m_displayInter;
-    QMap<QString, MonitorInter*> m_monitors;
 };
 
 #endif // DISPLAYWORKER_H
