@@ -1,6 +1,7 @@
 #include "powerwidget.h"
 
 #include <QDebug>
+#include <QtMath>
 
 #include "titledslideritem.h"
 #include "dccslider.h"
@@ -60,6 +61,12 @@ PowerWidget::PowerWidget()
     connect(m_displayNeedPassword, &SwitchWidget::checkedChanegd, this, &PowerWidget::requestSetScreenBlackLock);
     connect(m_wakeNeedPassword, &SwitchWidget::checkedChanegd, this, &PowerWidget::requestSetSleepLock);
     connect(m_sleepOnLidOff, &SwitchWidget::checkedChanegd, this, &PowerWidget::requestSetSleepOnLidClosed);
+
+    m_monitorSlider = m_monitorSleep->slider();
+    m_sleepSlider = m_computerSleep->slider();
+
+    connect(m_monitorSlider, &QSlider::valueChanged, this, &PowerWidget::monitorSliderValueChanged);
+    connect(m_sleepSlider, &QSlider::valueChanged, this, &PowerWidget::sleepSliderValueChanged);
 }
 
 void PowerWidget::setModel(PowerModel * const model)
@@ -72,10 +79,12 @@ void PowerWidget::setModel(PowerModel * const model)
     connect(model, &PowerModel::sleepDelayChanged, this, &PowerWidget::setSleepDelay);
 
     // init ui data
+    blockSignals(true);
     m_displayNeedPassword->setChecked(model->screenBlackLock());
     m_wakeNeedPassword->setChecked(model->sleepLock());
     m_notebookSettings->setVisible(model->lidPresent());
     m_sleepOnLidOff->setChecked(model->sleepOnLidClose());
+    blockSignals(false);
 
     setScreenBlackDelay(model->screenBlackDelay());
     setSleepDelay(model->sleepDelay());
@@ -83,7 +92,7 @@ void PowerWidget::setModel(PowerModel * const model)
 
 int PowerWidget::delayToSliderValue(const int min, const int max, const int delay) const
 {
-    static const float chunk = (max - min) / 6.f;
+    const float chunk = (max - min) / 6.f;
     if (delay == 60) {
         return min;
     } else if (delay == 60 * 5) {
@@ -108,20 +117,71 @@ QString PowerWidget::delayToLiteralString(const int delay) const
     } else if (delay == 0) {
         return tr("Never");
     } else {
-        return tr("%1 Minutes").arg(delay / 60);
+        return tr("%n Minutes", "", (delay / 60));
+    }
+}
+
+int PowerWidget::sliderValueToDelay(const int min, const int max, const int tickInterval, const int value) const
+{
+    int tickPos = min;
+    while (tickPos <= max) {
+        if (tickPos - tickInterval / 2.f < value && value <= tickPos + tickInterval / 2.f) {
+            break;
+        }
+        tickPos += tickInterval;
+    }
+
+    const int tickCount = qFloor((tickPos - min) / (1.f * tickInterval)) + 1;
+    switch (tickCount) {
+    case 1:
+        return 60;
+    case 2:
+        return 60 * 5;
+    case 3:
+        return 60 * 10;
+    case 4:
+        return 60 * 15;
+    case 5:
+        return 60 * 30;
+    case 6:
+        return 60 * 60;
+    default:
+        return 0;
     }
 }
 
 void PowerWidget::setScreenBlackDelay(const int delay)
 {
-    QSlider *monitorSlider = m_monitorSleep->slider();
-    monitorSlider->setValue(delayToSliderValue(monitorSlider->minimum(), monitorSlider->maximum(), delay));
+    m_monitorSlider->blockSignals(true);
+    m_monitorSlider->setValue(delayToSliderValue(m_monitorSlider->minimum(), m_monitorSlider->maximum(), delay));
     m_monitorSleep->setValueLiteral(delayToLiteralString(delay));
+    m_monitorSlider->blockSignals(false);
 }
 
 void PowerWidget::setSleepDelay(const int delay)
 {
-    QSlider *sleepSlider = m_computerSleep->slider();
-    sleepSlider->setValue(delayToSliderValue(sleepSlider->minimum(), sleepSlider->maximum(), delay));
+    m_sleepSlider->blockSignals(true);
+    m_sleepSlider->setValue(delayToSliderValue(m_sleepSlider->minimum(), m_sleepSlider->maximum(), delay));
     m_computerSleep->setValueLiteral(delayToLiteralString(delay));
+    m_sleepSlider->blockSignals(false);
+}
+
+void PowerWidget::monitorSliderValueChanged(const int delay)
+{
+    const int min = m_monitorSlider->minimum();
+    const int max = m_monitorSlider->maximum();
+    const int interval = m_monitorSlider->tickInterval();
+    const int ret = sliderValueToDelay(min, max, interval, delay);
+
+    emit requestSetScreenBlackDelay(ret);
+}
+
+void PowerWidget::sleepSliderValueChanged(const int delay)
+{
+    const int min = m_sleepSlider->minimum();
+    const int max = m_sleepSlider->maximum();
+    const int interval = m_sleepSlider->tickInterval();
+    const int ret = sliderValueToDelay(min, max, interval, delay);
+
+    emit requestSetSleepDelay(ret);
 }

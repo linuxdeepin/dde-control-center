@@ -8,6 +8,7 @@ DCCSlider::DCCSlider(DCCSlider::SliderType type, QWidget *parent) :
     QSlider(parent)
 {
     setType(type);
+    setTracking(false);
 }
 
 void DCCSlider::setType(DCCSlider::SliderType type)
