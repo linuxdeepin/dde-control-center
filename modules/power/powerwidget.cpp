@@ -10,6 +10,10 @@
 using namespace dcc;
 using namespace dcc::widgets;
 
+static const int SliderMinValue = 0;
+static const int SliderMaxValue = 600;
+static const int SliderTickInterval = 100;
+
 PowerWidget::PowerWidget()
     : ModuleWidget(),
 
@@ -26,15 +30,15 @@ PowerWidget::PowerWidget()
     annos << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
 
     m_monitorSleep->slider()->setType(DCCSlider::Vernier);
-    m_monitorSleep->slider()->setRange(1, 100);
+    m_monitorSleep->slider()->setRange(SliderMinValue, SliderMaxValue);
     m_monitorSleep->slider()->setTickPosition(QSlider::TicksBelow);
-    m_monitorSleep->slider()->setTickInterval(100 / 6);
+    m_monitorSleep->slider()->setTickInterval(SliderTickInterval);
     m_monitorSleep->setAnnotations(annos);
 
     m_computerSleep->slider()->setType(DCCSlider::Vernier);
-    m_computerSleep->slider()->setRange(1, 100);
+    m_computerSleep->slider()->setRange(SliderMinValue, SliderMaxValue);
     m_computerSleep->slider()->setTickPosition(QSlider::TicksBelow);
-    m_computerSleep->slider()->setTickInterval(100 / 6);
+    m_computerSleep->slider()->setTickInterval(SliderTickInterval);
     m_computerSleep->setAnnotations(annos);
 
     m_sleepTimeoutSettings->appendItem(m_monitorSleep);
