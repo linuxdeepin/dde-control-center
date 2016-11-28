@@ -19,6 +19,9 @@ public:
 signals:
     void back();
 
+public slots:
+    void scrollToWidget(QWidget * const w);
+
 private:
     bool eventFilter(QObject *watched, QEvent *event);
 

@@ -99,8 +99,8 @@ void Frame::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
 
-    QPalette pl(palette());
-    QColor bgColor( Qt::black );
+//    QPalette pl(palette());
+    QColor bgColor(Qt::black);
     bgColor.setAlphaF(0.9);
 
     painter.fillRect(event->rect(), bgColor);
@@ -133,6 +133,10 @@ void Frame::init()
 
     // frame position adjust
     onScreenRectChanged(m_displayInter->primaryRect());
+
+#ifdef QT_DEBUG
+//    showSettingsPage("Wacom", QString());
+#endif
 }
 
 void Frame::setAutoHide(const bool autoHide)
@@ -150,6 +154,18 @@ void Frame::showAllSettings()
     }
 
     pushWidget(m_allSettingsPage);
+}
+
+void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
+{
+    // ensure current is main page
+    Q_ASSERT(m_frameWidgetStack.size() == 1);
+
+    // load all settings page
+    showAllSettings();
+
+    // show specificed page
+    m_allSettingsPage->showModulePage(moduleName, pageName);
 }
 
 void Frame::contentDetached(QWidget *const c)

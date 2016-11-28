@@ -24,6 +24,7 @@ signals:
 
 public slots:
     void contentPopuped(ContentWidget * const w);
+    void showModulePage(const QString &moduleName, const QString &pageName);
 
     void setFrameAutoHide(ModuleInterface * const inter, const bool autoHide);
     void pushWidget(ModuleInterface * const inter, ContentWidget * const w);
@@ -31,6 +32,7 @@ public slots:
 private slots:
     void loadModule(ModuleInterface * const module);
     void onModuleInitFinished(ModuleInterface * const inter);
+    void ensureModuleVisible(const QString &moduleName);
     void refershModuleActivable();
     void resetAllSettings();
 
@@ -51,6 +53,10 @@ private:
     QTimer *m_refershModuleActivableTimer;
 
     int m_moduleLoadDelay;
+    bool m_loadFinished;
+
+    QString m_ensureVisibleModule;
+    QString m_ensureVisiblePage;
 };
 
 #endif // SETTINGSWIDGET_H

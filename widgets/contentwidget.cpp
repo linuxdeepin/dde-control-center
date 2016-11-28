@@ -81,6 +81,25 @@ QWidget *ContentWidget::setContent(QWidget * const w)
     return lastWidget;
 }
 
+void ContentWidget::scrollToWidget(QWidget * const w)
+{
+    int y(0);
+    QWidget *widget = w;
+    while (widget != m_contentArea)
+    {
+        y += widget->y();
+        widget = qobject_cast<QWidget *>(widget->parent());
+    }
+
+    qDebug() << Q_FUNC_INFO << y;
+
+    m_contentArea->verticalScrollBar()->setValue(std::min(m_contentArea->verticalScrollBar()->maximum(), y));
+
+//    m_contentArea->verticalScrollBar()->setValue(1900);
+//    m_contentArea->ensureWidgetVisible(w, 0, 0);
+//    m_contentArea->verticalScrollBar()->setValue();
+}
+
 bool ContentWidget::eventFilter(QObject *watched, QEvent *event)
 {
     if (m_content && watched == m_contentArea && event->type() == QEvent::Resize)

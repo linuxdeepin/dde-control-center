@@ -30,7 +30,8 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
       m_refershModuleActivableTimer(new QTimer(this)),
 
-      m_moduleLoadDelay(0)
+      m_moduleLoadDelay(0),
+      m_loadFinished(false)
 {
     m_resetBtn->setText(tr("Reset all settings"));
 
@@ -105,8 +106,10 @@ void SettingsWidget::loadModule(ModuleInterface *const module)
     ModuleInitThread *thrd = new ModuleInitThread(module, this);
     connect(thrd, &ModuleInitThread::moduleInitFinished, this, &SettingsWidget::onModuleInitFinished);
     connect(thrd, &ModuleInitThread::finished, thrd, &ModuleInitThread::deleteLater);
-    connect(thrd, &ModuleInitThread::finished, m_refershModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    QTimer::singleShot(m_moduleLoadDelay += 50, [=] { thrd->start(QThread::LowPriority); });
+    QTimer::singleShot(m_moduleLoadDelay, [=] { thrd->start(QThread::LowPriority); });
+
+    m_moduleLoadDelay += 50;
+    m_moduleLoadDelay %= 400;
 }
 
 void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
@@ -130,6 +133,45 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
     m_settingsLayout->insertWidget(index, module->moduleWidget());
 
     qDebug() << "load module finished: " << module->name();
+
+    // load all modules finished
+    if (m_moduleActivable.size() == m_moduleInterfaces.size())
+    {
+        m_loadFinished = true;
+        m_refershModuleActivableTimer->start();
+
+        // scroll to dest widget
+        if (!m_ensureVisibleModule.isEmpty())
+            QTimer::singleShot(10, this, [=] { showModulePage(m_ensureVisibleModule, m_ensureVisiblePage); });
+    }
+}
+
+void SettingsWidget::ensureModuleVisible(const QString &moduleName)
+{
+    ModuleInterface *inter = nullptr;
+    for (auto it : m_moduleInterfaces)
+    {
+        if (it->name() == moduleName)
+        {
+            inter = it;
+            break;
+        }
+    }
+
+    if (inter)
+        scrollToWidget(inter->moduleWidget());
+}
+
+void SettingsWidget::showModulePage(const QString &moduleName, const QString &pageName)
+{
+    m_ensureVisibleModule = moduleName;
+    m_ensureVisiblePage = pageName;
+
+    if (!m_loadFinished)
+        return;
+
+    if (pageName.isEmpty())
+        ensureModuleVisible(moduleName);
 }
 
 void SettingsWidget::refershModuleActivable()

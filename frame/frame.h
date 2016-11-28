@@ -39,6 +39,7 @@ private slots:
     void setAutoHide(const bool autoHide);
 
     void showAllSettings();
+    void showSettingsPage(const QString &moduleName, const QString &pageName);
     void contentDetached(QWidget * const c);
 
     void onScreenRectChanged(const QRect &primaryRect);
