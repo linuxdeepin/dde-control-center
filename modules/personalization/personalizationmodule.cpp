@@ -5,7 +5,7 @@ using namespace dcc::personalization;
 PersonalizationModule::PersonalizationModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),
-      m_PersonalizationWidget(nullptr)
+      m_personalizationWidget(nullptr)
 {
 }
 
@@ -34,12 +34,12 @@ void PersonalizationModule::reset()
 
 ModuleWidget *PersonalizationModule::moduleWidget()
 {
-    if (!m_PersonalizationWidget) {
-        m_PersonalizationWidget = new PersonalizationWidget;
-        connect(m_PersonalizationWidget, &PersonalizationWidget::showThemeWidget, this, &PersonalizationModule::showThemeWidget);
-        connect(m_PersonalizationWidget, &PersonalizationWidget::showFontsWidget, this, &PersonalizationModule::showFontsWidget);
+    if (!m_personalizationWidget) {
+        m_personalizationWidget = new PersonalizationWidget;
+        connect(m_personalizationWidget, &PersonalizationWidget::showThemeWidget, this, &PersonalizationModule::showThemeWidget);
+        connect(m_personalizationWidget, &PersonalizationWidget::showFontsWidget, this, &PersonalizationModule::showFontsWidget);
     }
-    return m_PersonalizationWidget;
+    return m_personalizationWidget;
 }
 
 const QString PersonalizationModule::name() const
@@ -50,14 +50,36 @@ const QString PersonalizationModule::name() const
 void PersonalizationModule::showThemeWidget()
 {
     ThemeWidget *w = new ThemeWidget;
-
+    w->setModel(m_model);
+    connect(w, &ThemeWidget::requestSetDefault, m_work, &PersonalizationWork::setDefault);
     m_frameProxy->pushWidget(this, w);
 }
 
 void PersonalizationModule::showFontsWidget()
 {
     FontsWidget *w = new FontsWidget;
+    w->setModel(m_model);
 
+    connect(w, &FontsWidget::showStandardFont, this, &PersonalizationModule::showStanardFontsListWidget);
+    connect(w, &FontsWidget::showMonoFont,    this, &PersonalizationModule::showMonoFontsListWidget);
+    connect(w, &FontsWidget::requestSetFontSize, m_work, &PersonalizationWork::setFontSize);
+
+    m_frameProxy->pushWidget(this, w);
+}
+
+void PersonalizationModule::showStanardFontsListWidget()
+{
+    FontListWidget *w = new FontListWidget(tr("Standard Font"));
+    w->setModel(m_model->getStandFontModel());
+    connect(w, &FontListWidget::requestSetDefault, m_work, &PersonalizationWork::setDefault);
+    m_frameProxy->pushWidget(this, w);
+}
+
+void PersonalizationModule::showMonoFontsListWidget()
+{
+    FontListWidget *w = new FontListWidget(tr("Monospaced font"));
+    w->setModel(m_model->getMonoFontModel());
+    connect(w, &FontListWidget::requestSetDefault, m_work, &PersonalizationWork::setDefault);
     m_frameProxy->pushWidget(this, w);
 }
 
@@ -66,8 +88,8 @@ PersonalizationModule::~PersonalizationModule()
     m_model->deleteLater();
     m_work->deleteLater();
 
-    if (m_PersonalizationWidget) {
-        m_PersonalizationWidget->deleteLater();
+    if (m_personalizationWidget) {
+        m_personalizationWidget->deleteLater();
     }
 }
 

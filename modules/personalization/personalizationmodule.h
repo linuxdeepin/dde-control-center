@@ -6,8 +6,9 @@
 #include "personalizationmodel.h"
 #include "personalizationwork.h"
 
-#include "widget/themewidget/themewidget.h"
-#include "widget/fontswidget/fontswidget.h"
+#include "module/themewidget/themewidget.h"
+#include "module/fontswidget/fontswidget.h"
+#include "module/fontswidget/fontlistwidget.h"
 
 namespace dcc
 {
@@ -32,6 +33,8 @@ public:
 private:
     void showThemeWidget();
     void showFontsWidget();
+    void showStanardFontsListWidget();
+    void showMonoFontsListWidget();
 
 private:
     ~PersonalizationModule();
@@ -40,7 +43,7 @@ private:
 
 private:
 
-    PersonalizationWidget *m_PersonalizationWidget;
+    PersonalizationWidget *m_personalizationWidget;
     PersonalizationModel  *m_model;
     PersonalizationWork   *m_work;
 };

@@ -31,6 +31,11 @@ void SettingsHead::setTitle(const QString &title)
     m_title->setText(title);
 }
 
+void SettingsHead::setEditEnable(bool state)
+{
+    m_edit->setVisible(state);
+}
+
 void SettingsHead::initStatus()
 {
     emit editChanged(false);

@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/personalization">
+        <file>themes/common/common.qss</file>
+        <file>themes/dark/dark.qss</file>
+        <file>themes/icon/select.png</file>
+        <file>themes/light/light.qss</file>
+        <file>themes/icon/dark/fontsize_decrease.png</file>
+        <file>themes/icon/dark/fontsize_increase.png</file>
+        <file>themes/icon/light/fontsize_decrease.png</file>
+        <file>themes/icon/light/fontsize_increase.png</file>
+        <file>themes/icon/mask.png</file>
+    </qresource>
+</RCC>

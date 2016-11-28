@@ -1,3 +1,11 @@
-#WacomPressure QLabel {
+#FontList QLabel {
+    color: black;
+}
+
+#FontItem QLabel {
+    color: black;
+}
+
+#FontSettingsWidget NormalLabel {
     color: black;
 }
