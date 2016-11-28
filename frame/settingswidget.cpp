@@ -14,6 +14,7 @@
 #include "mouse/mousemodule.h"
 #include "wacom/wacomemodule.h"
 #include "display/displaymodule.h"
+#include "personalization/personalizationmodule.h"
 
 #include <QResizeEvent>
 #include <QScrollBar>
@@ -50,6 +51,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new KeyboardModule(this));
     loadModule(new DefaultAppsModule(this));
     loadModule(new WacomModule(this));
+    loadModule(new personalization::PersonalizationModule(this));
 
     m_settingsWidget->setLayout(m_settingsLayout);
 

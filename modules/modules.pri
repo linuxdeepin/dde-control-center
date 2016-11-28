@@ -10,6 +10,7 @@ include(bluetooth/bluetooth.pri)
 include(keyboard/keyboard.pri)
 include(mouse/mouse.pri)
 include(wacom/wacom.pri)
+include(personalization/personalization.pri)
 
 HEADERS += \
     $$PWD/modulewidget.h \

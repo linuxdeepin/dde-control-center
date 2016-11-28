@@ -159,6 +159,9 @@ void DefAppWorker::getDefaultAppFinished(QDBusPendingCallWatcher *w)
 void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json)
 {
     Category *category = getCategory(mime);
+    if(!category) {
+        return;
+    }
     QList<QJsonObject> t;
     for (int i = 0; i != json.size(); ++i) {
         const QJsonObject object = json.at(i).toObject();
@@ -171,6 +174,9 @@ void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json)
 void DefAppWorker::saveUserApp(const QString &mime, const QJsonArray &json)
 {
     Category *category = getCategory(mime);
+    if(!category) {
+        return;
+    }
     QList<QJsonObject> t;
     for (int i = 0; i != json.size(); ++i) {
         const QJsonObject object = json.at(i).toObject();
@@ -183,52 +189,42 @@ void DefAppWorker::saveUserApp(const QString &mime, const QJsonArray &json)
 void DefAppWorker::saveDefaultApp(const QString &mime, const QString &app)
 {
     Category *category = getCategory(mime);
+    if(!category) {
+        return;
+    }
     category->setCategory(mime);
     category->setDefault(app);
 }
 
 Category *DefAppWorker::getCategory(const QString &mime) const
 {
-    Category *category;
     switch (m_stringToCategory[mime]) {
     case Browser:
-        category = m_defAppModel->getModBrowser();
-        break;
+        return m_defAppModel->getModBrowser();
     case Mail:
-        category = m_defAppModel->getModMail();
-        break;
+        return m_defAppModel->getModMail();
     case Text:
-        category = m_defAppModel->getModText();
-        break;
+        return m_defAppModel->getModText();
     case Music:
-        category = m_defAppModel->getModMusic();
-        break;
+        return m_defAppModel->getModMusic();
     case Video:
-        category = m_defAppModel->getModVideo();
-        break;
+        return m_defAppModel->getModVideo();
     case Picture:
-        category = m_defAppModel->getModPicture();
-        break;
+        return m_defAppModel->getModPicture();
     case Terminal:
-        category = m_defAppModel->getModTerminal();
-        break;
+        return m_defAppModel->getModTerminal();
     case CD_Audio:
-        category = m_defAppModel->getModCDAudio();
-        break;
+        return m_defAppModel->getModCDAudio();
     case DVD_Video:
-        category = m_defAppModel->getModDVDVideo();
-        break;
+        return m_defAppModel->getModDVDVideo();
     case MusicPlayer:
-        category = m_defAppModel->getModMusicPlayer();
-        break;
+        return m_defAppModel->getModMusicPlayer();
     case Camera:
-        category = m_defAppModel->getModCamera();
-        break;
+        return m_defAppModel->getModCamera();
     case Software:
-        category = m_defAppModel->getModSoftware();
-        break;
+        return m_defAppModel->getModSoftware();
     }
-    return category;
+    return nullptr;
 }
 
 void DefAppWorker::serviceStartFinished()
