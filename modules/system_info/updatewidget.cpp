@@ -519,8 +519,11 @@ AppUpdateInfo UpdateWidget::getUpdateInfo(const QString &packageName, const QStr
         if (version1.isEmpty() || version2.isEmpty()) return false;
 
         QProcess p;
-        p.setArguments(QStringList() << "/usr/bin/dpkg" << "--compare-versions" << version1 << "gt" << version2);
+        p.setProgram("/usr/bin/dpkg");
+        p.setArguments(QStringList() << "--compare-versions" << version1 << "gt" << version2);
+        p.start();
         p.waitForFinished();
+
         return p.exitCode() == 0;
     };
 
