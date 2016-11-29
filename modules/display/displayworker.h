@@ -20,6 +20,7 @@ public:
 
 public slots:
     void rotate();
+    void setMonitorResolution(Monitor *mon, const int mode);
 
 private slots:
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);

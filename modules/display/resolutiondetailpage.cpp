@@ -16,7 +16,7 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
     m_model = model;
 
     // delete old items
-    for (auto item : m_options.values())
+    for (auto item : m_options.keys())
     {
         m_resolutions->removeItem(item);
         item->deleteLater();
@@ -31,6 +31,8 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
         const QString res = QString::number(m.width()) + "×" + QString::number(m.height());
         OptionItem *item = new OptionItem;
 
+        connect(item, &OptionItem::clicked, this, &ResolutionDetailPage::onItemClicked);
+
         if (first)
         {
             first = false;
@@ -39,6 +41,15 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
             item->setTitle(res);
         }
 
+        m_options[item] = m.id();
         m_resolutions->appendItem(item);
     }
+}
+
+void ResolutionDetailPage::onItemClicked()
+{
+    OptionItem *item = qobject_cast<OptionItem *>(sender());
+    Q_ASSERT(m_options.contains(item));
+
+    emit requestSetResolution(m_model->monitorList().first(), m_options[item]);
 }

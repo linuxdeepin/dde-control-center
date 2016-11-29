@@ -18,6 +18,12 @@ public:
 
     void setTitle(const QString &title);
 
+signals:
+    void clicked() const;
+
+protected:
+    void mouseReleaseEvent(QMouseEvent *e);
+
 protected:
     QHBoxLayout *m_mainLayout;
     NormalLabel *m_title;

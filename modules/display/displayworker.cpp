@@ -62,6 +62,15 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
     m_displayInter.Apply();
 }
 
+void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
+{
+    MonitorInter *inter = m_monitors.value(mon);
+    Q_ASSERT(inter);
+
+    inter->SetMode(mode).waitForFinished();
+    m_displayInter.Apply();
+}
+
 void DisplayWorker::loadRotations(Monitor * const mon)
 {
     MonitorInter *inter = m_monitors.value(mon);

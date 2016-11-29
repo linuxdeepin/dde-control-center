@@ -63,5 +63,6 @@ void Monitor::setRotateList(const QList<quint16> &rotateList)
 
 void Monitor::setModeList(const ResolutionList &modeList)
 {
+    qDebug() << "set mode list";
     m_modeList = modeList;
 }

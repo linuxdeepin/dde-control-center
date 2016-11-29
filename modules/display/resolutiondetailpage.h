@@ -17,11 +17,17 @@ public:
 
     void setModel(DisplayModel *model);
 
+signals:
+    void requestSetResolution(Monitor *mon, const int mode) const;
+
+private slots:
+    void onItemClicked();
+
 private:
     DisplayModel *m_model;
     dcc::SettingsGroup *m_resolutions;
 
-    QMap<int, dcc::OptionItem *> m_options;
+    QMap<dcc::OptionItem *, int> m_options;
 };
 
 #endif // RESOLUTIONDETAILPAGE_H

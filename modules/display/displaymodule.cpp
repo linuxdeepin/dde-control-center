@@ -28,6 +28,7 @@ void DisplayModule::showResolutionDetailPage()
     ResolutionDetailPage *page = new ResolutionDetailPage;
 
     page->setModel(m_displayModel);
+    connect(page, &ResolutionDetailPage::requestSetResolution, m_displayWorker, &DisplayWorker::setMonitorResolution);
 
     m_frameProxy->pushWidget(this, page);
 }

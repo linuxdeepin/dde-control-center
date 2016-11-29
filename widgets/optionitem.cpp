@@ -21,3 +21,10 @@ void OptionItem::setTitle(const QString &title)
 {
     m_title->setText(title);
 }
+
+void OptionItem::mouseReleaseEvent(QMouseEvent *e)
+{
+    SettingsItem::mouseReleaseEvent(e);
+
+    emit clicked();
+}
