@@ -11,6 +11,7 @@ include(keyboard/keyboard.pri)
 include(mouse/mouse.pri)
 include(wacom/wacom.pri)
 include(personalization/personalization.pri)
+include(systeminfo/systeminfo.pri)
 
 HEADERS += \
     $$PWD/modulewidget.h \

@@ -13,8 +13,8 @@ public:
     explicit UpdateView();
 
 signals:
-    void showUpdateWidget() const;
-    void showSettingsWidget() const;
+    void pushUpdate();
+    void pushMirrors();
 
 private:
     dcc::SettingsGroup* m_updateGroup;

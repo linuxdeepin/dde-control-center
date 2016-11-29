@@ -149,10 +149,12 @@ void KeyboardWork::onLocaleListFinish(QDBusPendingCallWatcher *watch)
         MetaData md;
         md.setKey(list.at(i).id);
         md.setText(list.at(i).name);
+        if(md.text() == key)
+            md.setSelected(true);
         m_datas.append(md);
     }
     emit langValid(m_datas);
-    emit curLang(m_langSelector->currentLocale());
+    emit curLang(key);
     watch->deleteLater();
 }
 

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/update">
+        <file>icon/select.png</file>
+    </qresource>
+</RCC>

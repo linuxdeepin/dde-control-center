@@ -3,6 +3,10 @@
 
 #include "moduleinterface.h"
 #include "updatectrlwidget.h"
+#include "updatesettings.h"
+#include "mirrorswidget.h"
+#include "updatemodel.h"
+#include "updatework.h"
 
 #include <QObject>
 
@@ -25,12 +29,20 @@ private:
     const QString name() const;
 
 private slots:
-    void showUpdatePage();
+    void onPushUpdate();
+    void onPushMirror();
+    void onPushSettings();
+
+    void setCurMirrorName(const QString& name, const QString &src);
+    void setAutoUpdate(bool autoUpdate);
 
 private:
+    UpdateWork* m_work;
+    UpdateModel* m_model;
     UpdateView* m_updateView;
-
     UpdateCtrlWidget* m_updatePage;
+    UpdateSettings* m_updateMirrors;
+    MirrorsWidget* m_mirrorsWidget;
 };
 
 #endif // UPDATEMODULE_H

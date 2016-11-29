@@ -15,7 +15,7 @@
 #include "wacom/wacomemodule.h"
 #include "display/displaymodule.h"
 #include "personalization/personalizationmodule.h"
-
+#include "systeminfo/systeminfomodule.h"
 #include <QResizeEvent>
 #include <QScrollBar>
 #include <QVBoxLayout>
@@ -52,6 +52,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new DefaultAppsModule(this));
     loadModule(new WacomModule(this));
     loadModule(new personalization::PersonalizationModule(this));
+    loadModule(new SystemInfoModule(this));
 
     m_settingsWidget->setLayout(m_settingsLayout);
 

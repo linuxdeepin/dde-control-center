@@ -22,6 +22,6 @@ UpdateView::UpdateView()
 
     setTitle(tr("Update"));
 
-    connect(m_updateItem, &NextPageWidget::clicked, this, &UpdateView::showUpdateWidget);
-    connect(m_settingsItem, &NextPageWidget::clicked, this, &UpdateView::showSettingsWidget);
+    connect(m_updateItem, &NextPageWidget::clicked, this, &UpdateView::pushUpdate);
+    connect(m_settingsItem, &NextPageWidget::clicked, this, &UpdateView::pushMirrors);
 }
