@@ -27,6 +27,7 @@ DisplayWidget::DisplayWidget()
 
     connect(m_resolution, &NextPageWidget::clicked, this, &DisplayWidget::showResolutionPage);
     connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
+    connect(m_custom, &QPushButton::clicked, this, &DisplayWidget::requestCustom);
 }
 
 void DisplayWidget::setModel(DisplayModel *model)

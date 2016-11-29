@@ -24,6 +24,15 @@ void DisplayModel::setScreenWidth(const int w)
     }
 }
 
+void DisplayModel::setPrimary(const QString &primary)
+{
+    if (m_primary != primary)
+    {
+        m_primary = primary;
+        emit primaryScreenChanged(m_primary);
+    }
+}
+
 void DisplayModel::monitorAdded(Monitor *mon)
 {
     m_monitors.append(mon);

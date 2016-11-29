@@ -56,6 +56,11 @@ void Monitor::setRotate(const quint16 rotate)
     emit rotateChanged(m_rotate);
 }
 
+void Monitor::setName(const QString &name)
+{
+    m_name = name;
+}
+
 void Monitor::setRotateList(const QList<quint16> &rotateList)
 {
     m_rotateList = rotateList;

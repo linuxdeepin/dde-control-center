@@ -76,6 +76,7 @@ ModuleWidget *DisplayModule::moduleWidget()
     m_displayWidget->setModel(m_displayModel);
     connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
     connect(m_displayWidget, &DisplayWidget::requestRotate, m_displayWorker, &DisplayWorker::rotate);
+    connect(m_displayWidget, &DisplayWidget::requestCustom, m_displayWorker, &DisplayWorker::showCustomSettings);
 
     return m_displayWidget;
 }

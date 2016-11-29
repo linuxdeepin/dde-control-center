@@ -1,6 +1,7 @@
 #include "displayworker.h"
 #include "displaymodel.h"
 #include "rotatedialog.h"
+#include "monitorsettingdialog.h"
 
 #include <QDebug>
 
@@ -16,10 +17,12 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     connect(&m_displayInter, &DisplayInter::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
     connect(&m_displayInter, &DisplayInter::ScreenHeightChanged, model, &DisplayModel::setScreenHeight);
     connect(&m_displayInter, &DisplayInter::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
+    connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), model, &DisplayModel::setPrimary);
 
     onMonitorListChanged(m_displayInter.monitors());
     model->setScreenHeight(m_displayInter.screenHeight());
     model->setScreenWidth(m_displayInter.screenWidth());
+    model->setPrimary(m_displayInter.primary());
 
     m_displayInter.setSync(false);
 }
@@ -38,6 +41,27 @@ void DisplayWorker::rotate()
     Q_ASSERT(mons.size() == 1);
 
     showRotateDialog(mons.first());
+}
+
+void DisplayWorker::showCustomSettings()
+{
+    MonitorSettingDialog *primryDialog = nullptr;
+    QList<MonitorSettingDialog *> dialogs;
+
+    for (auto mon : m_monitors.keys())
+    {
+        MonitorSettingDialog *dialog = new MonitorSettingDialog(m_model, mon);
+        if (!primryDialog && m_model->primary() == mon->name())
+        {
+            primryDialog = dialog;
+            dialog->setPrimary();
+        }
+
+        dialog->show();
+        dialogs.append(dialog);
+    }
+    Q_ASSERT(primryDialog);
+
 }
 
 void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
@@ -113,6 +137,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::WidthChanged, mon, &Monitor::setW);
     connect(inter, &MonitorInter::HeightChanged, mon, &Monitor::setH);
     connect(inter, &MonitorInter::RotationChanged, mon, &Monitor::setRotate);
+    connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
 
     inter->setSync(false);
 
@@ -121,6 +146,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setW(inter->width());
     mon->setH(inter->height());
     mon->setRotate(inter->rotation());
+    mon->setName(inter->name());
 
     m_model->monitorAdded(mon);
     m_monitors.insert(mon, inter);
