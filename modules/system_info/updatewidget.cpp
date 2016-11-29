@@ -594,9 +594,11 @@ QList<AppUpdateInfo> UpdateWidget::getUpdateInfoList() const
                 const QString currentVer = pack["CurrentVersion"].toString();
                 const QString lastVer = pack["LastVersion"].toString();
                 AppUpdateInfo info = getUpdateInfo(packageName, currentVer, lastVer);
-                if (packageName == "dde" && !info.m_changelog.isEmpty()) {
-                    infos.prepend(info);
-                    foundDDEChangelog = true;
+                if (packageName == "dde") {
+                    if (!info.m_changelog.isEmpty()) {
+                        infos.prepend(info);
+                        foundDDEChangelog = true;
+                    }
                 } else {
                     infos << info;
                     appCount++;
