@@ -14,8 +14,12 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
       m_displayInter(DisplayInterface, "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)
 {
     connect(&m_displayInter, &DisplayInter::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
+    connect(&m_displayInter, &DisplayInter::ScreenHeightChanged, model, &DisplayModel::setScreenHeight);
+    connect(&m_displayInter, &DisplayInter::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
 
     onMonitorListChanged(m_displayInter.monitors());
+    model->setScreenHeight(m_displayInter.screenHeight());
+    model->setScreenWidth(m_displayInter.screenWidth());
 
     m_displayInter.setSync(false);
 }

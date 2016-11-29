@@ -62,6 +62,7 @@ ModuleWidget *DisplayModule::moduleWidget()
         return m_displayWidget;
 
     m_displayWidget = new DisplayWidget;
+    m_displayWidget->setModel(m_displayModel);
     connect(m_displayWidget, &DisplayWidget::requestRotate, m_displayWorker, &DisplayWorker::rotate);
 
     return m_displayWidget;

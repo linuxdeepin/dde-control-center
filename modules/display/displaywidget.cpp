@@ -27,3 +27,31 @@ DisplayWidget::DisplayWidget()
 
     connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
 }
+
+void DisplayWidget::setModel(DisplayModel *model)
+{
+    m_model = model;
+
+    connect(m_model, &DisplayModel::monitorListChanged, this, &DisplayWidget::onScreenListChanged);
+
+    onScreenListChanged();
+}
+
+void DisplayWidget::onScreenListChanged() const
+{
+//    const auto mons = m_model->monitorList();
+
+//    if (mons.size() <= 1)
+//    {
+//        m_custom->hide();
+//        m_resolution->show();
+//        m_rotate->show();
+//    } else {
+//        m_custom->show();
+//        m_resolution->hide();
+//        m_rotate->hide();
+//    }
+
+    const QString resolution = QString("%1×%2").arg(m_model->screenWidth()).arg(m_model->screenHeight());
+    m_resolution->setValue(resolution);
+}

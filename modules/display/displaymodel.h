@@ -16,15 +16,23 @@ class DisplayModel : public QObject
 public:
     explicit DisplayModel(QObject *parent = 0);
 
+    int screenHeight() const { return m_screenHeight; }
+    int screenWidth() const { return m_screenWidth; }
     const QList<Monitor *> monitorList() const { return m_monitors; }
 
 signals:
+    void screenHeightChanged(const int h) const;
+    void screenWidthChanged(const int w) const;
     void monitorListChanged() const;
 
-private:
+private slots:
+    void setScreenHeight(const int h);
+    void setScreenWidth(const int w);
     void monitorAdded(Monitor *mon);
 
 private:
+    int m_screenHeight;
+    int m_screenWidth;
     QList<Monitor *> m_monitors;
 };
 

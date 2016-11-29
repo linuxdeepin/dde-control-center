@@ -2,6 +2,7 @@
 #define DISPLAYWIDGET_H
 
 #include "modulewidget.h"
+#include "displaymodel.h"
 #include "nextpagewidget.h"
 #include "settingsgroup.h"
 
@@ -18,11 +19,17 @@ class DisplayWidget : public ModuleWidget
 public:
     explicit DisplayWidget();
 
+    void setModel(DisplayModel *model);
+
 signals:
     void requestRotate() const;
     void requestCustom() const;
 
+private slots:
+    void onScreenListChanged() const;
+
 private:
+    DisplayModel *m_model;
     NextPageWidget *m_resolution;
     QPushButton *m_rotate;
     QPushButton *m_custom;
