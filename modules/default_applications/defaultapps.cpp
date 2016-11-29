@@ -434,7 +434,9 @@ SetDefAppsThread::SetDefAppsThread(DBusDefaultApps *dbus, const QString &mime, c
 
 void SetDefAppsThread::run()
 {
-        dbus->SetDefaultApp(list, appName);
+    for (const QString &mime : list) {
+        dbus->SetDefaultApp(mime, appName).waitForFinished();
+    }
 //    qDebug() << "set def app : " << appName << " to " << list;
 }
 
