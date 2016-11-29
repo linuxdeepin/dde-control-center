@@ -4,7 +4,8 @@ HEADERS += \
     $$PWD/displayworker.h \
     $$PWD/rotatedialog.h \
     $$PWD/displaymodel.h \
-    $$PWD/monitor.h
+    $$PWD/monitor.h \
+    $$PWD/resolutiondetailpage.h
 
 SOURCES += \
     $$PWD/displaymodule.cpp \
@@ -12,6 +13,7 @@ SOURCES += \
     $$PWD/displayworker.cpp \
     $$PWD/rotatedialog.cpp \
     $$PWD/displaymodel.cpp \
-    $$PWD/monitor.cpp
+    $$PWD/monitor.cpp \
+    $$PWD/resolutiondetailpage.cpp
 
 INCLUDEPATH += $$PWD/..

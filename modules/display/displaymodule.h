@@ -19,6 +19,9 @@ public:
     explicit DisplayModule(FrameProxyInterface *frame, QObject *parent = 0);
     ~DisplayModule();
 
+private slots:
+    void showResolutionDetailPage();
+
 private:
     void initialize();
     void reset();

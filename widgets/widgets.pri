@@ -20,7 +20,8 @@ HEADERS += \
     $$PWD/dccslider.h \
     $$PWD/settingsheaderitem.h \
     $$PWD/titledslideritem.h \
-    $$PWD/dccsliderannotated.h
+    $$PWD/dccsliderannotated.h \
+    $$PWD/optionitem.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -39,7 +40,8 @@ SOURCES += \
     $$PWD/dccslider.cpp \
     $$PWD/settingsheaderitem.cpp \
     $$PWD/titledslideritem.cpp \
-    $$PWD/dccsliderannotated.cpp
+    $$PWD/dccsliderannotated.cpp \
+    $$PWD/optionitem.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

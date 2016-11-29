@@ -62,6 +62,38 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
     m_displayInter.Apply();
 }
 
+void DisplayWorker::loadRotations(Monitor * const mon)
+{
+    MonitorInter *inter = m_monitors.value(mon);
+    Q_ASSERT(inter);
+
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(inter->ListRotations(), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [=] (QDBusPendingCallWatcher *watcher) { loadRotationsFinished(mon, watcher); });
+}
+
+void DisplayWorker::loadRotationsFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher)
+{
+    QDBusPendingReply<RotationList> reply = *watcher;
+    mon->setRotateList(reply.value());
+    watcher->deleteLater();
+}
+
+void DisplayWorker::loadModes(Monitor * const mon)
+{
+    MonitorInter *inter = m_monitors.value(mon);
+    Q_ASSERT(inter);
+
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(inter->ListModes(), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [=] (QDBusPendingCallWatcher *watcher) { loadModesFinished(mon, watcher); });
+}
+
+void DisplayWorker::loadModesFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher)
+{
+    QDBusPendingReply<ResolutionList> reply = *watcher;
+    mon->setModeList(reply.value());
+    watcher->deleteLater();
+}
+
 void DisplayWorker::monitorAdded(const QString &path)
 {
     MonitorInter *inter = new MonitorInter(DisplayInterface, path, QDBusConnection::sessionBus(), this);
@@ -73,17 +105,20 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::HeightChanged, mon, &Monitor::setH);
     connect(inter, &MonitorInter::RotationChanged, mon, &Monitor::setRotate);
 
+    inter->setSync(false);
+
     mon->setX(inter->x());
     mon->setY(inter->y());
     mon->setW(inter->width());
     mon->setH(inter->height());
     mon->setRotate(inter->rotation());
-    mon->setRotateList(inter->ListRotations().value());
-
-    inter->setSync(false);
 
     m_model->monitorAdded(mon);
     m_monitors.insert(mon, inter);
+
+    // TODO: optimize
+    loadRotations(mon);
+    loadModes(mon);
 }
 
 void DisplayWorker::showRotateDialog(Monitor * const mon)

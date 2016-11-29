@@ -60,3 +60,8 @@ void Monitor::setRotateList(const QList<quint16> &rotateList)
 {
     m_rotateList = rotateList;
 }
+
+void Monitor::setModeList(const ResolutionList &modeList)
+{
+    m_modeList = modeList;
+}

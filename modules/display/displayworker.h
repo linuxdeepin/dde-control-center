@@ -26,6 +26,10 @@ private slots:
     void setMonitorRotate(Monitor *mon, const quint16 rotate);
 
 private:
+    void loadRotations(Monitor * const mon);
+    void loadRotationsFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher);
+    void loadModes(Monitor * const mon);
+    void loadModesFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher);
     void showRotateDialog(Monitor * const mon);
     void monitorAdded(const QString &path);
 

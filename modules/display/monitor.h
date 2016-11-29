@@ -23,6 +23,7 @@ public:
     int h() const { return m_h; }
     quint16 rotate() const { return m_rotate; }
     const QList<quint16> rotateList() const { return m_rotateList; }
+    const QList<Resolution> modeList() const { return m_modeList; }
 
 signals:
     void xChanged(const int x);
@@ -38,6 +39,7 @@ private slots:
     void setH(const int h);
     void setRotate(const quint16 rotate);
     void setRotateList(const QList<quint16> &rotateList);
+    void setModeList(const ResolutionList &modeList);
 
 private:
     int m_x;
@@ -46,6 +48,7 @@ private:
     int m_h;
     quint16 m_rotate;
     QList<quint16> m_rotateList;
+    QList<Resolution> m_modeList;
 };
 
 #endif // MONITOR_H

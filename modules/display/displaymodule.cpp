@@ -1,6 +1,7 @@
 #include "displaymodule.h"
 #include "contentwidget.h"
 #include "displaywidget.h"
+#include "resolutiondetailpage.h"
 
 using namespace dcc;
 using namespace dcc::display;
@@ -20,6 +21,15 @@ DisplayModule::~DisplayModule()
 {
     m_displayModel->deleteLater();
     m_displayWorker->deleteLater();
+}
+
+void DisplayModule::showResolutionDetailPage()
+{
+    ResolutionDetailPage *page = new ResolutionDetailPage;
+
+    page->setModel(m_displayModel);
+
+    m_frameProxy->pushWidget(this, page);
 }
 
 void DisplayModule::initialize()
@@ -63,6 +73,7 @@ ModuleWidget *DisplayModule::moduleWidget()
 
     m_displayWidget = new DisplayWidget;
     m_displayWidget->setModel(m_displayModel);
+    connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
     connect(m_displayWidget, &DisplayWidget::requestRotate, m_displayWorker, &DisplayWorker::rotate);
 
     return m_displayWidget;

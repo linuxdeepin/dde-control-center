@@ -25,6 +25,7 @@ DisplayWidget::DisplayWidget()
 
     setTitle(tr("Display"));
 
+    connect(m_resolution, &NextPageWidget::clicked, this, &DisplayWidget::showResolutionPage);
     connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
 }
 

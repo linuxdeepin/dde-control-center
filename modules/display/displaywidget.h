@@ -22,6 +22,7 @@ public:
     void setModel(DisplayModel *model);
 
 signals:
+    void showResolutionPage() const;
     void requestRotate() const;
     void requestCustom() const;
 
