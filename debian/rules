@@ -13,7 +13,7 @@ override_dh_auto_configure:
 	dh_auto_configure -- DCC_DISABLE_LANG_SETTING=YES DCC_DISABLE_ANIMATION=YES DCC_CACHE_MODULES=YES ARCH_MIPSEL=YES WITH_MODULE_GRUB=NO  WITH_MODULE_WACOM=NO WITH_MODULE_SYSINFO_UPDATE=NO  WITH_MODULE_REMOTE_ASSIST=NO
 else
 override_dh_auto_configure:
-	dh_auto_configure -- QMAKE_CC=clang QMAKE_CXX=clang++
+	dh_auto_configure -- QMAKE_CC=distcc QMAKE_CXX=distcc
 endif
 
 override_dh_strip:
