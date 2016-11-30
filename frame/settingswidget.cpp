@@ -46,7 +46,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new MouseModule(this));
     loadModule(new UpdateModule(this));
     loadModule(new BluetoothModule(this));
-    loadModule(new SoundModule(this));
+    loadModule(new sound::SoundModule(this));
     loadModule(new DatetimeModule(this));
     loadModule(new KeyboardModule(this));
     loadModule(new DefaultAppsModule(this));

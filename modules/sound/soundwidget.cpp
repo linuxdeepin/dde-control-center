@@ -11,47 +11,50 @@
 #include "dccslider.h"
 
 #include <QVBoxLayout>
-#include <QSlider>
+#include <QDebug>
 
 using namespace dcc;
 
-SoundWidget::SoundWidget() :
+namespace dcc {
+namespace sound {
+
+SoundWidget::SoundWidget(SoundModel *model) :
     ModuleWidget(),
     m_speakerGroup(new SettingsGroup),
     m_speakerSwitch(new SwitchWidget),
-    m_outputVolumeSliderItem(new TitledSettingsItem),
-    m_outputBalanceSliderItem(new TitledSettingsItem),
+    m_outputBalanceSliderItem(new TitledSliderItem(tr("Output Balance"))),
     m_microphoneGroup(new SettingsGroup),
     m_microphoneSwitch(new SwitchWidget),
-    m_inputVolumeSliderItem(new TitledSettingsItem),
-    m_inputFeedbackSliderItem(new TitledSettingsItem),
+    m_inputVolumeSliderItem(new TitledSliderItem(tr("Input Volume"))),
+    m_inputFeedbackSliderItem(new TitledSliderItem(tr("Feedback Volume"))),
     m_soundEffectGroup(new SettingsGroup),
     m_soundEffectSwitch(new SwitchWidget)
 {
     setTitle(tr("Sound"));
 
     m_speakerSwitch->setTitle(tr("Speaker"));
-    m_outputVolumeSliderItem->setTitle(tr("Output Volume"));
-    QSlider * outputVolumeSlider = new DCCSlider;
-    outputVolumeSlider->setOrientation(Qt::Horizontal);
-    m_outputVolumeSliderItem->setWidget(outputVolumeSlider);
-    m_outputBalanceSliderItem->setTitle(tr("Output Balance"));
-    QSlider * outputBalanceSlider = new DCCSlider;
-    outputBalanceSlider->setOrientation(Qt::Horizontal);
-    m_outputBalanceSliderItem->setWidget(outputBalanceSlider);
+
+    m_outputBalanceSlider = m_outputBalanceSliderItem->slider();
+    m_outputBalanceSlider->setType(DCCSlider::Vernier);
+    m_outputBalanceSlider->setOrientation(Qt::Horizontal);
+    m_outputBalanceSlider->setRange(-100, 100);
+    m_outputBalanceSlider->setTickInterval(100);
+    m_outputBalanceSlider->setTickPosition(QSlider::TicksBelow);
+
     m_speakerGroup->appendItem(m_speakerSwitch);
-    m_speakerGroup->appendItem(m_outputVolumeSliderItem);
     m_speakerGroup->appendItem(m_outputBalanceSliderItem);
 
     m_microphoneSwitch->setTitle(tr("Microphone"));
-    m_inputVolumeSliderItem->setTitle(tr("Input Volume"));
-    QSlider * inputVolumeSlider = new DCCSlider;
-    inputVolumeSlider->setOrientation(Qt::Horizontal);
-    m_inputVolumeSliderItem->setWidget(inputVolumeSlider);
-    m_inputFeedbackSliderItem->setTitle(tr("Feedback Volume"));
-    QSlider * inputFeedbackSlider = new DCCSlider;
-    inputFeedbackSlider->setOrientation(Qt::Horizontal);
-    m_inputFeedbackSliderItem->setWidget(inputFeedbackSlider);
+
+    m_inputVolumeSlider = m_inputVolumeSliderItem->slider();
+    m_inputVolumeSlider->setOrientation(Qt::Horizontal);
+    m_inputVolumeSlider->setRange(0, 150);
+
+    m_inputFeedbackSlider = m_inputFeedbackSliderItem->slider();
+    m_inputFeedbackSlider->setType(DCCSlider::Progress);
+    m_inputFeedbackSlider->setOrientation(Qt::Horizontal);
+    m_inputFeedbackSlider->setRange(0, 100);
+
     m_microphoneGroup->appendItem(m_microphoneSwitch);
     m_microphoneGroup->appendItem(m_inputVolumeSliderItem);
     m_microphoneGroup->appendItem(m_inputFeedbackSliderItem);
@@ -62,9 +65,56 @@ SoundWidget::SoundWidget() :
     m_centeralLayout->addWidget(m_speakerGroup);
     m_centeralLayout->addWidget(m_microphoneGroup);
     m_centeralLayout->addWidget(m_soundEffectSwitch);
+
+    setModel(model);
+
+    connect(m_speakerSwitch, &SwitchWidget::checkedChanegd, this, &SoundWidget::requestSwitchSpeaker);
+    connect(m_microphoneSwitch, &SwitchWidget::checkedChanegd, this, &SoundWidget::requestSiwtchMicrophone);
+    connect(m_soundEffectSwitch, &SwitchWidget::checkedChanegd, this, &SoundWidget::requestSwitchSoundEffect);
+    connect(m_outputBalanceSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetSpeakerBalance(value / 100.f); });
+    connect(m_inputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetMicrophoneVolume(value / 100.f); });
 }
 
 SoundWidget::~SoundWidget()
 {
 
+}
+
+void SoundWidget::setModel(SoundModel *model)
+{
+    connect(model, &SoundModel::speakerOnChanged, [this] (bool on) {
+        m_speakerSwitch->setChecked(on);
+        m_outputBalanceSliderItem->setVisible(on);
+    });
+    connect(model, &SoundModel::microphoneOnChanged, [this] (bool on) {
+        m_microphoneSwitch->setChecked(on);
+        m_inputVolumeSliderItem->setVisible(on);
+        m_inputFeedbackSliderItem->setVisible(on);
+    });
+    connect(model, &SoundModel::soundEffectOnChanged, m_soundEffectSwitch, &SwitchWidget::setChecked);
+    connect(model, &SoundModel::speakerBalanceChanged, [this] (double value) {
+        m_outputBalanceSlider->blockSignals(true);
+        m_outputBalanceSlider->setValue(value * 100);
+        m_outputBalanceSlider->blockSignals(false);
+    });
+    connect(model, &SoundModel::microphoneVolumeChanged, [this] (double value) {
+        m_inputVolumeSlider->blockSignals(true);
+        m_inputVolumeSlider->setValue(value * 100);
+        m_inputVolumeSlider->blockSignals(false);
+    });
+    connect(model, &SoundModel::microphoneFeedbackChanged, [this] (double value) {
+        m_inputFeedbackSlider->setValue(value * 100);
+    });
+
+    blockSignals(true);
+    m_speakerSwitch->setChecked(model->speakerOn());
+    m_microphoneSwitch->setChecked(model->microphoneOn());
+    m_soundEffectSwitch->setChecked(model->soundEffectOn());
+    m_outputBalanceSlider->setValue(model->speakerBalance());
+    m_inputVolumeSlider->setValue(model->microphoneVolume());
+    m_inputFeedbackSlider->setValue(model->microphoneFeedback());
+    blockSignals(false);
+}
+
+}
 }

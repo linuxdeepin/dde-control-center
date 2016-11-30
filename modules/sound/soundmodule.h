@@ -15,6 +15,10 @@
 #include "moduleinterface.h"
 #include "soundwidget.h"
 #include "soundworker.h"
+#include "soundmodel.h"
+
+namespace dcc {
+namespace sound {
 
 class SoundModule : public QObject, public ModuleInterface
 {
@@ -37,6 +41,9 @@ private:
 private:
     SoundWidget *m_soundWidget;
     SoundWorker *m_soundWorker;
+    SoundModel *m_soundModel;
 };
 
+}
+}
 #endif // SOUNDMODULE_H

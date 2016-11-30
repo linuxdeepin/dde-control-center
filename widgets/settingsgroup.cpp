@@ -113,7 +113,7 @@ SettingsItem *SettingsGroup::getItem(int index)
 
 bool SettingsGroup::eventFilter(QObject *, QEvent *event)
 {
-    if (event->type() == QEvent::Resize)
+    if (event->type() == QEvent::Resize || event->type() == QEvent::Show || event->type() == QEvent::Hide)
         m_updateHeightTimer->start();
 
     return false;

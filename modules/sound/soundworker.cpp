@@ -9,19 +9,182 @@
 
 #include "soundworker.h"
 
-SoundWorker::SoundWorker(QObject * parent) :
-    QObject(parent),
-    ModuleWorker()
-{
+namespace dcc {
+namespace sound {
 
+SoundWorker::SoundWorker(SoundModel *model, QObject * parent) :
+    QObject(parent),
+    m_model(model),
+    m_audioInter(new Audio("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", QDBusConnection::sessionBus(), this)),
+    m_soundEffectInter(new SoundEffect("com.deepin.daemon.SoundEffect", "/com/deepin/daemon/SoundEffect", QDBusConnection::sessionBus(), this)),
+    m_defaultSink(nullptr),
+    m_defaultSource(nullptr),
+    m_sourceMeter(nullptr),
+    m_pingTimer(new QTimer(this))
+{
+    m_audioInter->setSync(false);
+//    m_soundEffectInter->setSync(false);
+
+    m_pingTimer->setInterval(500);
+    m_pingTimer->setSingleShot(false);
+
+    connect(m_audioInter, &Audio::DefaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
+    connect(m_audioInter, &Audio::DefaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
+    connect(m_audioInter, &Audio::SinksChanged, this, &SoundWorker::sinksChanged);
+    connect(m_audioInter, &Audio::SourcesChanged, this, &SoundWorker::sourcesChanged);
+
+    connect(m_pingTimer, &QTimer::timeout, [this] { if (m_sourceMeter) m_sourceMeter->Tick(); });
+
+    activate();
 }
 
 void SoundWorker::activate()
 {
+    m_pingTimer->start();
 
+    m_audioInter->blockSignals(false);
+    m_soundEffectInter->blockSignals(false);
+    if (m_defaultSink) m_defaultSink->blockSignals(false);
+    if (m_defaultSource) m_defaultSource->blockSignals(false);
+    if (m_sourceMeter) m_sourceMeter->blockSignals(false);
+
+    sinksChanged(m_audioInter->sinks());
+    sourcesChanged(m_audioInter->sources());
+    defaultSinkChanged(m_audioInter->defaultSink());
+    defaultSourceChanged(m_audioInter->defaultSource());
+
+    m_model->setSoundEffectOn(m_soundEffectInter->enabled());
+    connect(m_soundEffectInter, &SoundEffect::EnabledChanged, m_model, &SoundModel::setSoundEffectOn);
 }
 
 void SoundWorker::deactivate()
 {
+    m_pingTimer->stop();
 
+    m_audioInter->blockSignals(true);
+    m_soundEffectInter->blockSignals(true);
+    if (m_defaultSink) m_defaultSink->blockSignals(true);
+    if (m_defaultSource) m_defaultSource->blockSignals(true);
+    if (m_sourceMeter) m_sourceMeter->blockSignals(true);
+}
+
+void SoundWorker::switchSpeaker(bool on)
+{
+    if (m_defaultSink) {
+        m_defaultSink->SetMute(!on);
+    }
+}
+
+void SoundWorker::switchMicrophone(bool on)
+{
+    if (m_defaultSource) {
+        m_defaultSource->SetMute(!on);
+    }
+}
+
+void SoundWorker::switchSoundEffect(bool on)
+{
+    m_soundEffectInter->setEnabled(on);
+}
+
+void SoundWorker::setSinkBalance(double balance)
+{
+    if (m_defaultSink) {
+        m_defaultSink->SetBalance(balance, true);
+        qDebug() << "set balance to " << balance;
+    }
+}
+
+void SoundWorker::setSourceVolume(double volume)
+{
+    if (m_defaultSource) {
+        m_defaultSource->SetVolume(volume, true);
+        qDebug() << "set source volume to " << volume;
+    }
+}
+
+void SoundWorker::defaultSinkChanged(const QString &id)
+{
+    if (m_defaultSink) m_defaultSink->disconnect();
+
+    for (Sink *sink : m_sinks) {
+        if (sink->name() == id) {
+            m_defaultSink = sink;
+            m_defaultSink->setSync(false);
+        }
+    }
+
+    if (m_defaultSink) {
+        connect(m_defaultSink, &Sink::MuteChanged, [this] (bool mute) { m_model->setSpeakerOn(!mute); });
+        connect(m_defaultSink, &Sink::BalanceChanged, m_model, &SoundModel::setSpeakerBalance);
+
+        m_model->setSpeakerOn(!m_defaultSink->mute());
+        m_model->setSpeakerBalance(m_defaultSink->balance());
+    }
+}
+
+void SoundWorker::defaultSourceChanged(const QString &id)
+{
+    if (m_defaultSource) m_defaultSource->disconnect();
+
+    for (Source *source : m_sources) {
+        if (source->name() == id) {
+            m_defaultSource = source;
+            m_defaultSource->setSync(false);
+        }
+    }
+
+    if (m_defaultSource) {
+        connect(m_defaultSource, &Source::MuteChanged, [this] (bool mute) { m_model->setMicrophoneOn(!mute); });
+        connect(m_defaultSource, &Source::VolumeChanged, m_model, &SoundModel::setMicrophoneVolume);
+
+        m_model->setMicrophoneOn(!m_defaultSource->mute());
+        m_model->setMicrophoneVolume(m_defaultSource->volume());
+
+        QDBusPendingCall call = m_defaultSource->GetMeter();
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+            if (!call.isError()) {
+                QDBusReply<QDBusObjectPath> reply = call.reply();
+                QDBusObjectPath path = reply.value();
+
+                if (m_sourceMeter) {
+                    m_sourceMeter->deleteLater();
+                }
+
+                m_sourceMeter = new Meter("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
+                m_sourceMeter->setSync(false);
+
+                connect(m_sourceMeter, &Meter::VolumeChanged, m_model, &SoundModel::setMicrophoneFeedback);
+                m_model->setMicrophoneFeedback(m_sourceMeter->volume());
+            } else {
+                qWarning() << "get meter failed " << call.error().message();
+            }
+        });
+    }
+}
+
+void SoundWorker::sinksChanged(const QList<QDBusObjectPath> &value)
+{
+    // TODO: reuse all the sink objects.
+    for (QDBusObjectPath path : value) {
+        Sink *sink = new Sink("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
+        if (sink->isValid()) {
+            m_sinks << sink;
+        }
+    }
+}
+
+void SoundWorker::sourcesChanged(const QList<QDBusObjectPath> &value)
+{
+    // TODO: reuse all the source objects.
+    for (QDBusObjectPath path : value) {
+        Source *source = new Source("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
+        if (source->isValid()) {
+            m_sources << source;
+        }
+    }
+}
+
+}
 }

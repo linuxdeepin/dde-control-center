@@ -9,6 +9,9 @@
 
 #include "soundmodule.h"
 
+namespace dcc {
+namespace sound {
+
 SoundModule::SoundModule(FrameProxyInterface * frame, QObject *parent) :
     QObject(parent),
     ModuleInterface(frame),
@@ -21,6 +24,7 @@ SoundModule::SoundModule(FrameProxyInterface * frame, QObject *parent) :
 SoundModule::~SoundModule()
 {
     m_soundWorker->deleteLater();
+    m_soundModel->deleteLater();
 
     if (m_soundWidget)
         m_soundWidget->deleteLater();
@@ -28,8 +32,10 @@ SoundModule::~SoundModule()
 
 void SoundModule::initialize()
 {
-    m_soundWorker = new SoundWorker;
+    m_soundModel = new SoundModel;
+    m_soundWorker = new SoundWorker(m_soundModel);
 
+    m_soundModel->moveToThread(qApp->thread());
     m_soundWorker->moveToThread(qApp->thread());
 }
 
@@ -56,7 +62,13 @@ void SoundModule::reset()
 ModuleWidget *SoundModule::moduleWidget()
 {
     if (!m_soundWidget) {
-        m_soundWidget = new SoundWidget;
+        m_soundWidget = new SoundWidget(m_soundModel);
+
+        connect(m_soundWidget, &SoundWidget::requestSwitchSpeaker, m_soundWorker, &SoundWorker::switchSpeaker);
+        connect(m_soundWidget, &SoundWidget::requestSiwtchMicrophone, m_soundWorker, &SoundWorker::switchMicrophone);
+        connect(m_soundWidget, &SoundWidget::requestSwitchSoundEffect, m_soundWorker, &SoundWorker::switchSoundEffect);
+        connect(m_soundWidget, &SoundWidget::requestSetSpeakerBalance, m_soundWorker, &SoundWorker::setSinkBalance);
+        connect(m_soundWidget, &SoundWidget::requestSetMicrophoneVolume, m_soundWorker, &SoundWorker::setSourceVolume);
     }
 
     return m_soundWidget;
@@ -65,4 +77,7 @@ ModuleWidget *SoundModule::moduleWidget()
 void SoundModule::contentPopped(ContentWidget * const)
 {
 
+}
+
+}
 }

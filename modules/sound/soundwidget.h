@@ -13,30 +13,53 @@
 #include "modulewidget.h"
 #include "settingsgroup.h"
 #include "switchwidget.h"
-#include "widgets/titledsettingsitem.h"
+#include "soundmodel.h"
+#include "nextpagewidget.h"
+
+#include "titledslideritem.h"
 
 using namespace dcc;
+using namespace dcc::widgets;
+
+namespace dcc {
+namespace sound {
 
 class SoundWidget : public ModuleWidget
 {
     Q_OBJECT
 public:
-    SoundWidget();
+    explicit SoundWidget(SoundModel *model);
     ~SoundWidget();
+
+    void setModel(SoundModel *model);
+
+signals:
+    void requestSwitchSpeaker(bool on) const;
+    void requestSiwtchMicrophone(bool on) const;
+    void requestSwitchSoundEffect(bool on) const;
+    void requestSetSpeakerBalance(double balance) const;
+    void requestSetMicrophoneVolume(double balance) const;
 
 private:
     SettingsGroup *m_speakerGroup;
     SwitchWidget *m_speakerSwitch;
-    TitledSettingsItem *m_outputVolumeSliderItem;
-    TitledSettingsItem *m_outputBalanceSliderItem;
+    TitledSliderItem *m_outputBalanceSliderItem;
+    DCCSlider *m_outputBalanceSlider;
 
     SettingsGroup *m_microphoneGroup;
     SwitchWidget *m_microphoneSwitch;
-    TitledSettingsItem *m_inputVolumeSliderItem;
-    TitledSettingsItem *m_inputFeedbackSliderItem;
+    TitledSliderItem *m_inputVolumeSliderItem;
+    DCCSlider *m_inputVolumeSlider;
+    TitledSliderItem *m_inputFeedbackSliderItem;
+    DCCSlider *m_inputFeedbackSlider;
+
+    SettingsGroup *m_advancedSettingsGroup;
+    NextPageWidget *m_advancedSettingsItem;
 
     SettingsGroup *m_soundEffectGroup;
     SwitchWidget *m_soundEffectSwitch;
 };
 
+}
+}
 #endif // SOUNDWIDGET_H
