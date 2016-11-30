@@ -6,7 +6,9 @@ HEADERS += \
     $$PWD/displaymodel.h \
     $$PWD/monitor.h \
     $$PWD/resolutiondetailpage.h \
-    $$PWD/monitorsettingdialog.h
+    $$PWD/monitorsettingdialog.h \
+    $$PWD/settingslistwidget.h \
+    $$PWD/settingsoptionitem.h
 
 SOURCES += \
     $$PWD/displaymodule.cpp \
@@ -16,6 +18,8 @@ SOURCES += \
     $$PWD/displaymodel.cpp \
     $$PWD/monitor.cpp \
     $$PWD/resolutiondetailpage.cpp \
-    $$PWD/monitorsettingdialog.cpp
+    $$PWD/monitorsettingdialog.cpp \
+    $$PWD/settingslistwidget.cpp \
+    $$PWD/settingsoptionitem.cpp
 
 INCLUDEPATH += $$PWD/..

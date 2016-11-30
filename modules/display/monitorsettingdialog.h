@@ -4,6 +4,7 @@
 #include "monitor.h"
 #include "displaymodel.h"
 #include "dccslider.h"
+#include "settingslistwidget.h"
 
 #include <QDialog>
 #include <QPushButton>
@@ -20,12 +21,17 @@ class MonitorSettingDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit MonitorSettingDialog(DisplayModel *model, Monitor *monitor, QWidget *parent = 0);
+    explicit MonitorSettingDialog(DisplayModel *model, QWidget *parent = nullptr);
+    explicit MonitorSettingDialog(Monitor *monitor, QWidget *parent = nullptr);
+    ~MonitorSettingDialog();
 
-    void setPrimary(const bool primary = true);
+private:
+    void init();
+    void initPrimary();
 
 private slots:
     void onMonitorRectChanged();
+    void onMonitorModeListChanged(const QList<Resolution> &modeList);
 
 private:
     bool m_primary;
@@ -35,7 +41,10 @@ private:
 
     Dtk::Widget::DImageButton *m_rotateBtn;
     dcc::DCCSlider *m_lightSlider;
+    SettingsListWidget *m_resolutionsWidget;
     QHBoxLayout *m_btnsLayout;
+
+    QList<MonitorSettingDialog *> m_otherDialogs;
 };
 
 #endif // MONITORSETTINGDIALOG_H

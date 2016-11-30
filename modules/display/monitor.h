@@ -22,6 +22,7 @@ public:
     inline int w() const { return m_w; }
     inline int h() const { return m_h; }
     inline quint16 rotate() const { return m_rotate; }
+    inline const QRect rect() const { return QRect(m_x, m_y, m_w, m_h); }
     inline const QString name() const { return m_name; }
     inline const QList<quint16> rotateList() const { return m_rotateList; }
     inline const QList<Resolution> modeList() const { return m_modeList; }

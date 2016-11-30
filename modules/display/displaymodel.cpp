@@ -6,6 +6,15 @@ DisplayModel::DisplayModel(QObject *parent)
 
 }
 
+Monitor *DisplayModel::primaryMonitor() const
+{
+    for (auto mon : m_monitors)
+        if (mon->name() == m_primary)
+            return mon;
+
+    return nullptr;
+}
+
 void DisplayModel::setScreenHeight(const int h)
 {
     if (m_screenHeight != h)

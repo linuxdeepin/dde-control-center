@@ -20,6 +20,7 @@ public:
     int screenWidth() const { return m_screenWidth; }
     const QString primary() const { return m_primary; }
     const QList<Monitor *> monitorList() const { return m_monitors; }
+    Monitor *primaryMonitor() const;
 
 signals:
     void screenHeightChanged(const int h) const;

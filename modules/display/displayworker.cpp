@@ -45,22 +45,24 @@ void DisplayWorker::rotate()
 
 void DisplayWorker::showCustomSettings()
 {
-    MonitorSettingDialog *primryDialog = nullptr;
-    QList<MonitorSettingDialog *> dialogs;
+    MonitorSettingDialog dialog(m_model);
+    dialog.exec();
+//    MonitorSettingDialog *primryDialog = nullptr;
+//    QList<MonitorSettingDialog *> dialogs;
 
-    for (auto mon : m_monitors.keys())
-    {
-        MonitorSettingDialog *dialog = new MonitorSettingDialog(m_model, mon);
-        if (!primryDialog && m_model->primary() == mon->name())
-        {
-            primryDialog = dialog;
-            dialog->setPrimary();
-        }
+//    for (auto mon : m_monitors.keys())
+//    {
+//        MonitorSettingDialog *dialog = new MonitorSettingDialog(m_model, mon);
+//        if (!primryDialog && m_model->primary() == mon->name())
+//        {
+//            primryDialog = dialog;
+//            dialog->setPrimary();
+//        }
 
-        dialog->show();
-        dialogs.append(dialog);
-    }
-    Q_ASSERT(primryDialog);
+//        dialog->show();
+//        dialogs.append(dialog);
+//    }
+//    Q_ASSERT(primryDialog);
 
 }
 
