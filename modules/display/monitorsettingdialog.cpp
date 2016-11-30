@@ -105,8 +105,8 @@ void MonitorSettingDialog::initPrimary()
         // add primary settings
         m_primarySettingsWidget->appendOption(mon->name());
 
-//        if (mon == m_monitor)
-//            continue;
+        if (mon == m_monitor)
+            continue;
 
         MonitorSettingDialog *dialog = new MonitorSettingDialog(mon, this);
 
@@ -163,6 +163,7 @@ void MonitorSettingDialog::onMonitorModeListChanged(const QList<Resolution> &mod
     bool first = true;
     for (auto r : modeList)
     {
+        qDebug() << r.id() << r.width() << r.height() << r.rate();
         const QString option = QString::number(r.width()) + "×" + QString::number(r.height());
 
         if (first)

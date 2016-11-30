@@ -54,9 +54,9 @@ void DisplayWorker::showCustomSettings()
 
     // discard or save
     if (dialog.exec() == QDialog::Accepted)
-        m_displayInter.SaveChanges();
+        m_displayInter.Save();
     else
-        m_displayInter.Reset();
+        m_displayInter.ResetChanges();
 
 //    MonitorSettingDialog *primryDialog = nullptr;
 //    QList<MonitorSettingDialog *> dialogs;
@@ -102,7 +102,7 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
     Q_ASSERT(inter);
 
     inter->SetRotation(rotate).waitForFinished();
-    m_displayInter.Apply();
+    m_displayInter.ApplyChanges();
 }
 
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
@@ -111,7 +111,7 @@ void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
     Q_ASSERT(inter);
 
     inter->SetMode(mode).waitForFinished();
-    m_displayInter.Apply();
+    m_displayInter.ApplyChanges();
 }
 
 void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
@@ -119,37 +119,37 @@ void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
     m_displayInter.SetBrightness(mon->name(), brightness).waitForFinished();
 }
 
-void DisplayWorker::loadRotations(Monitor * const mon)
-{
-    MonitorInter *inter = m_monitors.value(mon);
-    Q_ASSERT(inter);
+//void DisplayWorker::loadRotations(Monitor * const mon)
+//{
+//    MonitorInter *inter = m_monitors.value(mon);
+//    Q_ASSERT(inter);
 
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(inter->ListRotations(), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [=] (QDBusPendingCallWatcher *watcher) { loadRotationsFinished(mon, watcher); });
-}
+//    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(inter->ListRotations(), this);
+//    connect(watcher, &QDBusPendingCallWatcher::finished, [=] (QDBusPendingCallWatcher *watcher) { loadRotationsFinished(mon, watcher); });
+//}
 
-void DisplayWorker::loadRotationsFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher)
-{
-    QDBusPendingReply<RotationList> reply = *watcher;
-    mon->setRotateList(reply.value());
-    watcher->deleteLater();
-}
+//void DisplayWorker::loadRotationsFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher)
+//{
+//    QDBusPendingReply<RotationList> reply = *watcher;
+//    mon->setRotateList(reply.value());
+//    watcher->deleteLater();
+//}
 
-void DisplayWorker::loadModes(Monitor * const mon)
-{
-    MonitorInter *inter = m_monitors.value(mon);
-    Q_ASSERT(inter);
+//void DisplayWorker::loadModes(Monitor * const mon)
+//{
+//    MonitorInter *inter = m_monitors.value(mon);
+//    Q_ASSERT(inter);
 
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(inter->ListModes(), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [=] (QDBusPendingCallWatcher *watcher) { loadModesFinished(mon, watcher); });
-}
+//    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(inter->ListModes(), this);
+//    connect(watcher, &QDBusPendingCallWatcher::finished, [=] (QDBusPendingCallWatcher *watcher) { loadModesFinished(mon, watcher); });
+//}
 
-void DisplayWorker::loadModesFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher)
-{
-    QDBusPendingReply<ResolutionList> reply = *watcher;
-    mon->setModeList(reply.value());
-    watcher->deleteLater();
-}
+//void DisplayWorker::loadModesFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher)
+//{
+//    QDBusPendingReply<ResolutionList> reply = *watcher;
+//    mon->setModeList(reply.value());
+//    watcher->deleteLater();
+//}
 
 void DisplayWorker::monitorAdded(const QString &path)
 {
@@ -163,6 +163,8 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::RotationChanged, mon, &Monitor::setRotate);
     connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
+    connect(inter, &MonitorInter::ModesChanged, mon, &Monitor::setModeList);
+    connect(inter, &MonitorInter::RotationsChanged, mon, &Monitor::setRotateList);
 
     inter->setSync(false);
 
@@ -173,13 +175,15 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setRotate(inter->rotation());
     mon->setName(inter->name());
     mon->setCurrentMode(inter->currentMode());
+    mon->setModeList(inter->modes());
+    mon->setRotateList(inter->rotations());
 
     m_model->monitorAdded(mon);
     m_monitors.insert(mon, inter);
 
     // TODO: optimize
-    loadRotations(mon);
-    loadModes(mon);
+//    loadRotations(mon);
+//    loadModes(mon);
 }
 
 void DisplayWorker::updateMonitorBrightness(const QString &monName, const double brightness)
