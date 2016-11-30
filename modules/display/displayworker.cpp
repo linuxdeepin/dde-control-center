@@ -18,8 +18,10 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     connect(&m_displayInter, &DisplayInter::ScreenHeightChanged, model, &DisplayModel::setScreenHeight);
     connect(&m_displayInter, &DisplayInter::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), model, &DisplayModel::setPrimary);
+    connect(&m_displayInter, &DisplayInter::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
 
     onMonitorListChanged(m_displayInter.monitors());
+    onMonitorsBrightnessChanged(m_displayInter.brightness());
     model->setScreenHeight(m_displayInter.screenHeight());
     model->setScreenWidth(m_displayInter.screenWidth());
     model->setPrimary(m_displayInter.primary());
@@ -46,7 +48,16 @@ void DisplayWorker::rotate()
 void DisplayWorker::showCustomSettings()
 {
     MonitorSettingDialog dialog(m_model);
-    dialog.exec();
+
+    connect(&dialog, &MonitorSettingDialog::requestSetMonitorMode, this, &DisplayWorker::setMonitorResolution);
+    connect(&dialog, &MonitorSettingDialog::requestSetMonitorBrightness, this, &DisplayWorker::setMonitorBrightness);
+
+    // discard or save
+    if (dialog.exec() == QDialog::Accepted)
+        m_displayInter.SaveChanges();
+    else
+        m_displayInter.Reset();
+
 //    MonitorSettingDialog *primryDialog = nullptr;
 //    QList<MonitorSettingDialog *> dialogs;
 
@@ -79,6 +90,12 @@ void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
     // TODO: remove
 }
 
+void DisplayWorker::onMonitorsBrightnessChanged(const BrightnessMap &brightness)
+{
+    for (auto it(brightness.cbegin()); it != brightness.cend(); ++it)
+        updateMonitorBrightness(it.key(), it.value());
+}
+
 void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 {
     MonitorInter *inter = m_monitors.value(mon);
@@ -95,6 +112,11 @@ void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 
     inter->SetMode(mode).waitForFinished();
     m_displayInter.Apply();
+}
+
+void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
+{
+    m_displayInter.SetBrightness(mon->name(), brightness).waitForFinished();
 }
 
 void DisplayWorker::loadRotations(Monitor * const mon)
@@ -158,6 +180,18 @@ void DisplayWorker::monitorAdded(const QString &path)
     // TODO: optimize
     loadRotations(mon);
     loadModes(mon);
+}
+
+void DisplayWorker::updateMonitorBrightness(const QString &monName, const double brightness)
+{
+    for (auto mon : m_monitors.keys())
+    {
+        if (mon->name() == monName)
+        {
+            mon->setBrightness(brightness);
+            return;
+        }
+    }
 }
 
 void DisplayWorker::showRotateDialog(Monitor * const mon)

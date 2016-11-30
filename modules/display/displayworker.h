@@ -22,9 +22,11 @@ public slots:
     void rotate();
     void showCustomSettings();
     void setMonitorResolution(Monitor *mon, const int mode);
+    void setMonitorBrightness(Monitor *mon, const double brightness);
 
 private slots:
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
+    void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
     void setMonitorRotate(Monitor *mon, const quint16 rotate);
 
 private:
@@ -34,6 +36,7 @@ private:
     void loadModesFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher);
     void showRotateDialog(Monitor * const mon);
     void monitorAdded(const QString &path);
+    void updateMonitorBrightness(const QString &monName, const double brightness);
 
 private:
     DisplayModel *m_model;

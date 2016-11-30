@@ -22,6 +22,7 @@ public:
     inline int w() const { return m_w; }
     inline int h() const { return m_h; }
     inline quint16 rotate() const { return m_rotate; }
+    inline double brightness() const { return m_brightness; }
     inline const QRect rect() const { return QRect(m_x, m_y, m_w, m_h); }
     inline const QString name() const { return m_name; }
     inline const Resolution currentMode() const { return m_currentMode; }
@@ -29,12 +30,13 @@ public:
     inline const QList<Resolution> modeList() const { return m_modeList; }
 
 signals:
-    void xChanged(const int x);
-    void yChanged(const int y);
-    void wChanged(const int w);
-    void hChanged(const int h);
-    void rotateChanged(const quint16 rotate);
-    void currentModeChanged(const Resolution &resolution);
+    void xChanged(const int x) const;
+    void yChanged(const int y) const;
+    void wChanged(const int w) const;
+    void hChanged(const int h) const;
+    void rotateChanged(const quint16 rotate) const;
+    void brightnessChanged(const double brightness) const;
+    void currentModeChanged(const Resolution &resolution) const;
 
 private slots:
     void setX(const int x);
@@ -42,6 +44,7 @@ private slots:
     void setW(const int w);
     void setH(const int h);
     void setRotate(const quint16 rotate);
+    void setBrightness(const double brightness);
     void setName(const QString &name);
     void setRotateList(const QList<quint16> &rotateList);
     void setCurrentMode(const Resolution &resolution);
@@ -53,6 +56,7 @@ private:
     int m_w;
     int m_h;
     quint16 m_rotate;
+    double m_brightness;
     QString m_name;
     Resolution m_currentMode;
     QList<quint16> m_rotateList;

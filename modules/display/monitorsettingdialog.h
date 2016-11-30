@@ -25,6 +25,10 @@ public:
     explicit MonitorSettingDialog(Monitor *monitor, QWidget *parent = nullptr);
     ~MonitorSettingDialog();
 
+signals:
+    void requestSetMonitorMode(Monitor *mon, const int mode) const;
+    void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
+
 private:
     void init();
     void initPrimary();
@@ -33,7 +37,11 @@ private slots:
     void onPrimaryChanged();
     void onMonitorRectChanged();
     void onMonitorModeChanged();
+    void onMonitorBrightnessChanegd(const double brightness);
     void onMonitorModeListChanged(const QList<Resolution> &modeList);
+    void onMonitorModeSelected(const int index);
+
+    void onBrightnessSliderChanged(const int value);
 
 private:
     bool m_primary;

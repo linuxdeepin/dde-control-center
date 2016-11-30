@@ -19,8 +19,14 @@ public:
     void appendOption(const QString &option);
     void setSelectedIndex(const int selected);
 
+public slots:
+    void clear();
+
 signals:
     void clicked(const int index) const;
+
+private slots:
+    void onItemClicked();
 
 private:
     QLabel *m_title;

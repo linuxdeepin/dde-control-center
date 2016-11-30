@@ -14,6 +14,12 @@ public:
     void setTitle(const QString &title);
     void setSelected(const bool checked);
 
+signals:
+    void clicked();
+
+protected:
+    void mouseReleaseEvent(QMouseEvent *);
+
 private:
     QLabel *m_title;
     QLabel *m_icon;

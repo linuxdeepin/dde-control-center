@@ -30,3 +30,8 @@ void SettingsOptionItem::setSelected(const bool checked)
 {
     m_icon->setVisible(checked);
 }
+
+void SettingsOptionItem::mouseReleaseEvent(QMouseEvent *)
+{
+    emit clicked();
+}

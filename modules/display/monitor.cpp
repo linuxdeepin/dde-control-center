@@ -1,7 +1,8 @@
 #include "monitor.h"
 
 Monitor::Monitor(QObject *parent)
-    : QObject(parent)
+    : QObject(parent),
+      m_brightness(1.)
 {
 
 }
@@ -54,6 +55,16 @@ void Monitor::setRotate(const quint16 rotate)
     m_rotate = rotate;
 
     emit rotateChanged(m_rotate);
+}
+
+void Monitor::setBrightness(const double brightness)
+{
+    if (m_brightness == brightness)
+        return;
+
+    m_brightness = brightness;
+
+    emit brightnessChanged(m_brightness);
 }
 
 void Monitor::setName(const QString &name)

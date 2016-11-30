@@ -37,6 +37,8 @@ void SettingsListWidget::appendOption(const QString &option)
     SettingsOptionItem *item = new SettingsOptionItem;
     item->setTitle(option);
 
+    connect(item, &SettingsOptionItem::clicked, this, &SettingsListWidget::onItemClicked);
+
     m_listLayout->addWidget(item);
 }
 
@@ -46,5 +48,28 @@ void SettingsListWidget::setSelectedIndex(const int selected)
     {
         SettingsOptionItem *item = qobject_cast<SettingsOptionItem *>(m_listLayout->itemAt(i)->widget());
         item->setSelected(selected == i);
+    }
+}
+
+void SettingsListWidget::clear()
+{
+    while (QLayoutItem *item = m_listLayout->takeAt(0))
+    {
+        item->widget()->deleteLater();
+        delete item;
+    }
+}
+
+void SettingsListWidget::onItemClicked()
+{
+    SettingsOptionItem *item = qobject_cast<SettingsOptionItem *>(sender());
+
+    for (int i(0); i != m_listLayout->count(); ++i)
+    {
+        if (m_listLayout->itemAt(i)->widget() == item)
+        {
+            emit clicked(i);
+            return;
+        }
     }
 }
