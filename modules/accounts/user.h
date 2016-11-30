@@ -26,6 +26,12 @@ public:
     inline const QString currentAvatar() const { return m_currentAvatar; }
     void setCurrentAvatar(const QString &avatar);
 
+    inline QString password() const { return m_password; }
+    void setPassword(const QString &password);
+
+    inline QString repeatPassword() const { return m_repeatPassword; }
+    void setRepeatPassword(const QString &repeatPassword);
+
 signals:
     void nameChanged(const QString &name) const;
     void currentAvatarChanged(const QString &avatar) const;
@@ -35,6 +41,8 @@ signals:
 private:
     bool m_autoLogin;
     QString m_name;
+    QString m_password;
+    QString m_repeatPassword;
     QString m_currentAvatar;
     QList<QString> m_avatars;
 };

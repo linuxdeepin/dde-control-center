@@ -7,7 +7,9 @@ HEADERS += \
     $$PWD/accountsdetailwidget.h \
     $$PWD/modifypasswordpage.h \
     $$PWD/modifyavatarpage.h \
-    $$PWD/avatarwidget.h
+    $$PWD/avatarwidget.h \
+    $$PWD/createpage.h \
+    $$PWD/creationresult.h
 
 SOURCES += \
     $$PWD/accountsmodule.cpp \
@@ -18,7 +20,9 @@ SOURCES += \
     $$PWD/accountsdetailwidget.cpp \
     $$PWD/modifypasswordpage.cpp \
     $$PWD/modifyavatarpage.cpp \
-    $$PWD/avatarwidget.cpp
+    $$PWD/avatarwidget.cpp \
+    $$PWD/createpage.cpp \
+    $$PWD/creationresult.cpp
 
 INCLUDEPATH += $$PWD/..
 

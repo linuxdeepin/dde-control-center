@@ -8,9 +8,11 @@
 
 #include "user.h"
 #include "usermodel.h"
+#include "creationresult.h"
 
 using com::deepin::daemon::Accounts;
 using AccountsUser = com::deepin::daemon::accounts::User;
+using CreationResult = dcc::accounts::CreationResult;
 
 class AccountsWorker : public QObject
 {
@@ -21,9 +23,12 @@ public:
 
 signals:
     void requestFrameAutoHide(const bool autoHide) const;
+    void accountCreationFinished(CreationResult *result) const;
 
 public slots:
-    void createAccount();
+    void randomUserIcon(User *user);
+    void createAccount(const User *user);
+
     void addNewAvatar(User *user);
     void deleteAccount(User *user);
     void setAutoLogin(User *user, const bool autoLogin);
@@ -32,6 +37,7 @@ public slots:
 
 private:
     AccountsUser *userInter(const QString &userName) const;
+    CreationResult *createAccountInternal(const User *user);
 
 private:
     Accounts *m_accountsInter;

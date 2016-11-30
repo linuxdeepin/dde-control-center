@@ -9,7 +9,7 @@
 
 #define PIX_SIZE    60
 
-AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
+AvatarWidget::AvatarWidget(QWidget *parent)
     : QWidget(parent),
 
     m_hover(false),
@@ -18,9 +18,6 @@ AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
 
     m_delBtn(new QPushButton)
 {
-    QUrl url(avatar);
-    m_avatar = QPixmap(url.toLocalFile()).scaled(PIX_SIZE, PIX_SIZE, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-
     m_delBtn->setText("x");
     m_delBtn->setVisible(false);
 
@@ -33,6 +30,12 @@ AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
     setObjectName("AvatarWidget");
 }
 
+AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
+    :AvatarWidget(parent)
+{
+    setAvatarPath(avatar);
+}
+
 void AvatarWidget::setSelected(const bool selected)
 {
     m_selected = selected;
@@ -42,6 +45,15 @@ void AvatarWidget::setSelected(const bool selected)
 void AvatarWidget::setDeletable(const bool deletable)
 {
     m_deleable = deletable;
+    update();
+}
+
+void AvatarWidget::setAvatarPath(const QString &avatar)
+{
+    QUrl url(avatar);
+    m_avatarPath = avatar;
+    m_avatar = QPixmap(url.toLocalFile()).scaled(size().width(), size().height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);;
+
     update();
 }
 
@@ -87,5 +99,15 @@ void AvatarWidget::leaveEvent(QEvent *)
 {
     m_hover = false;
     m_delBtn->setVisible(false);
+    update();
+}
+
+void AvatarWidget::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+
+    QUrl url(m_avatarPath);
+    m_avatar = QPixmap(url.toLocalFile()).scaled(size().width(), size().height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
     update();
 }

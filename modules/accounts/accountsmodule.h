@@ -31,6 +31,7 @@ private:
     void showAvatarPage(User *account);
     void showPasswordPage(User *account);
     void showAccountsDetail(User *account);
+    void showCreateAccountPage();
     void contentPopped(ContentWidget * const w);
 
 private slots:

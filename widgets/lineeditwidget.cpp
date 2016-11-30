@@ -20,6 +20,7 @@ LineEditWidget::LineEditWidget(QFrame *parent)
 
     setLayout(mainLayout);
     setObjectName("LineEditWidget");
+    setFixedHeight(36);
 }
 
 void LineEditWidget::setTitle(const QString &title)

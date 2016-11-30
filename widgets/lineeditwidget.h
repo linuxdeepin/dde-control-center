@@ -15,7 +15,8 @@ class LineEditWidget : public SettingsItem
 public:
     explicit LineEditWidget(QFrame *parent = 0);
 
-    QLineEdit *textEdit() const { return m_edit; }
+    inline QLineEdit *textEdit() const { return m_edit; }
+    inline QString text() const { return m_edit->text(); }
 
 public slots:
     void setTitle(const QString &title);

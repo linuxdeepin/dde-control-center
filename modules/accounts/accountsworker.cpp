@@ -1,6 +1,10 @@
 #include "accountsworker.h"
 
 #include <QFileDialog>
+#include <QtConcurrent>
+#include <QFutureWatcher>
+
+#include "user.h"
 
 const QString AccountsService("com.deepin.daemon.Accounts");
 
@@ -16,9 +20,30 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     m_accountsInter->setSync(false);
 }
 
-void AccountsWorker::createAccount()
+void AccountsWorker::randomUserIcon(User *user)
 {
-    qDebug() << Q_FUNC_INFO;
+    QDBusPendingCall call = m_accountsInter->RandUserIcon();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [user, call] {
+        if (!call.isError()) {
+            QDBusReply<QString> reply = call.reply();
+            user->setCurrentAvatar(reply.value());
+        }
+    });
+}
+
+void AccountsWorker::createAccount(const User *user)
+{
+    qDebug() << "create account " << user;
+
+    QFutureWatcher<CreationResult*> *watcher = new QFutureWatcher<CreationResult*>(this);
+    connect(watcher, &QFutureWatcher<CreationResult*>::finished, [this, watcher] {
+        CreationResult *result = watcher->result();
+        emit accountCreationFinished(result);
+    });
+
+    QFuture<CreationResult*> future = QtConcurrent::run(this, &AccountsWorker::createAccountInternal, user);
+    watcher->setFuture(future);
 }
 
 void AccountsWorker::addNewAvatar(User *user)
@@ -97,4 +122,70 @@ void AccountsWorker::setPassword(User *user, const QString &passwd)
     emit requestFrameAutoHide(false);
     userInter->SetPassword(passwd).waitForFinished();
     QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
+}
+
+CreationResult *AccountsWorker::createAccountInternal(const User *user)
+{
+    CreationResult *result = new CreationResult;
+
+    // validate username
+    QDBusPendingReply<bool, QString, int> reply = m_accountsInter->IsUsernameValid(user->name());
+    reply.waitForFinished();
+    if (reply.isError()) {
+        result->setType(CreationResult::UserNameError);
+        result->setMessage(reply.error().message());
+        return result;
+    }
+    bool validation = reply.argumentAt(0).toBool();
+    if (!validation) {
+        result->setType(CreationResult::UserNameError);
+        result->setMessage(reply.argumentAt(1).toString());
+        return result;
+    }
+
+    // validate password
+    if (user->password() != user->repeatPassword()) {
+        result->setType(CreationResult::PasswordMatchError);
+        result->setMessage(tr("Password not match."));
+        return result;
+    }
+
+    QDBusPendingReply<> reply1 = m_accountsInter->CreateUser(user->name(), user->name(), 1);
+    reply1.waitForFinished();
+    if (reply1.isError()) {
+        result->setType(CreationResult::UnknownError);
+        result->setMessage(reply1.error().message());
+        return result;
+    }
+
+    QDBusPendingReply<QString> reply2 = m_accountsInter->FindUserByName(user->name());
+    reply2.waitForFinished();
+    if (reply2.isError()) {
+        result->setType(CreationResult::UnknownError);
+        result->setMessage(reply2.error().message());
+        return result;
+    }
+
+    QString userPath = reply2.argumentAt(0).toString();
+    AccountsUser *userDBus = new AccountsUser("com.deepin.daemon.Accounts", userPath, QDBusConnection::systemBus(), this);
+    if (!userDBus->isValid()) {
+        result->setType(CreationResult::UnknownError);
+        result->setMessage("user dbus is still not valid.");
+
+        return result;
+    }
+
+    //TODO(hualet): better to check all the call results.
+    bool sifResult = userDBus->SetIconFile(user->currentAvatar());
+    bool spResult = userDBus->SetPassword(user->password());
+
+    if (!sifResult || !spResult) {
+        result->setType(CreationResult::UnknownError);
+        if (!sifResult) result->setMessage("set icon file for new created user failed.");
+        if (!spResult) result->setMessage("set password for new created user failed");
+
+        return result;
+    }
+
+    return result;
 }

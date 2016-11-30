@@ -19,6 +19,7 @@ public:
 
 signals:
     void showAccountsDetail(User *account) const;
+    void requestCreateAccount() const;
 
 public slots:
     void addUser(User *user);
@@ -26,6 +27,8 @@ public slots:
 
 private:
     dcc::SettingsGroup *m_userGroup;
+
+    QPushButton *m_createBtn;
 };
 
 #endif // ACCOUNTSWIDGET_H

@@ -20,7 +20,6 @@ signals:
     void showPwdSettings(User *user) const;
     void showAvatarSettings(User *user) const;
 
-    void requestCreateAccount() const;
     void requestDeleteAccount(User *user) const;
     void requestSetAutoLogin(User *user, const bool autoLogin) const;
 
@@ -29,7 +28,6 @@ private:
     dcc::NextPageWidget *m_modifyAvatar;
     dcc::NextPageWidget *m_modifyPassword;
     dcc::SwitchWidget *m_autoLogin;
-    QPushButton *m_createAccount;
     QPushButton *m_deleteAccount;
 };
 

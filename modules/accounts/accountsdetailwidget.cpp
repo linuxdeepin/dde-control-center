@@ -13,7 +13,6 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
       m_modifyAvatar(new NextPageWidget),
       m_modifyPassword(new NextPageWidget),
       m_autoLogin(new SwitchWidget),
-      m_createAccount(new QPushButton),
       m_deleteAccount(new QPushButton)
 {
     m_modifyAvatar->setTitle(tr("Modify Avatar"));
@@ -26,13 +25,11 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     m_autoLogin->setChecked(user->autoLogin());
     m_accountSettings->appendItem(m_autoLogin);
 
-    m_createAccount->setText(tr("Create Account"));
     m_deleteAccount->setText(tr("Delete Account"));
     m_deleteAccount->setObjectName("DeleteAccountButton");
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_accountSettings);
-    mainLayout->addWidget(m_createAccount);
     mainLayout->addWidget(m_deleteAccount);
     mainLayout->setMargin(0);
 
@@ -40,7 +37,6 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     mainWidget->setLayout(mainLayout);
 
     connect(user, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
-    connect(m_createAccount, &QPushButton::clicked, this, &AccountsDetailWidget::requestCreateAccount);
     connect(m_deleteAccount, &QPushButton::clicked, [=] { emit requestDeleteAccount(user); });
     connect(m_autoLogin, &SwitchWidget::checkedChanegd, [=] (const bool autoLogin) { emit requestSetAutoLogin(user, autoLogin); });
     connect(m_modifyPassword, &NextPageWidget::clicked, [=] { emit showPwdSettings(user); });

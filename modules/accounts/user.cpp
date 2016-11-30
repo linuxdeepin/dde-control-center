@@ -37,3 +37,13 @@ void User::setCurrentAvatar(const QString &avatar)
 
     emit currentAvatarChanged(m_currentAvatar);
 }
+
+void User::setPassword(const QString &password)
+{
+    m_password = password;
+}
+
+void User::setRepeatPassword(const QString &repeatPassword)
+{
+    m_repeatPassword = repeatPassword;
+}

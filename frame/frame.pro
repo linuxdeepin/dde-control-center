@@ -5,7 +5,7 @@ include(../widgets/widgets.pri)
 # modules
 include(../modules/modules.pri)
 
-QT += widgets dbus svg sql x11extras
+QT += widgets dbus svg sql x11extras concurrent
 
 TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../

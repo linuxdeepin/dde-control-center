@@ -2,6 +2,7 @@
 #include "accountsdetailwidget.h"
 #include "modifypasswordpage.h"
 #include "modifyavatarpage.h"
+#include "createpage.h"
 
 AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
@@ -44,6 +45,7 @@ ModuleWidget *AccountsModule::moduleWidget()
         connect(m_accountsWidget, &AccountsWidget::showAccountsDetail, this, &AccountsModule::showAccountsDetail);
         connect(m_userList, &UserModel::userAdded, m_accountsWidget, &AccountsWidget::addUser);
         connect(m_userList, &UserModel::userRemoved, m_accountsWidget, &AccountsWidget::removeUser);
+        connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::showCreateAccountPage);
 
         for (auto user : m_userList->userList())
             m_accountsWidget->addUser(user);
@@ -89,12 +91,25 @@ void AccountsModule::showAccountsDetail(User *account)
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
 
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
-    connect(w, &AccountsDetailWidget::requestCreateAccount, m_accountsWorker, &AccountsWorker::createAccount);
     connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
     connect(w, &AccountsDetailWidget::showPwdSettings, this, &AccountsModule::showPasswordPage);
     connect(w, &AccountsDetailWidget::showAvatarSettings, this, &AccountsModule::showAvatarPage);
 
     m_frameProxy->pushWidget(this, w);
+}
+
+void AccountsModule::showCreateAccountPage()
+{
+    dcc::accounts::CreatePage *createPage = new dcc::accounts::CreatePage;
+
+    User *newUser = new User(createPage);
+    createPage->setModel(newUser);
+
+    connect(createPage, &dcc::accounts::CreatePage::requestCreateUser, m_accountsWorker, &AccountsWorker::createAccount);
+    connect(m_accountsWorker, &AccountsWorker::accountCreationFinished, createPage, &dcc::accounts::CreatePage::setCreationResult);
+
+    m_accountsWorker->randomUserIcon(newUser);
+    m_frameProxy->pushWidget(this, createPage);
 }
 
 void AccountsModule::contentPopped(ContentWidget * const w)

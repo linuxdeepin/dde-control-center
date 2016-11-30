@@ -17,7 +17,7 @@ public:
     QWidget *setContent(QWidget * const w);
 
 signals:
-    void back();
+    void back() const;
 
 public slots:
     void scrollToWidget(QWidget * const w);
