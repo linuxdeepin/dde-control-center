@@ -47,7 +47,7 @@ signals:
 
 public slots:
     void setVersion(const QString& version);
-    void setType(qulonglong type);
+    void setType(qlonglong type);
     void setProcessor(const QString& processor);
     void setMemory(qulonglong memory);
     void setDisk(qulonglong disk);

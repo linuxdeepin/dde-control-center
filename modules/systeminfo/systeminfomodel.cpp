@@ -25,7 +25,7 @@ void SystemInfoModel::setVersion(const QString &version)
     emit versionChanged(m_version);
 }
 
-void SystemInfoModel::setType(qulonglong type)
+void SystemInfoModel::setType(qlonglong type)
 {
     if(m_type == QString("%1").arg(type))
         return ;
