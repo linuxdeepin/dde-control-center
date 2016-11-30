@@ -12,6 +12,7 @@ public:
     explicit SettingsOptionItem(QWidget *parent = 0);
 
     void setTitle(const QString &title);
+    void setSelected(const bool checked);
 
 private:
     QLabel *m_title;

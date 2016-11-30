@@ -17,6 +17,7 @@ public:
 
     void setTitle(const QString &title);
     void appendOption(const QString &option);
+    void setSelectedIndex(const int selected);
 
 signals:
     void clicked(const int index) const;

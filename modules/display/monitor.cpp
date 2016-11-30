@@ -66,8 +66,22 @@ void Monitor::setRotateList(const QList<quint16> &rotateList)
     m_rotateList = rotateList;
 }
 
+void Monitor::setCurrentMode(const Resolution &resolution)
+{
+    if (m_currentMode == resolution)
+        return;
+
+    m_currentMode = resolution;
+
+    emit currentModeChanged(m_currentMode);
+}
+
 void Monitor::setModeList(const ResolutionList &modeList)
 {
-    qDebug() << "set mode list";
-    m_modeList = modeList;
+    m_modeList.clear();
+
+    // NOTE: ignore resolution if below 800x600
+    for (auto m : modeList)
+        if (m.width() >= 800 && m.height() >= 600)
+            m_modeList.append(m);
 }

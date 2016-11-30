@@ -30,7 +30,9 @@ private:
     void initPrimary();
 
 private slots:
+    void onPrimaryChanged();
     void onMonitorRectChanged();
+    void onMonitorModeChanged();
     void onMonitorModeListChanged(const QList<Resolution> &modeList);
 
 private:
@@ -42,7 +44,9 @@ private:
     Dtk::Widget::DImageButton *m_rotateBtn;
     dcc::DCCSlider *m_lightSlider;
     SettingsListWidget *m_resolutionsWidget;
+    SettingsListWidget *m_primarySettingsWidget;
     QHBoxLayout *m_btnsLayout;
+    QVBoxLayout *m_mainLayout;
 
     QList<MonitorSettingDialog *> m_otherDialogs;
 };

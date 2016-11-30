@@ -24,6 +24,7 @@ public:
     inline quint16 rotate() const { return m_rotate; }
     inline const QRect rect() const { return QRect(m_x, m_y, m_w, m_h); }
     inline const QString name() const { return m_name; }
+    inline const Resolution currentMode() const { return m_currentMode; }
     inline const QList<quint16> rotateList() const { return m_rotateList; }
     inline const QList<Resolution> modeList() const { return m_modeList; }
 
@@ -33,6 +34,7 @@ signals:
     void wChanged(const int w);
     void hChanged(const int h);
     void rotateChanged(const quint16 rotate);
+    void currentModeChanged(const Resolution &resolution);
 
 private slots:
     void setX(const int x);
@@ -42,6 +44,7 @@ private slots:
     void setRotate(const quint16 rotate);
     void setName(const QString &name);
     void setRotateList(const QList<quint16> &rotateList);
+    void setCurrentMode(const Resolution &resolution);
     void setModeList(const ResolutionList &modeList);
 
 private:
@@ -51,6 +54,7 @@ private:
     int m_h;
     quint16 m_rotate;
     QString m_name;
+    Resolution m_currentMode;
     QList<quint16> m_rotateList;
     QList<Resolution> m_modeList;
 };

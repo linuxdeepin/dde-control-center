@@ -39,3 +39,12 @@ void SettingsListWidget::appendOption(const QString &option)
 
     m_listLayout->addWidget(item);
 }
+
+void SettingsListWidget::setSelectedIndex(const int selected)
+{
+    for (int i(0); i != m_listLayout->count(); ++i)
+    {
+        SettingsOptionItem *item = qobject_cast<SettingsOptionItem *>(m_listLayout->itemAt(i)->widget());
+        item->setSelected(selected == i);
+    }
+}
