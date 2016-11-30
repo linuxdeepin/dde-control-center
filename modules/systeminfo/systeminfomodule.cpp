@@ -35,7 +35,7 @@ void SystemInfoModule::initialize()
     m_model->setMemory(m_work->memory());
     m_model->setDisk(m_work->disk());
 
-    connect(m_work, SIGNAL(VersionChanged(QString)), m_model, SLOT(setVersion(QQString)));
+    connect(m_work, SIGNAL(VersionChanged(QString)), m_model, SLOT(setVersion(QString)));
     connect(m_work,SIGNAL(SystemTypeChanged(qlonglong)), m_model, SLOT(setType(qulonglong)));
     connect(m_work, SIGNAL(ProcessorChanged(QString)), m_model, SLOT(setProcessor(QString)));
     connect(m_work, SIGNAL(MemoryCapChanged(qulonglong)), m_model, SLOT(setMemory(qulonglong)));
