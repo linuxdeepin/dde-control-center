@@ -3,6 +3,7 @@
 
 #include <QDialog>
 
+class Monitor;
 class DisplayModel;
 class RecognizeDialog : public QDialog
 {
@@ -16,6 +17,9 @@ protected:
 
 private slots:
     void onScreenRectChanged();
+
+private:
+    void paintMonitorMark(QPainter &painter, const QRect &rect, const QString &name);
 
 private:
     DisplayModel *m_model;

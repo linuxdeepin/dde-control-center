@@ -171,7 +171,6 @@ void MonitorSettingDialog::onMonitorModeListChanged(const QList<Resolution> &mod
     bool first = true;
     for (auto r : modeList)
     {
-        qDebug() << r.id() << r.width() << r.height() << r.rate();
         const QString option = QString::number(r.width()) + "×" + QString::number(r.height());
 
         if (first)
