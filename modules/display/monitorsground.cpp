@@ -33,15 +33,30 @@ void MonitorsGround::setDisplayModel(DisplayModel *model)
         MonitorProxyWidget *pw = new MonitorProxyWidget(mon, this);
         m_monitors[mon] = pw;
 
+        connect(pw, &MonitorProxyWidget::requestApplyMove, this, &MonitorsGround::monitorMoved);
+
         adjust(pw);
     }
 }
 
+void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
+{
+    if (pw->name() != m_model->primary())
+    {
+        const double scale = screenScale();
+        const int offsetX = VIEW_WIDTH / 2 - (m_model->screenWidth() * scale) / 2 + MARGIN_W;
+        const int offsetY = VIEW_HEIGHT / 2 - (m_model->screenHeight() * scale) / 2 + MARGIN_H;
+
+        pw->setMovedX((pw->pos().x() - offsetX) / scale);
+        pw->setMovedY((pw->pos().y() - offsetY) / scale);
+    }
+
+    adjust(pw);
+}
+
 void MonitorsGround::adjust(MonitorProxyWidget *pw)
 {
-    const double scaleW = VIEW_WIDTH / m_model->screenWidth();
-    const double scaleH = VIEW_HEIGHT / m_model->screenHeight();
-    const double scale = std::min(scaleW, scaleH);
+    const double scale = screenScale();
 
     const int offsetX = VIEW_WIDTH / 2 - (m_model->screenWidth() * scale) / 2;
     const int offsetY = VIEW_HEIGHT / 2 - (m_model->screenHeight() * scale) / 2;
@@ -51,6 +66,13 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
     const int x = scale * pw->x();
     const int y = scale * pw->y();
 
-    pw->setFixedSize(w, h);
-    pw->move(x + offsetX + MARGIN_W, y + offsetY + MARGIN_H);
+    pw->setGeometry(x + offsetX + MARGIN_W, y + offsetY + MARGIN_H, w, h);
+}
+
+double MonitorsGround::screenScale() const
+{
+    const double scaleW = VIEW_WIDTH / m_model->screenWidth();
+    const double scaleH = VIEW_HEIGHT / m_model->screenHeight();
+
+    return std::min(scaleW, scaleH);
 }

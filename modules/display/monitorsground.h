@@ -18,7 +18,11 @@ public:
     void setDisplayModel(DisplayModel *model);
 
 private slots:
+    void monitorMoved(MonitorProxyWidget *pw);
     void adjust(MonitorProxyWidget *pw);
+
+private:
+    double screenScale() const;
 
 private:
     DisplayModel *m_model;

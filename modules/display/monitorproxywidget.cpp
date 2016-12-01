@@ -2,6 +2,7 @@
 #include "monitor.h"
 
 #include <QPainter>
+#include <QMouseEvent>
 
 MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, QWidget *parent)
     : QWidget(parent),
@@ -22,6 +23,11 @@ int MonitorProxyWidget::h() const
     return m_monitor->h();
 }
 
+const QString MonitorProxyWidget::name() const
+{
+    return m_monitor->name();
+}
+
 void MonitorProxyWidget::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
@@ -31,4 +37,23 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
 
     painter.setPen(Qt::red);
     painter.drawText(10, 15, m_monitor->name());
+}
+
+void MonitorProxyWidget::mousePressEvent(QMouseEvent *e)
+{
+    m_lastPos = e->globalPos();
+}
+
+void MonitorProxyWidget::mouseMoveEvent(QMouseEvent *e)
+{
+    if (!(e->buttons() & Qt::LeftButton))
+        return;
+
+    move(pos() + e->globalPos() - m_lastPos);
+    m_lastPos = e->globalPos();
+}
+
+void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *)
+{
+    emit requestApplyMove(this);
 }
