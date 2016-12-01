@@ -22,4 +22,6 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     mainLayout->addLayout(btnsLayout);
 
     setLayout(mainLayout);
+
+    connect(m_recognize, &QPushButton::clicked, this, &MonitorControlWidget::requestRecognize);
 }

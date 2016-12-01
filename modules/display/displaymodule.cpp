@@ -4,6 +4,7 @@
 #include "resolutiondetailpage.h"
 #include "monitorsettingdialog.h"
 #include "rotatedialog.h"
+#include "recognizedialog.h"
 
 using namespace dcc;
 using namespace dcc::display;
@@ -90,12 +91,19 @@ void DisplayModule::showCustomSettings()
     connect(&dialog, &MonitorSettingDialog::requestSetPrimary, m_displayWorker, &DisplayWorker::setPrimary);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorMode, m_displayWorker, &DisplayWorker::setMonitorResolution);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
+    connect(&dialog, &MonitorSettingDialog::requestRecognize, this, &DisplayModule::showRecognize);
 
     // discard or save
     if (dialog.exec() == QDialog::Accepted)
         m_displayWorker->saveChanges();
     else
         m_displayWorker->discardChanges();
+}
+
+void DisplayModule::showRecognize()
+{
+    RecognizeDialog dialog(m_displayModel);
+    dialog.exec();
 }
 
 void DisplayModule::showRotate(Monitor *mon)

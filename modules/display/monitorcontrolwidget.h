@@ -11,6 +11,9 @@ class MonitorControlWidget : public QWidget
 public:
     explicit MonitorControlWidget(QWidget *parent = 0);
 
+signals:
+    void requestRecognize() const;
+
 private:
     QPushButton *m_recognize;
     QPushButton *m_split;

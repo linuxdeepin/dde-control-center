@@ -76,6 +76,7 @@ void MonitorSettingDialog::init()
     connect(m_lightSlider, &DCCSlider::valueChanged, this, &MonitorSettingDialog::onBrightnessSliderChanged);
     connect(smallDelayTimer, &QTimer::timeout, this, &MonitorSettingDialog::onMonitorRectChanged);
 
+    setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
     setWindowTitle(m_monitor->name());
     setLayout(m_mainLayout);
     onMonitorModeListChanged(m_monitor->modeList());
@@ -122,6 +123,7 @@ void MonitorSettingDialog::initPrimary()
         m_otherDialogs.append(dialog);
     }
 
+    connect(m_ctrlWidget, &MonitorControlWidget::requestRecognize, this, &MonitorSettingDialog::requestRecognize);
     connect(m_primarySettingsWidget, &SettingsListWidget::clicked, this, &MonitorSettingDialog::requestSetPrimary);
     connect(m_model, &DisplayModel::primaryScreenChanged, this, &MonitorSettingDialog::onPrimaryChanged);
     connect(cancelBtn, &QPushButton::clicked, [=] { reject(); });

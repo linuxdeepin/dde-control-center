@@ -9,7 +9,8 @@ HEADERS += \
     $$PWD/monitorsettingdialog.h \
     $$PWD/settingslistwidget.h \
     $$PWD/settingsoptionitem.h \
-    $$PWD/monitorcontrolwidget.h
+    $$PWD/monitorcontrolwidget.h \
+    $$PWD/recognizedialog.h
 
 SOURCES += \
     $$PWD/displaymodule.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
     $$PWD/monitorsettingdialog.cpp \
     $$PWD/settingslistwidget.cpp \
     $$PWD/settingsoptionitem.cpp \
-    $$PWD/monitorcontrolwidget.cpp
+    $$PWD/monitorcontrolwidget.cpp \
+    $$PWD/recognizedialog.cpp
 
 INCLUDEPATH += $$PWD/..

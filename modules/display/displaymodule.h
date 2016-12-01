@@ -21,6 +21,9 @@ public:
 
 private slots:
     void showResolutionDetailPage();
+    void showCustomSettings();
+    void showRecognize();
+    void showRotate(Monitor *mon = nullptr);
 
 private:
     void initialize();
@@ -30,10 +33,6 @@ private:
     void contentPopped(ContentWidget * const w);
     const QString name() const;
     ModuleWidget *moduleWidget();
-
-private:
-    void showCustomSettings();
-    void showRotate(Monitor *mon);
 
 private:
     DisplayModel *m_displayModel;
