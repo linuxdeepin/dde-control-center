@@ -26,6 +26,7 @@ class SettingsGroup : public QFrame
 
 public:
     explicit SettingsGroup(QFrame *parent = 0);
+    explicit SettingsGroup(const QString &title, QFrame *parent = 0);
     ~SettingsGroup();
 
     SettingsHeaderItem *headerItem() const { return m_headerItem; }

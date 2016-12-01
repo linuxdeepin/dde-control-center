@@ -19,6 +19,7 @@ public:
     explicit OptionItem(QString title, bool selected, QWidget *parent = 0);
 
     void setTitle(const QString &title);
+    void setTitleFixedHeight(int height);
     void setTitleWidget(QWidget *titleWidget);
     void setContentWidget(QWidget *contentWidget);
 
@@ -37,6 +38,7 @@ protected:
 
     QVBoxLayout *m_mainLayout;
     QHBoxLayout *m_titleLayout;
+    QWidget *m_titleFrame;
     QPointer<QWidget> m_titleWidget;
     QPointer<QWidget> m_contentWidget;
     QLabel *m_selectedIcon;

@@ -8,6 +8,7 @@
  **/
 
 #include "soundmodule.h"
+#include "advancedpage.h"
 
 namespace dcc {
 namespace sound {
@@ -69,6 +70,8 @@ ModuleWidget *SoundModule::moduleWidget()
         connect(m_soundWidget, &SoundWidget::requestSwitchSoundEffect, m_soundWorker, &SoundWorker::switchSoundEffect);
         connect(m_soundWidget, &SoundWidget::requestSetSpeakerBalance, m_soundWorker, &SoundWorker::setSinkBalance);
         connect(m_soundWidget, &SoundWidget::requestSetMicrophoneVolume, m_soundWorker, &SoundWorker::setSourceVolume);
+
+        connect(m_soundWidget, &SoundWidget::requestAdvancedPage, this, &SoundModule::showAdvancedPage);
     }
 
     return m_soundWidget;
@@ -77,6 +80,15 @@ ModuleWidget *SoundModule::moduleWidget()
 void SoundModule::contentPopped(ContentWidget * const)
 {
 
+}
+
+void SoundModule::showAdvancedPage()
+{
+    AdvancedPage *page = new AdvancedPage(m_soundModel);
+
+    connect(page, &AdvancedPage::requestSetPort, m_soundWorker, &SoundWorker::setPort);
+
+    m_frameProxy->pushWidget(this, page);
 }
 
 }

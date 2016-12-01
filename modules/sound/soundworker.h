@@ -47,14 +47,23 @@ public slots:
     void setSinkBalance(double balance);
     void setSourceVolume(double volume);
 
+    void setPort(const Port *port);
+
 private slots:
     void defaultSinkChanged(const QString &id);
     void defaultSourceChanged(const QString &id);
     void sinksChanged(const QList<QDBusObjectPath> & value);
     void sourcesChanged(const QList<QDBusObjectPath> & value);
+    void cardsChanged(const QString &cards);
+
+    void activeSinkPortChanged(const QString &activeSinkPort);
+    void activeSourcePortChanged(const QString &activeSourcePort);
 
 private:
     SoundModel *m_model;
+    QString m_activeSinkPort;
+    QString m_activeSourcePort;
+
     Audio *m_audioInter;
     SoundEffect *m_soundEffectInter;
     Sink *m_defaultSink;

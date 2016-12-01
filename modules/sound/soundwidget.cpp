@@ -22,11 +22,13 @@ SoundWidget::SoundWidget(SoundModel *model) :
     ModuleWidget(),
     m_speakerGroup(new SettingsGroup),
     m_speakerSwitch(new SwitchWidget),
-    m_outputBalanceSliderItem(new TitledSliderItem(tr("Output Balance"))),
+    m_outputBalanceSliderItem(new TitledSliderItem(tr("Left/Right Balance"))),
     m_microphoneGroup(new SettingsGroup),
     m_microphoneSwitch(new SwitchWidget),
     m_inputVolumeSliderItem(new TitledSliderItem(tr("Input Volume"))),
     m_inputFeedbackSliderItem(new TitledSliderItem(tr("Feedback Volume"))),
+    m_advancedSettingsGroup(new SettingsGroup),
+    m_advancedSettingsItem(new NextPageWidget),
     m_soundEffectGroup(new SettingsGroup),
     m_soundEffectSwitch(new SwitchWidget)
 {
@@ -62,11 +64,15 @@ SoundWidget::SoundWidget(SoundModel *model) :
     m_microphoneGroup->appendItem(m_inputVolumeSliderItem);
     m_microphoneGroup->appendItem(m_inputFeedbackSliderItem);
 
-    m_soundEffectSwitch->setTitle(tr("Sound Effect"));
+    m_advancedSettingsItem->setTitle(tr("Advanced"));
+    m_advancedSettingsGroup->appendItem(m_advancedSettingsItem);
+
+    m_soundEffectSwitch->setTitle(tr("Sound Effects"));
     m_soundEffectGroup->appendItem(m_soundEffectSwitch);
 
     m_centeralLayout->addWidget(m_speakerGroup);
     m_centeralLayout->addWidget(m_microphoneGroup);
+    m_centeralLayout->addWidget(m_advancedSettingsGroup);
     m_centeralLayout->addWidget(m_soundEffectSwitch);
 
     setModel(model);
@@ -76,6 +82,7 @@ SoundWidget::SoundWidget(SoundModel *model) :
     connect(m_soundEffectSwitch, &SwitchWidget::checkedChanegd, this, &SoundWidget::requestSwitchSoundEffect);
     connect(m_outputBalanceSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetSpeakerBalance(value / 100.f); });
     connect(m_inputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetMicrophoneVolume(value / 100.f); });
+    connect(m_advancedSettingsItem, &NextPageWidget::clicked, this, &SoundWidget::requestAdvancedPage);
 }
 
 SoundWidget::~SoundWidget()

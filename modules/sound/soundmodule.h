@@ -25,9 +25,6 @@ class SoundModule : public QObject, public ModuleInterface
     Q_OBJECT
 public:
     explicit SoundModule(FrameProxyInterface * frame, QObject *parent = 0);
-
-
-private:
     ~SoundModule();
 
     void initialize() Q_DECL_OVERRIDE;
@@ -37,6 +34,9 @@ private:
     void reset() Q_DECL_OVERRIDE;
     ModuleWidget *moduleWidget() Q_DECL_OVERRIDE;
     void contentPopped(ContentWidget * const w) Q_DECL_OVERRIDE;
+
+public slots:
+    void showAdvancedPage();
 
 private:
     SoundWidget *m_soundWidget;

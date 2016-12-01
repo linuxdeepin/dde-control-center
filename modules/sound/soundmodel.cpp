@@ -9,6 +9,8 @@
 
 #include "soundmodel.h"
 
+#include <QDebug>
+
 namespace dcc {
 namespace sound {
 
@@ -73,6 +75,95 @@ void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
         m_microphoneFeedback = microphoneFeedback;
 
         emit microphoneFeedbackChanged(microphoneFeedback);
+    }
+}
+
+void SoundModel::addPort(Port *port)
+{
+    qDebug() << "add port: " << port->id();
+    if (!containsPort(port->id())) {
+        m_ports.append(port);
+        emit portAdded(port);
+    }
+}
+
+void SoundModel::removePort(const QString &portId)
+{
+    qDebug() << "remove port: " << portId;
+    Port *port = portById(portId);
+    if (port) {
+        m_ports.removeOne(port);
+        port->deleteLater();
+        emit portRemoved(portId);
+    }
+}
+
+bool SoundModel::containsPort(const QString &portId)
+{
+    return portById(portId) != nullptr;
+}
+
+Port *SoundModel::portById(const QString &portId) const
+{
+    for (Port *port : m_ports) {
+        if (port->id() == portId) {
+            return port;
+        }
+    }
+
+    return nullptr;
+}
+
+QList<Port *> SoundModel::ports() const
+{
+    return m_ports;
+}
+
+void Port::setId(const QString &id)
+{
+    if (id != m_id) {
+        m_id = id;
+        emit idChanged(id);
+    }
+}
+
+void Port::setName(const QString &name)
+{
+    if (name != m_name) {
+        m_name = name;
+        emit nameChanged(name);
+    }
+}
+
+void Port::setCardName(const QString &cardName)
+{
+    if (cardName != m_cardName) {
+        m_cardName = cardName;
+        emit cardNameChanged(cardName);
+    }
+}
+
+void Port::setIsActive(bool isActive)
+{
+    if (isActive != m_isActive) {
+        m_isActive = isActive;
+        emit isActiveChanged(isActive);
+    }
+}
+
+void Port::setDirection(const Direction &direction)
+{
+    if (direction != m_direction) {
+        m_direction = direction;
+        emit directionChanged(direction);
+    }
+}
+
+void Port::setCardId(const uint &cardId)
+{
+    if (cardId != m_cardId) {
+        m_cardId = cardId;
+        emit cardIdChanged(cardId);
     }
 }
 

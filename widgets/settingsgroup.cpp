@@ -39,6 +39,13 @@ SettingsGroup::SettingsGroup(QFrame *parent) :
     setLayout(m_layout);
 }
 
+SettingsGroup::SettingsGroup(const QString &title, QFrame *parent)
+    : SettingsGroup(parent)
+{
+    setHeaderVisible(!title.isEmpty());
+    m_headerItem->setTitle(title);
+}
+
 SettingsGroup::~SettingsGroup()
 {
     if (m_headerItem)

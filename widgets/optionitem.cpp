@@ -26,10 +26,11 @@ OptionItem::OptionItem(QString title, bool selected, QWidget *parent)
     m_selectedIcon->setVisible(m_selected);
     m_selectedIcon->setFixedSize(16, 16);
 
-    TranslucentFrame *titleFrame = new TranslucentFrame;
-    titleFrame->setFixedHeight(36);
-    titleFrame->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    titleFrame->setLayout(m_titleLayout);
+    m_titleFrame = new TranslucentFrame;
+    m_titleFrame->setFixedHeight(36);
+    m_titleFrame->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_titleFrame->setLayout(m_titleLayout);
+
     m_titleLayout->setSpacing(0);
     m_titleLayout->setMargin(0);
     m_titleLayout->addWidget(m_titleWidget);
@@ -38,7 +39,7 @@ OptionItem::OptionItem(QString title, bool selected, QWidget *parent)
 
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
-    m_mainLayout->addWidget(titleFrame);
+    m_mainLayout->addWidget(m_titleFrame);
 
     setLayout(m_mainLayout);
 }
@@ -49,6 +50,11 @@ void OptionItem::setTitle(const QString &title)
         NormalLabel *label = qobject_cast<NormalLabel*>(m_titleWidget);
         if (label) label->setText(title);
     }
+}
+
+void OptionItem::setTitleFixedHeight(int height)
+{
+    m_titleFrame->setFixedHeight(height);
 }
 
 void OptionItem::setTitleWidget(QWidget *titleWidget)
@@ -77,7 +83,7 @@ void OptionItem::mouseReleaseEvent(QMouseEvent *e)
 {
     SettingsItem::mouseReleaseEvent(e);
 
-    setSelected(!selected());
+    setSelected(true);
 }
 
 void OptionItem::setSelected(bool selected)

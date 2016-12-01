@@ -39,6 +39,7 @@ signals:
     void requestSwitchSoundEffect(bool on) const;
     void requestSetSpeakerBalance(double balance) const;
     void requestSetMicrophoneVolume(double balance) const;
+    void requestAdvancedPage() const;
 
 private:
     SettingsGroup *m_speakerGroup;

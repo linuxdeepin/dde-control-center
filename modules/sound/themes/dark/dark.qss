@@ -12,3 +12,6 @@ dcc--widgets--TitledSliderItem#InputFeedbackSliderItem {
     qproperty-leftIcon: url(":/sound/themes/dark/volume-feedback-low.png");
     qproperty-rightIcon: url(":/sound/themes/dark/volume-feedback-high.png");
 }
+
+NormalLabel#PortItemPortName { color: white; }
+NormalLabel#PortItemCardName { color: white; }

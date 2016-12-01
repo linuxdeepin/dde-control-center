@@ -15,6 +15,53 @@
 namespace dcc {
 namespace sound {
 
+class Port : public QObject
+{
+    Q_OBJECT
+public:
+    enum Direction {
+        Out = 1,
+        In = 2
+    };
+
+    explicit Port(QObject * parent) : QObject(parent) {}
+    virtual ~Port() {}
+
+    inline QString id() const { return m_id; }
+    void setId(const QString &id);
+
+    inline QString name() const { return m_name; }
+    void setName(const QString &name);
+
+    inline QString cardName() const { return m_cardName; }
+    void setCardName(const QString &cardName);
+
+    inline bool isActive() const { return m_isActive; }
+    void setIsActive(bool isActive);
+
+    inline Direction direction() const { return m_direction; }
+    void setDirection(const Direction &direction);
+
+    inline uint cardId() const { return m_cardId; }
+    void setCardId(const uint &cardId);
+
+signals:
+    void idChanged(QString id) const;
+    void nameChanged(QString name) const;
+    void cardNameChanged(QString name) const;
+    void isActiveChanged(bool ative) const;
+    void directionChanged(Direction direction) const;
+    void cardIdChanged(uint cardId) const;
+
+private:
+    QString m_id;
+    QString m_name;
+    uint m_cardId;
+    QString m_cardName;
+    bool m_isActive;
+    Direction m_direction;
+};
+
 class SoundModel : public QObject
 {
     Q_OBJECT
@@ -39,6 +86,12 @@ public:
     inline double microphoneFeedback() const { return m_microphoneFeedback; }
     void setMicrophoneFeedback(double microphoneFeedback);
 
+    void addPort(Port *port);
+    void removePort(const QString &portId);
+    bool containsPort(const QString &portId);
+    Port *portById(const QString &portId) const;
+    QList<Port *> ports() const;
+
 signals:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
@@ -46,6 +99,8 @@ signals:
     void speakerBalanceChanged(double speakerBalance) const;
     void microphoneVolumeChanged(double microphoneVolume) const;
     void microphoneFeedbackChanged(double microphoneFeedback) const;
+    void portAdded(const Port *port);
+    void portRemoved(const QString & portId);
 
 private:
     bool m_speakerOn;
@@ -54,6 +109,7 @@ private:
     double m_speakerBalance;
     double m_microphoneVolume;
     double m_microphoneFeedback;
+    QList<Port *> m_ports;
 };
 
 } // namespace sound
