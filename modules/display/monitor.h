@@ -21,6 +21,7 @@ public:
     inline int y() const { return m_y; }
     inline int w() const { return m_w; }
     inline int h() const { return m_h; }
+    inline bool isPrimary() const { return m_primary; }
     inline quint16 rotate() const { return m_rotate; }
     inline double brightness() const { return m_brightness; }
     inline const QRect rect() const { return QRect(m_x, m_y, m_w, m_h); }
@@ -30,6 +31,7 @@ public:
     inline const QList<Resolution> modeList() const { return m_modeList; }
 
 signals:
+    void geometryChanged() const;
     void xChanged(const int x) const;
     void yChanged(const int y) const;
     void wChanged(const int w) const;
@@ -43,6 +45,7 @@ private slots:
     void setY(const int y);
     void setW(const int w);
     void setH(const int h);
+    void setIsPrimary(const QString &primaryName);
     void setRotate(const quint16 rotate);
     void setBrightness(const double brightness);
     void setName(const QString &name);
@@ -55,6 +58,7 @@ private:
     int m_y;
     int m_w;
     int m_h;
+    bool m_primary;
     quint16 m_rotate;
     double m_brightness;
     QString m_name;

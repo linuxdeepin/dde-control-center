@@ -92,6 +92,7 @@ void DisplayModule::showCustomSettings()
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorMode, m_displayWorker, &DisplayWorker::setMonitorResolution);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
     connect(&dialog, &MonitorSettingDialog::requestRecognize, this, &DisplayModule::showRecognize);
+    connect(&dialog, &MonitorSettingDialog::requestMonitorRotate, this, &DisplayModule::showRotate);
 
     // discard or save
     if (dialog.exec() == QDialog::Accepted)

@@ -2,6 +2,7 @@
 
 Monitor::Monitor(QObject *parent)
     : QObject(parent),
+      m_primary(false),
       m_brightness(1.)
 {
 
@@ -15,6 +16,7 @@ void Monitor::setX(const int x)
     m_x = x;
 
     emit xChanged(m_x);
+    emit geometryChanged();
 }
 
 void Monitor::setY(const int y)
@@ -25,6 +27,7 @@ void Monitor::setY(const int y)
     m_y = y;
 
     emit yChanged(m_y);
+    emit geometryChanged();
 }
 
 void Monitor::setW(const int w)
@@ -35,6 +38,7 @@ void Monitor::setW(const int w)
     m_w = w;
 
     emit wChanged(m_w);
+    emit geometryChanged();
 }
 
 void Monitor::setH(const int h)
@@ -45,6 +49,12 @@ void Monitor::setH(const int h)
     m_h = h;
 
     emit hChanged(m_h);
+    emit geometryChanged();
+}
+
+void Monitor::setIsPrimary(const QString &primaryName)
+{
+    m_primary = primaryName == m_name;
 }
 
 void Monitor::setRotate(const quint16 rotate)

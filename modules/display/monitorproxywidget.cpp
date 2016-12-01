@@ -11,6 +11,8 @@ MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, QWidget *parent)
       m_movedX(m_monitor->x()),
       m_movedY(m_monitor->y())
 {
+    connect(m_monitor, &Monitor::xChanged, this, &MonitorProxyWidget::setMovedX);
+    connect(m_monitor, &Monitor::yChanged, this, &MonitorProxyWidget::setMovedY);
 }
 
 int MonitorProxyWidget::w() const
@@ -32,7 +34,7 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
-    painter.fillRect(rect(), Qt::gray);
+    painter.fillRect(rect(), m_monitor->isPrimary() ? Qt::white : Qt::gray);
     painter.drawRect(rect());
 
     painter.setPen(Qt::red);

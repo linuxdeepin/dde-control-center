@@ -29,6 +29,7 @@ public:
 signals:
     void requestRecognize() const;
     void requestSetPrimary(const int index) const;
+    void requestMonitorRotate(Monitor *mon) const;
     void requestSetMonitorMode(Monitor *mon, const int mode) const;
     void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
 
@@ -37,6 +38,8 @@ private:
     void initPrimary();
 
 private slots:
+    void mergeScreens();
+    void splitScreens();
     void onPrimaryChanged();
     void onMonitorRectChanged();
     void onMonitorModeChanged();

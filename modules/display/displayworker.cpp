@@ -137,6 +137,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
     connect(inter, &MonitorInter::ModesChanged, mon, &Monitor::setModeList);
     connect(inter, &MonitorInter::RotationsChanged, mon, &Monitor::setRotateList);
+    connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), mon, &Monitor::setIsPrimary);
 
     inter->setSync(false);
 
@@ -150,6 +151,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setCurrentMode(inter->currentMode());
     mon->setModeList(inter->modes());
     mon->setRotateList(inter->rotations());
+    mon->setIsPrimary(m_displayInter.primary());
 
     m_model->monitorAdded(mon);
     m_monitors.insert(mon, inter);

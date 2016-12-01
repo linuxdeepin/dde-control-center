@@ -7,14 +7,21 @@
 #include <QPainter>
 #include <QDebug>
 
-const int MARGIN_W = 50;
-const int MARGIN_H = 25;
+const int MARGIN_W = 20;
+const int MARGIN_H = 10;
 const double VIEW_WIDTH = 300.;
 const double VIEW_HEIGHT = 150.;
 
 MonitorsGround::MonitorsGround(QWidget *parent)
-    : QFrame(parent)
+    : QFrame(parent),
+
+      m_refershTimer(new QTimer(this))
 {
+    m_refershTimer->setInterval(100);
+    m_refershTimer->setSingleShot(true);
+
+    connect(m_refershTimer, &QTimer::timeout, this, &MonitorsGround::resetMonitorsView);
+
     setFixedSize(VIEW_WIDTH + MARGIN_W * 2, VIEW_HEIGHT + MARGIN_H * 2);
     setStyleSheet("background-color: cyan;");
 }
@@ -36,9 +43,17 @@ void MonitorsGround::setDisplayModel(DisplayModel *model)
         m_monitors[pw] = mon;
 
         connect(pw, &MonitorProxyWidget::requestApplyMove, this, &MonitorsGround::monitorMoved);
-
-        adjust(pw);
+        connect(mon, &Monitor::geometryChanged, m_refershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     }
+
+    resetMonitorsView();
+}
+
+void MonitorsGround::resetMonitorsView()
+{
+    reloadViewPortSize();
+    for (auto pw : m_monitors.keys())
+        adjust(pw);
 }
 
 void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
@@ -73,11 +88,7 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
         w->setMovedY(w->y() - minY);
     }
 
-    m_viewPortWidth = totalWidth();
-    m_viewPortHeight = totalHeight();
-
-    for (auto w : m_monitors.keys())
-        adjust(w);
+    resetMonitorsView();
 }
 
 void MonitorsGround::adjust(MonitorProxyWidget *pw)
@@ -112,9 +123,6 @@ void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
     }
     Q_ASSERT(other);
 
-//    const QRect selfRect = QRect(pw->x(), pw->y(), pw->w(), pw->h());
-//    const QRect otherRect = QRect(other->x(), other->y(), other->w(), other->h());
-
     QList<QPoint> selfPoints;
     selfPoints.append(QPoint(pw->x(), pw->y()));
     selfPoints.append(QPoint(pw->x() + pw->w(), pw->y()));
@@ -144,39 +152,20 @@ void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
 
     pw->setMovedX(pw->x() - bestOffset.x());
     pw->setMovedY(pw->y() - bestOffset.y());
-
-//    if (selfRect.center().x() > otherRect.center().x())
-//    {
-//        // self in right side
-//        pw->setMovedX(other->x() + other->w());
-//    } else {
-//        // self in left side
-//        pw->setMovedX(other->x() - pw->w());
-//    }
-
-//    if (selfRect.center().y() > otherRect.center().y())
-//    {
-//        // self in top side
-////        pw->setMovedY();
-    //    }
 }
 
-int MonitorsGround::totalWidth() const
+void MonitorsGround::reloadViewPortSize()
 {
     int w = 0;
     for (auto pw : m_monitors.keys())
         w = std::max(w, pw->x() + pw->w());
 
-    return w;
-}
-
-int MonitorsGround::totalHeight() const
-{
     int h = 0;
     for (auto pw : m_monitors.keys())
         h = std::max(h, pw->y() + pw->h());
 
-    return h;
+    m_viewPortWidth = w;
+    m_viewPortHeight = h;
 }
 
 double MonitorsGround::screenScale() const

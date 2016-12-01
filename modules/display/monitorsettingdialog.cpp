@@ -74,6 +74,7 @@ void MonitorSettingDialog::init()
     connect(m_monitor, &Monitor::hChanged, smallDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_resolutionsWidget, &SettingsListWidget::clicked, this, &MonitorSettingDialog::onMonitorModeSelected);
     connect(m_lightSlider, &DCCSlider::valueChanged, this, &MonitorSettingDialog::onBrightnessSliderChanged);
+    connect(m_rotateBtn, &DImageButton::clicked, [=] { emit requestMonitorRotate(m_monitor); });
     connect(smallDelayTimer, &QTimer::timeout, this, &MonitorSettingDialog::onMonitorRectChanged);
 
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
@@ -119,6 +120,7 @@ void MonitorSettingDialog::initPrimary()
         connect(dialog, &MonitorSettingDialog::requestSetPrimary, this, &MonitorSettingDialog::requestSetPrimary);
         connect(dialog, &MonitorSettingDialog::requestSetMonitorMode, this, &MonitorSettingDialog::requestSetMonitorMode);
         connect(dialog, &MonitorSettingDialog::requestSetMonitorBrightness, this, &MonitorSettingDialog::requestSetMonitorBrightness);
+        connect(dialog, &MonitorSettingDialog::requestMonitorRotate, this, &MonitorSettingDialog::requestMonitorRotate);
 
         dialog->show();
         m_otherDialogs.append(dialog);
@@ -131,6 +133,16 @@ void MonitorSettingDialog::initPrimary()
     connect(applyBtn, &QPushButton::clicked, [=] { accept(); });
 
     onPrimaryChanged();
+}
+
+void MonitorSettingDialog::mergeScreens()
+{
+    Q_ASSERT(m_model->monitorList().size() == 2);
+}
+
+void MonitorSettingDialog::splitScreens()
+{
+    Q_ASSERT(m_model->monitorList().size() == 2);
 }
 
 void MonitorSettingDialog::onPrimaryChanged()

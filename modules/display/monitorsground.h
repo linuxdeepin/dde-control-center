@@ -18,13 +18,13 @@ public:
     void setDisplayModel(DisplayModel *model);
 
 private slots:
+    void resetMonitorsView();
     void monitorMoved(MonitorProxyWidget *pw);
     void adjust(MonitorProxyWidget *pw);
 
 private:
     void ensureWidgetPerfect(MonitorProxyWidget *pw);
-    int totalWidth() const;
-    int totalHeight() const;
+    void reloadViewPortSize();
     double screenScale() const;
 
 private:
@@ -32,6 +32,8 @@ private:
     int m_viewPortHeight;
     DisplayModel *m_model;
     QMap<MonitorProxyWidget *, Monitor *> m_monitors;
+
+    QTimer *m_refershTimer;
 };
 
 #endif // MONITORSGROUND_H
