@@ -2,7 +2,7 @@
 #define OPTIONWIDGET_H
 
 #include "settingsitem.h"
-
+#include "labels/normallabel.h"
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QPushButton>
 #include <dimagebutton.h>
+#include <QPixmap>
 #include <QJsonObject>
 
 namespace dcc
@@ -47,7 +48,7 @@ private:
     QLabel       *m_execPath;
     DImageButton *m_delete;
     QLabel       *m_checkedIconLabel;
-    QLabel       *m_displayName;
+    NormalLabel  *m_displayName;
     bool          m_checked           = false;
     bool          m_delchecked        = false;
     bool          m_userCheck         = false;

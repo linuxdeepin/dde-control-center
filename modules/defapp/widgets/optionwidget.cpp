@@ -7,7 +7,7 @@ dcc::OptionWidget::OptionWidget(QWidget *): m_delete(new DImageButton)
     m_checkedIconLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_optionIcon = new QLabel;
     m_optionIcon->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_displayName = new QLabel;
+    m_displayName = new NormalLabel;
     m_displayName->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     m_execPath = new QLabel;
@@ -57,7 +57,7 @@ void dcc::OptionWidget::setItem(const QJsonObject &item)
     } else {
         m_displayName->setText(item["DisplayName"].toString());
     }
-    m_optionIcon->setPixmap(QPixmap(item["Icon"].toString()));
+    m_optionIcon->setPixmap(QPixmap(item["Icon"].toString()).scaled(17,17,Qt::KeepAspectRatio));
 }
 void dcc::OptionWidget::setDelete(const bool delchecked)     //删除
 {
