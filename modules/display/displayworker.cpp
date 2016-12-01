@@ -49,6 +49,7 @@ void DisplayWorker::showCustomSettings()
 {
     MonitorSettingDialog dialog(m_model);
 
+    connect(&dialog, &MonitorSettingDialog::requestSetPrimary, this, &DisplayWorker::setPrimary);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorMode, this, &DisplayWorker::setMonitorResolution);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorBrightness, this, &DisplayWorker::setMonitorBrightness);
 
@@ -103,6 +104,11 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 
     inter->SetRotation(rotate).waitForFinished();
     m_displayInter.ApplyChanges();
+}
+
+void DisplayWorker::setPrimary(const int index)
+{
+    m_displayInter.SetPrimary(m_model->monitorList()[index]->name());
 }
 
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
@@ -161,19 +167,20 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::WidthChanged, mon, &Monitor::setW);
     connect(inter, &MonitorInter::HeightChanged, mon, &Monitor::setH);
     connect(inter, &MonitorInter::RotationChanged, mon, &Monitor::setRotate);
-    connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
+//    connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
     connect(inter, &MonitorInter::ModesChanged, mon, &Monitor::setModeList);
     connect(inter, &MonitorInter::RotationsChanged, mon, &Monitor::setRotateList);
 
     inter->setSync(false);
 
+    const int baseLength = strlen("/com/deepin/daemon/Display/Monitor");
+    mon->setName(path.right(path.size() - baseLength));
     mon->setX(inter->x());
     mon->setY(inter->y());
     mon->setW(inter->width());
     mon->setH(inter->height());
     mon->setRotate(inter->rotation());
-    mon->setName(inter->name());
     mon->setCurrentMode(inter->currentMode());
     mon->setModeList(inter->modes());
     mon->setRotateList(inter->rotations());

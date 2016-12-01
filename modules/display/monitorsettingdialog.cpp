@@ -110,6 +110,7 @@ void MonitorSettingDialog::initPrimary()
 
         MonitorSettingDialog *dialog = new MonitorSettingDialog(mon, this);
 
+        connect(dialog, &MonitorSettingDialog::requestSetPrimary, this, &MonitorSettingDialog::requestSetPrimary);
         connect(dialog, &MonitorSettingDialog::requestSetMonitorMode, this, &MonitorSettingDialog::requestSetMonitorMode);
         connect(dialog, &MonitorSettingDialog::requestSetMonitorBrightness, this, &MonitorSettingDialog::requestSetMonitorBrightness);
 
@@ -117,6 +118,7 @@ void MonitorSettingDialog::initPrimary()
         m_otherDialogs.append(dialog);
     }
 
+    connect(m_primarySettingsWidget, &SettingsListWidget::clicked, this, &MonitorSettingDialog::requestSetPrimary);
     connect(m_model, &DisplayModel::primaryScreenChanged, this, &MonitorSettingDialog::onPrimaryChanged);
     connect(cancelBtn, &QPushButton::clicked, [=] { reject(); });
     connect(applyBtn, &QPushButton::clicked, [=] { accept(); });

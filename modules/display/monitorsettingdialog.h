@@ -26,6 +26,7 @@ public:
     ~MonitorSettingDialog();
 
 signals:
+    void requestSetPrimary(const int index) const;
     void requestSetMonitorMode(Monitor *mon, const int mode) const;
     void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
 

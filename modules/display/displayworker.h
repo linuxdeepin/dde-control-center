@@ -28,6 +28,7 @@ private slots:
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
     void setMonitorRotate(Monitor *mon, const quint16 rotate);
+    void setPrimary(const int index);
 
 private:
 //    void loadRotations(Monitor * const mon);
