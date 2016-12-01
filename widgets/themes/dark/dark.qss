@@ -13,3 +13,7 @@
     qproperty-hoverPic: url(:/widgets/icons/back_hover.png);
     qproperty-pressPic: url(:/widgets/icons/back_press.png);
 }
+
+dcc--SettingsItem {
+    background-color: rgba(238, 238, 238, .2);
+}

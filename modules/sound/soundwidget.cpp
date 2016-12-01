@@ -34,6 +34,7 @@ SoundWidget::SoundWidget(SoundModel *model) :
 
     m_speakerSwitch->setTitle(tr("Speaker"));
 
+    m_outputBalanceSliderItem->setObjectName("OutputBalanceSliderItem");
     m_outputBalanceSlider = m_outputBalanceSliderItem->slider();
     m_outputBalanceSlider->setType(DCCSlider::Vernier);
     m_outputBalanceSlider->setOrientation(Qt::Horizontal);
@@ -46,10 +47,12 @@ SoundWidget::SoundWidget(SoundModel *model) :
 
     m_microphoneSwitch->setTitle(tr("Microphone"));
 
+    m_inputVolumeSliderItem->setObjectName("InputVolumeSliderItem");
     m_inputVolumeSlider = m_inputVolumeSliderItem->slider();
     m_inputVolumeSlider->setOrientation(Qt::Horizontal);
     m_inputVolumeSlider->setRange(0, 150);
 
+    m_inputFeedbackSliderItem->setObjectName("InputFeedbackSliderItem");
     m_inputFeedbackSlider = m_inputFeedbackSliderItem->slider();
     m_inputFeedbackSlider->setType(DCCSlider::Progress);
     m_inputFeedbackSlider->setOrientation(Qt::Horizontal);

@@ -18,17 +18,6 @@ SettingsItem::SettingsItem(QWidget *parent)
       m_isHead(false),
       m_isTail(false)
 {
-    setStyleSheet("dcc--SettingsItem {"
-                  "background-color: rgba(238, 238, 238, .2);"
-                  "}"
-                  "dcc--SettingsItem[isHead=true] {"
-                  "border-top-left-radius: 5px;"
-                  "border-top-right-radius: 5px;"
-                  "}"
-                  "dcc--SettingsItem[isTail=true] {"
-                  "border-bottom-left-radius: 5px;"
-                  "border-bottom-right-radius: 5px;"
-                  "}");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
 

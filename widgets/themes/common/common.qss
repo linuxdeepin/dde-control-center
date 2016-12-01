@@ -2,7 +2,7 @@ QScrollArea {
     background: transparent;
 }
 
-QScrollArea QFrame {
+QScrollArea > QFrame {
     background: transparent;
 }
 
@@ -19,4 +19,17 @@ dcc--TranslucentFrame {
 #LineEditWidget QLabel
 {
     color: white;
+}
+
+dcc--SettingsItem[isHead=true] {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+dcc--SettingsItem[isTail=true] {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+QLabel#SliderLeftIcon, QLabel#SliderRightIcon {
+    margin: 5px 0px 0px 0px;
 }

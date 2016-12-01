@@ -9,3 +9,6 @@ SOURCES += \
     $$PWD/soundwidget.cpp \
     $$PWD/soundworker.cpp \
     $$PWD/soundmodel.cpp
+
+RESOURCES += \
+    $$PWD/sound.qrc

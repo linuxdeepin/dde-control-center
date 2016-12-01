@@ -14,6 +14,8 @@
 #include <QPixmap>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QDebug>
+#include <QFile>
 
 #include "labels/normallabel.h"
 #include "dccslider.h"
@@ -31,6 +33,9 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent) :
     m_rightIconLabel(new QLabel)
 {
     m_slider->slider()->setOrientation(Qt::Horizontal);
+
+    m_leftIconLabel->setObjectName("SliderLeftIcon");
+    m_rightIconLabel->setObjectName("SliderRightIcon");
     m_leftIconLabel->setVisible(false);
     m_rightIconLabel->setVisible(false);
 
@@ -40,9 +45,9 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent) :
     topLayout->addWidget(m_valueLabel);
 
     QHBoxLayout *bottomLayout = new QHBoxLayout;
-    bottomLayout->addWidget(m_leftIconLabel);
+    bottomLayout->addWidget(m_leftIconLabel, 0, Qt::AlignTop);
     bottomLayout->addWidget(m_slider, 0);
-    bottomLayout->addWidget(m_rightIconLabel);
+    bottomLayout->addWidget(m_rightIconLabel, 0, Qt::AlignTop);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addLayout(topLayout);
