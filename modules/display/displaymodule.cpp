@@ -2,6 +2,8 @@
 #include "contentwidget.h"
 #include "displaywidget.h"
 #include "resolutiondetailpage.h"
+#include "monitorsettingdialog.h"
+#include "rotatedialog.h"
 
 using namespace dcc;
 using namespace dcc::display;
@@ -75,8 +77,32 @@ ModuleWidget *DisplayModule::moduleWidget()
     m_displayWidget = new DisplayWidget;
     m_displayWidget->setModel(m_displayModel);
     connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
-    connect(m_displayWidget, &DisplayWidget::requestRotate, m_displayWorker, &DisplayWorker::rotate);
-    connect(m_displayWidget, &DisplayWidget::requestCustom, m_displayWorker, &DisplayWorker::showCustomSettings);
+    connect(m_displayWidget, &DisplayWidget::requestRotate, [=] { showRotate(m_displayModel->primaryMonitor()); });
+    connect(m_displayWidget, &DisplayWidget::requestCustom, this, &DisplayModule::showCustomSettings);
 
     return m_displayWidget;
+}
+
+void DisplayModule::showCustomSettings()
+{
+    MonitorSettingDialog dialog(m_displayModel);
+
+    connect(&dialog, &MonitorSettingDialog::requestSetPrimary, m_displayWorker, &DisplayWorker::setPrimary);
+    connect(&dialog, &MonitorSettingDialog::requestSetMonitorMode, m_displayWorker, &DisplayWorker::setMonitorResolution);
+    connect(&dialog, &MonitorSettingDialog::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
+
+    // discard or save
+    if (dialog.exec() == QDialog::Accepted)
+        m_displayWorker->saveChanges();
+    else
+        m_displayWorker->discardChanges();
+}
+
+void DisplayModule::showRotate(Monitor *mon)
+{
+    RotateDialog dialog(mon);
+
+    connect(&dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
+
+    dialog.exec();
 }

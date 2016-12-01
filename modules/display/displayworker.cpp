@@ -1,6 +1,5 @@
 #include "displayworker.h"
 #include "displaymodel.h"
-#include "rotatedialog.h"
 #include "monitorsettingdialog.h"
 
 #include <QDebug>
@@ -35,47 +34,14 @@ DisplayWorker::~DisplayWorker()
     qDeleteAll(m_monitors.values());
 }
 
-void DisplayWorker::rotate()
+void DisplayWorker::saveChanges()
 {
-    const auto mons = m_model->monitorList();
-
-    // ensure only 1 monitor
-    Q_ASSERT(mons.size() == 1);
-
-    showRotateDialog(mons.first());
+    m_displayInter.Save();
 }
 
-void DisplayWorker::showCustomSettings()
+void DisplayWorker::discardChanges()
 {
-    MonitorSettingDialog dialog(m_model);
-
-    connect(&dialog, &MonitorSettingDialog::requestSetPrimary, this, &DisplayWorker::setPrimary);
-    connect(&dialog, &MonitorSettingDialog::requestSetMonitorMode, this, &DisplayWorker::setMonitorResolution);
-    connect(&dialog, &MonitorSettingDialog::requestSetMonitorBrightness, this, &DisplayWorker::setMonitorBrightness);
-
-    // discard or save
-    if (dialog.exec() == QDialog::Accepted)
-        m_displayInter.Save();
-    else
-        m_displayInter.ResetChanges();
-
-//    MonitorSettingDialog *primryDialog = nullptr;
-//    QList<MonitorSettingDialog *> dialogs;
-
-//    for (auto mon : m_monitors.keys())
-//    {
-//        MonitorSettingDialog *dialog = new MonitorSettingDialog(m_model, mon);
-//        if (!primryDialog && m_model->primary() == mon->name())
-//        {
-//            primryDialog = dialog;
-//            dialog->setPrimary();
-//        }
-
-//        dialog->show();
-//        dialogs.append(dialog);
-//    }
-//    Q_ASSERT(primryDialog);
-
+    m_displayInter.ResetChanges();
 }
 
 void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
@@ -203,13 +169,4 @@ void DisplayWorker::updateMonitorBrightness(const QString &monName, const double
             return;
         }
     }
-}
-
-void DisplayWorker::showRotateDialog(Monitor * const mon)
-{
-    RotateDialog dialog(mon);
-
-    connect(&dialog, &RotateDialog::requestRotate, this, &DisplayWorker::setMonitorRotate);
-
-    dialog.exec();
 }

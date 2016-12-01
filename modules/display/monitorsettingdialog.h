@@ -16,6 +16,7 @@ using Dtk::Widget::DImageButton;
 
 using dcc::DCCSlider;
 
+class MonitorControlWidget;
 class MonitorSettingDialog : public QDialog
 {
     Q_OBJECT
@@ -26,6 +27,7 @@ public:
     ~MonitorSettingDialog();
 
 signals:
+    void requestRecognize() const;
     void requestSetPrimary(const int index) const;
     void requestSetMonitorMode(Monitor *mon, const int mode) const;
     void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
@@ -54,6 +56,7 @@ private:
     dcc::DCCSlider *m_lightSlider;
     SettingsListWidget *m_resolutionsWidget;
     SettingsListWidget *m_primarySettingsWidget;
+    MonitorControlWidget *m_ctrlWidget;
     QHBoxLayout *m_btnsLayout;
     QVBoxLayout *m_mainLayout;
 

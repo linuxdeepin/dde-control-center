@@ -1,4 +1,5 @@
 #include "monitorsettingdialog.h"
+#include "monitorcontrolwidget.h"
 
 #include <QVBoxLayout>
 #include <QTimer>
@@ -98,6 +99,9 @@ void MonitorSettingDialog::initPrimary()
     m_primarySettingsWidget = new SettingsListWidget;
     m_primarySettingsWidget->setTitle(tr("Primary"));
     m_mainLayout->insertWidget(0, m_primarySettingsWidget);
+
+    m_ctrlWidget = new MonitorControlWidget;
+    m_mainLayout->insertWidget(0, m_ctrlWidget);
 
     // load other non-primary dialogs
     for (auto mon : m_model->monitorList())

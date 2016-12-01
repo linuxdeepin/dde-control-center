@@ -32,6 +32,10 @@ private:
     ModuleWidget *moduleWidget();
 
 private:
+    void showCustomSettings();
+    void showRotate(Monitor *mon);
+
+private:
     DisplayModel *m_displayModel;
     DisplayWorker *m_displayWorker;
     DisplayWidget *m_displayWidget;
