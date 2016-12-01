@@ -102,6 +102,7 @@ void MonitorSettingDialog::initPrimary()
     m_mainLayout->insertWidget(0, m_primarySettingsWidget);
 
     m_ctrlWidget = new MonitorControlWidget;
+    m_ctrlWidget->setDisplayModel(m_model);
     m_mainLayout->insertWidget(0, m_ctrlWidget);
 
     // load other non-primary dialogs
