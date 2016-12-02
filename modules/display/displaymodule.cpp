@@ -93,6 +93,7 @@ void DisplayModule::showCustomSettings()
     MonitorSettingDialog dialog(m_displayModel);
 
     connect(&dialog, &MonitorSettingDialog::requestMerge, m_displayWorker, &DisplayWorker::mergeScreens);
+    connect(&dialog, &MonitorSettingDialog::requestSplit, m_displayWorker, &DisplayWorker::splitScreens);
     connect(&dialog, &MonitorSettingDialog::requestSetPrimary, m_displayWorker, &DisplayWorker::setPrimary);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorMode, m_displayWorker, &DisplayWorker::setMonitorResolution);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);

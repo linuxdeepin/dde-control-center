@@ -22,6 +22,7 @@ public slots:
     void saveChanges();
     void discardChanges();
     void mergeScreens();
+    void splitScreens();
     void setPrimary(const int index);
     void setMonitorEnable(Monitor *mon, const bool enabled);
     void setMonitorRotate(Monitor *mon, const quint16 rotate);

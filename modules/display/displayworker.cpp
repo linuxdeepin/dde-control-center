@@ -51,6 +51,12 @@ void DisplayWorker::mergeScreens()
     m_displayInter.ApplyChanges();
 }
 
+void DisplayWorker::splitScreens()
+{
+    m_displayInter.SwitchMode(2, QString()).waitForFinished();
+    m_displayInter.ApplyChanges();
+}
+
 void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
 {
     for (auto op : mons)

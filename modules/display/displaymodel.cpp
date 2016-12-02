@@ -6,6 +6,11 @@ DisplayModel::DisplayModel(QObject *parent)
 
 }
 
+const QList<Resolution> DisplayModel::monitorsModeList() const
+{
+
+}
+
 Monitor *DisplayModel::primaryMonitor() const
 {
     for (auto mon : m_monitors)

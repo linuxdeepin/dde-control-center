@@ -20,6 +20,7 @@ public:
 signals:
     void requestRecognize() const;
     void requestMerge() const;
+    void requestSplit() const;
     void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
 
 private:

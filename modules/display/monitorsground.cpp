@@ -58,12 +58,6 @@ void MonitorsGround::resetMonitorsView()
 
 void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
 {
-    if (pw->name() == m_model->primary())
-    {
-        adjust(pw);
-        return;
-    }
-
     const double scale = screenScale();
     const int offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
     const int offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;

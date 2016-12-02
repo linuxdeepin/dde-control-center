@@ -28,6 +28,7 @@ public:
 
 signals:
     void requestMerge() const;
+    void requestSplit() const;
     void requestRecognize() const;
     void requestSetPrimary(const int index) const;
     void requestMonitorRotate(Monitor *mon) const;
