@@ -86,8 +86,13 @@ ModuleWidget *DisplayModule::moduleWidget()
 
 void DisplayModule::showCustomSettings()
 {
+    // open all monitors
+    for (auto mon : m_displayModel->monitorList())
+        m_displayWorker->setMonitorEnable(mon, true);
+
     MonitorSettingDialog dialog(m_displayModel);
 
+    connect(&dialog, &MonitorSettingDialog::requestMerge, m_displayWorker, &DisplayWorker::mergeScreens);
     connect(&dialog, &MonitorSettingDialog::requestSetPrimary, m_displayWorker, &DisplayWorker::setPrimary);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorMode, m_displayWorker, &DisplayWorker::setMonitorResolution);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);

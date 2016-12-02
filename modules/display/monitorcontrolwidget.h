@@ -14,9 +14,11 @@ public:
     explicit MonitorControlWidget(QWidget *parent = 0);
 
     void setDisplayModel(DisplayModel *model);
+    void setScreensMerged(const bool merged);
 
 signals:
     void requestRecognize() const;
+    void requestMerge() const;
 
 private:
     MonitorsGround *m_screensGround;

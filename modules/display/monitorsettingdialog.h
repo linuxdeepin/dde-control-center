@@ -27,6 +27,7 @@ public:
     ~MonitorSettingDialog();
 
 signals:
+    void requestMerge() const;
     void requestRecognize() const;
     void requestSetPrimary(const int index) const;
     void requestMonitorRotate(Monitor *mon) const;
@@ -40,6 +41,7 @@ private:
 private slots:
     void mergeScreens();
     void splitScreens();
+    void updateScreensRelation();
     void onPrimaryChanged();
     void onMonitorRectChanged();
     void onMonitorModeChanged();

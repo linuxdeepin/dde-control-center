@@ -22,6 +22,8 @@ public:
     const QList<Monitor *> monitorList() const { return m_monitors; }
     Monitor *primaryMonitor() const;
 
+    bool monitorsIsIntersect() const;
+
 signals:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;

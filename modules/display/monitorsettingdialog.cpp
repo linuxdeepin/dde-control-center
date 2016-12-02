@@ -127,12 +127,16 @@ void MonitorSettingDialog::initPrimary()
     }
 
     connect(m_ctrlWidget, &MonitorControlWidget::requestRecognize, this, &MonitorSettingDialog::requestRecognize);
+    connect(m_ctrlWidget, &MonitorControlWidget::requestMerge, this, &MonitorSettingDialog::requestMerge);
     connect(m_primarySettingsWidget, &SettingsListWidget::clicked, this, &MonitorSettingDialog::requestSetPrimary);
     connect(m_model, &DisplayModel::primaryScreenChanged, this, &MonitorSettingDialog::onPrimaryChanged);
+    connect(m_model, &DisplayModel::screenHeightChanged, this, &MonitorSettingDialog::updateScreensRelation, Qt::QueuedConnection);
+    connect(m_model, &DisplayModel::screenWidthChanged, this, &MonitorSettingDialog::updateScreensRelation, Qt::QueuedConnection);
     connect(cancelBtn, &QPushButton::clicked, [=] { reject(); });
     connect(applyBtn, &QPushButton::clicked, [=] { accept(); });
 
     onPrimaryChanged();
+    updateScreensRelation();
 }
 
 void MonitorSettingDialog::mergeScreens()
@@ -143,6 +147,20 @@ void MonitorSettingDialog::mergeScreens()
 void MonitorSettingDialog::splitScreens()
 {
     Q_ASSERT(m_model->monitorList().size() == 2);
+}
+
+void MonitorSettingDialog::updateScreensRelation()
+{
+    const bool merged = m_model->monitorsIsIntersect();
+
+    m_ctrlWidget->setScreensMerged(merged);
+    m_primarySettingsWidget->setVisible(!merged);
+
+    for (auto d : m_otherDialogs)
+        d->setVisible(!merged);
+
+    // TODO: reset screen mode list
+//    onMonitorBrightnessChanegd();
 }
 
 void MonitorSettingDialog::onPrimaryChanged()

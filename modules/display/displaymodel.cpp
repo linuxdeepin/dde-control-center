@@ -15,6 +15,17 @@ Monitor *DisplayModel::primaryMonitor() const
     return nullptr;
 }
 
+bool DisplayModel::monitorsIsIntersect() const
+{
+    if (m_monitors.size() < 2)
+        return false;
+
+    // only support 2 screens
+    Q_ASSERT(m_monitors.size() == 2);
+
+    return m_monitors.first()->rect().intersects(m_monitors.last()->rect());
+}
+
 void DisplayModel::setScreenHeight(const int h)
 {
     if (m_screenHeight != h)

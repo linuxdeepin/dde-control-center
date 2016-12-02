@@ -44,6 +44,13 @@ void DisplayWorker::discardChanges()
     m_displayInter.ResetChanges();
 }
 
+void DisplayWorker::mergeScreens()
+{
+    qDebug() << Q_FUNC_INFO;
+    m_displayInter.SwitchMode(1, QString()).waitForFinished();
+    m_displayInter.ApplyChanges();
+}
+
 void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
 {
     for (auto op : mons)
@@ -75,6 +82,15 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 void DisplayWorker::setPrimary(const int index)
 {
     m_displayInter.SetPrimary(m_model->monitorList()[index]->name());
+}
+
+void DisplayWorker::setMonitorEnable(Monitor *mon, const bool enabled)
+{
+    MonitorInter *inter = m_monitors.value(mon);
+    Q_ASSERT(inter);
+
+    inter->Enable(enabled).waitForFinished();
+    m_displayInter.ApplyChanges();
 }
 
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)

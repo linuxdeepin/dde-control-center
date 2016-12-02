@@ -30,9 +30,16 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     setLayout(mainLayout);
 
     connect(m_recognize, &QPushButton::clicked, this, &MonitorControlWidget::requestRecognize);
+    connect(m_join, &QPushButton::clicked, this, &MonitorControlWidget::requestMerge);
 }
 
 void MonitorControlWidget::setDisplayModel(DisplayModel *model)
 {
     m_screensGround->setDisplayModel(model);
+}
+
+void MonitorControlWidget::setScreensMerged(const bool merged)
+{
+    m_split->setVisible(merged);
+    m_join->setVisible(!merged);
 }
