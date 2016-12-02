@@ -20,7 +20,7 @@ public:
     int screenWidth() const { return m_screenWidth; }
     const QString primary() const { return m_primary; }
     const QList<Monitor *> monitorList() const { return m_monitors; }
-    const QList<Resolution> monitorsModeList() const;
+    const QList<Resolution> monitorsSameModeList() const;
     Monitor *primaryMonitor() const;
 
     bool monitorsIsIntersect() const;

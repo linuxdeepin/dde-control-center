@@ -1,14 +1,37 @@
 #include "displaymodel.h"
 
+bool contains(const QList<Resolution> &container, const Resolution &item)
+{
+    for (auto r : container)
+        if (r.width() == item.width() && r.height() == item.height())
+            return true;
+
+    return false;
+}
+
 DisplayModel::DisplayModel(QObject *parent)
     : QObject(parent)
 {
 
 }
 
-const QList<Resolution> DisplayModel::monitorsModeList() const
+const QList<Resolution> DisplayModel::monitorsSameModeList() const
 {
+    Q_ASSERT(m_monitors.size() > 1);
 
+    QList<Resolution> resultList = m_monitors.first()->modeList();
+    for (int i(1); i != m_monitors.size(); ++i)
+    {
+        const QList<Resolution> originList = m_monitors[i]->modeList();
+        QList<Resolution> filteredList;
+
+        for (auto r : resultList)
+            if (contains(originList, r))
+                filteredList.append(r);
+        resultList = filteredList;
+    }
+
+    return resultList;
 }
 
 Monitor *DisplayModel::primaryMonitor() const

@@ -43,15 +43,14 @@ private:
     void reloadMonitorObject(Monitor *monitor);
     void reloadOtherScreensDialog();
 
+    void updateModeList(const QList<Resolution> &modeList);
+
 private slots:
-    void mergeScreens();
-    void splitScreens();
     void updateScreensRelation();
     void onPrimaryChanged();
     void onMonitorRectChanged();
     void onMonitorModeChanged();
     void onMonitorBrightnessChanegd(const double brightness);
-    void onMonitorModeListChanged(const QList<Resolution> &modeList);
     void onMonitorModeSelected(const int index);
 
     void onBrightnessSliderChanged(const int value);

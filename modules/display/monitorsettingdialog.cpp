@@ -123,7 +123,9 @@ void MonitorSettingDialog::initPrimary()
 
 void MonitorSettingDialog::reloadMonitorObject(Monitor *monitor)
 {
-    Q_ASSERT(m_monitor != monitor);
+    // only refersh mode list
+    if (m_monitor == monitor)
+        return onMonitorModeChanged();
 
     if (m_monitor)
     {
@@ -134,14 +136,13 @@ void MonitorSettingDialog::reloadMonitorObject(Monitor *monitor)
 
     m_monitor = monitor;
 
-    connect(m_monitor, &Monitor::currentModeChanged, this, &MonitorSettingDialog::onMonitorModeChanged);
+    connect(m_monitor, &Monitor::currentModeChanged, this, &MonitorSettingDialog::onMonitorModeChanged, Qt::QueuedConnection);
     connect(m_monitor, &Monitor::brightnessChanged, this, &MonitorSettingDialog::onMonitorBrightnessChanegd);
     connect(m_monitor, &Monitor::geometryChanged, m_smallDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
 
     setWindowTitle(m_monitor->name());
-    onMonitorModeListChanged(m_monitor->modeList());
+    onMonitorModeChanged();
     onMonitorBrightnessChanegd(m_monitor->brightness());
-
     QTimer::singleShot(10, this, &MonitorSettingDialog::onMonitorRectChanged);
 }
 
@@ -168,16 +169,6 @@ void MonitorSettingDialog::reloadOtherScreensDialog()
     }
 }
 
-void MonitorSettingDialog::mergeScreens()
-{
-    Q_ASSERT(m_model->monitorList().size() == 2);
-}
-
-void MonitorSettingDialog::splitScreens()
-{
-    Q_ASSERT(m_model->monitorList().size() == 2);
-}
-
 void MonitorSettingDialog::updateScreensRelation()
 {
     const bool merged = m_model->monitorsIsIntersect();
@@ -188,8 +179,7 @@ void MonitorSettingDialog::updateScreensRelation()
     for (auto d : m_otherDialogs)
         d->setVisible(!merged);
 
-    // TODO: reset screen mode list
-//    onMonitorBrightnessChanegd();
+    onMonitorModeChanged();
 }
 
 void MonitorSettingDialog::onPrimaryChanged()
@@ -221,7 +211,18 @@ void MonitorSettingDialog::onMonitorRectChanged()
 
 void MonitorSettingDialog::onMonitorModeChanged()
 {
-    m_resolutionsWidget->setSelectedIndex(m_monitor->modeList().indexOf(m_monitor->currentMode()));
+    const bool intersect = m_primary && m_model->monitorsIsIntersect();
+    if (intersect)
+        updateModeList(m_model->monitorsSameModeList());
+    else
+        updateModeList(m_monitor->modeList());
+
+    if (!intersect)
+        m_resolutionsWidget->setSelectedIndex(m_monitor->modeList().indexOf(m_monitor->currentMode()));
+    else
+    {
+
+    }
 }
 
 void MonitorSettingDialog::onMonitorBrightnessChanegd(const double brightness)
@@ -231,7 +232,7 @@ void MonitorSettingDialog::onMonitorBrightnessChanegd(const double brightness)
     m_lightSlider->blockSignals(false);
 }
 
-void MonitorSettingDialog::onMonitorModeListChanged(const QList<Resolution> &modeList)
+void MonitorSettingDialog::updateModeList(const QList<Resolution> &modeList)
 {
     m_resolutionsWidget->clear();
 
@@ -248,8 +249,6 @@ void MonitorSettingDialog::onMonitorModeListChanged(const QList<Resolution> &mod
             m_resolutionsWidget->appendOption(option);
         }
     }
-
-    onMonitorModeChanged();
 }
 
 void MonitorSettingDialog::onMonitorModeSelected(const int index)
