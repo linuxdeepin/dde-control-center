@@ -27,7 +27,7 @@ private:
     DisplayModel *m_model;
     dcc::SettingsGroup *m_resolutions;
 
-    QMap<dcc::OptionItem *, int> m_options;
+    QMap<dcc::widgets::OptionItem *, int> m_options;
 };
 
 #endif // RESOLUTIONDETAILPAGE_H

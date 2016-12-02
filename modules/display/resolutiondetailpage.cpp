@@ -1,6 +1,6 @@
 #include "resolutiondetailpage.h"
 
-using namespace dcc;
+using namespace dcc::widgets;
 
 ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
     : ContentWidget(parent),
@@ -31,7 +31,7 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
         const QString res = QString::number(m.width()) + "×" + QString::number(m.height());
         OptionItem *item = new OptionItem;
 
-        connect(item, &OptionItem::clicked, this, &ResolutionDetailPage::onItemClicked);
+        connect(item, &OptionItem::selectedChanged, this, &ResolutionDetailPage::onItemClicked);
 
         if (first)
         {

@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/widgets">
         <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/select.png</file>
         <file>themes/common/common.qss</file>
         <file>icons/next_hover.png</file>
         <file>icons/next_normal.png</file>

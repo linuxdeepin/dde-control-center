@@ -14,6 +14,16 @@
     qproperty-pressPic: url(:/widgets/icons/back_press.png);
 }
 
+/* SettingsItem */
 dcc--SettingsItem {
     background-color: rgba(238, 238, 238, .2);
+}
+
+/* OptionItem */
+NormalLabel#OptionItemTitle {
+    color: white;
+}
+
+QLabel#OptionItemSelectedIcon {
+    background: url(:/widgets/themes/dark/icons/select.png);
 }

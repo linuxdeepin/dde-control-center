@@ -6,6 +6,7 @@
 #include "titledslideritem.h"
 #include "dccslider.h"
 #include "dccsliderannotated.h"
+#include "optionitem.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
