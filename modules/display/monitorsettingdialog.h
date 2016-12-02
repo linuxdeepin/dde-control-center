@@ -38,6 +38,9 @@ private:
     void init();
     void initPrimary();
 
+    void reloadMonitorObject(Monitor *monitor);
+    void reloadOtherScreensDialog();
+
 private slots:
     void mergeScreens();
     void splitScreens();
@@ -64,6 +67,8 @@ private:
     MonitorControlWidget *m_ctrlWidget;
     QHBoxLayout *m_btnsLayout;
     QVBoxLayout *m_mainLayout;
+
+    QTimer *m_smallDelayTimer;
 
     QList<MonitorSettingDialog *> m_otherDialogs;
 };

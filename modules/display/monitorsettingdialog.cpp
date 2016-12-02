@@ -16,11 +16,12 @@ MonitorSettingDialog::MonitorSettingDialog(DisplayModel *model, QWidget *parent)
       m_primary(true),
 
       m_model(model),
-      m_monitor(model->primaryMonitor())
-{
-    Q_ASSERT(m_monitor);
+      m_monitor(nullptr),
 
+      m_smallDelayTimer(new QTimer(this))
+{
     init();
+    reloadMonitorObject(model->primaryMonitor());
     initPrimary();
 }
 
@@ -28,9 +29,12 @@ MonitorSettingDialog::MonitorSettingDialog(Monitor *monitor, QWidget *parent)
     : QDialog(parent),
 
       m_primary(false),
-      m_monitor(monitor)
+      m_monitor(nullptr),
+
+      m_smallDelayTimer(new QTimer(this))
 {
     init();
+    reloadMonitorObject(monitor);
 }
 
 MonitorSettingDialog::~MonitorSettingDialog()
@@ -62,27 +66,16 @@ void MonitorSettingDialog::init()
     m_mainLayout->addLayout(m_btnsLayout);
     m_mainLayout->setSizeConstraint(QLayout::SetFixedSize);
 
-    QTimer *smallDelayTimer = new QTimer(this);
-    smallDelayTimer->setSingleShot(true);
-    smallDelayTimer->setInterval(1000);
+    m_smallDelayTimer->setSingleShot(true);
+    m_smallDelayTimer->setInterval(1000);
 
-    connect(m_monitor, &Monitor::currentModeChanged, this, &MonitorSettingDialog::onMonitorModeChanged);
-    connect(m_monitor, &Monitor::brightnessChanged, this, &MonitorSettingDialog::onMonitorBrightnessChanegd);
-    connect(m_monitor, &Monitor::xChanged, smallDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_monitor, &Monitor::yChanged, smallDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_monitor, &Monitor::wChanged, smallDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_monitor, &Monitor::hChanged, smallDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_resolutionsWidget, &SettingsListWidget::clicked, this, &MonitorSettingDialog::onMonitorModeSelected);
     connect(m_lightSlider, &DCCSlider::valueChanged, this, &MonitorSettingDialog::onBrightnessSliderChanged);
     connect(m_rotateBtn, &DImageButton::clicked, [=] { emit requestMonitorRotate(m_monitor); });
-    connect(smallDelayTimer, &QTimer::timeout, this, &MonitorSettingDialog::onMonitorRectChanged);
+    connect(m_smallDelayTimer, &QTimer::timeout, this, &MonitorSettingDialog::onMonitorRectChanged);
 
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
-    setWindowTitle(m_monitor->name());
     setLayout(m_mainLayout);
-    onMonitorModeListChanged(m_monitor->modeList());
-    onMonitorBrightnessChanegd(m_monitor->brightness());
-    QTimer::singleShot(10, this, &MonitorSettingDialog::onMonitorRectChanged);
 }
 
 void MonitorSettingDialog::initPrimary()
@@ -106,12 +99,57 @@ void MonitorSettingDialog::initPrimary()
     m_ctrlWidget->setDisplayModel(m_model);
     m_mainLayout->insertWidget(0, m_ctrlWidget);
 
+    // add primary settings
+    for (auto mon : m_model->monitorList())
+        m_primarySettingsWidget->appendOption(mon->name());
+
+    connect(m_ctrlWidget, &MonitorControlWidget::requestRecognize, this, &MonitorSettingDialog::requestRecognize);
+    connect(m_ctrlWidget, &MonitorControlWidget::requestMerge, this, &MonitorSettingDialog::requestMerge);
+    connect(m_primarySettingsWidget, &SettingsListWidget::clicked, this, &MonitorSettingDialog::requestSetPrimary);
+    connect(m_model, &DisplayModel::primaryScreenChanged, this, &MonitorSettingDialog::onPrimaryChanged);
+    connect(m_model, &DisplayModel::screenHeightChanged, this, &MonitorSettingDialog::updateScreensRelation, Qt::QueuedConnection);
+    connect(m_model, &DisplayModel::screenWidthChanged, this, &MonitorSettingDialog::updateScreensRelation, Qt::QueuedConnection);
+    connect(cancelBtn, &QPushButton::clicked, [=] { reject(); });
+    connect(applyBtn, &QPushButton::clicked, [=] { accept(); });
+
+    onPrimaryChanged();
+    updateScreensRelation();
+
+    reloadOtherScreensDialog();
+}
+
+void MonitorSettingDialog::reloadMonitorObject(Monitor *monitor)
+{
+    Q_ASSERT(m_monitor != monitor);
+
+    if (m_monitor)
+    {
+        disconnect(m_monitor, &Monitor::currentModeChanged, this, &MonitorSettingDialog::onMonitorModeChanged);
+        disconnect(m_monitor, &Monitor::brightnessChanged, this, &MonitorSettingDialog::onMonitorBrightnessChanegd);
+        disconnect(m_monitor, &Monitor::geometryChanged, m_smallDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    }
+
+    m_monitor = monitor;
+
+    connect(m_monitor, &Monitor::currentModeChanged, this, &MonitorSettingDialog::onMonitorModeChanged);
+    connect(m_monitor, &Monitor::brightnessChanged, this, &MonitorSettingDialog::onMonitorBrightnessChanegd);
+    connect(m_monitor, &Monitor::geometryChanged, m_smallDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+
+    setWindowTitle(m_monitor->name());
+    onMonitorModeListChanged(m_monitor->modeList());
+    onMonitorBrightnessChanegd(m_monitor->brightness());
+
+    QTimer::singleShot(10, this, &MonitorSettingDialog::onMonitorRectChanged);
+}
+
+void MonitorSettingDialog::reloadOtherScreensDialog()
+{
+    qDeleteAll(m_otherDialogs);
+    m_otherDialogs.clear();
+
     // load other non-primary dialogs
     for (auto mon : m_model->monitorList())
     {
-        // add primary settings
-        m_primarySettingsWidget->appendOption(mon->name());
-
         if (mon == m_monitor)
             continue;
 
@@ -125,18 +163,6 @@ void MonitorSettingDialog::initPrimary()
         dialog->show();
         m_otherDialogs.append(dialog);
     }
-
-    connect(m_ctrlWidget, &MonitorControlWidget::requestRecognize, this, &MonitorSettingDialog::requestRecognize);
-    connect(m_ctrlWidget, &MonitorControlWidget::requestMerge, this, &MonitorSettingDialog::requestMerge);
-    connect(m_primarySettingsWidget, &SettingsListWidget::clicked, this, &MonitorSettingDialog::requestSetPrimary);
-    connect(m_model, &DisplayModel::primaryScreenChanged, this, &MonitorSettingDialog::onPrimaryChanged);
-    connect(m_model, &DisplayModel::screenHeightChanged, this, &MonitorSettingDialog::updateScreensRelation, Qt::QueuedConnection);
-    connect(m_model, &DisplayModel::screenWidthChanged, this, &MonitorSettingDialog::updateScreensRelation, Qt::QueuedConnection);
-    connect(cancelBtn, &QPushButton::clicked, [=] { reject(); });
-    connect(applyBtn, &QPushButton::clicked, [=] { accept(); });
-
-    onPrimaryChanged();
-    updateScreensRelation();
 }
 
 void MonitorSettingDialog::mergeScreens()
@@ -167,15 +193,22 @@ void MonitorSettingDialog::onPrimaryChanged()
 {
     Q_ASSERT(m_primary);
 
+    // update current index
     const QString primary = m_model->primary();
     for (int i(0); i != m_model->monitorList().size(); ++i)
     {
         if (m_model->monitorList()[i]->name() == primary)
         {
             m_primarySettingsWidget->setSelectedIndex(i);
-            return;
+            break;
         }
     }
+
+    if (m_monitor == m_model->primaryMonitor())
+        return;
+
+    reloadMonitorObject(m_model->primaryMonitor());
+    reloadOtherScreensDialog();
 }
 
 void MonitorSettingDialog::onMonitorRectChanged()
