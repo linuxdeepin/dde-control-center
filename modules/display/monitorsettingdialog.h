@@ -33,6 +33,7 @@ signals:
     void requestMonitorRotate(Monitor *mon) const;
     void requestSetMonitorMode(Monitor *mon, const int mode) const;
     void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
+    void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
 
 private:
     void init();

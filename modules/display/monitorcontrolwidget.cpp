@@ -31,6 +31,7 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
 
     connect(m_recognize, &QPushButton::clicked, this, &MonitorControlWidget::requestRecognize);
     connect(m_join, &QPushButton::clicked, this, &MonitorControlWidget::requestMerge);
+    connect(m_screensGround, &MonitorsGround::requestApplySettings, this, &MonitorControlWidget::requestSetMonitorPosition);
 }
 
 void MonitorControlWidget::setDisplayModel(DisplayModel *model)

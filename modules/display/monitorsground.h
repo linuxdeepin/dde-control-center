@@ -17,6 +17,9 @@ public:
 
     void setDisplayModel(DisplayModel *model);
 
+signals:
+    void requestApplySettings(Monitor *mon, const int x, const int y);
+
 private slots:
     void resetMonitorsView();
     void monitorMoved(MonitorProxyWidget *pw);
@@ -25,6 +28,7 @@ private slots:
 private:
     void ensureWidgetPerfect(MonitorProxyWidget *pw);
     void reloadViewPortSize();
+    void applySettings();
     double screenScale() const;
 
 private:

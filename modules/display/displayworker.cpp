@@ -107,6 +107,16 @@ void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
     m_displayInter.SetBrightness(mon->name(), brightness).waitForFinished();
 }
 
+void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
+{
+    qDebug() << Q_FUNC_INFO << mon->name() << x << y;
+    MonitorInter *inter = m_monitors.value(mon);
+    Q_ASSERT(inter);
+
+    inter->SetPosition(x, y).waitForFinished();
+    m_displayInter.ApplyChanges();
+}
+
 //void DisplayWorker::loadRotations(Monitor * const mon)
 //{
 //    MonitorInter *inter = m_monitors.value(mon);

@@ -53,6 +53,7 @@ void MonitorSettingDialog::init()
     m_lightSlider->setOrientation(Qt::Horizontal);
     m_lightSlider->setMinimum(0);
     m_lightSlider->setMaximum(1000);
+    m_lightSlider->setFixedWidth(350);
 
     m_btnsLayout = new QHBoxLayout;
     m_btnsLayout->addWidget(m_rotateBtn);
@@ -105,12 +106,13 @@ void MonitorSettingDialog::initPrimary()
 
     connect(m_ctrlWidget, &MonitorControlWidget::requestRecognize, this, &MonitorSettingDialog::requestRecognize);
     connect(m_ctrlWidget, &MonitorControlWidget::requestMerge, this, &MonitorSettingDialog::requestMerge);
+    connect(m_ctrlWidget, &MonitorControlWidget::requestSetMonitorPosition, this, &MonitorSettingDialog::requestSetMonitorPosition);
     connect(m_primarySettingsWidget, &SettingsListWidget::clicked, this, &MonitorSettingDialog::requestSetPrimary);
     connect(m_model, &DisplayModel::primaryScreenChanged, this, &MonitorSettingDialog::onPrimaryChanged);
     connect(m_model, &DisplayModel::screenHeightChanged, this, &MonitorSettingDialog::updateScreensRelation, Qt::QueuedConnection);
     connect(m_model, &DisplayModel::screenWidthChanged, this, &MonitorSettingDialog::updateScreensRelation, Qt::QueuedConnection);
-    connect(cancelBtn, &QPushButton::clicked, [=] { reject(); });
-    connect(applyBtn, &QPushButton::clicked, [=] { accept(); });
+    connect(cancelBtn, &QPushButton::clicked, this, &MonitorSettingDialog::reject);
+    connect(applyBtn, &QPushButton::clicked, this, &MonitorSettingDialog::accept);
 
     onPrimaryChanged();
     updateScreensRelation();

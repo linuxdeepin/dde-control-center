@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPushButton>
 
+class Monitor;
 class DisplayModel;
 class MonitorsGround;
 class MonitorControlWidget : public QWidget
@@ -19,6 +20,7 @@ public:
 signals:
     void requestRecognize() const;
     void requestMerge() const;
+    void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
 
 private:
     MonitorsGround *m_screensGround;

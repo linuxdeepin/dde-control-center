@@ -88,6 +88,7 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
         w->setMovedY(w->y() - minY);
     }
 
+    applySettings();
     resetMonitorsView();
 }
 
@@ -166,6 +167,12 @@ void MonitorsGround::reloadViewPortSize()
 
     m_viewPortWidth = w;
     m_viewPortHeight = h;
+}
+
+void MonitorsGround::applySettings()
+{
+    for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it)
+        emit requestApplySettings(it.value(), it.key()->x(), it.key()->y());
 }
 
 double MonitorsGround::screenScale() const
