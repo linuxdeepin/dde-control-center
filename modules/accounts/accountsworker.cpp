@@ -14,6 +14,8 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
       m_userModel(userList)
 {
     connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged);
+    connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser);
+    connect(m_accountsInter, &Accounts::UserDeleted, this, &AccountsWorker::removeUser);
 
     onUserListChanged(m_accountsInter->userList());
 
@@ -64,10 +66,9 @@ void AccountsWorker::addNewAvatar(User *user)
     QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
 }
 
-void AccountsWorker::deleteAccount(User *user)
+void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
 {
-    qDebug() << "delete user " << user->name();
-    qDebug() << Q_FUNC_INFO;
+    m_accountsInter->DeleteUser(user->name(), deleteHome);
 }
 
 void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
@@ -85,33 +86,13 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
 
 void AccountsWorker::onUserListChanged(const QStringList &userList)
 {
-    const QSet<QString> userSet = userList.toSet();
-    for (const QString &userPath : userSet)
-    {
-        if (m_userSet.contains(userPath))
-            continue;
-
-        AccountsUser *userInter = new AccountsUser(AccountsService, userPath, QDBusConnection::systemBus(), this);
-
-        User * user = new User(m_userModel);
-        connect(userInter, &AccountsUser::UserNameChanged, user, &User::setName);
-        connect(userInter, &AccountsUser::AutomaticLoginChanged, user, &User::setAutoLogin);
-        connect(userInter, &AccountsUser::IconListChanged, user, &User::setAvatars);
-        connect(userInter, &AccountsUser::IconFileChanged, user, &User::setCurrentAvatar);
-
-        user->setName(userInter->userName());
-        user->setAutoLogin(userInter->automaticLogin());
-        user->setAvatars(userInter->iconList());
-        user->setCurrentAvatar(userInter->iconFile());
-
-        userInter->setSync(false);
-
-        m_userInters[user] = userInter;
-        m_userModel->addUser(userPath, user);
+    if (m_userInters.size() == 0) {
+        const QSet<QString> userSet = userList.toSet();
+        for (const QString &userPath : userSet)
+        {
+            addUser(userPath);
+        }
     }
-
-    // TODO: process removed user
-    m_userSet = userSet;
 }
 
 void AccountsWorker::setPassword(User *user, const QString &passwd)
@@ -122,6 +103,41 @@ void AccountsWorker::setPassword(User *user, const QString &passwd)
     emit requestFrameAutoHide(false);
     userInter->SetPassword(passwd).waitForFinished();
     QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
+}
+
+void AccountsWorker::addUser(const QString &userPath)
+{
+    qDebug() << "user added: " << userPath;
+    AccountsUser *userInter = new AccountsUser(AccountsService, userPath, QDBusConnection::systemBus(), this);
+
+    User * user = new User(m_userModel);
+    connect(userInter, &AccountsUser::UserNameChanged, user, &User::setName);
+    connect(userInter, &AccountsUser::AutomaticLoginChanged, user, &User::setAutoLogin);
+    connect(userInter, &AccountsUser::IconListChanged, user, &User::setAvatars);
+    connect(userInter, &AccountsUser::IconFileChanged, user, &User::setCurrentAvatar);
+
+    user->setName(userInter->userName());
+    user->setAutoLogin(userInter->automaticLogin());
+    user->setAvatars(userInter->iconList());
+    user->setCurrentAvatar(userInter->iconFile());
+
+    userInter->setSync(false);
+
+    m_userInters[user] = userInter;
+    m_userModel->addUser(userPath, user);
+}
+
+void AccountsWorker::removeUser(const QString &userPath)
+{
+    qDebug() << "user removed: " << userPath;
+    for (AccountsUser *userInter : m_userInters.values()) {
+        if (userInter->path() == userPath) {
+            User *user = m_userInters.key(userInter);
+            m_userInters.remove(user);
+
+            m_userModel->removeUser(userPath);
+        }
+    }
 }
 
 CreationResult *AccountsWorker::createAccountInternal(const User *user)

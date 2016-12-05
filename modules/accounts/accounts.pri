@@ -9,7 +9,8 @@ HEADERS += \
     $$PWD/modifyavatarpage.h \
     $$PWD/avatarwidget.h \
     $$PWD/createpage.h \
-    $$PWD/creationresult.h
+    $$PWD/creationresult.h \
+    $$PWD/removeuserdialog.h
 
 SOURCES += \
     $$PWD/accountsmodule.cpp \
@@ -22,7 +23,8 @@ SOURCES += \
     $$PWD/modifyavatarpage.cpp \
     $$PWD/avatarwidget.cpp \
     $$PWD/createpage.cpp \
-    $$PWD/creationresult.cpp
+    $$PWD/creationresult.cpp \
+    $$PWD/removeuserdialog.cpp
 
 INCLUDEPATH += $$PWD/..
 

@@ -16,6 +16,7 @@ class NextPageWidget : public SettingsItem
 public:
     explicit NextPageWidget(QFrame *parent = 0);
 
+    inline QString title() const { return m_title->text(); }
     void setTitle(const QString &title);
     void setValue(const QString &value);
 //    void setDisplay(bool display);

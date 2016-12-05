@@ -30,10 +30,13 @@ public slots:
     void createAccount(const User *user);
 
     void addNewAvatar(User *user);
-    void deleteAccount(User *user);
+    void deleteAccount(User *user, const bool deleteHome);
     void setAutoLogin(User *user, const bool autoLogin);
     void onUserListChanged(const QStringList &userList);
     void setPassword(User *user, const QString &passwd);
+
+    void addUser(const QString &userPath);
+    void removeUser(const QString &userPath);
 
 private:
     AccountsUser *userInter(const QString &userName) const;

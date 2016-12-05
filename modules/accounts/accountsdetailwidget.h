@@ -20,10 +20,16 @@ signals:
     void showPwdSettings(User *user) const;
     void showAvatarSettings(User *user) const;
 
-    void requestDeleteAccount(User *user) const;
+    void requestDeleteAccount(User *user, const bool deleteHome) const;
     void requestSetAutoLogin(User *user, const bool autoLogin) const;
 
+    void requestChangeFrameAutoHide(const bool autoHide) const;
+
+private slots:
+    void deleteUserClicked();
+
 private:
+    User *m_user;
     dcc::SettingsGroup *m_accountSettings;
     dcc::NextPageWidget *m_modifyAvatar;
     dcc::NextPageWidget *m_modifyPassword;

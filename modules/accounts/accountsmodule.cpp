@@ -95,6 +95,10 @@ void AccountsModule::showAccountsDetail(User *account)
     connect(w, &AccountsDetailWidget::showPwdSettings, this, &AccountsModule::showPasswordPage);
     connect(w, &AccountsDetailWidget::showAvatarSettings, this, &AccountsModule::showAvatarPage);
 
+    connect(w, &AccountsDetailWidget::requestChangeFrameAutoHide, this, [this] (const bool autoHide) {
+        m_frameProxy->setFrameAutoHide(this, autoHide);
+    }, Qt::DirectConnection);
+
     m_frameProxy->pushWidget(this, w);
 }
 

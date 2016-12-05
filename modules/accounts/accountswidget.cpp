@@ -41,5 +41,12 @@ void AccountsWidget::addUser(User *user)
 
 void AccountsWidget::removeUser(User *user)
 {
-    Q_UNUSED(user);
+    QList<NextPageWidget *> items = findChildren<NextPageWidget*>();
+    for (NextPageWidget *item : items) {
+        if (item->title() == user->name()) {
+            m_userGroup->removeItem(item);
+            item->deleteLater();
+            break;
+        }
+    }
 }

@@ -3,11 +3,15 @@
 #include "translucentframe.h"
 
 #include <QVBoxLayout>
+#include <QDebug>
+
+#include "removeuserdialog.h"
 
 using namespace dcc;
 
 AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     : ContentWidget(parent),
+      m_user(user),
 
       m_accountSettings(new SettingsGroup),
       m_modifyAvatar(new NextPageWidget),
@@ -37,11 +41,28 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     mainWidget->setLayout(mainLayout);
 
     connect(user, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
-    connect(m_deleteAccount, &QPushButton::clicked, [=] { emit requestDeleteAccount(user); });
+    connect(m_deleteAccount, &QPushButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
     connect(m_autoLogin, &SwitchWidget::checkedChanegd, [=] (const bool autoLogin) { emit requestSetAutoLogin(user, autoLogin); });
     connect(m_modifyPassword, &NextPageWidget::clicked, [=] { emit showPwdSettings(user); });
     connect(m_modifyAvatar, &NextPageWidget::clicked, [=] { emit showAvatarSettings(user); });
 
     setContent(mainWidget);
     setTitle(user->name());
+}
+
+void AccountsDetailWidget::deleteUserClicked()
+{
+    emit requestChangeFrameAutoHide(false);
+
+    RemoveUserDialog d(m_user);
+    int ret = d.exec();
+
+    QTimer::singleShot(300, [this] {
+        emit requestChangeFrameAutoHide(true);
+    });
+
+    if (ret) {
+        emit requestDeleteAccount(m_user, d.deleteHome());
+        emit back();
+    }
 }

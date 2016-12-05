@@ -9,6 +9,8 @@
 
 #include "usermodel.h"
 
+#include <QDebug>
+
 UserModel::UserModel(QObject *parent) :
     QObject(parent)
 {
@@ -32,6 +34,12 @@ QList<User *> UserModel::userList() const
 
 void UserModel::addUser(const QString &id, User *user)
 {
+    if (getUser(id)) {
+        qDebug() << "user: " << user->name() << " already exists, abort add.";
+        return;
+    }
+
+    qDebug() << "add user: " << user->name();
     m_userList[id] = user;
 
     emit userAdded(user);
@@ -39,7 +47,10 @@ void UserModel::addUser(const QString &id, User *user)
 
 void UserModel::removeUser(const QString &id)
 {
-    User * user = m_userList.take(id);
+    qDebug() << "remove user: " << id;
 
-    emit userRemoved(user);
+    User * user = getUser(id);
+
+    if (user)
+        emit userRemoved(user);
 }

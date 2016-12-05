@@ -70,6 +70,7 @@ void SettingsGroup::setHeaderVisible(const bool visible)
 
 void SettingsGroup::insertItem(const int index, SettingsItem *item)
 {
+    qDebug() << "insert item " << height();
     updateItemPaddings(item);
 
     m_layout->insertWidget(index, item);
@@ -143,6 +144,7 @@ void SettingsGroup::updateHeight()
 {
     Q_ASSERT(sender() == m_updateHeightTimer);
 
+    qDebug() << "update height : " << m_layout->sizeHint().height();
     setFixedHeight(m_layout->sizeHint().height());
 }
 
