@@ -14,6 +14,8 @@ using UserInter = com::deepin::daemon::accounts::User;
 
 DWIDGET_USE_NAMESPACE
 
+const int PLUGINS_HEIGHT = 400;
+
 MainWidget::MainWidget(Frame *parent)
     : FrameWidget(parent),
 
@@ -29,7 +31,8 @@ MainWidget::MainWidget(Frame *parent)
       m_pluginsLayout(new QHBoxLayout),
       m_pluginsIndicator(new DPageIndicator),
       m_nextPluginBtn(new QPushButton),
-      m_allSettingsBtn(new QPushButton)
+      m_allSettingsBtn(new QPushButton),
+      m_quickSettingsPanel(new QuickControlPanel(this))
 {
     // TODO: get dbus data
     const int uid = getuid();
@@ -82,6 +85,7 @@ MainWidget::MainWidget(Frame *parent)
     centeralLayout->addWidget(m_pluginsIndicator);
     centeralLayout->addWidget(m_nextPluginBtn);
     centeralLayout->addWidget(m_allSettingsBtn);
+    centeralLayout->addWidget(m_quickSettingsPanel);
     centeralLayout->setSpacing(0);
     centeralLayout->setMargin(0);
 
@@ -104,8 +108,7 @@ void MainWidget::showPlugin(QWidget * const w)
 
 void MainWidget::pluginAdded(QWidget * const w)
 {
-    // TODO: fixed height
-    w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    w->setFixedHeight(PLUGINS_HEIGHT);
     m_pluginsLayout->addWidget(w);
     showPlugin(w);
 }

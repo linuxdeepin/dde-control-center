@@ -21,7 +21,8 @@ HEADERS    += \
     mainwidget.h \
     settingswidget.h \
     moduleinitthread.h \
-    dbuscontrolcenterservice.h
+    dbuscontrolcenterservice.h \
+    quickcontrolpanel.h
 
 SOURCES    += \
             main.cpp \
@@ -31,7 +32,8 @@ SOURCES    += \
     mainwidget.cpp \
     settingswidget.cpp \
     moduleinitthread.cpp \
-    dbuscontrolcenterservice.cpp
+    dbuscontrolcenterservice.cpp \
+    quickcontrolpanel.cpp
 
 #RESOURCES += \
 #    qss.qrc \
