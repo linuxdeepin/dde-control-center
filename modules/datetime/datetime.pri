@@ -1,6 +1,9 @@
 
 CITIES_PATH=$$PWD/../../data/
+DATABASE_RELEASE=$${PREFIX}/share/dde-control-center/
+
 DEFINES += CITIES_DATABASE_PATH=\\\"$$CITIES_PATH\\\"
+DEFINES += DATABASE_RELEASE_PATH=\\\"$$DATABASE_RELEASE\\\"
 
 HEADERS += \
     $$PWD/datetime.h \

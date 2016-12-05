@@ -48,7 +48,11 @@ const QStringList DatetimeUtil::city2UTC(const QString &city)
         db = QSqlDatabase::addDatabase(QLatin1String("QSQLITE"), timezone_database);
     }
 
+#ifdef QT_DEBUG
     db.setDatabaseName(CITIES_DATABASE_PATH + QString(timezone_database) + ".db");
+#else
+    db.setDatabaseName(DATABASE_RELEASE_PATH + QString(timezone_database) + ".db");
+#endif
 
     if (!db.open())
     {

@@ -39,6 +39,9 @@ qm_files.files = translations/*.qm
 docs.path = /usr/share/dman/dde-control-center
 docs.files = docs/*
 
+databases.path = $${PREFIX}/share/dde-control-center/
+databases.files = data/timezone.db
+
 TRANSLATIONS    = translations/dde-control-center.ts
 
-INSTALLS = binary desktop service qm_files docs
+INSTALLS = binary desktop service qm_files docs databases
