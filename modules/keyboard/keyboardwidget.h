@@ -7,6 +7,7 @@
 #include "keyboardlayoutwidget.h"
 #include "nextpagewidget.h"
 #include "switchwidget.h"
+#include "dccslider.h"
 
 using namespace dcc;
 
@@ -21,12 +22,22 @@ signals:
     void keyoard();
     void language();
     void shortcut();
+    void delayChanged(int value);
+    void speedChanged(int value);
 
 public slots:
     void setKBValue(const QString& value);
     void setLangValue(const QString& value);
+    void onSliderValue(int value);
+    void onTimeout();
+    void setDelayValue(uint value);
+    void setSpeedValue(uint value);
 
 private:
+    bool m_bDelay;
+    QTimer *m_timer;
+    DCCSlider* m_delaySlider;
+    DCCSlider* m_speedSlider;
     NextPageWidget* m_keyItem;
     NextPageWidget* m_langItem;
     NextPageWidget* m_scItem;

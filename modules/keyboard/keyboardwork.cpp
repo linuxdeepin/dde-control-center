@@ -1,9 +1,10 @@
 #include "keyboardwork.h"
 #include "shortcutitem.h"
-
+#include <QTime>
 #include <QDebug>
-KeyboardWork::KeyboardWork(QObject *parent)
-    : QObject(parent)
+KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
+    : QObject(parent),
+      m_model(model)
 {
     qRegisterMetaType<LocaleInfo>("LocaleInfo");
     qDBusRegisterMetaType<LocaleInfo>();
@@ -20,15 +21,17 @@ KeyboardWork::KeyboardWork(QObject *parent)
                                           "/com/deepin/daemon/Keybinding",
                                           QDBusConnection::sessionBus(), this);
 
-    m_keyboardInter->setSync(false);
-    m_langSelector->setSync(false);
-    m_keybindInter->setSync(false);
-
     connect(m_keybindInter, SIGNAL(Added(QString,int)), this,SLOT(onAdded(QString,int)));
     connect(m_keybindInter, SIGNAL(KeyEvent(bool,QString)), this, SIGNAL(KeyEvent(bool,QString)));
     connect(m_keyboardInter, SIGNAL(UserLayoutListChanged(QStringList)), this, SIGNAL(UserLayoutListChanged(QStringList)));
     connect(m_keyboardInter, SIGNAL(CurrentLayoutChanged(QString)), this, SIGNAL(curLayout(QString)));
     connect(m_langSelector, SIGNAL(serviceValidChanged(bool)), this ,SLOT(onValid(bool)));
+    connect(m_keyboardInter, SIGNAL(RepeatDelayChanged(uint)), m_model, SIGNAL(delayChanged(uint)));
+    connect(m_keyboardInter, SIGNAL(RepeatIntervalChanged(uint)), m_model, SIGNAL(speedChanged(uint)));
+
+    m_keyboardInter->setSync(false);
+    m_langSelector->setSync(false);
+    m_keybindInter->setSync(false);
 }
 
 void KeyboardWork::getProperty()
@@ -107,6 +110,26 @@ void KeyboardWork::delShortcut(ShortcutInfo* info)
     m_keybindInter->Delete(info->id, info->type);
 }
 
+void KeyboardWork::setRepeatDelay(int value)
+{
+    m_keyboardInter->setRepeatDelay(value);
+}
+
+uint KeyboardWork::repeatDelay() const
+{
+    return m_keyboardInter->repeatDelay();
+}
+
+void KeyboardWork::setRepeatInterval(int value)
+{
+    m_keyboardInter->setRepeatInterval(((1000 - value) + 200) / 10);
+}
+
+uint KeyboardWork::repeatInterval() const
+{
+    return m_keyboardInter->repeatInterval();
+}
+
 void KeyboardWork::addUserLayout(const QString &value)
 {
     m_keyboardInter->AddUserLayout(value);
@@ -124,6 +147,7 @@ void KeyboardWork::delUserLayout(const QString &value)
 void KeyboardWork::onValid(bool value)
 {
     m_datas.clear();
+    qDebug()<<Q_FUNC_INFO<<QTime::currentTime();
     if(value)
     {
         QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_langSelector->GetLocaleList(), this);

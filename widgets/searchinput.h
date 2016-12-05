@@ -12,11 +12,13 @@ class SearchInput : public QLineEdit
 public:
     explicit SearchInput(QWidget* parent = 0);
     void setSearchText(const QString& text);
+    void setIconVisible(bool visible);
 
 protected:
     void paintEvent(QPaintEvent *);
 
 private:
+    bool m_iconVisible;
     QString m_search;
     QPixmap m_icon;
 };

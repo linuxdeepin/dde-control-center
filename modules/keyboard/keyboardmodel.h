@@ -23,6 +23,8 @@ public:
 signals:
     void curLayout(const QString& layout);
     void curLang(const QString& lang);
+    void delayChanged(uint value);
+    void speedChanged(uint value);
 
 public slots:
     void setLayout(const QString& value);
@@ -33,6 +35,8 @@ public slots:
     void setLocaleList(const QList<MetaData>& langs);
 
 private:
+    uint m_repeatInterval;
+    uint m_repeatDelay;
     QString m_layout;
     QString m_lang;
     QStringList m_userLayout;

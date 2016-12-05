@@ -112,10 +112,16 @@ ModuleWidget *KeyboardModule::moduleWidget()
         m_keyboardWidget = new KeyboardWidget();
         m_keyboardWidget->setKBValue(m_model->curLayout());
         m_keyboardWidget->setLangValue(m_model->curLang());
+        m_keyboardWidget->setDelayValue(m_work->repeatDelay());
+        m_keyboardWidget->setSpeedValue(m_work->repeatInterval());
 
         connect(m_keyboardWidget, SIGNAL(keyoard()), this, SLOT(onPushKBDetails()));
         connect(m_keyboardWidget, SIGNAL(language()), this, SLOT(onPushLanguage()));
         connect(m_keyboardWidget, SIGNAL(shortcut()), this, SLOT(onPushShortcut()));
+        connect(m_keyboardWidget, SIGNAL(delayChanged(int)), this, SLOT(onDelay(int)));
+        connect(m_keyboardWidget, SIGNAL(speedChanged(int)), this, SLOT(onSpeed(int)));
+        connect(m_model, SIGNAL(delayChanged(uint)), m_keyboardWidget, SLOT(setDelayValue(uint)));
+        connect(m_model, SIGNAL(speedChanged(uint)), m_keyboardWidget, SLOT(setSpeedValue(uint)));
     }
 
     return m_keyboardWidget;
@@ -461,6 +467,16 @@ void KeyboardModule::onDelShortcut(ShortcutInfo *info)
 {
     m_work->delShortcut(info);
     m_shortcutModel->delInfo(info);
+}
+
+void KeyboardModule::onDelay(int value)
+{
+    m_work->setRepeatDelay(value);
+}
+
+void KeyboardModule::onSpeed(int value)
+{
+    m_work->setRepeatInterval(value);
 }
 
 KeyboardModule::~KeyboardModule()

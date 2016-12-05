@@ -26,7 +26,6 @@ UpdateCtrlWidget::UpdateCtrlWidget(QWidget *parent)
     m_checkGroup->appendItem(m_checkUpdateItem);
 
     m_powerTip = new QLabel();
-    m_powerTip->setStyleSheet("background-color: red");
     m_powerTip->setWordWrap(true);
     m_powerTip->hide();
 

@@ -56,6 +56,10 @@ public slots:
 
     void onAdded(const QString& in0, int in1);
     void onDelShortcut(ShortcutInfo* info);
+
+    void onDelay(int value);
+    void onSpeed(int value);
+
 private:
     ~KeyboardModule();
     void append(const MetaData& md);

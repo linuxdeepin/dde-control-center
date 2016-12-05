@@ -4,6 +4,7 @@
 #include <QObject>
 #include "indexmodel.h"
 #include "shortcutmodel.h"
+#include "keyboardmodel.h"
 #include <com_deepin_daemon_inputdevice_keyboard.h>
 #include <com_deepin_daemon_langselector.h>
 #include <com_deepin_daemon_keybinding.h>
@@ -17,7 +18,7 @@ class KeyboardWork : public QObject
     Q_OBJECT
 
 public:
-    explicit KeyboardWork(QObject *parent = 0);
+    explicit KeyboardWork(KeyboardModel* model, QObject *parent = 0);
     void getProperty();
 
     QString curLang() const;
@@ -31,6 +32,11 @@ public:
     bool checkAvaliable(const QString& key);
     QString query(const QString& id, qint32 type);
     void delShortcut(ShortcutInfo *info);
+
+    void setRepeatDelay(int value);
+    uint repeatDelay() const;
+    void setRepeatInterval(int value);
+    uint repeatInterval() const;
 
 signals:
     void langValid(const QList<MetaData>& langs);
@@ -56,6 +62,9 @@ public slots:
     void onAdded(const QString&in0, int in1);
 
 private:
+    int m_delayValue;
+    int m_speedValue;
+    KeyboardModel* m_model;
     KeyboardInter* m_keyboardInter;
     LangSelector* m_langSelector;
     KeybingdingInter* m_keybindInter;
