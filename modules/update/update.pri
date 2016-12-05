@@ -10,7 +10,10 @@ HEADERS += \
     $$PWD/updatemodel.h \
     $$PWD/updatesettings.h \
     $$PWD/mirrorswidget.h \
-    $$PWD/mirroritem.h
+    $$PWD/mirroritem.h \
+    $$PWD/updateitem.h \
+    $$PWD/downloadprogressbar.h \
+    $$PWD/summaryitem.h
 
 SOURCES += \
     $$PWD/updatemodule.cpp \
@@ -20,7 +23,10 @@ SOURCES += \
     $$PWD/updatemodel.cpp \
     $$PWD/updatesettings.cpp \
     $$PWD/mirrorswidget.cpp \
-    $$PWD/mirroritem.cpp
+    $$PWD/mirroritem.cpp \
+    $$PWD/updateitem.cpp \
+    $$PWD/downloadprogressbar.cpp \
+    $$PWD/summaryitem.cpp
 
 RESOURCES += \
     $$PWD/update.qrc

@@ -23,15 +23,8 @@ UpdateModule::~UpdateModule()
 
 void UpdateModule::initialize()
 {
-    m_work = new UpdateWork();
     m_model = new UpdateModel();
-
-    m_model->setMirrorInfoList(m_work->mirrorInfos());
-    m_model->setDefaultMirror(m_work->defaultMirror());
-    m_model->setAutoUpdate(m_work->autoUpdate());
-
-    connect(m_work, SIGNAL(mirrorSourceChanged(QString)), m_model, SLOT(setDefaultMirror(QString)));
-    connect(m_work,SIGNAL(autoCheckUpdatesChanged(bool)), m_model, SLOT(setAutoUpdate(bool)));
+    m_work = new UpdateWork(m_model);
 
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
@@ -85,9 +78,16 @@ const QString UpdateModule::name() const
 
 void UpdateModule::onPushUpdate()
 {
+    m_work->checkUpdate();
+
     if (!m_updatePage)
     {
         m_updatePage = new UpdateCtrlWidget;
+        connect(m_model, &UpdateModel::appInfos, m_updatePage, &UpdateCtrlWidget::loadAppList);
+        connect(m_model, &UpdateModel::packageDownloadSize, m_updatePage, &UpdateCtrlWidget::onPackagesDownloadSize);
+        connect(m_model, &UpdateModel::progressChanged, m_updatePage, &UpdateCtrlWidget::updateDownloadProgress);
+        connect(m_updatePage, &UpdateCtrlWidget::actionType, this, &UpdateModule::onActionType);
+        connect(m_model, &UpdateModel::statusChanged, m_updatePage, &UpdateCtrlWidget::onStatus);
     }
 
     m_frameProxy->pushWidget(this, m_updatePage);
@@ -132,4 +132,41 @@ void UpdateModule::setCurMirrorName(const QString &name, const QString& src)
 void UpdateModule::setAutoUpdate(bool autoUpdate)
 {
     m_work->setAutoUpdate(autoUpdate);
+}
+
+void UpdateModule::onActionType(UpdateType type)
+{
+    if(type == UpdateType::CheckUpdate)
+    {
+        m_work->prepareDistUpgrade();
+        if(m_updatePage)
+        {
+            m_updatePage->setCurState(UpdateType::StartDownload);
+        }
+    }
+    else if(type == UpdateType::StartDownload)
+    {
+        if(m_work->pauseJob())
+        {
+            if(m_updatePage)
+            {
+                m_updatePage->setCurState(UpdateType::StopDownload);
+            }
+        }
+    }
+    else if(type == UpdateType::StopDownload)
+    {
+
+        if(m_work->startJob())
+        {
+            if(m_updatePage)
+            {
+                m_updatePage->setCurState(UpdateType::StartDownload);
+            }
+        }
+    }
+    else
+    {
+        QProcess::startDetached("/usr/lib/deepin-daemon/dde-offline-upgrader");
+    }
 }

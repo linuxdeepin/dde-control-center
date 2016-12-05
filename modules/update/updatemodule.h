@@ -36,6 +36,8 @@ private slots:
     void setCurMirrorName(const QString& name, const QString &src);
     void setAutoUpdate(bool autoUpdate);
 
+    void onActionType(UpdateType type);
+
 private:
     UpdateWork* m_work;
     UpdateModel* m_model;

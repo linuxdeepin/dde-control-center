@@ -1,6 +1,7 @@
 #include "updatesettings.h"
 #include "settingsgroup.h"
 #include "updatemodel.h"
+#include "updateitem.h"
 
 #include <QVBoxLayout>
 
@@ -15,11 +16,11 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     SettingsGroup* mg = new SettingsGroup();
 
     m_autoUpdate = new SwitchWidget();
-    m_autoUpdate->setTitle(tr("Auto­download Updates"));
+    m_autoUpdate->setTitle(tr("Auto-­download Updates"));
 
     QLabel* label = new QLabel();
     label->setWordWrap(true);
-    label->setText(tr("Updates will be auto­downloaded in wireless or wired network"));
+    label->setText(tr("Updates will be auto-­downloaded in wireless or wired network"));
     m_updateMirrors = new NextPageWidget();
     m_updateMirrors->setTitle(tr("Switch Mirror"));
 
