@@ -40,8 +40,18 @@ void RecognizeDialog::paintEvent(QPaintEvent *)
     painter.setPen(p);
     painter.setBrush(b);
 
-    for (auto mon : m_model->monitorList())
-        paintMonitorMark(painter, mon->rect(), mon->name());
+    if (m_model->monitorsIsIntersect())
+    {
+        const QRect intersectRect = QRect(0, 0, m_model->screenWidth(), m_model->screenHeight());
+        QString intersectName = m_model->monitorList().first()->name();
+        for (int i(1); i != m_model->monitorList().size(); ++i)
+            intersectName += "=" + m_model->monitorList()[i]->name();
+
+        paintMonitorMark(painter, intersectRect, intersectName);
+    } else {
+        for (auto mon : m_model->monitorList())
+            paintMonitorMark(painter, mon->rect(), mon->name());
+    }
 }
 
 void RecognizeDialog::onScreenRectChanged()

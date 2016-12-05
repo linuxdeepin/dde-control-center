@@ -52,6 +52,7 @@ private slots:
     void onMonitorModeChanged();
     void onMonitorBrightnessChanegd(const double brightness);
     void onMonitorModeSelected(const int index);
+    void onRotateBtnClicked();
 
     void onBrightnessSliderChanged(const int value);
 

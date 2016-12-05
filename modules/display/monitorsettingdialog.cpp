@@ -72,7 +72,7 @@ void MonitorSettingDialog::init()
 
     connect(m_resolutionsWidget, &SettingsListWidget::clicked, this, &MonitorSettingDialog::onMonitorModeSelected);
     connect(m_lightSlider, &DCCSlider::valueChanged, this, &MonitorSettingDialog::onBrightnessSliderChanged);
-    connect(m_rotateBtn, &DImageButton::clicked, [=] { emit requestMonitorRotate(m_monitor); });
+    connect(m_rotateBtn, &DImageButton::clicked, this, &MonitorSettingDialog::onRotateBtnClicked);
     connect(m_smallDelayTimer, &QTimer::timeout, this, &MonitorSettingDialog::onMonitorRectChanged);
 
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
@@ -221,7 +221,17 @@ void MonitorSettingDialog::onMonitorModeChanged()
         m_resolutionsWidget->setSelectedIndex(m_monitor->modeList().indexOf(m_monitor->currentMode()));
     else
     {
-
+        const int w = m_model->screenWidth();
+        const int h = m_model->screenHeight();
+        const auto list = m_model->monitorsSameModeList();
+        for (int i(0); i != list.size(); ++i)
+        {
+            if (list[i].width() == w && list[i].height() == h)
+            {
+                m_resolutionsWidget->setSelectedIndex(i);
+                break;
+            }
+        }
     }
 }
 
@@ -253,13 +263,51 @@ void MonitorSettingDialog::updateModeList(const QList<Resolution> &modeList)
 
 void MonitorSettingDialog::onMonitorModeSelected(const int index)
 {
-    const auto modeList = m_monitor->modeList();
-    Q_ASSERT(modeList.size() > index);
+    const bool intersect = m_primary && m_model->monitorsIsIntersect();
 
-    emit requestSetMonitorMode(m_monitor, modeList[index].id());
+    if (intersect)
+    {
+        const auto modeList = m_model->monitorsSameModeList();
+        Q_ASSERT(modeList.size() > index);
+        const auto mode = modeList[index];
+
+        for (auto mon : m_model->monitorList())
+        {
+            const auto list = mon->modeList();
+            for (int i(0); i != list.size(); ++i)
+            {
+                if (list[i].width() == mode.width() && list[i].height() == mode.height())
+                    emit requestSetMonitorMode(mon, list[i].id());
+            }
+        }
+    } else {
+        const auto modeList = m_monitor->modeList();
+        Q_ASSERT(modeList.size() > index);
+
+        emit requestSetMonitorMode(m_monitor, modeList[index].id());
+    }
+}
+
+void MonitorSettingDialog::onRotateBtnClicked()
+{
+    const bool intersect = m_primary && m_model->monitorsIsIntersect();
+
+    if (intersect)
+        emit requestMonitorRotate(nullptr);
+    else
+        emit requestMonitorRotate(m_monitor);
 }
 
 void MonitorSettingDialog::onBrightnessSliderChanged(const int value)
 {
-    emit requestSetMonitorBrightness(m_monitor, value / BRIGHTNESS_MUL);
+    const double v = value / BRIGHTNESS_MUL;
+    const bool intersect = m_primary && m_model->monitorsIsIntersect();
+
+    if (intersect)
+    {
+        for (auto mon : m_model->monitorList())
+            emit requestSetMonitorBrightness(mon, v);
+    } else {
+        emit requestSetMonitorBrightness(m_monitor, v);
+    }
 }
