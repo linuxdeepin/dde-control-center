@@ -22,7 +22,9 @@ HEADERS    += \
     settingswidget.h \
     moduleinitthread.h \
     dbuscontrolcenterservice.h \
-    quickcontrolpanel.h
+    quick_control/quickcontrolpanel.h \
+    quick_control/basicsettingspage.h \
+    quick_control/quickswitchbutton.h
 
 SOURCES    += \
             main.cpp \
@@ -33,7 +35,9 @@ SOURCES    += \
     settingswidget.cpp \
     moduleinitthread.cpp \
     dbuscontrolcenterservice.cpp \
-    quickcontrolpanel.cpp
+    quick_control/quickcontrolpanel.cpp \
+    quick_control/basicsettingspage.cpp \
+    quick_control/quickswitchbutton.cpp
 
 #RESOURCES += \
 #    qss.qrc \

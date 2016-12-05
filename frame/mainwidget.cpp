@@ -32,7 +32,7 @@ MainWidget::MainWidget(Frame *parent)
       m_pluginsIndicator(new DPageIndicator),
       m_nextPluginBtn(new QPushButton),
       m_allSettingsBtn(new QPushButton),
-      m_quickSettingsPanel(new QuickControlPanel(this))
+      m_quickSettingsPanel(new QuickControlPanel)
 {
     // TODO: get dbus data
     const int uid = getuid();

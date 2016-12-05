@@ -2,6 +2,8 @@
 #define QUICKCONTROLPANEL_H
 
 #include <QWidget>
+#include <QStackedLayout>
+#include <QPushButton>
 
 class QuickControlPanel : public QWidget
 {
@@ -11,6 +13,7 @@ public:
     explicit QuickControlPanel(QWidget *parent = 0);
 
 private:
+    QStackedLayout *m_itemStack;
 };
 
 #endif // QUICKCONTROLPANEL_H

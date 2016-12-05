@@ -3,7 +3,7 @@
 
 #include "pluginscontroller.h"
 #include "framewidget.h"
-#include "quickcontrolpanel.h"
+#include "quick_control/quickcontrolpanel.h"
 
 #include <QVBoxLayout>
 #include <QPushButton>
