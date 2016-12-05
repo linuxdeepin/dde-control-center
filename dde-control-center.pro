@@ -12,6 +12,10 @@ CONFIG(release, debug|release) {
 #    system($$PWD/translate_generation.sh)
 }
 
+isEmpty(PREFIX) {
+    PREFIX = /usr
+}
+
 # add install files
 widgets.depends = helper
 #frame.depends = widgets
@@ -19,6 +23,9 @@ widgets.depends = helper
 
 binary.path = $${PREFIX}/bin
 binary.files = dde-control-center
+
+plugins.path = $${PREFIX}/bin
+plugins.files = modules/*.so
 
 desktop.path = $${PREFIX}/share/applications/
 desktop.files = dde-control-center.desktop
@@ -34,4 +41,4 @@ docs.files = docs/*
 
 TRANSLATIONS    = translations/dde-control-center.ts
 
-INSTALLS = binary desktop service icons qm_files docs
+INSTALLS = binary desktop service qm_files docs

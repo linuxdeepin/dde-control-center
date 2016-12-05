@@ -75,6 +75,9 @@ static void onThemeChange(const QString &theme)
 int main(int argc, char *argv[])
 {
     DApplication app(argc, argv);
+
+    DLogManager::registerConsoleAppender();
+
     app.setStyle("ddark");
     onThemeChange("dark");
 
@@ -89,7 +92,9 @@ int main(int argc, char *argv[])
 
     qApp->setQuitOnLastWindowClosed(false);
 
-    DLogManager::registerConsoleAppender();
+#ifndef QT_DEBUG
+    QDir::setCurrent(QApplication::applicationDirPath());
+#endif
 
     Frame f;
     QTimer::singleShot(1, &f, &Frame::startup);
