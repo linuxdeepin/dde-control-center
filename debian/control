@@ -38,6 +38,7 @@ Depends: ${shlibs:Depends},
  xkb-data,
  tzdata-l10n,
  netselect,
+ geoip-database-extra, 
 Description: New control center for linux deepin
  New control center for linux deepin
 
