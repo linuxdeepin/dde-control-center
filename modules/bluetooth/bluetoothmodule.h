@@ -3,6 +3,13 @@
 
 #include "moduleinterface.h"
 
+namespace dcc {
+namespace bluetooth {
+
+class BluetoothWidget;
+class BluetoothModel;
+class BluetoothWorker;
+
 class BluetoothModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -21,7 +28,12 @@ private:
     ModuleWidget *moduleWidget();
 
 private:
-    ModuleWidget *m_bluetoothView;
+    BluetoothWidget *m_bluetoothView;
+    BluetoothModel *m_bluetoothModel;
+    BluetoothWorker *m_bluetoothWorker;
 };
+
+}
+}
 
 #endif // BLUETOOTHMODULE_H

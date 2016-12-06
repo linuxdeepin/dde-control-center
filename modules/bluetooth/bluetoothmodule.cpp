@@ -1,12 +1,20 @@
 #include "bluetoothmodule.h"
-#include "modulewidget.h"
+#include "bluetoothwidget.h"
+#include "bluetoothmodel.h"
+#include "bluetoothworker.h"
+
 #include "contentwidget.h"
+
+namespace dcc {
+namespace bluetooth {
 
 BluetoothModule::BluetoothModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
     ModuleInterface(frame),
 
-    m_bluetoothView(nullptr)
+    m_bluetoothView(nullptr),
+    m_bluetoothModel(nullptr),
+    m_bluetoothWorker(nullptr)
 {
 
 }
@@ -19,17 +27,21 @@ BluetoothModule::~BluetoothModule()
 
 void BluetoothModule::initialize()
 {
+    m_bluetoothModel = new BluetoothModel;
+    m_bluetoothWorker = new BluetoothWorker(m_bluetoothModel);
 
+    m_bluetoothModel->moveToThread(qApp->thread());
+    m_bluetoothWorker->moveToThread(qApp->thread());
 }
 
 void BluetoothModule::moduleActive()
 {
-
+    m_bluetoothWorker->activate();
 }
 
 void BluetoothModule::moduleDeactive()
 {
-
+    m_bluetoothWorker->deactivate();
 }
 
 void BluetoothModule::reset()
@@ -51,11 +63,12 @@ ModuleWidget *BluetoothModule::moduleWidget()
 {
     if (!m_bluetoothView)
     {
-        m_bluetoothView = new ModuleWidget;
+        m_bluetoothView = new BluetoothWidget(m_bluetoothModel);
         m_bluetoothView->setTitle("Bluetooth");
     }
 
-    m_bluetoothView->setVisible(false);
-
     return m_bluetoothView;
+}
+
+}
 }

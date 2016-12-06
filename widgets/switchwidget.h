@@ -16,6 +16,7 @@ class SwitchWidget : public SettingsItem
 
 public:
     explicit SwitchWidget(QFrame *parent = 0);
+    explicit SwitchWidget(const QString &title, QFrame *parent = 0);
 
     void setChecked(const bool checked = true);
     void setTitle(const QString& title);

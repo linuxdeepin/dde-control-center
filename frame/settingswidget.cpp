@@ -47,7 +47,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new DefaultAppsModule(this));
     loadModule(new personalization::PersonalizationModule(this));
     loadModule(new network::NetworkModule(this));
-    loadModule(new BluetoothModule(this));
+    loadModule(new bluetooth::BluetoothModule(this));
     loadModule(new sound::SoundModule(this));
     loadModule(new DatetimeModule(this));
     loadModule(new PowerModule(this));

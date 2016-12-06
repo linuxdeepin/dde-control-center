@@ -27,6 +27,12 @@ SwitchWidget::SwitchWidget(QFrame *parent)
     connect(m_switchBtn, &DSwitchButton::checkedChanged, this, &SwitchWidget::checkedChanegd);
 }
 
+SwitchWidget::SwitchWidget(const QString &title, QFrame *parent) :
+    SwitchWidget(parent)
+{
+    setTitle(title);
+}
+
 void SwitchWidget::setChecked(const bool checked)
 {
     m_switchBtn->blockSignals(true);
