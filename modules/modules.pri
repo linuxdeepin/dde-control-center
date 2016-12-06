@@ -12,6 +12,7 @@ include(mouse/mouse.pri)
 include(wacom/wacom.pri)
 include(personalization/personalization.pri)
 include(systeminfo/systeminfo.pri)
+include(network/network.pri)
 
 HEADERS += \
     $$PWD/modulewidget.h \

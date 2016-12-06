@@ -16,6 +16,8 @@
 #include "display/displaymodule.h"
 #include "personalization/personalizationmodule.h"
 #include "systeminfo/systeminfomodule.h"
+#include "network/networkmodule.h"
+
 #include <QResizeEvent>
 #include <QScrollBar>
 #include <QVBoxLayout>
@@ -42,16 +44,17 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     loadModule(new AccountsModule(this));
     loadModule(new display::DisplayModule(this));
-    loadModule(new PowerModule(this));
-    loadModule(new MouseModule(this));
-    loadModule(new UpdateModule(this));
+    loadModule(new DefaultAppsModule(this));
+    loadModule(new personalization::PersonalizationModule(this));
+    loadModule(new network::NetworkModule(this));
     loadModule(new BluetoothModule(this));
     loadModule(new sound::SoundModule(this));
     loadModule(new DatetimeModule(this));
+    loadModule(new PowerModule(this));
+    loadModule(new MouseModule(this));
     loadModule(new KeyboardModule(this));
-    loadModule(new DefaultAppsModule(this));
     loadModule(new WacomModule(this));
-    loadModule(new personalization::PersonalizationModule(this));
+    loadModule(new UpdateModule(this));
     loadModule(new SystemInfoModule(this));
 
     m_settingsWidget->setLayout(m_settingsLayout);
