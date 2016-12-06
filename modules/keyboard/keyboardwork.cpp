@@ -26,6 +26,7 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
     connect(m_keyboardInter, SIGNAL(UserLayoutListChanged(QStringList)), this, SIGNAL(UserLayoutListChanged(QStringList)));
     connect(m_keyboardInter, SIGNAL(CurrentLayoutChanged(QString)), this, SIGNAL(curLayout(QString)));
     connect(m_langSelector, SIGNAL(serviceValidChanged(bool)), this ,SLOT(onValid(bool)));
+    connect(m_langSelector, SIGNAL(CurrentLocaleChanged(QString)), this, SIGNAL(curLang(QString)));
     connect(m_keyboardInter, SIGNAL(RepeatDelayChanged(uint)), m_model, SIGNAL(delayChanged(uint)));
     connect(m_keyboardInter, SIGNAL(RepeatIntervalChanged(uint)), m_model, SIGNAL(speedChanged(uint)));
 

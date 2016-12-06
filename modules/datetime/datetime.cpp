@@ -12,6 +12,7 @@
 
 Datetime::Datetime()
     :ModuleWidget(),
+      m_bEdit(false),
       m_choseDlg(new ChoseDialog())
 {
     this->installEventFilter(parent());
