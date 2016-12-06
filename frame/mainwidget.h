@@ -44,7 +44,6 @@ private:
     QHBoxLayout *m_pluginsLayout;
     Dtk::Widget::DPageIndicator *m_pluginsIndicator;
     QPushButton *m_nextPluginBtn;
-    QPushButton *m_allSettingsBtn;
     QuickControlPanel *m_quickSettingsPanel;
 };
 

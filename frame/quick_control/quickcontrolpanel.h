@@ -12,6 +12,9 @@ class QuickControlPanel : public QWidget
 public:
     explicit QuickControlPanel(QWidget *parent = 0);
 
+signals:
+    void requestDetailConfig() const;
+
 private:
     QStackedLayout *m_itemStack;
 };

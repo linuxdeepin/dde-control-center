@@ -10,3 +10,10 @@ QuickSwitchButton::QuickSwitchButton(const int index, QWidget *parent)
     setStyleSheet("background-color: red;");
     setFixedSize(SIZE, SIZE);
 }
+
+void QuickSwitchButton::mouseReleaseEvent(QMouseEvent *e)
+{
+    QLabel::mouseReleaseEvent(e);
+
+    emit clicked(m_index);
+}

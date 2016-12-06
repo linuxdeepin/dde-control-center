@@ -13,6 +13,9 @@ signals:
     void hovered(const int index) const;
     void clicked(const int index) const;
 
+protected:
+    void mouseReleaseEvent(QMouseEvent *e);
+
 private:
     const int m_index;
 };

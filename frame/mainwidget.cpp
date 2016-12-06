@@ -31,7 +31,6 @@ MainWidget::MainWidget(Frame *parent)
       m_pluginsLayout(new QHBoxLayout),
       m_pluginsIndicator(new DPageIndicator),
       m_nextPluginBtn(new QPushButton),
-      m_allSettingsBtn(new QPushButton),
       m_quickSettingsPanel(new QuickControlPanel)
 {
     // TODO: get dbus data
@@ -52,7 +51,6 @@ MainWidget::MainWidget(Frame *parent)
     m_timeRefersh->start();
 
     m_nextPluginBtn->setText("Next");
-    m_allSettingsBtn->setText("All settings");
 
     m_currentTimeLbl->setStyleSheet("QLabel {"
                                     "color: white;"
@@ -84,14 +82,13 @@ MainWidget::MainWidget(Frame *parent)
     centeralLayout->addLayout(m_pluginsLayout);
     centeralLayout->addWidget(m_pluginsIndicator);
     centeralLayout->addWidget(m_nextPluginBtn);
-    centeralLayout->addWidget(m_allSettingsBtn);
     centeralLayout->addWidget(m_quickSettingsPanel);
     centeralLayout->setSpacing(0);
     centeralLayout->setMargin(0);
 
     connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded);
     connect(m_nextPluginBtn, &QPushButton::clicked, this, &MainWidget::showNextPlugin);
-    connect(m_allSettingsBtn, &QPushButton::clicked, this, &MainWidget::showAllSettings);
+    connect(m_quickSettingsPanel, &QuickControlPanel::requestDetailConfig, this, &MainWidget::showAllSettings);
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
 
     m_pluginsController->loadPlugins();

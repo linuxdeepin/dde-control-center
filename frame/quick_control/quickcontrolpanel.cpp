@@ -30,4 +30,6 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     setLayout(mainLayout);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    connect(detailSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::requestDetailConfig);
 }
