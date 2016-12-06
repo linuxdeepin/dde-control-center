@@ -20,10 +20,14 @@ namespace bluetooth {
 
 class BluetoothWidget : public ModuleWidget
 {
+    Q_OBJECT
 public:
     explicit BluetoothWidget(BluetoothModel *model = 0);
 
     void setModel(BluetoothModel *model);
+
+signals:
+    void requestToggleAdapter(const Adapter *adapter, const bool &toggled);
 
 private slots:
     void addAdapter(const Adapter *adapter);

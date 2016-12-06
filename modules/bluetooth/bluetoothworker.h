@@ -31,6 +31,9 @@ public:
     void activate() Q_DECL_OVERRIDE;
     void deactivate() Q_DECL_OVERRIDE;
 
+public slots:
+    void setAdapterPowered(const Adapter *adapter, const bool &powered);
+
 private:
     void inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj);
     void inflateDevice(Device *device, const QJsonObject &deviceObj);
@@ -38,6 +41,9 @@ private:
 private slots:
     void onAdapterPropertiesChanged(const QString &json);
     void onDevicePropertiesChanged(const QString &json);
+
+private:
+    void setAdapterDiscoverable(const QString &path);
 
 private:
     DBusBluetooth *m_bluetoothInter;

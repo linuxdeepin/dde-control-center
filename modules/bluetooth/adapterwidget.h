@@ -28,12 +28,19 @@ public:
 
     void setAdapter(const Adapter *adapter);
 
+public slots:
+    void toggleSwitch(const bool &checked);
+
+signals:
+    void requestToggleAdapter(const bool &powered);
+
 private slots:
     void addDevice(const Device *device);
     void removeDevice(const QString &deviceId);
 
 private:
     SwitchWidget *m_switch;
+    SettingsGroup *m_titleGroup;
     SettingsGroup *m_myDevicesGroup;
     SettingsGroup *m_otherDevicesGroup;
 };

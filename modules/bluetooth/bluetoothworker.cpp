@@ -56,13 +56,25 @@ void BluetoothWorker::deactivate()
     m_model->blockSignals(true);
 }
 
+void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powered)
+{
+    QDBusObjectPath path(adapter->id());
+    m_bluetoothInter->SetAdapterPowered(path, powered);
+
+    if (powered) {
+        setAdapterDiscoverable(adapter->id());
+    }
+}
+
 void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj)
 {
     const QString path = adapterObj["Path"].toString();
     const QString alias = adapterObj["Alias"].toString();
+    const bool powered = adapterObj["Powered"].toBool();
 
     adapter->setId(path);
     adapter->setName(alias);
+    adapter->setPowered(powered);
 
     QDBusObjectPath dPath(path);
     QDBusPendingCall call = m_bluetoothInter->GetDevices(dPath);
@@ -82,6 +94,10 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
             qWarning() << call.error().message();
         }
     });
+
+    if (powered) {
+        setAdapterDiscoverable(path);
+    }
 }
 
 void BluetoothWorker::inflateDevice(Device *device, const QJsonObject &deviceObj)
@@ -121,6 +137,13 @@ void BluetoothWorker::onDevicePropertiesChanged(const QString &json)
             }
         }
     }
+}
+
+void BluetoothWorker::setAdapterDiscoverable(const QString &path)
+{
+    QDBusObjectPath dPath(path);
+    m_bluetoothInter->SetAdapterDiscoverable(dPath, true);
+    m_bluetoothInter->SetAdapterDiscoverableTimeout(dPath, 60 * 5);
 }
 
 } // namespace bluetooth

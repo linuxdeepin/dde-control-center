@@ -38,6 +38,14 @@ void Adapter::removeDevice(const QString &deviceId) const
     emit deviceRemoved(deviceId);
 }
 
+void Adapter::setPowered(bool powered)
+{
+    if (powered != m_powered) {
+        m_powered = powered;
+        emit poweredChanged(powered);
+    }
+}
+
 QList<const Device *> Adapter::devices() const
 {
     return m_devices;
@@ -45,9 +53,7 @@ QList<const Device *> Adapter::devices() const
 
 void Adapter::setId(const QString &id)
 {
-    Q_ASSERT(m_id.isNull());
-
-    m_id = id;
+   m_id = id;
 }
 
 } // namespace bluetooth

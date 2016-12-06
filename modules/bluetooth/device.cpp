@@ -20,8 +20,6 @@ Device::Device(QObject *parent) :
 
 void Device::setId(const QString &id)
 {
-    Q_ASSERT(m_id.isNull());
-
     m_id = id;
 }
 
