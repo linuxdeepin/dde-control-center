@@ -203,7 +203,6 @@ void SoundWorker::cardsChanged(const QString &cards)
             // if (portAvai == 2 || portAvai == 0 ||) { // 0 Unknow 1 Not availabel 2 Available
             const QString portId = jPort["Name"].toString();
             const QString portName = jPort["Description"].toString();
-            const double portDirection = jPort["Direction"].toDouble();
 
             Port *port = m_model->portById(portId);
             const bool include = port != nullptr;
@@ -211,7 +210,7 @@ void SoundWorker::cardsChanged(const QString &cards)
 
             port->setId(portId);
             port->setName(portName);
-            port->setDirection(Port::Direction(portDirection));
+            port->setDirection(Port::Direction(jPort["Direction"].toDouble()));
             port->setCardId(cardId);
             port->setCardName(cardName);
             port->setIsActive(portId == m_activeSinkPort || portId == m_activeSourcePort);
