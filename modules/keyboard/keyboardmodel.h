@@ -19,12 +19,14 @@ public:
     QString curLang() const;
     QStringList userLayout() const;
     QList<MetaData> langLists() const;
+    bool capsLock() const;
 
 signals:
     void curLayout(const QString& layout);
     void curLang(const QString& lang);
     void delayChanged(uint value);
     void speedChanged(uint value);
+    void capsLockChanged(bool value);
 
 public slots:
     void setLayout(const QString& value);
@@ -33,8 +35,9 @@ public slots:
     void addUserLayout(const QString& value);
     void delUserLayout(const QString& value);
     void setLocaleList(const QList<MetaData>& langs);
-
+    void setCapsLock(bool value);
 private:
+    bool m_capsLock;
     uint m_repeatInterval;
     uint m_repeatDelay;
     QString m_layout;

@@ -114,14 +114,17 @@ ModuleWidget *KeyboardModule::moduleWidget()
         m_keyboardWidget->setLangValue(m_model->curLang());
         m_keyboardWidget->setDelayValue(m_work->repeatDelay());
         m_keyboardWidget->setSpeedValue(m_work->repeatInterval());
+        m_keyboardWidget->setCapsLock(m_model->capsLock());
 
         connect(m_keyboardWidget, SIGNAL(keyoard()), this, SLOT(onPushKBDetails()));
         connect(m_keyboardWidget, SIGNAL(language()), this, SLOT(onPushLanguage()));
         connect(m_keyboardWidget, SIGNAL(shortcut()), this, SLOT(onPushShortcut()));
         connect(m_keyboardWidget, SIGNAL(delayChanged(int)), this, SLOT(onDelay(int)));
         connect(m_keyboardWidget, SIGNAL(speedChanged(int)), this, SLOT(onSpeed(int)));
+        connect(m_keyboardWidget, SIGNAL(capsLockChanged(bool)), this, SLOT(setCapsLock(bool)));
         connect(m_model, SIGNAL(delayChanged(uint)), m_keyboardWidget, SLOT(setDelayValue(uint)));
         connect(m_model, SIGNAL(speedChanged(uint)), m_keyboardWidget, SLOT(setSpeedValue(uint)));
+        connect(m_model, SIGNAL(capsLockChanged(bool)), m_keyboardWidget, SLOT(setCapsLock(bool)));
     }
 
     return m_keyboardWidget;
@@ -477,6 +480,11 @@ void KeyboardModule::onDelay(int value)
 void KeyboardModule::onSpeed(int value)
 {
     m_work->setRepeatInterval(value);
+}
+
+void KeyboardModule::setCapsLock(bool value)
+{
+    m_work->setCapsLock(value);
 }
 
 KeyboardModule::~KeyboardModule()

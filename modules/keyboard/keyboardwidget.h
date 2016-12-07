@@ -24,6 +24,7 @@ signals:
     void shortcut();
     void delayChanged(int value);
     void speedChanged(int value);
+    void capsLockChanged(bool value);
 
 public slots:
     void setKBValue(const QString& value);
@@ -32,6 +33,7 @@ public slots:
     void onTimeout();
     void setDelayValue(uint value);
     void setSpeedValue(uint value);
+    void setCapsLock(bool value);
 
 private:
     bool m_bDelay;

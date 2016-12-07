@@ -75,6 +75,7 @@ KeyboardWidget::KeyboardWidget()
     connect(m_delaySlider, SIGNAL(valueChanged(int)), this, SLOT(onSliderValue(int)));
     connect(m_speedSlider, SIGNAL(valueChanged(int)), this,  SLOT(onSliderValue(int)));
     connect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
+    connect(m_upper, SIGNAL(checkedChanegd(bool)), this, SIGNAL(capsLockChanged(bool)));
 }
 
 void KeyboardWidget::setKBValue(const QString &value)
@@ -116,4 +117,9 @@ void KeyboardWidget::setDelayValue(uint value)
 void KeyboardWidget::setSpeedValue(uint value)
 {
     m_speedSlider->setValue(1000 - (value * 10 - 200));
+}
+
+void KeyboardWidget::setCapsLock(bool value)
+{
+    m_upper->setChecked(value);
 }

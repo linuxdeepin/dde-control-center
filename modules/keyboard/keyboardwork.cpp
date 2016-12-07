@@ -29,6 +29,9 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
     connect(m_langSelector, SIGNAL(CurrentLocaleChanged(QString)), this, SIGNAL(curLang(QString)));
     connect(m_keyboardInter, SIGNAL(RepeatDelayChanged(uint)), m_model, SIGNAL(delayChanged(uint)));
     connect(m_keyboardInter, SIGNAL(RepeatIntervalChanged(uint)), m_model, SIGNAL(speedChanged(uint)));
+    connect(m_keyboardInter, SIGNAL(CapslockToggleChanged(bool)), m_model, SLOT(setCapsLock(bool)));
+
+    m_model->setCapsLock(m_keyboardInter->capslockToggle());
 
     m_keyboardInter->setSync(false);
     m_langSelector->setSync(false);
@@ -129,6 +132,11 @@ void KeyboardWork::setRepeatInterval(int value)
 uint KeyboardWork::repeatInterval() const
 {
     return m_keyboardInter->repeatInterval();
+}
+
+void KeyboardWork::setCapsLock(bool value)
+{
+    m_keyboardInter->setCapslockToggle(value);
 }
 
 void KeyboardWork::addUserLayout(const QString &value)

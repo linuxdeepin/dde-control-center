@@ -49,6 +49,7 @@ public slots:
     void setCurrentLang();
     void setUILayout(const QString& value);
     void setUILang(const QString& value);
+    void setCapsLock(bool value);
 
     void onSetLocale(const QModelIndex &index);
     void onShortcutChecked(bool valid, ShortcutInfo *info, const QString& shortcut);

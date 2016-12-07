@@ -38,6 +38,7 @@ public:
     void setRepeatInterval(int value);
     uint repeatInterval() const;
 
+    void setCapsLock(bool value);
 signals:
     void langValid(const QList<MetaData>& langs);
     void curLayout(const QString& layout);

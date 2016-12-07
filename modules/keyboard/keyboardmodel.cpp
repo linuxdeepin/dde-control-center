@@ -69,6 +69,13 @@ void KeyboardModel::setLocaleList(const QList<MetaData> &langs)
     m_langs = langs;
 }
 
+void KeyboardModel::setCapsLock(bool value)
+{
+    m_capsLock = value;
+
+    emit capsLockChanged(value);
+}
+
 QString KeyboardModel::curLang() const
 {
     return langByKey(m_lang);
@@ -87,4 +94,9 @@ QStringList KeyboardModel::userLayout() const
 QList<MetaData> KeyboardModel::langLists() const
 {
     return m_langs;
+}
+
+bool KeyboardModel::capsLock() const
+{
+    return m_capsLock;
 }
