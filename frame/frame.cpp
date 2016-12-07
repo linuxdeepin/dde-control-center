@@ -56,8 +56,6 @@ Frame::Frame(QWidget *parent)
 
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
-    //    setWindowFlags(Qt::X11BypassWindowManagerHint);
-    //    setAttribute(Qt::WA_TranslucentBackground);
     setFixedWidth(360);
 
     connect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased);
