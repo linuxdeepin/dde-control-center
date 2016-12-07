@@ -3,9 +3,7 @@
 
 #include <QDialog>
 
-#include "displayworker.h"
-#include "monitor.h"
-
+class Monitor;
 class RotateDialog : public QDialog
 {
     Q_OBJECT

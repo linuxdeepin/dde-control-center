@@ -2,13 +2,15 @@
 #define DISPLAYWIDGET_H
 
 #include "modulewidget.h"
-#include "displaymodel.h"
-#include "nextpagewidget.h"
-#include "settingsgroup.h"
 
 #include <QPushButton>
 
+class DisplayModel;
+
 namespace dcc {
+
+class SettingsGroup;
+class NextPageWidget;
 
 namespace display {
 

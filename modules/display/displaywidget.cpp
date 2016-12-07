@@ -1,5 +1,8 @@
 #include "displaywidget.h"
 #include "translucentframe.h"
+#include "nextpagewidget.h"
+#include "settingsgroup.h"
+#include "displaymodel.h"
 
 using namespace dcc;
 using namespace dcc::display;

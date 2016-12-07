@@ -1,5 +1,9 @@
 #include "resolutiondetailpage.h"
+#include "settingsgroup.h"
+#include "monitor.h"
+#include "displaymodel.h"
 
+using namespace dcc;
 using namespace dcc::widgets;
 
 ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)

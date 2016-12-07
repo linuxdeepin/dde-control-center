@@ -2,9 +2,7 @@
 #define MONITORSETTINGDIALOG_H
 
 #include "monitor.h"
-#include "displaymodel.h"
 #include "dccslider.h"
-#include "settingslistwidget.h"
 
 #include <QDialog>
 #include <QPushButton>
@@ -12,9 +10,8 @@
 
 #include <dimagebutton.h>
 
-using Dtk::Widget::DImageButton;
-
-using dcc::DCCSlider;
+class DisplayModel;
+class SettingsListWidget;
 
 class MonitorControlWidget;
 class MonitorSettingDialog : public QDialog

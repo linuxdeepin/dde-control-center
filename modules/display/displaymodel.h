@@ -2,11 +2,10 @@
 #define DISPLAYMODEL_H
 
 #include <QObject>
-#include <QDBusObjectPath>
 
-#include "displayworker.h"
 #include "monitor.h"
 
+class DisplayWorker;
 class DisplayModel : public QObject
 {
     Q_OBJECT

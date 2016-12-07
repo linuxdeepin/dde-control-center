@@ -1,4 +1,6 @@
 #include "rotatedialog.h"
+#include "displayworker.h"
+#include "monitor.h"
 
 #include <QDebug>
 #include <QMouseEvent>

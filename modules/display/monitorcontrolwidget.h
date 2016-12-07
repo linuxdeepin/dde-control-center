@@ -2,7 +2,8 @@
 #define MONITORCONTROLWIDGET_H
 
 #include <QWidget>
-#include <QPushButton>
+
+class QPushButton;
 
 class Monitor;
 class DisplayModel;

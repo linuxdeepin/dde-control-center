@@ -5,6 +5,7 @@
 
 #include <QVBoxLayout>
 #include <QFrame>
+#include <QPushButton>
 
 MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     : QWidget(parent),

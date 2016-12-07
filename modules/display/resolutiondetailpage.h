@@ -2,12 +2,17 @@
 #define RESOLUTIONDETAILPAGE_H
 
 #include "contentwidget.h"
-#include "settingsgroup.h"
 #include "optionitem.h"
-#include "displaymodel.h"
 
-using dcc::SettingsGroup;
+#include <QMap>
 
+namespace dcc
+{
+class SettingsGroup;
+}
+
+class Monitor;
+class DisplayModel;
 class ResolutionDetailPage : public ContentWidget
 {
     Q_OBJECT

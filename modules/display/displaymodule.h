@@ -2,15 +2,17 @@
 #define DISPLAYMODULE_H
 
 #include "moduleinterface.h"
-#include "modulewidget.h"
-#include "displaywidget.h"
-#include "displayworker.h"
-#include "displaymodel.h"
+
+class Monitor;
+class DisplayModel;
+class DisplayWorker;
+class ModuleWidget;
 
 namespace dcc {
 
 namespace display {
 
+class DisplayWidget;
 class DisplayModule : public QObject, public ModuleInterface
 {
     Q_OBJECT

@@ -5,6 +5,8 @@
 #include "monitorsettingdialog.h"
 #include "rotatedialog.h"
 #include "recognizedialog.h"
+#include "displaymodel.h"
+#include "displayworker.h"
 
 using namespace dcc;
 using namespace dcc::display;

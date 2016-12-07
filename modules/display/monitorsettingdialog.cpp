@@ -1,5 +1,7 @@
 #include "monitorsettingdialog.h"
 #include "monitorcontrolwidget.h"
+#include "displaymodel.h"
+#include "settingslistwidget.h"
 
 #include <QVBoxLayout>
 #include <QTimer>
