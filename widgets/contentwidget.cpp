@@ -8,8 +8,9 @@
 #include <QScroller>
 #include <QScrollBar>
 
-#include <dimagebutton.h>
 #include <dseparatorhorizontal.h>
+
+#include "backbutton.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -18,8 +19,7 @@ ContentWidget::ContentWidget(QWidget *parent)
 
       m_content(nullptr)
 {
-    DImageButton *backBtn = new DImageButton;
-    backBtn->setFixedSize(24, 22);
+    dcc::widgets::BackButton *backBtn = new dcc::widgets::BackButton;
 
     m_title = new QLabel;
     m_title->setAlignment(Qt::AlignCenter);
@@ -50,7 +50,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     centeralLayout->setContentsMargins(8, 8, 8, 0);
     centeralLayout->setSpacing(0);
 
-    connect(backBtn, &DImageButton::clicked, this, &ContentWidget::back);
+    connect(backBtn, &dcc::widgets::BackButton::clicked, this, &ContentWidget::back);
 
     setLayout(centeralLayout);
     setObjectName("ContentWidget");

@@ -21,7 +21,9 @@ HEADERS += \
     $$PWD/settingsheaderitem.h \
     $$PWD/titledslideritem.h \
     $$PWD/dccsliderannotated.h \
-    $$PWD/optionitem.h
+    $$PWD/optionitem.h \
+    $$PWD/nextbutton.h \
+    $$PWD/backbutton.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -41,7 +43,9 @@ SOURCES += \
     $$PWD/settingsheaderitem.cpp \
     $$PWD/titledslideritem.cpp \
     $$PWD/dccsliderannotated.cpp \
-    $$PWD/optionitem.cpp
+    $$PWD/optionitem.cpp \
+    $$PWD/nextbutton.cpp \
+    $$PWD/backbutton.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

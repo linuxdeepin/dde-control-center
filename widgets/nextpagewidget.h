@@ -3,9 +3,9 @@
 
 #include "settingsitem.h"
 #include "labels/normallabel.h"
+#include "nextbutton.h"
 
 #include <QLabel>
-#include <dimagebutton.h>
 
 namespace dcc {
 
@@ -28,7 +28,7 @@ signals:
 private:
     NormalLabel *m_title;
     NormalLabel *m_value;
-    Dtk::Widget::DImageButton *m_nextPageBtn;
+    dcc::widgets::NextButton *m_nextPageBtn;
 };
 
 }

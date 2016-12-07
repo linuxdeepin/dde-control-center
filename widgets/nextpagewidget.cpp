@@ -2,6 +2,8 @@
 
 #include <QHBoxLayout>
 
+#include "nextbutton.h"
+
 using namespace dcc;
 
 DWIDGET_USE_NAMESPACE
@@ -14,9 +16,7 @@ NextPageWidget::NextPageWidget(QFrame *parent)
 
     m_value = new NormalLabel;
 
-    m_nextPageBtn = new DImageButton;
-    m_nextPageBtn->setFixedSize(32, 32);
-//    m_nextPageBtn->setStyleSheet("background-color:red;");
+    m_nextPageBtn = new dcc::widgets::NextButton;
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->addWidget(m_title);
@@ -29,7 +29,7 @@ NextPageWidget::NextPageWidget(QFrame *parent)
     setLayout(mainLayout);
     setObjectName("NextPageWidget");
 
-    connect(m_nextPageBtn, &DImageButton::clicked, this, &NextPageWidget::clicked);
+    connect(m_nextPageBtn, &widgets::NextButton::clicked, this, &NextPageWidget::clicked);
 }
 
 void NextPageWidget::setTitle(const QString &title)
