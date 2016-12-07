@@ -1,7 +1,7 @@
 #ifndef FUNCBUTTON_H
 #define FUNCBUTTON_H
 
-#include <QObject>
+#include <QWidget>
 #include <QLabel>
 #include <QEvent>
 #include <QMouseEvent>
@@ -10,7 +10,7 @@ class FuncButton : public QLabel
 {
     Q_OBJECT
 public:
-    explicit FuncButton(QObject *parent =0);
+    explicit FuncButton(QWidget *parent =0);
 
 signals:
     void clicked();

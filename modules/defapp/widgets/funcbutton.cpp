@@ -1,7 +1,7 @@
 #include "funcbutton.h"
-FuncButton::FuncButton(QObject *parent)
+FuncButton::FuncButton(QWidget *parent)
+    :QLabel(parent)
 {
-    Q_UNUSED(parent);
 }
 
 void FuncButton::enterEvent(QEvent *event)

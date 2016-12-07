@@ -12,6 +12,7 @@
 #include <dimagebutton.h>
 #include <QPixmap>
 #include <QJsonObject>
+#include <QIcon>
 
 namespace dcc
 {
@@ -60,9 +61,8 @@ protected:
 
 Q_SIGNALS:
     void removeItem(const QJsonObject &item);
-    void setDefault(const QString &id);
+    void setDefault();
     void checkedChanged(const bool checked) const;
-    void checkedIconChanged(const QPixmap &icon) const;
 };
 
 }

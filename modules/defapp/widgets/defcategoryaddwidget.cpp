@@ -3,9 +3,9 @@
 #include <QMouseEvent>
 
 
-DefCategoryAddWidget::DefCategoryAddWidget(QObject *parent)
+DefCategoryAddWidget::DefCategoryAddWidget(QWidget *parent)
+    :SettingsItem(parent)
 {
-    Q_UNUSED(parent);
     setFixedHeight(30);
     m_add = new FuncButton;
     m_add->setAlignment(Qt::AlignCenter);
@@ -33,7 +33,7 @@ void DefCategoryAddWidget::clicked()
 
         }
     }
-    QTimer::singleShot(1000, this, [=] { emit requestFrameAutoHide(true); });
+    emit requestFrameAutoHide(true);
 }
 
 

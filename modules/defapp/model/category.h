@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QList>
 #include <QJsonObject>
-
+#include <QDebug>
 class Category : public QObject
 {
     Q_OBJECT
@@ -23,8 +23,8 @@ public:
     inline const QString getDefault() { return m_id;}
 
 signals:
-    void itemsChanged();
-    void userItemChanged();
+    void itemsChanged(const QList<QJsonObject> &list);
+    void userItemChanged(const QList<QJsonObject> &list);
     void defaultChanged(const QString &id);
 
 private:

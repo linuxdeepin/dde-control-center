@@ -2,8 +2,8 @@
 #include <string.h>
 
 DefAppModel::DefAppModel(QObject *parent)
+    :QObject(parent)
 {
-    Q_UNUSED(parent);
     m_modBrowser = new Category(this);
     m_modMail = new Category(this);
     m_modText = new Category(this);

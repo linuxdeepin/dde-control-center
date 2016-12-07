@@ -5,7 +5,6 @@ HEADERS += \
     $$PWD/defappworker.h \
     $$PWD/defappviewer.h \
     $$PWD/defappmodel.h \
-    $$PWD/widgets/defcategoryheadwidget.h \
     $$PWD/widgets/defcategoryaddwidget.h \
     $$PWD/widgets/funcbutton.h \
     $$PWD/widgets/optionwidget.h \
@@ -18,7 +17,6 @@ SOURCES += \
     $$PWD/defappworker.cpp \
     $$PWD/defappviewer.cpp \
     $$PWD/defappmodel.cpp \
-    $$PWD/widgets/defcategoryheadwidget.cpp \
     $$PWD/widgets/defcategoryaddwidget.cpp \
     $$PWD/widgets/funcbutton.cpp \
     $$PWD/widgets/optionwidget.cpp \

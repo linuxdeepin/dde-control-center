@@ -59,6 +59,7 @@ void DefAppWorker::onSetDefaultApp(const QString &category, const QJsonObject &i
 {
     QStringList mimelist = getTypeListByCategory(m_stringToCategory[category]);
     m_dbusManager->SetDefaultApp(mimelist, item["Id"].toString());
+    qDebug()<<"setting MIME " <<category << "to " <<  item["Id"].toString();
 }
 
 void DefAppWorker::onGetDefaultApp()
@@ -129,10 +130,9 @@ void DefAppWorker::onDelUserApp(const QJsonObject &item)
 
 void DefAppWorker::getListAppFinished(QDBusPendingCallWatcher *w)
 {
-    QList<QJsonObject> t;
     QDBusPendingReply<QString> reply = *w;
     const QString mime = w->property("mime").toString();
-    const  QJsonArray &defaultApp = QJsonDocument::fromJson(reply.value().toUtf8()).array();
+    const  QJsonArray defaultApp = QJsonDocument::fromJson(reply.value().toUtf8()).array();
     saveListApp(mime, defaultApp);
     w->deleteLater();
 }
@@ -177,6 +177,7 @@ void DefAppWorker::saveUserApp(const QString &mime, const QJsonArray &json)
     if(!category) {
         return;
     }
+
     QList<QJsonObject> t;
     for (int i = 0; i != json.size(); ++i) {
         const QJsonObject object = json.at(i).toObject();

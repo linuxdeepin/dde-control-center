@@ -17,12 +17,12 @@ class DefAppViewer : public ContentWidget
     Q_OBJECT
 
 public:
-    explicit DefAppViewer();
+    explicit DefAppViewer(QWidget *parent = 0);
     QWidget *defappDetail();
     void setModel(DefAppModel * const model);
 
 signals:
-    void SetDefaultApp(const QString &category, const QJsonObject &item);
+    void requestSetDefaultApp(const QString &category, const QJsonObject &item);
     void AddUserApp(const QString &category, const QJsonObject &item);
     void DelUserApp(const QJsonObject &item);
     void Reset();

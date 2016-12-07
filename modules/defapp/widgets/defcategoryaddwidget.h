@@ -17,7 +17,7 @@ class DefCategoryAddWidget : public SettingsItem
 {
     Q_OBJECT
 public:
-    explicit DefCategoryAddWidget(QObject *parent = 0);
+    explicit DefCategoryAddWidget(QWidget *parent = 0);
     inline void setCategory(const QString &category){ m_category = category;}
 
 signals:

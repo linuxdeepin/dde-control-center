@@ -1,7 +1,9 @@
 #include "optionwidget.h"
 
 
-dcc::OptionWidget::OptionWidget(QWidget *): m_delete(new DImageButton)
+dcc::OptionWidget::OptionWidget(QWidget *parent)
+    :SettingsItem(parent),
+      m_delete(new DImageButton)
 {
     m_checkedIconLabel = new QLabel;
     m_checkedIconLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -57,7 +59,11 @@ void dcc::OptionWidget::setItem(const QJsonObject &item)
     } else {
         m_displayName->setText(item["DisplayName"].toString());
     }
-    m_optionIcon->setPixmap(QPixmap(item["Icon"].toString()).scaled(17,17,Qt::KeepAspectRatio));
+    const QIcon &icon = QIcon::fromTheme(item["Icon"].toString());
+
+    if (!icon.isNull()) {
+        m_optionIcon->setPixmap(icon.pixmap(QSize(17,17)));
+    }
 }
 void dcc::OptionWidget::setDelete(const bool delchecked)     //删除
 {
@@ -122,7 +128,6 @@ void dcc::OptionWidget::setCheckedIcon(const QPixmap &icon)
 {
     //set default checkIcon
     m_checkedIconLabel->setPixmap(icon);
-    checkedIconChanged(icon);
 }
 
 bool dcc::OptionWidget::userCheck() const
@@ -140,6 +145,6 @@ void dcc::OptionWidget::mouseReleaseEvent(QMouseEvent *)
     if (QMouseEvent::MouseButtonRelease) {
         //do someting
         setChecked(true);
-        emit setDefault(m_CategoryItem["Id"].toString());
+        emit setDefault();
     }
 }
