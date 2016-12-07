@@ -16,16 +16,19 @@ class ChoseDialog : public QDialog
 
 public:
     explicit ChoseDialog(QWidget* parent = 0);
+    void setFlag(bool flag);
 
 signals:
     void addTimezone(const Timezone& tz);
     void timezoneChanged(const Timezone& tz);
+    void curTimezone(const Timezone& tz);
 
 public slots:
     void onReturn();
     void onAdd();
 
 private:
+    bool m_flag;
     MapWidget* m_widget;
     SearchInput* m_search;
     QPushButton* m_cancel;

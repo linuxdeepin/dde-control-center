@@ -54,10 +54,10 @@ DateSettings::DateSettings(QWidget *parent)
     m_okGroup->appendItem(m_timeBtn);
 
     SettingsGroup* timezoneGroup = new SettingsGroup();
-    NextPageWidget* timezoneItem = new NextPageWidget();
-    timezoneItem->setTitle(tr("Change System Timezone"));
-    timezoneItem->setValue(tr("UTC+8:00"));
-    timezoneGroup->appendItem(timezoneItem);
+    m_timezoneItem = new NextPageWidget();
+    m_timezoneItem->setTitle(tr("Change System Timezone"));
+    m_timezoneItem->setValue(QTimeZone::systemTimeZone().displayName(QTimeZone::StandardTime, QTimeZone::OffsetName));
+    timezoneGroup->appendItem(m_timezoneItem);
 
     layout->addWidget(autosyncGroup);
     layout->addWidget(datetimeGroup);
@@ -74,11 +74,18 @@ DateSettings::DateSettings(QWidget *parent)
     connect(m_yearWidget, SIGNAL(dataChanged(DateWidget::Type,int)), this, SLOT(slotMonthChange(DateWidget::Type, int)));
     connect(m_monthWidget, SIGNAL(dataChanged(DateWidget::Type,int)), this, SLOT(slotMonthChange(DateWidget::Type, int)));
     connect(m_dayWidget, SIGNAL(dataChanged(DateWidget::Type,int)), this, SLOT(slotMonthChange(DateWidget::Type, int)));
+    connect(m_timezoneItem, SIGNAL(clicked()), this, SIGNAL(changeClick()));
 }
 
 void DateSettings::setNTP(bool ntp)
 {
     slotAutoSync(ntp);
+}
+
+void DateSettings::setTimezone(const QString &timezone)
+{
+    QTimeZone tz(timezone.toStdString().c_str());
+    m_timezoneItem->setValue(tz.displayName(QTimeZone::StandardTime, QTimeZone::OffsetName));
 }
 
 void DateSettings::slotMonthChange(DateWidget::Type type, int data)

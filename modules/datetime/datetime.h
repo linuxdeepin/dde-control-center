@@ -25,6 +25,7 @@ public:
 signals:
     void editChanged(bool edit);
     void editDatetime();
+    void addClick();
 
 public slots:
     void addTimezone(const Timezone& tz);
@@ -39,7 +40,6 @@ private:
     NextPageWidget* m_addItem;
     SettingsGroup* m_group;
     ContentWidget* m_dateSettings;
-    ChoseDialog* m_choseDlg;
 };
 
 #endif // DATETIME_H

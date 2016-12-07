@@ -19,7 +19,8 @@
 #include <QJsonDocument>
 
 ChoseDialog::ChoseDialog(QWidget *parent)
-    :QDialog(parent)
+    :QDialog(parent),
+      m_flag(false)
 {
     m_widget = new MapWidget();
     QVBoxLayout* layout = new QVBoxLayout();
@@ -63,6 +64,19 @@ ChoseDialog::ChoseDialog(QWidget *parent)
     connect(m_widget, SIGNAL(cityChanged(QString)), m_search, SLOT(setText(QString)));
 }
 
+void ChoseDialog::setFlag(bool flag)
+{
+    if(flag)
+    {
+        m_add->setText(tr("OK"));
+    }
+    else
+    {
+        m_add->setText(tr("Add"));
+    }
+    m_flag = flag;
+}
+
 void ChoseDialog::onReturn()
 {
     QString city = m_search->text().simplified();
@@ -74,9 +88,17 @@ void ChoseDialog::onAdd()
 {
     if(m_widget->timezone().m_valid)
     {
-        emit addTimezone(m_widget->timezone());
-        hide();
+        if(m_flag)
+        {
+            emit curTimezone(m_widget->timezone());
+        }
+        else
+        {
+            emit addTimezone(m_widget->timezone());
+        }
     }
+
+    hide();
 }
 
 void MapWidget::initData()
@@ -186,6 +208,7 @@ void MapWidget::onLocateCity(const QString &city)
         if((*it)->m_city == city)
         {
             m_curTimezone = *(*it);
+            m_curTimezone.m_valid = true;
             break;
         }
     }

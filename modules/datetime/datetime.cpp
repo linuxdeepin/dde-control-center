@@ -12,8 +12,7 @@
 
 Datetime::Datetime()
     :ModuleWidget(),
-      m_bEdit(false),
-      m_choseDlg(new ChoseDialog())
+      m_bEdit(false)
 {
     this->installEventFilter(parent());
     setTitle(tr("Time and Date"));
@@ -46,15 +45,13 @@ Datetime::Datetime()
     m_centeralLayout->addSpacerItem(new QSpacerItem(300,20));
     m_centeralLayout->addWidget(timeSettings);
 
-    connect(m_addItem, SIGNAL(clicked()), this, SLOT(slotClick()));
+    connect(m_addItem, SIGNAL(clicked()), this, SIGNAL(addClick()));
     connect(timeItem, SIGNAL(clicked()), this, SIGNAL(editDatetime()));
     connect(m_headItem, SIGNAL(editChanged(bool)), this, SLOT(slotEditMode(bool)));
-    connect(m_choseDlg, SIGNAL(addTimezone(Timezone)), this, SLOT(addTimezone(Timezone)));
 }
 
 Datetime::~Datetime()
 {
-    m_choseDlg->deleteLater();
 }
 
 void Datetime::addTimezone(const Timezone &tz)
@@ -77,7 +74,6 @@ void Datetime::addTimezone(const Timezone &tz)
 
 void Datetime::slotClick()
 {
-    m_choseDlg->show();
 }
 
 void Datetime::slotEditMode(bool edit)

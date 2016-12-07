@@ -4,17 +4,15 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frame, QObject *parent)
     :QObject(parent),
       ModuleInterface(frame),
       m_datetimeWidget(nullptr),
-      m_dateSettings(nullptr)
+      m_dateSettings(nullptr),
+      m_choseDlg(new ChoseDialog())
 {
 }
 
 void DatetimeModule::initialize()
 {
-    m_work = new DatetimeWork;
     m_model = new DatetimeModel;
-
-    connect(m_work, SIGNAL(NTPChanged(bool)), m_model, SLOT(setNTP(bool)));
-    m_model->setNTP(m_work->nTP());
+    m_work = new DatetimeWork(m_model);
 
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
@@ -45,6 +43,8 @@ ModuleWidget *DatetimeModule::moduleWidget()
     {
         m_datetimeWidget = new Datetime();
         connect(m_datetimeWidget, SIGNAL(editDatetime()), this, SLOT(slotEditDatetime()));
+        connect(m_choseDlg, SIGNAL(addTimezone(Timezone)), m_datetimeWidget, SLOT(addTimezone(Timezone)));
+        connect(m_datetimeWidget, SIGNAL(addClick()), this, SLOT(onAddTimezoneClick()));
     }
 
     return m_datetimeWidget;
@@ -70,12 +70,41 @@ void DatetimeModule::slotEditDatetime()
         m_dateSettings = new DateSettings();
 
         m_dateSettings->setNTP(m_model->nTP());
+        connect(m_model, SIGNAL(NTPChanged(bool)), m_dateSettings, SLOT(slotAutoSync(bool)));
         connect(m_dateSettings, SIGNAL(autoSyncChanged(bool)), m_work, SLOT(setNTP(bool)));
         connect(m_dateSettings,SIGNAL(dateChanged(int,int,int,int,int)), m_work, SLOT(setDatetime(int,int,int,int,int)));
         connect(m_model, SIGNAL(NTPChanged(bool)), m_dateSettings, SLOT(slotAutoSync(bool)));
+        connect(m_dateSettings, SIGNAL(changeClick()), this, SLOT(onChangeClick()));
+        connect(m_choseDlg, SIGNAL(curTimezone(Timezone)), this, SLOT(onSetTimezone(Timezone)));
+        connect(m_model, SIGNAL(timezoneChanged(QString)), m_dateSettings, SLOT(setTimezone(QString)));
     }
 
     m_frameProxy->pushWidget(this, m_dateSettings);
+}
+
+void DatetimeModule::onAddTimezoneClick()
+{
+    if(m_choseDlg)
+    {
+        m_choseDlg->setFlag(false);
+        m_choseDlg->show();
+    }
+}
+
+void DatetimeModule::onChangeClick()
+{
+    if(m_choseDlg)
+    {
+        m_choseDlg->setFlag(true);
+        m_choseDlg->show();
+    }
+}
+
+void DatetimeModule::onSetTimezone(const Timezone &tz)
+{
+    // 暂时不支持设置时区
+    QTimeZone zone(tz.m_timezone.toStdString().c_str());
+//    m_work->setTimezone(zone.id());
 }
 
 DatetimeModule::~DatetimeModule()
@@ -85,4 +114,5 @@ DatetimeModule::~DatetimeModule()
 
     if (m_datetimeWidget)
         m_datetimeWidget->deleteLater();
+    m_choseDlg->deleteLater();
 }

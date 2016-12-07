@@ -1,6 +1,8 @@
 #ifndef DATETIMEWORK_H
 #define DATETIMEWORK_H
 
+#include "datetimemodel.h"
+
 #include <QObject>
 #include <com_deepin_daemon_timedate.h>
 
@@ -10,9 +12,10 @@ class DatetimeWork : public QObject
 {
     Q_OBJECT
 public:
-    explicit DatetimeWork(QObject *parent = 0);
+    explicit DatetimeWork(DatetimeModel* model, QObject *parent = 0);
 
-    bool nTP() const;
+    void setTimezone(const QString& timezone);
+
 signals:
     void NTPChanged(bool  value) const;
 
@@ -22,6 +25,7 @@ public slots:
     void onProperty(const QString &propName, const QVariant &value);
 
 private:
+    DatetimeModel* m_model;
     Timedate* m_timedateInter;
 };
 

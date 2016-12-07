@@ -8,6 +8,10 @@
 #include "switchwidget.h"
 #include "settingsgroup.h"
 #include "contentwidget.h"
+#include "nextpagewidget.h"
+#include "datetimeutil.h"
+
+using namespace dcc;
 
 class DateSettings : public ContentWidget
 {
@@ -21,12 +25,14 @@ public:
 signals:
     void dateChanged(int year, int month, int day, int hour, int minute);
     void autoSyncChanged(const bool checked);
+    void changeClick();
 
 public slots:
     void slotMonthChange(DateWidget::Type type, int data);
     void slotConfirm();
     void slotCancel();
     void slotAutoSync(const bool checked);
+    void setTimezone(const QString &timezone);
 
 private:
     Clock *m_clock;
@@ -36,7 +42,7 @@ private:
     DateWidget* m_dayWidget;
     DateWidget* m_yearWidget;
     DateWidget* m_monthWidget;
-
+    NextPageWidget* m_timezoneItem;
     SettingsGroup *m_okGroup;
 };
 

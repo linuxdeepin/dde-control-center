@@ -14,6 +14,7 @@ public:
 
 signals:
     void NTPChanged(bool value);
+    void timezoneChanged(const QString& value);
 
 public slots:
     void setNTP(bool ntp);

@@ -25,6 +25,9 @@ public:
 
 public slots:
     void slotEditDatetime();
+    void onAddTimezoneClick();
+    void onChangeClick();
+    void onSetTimezone(const Timezone& tz);
 
 private:
     ~DatetimeModule();
@@ -34,6 +37,7 @@ private:
     DatetimeModel* m_model;
     Datetime* m_datetimeWidget;
     DateSettings* m_dateSettings;
+    ChoseDialog* m_choseDlg;
 };
 
 #endif // DATETIMEMODULE_H
