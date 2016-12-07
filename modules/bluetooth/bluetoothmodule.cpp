@@ -67,6 +67,7 @@ ModuleWidget *BluetoothModule::moduleWidget()
         m_bluetoothView->setTitle("Bluetooth");
 
         connect(m_bluetoothView, &BluetoothWidget::requestToggleAdapter, m_bluetoothWorker, &BluetoothWorker::setAdapterPowered);
+        connect(m_bluetoothView, &BluetoothWidget::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectAdapterDevice);
     }
 
     return m_bluetoothView;

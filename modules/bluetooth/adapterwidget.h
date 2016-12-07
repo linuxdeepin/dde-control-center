@@ -33,6 +33,7 @@ public slots:
 
 signals:
     void requestToggleAdapter(const bool &powered);
+    void requestConnectDevice(const Device *device);
 
 private slots:
     void addDevice(const Device *device);

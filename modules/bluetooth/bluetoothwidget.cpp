@@ -38,6 +38,7 @@ void BluetoothWidget::addAdapter(const Adapter *adapter)
     m_centeralLayout->addWidget(widget);
 
     connect(widget, &AdapterWidget::requestToggleAdapter, [this, adapter] (const bool &toggled) { emit requestToggleAdapter(adapter, toggled); });
+    connect(widget, &AdapterWidget::requestConnectDevice, this, &BluetoothWidget::requestConnectDevice);
 }
 
 } // namespace bluetooth

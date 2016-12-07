@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/bluetooth">
+        <file>themes/dark/dark.qss</file>
+    </qresource>
+</RCC>

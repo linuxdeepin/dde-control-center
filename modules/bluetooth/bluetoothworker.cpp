@@ -66,6 +66,13 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
     }
 }
 
+void BluetoothWorker::connectAdapterDevice(const Device *device)
+{
+    QDBusObjectPath path(device->id());
+    m_bluetoothInter->ConnectDevice(path);
+    qDebug() << "connect to device: " << device->name();
+}
+
 void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj)
 {
     const QString path = adapterObj["Path"].toString();
@@ -104,9 +111,13 @@ void BluetoothWorker::inflateDevice(Device *device, const QJsonObject &deviceObj
 {
     const QString id = deviceObj["Path"].toString();
     const QString name = deviceObj["Alias"].toString();
+    const bool paired = deviceObj["Paired"].toBool();
+    const Device::State state = Device::State(deviceObj["State"].toInt());
 
     device->setId(id);
     device->setName(name);
+    device->setPaired(paired);
+    device->setState(state);
 }
 
 void BluetoothWorker::onAdapterPropertiesChanged(const QString &json)

@@ -1,0 +1,3 @@
+NormalLabel#DeviceTitle, NormalLabel#DeviceState {
+    color: white
+}

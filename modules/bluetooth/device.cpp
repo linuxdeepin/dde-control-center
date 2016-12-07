@@ -13,7 +13,11 @@ namespace dcc {
 namespace bluetooth {
 
 Device::Device(QObject *parent) :
-    QObject(parent)
+    QObject(parent),
+    m_id(""),
+    m_name(""),
+    m_paired(false),
+    m_state(StateUnavailable)
 {
 
 }
@@ -37,6 +41,21 @@ void Device::setPaired(bool paired)
         m_paired = paired;
         emit pairedChanged(paired);
     }
+}
+
+void Device::setState(const State &state)
+{
+    if (state != m_state) {
+        m_state = state;
+        emit stateChanged(state);
+    }
+}
+
+QDebug &operator<<(QDebug &stream, const Device *device)
+{
+    stream << "Device name:" << device->name() << " paired:" << device->paired() << " state:" << device->state();
+
+    return stream;
 }
 
 } // namespace bluetooth

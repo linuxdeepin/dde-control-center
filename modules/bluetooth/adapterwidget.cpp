@@ -12,7 +12,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 
-#include "nextpagewidget.h"
+#include "devicesettingsitem.h"
 
 namespace dcc {
 namespace bluetooth {
@@ -69,16 +69,20 @@ void AdapterWidget::toggleSwitch(const bool &checked)
 
 void AdapterWidget::addDevice(const Device *device)
 {
-    NextPageWidget *w = new NextPageWidget;
 
-    connect(device, &Device::nameChanged, w, &NextPageWidget::setTitle);
-    w->setTitle(device->name());
+    DeviceSettingsItem *w = new DeviceSettingsItem(device);
 
-    if (device->paired()) {
-        m_myDevicesGroup->appendItem(w);
-    } else {
-        m_otherDevicesGroup->appendItem(w);
-    }
+    auto CategoryDevice = [this, w] (const bool paired) {
+        if (paired) {
+            m_myDevicesGroup->appendItem(w);
+        } else {
+            m_otherDevicesGroup->appendItem(w);
+        }
+    };
+    CategoryDevice(device->paired());
+
+    connect(w, &DeviceSettingsItem::requestConnectDevice, this, &AdapterWidget::requestConnectDevice);
+    connect(device, &Device::pairedChanged, CategoryDevice);
 }
 
 void AdapterWidget::removeDevice(const QString &deviceId)

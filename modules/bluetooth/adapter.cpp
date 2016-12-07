@@ -12,7 +12,11 @@
 namespace dcc {
 namespace bluetooth {
 
-Adapter::Adapter(QObject *parent) : QObject(parent)
+Adapter::Adapter(QObject *parent) :
+    QObject(parent),
+    m_id(""),
+    m_name(""),
+    m_powered("false")
 {
 
 }

@@ -11,6 +11,7 @@
 #define DCC_BLUETOOTH_DEVICE_H
 
 #include <QObject>
+#include <QDebug>
 
 namespace dcc {
 namespace bluetooth {
@@ -18,6 +19,15 @@ namespace bluetooth {
 class Device : public QObject
 {
     Q_OBJECT
+
+public:
+    enum State {
+        StateUnavailable = 0,
+        StateAvailable   = 1,
+        StateConnected   = 2
+    };
+    Q_ENUM(State)
+
 public:
     explicit Device(QObject *parent = 0);
 
@@ -30,15 +40,22 @@ public:
     inline bool paired() const { return m_paired; }
     void setPaired(bool paired);
 
+    inline State state() const { return m_state; }
+    void setState(const State &state);
+
 signals:
     void nameChanged(const QString &name) const;
-    void pairedChanged(const bool paired) const;
+    void pairedChanged(const bool &paired) const;
+    void stateChanged(const State &state) const;
 
 private:
     QString m_id;
     QString m_name;
     bool m_paired;
+    State m_state;
 };
+
+QDebug &operator<<(QDebug &stream, const Device *device);
 
 } // namespace bluetooth
 } // namespace dcc

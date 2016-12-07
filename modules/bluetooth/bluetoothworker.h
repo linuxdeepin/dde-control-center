@@ -33,6 +33,7 @@ public:
 
 public slots:
     void setAdapterPowered(const Adapter *adapter, const bool &powered);
+    void connectAdapterDevice(const Device *device);
 
 private:
     void inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj);

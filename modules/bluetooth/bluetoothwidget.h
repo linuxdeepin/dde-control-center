@@ -28,6 +28,7 @@ public:
 
 signals:
     void requestToggleAdapter(const Adapter *adapter, const bool &toggled);
+    void requestConnectDevice(const Device *device);
 
 private slots:
     void addAdapter(const Adapter *adapter);
