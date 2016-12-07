@@ -1,21 +1,23 @@
 #include "wacomsettings.h"
 
-WacomSettings::WacomSettings(QObject *parent)
+WacomSettings::WacomSettings(QWidget *parent):
+    TranslucentFrame(parent)
 {
-    Q_UNUSED(parent);
     m_mainGroup = new SettingsGroup;
     m_mainLayout = new QVBoxLayout;
-    m_pressureSlider = new WacomPressure;
-    m_pressureSlider->setTitle(tr("Pressure Sensitive"));
-    m_pressureSlider->setMaxValue(PressureMaxValue);
-    m_pressureSlider->setMinValue(PressureMinValue);
+    m_pressureSlider = new TitledSliderItem(tr("Pressure Sensitive"));
+    m_pressureSlider->slider()->setType(DCCSlider::Vernier);
+    m_pressureSlider->slider()->setTickPosition(QSlider::TicksBelow);
+    m_pressureSlider->slider()->setRange(0, 6);
+    m_pressureSlider->slider()->setTickInterval(1);
 
     m_mainGroup->appendItem(m_pressureSlider);
     m_mainLayout->addWidget(m_mainGroup);
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
     setObjectName("WacomSettings");
-    connect(m_pressureSlider, &WacomPressure::requestSetSliderValue, this, &WacomSettings::requestSetPressureValue);
+    m_preSlider = m_pressureSlider->slider();
+    connect(m_preSlider, &QSlider::valueChanged, this, &WacomSettings::requestSetPressureValue);
 }
 
 void WacomSettings::setModel(WacomModelBase *const baseSettings)
@@ -28,5 +30,5 @@ void WacomSettings::setModel(WacomModelBase *const baseSettings)
 
 void WacomSettings::setPressureValue(const int &value)
 {
-    m_pressureSlider->setValue(value);
+    m_preSlider->setValue(value);
 }

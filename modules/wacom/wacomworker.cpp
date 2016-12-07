@@ -16,7 +16,7 @@ void WacomWorker::active()
 {
     m_dbusWacom->blockSignals(false);
     WacomModelBase *ModelBase = m_model->getWacomModelBase();
-    ModelBase->setPressureValue(m_dbusWacom->pressureSensitive());
+    ModelBase->setPressureValue(converToModelPressureValue(m_dbusWacom->pressureSensitive()));
 }
 
 void WacomWorker::deactive()
@@ -27,10 +27,20 @@ void WacomWorker::deactive()
 void WacomWorker::setPressureSensitive(const int value)
 {
     WacomModelBase *ModelBase = m_model->getWacomModelBase();
-    ModelBase->setPressureValue(value);
+    ModelBase->setPressureValue(converToModelPressureValue(value));
 }
 
 void WacomWorker::onPressureSensitiveChanged(const int value)
 {
-    m_dbusWacom->setPressureSensitive(value);
+    m_dbusWacom->setPressureSensitive(converToPressureValue(value));
+}
+
+int WacomWorker::converToPressureValue(int value)
+{
+    return value + 2;
+}
+
+int WacomWorker::converToModelPressureValue(int value)
+{
+    return value - 2;
 }

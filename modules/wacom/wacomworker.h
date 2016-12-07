@@ -24,6 +24,9 @@ public slots:
     void onPressureSensitiveChanged(const int value);
 
 private:
+    int converToPressureValue(int value);
+    int converToModelPressureValue(int value);
+private:
     Wacom *m_dbusWacom;
     WacomModel *m_model;
 };
