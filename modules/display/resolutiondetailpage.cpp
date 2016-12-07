@@ -21,6 +21,7 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
         m_resolutions->removeItem(item);
         item->deleteLater();
     }
+    m_options.clear();
 
     const Monitor *mon = model->monitorList().first();
     const auto modes = mon->modeList();
