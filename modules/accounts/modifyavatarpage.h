@@ -17,8 +17,11 @@ signals:
     void requestAddNewAvatar(User *user) const;
     void requestSetAvatar(User *user, const QString &filePath) const;
 
+private:
+    void appendAvatar(const QString &avatar, const int index, const bool selected, const bool deletable = false);
+
 private slots:
-    void updateAvatarList(const QList<QString> &avatars);
+    void updateAvatarList();
 
 private:
     User *m_userInter;

@@ -28,12 +28,27 @@ ModifyAvatarPage::ModifyAvatarPage(User *user, QWidget *parent)
     setTitle(user->name());
 
     connect(user, &User::avatarListChanged, this, &ModifyAvatarPage::updateAvatarList);
+    connect(user, &User::currentAvatarChanged, this, &ModifyAvatarPage::updateAvatarList);
 
-    updateAvatarList(user->avatars());
+    updateAvatarList();
 }
 
-void ModifyAvatarPage::updateAvatarList(const QList<QString> &avatars)
+void ModifyAvatarPage::appendAvatar(const QString &avatar, const int index, const bool selected, const bool deletable)
 {
+    AvatarWidget *w = new AvatarWidget(avatar, this);
+    w->setSelected(selected);
+    w->setDeletable(deletable);
+
+    connect(w, &AvatarWidget::clicked, [=] (const QString &iconPath) { emit requestSetAvatar(m_userInter, iconPath); });
+
+    m_avatarsLayout->addWidget(w, index / 4, index % 4, Qt::AlignCenter);
+}
+
+void ModifyAvatarPage::updateAvatarList()
+{
+    const auto avatars = m_userInter->avatars();
+    Q_ASSERT(avatars.size() >= 14);
+
     // clear old data
     while (QLayoutItem *item = m_avatarsLayout->takeAt(0))
     {
@@ -41,18 +56,20 @@ void ModifyAvatarPage::updateAvatarList(const QList<QString> &avatars)
         delete item;
     }
 
-    const QString current = m_userInter->currentAvatar();
+    const QString currentAvatar = m_userInter->currentAvatar();
 
-    // append avatars
+    // append system avatars
     int count = 0;
-    for (auto avatar : avatars)
+    for (int i(0); i != 14; ++i)
     {
-        AvatarWidget *w = new AvatarWidget(avatar, this);
-        w->setSelected(avatar == current);
+        appendAvatar(avatars[i], count, currentAvatar == avatars[i]);
+        ++count;
+    }
 
-        connect(w, &AvatarWidget::clicked, [=] (const QString &iconPath) { emit requestSetAvatar(m_userInter, iconPath); });
-
-        m_avatarsLayout->addWidget(w, count / 4, count % 4, Qt::AlignCenter);
+    // append custom avatar
+    if (avatars.size() > 14)
+    {
+        appendAvatar(avatars.last(), count, currentAvatar == avatars.last(), currentAvatar != avatars.last());
         ++count;
     }
 
