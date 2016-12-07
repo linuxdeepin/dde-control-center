@@ -10,7 +10,8 @@ HEADERS += \
     $$PWD/bluetoothworker.h \
     $$PWD/adapter.h \
     $$PWD/adapterwidget.h \
-    $$PWD/devicesettingsitem.h
+    $$PWD/devicesettingsitem.h \
+    $$PWD/detailpage.h
 
 SOURCES += \
     $$PWD/bluetoothmodule.cpp \
@@ -20,7 +21,8 @@ SOURCES += \
     $$PWD/bluetoothworker.cpp \
     $$PWD/adapter.cpp \
     $$PWD/adapterwidget.cpp \
-    $$PWD/devicesettingsitem.cpp
+    $$PWD/devicesettingsitem.cpp \
+    $$PWD/detailpage.cpp
 
 RESOURCES += \
     $$PWD/bluetooth.qrc

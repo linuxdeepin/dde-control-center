@@ -29,9 +29,11 @@ public:
 signals:
     void requestToggleAdapter(const Adapter *adapter, const bool &toggled);
     void requestConnectDevice(const Device *device);
+    void requestShowDetail(const Adapter *adapter, const Device *device);
 
 private slots:
     void addAdapter(const Adapter *adapter);
+    void removeAdapter(const QString &adapterId);
 
 private:
     BluetoothModel *m_model;

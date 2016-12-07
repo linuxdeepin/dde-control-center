@@ -19,6 +19,7 @@ namespace bluetooth {
 
 AdapterWidget::AdapterWidget(const Adapter *adapter) :
     QWidget(),
+    m_adapter(adapter),
     m_switch(new SwitchWidget),
     m_titleGroup(new SettingsGroup),
     m_myDevicesGroup(new SettingsGroup(tr("My devices"))),
@@ -83,11 +84,35 @@ void AdapterWidget::addDevice(const Device *device)
 
     connect(w, &DeviceSettingsItem::requestConnectDevice, this, &AdapterWidget::requestConnectDevice);
     connect(device, &Device::pairedChanged, CategoryDevice);
+    connect(w, &DeviceSettingsItem::requestShowDetail, [this] (const Device *device) {
+        emit requestShowDetail(m_adapter, device);
+    });
 }
 
 void AdapterWidget::removeDevice(const QString &deviceId)
 {
-    Q_UNUSED(deviceId);
+    QList<DeviceSettingsItem*> devices = m_myDevicesGroup->findChildren<DeviceSettingsItem*>();
+    for (DeviceSettingsItem *item : devices) {
+        if (item->device()->id() == deviceId) {
+            m_myDevicesGroup->removeItem(item);
+            item->deleteLater();
+            return;
+        }
+    }
+
+    devices = m_otherDevicesGroup->findChildren<DeviceSettingsItem*>();
+    for (DeviceSettingsItem *item : devices) {
+        if (item->device()->id() == deviceId) {
+            m_otherDevicesGroup->removeItem(item);
+            item->deleteLater();
+            return;
+        }
+    }
+}
+
+const Adapter *AdapterWidget::adapter() const
+{
+    return m_adapter;
 }
 
 }

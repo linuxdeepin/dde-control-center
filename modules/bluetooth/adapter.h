@@ -30,13 +30,14 @@ public:
     void setId(const QString &id);
 
     QList<const Device *> devices() const;
+    const Device *deviceById(const QString &id);
 
     inline bool powered() const { return m_powered; }
     void setPowered(bool powered);
 
 public slots:
     void addDevice(const Device *device);
-    void removeDevice(const QString &deviceId) const;
+    void removeDevice(const QString &deviceId);
 
 signals:
     void nameChanged(const QString &name) const;

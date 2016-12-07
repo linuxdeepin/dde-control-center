@@ -4,6 +4,7 @@
 #include "bluetoothworker.h"
 
 #include "contentwidget.h"
+#include "detailpage.h"
 
 namespace dcc {
 namespace bluetooth {
@@ -17,6 +18,16 @@ BluetoothModule::BluetoothModule(FrameProxyInterface *frame, QObject *parent)
     m_bluetoothWorker(nullptr)
 {
 
+}
+
+void BluetoothModule::showDetail(const Adapter *adapter, const Device *device)
+{
+    DetailPage *page = new DetailPage(adapter, device);
+
+    connect(page, &DetailPage::requestIgnoreDevice, m_bluetoothWorker, &BluetoothWorker::ignoreDevice);
+    connect(page, &DetailPage::requestDisconnectDevice, m_bluetoothWorker, &BluetoothWorker::disconnectDevice);
+
+    m_frameProxy->pushWidget(this, page);
 }
 
 BluetoothModule::~BluetoothModule()
@@ -67,7 +78,8 @@ ModuleWidget *BluetoothModule::moduleWidget()
         m_bluetoothView->setTitle("Bluetooth");
 
         connect(m_bluetoothView, &BluetoothWidget::requestToggleAdapter, m_bluetoothWorker, &BluetoothWorker::setAdapterPowered);
-        connect(m_bluetoothView, &BluetoothWidget::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectAdapterDevice);
+        connect(m_bluetoothView, &BluetoothWidget::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectDevice);
+        connect(m_bluetoothView, &BluetoothWidget::requestShowDetail, this, &BluetoothModule::showDetail);
     }
 
     return m_bluetoothView;

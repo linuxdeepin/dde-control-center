@@ -24,6 +24,7 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model) :
 void BluetoothWidget::setModel(BluetoothModel *model)
 {
     connect(model, &BluetoothModel::adapterAdded, this, &BluetoothWidget::addAdapter);
+    connect(model, &BluetoothModel::adapterRemoved, this, &BluetoothWidget::removeAdapter);
 
     for (const Adapter *adapter : model->adapters()) {
         addAdapter(adapter);
@@ -39,6 +40,18 @@ void BluetoothWidget::addAdapter(const Adapter *adapter)
 
     connect(widget, &AdapterWidget::requestToggleAdapter, [this, adapter] (const bool &toggled) { emit requestToggleAdapter(adapter, toggled); });
     connect(widget, &AdapterWidget::requestConnectDevice, this, &BluetoothWidget::requestConnectDevice);
+    connect(widget, &AdapterWidget::requestShowDetail, this, &BluetoothWidget::requestShowDetail);
+}
+
+void BluetoothWidget::removeAdapter(const QString &adapterId)
+{
+    QList<AdapterWidget*> aws = findChildren<AdapterWidget*>();
+    for (AdapterWidget *aw : aws) {
+        if (aw->adapter()->id() == adapterId) {
+            m_centeralLayout->removeWidget(aw);
+            aw->deleteLater();
+        }
+    }
 }
 
 } // namespace bluetooth

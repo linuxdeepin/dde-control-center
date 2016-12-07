@@ -24,6 +24,7 @@ public:
     explicit BluetoothModel(QObject *parent = 0);
 
     QList<const Adapter *> adapters() const;
+    const Adapter *adapterById(const QString &id);
 
 public slots:
     void addAdapter(const Adapter *adapter);
@@ -35,6 +36,8 @@ signals:
 
 private:
     QList<const Adapter *> m_adapters;
+
+    friend class BluetoothWorker;
 };
 
 } // namespace bluetooth

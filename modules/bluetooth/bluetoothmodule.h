@@ -9,12 +9,17 @@ namespace bluetooth {
 class BluetoothWidget;
 class BluetoothModel;
 class BluetoothWorker;
+class Device;
+class Adapter;
 
 class BluetoothModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
 public:
     explicit BluetoothModule(FrameProxyInterface *frame, QObject *parent = 0);
+
+public slots:
+    void showDetail(const Adapter *adapter, const Device *device);
 
 private:
     ~BluetoothModule();

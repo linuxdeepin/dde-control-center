@@ -48,6 +48,8 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device) :
     setLayout(layout);
 
     setDevice(device);
+
+    connect(m_nextButton, &widgets::NextButton::clicked, [this] { emit requestShowDetail(m_device); });
 }
 
 void DeviceSettingsItem::setDevice(const Device *device)
@@ -65,6 +67,7 @@ void DeviceSettingsItem::setLoading(const bool &loading)
 {
     m_loadingIndicator->start();
     loading ? m_loadingIndicator->show() : m_loadingIndicator->hide();
+    loading ? m_tipLabel->hide() : m_tipLabel->show();
 }
 
 void DeviceSettingsItem::mouseReleaseEvent(QMouseEvent *event)
@@ -85,7 +88,7 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state)
     const QString tip = connected ? tr("Connected") : "";
     m_tipLabel->setText(tip);
 
-    if (!connected) setLoading(false);
+    if (connected) setLoading(false);
 }
 
 void DeviceSettingsItem::onDevicePairedChanged(const bool &paired)
@@ -97,6 +100,11 @@ void DeviceSettingsItem::onDevicePairedChanged(const bool &paired)
         m_nextButton->hide();
         m_tipLabel->hide();
     }
+}
+
+const Device *DeviceSettingsItem::device() const
+{
+    return m_device;
 }
 
 } // namespace bluetooth

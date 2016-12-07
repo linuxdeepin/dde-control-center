@@ -28,18 +28,22 @@ public:
 
     void setAdapter(const Adapter *adapter);
 
+    const Adapter *adapter() const;
+
 public slots:
     void toggleSwitch(const bool &checked);
 
 signals:
     void requestToggleAdapter(const bool &powered);
     void requestConnectDevice(const Device *device);
+    void requestShowDetail(const Adapter *adapter, const Device *device);
 
 private slots:
     void addDevice(const Device *device);
     void removeDevice(const QString &deviceId);
 
 private:
+    const Adapter *m_adapter;
     SwitchWidget *m_switch;
     SettingsGroup *m_titleGroup;
     SettingsGroup *m_myDevicesGroup;

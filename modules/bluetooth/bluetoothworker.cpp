@@ -27,7 +27,10 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
 void BluetoothWorker::activate()
 {
     m_model->blockSignals(false);
+    m_model->m_adapters.clear();
 
+    connect(m_bluetoothInter, &DBusBluetooth::AdapterAdded, this, &BluetoothWorker::addAdapter);
+    connect(m_bluetoothInter, &DBusBluetooth::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterPropertiesChanged, this, &BluetoothWorker::onAdapterPropertiesChanged);
     connect(m_bluetoothInter, &DBusBluetooth::DevicePropertiesChanged, this, &BluetoothWorker::onDevicePropertiesChanged);
 
@@ -66,7 +69,20 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
     }
 }
 
-void BluetoothWorker::connectAdapterDevice(const Device *device)
+void BluetoothWorker::disconnectDevice(const Device *device)
+{
+    QDBusObjectPath path(device->id());
+    m_bluetoothInter->DisconnectDevice(path);
+    qDebug() << "disconnect from device: " << device->name();
+}
+
+void BluetoothWorker::ignoreDevice(const Adapter *adapter, const Device *device)
+{
+    m_bluetoothInter->RemoveDevice(QDBusObjectPath(adapter->id()), QDBusObjectPath(device->id()));
+    qDebug() << "ignore device: " << device->name();
+}
+
+void BluetoothWorker::connectDevice(const Device *device)
 {
     QDBusObjectPath path(device->id());
     m_bluetoothInter->ConnectDevice(path);
@@ -88,14 +104,31 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, adapter, call] {
         if (!call.isError())  {
+            QStringList tmpList;
+
             QDBusReply<QString> reply = call.reply();
             const QString replyStr = reply.value();
             QJsonDocument doc = QJsonDocument::fromJson(replyStr.toUtf8());
             QJsonArray arr = doc.array();
             for (QJsonValue val : arr) {
-                Device *device = new Device(adapter);
+                const QString id = val.toObject()["Path"].toString();
+
+                const Device *result = adapter->deviceById(id);
+                Device *device = const_cast<Device*>(result);
+                if (!device) device = new Device(adapter);
                 inflateDevice(device, val.toObject());
                 adapter->addDevice(device);
+
+                tmpList << id;
+            }
+
+            for (const Device *device : adapter->devices()) {
+                if (!tmpList.contains(device->id())) {
+                    adapter->removeDevice(device->id());
+
+                    Device *target = const_cast<Device*>(device);
+                    if (target) target->deleteLater();
+                }
             }
         } else {
             qWarning() << call.error().message();
@@ -148,6 +181,28 @@ void BluetoothWorker::onDevicePropertiesChanged(const QString &json)
             }
         }
     }
+}
+
+void BluetoothWorker::addAdapter(const QString &json)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+    QJsonObject obj = doc.object();
+
+    Adapter *adapter = new Adapter(m_model);
+    inflateAdapter(adapter, obj);
+    m_model->addAdapter(adapter);
+}
+
+void BluetoothWorker::removeAdapter(const QString &json)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+    QJsonObject obj = doc.object();
+    const QString id = obj["Path"].toString();
+    m_model->removeAdapater(id);
+
+    const Adapter *result = m_model->adapterById(id);
+    Adapter *adapter = const_cast<Adapter*>(result);
+    if (adapter) adapter->deleteLater();
 }
 
 void BluetoothWorker::setAdapterDiscoverable(const QString &path)

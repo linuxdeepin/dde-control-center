@@ -38,8 +38,11 @@ public:
     void setDevice(const Device *device);
     void setLoading(const bool &loading);
 
+    const Device *device() const;
+
 signals:
     void requestConnectDevice(const Device *device) const;
+    void requestShowDetail(const Device *device) const;
 
 protected:
     void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;

@@ -31,14 +31,17 @@ void Adapter::setName(const QString &name)
 
 void Adapter::addDevice(const Device *device)
 {
-    if (!m_devices.contains(device)) {
+    if (!deviceById(device->id())) {
         m_devices.append(device);
         emit deviceAdded(device);
     }
 }
 
-void Adapter::removeDevice(const QString &deviceId) const
+void Adapter::removeDevice(const QString &deviceId)
 {
+    const Device *device = deviceById(deviceId);
+    if (device) m_devices.removeAll(device);
+
     emit deviceRemoved(deviceId);
 }
 
@@ -53,6 +56,17 @@ void Adapter::setPowered(bool powered)
 QList<const Device *> Adapter::devices() const
 {
     return m_devices;
+}
+
+const Device *Adapter::deviceById(const QString &id)
+{
+    for (const Device *device: m_devices) {
+        if (device->id() == id) {
+            return device;
+        }
+    }
+
+    return nullptr;
 }
 
 void Adapter::setId(const QString &id)

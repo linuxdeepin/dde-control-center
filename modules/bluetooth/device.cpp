@@ -17,6 +17,7 @@ Device::Device(QObject *parent) :
     m_id(""),
     m_name(""),
     m_paired(false),
+    m_trusted(false),
     m_state(StateUnavailable)
 {
 
@@ -48,6 +49,14 @@ void Device::setState(const State &state)
     if (state != m_state) {
         m_state = state;
         emit stateChanged(state);
+    }
+}
+
+void Device::setTrusted(bool trusted)
+{
+    if (trusted != m_trusted) {
+        m_trusted = trusted;
+        emit trustedChanged(trusted);
     }
 }
 

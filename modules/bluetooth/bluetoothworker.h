@@ -33,7 +33,9 @@ public:
 
 public slots:
     void setAdapterPowered(const Adapter *adapter, const bool &powered);
-    void connectAdapterDevice(const Device *device);
+    void connectDevice(const Device *device);
+    void disconnectDevice(const Device *device);
+    void ignoreDevice(const Adapter *adapter, const Device *device);
 
 private:
     void inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj);
@@ -42,6 +44,9 @@ private:
 private slots:
     void onAdapterPropertiesChanged(const QString &json);
     void onDevicePropertiesChanged(const QString &json);
+
+    void addAdapter(const QString &json);
+    void removeAdapter(const QString &json);
 
 private:
     void setAdapterDiscoverable(const QString &path);
