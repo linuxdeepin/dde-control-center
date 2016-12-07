@@ -1,12 +1,13 @@
 #include "updatectrlwidget.h"
 #include "updateitem.h"
+#include "translucentframe.h"
 
 #include <QVBoxLayout>
 
 UpdateCtrlWidget::UpdateCtrlWidget(QWidget *parent)
     : ContentWidget(parent)
 {
-    QWidget* widget = new QWidget();
+    TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(3);

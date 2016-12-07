@@ -17,11 +17,6 @@
 
 namespace dcc {
 
-static const int ItemMarginLeft = 20;
-static const int ItemMarginTop = 0;
-static const int ItemMarginRight = 10;
-static const int ItemMarginBottom = 0;
-
 SettingsGroup::SettingsGroup(QFrame *parent) :
     QFrame(parent),
     m_layout(new QVBoxLayout),
@@ -107,6 +102,14 @@ int SettingsGroup::itemCount() const
     return m_layout->count();
 }
 
+void SettingsGroup::setMargin(int left, int top, int right, int bottom)
+{
+    m_itemMarginLeft = left;
+    m_itemMarginTop = top;
+    m_itemMarginRight = right;
+    m_itemMarginBottom = bottom;
+}
+
 SettingsItem *SettingsGroup::getItem(int index)
 {
     if(index < 0)
@@ -152,10 +155,10 @@ void SettingsGroup::updateItemPaddings(SettingsItem *item)
 {
     QLayout * layout = qobject_cast<QLayout*>(item->layout());
     if (layout) {
-        layout->setContentsMargins(ItemMarginLeft,
-                                   ItemMarginTop,
-                                   ItemMarginRight,
-                                   ItemMarginBottom);
+        layout->setContentsMargins(m_itemMarginLeft,
+                                   m_itemMarginTop,
+                                   m_itemMarginRight,
+                                   m_itemMarginBottom);
     }
 }
 

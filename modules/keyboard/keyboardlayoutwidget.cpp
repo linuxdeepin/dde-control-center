@@ -5,6 +5,7 @@
 #include "indexframe.h"
 #include "settingsgroup.h"
 #include "settingsitem.h"
+#include "translucentframe.h"
 
 #include <QHBoxLayout>
 #include <QLineEdit>
@@ -15,11 +16,13 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     :ContentWidget(parent),
       textLength(0)
 {
-    QWidget* widget = new QWidget();
+    TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
 
     SettingsGroup* group = new SettingsGroup();
+    group->setMargin(3,0,0,0);
+
     SettingsItem* indexItem = new SettingsItem();
 //    indexItem->setPalette(QPalette(QColor(19, 89, 177)));
 

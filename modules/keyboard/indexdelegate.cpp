@@ -33,6 +33,7 @@ void IndexDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
 
     QVariant var = index.data();
     MetaData md = var.value<MetaData>();
+
     if(md.section())
     {
         painter->save();
@@ -40,11 +41,11 @@ void IndexDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
         QPen pen = painter->pen();
         painter->setOpacity(0.5);
         painter->setPen(Qt::NoPen);
-        painter->setBrush(QColor(238, 238, 238));
+        painter->setBrush(QColor(222,222,222));
         painter->drawRect(option.rect.adjusted(0,1,0,-1));
         painter->setPen(pen);
         painter->restore();
-        painter->drawText(option.rect.adjusted(3,0,0,0), Qt::AlignVCenter, md.text());
+        painter->drawText(option.rect.adjusted(20,0,0,0), Qt::AlignVCenter, md.text());
     }
     else
     {
@@ -55,6 +56,6 @@ void IndexDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
         painter->setBrush(QColor(238, 238, 238));
         painter->drawRect(option.rect.adjusted(0,1,0,-1));
         painter->restore();
-        painter->drawText(option.rect.adjusted(6,0,0,0), Qt::AlignVCenter, md.text());
+        painter->drawText(option.rect.adjusted(20,0,0,0), Qt::AlignVCenter, md.text());
     }
 }

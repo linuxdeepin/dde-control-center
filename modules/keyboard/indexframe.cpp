@@ -2,7 +2,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 
-IndexFrame::IndexFrame(QFrame *parent):QFrame(parent)
+IndexFrame::IndexFrame(QFrame *parent):TranslucentFrame(parent)
 {
     setMouseTracking(true);
     setFrameShape(QFrame::NoFrame);

@@ -1,13 +1,14 @@
 #include "bootwidget.h"
 #include "settingsgroup.h"
 #include "grubbackgrounditem.h"
+#include "translucentframe.h"
 
 #include <QVBoxLayout>
 
 BootWidget::BootWidget(QWidget *parent)
     :ContentWidget(parent)
 {
-    QWidget* widget = new QWidget();
+    TranslucentFrame* widget = new TranslucentFrame();
 
     QVBoxLayout* layout = new QVBoxLayout();
     SettingsGroup *group = new SettingsGroup();

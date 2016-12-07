@@ -3,6 +3,7 @@
 #include "keyboardwork.h"
 #include "shortcutmodel.h"
 #include "inputitem.h"
+#include "translucentframe.h"
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -11,7 +12,7 @@ CustomContent::CustomContent(KeyboardWork* work, QWidget *parent)
     :ContentWidget(parent),
       m_work(work)
 {
-    QWidget* widget = new QWidget();
+    TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
 

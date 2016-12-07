@@ -39,8 +39,8 @@ public:
 
     int itemCount() const;
 
+    void setMargin(int left, int top, int right, int bottom);
     SettingsItem* getItem(int index);
-
 private:
     bool eventFilter(QObject *, QEvent *event);
     void updateHeadTail();
@@ -53,6 +53,11 @@ private:
     SettingsHeaderItem *m_headerItem;
 
     QTimer *m_updateHeightTimer;
+
+    int m_itemMarginLeft = 20;
+    int m_itemMarginTop = 0;
+    int m_itemMarginRight = 10;
+    int m_itemMarginBottom = 0;
 
     void updateItemPaddings(SettingsItem *item);
 };

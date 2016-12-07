@@ -2,6 +2,7 @@
 #include "settingsgroup.h"
 #include "updatemodel.h"
 #include "updateitem.h"
+#include "translucentframe.h"
 
 #include <QVBoxLayout>
 
@@ -9,7 +10,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     :ContentWidget(parent),
       m_model(model)
 {
-    QWidget* widget = new QWidget();
+    TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
     SettingsGroup* ug = new SettingsGroup();

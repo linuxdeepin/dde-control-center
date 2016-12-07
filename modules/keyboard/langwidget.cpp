@@ -5,6 +5,7 @@
 #include "indexframe.h"
 #include "indexview.h"
 #include "indexmodel.h"
+#include "translucentframe.h"
 
 #include <QVBoxLayout>
 #include <QLineEdit>
@@ -14,7 +15,7 @@ using namespace dcc;
 LangWidget::LangWidget(QWidget *parent)
     :ContentWidget(parent)
 {
-    QWidget* widget = new QWidget();
+    TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
 
@@ -31,8 +32,6 @@ LangWidget::LangWidget(QWidget *parent)
     m_view = new IndexView();
 
     m_delegate = new IndexDelegate();
-
-    m_view->setFixedHeight(1000);
 
     hlayout->addWidget(m_view);
     indexItem->setLayout(hlayout);
@@ -54,6 +53,8 @@ void LangWidget::setModelData(const QList<MetaData> &datas)
     m_model->setMetaData(datas);
     m_view->setModel(m_model);
     m_view->setItemDelegate(m_delegate);
+
+    m_view->setFixedHeight(datas.count()*36);
 }
 
 void LangWidget::onSearch(const QString &text)

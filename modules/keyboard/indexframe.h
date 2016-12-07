@@ -1,10 +1,12 @@
 #ifndef INDEXFRAME_H
 #define INDEXFRAME_H
 
+#include "translucentframe.h"
 #include <QRect>
-#include <QFrame>
 
-class IndexFrame : public QFrame
+using namespace dcc;
+
+class IndexFrame : public TranslucentFrame
 {
     Q_OBJECT
 public:

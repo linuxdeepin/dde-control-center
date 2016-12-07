@@ -1,11 +1,12 @@
 #include "mirrorswidget.h"
+#include "translucentframe.h"
 #include <QVBoxLayout>
 
 MirrorsWidget::MirrorsWidget(QWidget *parent)
     :ContentWidget(parent),
       m_curItem(nullptr)
 {
-    QWidget* widget = new QWidget();
+    TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
 
     m_group = new SettingsGroup();

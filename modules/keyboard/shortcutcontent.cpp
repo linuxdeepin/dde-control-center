@@ -3,6 +3,8 @@
 #include "keyboardwork.h"
 #include "shortcutitem.h"
 #include "keyboardcontrol.h"
+#include "translucentframe.h"
+
 #include <QVBoxLayout>
 
 ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
@@ -11,7 +13,7 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
       m_conflict(NULL),
       m_curInfo(NULL)
 {
-    QWidget* widget = new QWidget();
+    TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
 

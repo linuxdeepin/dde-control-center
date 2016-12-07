@@ -32,7 +32,7 @@ DateSettings::DateSettings(QWidget *parent)
     m_clock->setDisplay(true);
 //    setStyleSheet("QWidget{background-color: rgba(25,25,26,70%) }");
 
-    QWidget *widget = new TranslucentFrame;
+    TranslucentFrame *widget = new TranslucentFrame;
     QVBoxLayout* layout = new QVBoxLayout(widget);
     layout->setSpacing(1);
     layout->setMargin(0);

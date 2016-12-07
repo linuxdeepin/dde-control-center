@@ -1,4 +1,5 @@
 #include "copyrightwidget.h"
+#include "translucentframe.h"
 
 #include <QVBoxLayout>
 #include <QTextEdit>
@@ -6,12 +7,13 @@
 #include <dboxwidget.h>
 #include <QLocale>
 
+using namespace dcc;
 DWIDGET_USE_NAMESPACE
 
 CopyrightWidget::CopyrightWidget(QWidget *parent)
     :ContentWidget(parent)
 {
-    QWidget* widget = new QWidget();
+    TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout *layout =new QVBoxLayout();
     m_title = new QLabel();
     m_title->setText(getLicense("/usr/share/gpl/gpl-3.0-%1-%2.txt", "title"));
