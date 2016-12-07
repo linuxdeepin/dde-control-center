@@ -59,6 +59,8 @@ ContentWidget::ContentWidget(QWidget *parent)
 void ContentWidget::setTitle(const QString &title)
 {
     m_title->setText(title);
+
+    setAccessibleName(title);
 }
 
 void ContentWidget::sendBackSignal()

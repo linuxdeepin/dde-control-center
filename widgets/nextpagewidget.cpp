@@ -35,6 +35,8 @@ NextPageWidget::NextPageWidget(QFrame *parent)
 void NextPageWidget::setTitle(const QString &title)
 {
     m_title->setText(title);
+
+    setAccessibleName(title);
 }
 
 void NextPageWidget::setValue(const QString &value)

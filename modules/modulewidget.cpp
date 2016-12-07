@@ -34,6 +34,8 @@ ModuleWidget::ModuleWidget()
 void ModuleWidget::setTitle(const QString &title)
 {
     m_moduleTitle->setText(title);
+
+    setAccessibleName(title);
 }
 
 void ModuleWidget::setIcon(const QPixmap &icon)

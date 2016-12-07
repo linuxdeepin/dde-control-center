@@ -43,6 +43,8 @@ SettingsGroup::SettingsGroup(const QString &title, QFrame *parent)
     : SettingsGroup(parent)
 {
     setHeaderVisible(!title.isEmpty());
+    setAccessibleName(title);
+
     m_headerItem->setTitle(title);
 }
 

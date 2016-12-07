@@ -54,6 +54,7 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent) :
     mainLayout->addLayout(bottomLayout);
 
     setFixedHeight(mainLayout->sizeHint().height());
+    setAccessibleName(title);
 }
 
 DCCSlider *TitledSliderItem::slider() const
