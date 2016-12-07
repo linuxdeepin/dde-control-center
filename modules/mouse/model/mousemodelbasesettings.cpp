@@ -1,8 +1,8 @@
 #include "mousemodelbasesettings.h"
 
 MouseModelBaseSettings::MouseModelBaseSettings(QObject *parent)
+    :MouseModelBase(parent)
 {
-    Q_UNUSED(parent);
 
 }
 

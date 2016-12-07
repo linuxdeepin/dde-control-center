@@ -48,6 +48,12 @@ public slots:
     void onTrackPointMotionAccelerationChanged(const int &value);
 
 private:
+    int converToDouble(int value);
+    int converToDoubleModel(int value);
+    double converToMotionAcceleration(int value);
+    int converToModelMotionAcceleration(double value);
+
+private:
     Mouse      *m_dbusMouse;
     TouchPad   *m_dbusTouchPad;
     TrackPoint *m_dbusTrackPoint;

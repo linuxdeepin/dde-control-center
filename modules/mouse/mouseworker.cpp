@@ -92,25 +92,25 @@ void MouseWorker::setTapClick(const bool state)
 void MouseWorker::setDouClick(const int &value)
 {
     MouseModelBaseSettings *modelBase = m_model->getBaseSettings();
-    modelBase->setSliderValue(value);
+    modelBase->setSliderValue(converToDoubleModel(value));
 }
 
 void MouseWorker::setMouseMotionAcceleration(const int &value)
 {
     MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
-    modelMouse->setSliderValue(std::round(3.2 - value) * 1000);
+    modelMouse->setSliderValue(converToModelMotionAcceleration(value));
 }
 
 void MouseWorker::setTouchpadMotionAcceleration(const int &value)
 {
     MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
-    modelTouch->setSliderValue(std::round(3.2 - value) * 1000);
+    modelTouch->setSliderValue(converToModelMotionAcceleration(value));
 }
 
 void MouseWorker::setTrackPointMotionAcceleration(const int &value)
 {
     MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
-    modelTrack->setSliderValue(std::round(3.2 - value) * 1000);
+    modelTrack->setSliderValue(converToModelMotionAcceleration(value));
 }
 
 void MouseWorker::onDefaultReset()
@@ -147,21 +147,74 @@ void MouseWorker::onTapClick(const bool state)
 
 void MouseWorker::onDouClickChanged(const int &value)
 {
-    m_dbusTouchPad->setDoubleClick(value);
+    m_dbusTouchPad->setDoubleClick(converToDouble(value));
 }
 
 void MouseWorker::onMouseMotionAccelerationChanged(const int &value)
 {
-    m_dbusMouse->setMotionAcceleration(3.2 - (double)value / 1000);
+    m_dbusMouse->setMotionAcceleration(converToMotionAcceleration(value));
 }
 
 void MouseWorker::onTouchpadMotionAccelerationChanged(const int &value)
 {
-    m_dbusTouchPad->setMotionAcceleration(3.2 - (double)value / 1000);
+    m_dbusTouchPad->setMotionAcceleration(converToMotionAcceleration(value));
 }
 
 void MouseWorker::onTrackPointMotionAccelerationChanged(const int &value)
 {
-    m_dbusTrackPoint->setMotionAcceleration(3.2 - (double)value / 1000);
+    m_dbusTrackPoint->setMotionAcceleration(converToMotionAcceleration(value));
+}
+
+int MouseWorker::converToDouble(int value)
+{
+    return 800 - value * 100;
+}
+
+int MouseWorker::converToDoubleModel(int value)
+{
+    return (800 - value )/100;
+}
+
+double MouseWorker::converToMotionAcceleration(int value)
+{
+    switch (value) {
+    case 0:
+        return 3.2;
+    case 1:
+        return 2.6;
+    case 2:
+        return 2.0;
+    case 3:
+        return 1.8;
+    case 4:
+        return 1.4;
+    case 5:
+        return 1.0;
+    case 6:
+        return 0.2;
+    default:
+        return 1.0;
+    }
+}
+
+int MouseWorker::converToModelMotionAcceleration(double value)
+{
+    if (value <= 0.2) {
+        return 6;
+    } else if (value <= 1.0) {
+        return 5;
+    } else if (value <= 1.4) {
+        return 4;
+    } else if (value <= 1.8) {
+        return 3;
+    } else if (value <= 2.0) {
+        return 2;
+    } else if (value <= 2.6) {
+        return 1;
+    } else if (value <= 3.2) {
+        return 0;
+    } else {
+        return 8;
+    }
 }
 

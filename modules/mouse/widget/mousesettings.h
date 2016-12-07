@@ -1,25 +1,23 @@
 #ifndef MOUSESETTINGS_H
 #define MOUSESETTINGS_H
 #include "settingsitem.h"
-#include "speedslider.h"
 #include "switchwidget.h"
 #include "settingsgroup.h"
 #include "../mousemodel.h"
 #include "translucentframe.h"
-#include "moduletitle.h"
-#include <QObject>
+#include "titledslideritem.h"
+#include "settingshead.h"
+#include "dccslider.h"
+#include <QWidget>
 #include <QVBoxLayout>
 
-const int MouseMoveSpeedMax  = 3000;
-const int MouseMoveSpeedMin  = 200;
-const int MouseMoveSpeedStep = 400;
-
 using namespace dcc;
+using namespace dcc::widgets;
 class MouseSettings : public TranslucentFrame
 {
     Q_OBJECT
 public:
-    explicit MouseSettings(const QString &title, QObject *parent = 0);
+    explicit MouseSettings(const QString &title, QWidget *parent = 0);
     void setModel(MouseModelMouseSettings *const baseSettings);
 
 signals:
@@ -34,11 +32,12 @@ public slots:
 
 private:
     QVBoxLayout *m_mainLayout;
-    ModuleTitle   *m_title;
+    SettingsHead   *m_title;
     SettingsGroup *m_mainGroup;
     MouseModelMouseSettings *m_baseSettings;
-    SpeedSlider *speedSlider;
-    SwitchWidget *switchWidget;
+    TitledSliderItem *m_speedSlider;
+    SwitchWidget *m_switchWidget;
+    QSlider *m_spSlider;
 };
 
 #endif // MOUSESETTINGS_H

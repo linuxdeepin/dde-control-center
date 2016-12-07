@@ -1,23 +1,28 @@
 #include "thinkpadsettings.h"
 
-ThinkpadSettings::ThinkpadSettings(QObject *parent)
+ThinkpadSettings::ThinkpadSettings(QWidget *parent)
+    : TranslucentFrame(parent)
 {
-    Q_UNUSED(parent);
     m_mainGroup = new SettingsGroup;
     m_mainLayout = new QVBoxLayout;
-    speedSlider = new SpeedSlider;
-    m_title     = new ModuleTitle(tr("Thinkpad Track Point"));
-    speedSlider->setTitle(tr("Pointer Speed"));
-    speedSlider->setMaxValue(TrackMoveSpeedMax);
-    speedSlider->setMinValue(TrackMoveSpeedMin);
-    speedSlider->setStep(TrackMoveSpeedStep);
+    m_title     = new SettingsHead;
+    m_title->setTitle(tr("Thinkpad Track Point"));
+    m_title->setEditEnable(false);
 
-    m_mainGroup->appendItem(speedSlider);
+    m_speedSlider = new TitledSliderItem(tr("Pointer Speed"));
+    m_speedSlider->slider()->setType(DCCSlider::Vernier);
+    m_speedSlider->slider()->setTickPosition(QSlider::TicksBelow);
+    m_speedSlider->slider()->setRange(0, 6);
+    m_speedSlider->slider()->setTickInterval(1);
+
+    m_mainGroup->appendItem(m_speedSlider);
 
     m_mainLayout->addWidget(m_mainGroup);
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
-    connect(speedSlider, &SpeedSlider::requestSetSliderValue, this, &ThinkpadSettings::requestSetSliderValue);
+
+    m_spSlider = m_speedSlider->slider();
+    connect(m_spSlider, &QSlider::valueChanged, this, &ThinkpadSettings::requestSetSliderValue);
     setObjectName("ThinkpadSettings");
 }
 
@@ -31,5 +36,5 @@ void ThinkpadSettings::setModel(MouseModelThinkpadSettings *const baseSettings)
 
 void ThinkpadSettings::setSliderValue(const int &value)
 {
-    speedSlider->setValue(value);
+    m_spSlider->setValue(value);
 }

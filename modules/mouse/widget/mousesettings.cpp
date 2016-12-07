@@ -1,28 +1,34 @@
 #include "mousesettings.h"
 
-MouseSettings::MouseSettings(const QString &title, QObject *parent)
+MouseSettings::MouseSettings(const QString &title, QWidget *parent)
+    : TranslucentFrame(parent)
 {
-    Q_UNUSED(parent);
     m_mainGroup = new SettingsGroup;
     m_mainLayout = new QVBoxLayout;
-    speedSlider = new SpeedSlider;
-    m_title    = new ModuleTitle(title);
-    speedSlider->setTitle(tr("Pointer Speed"));
-    speedSlider->setMaxValue(MouseMoveSpeedMax);
-    speedSlider->setMinValue(MouseMoveSpeedMin);
-    speedSlider->setStep(MouseMoveSpeedStep);
+
+    m_title    = new SettingsHead;
+    m_title->setTitle(title);
+    m_title->setEditEnable(false);
+
+    m_speedSlider = new TitledSliderItem(tr("Pointer Speed"));
+    m_speedSlider->slider()->setType(DCCSlider::Vernier);
+    m_speedSlider->slider()->setTickPosition(QSlider::TicksBelow);
+    m_speedSlider->slider()->setRange(0, 6);
+    m_speedSlider->slider()->setTickInterval(1);
 
     m_mainGroup->appendItem(m_title);
-    m_mainGroup->appendItem(speedSlider);
+    m_mainGroup->appendItem(m_speedSlider);
 
-    switchWidget = new SwitchWidget;
-    m_mainGroup->appendItem(switchWidget);
+    m_switchWidget = new SwitchWidget;
+    m_mainGroup->appendItem(m_switchWidget);
 
     m_mainLayout->addWidget(m_mainGroup);
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
-    connect(switchWidget, &SwitchWidget::checkedChanegd, this, &MouseSettings::requestSetSwitch);
-    connect(speedSlider, &SpeedSlider::requestSetSliderValue, this, &MouseSettings::requestSetSliderValue);
+    connect(m_switchWidget, &SwitchWidget::checkedChanegd, this, &MouseSettings::requestSetSwitch);
+
+    m_spSlider = m_speedSlider->slider();
+    connect(m_spSlider, &QSlider::valueChanged, this, &MouseSettings::requestSetSliderValue);
     setObjectName("MouseSettings");
 }
 
@@ -38,15 +44,15 @@ void MouseSettings::setModel(MouseModelMouseSettings *const baseSettings)
 
 void MouseSettings::setSwitchTitle(const QString &title)
 {
-    switchWidget->setTitle(title);
+    m_switchWidget->setTitle(title);
 }
 
 void MouseSettings::setSwitchState(const bool state)
 {
-    switchWidget->setChecked(state);
+    m_switchWidget->setChecked(state);
 }
 
 void MouseSettings::setSliderValue(const int &value)
 {
-    speedSlider->setValue(value);
+    m_spSlider->setValue(value);
 }

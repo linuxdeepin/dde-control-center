@@ -2,6 +2,7 @@
 
 
 MouseModelThinkpadSettings::MouseModelThinkpadSettings(QObject *parent)
+    :MouseModelBase(parent)
 {
-    Q_UNUSED(parent);
+
 }

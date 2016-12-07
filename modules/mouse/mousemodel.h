@@ -9,7 +9,6 @@
 #include <QObject>
 #include <QDebug>
 
-
 class MouseModel : public QObject
 {
     Q_OBJECT
@@ -17,10 +16,10 @@ class MouseModel : public QObject
 public:
     explicit MouseModel(QObject *parent = 0);
     ~MouseModel();
-    MouseModelBaseSettings *getBaseSettings();
-    MouseModelMouseSettings *getMouseSettings();
-    MouseModelMouseSettings *getTouchSettings();
-    MouseModelThinkpadSettings *getTrackSettings();
+    MouseModelBaseSettings *getBaseSettings() const;
+    MouseModelMouseSettings *getMouseSettings() const;
+    MouseModelMouseSettings *getTouchSettings() const;
+    MouseModelThinkpadSettings *getTrackSettings() const;
 
 private:
     MouseModelBaseSettings     *m_baseSettings;

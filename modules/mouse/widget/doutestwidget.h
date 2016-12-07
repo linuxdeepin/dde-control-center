@@ -9,7 +9,7 @@ class DouTestWidget : public SettingsItem
 {
     Q_OBJECT
 public:
-    explicit DouTestWidget(QObject *parent = 0);
+    explicit DouTestWidget(QWidget *parent = 0);
 
 signals:
 

@@ -1,8 +1,8 @@
 #include "basesettings.h"
 
-BaseSettings::BaseSettings(QObject *parent)
+BaseSettings::BaseSettings(QWidget *parent)
+    :TranslucentFrame(parent)
 {
-    Q_UNUSED(parent);
     m_mainLayout = new QVBoxLayout;
     m_mainGroup  = new SettingsGroup;
     m_leftHand   = new SwitchWidget;
@@ -13,19 +13,16 @@ BaseSettings::BaseSettings(QObject *parent)
     m_naturalScroll->setTitle(tr("Natural Scroll"));
     m_isTyping->setTitle(tr("Disable the touchpad when typing"));
 
-
     m_mainGroup->appendItem(m_leftHand);
     m_mainGroup->appendItem(m_naturalScroll);
     m_mainGroup->appendItem(m_isTyping);
 
-    douSlider = new SpeedSlider;
-    douSlider->setTitle(tr("Double Speed"));
-    douSlider->setMaxValue(DouClickSpeedMax);
-    douSlider->setMinValue(DouClickSpeedMin);
-    douSlider->setStep(DouClickSpeedStep);
-
+    douSlider = new TitledSliderItem(tr("Double Speed"));
+    douSlider->slider()->setType(DCCSlider::Vernier);
+    douSlider->slider()->setTickPosition(QSlider::TicksBelow);
+    douSlider->slider()->setRange(0, 6);
+    douSlider->slider()->setTickInterval(1);
     m_mainGroup->appendItem(douSlider);
-
 
     m_mainLayout->addWidget(m_mainGroup);
     m_mainLayout->setMargin(0);
@@ -33,7 +30,9 @@ BaseSettings::BaseSettings(QObject *parent)
     connect(m_leftHand, &SwitchWidget::checkedChanegd, this, &BaseSettings::requestSetLeftHand);
     connect(m_isTyping, &SwitchWidget::checkedChanegd, this, &BaseSettings::requestSetDisTyping);
     connect(m_naturalScroll, &SwitchWidget::checkedChanegd, this, &BaseSettings::requestSetNaturalScroll);
-    connect(douSlider, &SpeedSlider::requestSetSliderValue, this, &BaseSettings::requestSetSliderValue);
+
+    QSlider *slider = douSlider->slider();
+    connect(slider, &QSlider::valueChanged, this, &BaseSettings::requestSetSliderValue);
 
     setObjectName("BaseSettings");
 
@@ -71,5 +70,6 @@ void BaseSettings::setDisIfTypingState(const bool state)
 
 void BaseSettings::setSliderValue(const int &value)
 {
-    douSlider->setValue(value);
+    QSlider *slider = douSlider->slider();
+    slider->setValue(value);
 }

@@ -1,7 +1,7 @@
 #include "doutestwidget.h"
 
-DouTestWidget::DouTestWidget(QObject *parent)
+DouTestWidget::DouTestWidget(QWidget *parent)
+    :SettingsItem(parent)
 {
-    Q_UNUSED(parent);
 
 }

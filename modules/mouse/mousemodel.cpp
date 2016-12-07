@@ -1,38 +1,35 @@
 #include "mousemodel.h"
 
 MouseModel::MouseModel(QObject *parent)
+    :QObject(parent)
 {
-    Q_UNUSED(parent);
-    m_baseSettings  = new MouseModelBaseSettings;
-    m_mouseSettings = new MouseModelMouseSettings;
-    m_touchSettings = new MouseModelMouseSettings;
-    m_trackSettings = new MouseModelThinkpadSettings;
+    m_baseSettings  = new MouseModelBaseSettings(this);
+    m_mouseSettings = new MouseModelMouseSettings(this);
+    m_touchSettings = new MouseModelMouseSettings(this);
+    m_trackSettings = new MouseModelThinkpadSettings(this);
 }
 
 MouseModel::~MouseModel()
 {
-    m_baseSettings->deleteLater();
-    m_mouseSettings->deleteLater();
-    m_touchSettings->deleteLater();
-    m_trackSettings->deleteLater();
+
 }
 
-MouseModelBaseSettings *MouseModel::getBaseSettings()
+MouseModelBaseSettings *MouseModel::getBaseSettings() const
 {
     return m_baseSettings;
 }
 
-MouseModelMouseSettings *MouseModel::getMouseSettings()
+MouseModelMouseSettings *MouseModel::getMouseSettings() const
 {
     return m_mouseSettings;
 }
 
-MouseModelMouseSettings *MouseModel::getTouchSettings()
+MouseModelMouseSettings *MouseModel::getTouchSettings() const
 {
     return m_touchSettings;
 }
 
-MouseModelThinkpadSettings *MouseModel::getTrackSettings()
+MouseModelThinkpadSettings *MouseModel::getTrackSettings() const
 {
     return m_trackSettings;
 }

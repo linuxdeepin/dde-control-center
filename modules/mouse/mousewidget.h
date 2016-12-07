@@ -12,6 +12,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+
 class MouseWidget : public ModuleWidget
 {
     Q_OBJECT

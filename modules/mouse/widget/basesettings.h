@@ -4,22 +4,22 @@
 #include "settingsgroup.h"
 #include "settingsitem.h"
 #include "switchwidget.h"
-#include "speedslider.h"
+#include "titledslideritem.h"
 #include "../mousemodel.h"
+#include "dccslider.h"
 #include "translucentframe.h"
-#include <QObject>
+#include <QWidget>
+#include <QSlider>
 #include <QVBoxLayout>
 
-const int DouClickSpeedMax  = 1000;
-const int DouClickSpeedMin  = 100;
-const int DouClickSpeedStep = 128;
-
 using namespace dcc;
+using namespace dcc::widgets;
+
 class BaseSettings : public TranslucentFrame
 {
     Q_OBJECT
 public:
-    explicit BaseSettings(QObject *parent = 0);
+    explicit BaseSettings(QWidget *parent = 0);
 
 signals:
     void Reset();
@@ -41,7 +41,7 @@ private:
     SwitchWidget  *m_leftHand;
     SwitchWidget  *m_naturalScroll;
     SwitchWidget  *m_isTyping;
-    SpeedSlider *douSlider;
+    TitledSliderItem *douSlider;
     MouseModelBaseSettings *m_baseSettings;
 };
 
