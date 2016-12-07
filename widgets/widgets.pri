@@ -23,7 +23,8 @@ HEADERS += \
     $$PWD/dccsliderannotated.h \
     $$PWD/optionitem.h \
     $$PWD/nextbutton.h \
-    $$PWD/backbutton.h
+    $$PWD/backbutton.h \
+    $$PWD/waitindicator.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -45,7 +46,8 @@ SOURCES += \
     $$PWD/dccsliderannotated.cpp \
     $$PWD/optionitem.cpp \
     $$PWD/nextbutton.cpp \
-    $$PWD/backbutton.cpp
+    $$PWD/backbutton.cpp \
+    $$PWD/waitindicator.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

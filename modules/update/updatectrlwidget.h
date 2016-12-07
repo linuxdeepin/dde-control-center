@@ -5,6 +5,8 @@
 #include "settingsgroup.h"
 #include "summaryitem.h"
 #include "downloadprogressbar.h"
+#include "waitindicator.h"
+
 #include <types/appupdateinfolist.h>
 
 #include <com_deepin_lastore_updater.h>
@@ -18,6 +20,7 @@ using ManagerInter=com::deepin::lastore::Manager;
 using PowerInter=com::deepin::daemon::Power;
 
 using namespace dcc;
+using namespace dcc::widgets;
 
 class UpdateCtrlWidget : public ContentWidget
 {
@@ -62,7 +65,7 @@ private:
     QLabel* m_powerTip;
     qlonglong m_total;
     SummaryItem* m_summary;
-    CheckUpdateItem* m_checkUpdateItem;
+    WaitIndicator* m_checkUpdateItem;
     SettingsGroup* m_group;
     SettingsGroup* m_checkGroup;
     DownloadProgressBar* m_progress;
