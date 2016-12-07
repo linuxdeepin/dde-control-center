@@ -66,6 +66,14 @@ void AccountsWorker::addNewAvatar(User *user)
     QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
 }
 
+void AccountsWorker::setAvatar(User *user, const QString &iconPath)
+{
+    AccountsUser *ui = m_userInters[user];
+    Q_ASSERT(ui);
+
+    ui->SetIconFile(iconPath);
+}
+
 void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
 {
     m_accountsInter->DeleteUser(user->name(), deleteHome);

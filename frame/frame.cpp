@@ -135,7 +135,7 @@ void Frame::init()
     onScreenRectChanged(m_displayInter->primaryRect());
 
 #ifdef QT_DEBUG
-    showSettingsPage("network", QString());
+//    showSettingsPage("network", QString());
 #endif
 }
 

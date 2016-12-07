@@ -15,6 +15,7 @@ public:
 
 signals:
     void requestAddNewAvatar(User *user) const;
+    void requestSetAvatar(User *user, const QString &filePath) const;
 
 private slots:
     void updateAvatarList(const QList<QString> &avatars);

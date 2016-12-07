@@ -73,6 +73,7 @@ void AccountsModule::showAvatarPage(User *account)
     ModifyAvatarPage *w = new ModifyAvatarPage(account);
 
     connect(w, &ModifyAvatarPage::requestAddNewAvatar, m_accountsWorker, &AccountsWorker::addNewAvatar);
+    connect(w, &ModifyAvatarPage::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
 
     m_frameProxy->pushWidget(this, w);
 }

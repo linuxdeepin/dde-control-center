@@ -19,7 +19,7 @@ public:
     void setAvatarPath(const QString &avatar);
 
 signals:
-    void clicked() const;
+    void clicked(const QString &iconPath) const;
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);

@@ -50,6 +50,8 @@ void ModifyAvatarPage::updateAvatarList(const QList<QString> &avatars)
         AvatarWidget *w = new AvatarWidget(avatar, this);
         w->setSelected(avatar == current);
 
+        connect(w, &AvatarWidget::clicked, [=] (const QString &iconPath) { emit requestSetAvatar(m_userInter, iconPath); });
+
         m_avatarsLayout->addWidget(w, count / 4, count % 4, Qt::AlignCenter);
         ++count;
     }

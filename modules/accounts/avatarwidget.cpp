@@ -60,7 +60,7 @@ void AvatarWidget::setAvatarPath(const QString &avatar)
 void AvatarWidget::mouseReleaseEvent(QMouseEvent *e)
 {
     if (rect().contains(e->pos()))
-        emit clicked();
+        emit clicked(m_avatarPath);
 
     QWidget::mouseReleaseEvent(e);
 }
