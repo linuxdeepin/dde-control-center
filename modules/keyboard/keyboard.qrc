@@ -4,5 +4,7 @@
         <file>icon/list_delete_normal.png</file>
         <file>icon/list_delete_press.png</file>
         <file>icon/select.png</file>
+        <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/nav_keyboard.png</file>
     </qresource>
 </RCC>

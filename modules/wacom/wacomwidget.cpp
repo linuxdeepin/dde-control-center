@@ -15,6 +15,8 @@ WacomWidget::WacomWidget()
 
       m_userGroup(new SettingsGroup)
 {
+    setObjectName("Wacom");
+
     m_centeralLayout->addWidget(m_userGroup);
     m_wacomSettings = new WacomSettings;
     m_centeralLayout->addWidget(m_wacomSettings);

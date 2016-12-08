@@ -32,6 +32,8 @@ SoundWidget::SoundWidget(SoundModel *model) :
     m_soundEffectGroup(new SettingsGroup),
     m_soundEffectSwitch(new SwitchWidget)
 {
+    setObjectName("Sound");
+
     setTitle(tr("Sound"));
 
     m_speakerSwitch->setTitle(tr("Speaker"));

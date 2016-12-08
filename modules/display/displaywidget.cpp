@@ -14,6 +14,8 @@ DisplayWidget::DisplayWidget()
       m_rotate(new QPushButton),
       m_custom(new QPushButton)
 {
+    setObjectName("Display");
+
     m_rotate->setText(tr("Rotate"));
     m_custom->setText(tr("Custom"));
 

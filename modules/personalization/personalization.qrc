@@ -2,6 +2,7 @@
     <qresource prefix="/personalization">
         <file>themes/common/common.qss</file>
         <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/nav_personalization.png</file>
         <file>themes/icon/select.png</file>
         <file>themes/light/light.qss</file>
         <file>themes/icon/dark/fontsize_decrease.png</file>

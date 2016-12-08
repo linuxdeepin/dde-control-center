@@ -1,3 +1,7 @@
+QLabel#ModuleHeaderIconPersonalization {
+    background-image: url(:/personalization/themes/dark/icons/nav_personalization.png);
+}
+
 #FontList QLabel {
     color: white;
 }

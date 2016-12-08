@@ -1,3 +1,7 @@
+QLabel#ModuleHeaderIconDefapp {
+    background-image: url(:/defapp/themes/dark/icons/nav_defapp.png);
+}
+
 #DefCategoryHeadWidget QLabel {
     color: white;
 }

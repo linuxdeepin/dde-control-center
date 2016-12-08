@@ -1,0 +1,3 @@
+QLabel#ModuleHeaderIconNetwork {
+    background-image: url(:/network/themes/dark/icons/nav_network.png);
+}

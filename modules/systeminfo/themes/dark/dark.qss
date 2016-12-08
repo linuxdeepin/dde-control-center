@@ -1,0 +1,3 @@
+QLabel#ModuleHeaderIconSysInfo {
+    background-image: url(:/systeminfo/themes/dark/icons/nav_info.png);
+}

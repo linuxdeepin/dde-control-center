@@ -8,6 +8,8 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     :ModuleWidget(),
       m_model(model)
 {
+    setObjectName("SysInfo");
+
     this->installEventFilter(parent());
     setTitle(tr("Systen Information"));
 

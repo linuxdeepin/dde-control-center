@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/mouse">
         <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/nav_mouse.png</file>
         <file>themes/light/light.qss</file>
     </qresource>
 </RCC>

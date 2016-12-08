@@ -17,6 +17,8 @@ AccountsWidget::AccountsWidget()
     m_userGroup(new SettingsGroup),
     m_createBtn(new QPushButton(tr("Create Account")))
 {
+    setObjectName("Accounts");
+
     m_userGroup->setHeaderVisible(true);
     m_userGroup->headerItem()->setTitle(tr("Accounts"));
     m_centeralLayout->addWidget(m_userGroup);

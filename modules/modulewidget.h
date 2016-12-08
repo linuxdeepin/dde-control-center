@@ -13,9 +13,7 @@ class ModuleWidget : public QWidget
 
 public:
     explicit ModuleWidget();
-
     void setTitle(const QString &title);
-    void setIcon(const QPixmap &icon);
 
 private:
     bool event(QEvent *event);

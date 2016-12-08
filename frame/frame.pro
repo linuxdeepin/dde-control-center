@@ -54,3 +54,6 @@ SOURCES    += \
 #isEqual(DCC_CACHE_MODULES, YES){
 #    DEFINES += DCC_CACHE_MODULES
 #}
+
+RESOURCES += \
+    frame.qrc

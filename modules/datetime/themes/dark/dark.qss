@@ -1,0 +1,3 @@
+QLabel#ModuleHeaderIconDatetime {
+    background-image: url(:/datetime/themes/dark/icons/nav_datetime.png);
+}

@@ -14,6 +14,8 @@ Datetime::Datetime()
     :ModuleWidget(),
       m_bEdit(false)
 {
+    setObjectName("Datetime");
+
     m_settings = new QSettings("dde-control-center", "datetime", this);
 
     this->installEventFilter(parent());

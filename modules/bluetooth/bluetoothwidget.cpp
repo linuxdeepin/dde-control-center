@@ -16,6 +16,8 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model) :
     ModuleWidget(),
     m_model(model)
 {
+    setObjectName("Bluetooth");
+
     setTitle(tr("Bluetooth"));
 
     setModel(model);

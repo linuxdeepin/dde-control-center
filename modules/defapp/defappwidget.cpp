@@ -15,6 +15,8 @@ DefaultAppsWidget::DefaultAppsWidget()
 
     m_userGroup(new SettingsGroup)
 {
+    setObjectName("Defapp");
+
     m_centeralLayout->addWidget(m_userGroup);
 
     m_nextPage = new QPushButton;

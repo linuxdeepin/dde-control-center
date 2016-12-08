@@ -3,18 +3,19 @@
 #include <QEvent>
 #include <QDebug>
 
+static const char *ObjectNameTitle = "ModuleHeaderTitle";
+static const char *ObjectNameTemplateIcon = "ModuleHeaderIcon%1";
+
 ModuleWidget::ModuleWidget()
     : QWidget(nullptr)
 {
     m_moduleIcon = new QLabel;
-    m_moduleIcon->setFixedSize(32, 32);
-    m_moduleIcon->setStyleSheet("background-color:pink;");
+    m_moduleIcon->setFixedSize(24, 24);
+
     m_moduleTitle = new LargeLabel;
     m_moduleTitle->setAlignment(Qt::AlignVCenter | Qt::AlignLeft);
     m_moduleTitle->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    m_moduleTitle->setStyleSheet("color: white;"
-//                                 "font-size: 16px;"
-                                 "margin: 0 0 0 5px;");
+    m_moduleTitle->setObjectName(ObjectNameTitle);
 
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->addWidget(m_moduleIcon);
@@ -29,6 +30,10 @@ ModuleWidget::ModuleWidget()
     m_centeralLayout->setMargin(0);
 
     setLayout(m_centeralLayout);
+
+    connect(this, &ModuleWidget::objectNameChanged, [this] {
+        m_moduleIcon->setObjectName(QString(ObjectNameTemplateIcon).arg(objectName()));
+    });
 }
 
 void ModuleWidget::setTitle(const QString &title)
@@ -36,11 +41,6 @@ void ModuleWidget::setTitle(const QString &title)
     m_moduleTitle->setText(title);
 
     setAccessibleName(title);
-}
-
-void ModuleWidget::setIcon(const QPixmap &icon)
-{
-    m_moduleIcon->setPixmap(icon);
 }
 
 bool ModuleWidget::event(QEvent *event)

@@ -14,3 +14,6 @@ SOURCES += \
     $$PWD/networkworker.cpp \
     $$PWD/networkmodel.cpp \
     $$PWD/networkdevice.cpp
+
+RESOURCES += \
+    $$PWD/network.qrc

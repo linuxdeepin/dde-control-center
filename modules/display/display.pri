@@ -31,3 +31,6 @@ SOURCES += \
     $$PWD/monitorproxywidget.cpp
 
 INCLUDEPATH += $$PWD/..
+
+RESOURCES += \
+    $$PWD/display.qrc

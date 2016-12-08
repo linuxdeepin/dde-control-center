@@ -15,6 +15,8 @@ MouseWidget::MouseWidget()
 
       m_userGroup(new SettingsGroup)
 {
+    setObjectName("Mouse");
+
     m_centeralLayout->addWidget(m_userGroup);
 
     m_baseSettings = new BaseSettings;

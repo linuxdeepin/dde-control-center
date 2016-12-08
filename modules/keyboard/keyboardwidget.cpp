@@ -11,6 +11,8 @@ KeyboardWidget::KeyboardWidget()
     :ModuleWidget(),
       m_bDelay(false)
 {
+    setObjectName("Keyboard");
+
     this->installEventFilter(parent());
     setTitle(tr("Keyboard and Language"));
 

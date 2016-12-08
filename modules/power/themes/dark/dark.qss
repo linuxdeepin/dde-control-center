@@ -1,0 +1,3 @@
+QLabel#ModuleHeaderIconPower {
+    background-image: url(:/power/themes/dark/icons/nav_power.png);
+}

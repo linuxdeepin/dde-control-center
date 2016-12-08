@@ -1,0 +1,4 @@
+QLabel#ModuleHeaderTitle {
+    color: white;
+    margin: 0 0 0 5px;
+}

@@ -1,3 +1,7 @@
+QLabel#ModuleHeaderIconMouse {
+    background-image: url(:/mouse/themes/dark/icons/nav_mouse.png);
+}
+
 #BaseSettings QLabel {
     color: white;
 }

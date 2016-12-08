@@ -13,3 +13,6 @@ SOURCES += \
     $$PWD/powerwidget.cpp \
     $$PWD/powerworker.cpp \
     $$PWD/powermodel.cpp
+
+RESOURCES += \
+    $$PWD/power.qrc

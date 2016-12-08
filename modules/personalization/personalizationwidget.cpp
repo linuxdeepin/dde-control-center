@@ -15,6 +15,8 @@ PersonalizationWidget::PersonalizationWidget()
 
       m_userGroup(new SettingsGroup)
 {
+    setObjectName("Personalization");
+
     m_centeralLayout->addWidget(m_userGroup);
     NextPageWidget *theme = new NextPageWidget;
     NextPageWidget *font = new NextPageWidget;

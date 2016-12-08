@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/network">
+        <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/nav_network.png</file>
+    </qresource>
+</RCC>

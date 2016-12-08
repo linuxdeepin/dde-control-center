@@ -1,0 +1,3 @@
+QLabel#ModuleHeaderIconDisplay {
+    background-image: url(:/display/themes/dark/icons/nav_display.png);
+}

@@ -27,6 +27,8 @@ PowerWidget::PowerWidget()
       m_notebookSettings(new SettingsGroup),
       m_sleepOnLidOff(new SwitchWidget)
 {
+    setObjectName("Power");
+
     QStringList annos;
     annos << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
 

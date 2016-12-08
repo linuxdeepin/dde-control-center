@@ -20,6 +20,8 @@ NetworkModuleWidget::NetworkModuleWidget()
 
       m_detailBtn(new NextPageWidget)
 {
+    setObjectName("Network");
+
     m_pppBtn->setTitle(tr("DSL"));
     m_vpnBtn->setTitle(tr("VPN"));
     m_proxyBtn->setTitle(tr("Proxy"));
