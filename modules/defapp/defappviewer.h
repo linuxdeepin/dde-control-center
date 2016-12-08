@@ -23,9 +23,8 @@ public:
 
 signals:
     void requestSetDefaultApp(const QString &category, const QJsonObject &item);
-    void AddUserApp(const QString &category, const QJsonObject &item);
-    void DelUserApp(const QJsonObject &item);
-    void Reset();
+    void requestAddUserApp(const QString &category, const QString &item);
+    void requestDelUserApp(const QString &name, const QJsonObject &item);
     void autoOpenChanged(const bool state);
     void requestFrameAutoHide(const bool autoHide) const;
 

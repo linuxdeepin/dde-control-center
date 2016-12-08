@@ -5,8 +5,7 @@
 #include <com_deepin_api_manager.h>
 #include <com_deepin_api_media.h>
 #include <QObject>
-#include <QStringList>
-#include <QList>
+
 
 using com::deepin::api::Manager;
 using com::deepin::api::Media;
@@ -25,8 +24,8 @@ public slots:
     void onGetListApps();
     void onResetTriggered();
     void onAutoOpenChanged(const bool state);
-    void onAddUserApp(const QString &category, const QJsonObject &item);
-    void onDelUserApp(const QJsonObject &item);
+    void onAddUserApp(const QString &category, const QString &item);
+    void onDelUserApp(const QString &mine, const QJsonObject &item);
 
 private slots:
     void getListAppFinished(QDBusPendingCallWatcher *w);

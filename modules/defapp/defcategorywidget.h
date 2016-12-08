@@ -23,14 +23,14 @@ public:
 
 signals:
     void requestSetDefaultApp(const QString &category, const QJsonObject &item);
-    void addUserApp(const QString &category, const QJsonObject &item);
-    void delUserApp(const QJsonObject &item);
+    void requestAddUserApp(const QString &category, const QString &item);
+    void requestDelUserApp(const QString &name, const QJsonObject &item);
     void requestFrameAutoHide(const bool autoHide) const;
 
 public slots:
     void setDefault();
     void onDefaultAppSet(const QString &id);
-    void slotEditMode(bool editable);
+    void slotEditMode(bool edit);
 
 private:
     void AppsItemChanged(const QList<QJsonObject> &list);

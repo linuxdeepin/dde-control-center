@@ -64,34 +64,33 @@ QWidget* DefAppViewer::defappDetail() {
     connect(m_modCamera, &DefCategoryWidget::requestSetDefaultApp,      this, &DefAppViewer::requestSetDefaultApp);
     connect(m_modSoftware, &DefCategoryWidget::requestSetDefaultApp,    this, &DefAppViewer::requestSetDefaultApp);
 
+    connect(m_modBrowser,  &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
+    connect(m_modMail,     &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
+    connect(m_modText,     &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
+    connect(m_modMusic,    &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
+    connect(m_modVideo,    &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
+    connect(m_modPicture,  &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
+    connect(m_modTerminal, &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
 
-    connect(m_modBrowser,  &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
-    connect(m_modMail,     &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
-    connect(m_modText,     &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
-    connect(m_modMusic,    &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
-    connect(m_modVideo,    &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
-    connect(m_modPicture,  &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
-    connect(m_modTerminal, &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
+    connect(m_modCDAudio, &DefCategoryWidget::requestAddUserApp,     this, &DefAppViewer::requestAddUserApp);
+    connect(m_modDVDVideo, &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
+    connect(m_modMusicPlayer, &DefCategoryWidget::requestAddUserApp, this, &DefAppViewer::requestAddUserApp);
+    connect(m_modCamera, &DefCategoryWidget::requestAddUserApp,      this, &DefAppViewer::requestAddUserApp);
+    connect(m_modSoftware, &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
 
-    connect(m_modCDAudio, &DefCategoryWidget::addUserApp,     this, &DefAppViewer::AddUserApp);
-    connect(m_modDVDVideo, &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
-    connect(m_modMusicPlayer, &DefCategoryWidget::addUserApp, this, &DefAppViewer::AddUserApp);
-    connect(m_modCamera, &DefCategoryWidget::addUserApp,      this, &DefAppViewer::AddUserApp);
-    connect(m_modSoftware, &DefCategoryWidget::addUserApp,    this, &DefAppViewer::AddUserApp);
+    connect(m_modBrowser,  &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
+    connect(m_modMail,     &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
+    connect(m_modText,     &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
+    connect(m_modMusic,    &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
+    connect(m_modVideo,    &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
+    connect(m_modPicture,  &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
+    connect(m_modTerminal, &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
 
-    connect(m_modBrowser,  &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
-    connect(m_modMail,     &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
-    connect(m_modText,     &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
-    connect(m_modMusic,    &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
-    connect(m_modVideo,    &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
-    connect(m_modPicture,  &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
-    connect(m_modTerminal, &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
-
-    connect(m_modCDAudio, &DefCategoryWidget::delUserApp,     this, &DefAppViewer::DelUserApp);
-    connect(m_modDVDVideo, &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
-    connect(m_modMusicPlayer, &DefCategoryWidget::delUserApp, this, &DefAppViewer::DelUserApp);
-    connect(m_modCamera, &DefCategoryWidget::delUserApp,      this, &DefAppViewer::DelUserApp);
-    connect(m_modSoftware, &DefCategoryWidget::delUserApp,    this, &DefAppViewer::DelUserApp);
+    connect(m_modCDAudio, &DefCategoryWidget::requestDelUserApp,     this, &DefAppViewer::requestDelUserApp);
+    connect(m_modDVDVideo, &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
+    connect(m_modMusicPlayer, &DefCategoryWidget::requestDelUserApp, this, &DefAppViewer::requestDelUserApp);
+    connect(m_modCamera, &DefCategoryWidget::requestDelUserApp,      this, &DefAppViewer::requestDelUserApp);
+    connect(m_modSoftware, &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
 
 
     connect(m_modBrowser,  &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);

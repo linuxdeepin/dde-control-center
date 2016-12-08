@@ -1,16 +1,10 @@
 #ifndef DEFCATEGORYADDWIDGET_H
 #define DEFCATEGORYADDWIDGET_H
 
-#include <QObject>
 #include "settingsitem.h"
 #include "funcbutton.h"
-#include <QPushButton>
-#include <QLabel>
-#include <QFileDialog>
-#include <QDesktopWidget>
-#include <QApplication>
-#include <QDebug>
-#include <QTimer>
+#include <QObject>
+#include <QFileInfo>
 
 using namespace dcc::widgets;
 
@@ -20,9 +14,10 @@ class DefCategoryAddWidget : public SettingsItem
 public:
     explicit DefCategoryAddWidget(QWidget *parent = 0);
     inline void setCategory(const QString &category){ m_category = category;}
+    bool createDesktopFile(const QFileInfo &info);
 
 signals:
-    void addUserItem(const QString &category, const QJsonObject &item);
+    void addUserItem(const QString &category, const QString &name);
     void requestFrameAutoHide(const bool autoHide) const;
 
 public slots:

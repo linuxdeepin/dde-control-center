@@ -21,14 +21,17 @@ public:
     inline const QList<QJsonObject> getappItem() const { return m_applist;}
     inline const QList<QJsonObject> getuserItem() const { return m_userlist;}
     inline const QString getDefault() { return m_id;}
+    void addUserItem(const QJsonObject &value);
+    void delUserItem(const QJsonObject &value);
 
 signals:
     void itemsChanged(const QList<QJsonObject> &list);
     void userItemChanged(const QList<QJsonObject> &list);
     void defaultChanged(const QString &id);
+    void AdduserItem(const QJsonObject &json);
 
 private:
-    QList<QJsonObject> m_applist; //暂存list
+    QList<QJsonObject> m_applist;
     QList<QJsonObject> m_userlist;
     QString m_category;
     QString m_id;

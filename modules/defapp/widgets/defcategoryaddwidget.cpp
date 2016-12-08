@@ -1,10 +1,22 @@
 #include "defcategoryaddwidget.h"
 #include <QHBoxLayout>
 #include <QMouseEvent>
-
+#include <QPushButton>
+#include <QLabel>
+#include <QFileDialog>
+#include <QDesktopWidget>
+#include <QApplication>
+#include <QDebug>
+#include <QProcess>
+#include <QTimer>
+#include <QFile>
+#include <QMessageBox>
+#include <sys/types.h>    // defines special types
+#include <pwd.h>    // defines the passwd structure
+#include <unistd.h>//header for getuid system call
 
 DefCategoryAddWidget::DefCategoryAddWidget(QWidget *parent)
-    :SettingsItem(parent)
+    : SettingsItem(parent)
 {
     setFixedHeight(30);
     m_add = new FuncButton;
@@ -12,7 +24,7 @@ DefCategoryAddWidget::DefCategoryAddWidget(QWidget *parent)
     m_add->setText(tr("Add"));
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->setContentsMargins(15,0,20,0);
+    mainLayout->setContentsMargins(15, 0, 20, 0);
     mainLayout->addWidget(m_add);
     mainLayout->addStretch();
 
@@ -21,19 +33,56 @@ DefCategoryAddWidget::DefCategoryAddWidget(QWidget *parent)
     setObjectName("DefCategoryAddWidget");
 }
 
+bool DefCategoryAddWidget::createDesktopFile(const QFileInfo &info)
+{
+    struct passwd *user;
+    user = getpwuid(getuid());
+    //create desktop file in ~/.local/share/applications/
+    QFile file(QString(user->pw_dir) + "/.local/share/applications/" + info.baseName() + ".desktop");
+    //方式：Append为追加，WriteOnly，ReadOnly
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        return false;
+    }
+    qDebug() << file.fileName();
+    QTextStream out(&file);
+    out << "[Desktop Entry]\n"
+        "Type=Application\n"
+        "Version=1.0\n"
+        "Name=" + info.baseName() + "\n"
+        "Path=" + info.path() + "\n"
+        "Exec=" +  info.filePath() + "\n"
+        "Icon=" + "\n"
+        "Terminal=false\n"
+        "Categories=" + m_category + ";"
+        << endl;
+    out.flush();
+    file.close();
+    return true;
+}
+
 void DefCategoryAddWidget::clicked()
 {
     //暂时使用该对话框，测试添加代码
-    if(isEnabled()) {
+    if (isEnabled()) {
         emit requestFrameAutoHide(false);
         QFileDialog dialog;
-        if(dialog.exec() == QDialog::Accepted) {
+        dialog.setWindowTitle(tr("Open Desktop file"));
+        dialog.setNameFilter(tr("Desktop Files(*.desktop);; All Files(*)"));
+        if (dialog.exec() == QDialog::Accepted) {
             QString path = dialog.selectedFiles()[0];
-            //            emit addUserItem(m_category,path);
-
+            if (!path.isEmpty()) {
+                QFileInfo info(path);
+                if (info.exists()) {
+                    if (info.isExecutable()) {
+                        if (createDesktopFile(info)) {
+                            emit addUserItem(m_category, info.filePath());
+                        }
+                    }
+                }
+            }
         }
     }
-    emit requestFrameAutoHide(true);
+    QTimer::singleShot(500, this, [ = ] { emit requestFrameAutoHide(true); });
 }
 
 
