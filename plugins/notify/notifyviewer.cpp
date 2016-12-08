@@ -15,7 +15,7 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_body(new QLabel),
     m_time(new QLabel),
     m_close(new DImageButton(":/images/close.png", ":/images/close.png", ":/images/close.png", nullptr)),
-    m_appIcon(new AppIcon),
+    m_appIcon(new QLabel),
     m_mainlayout(new QGridLayout)
 {
     m_appIcon->setMargin(0);
@@ -91,7 +91,11 @@ void Viewer::setAppName(const QString &s) {
 }
 
 void Viewer::setAppIcon(const QString &s) {
-    m_appIcon->setIcon(s);
+    const QIcon &icon = QIcon::fromTheme(s);
+
+    if (!icon.isNull()) {
+        m_appIcon->setPixmap(icon.pixmap(m_appIcon->size()));
+    }
 }
 
 void Viewer::setAppSummary(const QString &s) {

@@ -16,6 +16,7 @@ class NotifyPlugin : public QObject, public PluginInterface
 
 public:
     explicit NotifyPlugin(QObject *parent = 0);
+    ~NotifyPlugin();
 
     void initialize(FrameProxyInterface *proxy);
     QWidget *centeralWidget();

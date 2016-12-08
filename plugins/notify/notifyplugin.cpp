@@ -3,15 +3,20 @@
 #include "notifyplugin.h"
 
 NotifyPlugin::NotifyPlugin(QObject *parent)
-    : QObject(parent),
-      m_notifymanager(nullptr) {
+    : QObject(parent)
+{
+    m_scrollarea    = new QScrollArea;
+    m_notifymanager = new NotifyManager;
+}
 
+NotifyPlugin::~NotifyPlugin()
+{
+    m_scrollarea->deleteLater();
+    m_notifymanager->deleteLater();
 }
 
 void NotifyPlugin::initialize(FrameProxyInterface *proxy) {
     m_proxyInter    = proxy;
-    m_scrollarea    = new QScrollArea;
-    m_notifymanager = new NotifyManager;
     m_notifymanager->setContentsMargins(0, 0, 0, 0);
     m_notifymanager->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_scrollarea->setWidget(m_notifymanager);

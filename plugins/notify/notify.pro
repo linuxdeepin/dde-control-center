@@ -14,14 +14,12 @@ DISTFILES       += $$PLUGIN_NAME.json
 HEADERS += \
     notifyplugin.h \
     notifymanager.h \
-    appicon.h \
     notifyviewer.h \
     notifydatathread.h
 
 SOURCES += \
     notifyplugin.cpp \
     notifymanager.cpp \
-    appicon.cpp \
     notifyviewer.cpp \
     notifydatathread.cpp
 

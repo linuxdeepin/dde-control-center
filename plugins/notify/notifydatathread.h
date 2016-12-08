@@ -26,15 +26,19 @@ class NotifyDataThread : public QThread
 {
     Q_OBJECT
 public:
-    explicit NotifyDataThread(QObject *parent = 0);
+    explicit NotifyDataThread(QThread *parent = 0);
     ~NotifyDataThread();
     void run();
 
 signals:
     void ValueChanged(const QByteArray &s) const;
 
+public slots:
+    void processReadyReadStandardOutput();
+    void converToJson(QStringList &list);
+
 private:
-        QProcess *m_process;
+    QProcess m_process;
 };
 
 #endif // NOTIFYDATATHREAD_H

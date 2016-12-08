@@ -15,7 +15,6 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <dimagebutton.h>
-#include <appicon.h>
 #include <QPropertyAnimation>
 #include <QEasingCurve>
 #include <QStyleOption>
@@ -42,7 +41,7 @@ protected:
 private:
     QLabel *m_appName,*m_summary,*m_body,*m_time;
     DImageButton *m_close;
-    AppIcon *m_appIcon;
+    QLabel      *m_appIcon;
     QGridLayout *m_mainlayout;
     QHBoxLayout *m_hboxlayout;
     QPropertyAnimation *m_anim1;
