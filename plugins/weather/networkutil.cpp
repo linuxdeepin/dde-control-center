@@ -2,6 +2,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QEventLoop>
+#include <QSettings>
 #include "GeoIP.h"
 #include "GeoIPCity.h"
 
@@ -58,6 +59,7 @@ const QString NetworkUtil::getNetIP(QString code)
 
 const QString NetworkUtil::ip2city(const QString &ip)
 {
+   QSettings settings("dde-control-center", "weather");
    GeoIP * gi = GeoIP_open_type(GEOIP_CITY_EDITION_REV1, GEOIP_STANDARD | GEOIP_SILENCE);
    uint32_t ipnum = _GeoIP_lookupaddress(ip.toStdString().c_str());
    GeoIPRecord *gir = GeoIP_record_by_ipnum(gi, ipnum);
@@ -65,7 +67,7 @@ const QString NetworkUtil::ip2city(const QString &ip)
    if (NULL == gir) {
        qDebug()<<"IP Address not found, return the last city";
        // 暂时返回wuhan， 应该返回最后一次使用的城市
-       return QString("wuhan");
+       return settings.value("WeatherCity").toString();
    }else {
        /*
        QString str = QString("%1: %2, %3, %4, %5, %6, %7, %8, %9, %10").arg(GeoIPDBDescription[GEOIP_CITY_EDITION_REV1])
@@ -76,7 +78,9 @@ const QString NetworkUtil::ip2city(const QString &ip)
                .arg(gir->area_code);
                */
 
-       return (gir->city ? QString(gir->city) : QString());
+       QString city = (gir->city ? QString(gir->city) : QString("wuhan"));
+       settings.setValue("WeatherCity", city);
+       return city;
    }
 }
 
@@ -84,5 +88,5 @@ const QString NetworkUtil::city()
 {
     QString ip = getNetIP(getHtml("http://whois.pconline.com.cn/"));
     QString city = ip2city(ip);
-    return city.isEmpty() ? QString("wuhan") : city;
+    return city;
 }
