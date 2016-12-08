@@ -13,6 +13,8 @@
 #include <QJsonObject>
 #include <QJsonArray>
 
+#include "pincodedialog.h"
+
 namespace dcc {
 namespace bluetooth {
 
@@ -21,6 +23,43 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
     m_bluetoothInter(new DBusBluetooth("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this)),
     m_model(model)
 {
+    connect(m_bluetoothInter, &DBusBluetooth::AdapterAdded, this, &BluetoothWorker::addAdapter);
+    connect(m_bluetoothInter, &DBusBluetooth::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
+    connect(m_bluetoothInter, &DBusBluetooth::AdapterPropertiesChanged, this, &BluetoothWorker::onAdapterPropertiesChanged);
+    connect(m_bluetoothInter, &DBusBluetooth::DevicePropertiesChanged, this, &BluetoothWorker::onDevicePropertiesChanged);
+
+    connect(m_bluetoothInter, &DBusBluetooth::RequestAuthorization, [] (const QDBusObjectPath &in0) {
+        qDebug() << "request authorization: " << in0.path();
+    });
+
+    connect(m_bluetoothInter, &DBusBluetooth::RequestConfirmation, [this] (const QDBusObjectPath &in0, const QString &in1) {
+        qDebug() << "request confirmation: " << in0.path() << in1;
+
+        PinCodeDialog dialog(in1);
+        int ret = dialog.exec();
+
+        m_bluetoothInter->Confirm(in0, bool(ret));
+    });
+
+    connect(m_bluetoothInter, &DBusBluetooth::RequestPasskey, [] (const QDBusObjectPath &in0) {
+        qDebug() << "request passkey: " << in0.path();
+    });
+
+    connect(m_bluetoothInter, &DBusBluetooth::RequestPinCode, [] (const QDBusObjectPath &in0) {
+        qDebug() << "request pincode: " << in0.path();
+    });
+
+    connect(m_bluetoothInter, &__Bluetooth::DisplayPasskey, [] (const QDBusObjectPath &in0, uint in1, uint in2) {
+        qDebug() << "request display passkey: " << in0.path() << in1 << in2;
+    });
+
+    connect(m_bluetoothInter, &__Bluetooth::DisplayPinCode, [] (const QDBusObjectPath &in0, const QString &in1) {
+        qDebug() << "request display pincode: " << in0.path() << in1;
+
+        PinCodeDialog dialog(in1, false);
+        dialog.exec();
+    });
+
     activate();
 }
 
@@ -29,11 +68,6 @@ void BluetoothWorker::activate()
     m_model->blockSignals(false);
     m_model->m_adapters.clear();
     m_bluetoothInter->ClearUnpairedDevice();
-
-    connect(m_bluetoothInter, &DBusBluetooth::AdapterAdded, this, &BluetoothWorker::addAdapter);
-    connect(m_bluetoothInter, &DBusBluetooth::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
-    connect(m_bluetoothInter, &DBusBluetooth::AdapterPropertiesChanged, this, &BluetoothWorker::onAdapterPropertiesChanged);
-    connect(m_bluetoothInter, &DBusBluetooth::DevicePropertiesChanged, this, &BluetoothWorker::onDevicePropertiesChanged);
 
     QDBusPendingCall call = m_bluetoothInter->GetAdapters();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
@@ -80,6 +114,7 @@ void BluetoothWorker::disconnectDevice(const Device *device)
 void BluetoothWorker::ignoreDevice(const Adapter *adapter, const Device *device)
 {
     m_bluetoothInter->RemoveDevice(QDBusObjectPath(adapter->id()), QDBusObjectPath(device->id()));
+    m_bluetoothInter->ClearUnpairedDevice();
     qDebug() << "ignore device: " << device->name();
 }
 
@@ -135,10 +170,6 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
             qWarning() << call.error().message();
         }
     });
-
-    if (powered) {
-        setAdapterDiscoverable(path);
-    }
 }
 
 void BluetoothWorker::inflateDevice(Device *device, const QJsonObject &deviceObj)

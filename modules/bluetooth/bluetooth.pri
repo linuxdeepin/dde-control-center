@@ -11,7 +11,8 @@ HEADERS += \
     $$PWD/adapter.h \
     $$PWD/adapterwidget.h \
     $$PWD/devicesettingsitem.h \
-    $$PWD/detailpage.h
+    $$PWD/detailpage.h \
+    $$PWD/pincodedialog.h
 
 SOURCES += \
     $$PWD/bluetoothmodule.cpp \
@@ -22,7 +23,8 @@ SOURCES += \
     $$PWD/adapter.cpp \
     $$PWD/adapterwidget.cpp \
     $$PWD/devicesettingsitem.cpp \
-    $$PWD/detailpage.cpp
+    $$PWD/detailpage.cpp \
+    $$PWD/pincodedialog.cpp
 
 RESOURCES += \
     $$PWD/bluetooth.qrc
