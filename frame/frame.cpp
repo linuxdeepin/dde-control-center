@@ -133,7 +133,7 @@ void Frame::init()
     onScreenRectChanged(m_displayInter->primaryRect());
 
 #ifdef QT_DEBUG
-//    showSettingsPage("network", QString());
+    showSettingsPage("network", QString());
 #endif
 }
 
@@ -191,18 +191,17 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
 
 void Frame::onMouseButtonReleased(const int button, const int x, const int y, const QString &key)
 {
-    if (key != m_mouseAreaKey)
-        return;
-
     if (button != BUTTON_LEFT)
         return;
 
-    const QPoint p(pos());
-
-    if (rect().contains(x - p.x(), y - p.y()))
+    if (!m_autoHide)
         return;
 
-    if (!m_autoHide)
+    if (key != m_mouseAreaKey)
+        return;
+
+    const QPoint p(pos());
+    if (rect().contains(x - p.x(), y - p.y()))
         return;
 
     // ready to hide frame

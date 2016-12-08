@@ -18,7 +18,10 @@ signals:
     void requestShowDetailPage() const;
 
 private:
-    dcc::NextPageWidget *m_detailPage;
+    dcc::NextPageWidget *m_pppBtn;
+    dcc::NextPageWidget *m_vpnBtn;
+    dcc::NextPageWidget *m_proxyBtn;
+    dcc::NextPageWidget *m_detailBtn;
 };
 
 #endif // NETWORKMODULEWIDGET_H
