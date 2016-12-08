@@ -49,17 +49,19 @@ UpdateItem::UpdateItem(QFrame *parent)
 void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 {
     m_info = info;
-    QPixmap pix(QSize(32,32));
-    pix.fill(Qt::green);
-
+    QPixmap pix(m_info.m_icon);
     m_appIcon->setPixmap(pix);
     m_appName->setText(info.m_name);
     m_appVersion->setText(info.m_avilableVersion);
-
     if(!info.m_changelog.isEmpty())
     {
-        setFixedHeight(100);
+        setFixedHeight(80);
         m_appChangelog->setText(elideChangelog());
+    }
+    else
+    {
+        setFixedHeight(50);
+        m_details->hide();
     }
 }
 
