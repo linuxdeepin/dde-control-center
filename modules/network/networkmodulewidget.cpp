@@ -1,11 +1,18 @@
 #include "networkmodulewidget.h"
-#include "settingsgroup.h"
+#include "networkdevice.h"
+#include "networkmodel.h"
 #include "nextpagewidget.h"
+#include "settingsgroup.h"
+
+#include <QDebug>
 
 using namespace dcc;
 
 NetworkModuleWidget::NetworkModuleWidget()
     : ModuleWidget(),
+
+      m_wiredLayout(new QVBoxLayout),
+      m_wirelessLayout(new QVBoxLayout),
 
       m_pppBtn(new NextPageWidget),
       m_vpnBtn(new NextPageWidget),
@@ -27,10 +34,24 @@ NetworkModuleWidget::NetworkModuleWidget()
     SettingsGroup *detailGroup = new SettingsGroup;
     detailGroup->appendItem(m_detailBtn);
 
+    m_centeralLayout->addLayout(m_wiredLayout);
+    m_centeralLayout->addLayout(m_wirelessLayout);
     m_centeralLayout->addWidget(connGroup);
     m_centeralLayout->addWidget(detailGroup);
 
     setTitle(tr("Network"));
 
     connect(m_detailBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowDetailPage);
+}
+
+void NetworkModuleWidget::setModel(NetworkModel *model)
+{
+    connect(model, &NetworkModel::wiredDeviceListChanged, this, &NetworkModuleWidget::onWiredDeviceListChanged);
+
+    onWiredDeviceListChanged(model->wiredDeviceList());
+}
+
+void NetworkModuleWidget::onWiredDeviceListChanged(const QList<NetworkDevice *> &devices)
+{
+    qDebug() << devices.size();
 }

@@ -2,6 +2,8 @@
 #include "networkmodulewidget.h"
 #include "contentwidget.h"
 #include "modulewidget.h"
+#include "networkworker.h"
+#include "networkmodel.h"
 
 using namespace dcc::network;
 
@@ -9,13 +11,18 @@ NetworkModule::NetworkModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),
 
+      m_networkModel(nullptr),
+      m_networkWorker(nullptr),
       m_networkWidget(nullptr)
 {
 }
 
 void NetworkModule::initialize()
 {
+    m_networkModel = new NetworkModel;
+    m_networkWorker = new NetworkWorker(m_networkModel);
 
+    m_networkWorker->moveToThread(qApp->thread());
 }
 
 void NetworkModule::reset()
@@ -49,6 +56,7 @@ ModuleWidget *NetworkModule::moduleWidget()
         return m_networkWidget;
 
     m_networkWidget = new NetworkModuleWidget;
+    m_networkWidget->setModel(m_networkModel);
 
     return m_networkWidget;
 }

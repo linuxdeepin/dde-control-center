@@ -4,6 +4,8 @@
 #include "moduleinterface.h"
 
 class NetworkModuleWidget;
+class NetworkWorker;
+class NetworkModel;
 
 namespace dcc {
 namespace network {
@@ -25,6 +27,8 @@ private:
     ModuleWidget *moduleWidget();
 
 private:
+    NetworkModel *m_networkModel;
+    NetworkWorker *m_networkWorker;
     NetworkModuleWidget *m_networkWidget;
 };
 

@@ -3,10 +3,14 @@
 
 #include "modulewidget.h"
 
-namespace dcc {
-    class NextPageWidget;
+namespace dcc
+{
+class NextPageWidget;
+class SettingsGroup;
 }
 
+class NetworkDevice;
+class NetworkModel;
 class NetworkModuleWidget : public ModuleWidget
 {
     Q_OBJECT
@@ -14,10 +18,17 @@ class NetworkModuleWidget : public ModuleWidget
 public:
     explicit NetworkModuleWidget();
 
+    void setModel(NetworkModel *model);
+
 signals:
     void requestShowDetailPage() const;
 
+private slots:
+    void onWiredDeviceListChanged(const QList<NetworkDevice *> &devices);
+
 private:
+    QVBoxLayout *m_wiredLayout;
+    QVBoxLayout *m_wirelessLayout;
     dcc::NextPageWidget *m_pppBtn;
     dcc::NextPageWidget *m_vpnBtn;
     dcc::NextPageWidget *m_proxyBtn;
