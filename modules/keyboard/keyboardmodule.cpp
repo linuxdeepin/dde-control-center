@@ -347,8 +347,6 @@ void KeyboardModule::setCurrentLang()
 
 void KeyboardModule::setUILayout(const QString &value)
 {
-    qDebug()<<Q_FUNC_INFO<<m_keyboardWidget;
-
     if(m_keyboardWidget)
     {
         m_keyboardWidget->setKBValue(value);

@@ -156,7 +156,6 @@ void KeyboardWork::delUserLayout(const QString &value)
 void KeyboardWork::onValid(bool value)
 {
     m_datas.clear();
-    qDebug()<<Q_FUNC_INFO<<QTime::currentTime();
     if(value)
     {
         QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_langSelector->GetLocaleList(), this);
