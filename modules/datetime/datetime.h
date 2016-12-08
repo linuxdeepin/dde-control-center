@@ -6,12 +6,13 @@
 #include "datetimeutil.h"
 #include "chosedialog.h"
 
-#include <modulewidget.h>
-#include <settingsgroup.h>
-#include <settingsitem.h>
+#include "modulewidget.h"
+#include "settingsgroup.h"
+#include "settingsitem.h"
 #include "settingshead.h"
 #include "nextpagewidget.h"
 
+#include <QSettings>
 using namespace dcc;
 
 class Datetime : public ModuleWidget
@@ -35,6 +36,7 @@ public slots:
 
 private:
     bool m_bEdit;
+    QSettings *m_settings;
     QList<Timezone> m_addeds;
     SettingsHead* m_headItem;
     NextPageWidget* m_addItem;

@@ -51,7 +51,7 @@ void KeyboardModel::setLang(const QString &value)
         return;
 
     m_lang = value;
-    emit curLang(value);
+    emit curLang(langByKey(m_lang));
 }
 
 void KeyboardModel::addUserLayout(const QString &value)

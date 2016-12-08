@@ -54,7 +54,6 @@ void LangWidget::setModelData(const QList<MetaData> &datas)
     m_model->setMetaData(datas);
     m_view->setModel(m_model);
     m_view->setItemDelegate(m_delegate);
-
     m_view->setFixedHeight(datas.count()*36);
 }
 

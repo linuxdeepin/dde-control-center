@@ -63,11 +63,11 @@ void TimezoneItem::setCity(const Timezone &tz)
     QString str;
     if(del > 0)
     {
-        str = QString("比本地快%1个小时").arg(del);
+        str = tr("比本地快%1个小时").arg(del);
     }
     else
     {
-        str = QString("比本地晚%1个小时").arg(-del);
+        str = tr("比本地晚%1个小时").arg(-del);
     }
     setDetails(str);
     m_clock->setTimezone(tz.m_timezone);

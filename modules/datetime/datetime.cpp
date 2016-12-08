@@ -14,6 +14,8 @@ Datetime::Datetime()
     :ModuleWidget(),
       m_bEdit(false)
 {
+    m_settings = new QSettings("dde-control-center", "datetime", this);
+
     this->installEventFilter(parent());
     setTitle(tr("Time and Date"));
     Clock* clock = new Clock();
@@ -48,6 +50,17 @@ Datetime::Datetime()
     connect(m_addItem, SIGNAL(clicked()), this, SIGNAL(addClick()));
     connect(timeItem, SIGNAL(clicked()), this, SIGNAL(editDatetime()));
     connect(m_headItem, SIGNAL(editChanged(bool)), this, SLOT(slotEditMode(bool)));
+
+    QStringList groups = m_settings->childGroups();
+    for(int i = 0; i<groups.count(); i++)
+    {
+        m_settings->beginGroup(groups.at(i));
+        Timezone tz;
+        tz.m_city = m_settings->value("City").toString();
+        tz.m_timezone = m_settings->value("Timezone").toString();
+        m_settings->endGroup();
+        this->addTimezone(tz);
+    }
 }
 
 Datetime::~Datetime()
@@ -70,6 +83,11 @@ void Datetime::addTimezone(const Timezone &tz)
     item->slotStatus(m_bEdit);
     m_group->appendItem(item);
     m_addeds.append(tz);
+
+    m_settings->beginGroup(tz.m_city);
+    m_settings->setValue("City", tz.m_city);
+    m_settings->setValue("Timezone", tz.m_timezone);
+    m_settings->endGroup();
 }
 
 void Datetime::slotClick()
@@ -90,5 +108,7 @@ void Datetime::slotRemoveTimezone(const Timezone &tz)
         m_addeds.removeOne(tz);
         m_group->removeItem(item);
         item->deleteLater();
+        m_settings->remove(tz.m_city+"/"+"City");
+        m_settings->remove(tz.m_city+"/"+"Timezone");
     }
 }

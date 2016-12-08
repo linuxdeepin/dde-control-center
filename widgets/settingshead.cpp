@@ -9,15 +9,15 @@ SettingsHead::SettingsHead(QFrame *parent)
     setMouseTracking(true);
     setFixedHeight(30);
     m_title = new QLabel;
-    m_title->setStyleSheet("color: white;");
-
     m_edit = new QLabel;
     m_edit->setAlignment(Qt::AlignCenter);
-    m_edit->setStyleSheet("QLabel{color: #01bdff}");
     m_edit->installEventFilter(this);
     m_edit->setText(tr("Edit"));
     m_edit->setMouseTracking(true);
 
+    QFont font = m_edit->font();
+    QFontMetrics fm(font);
+    m_edit->setFixedWidth(fm.width(tr("Cancel")));
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
