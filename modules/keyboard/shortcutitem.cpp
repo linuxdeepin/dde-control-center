@@ -1,12 +1,15 @@
 #include "shortcutitem.h"
 #include "shortcutmodel.h"
 #include <QLabel>
-#include <QLineEdit>
 #include <QMouseEvent>
+#include <QLineEdit>
 #include <QApplication>
 #include <QPainter>
 
 using namespace dcc;
+
+namespace dcc {
+namespace keyboard{
 
 ShortcutItem::ShortcutItem(QFrame *parent)
     :SettingsItem(parent),
@@ -232,4 +235,6 @@ void ShortcutItem::leaveEvent(QEvent *)
     m_contain = false;
 
     update();
+}
+}
 }

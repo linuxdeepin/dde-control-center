@@ -10,8 +10,10 @@
 
 using namespace dcc;
 
-class QLineEdit;
+namespace dcc {
+namespace keyboard{
 
+class QLineEdit;
 class KeyboardLayoutWidget : public ContentWidget
 {
     Q_OBJECT
@@ -36,5 +38,6 @@ private:
     IndexModel* m_searchModel;
     IndexFrame* m_indexframe;
 };
-
+}
+}
 #endif // KEYBOARDLAYOUTWIDGET_H

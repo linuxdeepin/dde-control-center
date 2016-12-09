@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QApplication>
 
+namespace dcc {
+namespace keyboard{
 KeyboardControl::KeyboardControl(QFrame *parent)
     : SettingsItem(parent),
       m_modifiers(false),
@@ -50,4 +52,5 @@ void KeyboardControl::paintEvent(QPaintEvent *)
         (*it)->paint(&painter, rect());
     }
 }
-
+}
+}

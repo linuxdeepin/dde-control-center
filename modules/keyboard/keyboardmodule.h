@@ -14,6 +14,8 @@
 #include "shortcutcontent.h"
 #include "customcontent.h"
 
+namespace dcc {
+namespace keyboard{
 class KeyboardModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -80,5 +82,6 @@ private:
     ShortcutContent* m_scContent;
     CustomContent* m_customContent;
 };
-
+}
+}
 #endif // KEYBOARDMODULE_H

@@ -12,6 +12,8 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace keyboard{
 KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     :ContentWidget(parent),
       textLength(0)
@@ -112,4 +114,6 @@ void KeyboardLayoutWidget::onSearch(const QString &text)
         m_view->setModel(m_searchModel);
         m_indexframe->hide();
     }
+}
+}
 }

@@ -4,6 +4,9 @@
 #include <QHBoxLayout>
 #include <QDebug>
 
+namespace dcc {
+namespace keyboard{
+
 IndexView::IndexView(QWidget *parent)
     :QListView(parent)
 {
@@ -67,4 +70,7 @@ void IndexView::scrollContentsBy(int dx, int dy)
 void IndexView::resizeEvent(QResizeEvent *e)
 {
     QListView::resizeEvent(e);
+}
+
+}
 }

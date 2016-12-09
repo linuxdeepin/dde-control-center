@@ -9,6 +9,9 @@
 #include <com_deepin_daemon_langselector.h>
 #include <com_deepin_daemon_keybinding.h>
 
+
+namespace dcc {
+namespace keyboard{
 using KeyboardInter = com::deepin::daemon::inputdevice::Keyboard;
 using LangSelector = com::deepin::daemon::LangSelector;
 using KeybingdingInter = com::deepin::daemon::Keybinding;
@@ -71,5 +74,6 @@ private:
     KeybingdingInter* m_keybindInter;
     QList<MetaData> m_datas;
 };
-
+}
+}
 #endif // KEYBOARDWORK_H

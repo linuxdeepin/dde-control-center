@@ -1,5 +1,7 @@
 #include "keyboardmodel.h"
 
+namespace dcc {
+namespace keyboard{
 KeyboardModel::KeyboardModel(QObject *parent)
     : QObject(parent)
 {
@@ -99,4 +101,6 @@ QList<MetaData> KeyboardModel::langLists() const
 bool KeyboardModel::capsLock() const
 {
     return m_capsLock;
+}
+}
 }

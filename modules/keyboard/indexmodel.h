@@ -6,6 +6,9 @@
 #include <QItemDelegate>
 #include <QFrame>
 
+namespace dcc {
+namespace keyboard{
+
 class MetaData
 {
 public:
@@ -38,7 +41,6 @@ private:
 };
 
 QDebug& operator<<(QDebug dbg, const MetaData& md);
-Q_DECLARE_METATYPE(MetaData)
 
 class IndexModel : public QAbstractListModel
 {
@@ -65,5 +67,9 @@ private:
     QList<MetaData> m_datas;
     QList<QString> m_letters;
 };
+
+}
+}
+Q_DECLARE_METATYPE(dcc::keyboard::MetaData)
 
 #endif // INDEXMODEL_H

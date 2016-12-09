@@ -8,6 +8,9 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
+namespace dcc {
+namespace keyboard{
+
 CustomContent::CustomContent(KeyboardWork* work, QWidget *parent)
     :ContentWidget(parent),
       m_work(work)
@@ -122,4 +125,7 @@ void CustomContent::onShortcut()
     }
 
     sendBackSignal();
+}
+
+}
 }

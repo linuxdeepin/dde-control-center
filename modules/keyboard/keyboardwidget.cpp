@@ -7,6 +7,9 @@
 using namespace dcc;
 using namespace dcc::widgets;
 
+namespace dcc {
+namespace keyboard{
+
 KeyboardWidget::KeyboardWidget()
     :ModuleWidget(),
       m_bDelay(false)
@@ -124,4 +127,6 @@ void KeyboardWidget::setSpeedValue(uint value)
 void KeyboardWidget::setCapsLock(bool value)
 {
     m_upper->setChecked(value);
+}
+}
 }

@@ -6,6 +6,8 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace keyboard{
 KeyboardDetails::KeyboardDetails(QWidget *parent)
     :ContentWidget(parent),
       m_bEdit(false),
@@ -95,4 +97,7 @@ void KeyboardDetails::onRemoveLayout(CheckItem *item)
         emit delUserLayout(m_maps.key(item->title()));
         m_maps.remove(m_maps.key(item->title()));
     }
+}
+
+}
 }

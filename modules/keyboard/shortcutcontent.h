@@ -9,6 +9,8 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace keyboard{
 class KeyboardWork;
 class ShortcutInfo;
 class KeyboardControl;
@@ -40,5 +42,6 @@ private:
     ShortcutInfo* m_conflict;
     ShortcutInfo* m_curInfo;
 };
-
+}
+}
 #endif // SHORTCUTCONTENT_H

@@ -4,6 +4,8 @@
 #include <QListView>
 #include <QLabel>
 
+namespace dcc {
+namespace keyboard{
 class IndexView : public QListView
 {
     Q_OBJECT
@@ -25,5 +27,6 @@ private:
     QString m_section;
     QLabel* m_label;
 };
-
+}
+}
 #endif // INDEXVIEW_H

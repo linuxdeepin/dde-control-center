@@ -2,6 +2,9 @@
 #include "indexmodel.h"
 #include <QPainter>
 
+namespace dcc {
+namespace keyboard{
+
 IndexDelegate::IndexDelegate(QObject *parent)
     :QItemDelegate(parent)
 {
@@ -58,4 +61,6 @@ void IndexDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
         painter->restore();
         painter->drawText(option.rect.adjusted(20,0,0,0), Qt::AlignVCenter, md.text());
     }
+}
+}
 }

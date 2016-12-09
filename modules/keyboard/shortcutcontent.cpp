@@ -7,6 +7,8 @@
 
 #include <QVBoxLayout>
 
+namespace dcc {
+namespace keyboard{
 ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
     :ContentWidget(parent),
       m_work(work),
@@ -105,4 +107,6 @@ void ShortcutContent::onKeyEvent(bool press, QString shortcut)
             sendBackSignal();
         }
     }
+}
+}
 }

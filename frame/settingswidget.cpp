@@ -23,6 +23,7 @@
 #include <QVBoxLayout>
 
 using namespace dcc::datetime;
+using namespace dcc::keyboard;
 
 SettingsWidget::SettingsWidget(Frame *frame)
     : ContentWidget(frame),

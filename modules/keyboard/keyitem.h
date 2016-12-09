@@ -3,8 +3,10 @@
 
 #include <QObject>
 #include <QRect>
+#include <QPainter>
 
-class QPainter;
+namespace dcc {
+namespace keyboard{
 
 class KeyItem
 {
@@ -40,6 +42,7 @@ private:
     bool m_press;
     static QList<KeyItem*> m_keys;
 };
-
+}
+}
 
 #endif // KEYITEM_H

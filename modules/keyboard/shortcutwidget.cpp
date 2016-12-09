@@ -7,6 +7,9 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace keyboard{
+
 ShortcutWidget::ShortcutWidget(QWidget *parent)
     :ContentWidget(parent)
 {
@@ -223,4 +226,6 @@ void ShortcutWidget::onTimeout()
     QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_searchInter->NewSearchWithStrList(m_searchInfos.keys()), this);
     connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
             SLOT(getKeyFinish(QDBusPendingCallWatcher*)));
+}
+}
 }

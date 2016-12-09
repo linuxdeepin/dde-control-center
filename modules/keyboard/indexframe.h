@@ -6,6 +6,9 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace keyboard{
+
 class IndexFrame : public TranslucentFrame
 {
     Q_OBJECT
@@ -32,4 +35,6 @@ private:
     bool m_pressed;
 };
 
+}
+}
 #endif // INDEXFRAME_H

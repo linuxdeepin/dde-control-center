@@ -9,7 +9,7 @@
 DWIDGET_USE_NAMESPACE
 
 namespace dcc {
-
+namespace keyboard{
 class CheckItem : public SettingsItem
 {
     Q_OBJECT
@@ -40,6 +40,6 @@ private:
     DImageButton* m_checkBtn;
     int m_circle;
 };
-
+}
 }
 #endif // CHECKITEM_H

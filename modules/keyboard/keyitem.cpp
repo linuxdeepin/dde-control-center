@@ -1,6 +1,9 @@
 #include "keyitem.h"
 #include <QPainter>
 
+namespace dcc {
+namespace keyboard{
+
 QList<KeyItem*> KeyItem::m_keys;
 
 KeyItem::KeyItem(int row, int col, const QString &main, const QString &vice)
@@ -276,4 +279,6 @@ void KeyItem::paint(QPainter *painter, const QRect &rect)
         painter->drawRect(m_rect);
         painter->restore();
     }
+}
+}
 }

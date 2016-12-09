@@ -2,6 +2,9 @@
 #include "shortcutitem.h"
 #include <QTime>
 #include <QDebug>
+
+namespace dcc {
+namespace keyboard{
 KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
     : QObject(parent),
       m_model(model)
@@ -233,4 +236,6 @@ void KeyboardWork::setLang(const QString &value)
 QString KeyboardWork::curLang() const
 {
     return m_langSelector->currentLocale();
+}
+}
 }

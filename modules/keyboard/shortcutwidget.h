@@ -9,9 +9,13 @@
 
 #include <com_deepin_daemon_search.h>
 using namespace dcc;
-using SearchInter=com::deepin::daemon::Search;
 
+using SearchInter=com::deepin::daemon::Search;
 class QLineEdit;
+
+namespace dcc {
+namespace keyboard{
+
 class ShortcutWidget : public ContentWidget
 {
     Q_OBJECT
@@ -66,4 +70,6 @@ private:
     QTimer* m_timer;
 };
 
+}
+}
 #endif // SHORTCUTWIDGET_H

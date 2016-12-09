@@ -1,6 +1,9 @@
 #include "keyboardmodule.h"
 #include "keyitem.h"
 
+namespace dcc {
+namespace keyboard{
+
 KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
     :QObject(parent),
       ModuleInterface(frame),
@@ -515,4 +518,7 @@ void KeyboardModule::append(const MetaData &md)
         index++;
     }
     m_datas.append(md);
+}
+
+}
 }

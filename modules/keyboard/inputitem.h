@@ -4,10 +4,13 @@
 #include "settingsitem.h"
 
 #include <QLabel>
-#include <QLineEdit>
 #include <QPushButton>
+#include <QLineEdit>
 
 using namespace dcc;
+
+namespace dcc {
+namespace keyboard{
 
 class InputItem : public SettingsItem
 {
@@ -22,7 +25,7 @@ public:
     void setChooseVisible(bool visible);
     void setRightText(const QString& text);
 
-    QString value() const { return m_input->text(); }
+    QString value() const;
 
     void setReadOnly(bool read);
 
@@ -54,4 +57,6 @@ private:
     QPushButton *m_button;
 };
 
+}
+}
 #endif // INPUTITEM_H

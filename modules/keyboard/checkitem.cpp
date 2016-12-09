@@ -4,6 +4,9 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace keyboard{
+
 CheckItem::CheckItem(QFrame *parent)
     :SettingsItem(parent),
       m_checked(false),
@@ -106,4 +109,6 @@ void CheckItem::mouseReleaseEvent(QMouseEvent *)
 
     setChecked(true);
     m_circle = 0;
+}
+}
 }

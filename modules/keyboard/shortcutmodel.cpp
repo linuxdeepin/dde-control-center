@@ -8,6 +8,9 @@
 #include <QDBusInterface>
 #include <QDebug>
 
+namespace dcc {
+namespace keyboard{
+
 ShortcutModel::ShortcutModel(QObject *parent) : QObject(parent)
 {
 
@@ -147,4 +150,7 @@ void ShortcutModel::onCustomInfo(const QString &json)
 ShortcutInfo::ShortcutInfo()
 {
     item = NULL;
+}
+
+}
 }

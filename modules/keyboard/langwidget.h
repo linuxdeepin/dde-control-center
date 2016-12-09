@@ -9,6 +9,8 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace keyboard{
 class QLineEdit;
 
 class LangWidget : public ContentWidget
@@ -34,5 +36,6 @@ private:
     IndexModel* m_model;
     IndexModel* m_searchModel;
 };
-
+}
+}
 #endif // LANGWIDGET_H

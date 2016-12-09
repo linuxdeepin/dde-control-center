@@ -1,6 +1,10 @@
 #include "indexmodel.h"
 #include <QDBusInterface>
 #include <com_deepin_daemon_inputdevice_keyboard.h>
+
+namespace dcc {
+namespace keyboard{
+
 using DBusKeyboard = com::deepin::daemon::inputdevice::Keyboard;
 
 MetaData::MetaData(const QString &text, bool section)
@@ -164,4 +168,7 @@ Qt::ItemFlags IndexModel::flags(const QModelIndex &index) const
         return Qt::NoItemFlags;
     }
     return QAbstractListModel::flags(index);
+}
+
+}
 }

@@ -2,6 +2,9 @@
 #include <QPainter>
 #include <QMouseEvent>
 
+namespace dcc {
+namespace keyboard{
+
 IndexFrame::IndexFrame(QFrame *parent):TranslucentFrame(parent)
 {
     setMouseTracking(true);
@@ -121,4 +124,7 @@ void IndexFrame::leaveEvent(QEvent *e)
     m_rect = QRect();
     QFrame::leaveEvent(e);
     update();
+}
+
+}
 }

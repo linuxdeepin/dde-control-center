@@ -5,6 +5,9 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace keyboard{
+
 class KeyItem;
 class KeyboardControl : public SettingsItem
 {
@@ -30,4 +33,6 @@ private:
     QStringList m_conflicts;
 };
 
+}
+}
 #endif // KEYBAORDCONTROL_H

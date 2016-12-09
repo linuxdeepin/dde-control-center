@@ -3,6 +3,9 @@
 
 #include <QObject>
 
+namespace dcc {
+namespace keyboard{
+
 class ShortcutItem;
 struct ShortcutInfo
 {
@@ -56,4 +59,6 @@ private:
     QList<ShortcutInfo*> m_customInfos;
 };
 
+}
+}
 #endif // SHORTCUTMODEL_H

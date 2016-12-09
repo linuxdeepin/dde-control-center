@@ -8,6 +8,9 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace keyboard{
+
 class KeyboardWork;
 class ShortcutInfo;
 class InputItem;
@@ -42,5 +45,6 @@ private:
     QLabel* m_bottomTip;
     ShortcutInfo* m_conflict;
 };
-
+}
+}
 #endif // CUSTOMCONTENT_H

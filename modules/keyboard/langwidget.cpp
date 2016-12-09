@@ -12,6 +12,8 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace keyboard{
 LangWidget::LangWidget(QWidget *parent)
     :ContentWidget(parent)
 {
@@ -94,4 +96,6 @@ void LangWidget::onSearch(const QString &text)
         m_searchModel->setMetaData(sdatas);
         m_view->setModel(m_searchModel);
     }
+}
+}
 }

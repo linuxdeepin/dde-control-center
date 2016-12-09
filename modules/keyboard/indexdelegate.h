@@ -3,6 +3,9 @@
 
 #include <QItemDelegate>
 
+namespace dcc {
+namespace keyboard{
+
 class IndexDelegate : public QItemDelegate
 {
     Q_OBJECT
@@ -15,4 +18,6 @@ protected:
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
+}
+}
 #endif // INDEXDELEGATE_H

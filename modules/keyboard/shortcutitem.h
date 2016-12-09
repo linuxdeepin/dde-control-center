@@ -4,17 +4,19 @@
 #include "settingsitem.h"
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QLineEdit>
 #include <dimagebutton.h>
 #include <com_deepin_daemon_keybinding.h>
 
 DWIDGET_USE_NAMESPACE
 
-using KeybingdingInter = com::deepin::daemon::Keybinding;
-
 using namespace dcc;
 
-class QLineEdit;
+namespace dcc {
+namespace keyboard{
+
 class ShortcutInfo;
+using KeybingdingInter = com::deepin::daemon::Keybinding;
 
 class ShortcutItem : public SettingsItem
 {
@@ -55,4 +57,6 @@ private:
     KeybingdingInter* m_inter;
     DImageButton* m_checkBtn;
 };
+}
+}
 #endif // SHORTCUTITEM_H

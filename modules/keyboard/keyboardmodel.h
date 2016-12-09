@@ -4,6 +4,9 @@
 #include <QObject>
 #include "indexmodel.h"
 
+namespace dcc {
+namespace keyboard{
+
 class KeyboardModel : public QObject
 {
     Q_OBJECT
@@ -46,5 +49,6 @@ private:
     QMap<QString, QString> m_layouts;
     QList<MetaData> m_langs;
 };
-
+}
+}
 #endif // KEYBOARDMODEL_H

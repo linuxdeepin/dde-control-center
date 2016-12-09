@@ -2,6 +2,9 @@
 #include <QHBoxLayout>
 #include <QFileDialog>
 #include <QSpacerItem>
+
+namespace dcc {
+namespace keyboard{
 InputItem::InputItem(QFrame *parent)
     :SettingsItem(parent)
 {
@@ -46,6 +49,11 @@ void InputItem::setRightText(const QString &text)
     }
 }
 
+QString InputItem::value() const
+{
+    return m_input->text();
+}
+
 void InputItem::setReadOnly(bool read)
 {
     m_input->setReadOnly(read);
@@ -81,4 +89,6 @@ void TitleButtonItem::setTitle(const QString &title)
 void TitleButtonItem::setValue(const QString &value)
 {
     m_button->setText(value);
+}
+}
 }

@@ -9,6 +9,8 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace keyboard{
 class KeyboardDetails : public ContentWidget
 {
     Q_OBJECT
@@ -37,5 +39,6 @@ private:
     QList<MetaData> m_datas;
     QMap<QString, QString> m_maps;
 };
-
+}
+}
 #endif // KEYBOARDDETAILS_H

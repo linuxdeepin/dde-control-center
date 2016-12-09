@@ -11,6 +11,8 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace keyboard{
 class KeyboardWidget : public ModuleWidget
 {
     Q_OBJECT
@@ -45,5 +47,6 @@ private:
     NextPageWidget* m_scItem;
     SwitchWidget* m_upper;
 };
-
+}
+}
 #endif // KEYBOARDWIDGET_H
