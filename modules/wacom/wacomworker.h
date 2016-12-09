@@ -1,16 +1,15 @@
 #ifndef WACOMWORKER_H
 #define WACOMWORKER_H
 
-#include "wacommodel.h"
-
-
 #include <com_deepin_daemon_inputdevice_wacom.h>
-
-#include "model/wacommodelbase.h"
-
 #include <QObject>
-using com::deepin::daemon::inputdevice::Wacom;
 
+using com::deepin::daemon::inputdevice::Wacom;
+namespace dcc
+{
+namespace wacom
+{
+class WacomModel;
 class WacomWorker : public QObject
 {
     Q_OBJECT
@@ -30,5 +29,8 @@ private:
     Wacom *m_dbusWacom;
     WacomModel *m_model;
 };
+}
+}
+
 
 #endif // WACOMWORKER_H

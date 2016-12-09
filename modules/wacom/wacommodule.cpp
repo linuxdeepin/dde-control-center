@@ -1,5 +1,10 @@
 #include "wacomemodule.h"
-
+#include "contentwidget.h"
+#include "wacommodel.h"
+#include "wacomwidget.h"
+#include "wacomworker.h"
+using namespace dcc;
+using namespace dcc::wacom;
 WacomModule::WacomModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),

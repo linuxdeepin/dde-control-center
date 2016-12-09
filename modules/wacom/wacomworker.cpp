@@ -1,7 +1,9 @@
 #include "wacomworker.h"
-
+#include "wacommodel.h"
+#include "model/wacommodelbase.h"
+using namespace dcc;
+using namespace dcc::wacom;
 const QString Service = "com.deepin.daemon.InputDevices";
-
 WacomWorker::WacomWorker(WacomModel *model, QObject *parent) :
     QObject(parent),
     m_dbusWacom(new Wacom(Service, "/com/deepin/daemon/InputDevice/Wacom", QDBusConnection::sessionBus(), this)),

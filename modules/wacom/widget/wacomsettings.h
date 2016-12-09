@@ -1,16 +1,20 @@
 #ifndef WACOMSETTINGS_H
 #define WACOMSETTINGS_H
-#include "settingsitem.h"
-#include "titledslideritem.h"
-#include "dccslider.h"
-#include "switchwidget.h"
-#include "settingsgroup.h"
-#include "../wacommodel.h"
+
 #include "translucentframe.h"
 #include <QObject>
 #include <QVBoxLayout>
-using namespace dcc;
-using namespace dcc::widgets;
+
+
+class QSlider;
+namespace dcc {
+class SettingsGroup;
+
+namespace widgets {
+class TitledSliderItem;
+}
+namespace wacom {
+class WacomModelBase;
 class WacomSettings : public TranslucentFrame
 {
     Q_OBJECT
@@ -28,8 +32,11 @@ private:
     QVBoxLayout *m_mainLayout;
     SettingsGroup *m_mainGroup;
     WacomModelBase *m_baseSettings;
-    TitledSliderItem *m_pressureSlider;
+    widgets::TitledSliderItem *m_pressureSlider;
     QSlider *m_preSlider;
 };
+
+}
+}
 
 #endif // WACOMSETTINGS_H

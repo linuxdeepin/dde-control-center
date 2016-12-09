@@ -2,11 +2,12 @@
 #define WACOMMODULE_H
 
 #include "moduleinterface.h"
-#include "wacomwidget.h"
-#include "wacommodel.h"
-#include "wacomworker.h"
-
-
+class ContentWidget;
+namespace dcc {
+namespace wacom {
+class WacomWidget;
+class WacomModel;
+class WacomWorker;
 class WacomModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -34,5 +35,7 @@ private:
     WacomModel  *m_model;
     WacomWorker *m_worker;
 };
+}
+}
 
 #endif // WACOMMODULE_H

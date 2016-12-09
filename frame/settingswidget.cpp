@@ -58,7 +58,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new PowerModule(this));
     loadModule(new MouseModule(this));
     loadModule(new KeyboardModule(this));
-    loadModule(new WacomModule(this));
+    loadModule(new wacom::WacomModule(this));
     loadModule(new UpdateModule(this));
     loadModule(new SystemInfoModule(this));
 

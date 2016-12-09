@@ -1,15 +1,19 @@
 #include "wacomwidget.h"
 
+#include "contentwidget.h"
+#include "settingsgroup.h"
 #include "nextpagewidget.h"
 #include "settingsgroup.h"
 #include "nextpagewidget.h"
 #include "switchwidget.h"
+#include "wacom/wacommodel.h"
+#include "wacom/widget/wacomsettings.h"
 
 #include <QPushButton>
 #include <QDebug>
 
 using namespace dcc;
-
+using namespace dcc::wacom;
 WacomWidget::WacomWidget()
     : ModuleWidget(),
 

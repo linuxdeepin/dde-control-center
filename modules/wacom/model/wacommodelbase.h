@@ -3,7 +3,10 @@
 
 #include <QObject>
 #include <QDebug>
-
+namespace dcc
+{
+namespace wacom
+{
 class WacomModelBase : public QObject
 {
     Q_OBJECT
@@ -18,4 +21,7 @@ signals:
 private:
     int m_pressureValue;
 };
+}
+}
+
 #endif // WACOMMODELBASE_H

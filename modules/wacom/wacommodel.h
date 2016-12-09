@@ -1,12 +1,14 @@
 #ifndef WACOMMODEL_H
 #define WACOMMODEL_H
 
-#include "model/wacommodelbase.h"
-
+#include "wacom/model/wacommodelbase.h"
 #include <QObject>
 #include <QDebug>
 
-
+namespace  dcc
+{
+namespace wacom
+{
 class WacomModel : public QObject
 {
     Q_OBJECT
@@ -20,5 +22,7 @@ private:
     WacomModelBase *m_wacomModelBase;
 
 };
+}
+}
 
 #endif // WACOMMODEL_H

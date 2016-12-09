@@ -1,5 +1,15 @@
 #include "wacomsettings.h"
+#include "settingsitem.h"
+#include "titledslideritem.h"
+#include "dccslider.h"
+#include "switchwidget.h"
+#include "settingsgroup.h"
+#include "wacom/wacommodel.h"
 
+
+using namespace dcc;
+using namespace dcc::widgets;
+using namespace dcc::wacom;
 WacomSettings::WacomSettings(QWidget *parent):
     TranslucentFrame(parent)
 {
