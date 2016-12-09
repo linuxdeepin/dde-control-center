@@ -9,6 +9,10 @@
 
 using DisplayInter = com::deepin::daemon::Display;
 
+namespace dcc {
+
+namespace display {
+
 class DisplayModel;
 class DisplayWorker : public QObject
 {
@@ -47,5 +51,9 @@ private:
     DisplayInter m_displayInter;
     QMap<Monitor *, MonitorInter *> m_monitors;
 };
+
+} // namespace display
+
+} // namespace dcc
 
 #endif // DISPLAYWORKER_H

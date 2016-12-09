@@ -3,6 +3,10 @@
 
 #include <QWidget>
 
+namespace dcc {
+
+namespace display {
+
 class Monitor;
 class MonitorProxyWidget : public QWidget
 {
@@ -37,5 +41,9 @@ private:
 
     QPoint m_lastPos;
 };
+
+} // namespace display
+
+} // namespace dcc
 
 #endif // MONITORPROXYWIDGET_H

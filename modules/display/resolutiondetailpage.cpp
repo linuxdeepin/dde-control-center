@@ -5,6 +5,7 @@
 
 using namespace dcc;
 using namespace dcc::widgets;
+using namespace dcc::display;
 
 ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
     : ContentWidget(parent),

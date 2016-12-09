@@ -2,6 +2,8 @@
 
 #include <QVBoxLayout>
 
+using namespace dcc::display;
+
 SettingsListWidget::SettingsListWidget(QWidget *parent)
     : QWidget(parent),
 

@@ -4,6 +4,8 @@
 #include <QTimer>
 #include <QPainter>
 
+using namespace dcc::display;
+
 const int AUTOHIDE_DELAY = 1000 * 5;
 
 RecognizeDialog::RecognizeDialog(DisplayModel *model, QWidget *parent)

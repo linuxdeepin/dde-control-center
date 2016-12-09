@@ -5,6 +5,10 @@
 
 #include "monitor.h"
 
+namespace dcc {
+
+namespace display {
+
 class DisplayWorker;
 class DisplayModel : public QObject
 {
@@ -42,5 +46,9 @@ private:
     QString m_primary;
     QList<Monitor *> m_monitors;
 };
+
+} // namespace display
+
+} // namespace dcc
 
 #endif // DISPLAYMODEL_H

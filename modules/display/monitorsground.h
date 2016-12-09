@@ -5,6 +5,10 @@
 
 #include <QFrame>
 
+namespace dcc {
+
+namespace display {
+
 class DisplayModel;
 class MonitorProxyWidget;
 class MonitorsGround : public QFrame
@@ -39,5 +43,9 @@ private:
 
     QTimer *m_refershTimer;
 };
+
+} // namespace display
+
+} // namespace dcc
 
 #endif // MONITORSGROUND_H

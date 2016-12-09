@@ -7,6 +7,10 @@
 
 using MonitorInter = com::deepin::daemon::display::Monitor;
 
+namespace dcc {
+
+namespace display {
+
 class DisplayWorker;
 class Monitor : public QObject
 {
@@ -66,5 +70,9 @@ private:
     QList<quint16> m_rotateList;
     QList<Resolution> m_modeList;
 };
+
+} // namespace display
+
+} // namespace dcc
 
 #endif // MONITOR_H

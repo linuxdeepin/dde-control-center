@@ -10,9 +10,12 @@
 
 #include <dimagebutton.h>
 
+namespace dcc {
+
+namespace display {
+
 class DisplayModel;
 class SettingsListWidget;
-
 class MonitorControlWidget;
 class MonitorSettingDialog : public QDialog
 {
@@ -71,5 +74,9 @@ private:
 
     QList<MonitorSettingDialog *> m_otherDialogs;
 };
+
+} // namespace display
+
+} // namespace dcc
 
 #endif // MONITORSETTINGDIALOG_H

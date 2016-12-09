@@ -5,6 +5,10 @@
 
 class QPushButton;
 
+namespace dcc {
+
+namespace display {
+
 class Monitor;
 class DisplayModel;
 class MonitorsGround;
@@ -30,5 +34,9 @@ private:
     QPushButton *m_split;
     QPushButton *m_join;
 };
+
+} // namespace display
+
+} // namespace dcc
 
 #endif // MONITORCONTROLWIDGET_H

@@ -7,6 +7,8 @@
 #include <QPainter>
 #include <QDebug>
 
+using namespace dcc::display;
+
 const int MARGIN_W = 20;
 const int MARGIN_H = 10;
 const double VIEW_WIDTH = 300.;

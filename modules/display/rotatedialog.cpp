@@ -8,6 +8,8 @@
 #include <QPainter>
 #include <QFontMetrics>
 
+using namespace dcc::display;
+
 const QString Tips(QT_TR_NOOP("Left click to rotate and right click to exit"));
 
 RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)

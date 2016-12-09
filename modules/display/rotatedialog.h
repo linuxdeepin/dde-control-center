@@ -3,6 +3,10 @@
 
 #include <QDialog>
 
+namespace dcc {
+
+namespace display {
+
 class Monitor;
 class RotateDialog : public QDialog
 {
@@ -24,5 +28,9 @@ private:
 private:
     Monitor *m_mon;
 };
+
+} // namespace display
+
+} // namespace dcc
 
 #endif // ROTATEDIALOG_H

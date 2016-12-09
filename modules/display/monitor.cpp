@@ -1,5 +1,7 @@
 #include "monitor.h"
 
+using namespace dcc::display;
+
 Monitor::Monitor(QObject *parent)
     : QObject(parent),
       m_primary(false),

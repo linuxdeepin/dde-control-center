@@ -3,6 +3,10 @@
 
 #include <QDialog>
 
+namespace dcc {
+
+namespace display {
+
 class Monitor;
 class DisplayModel;
 class RecognizeDialog : public QDialog
@@ -24,5 +28,9 @@ private:
 private:
     DisplayModel *m_model;
 };
+
+} // namespace display
+
+} // namespace dcc
 
 #endif // RECOGNIZEDIALOG_H

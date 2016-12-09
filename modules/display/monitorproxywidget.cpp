@@ -4,6 +4,8 @@
 #include <QPainter>
 #include <QMouseEvent>
 
+using namespace dcc::display;
+
 MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, QWidget *parent)
     : QWidget(parent),
 

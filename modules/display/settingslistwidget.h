@@ -8,6 +8,10 @@
 
 #include <QVBoxLayout>
 
+namespace dcc {
+
+namespace display {
+
 class SettingsListWidget : public QWidget
 {
     Q_OBJECT
@@ -32,5 +36,9 @@ private:
     QLabel *m_title;
     QVBoxLayout *m_listLayout;
 };
+
+} // namespace display
+
+} // namespace dcc
 
 #endif // SETTINGSLISTWIDGET_H

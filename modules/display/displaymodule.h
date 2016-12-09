@@ -3,15 +3,15 @@
 
 #include "moduleinterface.h"
 
-class Monitor;
-class DisplayModel;
-class DisplayWorker;
 class ModuleWidget;
 
 namespace dcc {
 
 namespace display {
 
+class Monitor;
+class DisplayWorker;
+class DisplayModel;
 class DisplayWidget;
 class DisplayModule : public QObject, public ModuleInterface
 {

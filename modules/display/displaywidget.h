@@ -5,8 +5,6 @@
 
 #include <QPushButton>
 
-class DisplayModel;
-
 namespace dcc {
 
 class SettingsGroup;
@@ -14,6 +12,7 @@ class NextPageWidget;
 
 namespace display {
 
+class DisplayModel;
 class DisplayWidget : public ModuleWidget
 {
     Q_OBJECT

@@ -7,6 +7,8 @@
 #include <QFrame>
 #include <QPushButton>
 
+using namespace dcc::display;
+
 MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     : QWidget(parent),
 

@@ -9,7 +9,8 @@
 namespace dcc
 {
 class SettingsGroup;
-}
+
+namespace display {
 
 class Monitor;
 class DisplayModel;
@@ -34,5 +35,9 @@ private:
 
     QMap<dcc::widgets::OptionItem *, int> m_options;
 };
+
+}   // namespace dcc
+
+}   // namespace display
 
 #endif // RESOLUTIONDETAILPAGE_H

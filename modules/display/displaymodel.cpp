@@ -1,5 +1,8 @@
 #include "displaymodel.h"
 
+using namespace dcc;
+using namespace dcc::display;
+
 bool contains(const QList<Resolution> &container, const Resolution &item)
 {
     for (auto r : container)

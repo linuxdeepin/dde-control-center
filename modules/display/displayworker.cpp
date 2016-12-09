@@ -4,6 +4,9 @@
 
 #include <QDebug>
 
+using namespace dcc;
+using namespace dcc::display;
+
 const QString DisplayInterface("com.deepin.daemon.Display");
 
 DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
