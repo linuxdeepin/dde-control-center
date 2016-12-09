@@ -10,6 +10,7 @@ namespace update{
 UpdateView::UpdateView()
     : ModuleWidget()
 {
+    setObjectName("Update");
     m_updateItem = new NextPageWidget;
     m_updateItem->setTitle(tr("Update"));
     m_updateGroup = new SettingsGroup;

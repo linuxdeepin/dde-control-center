@@ -1,0 +1,3 @@
+QLabel#ModuleHeaderIconUpdate {
+    background-image: url(:/update/themes/dark/icons/nav_upgrade.png);
+}

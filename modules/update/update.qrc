@@ -3,5 +3,9 @@
         <file>icon/select.png</file>
         <file>themes/dark/dark.qss</file>
         <file>themes/light/light.qss</file>
+        <file>themes/dark/icons/select.png</file>
+        <file>themes/dark/icons/nav_upgrade.png</file>
+        <file>themes/light/icons/select.png</file>
+        <file>themes/light/icons/nav_upgrade.png</file>
     </qresource>
 </RCC>

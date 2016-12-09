@@ -15,5 +15,17 @@
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_datetime.png</file>
         <file>themes/light/light.qss</file>
+        <file>themes/dark/icons/add_disabled.png</file>
+        <file>themes/dark/icons/add_hover.png</file>
+        <file>themes/dark/icons/add_normal.png</file>
+        <file>themes/dark/icons/add_press.png</file>
+        <file>themes/dark/icons/list_delete_hover.png</file>
+        <file>themes/dark/icons/list_delete_normal.png</file>
+        <file>themes/dark/icons/list_delete_press.png</file>
+        <file>themes/dark/icons/map_dark.png</file>
+        <file>themes/dark/icons/reduce_hover.png</file>
+        <file>themes/dark/icons/reduce_normal.png</file>
+        <file>themes/dark/icons/reduce_press.png</file>
+        <file>themes/dark/icons/reducedisabled.png</file>
     </qresource>
 </RCC>

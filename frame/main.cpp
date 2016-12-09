@@ -50,7 +50,7 @@ static const QString styleSheetFromTheme(const QString &theme)
     QStringList moduleList = { "frame", "widgets", "accounts", "defapp",
                                "mouse", "wacom", "sound", "bluetooth",
                                "personalization", "datetime", "display",
-                               "keyboard", "power", "systeminfo", "network"};
+                               "keyboard", "power", "systeminfo",  "update", "network"};
 
     QString ret;
 
