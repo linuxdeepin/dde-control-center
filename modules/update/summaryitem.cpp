@@ -1,6 +1,8 @@
 #include "summaryitem.h"
 #include <QVBoxLayout>
 
+namespace dcc{
+namespace update{
 CheckUpdateItem::CheckUpdateItem(QFrame *parent)
     :SettingsItem(parent)
 {
@@ -77,4 +79,7 @@ void SummaryItem::setDetails(const QString &details)
     m_details->setAlignment(Qt::AlignTop|Qt::AlignHCenter);
     m_details->setText(details);
     m_details->show();
+}
+
+}
 }

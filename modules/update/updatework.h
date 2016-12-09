@@ -14,6 +14,8 @@ using JobInter=com::deepin::lastore::Job;
 using ManagerInter=com::deepin::lastore::Manager;
 using PowerInter=com::deepin::daemon::Power;
 
+namespace dcc{
+namespace update{
 class UpdateWork : public QObject
 {
     Q_OBJECT
@@ -64,5 +66,6 @@ private:
     QList<QString> m_updatableApps;
     QList<QString> m_updatablePackages;
 };
-
+}
+}
 #endif // UPDATEWORK_H

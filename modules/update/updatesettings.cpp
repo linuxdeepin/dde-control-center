@@ -6,6 +6,9 @@
 
 #include <QVBoxLayout>
 
+namespace dcc{
+namespace update{
+
 UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     :ContentWidget(parent),
       m_model(model)
@@ -49,4 +52,7 @@ void UpdateSettings::setDefaultMirror(const QString &value)
 void UpdateSettings::setAutoUpdate(bool update)
 {
     m_autoUpdate->setChecked(update);
+}
+
+}
 }

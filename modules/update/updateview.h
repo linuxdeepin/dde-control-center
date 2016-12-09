@@ -5,6 +5,8 @@
 #include "nextpagewidget.h"
 #include "settingsgroup.h"
 
+namespace dcc{
+namespace update{
 class UpdateView : public ModuleWidget
 {
     Q_OBJECT
@@ -23,4 +25,6 @@ private:
     dcc::NextPageWidget* m_settingsItem;
 };
 
+}
+}
 #endif // UPDATEVIEW_H

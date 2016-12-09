@@ -4,6 +4,9 @@
 #include <QObject>
 #include <com_deepin_lastore_updater.h>
 
+namespace dcc{
+namespace update{
+
 class UpdateModel : public QObject
 {
     Q_OBJECT
@@ -30,4 +33,6 @@ private:
     MirrorInfoList m_mirrorList;
 };
 
+}
+}
 #endif // UPDATEMODEL_H

@@ -9,6 +9,9 @@
 
 using namespace dcc;
 
+namespace dcc{
+namespace update{
+
 class MirrorsWidget : public ContentWidget
 {
     Q_OBJECT
@@ -30,4 +33,6 @@ private:
     QString m_defaultMirror;
 };
 
+}
+}
 #endif // MIRRORSWIDGET_H

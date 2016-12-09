@@ -7,6 +7,9 @@
 
 using namespace dcc;
 
+namespace dcc{
+namespace update{
+
 class UpdateModel;
 
 class UpdateSettings : public ContentWidget
@@ -30,4 +33,6 @@ private:
     NextPageWidget* m_updateMirrors;
 };
 
+}
+}
 #endif // UPDATECTROLMIRRORS_H

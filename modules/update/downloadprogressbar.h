@@ -3,6 +3,10 @@
 
 #include <QProgressBar>
 
+
+namespace dcc{
+namespace update{
+
 enum UpdateType{
     CheckUpdate,
     StartDownload,
@@ -31,4 +35,6 @@ private:
     UpdateType m_type;
 };
 
+}
+}
 #endif // DOWNLOADPROGRESSBAR_H

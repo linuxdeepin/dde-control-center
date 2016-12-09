@@ -4,6 +4,9 @@
 
 #include <QVBoxLayout>
 
+namespace dcc{
+namespace update{
+
 UpdateCtrlWidget::UpdateCtrlWidget(QWidget *parent)
     : ContentWidget(parent)
 {
@@ -125,4 +128,7 @@ void UpdateCtrlWidget::onPackagesDownloadSize(qlonglong size, int count)
         }
         m_progress->show();
     }
+}
+
+}
 }

@@ -10,7 +10,11 @@
 
 #include <QObject>
 
+namespace dcc{
+namespace update{
+
 class UpdateView;
+
 class UpdateModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -47,4 +51,6 @@ private:
     MirrorsWidget* m_mirrorsWidget;
 };
 
+}
+}
 #endif // UPDATEMODULE_H

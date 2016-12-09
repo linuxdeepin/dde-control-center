@@ -1,5 +1,7 @@
 #include "updatemodel.h"
 
+namespace dcc{
+namespace update{
 UpdateModel::UpdateModel(QObject *parent) : QObject(parent)
 {
 
@@ -30,4 +32,7 @@ void UpdateModel::setAutoUpdate(bool update)
 
     m_autoUpdate = update;
     emit autoUpdate(m_autoUpdate);
+}
+
+}
 }

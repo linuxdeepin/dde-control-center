@@ -4,6 +4,9 @@
 
 using namespace dcc;
 
+namespace dcc{
+namespace update{
+
 UpdateView::UpdateView()
     : ModuleWidget()
 {
@@ -24,4 +27,7 @@ UpdateView::UpdateView()
 
     connect(m_updateItem, &NextPageWidget::clicked, this, &UpdateView::pushUpdate);
     connect(m_settingsItem, &NextPageWidget::clicked, this, &UpdateView::pushMirrors);
+}
+
+}
 }

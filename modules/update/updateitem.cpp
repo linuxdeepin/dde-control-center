@@ -1,6 +1,8 @@
 #include "updateitem.h"
 #include <QHBoxLayout>
 
+namespace dcc{
+namespace update{
 
 const int ChangelogLineHeight = 20;
 UpdateItem::UpdateItem(QFrame *parent)
@@ -111,4 +113,7 @@ int UpdateItem::changelogLines() const
     }
 
     return rect.height() / ChangelogLineHeight;
+}
+
+}
 }

@@ -2,6 +2,8 @@
 #include <QHBoxLayout>
 #include <QProcess>
 
+namespace dcc{
+namespace update{
 MirrorItem::MirrorItem(QFrame *parent)
     :SettingsItem(parent)
 {
@@ -91,4 +93,7 @@ void MirrorItem::mouseReleaseEvent(QMouseEvent *e)
     emit clicked(this);
 
     QFrame::mouseReleaseEvent(e);
+}
+
+}
 }

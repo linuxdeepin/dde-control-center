@@ -1,6 +1,9 @@
 #include "updatemodule.h"
 #include "updateview.h"
 
+namespace dcc{
+namespace update{
+
 UpdateModule::UpdateModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),
@@ -170,3 +173,7 @@ void UpdateModule::onActionType(UpdateType type)
         QProcess::startDetached("/usr/lib/deepin-daemon/dde-offline-upgrader");
     }
 }
+
+}
+}
+

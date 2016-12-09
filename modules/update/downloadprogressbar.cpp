@@ -1,6 +1,9 @@
 #include "downloadprogressbar.h"
 #include <QPainter>
 
+namespace dcc{
+namespace update{
+
 DownloadProgressBar::DownloadProgressBar(QWidget* parent)
     :QProgressBar(parent),
       m_type(CheckUpdate)
@@ -53,4 +56,7 @@ void DownloadProgressBar::mouseReleaseEvent(QMouseEvent *e)
 
     emit action(m_type);
     QProgressBar::mouseReleaseEvent(e);
+}
+
+}
 }

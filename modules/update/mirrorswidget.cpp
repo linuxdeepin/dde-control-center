@@ -2,6 +2,9 @@
 #include "translucentframe.h"
 #include <QVBoxLayout>
 
+namespace dcc{
+namespace update{
+
 MirrorsWidget::MirrorsWidget(QWidget *parent)
     :ContentWidget(parent),
       m_curItem(nullptr)
@@ -51,4 +54,7 @@ void MirrorsWidget::setCurItem(MirrorItem *item)
         MirrorInfo info = item->mirrorInfo();
         emit mirrorName(info.m_name, info.m_id);
     }
+}
+
+}
 }

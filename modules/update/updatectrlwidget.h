@@ -22,6 +22,9 @@ using PowerInter=com::deepin::daemon::Power;
 using namespace dcc;
 using namespace dcc::widgets;
 
+namespace dcc{
+namespace update{
+
 class UpdateCtrlWidget : public ContentWidget
 {
     Q_OBJECT
@@ -71,4 +74,6 @@ private:
     DownloadProgressBar* m_progress;
 };
 
+}
+}
 #endif // UPDATECTRLWIDGET_H

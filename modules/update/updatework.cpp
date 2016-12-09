@@ -1,5 +1,8 @@
 #include "updatework.h"
 
+namespace dcc{
+namespace update{
+
 UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
     : QObject(parent),
       m_model(model),
@@ -303,4 +306,7 @@ void UpdateWork::loadDownloadJob(JobInter *newJob)
 
     connect(m_downloadJob, SIGNAL(ProgressChanged(double)), this, SIGNAL(progressChanged(double)));
     connect(m_downloadJob, SIGNAL(StatusChanged(QString)), this, SLOT(onStatus(QString)));
+}
+
+}
 }

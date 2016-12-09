@@ -9,6 +9,9 @@ using namespace dcc;
 
 DWIDGET_USE_NAMESPACE
 
+namespace dcc{
+namespace update{
+
 class CheckUpdateItem : public SettingsItem
 {
     Q_OBJECT
@@ -40,4 +43,6 @@ private:
     QLabel* m_details;
 };
 
+}
+}
 #endif // SUMMARYITEM_H

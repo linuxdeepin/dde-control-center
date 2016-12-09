@@ -8,6 +8,9 @@
 #include <QPushButton>
 
 using namespace dcc;
+namespace dcc{
+namespace update{
+
 class UpdateItem : public SettingsItem
 {
     Q_OBJECT
@@ -31,4 +34,6 @@ private:
     AppUpdateInfo m_info;
 };
 
+}
+}
 #endif // UPDATEITEM_H

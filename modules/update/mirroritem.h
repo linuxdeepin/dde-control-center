@@ -10,6 +10,9 @@
 DWIDGET_USE_NAMESPACE
 using namespace dcc;
 
+namespace dcc{
+namespace update{
+
 class MirrorItem : public SettingsItem
 {
     Q_OBJECT
@@ -50,4 +53,6 @@ private:
     MirrorInfo m_info;
 };
 
+}
+}
 #endif // MIRRORITEM_H
