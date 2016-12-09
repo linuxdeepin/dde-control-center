@@ -6,6 +6,9 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace datetime {
+
 TimezoneItem::TimezoneItem(QFrame *parent)
     :SettingsItem(parent)
 {
@@ -101,4 +104,6 @@ void TimezoneItem::toNormalMode()
 {
     m_back->setVisible(false);;
     m_clock->setVisible(true);
+}
+}
 }

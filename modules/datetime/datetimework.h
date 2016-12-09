@@ -6,6 +6,9 @@
 #include <QObject>
 #include <com_deepin_daemon_timedate.h>
 
+namespace dcc {
+namespace datetime {
+
 using Timedate = com::deepin::daemon::Timedate;
 
 class DatetimeWork : public QObject
@@ -28,5 +31,6 @@ private:
     DatetimeModel* m_model;
     Timedate* m_timedateInter;
 };
-
+}
+}
 #endif // DATETIMEWORK_H

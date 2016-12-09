@@ -1,6 +1,9 @@
 #include "datetimework.h"
 #include <QDebug>
 
+namespace dcc {
+namespace datetime {
+
 DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     : QObject(parent),
       m_model(model)
@@ -42,4 +45,7 @@ void DatetimeWork::setNTP(bool ntp)
 void DatetimeWork::onProperty(const QString &propName, const QVariant &value)
 {
     qDebug()<<Q_FUNC_INFO<<propName<<value;
+}
+
+}
 }

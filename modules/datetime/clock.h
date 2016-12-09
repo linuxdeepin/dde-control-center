@@ -8,6 +8,9 @@
 #include "settingsitem.h"
 using namespace dcc;
 
+namespace dcc {
+namespace datetime {
+
 class Clock: public SettingsItem
 {
     Q_OBJECT
@@ -28,4 +31,6 @@ private:
     QTimeZone m_timezone;
     bool m_display;
 };
+}
+}
 #endif // CLOCK_H

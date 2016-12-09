@@ -18,6 +18,9 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
+namespace dcc {
+namespace datetime {
+
 ChoseDialog::ChoseDialog(QWidget *parent)
     :QDialog(parent),
       m_flag(false)
@@ -279,4 +282,6 @@ void MapWidget::mousePressEvent(QMouseEvent *e)
         emit cityChanged(m_curTimezone.m_city);
     }
     update();
+}
+}
 }

@@ -6,6 +6,9 @@
 #include <QDebug>
 #include <QResizeEvent>
 
+namespace dcc {
+namespace datetime {
+
 const QPoint sec[4] = {QPoint(0, 10), QPoint(2, 0), QPoint(0, -75), QPoint(-2, 0)};
 //const QPoint min[4] = {QPoint(0, 8), QPoint(3, 0), QPoint(0, -55), QPoint(-3, 0)};
 //const QPoint hour[4] = {QPoint(0, 6), QPoint(4, 0), QPoint(0, -45), QPoint(-4, 0)};
@@ -153,4 +156,6 @@ void Clock::resizeEvent(QResizeEvent *e)
 {
     SettingsItem::resizeEvent(e);
     setFixedHeight(e->size().width());
+}
+}
 }

@@ -8,6 +8,10 @@
 #include <QTimeZone>
 #include <QDebug>
 
+
+namespace dcc {
+namespace datetime {
+
 Timezone::Timezone(bool valid)
     :m_valid(valid)
 {
@@ -121,4 +125,6 @@ float DatetimeUtil::hoursBetweenTwoTimeZone(const QString &tz, const QString &cu
         QTimeZone two = QTimeZone(cur.toStdString().c_str());
         return hoursBetweenTwoTimeZone(one, two);
     }
+}
+}
 }

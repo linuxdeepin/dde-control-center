@@ -13,6 +13,7 @@
 DWIDGET_USE_NAMESPACE
 
 namespace dcc {
+namespace datetime {
 
 class TimezoneItem : public SettingsItem
 {
@@ -43,6 +44,6 @@ private:
     QFrame* m_back;
     Timezone m_curTimezone;
 };
-
+}
 }
 #endif // TIMEZONEITEM_H

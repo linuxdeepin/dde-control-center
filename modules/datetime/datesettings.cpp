@@ -20,6 +20,9 @@
 DWIDGET_USE_NAMESPACE
 using namespace dcc;
 
+namespace dcc {
+namespace datetime {
+
 DateSettings::DateSettings(QWidget *parent)
     :ContentWidget(parent),
       m_clock(new Clock()),
@@ -147,4 +150,6 @@ void DateSettings::slotAutoSync(const bool checked)
         m_dayWidget->show();
         m_okGroup->show();
     }
+}
+}
 }

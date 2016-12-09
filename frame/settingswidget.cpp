@@ -22,6 +22,8 @@
 #include <QScrollBar>
 #include <QVBoxLayout>
 
+using namespace dcc::datetime;
+
 SettingsWidget::SettingsWidget(Frame *frame)
     : ContentWidget(frame),
 

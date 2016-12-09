@@ -3,6 +3,9 @@
 
 #include <QObject>
 
+namespace dcc {
+namespace datetime {
+
 class DatetimeModel : public QObject
 {
     Q_OBJECT
@@ -22,5 +25,6 @@ public slots:
 private:
     bool m_ntp;
 };
-
+}
+}
 #endif // DATETIMEMODEL_H

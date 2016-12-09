@@ -4,6 +4,9 @@
 #include <QString>
 #include <QTimeZone>
 
+namespace dcc {
+namespace datetime {
+
 static const char *const timezone_database = "timezone";
 
 struct Timezone
@@ -36,5 +39,6 @@ public:
     static float hoursBetweenTwoTimeZone(const QTimeZone& tz, const QTimeZone& cur = QTimeZone());
     static float hoursBetweenTwoTimeZone(const QString& tz, const QString& cur = QString());
 };
-
+}
+}
 #endif // DATETIMEUTIL_H

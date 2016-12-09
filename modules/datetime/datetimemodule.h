@@ -6,6 +6,9 @@
 #include "datetimework.h"
 #include "datetimemodel.h"
 
+namespace dcc {
+namespace datetime {
+
 class DatetimeModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -39,5 +42,6 @@ private:
     DateSettings* m_dateSettings;
     ChoseDialog* m_choseDlg;
 };
-
+}
+}
 #endif // DATETIMEMODULE_H

@@ -9,6 +9,9 @@
 DWIDGET_USE_NAMESPACE
 using namespace dcc;
 
+namespace dcc {
+namespace datetime {
+
 class DateWidget : public SettingsItem
 {
     Q_OBJECT
@@ -82,6 +85,7 @@ private:
 
     QFont m_font;
 };
-
+}
+}
 
 #endif // DATETIMEWIDGET_H

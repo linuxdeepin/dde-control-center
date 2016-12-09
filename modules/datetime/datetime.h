@@ -15,6 +15,9 @@
 #include <QSettings>
 using namespace dcc;
 
+namespace dcc {
+namespace datetime {
+
 class Datetime : public ModuleWidget
 {
     Q_OBJECT
@@ -43,5 +46,6 @@ private:
     SettingsGroup* m_group;
     ContentWidget* m_dateSettings;
 };
-
+}
+}
 #endif // DATETIME_H

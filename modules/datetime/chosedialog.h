@@ -9,6 +9,9 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace datetime {
+
 class MapWidget;
 class ChoseDialog : public QDialog
 {
@@ -69,4 +72,6 @@ private:
     QString m_city;
 };
 
+}
+}
 #endif // CHOSEDIALOG_H

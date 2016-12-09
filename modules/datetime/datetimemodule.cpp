@@ -1,5 +1,8 @@
 #include "datetimemodule.h"
 
+namespace dcc {
+namespace datetime {
+
 DatetimeModule::DatetimeModule(FrameProxyInterface *frame, QObject *parent)
     :QObject(parent),
       ModuleInterface(frame),
@@ -115,4 +118,7 @@ DatetimeModule::~DatetimeModule()
     if (m_datetimeWidget)
         m_datetimeWidget->deleteLater();
     m_choseDlg->deleteLater();
+}
+
+}
 }

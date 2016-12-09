@@ -6,6 +6,9 @@
 #include <QDate>
 #include <QIntValidator>
 
+namespace dcc {
+namespace datetime {
+
 DateWidget::DateWidget(Type type, QFrame *parent)
     : SettingsItem(parent),
       m_type(type)
@@ -380,4 +383,5 @@ void TimeWidget::showEvent(QShowEvent *e)
     m_minuteEdit->setGeometry(m_minute);
 }
 
-
+}
+}

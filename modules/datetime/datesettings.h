@@ -13,6 +13,9 @@
 
 using namespace dcc;
 
+namespace dcc {
+namespace datetime {
+
 class DateSettings : public ContentWidget
 {
     Q_OBJECT
@@ -45,5 +48,6 @@ private:
     NextPageWidget* m_timezoneItem;
     SettingsGroup *m_okGroup;
 };
-
+}
+}
 #endif // DATESETTINGS_H

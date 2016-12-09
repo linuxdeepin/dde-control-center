@@ -10,6 +10,9 @@
 #include <QDebug>
 #include <QPushButton>
 
+namespace dcc {
+namespace datetime {
+
 Datetime::Datetime()
     :ModuleWidget(),
       m_bEdit(false)
@@ -113,4 +116,6 @@ void Datetime::slotRemoveTimezone(const Timezone &tz)
         m_settings->remove(tz.m_city+"/"+"City");
         m_settings->remove(tz.m_city+"/"+"Timezone");
     }
+}
+}
 }
