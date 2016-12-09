@@ -80,7 +80,6 @@ void KeyboardModule::initialize()
     ch = (*it).pinyin().at(0).toUpper();
     m_datas.insert(index, MetaData(ch, true));
     m_letters.prepend(ch);
-
     m_model->setLayoutLists(m_work->layoutLists());
     m_model->setLayout(m_work->curLayout());
     m_model->setUserLayout(m_work->userLayout());
@@ -265,6 +264,7 @@ void KeyboardModule::onPushLanguage()
     if(!m_langWidget)
     {
         m_langWidget = new LangWidget();
+        m_langWidget->setCurLang(m_model->curLang());
         m_langWidget->setModelData(m_model->langLists());
         connect(m_langWidget, SIGNAL(click(QModelIndex)), this, SLOT(onSetLocale(QModelIndex)));
     }

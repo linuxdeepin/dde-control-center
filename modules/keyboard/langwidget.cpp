@@ -51,10 +51,26 @@ LangWidget::LangWidget(QWidget *parent)
 
 void LangWidget::setModelData(const QList<MetaData> &datas)
 {
+    QList<MetaData>::const_iterator it = datas.begin();
+    int index = 0;
+    for(; it != datas.end(); ++it)
+    {
+        if((*it).text() == m_curLang)
+        {
+            break;
+        }
+        index++;
+    }
     m_model->setMetaData(datas);
     m_view->setModel(m_model);
     m_view->setItemDelegate(m_delegate);
     m_view->setFixedHeight(datas.count()*36);
+
+    m_view->setCurrentIndex(m_model->index(index));}
+
+void LangWidget::setCurLang(const QString &lang)
+{
+    m_curLang = lang;
 }
 
 void LangWidget::onSearch(const QString &text)

@@ -18,6 +18,7 @@ class LangWidget : public ContentWidget
 public:
     explicit LangWidget(QWidget *parent = 0);
     void setModelData(const QList<MetaData>& datas);
+    void setCurLang(const QString& lang);
 
 signals:
     void click(const QModelIndex& index);
@@ -26,6 +27,7 @@ public slots:
     void onSearch(const QString& text);
 
 private:
+    QString m_curLang;
     SearchInput* m_search;
     IndexDelegate* m_delegate;
     IndexView* m_view;

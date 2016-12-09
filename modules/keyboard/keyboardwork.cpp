@@ -169,24 +169,22 @@ void KeyboardWork::onLocaleListFinish(QDBusPendingCallWatcher *watch)
     QDBusPendingReply<LocaleList> reply = *watch;
     if(reply.isError())
     {
-        qDebug()<<reply.error().message();
+        qDebug()<<Q_FUNC_INFO<<reply.error().message();
         watch->deleteLater();
         return;
     }
 
     QString key = m_langSelector->currentLocale();
+    emit curLang(key);
     LocaleList list = reply.value();
     for(int i = 0; i<list.count(); i++)
     {
         MetaData md;
         md.setKey(list.at(i).id);
         md.setText(list.at(i).name);
-        if(md.text() == key)
-            md.setSelected(true);
         m_datas.append(md);
     }
     emit langValid(m_datas);
-    emit curLang(key);
     watch->deleteLater();
 }
 
