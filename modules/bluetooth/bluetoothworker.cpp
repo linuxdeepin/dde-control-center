@@ -28,6 +28,7 @@ void BluetoothWorker::activate()
 {
     m_model->blockSignals(false);
     m_model->m_adapters.clear();
+    m_bluetoothInter->ClearUnpairedDevice();
 
     connect(m_bluetoothInter, &DBusBluetooth::AdapterAdded, this, &BluetoothWorker::addAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
@@ -210,6 +211,8 @@ void BluetoothWorker::setAdapterDiscoverable(const QString &path)
     QDBusObjectPath dPath(path);
     m_bluetoothInter->SetAdapterDiscoverable(dPath, true);
     m_bluetoothInter->SetAdapterDiscoverableTimeout(dPath, 60 * 5);
+
+    m_bluetoothInter->RequestDiscovery(dPath);
 }
 
 } // namespace bluetooth
