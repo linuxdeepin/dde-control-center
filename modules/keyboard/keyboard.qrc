@@ -6,5 +6,6 @@
         <file>icon/select.png</file>
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_keyboard.png</file>
+        <file>themes/light/light.qss</file>
     </qresource>
 </RCC>

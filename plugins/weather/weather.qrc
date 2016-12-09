@@ -143,5 +143,7 @@
         <file>icon/load_weather/load_weather_00098.png</file>
         <file>icon/load_weather/load_weather_00099.png</file>
         <file>icon/load_weather/weather_loading.png</file>
+        <file>themes/dark/dark.qss</file>
+        <file>themes/light/light.qss</file>
     </qresource>
 </RCC>

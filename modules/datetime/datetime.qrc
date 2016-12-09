@@ -14,5 +14,6 @@
         <file>icon/list_delete_press.png</file>
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_datetime.png</file>
+        <file>themes/light/light.qss</file>
     </qresource>
 </RCC>

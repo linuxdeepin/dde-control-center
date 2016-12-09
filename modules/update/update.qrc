@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/update">
         <file>icon/select.png</file>
+        <file>themes/dark/dark.qss</file>
+        <file>themes/light/light.qss</file>
     </qresource>
 </RCC>
