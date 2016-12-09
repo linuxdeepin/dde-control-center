@@ -85,7 +85,8 @@ void DateSettings::setNTP(bool ntp)
 void DateSettings::setTimezone(const QString &timezone)
 {
     QTimeZone tz(timezone.toStdString().c_str());
-    m_timezoneItem->setValue(tz.displayName(QTimeZone::StandardTime, QTimeZone::OffsetName));
+    m_timezoneItem->setValue(tz.utc().id());
+    m_clock->setTimezone(timezone);
 }
 
 void DateSettings::slotMonthChange(DateWidget::Type type, int data)

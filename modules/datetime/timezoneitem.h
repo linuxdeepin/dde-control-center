@@ -20,7 +20,6 @@ class TimezoneItem : public SettingsItem
 
 public:
     explicit TimezoneItem(QFrame *parent =0);
-    void setTimeZone(const QString& timezone);
     void setCity(const Timezone& tz);
     void setDetails(const QString& details);
 
@@ -38,12 +37,10 @@ public slots:
 private:
     QLabel *m_city;
     QLabel *m_details;
-    QString m_timezone;
     Clock *m_clock;
     DImageButton* m_removeBtn;
     QHBoxLayout* m_layout;
     QFrame* m_back;
-
     Timezone m_curTimezone;
 };
 

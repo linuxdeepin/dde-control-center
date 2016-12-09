@@ -48,11 +48,6 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     connect(m_removeBtn, SIGNAL(clicked()), this, SLOT(slotRemoveSelf()));
 }
 
-void TimezoneItem::setTimeZone(const QString &timezone)
-{
-    m_timezone = timezone;
-}
-
 void TimezoneItem::setCity(const Timezone &tz)
 {
     m_curTimezone = tz;
