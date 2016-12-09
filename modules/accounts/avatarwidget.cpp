@@ -9,6 +9,8 @@
 
 #define PIX_SIZE    60
 
+using namespace dcc::accounts;
+
 AvatarWidget::AvatarWidget(QWidget *parent)
     : QWidget(parent),
 

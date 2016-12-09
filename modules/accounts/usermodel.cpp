@@ -11,6 +11,8 @@
 
 #include <QDebug>
 
+using namespace dcc::accounts;
+
 UserModel::UserModel(QObject *parent) :
     QObject(parent)
 {

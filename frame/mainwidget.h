@@ -12,7 +12,12 @@
 #include <dimagebutton.h>
 #include <dpageindicator.h>
 
-class AvatarWidget;
+namespace dcc {
+namespace accounts {
+    class AvatarWidget;
+}
+}
+
 class MainWidget : public FrameWidget
 {
     Q_OBJECT
@@ -38,7 +43,7 @@ private:
     QTimer *m_timeRefersh;
 
     // ui widgets
-    AvatarWidget *m_userAvatarBtn;
+    dcc::accounts::AvatarWidget *m_userAvatarBtn;
     QLabel *m_currentTimeLbl;
     QLabel *m_currentDateLbl;
     QHBoxLayout *m_pluginsLayout;

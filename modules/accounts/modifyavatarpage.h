@@ -6,6 +6,9 @@
 
 #include <QGridLayout>
 
+namespace dcc {
+namespace accounts {
+
 class ModifyAvatarPage : public ContentWidget
 {
     Q_OBJECT
@@ -27,5 +30,8 @@ private:
     User *m_userInter;
     QGridLayout *m_avatarsLayout;
 };
+
+} // namespace accounts
+} // namespace dcc
 
 #endif // MODIFYAVATARPAGE_H

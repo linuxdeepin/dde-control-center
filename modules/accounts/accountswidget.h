@@ -10,6 +10,9 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+namespace dcc {
+namespace accounts {
+
 class AccountsWidget : public ModuleWidget
 {
     Q_OBJECT
@@ -30,5 +33,8 @@ private:
 
     QPushButton *m_createBtn;
 };
+
+}   // namespace accounts
+}   // namespace dcc
 
 #endif // ACCOUNTSWIDGET_H

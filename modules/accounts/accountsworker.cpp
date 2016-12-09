@@ -6,6 +6,8 @@
 
 #include "user.h"
 
+using namespace dcc::accounts;
+
 const QString AccountsService("com.deepin.daemon.Accounts");
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)

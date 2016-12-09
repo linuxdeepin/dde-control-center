@@ -42,7 +42,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     m_settingsLayout->setSpacing(30);
     m_settingsLayout->setMargin(0);
 
-    loadModule(new AccountsModule(this));
+    loadModule(new accounts::AccountsModule(this));
     loadModule(new display::DisplayModule(this));
     loadModule(new DefaultAppsModule(this));
     loadModule(new personalization::PersonalizationModule(this));

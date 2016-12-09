@@ -9,6 +9,7 @@
 
 #include <unistd.h>
 
+using namespace dcc::accounts;
 using AccountsInter = com::deepin::daemon::Accounts;
 using UserInter = com::deepin::daemon::accounts::User;
 

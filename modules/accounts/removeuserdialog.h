@@ -16,6 +16,9 @@
 
 DWIDGET_USE_NAMESPACE
 
+namespace dcc {
+namespace accounts {
+
 class RemoveUserDialog : public DDialog
 {
     Q_OBJECT
@@ -27,5 +30,8 @@ public:
 private:
     bool m_deleteHome;
 };
+
+} // namespace accounts
+} // namespace dcc
 
 #endif // REMOVEUSERDIALOG_H

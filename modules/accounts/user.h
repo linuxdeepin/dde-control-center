@@ -5,6 +5,9 @@
 #include <QSet>
 #include <QString>
 
+namespace dcc {
+namespace accounts {
+
 class User : public QObject
 {
     Q_OBJECT
@@ -46,5 +49,8 @@ private:
     QString m_currentAvatar;
     QList<QString> m_avatars;
 };
+
+} // namespace accounts
+} // namespace dcc
 
 #endif // USER_H

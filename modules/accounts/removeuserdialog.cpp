@@ -17,6 +17,8 @@
 
 #include "avatarwidget.h"
 
+using namespace dcc::accounts;
+
 static QPixmap RoundPixmap(const QPixmap &pix) {
     QPixmap ret(pix.size());
     ret.fill(Qt::transparent);

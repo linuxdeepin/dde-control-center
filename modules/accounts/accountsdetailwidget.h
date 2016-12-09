@@ -9,6 +9,9 @@
 
 #include <QPushButton>
 
+namespace dcc {
+namespace accounts {
+
 class AccountsDetailWidget : public ContentWidget
 {
     Q_OBJECT
@@ -36,5 +39,8 @@ private:
     dcc::SwitchWidget *m_autoLogin;
     QPushButton *m_deleteAccount;
 };
+
+}   // namespace accounts
+}   // namespace dcc
 
 #endif // ACCOUNTSDETAILWIDGET_H

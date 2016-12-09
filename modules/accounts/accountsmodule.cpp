@@ -4,6 +4,8 @@
 #include "modifyavatarpage.h"
 #include "createpage.h"
 
+using namespace dcc::accounts;
+
 AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),

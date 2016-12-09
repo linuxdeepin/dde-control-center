@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QPushButton>
 
+namespace dcc {
+namespace accounts {
+
 class AvatarWidget : public QWidget
 {
     Q_OBJECT
@@ -38,5 +41,8 @@ private:
 
     QPushButton *m_delBtn;
 };
+
+}   // namespace accounts
+}   // namespace dcc
 
 #endif // AVATARWIDGET_H

@@ -14,6 +14,9 @@ using com::deepin::daemon::Accounts;
 using AccountsUser = com::deepin::daemon::accounts::User;
 using CreationResult = dcc::accounts::CreationResult;
 
+namespace dcc {
+namespace accounts {
+
 class AccountsWorker : public QObject
 {
     Q_OBJECT
@@ -50,5 +53,8 @@ private:
 
     UserModel *m_userModel;
 };
+
+}   // namespace accounts
+}   // namespace dcc
 
 #endif // ACCOUNTSWORKER_H

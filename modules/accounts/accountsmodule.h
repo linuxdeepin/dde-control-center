@@ -9,6 +9,9 @@
 
 #include <com_deepin_daemon_accounts.h>
 
+namespace dcc {
+namespace accounts {
+
 class AccountsModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -43,5 +46,8 @@ private:
     AccountsWidget *m_accountsWidget;
     AccountsWorker *m_accountsWorker;
 };
+
+}   // namespace accounts
+}   // namespace dcc
 
 #endif // ACCOUNTSMODULE_H

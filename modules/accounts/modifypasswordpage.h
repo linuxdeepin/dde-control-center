@@ -7,6 +7,9 @@
 
 #include <QPushButton>
 
+namespace dcc {
+namespace accounts {
+
 class ModifyPasswordPage : public ContentWidget
 {
     Q_OBJECT
@@ -28,5 +31,8 @@ private:
     QPushButton *m_cancel;
     QPushButton *m_accept;
 };
+
+} // namespace accounts
+} // namespace dcc
 
 #endif // MODIFYPASSWORDPAGE_H

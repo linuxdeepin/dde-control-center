@@ -10,6 +10,7 @@
 #include <QDebug>
 
 using namespace dcc;
+using namespace dcc::accounts;
 
 AccountsWidget::AccountsWidget()
     : ModuleWidget(),

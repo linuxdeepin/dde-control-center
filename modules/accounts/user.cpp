@@ -1,5 +1,7 @@
 #include "user.h"
 
+using namespace dcc::accounts;
+
 User::User(QObject *parent)
     : QObject(parent)
 {

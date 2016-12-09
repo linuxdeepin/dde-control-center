@@ -15,6 +15,9 @@
 
 #include "user.h"
 
+namespace dcc {
+namespace accounts {
+
 class UserModel : public QObject
 {
     Q_OBJECT
@@ -34,5 +37,8 @@ signals:
 private:
     QMap<QString, User *> m_userList;
 };
+
+} // namespace accounts
+} // namespace dcc
 
 #endif // USERMODEL_H
