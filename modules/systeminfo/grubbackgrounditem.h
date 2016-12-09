@@ -7,6 +7,9 @@ using namespace dcc;
 
 using GrubThemeDbus=com::deepin::daemon::grub2::Theme;
 
+namespace dcc{
+namespace systeminfo{
+
 class GrubBackgroundItem : public SettingsItem
 {
     Q_OBJECT
@@ -29,4 +32,6 @@ private:
     Q_SLOT void onProperty(const QString& property, const QVariant&  variant);
 };
 
+}
+}
 #endif // GRUBBACKGROUNDITEM_H

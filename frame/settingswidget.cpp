@@ -24,6 +24,7 @@
 
 using namespace dcc::datetime;
 using namespace dcc::keyboard;
+using namespace dcc::systeminfo;
 
 SettingsWidget::SettingsWidget(Frame *frame)
     : ContentWidget(frame),

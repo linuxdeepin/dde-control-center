@@ -8,6 +8,9 @@
 using SystemInfoInter=com::deepin::daemon::SystemInfo;
 using GrubDbus=com::deepin::daemon::Grub2;
 
+namespace dcc{
+namespace systeminfo{
+
 class SystemInfoWork : public QObject
 {
     Q_OBJECT
@@ -39,4 +42,6 @@ private:
     GrubDbus* m_dbusGrub;
 };
 
+}
+}
 #endif // SYSTEMINFOWORK_H

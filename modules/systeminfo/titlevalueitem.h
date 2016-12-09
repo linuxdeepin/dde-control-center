@@ -6,6 +6,9 @@
 
 using namespace dcc;
 
+namespace dcc{
+namespace systeminfo{
+
 class TitleValueItem : public SettingsItem
 {
     Q_OBJECT
@@ -35,4 +38,6 @@ private:
     QLabel* m_description;
 };
 
+}
+}
 #endif // TITLEVALUEITEM_H

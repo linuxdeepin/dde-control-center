@@ -1,5 +1,8 @@
 #include "systeminfowork.h"
 
+namespace dcc{
+namespace systeminfo{
+
 SystemInfoWork::SystemInfoWork(QObject *parent)
     :QObject(parent)
 {
@@ -83,4 +86,7 @@ void SystemInfoWork::setEnableTheme(bool value)
 void SystemInfoWork::setDefaultEntry(const QString &entry)
 {
     m_dbusGrub->setDefaultEntry(entry);
+}
+
+}
 }

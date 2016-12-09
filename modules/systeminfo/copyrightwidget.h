@@ -3,6 +3,9 @@
 
 #include "contentwidget.h"
 
+namespace dcc{
+namespace systeminfo{
+
 class CopyrightWidget : public ContentWidget
 {
     Q_OBJECT
@@ -20,4 +23,6 @@ private:
     QLabel* m_body;
 };
 
+}
+}
 #endif // COPYRIGHTWIDGET_H

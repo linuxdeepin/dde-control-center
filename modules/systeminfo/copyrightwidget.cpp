@@ -10,6 +10,9 @@
 using namespace dcc;
 DWIDGET_USE_NAMESPACE
 
+namespace dcc{
+namespace systeminfo{
+
 CopyrightWidget::CopyrightWidget(QWidget *parent)
     :ContentWidget(parent)
 {
@@ -49,4 +52,7 @@ QString CopyrightWidget::getLicense(const QString &filePath, const QString &type
     license.close();
 
     return buf;
+}
+
+}
 }

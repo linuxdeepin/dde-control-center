@@ -2,6 +2,9 @@
 #include "copyrightwidget.h"
 #include "bootwidget.h"
 
+namespace dcc{
+namespace systeminfo{
+
 SystemInfoModule::SystemInfoModule(FrameProxyInterface *frame, QObject *parent)
     :QObject(parent),
       ModuleInterface(frame),
@@ -111,4 +114,7 @@ void SystemInfoModule::onPushBoot()
     }
 
     m_frameProxy->pushWidget(this, m_bootWidget);
+}
+
+}
 }

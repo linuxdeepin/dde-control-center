@@ -4,6 +4,9 @@
 #include <QDragEnterEvent>
 #include <QDragLeaveEvent>
 
+namespace dcc{
+namespace systeminfo{
+
 GrubBackgroundItem::GrubBackgroundItem(QFrame *parent)
     :SettingsItem(parent)
 {
@@ -86,4 +89,7 @@ bool GrubBackgroundItem::updateBackground(const QString &filename)
 void GrubBackgroundItem::onProperty(const QString &property, const QVariant &variant)
 {
     qDebug()<<Q_FUNC_INFO<<property<<variant;
+}
+
+}
 }

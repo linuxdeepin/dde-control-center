@@ -8,6 +8,9 @@
 
 using namespace dcc;
 
+namespace dcc{
+namespace systeminfo{
+
 class SystemInfoWidget : public ModuleWidget
 {
     Q_OBJECT
@@ -38,4 +41,6 @@ private:
     SystemInfoModel* m_model;
 };
 
+}
+}
 #endif // SYSTEMINFOWIDGET_H

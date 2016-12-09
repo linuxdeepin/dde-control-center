@@ -4,6 +4,9 @@
 
 #include <QVBoxLayout>
 
+namespace dcc{
+namespace systeminfo{
+
 SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     :ModuleWidget(),
       m_model(model)
@@ -94,4 +97,7 @@ void SystemInfoWidget::setMemory(const QString &memory)
 void SystemInfoWidget::setDisk(const QString &disk)
 {
     m_disk->setValue(disk);
+}
+
+}
 }

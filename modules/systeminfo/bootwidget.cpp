@@ -5,6 +5,9 @@
 
 #include <QVBoxLayout>
 
+namespace dcc{
+namespace systeminfo{
+
 BootWidget::BootWidget(QWidget *parent)
     :ContentWidget(parent)
 {
@@ -75,4 +78,7 @@ void BootWidget::onItemActivated(QListWidgetItem *item)
 void BootWidget::setChecked(bool value)
 {
     m_theme->setChecked(value);
+}
+
+}
 }

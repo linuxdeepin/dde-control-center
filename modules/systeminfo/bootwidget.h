@@ -6,6 +6,9 @@
 #include <QListWidget>
 using namespace dcc;
 
+namespace dcc{
+namespace systeminfo{
+
 class BootWidget : public ContentWidget
 {
     Q_OBJECT
@@ -31,4 +34,6 @@ private:
     QListWidget* m_bootList;
 };
 
+}
+}
 #endif // BOOTWIDGET_H

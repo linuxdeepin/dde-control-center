@@ -1,6 +1,9 @@
 #include "titlevalueitem.h"
 #include <QHBoxLayout>
 
+namespace dcc{
+namespace systeminfo{
+
 TitleValueItem::TitleValueItem(QFrame *parent)
     :SettingsItem(parent)
 {
@@ -59,4 +62,7 @@ void LogoItem::setPixmap(const QPixmap &logo)
 void LogoItem::setDescription(const QString &des)
 {
     m_description->setText(des);
+}
+
+}
 }

@@ -3,6 +3,9 @@
 
 #include <QObject>
 
+namespace dcc{
+namespace systeminfo{
+
 class SystemInfoModel : public QObject
 {
     Q_OBJECT
@@ -62,4 +65,6 @@ private:
     QString m_defaultEntry;
 };
 
+}
+}
 #endif // SYSTEMINFOMODEL_H

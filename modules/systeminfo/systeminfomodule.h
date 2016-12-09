@@ -8,6 +8,9 @@
 
 #include <QObject>
 
+namespace dcc{
+namespace systeminfo{
+
 class CopyrightWidget;
 class BootWidget;
 
@@ -41,4 +44,6 @@ private:
     CopyrightWidget* m_copyrightWidget;
 };
 
+}
+}
 #endif // SYSTEMINFOMODULE_H

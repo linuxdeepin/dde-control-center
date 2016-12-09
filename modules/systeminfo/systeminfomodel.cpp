@@ -1,5 +1,8 @@
 #include "systeminfomodel.h"
 
+namespace dcc{
+namespace systeminfo{
+
 SystemInfoModel::SystemInfoModel(QObject *parent)
     : QObject(parent)
 {
@@ -62,4 +65,7 @@ void SystemInfoModel::setDisk(qulonglong disk)
 
     m_disk = d;
     diskChanged(m_disk);
+}
+
+}
 }
