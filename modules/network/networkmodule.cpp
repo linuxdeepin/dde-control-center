@@ -4,6 +4,7 @@
 #include "modulewidget.h"
 #include "networkworker.h"
 #include "networkmodel.h"
+#include "wirelesspage.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -60,6 +61,20 @@ ModuleWidget *NetworkModule::moduleWidget()
 
     m_networkWidget = new NetworkModuleWidget;
     m_networkWidget->setModel(m_networkModel);
+    connect(m_networkWidget, &NetworkModuleWidget::requestShowDeviceDetail, this, &NetworkModule::showDeviceDetailPage);
 
     return m_networkWidget;
+}
+
+void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
+{
+    ContentWidget *c = nullptr;
+
+    if (dev->type() == NetworkDevice::Wireless)
+    {
+        c = new WirelessPage;
+    }
+
+    if (c)
+        m_frameProxy->pushWidget(this, c);
 }

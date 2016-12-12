@@ -42,7 +42,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 
     setTitle(tr("Network"));
 
-    connect(m_detailBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowDetailPage);
+    connect(m_detailBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowInfomation);
 }
 
 void NetworkModuleWidget::setModel(NetworkModel *model)
@@ -83,12 +83,14 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
             continue;
 
         NextPageWidget *w = new NextPageWidget;
+        initButtonsConnection(w);
 
         if (wiredDevice < 2)
             w->setTitle(tr("Wired Network"));
         else
             w->setTitle(tr("Wired Network%1").arg(++count));
 
+        m_devices[w] = dev;
         m_devicesLayout->insertItem(index, w);
         ++index;
     }
@@ -101,13 +103,31 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
             continue;
 
         NextPageWidget *w = new NextPageWidget;
+        initButtonsConnection(w);
 
         if (wiredDevice < 2)
             w->setTitle(tr("Wireless Network"));
         else
             w->setTitle(tr("Wireless Network%1").arg(++count));
 
+        m_devices[w] = dev;
         m_devicesLayout->insertItem(index, w);
         ++index;
     }
+}
+
+void NetworkModuleWidget::onNextPageClicked()
+{
+    NextPageWidget *w = qobject_cast<NextPageWidget *>(sender());
+    Q_ASSERT(w);
+
+    NetworkDevice *dev = m_devices[w];
+    Q_ASSERT(dev);
+
+    emit requestShowDeviceDetail(dev);
+}
+
+void NetworkModuleWidget::initButtonsConnection(NextPageWidget *w)
+{
+    connect(w, &NextPageWidget::clicked, this, &NetworkModuleWidget::onNextPageClicked);
 }

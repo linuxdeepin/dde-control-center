@@ -2,10 +2,10 @@
 #define NETWORKMODULEWIDGET_H
 
 #include "modulewidget.h"
+#include "nextpagewidget.h"
 
 namespace dcc{
 namespace widgets {
-class NextPageWidget;
 class SettingsGroup;
 }
 
@@ -23,10 +23,15 @@ public:
     void setModel(NetworkModel *model);
 
 signals:
-    void requestShowDetailPage() const;
+    void requestShowInfomation() const;
+    void requestShowDeviceDetail(NetworkDevice *device) const;
 
 private slots:
     void onDeviceListChanged(const QList<NetworkDevice *> &devices);
+    void onNextPageClicked();
+
+private:
+    void initButtonsConnection(dcc::widgets::NextPageWidget *w);
 
 private:
     dcc::widgets::SettingsGroup *m_devicesLayout;
@@ -34,6 +39,8 @@ private:
     dcc::widgets::NextPageWidget *m_vpnBtn;
     dcc::widgets::NextPageWidget *m_proxyBtn;
     dcc::widgets::NextPageWidget *m_detailBtn;
+
+    QMap<dcc::widgets::NextPageWidget *, NetworkDevice *> m_devices;
 };
 
 }   // namespace network

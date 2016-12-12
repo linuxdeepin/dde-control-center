@@ -6,6 +6,7 @@
 namespace dcc {
 namespace network {
 
+class NetworkDevice;
 class NetworkModuleWidget;
 class NetworkWorker;
 class NetworkModel;
@@ -24,6 +25,9 @@ private:
     void contentPopped(ContentWidget * const w);
     const QString name() const;
     ModuleWidget *moduleWidget();
+
+private slots:
+    void showDeviceDetailPage(NetworkDevice *dev);
 
 private:
     NetworkModel *m_networkModel;
