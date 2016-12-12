@@ -48,6 +48,10 @@ void BluetoothModule::initialize()
 void BluetoothModule::moduleActive()
 {
     m_bluetoothWorker->activate();
+    // refresh the view
+    if (m_bluetoothView && m_bluetoothModel) {
+        m_bluetoothView->setModel(m_bluetoothModel);
+    }
 }
 
 void BluetoothModule::moduleDeactive()

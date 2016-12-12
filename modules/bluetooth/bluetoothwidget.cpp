@@ -28,9 +28,35 @@ void BluetoothWidget::setModel(BluetoothModel *model)
     connect(model, &BluetoothModel::adapterAdded, this, &BluetoothWidget::addAdapter);
     connect(model, &BluetoothModel::adapterRemoved, this, &BluetoothWidget::removeAdapter);
 
+    QStringList tmpList;
     for (const Adapter *adapter : model->adapters()) {
-        addAdapter(adapter);
+        const QString adapterId = adapter->id();
+        tmpList << adapterId;
+
+        if (!widgetByAdapterId(adapterId)) {
+            addAdapter(adapter);
+        }
     }
+
+    QList<AdapterWidget*> aws = findChildren<AdapterWidget*>();
+    for (AdapterWidget *aw : aws) {
+        if (!tmpList.contains(aw->adapter()->id())) {
+            m_centeralLayout->removeWidget(aw);
+            aw->deleteLater();
+        }
+    }
+}
+
+AdapterWidget *BluetoothWidget::widgetByAdapterId(const QString &adapterId)
+{
+    QList<AdapterWidget*> aws = findChildren<AdapterWidget*>();
+    for (AdapterWidget *aw : aws) {
+        if (aw->adapter()->id() == adapterId) {
+            return aw;
+        }
+    }
+
+    return nullptr;
 }
 
 void BluetoothWidget::addAdapter(const Adapter *adapter)
@@ -47,12 +73,10 @@ void BluetoothWidget::addAdapter(const Adapter *adapter)
 
 void BluetoothWidget::removeAdapter(const QString &adapterId)
 {
-    QList<AdapterWidget*> aws = findChildren<AdapterWidget*>();
-    for (AdapterWidget *aw : aws) {
-        if (aw->adapter()->id() == adapterId) {
-            m_centeralLayout->removeWidget(aw);
-            aw->deleteLater();
-        }
+    AdapterWidget *aw = widgetByAdapterId(adapterId);
+    if (aw) {
+        m_centeralLayout->removeWidget(aw);
+        aw->deleteLater();
     }
 }
 

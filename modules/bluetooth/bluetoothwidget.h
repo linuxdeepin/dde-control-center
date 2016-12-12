@@ -25,6 +25,7 @@ public:
     explicit BluetoothWidget(BluetoothModel *model = 0);
 
     void setModel(BluetoothModel *model);
+    AdapterWidget *widgetByAdapterId(const QString &adapterId);
 
 signals:
     void requestToggleAdapter(const Adapter *adapter, const bool &toggled);

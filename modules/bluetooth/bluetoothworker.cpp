@@ -66,7 +66,6 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
 void BluetoothWorker::activate()
 {
     m_model->blockSignals(false);
-    m_model->m_adapters.clear();
     m_bluetoothInter->ClearUnpairedDevice();
 
     QDBusPendingCall call = m_bluetoothInter->GetAdapters();
