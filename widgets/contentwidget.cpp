@@ -36,7 +36,7 @@ ContentWidget::ContentWidget(QWidget *parent)
 
     // Supporting flick gestures and make wheel scrolling more smooth.
     m_contentArea->viewport()->installEventFilter(this);
-    QScroller::grabGesture(m_contentArea->viewport(), QScroller::LeftMouseButtonGesture);
+    QScroller::grabGesture(m_contentArea, QScroller::LeftMouseButtonGesture);
 
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->addWidget(backBtn);
@@ -112,19 +112,14 @@ bool ContentWidget::eventFilter(QObject *watched, QEvent *event)
     if (m_content && watched == m_contentArea->viewport() && event->type() == QEvent::Wheel) {
         const QWheelEvent *wheel = static_cast<QWheelEvent*>(event);
 
-        QWidget * viewport = qobject_cast<QWidget*>(m_contentArea->viewport());
-        QScroller *scroller = QScroller::scroller(viewport);
+        QScroller *scroller = QScroller::scroller(m_contentArea);
         QScrollBar *vBar = m_contentArea->verticalScrollBar();
 
-        const float curPos = viewport->height() * (vBar->value() * 1.0 / (vBar->maximum() - vBar->minimum()));
+        const float curPos = vBar->value();
         const float delta = -wheel->delta();
+        const float finalPos = qMax(0, qMin(m_content->height(), int(curPos + delta * 2)));
 
-        // FIXME(hualet): overshoots happen while scrolling down, but not scrolling up.
-        if (delta > 0) {
-            scroller->scrollTo(QPointF(0, curPos + delta));
-        } else {
-            scroller->scrollTo(QPointF(0, curPos + delta * 1.2));
-        }
+        scroller->scrollTo(QPointF(0, finalPos));
 
         return true;
     }
