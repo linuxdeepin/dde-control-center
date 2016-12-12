@@ -20,8 +20,6 @@ AccountsWidget::AccountsWidget()
 {
     setObjectName("Accounts");
 
-    m_userGroup->setHeaderVisible(true);
-    m_userGroup->headerItem()->setTitle(tr("Accounts"));
     m_centeralLayout->addWidget(m_userGroup);
     m_centeralLayout->addSpacing(10);
     m_centeralLayout->addWidget(m_createBtn);
