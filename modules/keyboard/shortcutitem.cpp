@@ -77,9 +77,9 @@ void ShortcutItem::setChecked(bool checked)
     m_checked = checked;
     if(m_checked)
     {
-        m_checkBtn->setNormalPic(":/keyboard/icon/select.png");
-        m_checkBtn->setHoverPic(":/keyboard/icon/select.png");
-        m_checkBtn->setPressPic(":/keyboard/icon/select.png");
+        m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/select.png");
+        m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/select.png");
+        m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/select.png");
         m_checkBtn->show();
     }
     else
@@ -130,9 +130,9 @@ void ShortcutItem::onEditMode(bool value)
     {
         if(value)
         {
-            m_checkBtn->setNormalPic(":/keyboard/icon/list_delete_normal.png");
-            m_checkBtn->setHoverPic(":/keyboard/icon/list_delete_hover.png");
-            m_checkBtn->setPressPic(":/keyboard/icon/list_delete_press.png");
+            m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/list_delete_normal.png");
+            m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.png");
+            m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/list_delete_press.png");
             m_checkBtn->show();
         }
         else

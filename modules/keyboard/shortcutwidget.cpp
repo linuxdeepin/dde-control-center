@@ -1,6 +1,8 @@
 #include "shortcutwidget.h"
 #include "shortcutitem.h"
 #include "settingshead.h"
+#include "translucentframe.h"
+
 #include <QVBoxLayout>
 #include <QLineEdit>
 #include <QPushButton>
@@ -19,7 +21,7 @@ ShortcutWidget::ShortcutWidget(QWidget *parent)
     m_timer = new QTimer(this);
     m_timer->setInterval(150);
 
-    m_widget = new QWidget();
+    m_widget = new TranslucentFrame();
     m_searchText = QString();
 
     m_systemGroup = new SettingsGroup();

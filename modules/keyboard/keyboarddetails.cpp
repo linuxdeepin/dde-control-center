@@ -2,6 +2,7 @@
 #include "settingsgroup.h"
 #include "settingshead.h"
 #include "checkitem.h"
+#include "translucentframe.h"
 #include <QVBoxLayout>
 
 using namespace dcc;
@@ -13,7 +14,7 @@ KeyboardDetails::KeyboardDetails(QWidget *parent)
       m_bEdit(false),
       m_default(nullptr)
 {
-    QWidget* content = new QWidget();
+    TranslucentFrame* content = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setSpacing(20);
     layout->setMargin(0);
