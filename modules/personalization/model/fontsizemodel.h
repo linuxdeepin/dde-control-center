@@ -2,7 +2,10 @@
 #define FONTSIZEMODEL_H
 
 #include <QObject>
-
+namespace dcc
+{
+namespace personalization
+{
 class FontSizeModel : public QObject
 {
     Q_OBJECT
@@ -17,5 +20,8 @@ signals:
 private:
     int m_size;
 };
+
+}
+}
 
 #endif // FONTSIZEMODEL_H

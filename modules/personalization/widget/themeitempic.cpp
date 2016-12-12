@@ -1,5 +1,7 @@
 #include "themeitempic.h"
-
+using namespace dcc;
+using namespace dcc::personalization;
+using namespace dcc::widgets;
 ThemeItemPic::ThemeItemPic(const QString &path, QWidget *parent)
     :TranslucentFrame(parent)
 {

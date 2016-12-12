@@ -1,5 +1,9 @@
 #include "personalizationmodel.h"
-
+#include "model/thememodel.h"
+#include "model/fontmodel.h"
+#include "model/fontsizemodel.h"
+using namespace dcc;
+using namespace dcc::personalization;
 PersonalizationModel::PersonalizationModel(QObject *parent)
     : QObject(parent)
 {

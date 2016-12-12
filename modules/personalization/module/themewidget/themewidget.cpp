@@ -1,5 +1,10 @@
 #include "themewidget.h"
-
+#include "settingsgroup.h"
+#include "personalization/personalizationmodel.h"
+#include "theme.h"
+using namespace dcc;
+using namespace dcc::widgets;
+using namespace dcc::personalization;
 ThemeWidget::ThemeWidget(QWidget *parent)
     :ContentWidget(parent)
 {

@@ -1,5 +1,14 @@
 #include "theme.h"
-
+#include "settingsheaderitem.h"
+#include "labels/largelabel.h"
+#include "../../widget/themeitempic.h"
+#include "../../model/thememodel.h"
+#include "optionitem.h"
+#include "personalization/personalizationmodel.h"
+#include "settingshead.h"
+using namespace dcc;
+using namespace dcc::personalization;
+using namespace dcc::widgets;
 Theme::Theme(const QString &title, QWidget *parent)
     : TranslucentFrame(parent)
 {
@@ -57,7 +66,7 @@ void Theme::setDefault(const QString &name)
 void Theme::onItemClicked(const bool selected)
 {
     if (selected) {
-        OptionItem *item = qobject_cast<OptionItem *>(sender());
+        widgets::OptionItem *item = qobject_cast<widgets::OptionItem *>(sender());
         Q_ASSERT(m_valueMap.contains(item));
         emit requestSetDefault(m_valueMap[item]);
     }

@@ -1,4 +1,11 @@
 #include "personalizationmodule.h"
+#include "personalizationwidget.h"
+#include "personalizationmodel.h"
+#include "personalizationwork.h"
+
+#include "module/themewidget/themewidget.h"
+#include "module/fontswidget/fontswidget.h"
+#include "module/fontswidget/fontlistwidget.h"
 using namespace dcc;
 using namespace dcc::personalization;
 

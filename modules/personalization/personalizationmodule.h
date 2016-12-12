@@ -2,18 +2,15 @@
 #define PERSONALIZATIONMODULE_H
 
 #include "moduleinterface.h"
-#include "personalizationwidget.h"
-#include "personalizationmodel.h"
-#include "personalizationwork.h"
 
-#include "module/themewidget/themewidget.h"
-#include "module/fontswidget/fontswidget.h"
-#include "module/fontswidget/fontlistwidget.h"
 
 namespace dcc
 {
 namespace personalization
 {
+class PersonalizationWidget;
+class PersonalizationModel;
+class PersonalizationWork;
 class PersonalizationModule : public QObject, public ModuleInterface
 {
     Q_OBJECT

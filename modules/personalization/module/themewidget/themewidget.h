@@ -2,14 +2,20 @@
 #define THEMEWIDGET_H
 
 #include "contentwidget.h"
-#include "settingsgroup.h"
-#include "personalization/personalizationmodel.h"
-#include "theme.h"
+
 #include <QObject>
 #include <QWidget>
 #include <QVBoxLayout>
-using namespace dcc;
-using namespace dcc::widgets;
+namespace dcc
+{
+namespace widgets
+{
+class TranslucentFrame;
+}
+namespace personalization
+{
+class PersonalizationModel;
+class Theme;
 class ThemeWidget : public ContentWidget
 {
     Q_OBJECT
@@ -20,14 +26,17 @@ signals:
     void requestSetDefault(const QJsonObject &value);
 
 public slots:
-    void setModel(PersonalizationModel * const model);
+    void setModel(PersonalizationModel *const model);
 
 private:
     QVBoxLayout *m_mainlayout;
-    TranslucentFrame *m_widget;
+    widgets::TranslucentFrame *m_widget;
     Theme *m_windowTheme;
     Theme *m_iconTheme;
     Theme *m_mouseTheme;
 };
+
+}
+}
 
 #endif // THEMEWIDGET_H

@@ -1,5 +1,7 @@
 #include "personalizationwidget.h"
-
+#include "contentwidget.h"
+#include "settingsgroup.h"
+#include "personalizationmodel.h"
 #include "nextpagewidget.h"
 #include "settingsgroup.h"
 #include "nextpagewidget.h"
@@ -8,6 +10,8 @@
 #include <QPushButton>
 #include <QDebug>
 
+using namespace dcc;
+using namespace dcc::personalization;
 using namespace dcc::widgets;
 
 PersonalizationWidget::PersonalizationWidget()

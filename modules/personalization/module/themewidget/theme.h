@@ -3,22 +3,24 @@
 
 #include "settingsitem.h"
 #include "translucentframe.h"
-#include "settingsheaderitem.h"
-#include "labels/largelabel.h"
-#include "../../widget/themeitempic.h"
-#include "../../model/thememodel.h"
-#include "optionitem.h"
-#include "personalization/personalizationmodel.h"
-#include "settingshead.h"
+
 #include <settingsgroup.h>
 #include <QObject>
 #include <QVBoxLayout>
-
-
-using namespace dcc;
-using namespace dcc::widgets;
-
-class Theme : public TranslucentFrame
+#include <QJsonObject>
+#include <QMap>
+namespace dcc
+{
+namespace widgets
+{
+class OptionItem;
+class SettingsHead;
+class SettingsGroup;
+}
+namespace personalization
+{
+class ThemeModel;
+class Theme : public widgets::TranslucentFrame
 {
     Q_OBJECT
 public:
@@ -35,10 +37,12 @@ public slots:
 
 private:
     QVBoxLayout          *m_mainLayout;
-    SettingsGroup        *m_mainGroup;
-    SettingsHead         *m_head;
-    QMap<OptionItem *, QJsonObject> m_valueMap;
+    widgets::SettingsGroup        *m_mainGroup;
+    widgets::SettingsHead         *m_head;
+    QMap<widgets::OptionItem *, QJsonObject> m_valueMap;
     ThemeModel           *m_model;
 };
+}
+}
 
 #endif // THEME_H

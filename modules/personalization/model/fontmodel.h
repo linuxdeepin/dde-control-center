@@ -4,6 +4,11 @@
 #include <QObject>
 #include <QList>
 #include <QJsonObject>
+
+namespace dcc
+{
+namespace personalization
+{
 class FontModel : public QObject
 {
     Q_OBJECT
@@ -22,5 +27,8 @@ private:
     QList<QJsonObject> m_list;
     QString m_fontName;
 };
+}
+}
+
 
 #endif // FONTMODEL_H

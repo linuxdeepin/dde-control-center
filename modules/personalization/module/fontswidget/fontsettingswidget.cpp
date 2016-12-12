@@ -1,5 +1,11 @@
 #include "fontsettingswidget.h"
-
+#include "contentwidget.h"
+#include "nextpagewidget.h"
+#include "settingsgroup.h"
+#include "../../model/fontmodel.h"
+using namespace dcc;
+using namespace dcc::widgets;
+using namespace dcc::personalization;
 FontSettingsWidget::FontSettingsWidget(QWidget *parent)
     :TranslucentFrame(parent)
 {

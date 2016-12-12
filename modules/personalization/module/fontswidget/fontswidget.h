@@ -2,17 +2,23 @@
 #define FONTSWIDGET_H
 
 #include "contentwidget.h"
-#include "fontsizewidget.h"
-#include "fontsettingswidget.h"
-#include "nextpagewidget.h"
-#include "personalization/personalizationmodel.h"
+
 #include <QObject>
 #include <QVBoxLayout>
 #include <translucentframe.h>
 #include <QDebug>
-using namespace dcc;
-using namespace dcc::widgets;
-
+namespace dcc
+{
+class ContentWidget;
+namespace widgets
+{
+class TranslucentFrame;
+}
+namespace personalization
+{
+class FontSizeWidget;
+class FontSettingsWidget;
+class PersonalizationModel;
 class FontsWidget : public ContentWidget
 {
     Q_OBJECT
@@ -25,13 +31,16 @@ signals:
     void requestSetFontSize(const int value);
 
 public slots:
-    void setModel(PersonalizationModel * const model);
+    void setModel(PersonalizationModel *const model);
 
 private:
     QVBoxLayout        *m_mainlayout;
-    TranslucentFrame   *m_widget;
+    widgets::TranslucentFrame   *m_widget;
     FontSizeWidget     *m_fontSizeWidget;
     FontSettingsWidget *m_fontSettingsWidget;
 };
+
+}
+}
 
 #endif // FONTSWIDGET_H

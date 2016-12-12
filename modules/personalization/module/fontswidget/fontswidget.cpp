@@ -1,5 +1,11 @@
 #include "fontswidget.h"
-
+#include "fontsizewidget.h"
+#include "fontsettingswidget.h"
+#include "nextpagewidget.h"
+#include "personalization/personalizationmodel.h"
+using namespace dcc;
+using namespace dcc::widgets;
+using namespace dcc::personalization;
 FontsWidget::FontsWidget(QWidget *parent)
     :ContentWidget(parent)
 {

@@ -1,7 +1,6 @@
 #ifndef THEMEITEMPIC_H
 #define THEMEITEMPIC_H
 
-
 #include "translucentframe.h"
 #include <QObject>
 #include <QLabel>
@@ -10,8 +9,15 @@
 #include <QBitmap>
 #include <QPaintEvent>
 #include <QPainter>
-using namespace dcc::widgets;
-class ThemeItemPic : public TranslucentFrame
+namespace dcc
+{
+namespace widgets
+{
+class TranslucentFrame;
+}
+namespace personalization
+{
+class ThemeItemPic : public widgets::TranslucentFrame
 {
     Q_OBJECT
 public:
@@ -22,5 +28,8 @@ private:
     QLabel       *m_show;
 
 };
+}
+}
+
 
 #endif // THEMEITEMPIC_H

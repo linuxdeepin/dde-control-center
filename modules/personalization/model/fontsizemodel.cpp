@@ -1,5 +1,6 @@
 #include "fontsizemodel.h"
-
+using namespace dcc;
+using namespace dcc::personalization;
 FontSizeModel::FontSizeModel(QObject *parent) : QObject(parent)
 {
 

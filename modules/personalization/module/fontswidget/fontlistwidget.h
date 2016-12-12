@@ -2,10 +2,6 @@
 #define FONTLISTWIDGET_H
 
 #include "contentwidget.h"
-#include "settingsgroup.h"
-#include "optionitem.h"
-#include "../../widget/fontitem.h"
-#include "personalization/personalizationmodel.h"
 #include "translucentframe.h"
 #include <QObject>
 #include <QVBoxLayout>
@@ -15,29 +11,41 @@
 #include <QLabel>
 #include <QFont>
 #include <QMap>
-using namespace dcc;
-using namespace dcc::widgets;
+namespace dcc
+{
+namespace widgets
+{
+class TranslucentFrame;
+class SettingsGroup;
+class OptionItem;
+}
+namespace personalization
+{
+class FontModel;
 class FontListWidget : public ContentWidget
 {
     Q_OBJECT
 public:
-    explicit FontListWidget(const QString &title, QWidget *parent =0);
+    explicit FontListWidget(const QString &title, QWidget *parent = 0);
 
 signals:
     void requestSetDefault(const QJsonObject &value);
 
 
 public slots:
-    void setModel(FontModel * const model);
+    void setModel(FontModel *const model);
     void setList(const QList<QJsonObject> &list);
     void setDefault(const QString &name);
     void onItemClicked(const bool selected);
 
 private:
     QVBoxLayout                 *m_mainLayout;
-    TranslucentFrame            *m_widget;
-    SettingsGroup               *m_mainGroup;
-    QMap<OptionItem *, QJsonObject> m_valueMap;
+    widgets::TranslucentFrame            *m_widget;
+    widgets::SettingsGroup               *m_mainGroup;
+    QMap<widgets::OptionItem *, QJsonObject> m_valueMap;
 };
+}
+}
+
 
 #endif // FONTLISTWIDGET_H

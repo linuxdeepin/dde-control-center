@@ -1,5 +1,11 @@
 #include "fontsizewidget.h"
-
+#include "../../widget/fontitem.h"
+#include "../../model/fontsizemodel.h"
+#include "titledslideritem.h"
+#include "dccslider.h"
+using namespace dcc;
+using namespace dcc::personalization;
+using namespace dcc::widgets;
 const int smail = -1;
 const int big   = 1;
 

@@ -1,5 +1,9 @@
 #include "personalizationwork.h"
-
+#include "model/thememodel.h"
+#include "model/fontmodel.h"
+#include "model/fontsizemodel.h"
+using namespace dcc;
+using namespace dcc::personalization;
 const QString Service = "com.deepin.daemon.Appearance";
 const QString Path    = "/com/deepin/daemon/Appearance";
 PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *parent)

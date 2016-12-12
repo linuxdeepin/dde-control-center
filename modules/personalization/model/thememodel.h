@@ -5,6 +5,11 @@
 #include <QList>
 #include <QJsonObject>
 #include <QDebug>
+
+namespace dcc
+{
+namespace personalization
+{
 class ThemeModel : public QObject
 {
     Q_OBJECT
@@ -23,5 +28,8 @@ private:
     QList<QJsonObject> m_list;
     QString m_default;
 };
+}
+}
+
 
 #endif // THEMEMODEL_H

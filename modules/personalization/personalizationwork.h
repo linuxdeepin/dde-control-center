@@ -11,7 +11,11 @@
 #include <QJsonObject>
 #include <com_deepin_daemon_apperance.h>
 using com::deepin::daemon::Appearance;
-
+namespace dcc
+{
+namespace personalization
+{
+class ThemeModel;
 class PersonalizationWork : public QObject
 {
     Q_OBJECT
@@ -39,5 +43,8 @@ private:
     PersonalizationModel *m_model;
     Appearance           *m_dbus;
 };
+}
+}
+
 
 #endif // PERSONALIZATIONWORK_H

@@ -1,5 +1,6 @@
 #include "fontmodel.h"
-
+using namespace dcc;
+using namespace dcc::personalization;
 FontModel::FontModel(QObject *parent) : QObject(parent)
 {
 

@@ -1,5 +1,13 @@
 #include "fontlistwidget.h"
+#include "settingsgroup.h"
+#include "optionitem.h"
+#include "../../widget/fontitem.h"
+#include "personalization/personalizationmodel.h"
+#include "personalization/model/fontmodel.h"
 
+using namespace dcc;
+using namespace dcc::widgets;
+using namespace dcc::personalization;
 FontListWidget::FontListWidget(const QString &title, QWidget *parent)
     :ContentWidget(parent)
 {
