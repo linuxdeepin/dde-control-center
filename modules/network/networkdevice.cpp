@@ -17,6 +17,15 @@ NetworkDevice::NetworkDevice(const NetworkDevice &device)
 
 }
 
+void NetworkDevice::setEnabled(const bool enabled)
+{
+    if (m_enabled != enabled)
+    {
+        m_enabled = enabled;
+        emit enableChanged(m_enabled);
+    }
+}
+
 const QString NetworkDevice::path() const
 {
     return m_data.value("Path").toString();

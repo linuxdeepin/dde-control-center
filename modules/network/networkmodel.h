@@ -28,6 +28,7 @@ signals:
 
 private slots:
     void onDevicesPropertyChanged(const QString &devices);
+    void onDeviceEnableChaned(const QString &device, const bool enabled);
 
 private:
     QList<NetworkDevice *> m_devices;

@@ -19,6 +19,9 @@ class NetworkWorker : public QObject
 public:
     explicit NetworkWorker(NetworkModel *model, QObject *parent = 0);
 
+public slots:
+    void setDeviceEnable(const QString &devPath, const bool enable);
+
 private:
     NetworkInter m_networkInter;
 

@@ -37,6 +37,7 @@ void NetworkModel::onDevicesPropertyChanged(const QString &devices)
 
     QList<NetworkDevice *> newList;
     for (auto it(data.constBegin()); it != data.constEnd(); ++it) {
+        qDebug().noquote() << it.value();
         const auto type = parseDeviceType(it.key());
         const auto list = it.value().toArray();
 
@@ -50,4 +51,20 @@ void NetworkModel::onDevicesPropertyChanged(const QString &devices)
     qDeleteAll(m_devices);
     m_devices = newList;
     emit deviceListChanged(m_devices);
+}
+
+void NetworkModel::onDeviceEnableChaned(const QString &device, const bool enabled)
+{
+    NetworkDevice *dev = nullptr;
+    for (auto const d : m_devices)
+    {
+        if (d->path() == device)
+        {
+            dev = d;
+            break;
+        }
+    }
+    Q_ASSERT(dev);
+
+    dev->setEnabled(enabled);
 }

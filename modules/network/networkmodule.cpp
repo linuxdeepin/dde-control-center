@@ -72,7 +72,10 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
 
     if (dev->type() == NetworkDevice::Wireless)
     {
-        c = new WirelessPage;
+        WirelessPage *p = new WirelessPage(dev);
+        connect(p, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
+
+        c = p;
     }
 
     if (c)
