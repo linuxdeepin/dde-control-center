@@ -34,7 +34,7 @@ signals:
     void requestSetTrackPointMotionAcceleration(const int &value);
 
 private:
-    dcc::SettingsGroup *m_userGroup;
+    dcc::widgets::SettingsGroup *m_userGroup;
     QPushButton *m_nextPage;
     BaseSettings *m_baseSettings;
     MouseSettings *m_mouseSettings;

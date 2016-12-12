@@ -60,10 +60,10 @@ private:
 
 private:
     AvatarWidget *m_avatar;
-    SettingsGroup *m_group;
-    LineEditWidget *m_username;
-    LineEditWidget *m_password;
-    LineEditWidget *m_repeatpass;
+    dcc::widgets::SettingsGroup *m_group;
+    dcc::widgets::LineEditWidget *m_username;
+    dcc::widgets::LineEditWidget *m_password;
+    dcc::widgets::LineEditWidget *m_repeatpass;
     QPushButton *m_confirmBtn;
     QPushButton *m_cancelBtn;
 

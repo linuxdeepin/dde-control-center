@@ -6,7 +6,7 @@
 #include <QLabel>
 #include "notifymanager.h"
 #include <QScrollArea>
-using namespace dde;
+using namespace dcc;
 
 class NotifyPlugin : public QObject, public PluginInterface
 {

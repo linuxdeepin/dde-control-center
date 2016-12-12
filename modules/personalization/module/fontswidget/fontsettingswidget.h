@@ -10,7 +10,7 @@
 #include <translucentframe.h>
 #include <QDebug>
 
-using namespace dcc;
+using namespace dcc::widgets;
 class FontSettingsWidget : public TranslucentFrame
 {
     Q_OBJECT

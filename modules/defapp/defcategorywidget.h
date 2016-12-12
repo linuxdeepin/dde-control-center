@@ -40,7 +40,7 @@ private:
     void removeItem(const QJsonObject &item);
 
 private:
-    dcc::SettingsGroup    *m_userGroup;
+    dcc::widgets::SettingsGroup    *m_userGroup;
     QWidget               *m_listWidget;
     QVBoxLayout           *m_listLayout;
     OptionWidget          *m_optionWidget;

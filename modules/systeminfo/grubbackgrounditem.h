@@ -3,7 +3,7 @@
 
 #include "settingsitem.h"
 #include <com_deepin_daemon_grub2_theme.h>
-using namespace dcc;
+using namespace dcc::widgets;
 
 using GrubThemeDbus=com::deepin::daemon::grub2::Theme;
 

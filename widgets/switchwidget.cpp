@@ -2,9 +2,10 @@
 
 #include <QHBoxLayout>
 
-using namespace dcc;
-
 DWIDGET_USE_NAMESPACE
+
+namespace dcc {
+namespace widgets {
 
 SwitchWidget::SwitchWidget(QFrame *parent)
     : SettingsItem(parent)
@@ -45,4 +46,7 @@ void SwitchWidget::setTitle(const QString &title)
     m_title->setText(title);
 
     setAccessibleName(title);
+}
+
+}
 }

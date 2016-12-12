@@ -10,7 +10,7 @@ DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace keyboard{
-class CheckItem : public SettingsItem
+class CheckItem : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
 

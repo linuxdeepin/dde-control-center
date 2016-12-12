@@ -63,7 +63,7 @@ private:
     Monitor *m_monitor;
 
     Dtk::Widget::DImageButton *m_rotateBtn;
-    dcc::DCCSlider *m_lightSlider;
+    dcc::widgets::DCCSlider *m_lightSlider;
     SettingsListWidget *m_resolutionsWidget;
     SettingsListWidget *m_primarySettingsWidget;
     MonitorControlWidget *m_ctrlWidget;

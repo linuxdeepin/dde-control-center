@@ -15,7 +15,7 @@ DWIDGET_USE_NAMESPACE
 namespace dcc {
 namespace datetime {
 
-class TimezoneItem : public SettingsItem
+class TimezoneItem : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
 

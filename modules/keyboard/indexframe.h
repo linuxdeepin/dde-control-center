@@ -9,7 +9,7 @@ using namespace dcc;
 namespace dcc {
 namespace keyboard{
 
-class IndexFrame : public TranslucentFrame
+class IndexFrame : public dcc::widgets::TranslucentFrame
 {
     Q_OBJECT
 public:

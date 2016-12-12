@@ -1,6 +1,7 @@
 #include "settingsheaderitem.h"
 
-using namespace dcc;
+namespace dcc {
+namespace widgets {
 
 SettingsHeaderItem::SettingsHeaderItem(QWidget *parent)
     : SettingsItem(parent),
@@ -24,4 +25,7 @@ void SettingsHeaderItem::setIcon(const QPixmap &icon)
 void SettingsHeaderItem::setTitle(const QString &title)
 {
     m_headerText->setText(title);
+}
+
+}
 }

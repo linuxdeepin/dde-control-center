@@ -8,7 +8,6 @@
 DWIDGET_USE_NAMESPACE
 
 namespace dcc {
-
 namespace widgets {
 
 class WaitIndicator : public SettingsItem

@@ -11,12 +11,14 @@
 
 #include "labels/largelabel.h"
 
+using namespace dcc::widgets;
+
 namespace dcc {
 namespace bluetooth {
 
 PinCodeDialog::PinCodeDialog(const QString &pinCode, const bool &cancelable) :
     DDialog(),
-    m_pinCodeLabel(new LargeLabel)
+    m_pinCodeLabel(new dcc::widgets::LargeLabel)
 {
     setTitle(tr("The PIN for connecting to the Bluetooth device is:"));
     setIcon(QIcon::fromTheme("notification-bluetooth-connected"));

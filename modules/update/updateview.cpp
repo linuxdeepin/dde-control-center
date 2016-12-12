@@ -2,7 +2,7 @@
 
 #include <QDebug>
 
-using namespace dcc;
+using namespace dcc::widgets;
 
 namespace dcc{
 namespace update{

@@ -50,7 +50,7 @@ private:
     DefCategoryWidget *m_modCamera = nullptr;
     DefCategoryWidget *m_modSoftware = nullptr;
 
-    dcc::SwitchWidget *m_switchWidget = nullptr;
+    dcc::widgets::SwitchWidget *m_switchWidget = nullptr;
 
 };
 

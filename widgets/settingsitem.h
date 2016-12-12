@@ -13,6 +13,7 @@
 #include <QFrame>
 
 namespace dcc {
+namespace widgets {
 
 class SettingsItem : public QFrame
 {
@@ -34,6 +35,7 @@ private:
     bool m_isTail;
 };
 
+}
 }
 
 #endif // SETTINGSITEM_H

@@ -1,6 +1,5 @@
 #include "optionwidget.h"
 
-
 dcc::OptionWidget::OptionWidget(QWidget *parent)
     :SettingsItem(parent),
       m_delete(new DImageButton)
@@ -9,7 +8,7 @@ dcc::OptionWidget::OptionWidget(QWidget *parent)
     m_checkedIconLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_optionIcon = new QLabel;
     m_optionIcon->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_displayName = new NormalLabel;
+    m_displayName = new dcc::widgets::NormalLabel;
     m_displayName->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     m_execPath = new QLabel;

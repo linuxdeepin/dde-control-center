@@ -5,7 +5,7 @@
 
 #include <QObject>
 
-using namespace dde;
+using namespace dcc;
 
 class PluginsController : public QObject, public FrameProxyInterface
 {

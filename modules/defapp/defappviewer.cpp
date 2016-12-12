@@ -33,8 +33,8 @@ QWidget* DefAppViewer::defappDetail() {
     m_modSoftware = new DefCategoryWidget(tr("Software"), this);
     m_modSoftware->hide();
 
-    m_switchWidget = new dcc::SwitchWidget();
-    connect(m_switchWidget, &dcc::SwitchWidget::checkedChanegd, this, &DefAppViewer::autoOpenChanged);
+    m_switchWidget = new dcc::widgets::SwitchWidget();
+    connect(m_switchWidget, &dcc::widgets::SwitchWidget::checkedChanegd, this, &DefAppViewer::autoOpenChanged);
 
     m_mainlayout->addWidget(m_modBrowser);
     m_mainlayout->addWidget(m_modMail);

@@ -19,7 +19,7 @@ namespace dcc
 
 DWIDGET_USE_NAMESPACE
 
-class OptionWidget : public SettingsItem
+class OptionWidget : public widgets::SettingsItem
 {
     Q_OBJECT
     Q_PROPERTY(bool checked READ checked WRITE setChecked NOTIFY checkedChanged)
@@ -49,7 +49,7 @@ private:
     QLabel       *m_execPath;
     DImageButton *m_delete;
     QLabel       *m_checkedIconLabel;
-    NormalLabel  *m_displayName;
+    widgets::NormalLabel  *m_displayName;
     bool          m_checked           = false;
     bool          m_delchecked        = false;
     bool          m_userCheck         = false;

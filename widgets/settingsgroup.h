@@ -16,6 +16,7 @@
 class QVBoxLayout;
 
 namespace dcc {
+namespace widgets {
 
 class SettingsItem;
 class SettingsHeaderItem;
@@ -62,6 +63,7 @@ private:
     void updateItemPaddings(SettingsItem *item);
 };
 
+}
 }
 
 #endif // SETTINGSGROUP_H

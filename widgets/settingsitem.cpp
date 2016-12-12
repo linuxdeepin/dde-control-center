@@ -12,6 +12,7 @@
 #include <QStyle>
 
 namespace dcc {
+namespace widgets {
 
 SettingsItem::SettingsItem(QWidget *parent)
     : QFrame(parent),
@@ -49,4 +50,5 @@ void SettingsItem::setIsTail(bool tail)
     style()->polish(this);
 }
 
+}
 }

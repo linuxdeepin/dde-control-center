@@ -2,8 +2,8 @@
 #define WACOMMODULE_H
 
 #include "moduleinterface.h"
-class ContentWidget;
 namespace dcc {
+class ContentWidget;
 namespace wacom {
 class WacomWidget;
 class WacomModel;

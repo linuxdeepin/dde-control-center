@@ -6,6 +6,7 @@
 #include <QLabel>
 
 namespace dcc {
+namespace widgets {
 
 class SettingsHead : public SettingsItem
 {
@@ -46,5 +47,8 @@ private:
     QPushButton* m_confirm;
     QPushButton* m_cancel;
 };
+
 }
+}
+
 #endif // SETTINGSHEAD_H

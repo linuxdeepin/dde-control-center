@@ -9,13 +9,13 @@
 #include <QPushButton>
 #include <QDebug>
 
-using namespace dcc;
+using namespace dcc::widgets;
 using namespace dcc::accounts;
 
 AccountsWidget::AccountsWidget()
     : ModuleWidget(),
 
-    m_userGroup(new SettingsGroup),
+    m_userGroup(new dcc::widgets::SettingsGroup),
     m_createBtn(new QPushButton(tr("Create Account")))
 {
     setObjectName("Accounts");

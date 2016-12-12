@@ -17,6 +17,8 @@
 #include "labels/normallabel.h"
 #include "nextbutton.h"
 
+using namespace dcc::widgets;
+
 namespace dcc {
 namespace bluetooth {
 

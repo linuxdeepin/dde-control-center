@@ -8,7 +8,7 @@
 #include "settingshead.h"
 
 #include <com_deepin_daemon_search.h>
-using namespace dcc;
+using namespace dcc::widgets;
 
 using SearchInter=com::deepin::daemon::Search;
 class QLineEdit;

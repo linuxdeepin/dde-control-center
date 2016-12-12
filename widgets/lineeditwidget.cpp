@@ -2,7 +2,8 @@
 
 #include <QVBoxLayout>
 
-using namespace dcc;
+namespace dcc {
+namespace widgets {
 
 LineEditWidget::LineEditWidget(QFrame *parent)
     : SettingsItem(parent),
@@ -31,4 +32,7 @@ void LineEditWidget::setTitle(const QString &title)
 void LineEditWidget::setText(const QString &text)
 {
     m_edit->setText(text);
+}
+
+}
 }

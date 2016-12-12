@@ -2,7 +2,7 @@
 
 #include <QVBoxLayout>
 
-using namespace dcc;
+using namespace dcc::widgets;
 
 BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     : QWidget(parent),

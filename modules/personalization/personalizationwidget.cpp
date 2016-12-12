@@ -8,7 +8,7 @@
 #include <QPushButton>
 #include <QDebug>
 
-using namespace dcc;
+using namespace dcc::widgets;
 
 PersonalizationWidget::PersonalizationWidget()
     : ModuleWidget(),

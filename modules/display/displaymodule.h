@@ -3,12 +3,11 @@
 
 #include "moduleinterface.h"
 
-class ModuleWidget;
 
 namespace dcc {
+class ModuleWidget;
 
 namespace display {
-
 class Monitor;
 class DisplayWorker;
 class DisplayModel;

@@ -4,9 +4,10 @@
 
 #include "nextbutton.h"
 
-using namespace dcc;
-
 DWIDGET_USE_NAMESPACE
+
+namespace dcc {
+namespace widgets {
 
 NextPageWidget::NextPageWidget(QFrame *parent)
     : SettingsItem(parent)
@@ -71,3 +72,6 @@ bool NextPageWidget::display() const
     return m_display;
 }
 */
+
+}
+}

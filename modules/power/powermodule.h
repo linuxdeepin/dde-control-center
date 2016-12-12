@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class PowerModule : public QObject, public ModuleInterface
+class PowerModule : public QObject, public dcc::ModuleInterface
 {
     Q_OBJECT
 
 public:
-    explicit PowerModule(FrameProxyInterface *frame, QObject *parent = 0);
+    explicit PowerModule(dcc::FrameProxyInterface *frame, QObject *parent = 0);
 
 private:
     ~PowerModule();
@@ -22,8 +22,8 @@ private:
     void moduleActive();
     void moduleDeactive();
     void reset();
-    void contentPopped(ContentWidget * const w);
-    ModuleWidget *moduleWidget();
+    void contentPopped(dcc::ContentWidget * const w);
+    dcc::ModuleWidget *moduleWidget();
     const QString name() const;
 
 

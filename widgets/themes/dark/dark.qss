@@ -11,12 +11,12 @@ dcc--widgets--BackButton Dtk--Widget--DImageButton {
 }
 
 /* SettingsItem */
-dcc--SettingsItem {
+dcc--widgets--SettingsItem {
     background-color: rgba(238, 238, 238, .2);
 }
 
 /* OptionItem */
-NormalLabel#OptionItemTitle {
+dcc--widgets--NormalLabel#OptionItemTitle {
     color: white;
 }
 

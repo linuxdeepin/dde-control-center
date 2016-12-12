@@ -10,7 +10,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-class PersonalizationWidget : public ModuleWidget
+class PersonalizationWidget : public dcc::ModuleWidget
 {
     Q_OBJECT
 
@@ -22,7 +22,7 @@ signals:
     void showFontsWidget();
 
 private:
-    dcc::SettingsGroup *m_userGroup;
+    dcc::widgets::SettingsGroup *m_userGroup;
 };
 
 #endif // PERSONALIZATIONWIDGET_H

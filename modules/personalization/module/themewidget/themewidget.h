@@ -9,6 +9,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 using namespace dcc;
+using namespace dcc::widgets;
 class ThemeWidget : public ContentWidget
 {
     Q_OBJECT

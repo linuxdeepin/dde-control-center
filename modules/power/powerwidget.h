@@ -13,7 +13,7 @@ class TitledSliderItem;
 }
 
 class QSlider;
-class PowerWidget : public ModuleWidget
+class PowerWidget : public dcc::ModuleWidget
 {
     Q_OBJECT
 
@@ -42,14 +42,14 @@ private slots:
     void sleepSliderValueChanged(const int delay);
 
 private:
-    dcc::SettingsGroup *m_sleepTimeoutSettings;
+    dcc::widgets::SettingsGroup *m_sleepTimeoutSettings;
     dcc::widgets::TitledSliderItem *m_monitorSleep;
     dcc::widgets::TitledSliderItem *m_computerSleep;
-    dcc::SettingsGroup *m_passwordSettings;
-    dcc::SwitchWidget *m_displayNeedPassword;
-    dcc::SwitchWidget *m_wakeNeedPassword;
-    dcc::SettingsGroup *m_notebookSettings;
-    dcc::SwitchWidget *m_sleepOnLidOff;
+    dcc::widgets::SettingsGroup *m_passwordSettings;
+    dcc::widgets::SwitchWidget *m_displayNeedPassword;
+    dcc::widgets::SwitchWidget *m_wakeNeedPassword;
+    dcc::widgets::SettingsGroup *m_notebookSettings;
+    dcc::widgets::SwitchWidget *m_sleepOnLidOff;
     QSlider *m_monitorSlider;
     QSlider *m_sleepSlider;
 };

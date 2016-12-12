@@ -7,7 +7,7 @@
 
 #include "removeuserdialog.h"
 
-using namespace dcc;
+using namespace dcc::widgets;
 using namespace dcc::accounts;
 
 AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)

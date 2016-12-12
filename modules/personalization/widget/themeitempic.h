@@ -10,7 +10,7 @@
 #include <QBitmap>
 #include <QPaintEvent>
 #include <QPainter>
-using namespace dcc;
+using namespace dcc::widgets;
 class ThemeItemPic : public TranslucentFrame
 {
     Q_OBJECT

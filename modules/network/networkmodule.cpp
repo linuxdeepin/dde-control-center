@@ -5,6 +5,8 @@
 #include "networkworker.h"
 #include "networkmodel.h"
 
+using namespace dcc;
+using namespace dcc::widgets;
 using namespace dcc::network;
 
 NetworkModule::NetworkModule(FrameProxyInterface *frame, QObject *parent)

@@ -3,6 +3,10 @@
 #include <QEvent>
 #include <QDebug>
 
+using namespace dcc::widgets;
+
+namespace dcc {
+
 static const char *ObjectNameTitle = "ModuleHeaderTitle";
 static const char *ObjectNameTemplateIcon = "ModuleHeaderIcon%1";
 
@@ -49,4 +53,6 @@ bool ModuleWidget::event(QEvent *event)
         setFixedHeight(m_centeralLayout->sizeHint().height());
 
     return QWidget::event(event);
+}
+
 }

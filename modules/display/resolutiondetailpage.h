@@ -6,9 +6,11 @@
 
 #include <QMap>
 
-namespace dcc
-{
+namespace dcc {
+
+namespace widgets {
 class SettingsGroup;
+}
 
 namespace display {
 
@@ -31,7 +33,7 @@ private slots:
 
 private:
     DisplayModel *m_model;
-    dcc::SettingsGroup *m_resolutions;
+    dcc::widgets::SettingsGroup *m_resolutions;
 
     QMap<dcc::widgets::OptionItem *, int> m_options;
 };

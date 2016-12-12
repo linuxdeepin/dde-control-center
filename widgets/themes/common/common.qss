@@ -6,7 +6,7 @@ QScrollArea > QFrame {
     background: transparent;
 }
 
-dcc--TranslucentFrame {
+dcc--widgets--TranslucentFrame {
     background: transparent;
 }
 
@@ -21,11 +21,11 @@ dcc--TranslucentFrame {
     color: white;
 }
 
-dcc--SettingsItem[isHead=true] {
+dcc--widgets--SettingsItem[isHead=true] {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
-dcc--SettingsItem[isTail=true] {
+dcc--widgets--SettingsItem[isTail=true] {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }

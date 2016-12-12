@@ -4,6 +4,7 @@
 #include <QLineEdit>
 
 namespace dcc {
+namespace widgets {
 
 class SearchInput : public QLineEdit
 {
@@ -23,6 +24,7 @@ private:
     QPixmap m_icon;
 };
 
+}
 }
 
 #endif // SEARCHINPUT_H

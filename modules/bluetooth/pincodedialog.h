@@ -14,9 +14,12 @@
 
 DWIDGET_USE_NAMESPACE
 
-class LargeLabel;
 
 namespace dcc {
+namespace widgets {
+class LargeLabel;
+}
+
 namespace bluetooth {
 
 class PinCodeDialog : public DDialog
@@ -29,7 +32,7 @@ public:
     void setPinCode(const QString &pinCode);
 
 private:
-    LargeLabel *m_pinCodeLabel;
+    dcc::widgets::LargeLabel *m_pinCodeLabel;
 };
 
 } // namespace bluetooth

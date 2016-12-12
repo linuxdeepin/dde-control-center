@@ -6,9 +6,10 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-namespace dcc
-{
+namespace dcc{
+namespace widgets {
 class SettingsGroup;
+}
 namespace wacom
 {
 class WacomSettings;
@@ -25,7 +26,7 @@ signals:
     void requestSetPressureValue(const int value);
 
 private:
-    SettingsGroup *m_userGroup;
+    dcc::widgets::SettingsGroup *m_userGroup;
     WacomSettings      *m_wacomSettings;
 };
 }

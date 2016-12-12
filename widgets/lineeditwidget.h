@@ -7,6 +7,7 @@
 #include <QLineEdit>
 
 namespace dcc {
+namespace widgets {
 
 class LineEditWidget : public SettingsItem
 {
@@ -27,6 +28,7 @@ private:
     QLineEdit *m_edit;
 };
 
+}
 }
 
 #endif // LINEEDITWIDGET_H

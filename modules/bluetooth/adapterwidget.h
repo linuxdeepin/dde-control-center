@@ -17,6 +17,8 @@
 #include "switchwidget.h"
 #include "settingsgroup.h"
 
+using namespace dcc::widgets;
+
 namespace dcc {
 namespace bluetooth {
 

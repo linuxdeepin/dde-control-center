@@ -7,6 +7,8 @@
 #include <QLabel>
 
 namespace dcc {
+namespace widgets {
+
 
 class SettingsHeaderItem : public SettingsItem
 {
@@ -28,6 +30,7 @@ private:
     QLabel *m_headerText;
 };
 
+}
 }
 
 #endif // SETTINGSHEADERITEM_H

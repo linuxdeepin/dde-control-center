@@ -7,7 +7,7 @@
 #include "checkitem.h"
 #include "indexmodel.h"
 
-using namespace dcc;
+using namespace dcc::widgets;
 
 namespace dcc {
 namespace keyboard{

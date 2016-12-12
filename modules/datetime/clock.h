@@ -11,7 +11,7 @@ using namespace dcc;
 namespace dcc {
 namespace datetime {
 
-class Clock: public SettingsItem
+class Clock: public widgets::SettingsItem
 {
     Q_OBJECT
 

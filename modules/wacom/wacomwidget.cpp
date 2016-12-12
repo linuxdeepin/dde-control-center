@@ -12,7 +12,7 @@
 #include <QPushButton>
 #include <QDebug>
 
-using namespace dcc;
+using namespace dcc::widgets;
 using namespace dcc::wacom;
 WacomWidget::WacomWidget()
     : ModuleWidget(),

@@ -16,6 +16,8 @@
 #include <QDebug>
 
 namespace dcc {
+namespace widgets {
+
 
 SettingsGroup::SettingsGroup(QFrame *parent) :
     QFrame(parent),
@@ -162,4 +164,5 @@ void SettingsGroup::updateItemPaddings(SettingsItem *item)
     }
 }
 
-} // namespace dcc end
+}
+}

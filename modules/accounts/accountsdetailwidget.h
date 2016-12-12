@@ -33,10 +33,10 @@ private slots:
 
 private:
     User *m_user;
-    dcc::SettingsGroup *m_accountSettings;
-    dcc::NextPageWidget *m_modifyAvatar;
-    dcc::NextPageWidget *m_modifyPassword;
-    dcc::SwitchWidget *m_autoLogin;
+    dcc::widgets::SettingsGroup *m_accountSettings;
+    dcc::widgets::NextPageWidget *m_modifyAvatar;
+    dcc::widgets::NextPageWidget *m_modifyPassword;
+    dcc::widgets::SwitchWidget *m_autoLogin;
     QPushButton *m_deleteAccount;
 };
 

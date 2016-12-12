@@ -12,8 +12,8 @@ public:
     explicit BasicSettingsPage(QWidget *parent = 0);
 
 private:
-    dcc::DCCSlider *m_soundSlider;
-    dcc::DCCSlider *m_lightSlider;
+    dcc::widgets::DCCSlider *m_soundSlider;
+    dcc::widgets::DCCSlider *m_lightSlider;
 };
 
 #endif // BASICSETTINGSPAGE_H

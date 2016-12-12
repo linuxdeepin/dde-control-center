@@ -4,7 +4,7 @@
 #include "settingsitem.h"
 #include <QLabel>
 
-using namespace dcc;
+using namespace dcc::widgets;
 
 namespace dcc{
 namespace systeminfo{

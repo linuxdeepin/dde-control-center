@@ -2,7 +2,9 @@
 #include <QPainter>
 #include <QApplication>
 
-using namespace dcc;
+namespace dcc {
+namespace widgets {
+
 
 SearchInput::SearchInput(QWidget* parent)
     :QLineEdit(parent),
@@ -51,4 +53,7 @@ void SearchInput::paintEvent(QPaintEvent *e)
             painter.drawText(rect, Qt::AlignCenter, m_search);
         }
     }
+}
+
+}
 }

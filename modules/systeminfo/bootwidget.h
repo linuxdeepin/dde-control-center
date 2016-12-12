@@ -4,7 +4,7 @@
 #include "contentwidget.h"
 #include "switchwidget.h"
 #include <QListWidget>
-using namespace dcc;
+using namespace dcc::widgets;
 
 namespace dcc{
 namespace systeminfo{

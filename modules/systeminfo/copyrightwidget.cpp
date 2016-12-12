@@ -16,7 +16,7 @@ namespace systeminfo{
 CopyrightWidget::CopyrightWidget(QWidget *parent)
     :ContentWidget(parent)
 {
-    TranslucentFrame* widget = new TranslucentFrame();
+    dcc::widgets::TranslucentFrame* widget = new dcc::widgets::TranslucentFrame();
     QVBoxLayout *layout =new QVBoxLayout();
     m_title = new QLabel();
     m_title->setText(getLicense("/usr/share/gpl/gpl-3.0-%1-%2.txt", "title"));

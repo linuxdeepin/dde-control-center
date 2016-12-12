@@ -7,7 +7,7 @@
 
 #include <dimagebutton.h>
 
-using namespace dcc;
+using namespace dcc::widgets;
 using namespace dcc::accounts;
 
 DWIDGET_USE_NAMESPACE

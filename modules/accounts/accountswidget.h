@@ -29,7 +29,7 @@ public slots:
     void removeUser(User *user);
 
 private:
-    dcc::SettingsGroup *m_userGroup;
+    dcc::widgets::SettingsGroup *m_userGroup;
 
     QPushButton *m_createBtn;
 };

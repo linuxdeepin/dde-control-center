@@ -18,6 +18,8 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
+using namespace dcc::widgets;
+
 namespace dcc {
 namespace datetime {
 

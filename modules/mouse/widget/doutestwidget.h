@@ -4,7 +4,7 @@
 #include "settingsitem.h"
 #include <QLabel>
 #include <QObject>
-using namespace dcc;
+using namespace dcc::widgets;
 class DouTestWidget : public SettingsItem
 {
     Q_OBJECT

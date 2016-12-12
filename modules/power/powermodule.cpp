@@ -1,5 +1,7 @@
 #include "powermodule.h"
 
+using namespace dcc;
+
 PowerModule::PowerModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),

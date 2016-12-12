@@ -7,7 +7,7 @@
 #include <QPushButton>
 #include <QLineEdit>
 
-using namespace dcc;
+using namespace dcc::widgets;
 
 namespace dcc {
 namespace keyboard{

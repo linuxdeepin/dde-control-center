@@ -9,6 +9,7 @@
 #include <QLabel>
 
 namespace dcc {
+namespace widgets {
 
 class SwitchWidget : public SettingsItem
 {
@@ -29,6 +30,7 @@ private:
     Dtk::Widget::DSwitchButton *m_switchBtn;
 };
 
+}
 }
 
 #endif // SWITCHWIDGET_H

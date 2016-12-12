@@ -4,6 +4,7 @@
 #include <QSlider>
 
 namespace dcc {
+namespace widgets {
 
 class DCCSlider : public QSlider
 {
@@ -23,6 +24,7 @@ protected:
     void wheelEvent(QWheelEvent *e);
 };
 
+}
 }
 
 #endif // DCCSLIDER_H

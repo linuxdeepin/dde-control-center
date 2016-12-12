@@ -8,7 +8,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-class DefaultAppsWidget : public ModuleWidget
+class DefaultAppsWidget : public dcc::ModuleWidget
 {
     Q_OBJECT
 
@@ -19,7 +19,7 @@ signals:
     void showDefaultAppsDetail() const;
 
 private:
-    dcc::SettingsGroup  *m_userGroup;
+    dcc::widgets::SettingsGroup  *m_userGroup;
     QPushButton         *m_nextPage;
 };
 

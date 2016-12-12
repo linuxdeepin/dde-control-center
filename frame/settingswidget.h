@@ -10,6 +10,7 @@
 #include <QPushButton>
 
 using namespace dcc;
+using namespace dcc::widgets;
 
 class Frame;
 class SettingsWidget : public ContentWidget, public FrameProxyInterface

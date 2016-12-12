@@ -4,7 +4,7 @@
 #include "settingsgroup.h"
 #include "displaymodel.h"
 
-using namespace dcc;
+using namespace dcc::widgets;
 using namespace dcc::display;
 
 DisplayWidget::DisplayWidget()

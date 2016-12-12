@@ -2,7 +2,8 @@
 
 #include <QWheelEvent>
 
-using namespace dcc;
+namespace dcc {
+namespace widgets {
 
 DCCSlider::DCCSlider(DCCSlider::SliderType type, QWidget *parent) :
     QSlider(parent)
@@ -23,4 +24,7 @@ void DCCSlider::setType(DCCSlider::SliderType type)
 void DCCSlider::wheelEvent(QWheelEvent *e)
 {
     e->ignore();
+}
+
+}
 }

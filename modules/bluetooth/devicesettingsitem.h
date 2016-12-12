@@ -13,7 +13,6 @@
 #include "settingsitem.h"
 #include "device.h"
 
-class NormalLabel;
 
 namespace Dtk {
 namespace Widget {
@@ -22,14 +21,14 @@ class DLoadingIndicator;
 }
 
 namespace dcc {
-
 namespace widgets {
+class NormalLabel;
 class NextButton;
 }
 
 namespace bluetooth {
 
-class DeviceSettingsItem : public SettingsItem
+class DeviceSettingsItem : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
 public:
@@ -54,8 +53,8 @@ private slots:
 private:
     const Device *m_device;
 
-    NormalLabel *m_titleLabel;
-    NormalLabel *m_tipLabel;
+    dcc::widgets::NormalLabel *m_titleLabel;
+    dcc::widgets::NormalLabel *m_tipLabel;
     Dtk::Widget::DLoadingIndicator *m_loadingIndicator;
     dcc::widgets::NextButton *m_nextButton;
 };

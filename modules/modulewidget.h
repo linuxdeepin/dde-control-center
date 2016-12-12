@@ -7,6 +7,14 @@
 #include <QVBoxLayout>
 #include <QLabel>
 
+namespace dcc {
+namespace widgets {
+class LargeLabel;
+}
+}
+
+namespace dcc {
+
 class ModuleWidget : public QWidget
 {
     Q_OBJECT
@@ -20,8 +28,10 @@ private:
 
 protected:
     QLabel *m_moduleIcon;
-    LargeLabel *m_moduleTitle;
+    dcc::widgets::LargeLabel *m_moduleTitle;
     QVBoxLayout *m_centeralLayout;
 };
+
+}
 
 #endif // MODULEWIDGET_H

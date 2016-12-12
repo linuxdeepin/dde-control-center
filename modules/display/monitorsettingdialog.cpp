@@ -8,7 +8,7 @@
 
 DWIDGET_USE_NAMESPACE
 
-using namespace dcc;
+using namespace dcc::widgets;
 using namespace dcc::display;
 
 const double BRIGHTNESS_MUL = 1000.;

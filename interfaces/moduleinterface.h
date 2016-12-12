@@ -14,14 +14,16 @@
 
 #include <QtCore>
 
-using namespace dde;
-
+namespace dcc {
 class ModuleWidget;
 class ContentWidget;
+}
 //struct ModuleMetadata {
 //    QString icon;
 //    QString title;
 //};
+
+namespace dcc {
 
 // ModuleInterface作为每个规范每个Module的接口，每个Module实现必须实现其所有虚函数。
 class ModuleInterface
@@ -75,5 +77,7 @@ public:
 protected:
     FrameProxyInterface *m_frameProxy = nullptr;
 };
+
+}
 
 #endif // MODULEINTERFACE_H

@@ -19,10 +19,10 @@ signals:
     void pushMirrors();
 
 private:
-    dcc::SettingsGroup* m_updateGroup;
-    dcc::SettingsGroup* m_settingsGroup;
-    dcc::NextPageWidget* m_updateItem;
-    dcc::NextPageWidget* m_settingsItem;
+    dcc::widgets::SettingsGroup* m_updateGroup;
+    dcc::widgets::SettingsGroup* m_settingsGroup;
+    dcc::widgets::NextPageWidget* m_updateItem;
+    dcc::widgets::NextPageWidget* m_settingsItem;
 };
 
 }

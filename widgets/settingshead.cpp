@@ -1,7 +1,9 @@
 #include "settingshead.h"
 #include <QHBoxLayout>
 #include <QMouseEvent>
-using namespace dcc;
+
+namespace dcc {
+namespace widgets {
 
 SettingsHead::SettingsHead(QFrame *parent)
     :SettingsItem(parent)
@@ -94,4 +96,7 @@ TimeButton::TimeButton(QFrame *parent)
 
     connect(m_confirm, SIGNAL(clicked()), this, SIGNAL(confirm()));
     connect(m_cancel, SIGNAL(clicked()), this, SIGNAL(cancel()));
+}
+
+}
 }

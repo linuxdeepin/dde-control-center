@@ -8,7 +8,7 @@
 #include "indexdelegate.h"
 #include "searchinput.h"
 
-using namespace dcc;
+using namespace dcc::widgets;
 
 namespace dcc {
 namespace keyboard{

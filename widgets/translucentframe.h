@@ -13,6 +13,7 @@
 #include <QFrame>
 
 namespace dcc {
+namespace widgets {
 
 class TranslucentFrame : public QFrame
 {
@@ -21,6 +22,7 @@ public:
     explicit TranslucentFrame(QWidget *parent = 0);
 };
 
+}
 } // namespace dcc
 
 #endif // DCC_TRANSLUCENTFRAME_H

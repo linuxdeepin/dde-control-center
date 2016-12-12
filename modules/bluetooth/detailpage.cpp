@@ -28,7 +28,7 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device) :
 {
     setTitle(device->name());
 
-    TranslucentFrame *frame = new TranslucentFrame;
+    dcc::widgets::TranslucentFrame *frame = new dcc::widgets::TranslucentFrame;
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setSpacing(0);
     layout->setMargin(0);

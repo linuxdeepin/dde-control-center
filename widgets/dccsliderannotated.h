@@ -14,10 +14,9 @@
 #include <QSlider>
 
 namespace dcc {
+namespace widgets {
 
 class DCCSlider;
-
-namespace widgets {
 
 class SliderAnnotation : public QWidget
 {

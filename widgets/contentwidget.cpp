@@ -14,6 +14,8 @@
 
 DWIDGET_USE_NAMESPACE
 
+namespace dcc {
+
 ContentWidget::ContentWidget(QWidget *parent)
     : QWidget(parent),
 
@@ -131,4 +133,6 @@ bool ContentWidget::eventFilter(QObject *watched, QEvent *event)
         m_content->setFixedHeight(m_content->layout()->sizeHint().height());
 
     return false;
+}
+
 }

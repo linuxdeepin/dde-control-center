@@ -5,6 +5,8 @@
 #include <QLabel>
 #include <QScrollArea>
 
+namespace dcc {
+
 class ContentWidget : public QWidget
 {
     Q_OBJECT
@@ -31,5 +33,7 @@ protected:
 
     QWidget *m_content;
 };
+
+}
 
 #endif // CONTENTWIDGET_H

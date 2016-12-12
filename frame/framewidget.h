@@ -10,7 +10,7 @@
 /// FrameWidget can auto adjust size to fit parent Frame
 ///
 
-using namespace dcc;
+using namespace dcc::widgets;
 
 class Frame;
 class FrameWidget : public TranslucentFrame

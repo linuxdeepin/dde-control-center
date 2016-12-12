@@ -10,10 +10,12 @@
 #ifndef FRAMEPROXYINTERFACE_H
 #define FRAMEPROXYINTERFACE_H
 
+namespace dcc {
 class ContentWidget;
 class ModuleInterface;
+}
 
-namespace dde {
+namespace dcc {
 
 class FrameProxyInterface
 {

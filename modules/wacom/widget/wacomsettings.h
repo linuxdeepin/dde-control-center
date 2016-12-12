@@ -8,14 +8,13 @@
 
 class QSlider;
 namespace dcc {
-class SettingsGroup;
-
 namespace widgets {
+class SettingsGroup;
 class TitledSliderItem;
 }
 namespace wacom {
 class WacomModelBase;
-class WacomSettings : public TranslucentFrame
+class WacomSettings : public dcc::widgets::TranslucentFrame
 {
     Q_OBJECT
 public:
@@ -30,7 +29,7 @@ public slots:
 
 private:
     QVBoxLayout *m_mainLayout;
-    SettingsGroup *m_mainGroup;
+    dcc::widgets::SettingsGroup *m_mainGroup;
     WacomModelBase *m_baseSettings;
     widgets::TitledSliderItem *m_pressureSlider;
     QSlider *m_preSlider;

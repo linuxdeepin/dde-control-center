@@ -6,7 +6,7 @@
 
 #include <QDebug>
 
-using namespace dcc;
+using namespace dcc::widgets;
 using namespace dcc::network;
 
 NetworkModuleWidget::NetworkModuleWidget()

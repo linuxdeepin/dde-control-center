@@ -7,7 +7,8 @@
 #include <QLabel>
 #include <QPushButton>
 
-using namespace dcc;
+using namespace dcc::widgets;
+
 namespace dcc{
 namespace update{
 

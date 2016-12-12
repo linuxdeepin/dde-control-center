@@ -5,7 +5,7 @@
 #include "switchwidget.h"
 #include "nextpagewidget.h"
 
-using namespace dcc;
+using namespace dcc::widgets;
 
 namespace dcc{
 namespace update{

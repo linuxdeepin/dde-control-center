@@ -26,8 +26,8 @@ private slots:
 private:
     User *m_userInter;
 
-    dcc::LineEditWidget *m_pwdEdit;
-    dcc::LineEditWidget *m_pwdEditRepeat;
+    dcc::widgets::LineEditWidget *m_pwdEdit;
+    dcc::widgets::LineEditWidget *m_pwdEditRepeat;
     QPushButton *m_cancel;
     QPushButton *m_accept;
 };

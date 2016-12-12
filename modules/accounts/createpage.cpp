@@ -15,6 +15,8 @@
 
 #include "translucentframe.h"
 
+using namespace dcc::widgets;
+
 namespace dcc {
 namespace accounts {
 

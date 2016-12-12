@@ -7,8 +7,10 @@
 
 namespace dcc {
 
+namespace widgets {
 class SettingsGroup;
 class NextPageWidget;
+}
 
 namespace display {
 
@@ -32,7 +34,7 @@ private slots:
 
 private:
     DisplayModel *m_model;
-    NextPageWidget *m_resolution;
+    dcc::widgets::NextPageWidget *m_resolution;
     QPushButton *m_rotate;
     QPushButton *m_custom;
 };

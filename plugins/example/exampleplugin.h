@@ -5,7 +5,7 @@
 
 #include <QLabel>
 
-using namespace dde;
+using namespace dcc;
 
 class ExamplePlugin : public QObject, public PluginInterface
 {

@@ -12,14 +12,14 @@
 
 #include "settingsitem.h"
 
-class NormalLabel;
 class QLabel;
 class QSlider;
 
 namespace dcc {
-class DCCSlider;
 namespace widgets {
 
+class NormalLabel;
+class DCCSlider;
 class DCCSliderAnnotated;
 
 class TitledSliderItem : public SettingsItem

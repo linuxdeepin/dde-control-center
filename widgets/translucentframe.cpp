@@ -10,6 +10,7 @@
 #include "translucentframe.h"
 
 namespace dcc {
+namespace widgets {
 
 TranslucentFrame::TranslucentFrame(QWidget *parent) :
     QFrame(parent)
@@ -17,4 +18,5 @@ TranslucentFrame::TranslucentFrame(QWidget *parent) :
 
 }
 
+}
 } // namespace dcc

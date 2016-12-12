@@ -1,7 +1,7 @@
 #include "moduleinitthread.h"
 #include "modulewidget.h"
 
-ModuleInitThread::ModuleInitThread(ModuleInterface *inter, QObject *parent)
+ModuleInitThread::ModuleInitThread(dcc::ModuleInterface *inter, QObject *parent)
     : QThread(parent),
 
       m_module(inter)

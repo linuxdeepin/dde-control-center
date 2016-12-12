@@ -12,7 +12,8 @@
 #include <QDebug>
 #include <QTimer>
 
-using namespace dcc;
+using namespace dcc::widgets;
+
 class DefCategoryAddWidget : public SettingsItem
 {
     Q_OBJECT

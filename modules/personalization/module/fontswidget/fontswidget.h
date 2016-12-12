@@ -11,6 +11,7 @@
 #include <translucentframe.h>
 #include <QDebug>
 using namespace dcc;
+using namespace dcc::widgets;
 
 class FontsWidget : public ContentWidget
 {

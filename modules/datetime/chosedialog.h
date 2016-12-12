@@ -33,7 +33,7 @@ public slots:
 private:
     bool m_flag;
     MapWidget* m_widget;
-    SearchInput* m_search;
+    dcc::widgets::SearchInput* m_search;
     QPushButton* m_cancel;
     QPushButton* m_add;
 };

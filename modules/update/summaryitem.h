@@ -5,7 +5,8 @@
 
 #include <QLabel>
 #include <dloadingindicator.h>
-using namespace dcc;
+
+using namespace dcc::widgets;
 
 DWIDGET_USE_NAMESPACE
 

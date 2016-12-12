@@ -7,7 +7,7 @@
 #include "settingsitem.h"
 
 DWIDGET_USE_NAMESPACE
-using namespace dcc;
+using namespace dcc::widgets;
 
 namespace dcc {
 namespace datetime {

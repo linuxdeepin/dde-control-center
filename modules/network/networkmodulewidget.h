@@ -3,16 +3,17 @@
 
 #include "modulewidget.h"
 
-namespace dcc
-{
+namespace dcc{
+namespace widgets {
 class NextPageWidget;
 class SettingsGroup;
+}
 
 namespace network {
 
 class NetworkDevice;
 class NetworkModel;
-class NetworkModuleWidget : public ModuleWidget
+class NetworkModuleWidget : public dcc::ModuleWidget
 {
     Q_OBJECT
 
@@ -28,11 +29,11 @@ private slots:
     void onDeviceListChanged(const QList<NetworkDevice *> &devices);
 
 private:
-    dcc::SettingsGroup *m_devicesLayout;
-    dcc::NextPageWidget *m_pppBtn;
-    dcc::NextPageWidget *m_vpnBtn;
-    dcc::NextPageWidget *m_proxyBtn;
-    dcc::NextPageWidget *m_detailBtn;
+    dcc::widgets::SettingsGroup *m_devicesLayout;
+    dcc::widgets::NextPageWidget *m_pppBtn;
+    dcc::widgets::NextPageWidget *m_vpnBtn;
+    dcc::widgets::NextPageWidget *m_proxyBtn;
+    dcc::widgets::NextPageWidget *m_detailBtn;
 };
 
 }   // namespace network

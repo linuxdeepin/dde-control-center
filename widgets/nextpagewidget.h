@@ -8,6 +8,7 @@
 #include <QLabel>
 
 namespace dcc {
+namespace widgets {
 
 class NextPageWidget : public SettingsItem
 {
@@ -31,5 +32,6 @@ private:
     dcc::widgets::NextButton *m_nextPageBtn;
 };
 
+}
 }
 #endif // NEXTPAGEWIDGET_H

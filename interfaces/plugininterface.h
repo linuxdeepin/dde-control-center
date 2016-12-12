@@ -14,7 +14,7 @@
 
 #include <QtCore>
 
-using namespace dde;
+using namespace dcc;
 
 struct ModuleMetadata {
     QString icon;
