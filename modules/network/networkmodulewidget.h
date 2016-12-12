@@ -7,7 +7,8 @@ namespace dcc
 {
 class NextPageWidget;
 class SettingsGroup;
-}
+
+namespace network {
 
 class NetworkDevice;
 class NetworkModel;
@@ -34,5 +35,9 @@ private:
     dcc::NextPageWidget *m_proxyBtn;
     dcc::NextPageWidget *m_detailBtn;
 };
+
+}   // namespace network
+
+}   // namespace dcc
 
 #endif // NETWORKMODULEWIDGET_H

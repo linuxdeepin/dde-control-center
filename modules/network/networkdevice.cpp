@@ -1,5 +1,7 @@
 #include "networkdevice.h"
 
+using namespace dcc::network;
+
 NetworkDevice::NetworkDevice(const DeviceType type, const QJsonObject &data, QObject *parent)
     : QObject(parent),
 

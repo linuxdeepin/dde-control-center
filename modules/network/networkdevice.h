@@ -4,6 +4,10 @@
 #include <QObject>
 #include <QJsonObject>
 
+namespace dcc {
+
+namespace network {
+
 class NetworkDevice : public QObject
 {
     Q_OBJECT
@@ -27,5 +31,9 @@ private:
     const DeviceType m_type;
     const QJsonObject m_data;
 };
+
+}   // namespace network
+
+}   // namespace dcc
 
 #endif // NETWORKDEVICE_H

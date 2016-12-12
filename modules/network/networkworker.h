@@ -5,6 +5,10 @@
 
 #include <com_deepin_daemon_network.h>
 
+namespace dcc {
+
+namespace network {
+
 using NetworkInter = com::deepin::daemon::Network;
 
 class NetworkModel;
@@ -20,5 +24,9 @@ private:
 
     NetworkModel *m_networkModel;
 };
+
+}   // namespace network
+
+}   // namespace dcc
 
 #endif // NETWORKWORKER_H

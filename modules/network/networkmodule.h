@@ -3,13 +3,12 @@
 
 #include "moduleinterface.h"
 
-class NetworkModuleWidget;
-class NetworkWorker;
-class NetworkModel;
-
 namespace dcc {
 namespace network {
 
+class NetworkModuleWidget;
+class NetworkWorker;
+class NetworkModel;
 class NetworkModule : public QObject, public ModuleInterface
 {
     Q_OBJECT

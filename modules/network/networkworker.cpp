@@ -1,6 +1,8 @@
 #include "networkworker.h"
 #include "networkmodel.h"
 
+using namespace dcc::network;
+
 NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
     : QObject(parent),
 

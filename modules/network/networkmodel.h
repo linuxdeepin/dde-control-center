@@ -5,6 +5,10 @@
 
 #include <QObject>
 
+namespace dcc {
+
+namespace network {
+
 class NetworkDevice;
 class NetworkWorker;
 class NetworkModel : public QObject
@@ -34,5 +38,9 @@ private:
     QList<NetworkDevice *> m_wiredDevices;
     QList<NetworkDevice *> m_wirelessDevices;
 };
+
+}   // namespace network
+
+}   // namespace dcc
 
 #endif // NETWORKMODEL_H

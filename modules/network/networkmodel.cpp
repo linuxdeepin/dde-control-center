@@ -5,6 +5,8 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 
+using namespace dcc::network;
+
 NetworkDevice::DeviceType parseDeviceType(const QString &type)
 {
     if (type == "wireless") {
