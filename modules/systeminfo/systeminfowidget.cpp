@@ -21,7 +21,6 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     SettingsGroup* bootGroup = new SettingsGroup();
 
     LogoItem* logo = new LogoItem();
-    logo->setPixmap(QPixmap(":/systeminfo/icon/logo.png"));
     logo->setDescription(tr("Wuhan Deepin Technology Co., Ltd."));
 
     m_version = new TitleValueItem();

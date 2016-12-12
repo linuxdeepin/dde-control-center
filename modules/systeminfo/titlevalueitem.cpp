@@ -54,14 +54,15 @@ LogoItem::LogoItem(QFrame *parent)
     setLayout(layout);
 }
 
-void LogoItem::setPixmap(const QPixmap &logo)
-{
-    m_logo->setPixmap(logo);
-}
-
 void LogoItem::setDescription(const QString &des)
 {
     m_description->setText(des);
+}
+
+void LogoItem::setLogo(const QString &logo)
+{
+    QPixmap pix(logo);
+    m_logo->setPixmap(pix);
 }
 
 }

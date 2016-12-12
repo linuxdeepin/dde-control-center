@@ -1,8 +1,9 @@
 <RCC>
     <qresource prefix="/systeminfo">
-        <file>icon/logo.png</file>
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_info.png</file>
         <file>themes/light/light.qss</file>
+        <file>themes/dark/icons/logo.png</file>
+        <file>themes/light/icons/logo.png</file>
     </qresource>
 </RCC>

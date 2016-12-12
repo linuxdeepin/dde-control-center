@@ -1,0 +1,3 @@
+QLabel#ModuleHeaderIconKeyboard {
+    background-image: url(:/keyboard/themes/light/icons/nav_keyboard.png);
+}

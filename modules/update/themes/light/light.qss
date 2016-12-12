@@ -1,0 +1,8 @@
+QLabel#ModuleHeaderIconUpdate {
+    background-image: url(:/update/themes/light/icons/nav_upgrade.png);
+}
+
+
+Dtk--Widget--DImageButton#DCC-Update-MirrorItem-SelectedBtn{
+    qproperty-normalPic: url(:/update/themes/light/icons/select.png);
+}

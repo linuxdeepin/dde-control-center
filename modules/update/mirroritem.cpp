@@ -8,7 +8,7 @@ MirrorItem::MirrorItem(QFrame *parent)
     :SettingsItem(parent)
 {
     m_selectedBtn = new DImageButton;
-    m_selectedBtn->setNormalPic(":/update/icon/select.png");
+    m_selectedBtn->setObjectName("DCC-Update-MirrorItem-SelectedBtn");
     m_selectedBtn->setVisible(false);
     m_mirrorName = new QLabel;
     m_mirrorSpeed = new QLabel;

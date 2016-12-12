@@ -28,10 +28,11 @@ class LogoItem : public SettingsItem
 {
     Q_OBJECT
 
+    Q_PROPERTY(QString logo WRITE setLogo)
 public:
     explicit LogoItem(QFrame* parent = 0);
-    void setPixmap(const QPixmap &logo);
     void setDescription(const QString& des);
+    void setLogo(const QString& logo);
 
 private:
     QLabel* m_logo;
