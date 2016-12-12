@@ -39,12 +39,17 @@ MainWidget::MainWidget(Frame *parent)
     AccountsInter accountsInter("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this);
     for (auto user : accountsInter.userList())
     {
-        UserInter userInter("com.deepin.daemon.Accounts", user, QDBusConnection::systemBus(), this);
-        if (userInter.uid().toInt() == uid)
+        UserInter *inter = new UserInter("com.deepin.daemon.Accounts", user, QDBusConnection::systemBus(), this);
+        if (inter->uid().toInt() == uid)
         {
-            m_userAvatarBtn = new AvatarWidget(userInter.iconFile());
+            m_userAvatarBtn = new AvatarWidget(inter->iconFile());
+
+            connect(inter, &UserInter::IconFileChanged, m_userAvatarBtn, &AvatarWidget::setAvatarPath);
+
+            // keep pointer
             break;
         }
+        inter->deleteLater();
     }
 
     m_timeRefersh->setInterval(1000);
