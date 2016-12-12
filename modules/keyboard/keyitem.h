@@ -13,6 +13,7 @@ class KeyItem
 public:
     explicit KeyItem(int row, int col, const QString& main, const QString& vice = QString());
     explicit KeyItem(int row, int col, int key, const QString& main, const QString& vice = QString());
+    virtual ~KeyItem();
     void setMainKey(const QString& key);
     QString mainKey() const;
 

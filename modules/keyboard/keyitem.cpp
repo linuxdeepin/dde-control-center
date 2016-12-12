@@ -30,6 +30,11 @@ KeyItem::KeyItem(int row, int col, int key, const QString &main, const QString &
     m_modifies = list.contains(m_mainKey);
 }
 
+KeyItem::~KeyItem()
+{
+
+}
+
 void KeyItem::setMainKey(const QString &key)
 {
     m_mainKey = key;
