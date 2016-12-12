@@ -12,8 +12,7 @@ using namespace dcc::network;
 NetworkModuleWidget::NetworkModuleWidget()
     : ModuleWidget(),
 
-      m_wiredLayout(new QVBoxLayout),
-      m_wirelessLayout(new QVBoxLayout),
+      m_devicesLayout(new SettingsGroup),
 
       m_pppBtn(new NextPageWidget),
       m_vpnBtn(new NextPageWidget),
@@ -37,8 +36,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     SettingsGroup *detailGroup = new SettingsGroup;
     detailGroup->appendItem(m_detailBtn);
 
-    m_centeralLayout->addLayout(m_wiredLayout);
-    m_centeralLayout->addLayout(m_wirelessLayout);
+    m_centeralLayout->addWidget(m_devicesLayout);
     m_centeralLayout->addWidget(connGroup);
     m_centeralLayout->addWidget(detailGroup);
 
@@ -49,12 +47,67 @@ NetworkModuleWidget::NetworkModuleWidget()
 
 void NetworkModuleWidget::setModel(NetworkModel *model)
 {
-    connect(model, &NetworkModel::wiredDeviceListChanged, this, &NetworkModuleWidget::onWiredDeviceListChanged);
+    connect(model, &NetworkModel::deviceListChanged, this, &NetworkModuleWidget::onDeviceListChanged);
 
-    onWiredDeviceListChanged(model->wiredDeviceList());
+    onDeviceListChanged(model->devices());
 }
 
-void NetworkModuleWidget::onWiredDeviceListChanged(const QList<NetworkDevice *> &devices)
+void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devices)
 {
-    qDebug() << devices.size();
+    // remove old widgets
+    QList<SettingsItem *> removeList;
+    const int itemCount = m_devicesLayout->itemCount();
+    for (int i(0); i != itemCount; ++i)
+        removeList.append(m_devicesLayout->getItem(i));
+    for (auto const item : removeList)
+        m_devicesLayout->removeItem(item);
+    qDeleteAll(removeList);
+
+    int wiredDevice = 0;
+    int wirelessDevice = 0;
+    for (auto const dev : devices)
+        switch (dev->type())
+        {
+        case NetworkDevice::Wired:      ++wiredDevice;      break;
+        case NetworkDevice::Wireless:   ++wirelessDevice;   break;
+        default:;
+        }
+
+    int index = 0;
+
+    // add wired device list
+    int count = 0;
+    for (auto const dev : devices)
+    {
+        if (dev->type() != NetworkDevice::Wired)
+            continue;
+
+        NextPageWidget *w = new NextPageWidget;
+
+        if (wiredDevice < 2)
+            w->setTitle(tr("Wired Network"));
+        else
+            w->setTitle(tr("Wired Network%1").arg(++count));
+
+        m_devicesLayout->insertItem(index, w);
+        ++index;
+    }
+
+    // add wireless device list
+    count = 0;
+    for (auto const dev : devices)
+    {
+        if (dev->type() != NetworkDevice::Wireless)
+            continue;
+
+        NextPageWidget *w = new NextPageWidget;
+
+        if (wiredDevice < 2)
+            w->setTitle(tr("Wireless Network"));
+        else
+            w->setTitle(tr("Wireless Network%1").arg(++count));
+
+        m_devicesLayout->insertItem(index, w);
+        ++index;
+    }
 }

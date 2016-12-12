@@ -22,6 +22,7 @@ void NetworkModule::initialize()
     m_networkModel = new NetworkModel;
     m_networkWorker = new NetworkWorker(m_networkModel);
 
+    m_networkModel->moveToThread(qApp->thread());
     m_networkWorker->moveToThread(qApp->thread());
 }
 

@@ -21,22 +21,16 @@ public:
     explicit NetworkModel(QObject *parent = 0);
     ~NetworkModel();
 
-    const QList<NetworkDevice *> wiredDeviceList() const { return m_wiredDevices; }
-    const QList<NetworkDevice *> wirelessDeviceList() const { return m_wirelessDevices; }
+    const QList<NetworkDevice *> devices() const { return m_devices; }
 
 signals:
-    void wiredDeviceListChanged(const QList<NetworkDevice *>) const;
-    void wirelessDeviceListChanged(const QList<NetworkDevice *>) const;
+    void deviceListChanged(const QList<NetworkDevice *> devices) const;
 
 private slots:
     void onDevicesPropertyChanged(const QString &devices);
 
 private:
-    void updateDeviceList(const NetworkDevice::DeviceType type, const QJsonArray &list);
-
-private:
-    QList<NetworkDevice *> m_wiredDevices;
-    QList<NetworkDevice *> m_wirelessDevices;
+    QList<NetworkDevice *> m_devices;
 };
 
 }   // namespace network

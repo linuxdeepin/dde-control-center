@@ -28,41 +28,26 @@ NetworkModel::NetworkModel(QObject *parent)
 
 NetworkModel::~NetworkModel()
 {
-    qDeleteAll(m_wiredDevices);
-    qDeleteAll(m_wirelessDevices);
+    qDeleteAll(m_devices);
 }
 
 void NetworkModel::onDevicesPropertyChanged(const QString &devices)
 {
     const QJsonObject data = QJsonDocument::fromJson(devices.toUtf8()).object();
+
+    QList<NetworkDevice *> newList;
     for (auto it(data.constBegin()); it != data.constEnd(); ++it) {
         const auto type = parseDeviceType(it.key());
         const auto list = it.value().toArray();
 
-        updateDeviceList(type, list);
-    }
-}
-
-void NetworkModel::updateDeviceList(const NetworkDevice::DeviceType type, const QJsonArray &list)
-{
-    // construct new list
-    QList<NetworkDevice *> currentList;
-    for (auto const l : list) {
-        auto *device = new NetworkDevice(type, l.toObject());
-        currentList.append(device);
+        for (auto const l : list)
+        {
+            auto *device = new NetworkDevice(type, l.toObject());
+            newList.append(device);
+        }
     }
 
-    // TODO: remove old list
-    // update old list
-    switch (type) {
-    case NetworkDevice::Wired:
-        m_wiredDevices = currentList;
-        emit wiredDeviceListChanged(m_wiredDevices);
-        break;
-    case NetworkDevice::Wireless:
-        emit wirelessDeviceListChanged(m_wirelessDevices);
-        m_wirelessDevices = currentList;
-        break;
-    default:;
-    }
+    qDeleteAll(m_devices);
+    m_devices = newList;
+    emit deviceListChanged(m_devices);
 }

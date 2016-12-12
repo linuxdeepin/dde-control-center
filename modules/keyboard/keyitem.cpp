@@ -106,7 +106,7 @@ QList<KeyItem *> KeyItem::keyboards()
 
 void KeyItem::deleteItems()
 {
-    qDeleteAll(m_keys.begin(), m_keys.end());
+    qDeleteAll(m_keys);
     m_keys.clear();
 }
 
