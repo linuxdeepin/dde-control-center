@@ -1,21 +1,24 @@
 #ifndef BASESETTINGS_H
 #define BASESETTINGS_H
 
-#include "settingsgroup.h"
-#include "settingsitem.h"
-#include "switchwidget.h"
-#include "titledslideritem.h"
-#include "../mousemodel.h"
-#include "dccslider.h"
 #include "translucentframe.h"
 #include <QWidget>
 #include <QSlider>
 #include <QVBoxLayout>
 
-using namespace dcc;
-using namespace dcc::widgets;
-
-class BaseSettings : public TranslucentFrame
+namespace dcc
+{
+namespace widgets
+{
+class SettingsGroup;
+class SwitchWidget;
+class TitledSliderItem;
+class TranslucentFrame;
+}
+namespace mouse
+{
+class MouseModelBaseSettings;
+class BaseSettings : public widgets::TranslucentFrame
 {
     Q_OBJECT
 public:
@@ -29,7 +32,7 @@ signals:
     void requestSetSliderValue(const int &value);
 
 public slots:
-    void setModel(MouseModelBaseSettings * const baseSettings);
+    void setModel(MouseModelBaseSettings *const baseSettings);
     void setLeftHandState(const bool state);
     void setNaturalScroll(const bool state);
     void setDisIfTypingState(const bool state);
@@ -37,12 +40,15 @@ public slots:
 
 private:
     QVBoxLayout   *m_mainLayout;
-    SettingsGroup *m_mainGroup;
-    SwitchWidget  *m_leftHand;
-    SwitchWidget  *m_naturalScroll;
-    SwitchWidget  *m_isTyping;
-    TitledSliderItem *douSlider;
+    widgets::SettingsGroup *m_mainGroup;
+    widgets::SwitchWidget  *m_leftHand;
+    widgets::SwitchWidget  *m_naturalScroll;
+    widgets::SwitchWidget  *m_isTyping;
+    widgets::TitledSliderItem *douSlider;
     MouseModelBaseSettings *m_baseSettings;
 };
+}
+}
+
 
 #endif // BASESETTINGS_H

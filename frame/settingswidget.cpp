@@ -56,7 +56,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new sound::SoundModule(this));
     loadModule(new DatetimeModule(this));
     loadModule(new PowerModule(this));
-    loadModule(new MouseModule(this));
+    loadModule(new mouse::MouseModule(this));
     loadModule(new KeyboardModule(this));
     loadModule(new wacom::WacomModule(this));
     loadModule(new UpdateModule(this));

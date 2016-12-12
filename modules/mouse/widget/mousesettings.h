@@ -1,19 +1,25 @@
 #ifndef MOUSESETTINGS_H
 #define MOUSESETTINGS_H
-#include "settingsitem.h"
-#include "switchwidget.h"
-#include "settingsgroup.h"
-#include "../mousemodel.h"
+
 #include "translucentframe.h"
-#include "titledslideritem.h"
-#include "settingshead.h"
-#include "dccslider.h"
 #include <QWidget>
 #include <QVBoxLayout>
+class QSlider;
+namespace dcc
+{
 
-using namespace dcc;
-using namespace dcc::widgets;
-class MouseSettings : public TranslucentFrame
+namespace widgets
+{
+class TitledSliderItem;
+class SwitchWidget;
+class SettingsGroup;
+class SettingsHead;
+class TranslucentFrame;
+}
+namespace mouse
+{
+class MouseModelMouseSettings;
+class MouseSettings : public widgets::TranslucentFrame
 {
     Q_OBJECT
 public:
@@ -32,12 +38,14 @@ public slots:
 
 private:
     QVBoxLayout *m_mainLayout;
-    SettingsHead   *m_title;
-    SettingsGroup *m_mainGroup;
+    widgets::SettingsHead   *m_title;
+    widgets::SettingsGroup *m_mainGroup;
     MouseModelMouseSettings *m_baseSettings;
-    TitledSliderItem *m_speedSlider;
-    SwitchWidget *m_switchWidget;
-    QSlider *m_spSlider;
+    widgets::TitledSliderItem *m_speedSlider;
+    widgets::SwitchWidget *m_switchWidget;
 };
+}
+}
+
 
 #endif // MOUSESETTINGS_H

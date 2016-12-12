@@ -2,11 +2,15 @@
 #define MOUSEMODULE_H
 
 #include "moduleinterface.h"
-#include "mousewidget.h"
-#include "mousemodel.h"
-#include "mouseworker.h"
+#include <QObject>
+namespace dcc
+{
+namespace mouse
+{
 
-
+class MouseWidget;
+class MouseModel;
+class MouseWorker;
 class MouseModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -26,7 +30,7 @@ public:
 private:
     ~MouseModule();
 
-    void contentPopped(ContentWidget * const w);
+    void contentPopped(ContentWidget *const w);
 
 private:
 
@@ -34,5 +38,8 @@ private:
     MouseModel  *m_model;
     MouseWorker *m_worker;
 };
+}
+}
+
 
 #endif // MOUSEMODULE_H

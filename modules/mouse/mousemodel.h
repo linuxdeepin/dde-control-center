@@ -1,14 +1,15 @@
 #ifndef MOUSEMODEL_H
 #define MOUSEMODEL_H
 
-#include "model/mousemodelbase.h"
-#include "model/mousemodelbasesettings.h"
-#include "model/mousemodelmousesettings.h"
-#include "model/mousemodelthinkpadsettings.h"
-
 #include <QObject>
 #include <QDebug>
 
+namespace dcc {
+namespace mouse {
+class MouseModelBase;
+class MouseModelBaseSettings;
+class MouseModelMouseSettings;
+class MouseModelThinkpadSettings;
 class MouseModel : public QObject
 {
     Q_OBJECT
@@ -27,5 +28,9 @@ private:
     MouseModelMouseSettings    *m_touchSettings;
     MouseModelThinkpadSettings *m_trackSettings;
 };
+}
+}
+
+
 
 #endif // MOUSEMODEL_H

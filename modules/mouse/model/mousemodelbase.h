@@ -4,6 +4,10 @@
 #include <QObject>
 #include <QDebug>
 
+namespace dcc
+{
+namespace mouse
+{
 class MouseModelBase : public QObject
 {
     Q_OBJECT
@@ -18,4 +22,7 @@ signals:
 private:
     int m_sliderValue;
 };
+}
+}
+
 #endif // MOUSEMODELBASE_H

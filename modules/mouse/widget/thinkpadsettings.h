@@ -1,26 +1,30 @@
 #ifndef THINKPADSETTINGS_H
 #define THINKPADSETTINGS_H
 
-#include "settingsitem.h"
-#include "switchwidget.h"
-#include "settingsgroup.h"
-#include "../mousemodel.h"
+
 #include "translucentframe.h"
-#include "titledslideritem.h"
-#include "settingshead.h"
-#include "dccslider.h"
 #include <QObject>
 #include <QVBoxLayout>
 
-using namespace dcc;
-using namespace dcc::widgets;
+class QSlider;
+namespace dcc
+{
 
-class ThinkpadSettings : public TranslucentFrame
+namespace widgets
+{
+class TitledSliderItem;
+class SettingsGroup;
+class SettingsHead;
+}
+namespace mouse
+{
+class MouseModelThinkpadSettings;
+class ThinkpadSettings : public widgets::TranslucentFrame
 {
     Q_OBJECT
 public:
     explicit ThinkpadSettings(QWidget *parent = 0);
-    void setModel(MouseModelThinkpadSettings * const baseSettings);
+    void setModel(MouseModelThinkpadSettings *const baseSettings);
 
 signals:
     void requestSetSliderValue(const int &value);
@@ -30,11 +34,13 @@ public slots:
 
 private:
     QVBoxLayout *m_mainLayout;
-    SettingsGroup *m_mainGroup;
+    widgets::SettingsGroup *m_mainGroup;
     MouseModelThinkpadSettings *m_baseSettings;
-    TitledSliderItem *m_speedSlider;
-    SettingsHead *m_title;
-    QSlider *m_spSlider;
+    widgets::TitledSliderItem *m_speedSlider;
+    widgets::SettingsHead *m_title;
 };
+}
+}
+
 
 #endif // THINKPADSETTINGS_H

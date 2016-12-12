@@ -1,5 +1,15 @@
 #include "mousesettings.h"
-
+#include "settingsitem.h"
+#include "switchwidget.h"
+#include "settingsgroup.h"
+#include "../mousemodel.h"
+#include "titledslideritem.h"
+#include "settingshead.h"
+#include "mouse/model/mousemodelmousesettings.h"
+#include "dccslider.h"
+using namespace dcc;
+using namespace dcc::widgets;
+using namespace dcc::mouse;
 MouseSettings::MouseSettings(const QString &title, QWidget *parent)
     : TranslucentFrame(parent)
 {
@@ -27,8 +37,9 @@ MouseSettings::MouseSettings(const QString &title, QWidget *parent)
     setLayout(m_mainLayout);
     connect(m_switchWidget, &SwitchWidget::checkedChanegd, this, &MouseSettings::requestSetSwitch);
 
-    m_spSlider = m_speedSlider->slider();
-    connect(m_spSlider, &QSlider::valueChanged, this, &MouseSettings::requestSetSliderValue);
+    QSlider *spSlider;
+    spSlider = m_speedSlider->slider();
+    connect(spSlider, &QSlider::valueChanged, this, &MouseSettings::requestSetSliderValue);
     setObjectName("MouseSettings");
 }
 
@@ -54,5 +65,8 @@ void MouseSettings::setSwitchState(const bool state)
 
 void MouseSettings::setSliderValue(const int &value)
 {
-    m_spSlider->setValue(value);
+    QSlider *spSlider = m_speedSlider->slider();
+    spSlider->blockSignals(true);
+    spSlider->setValue(value);
+    spSlider->blockSignals(false);
 }

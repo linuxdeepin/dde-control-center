@@ -3,6 +3,10 @@
 #include "mousemodelbase.h"
 #include <QObject>
 
+namespace dcc
+{
+namespace mouse
+{
 class MouseModelBaseSettings : public MouseModelBase
 {
     Q_OBJECT
@@ -28,5 +32,7 @@ private:
     bool m_naturalScroll;
     bool m_disIfTyping;
 };
+}
+}
 
 #endif // MOUSEMODELBASESETTINGS_H

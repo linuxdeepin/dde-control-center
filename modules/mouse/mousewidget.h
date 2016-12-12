@@ -2,24 +2,28 @@
 #define MOUSEWIDGET_H
 
 #include "modulewidget.h"
-#include "contentwidget.h"
-#include "settingsgroup.h"
-#include "nextpagewidget.h"
-#include "widget/basesettings.h"
-#include  "widget/mousesettings.h"
-#include "widget/thinkpadsettings.h"
-#include "mousemodel.h"
+
 #include <QPushButton>
 #include <QVBoxLayout>
 
-
+namespace dcc
+{
+namespace widgets{
+class SettingsGroup;
+}
+namespace mouse
+{
+class BaseSettings;
+class MouseSettings;
+class ThinkpadSettings;
+class MouseModel;
 class MouseWidget : public ModuleWidget
 {
     Q_OBJECT
 
 public:
     explicit MouseWidget();
-    void setModel(MouseModel * const model);
+    void setModel(MouseModel *const model);
 
 signals:
     void setDefault();
@@ -34,12 +38,14 @@ signals:
     void requestSetTrackPointMotionAcceleration(const int &value);
 
 private:
-    dcc::widgets::SettingsGroup *m_userGroup;
+    widgets::SettingsGroup *m_userGroup;
     QPushButton *m_nextPage;
     BaseSettings *m_baseSettings;
     MouseSettings *m_mouseSettings;
     MouseSettings *m_touchSettings;
     ThinkpadSettings *m_ThinkapdSettings;
 };
+}
+}
 
 #endif // MOUSEWIDGET_H

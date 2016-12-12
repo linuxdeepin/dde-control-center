@@ -1,5 +1,15 @@
 #include "thinkpadsettings.h"
-
+#include "settingsitem.h"
+#include "switchwidget.h"
+#include "settingsgroup.h"
+#include "../mousemodel.h"
+#include "titledslideritem.h"
+#include "settingshead.h"
+#include "mouse/model/mousemodelthinkpadsettings.h"
+#include "dccslider.h"
+using namespace dcc;
+using namespace dcc::widgets;
+using namespace dcc::mouse;
 ThinkpadSettings::ThinkpadSettings(QWidget *parent)
     : TranslucentFrame(parent)
 {
@@ -9,7 +19,7 @@ ThinkpadSettings::ThinkpadSettings(QWidget *parent)
     m_title->setTitle(tr("Thinkpad Track Point"));
     m_title->setEditEnable(false);
 
-    m_speedSlider = new TitledSliderItem(tr("Pointer Speed"));
+    m_speedSlider = new widgets::TitledSliderItem(tr("Pointer Speed"));
     m_speedSlider->slider()->setType(DCCSlider::Vernier);
     m_speedSlider->slider()->setTickPosition(QSlider::TicksBelow);
     m_speedSlider->slider()->setRange(0, 6);
@@ -21,8 +31,9 @@ ThinkpadSettings::ThinkpadSettings(QWidget *parent)
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
 
-    m_spSlider = m_speedSlider->slider();
-    connect(m_spSlider, &QSlider::valueChanged, this, &ThinkpadSettings::requestSetSliderValue);
+    QSlider *spSlider;
+    spSlider = m_speedSlider->slider();
+    connect(spSlider, &QSlider::valueChanged, this, &ThinkpadSettings::requestSetSliderValue);
     setObjectName("ThinkpadSettings");
 }
 
@@ -30,11 +41,14 @@ void ThinkpadSettings::setModel(MouseModelThinkpadSettings *const baseSettings)
 {
     m_baseSettings = baseSettings;
 
-    connect(m_baseSettings, &MouseModelMouseSettings::sliderValueChanged, this, &ThinkpadSettings::setSliderValue);
+    connect(m_baseSettings, &MouseModelThinkpadSettings::sliderValueChanged, this, &ThinkpadSettings::setSliderValue);
     setSliderValue(m_baseSettings->getSliderValue());
 }
 
 void ThinkpadSettings::setSliderValue(const int &value)
 {
-    m_spSlider->setValue(value);
+    QSlider *spSlider = m_speedSlider->slider();
+    spSlider->blockSignals(true);
+    spSlider->setValue(value);
+    spSlider->blockSignals(false);
 }

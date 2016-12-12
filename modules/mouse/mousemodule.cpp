@@ -1,5 +1,10 @@
 #include "mousemodule.h"
-
+#include "mousewidget.h"
+#include "mousemodel.h"
+#include "mouseworker.h"
+#include "contentwidget.h"
+using namespace dcc;
+using namespace dcc::mouse;
 MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),

@@ -1,5 +1,6 @@
 #include "mousemodelbase.h"
-
+using namespace dcc;
+using namespace dcc::mouse;
 MouseModelBase::MouseModelBase(QObject *parent)
     : QObject(parent)
 {

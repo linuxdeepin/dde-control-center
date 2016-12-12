@@ -1,5 +1,6 @@
 #include "mouseworker.h"
-
+using namespace dcc;
+using namespace dcc::mouse;
 const QString Service = "com.deepin.daemon.InputDevices";
 
 MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
@@ -174,47 +175,47 @@ int MouseWorker::converToDoubleModel(int value)
 {
     return (800 - value )/100;
 }
-
+//conver slider value to real value
 double MouseWorker::converToMotionAcceleration(int value)
 {
     switch (value) {
     case 0:
         return 3.2;
     case 1:
-        return 2.6;
+        return 2.3;
     case 2:
-        return 2.0;
+        return 1.6;
     case 3:
-        return 1.8;
-    case 4:
-        return 1.4;
-    case 5:
         return 1.0;
+    case 4:
+        return 0.6;
+    case 5:
+        return 0.3;
     case 6:
         return 0.2;
     default:
         return 1.0;
     }
 }
-
+//conver real value to slider value
 int MouseWorker::converToModelMotionAcceleration(double value)
 {
     if (value <= 0.2) {
         return 6;
-    } else if (value <= 1.0) {
+    } else if (value <= 0.3) {
         return 5;
-    } else if (value <= 1.4) {
+    } else if (value <= 0.6) {
         return 4;
-    } else if (value <= 1.8) {
+    } else if (value <= 1.0) {
         return 3;
-    } else if (value <= 2.0) {
+    } else if (value <= 1.6) {
         return 2;
-    } else if (value <= 2.6) {
+    } else if (value <= 2.3) {
         return 1;
     } else if (value <= 3.2) {
         return 0;
     } else {
-        return 8;
+        return 3;
     }
 }
 

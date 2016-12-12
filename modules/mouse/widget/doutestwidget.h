@@ -4,8 +4,15 @@
 #include "settingsitem.h"
 #include <QLabel>
 #include <QObject>
-using namespace dcc::widgets;
-class DouTestWidget : public SettingsItem
+namespace dcc
+{
+namespace widgets
+{
+class SettingsItem;
+}
+namespace mouse
+{
+class DouTestWidget : public widgets::SettingsItem
 {
     Q_OBJECT
 public:
@@ -15,5 +22,9 @@ signals:
 
 public slots:
 };
+
+}
+}
+
 
 #endif // DOUTESTWIDGET_H

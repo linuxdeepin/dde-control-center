@@ -1,5 +1,14 @@
 #include "basesettings.h"
-
+#include "settingsgroup.h"
+#include "settingsitem.h"
+#include "switchwidget.h"
+#include "titledslideritem.h"
+#include "../mousemodel.h"
+#include "mouse/model/mousemodelbasesettings.h"
+#include "dccslider.h"
+using namespace dcc;
+using namespace dcc::widgets;
+using namespace dcc::mouse;
 BaseSettings::BaseSettings(QWidget *parent)
     :TranslucentFrame(parent)
 {
@@ -17,7 +26,7 @@ BaseSettings::BaseSettings(QWidget *parent)
     m_mainGroup->appendItem(m_naturalScroll);
     m_mainGroup->appendItem(m_isTyping);
 
-    douSlider = new TitledSliderItem(tr("Double Speed"));
+    douSlider = new widgets::TitledSliderItem(tr("Double Speed"));
     douSlider->slider()->setType(DCCSlider::Vernier);
     douSlider->slider()->setTickPosition(QSlider::TicksBelow);
     douSlider->slider()->setRange(0, 6);
@@ -71,5 +80,7 @@ void BaseSettings::setDisIfTypingState(const bool state)
 void BaseSettings::setSliderValue(const int &value)
 {
     QSlider *slider = douSlider->slider();
+    slider->blockSignals(true);
     slider->setValue(value);
+    slider->blockSignals(false);
 }

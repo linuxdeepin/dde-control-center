@@ -1,15 +1,19 @@
 #include "mousewidget.h"
-
-#include "nextpagewidget.h"
+#include "switchwidget.h"
+#include "contentwidget.h"
 #include "settingsgroup.h"
 #include "nextpagewidget.h"
-#include "switchwidget.h"
+#include "widget/basesettings.h"
+#include  "widget/mousesettings.h"
+#include "widget/thinkpadsettings.h"
+#include "mousemodel.h"
 
 #include <QPushButton>
 #include <QDebug>
 
 using namespace dcc;
-
+using namespace dcc::mouse;
+using namespace dcc::widgets;
 MouseWidget::MouseWidget()
     : ModuleWidget(),
 

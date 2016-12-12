@@ -1,7 +1,11 @@
 #ifndef MOUSEMODELMOUSESETTINGS_H
 #define MOUSEMODELMOUSESETTINGS_H
-#include "mousemodelbase.h"
 #include <QObject>
+#include "mousemodelbase.h"
+namespace dcc
+{
+namespace mouse
+{
 class MouseModelMouseSettings : public MouseModelBase
 {
     Q_OBJECT
@@ -18,5 +22,8 @@ signals:
 private:
     bool m_switchValue;
 };
+}
+}
+
 
 #endif // MOUSEMODELMOUSESETTINGS_H

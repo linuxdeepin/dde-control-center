@@ -18,6 +18,8 @@ using com::deepin::daemon::inputdevice::Mouse;
 using com::deepin::daemon::inputdevice::TouchPad;
 using com::deepin::daemon::inputdevice::TrackPoint;
 
+namespace dcc {
+namespace mouse {
 class MouseWorker : public QObject
 {
     Q_OBJECT
@@ -59,5 +61,9 @@ private:
     TrackPoint *m_dbusTrackPoint;
     MouseModel *m_model;
 };
+}
+}
+
+
 
 #endif // MOUSEWORKER_H

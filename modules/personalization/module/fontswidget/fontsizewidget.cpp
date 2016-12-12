@@ -38,7 +38,9 @@ void FontSizeWidget::setModel(FontSizeModel *const model)
 
 void FontSizeWidget::setFontSize(int size)
 {
+    m_fontSlider->blockSignals(true);
     m_fontSlider->setValue(size);
+    m_fontSlider->blockSignals(false);
     m_sizeWidget->setValueLiteral(delayToLiteralString(size));
 }
 

@@ -1,5 +1,10 @@
 #include "mousemodel.h"
-
+#include "model/mousemodelbase.h"
+#include "model/mousemodelbasesettings.h"
+#include "model/mousemodelmousesettings.h"
+#include "model/mousemodelthinkpadsettings.h"
+using namespace dcc;
+using namespace dcc::mouse;
 MouseModel::MouseModel(QObject *parent)
     :QObject(parent)
 {
