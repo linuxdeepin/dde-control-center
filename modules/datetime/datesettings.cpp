@@ -33,7 +33,6 @@ DateSettings::DateSettings(QWidget *parent)
 {
     setTitle(tr("Date time details"));
     m_clock->setDisplay(true);
-//    setStyleSheet("QWidget{background-color: rgba(25,25,26,70%) }");
 
     TranslucentFrame *widget = new TranslucentFrame;
     QVBoxLayout* layout = new QVBoxLayout(widget);

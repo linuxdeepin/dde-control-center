@@ -16,15 +16,14 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     vlayout->setMargin(1);
     vlayout->setSpacing(1);
     m_city = new QLabel();
-    m_city->setStyleSheet("QLabel{background-color:transparent}");
+    m_city->setObjectName("DCC-Datetime-TimezoneItem-Label");
     m_details = new QLabel();
-    m_details->setStyleSheet("QLabel{background-color:transparent}");
+    m_details->setObjectName("DCC-Datetime-TimezoneItem-Label");
     vlayout->addWidget(m_city);
     vlayout->addWidget(m_details);
 
-    m_removeBtn = new DImageButton(":/datetime/icon/list_delete_normal.png",
-                                   ":/datetime/icon/list_delete_hover.png",
-                                   ":/datetime/icon/list_delete_press.png");
+    m_removeBtn = new DImageButton(this);
+    m_removeBtn->setObjectName("DCC-Datetime-TimezoneItem-Remove");
     m_removeBtn->setFixedSize(18,18);
 
     m_back = new QFrame();

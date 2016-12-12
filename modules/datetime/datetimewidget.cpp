@@ -15,13 +15,12 @@ DateWidget::DateWidget(Type type, QFrame *parent)
 {
     setFixedHeight(36);
     m_lineEdit = new QLineEdit(this);
-    m_addBtn = new DImageButton(":/datetime/icon/add_normal.png",
-                                ":/datetime/icon/add_hover.png",
-                                ":/datetime/icon/add_press.png",this);
+    m_lineEdit->setObjectName("DCC-Datetime-QLineEdit");
+    m_addBtn = new DImageButton(this);
+    m_addBtn->setObjectName("DCC-Datetime-Datewidget-Add");
 
-    m_reducedBtn = new DImageButton(":/datetime/icon/reduce_normal.png",
-                                ":/datetime/icon/reduce_hover.png",
-                                ":/datetime/icon/reduce_press.png",this);
+    m_reducedBtn = new DImageButton(this);
+    m_reducedBtn->setObjectName("DCC-Datetime-Datewidget-Reduce");
 
     if(m_type == Year)
     {
@@ -51,8 +50,6 @@ DateWidget::DateWidget(Type type, QFrame *parent)
 
     m_lineEdit->setAlignment(Qt::AlignCenter);
     m_lineEdit->setText(m_dateText);
-    m_lineEdit->setStyleSheet("QLineEdit{border:0px}");
-    m_lineEdit->setStyleSheet("QLineEdit{background-color: transparent; border: 0px}");
     m_lineEdit->hide();
 
     connect(m_lineEdit, SIGNAL(returnPressed()),this,SLOT(setText()));
@@ -91,7 +88,7 @@ int DateWidget::max() const
 
 void DateWidget::paintEvent(QPaintEvent *e)
 {
-    QWidget::paintEvent(e);
+    SettingsItem::paintEvent(e);
     QPainter painter(this);
     QRect rect = this->rect();
     painter.setRenderHint(QPainter::Antialiasing);
@@ -239,7 +236,7 @@ TimeWidget::TimeWidget(QFrame *parent)
 
     m_hourEdit = new QLineEdit(this);
     m_hourEdit->setFont(m_font);
-    m_hourEdit->setStyleSheet("QLineEdit{background-color: transparent; border: 0px}");
+    m_hourEdit->setObjectName("DCC-Datetime-QLineEdit");
     m_hourEdit->setAlignment(Qt::AlignCenter);
     m_hourEdit->setText(m_hourText);
     m_hourEdit->setValidator(new QIntValidator(0,23,this));
@@ -247,7 +244,7 @@ TimeWidget::TimeWidget(QFrame *parent)
 
     m_minuteEdit = new QLineEdit(this);
     m_minuteEdit->setFont(m_font);
-    m_minuteEdit->setStyleSheet("QLineEdit{background-color: transparent; border: 0px}");
+    m_minuteEdit->setObjectName("DCC-Datetime-QLineEdit");
     m_minuteEdit->setAlignment(Qt::AlignCenter);
     m_minuteEdit->setText(m_minuteText);
     m_minuteEdit->setValidator(new QIntValidator(0,59,this));

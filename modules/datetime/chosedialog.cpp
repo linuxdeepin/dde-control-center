@@ -182,7 +182,7 @@ MapWidget::MapWidget(QWidget *parent)
       m_menu(new QMenu(this)),
       m_curTimezone(Timezone(false))
 {
-    m_map = QPixmap(":/datetime/icon/map.svg");
+    m_map = QPixmap(":/datetime/themes/dark/icons/map.svg");
     setFixedSize(m_map.size());
 
     initData();
