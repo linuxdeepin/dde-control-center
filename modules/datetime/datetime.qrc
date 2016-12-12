@@ -30,5 +30,7 @@
         <file>themes/light/icons/reduce_normal.png</file>
         <file>themes/light/icons/reduce_press.png</file>
         <file>themes/light/icons/reducedisabled.png</file>
+        <file>themes/dark/icons/map.png</file>
+        <file>themes/light/icons/map.png</file>
     </qresource>
 </RCC>
