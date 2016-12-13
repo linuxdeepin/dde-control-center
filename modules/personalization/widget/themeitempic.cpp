@@ -1,21 +1,34 @@
 #include "themeitempic.h"
+
+#include <QPainter>
+#include <QPainterPath>
+
 using namespace dcc;
 using namespace dcc::personalization;
 using namespace dcc::widgets;
+
 ThemeItemPic::ThemeItemPic(const QString &path, QWidget *parent)
-    :TranslucentFrame(parent)
+    :QWidget(parent),
+      m_picPath(path)
 {
-    m_show = new QLabel(this);
-    m_mainLayout = new QVBoxLayout;
+    setFixedSize(320, 70);
+}
 
-    QPixmap pix(path);
-    QPixmap mask(":/personalization/themes/icon/mask.png");
+void ThemeItemPic::paintEvent(QPaintEvent *)
+{
+    QPainter painter(this);
+    painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
 
-    m_show->setMask(mask.mask());
-    m_show->setPixmap(pix);
+    QPainterPath path;
+    path.addRoundedRect(rect(), 5, 5);
 
-    m_mainLayout->addWidget(m_show);
-    m_mainLayout->setMargin(0);
-    setLayout(m_mainLayout);
-    setObjectName("TiemeItemPic");
+    painter.save();
+
+    painter.setClipPath(path);
+    QPixmap pix(m_picPath);
+    painter.drawPixmap(rect(), pix);
+
+    painter.restore();
+
+    painter.end();
 }

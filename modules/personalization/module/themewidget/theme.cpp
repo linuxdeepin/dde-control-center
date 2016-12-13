@@ -19,6 +19,7 @@ Theme::Theme(const QString &title, QWidget *parent)
     m_head->setEditEnable(false);
     m_mainGroup->appendItem(m_head);
     m_mainLayout->addWidget(m_mainGroup);
+    m_mainGroup->setMargin(10, 0, 10, 5);
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
 }

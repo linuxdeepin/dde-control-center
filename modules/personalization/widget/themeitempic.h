@@ -1,14 +1,8 @@
 #ifndef THEMEITEMPIC_H
 #define THEMEITEMPIC_H
 
-#include "translucentframe.h"
-#include <QObject>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QPixmap>
-#include <QBitmap>
-#include <QPaintEvent>
-#include <QPainter>
+#include <QWidget>
+
 namespace dcc
 {
 namespace widgets
@@ -17,17 +11,20 @@ class TranslucentFrame;
 }
 namespace personalization
 {
-class ThemeItemPic : public widgets::TranslucentFrame
+class ThemeItemPic : public QWidget
 {
     Q_OBJECT
 public:
     explicit ThemeItemPic(const QString &path, QWidget *parent = 0);
 
+    void paintEvent(QPaintEvent *event);
+
 private:
-    QVBoxLayout  *m_mainLayout;
-    QLabel       *m_show;
+    QString m_picPath;
 
 };
+
+
 }
 }
 
