@@ -27,10 +27,14 @@ signals:
     void deviceListChanged(const QList<NetworkDevice *> devices) const;
 
 private slots:
-    void onDevicesPropertyChanged(const QString &devices);
+    void onDevicesListChanged(const QString &devices);
     void onDeviceAPListChanged(const QString &device, const QString &apList);
     void onDeviceAPInfoChanged(const QString &device, const QString &apInfo);
     void onDeviceEnableChaned(const QString &device, const bool enabled);
+
+private:
+    bool containsDevice(const QString &devPath) const;
+    NetworkDevice *device(const QString &devPath) const;
 
 private:
     QList<NetworkDevice *> m_devices;

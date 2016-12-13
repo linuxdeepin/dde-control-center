@@ -7,17 +7,17 @@
 
 using namespace dcc::network;
 
-NetworkDevice::NetworkDevice(const DeviceType type, const QJsonObject &data, QObject *parent)
+NetworkDevice::NetworkDevice(const DeviceType type, const QJsonObject &info, QObject *parent)
     : QObject(parent),
 
       m_type(type),
-      m_data(data)
+      m_deviceInfo(info)
 {
 
 }
 
 NetworkDevice::NetworkDevice(const NetworkDevice &device)
-    : NetworkDevice(device.type(), device.data(), device.parent())
+    : NetworkDevice(device.type(), device.info(), device.parent())
 {
 
 }
@@ -32,7 +32,7 @@ void NetworkDevice::setEnabled(const bool enabled)
 
 const QString NetworkDevice::path() const
 {
-    return m_data.value("Path").toString();
+    return m_deviceInfo.value("Path").toString();
 }
 
 void NetworkDevice::setAPList(const QString &apList)
@@ -56,4 +56,9 @@ void NetworkDevice::setAPList(const QString &apList)
 void NetworkDevice::updateAPInfo(const QString &apInfo)
 {
     qDebug() << apInfo;
+}
+
+void NetworkDevice::updateDeviceInfo(const QJsonObject &devInfo)
+{
+    m_deviceInfo = devInfo;
 }

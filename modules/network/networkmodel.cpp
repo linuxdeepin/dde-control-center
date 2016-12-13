@@ -31,25 +31,49 @@ NetworkModel::~NetworkModel()
     qDeleteAll(m_devices);
 }
 
-void NetworkModel::onDevicesPropertyChanged(const QString &devices)
+void NetworkModel::onDevicesListChanged(const QString &devices)
 {
     const QJsonObject data = QJsonDocument::fromJson(devices.toUtf8()).object();
 
-    QList<NetworkDevice *> newList;
+    QSet<QString> devSet;
+
     for (auto it(data.constBegin()); it != data.constEnd(); ++it) {
-        qDebug().noquote() << it.value();
         const auto type = parseDeviceType(it.key());
         const auto list = it.value().toArray();
 
         for (auto const l : list)
         {
-            auto *device = new NetworkDevice(type, l.toObject());
-            newList.append(device);
+            const auto dev = l.toObject();
+            const QString path = dev.value("Path").toString();
+
+            devSet << path;
+
+            NetworkDevice *d = device(path);
+            if (!d)
+            {
+                d = new NetworkDevice(type, dev);
+                m_devices.append(d);
+            } else {
+                d->updateDeviceInfo(dev);
+            }
         }
     }
 
-    qDeleteAll(m_devices);
-    m_devices = newList;
+    // remove unexist device
+    QList<NetworkDevice *> removeList;
+    for (auto const d : m_devices)
+    {
+        if (!devSet.contains(d->path()))
+        {
+            emit d->removed();
+            d->deleteLater();
+            removeList << d;
+        }
+    }
+
+    for (auto const r : removeList)
+        m_devices.removeOne(r);
+
     emit deviceListChanged(m_devices);
 }
 
@@ -85,7 +109,21 @@ void NetworkModel::onDeviceEnableChaned(const QString &device, const bool enable
             break;
         }
     }
-    Q_ASSERT(dev);
 
-    dev->setEnabled(enabled);
+    if (dev)
+        dev->setEnabled(enabled);
+}
+
+bool NetworkModel::containsDevice(const QString &devPath) const
+{
+    return device(devPath) != nullptr;
+}
+
+NetworkDevice *NetworkModel::device(const QString &devPath) const
+{
+    for (auto const d : m_devices)
+        if (d->path() == devPath)
+            return d;
+
+    return nullptr;
 }

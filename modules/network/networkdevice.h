@@ -21,16 +21,17 @@ public:
     };
 
 public:
-    explicit NetworkDevice(const DeviceType type, const QJsonObject &data, QObject *parent = 0);
+    explicit NetworkDevice(const DeviceType type, const QJsonObject &info, QObject *parent = 0);
     explicit NetworkDevice(const NetworkDevice &device);
 
     bool enabled() const { return m_enabled; }
     void setEnabled(const bool enabled);
     DeviceType type() const { return m_type; }
-    const QJsonObject data() const { return m_data; }
+    const QJsonObject info() const { return m_deviceInfo; }
     const QString path() const;
 
 signals:
+    void removed() const;
     void enableChanged(const bool enabled) const;
     void apAdded(const QJsonObject &apInfo);
     void apInfoChanged(const QJsonObject &apInfo);
@@ -39,10 +40,11 @@ signals:
 public slots:
     void setAPList(const QString &apList);
     void updateAPInfo(const QString &apInfo);
+    void updateDeviceInfo(const QJsonObject &devInfo);
 
 private:
     const DeviceType m_type;
-    const QJsonObject m_data;
+    QJsonObject m_deviceInfo;
 
     bool m_enabled;
 

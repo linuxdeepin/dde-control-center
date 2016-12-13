@@ -10,11 +10,11 @@ NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
 
       m_networkModel(model)
 {
-    connect(&m_networkInter, &NetworkInter::DevicesChanged, m_networkModel, &NetworkModel::onDevicesPropertyChanged);
+    connect(&m_networkInter, &NetworkInter::DevicesChanged, m_networkModel, &NetworkModel::onDevicesListChanged);
     connect(&m_networkInter, &NetworkInter::DeviceEnabled, m_networkModel, &NetworkModel::onDeviceEnableChaned);
     connect(&m_networkInter, &NetworkInter::AccessPointPropertiesChanged, m_networkModel, &NetworkModel::onDeviceAPInfoChanged);
 
-    m_networkModel->onDevicesPropertyChanged(m_networkInter.devices());
+    m_networkModel->onDevicesListChanged(m_networkInter.devices());
 }
 
 void NetworkWorker::setDeviceEnable(const QString &devPath, const bool enable)

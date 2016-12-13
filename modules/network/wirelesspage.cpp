@@ -43,6 +43,7 @@ WirelessPage::WirelessPage(NetworkDevice *dev, QWidget *parent)
     connect(dev, &NetworkDevice::apAdded, this, &WirelessPage::onAPAdded);
     connect(dev, &NetworkDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
     connect(dev, &NetworkDevice::apRemoved, this, &WirelessPage::onAPRemoved);
+    connect(dev, &NetworkDevice::removed, this, &WirelessPage::back);
     m_switchBtn->setChecked(dev->enabled());
 
     // init data
