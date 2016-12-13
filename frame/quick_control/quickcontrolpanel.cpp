@@ -9,7 +9,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
       m_itemStack(new QStackedLayout)
 {
-    m_itemStack->addWidget(new BasicSettingsPage);
+    m_itemStack->addWidget(new dcc::BasicSettingsPage);
 
     QuickSwitchButton *btSwitch = new QuickSwitchButton(0);
     QuickSwitchButton *vpnSwitch = new QuickSwitchButton(1);

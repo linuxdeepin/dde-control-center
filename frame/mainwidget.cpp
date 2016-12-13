@@ -88,6 +88,7 @@ MainWidget::MainWidget(Frame *parent)
     centeralLayout->addLayout(m_pluginsLayout);
     centeralLayout->addWidget(m_pluginsIndicator);
     centeralLayout->addWidget(m_nextPluginBtn);
+    centeralLayout->addStretch();
     centeralLayout->addWidget(m_quickSettingsPanel);
     centeralLayout->setSpacing(0);
     centeralLayout->setMargin(0);
