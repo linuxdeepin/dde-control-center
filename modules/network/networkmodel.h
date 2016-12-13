@@ -28,6 +28,8 @@ signals:
 
 private slots:
     void onDevicesPropertyChanged(const QString &devices);
+    void onDeviceAPListChanged(const QString &device, const QString &apList);
+    void onDeviceAPInfoChanged(const QString &device, const QString &apInfo);
     void onDeviceEnableChaned(const QString &device, const bool enabled);
 
 private:

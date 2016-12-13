@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QJsonObject>
+#include <QSet>
 
 namespace dcc {
 
@@ -31,12 +32,21 @@ public:
 
 signals:
     void enableChanged(const bool enabled) const;
+    void apAdded(const QJsonObject &apInfo);
+    void apInfoChanged(const QJsonObject &apInfo);
+    void apRemoved(const QString &ssid);
+
+public slots:
+    void setAPList(const QString &apList);
+    void updateAPInfo(const QString &apInfo);
 
 private:
     const DeviceType m_type;
     const QJsonObject m_data;
 
     bool m_enabled;
+
+    QSet<QString> m_ssidSet;
 };
 
 }   // namespace network

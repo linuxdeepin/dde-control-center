@@ -53,6 +53,27 @@ void NetworkModel::onDevicesPropertyChanged(const QString &devices)
     emit deviceListChanged(m_devices);
 }
 
+void NetworkModel::onDeviceAPListChanged(const QString &device, const QString &apList)
+{
+    for (auto const dev : m_devices)
+    {
+        if (dev->path() != device)
+            continue;
+        return dev->setAPList(apList);
+    }
+}
+
+void NetworkModel::onDeviceAPInfoChanged(const QString &device, const QString &apInfo)
+{
+    for (auto const dev : m_devices)
+    {
+        if (dev->path() != device)
+            continue;
+        return dev->updateAPInfo(apInfo);
+    }
+}
+
+
 void NetworkModel::onDeviceEnableChaned(const QString &device, const bool enabled)
 {
     NetworkDevice *dev = nullptr;

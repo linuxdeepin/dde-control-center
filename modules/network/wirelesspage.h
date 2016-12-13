@@ -3,6 +3,8 @@
 
 #include "contentwidget.h"
 
+#include <QMap>
+
 namespace dcc {
 
 namespace widgets {
@@ -12,6 +14,7 @@ class SwitchWidget;
 
 namespace network {
 
+class AccessPointWidget;
 class NetworkModel;
 class NetworkDevice;
 class WirelessPage : public ContentWidget
@@ -23,7 +26,13 @@ public:
 
     void setModel(NetworkModel *model);
 
+public slots:
+    void onAPAdded(const QJsonObject &apInfo);
+    void onAPChanged(const QJsonObject &apInfo);
+    void onAPRemoved(const QString &ssid);
+
 signals:
+    void requestDeviceAPList(const QString &devPath) const;
     void requestDeviceEnabled(const QString &devPath, const bool enabled) const;
 
 private:
@@ -32,6 +41,8 @@ private:
 
     dcc::widgets::SettingsGroup *m_listGroup;
     dcc::widgets::SwitchWidget *m_switchBtn;
+
+    QMap<QString, AccessPointWidget *> m_apItems;
 };
 
 }   // namespace dcc

@@ -8,7 +8,7 @@
 DWIDGET_USE_NAMESPACE
 
 using namespace dcc::widgets;
-using namespace dcc::netowrk;
+using namespace dcc::network;
 
 AccessPointWidget::AccessPointWidget(QWidget *parent)
     : SettingsItem(parent),

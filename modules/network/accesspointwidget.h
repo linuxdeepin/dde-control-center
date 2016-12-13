@@ -18,7 +18,7 @@ class DImageButton;
 
 namespace dcc {
 
-namespace netowrk {
+namespace network {
 
 class AccessPointWidget : public dcc::widgets::SettingsItem
 {
