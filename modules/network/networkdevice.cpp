@@ -16,10 +16,9 @@ NetworkDevice::NetworkDevice(const DeviceType type, const QJsonObject &info, QOb
 
 }
 
-NetworkDevice::NetworkDevice(const NetworkDevice &device)
-    : NetworkDevice(device.type(), device.info(), device.parent())
+NetworkDevice::~NetworkDevice()
 {
-
+    emit removed();
 }
 
 void NetworkDevice::setEnabled(const bool enabled)
@@ -33,29 +32,6 @@ void NetworkDevice::setEnabled(const bool enabled)
 const QString NetworkDevice::path() const
 {
     return m_deviceInfo.value("Path").toString();
-}
-
-void NetworkDevice::setAPList(const QString &apList)
-{
-    m_ssidSet.clear();
-
-    const QJsonArray aps = QJsonDocument::fromJson(apList.toUtf8()).array();
-    for (auto const item : aps)
-    {
-        const auto ap = item.toObject();
-        const auto ssid = ap.value("Ssid").toString();
-
-        if (m_ssidSet.contains(ssid))
-            continue;
-        m_ssidSet << ssid;
-
-        emit apAdded(ap);
-    }
-}
-
-void NetworkDevice::updateAPInfo(const QString &apInfo)
-{
-    qDebug() << apInfo;
 }
 
 void NetworkDevice::updateDeviceInfo(const QJsonObject &devInfo)

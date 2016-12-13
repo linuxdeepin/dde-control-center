@@ -5,6 +5,7 @@
 #include "networkworker.h"
 #include "networkmodel.h"
 #include "wirelesspage.h"
+#include "wirelessdevice.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -72,7 +73,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
 
     if (dev->type() == NetworkDevice::Wireless)
     {
-        WirelessPage *p = new WirelessPage(dev);
+        WirelessPage *p = new WirelessPage(static_cast<WirelessDevice *>(dev));
         connect(p, &WirelessPage::requestDeviceStatus, m_networkWorker, &NetworkWorker::queryDeviceStatus);
         connect(p, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
         connect(p, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);

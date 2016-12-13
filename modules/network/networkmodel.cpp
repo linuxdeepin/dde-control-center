@@ -1,5 +1,7 @@
 #include "networkmodel.h"
 #include "networkdevice.h"
+#include "wirelessdevice.h"
+#include "wireddevice.h"
 
 #include <QDebug>
 #include <QJsonDocument>
@@ -43,18 +45,23 @@ void NetworkModel::onDevicesListChanged(const QString &devices)
 
         for (auto const l : list)
         {
-            const auto dev = l.toObject();
-            const QString path = dev.value("Path").toString();
+            const auto info = l.toObject();
+            const QString path = info.value("Path").toString();
 
             devSet << path;
 
             NetworkDevice *d = device(path);
             if (!d)
             {
-                d = new NetworkDevice(type, dev);
+                switch (type)
+                {
+                case NetworkDevice::Wireless:   d = new WirelessDevice(info, this);      break;
+                case NetworkDevice::Wired:      d = new WiredDevice(info, this);         break;
+                default:;
+                }
                 m_devices.append(d);
             } else {
-                d->updateDeviceInfo(dev);
+                d->updateDeviceInfo(info);
             }
         }
     }
@@ -64,15 +71,12 @@ void NetworkModel::onDevicesListChanged(const QString &devices)
     for (auto const d : m_devices)
     {
         if (!devSet.contains(d->path()))
-        {
-            emit d->removed();
-            d->deleteLater();
             removeList << d;
-        }
     }
 
     for (auto const r : removeList)
         m_devices.removeOne(r);
+    qDeleteAll(removeList);
 
     emit deviceListChanged(m_devices);
 }
@@ -81,9 +85,9 @@ void NetworkModel::onDeviceAPListChanged(const QString &device, const QString &a
 {
     for (auto const dev : m_devices)
     {
-        if (dev->path() != device)
+        if (dev->type() != NetworkDevice::Wireless || dev->path() != device)
             continue;
-        return dev->setAPList(apList);
+        return static_cast<WirelessDevice *>(dev)->setAPList(apList);
     }
 }
 
@@ -91,9 +95,9 @@ void NetworkModel::onDeviceAPInfoChanged(const QString &device, const QString &a
 {
     for (auto const dev : m_devices)
     {
-        if (dev->path() != device)
+        if (dev->type() != NetworkDevice::Wireless || dev->path() != device)
             continue;
-        return dev->updateAPInfo(apInfo);
+        return static_cast<WirelessDevice *>(dev)->updateAPInfo(apInfo);
     }
 }
 

@@ -1,6 +1,6 @@
 #include "wirelesspage.h"
+#include "wirelessdevice.h"
 #include "accesspointwidget.h"
-#include "networkdevice.h"
 #include "settingsgroup.h"
 #include "switchwidget.h"
 #include "translucentframe.h"
@@ -11,7 +11,7 @@
 using namespace dcc::widgets;
 using namespace dcc::network;
 
-WirelessPage::WirelessPage(NetworkDevice *dev, QWidget *parent)
+WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     : ContentWidget(parent),
 
       m_device(dev),
@@ -39,11 +39,11 @@ WirelessPage::WirelessPage(NetworkDevice *dev, QWidget *parent)
 
     connect(&m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
     connect(m_switchBtn, &SwitchWidget::checkedChanegd, [=](const bool enabled) { emit requestDeviceEnabled(m_device->path(), enabled); });
-    connect(dev, &NetworkDevice::enableChanged, m_switchBtn, &SwitchWidget::setChecked);
-    connect(dev, &NetworkDevice::apAdded, this, &WirelessPage::onAPAdded);
-    connect(dev, &NetworkDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
-    connect(dev, &NetworkDevice::apRemoved, this, &WirelessPage::onAPRemoved);
-    connect(dev, &NetworkDevice::removed, this, &WirelessPage::back);
+    connect(dev, &WirelessDevice::enableChanged, m_switchBtn, &SwitchWidget::setChecked);
+    connect(dev, &WirelessDevice::apAdded, this, &WirelessPage::onAPAdded);
+    connect(dev, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
+    connect(dev, &WirelessDevice::apRemoved, this, &WirelessPage::onAPRemoved);
+    connect(dev, &WirelessDevice::removed, this, &WirelessPage::back);
     m_switchBtn->setChecked(dev->enabled());
 
     // init data

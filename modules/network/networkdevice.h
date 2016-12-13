@@ -21,8 +21,7 @@ public:
     };
 
 public:
-    explicit NetworkDevice(const DeviceType type, const QJsonObject &info, QObject *parent = 0);
-    explicit NetworkDevice(const NetworkDevice &device);
+    virtual ~NetworkDevice();
 
     bool enabled() const { return m_enabled; }
     void setEnabled(const bool enabled);
@@ -33,22 +32,18 @@ public:
 signals:
     void removed() const;
     void enableChanged(const bool enabled) const;
-    void apAdded(const QJsonObject &apInfo);
-    void apInfoChanged(const QJsonObject &apInfo);
-    void apRemoved(const QString &ssid);
 
 public slots:
-    void setAPList(const QString &apList);
-    void updateAPInfo(const QString &apInfo);
     void updateDeviceInfo(const QJsonObject &devInfo);
+
+protected:
+    explicit NetworkDevice(const DeviceType type, const QJsonObject &info, QObject *parent = 0);
 
 private:
     const DeviceType m_type;
     QJsonObject m_deviceInfo;
 
     bool m_enabled;
-
-    QSet<QString> m_ssidSet;
 };
 
 }   // namespace network

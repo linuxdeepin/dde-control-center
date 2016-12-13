@@ -17,13 +17,13 @@ namespace network {
 
 class AccessPointWidget;
 class NetworkModel;
-class NetworkDevice;
+class WirelessDevice;
 class WirelessPage : public ContentWidget
 {
     Q_OBJECT
 
 public:
-    explicit WirelessPage(NetworkDevice *dev, QWidget *parent = 0);
+    explicit WirelessPage(WirelessDevice *dev, QWidget *parent = 0);
 
     void setModel(NetworkModel *model);
 
@@ -41,7 +41,7 @@ private slots:
     void sortAPList();
 
 private:
-    NetworkDevice *m_device;
+    WirelessDevice *m_device;
     NetworkModel *m_model;
 
     dcc::widgets::SettingsGroup *m_listGroup;
