@@ -11,6 +11,7 @@
 
 #include <QFrame>
 #include <QStack>
+#include <QPropertyAnimation>
 
 using XMouseArea = com::deepin::api::XMouseArea;
 using DBusDisplay = com::deepin::daemon::Display;
@@ -58,6 +59,9 @@ private:
 
     QString m_mouseAreaKey;
     QStack<FrameWidget *> m_frameWidgetStack;
+
+    QRect m_primaryRect;
+    QPropertyAnimation m_appearAnimation;
 
     bool m_autoHide;
 };

@@ -15,25 +15,24 @@ static void BlurWindowBackground(const WId windowId, const QRect &region)
     xcb_connection_t *connection = QX11Info::connection();
     const char *name = "_NET_WM_DEEPIN_BLUR_REGION";
     xcb_intern_atom_cookie_t cookie = xcb_intern_atom(connection,
-                                                      0,
-                                                      strlen(name),
-                                                      name);
+                                      0,
+                                      strlen(name),
+                                      name);
 
     xcb_intern_atom_reply_t *reply = xcb_intern_atom_reply(connection,
-                                                           cookie,
-                                                           NULL);
-    if (reply)
-    {
+                                     cookie,
+                                     NULL);
+    if (reply) {
         const int data[] = {region.x(), region.y(), region.width(), region.height()};
 
-        xcb_change_property(connection,
-                            XCB_PROP_MODE_REPLACE,
-                            windowId,
-                            reply->atom,
-                            XCB_ATOM_CARDINAL,
-                            32,
-                            4,
-                            data);
+        xcb_change_property_checked(connection,
+                                    XCB_PROP_MODE_REPLACE,
+                                    windowId,
+                                    reply->atom,
+                                    XCB_ATOM_CARDINAL,
+                                    32,
+                                    4,
+                                    data);
         xcb_flush(connection);
 
         free(reply);
@@ -41,6 +40,7 @@ static void BlurWindowBackground(const WId windowId, const QRect &region)
 }
 
 #define BUTTON_LEFT 1
+#define FRAME_WIDTH 360
 
 Frame::Frame(QWidget *parent)
     : QFrame(parent),
@@ -50,13 +50,19 @@ Frame::Frame(QWidget *parent)
       m_mouseAreaInter(new XMouseArea("com.deepin.api.XMouseArea", "/com/deepin/api/XMouseArea", QDBusConnection::sessionBus(), this)),
       m_displayInter(new DBusDisplay("com.deepin.daemon.Display", "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)),
 
+      m_primaryRect(m_displayInter->primaryRect()),
+      m_appearAnimation(this, "geometry"),
+
       m_autoHide(true)
 {
+    // set async
     m_displayInter->setSync(false);
+
+    m_appearAnimation.setEasingCurve(QEasingCurve::OutCubic);
 
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
-    setFixedWidth(360);
+    setFixedWidth(FRAME_WIDTH);
 
     connect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased);
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
@@ -118,14 +124,11 @@ void Frame::init()
 {
     // main page
     MainWidget *w = new MainWidget(this);
-    w->setVisible(false);
-
     connect(w, &MainWidget::showAllSettings, this, &Frame::showAllSettings);
-
     m_frameWidgetStack.push(w);
 
     // frame position adjust
-    onScreenRectChanged(m_displayInter->primaryRect());
+    onScreenRectChanged(m_primaryRect);
 
 #ifdef QT_DEBUG
     showSettingsPage("network", QString());
@@ -139,8 +142,7 @@ void Frame::setAutoHide(const bool autoHide)
 
 void Frame::showAllSettings()
 {
-    if (!m_allSettingsPage)
-    {
+    if (!m_allSettingsPage) {
         m_allSettingsPage = new SettingsWidget(this);
 
         connect(m_allSettingsPage, &SettingsWidget::requestAutohide, this, &Frame::setAutoHide);
@@ -166,8 +168,9 @@ void Frame::contentDetached(QWidget *const c)
     ContentWidget *cw = qobject_cast<ContentWidget *>(c);
     Q_ASSERT(cw);
 
-    if (cw != m_allSettingsPage)
+    if (cw != m_allSettingsPage) {
         return m_allSettingsPage->contentPopuped(cw);
+    }
 
     // delete all settings panel
     m_allSettingsPage->deleteLater();
@@ -177,27 +180,34 @@ void Frame::contentDetached(QWidget *const c)
 void Frame::onScreenRectChanged(const QRect &primaryRect)
 {
     // pass invalid data
-    if (primaryRect.isEmpty())
+    if (primaryRect.isEmpty()) {
         return;
+    }
 
-    setFixedHeight(primaryRect.height());
-    QFrame::move(primaryRect.right() - width() + 1, primaryRect.y());
+    m_primaryRect = primaryRect;
+
+    setFixedHeight(m_primaryRect.height());
+    QFrame::move(m_primaryRect.right() - width() + 1, m_primaryRect.y());
 }
 
 void Frame::onMouseButtonReleased(const int button, const int x, const int y, const QString &key)
 {
-    if (button != BUTTON_LEFT)
+    if (button != BUTTON_LEFT) {
         return;
+    }
 
-    if (!m_autoHide)
+    if (!m_autoHide) {
         return;
+    }
 
-    if (key != m_mouseAreaKey)
+    if (key != m_mouseAreaKey) {
         return;
+    }
 
     const QPoint p(pos());
-    if (rect().contains(x - p.x(), y - p.y()))
+    if (rect().contains(x - p.x(), y - p.y())) {
         return;
+    }
 
     // ready to hide frame
     hide();
@@ -207,8 +217,7 @@ void Frame::keyPressEvent(QKeyEvent *e)
 {
     QFrame::keyPressEvent(e);
 
-    switch (e->key())
-    {
+    switch (e->key()) {
 #ifdef QT_DEBUG
     case Qt::Key_Escape:
         qApp->quit();
@@ -223,8 +232,16 @@ void Frame::keyPressEvent(QKeyEvent *e)
 
 void Frame::show()
 {
+    // animation
+    QRect r = m_primaryRect;
+    r.setLeft(m_primaryRect.x() + m_primaryRect.width());
+    m_appearAnimation.setStartValue(r);
+    r.setLeft(m_primaryRect.x() + m_primaryRect.width() - FRAME_WIDTH);
+    m_appearAnimation.setEndValue(r);
+    m_appearAnimation.start();
+
+    // show frame
     QFrame::show();
-    QTimer::singleShot(0, this, [=] { m_frameWidgetStack.last()->show(); });
 
     // register global mouse area
     m_mouseAreaKey = m_mouseAreaInter->RegisterFullScreen();
@@ -232,13 +249,17 @@ void Frame::show()
 
 void Frame::hide()
 {
+    // reset auto-hide
     m_autoHide = true;
 
-    FrameWidget *w = m_frameWidgetStack.last();
+    // animation
+    QRect r = m_primaryRect;
+    r.setLeft(m_primaryRect.x() + m_primaryRect.width());
+    m_appearAnimation.setStartValue(geometry());
+    m_appearAnimation.setEndValue(r);
+    m_appearAnimation.start();
 
-    w->hideBack();
-
-    QTimer::singleShot(w->animationDuration(), this, &QFrame::hide);
+    QTimer::singleShot(m_appearAnimation.duration(), this, &QFrame::hide);
 
     // unregister global mouse area
     m_mouseAreaInter->UnregisterArea(m_mouseAreaKey);
