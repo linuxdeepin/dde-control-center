@@ -1,10 +1,12 @@
 #ifndef CATEGORY_H
 #define CATEGORY_H
-
 #include <QObject>
 #include <QList>
 #include <QJsonObject>
-#include <QDebug>
+namespace dcc
+{
+namespace defapp
+{
 class Category : public QObject
 {
     Q_OBJECT
@@ -36,5 +38,7 @@ private:
     QString m_category;
     QString m_id;
 };
+}
+}
 
 #endif // CATEGORY_H

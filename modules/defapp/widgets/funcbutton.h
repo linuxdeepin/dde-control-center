@@ -5,7 +5,10 @@
 #include <QLabel>
 #include <QEvent>
 #include <QMouseEvent>
-
+namespace dcc
+{
+namespace defapp
+{
 class FuncButton : public QLabel
 {
     Q_OBJECT
@@ -22,5 +25,8 @@ protected:
     void mouseReleaseEvent(QMouseEvent * event) Q_DECL_OVERRIDE;
 
 };
+}
+}
+
 
 #endif // FUNCBUTTON_H

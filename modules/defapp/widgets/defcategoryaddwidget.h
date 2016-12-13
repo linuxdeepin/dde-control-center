@@ -5,10 +5,15 @@
 #include "funcbutton.h"
 #include <QObject>
 #include <QFileInfo>
-
-using namespace dcc::widgets;
-
-class DefCategoryAddWidget : public SettingsItem
+namespace dcc
+{
+namespace widgets {
+class SettingsItem;
+}
+namespace defapp
+{
+class FuncButton;
+class DefCategoryAddWidget : public widgets::SettingsItem
 {
     Q_OBJECT
 public:
@@ -27,6 +32,9 @@ private:
     FuncButton *m_add;
     QString m_category;
 };
+}
+}
+
 
 
 #endif // DEFCATEGORYADDWIDGET_H

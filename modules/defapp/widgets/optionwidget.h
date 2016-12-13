@@ -8,17 +8,15 @@
 #include <QLabel>
 #include <QMouseEvent>
 #include <QDebug>
-#include <QPushButton>
 #include <dimagebutton.h>
-#include <QPixmap>
 #include <QJsonObject>
-#include <QIcon>
+#include <QObject>
 
 namespace dcc
 {
-
+namespace defapp
+{
 DWIDGET_USE_NAMESPACE
-
 class OptionWidget : public widgets::SettingsItem
 {
     Q_OBJECT
@@ -64,7 +62,9 @@ Q_SIGNALS:
     void setDefault();
     void checkedChanged(const bool checked) const;
 };
-
 }
+}
+
+
 
 #endif // OPTIONWIDGET_H

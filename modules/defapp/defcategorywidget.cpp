@@ -3,9 +3,16 @@
 #include "settingsgroup.h"
 #include "nextpagewidget.h"
 #include "switchwidget.h"
-
+#include "contentwidget.h"
+#include "settingsgroup.h"
+#include "widgets/optionwidget.h"
+#include "model/category.h"
+#include "defappmodel.h"
+#include "widgets/defcategoryaddwidget.h"
+#include "settingshead.h"
 using namespace dcc;
-
+using namespace dcc::defapp;
+using namespace dcc::widgets;
 DefCategoryWidget::DefCategoryWidget(const QString &name, QWidget *parent)
     : ModuleWidget()
 {

@@ -2,18 +2,21 @@
 #define DEFCATEGORYWIDGET_H
 
 #include "modulewidget.h"
-#include "contentwidget.h"
-#include "settingsgroup.h"
-#include "widgets/optionwidget.h"
-#include "defappmodel.h"
-#include "widgets/defcategoryaddwidget.h"
-#include "settingshead.h"
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QMap>
-
-using namespace dcc;
-
+#include <QJsonObject>
+namespace dcc
+{
+namespace widgets {
+class SettingsHead;
+class SettingsGroup;
+}
+namespace defapp
+{
+class DefCategoryAddWidget;
+class Category;
+class OptionWidget;
 class DefCategoryWidget : public ModuleWidget
 {
     Q_OBJECT
@@ -40,18 +43,21 @@ private:
     void removeItem(const QJsonObject &item);
 
 private:
-    dcc::widgets::SettingsGroup    *m_userGroup;
+    widgets::SettingsGroup    *m_userGroup;
     QWidget               *m_listWidget;
     QVBoxLayout           *m_listLayout;
     OptionWidget          *m_optionWidget;
     QLayoutItem           *m_userGroupLayout;
     DefCategoryAddWidget  *m_addWidget;
-    SettingsHead          *m_headWidget;
+    widgets::SettingsHead *m_headWidget;
     QString                m_categoryName;
     Category              *m_category;
     QMap<QString, OptionWidget *> m_mainMap;
     QMap<QString, OptionWidget *> m_userMap;
     QMap<OptionWidget *, QJsonObject>  m_valueMap;
 };
+
+}
+}
 
 #endif // DEFCATEGORYWIDGET_H

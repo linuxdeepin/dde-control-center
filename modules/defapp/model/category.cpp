@@ -1,5 +1,7 @@
 #include "category.h"
-
+#include <QDebug>
+using namespace dcc;
+using namespace dcc::defapp;
 Category::Category(QObject *parent)
     : QObject(parent)
 {

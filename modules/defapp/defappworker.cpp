@@ -1,11 +1,14 @@
 #include "defappworker.h"
+#include "defappmodel.h"
+#include "defapp/model/category.h"
 #include "widgets/optionwidget.h"
 #include <QStringList>
 #include <QList>
 #include <QFileInfo>
 const QString ManagerService = "com.deepin.api.Mime";
 const QString MediaService   = "com.deepin.api.Mime";
-
+using namespace dcc;
+using namespace dcc::defapp;
 DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     QObject(parent),
     m_defAppModel(model),

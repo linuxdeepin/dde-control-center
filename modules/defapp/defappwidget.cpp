@@ -1,15 +1,13 @@
 #include "defappwidget.h"
-
-#include "nextpagewidget.h"
-#include "settingsgroup.h"
 #include "nextpagewidget.h"
 #include "switchwidget.h"
-
+#include "settingsgroup.h"
 #include <QPushButton>
 #include <QDebug>
 
+using namespace dcc;
+using namespace dcc::defapp;
 using namespace dcc::widgets;
-
 DefaultAppsWidget::DefaultAppsWidget()
     : ModuleWidget(),
 
@@ -20,7 +18,7 @@ DefaultAppsWidget::DefaultAppsWidget()
     m_centeralLayout->addWidget(m_userGroup);
 
     m_nextPage = new QPushButton;
-    m_nextPage->setText("Set Default Applications >");
+    m_nextPage->setText("Default Applications");
     m_centeralLayout->addWidget(m_nextPage);
     m_centeralLayout->addStretch(0);
 

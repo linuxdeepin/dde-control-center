@@ -1,6 +1,9 @@
+#include <QIcon>
 #include "optionwidget.h"
-
-dcc::OptionWidget::OptionWidget(QWidget *parent)
+using namespace dcc;
+using namespace dcc::defapp;
+using namespace dcc::widgets;
+OptionWidget::OptionWidget(QWidget *parent)
     :SettingsItem(parent),
       m_delete(new DImageButton)
 {
@@ -8,7 +11,7 @@ dcc::OptionWidget::OptionWidget(QWidget *parent)
     m_checkedIconLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_optionIcon = new QLabel;
     m_optionIcon->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_displayName = new dcc::widgets::NormalLabel;
+    m_displayName = new NormalLabel;
     m_displayName->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     m_execPath = new QLabel;
@@ -50,7 +53,7 @@ dcc::OptionWidget::OptionWidget(QWidget *parent)
     setObjectName("OptionWidget");
 }
 
-void dcc::OptionWidget::setItem(const QJsonObject &item)
+void OptionWidget::setItem(const QJsonObject &item)
 {
     m_CategoryItem = item;
     if (item["DisplayName"].toString().isEmpty()) {
@@ -64,7 +67,7 @@ void dcc::OptionWidget::setItem(const QJsonObject &item)
         m_optionIcon->setPixmap(icon.pixmap(QSize(17,17)));
     }
 }
-void dcc::OptionWidget::setDelete(const bool delchecked)     //删除
+void OptionWidget::setDelete(const bool delchecked)     //删除
 {
     if (m_userCheck) {
         if (delchecked) {
@@ -79,42 +82,42 @@ void dcc::OptionWidget::setDelete(const bool delchecked)     //删除
     }
 }
 
-void dcc::OptionWidget::setMime(const QString &mime)
+void OptionWidget::setMime(const QString &mime)
 {
     m_mime = mime;
 }
 
-void dcc::OptionWidget::setUserCheck(const bool check)
+void OptionWidget::setUserCheck(const bool check)
 {
     m_userCheck = check;
 }
 
-const QString dcc::OptionWidget::id() const
+const QString OptionWidget::id() const
 {
     return m_CategoryItem["Id"].toString();
 }
 
-const QString dcc::OptionWidget::name() const
+const QString OptionWidget::name() const
 {
     return m_CategoryItem["Name"].toString();
 }
 
-const QString dcc::OptionWidget::displayName() const
+const QString OptionWidget::displayName() const
 {
     return m_displayName->text();
 }
 
-const QString dcc::OptionWidget::mime() const
+const QString OptionWidget::mime() const
 {
     return m_mime;
 }
 
-bool dcc::OptionWidget::checked() const
+bool OptionWidget::checked() const
 {
     return m_checked;
 }
 
-void dcc::OptionWidget::setChecked(const bool checked)      //判断是否显示设置图标
+void OptionWidget::setChecked(const bool checked)      //判断是否显示设置图标
 {
     m_checkedIconLabel->setVisible(checked);
     m_delete->setVisible(false);
@@ -123,23 +126,23 @@ void dcc::OptionWidget::setChecked(const bool checked)      //判断是否显示
     emit checkedChanged(m_checked);
 }
 
-void dcc::OptionWidget::setCheckedIcon(const QPixmap &icon)
+void OptionWidget::setCheckedIcon(const QPixmap &icon)
 {
     //set default checkIcon
     m_checkedIconLabel->setPixmap(icon);
 }
 
-bool dcc::OptionWidget::userCheck() const
+bool OptionWidget::userCheck() const
 {
     return m_userCheck;
 }
 
-QHBoxLayout *dcc::OptionWidget::layout()
+QHBoxLayout *OptionWidget::layout()
 {
     return m_mainlayout;
 }
 
-void dcc::OptionWidget::mouseReleaseEvent(QMouseEvent *)
+void OptionWidget::mouseReleaseEvent(QMouseEvent *)
 {
     if (QMouseEvent::MouseButtonRelease) {
         //do someting

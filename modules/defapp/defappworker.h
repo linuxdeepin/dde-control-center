@@ -1,15 +1,17 @@
 #ifndef DEFAPPWORKER_H
 #define DEFAPPWORKER_H
 
-#include "defappmodel.h"
 #include <com_deepin_api_manager.h>
 #include <com_deepin_api_media.h>
 #include <QObject>
-
-
 using com::deepin::api::Manager;
 using com::deepin::api::Media;
-
+namespace dcc
+{
+namespace defapp
+{
+class DefAppModel;
+class Category;
 class DefAppWorker : public QObject
 {
     Q_OBJECT
@@ -54,5 +56,7 @@ private:
     bool isMediaApps(const DefaultAppsCategory &category) const;
     Category* getCategory(const QString &mime) const;
 };
+}
+}
 
 #endif // DEFAPPWORKER_H

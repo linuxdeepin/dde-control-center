@@ -1,5 +1,21 @@
 #include "defaultappsmodule.h"
+#include "defcategorywidget.h"
+#include "switchwidget.h"
+#include "defappwidget.h"
+#include "defappviewer.h"
+#include "defappmodel.h"
+#include "defappworker.h"
 
+#include <QObject>
+#include <QWidget>
+#include <QPushButton>
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QScrollArea>
+#include <QDebug>
+using namespace dcc;
+using namespace dcc::defapp;
 DefaultAppsModule::DefaultAppsModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),

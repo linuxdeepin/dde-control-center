@@ -1,6 +1,8 @@
 #include "defappmodel.h"
 #include <string.h>
-
+#include "model/category.h"
+using namespace dcc;
+using namespace dcc::defapp;
 DefAppModel::DefAppModel(QObject *parent)
     :QObject(parent)
 {

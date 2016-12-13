@@ -1,9 +1,13 @@
 ﻿#ifndef DEFAPPMODEL_H
 #define DEFAPPMODEL_H
 
-#include "model/category.h"
 #include <QObject>
 #include <QDebug>
+namespace dcc
+{
+namespace defapp
+{
+class Category;
 class DefAppModel : public QObject
 {
     Q_OBJECT
@@ -43,5 +47,9 @@ private:
     Category *m_modCamera;
     Category *m_modSoftware;
 };
+}
+}
+
+
 
 #endif // DEFAPPMODEL_H

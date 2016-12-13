@@ -1,7 +1,8 @@
 #include "defcategoryaddwidget.h"
+#include "funcbutton.h"
+#include <QObject>
 #include <QHBoxLayout>
-#include <QMouseEvent>
-#include <QPushButton>
+
 #include <QLabel>
 #include <QFileDialog>
 #include <QDesktopWidget>
@@ -14,7 +15,8 @@
 #include <sys/types.h>    // defines special types
 #include <pwd.h>    // defines the passwd structure
 #include <unistd.h>//header for getuid system call
-
+using namespace dcc;
+using namespace dcc::defapp;
 DefCategoryAddWidget::DefCategoryAddWidget(QWidget *parent)
     : SettingsItem(parent)
 {

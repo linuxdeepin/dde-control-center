@@ -1,4 +1,6 @@
 #include "funcbutton.h"
+using namespace dcc;
+using namespace dcc::defapp;
 FuncButton::FuncButton(QWidget *parent)
     :QLabel(parent)
 {

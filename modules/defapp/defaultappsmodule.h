@@ -2,22 +2,13 @@
 #define DEFAULTAPPSMODULE_H
 
 #include "moduleinterface.h"
-#include "defcategorywidget.h"
-#include "switchwidget.h"
-#include "defappwidget.h"
-#include "defappviewer.h"
-#include "defappmodel.h"
-#include "defappworker.h"
 
-#include <QObject>
-#include <QWidget>
-#include <QPushButton>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QScrollArea>
-#include <QDebug>
-
+namespace dcc {
+namespace defapp {
+class DefAppModel;
+class DefAppWorker;
+class DefaultAppsWidget;
+class DefAppViewer;
 class DefaultAppsModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -48,6 +39,7 @@ private:
     DefAppWorker      *m_defAppWorker;
     DefaultAppsWidget *m_defaultappsWidget;
     DefAppViewer      *m_defaultAppsDetail;
-
 };
+}
+}
 #endif // DEFAULTAPPSMODULE_H

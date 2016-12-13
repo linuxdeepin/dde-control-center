@@ -2,16 +2,21 @@
 #define DEFAPPVIEWER_H
 
 #include "contentwidget.h"
-#include "defcategorywidget.h"
-#include "switchwidget.h"
-#include "defappmodel.h"
 #include <QMap>
 #include <QStringList>
 #include <QObject>
 #include <QWidget>
-
-namespace dcc {
-
+#include <QVBoxLayout>
+namespace dcc
+{
+namespace widgets {
+class SwitchWidget;
+class TranslucentFrame;
+}
+namespace defapp
+{
+class DefCategoryWidget;
+class DefAppModel;
 class DefAppViewer : public ContentWidget
 {
     Q_OBJECT
@@ -49,9 +54,10 @@ private:
     DefCategoryWidget *m_modCamera = nullptr;
     DefCategoryWidget *m_modSoftware = nullptr;
 
-    dcc::widgets::SwitchWidget *m_switchWidget = nullptr;
+    widgets::SwitchWidget *m_switchWidget = nullptr;
 
 };
-
 }
+}
+
 #endif // DEFAPPVIEWER_H

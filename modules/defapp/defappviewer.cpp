@@ -1,7 +1,11 @@
 #include "defappviewer.h"
-
+#include "defcategorywidget.h"
+#include "switchwidget.h"
+#include "defappmodel.h"
 #include "translucentframe.h"
-
+using namespace dcc;
+using namespace dcc::defapp;
+using namespace dcc::widgets;
 DefAppViewer::DefAppViewer(QWidget *parent)
     :ContentWidget(parent)
 {
@@ -33,8 +37,8 @@ QWidget* DefAppViewer::defappDetail() {
     m_modSoftware = new DefCategoryWidget(tr("Software"), this);
     m_modSoftware->hide();
 
-    m_switchWidget = new dcc::widgets::SwitchWidget();
-    connect(m_switchWidget, &dcc::widgets::SwitchWidget::checkedChanegd, this, &DefAppViewer::autoOpenChanged);
+    m_switchWidget = new SwitchWidget();
+    connect(m_switchWidget, &SwitchWidget::checkedChanegd, this, &DefAppViewer::autoOpenChanged);
 
     m_mainlayout->addWidget(m_modBrowser);
     m_mainlayout->addWidget(m_modMail);

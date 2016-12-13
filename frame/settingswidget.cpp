@@ -49,7 +49,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     loadModule(new accounts::AccountsModule(this));
     loadModule(new display::DisplayModule(this));
-    loadModule(new DefaultAppsModule(this));
+    loadModule(new defapp::DefaultAppsModule(this));
     loadModule(new personalization::PersonalizationModule(this));
     loadModule(new network::NetworkModule(this));
     loadModule(new bluetooth::BluetoothModule(this));

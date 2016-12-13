@@ -2,12 +2,13 @@
 #define DEFAPP_H
 
 #include "modulewidget.h"
-#include "contentwidget.h"
-#include "settingsgroup.h"
-
 #include <QPushButton>
 #include <QVBoxLayout>
-
+namespace dcc {
+namespace widgets {
+class SettingsGroup;
+}
+namespace defapp {
 class DefaultAppsWidget : public dcc::ModuleWidget
 {
     Q_OBJECT
@@ -19,9 +20,12 @@ signals:
     void showDefaultAppsDetail() const;
 
 private:
-    dcc::widgets::SettingsGroup  *m_userGroup;
+    widgets::SettingsGroup  *m_userGroup;
     QPushButton         *m_nextPage;
 };
+}
+}
+
 
 
 #endif // DEFAPP_H
