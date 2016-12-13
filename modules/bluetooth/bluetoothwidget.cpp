@@ -69,6 +69,10 @@ void BluetoothWidget::addAdapter(const Adapter *adapter)
     connect(widget, &AdapterWidget::requestToggleAdapter, [this, adapter] (const bool &toggled) { emit requestToggleAdapter(adapter, toggled); });
     connect(widget, &AdapterWidget::requestConnectDevice, this, &BluetoothWidget::requestConnectDevice);
     connect(widget, &AdapterWidget::requestShowDetail, this, &BluetoothWidget::requestShowDetail);
+
+    if (parentWidget()) {
+        show();
+    }
 }
 
 void BluetoothWidget::removeAdapter(const QString &adapterId)
@@ -77,6 +81,10 @@ void BluetoothWidget::removeAdapter(const QString &adapterId)
     if (aw) {
         m_centeralLayout->removeWidget(aw);
         aw->deleteLater();
+    }
+
+    if (m_model->adapters().length() == 0) {
+        hide();
     }
 }
 
