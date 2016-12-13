@@ -1,3 +1,15 @@
 QLabel#ModuleHeaderIconNetwork {
     background-image: url(:/network/themes/dark/icons/nav_network.png);
 }
+
+#AccessPointWidget > QLabel
+{
+    color: white;
+}
+
+#AccessPointWidget > .Dtk--Widget--DImageButton
+{
+    qproperty-normalPic: url(:/network/themes/dark/icons/next_normal.png);
+    qproperty-hoverPic: url(:/network/themes/dark/icons/next_hover.png);
+    qproperty-pressPic: url(:/network/themes/dark/icons/next_press.png);
+}

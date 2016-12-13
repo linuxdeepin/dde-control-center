@@ -33,6 +33,7 @@ public slots:
     void onAPRemoved(const QString &ssid);
 
 signals:
+    void requestDeviceStatus(const QString &devPath) const;
     void requestDeviceAPList(const QString &devPath) const;
     void requestDeviceEnabled(const QString &devPath, const bool enabled) const;
 

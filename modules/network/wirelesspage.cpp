@@ -45,7 +45,13 @@ WirelessPage::WirelessPage(NetworkDevice *dev, QWidget *parent)
     connect(dev, &NetworkDevice::apRemoved, this, &WirelessPage::onAPRemoved);
     m_switchBtn->setChecked(dev->enabled());
 
-    QTimer::singleShot(0, this, [=] { emit requestDeviceAPList(m_device->path()); });
+    // init data
+    QTimer::singleShot(0, this, [=] {
+        const QString devPath = m_device->path();
+
+        emit requestDeviceStatus(devPath);
+        emit requestDeviceAPList(devPath);
+    });
 }
 
 void WirelessPage::setModel(NetworkModel *model)

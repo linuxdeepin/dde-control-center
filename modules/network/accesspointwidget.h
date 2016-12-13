@@ -38,6 +38,7 @@ public slots:
     void setAPName(const QString &name);
     void setStrength(const int strength);
     void setConnected(const bool connected);
+    void setEditable(const bool editable);
 
 private:
     QLabel *m_lockIcon;

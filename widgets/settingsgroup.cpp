@@ -94,10 +94,16 @@ void SettingsGroup::removeItem(SettingsItem *item)
 
 void SettingsGroup::moveItem(SettingsItem *item, const int index)
 {
+    const int oldIndex = m_layout->indexOf(item);
+    if (oldIndex == index)
+        return;
+
     m_layout->removeWidget(item);
     m_layout->insertWidget(index, item);
 
-    if (index == 0 || index == m_layout->count())
+    const int max = m_layout->count() - 1;
+    if (index == 0 || index == max ||
+        oldIndex == 0 || oldIndex == max)
         updateHeadTail();
 }
 

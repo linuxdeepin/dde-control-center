@@ -22,20 +22,38 @@ void NetworkWorker::setDeviceEnable(const QString &devPath, const bool enable)
     m_networkInter.EnableDevice(QDBusObjectPath(devPath), enable);
 }
 
-void NetworkWorker::getAccessPoints(const QString &devPath)
+void NetworkWorker::queryAccessPoints(const QString &devPath)
 {
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.GetAccessPoints(QDBusObjectPath(devPath)));
 
     w->setProperty("devPath", devPath);
 
-    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::getAccessPointsFinsihed);
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryAccessPointsCB);
 }
 
-void NetworkWorker::getAccessPointsFinsihed(QDBusPendingCallWatcher *w)
+void NetworkWorker::queryDeviceStatus(const QString &devPath)
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.IsDeviceEnabled(QDBusObjectPath(devPath)));
+
+    w->setProperty("devPath", devPath);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryDeviceStatusCB);
+}
+
+void NetworkWorker::queryAccessPointsCB(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = *w;
 
     m_networkModel->onDeviceAPListChanged(w->property("devPath").toString(), reply.value());
+
+    w->deleteLater();
+}
+
+void NetworkWorker::queryDeviceStatusCB(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<bool> reply = *w;
+
+    m_networkModel->onDeviceEnableChaned(w->property("devPath").toString(), reply.value());
 
     w->deleteLater();
 }

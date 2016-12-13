@@ -21,10 +21,12 @@ public:
 
 public slots:
     void setDeviceEnable(const QString &devPath, const bool enable);
-    void getAccessPoints(const QString &devPath);
+    void queryAccessPoints(const QString &devPath);
+    void queryDeviceStatus(const QString &devPath);
 
 private:
-    void getAccessPointsFinsihed(QDBusPendingCallWatcher *w);
+    void queryAccessPointsCB(QDBusPendingCallWatcher *w);
+    void queryDeviceStatusCB(QDBusPendingCallWatcher *w);
 
 private:
     NetworkInter m_networkInter;
