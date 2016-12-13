@@ -202,8 +202,8 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     }
 
     //TODO(hualet): better to check all the call results.
-    bool sifResult = userDBus->SetIconFile(user->currentAvatar());
-    bool spResult = userDBus->SetPassword(user->password());
+    bool sifResult = !userDBus->SetIconFile(user->currentAvatar()).isError();
+    bool spResult = !userDBus->SetPassword(user->password()).isError();
 
     if (!sifResult || !spResult) {
         result->setType(CreationResult::UnknownError);
