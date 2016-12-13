@@ -30,7 +30,6 @@ private:
     void contentPopped(ContentWidget *const w);
 
 private:
-
     WacomWidget *m_wacomWidget;
     WacomModel  *m_model;
     WacomWorker *m_worker;

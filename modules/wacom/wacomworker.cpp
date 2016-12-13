@@ -11,7 +11,9 @@ WacomWorker::WacomWorker(WacomModel *model, QObject *parent) :
 {
     m_dbusWacom->setSync(false);
     connect(m_dbusWacom, &Wacom::PressureSensitiveChanged, this, &WacomWorker::setPressureSensitive);
+    connect(m_dbusWacom, &Wacom::ExistChanged, m_model, &WacomModel::setIsExist);
     active();
+    m_model->setIsExist(m_dbusWacom->exist());
 }
 
 void WacomWorker::active()
