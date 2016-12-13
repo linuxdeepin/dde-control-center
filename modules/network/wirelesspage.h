@@ -4,6 +4,7 @@
 #include "contentwidget.h"
 
 #include <QMap>
+#include <QTimer>
 
 namespace dcc {
 
@@ -35,6 +36,9 @@ signals:
     void requestDeviceAPList(const QString &devPath) const;
     void requestDeviceEnabled(const QString &devPath, const bool enabled) const;
 
+private slots:
+    void sortAPList();
+
 private:
     NetworkDevice *m_device;
     NetworkModel *m_model;
@@ -42,6 +46,7 @@ private:
     dcc::widgets::SettingsGroup *m_listGroup;
     dcc::widgets::SwitchWidget *m_switchBtn;
 
+    QTimer m_sortDelayTimer;
     QMap<QString, AccessPointWidget *> m_apItems;
 };
 

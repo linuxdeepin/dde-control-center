@@ -19,6 +19,9 @@ WirelessPage::WirelessPage(NetworkDevice *dev, QWidget *parent)
       m_listGroup(new SettingsGroup),
       m_switchBtn(new SwitchWidget)
 {
+    m_sortDelayTimer.setInterval(100);
+    m_sortDelayTimer.setSingleShot(true);
+
     m_switchBtn->setTitle(tr("Status"));
 
     m_listGroup->appendItem(m_switchBtn);
@@ -34,6 +37,7 @@ WirelessPage::WirelessPage(NetworkDevice *dev, QWidget *parent)
     setContent(mainWidget);
     setTitle(tr("WLAN"));
 
+    connect(&m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
     connect(m_switchBtn, &SwitchWidget::checkedChanegd, [=](const bool enabled) { emit requestDeviceEnabled(m_device->path(), enabled); });
     connect(dev, &NetworkDevice::enableChanged, m_switchBtn, &SwitchWidget::setChecked);
     connect(dev, &NetworkDevice::apAdded, this, &WirelessPage::onAPAdded);
@@ -55,15 +59,25 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 
     AccessPointWidget *w = new AccessPointWidget;
 
-    w->setAPName(ssid);
-
     m_apItems.insert(ssid, w);
     m_listGroup->appendItem(w);
+
+    onAPChanged(apInfo);
 }
 
 void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 {
-    qDebug() << apInfo;
+    const QString ssid = apInfo.value("Ssid").toString();
+    if (!m_apItems.contains(ssid))
+        return;
+
+    AccessPointWidget *w = m_apItems[ssid];
+
+    w->setAPName(ssid);
+    w->setEncyrpt(apInfo.value("Secured").toBool());
+    w->setStrength(apInfo.value("Strength").toInt());
+
+    m_sortDelayTimer.start();
 }
 
 void WirelessPage::onAPRemoved(const QString &ssid)
@@ -76,4 +90,25 @@ void WirelessPage::onAPRemoved(const QString &ssid)
     m_apItems.remove(ssid);
     m_listGroup->removeItem(w);
     w->deleteLater();
+}
+
+void WirelessPage::sortAPList()
+{
+    auto cmpFunc = [=](const AccessPointWidget *a, const AccessPointWidget *b) {
+        if (a->connected() != b->connected())
+            return a->connected();
+        return a->strength() > b->strength();
+    };
+
+    QList<AccessPointWidget *> sortedList;
+    for (auto it(m_apItems.cbegin()); it != m_apItems.cend(); ++it)
+    {
+        const auto index = std::upper_bound(sortedList.begin(), sortedList.end(), it.value(), cmpFunc);
+
+        sortedList.insert(index, it.value());
+    }
+
+    // sort list
+    for (int i(0); i != sortedList.size(); ++i)
+        m_listGroup->moveItem(sortedList[i], i + 1);
 }

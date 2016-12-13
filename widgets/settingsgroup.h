@@ -36,6 +36,7 @@ public:
     void insertItem(const int index, SettingsItem * item);
     void appendItem(SettingsItem * item);
     void removeItem(SettingsItem * item);
+    void moveItem(SettingsItem *item, const int index);
     void setSpacing(const int spaceing);
 
     int itemCount() const;

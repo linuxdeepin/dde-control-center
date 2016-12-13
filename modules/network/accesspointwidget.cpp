@@ -47,3 +47,14 @@ void AccessPointWidget::setAPName(const QString &name)
 {
     m_apName->setText(name);
 }
+
+void AccessPointWidget::setStrength(const int strength)
+{
+    m_strength = strength;
+    m_strengthIcon->setText(QString::number(strength));
+}
+
+void AccessPointWidget::setConnected(const bool connected)
+{
+    m_connected = connected;
+}

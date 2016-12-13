@@ -92,6 +92,15 @@ void SettingsGroup::removeItem(SettingsItem *item)
     m_updateHeightTimer->start();
 }
 
+void SettingsGroup::moveItem(SettingsItem *item, const int index)
+{
+    m_layout->removeWidget(item);
+    m_layout->insertWidget(index, item);
+
+    if (index == 0 || index == m_layout->count())
+        updateHeadTail();
+}
+
 void SettingsGroup::setSpacing(const int spaceing)
 {
     m_layout->setSpacing(spaceing);

@@ -27,12 +27,17 @@ class AccessPointWidget : public dcc::widgets::SettingsItem
 public:
     explicit AccessPointWidget(QWidget *parent = 0);
 
+    int strength() const { return m_strength; }
+    bool connected() const { return m_connected; }
+
 signals:
     void requestEdit();
 
 public slots:
     void setEncyrpt(const bool encyrpt);
     void setAPName(const QString &name);
+    void setStrength(const int strength);
+    void setConnected(const bool connected);
 
 private:
     QLabel *m_lockIcon;
@@ -40,6 +45,9 @@ private:
     QLabel *m_apName;
     Dtk::Widget::DImageButton *m_detailBtn;
     QVBoxLayout *m_mainLayout;
+
+    int m_strength;
+    bool m_connected;
 };
 
 }   // namespace network
