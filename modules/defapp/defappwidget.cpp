@@ -17,11 +17,11 @@ DefaultAppsWidget::DefaultAppsWidget()
 
     m_centeralLayout->addWidget(m_userGroup);
 
-    m_nextPage = new QPushButton;
-    m_nextPage->setText("Default Applications");
-    m_centeralLayout->addWidget(m_nextPage);
+    m_nextPage = new NextPageWidget;
+    m_nextPage->setTitle(tr("Default Applications"));
+    m_userGroup->appendItem(m_nextPage);
     m_centeralLayout->addStretch(0);
 
     setTitle(tr("Default Applications"));
-    connect(m_nextPage, &QPushButton::clicked, this, &DefaultAppsWidget::showDefaultAppsDetail);
+    connect(m_nextPage, &NextPageWidget::clicked, this, &DefaultAppsWidget::showDefaultAppsDetail);
 }

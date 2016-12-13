@@ -7,6 +7,7 @@
 namespace dcc {
 namespace widgets {
 class SettingsGroup;
+class NextPageWidget;
 }
 namespace defapp {
 class DefaultAppsWidget : public dcc::ModuleWidget
@@ -21,7 +22,7 @@ signals:
 
 private:
     widgets::SettingsGroup  *m_userGroup;
-    QPushButton         *m_nextPage;
+    widgets::NextPageWidget *m_nextPage;
 };
 }
 }
