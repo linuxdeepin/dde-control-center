@@ -13,17 +13,11 @@
 #include "settingsitem.h"
 #include "device.h"
 
-
-namespace Dtk {
-namespace Widget {
-class DLoadingIndicator;
-}
-}
-
 namespace dcc {
 namespace widgets {
 class NormalLabel;
 class NextButton;
+class LoadingIndicator;
 }
 
 namespace bluetooth {
@@ -55,7 +49,7 @@ private:
 
     dcc::widgets::NormalLabel *m_titleLabel;
     dcc::widgets::NormalLabel *m_tipLabel;
-    Dtk::Widget::DLoadingIndicator *m_loadingIndicator;
+    dcc::widgets::LoadingIndicator *m_loadingIndicator;
     dcc::widgets::NextButton *m_nextButton;
 };
 

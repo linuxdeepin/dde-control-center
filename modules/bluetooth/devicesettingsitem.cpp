@@ -12,8 +12,7 @@
 #include <QHBoxLayout>
 #include <QMouseEvent>
 
-#include <dloadingindicator.h>
-
+#include "loadingindicator.h"
 #include "labels/normallabel.h"
 #include "nextbutton.h"
 
@@ -27,8 +26,8 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device) :
     m_device(device),
     m_titleLabel(new NormalLabel),
     m_tipLabel(new NormalLabel),
-    m_loadingIndicator(new Dtk::Widget::DLoadingIndicator),
-    m_nextButton(new dcc::widgets::NextButton)
+    m_loadingIndicator(new LoadingIndicator),
+    m_nextButton(new NextButton)
 {
     setFixedHeight(36);
 
@@ -36,7 +35,6 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device) :
     m_tipLabel->setObjectName("DeviceState");
 
     m_loadingIndicator->setFixedSize(24, 24);
-    m_loadingIndicator->setImageSource(QPixmap(":/widgets/icons/next_normal.png"));
     m_loadingIndicator->hide();
 
     QHBoxLayout *layout = new QHBoxLayout;
@@ -67,7 +65,7 @@ void DeviceSettingsItem::setDevice(const Device *device)
 
 void DeviceSettingsItem::setLoading(const bool &loading)
 {
-    m_loadingIndicator->start();
+    m_loadingIndicator->play();
     loading ? m_loadingIndicator->show() : m_loadingIndicator->hide();
     loading ? m_tipLabel->hide() : m_tipLabel->show();
 }

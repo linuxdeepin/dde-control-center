@@ -23,3 +23,7 @@ dcc--widgets--NormalLabel#OptionItemTitle {
 QLabel#OptionItemSelectedIcon {
     background: url(:/widgets/themes/dark/icons/select.png);
 }
+
+dcc--widgets--LoadingIndicator {
+    qproperty-theme: "dark";
+}

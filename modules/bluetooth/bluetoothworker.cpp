@@ -96,10 +96,17 @@ void BluetoothWorker::deactivate()
 void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powered)
 {
     QDBusObjectPath path(adapter->id());
-    m_bluetoothInter->SetAdapterPowered(path, powered);
+    QDBusPendingCall call  = m_bluetoothInter->SetAdapterPowered(path, powered);
 
     if (powered) {
-        setAdapterDiscoverable(adapter->id());
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, [this, call, adapter] {
+            if (!call.isError()) {
+                setAdapterDiscoverable(adapter->id());
+            } else {
+                qWarning() << call.error().message();
+            }
+        });
     }
 }
 
@@ -239,8 +246,8 @@ void BluetoothWorker::removeAdapter(const QString &json)
 void BluetoothWorker::setAdapterDiscoverable(const QString &path)
 {
     QDBusObjectPath dPath(path);
-    m_bluetoothInter->SetAdapterDiscoverable(dPath, true);
     m_bluetoothInter->SetAdapterDiscoverableTimeout(dPath, 60 * 5);
+    m_bluetoothInter->SetAdapterDiscoverable(dPath, true);
 
     m_bluetoothInter->RequestDiscovery(dPath);
 }
