@@ -57,8 +57,10 @@ void DeviceSettingsItem::setDevice(const Device *device)
     connect(device, &Device::nameChanged, m_titleLabel, &NormalLabel::setText);
     connect(device, &Device::stateChanged, this, &DeviceSettingsItem::onDeviceStateChanged);
     connect(device, &Device::pairedChanged, this, &DeviceSettingsItem::onDevicePairedChanged);
+    connect(device, &Device::connectingChanged, this, &DeviceSettingsItem::setLoading);
 
     m_titleLabel->setText(device->name());
+    setLoading(device->connecting());
     onDeviceStateChanged(device->state());
     onDevicePairedChanged(device->paired());
 }
@@ -72,10 +74,11 @@ void DeviceSettingsItem::setLoading(const bool &loading)
 
 void DeviceSettingsItem::mouseReleaseEvent(QMouseEvent *event)
 {
-    event->accept();
+    if (m_device->state() != Device::StateConnected) {
+        event->accept();
 
-    setLoading(true);
-    emit requestConnectDevice(m_device);
+        emit requestConnectDevice(m_device);
+    }
 
     SettingsItem::mouseReleaseEvent(event);
 }

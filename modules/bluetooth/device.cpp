@@ -18,6 +18,7 @@ Device::Device(QObject *parent) :
     m_name(""),
     m_paired(false),
     m_trusted(false),
+    m_connecting(false),
     m_state(StateUnavailable)
 {
 
@@ -57,6 +58,14 @@ void Device::setTrusted(bool trusted)
     if (trusted != m_trusted) {
         m_trusted = trusted;
         emit trustedChanged(trusted);
+    }
+}
+
+void Device::setConnecting(bool connecting)
+{
+    if (connecting != m_connecting) {
+        m_connecting = connecting;
+        emit connectingChanged(connecting);
     }
 }
 

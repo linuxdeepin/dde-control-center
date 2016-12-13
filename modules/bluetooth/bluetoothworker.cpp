@@ -126,6 +126,13 @@ void BluetoothWorker::ignoreDevice(const Adapter *adapter, const Device *device)
 
 void BluetoothWorker::connectDevice(const Device *device)
 {
+    for (const Adapter *a : m_model->adapters()) {
+        for (const Device *d : a->devices()) {
+            Device *vd = const_cast<Device*>(d);
+            if (vd) vd->setConnecting(d == device);
+        }
+    }
+
     QDBusObjectPath path(device->id());
     m_bluetoothInter->ConnectDevice(path);
     qDebug() << "connect to device: " << device->name();

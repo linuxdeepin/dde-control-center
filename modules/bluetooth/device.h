@@ -46,17 +46,22 @@ public:
     inline bool trusted() const { return m_trusted; }
     void setTrusted(bool trusted);
 
+    inline bool connecting() const { return m_connecting; }
+    void setConnecting(bool connecting);
+
 signals:
     void nameChanged(const QString &name) const;
     void pairedChanged(const bool &paired) const;
     void stateChanged(const State &state) const;
     void trustedChanged(const bool trusted) const;
+    void connectingChanged(const bool &connecting) const;
 
 private:
     QString m_id;
     QString m_name;
     bool m_paired;
     bool m_trusted;
+    bool m_connecting;
     State m_state;
 };
 
