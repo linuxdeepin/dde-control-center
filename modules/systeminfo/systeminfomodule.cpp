@@ -8,7 +8,6 @@ namespace systeminfo{
 SystemInfoModule::SystemInfoModule(FrameProxyInterface *frame, QObject *parent)
     :QObject(parent),
       ModuleInterface(frame),
-      m_work(new SystemInfoWork()),
       m_bootWidget(nullptr),
       m_mainWidget(nullptr),
       m_copyrightWidget(nullptr)
@@ -27,8 +26,8 @@ SystemInfoModule::~SystemInfoModule()
 
 void SystemInfoModule::initialize()
 {
-    m_work = new SystemInfoWork();
     m_model = new SystemInfoModel();
+    m_work = new SystemInfoWork(m_model);
 
     m_model->setDefaultEntry(m_work->defaultEntry());
     m_model->setEntryLists(m_work->entryLists());

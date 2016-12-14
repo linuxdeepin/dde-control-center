@@ -17,6 +17,8 @@ void SystemInfoModel::setEntryLists(const QStringList &list)
 void SystemInfoModel::setDefaultEntry(const QString &entry)
 {
     m_defaultEntry = entry;
+
+    emit defaultEntryChanged(entry);
 }
 
 void SystemInfoModel::setVersion(const QString &version)

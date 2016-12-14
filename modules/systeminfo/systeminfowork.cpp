@@ -1,10 +1,12 @@
 #include "systeminfowork.h"
+#include "systeminfomodel.h"
 
 namespace dcc{
 namespace systeminfo{
 
-SystemInfoWork::SystemInfoWork(QObject *parent)
-    :QObject(parent)
+SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
+    :QObject(parent),
+      m_model(model)
 {
     m_systemInfoInter = new SystemInfoInter("com.deepin.daemon.SystemInfo",
                                             "/com/deepin/daemon/SystemInfo",
@@ -20,6 +22,7 @@ SystemInfoWork::SystemInfoWork(QObject *parent)
     connect(m_systemInfoInter, SIGNAL(ProcessorChanged(QString)), this, SIGNAL(ProcessorChanged(QString)));
     connect(m_systemInfoInter, SIGNAL(MemoryCapChanged(qulonglong)), this, SIGNAL(MemoryCapChanged(qulonglong)));
     connect(m_systemInfoInter, SIGNAL(DiskCapChanged(qulonglong)), this, SIGNAL(DiskCapChanged(qulonglong)));
+    connect(m_dbusGrub,SIGNAL(DefaultEntryChanged(QString)), m_model, SLOT(setDefaultEntry(QString)));
 }
 
 QString SystemInfoWork::version() const

@@ -153,7 +153,6 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
         iconRect.moveCenter(QPoint(center.x()/3, center.y()));
         painter.drawPixmap(iconRect, icon);
         QFont curFont = QGuiApplication::font();
-        qDebug()<<"curFont = "<<curFont.pointSize();
         QString text;
         if(i == 0)
         {

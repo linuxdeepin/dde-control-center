@@ -26,6 +26,7 @@ public slots:
     void setChecked(bool value);
     void setEntryList(const QStringList& list);
     void onItemActivated(QListWidgetItem* item);
+    void onCurrentItem(QListWidgetItem* cur, QListWidgetItem* pre);
 
 private:
     QString m_defaultEntry;

@@ -11,12 +11,14 @@ using GrubDbus=com::deepin::daemon::Grub2;
 namespace dcc{
 namespace systeminfo{
 
+class SystemInfoModel;
+
 class SystemInfoWork : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit SystemInfoWork(QObject* parent = 0);
+    explicit SystemInfoWork(SystemInfoModel* model, QObject* parent = 0);
     QString version() const;
     qlonglong type() const;
     QString processor() const;
@@ -38,6 +40,7 @@ public slots:
     void setDefaultEntry(const QString& entry);
 
 private:
+    SystemInfoModel* m_model;
     SystemInfoInter* m_systemInfoInter;
     GrubDbus* m_dbusGrub;
 };

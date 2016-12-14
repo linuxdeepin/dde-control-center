@@ -19,6 +19,7 @@ BootWidget::BootWidget(QWidget *parent)
     GrubBackgroundItem* background = new GrubBackgroundItem();
 
     m_bootList = new QListWidget(background);
+    m_bootList->setStyleSheet("background-color: transparent");
     m_bootList->setDragDropMode(QListWidget::DragDrop);
     m_bootList->setDefaultDropAction(Qt::MoveAction);
     m_bootList->move(50,50);
@@ -47,6 +48,7 @@ BootWidget::BootWidget(QWidget *parent)
     connect(m_theme, SIGNAL(checkedChanegd(bool)), this, SIGNAL(enableTheme(bool)));
     connect(m_boot, SIGNAL(checkedChanegd(bool)), this, SIGNAL(bootdelay(bool)));
     connect(m_bootList, SIGNAL(itemActivated(QListWidgetItem*)), this, SLOT(onItemActivated(QListWidgetItem*)));
+    connect(m_bootList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),this, SLOT(onCurrentItem(QListWidgetItem*,QListWidgetItem*)));
 }
 
 void BootWidget::setDefaultEntry(const QString &value)
@@ -56,13 +58,21 @@ void BootWidget::setDefaultEntry(const QString &value)
 
 void BootWidget::setEntryList(const QStringList &list)
 {
-    m_bootList->addItems(list);
     for(int i = 0; i<list.count(); i++)
     {
+        QPixmap pix(32,32);
+        if(i == 0)
+            pix.fill(Qt::red);
+        else
+            pix.fill(Qt::transparent);
+
+        QListWidgetItem* item = new QListWidgetItem(QIcon(pix), list.at(i));
+        item->setBackground(Qt::transparent);
+        m_bootList->addItem(item);
+
         if(m_defaultEntry == list.at(i))
         {
             m_bootList->setCurrentRow(i);
-            break;
         }
     }
 }
@@ -72,6 +82,23 @@ void BootWidget::onItemActivated(QListWidgetItem *item)
     if(item)
     {
         emit defaultEntry(item->text());
+    }
+}
+
+void BootWidget::onCurrentItem(QListWidgetItem *cur, QListWidgetItem *pre)
+{
+    if(pre)
+    {
+        QPixmap pix(32,32);
+        pix.fill(Qt::transparent);
+        pre->setIcon(pix);
+    }
+
+    if(cur)
+    {
+        QPixmap pix(32,32);
+        pix.fill(Qt::red);
+        cur->setIcon(pix);
     }
 }
 

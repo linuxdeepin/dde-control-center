@@ -14,7 +14,6 @@ public:
     void setEntryLists(const QStringList& list);
     QStringList entryLists() const { return m_entryLists;}
 
-    void setDefaultEntry(const QString& entry);
     QString defaultEntry() const { return m_defaultEntry;}
     QString version() const { return m_version;}
     QString type() const { return m_type;}
@@ -47,6 +46,7 @@ signals:
     void processorChanged(const QString& processor);
     void memoryChanged(const QString& memory);
     void diskChanged(const QString& disk);
+    void defaultEntryChanged(const QString& entry);
 
 public slots:
     void setVersion(const QString& version);
@@ -54,6 +54,7 @@ public slots:
     void setProcessor(const QString& processor);
     void setMemory(qulonglong memory);
     void setDisk(qulonglong disk);
+    void setDefaultEntry(const QString& entry);
 
 private:
     QString m_version;
