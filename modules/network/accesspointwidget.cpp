@@ -42,6 +42,8 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
 
     setLayout(m_mainLayout);
     setObjectName("AccessPointWidget");
+
+    connect(m_detailBtn, &DImageButton::clicked, this, &AccessPointWidget::requestEdit);
 }
 
 void AccessPointWidget::setEncyrpt(const bool encyrpt)
@@ -60,6 +62,9 @@ void AccessPointWidget::setAPName(const QString &name)
 void AccessPointWidget::setStrength(const int strength)
 {
     m_strength = strength;
+
+    if (m_strength < 0)
+        return m_strengthIcon->clear();
 
     const QString iconName = QString(":/network/themes/dark/icons/wireless/wireless-%1-symbolic.svg").arg(strength / 10 & ~1);
 

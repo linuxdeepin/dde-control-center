@@ -25,7 +25,8 @@ HEADERS += \
     $$PWD/nextbutton.h \
     $$PWD/backbutton.h \
     $$PWD/waitindicator.h \
-    $$PWD/loadingindicator.h
+    $$PWD/loadingindicator.h \
+    $$PWD/optionlistpage.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -49,7 +50,8 @@ SOURCES += \
     $$PWD/nextbutton.cpp \
     $$PWD/backbutton.cpp \
     $$PWD/waitindicator.cpp \
-    $$PWD/loadingindicator.cpp
+    $$PWD/loadingindicator.cpp \
+    $$PWD/optionlistpage.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

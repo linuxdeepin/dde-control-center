@@ -5,6 +5,7 @@
 
 #include <QMap>
 #include <QTimer>
+#include <QPointer>
 
 namespace dcc {
 
@@ -15,6 +16,7 @@ class SwitchWidget;
 
 namespace network {
 
+class ConnectHiddenPage;
 class AccessPointWidget;
 class NetworkModel;
 class WirelessDevice;
@@ -33,12 +35,15 @@ public slots:
     void onAPRemoved(const QString &ssid);
 
 signals:
+    void requestNextPage(ContentWidget * const w) const;
     void requestDeviceStatus(const QString &devPath) const;
     void requestDeviceAPList(const QString &devPath) const;
     void requestDeviceEnabled(const QString &devPath, const bool enabled) const;
 
 private slots:
+    void onDeviceRemoved();
     void sortAPList();
+    void showConnectHidePage();
 
 private:
     WirelessDevice *m_device;
@@ -46,6 +51,9 @@ private:
 
     dcc::widgets::SettingsGroup *m_listGroup;
     dcc::widgets::SwitchWidget *m_switchBtn;
+    AccessPointWidget *m_connectHideSSID;
+
+    QPointer<ConnectHiddenPage> m_connectHidePage;
 
     QTimer m_sortDelayTimer;
     QMap<QString, AccessPointWidget *> m_apItems;

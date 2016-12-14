@@ -4,6 +4,7 @@
 #include "settingsgroup.h"
 #include "switchwidget.h"
 #include "translucentframe.h"
+#include "connecthiddenpage.h"
 
 #include <QDebug>
 #include <QVBoxLayout>
@@ -17,14 +18,20 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
       m_device(dev),
 
       m_listGroup(new SettingsGroup),
-      m_switchBtn(new SwitchWidget)
+      m_switchBtn(new SwitchWidget),
+
+      m_connectHideSSID(new AccessPointWidget(this))
 {
     m_sortDelayTimer.setInterval(100);
     m_sortDelayTimer.setSingleShot(true);
 
     m_switchBtn->setTitle(tr("Status"));
 
+    m_connectHideSSID->setAPName(tr("Connect to hidden network"));
+    m_connectHideSSID->setStrength(-1);
+
     m_listGroup->appendItem(m_switchBtn);
+    m_listGroup->appendItem(m_connectHideSSID);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_listGroup);
@@ -42,12 +49,13 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 #endif
 
     connect(&m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
+    connect(m_connectHideSSID, &AccessPointWidget::requestEdit, this, &WirelessPage::showConnectHidePage);
     connect(m_switchBtn, &SwitchWidget::checkedChanegd, [=](const bool enabled) { emit requestDeviceEnabled(m_device->path(), enabled); });
     connect(dev, &WirelessDevice::enableChanged, m_switchBtn, &SwitchWidget::setChecked);
     connect(dev, &WirelessDevice::apAdded, this, &WirelessPage::onAPAdded);
     connect(dev, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
     connect(dev, &WirelessDevice::apRemoved, this, &WirelessPage::onAPRemoved);
-    connect(dev, &WirelessDevice::removed, this, &WirelessPage::back);
+    connect(dev, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
     m_switchBtn->setChecked(dev->enabled());
 
     // init data
@@ -107,6 +115,16 @@ void WirelessPage::onAPRemoved(const QString &ssid)
     w->deleteLater();
 }
 
+void WirelessPage::onDeviceRemoved()
+{
+    // back if this page exist
+    if (!m_connectHidePage.isNull())
+        m_connectHidePage->onDeviceRemoved();
+
+    // destory self page
+    emit back();
+}
+
 void WirelessPage::sortAPList()
 {
     auto cmpFunc = [=](const AccessPointWidget *a, const AccessPointWidget *b) {
@@ -126,4 +144,15 @@ void WirelessPage::sortAPList()
     // sort list
     for (int i(0); i != sortedList.size(); ++i)
         m_listGroup->moveItem(sortedList[i], i + 1);
+}
+
+void WirelessPage::showConnectHidePage()
+{
+    if (m_connectHidePage.isNull())
+    {
+        m_connectHidePage = new ConnectHiddenPage(this);
+        connect(m_connectHidePage, &ConnectHiddenPage::requestNextPage, this, &WirelessPage::requestNextPage);
+    }
+
+    emit requestNextPage(m_connectHidePage);
 }
