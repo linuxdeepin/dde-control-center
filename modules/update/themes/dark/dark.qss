@@ -5,3 +5,10 @@ QLabel#ModuleHeaderIconUpdate {
 Dtk--Widget--DImageButton#DCC-Update-MirrorItem-SelectedBtn{
     qproperty-normalPic: url(:/update/themes/dark/icons/select.png);
 }
+
+QPushButton#DCC-Update-UpdateItem-Details{
+    color:blue;
+    border:none;
+    border-width:4px 8px 4px 8px;
+    background-color:transparent;
+}

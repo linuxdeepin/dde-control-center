@@ -13,7 +13,7 @@ InputItem::InputItem(QFrame *parent)
     QHBoxLayout* layout = new QHBoxLayout();
     m_choose = new QPushButton(tr(" ... "));
     m_title = new QLabel();
-    m_title->setFixedWidth(40);
+    m_title->setFixedWidth(60);
     m_input = new QLineEdit();
 
     layout->addWidget(m_title);

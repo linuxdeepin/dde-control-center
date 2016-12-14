@@ -17,6 +17,7 @@ UpdateItem::UpdateItem(QFrame *parent)
     m_appChangelog->setAlignment(Qt::AlignTop);
 
     m_details = new QPushButton();
+    m_details->setObjectName("DCC-Update-UpdateItem-Details");
     m_details->setText(tr("Details"));
 
     QHBoxLayout* logLayout = new QHBoxLayout();
@@ -42,7 +43,7 @@ UpdateItem::UpdateItem(QFrame *parent)
         int expandHeight = (lines - 2)*20;
         m_appChangelog->setText(m_info.m_changelog);
         m_appChangelog->setFixedHeight(m_appChangelog->height() + expandHeight);
-        setFixedHeight(height() + expandHeight);
+        setFixedHeight(height() + expandHeight + 5);
         m_details->hide();
         qDebug()<<Q_FUNC_INFO<<height();
      });
@@ -65,6 +66,8 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
         setFixedHeight(50);
         m_details->hide();
     }
+    if(info.m_name == "Deepin")
+        m_details->setVisible(info.m_changelog != tr("Default Changelog"));
 }
 
 QString UpdateItem::elideChangelog() const

@@ -258,7 +258,8 @@ QList<AppUpdateInfo> UpdateWork::getInfoList()
             AppUpdateInfo ddeUpdateInfo = getInfo("dde", "", "");
             ddeUpdateInfo.m_name = "Deepin";
             ddeUpdateInfo.m_avilableVersion = tr("Patches");
-            ddeUpdateInfo.m_changelog = tr("Default Changelog");
+            if(ddeUpdateInfo.m_changelog.isEmpty())
+                ddeUpdateInfo.m_changelog = tr("Default Changelog");
             infos.prepend(ddeUpdateInfo);
         }
     }

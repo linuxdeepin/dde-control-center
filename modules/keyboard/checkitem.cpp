@@ -14,7 +14,7 @@ CheckItem::CheckItem(QFrame *parent)
       m_circle(0)
 {
     QHBoxLayout* hlayout = new QHBoxLayout();
-    hlayout->setContentsMargins(15,0,50,0);
+    hlayout->setContentsMargins(15,0,20,0);
     m_title = new QLabel();
     m_checkBtn = new DImageButton();
 
@@ -23,6 +23,7 @@ CheckItem::CheckItem(QFrame *parent)
     hlayout->setAlignment(m_title, Qt::AlignVCenter);
     hlayout->addStretch();
     hlayout->addWidget(m_checkBtn);
+    hlayout->addSpacerItem(new QSpacerItem(10,36));
     hlayout->setAlignment(m_checkBtn, Qt::AlignVCenter);
     setLayout(hlayout);
 

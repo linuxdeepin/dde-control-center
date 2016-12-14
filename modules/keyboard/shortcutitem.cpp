@@ -176,10 +176,13 @@ void ShortcutItem::paintEvent(QPaintEvent *e)
         r.moveRight(right);
         right = right - w - 12;
         painter.setBrush(palette().color(QPalette::Window));
+        painter.save();
+        painter.setPen(Qt::NoPen);
         painter.drawRoundRect(r.adjusted(0,h,0,-h));
+        painter.restore();
         painter.save();
         painter.setRenderHint(QPainter::Antialiasing);
-        painter.setOpacity(m_contain ? 1.0 : 0.6);
+        painter.setOpacity(m_contain ? 1.0 : 0.85);
         if(str == "null" && m_display)
         {
             QPen pen = painter.pen();
