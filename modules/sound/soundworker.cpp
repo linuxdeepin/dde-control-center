@@ -42,8 +42,6 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent) :
     connect(m_audioInter, &Audio::ActiveSourcePortChanged, this, &SoundWorker::activeSourcePortChanged);
 
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_sourceMeter) m_sourceMeter->Tick(); });
-
-    activate();
 }
 
 void SoundWorker::activate()
