@@ -1,6 +1,8 @@
 #include "wacommodelbase.h"
+
 using namespace dcc;
 using namespace dcc::wacom;
+
 WacomModelBase::WacomModelBase(QObject *parent)
 {
     Q_UNUSED(parent);

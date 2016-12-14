@@ -1,11 +1,12 @@
 #include "wacommodel.h"
-
+#include "wacom/model/wacommodelbase.h"
+#include <QObject>
+#include <QDebug>
 using namespace dcc;
 using namespace dcc::wacom;
 
-WacomModel::WacomModel(QObject *parent)
+WacomModel::WacomModel(QObject *parent):QObject(parent)
 {
-    Q_UNUSED(parent);
     m_wacomModelBase = new WacomModelBase;
 }
 
@@ -23,6 +24,6 @@ void WacomModel::setIsExist(bool state)
 {
     if (m_exist != state) {
         m_exist = state;
-        emit existChanged(state);
     }
+    emit existChanged(state);
 }

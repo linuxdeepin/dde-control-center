@@ -5,11 +5,12 @@
 #include "switchwidget.h"
 #include "settingsgroup.h"
 #include "wacom/wacommodel.h"
-
+#include "wacom/model/wacommodelbase.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::wacom;
+
 WacomSettings::WacomSettings(QWidget *parent):
     TranslucentFrame(parent)
 {
@@ -18,10 +19,14 @@ WacomSettings::WacomSettings(QWidget *parent):
     m_pressureSlider = new TitledSliderItem(tr("Pressure Sensitive"));
     m_pressureSlider->slider()->setType(DCCSlider::Vernier);
     m_pressureSlider->slider()->setTickPosition(QSlider::TicksBelow);
-    m_pressureSlider->slider()->setRange(0, 6);
+    m_pressureSlider->slider()->setRange(1, 7);
     m_pressureSlider->slider()->setTickInterval(1);
 
+    QStringList delays;
+    delays<<tr("light")<<""<<""<<""<<""<<""<<tr("heavy");
+    m_pressureSlider->setAnnotations(delays);
     m_mainGroup->appendItem(m_pressureSlider);
+
     m_mainLayout->addWidget(m_mainGroup);
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
@@ -40,5 +45,7 @@ void WacomSettings::setModel(WacomModelBase *const baseSettings)
 
 void WacomSettings::setPressureValue(const int &value)
 {
+    m_preSlider->blockSignals(true);
     m_preSlider->setValue(value);
+    m_preSlider->blockSignals(false);
 }
