@@ -26,6 +26,8 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
     connect(m_bluetoothInter, &DBusBluetooth::AdapterAdded, this, &BluetoothWorker::addAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterPropertiesChanged, this, &BluetoothWorker::onAdapterPropertiesChanged);
+    connect(m_bluetoothInter, &__Bluetooth::DeviceAdded, this, &BluetoothWorker::addDevice);
+    connect(m_bluetoothInter, &__Bluetooth::DeviceRemoved, this, &BluetoothWorker::removeDevice);
     connect(m_bluetoothInter, &DBusBluetooth::DevicePropertiesChanged, this, &BluetoothWorker::onDevicePropertiesChanged);
 
     connect(m_bluetoothInter, &DBusBluetooth::RequestAuthorization, [] (const QDBusObjectPath &in0) {
@@ -248,6 +250,38 @@ void BluetoothWorker::removeAdapter(const QString &json)
     const Adapter *result = m_model->adapterById(id);
     Adapter *adapter = const_cast<Adapter*>(result);
     if (adapter) adapter->deleteLater();
+}
+
+void BluetoothWorker::addDevice(const QString &json)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+    QJsonObject obj = doc.object();
+    const QString adapterId = obj["AdapterPath"].toString();
+    const QString id = obj["Path"].toString();
+
+    const Adapter *result = m_model->adapterById(adapterId);
+    Adapter *adapter = const_cast<Adapter*>(result);
+    if (adapter) {
+        const Device *result1 = adapter->deviceById(id);
+        Device *device = const_cast<Device*>(result1);
+        if (!device) device = new Device(adapter);
+        inflateDevice(device, obj);
+        adapter->addDevice(device);
+    }
+}
+
+void BluetoothWorker::removeDevice(const QString &json)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+    QJsonObject obj = doc.object();
+    const QString adapterId = obj["AdapterPath"].toString();
+    const QString id = obj["Path"].toString();
+
+    const Adapter *result = m_model->adapterById(adapterId);
+    if (result) {
+        Adapter *adapter = const_cast<Adapter*>(result);
+        adapter->removeDevice(id);
+    }
 }
 
 void BluetoothWorker::setAdapterDiscoverable(const QString &path)

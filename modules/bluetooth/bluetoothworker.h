@@ -48,6 +48,9 @@ private slots:
     void addAdapter(const QString &json);
     void removeAdapter(const QString &json);
 
+    void addDevice(const QString &json);
+    void removeDevice(const QString &json);
+
 private:
     void setAdapterDiscoverable(const QString &path);
 
