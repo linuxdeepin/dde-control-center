@@ -71,6 +71,7 @@ DateSettings::DateSettings(QWidget *parent)
     setContent(widget);
 
     connect(m_timeBtn, SIGNAL(confirm()), this, SLOT(slotConfirm()));
+    connect(m_timeBtn, SIGNAL(cancel()), this, SIGNAL(back()));
     connect(m_autoItem, SIGNAL(checkedChanegd(const bool)), this, SIGNAL(autoSyncChanged(const bool)));
 //    connect(autoItem, SIGNAL(checkedChanegd(const bool)), this, SLOT(slotAutoSync(bool)));
     connect(m_yearWidget, SIGNAL(dataChanged(DateWidget::Type,int)), this, SLOT(slotMonthChange(DateWidget::Type, int)));

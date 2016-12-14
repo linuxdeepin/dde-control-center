@@ -53,6 +53,7 @@ DateWidget::DateWidget(Type type, QFrame *parent)
     m_lineEdit->hide();
 
     connect(m_lineEdit, SIGNAL(returnPressed()),this,SLOT(setText()));
+    connect(m_lineEdit, SIGNAL(textChanged(QString)), this, SLOT(setText(QString)));
     connect(m_addBtn, SIGNAL(clicked()), this, SLOT(slotAdd()));
     connect(m_reducedBtn, SIGNAL(clicked()), this, SLOT(slotReduced()));
 }
@@ -196,6 +197,12 @@ void DateWidget::setText()
     update();
 }
 
+void DateWidget::setText(const QString &text)
+{
+    m_dateText = text;
+    update();
+}
+
 void DateWidget::slotAdd()
 {
     int date = m_dateText.toInt();
@@ -251,7 +258,9 @@ TimeWidget::TimeWidget(QFrame *parent)
     m_minuteEdit->hide();
 
     connect(m_hourEdit, SIGNAL(returnPressed()), this, SLOT(setHourText()));
+    connect(m_hourEdit, SIGNAL(textChanged(QString)), this, SLOT(setHourText(QString)));
     connect(m_minuteEdit, SIGNAL(returnPressed()), this, SLOT(setMinuteText()));
+    connect(m_minuteEdit, SIGNAL(textChanged(QString)), this, SLOT(setMinuteText(QString)));
 }
 
 int TimeWidget::hour() const
@@ -272,10 +281,23 @@ void TimeWidget::setHourText()
     update();
 }
 
+void TimeWidget::setHourText(const QString &text)
+{
+    m_hourText = text;
+    update();
+}
+
 void TimeWidget::setMinuteText()
 {
     m_minuteText = m_minuteEdit->text();
     m_minuteEdit->hide();
+
+    update();
+}
+
+void TimeWidget::setMinuteText(const QString &text)
+{
+    m_minuteText = text;
 
     update();
 }

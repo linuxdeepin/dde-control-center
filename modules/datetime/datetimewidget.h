@@ -39,6 +39,7 @@ signals:
 
 public slots:
     void setText();
+    void setText(const QString& text);
     void slotAdd();
     void slotReduced();
 
@@ -66,7 +67,9 @@ public:
 
 public slots:
     void setHourText();
+    void setHourText(const QString& text);
     void setMinuteText();
+    void setMinuteText(const QString& text);
 
 protected:
     void paintEvent(QPaintEvent *);
