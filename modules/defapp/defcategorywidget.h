@@ -17,7 +17,7 @@ namespace defapp
 class DefCategoryAddWidget;
 class Category;
 class OptionWidget;
-class DefCategoryWidget : public ModuleWidget
+class DefCategoryWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -43,6 +43,7 @@ private:
     void removeItem(const QJsonObject &item);
 
 private:
+    QVBoxLayout           *m_centeralLayout;
     widgets::SettingsGroup    *m_userGroup;
     QWidget               *m_listWidget;
     QVBoxLayout           *m_listLayout;

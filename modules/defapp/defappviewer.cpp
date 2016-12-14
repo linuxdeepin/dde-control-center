@@ -3,22 +3,25 @@
 #include "switchwidget.h"
 #include "defappmodel.h"
 #include "translucentframe.h"
+#include "settingsgroup.h"
 using namespace dcc;
 using namespace dcc::defapp;
 using namespace dcc::widgets;
 DefAppViewer::DefAppViewer(QWidget *parent)
-    :ContentWidget(parent)
+    : ContentWidget(parent)
 {
-    m_mainlayout = new QVBoxLayout;
-    m_mainwidget = new TranslucentFrame;
-    m_mainwidget->setLayout(m_mainlayout);
     QWidget *m_defAppViewer = defappDetail();
     setTitle("Set Default Applications");
     setContent(m_defAppViewer);
 }
 
 //下级菜单，该函数会初始化界面
-QWidget* DefAppViewer::defappDetail() {
+QWidget *DefAppViewer::defappDetail()
+{
+    QVBoxLayout *mainlayout = new QVBoxLayout;
+    QWidget     *mainwidget = new QWidget;
+    mainwidget->setLayout(mainlayout);
+    mainlayout->setMargin(0);
     m_modBrowser = new DefCategoryWidget(tr("Browser"), this);
     m_modMail = new DefCategoryWidget(tr("Mail"), this);
     m_modText = new DefCategoryWidget(tr("Text"), this);
@@ -37,22 +40,25 @@ QWidget* DefAppViewer::defappDetail() {
     m_modSoftware = new DefCategoryWidget(tr("Software"), this);
     m_modSoftware->hide();
 
+    SettingsGroup *group = new SettingsGroup;
     m_switchWidget = new SwitchWidget();
     connect(m_switchWidget, &SwitchWidget::checkedChanegd, this, &DefAppViewer::autoOpenChanged);
+    group->appendItem(m_switchWidget);
+    group->setMargin(0, 0, 0, 0);
 
-    m_mainlayout->addWidget(m_modBrowser);
-    m_mainlayout->addWidget(m_modMail);
-    m_mainlayout->addWidget(m_modText);
-    m_mainlayout->addWidget(m_modMusic);
-    m_mainlayout->addWidget(m_modVideo);
-    m_mainlayout->addWidget(m_modPicture);
-    m_mainlayout->addWidget(m_modTerminal);
-    m_mainlayout->addWidget(m_switchWidget);
-    m_mainlayout->addWidget(m_modCDAudio);
-    m_mainlayout->addWidget(m_modDVDVideo);
-    m_mainlayout->addWidget(m_modMusicPlayer);
-    m_mainlayout->addWidget(m_modCamera);
-    m_mainlayout->addWidget(m_modSoftware);
+    mainlayout->addWidget(m_modBrowser);
+    mainlayout->addWidget(m_modMail);
+    mainlayout->addWidget(m_modText);
+    mainlayout->addWidget(m_modMusic);
+    mainlayout->addWidget(m_modVideo);
+    mainlayout->addWidget(m_modPicture);
+    mainlayout->addWidget(m_modTerminal);
+    mainlayout->addWidget(group);
+    mainlayout->addWidget(m_modCDAudio);
+    mainlayout->addWidget(m_modDVDVideo);
+    mainlayout->addWidget(m_modMusicPlayer);
+    mainlayout->addWidget(m_modCamera);
+    mainlayout->addWidget(m_modSoftware);
 
     connect(m_modBrowser,  &DefCategoryWidget::requestSetDefaultApp,    this, &DefAppViewer::requestSetDefaultApp);
     connect(m_modMail,     &DefCategoryWidget::requestSetDefaultApp,    this, &DefAppViewer::requestSetDefaultApp);
@@ -112,28 +118,30 @@ QWidget* DefAppViewer::defappDetail() {
     connect(m_modSoftware, &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
 
 
-    return m_mainwidget;
+    return mainwidget;
 }
 
-void DefAppViewer::setModel(DefAppModel * const model) {
+void DefAppViewer::setModel(DefAppModel *const model)
+{
     connect(model, &DefAppModel::AutoOpenChanged, this, &DefAppViewer::setAutoChanged);
     setAutoChanged(model->setAutoOpen());
 
-    m_modBrowser->setCategory(     model->getModBrowser());
-    m_modMail->setCategory(        model->getModMail());
-    m_modText->setCategory(        model->getModText());
-    m_modMusic->setCategory(       model->getModMusic());
-    m_modVideo->setCategory(       model->getModVideo());
-    m_modPicture->setCategory(     model->getModPicture());
-    m_modTerminal->setCategory(    model->getModTerminal());
-    m_modCDAudio->setCategory(     model->getModCDAudio());
-    m_modDVDVideo->setCategory(    model->getModDVDVideo());
-    m_modMusicPlayer->setCategory( model->getModMusicPlayer());
-    m_modCamera->setCategory(      model->getModCamera());
-    m_modSoftware->setCategory(    model->getModSoftware());
+    m_modBrowser->setCategory(model->getModBrowser());
+    m_modMail->setCategory(model->getModMail());
+    m_modText->setCategory(model->getModText());
+    m_modMusic->setCategory(model->getModMusic());
+    m_modVideo->setCategory(model->getModVideo());
+    m_modPicture->setCategory(model->getModPicture());
+    m_modTerminal->setCategory(model->getModTerminal());
+    m_modCDAudio->setCategory(model->getModCDAudio());
+    m_modDVDVideo->setCategory(model->getModDVDVideo());
+    m_modMusicPlayer->setCategory(model->getModMusicPlayer());
+    m_modCamera->setCategory(model->getModCamera());
+    m_modSoftware->setCategory(model->getModSoftware());
 }
 
-void DefAppViewer::setAutoChanged(const bool visible) {
+void DefAppViewer::setAutoChanged(const bool visible)
+{
     qDebug() << "reset visible to " << visible;
     m_modCDAudio->setVisible(visible);
     m_modDVDVideo->setVisible(visible);

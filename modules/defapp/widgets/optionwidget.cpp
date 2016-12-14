@@ -28,8 +28,8 @@ OptionWidget::OptionWidget(QWidget *parent)
     m_checkedIconLabel->setFixedSize(17, 17);
 
     QHBoxLayout *m_leftOption = new QHBoxLayout;
-    m_leftOption->setSpacing(1);
     m_leftOption->addWidget(m_optionIcon,  0, Qt::AlignLeft);
+    m_leftOption->addSpacing(14);
     m_leftOption->addWidget(m_displayName, 0, Qt::AlignLeft);
     m_leftOption->addWidget(m_execPath,        0, Qt::AlignLeft);
     m_leftOption->addStretch();

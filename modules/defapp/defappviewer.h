@@ -11,6 +11,7 @@ namespace dcc
 {
 namespace widgets {
 class SwitchWidget;
+class SettingsGroup;
 class TranslucentFrame;
 }
 namespace defapp
@@ -37,8 +38,6 @@ private slots:
     void setAutoChanged(const bool visible);
 
 private:
-    QVBoxLayout         *m_mainlayout;
-    QWidget             *m_mainwidget;
 
     DefCategoryWidget *m_modBrowser = nullptr;
     DefCategoryWidget *m_modMail = nullptr;
