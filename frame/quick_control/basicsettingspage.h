@@ -10,6 +10,8 @@
 #include <com_deepin_daemon_audio_sink.h>
 #include <com_deepin_daemon_display.h>
 
+class QLabel;
+
 namespace dcc {
 
 class BasicSettingsModel : public QObject {
@@ -60,7 +62,11 @@ public:
     explicit BasicSettingsPage(QWidget *parent = 0);
 
 private:
+    QLabel *m_volumeLow;
+    QLabel *m_volumeHigh;
     dcc::widgets::DCCSlider *m_soundSlider;
+    QLabel *m_brightnessLow;
+    QLabel *m_brightnessHigh;
     dcc::widgets::DCCSlider *m_lightSlider;
 
     BasicSettingsModel *m_model;

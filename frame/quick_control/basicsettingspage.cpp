@@ -1,6 +1,8 @@
 #include "basicsettingspage.h"
 
 #include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLabel>
 
 using namespace dcc::widgets;
 
@@ -86,22 +88,53 @@ void BasicSettingsWorker::onBrightnessChanged(const BrightnessMap value)
 BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     : QWidget(parent),
 
+      m_volumeLow(new QLabel),
+      m_volumeHigh(new QLabel),
       m_soundSlider(new DCCSlider),
+      m_brightnessLow(new QLabel),
+      m_brightnessHigh(new QLabel),
       m_lightSlider(new DCCSlider),
       m_model(new BasicSettingsModel(this)),
       m_worker(new BasicSettingsWorker(m_model, this))
 {
+    m_volumeLow->setObjectName("HomeVolumeLowLabel");
+    m_volumeLow->setFixedSize(24, 24);
+    m_volumeHigh->setObjectName("HomeVolumeHighLabel");
+    m_volumeHigh->setFixedSize(24, 24);
+    m_brightnessLow->setObjectName("HomeBrightnessLowLabel");
+    m_brightnessLow->setFixedSize(24, 24);
+    m_brightnessHigh->setObjectName("HomeBrightnessHighLabel");
+    m_brightnessHigh->setFixedSize(24, 24);
+
     m_soundSlider->setOrientation(Qt::Horizontal);
     m_soundSlider->setRange(0, 150);
     m_lightSlider->setOrientation(Qt::Horizontal);
     m_lightSlider->setRange(0, 100);
 
+    QHBoxLayout *volumeLayout = new QHBoxLayout;
+    volumeLayout->setMargin(0);
+    volumeLayout->setSpacing(0);
+    volumeLayout->setContentsMargins(20, 0, 20, 0);
+    volumeLayout->addWidget(m_volumeLow);
+    volumeLayout->addSpacing(10);
+    volumeLayout->addWidget(m_soundSlider);
+    volumeLayout->addSpacing(10);
+    volumeLayout->addWidget(m_volumeHigh);
+
+    QHBoxLayout *brightnessLayout = new QHBoxLayout;
+    brightnessLayout->setMargin(0);
+    brightnessLayout->setSpacing(0);
+    brightnessLayout->setContentsMargins(20, 0, 20, 0);
+    brightnessLayout->addWidget(m_brightnessLow);
+    brightnessLayout->addSpacing(10);
+    brightnessLayout->addWidget(m_lightSlider);
+    brightnessLayout->addSpacing(10);
+    brightnessLayout->addWidget(m_brightnessHigh);
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addWidget(m_soundSlider);
-    mainLayout->addWidget(m_lightSlider);
-
+    mainLayout->addLayout(volumeLayout);
+    mainLayout->addLayout(brightnessLayout);
     setLayout(mainLayout);
-
 
     auto onVolumeChanged = [this] (const double &volume) {
         m_soundSlider->blockSignals(true);

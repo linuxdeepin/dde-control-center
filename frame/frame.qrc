@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/frame">
         <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/home_light_low.png</file>
+        <file>themes/dark/icons/home_light_high.png</file>
+        <file>themes/dark/icons/home_volume_low.png</file>
+        <file>themes/dark/icons/home_volume_high.png</file>
     </qresource>
 </RCC>
