@@ -18,14 +18,13 @@ NetworkDevice::DeviceType parseDeviceType(const QString &type)
         return NetworkDevice::Wired;
     }
 
-    Q_UNREACHABLE_IMPL();
-    return NetworkDevice::Wired;
+    return NetworkDevice::Unknow;
 }
 
 NetworkModel::NetworkModel(QObject *parent)
     : QObject(parent)
 {
-
+    qDebug() << m_devices.size();
 }
 
 NetworkModel::~NetworkModel()
@@ -42,6 +41,9 @@ void NetworkModel::onDevicesListChanged(const QString &devices)
     for (auto it(data.constBegin()); it != data.constEnd(); ++it) {
         const auto type = parseDeviceType(it.key());
         const auto list = it.value().toArray();
+
+        if (type == NetworkDevice::Unknow)
+            continue;
 
         for (auto const l : list)
         {

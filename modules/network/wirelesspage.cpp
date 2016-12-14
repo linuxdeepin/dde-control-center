@@ -35,7 +35,11 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     mainWidget->setLayout(mainLayout);
 
     setContent(mainWidget);
+#ifdef QT_DEBUG
+    setTitle(dev->path());
+#else
     setTitle(tr("WLAN"));
+#endif
 
     connect(&m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
     connect(m_switchBtn, &SwitchWidget::checkedChanegd, [=](const bool enabled) { emit requestDeviceEnabled(m_device->path(), enabled); });
@@ -80,7 +84,11 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 
     AccessPointWidget *w = m_apItems[ssid];
 
+#ifdef QT_DEBUG
+    w->setAPName(QString::number(apInfo.value("Strength").toInt()) + " " + ssid);
+#else
     w->setAPName(ssid);
+#endif
     w->setEncyrpt(apInfo.value("Secured").toBool());
     w->setStrength(apInfo.value("Strength").toInt());
 

@@ -16,6 +16,7 @@ class NetworkDevice : public QObject
 public:
     enum DeviceType
     {
+        Unknow,
         Wired,
         Wireless,
     };
