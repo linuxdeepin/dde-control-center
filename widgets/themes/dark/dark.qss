@@ -15,6 +15,10 @@ dcc--widgets--SettingsItem {
     background-color: rgba(238, 238, 238, .2);
 }
 
+dcc--widgets--SettingsHead QLabel#Edit {
+    color:#01bdff
+}
+
 /* OptionItem */
 dcc--widgets--NormalLabel#OptionItemTitle {
     color: white;

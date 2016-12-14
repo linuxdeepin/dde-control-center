@@ -3,6 +3,7 @@
 #include "nextpagewidget.h"
 #include "titledslideritem.h"
 #include "dccslider.h"
+#include "searchinput.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -37,6 +38,7 @@ KeyboardWidget::KeyboardWidget()
     keyTest->appendItem(delayItem);
 
     TitledSliderItem* speedItem =  new TitledSliderItem(tr("重复速度"));
+    speedItem->setFixedHeight(speedItem->height() + 30);
     m_speedSlider = speedItem->slider();
     m_speedSlider->setType(DCCSlider::Vernier);
     m_speedSlider->setOrientation(Qt::Horizontal);
@@ -46,6 +48,13 @@ KeyboardWidget::KeyboardWidget()
     QStringList speeds;
     speeds<<tr("慢")<<""<<""<<""<<""<<""<<tr("快");
     speedItem->setAnnotations(speeds);
+    SearchInput* testArea = new SearchInput();
+    testArea->setFixedWidth(200);
+    testArea->setSearchText(tr("Please Test Here"));
+    testArea->setIconVisible(false);
+    testArea->setStyleSheet("border: 0px");
+    speedItem->layout()->addWidget(testArea);
+    speedItem->layout()->setAlignment(testArea, Qt::AlignCenter);
     keyTest->appendItem(speedItem);
 
     m_upper = new SwitchWidget();

@@ -15,12 +15,15 @@ class Clock: public widgets::SettingsItem
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool display READ display WRITE setDisplay  DESIGNABLE true SCRIPTABLE true)
+
 public:
     explicit Clock(QFrame *parent = 0);
     virtual ~Clock();
 
     void setTimezone(const QString& timezone);
     void setDisplay(bool display);
+    bool display() const { return m_display;}
 
 protected:
     void paintEvent(QPaintEvent *event);

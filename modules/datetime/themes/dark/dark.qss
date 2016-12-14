@@ -29,3 +29,7 @@ QLabel#DCC-Datetime-TimezoneItem-Label{
     background-color:transparent;
 }
 
+
+dcc--datetime--Clock[display=false] {
+    background-color:transparent;
+}

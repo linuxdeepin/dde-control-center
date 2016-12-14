@@ -12,6 +12,7 @@ SettingsHead::SettingsHead(QFrame *parent)
     setFixedHeight(30);
     m_title = new QLabel;
     m_edit = new QLabel;
+    m_edit->setObjectName("Edit");
     m_edit->setAlignment(Qt::AlignCenter);
     m_edit->installEventFilter(this);
     m_edit->setText(tr("Edit"));
