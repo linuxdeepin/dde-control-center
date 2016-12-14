@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 SUBDIRS = \
-        example \
-        calculator \
+        #example \
+        #calculator \
         notify \
         weather

@@ -19,7 +19,9 @@ DUTIL_USE_NAMESPACE
 
 static const QString getQssFromFile(const QString &name)
 {
-    qDebug() << "load qss file: " << name;
+#ifdef QT_DEBUG
+//    qDebug() << "load qss file: " << name;
+#endif
 
     QString qss;
 
@@ -70,8 +72,10 @@ static void onThemeChange(const QString &theme)
     qss.append(styleSheetFromTheme("common"));
     qss.append(styleSheetFromTheme(theme));
 
-    qDebug() << "set theme:" << theme;
-    qDebug().noquote() << "qss: " << endl << qss;
+#ifdef QT_DEBUG
+//    qDebug() << "set theme:" << theme;
+//    qDebug().noquote() << "qss: " << endl << qss;
+#endif
 
     qApp->setStyleSheet(qss);
 }

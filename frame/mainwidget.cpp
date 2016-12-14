@@ -68,7 +68,7 @@ MainWidget::MainWidget(Frame *parent)
                                     "}");
 
     m_pluginsIndicator->setFixedHeight(20);
-    m_pluginsIndicator->setPageCount(4);
+    m_pluginsIndicator->setPageCount(2);
     m_pluginsIndicator->setCurrentPage(0);
 
     QVBoxLayout *timedateLayout = new QVBoxLayout;
