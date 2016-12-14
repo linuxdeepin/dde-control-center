@@ -36,9 +36,6 @@ signals:
 public slots:
     void processReadyReadStandardOutput();
     void converToJson(QStringList &list);
-
-private:
-    QProcess m_process;
 };
 
 #endif // NOTIFYDATATHREAD_H

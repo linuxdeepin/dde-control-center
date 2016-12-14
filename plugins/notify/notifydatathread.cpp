@@ -22,15 +22,17 @@ NotifyDataThread::~NotifyDataThread()
 
 void NotifyDataThread::run()
 {
-    m_process.start("dbus-monitor", QStringList("interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'"));
-    connect(&m_process, &QProcess::readyReadStandardOutput, this, &NotifyDataThread::processReadyReadStandardOutput);
-    m_process.waitForFinished(-1);
+    QProcess process;
+    process.start("dbus-monitor", QStringList("interface='org.freedesktop.Notifications',member='Notify',type='method_call',eavesdrop='true'"));
+    connect(&process, &QProcess::readyReadStandardOutput, this, &NotifyDataThread::processReadyReadStandardOutput);
+    process.waitForFinished(-1);
 }
 
 void NotifyDataThread::processReadyReadStandardOutput()
 {
+    QProcess *p = qobject_cast<QProcess *>(sender());
     QTimer::singleShot(100, this, [ = ] {
-        QString string = m_process.readAllStandardOutput();
+        QString string = p->readAllStandardOutput();
         QRegularExpression regularExpression("string.\\\"(?<string>.*)\\\"\\n");
         int index = 0;
         QStringList list;

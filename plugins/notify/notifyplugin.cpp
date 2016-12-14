@@ -9,12 +9,6 @@ NotifyPlugin::NotifyPlugin(QObject *parent)
     m_notifymanager = new NotifyManager;
 }
 
-NotifyPlugin::~NotifyPlugin()
-{
-    m_scrollarea->deleteLater();
-    m_notifymanager->deleteLater();
-}
-
 void NotifyPlugin::initialize(FrameProxyInterface *proxy) {
     m_proxyInter    = proxy;
     m_notifymanager->setContentsMargins(0, 0, 0, 0);

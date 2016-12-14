@@ -76,7 +76,7 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
         m_anim1=new QPropertyAnimation(this, "pos",this);
         m_anim1->setDuration(600);
         m_anim1->setStartValue(QPoint(this->x(), this->y()));
-        m_anim1->setEndValue(QPoint(300, this->y()));
+        m_anim1->setEndValue(QPoint(this->width(), this->y()));
         m_anim1->setEasingCurve(QEasingCurve::OutCirc);
         m_anim1->start();
 
