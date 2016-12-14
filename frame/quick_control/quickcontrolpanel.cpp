@@ -4,18 +4,26 @@
 
 #include <QVBoxLayout>
 
+using namespace dcc;
+
 QuickControlPanel::QuickControlPanel(QWidget *parent)
     : QWidget(parent),
 
       m_itemStack(new QStackedLayout)
 {
-    m_itemStack->addWidget(new dcc::BasicSettingsPage);
+    m_itemStack->addWidget(new BasicSettingsPage);
 
-    QuickSwitchButton *btSwitch = new QuickSwitchButton(0);
-    QuickSwitchButton *vpnSwitch = new QuickSwitchButton(1);
-    QuickSwitchButton *wifiSwitch = new QuickSwitchButton(2);
-    QuickSwitchButton *displaySwitch = new QuickSwitchButton(3);
-    QuickSwitchButton *detailSwitch = new QuickSwitchButton(4);
+    QuickSwitchButton *btSwitch = new QuickSwitchButton(0, "bluetooth");
+    QuickSwitchButton *vpnSwitch = new QuickSwitchButton(1, "VPN");
+    QuickSwitchButton *wifiSwitch = new QuickSwitchButton(2, "wifi");
+    QuickSwitchButton *displaySwitch = new QuickSwitchButton(3, "display");
+    QuickSwitchButton *detailSwitch = new QuickSwitchButton(4, "all_settings");
+
+    btSwitch->setObjectName("QuickSwitchBluetooth");
+    vpnSwitch->setObjectName("QuickSwitchVPN");
+    wifiSwitch->setObjectName("QuickSwitchWiFi");
+    displaySwitch->setObjectName("QuickSwitchDisplay");
+    detailSwitch->setObjectName("QuickSwitchAllSettings");
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addWidget(btSwitch);

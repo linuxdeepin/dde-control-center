@@ -18,3 +18,7 @@ QLabel#HomeBrightnessLowLabel {
 QLabel#HomeBrightnessHighLabel {
     background-image: url(":/frame/themes/dark/icons/home_light_high.png");
 }
+
+dcc--QuickSwitchButton#QuickSwitchBluetooth, dcc--QuickSwitchButton#QuickSwitchVPN, dcc--QuickSwitchButton#QuickSwitchWiFi, dcc--QuickSwitchButton#QuickSwitchDisplay, dcc--QuickSwitchButton#QuickSwitchAllSettings {
+    qproperty-themeName: "dark";
+}
