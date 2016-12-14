@@ -1,7 +1,5 @@
 dcc--widgets--NextButton Dtk--Widget--DImageButton {
-    qproperty-normalPic: url(:/widgets/icons/next_normal.png);
-    qproperty-hoverPic: url(:/widgets/icons/next_hover.png);
-    qproperty-pressPic: url(:/widgets/icons/next_press.png);
+    qproperty-normalPic: url(:/widgets/themes/dark/icons/expand_arrow.png);
 }
 
 dcc--widgets--BackButton Dtk--Widget--DImageButton {
@@ -31,3 +29,13 @@ QLabel#OptionItemSelectedIcon {
 dcc--widgets--LoadingIndicator {
     qproperty-theme: "dark";
 }
+
+/**
+dcc--widgets--NextPageWidget{
+    background-color: rgba(238, 238, 238, .4);
+}
+
+dcc--widgets--NextPageWidget{
+    background-color: rgba(238, 238, 238, .2);
+}
+*/

@@ -23,6 +23,7 @@ NextPageWidget::NextPageWidget(QFrame *parent)
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addWidget(m_value);
+    mainLayout->addSpacerItem(new QSpacerItem(3,36));
     mainLayout->addWidget(m_nextPageBtn);
     mainLayout->setSpacing(0);
 

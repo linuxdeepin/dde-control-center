@@ -192,5 +192,6 @@
         <file>themes/dark/icons/Loading/loading_002.png</file>
         <file>themes/dark/icons/Loading/loading_001.png</file>
         <file>themes/dark/icons/Loading/loading_000.png</file>
+        <file>themes/dark/icons/expand_arrow.png</file>
     </qresource>
 </RCC>

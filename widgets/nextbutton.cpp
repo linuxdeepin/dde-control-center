@@ -15,7 +15,7 @@ namespace widgets {
 NextButton::NextButton(QWidget *parent) :
     TranslucentFrame(parent)
 {
-    setFixedSize(24, 24);
+    setFixedSize(12, 12);
     DImageButton * btn = new DImageButton(this);
 
     connect(btn, &DImageButton::clicked, this, &NextButton::clicked);
