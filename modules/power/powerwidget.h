@@ -30,16 +30,11 @@ signals:
     void requestSetSleepDelay(const int delay) const;
 
 private:
-    int delayToSliderValue(const int min, const int max, const int delay) const;
-    int sliderValueToDelay(const int min, const int max, const int tickInterval, const int value) const;
     QString delayToLiteralString(const int delay) const;
 
 private slots:
     void setScreenBlackDelay(const int delay);
     void setSleepDelay(const int delay);
-
-    void monitorSliderValueChanged(const int delay);
-    void sleepSliderValueChanged(const int delay);
 
 private:
     dcc::widgets::SettingsGroup *m_sleepTimeoutSettings;
