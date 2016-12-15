@@ -17,8 +17,6 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::LidClosedActionChanged, this, &PowerWorker::lidClosedActionChanged);
     connect(m_powerInter, &PowerInter::LinePowerScreenBlackDelayChanged, m_powerModel, &PowerModel::setScreenBlackDelay);
     connect(m_powerInter, &PowerInter::LinePowerSleepDelayChanged, m_powerModel, &PowerModel::setSleepDelay);
-
-    active();
 }
 
 void PowerWorker::active()
