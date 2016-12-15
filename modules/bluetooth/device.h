@@ -30,6 +30,7 @@ public:
 
 public:
     explicit Device(QObject *parent = 0);
+    ~Device();
 
     inline QString id() const { return m_id; }
     void setId(const QString &id);

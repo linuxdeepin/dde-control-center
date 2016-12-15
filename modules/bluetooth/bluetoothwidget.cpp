@@ -25,8 +25,7 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model) :
 
 void BluetoothWidget::setModel(BluetoothModel *model)
 {
-    setVisible(false);
-
+    model->disconnect(this);
     connect(model, &BluetoothModel::adapterAdded, this, &BluetoothWidget::addAdapter);
     connect(model, &BluetoothModel::adapterRemoved, this, &BluetoothWidget::removeAdapter);
 
@@ -47,6 +46,8 @@ void BluetoothWidget::setModel(BluetoothModel *model)
             aw->deleteLater();
         }
     }
+
+    setVisible(model->adapters().length() != 0);
 }
 
 AdapterWidget *BluetoothWidget::widgetByAdapterId(const QString &adapterId)
@@ -63,6 +64,8 @@ AdapterWidget *BluetoothWidget::widgetByAdapterId(const QString &adapterId)
 
 void BluetoothWidget::addAdapter(const Adapter *adapter)
 {
+    if (widgetByAdapterId(adapter->id())) return;
+
     AdapterWidget * widget = new AdapterWidget(adapter);
     m_widgets.append(widget);
 

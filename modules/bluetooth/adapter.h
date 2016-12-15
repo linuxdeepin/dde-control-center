@@ -22,6 +22,7 @@ class Adapter : public QObject
     Q_OBJECT
 public:
     explicit Adapter(QObject *parent = 0);
+    ~Adapter();
 
     inline QString name() const { return m_name; }
     void setName(const QString &name);
@@ -37,7 +38,7 @@ public:
 
 public slots:
     void addDevice(const Device *device);
-    void removeDevice(const QString &deviceId);
+    const Device *removeDevice(const QString &deviceId);
 
 signals:
     void nameChanged(const QString &name) const;

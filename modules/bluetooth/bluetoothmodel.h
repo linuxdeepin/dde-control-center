@@ -28,7 +28,7 @@ public:
 
 public slots:
     void addAdapter(const Adapter *adapter);
-    void removeAdapater(const QString &adapterId);
+    const Adapter *removeAdapater(const QString &adapterId);
 
 signals:
     void adapterAdded(const Adapter *adapter) const;

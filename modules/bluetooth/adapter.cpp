@@ -21,6 +21,11 @@ Adapter::Adapter(QObject *parent) :
 
 }
 
+Adapter::~Adapter()
+{
+    qDebug() << "~Adapter() " << m_id;
+}
+
 void Adapter::setName(const QString &name)
 {
     if (name != m_name) {
@@ -37,12 +42,17 @@ void Adapter::addDevice(const Device *device)
     }
 }
 
-void Adapter::removeDevice(const QString &deviceId)
+const Device *Adapter::removeDevice(const QString &deviceId)
 {
-    const Device *device = deviceById(deviceId);
-    if (device) m_devices.removeAll(device);
+    const Device *device = nullptr;
 
-    emit deviceRemoved(deviceId);
+    device = deviceById(deviceId);
+    if (device) {
+        m_devices.removeAll(device);
+        emit deviceRemoved(deviceId);
+    }
+
+    return device;
 }
 
 void Adapter::setPowered(bool powered)

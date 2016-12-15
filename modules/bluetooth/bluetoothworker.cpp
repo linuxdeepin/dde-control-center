@@ -150,10 +150,17 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
     adapter->setName(alias);
     adapter->setPowered(powered);
 
+    QPointer<Adapter> adapterPointer(adapter);
+
     QDBusObjectPath dPath(path);
     QDBusPendingCall call = m_bluetoothInter->GetDevices(dPath);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, adapter, call] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, adapterPointer, call] {
+        if (!adapterPointer)
+            return;
+
+        Adapter *adapter = adapterPointer.data();
+
         if (!call.isError())  {
             QStringList tmpList;
 
@@ -235,6 +242,8 @@ void BluetoothWorker::addAdapter(const QString &json)
     QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
     QJsonObject obj = doc.object();
 
+    qDebug() << "add adapter: " << obj["Path"].toString();
+
     Adapter *adapter = new Adapter(m_model);
     inflateAdapter(adapter, obj);
     m_model->addAdapter(adapter);
@@ -245,11 +254,14 @@ void BluetoothWorker::removeAdapter(const QString &json)
     QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
     QJsonObject obj = doc.object();
     const QString id = obj["Path"].toString();
-    m_model->removeAdapater(id);
 
-    const Adapter *result = m_model->adapterById(id);
+    qDebug() << "remove adapter: " << id;
+
+    const Adapter *result = m_model->removeAdapater(id);
     Adapter *adapter = const_cast<Adapter*>(result);
-    if (adapter) adapter->deleteLater();
+    if (adapter) {
+        adapter->deleteLater();
+    }
 }
 
 void BluetoothWorker::addDevice(const QString &json)
@@ -258,6 +270,8 @@ void BluetoothWorker::addDevice(const QString &json)
     QJsonObject obj = doc.object();
     const QString adapterId = obj["AdapterPath"].toString();
     const QString id = obj["Path"].toString();
+
+    qDebug() << "add device: " << id;
 
     const Adapter *result = m_model->adapterById(adapterId);
     Adapter *adapter = const_cast<Adapter*>(result);
@@ -277,10 +291,14 @@ void BluetoothWorker::removeDevice(const QString &json)
     const QString adapterId = obj["AdapterPath"].toString();
     const QString id = obj["Path"].toString();
 
+    qDebug() << "remove device: " << id;
+
     const Adapter *result = m_model->adapterById(adapterId);
-    if (result) {
-        Adapter *adapter = const_cast<Adapter*>(result);
-        adapter->removeDevice(id);
+    Adapter *adapter = const_cast<Adapter*>(result);
+    if (adapter) {
+        const Device *result = adapter->removeDevice(id);
+        Device *device = const_cast<Device*>(result);
+        device->deleteLater();
     }
 }
 

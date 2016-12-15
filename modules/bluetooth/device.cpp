@@ -24,6 +24,11 @@ Device::Device(QObject *parent) :
 
 }
 
+Device::~Device()
+{
+    qDebug() << "~Device() " << m_id;
+}
+
 void Device::setId(const QString &id)
 {
     m_id = id;
