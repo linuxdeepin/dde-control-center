@@ -32,7 +32,7 @@ MouseWidget::MouseWidget()
 
 
     m_touchSettings = new MouseSettings(tr("TouchPad"));
-    m_touchSettings->setSwitchTitle(QString(tr("Tap Click")));
+    m_touchSettings->setSwitchTitle(QString(tr("Tap to Click")));
     m_centeralLayout->addWidget(m_touchSettings);
 
 

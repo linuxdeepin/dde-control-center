@@ -10,7 +10,6 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
     m_dbusTrackPoint(new TrackPoint(Service, "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this)),
     m_model(model)
 {
-
     m_dbusMouse->setSync(false);
     m_dbusTouchPad->setSync(false);
     m_dbusTouchPad->setSync(false);
@@ -24,8 +23,6 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
     connect(m_dbusTouchPad, &TouchPad::MotionAccelerationChanged, this, &MouseWorker::setTouchpadMotionAcceleration);
     connect(m_dbusTouchPad, &TouchPad::TapClickChanged, this, &MouseWorker::setTapClick);
     connect(m_dbusTrackPoint, &TrackPoint::MotionAccelerationChanged, this, &MouseWorker::setTrackPointMotionAcceleration);
-    active();
-
 }
 
 void MouseWorker::active()
@@ -35,21 +32,27 @@ void MouseWorker::active()
     m_dbusTrackPoint->blockSignals(false);
 
     MouseModelBaseSettings *modelBase = m_model->getBaseSettings();
-    modelBase->setSliderValue(m_dbusMouse->doubleClick());
+    modelBase->setSliderValue(converToDoubleModel(m_dbusMouse->doubleClick()));
     modelBase->setLeftHandState(m_dbusMouse->leftHanded());
     modelBase->setNaturalScroll(m_dbusMouse->naturalScroll());
     modelBase->setDisIfTyping(m_dbusTouchPad->disableIfTyping());
 
     MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
-    modelMouse->setSliderValue(std::round(3.2 - m_dbusMouse->motionAcceleration()) * 1000);
+    modelMouse->setSliderValue(converToModelMotionAcceleration(m_dbusMouse->motionAcceleration()));
     modelMouse->setSwitchState(m_dbusMouse->disableTpad());
+    modelBase->setExist(m_dbusMouse->exist());
+    connect(m_dbusMouse, &Mouse::ExistChanged, modelMouse, &MouseModelMouseSettings::setExist);
 
     MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
-    modelTouch->setSliderValue(std::round(3.2 - m_dbusTouchPad->motionAcceleration()) * 1000);
+    modelTouch->setSliderValue(converToModelMotionAcceleration(m_dbusTouchPad->motionAcceleration()));
     modelTouch->setSwitchState(m_dbusTouchPad->tapClick());
+    modelTouch->setExist(m_dbusTouchPad->exist());
+    connect(m_dbusTouchPad, &TouchPad::ExistChanged, modelTouch, &MouseModelMouseSettings::setExist);
 
     MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
-    modelTrack->setSliderValue(std::round(3.2 - m_dbusTrackPoint->motionAcceleration()) * 1000);
+    modelTrack->setSliderValue(converToModelMotionAcceleration(m_dbusTrackPoint->motionAcceleration()));
+    modelTrack->setExist(m_dbusTrackPoint->exist());
+    connect(m_dbusTrackPoint, &TrackPoint::ExistChanged, modelTrack, &MouseModelThinkpadSettings::setExist);
 }
 
 void MouseWorker::deactive()
@@ -96,19 +99,19 @@ void MouseWorker::setDouClick(const int &value)
     modelBase->setSliderValue(converToDoubleModel(value));
 }
 
-void MouseWorker::setMouseMotionAcceleration(const int &value)
+void MouseWorker::setMouseMotionAcceleration(const double &value)
 {
     MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
     modelMouse->setSliderValue(converToModelMotionAcceleration(value));
 }
 
-void MouseWorker::setTouchpadMotionAcceleration(const int &value)
+void MouseWorker::setTouchpadMotionAcceleration(const double &value)
 {
     MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
     modelTouch->setSliderValue(converToModelMotionAcceleration(value));
 }
 
-void MouseWorker::setTrackPointMotionAcceleration(const int &value)
+void MouseWorker::setTrackPointMotionAcceleration(const double &value)
 {
     MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
     modelTrack->setSliderValue(converToModelMotionAcceleration(value));
@@ -128,6 +131,7 @@ void MouseWorker::onLeftHandStateChanged(const bool state)
 
 void MouseWorker::onNaturalScrollStateChanged(const bool state)
 {
+    m_dbusMouse->setNaturalScroll(state);
     m_dbusTouchPad->setNaturalScroll(state);
 }
 

@@ -3,6 +3,7 @@
 
 #include "moduleinterface.h"
 #include <QObject>
+
 namespace dcc
 {
 namespace mouse

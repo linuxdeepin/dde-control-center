@@ -15,12 +15,16 @@ public:
     explicit MouseModelBase(QObject *parent = 0);
     void setSliderValue(const int &value);
     inline bool getSliderValue() {return m_sliderValue;}
+    void setExist(bool state);
+    inline bool getExist(){return m_isExist;}
 
 signals:
     void sliderValueChanged(const int &value);
+    void existChanged(bool state);
 
 private:
     int m_sliderValue;
+    bool m_isExist;
 };
 }
 }

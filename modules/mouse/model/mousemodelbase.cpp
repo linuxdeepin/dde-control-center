@@ -14,3 +14,11 @@ void MouseModelBase::setSliderValue(const int &value)
         emit sliderValueChanged(value);
     }
 }
+
+void MouseModelBase::setExist(bool state)
+{
+    if (m_isExist != state) {
+        m_isExist = state;
+        emit existChanged(state);
+    }
+}

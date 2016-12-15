@@ -2,8 +2,6 @@
 #define BASESETTINGS_H
 
 #include "translucentframe.h"
-#include <QWidget>
-#include <QSlider>
 #include <QVBoxLayout>
 
 namespace dcc

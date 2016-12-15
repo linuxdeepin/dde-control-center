@@ -7,9 +7,11 @@
 #include "settingshead.h"
 #include "mouse/model/mousemodelthinkpadsettings.h"
 #include "dccslider.h"
+
 using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::mouse;
+
 ThinkpadSettings::ThinkpadSettings(QWidget *parent)
     : TranslucentFrame(parent)
 {
@@ -24,6 +26,11 @@ ThinkpadSettings::ThinkpadSettings(QWidget *parent)
     m_speedSlider->slider()->setTickPosition(QSlider::TicksBelow);
     m_speedSlider->slider()->setRange(0, 6);
     m_speedSlider->slider()->setTickInterval(1);
+    m_speedSlider->slider()->setPageStep(1);
+
+    QStringList list;
+    list << tr("Slow") << "" << "" << "" << "" << "" << tr("Fast");
+    m_speedSlider->setAnnotations(list);
 
     m_mainGroup->appendItem(m_speedSlider);
 
@@ -42,7 +49,9 @@ void ThinkpadSettings::setModel(MouseModelThinkpadSettings *const baseSettings)
     m_baseSettings = baseSettings;
 
     connect(m_baseSettings, &MouseModelThinkpadSettings::sliderValueChanged, this, &ThinkpadSettings::setSliderValue);
+    connect(m_baseSettings, &MouseModelThinkpadSettings::existChanged, this, &ThinkpadSettings::setVisible);
     setSliderValue(m_baseSettings->getSliderValue());
+    setVisible(m_baseSettings->getExist());
 }
 
 void ThinkpadSettings::setSliderValue(const int &value)

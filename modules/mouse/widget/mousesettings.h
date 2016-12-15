@@ -4,6 +4,7 @@
 #include "translucentframe.h"
 #include <QWidget>
 #include <QVBoxLayout>
+
 class QSlider;
 namespace dcc
 {

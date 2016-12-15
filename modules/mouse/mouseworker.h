@@ -14,6 +14,7 @@
 #include "model/mousemodelthinkpadsettings.h"
 
 #include <QObject>
+
 using com::deepin::daemon::inputdevice::Mouse;
 using com::deepin::daemon::inputdevice::TouchPad;
 using com::deepin::daemon::inputdevice::TrackPoint;
@@ -35,9 +36,9 @@ public slots:
     void setDisTouchPad(const bool state);
     void setTapClick(const bool state);
     void setDouClick(const int &value);
-    void setMouseMotionAcceleration(const int &value);
-    void setTouchpadMotionAcceleration(const int &value);
-    void setTrackPointMotionAcceleration(const int &value);
+    void setMouseMotionAcceleration(const double &value);
+    void setTouchpadMotionAcceleration(const double &value);
+    void setTrackPointMotionAcceleration(const double &value);
     void onDefaultReset();
     void onLeftHandStateChanged(const bool state);
     void onNaturalScrollStateChanged(const bool state);

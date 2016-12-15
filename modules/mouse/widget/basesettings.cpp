@@ -5,12 +5,18 @@
 #include "titledslideritem.h"
 #include "../mousemodel.h"
 #include "mouse/model/mousemodelbasesettings.h"
+#include "doutestwidget.h"
 #include "dccslider.h"
+
+#include <QWidget>
+#include <QSlider>
+
 using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::mouse;
+
 BaseSettings::BaseSettings(QWidget *parent)
-    :TranslucentFrame(parent)
+    : TranslucentFrame(parent)
 {
     m_mainLayout = new QVBoxLayout;
     m_mainGroup  = new SettingsGroup;
@@ -18,20 +24,30 @@ BaseSettings::BaseSettings(QWidget *parent)
     m_naturalScroll = new SwitchWidget;
     m_isTyping   = new SwitchWidget;
     m_baseSettings = new MouseModelBaseSettings;
-    m_leftHand->setTitle(tr("Left Handed"));
-    m_naturalScroll->setTitle(tr("Natural Scroll"));
-    m_isTyping->setTitle(tr("Disable the touchpad when typing"));
+    m_leftHand->setTitle(tr("Left Hand"));
+    m_naturalScroll->setTitle(tr("Natural Scrolling"));
+    m_isTyping->setTitle(tr("Disable the touchpad while typing"));
 
     m_mainGroup->appendItem(m_leftHand);
     m_mainGroup->appendItem(m_naturalScroll);
     m_mainGroup->appendItem(m_isTyping);
 
-    douSlider = new widgets::TitledSliderItem(tr("Double Speed"));
+
+    QStringList list;
+    list << tr("Slow") << "" << "" << "" << "" << "" << tr("Fast");
+
+    douSlider = new TitledSliderItem(tr("Double-click Speed"));
     douSlider->slider()->setType(DCCSlider::Vernier);
     douSlider->slider()->setTickPosition(QSlider::TicksBelow);
     douSlider->slider()->setRange(0, 6);
     douSlider->slider()->setTickInterval(1);
+    douSlider->slider()->setPageStep(1);
+    douSlider->setAnnotations(list);
+
     m_mainGroup->appendItem(douSlider);
+
+    DouTestWidget *testWidget = new DouTestWidget;
+    m_mainGroup->appendItem(testWidget);
 
     m_mainLayout->addWidget(m_mainGroup);
     m_mainLayout->setMargin(0);
@@ -64,17 +80,23 @@ void BaseSettings::setModel(MouseModelBaseSettings *const baseSettings)
 
 void BaseSettings::setLeftHandState(const bool state)
 {
+    blockSignals(true);
     m_leftHand->setChecked(state);
+    blockSignals(false);
 }
 
 void BaseSettings::setNaturalScroll(const bool state)
 {
+    blockSignals(true);
     m_naturalScroll->setChecked(state);
+    blockSignals(false);
 }
 
 void BaseSettings::setDisIfTypingState(const bool state)
 {
+    blockSignals(true);
     m_isTyping->setChecked(state);
+    blockSignals(false);
 }
 
 void BaseSettings::setSliderValue(const int &value)
