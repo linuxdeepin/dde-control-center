@@ -2,8 +2,10 @@
 
 using namespace dcc::widgets;
 
-OptionListPage::OptionListPage(QWidget *parent)
-    : QWidget(parent)
+OptionListPage::OptionListPage(const QStringList &options, QWidget *parent)
+    : ContentWidget(parent),
+
+      m_options(options)
 {
 
 }

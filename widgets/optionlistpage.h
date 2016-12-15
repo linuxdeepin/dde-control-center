@@ -1,17 +1,23 @@
 #ifndef OPTIONLISTPAGE_H
 #define OPTIONLISTPAGE_H
 
-#include <QWidget>
+#include "contentwidget.h"
 
 namespace dcc {
 
 namespace widgets {
 
-class OptionListPage : public QWidget
+class OptionListPage : public ContentWidget
 {
     Q_OBJECT
+
 public:
-    explicit OptionListPage(QWidget *parent = 0);
+    explicit OptionListPage(const QStringList &options, QWidget *parent = 0);
+
+signals:
+
+private:
+    const QStringList m_options;
 };
 
 }

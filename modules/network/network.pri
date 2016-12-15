@@ -11,7 +11,8 @@ HEADERS += \
     $$PWD/accesspointwidget.h \
     $$PWD/wirelessdevice.h \
     $$PWD/wireddevice.h \
-    $$PWD/connecthiddenpage.h
+    $$PWD/connecthiddenpage.h \
+    $$PWD/accesspointeditpage.h
 
 SOURCES += \
     $$PWD/networkmodule.cpp \
@@ -23,7 +24,8 @@ SOURCES += \
     $$PWD/accesspointwidget.cpp \
     $$PWD/wirelessdevice.cpp \
     $$PWD/wireddevice.cpp \
-    $$PWD/connecthiddenpage.cpp
+    $$PWD/connecthiddenpage.cpp \
+    $$PWD/accesspointeditpage.cpp
 
 RESOURCES += \
     $$PWD/network.qrc

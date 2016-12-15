@@ -29,16 +29,18 @@ public:
 
     int strength() const { return m_strength; }
     bool connected() const { return m_connected; }
+    const QString path() const { return m_path; }
 
 signals:
-    void requestEdit();
+    void requestEdit(const QString &path) const;
 
 public slots:
-    void setEncyrpt(const bool encyrpt);
-    void setAPName(const QString &name);
     void setStrength(const int strength);
+    void setEncyrpt(const bool encyrpt);
     void setConnected(const bool connected);
     void setEditable(const bool editable);
+    void setAPName(const QString &name);
+    void setPath(const QString &path);
 
 private:
     QLabel *m_lockIcon;
@@ -49,6 +51,7 @@ private:
 
     int m_strength;
     bool m_connected;
+    QString m_path;
 };
 
 }   // namespace network

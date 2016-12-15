@@ -17,6 +17,7 @@ class SwitchWidget;
 namespace network {
 
 class ConnectHiddenPage;
+class AccessPointEditPage;
 class AccessPointWidget;
 class NetworkModel;
 class WirelessDevice;
@@ -26,6 +27,7 @@ class WirelessPage : public ContentWidget
 
 public:
     explicit WirelessPage(WirelessDevice *dev, QWidget *parent = 0);
+    ~WirelessPage();
 
     void setModel(NetworkModel *model);
 
@@ -44,6 +46,7 @@ private slots:
     void onDeviceRemoved();
     void sortAPList();
     void showConnectHidePage();
+    void showAPEditPage(const QString &path);
 
 private:
     WirelessDevice *m_device;
@@ -54,6 +57,7 @@ private:
     AccessPointWidget *m_connectHideSSID;
 
     QPointer<ConnectHiddenPage> m_connectHidePage;
+    QPointer<AccessPointEditPage> m_apEditPage;
 
     QTimer m_sortDelayTimer;
     QMap<QString, AccessPointWidget *> m_apItems;
