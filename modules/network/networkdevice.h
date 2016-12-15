@@ -33,6 +33,7 @@ public:
 signals:
     void removed() const;
     void enableChanged(const bool enabled) const;
+    void sessionCreated(const QString &sessionPath) const;
 
 public slots:
     void updateDeviceInfo(const QJsonObject &devInfo);

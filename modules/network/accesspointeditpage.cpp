@@ -7,7 +7,11 @@ AccessPointEditPage::AccessPointEditPage(const QString &path, QWidget *parent)
 
       m_path(path)
 {
+#ifdef QT_DEBUG
+    setTitle(path);
+#else
     setTitle(tr("Settings"));
+#endif
 }
 
 void AccessPointEditPage::onDeviceRemoved()

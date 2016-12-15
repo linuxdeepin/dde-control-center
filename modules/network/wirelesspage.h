@@ -37,6 +37,7 @@ public slots:
     void onAPRemoved(const QString &ssid);
 
 signals:
+    void requestEditAP(const QString &devPath, const QString &apPath) const;
     void requestNextPage(ContentWidget * const w) const;
     void requestDeviceStatus(const QString &devPath) const;
     void requestDeviceAPList(const QString &devPath) const;
@@ -46,7 +47,7 @@ private slots:
     void onDeviceRemoved();
     void sortAPList();
     void showConnectHidePage();
-    void showAPEditPage(const QString &path);
+    void showAPEditPage(const QString &session);
 
 private:
     WirelessDevice *m_device;

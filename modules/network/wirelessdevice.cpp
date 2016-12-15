@@ -34,5 +34,5 @@ void WirelessDevice::setAPList(const QString &apList)
 
 void WirelessDevice::updateAPInfo(const QString &apInfo)
 {
-    qDebug() << apInfo;
+    emit apInfoChanged(QJsonDocument::fromJson(apInfo.toUtf8()).object());
 }

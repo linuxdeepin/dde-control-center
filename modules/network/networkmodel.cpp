@@ -24,7 +24,6 @@ NetworkDevice::DeviceType parseDeviceType(const QString &type)
 NetworkModel::NetworkModel(QObject *parent)
     : QObject(parent)
 {
-    qDebug() << m_devices.size();
 }
 
 NetworkModel::~NetworkModel()
@@ -32,7 +31,12 @@ NetworkModel::~NetworkModel()
     qDeleteAll(m_devices);
 }
 
-void NetworkModel::onDevicesListChanged(const QString &devices)
+const QString NetworkModel::connectionUuid(const QString &connPath) const
+{
+    return m_connUuid.value(connPath);
+}
+
+void NetworkModel::onDeviceListChanged(const QString &devices)
 {
     const QJsonObject data = QJsonDocument::fromJson(devices.toUtf8()).object();
 
@@ -81,6 +85,36 @@ void NetworkModel::onDevicesListChanged(const QString &devices)
     qDeleteAll(removeList);
 
     emit deviceListChanged(m_devices);
+}
+
+void NetworkModel::onConnectionListChanged(const QString &conns)
+{
+    const QJsonObject connsObject = QJsonDocument::fromJson(conns.toUtf8()).object();
+    for (const auto &infoObject : connsObject)
+    {
+        const auto connList = infoObject.toArray();
+        for (const auto &connObject : connList)
+        {
+            const auto info = connObject.toObject();
+            const auto path = info.value("Path").toString();
+            const auto uuid = info.value("Uuid").toString();
+            m_connUuid[path] = uuid;
+        }
+    }
+}
+
+void NetworkModel::onConnectionSessionCreated(const QString &device, const QString &sessionPath)
+{
+    for (const auto dev : m_devices)
+    {
+        if (dev->path() != device)
+            continue;
+        emit dev->sessionCreated(sessionPath);
+        return;
+    }
+
+    qWarning() << "session not handled";
+    qWarning() << device << sessionPath;
 }
 
 void NetworkModel::onDeviceAPListChanged(const QString &device, const QString &apList)

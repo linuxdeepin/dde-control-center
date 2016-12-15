@@ -6,6 +6,8 @@
 #include "translucentframe.h"
 #include "connecthiddenpage.h"
 #include "accesspointeditpage.h"
+#include "connectionsessionworker.h"
+#include "connectionsessionmodel.h"
 
 #include <QDebug>
 #include <QVBoxLayout>
@@ -57,6 +59,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(dev, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
     connect(dev, &WirelessDevice::apRemoved, this, &WirelessPage::onAPRemoved);
     connect(dev, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
+    connect(dev, &WirelessDevice::sessionCreated, this, &WirelessPage::showAPEditPage);
     m_switchBtn->setChecked(dev->enabled());
 
     // init data
@@ -72,6 +75,9 @@ WirelessPage::~WirelessPage()
 {
     if (!m_connectHidePage.isNull())
         m_connectHidePage->deleteLater();
+
+    if (!m_apEditPage.isNull())
+        m_apEditPage->deleteLater();
 }
 
 void WirelessPage::setModel(NetworkModel *model)
@@ -87,7 +93,7 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 
     w->setPath(apInfo.value("Path").toString());
 
-    connect(w, &AccessPointWidget::requestEdit, this, &WirelessPage::showAPEditPage);
+    connect(w, &AccessPointWidget::requestEdit, [=] { emit requestEditAP(m_device->path(), w->path()); });
 
     m_apItems.insert(ssid, w);
     m_listGroup->appendItem(w);
@@ -172,12 +178,12 @@ void WirelessPage::showConnectHidePage()
     emit requestNextPage(m_connectHidePage);
 }
 
-void WirelessPage::showAPEditPage(const QString &path)
+void WirelessPage::showAPEditPage(const QString &session)
 {
     if (!m_apEditPage.isNull())
         m_apEditPage->deleteLater();
 
-    m_apEditPage = new AccessPointEditPage(path, this);
+    m_apEditPage = new AccessPointEditPage(session, this);
 
     emit requestNextPage(m_apEditPage);
 }
