@@ -19,6 +19,13 @@ class ConnectionSessionWorker : public QObject
 public:
     explicit ConnectionSessionWorker(const QString &sessionPath, ConnectionSessionModel *model, QObject *parent = 0);
 
+public slots:
+    void closeSession();
+    void queryAllKeys();
+
+private slots:
+    void queryAllKeysCB(QDBusPendingCallWatcher *w);
+
 private:
     ConnectionSessionModel *m_connModel;
 

@@ -180,10 +180,16 @@ void WirelessPage::showConnectHidePage()
 
 void WirelessPage::showAPEditPage(const QString &session)
 {
-    if (!m_apEditPage.isNull())
-        m_apEditPage->deleteLater();
+    // ensure edit page is empty
+    Q_ASSERT(m_apEditPage.isNull());
 
-    m_apEditPage = new AccessPointEditPage(session, this);
+    m_apEditPage = new AccessPointEditPage;
+
+    ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_apEditPage);
+    ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(session, sessionModel, m_apEditPage);
+
+    m_apEditPage->setModel(sessionModel);
+    connect(m_apEditPage, &AccessPointEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
 
     emit requestNextPage(m_apEditPage);
 }
