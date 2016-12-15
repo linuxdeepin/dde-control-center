@@ -9,7 +9,7 @@ SettingsHead::SettingsHead(QFrame *parent)
     :SettingsItem(parent)
 {
     setMouseTracking(true);
-    setFixedHeight(30);
+    setFixedHeight(36);
     m_title = new QLabel;
     m_edit = new QLabel;
     m_edit->setObjectName("Edit");

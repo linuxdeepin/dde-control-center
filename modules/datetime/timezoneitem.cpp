@@ -27,7 +27,7 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     m_removeBtn->setFixedSize(18,18);
 
     m_back = new QFrame();
-    m_back->setFixedSize(40,40);
+    m_back->setFixedSize(48,48);
     QVBoxLayout* removeLayout = new QVBoxLayout();
     removeLayout->addWidget(m_removeBtn);
     removeLayout->setAlignment(m_removeBtn, Qt::AlignCenter);
@@ -35,19 +35,20 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     m_back->hide();
 
     m_clock = new Clock();
-    m_clock->setFixedSize(QSize(40,40));
+    m_clock->setFixedSize(QSize(48,48));
     QHBoxLayout* hlayout = new QHBoxLayout();
     m_layout = hlayout;
-    hlayout->setContentsMargins(15,0,15,0);
+    hlayout->setMargin(0);
     hlayout->setSpacing(1);
     hlayout->addLayout(vlayout);
     hlayout->addStretch();
     hlayout->addWidget(m_back);
     hlayout->addWidget(m_clock);
-    hlayout->setAlignment(m_removeBtn, Qt::AlignVCenter);
+    hlayout->setAlignment(m_clock, Qt::AlignVCenter);
     setLayout(hlayout);
 
     connect(m_removeBtn, SIGNAL(clicked()), this, SLOT(slotRemoveSelf()));
+    setFixedHeight(60);
 }
 
 void TimezoneItem::setCity(const Timezone &tz)

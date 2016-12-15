@@ -84,7 +84,6 @@ void Datetime::addTimezone(const Timezone &tz)
     connect(item, SIGNAL(removeTimezone(Timezone)), this, SLOT(slotRemoveTimezone(Timezone)));
 
     item->setCity(tz);
-    item->setFixedHeight(40);
     item->slotStatus(m_bEdit);
     m_group->appendItem(item);
     m_addeds.append(tz);
