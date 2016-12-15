@@ -131,6 +131,8 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 
 void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 {
+    if (path.path().isEmpty()) return;
+
     if (m_defaultSource) m_defaultSource->deleteLater();
     m_defaultSource = new Source("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
 
