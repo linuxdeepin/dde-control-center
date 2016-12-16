@@ -14,9 +14,20 @@ NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
     connect(&m_networkInter, &NetworkInter::ConnectionsChanged, m_networkModel, &NetworkModel::onConnectionListChanged);
     connect(&m_networkInter, &NetworkInter::DeviceEnabled, m_networkModel, &NetworkModel::onDeviceEnableChaned);
     connect(&m_networkInter, &NetworkInter::AccessPointPropertiesChanged, m_networkModel, &NetworkModel::onDeviceAPInfoChanged);
+    connect(&m_networkInter, &NetworkInter::ActiveConnectionsChanged, m_networkModel, &NetworkModel::onActiveConnectionsChanged);
+    connect(&m_networkInter, &NetworkInter::VpnEnabledChanged, m_networkModel, &NetworkModel::onVPNEnabledChanged);
 
     m_networkModel->onDeviceListChanged(m_networkInter.devices());
     m_networkModel->onConnectionListChanged(m_networkInter.connections());
+    m_networkModel->onActiveConnectionsChanged(m_networkInter.activeConnections());
+    m_networkModel->onVPNEnabledChanged(m_networkInter.vpnEnabled());
+
+    m_networkInter.setSync(false);
+}
+
+void NetworkWorker::setVpnEnable(const bool enable)
+{
+    m_networkInter.setVpnEnabled(enable);
 }
 
 void NetworkWorker::setDeviceEnable(const QString &devPath, const bool enable)

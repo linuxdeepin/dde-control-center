@@ -6,6 +6,7 @@
 #include "networkmodel.h"
 #include "wirelesspage.h"
 #include "wirelessdevice.h"
+#include "vpnpage.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -63,6 +64,7 @@ ModuleWidget *NetworkModule::moduleWidget()
     m_networkWidget = new NetworkModuleWidget;
     m_networkWidget->setModel(m_networkModel);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowDeviceDetail, this, &NetworkModule::showDeviceDetailPage);
+    connect(m_networkWidget, &NetworkModuleWidget::requestShowVpnPage, this, &NetworkModule::showVpnPage);
 
     return m_networkWidget;
 }
@@ -85,4 +87,15 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
 
     if (c)
         m_frameProxy->pushWidget(this, c);
+}
+
+void NetworkModule::showVpnPage()
+{
+    VpnPage *p = new VpnPage;
+
+    connect(p, &VpnPage::requestVpnEnabled, m_networkWorker, &NetworkWorker::setVpnEnable);
+
+    p->setModel(m_networkModel);
+
+    m_frameProxy->pushWidget(this, p);
 }

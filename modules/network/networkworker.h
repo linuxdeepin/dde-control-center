@@ -20,6 +20,7 @@ public:
     explicit NetworkWorker(NetworkModel *model, QObject *parent = 0);
 
 public slots:
+    void setVpnEnable(const bool enable);
     void setDeviceEnable(const QString &devPath, const bool enable);
     void queryAccessPoints(const QString &devPath);
     void queryConnectionSession(const QString &devPath, const QString &connPath);

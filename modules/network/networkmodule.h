@@ -28,6 +28,7 @@ private:
 
 private slots:
     void showDeviceDetailPage(NetworkDevice *dev);
+    void showVpnPage();
 
 private:
     NetworkModel *m_networkModel;

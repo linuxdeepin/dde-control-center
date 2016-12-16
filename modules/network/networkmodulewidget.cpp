@@ -43,6 +43,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     setTitle(tr("Network"));
 
     connect(m_detailBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowInfomation);
+    connect(m_vpnBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowVpnPage);
 }
 
 void NetworkModuleWidget::setModel(NetworkModel *model)

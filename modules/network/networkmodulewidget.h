@@ -23,6 +23,7 @@ public:
     void setModel(NetworkModel *model);
 
 signals:
+    void requestShowVpnPage() const;
     void requestShowInfomation() const;
     void requestShowDeviceDetail(NetworkDevice *device) const;
 

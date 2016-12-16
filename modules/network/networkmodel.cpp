@@ -33,7 +33,26 @@ NetworkModel::~NetworkModel()
 
 const QString NetworkModel::connectionUuid(const QString &connPath) const
 {
-    return m_connUuid.value(connPath);
+    for (const auto &list : m_connections)
+    {
+        for (const auto &cfg : list)
+        {
+            if (cfg.value("Path").toString() == connPath)
+                return cfg.value("Uuid").toString();
+        }
+    }
+
+    return QString();
+}
+
+void NetworkModel::onVPNEnabledChanged(const bool enabled)
+{
+    if (m_vpnEnabled != enabled)
+    {
+        m_vpnEnabled = enabled;
+
+        emit vpnEnabledChanged(m_vpnEnabled);
+    }
 }
 
 void NetworkModel::onDeviceListChanged(const QString &devices)
@@ -49,7 +68,7 @@ void NetworkModel::onDeviceListChanged(const QString &devices)
         if (type == NetworkDevice::Unknow)
             continue;
 
-        for (auto const l : list)
+        for (auto const &l : list)
         {
             const auto info = l.toObject();
             const QString path = info.value("Path").toString();
@@ -90,17 +109,19 @@ void NetworkModel::onDeviceListChanged(const QString &devices)
 void NetworkModel::onConnectionListChanged(const QString &conns)
 {
     const QJsonObject connsObject = QJsonDocument::fromJson(conns.toUtf8()).object();
-    for (const auto &infoObject : connsObject)
+    for (auto it(connsObject.constBegin()); it != connsObject.constEnd(); ++it)
     {
-        const auto connList = infoObject.toArray();
+        const auto connList = it.value().toArray();
+        m_connections[it.key()].clear();
+
         for (const auto &connObject : connList)
-        {
-            const auto info = connObject.toObject();
-            const auto path = info.value("Path").toString();
-            const auto uuid = info.value("Uuid").toString();
-            m_connUuid[path] = uuid;
-        }
+            m_connections[it.key()].append(connObject.toObject());
     }
+}
+
+void NetworkModel::onActiveConnectionsChanged(const QString &conns)
+{
+    qDebug() << conns;
 }
 
 void NetworkModel::onConnectionSessionCreated(const QString &device, const QString &sessionPath)

@@ -14,7 +14,8 @@ HEADERS += \
     $$PWD/connecthiddenpage.h \
     $$PWD/accesspointeditpage.h \
     $$PWD/connectionsessionmodel.h \
-    $$PWD/connectionsessionworker.h
+    $$PWD/connectionsessionworker.h \
+    $$PWD/vpnpage.h
 
 SOURCES += \
     $$PWD/networkmodule.cpp \
@@ -29,7 +30,8 @@ SOURCES += \
     $$PWD/connecthiddenpage.cpp \
     $$PWD/accesspointeditpage.cpp \
     $$PWD/connectionsessionmodel.cpp \
-    $$PWD/connectionsessionworker.cpp
+    $$PWD/connectionsessionworker.cpp \
+    $$PWD/vpnpage.cpp
 
 RESOURCES += \
     $$PWD/network.qrc
