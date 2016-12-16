@@ -119,6 +119,20 @@ int SettingsGroup::itemCount() const
     return m_layout->count();
 }
 
+void SettingsGroup::clear()
+{
+    const int index = m_headerItem ? 1 : 0;
+    for (int i(index); i != m_layout->count(); ++i)
+    {
+        QLayoutItem *item = m_layout->takeAt(index);
+        item->widget()->removeEventFilter(this);
+        delete item;
+    }
+
+    updateHeadTail();
+    m_updateHeightTimer->start();
+}
+
 void SettingsGroup::setMargin(int left, int top, int right, int bottom)
 {
     m_itemMarginLeft = left;

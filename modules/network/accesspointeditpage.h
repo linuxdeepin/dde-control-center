@@ -13,6 +13,7 @@ namespace dcc {
 namespace widgets {
 
 class SettingsGroup;
+class SettingsItem;
 
 }
 
@@ -40,6 +41,9 @@ private slots:
     void refershUI();
 
 private:
+    void createOptionWidgets(const QString &section, const QJsonObject &keyObject);
+
+private:
     ConnectionSessionModel *m_sessionModel;
 
     QPushButton *m_cancelBtn;
@@ -47,6 +51,7 @@ private:
     QVBoxLayout *m_sectionsLayout;
 
     QMap<QString, widgets::SettingsGroup *> m_sectionWidgets;
+    QMap<QString, QMap<QString, widgets::SettingsItem*>> m_optionWidgets;
 
     QTimer *m_recreateUITimer;
 };

@@ -12,8 +12,10 @@ ConnectionSessionWorker::ConnectionSessionWorker(const QString &sessionPath, Con
     m_sessionInter.setSync(false);
 
     connect(&m_sessionInter, &ConnectionSessionInter::AvailableSectionsChanged, m_connModel, &ConnectionSessionModel::setSections);
+    connect(&m_sessionInter, &ConnectionSessionInter::AvailableKeysChanged, m_connModel, &ConnectionSessionModel::setVisibleKeys);
 
     m_connModel->setSections(m_sessionInter.availableSections());
+    m_connModel->setVisibleKeys(m_sessionInter.availableKeys());
 
     queryAllKeys();
 }

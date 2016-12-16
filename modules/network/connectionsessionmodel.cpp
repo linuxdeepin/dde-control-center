@@ -22,6 +22,16 @@ void ConnectionSessionModel::setSections(const QList<QString> &sections)
     }
 }
 
+void ConnectionSessionModel::setVisibleKeys(const QMap<QString, QStringList> &keys)
+{
+    if (m_visibleKeys != keys)
+    {
+        m_visibleKeys = keys;
+
+        emit visibleKeysChanged(m_visibleKeys);
+    }
+}
+
 void ConnectionSessionModel::setAllKeys(const QString &allKeys)
 {
     const auto sectionArray = QJsonDocument::fromJson(allKeys.toUtf8()).array();

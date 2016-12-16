@@ -3,6 +3,7 @@
 #include "translucentframe.h"
 #include "settingsgroup.h"
 #include "settingsheaderitem.h"
+#include "nextpagewidget.h"
 
 #include <QDebug>
 #include <QTimer>
@@ -62,6 +63,12 @@ AccessPointEditPage::AccessPointEditPage(QWidget *parent)
 AccessPointEditPage::~AccessPointEditPage()
 {
     emit requestCancelSession();
+
+    for (auto *w : m_sectionWidgets.values())
+        w->deleteLater();
+    for  (const auto v : m_optionWidgets.values())
+        for (auto *w : v)
+            w->deleteLater();
 }
 
 void AccessPointEditPage::setModel(ConnectionSessionModel *model)
@@ -96,9 +103,7 @@ void AccessPointEditPage::recreateUI()
 
         const auto keys = it.value();
         for (auto its(keys.cbegin()); its != keys.cend(); ++its)
-        {
-            qDebug() << its.key() << its.value();
-        }
+            createOptionWidgets(it.key(), its.value());
     }
 
     refershUI();
@@ -109,8 +114,31 @@ void AccessPointEditPage::refershUI()
     // hide all widgets
     while (QLayoutItem *item = m_sectionsLayout->takeAt(0))
     {
-        item->widget()->hide();
+        SettingsGroup *grp = qobject_cast<SettingsGroup *>(item->widget());
+        Q_ASSERT(grp);
+
+        grp->hide();
+        grp->clear();
+
         delete item;
+    }
+
+    const auto visibleKeys = m_sessionModel->visibleKeys();
+    for (auto it(visibleKeys.cbegin()); it != visibleKeys.cend(); ++it)
+    {
+        const QString section = it.key();
+        SettingsGroup *grp = m_sectionWidgets.value(section);
+        if (!grp)
+            continue;
+
+        for (const auto key : it.value())
+        {
+            SettingsItem *item = m_optionWidgets[section][key];
+            if (!item)
+                continue;
+
+            grp->appendItem(item);
+        }
     }
 
     for (const auto section : m_sessionModel->sections())
@@ -121,4 +149,18 @@ void AccessPointEditPage::refershUI()
 
         m_sectionsLayout->addWidget(grp);
     }
+}
+
+void AccessPointEditPage::createOptionWidgets(const QString &section, const QJsonObject &keyObject)
+{
+    const QString vKey = keyObject.value("Key").toString();
+
+    // delete old widgets
+    if (m_optionWidgets[section][vKey] != nullptr)
+        m_optionWidgets[section][vKey]->deleteLater();
+
+    NextPageWidget *w = new NextPageWidget;
+    w->setTitle(vKey);
+
+    m_optionWidgets[section][vKey] = w;
 }

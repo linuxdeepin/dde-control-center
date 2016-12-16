@@ -40,6 +40,7 @@ public:
     void setSpacing(const int spaceing);
 
     int itemCount() const;
+    void clear();
 
     void setMargin(int left, int top, int right, int bottom);
     SettingsItem* getItem(int index);
