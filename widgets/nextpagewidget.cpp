@@ -13,9 +13,10 @@ NextPageWidget::NextPageWidget(QFrame *parent)
     : SettingsItem(parent)
 {
     m_title = new NormalLabel;
-    m_title->setStyleSheet("color: white;");
+    m_title->setStyleSheet("color: white; font: 12px");
 
     m_value = new NormalLabel;
+    m_value->setStyleSheet("color: white; font:11px");
 
     m_nextPageBtn = new dcc::widgets::NextButton;
 

@@ -59,7 +59,6 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     crGroup->appendItem(m_copyright);
     bootGroup->appendItem(m_boot);
 
-    m_centeralLayout->setSpacing(20);
     m_centeralLayout->addWidget(infoGroup);
     m_centeralLayout->addWidget(m_copyright);
     m_centeralLayout->addWidget(m_boot);

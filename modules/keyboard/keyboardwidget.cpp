@@ -77,7 +77,6 @@ KeyboardWidget::KeyboardWidget()
     m_scItem->setTitle(tr("Shortcut"));
     scGroup->appendItem(m_scItem);
 
-    m_centeralLayout->setSpacing(20);
     m_centeralLayout->addWidget(keyTest);
     m_centeralLayout->addWidget(keyGroup);
     m_centeralLayout->addWidget(langGroup);

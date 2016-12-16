@@ -33,7 +33,6 @@ Datetime::Datetime()
     m_headItem = new SettingsHead();
     m_headItem->setTitle(tr("Timezone List"));
     m_group->appendItem(m_headItem);
-    m_centeralLayout->addSpacerItem(new QSpacerItem(300,20));
     m_centeralLayout->addWidget(m_group);
 
     SettingsGroup* addTimezone = new SettingsGroup();
@@ -47,9 +46,7 @@ Datetime::Datetime()
     timeSettings->appendItem(timeItem);
 //    timeSettings->appendItem(new SwitchWidget());
 
-    m_centeralLayout->addSpacerItem(new QSpacerItem(300,20));
     m_centeralLayout->addWidget(addTimezone);
-    m_centeralLayout->addSpacerItem(new QSpacerItem(300,20));
     m_centeralLayout->addWidget(timeSettings);
 
     connect(m_addItem, SIGNAL(clicked()), this, SIGNAL(addClick()));

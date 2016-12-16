@@ -21,7 +21,6 @@ AccountsWidget::AccountsWidget()
     setObjectName("Accounts");
 
     m_centeralLayout->addWidget(m_userGroup);
-    m_centeralLayout->addSpacing(10);
     m_centeralLayout->addWidget(m_createBtn);
 
     setTitle(tr("Accounts"));
