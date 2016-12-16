@@ -22,11 +22,11 @@ ModuleWidget::ModuleWidget()
     m_moduleTitle->setObjectName(ObjectNameTitle);
 
     QHBoxLayout *titleLayout = new QHBoxLayout;
+    titleLayout->setSpacing(0);
+    titleLayout->setContentsMargins(11,0,0,0);
     titleLayout->addWidget(m_moduleIcon);
     titleLayout->setAlignment(m_moduleIcon, Qt::AlignCenter);
     titleLayout->addWidget(m_moduleTitle);
-    titleLayout->setSpacing(0);
-    titleLayout->setMargin(0);
 
     m_centeralLayout = new QVBoxLayout;
     m_centeralLayout->addLayout(titleLayout);
