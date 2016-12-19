@@ -23,8 +23,12 @@ public slots:
     void closeSession();
     void queryAllKeys();
 
+private:
+    void queryAvailableKeys();
+
 private slots:
     void queryAllKeysCB(QDBusPendingCallWatcher *w);
+    void queryAvailableKeysCB(QDBusPendingCallWatcher *w);
 
 private:
     ConnectionSessionModel *m_connModel;

@@ -12,25 +12,40 @@ ConnectionSessionModel::ConnectionSessionModel(QObject *parent)
 
 }
 
-void ConnectionSessionModel::setSections(const QList<QString> &sections)
+void ConnectionSessionModel::setAvailableItems(const QString &items)
 {
-    if (sections != m_sections)
-    {
-        m_sections = sections;
+    m_sections.clear();
+    m_visibleItems.clear();
 
-        emit sectionsChanged(m_sections);
+    const QJsonArray sections = QJsonDocument::fromJson(items.toUtf8()).array();
+    for (const auto &sectionObject : sections)
+    {
+        const auto section = sectionObject.toObject();
+        const auto vsName = section.value("VirtualSection").toString();
+        const auto keys = section.value("Keys").toArray();
+
+        m_sections.append(vsName);
+        for (const auto &keyObject : keys)
+        {
+            const auto key = keyObject.toObject();
+            const auto vkName = key.value("Key").toString();
+
+            m_visibleItems[vsName].append(vkName);
+        }
     }
+
+    emit visibleItemsChanged(m_visibleItems);
 }
 
-void ConnectionSessionModel::setVisibleKeys(const QMap<QString, QStringList> &keys)
-{
-    if (m_visibleKeys != keys)
-    {
-        m_visibleKeys = keys;
+//void ConnectionSessionModel::setVisibleKeys(const QMap<QString, QStringList> &keys)
+//{
+//    if (m_visibleKeys != keys)
+//    {
+//        m_visibleKeys = keys;
 
-        emit visibleKeysChanged(m_visibleKeys);
-    }
-}
+//        emit visibleItemsChanged(m_visibleKeys);
+//    }
+//}
 
 void ConnectionSessionModel::setAllKeys(const QString &allKeys)
 {
@@ -47,10 +62,10 @@ void ConnectionSessionModel::setAllKeys(const QString &allKeys)
         for (const auto &keyObject : keyList)
         {
             const auto key = keyObject.toObject();
-            const auto keySection = key.value("Section").toString();
+//            const auto keySection = key.value("Section").toString();
             const auto keyKey = key.value("Key").toString();
 
-            m_keys[keySection][keyKey] = key;
+            m_keys[sectionKey][keyKey] = key;
         }
     }
 

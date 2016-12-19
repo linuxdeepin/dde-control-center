@@ -76,7 +76,7 @@ void AccessPointEditPage::setModel(ConnectionSessionModel *model)
     m_sessionModel = model;
 
     connect(m_sessionModel, &ConnectionSessionModel::keysChanged, m_recreateUITimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_sessionModel, &ConnectionSessionModel::sectionsChanged, this, &AccessPointEditPage::refershUI);
+    connect(m_sessionModel, &ConnectionSessionModel::visibleItemsChanged, this, &AccessPointEditPage::refershUI);
 
     m_recreateUITimer->start();
 }
@@ -97,7 +97,7 @@ void AccessPointEditPage::recreateUI()
     {
         SettingsGroup *grp = new SettingsGroup;
         grp->setHeaderVisible(true);
-        grp->headerItem()->setTitle(it.key());
+        grp->headerItem()->setTitle(m_sessionModel->sectionName(it.key()));
 
         m_sectionWidgets[it.key()] = grp;
 
@@ -123,29 +123,21 @@ void AccessPointEditPage::refershUI()
         delete item;
     }
 
-    const auto visibleKeys = m_sessionModel->visibleKeys();
-    for (auto it(visibleKeys.cbegin()); it != visibleKeys.cend(); ++it)
-    {
-        const QString section = it.key();
-        SettingsGroup *grp = m_sectionWidgets.value(section);
-        if (!grp)
-            continue;
-
-        for (const auto key : it.value())
-        {
-            SettingsItem *item = m_optionWidgets[section][key];
-            if (!item)
-                continue;
-
-            grp->appendItem(item);
-        }
-    }
-
     for (const auto section : m_sessionModel->sections())
     {
         SettingsGroup *grp = m_sectionWidgets.value(section);
         if (!grp)
             continue;
+
+        // add section widgets
+        const auto visibleKeys = m_sessionModel->sectionKeys(section);
+        for (const auto &vKey : visibleKeys)
+        {
+            SettingsItem *item = m_optionWidgets[section][vKey];
+            if (item)
+                grp->appendItem(item);
+        }
+
 
         m_sectionsLayout->addWidget(grp);
     }
