@@ -14,7 +14,7 @@ void NotifyPlugin::initialize(FrameProxyInterface *proxy) {
     m_notifymanager->setContentsMargins(0, 0, 0, 0);
     m_notifymanager->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_scrollarea->setWidget(m_notifymanager);
-    m_scrollarea->setObjectName("c_scrollarea");
+    m_scrollarea->setObjectName("scrollarea");
     m_scrollarea->setWidgetResizable(true);
     m_scrollarea->setFocusPolicy(Qt::NoFocus);
     m_scrollarea->setFrameStyle(QFrame::NoFrame);
@@ -22,7 +22,7 @@ void NotifyPlugin::initialize(FrameProxyInterface *proxy) {
     m_scrollarea->setContentsMargins(0, 0, 0, 0);
     m_scrollarea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_scrollarea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_scrollarea->setStyleSheet("background-color: rgba(25, 25, 26, 0.5);");
+    m_scrollarea->setStyleSheet("background-color:transparent;");
 }
 
 QWidget *NotifyPlugin::centeralWidget() {
