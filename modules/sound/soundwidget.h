@@ -38,12 +38,15 @@ signals:
     void requestSiwtchMicrophone(bool on) const;
     void requestSwitchSoundEffect(bool on) const;
     void requestSetSpeakerBalance(double balance) const;
-    void requestSetMicrophoneVolume(double balance) const;
+    void requestSetMicrophoneVolume(double volume) const;
+    void requestSetSpeakerVolume(double volume);
     void requestAdvancedPage() const;
 
 private:
     SettingsGroup *m_speakerGroup;
     SwitchWidget *m_speakerSwitch;
+    TitledSliderItem *m_outputVolumeSliderItem;
+    DCCSlider *m_outputVolumeSlider;
     TitledSliderItem *m_outputBalanceSliderItem;
     DCCSlider *m_outputBalanceSlider;
 

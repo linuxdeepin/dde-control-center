@@ -119,6 +119,14 @@ QList<Port *> SoundModel::ports() const
     return m_ports;
 }
 
+void SoundModel::setSpeakerVolume(double speakerVolume)
+{
+    if (m_speakerVolume != speakerVolume)  {
+        m_speakerVolume = speakerVolume;
+        emit speakerVolumeChanged(speakerVolume);
+    }
+}
+
 void Port::setId(const QString &id)
 {
     if (id != m_id) {

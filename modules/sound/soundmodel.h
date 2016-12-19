@@ -92,10 +92,14 @@ public:
     Port *portById(const QString &portId) const;
     QList<Port *> ports() const;
 
+    inline double speakerVolume() const { return m_speakerVolume; }
+    void setSpeakerVolume(double speakerVolume);
+
 signals:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
     void soundEffectOnChanged(bool soundEffectOn) const;
+    void speakerVolumeChanged(double speakerVolume) const;
     void speakerBalanceChanged(double speakerBalance) const;
     void microphoneVolumeChanged(double microphoneVolume) const;
     void microphoneFeedbackChanged(double microphoneFeedback) const;
@@ -106,6 +110,7 @@ private:
     bool m_speakerOn;
     bool m_microphoneOn;
     bool m_soundEffectOn;
+    double m_speakerVolume;
     double m_speakerBalance;
     double m_microphoneVolume;
     double m_microphoneFeedback;

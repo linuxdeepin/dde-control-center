@@ -112,6 +112,14 @@ void SoundWorker::setSourceVolume(double volume)
     }
 }
 
+void SoundWorker::setSinkVolume(double volume)
+{
+    if (m_defaultSink) {
+        m_defaultSink->SetVolume(volume, true);
+        qDebug() << "set sink volume to " << volume;
+    }
+}
+
 void SoundWorker::setPort(const Port *port)
 {
     m_audioInter->SetPort(port->cardId(), port->id(), int(port->direction()));
@@ -124,9 +132,11 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 
     connect(m_defaultSink, &Sink::MuteChanged, [this] (bool mute) { m_model->setSpeakerOn(!mute); });
     connect(m_defaultSink, &Sink::BalanceChanged, m_model, &SoundModel::setSpeakerBalance);
+    connect(m_defaultSink, &Sink::VolumeChanged, m_model, &SoundModel::setSpeakerVolume);
 
     m_model->setSpeakerOn(!m_defaultSink->mute());
     m_model->setSpeakerBalance(m_defaultSink->balance());
+    m_model->setSpeakerVolume(m_defaultSink->volume());
 }
 
 void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)

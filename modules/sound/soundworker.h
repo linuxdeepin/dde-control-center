@@ -46,6 +46,7 @@ public slots:
 
     void setSinkBalance(double balance);
     void setSourceVolume(double volume);
+    void setSinkVolume(double volume);
 
     void setPort(const Port *port);
 

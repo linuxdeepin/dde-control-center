@@ -70,6 +70,7 @@ ModuleWidget *SoundModule::moduleWidget()
         connect(m_soundWidget, &SoundWidget::requestSwitchSoundEffect, m_soundWorker, &SoundWorker::switchSoundEffect);
         connect(m_soundWidget, &SoundWidget::requestSetSpeakerBalance, m_soundWorker, &SoundWorker::setSinkBalance);
         connect(m_soundWidget, &SoundWidget::requestSetMicrophoneVolume, m_soundWorker, &SoundWorker::setSourceVolume);
+        connect(m_soundWidget, &SoundWidget::requestSetSpeakerVolume, m_soundWorker, &SoundWorker::setSinkVolume);
 
         connect(m_soundWidget, &SoundWidget::requestAdvancedPage, this, &SoundModule::showAdvancedPage);
     }

@@ -22,6 +22,7 @@ SoundWidget::SoundWidget(SoundModel *model) :
     ModuleWidget(),
     m_speakerGroup(new SettingsGroup),
     m_speakerSwitch(new SwitchWidget),
+    m_outputVolumeSliderItem(new TitledSliderItem(tr("Output Volume"))),
     m_outputBalanceSliderItem(new TitledSliderItem(tr("Left/Right Balance"))),
     m_microphoneGroup(new SettingsGroup),
     m_microphoneSwitch(new SwitchWidget),
@@ -38,6 +39,11 @@ SoundWidget::SoundWidget(SoundModel *model) :
 
     m_speakerSwitch->setTitle(tr("Speaker"));
 
+    m_outputVolumeSliderItem->setObjectName("OutputVolumeSliderItem");
+    m_outputVolumeSlider = m_outputVolumeSliderItem->slider();
+    m_outputVolumeSlider->setOrientation(Qt::Horizontal);
+    m_outputVolumeSlider->setRange(0, 150);
+
     m_outputBalanceSliderItem->setObjectName("OutputBalanceSliderItem");
     m_outputBalanceSlider = m_outputBalanceSliderItem->slider();
     m_outputBalanceSlider->setType(DCCSlider::Vernier);
@@ -47,6 +53,7 @@ SoundWidget::SoundWidget(SoundModel *model) :
     m_outputBalanceSlider->setTickPosition(QSlider::TicksBelow);
 
     m_speakerGroup->appendItem(m_speakerSwitch);
+    m_speakerGroup->appendItem(m_outputVolumeSliderItem);
     m_speakerGroup->appendItem(m_outputBalanceSliderItem);
 
     m_microphoneSwitch->setTitle(tr("Microphone"));
@@ -84,6 +91,7 @@ SoundWidget::SoundWidget(SoundModel *model) :
     connect(m_soundEffectSwitch, &SwitchWidget::checkedChanegd, this, &SoundWidget::requestSwitchSoundEffect);
     connect(m_outputBalanceSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetSpeakerBalance(value / 100.f); });
     connect(m_inputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetMicrophoneVolume(value / 100.f); });
+    connect(m_outputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetSpeakerVolume(value / 100.f);} );
     connect(m_advancedSettingsItem, &NextPageWidget::clicked, this, &SoundWidget::requestAdvancedPage);
 }
 
@@ -104,6 +112,11 @@ void SoundWidget::setModel(SoundModel *model)
         m_inputFeedbackSliderItem->setVisible(on);
     });
     connect(model, &SoundModel::soundEffectOnChanged, m_soundEffectSwitch, &SwitchWidget::setChecked);
+    connect(model, &SoundModel::speakerVolumeChanged, [this] (double value) {
+        m_outputVolumeSlider->blockSignals(true);
+        m_outputVolumeSlider->setValue(value * 100);
+        m_outputVolumeSlider->blockSignals(false);
+    });
     connect(model, &SoundModel::speakerBalanceChanged, [this] (double value) {
         m_outputBalanceSlider->blockSignals(true);
         m_outputBalanceSlider->setValue(value * 100);
@@ -122,6 +135,7 @@ void SoundWidget::setModel(SoundModel *model)
     m_speakerSwitch->setChecked(model->speakerOn());
     m_microphoneSwitch->setChecked(model->microphoneOn());
     m_soundEffectSwitch->setChecked(model->soundEffectOn());
+    m_outputVolumeSlider->setValue(model->speakerVolume());
     m_outputBalanceSlider->setValue(model->speakerBalance());
     m_inputVolumeSlider->setValue(model->microphoneVolume());
     m_inputFeedbackSlider->setValue(model->microphoneFeedback());
