@@ -2,7 +2,9 @@
 
 namespace dcc{
 namespace update{
-UpdateModel::UpdateModel(QObject *parent) : QObject(parent)
+
+UpdateModel::UpdateModel(QObject *parent) :
+    QObject(parent)
 {
 
 }

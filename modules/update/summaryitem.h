@@ -3,33 +3,33 @@
 
 #include "settingsitem.h"
 
-#include <QLabel>
-#include <dloadingindicator.h>
-
-using namespace dcc::widgets;
-
-DWIDGET_USE_NAMESPACE
+namespace dcc {
+namespace widgets {
+class NormalLabel;
+class SmallLabel;
+class LoadingIndicator;
+}
+}
 
 namespace dcc{
 namespace update{
 
-class CheckUpdateItem : public SettingsItem
+class CheckUpdateItem : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
 
 public:
     explicit CheckUpdateItem(QFrame* parent = 0);
+
     void setIndicatorVisible(bool visible);
-    void setImageSource(const QString& src);
-    void setLoading(bool value);
-    void setTitle(const QString& title);
+    void setMessage(const QString& message);
 
 private:
-    QLabel* m_title;
-    DLoadingIndicator* m_indicator;
+    dcc::widgets::NormalLabel* m_messageLabel;
+    dcc::widgets::LoadingIndicator* m_indicator;
 };
 
-class SummaryItem : public SettingsItem
+class SummaryItem : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
 
@@ -40,8 +40,8 @@ public:
     void setDetails(const QString& details);
 
 private:
-    QLabel* m_title;
-    QLabel* m_details;
+    dcc::widgets::NormalLabel *m_title;
+    dcc::widgets::SmallLabel *m_details;
 };
 
 }

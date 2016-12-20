@@ -5,7 +5,6 @@
 #include "settingsgroup.h"
 #include "summaryitem.h"
 #include "downloadprogressbar.h"
-#include "waitindicator.h"
 
 #include <types/appupdateinfolist.h>
 
@@ -68,7 +67,7 @@ private:
     QLabel* m_powerTip;
     qlonglong m_total;
     SummaryItem* m_summary;
-    WaitIndicator* m_checkUpdateItem;
+    CheckUpdateItem* m_checkUpdateItem;
     SettingsGroup* m_group;
     SettingsGroup* m_checkGroup;
     DownloadProgressBar* m_progress;

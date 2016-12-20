@@ -1,31 +1,35 @@
 #include "summaryitem.h"
-#include <QVBoxLayout>
 
-namespace dcc{
-namespace update{
+#include <QVBoxLayout>
+#include <QTimer>
+
+#include "labels/normallabel.h"
+#include "labels/smalllabel.h"
+#include "loadingindicator.h"
+
+using namespace dcc::widgets;
+
+namespace dcc {
+namespace update {
+
 CheckUpdateItem::CheckUpdateItem(QFrame *parent)
-    :SettingsItem(parent)
+    : SettingsItem(parent),
+      m_messageLabel(new NormalLabel),
+      m_indicator(new LoadingIndicator)
 {
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(0);
 
-    m_indicator = new DLoadingIndicator();
-    m_indicator->setSmooth(true);
-    QPixmap pix(QSize(32,32));
-    pix.fill(Qt::red);
-    m_indicator->setImageSource(pix);
-
-    layout->addWidget(m_indicator);
-    layout->setAlignment(m_indicator, Qt::AlignCenter);
-    m_indicator->setLoading(true);
-
-    m_title = new QLabel();
-    m_title->setAlignment(Qt::AlignCenter);
-    layout->addWidget(m_title);
+    layout->addStretch();
+    layout->addWidget(m_indicator, 0, Qt::AlignHCenter);
+    layout->addWidget(m_messageLabel, 0, Qt::AlignHCenter);
+    layout->addStretch();
 
     setLayout(layout);
     setFixedHeight(100);
+
+    QTimer::singleShot(0, m_indicator, &LoadingIndicator::play);
 }
 
 void CheckUpdateItem::setIndicatorVisible(bool visible)
@@ -33,31 +37,21 @@ void CheckUpdateItem::setIndicatorVisible(bool visible)
     m_indicator->setVisible(visible);
 }
 
-void CheckUpdateItem::setImageSource(const QString &src)
+void CheckUpdateItem::setMessage(const QString &message)
 {
-    m_indicator->setImageSource(QPixmap(src));
-}
-
-void CheckUpdateItem::setLoading(bool value)
-{
-    m_indicator->setLoading(value);
-}
-
-void CheckUpdateItem::setTitle(const QString &title)
-{
-    m_title->setText(title);
+    m_messageLabel->setText(message);
 }
 
 SummaryItem::SummaryItem(QFrame *parent)
-    :SettingsItem(parent)
+    :SettingsItem(parent),
+      m_title(new NormalLabel),
+      m_details(new SmallLabel)
 {
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(0);
 
-    m_title = new QLabel();
     m_title->setAlignment(Qt::AlignCenter);
-    m_details = new QLabel();
     m_details->hide();
 
     layout->addWidget(m_title);

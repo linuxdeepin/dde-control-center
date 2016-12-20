@@ -12,6 +12,7 @@ class UpdateModel : public QObject
     Q_OBJECT
 public:
     explicit UpdateModel(QObject *parent = 0);
+
     QString mirror() const { return m_mirror; }
     void setMirrorInfoList(const MirrorInfoList& list);
     MirrorInfoList mirrorInfos() const { return m_mirrorList;}

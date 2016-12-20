@@ -10,6 +10,8 @@ namespace update{
 UpdateCtrlWidget::UpdateCtrlWidget(QWidget *parent)
     : ContentWidget(parent)
 {
+    setTitle(tr("Update"));
+
     TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
@@ -25,10 +27,9 @@ UpdateCtrlWidget::UpdateCtrlWidget(QWidget *parent)
     m_summary = new SummaryItem();
     m_group->appendItem(m_summary);
 
-    m_checkUpdateItem = new WaitIndicator();
-    m_checkUpdateItem->setTitle(tr("Checking for updates, please wait..."));
+    m_checkUpdateItem = new CheckUpdateItem();
+    m_checkUpdateItem->setMessage(tr("Checking for updates, please wait..."));
     m_checkGroup->appendItem(m_checkUpdateItem);
-    m_checkUpdateItem->play();
 
     m_powerTip = new QLabel();
     m_powerTip->setWordWrap(true);

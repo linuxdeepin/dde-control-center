@@ -13,7 +13,8 @@ HEADERS += \
     $$PWD/mirroritem.h \
     $$PWD/updateitem.h \
     $$PWD/downloadprogressbar.h \
-    $$PWD/summaryitem.h
+    $$PWD/summaryitem.h \
+    $$PWD/common.h
 
 SOURCES += \
     $$PWD/updatemodule.cpp \

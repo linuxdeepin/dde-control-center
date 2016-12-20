@@ -8,12 +8,10 @@ DownloadProgressBar::DownloadProgressBar(QWidget* parent)
     :QProgressBar(parent),
       m_type(CheckUpdate)
 {
-    setMinimum(0);
-    setMaximum(100);
-
+    setRange(0, 100);
     setValue(100);
-
-    this->setTextVisible(false);
+    setTextVisible(false);
+    setFixedHeight(36);
 }
 
 void DownloadProgressBar::setCurState(UpdateType type)
