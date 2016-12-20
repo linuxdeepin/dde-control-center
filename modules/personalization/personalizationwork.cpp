@@ -14,7 +14,12 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
       m_model(model),
       m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus(), this))
 {
-    active();
+    m_dbus->setSync(false);
+}
+
+void PersonalizationWork::active()
+{
+    m_dbus->blockSignals(false);
 
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();
@@ -41,13 +46,6 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     fontMono->setFontName(m_dbus->monospaceFont());
     fontStand->setFontName(m_dbus->standardFont());
     FontSizeChanged(m_dbus->fontSize());
-
-    m_dbus->setSync(false);
-}
-
-void PersonalizationWork::active()
-{
-    m_dbus->blockSignals(false);
 }
 
 void PersonalizationWork::deactive()

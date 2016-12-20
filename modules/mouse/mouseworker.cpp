@@ -13,6 +13,13 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
     m_dbusMouse->setSync(false);
     m_dbusTouchPad->setSync(false);
     m_dbusTouchPad->setSync(false);
+}
+
+void MouseWorker::active()
+{
+    m_dbusMouse->blockSignals(false);
+    m_dbusTouchPad->blockSignals(false);
+    m_dbusTrackPoint->blockSignals(false);
 
     connect(m_dbusMouse, &Mouse::LeftHandedChanged, this, &MouseWorker::setLeftHandState);
     connect(m_dbusTouchPad, &TouchPad::NaturalScrollChanged, this, &MouseWorker::setNaturalScrollState);
@@ -23,13 +30,6 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
     connect(m_dbusTouchPad, &TouchPad::MotionAccelerationChanged, this, &MouseWorker::setTouchpadMotionAcceleration);
     connect(m_dbusTouchPad, &TouchPad::TapClickChanged, this, &MouseWorker::setTapClick);
     connect(m_dbusTrackPoint, &TrackPoint::MotionAccelerationChanged, this, &MouseWorker::setTrackPointMotionAcceleration);
-}
-
-void MouseWorker::active()
-{
-    m_dbusMouse->blockSignals(false);
-    m_dbusTouchPad->blockSignals(false);
-    m_dbusTrackPoint->blockSignals(false);
 
     MouseModelBaseSettings *modelBase = m_model->getBaseSettings();
     modelBase->setSliderValue(converToDoubleModel(m_dbusMouse->doubleClick()));

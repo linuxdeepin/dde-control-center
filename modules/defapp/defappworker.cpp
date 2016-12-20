@@ -15,6 +15,23 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     m_dbusManager(new Manager(ManagerService, "/com/deepin/api/Manager", QDBusConnection::sessionBus(), this)),
     m_dbusMedia(new Media(MediaService, "/com/deepin/api/Media", QDBusConnection::sessionBus(), this))
 {
+    active();
+}
+
+void DefAppWorker::active()
+{
+    m_dbusManager->blockSignals(false);
+    m_dbusMedia->blockSignals(false);
+    // refersh data
+    if (m_dbusManager->isValid() && m_dbusMedia->isValid()) {
+        qDebug() << "dbus is Valid";
+        serviceStartFinished();
+    } else {
+        qDebug() << "dbus is not Valid";
+        m_dbusManager->setSync(false);
+        m_dbusMedia->setSync(false);
+    }
+
     m_stringToCategory.insert("Browser",     Browser);
     m_stringToCategory.insert("Mail",        Mail);
     m_stringToCategory.insert("Text",        Text);
@@ -37,22 +54,6 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
 
     connect(m_dbusMedia, &Media::AutoOpenChanged, m_defAppModel, static_cast<void (DefAppModel::*)(const bool)>(&DefAppModel::setAutoOpen));
 
-    active();
-}
-
-void DefAppWorker::active()
-{
-    m_dbusManager->blockSignals(false);
-    m_dbusMedia->blockSignals(false);
-    // refersh data
-    if (m_dbusManager->isValid() && m_dbusMedia->isValid()) {
-        qDebug() << "dbus is Valid";
-        serviceStartFinished();
-    } else {
-        qDebug() << "dbus is not Valid";
-        m_dbusManager->setSync(false);
-        m_dbusMedia->setSync(false);
-    }
 }
 
 void DefAppWorker::deactive()
