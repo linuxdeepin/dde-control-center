@@ -7,3 +7,8 @@ WiredDevice::WiredDevice(const QJsonObject &info, QObject *parent)
 {
 
 }
+
+void WiredDevice::onConnectionInfoChanged(const QJsonObject &connInfo)
+{
+    m_wiredConnection = connInfo;
+}

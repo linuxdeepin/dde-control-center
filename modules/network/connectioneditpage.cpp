@@ -58,7 +58,7 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(m_sectionsLayout);
     mainLayout->addLayout(btnsLayout);
-    mainLayout->setSpacing(0);
+    mainLayout->setSpacing(10);
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
     QWidget *mainWidget = new TranslucentFrame;
@@ -67,6 +67,8 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     setContent(mainWidget);
 
     connect(m_recreateUITimer, &QTimer::timeout, this, &ConnectionEditPage::recreateUI);
+    connect(m_cancelBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
+    connect(m_acceptBtn, &QPushButton::clicked, this, &ConnectionEditPage::accept);
 }
 
 ConnectionEditPage::~ConnectionEditPage()

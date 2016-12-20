@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include <QJsonObject>
 
 using namespace dcc::network;
 
@@ -116,6 +117,18 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
 
         for (const auto &connObject : connList)
             m_connections[it.key()].append(connObject.toObject());
+    }
+
+    for (const auto &wired : m_connections["wired"])
+    {
+        const QString hwAddr = wired.value("HwAddress").toString();
+        for (auto *dev : m_devices)
+        {
+            if (dev->type() == NetworkDevice::Wired && dev->hwAddr() == hwAddr)
+            {
+                static_cast<WiredDevice *>(dev)->onConnectionInfoChanged(wired);
+            }
+        }
     }
 }
 

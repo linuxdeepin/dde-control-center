@@ -6,6 +6,10 @@
 #include "networkmodel.h"
 #include "wirelesspage.h"
 #include "wirelessdevice.h"
+#include "wireddevice.h"
+#include "connectioneditpage.h"
+#include "connectionsessionmodel.h"
+#include "connectionsessionworker.h"
 #include "vpnpage.h"
 
 using namespace dcc;
@@ -84,6 +88,16 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
 
         c = p;
     }
+    else if (dev->type() == NetworkDevice::Wired)
+    {
+        const QJsonObject connInfo = static_cast<WiredDevice *>(dev)->connection();
+        const QString connPath = connInfo.value("Path").toString();
+        const QString devicePath = dev->path();
+
+        m_networkWorker->queryConnectionSession(devicePath, connPath);
+
+        connect(dev, &NetworkDevice::sessionCreated, this, &NetworkModule::showWiredConnectionEditPage);
+    }
 
     if (c)
         m_frameProxy->pushWidget(this, c);
@@ -96,6 +110,20 @@ void NetworkModule::showVpnPage()
     connect(p, &VpnPage::requestVpnEnabled, m_networkWorker, &NetworkWorker::setVpnEnable);
 
     p->setModel(m_networkModel);
+
+    m_frameProxy->pushWidget(this, p);
+}
+
+void NetworkModule::showWiredConnectionEditPage(const QString &session)
+{
+    ConnectionEditPage *p = new ConnectionEditPage;
+
+    ConnectionSessionModel *sessionModel = new ConnectionSessionModel(p);
+    ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(session, sessionModel, p);
+
+    p->setModel(sessionModel);
+    connect(p, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
+    connect(p, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
 
     m_frameProxy->pushWidget(this, p);
 }

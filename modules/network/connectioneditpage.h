@@ -31,6 +31,7 @@ public:
     void setModel(ConnectionSessionModel *model);
 
 signals:
+    void accept() const;
     void requestCancelSession() const;
     void requestChangeSettings(const QString &section, const QString &vKey, const QString &data) const;
 

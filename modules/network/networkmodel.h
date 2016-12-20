@@ -25,6 +25,7 @@ public:
     bool vpnEnabled() const { return m_vpnEnabled; }
     const QList<NetworkDevice *> devices() const { return m_devices; }
     const QList<QJsonObject> vpns() const { return m_connections.value("vpn"); }
+    const QList<QJsonObject> wireds() const { return m_connections.value("wired"); }
     const QString connectionUuid(const QString &connPath) const;
 
 signals:

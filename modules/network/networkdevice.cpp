@@ -13,7 +13,6 @@ NetworkDevice::NetworkDevice(const DeviceType type, const QJsonObject &info, QOb
       m_type(type),
       m_deviceInfo(info)
 {
-
 }
 
 NetworkDevice::~NetworkDevice()
@@ -32,6 +31,11 @@ void NetworkDevice::setEnabled(const bool enabled)
 const QString NetworkDevice::path() const
 {
     return m_deviceInfo.value("Path").toString();
+}
+
+const QString NetworkDevice::hwAddr() const
+{
+    return m_deviceInfo.value("HwAddress").toString();
 }
 
 void NetworkDevice::updateDeviceInfo(const QJsonObject &devInfo)

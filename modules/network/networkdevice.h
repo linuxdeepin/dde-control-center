@@ -29,6 +29,7 @@ public:
     DeviceType type() const { return m_type; }
     const QJsonObject info() const { return m_deviceInfo; }
     const QString path() const;
+    const QString hwAddr() const;
 
 signals:
     void removed() const;
