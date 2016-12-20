@@ -1,5 +1,5 @@
-#ifndef ACCESSPOINTEDITPAGE_H
-#define ACCESSPOINTEDITPAGE_H
+#ifndef CONNECTIONEDITPAGE_H
+#define CONNECTIONEDITPAGE_H
 
 #include "contentwidget.h"
 
@@ -20,13 +20,13 @@ class SettingsItem;
 namespace network {
 
 class ConnectionSessionModel;
-class AccessPointEditPage : public ContentWidget
+class ConnectionEditPage : public ContentWidget
 {
     Q_OBJECT
 
 public:
-    explicit AccessPointEditPage(QWidget *parent = 0);
-    ~AccessPointEditPage();
+    explicit ConnectionEditPage(QWidget *parent = 0);
+    ~ConnectionEditPage();
 
     void setModel(ConnectionSessionModel *model);
 
@@ -46,6 +46,7 @@ private:
     widgets::SettingsItem *createSwitchWidget(const QJsonObject &keyObject, const QJsonObject &infoObject);
     widgets::SettingsItem *createEditWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool password);
     widgets::SettingsItem *createComboWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool editable);
+    widgets::SettingsItem *createFileChooserWidget(const QJsonObject &keyObject, const QJsonObject &infoObject);
 
 private:
     ConnectionSessionModel *m_sessionModel;
@@ -64,4 +65,4 @@ private:
 
 }
 
-#endif // ACCESSPOINTEDITPAGE_H
+#endif // CONNECTIONEDITPAGE_H

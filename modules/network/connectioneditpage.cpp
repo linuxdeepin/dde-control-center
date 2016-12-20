@@ -1,4 +1,4 @@
-#include "accesspointeditpage.h"
+#include "connectioneditpage.h"
 #include "connectionsessionmodel.h"
 #include "translucentframe.h"
 #include "settingsgroup.h"
@@ -7,6 +7,7 @@
 #include "switchwidget.h"
 #include "lineeditwidget.h"
 #include "comboboxwidget.h"
+#include "filechoosewidget.h"
 
 #include <QDebug>
 #include <QTimer>
@@ -31,7 +32,7 @@ const QString JsonEncoding(const QString &str)
     return encoding.mid(5, encoding.size() - 5 + 1 - 2);
 }
 
-AccessPointEditPage::AccessPointEditPage(QWidget *parent)
+ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     : ContentWidget(parent),
 
       m_cancelBtn(new QPushButton),
@@ -65,10 +66,10 @@ AccessPointEditPage::AccessPointEditPage(QWidget *parent)
 
     setContent(mainWidget);
 
-    connect(m_recreateUITimer, &QTimer::timeout, this, &AccessPointEditPage::recreateUI);
+    connect(m_recreateUITimer, &QTimer::timeout, this, &ConnectionEditPage::recreateUI);
 }
 
-AccessPointEditPage::~AccessPointEditPage()
+ConnectionEditPage::~ConnectionEditPage()
 {
     emit requestCancelSession();
 
@@ -81,22 +82,22 @@ AccessPointEditPage::~AccessPointEditPage()
                 w->deleteLater();
 }
 
-void AccessPointEditPage::setModel(ConnectionSessionModel *model)
+void ConnectionEditPage::setModel(ConnectionSessionModel *model)
 {
     m_sessionModel = model;
 
     connect(m_sessionModel, &ConnectionSessionModel::keysChanged, m_recreateUITimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_sessionModel, &ConnectionSessionModel::visibleItemsChanged, this, &AccessPointEditPage::refershUI);
+    connect(m_sessionModel, &ConnectionSessionModel::visibleItemsChanged, this, &ConnectionEditPage::refershUI);
 
     m_recreateUITimer->start();
 }
 
-void AccessPointEditPage::onDeviceRemoved()
+void ConnectionEditPage::onDeviceRemoved()
 {
     emit back();
 }
 
-void AccessPointEditPage::recreateUI()
+void ConnectionEditPage::recreateUI()
 {
     // delete all widgets
     qDeleteAll(m_sectionWidgets.values());
@@ -119,7 +120,7 @@ void AccessPointEditPage::recreateUI()
     refershUI();
 }
 
-void AccessPointEditPage::refershUI()
+void ConnectionEditPage::refershUI()
 {
     // hide all widgets
     while (QLayoutItem *item = m_sectionsLayout->takeAt(0))
@@ -154,7 +155,7 @@ void AccessPointEditPage::refershUI()
     }
 }
 
-void AccessPointEditPage::createOptionWidgets(const QString &section, const QJsonObject &keyObject)
+void ConnectionEditPage::createOptionWidgets(const QString &section, const QJsonObject &keyObject)
 {
     const QString vKey = keyObject.value("Key").toString();
     const QString vType = keyObject.value("WidgetType").toString();
@@ -178,6 +179,8 @@ void AccessPointEditPage::createOptionWidgets(const QString &section, const QJso
         item = createComboWidget(keyObject, vInfo, false);
     else if (vType == "EditLineEditComboBox")
         item = createComboWidget(keyObject, vInfo, true);
+    else if (vType == "EditLineFileChooser")
+        item = createFileChooserWidget(keyObject, vInfo);
 
     if (item)
         m_optionWidgets[section][vKey] = item;
@@ -185,7 +188,7 @@ void AccessPointEditPage::createOptionWidgets(const QString &section, const QJso
         qWarning() << "type not handled: " << keyObject << vInfo;
 }
 
-SettingsItem *AccessPointEditPage::createSwitchWidget(const QJsonObject &keyObject, const QJsonObject &infoObject)
+SettingsItem *ConnectionEditPage::createSwitchWidget(const QJsonObject &keyObject, const QJsonObject &infoObject)
 {
     SwitchWidget *w = new SwitchWidget;
 
@@ -201,7 +204,7 @@ SettingsItem *AccessPointEditPage::createSwitchWidget(const QJsonObject &keyObje
     return w;
 }
 
-SettingsItem *AccessPointEditPage::createEditWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool password)
+SettingsItem *ConnectionEditPage::createEditWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool password)
 {
     LineEditWidget *w = new LineEditWidget;
     QLineEdit *e = w->textEdit();
@@ -221,7 +224,7 @@ SettingsItem *AccessPointEditPage::createEditWidget(const QJsonObject &keyObject
     return w;
 }
 
-SettingsItem *AccessPointEditPage::createComboWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool editable)
+SettingsItem *ConnectionEditPage::createComboWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool editable)
 {
     ComboBoxWidget *w = new ComboBoxWidget;
     QComboBox *c = w->comboBox();
@@ -257,6 +260,17 @@ SettingsItem *AccessPointEditPage::createComboWidget(const QJsonObject &keyObjec
             emit requestChangeSettings(section, vKey, JsonEncoding(c->currentData().toString()));
         });
     }
+
+    return w;
+}
+
+SettingsItem *ConnectionEditPage::createFileChooserWidget(const QJsonObject &keyObject, const QJsonObject &infoObject)
+{
+    Q_UNUSED(infoObject);
+
+    FileChooseWidget *w = new FileChooseWidget;
+
+    w->setTitle(keyObject.value("Name").toString());
 
     return w;
 }

@@ -12,10 +12,10 @@ HEADERS += \
     $$PWD/wirelessdevice.h \
     $$PWD/wireddevice.h \
     $$PWD/connecthiddenpage.h \
-    $$PWD/accesspointeditpage.h \
     $$PWD/connectionsessionmodel.h \
     $$PWD/connectionsessionworker.h \
-    $$PWD/vpnpage.h
+    $$PWD/vpnpage.h \
+    $$PWD/connectioneditpage.h
 
 SOURCES += \
     $$PWD/networkmodule.cpp \
@@ -28,10 +28,10 @@ SOURCES += \
     $$PWD/wirelessdevice.cpp \
     $$PWD/wireddevice.cpp \
     $$PWD/connecthiddenpage.cpp \
-    $$PWD/accesspointeditpage.cpp \
     $$PWD/connectionsessionmodel.cpp \
     $$PWD/connectionsessionworker.cpp \
-    $$PWD/vpnpage.cpp
+    $$PWD/vpnpage.cpp \
+    $$PWD/connectioneditpage.cpp
 
 RESOURCES += \
     $$PWD/network.qrc

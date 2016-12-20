@@ -17,7 +17,7 @@ class SwitchWidget;
 namespace network {
 
 class ConnectHiddenPage;
-class AccessPointEditPage;
+class ConnectionEditPage;
 class AccessPointWidget;
 class NetworkModel;
 class WirelessDevice;
@@ -58,7 +58,7 @@ private:
     AccessPointWidget *m_connectHideSSID;
 
     QPointer<ConnectHiddenPage> m_connectHidePage;
-    QPointer<AccessPointEditPage> m_apEditPage;
+    QPointer<ConnectionEditPage> m_apEditPage;
 
     QTimer m_sortDelayTimer;
     QMap<QString, AccessPointWidget *> m_apItems;

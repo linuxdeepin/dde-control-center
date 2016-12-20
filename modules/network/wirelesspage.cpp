@@ -5,7 +5,7 @@
 #include "switchwidget.h"
 #include "translucentframe.h"
 #include "connecthiddenpage.h"
-#include "accesspointeditpage.h"
+#include "connectioneditpage.h"
 #include "connectionsessionworker.h"
 #include "connectionsessionmodel.h"
 
@@ -183,14 +183,14 @@ void WirelessPage::showAPEditPage(const QString &session)
     // ensure edit page is empty
     Q_ASSERT(m_apEditPage.isNull());
 
-    m_apEditPage = new AccessPointEditPage;
+    m_apEditPage = new ConnectionEditPage;
 
     ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_apEditPage);
     ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(session, sessionModel, m_apEditPage);
 
     m_apEditPage->setModel(sessionModel);
-    connect(m_apEditPage, &AccessPointEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
-    connect(m_apEditPage, &AccessPointEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
+    connect(m_apEditPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
+    connect(m_apEditPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
 
     emit requestNextPage(m_apEditPage);
 }
