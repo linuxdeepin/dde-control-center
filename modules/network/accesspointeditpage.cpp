@@ -11,9 +11,22 @@
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QJsonDocument>
 
 using namespace dcc::widgets;
 using namespace dcc::network;
+
+const QString JsonEncoding(const QString &str)
+{
+    QJsonObject o;
+    o["v"] = str;
+    QJsonDocument d;
+    d.setObject(o);
+
+    const QString encoding = d.toJson(QJsonDocument::Compact);
+
+    return encoding.mid(5, encoding.size() - 5 + 1 - 2);
+}
 
 AccessPointEditPage::AccessPointEditPage(QWidget *parent)
     : ContentWidget(parent),
@@ -59,7 +72,7 @@ AccessPointEditPage::~AccessPointEditPage()
     for (auto *w : m_sectionWidgets.values())
         if (w)
             w->deleteLater();
-    for  (const auto v : m_optionWidgets.values())
+    for  (const auto &v : m_optionWidgets.values())
         for (auto *w : v)
             if (w)
                 w->deleteLater();
@@ -134,6 +147,7 @@ void AccessPointEditPage::refershUI()
 
 
         m_sectionsLayout->addWidget(grp);
+        grp->setVisible(true);
     }
 }
 
@@ -169,6 +183,12 @@ SettingsItem *AccessPointEditPage::createSwitchWidget(const QJsonObject &keyObje
     w->setTitle(keyObject.value("Name").toString());
     w->setChecked(infoObject.value("Value").toBool());
 
+    const QString section = keyObject.value("Section").toString();
+    const QString vKey = keyObject.value("Key").toString();
+    connect(w, &SwitchWidget::checkedChanegd, [=](const bool checked) {
+        emit requestChangeSettings(section, vKey, checked ? "true" : "false");
+    });
+
     return w;
 }
 
@@ -178,6 +198,13 @@ SettingsItem *AccessPointEditPage::createEditWidget(const QJsonObject &keyObject
 
     w->setTitle(keyObject.value("Name").toString());
     w->textEdit()->setText(infoObject.value("Value").toString());
+    w->textEdit()->setReadOnly(infoObject.value("Readonly").toBool());
+
+    const QString section = keyObject.value("Section").toString();
+    const QString vKey = keyObject.value("Key").toString();
+    connect(w->textEdit(), &QLineEdit::textChanged, [=](const QString &text) {
+        emit requestChangeSettings(section, vKey, JsonEncoding(text));
+    });
 
     return w;
 }

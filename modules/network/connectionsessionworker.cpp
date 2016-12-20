@@ -11,12 +11,7 @@ ConnectionSessionWorker::ConnectionSessionWorker(const QString &sessionPath, Con
 {
     m_sessionInter.setSync(false);
 
-//    connect(&m_sessionInter, &ConnectionSessionInter::AvailableSectionsChanged, m_connModel, &ConnectionSessionModel::setSections);
-//    connect(&m_sessionInter, &ConnectionSessionInter::AvailableKeysChanged, m_connModel, &ConnectionSessionModel::setVisibleKeys);
     connect(&m_sessionInter, &ConnectionSessionInter::AvailableKeysChanged, this, &ConnectionSessionWorker::queryAvailableKeys);
-
-//    m_connModel->setSections(m_sessionInter.availableSections());
-//    m_connModel->setVisibleKeys(m_sessionInter.availableKeys());
 
     queryAllKeys();
     queryAvailableKeys();
@@ -33,6 +28,11 @@ void ConnectionSessionWorker::queryAllKeys()
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_sessionInter.GetAllKeys(), this);
 
     connect(w, &QDBusPendingCallWatcher::finished, this, &ConnectionSessionWorker::queryAllKeysCB);
+}
+
+void ConnectionSessionWorker::changeSettings(const QString &section, const QString &vKey, const QString &data)
+{
+    m_sessionInter.SetKey(section, vKey, data);
 }
 
 void ConnectionSessionWorker::queryAvailableKeys()

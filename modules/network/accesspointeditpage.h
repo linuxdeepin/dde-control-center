@@ -32,6 +32,7 @@ public:
 
 signals:
     void requestCancelSession() const;
+    void requestChangeSettings(const QString &section, const QString &vKey, const QString &data) const;
 
 public slots:
     void onDeviceRemoved();
