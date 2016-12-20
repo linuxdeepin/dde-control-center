@@ -10,23 +10,27 @@
 #include "defappmodel.h"
 #include "widgets/defcategoryaddwidget.h"
 #include "settingshead.h"
+
 using namespace dcc;
 using namespace dcc::defapp;
 using namespace dcc::widgets;
+
 DefCategoryWidget::DefCategoryWidget(const QString &name, QWidget *parent)
-    : QWidget(parent)
+    : TranslucentFrame(parent)
 {
     m_centeralLayout = new QVBoxLayout;
     m_userGroup = new SettingsGroup;
-    m_userGroup->setMargin(10,0,10,0);
     m_addWidget  = new DefCategoryAddWidget(this);
     m_headWidget = new SettingsHead;
     m_headWidget->setTitle(name);
     m_userGroup->insertItem(0, m_headWidget);
     m_userGroup->insertItem(1, m_addWidget);
     m_centeralLayout->addWidget(m_userGroup);
-    m_centeralLayout->setContentsMargins(0,0,0,20);
+
+    m_centeralLayout->setMargin(0);
     setLayout(m_centeralLayout);
+    setObjectName("DefCategoryWidget");
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     connect(m_addWidget,  &DefCategoryAddWidget::addUserItem,  this, &DefCategoryWidget::requestAddUserApp);
     connect(m_headWidget, &SettingsHead::editChanged, this, &DefCategoryWidget::slotEditMode);

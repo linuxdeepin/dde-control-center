@@ -4,14 +4,17 @@
 #include "defappmodel.h"
 #include "translucentframe.h"
 #include "settingsgroup.h"
+
 using namespace dcc;
 using namespace dcc::defapp;
 using namespace dcc::widgets;
+
 DefAppViewer::DefAppViewer(QWidget *parent)
     : ContentWidget(parent)
 {
     QWidget *m_defAppViewer = defappDetail();
     setTitle("Set Default Applications");
+    m_defAppViewer->setObjectName("DefAppViewer");
     setContent(m_defAppViewer);
 }
 
@@ -22,6 +25,8 @@ QWidget *DefAppViewer::defappDetail()
     QWidget     *mainwidget = new QWidget;
     mainwidget->setLayout(mainlayout);
     mainlayout->setMargin(0);
+    mainlayout->setSpacing(20);
+
     m_modBrowser = new DefCategoryWidget(tr("Browser"), this);
     m_modMail = new DefCategoryWidget(tr("Mail"), this);
     m_modText = new DefCategoryWidget(tr("Text"), this);
@@ -40,11 +45,13 @@ QWidget *DefAppViewer::defappDetail()
     m_modSoftware = new DefCategoryWidget(tr("Software"), this);
     m_modSoftware->hide();
 
+    QVBoxLayout *switchLayout = new QVBoxLayout;
     SettingsGroup *group = new SettingsGroup;
     m_switchWidget = new SwitchWidget();
     connect(m_switchWidget, &SwitchWidget::checkedChanegd, this, &DefAppViewer::autoOpenChanged);
     group->appendItem(m_switchWidget);
-    group->setMargin(0, 0, 0, 0);
+    switchLayout->addWidget(group);
+    switchLayout->setMargin(0);
 
     mainlayout->addWidget(m_modBrowser);
     mainlayout->addWidget(m_modMail);
@@ -53,7 +60,7 @@ QWidget *DefAppViewer::defappDetail()
     mainlayout->addWidget(m_modVideo);
     mainlayout->addWidget(m_modPicture);
     mainlayout->addWidget(m_modTerminal);
-    mainlayout->addWidget(group);
+    mainlayout->addLayout(switchLayout);
     mainlayout->addWidget(m_modCDAudio);
     mainlayout->addWidget(m_modDVDVideo);
     mainlayout->addWidget(m_modMusicPlayer);

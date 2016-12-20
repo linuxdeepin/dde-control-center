@@ -2,10 +2,12 @@
 #define DEFCATEGORYWIDGET_H
 
 #include "modulewidget.h"
+#include "translucentframe.h"
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QMap>
 #include <QJsonObject>
+
 namespace dcc
 {
 namespace widgets {
@@ -17,7 +19,7 @@ namespace defapp
 class DefCategoryAddWidget;
 class Category;
 class OptionWidget;
-class DefCategoryWidget : public QWidget
+class DefCategoryWidget : public widgets::TranslucentFrame
 {
     Q_OBJECT
 public:
