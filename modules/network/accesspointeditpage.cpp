@@ -4,6 +4,8 @@
 #include "settingsgroup.h"
 #include "settingsheaderitem.h"
 #include "nextpagewidget.h"
+#include "switchwidget.h"
+#include "lineeditwidget.h"
 
 #include <QDebug>
 #include <QTimer>
@@ -12,16 +14,6 @@
 
 using namespace dcc::widgets;
 using namespace dcc::network;
-
-const QString sectionHeader(const QString &section)
-{
-    if (section == "ipv4")
-        return QStringLiteral("IPV4");
-    if (section == "ipv6")
-        return QStringLiteral("IPV6");
-
-    return QString();
-}
 
 AccessPointEditPage::AccessPointEditPage(QWidget *parent)
     : ContentWidget(parent),
@@ -65,10 +57,12 @@ AccessPointEditPage::~AccessPointEditPage()
     emit requestCancelSession();
 
     for (auto *w : m_sectionWidgets.values())
-        w->deleteLater();
+        if (w)
+            w->deleteLater();
     for  (const auto v : m_optionWidgets.values())
         for (auto *w : v)
-            w->deleteLater();
+            if (w)
+                w->deleteLater();
 }
 
 void AccessPointEditPage::setModel(ConnectionSessionModel *model)
@@ -133,7 +127,7 @@ void AccessPointEditPage::refershUI()
         const auto visibleKeys = m_sessionModel->sectionKeys(section);
         for (const auto &vKey : visibleKeys)
         {
-            SettingsItem *item = m_optionWidgets[section][vKey];
+            SettingsItem *item = m_optionWidgets[section][vKey.value("Key").toString()];
             if (item)
                 grp->appendItem(item);
         }
@@ -146,13 +140,44 @@ void AccessPointEditPage::refershUI()
 void AccessPointEditPage::createOptionWidgets(const QString &section, const QJsonObject &keyObject)
 {
     const QString vKey = keyObject.value("Key").toString();
+    const QString vType = keyObject.value("WidgetType").toString();
+    const QJsonObject vInfo = m_sessionModel->keysInfo(section, vKey);
 
     // delete old widgets
     if (m_optionWidgets[section][vKey] != nullptr)
+    {
         m_optionWidgets[section][vKey]->deleteLater();
+        m_optionWidgets[section].remove(vKey);
+    }
 
-    NextPageWidget *w = new NextPageWidget;
-    w->setTitle(vKey);
+    SettingsItem *item = nullptr;
+    if (vType == "EditLineSwitchButton")
+        item = createSwitchWidget(keyObject, vInfo);
+    else if (vType == "EditLineTextInput")
+        item = createEditWidget(keyObject, vInfo);
 
-    m_optionWidgets[section][vKey] = w;
+    if (item)
+        m_optionWidgets[section][vKey] = item;
+    else
+        qWarning() << "type not handled: " << keyObject << vInfo;
+}
+
+SettingsItem *AccessPointEditPage::createSwitchWidget(const QJsonObject &keyObject, const QJsonObject &infoObject)
+{
+    SwitchWidget *w = new SwitchWidget;
+
+    w->setTitle(keyObject.value("Name").toString());
+    w->setChecked(infoObject.value("Value").toBool());
+
+    return w;
+}
+
+SettingsItem *AccessPointEditPage::createEditWidget(const QJsonObject &keyObject, const QJsonObject &infoObject)
+{
+    LineEditWidget *w = new LineEditWidget;
+
+    w->setTitle(keyObject.value("Name").toString());
+    w->textEdit()->setText(infoObject.value("Value").toString());
+
+    return w;
 }

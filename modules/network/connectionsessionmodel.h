@@ -19,12 +19,13 @@ public:
     explicit ConnectionSessionModel(QObject *parent = 0);
 
     const QStringList sections() const { return m_sections; }
-    const QStringList sectionKeys(const QString &section) const { return m_visibleItems[section]; }
+    const QList<QJsonObject> sectionKeys(const QString &section) const { return m_visibleItems[section]; }
+    const QJsonObject keysInfo(const QString &section, const QString &vKey) const;
     const QString sectionName(const QString &section) const { return m_sectionName[section]; }
     const QMap<QString, QMap<QString, QJsonObject>> keys() const { return m_keys; }
 
 signals:
-    void visibleItemsChanged(const QMap<QString, QStringList> &keys) const;
+    void visibleItemsChanged(const QMap<QString, QList<QJsonObject>> &keys) const;
     void keysChanged(const QMap<QString, QMap<QString, QJsonObject>> &keys) const;
 
 private slots:
@@ -35,7 +36,7 @@ private slots:
 private:
     QList<QString> m_sections;
     QMap<QString, QString> m_sectionName;
-    QMap<QString, QStringList> m_visibleItems;
+    QMap<QString, QList<QJsonObject>> m_visibleItems;
     QMap<QString, QMap<QString, QJsonObject>> m_keys;
 };
 

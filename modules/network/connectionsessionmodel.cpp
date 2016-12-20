@@ -12,6 +12,17 @@ ConnectionSessionModel::ConnectionSessionModel(QObject *parent)
 
 }
 
+const QJsonObject ConnectionSessionModel::keysInfo(const QString &section, const QString &vKey) const
+{
+    for (const auto &item : m_visibleItems.value(section))
+    {
+        if (item.value("Key").toString() == vKey)
+            return item;
+    }
+
+    return QJsonObject();
+}
+
 void ConnectionSessionModel::setAvailableItems(const QString &items)
 {
     m_sections.clear();
@@ -26,12 +37,7 @@ void ConnectionSessionModel::setAvailableItems(const QString &items)
 
         m_sections.append(vsName);
         for (const auto &keyObject : keys)
-        {
-            const auto key = keyObject.toObject();
-            const auto vkName = key.value("Key").toString();
-
-            m_visibleItems[vsName].append(vkName);
-        }
+            m_visibleItems[vsName].append(keyObject.toObject());
     }
 
     emit visibleItemsChanged(m_visibleItems);
