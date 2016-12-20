@@ -122,10 +122,14 @@ int SettingsGroup::itemCount() const
 void SettingsGroup::clear()
 {
     const int index = m_headerItem ? 1 : 0;
-    for (int i(index); i != m_layout->count(); ++i)
+    const int count = m_layout->count();
+
+    for (int i(index); i != count; ++i)
     {
         QLayoutItem *item = m_layout->takeAt(index);
-        item->widget()->removeEventFilter(this);
+        QWidget *w = item->widget();
+        w->removeEventFilter(this);
+        w->setParent(nullptr);
         delete item;
     }
 

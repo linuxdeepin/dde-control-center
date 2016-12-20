@@ -6,12 +6,15 @@
 #include "nextpagewidget.h"
 #include "switchwidget.h"
 #include "lineeditwidget.h"
+#include "comboboxwidget.h"
 
 #include <QDebug>
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QJsonDocument>
+#include <QJsonArray>
+#include <QComboBox>
 
 using namespace dcc::widgets;
 using namespace dcc::network;
@@ -167,8 +170,14 @@ void AccessPointEditPage::createOptionWidgets(const QString &section, const QJso
     SettingsItem *item = nullptr;
     if (vType == "EditLineSwitchButton")
         item = createSwitchWidget(keyObject, vInfo);
-    else if (vType == "EditLineTextInput")
-        item = createEditWidget(keyObject, vInfo);
+    else if (vType == "EditLineTextInput" || vType == "EditLineIpv4Input" || vType == "EditLineSpinner")
+        item = createEditWidget(keyObject, vInfo, false);
+    else if (vType == "EditLinePasswordInput")
+        item = createEditWidget(keyObject, vInfo, true);
+    else if (vType == "EditLineComboBox")
+        item = createComboWidget(keyObject, vInfo, false);
+    else if (vType == "EditLineEditComboBox")
+        item = createComboWidget(keyObject, vInfo, true);
 
     if (item)
         m_optionWidgets[section][vKey] = item;
@@ -192,19 +201,62 @@ SettingsItem *AccessPointEditPage::createSwitchWidget(const QJsonObject &keyObje
     return w;
 }
 
-SettingsItem *AccessPointEditPage::createEditWidget(const QJsonObject &keyObject, const QJsonObject &infoObject)
+SettingsItem *AccessPointEditPage::createEditWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool password)
 {
     LineEditWidget *w = new LineEditWidget;
+    QLineEdit *e = w->textEdit();
 
     w->setTitle(keyObject.value("Name").toString());
-    w->textEdit()->setText(infoObject.value("Value").toString());
-    w->textEdit()->setReadOnly(infoObject.value("Readonly").toBool());
+    e->setText(infoObject.value("Value").toString());
+    e->setReadOnly(infoObject.value("Readonly").toBool());
+    if (password)
+        e->setEchoMode(QLineEdit::Password);
 
     const QString section = keyObject.value("Section").toString();
     const QString vKey = keyObject.value("Key").toString();
-    connect(w->textEdit(), &QLineEdit::textChanged, [=](const QString &text) {
-        emit requestChangeSettings(section, vKey, JsonEncoding(text));
+    connect(e, &QLineEdit::editingFinished, [=] {
+        emit requestChangeSettings(section, vKey, JsonEncoding(e->text()));
     });
+
+    return w;
+}
+
+SettingsItem *AccessPointEditPage::createComboWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool editable)
+{
+    ComboBoxWidget *w = new ComboBoxWidget;
+    QComboBox *c = w->comboBox();
+
+    w->setTitle(keyObject.value("Name").toString());
+    c->setEditable(editable);
+
+    // get value list
+    int index = 0;
+    const QString current = infoObject.value("Value").toString();
+    for (const auto &v : infoObject.value("Values").toArray())
+    {
+        const auto vObject = v.toObject();
+        const auto value = vObject.value("Value").toString();
+        c->addItem(vObject.value("Text").toString(), value);
+
+        if (value == current)
+            c->setCurrentIndex(index);
+        ++index;
+    }
+    if (editable)
+        c->setEditText(current);
+
+    const QString section = keyObject.value("Section").toString();
+    const QString vKey = keyObject.value("Key").toString();
+    if (editable)
+    {
+        connect(c->lineEdit(), &QLineEdit::editingFinished, [=] {
+            emit requestChangeSettings(section, vKey, JsonEncoding(c->lineEdit()->text()));
+        });
+    } else {
+        connect(c, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [=] {
+            emit requestChangeSettings(section, vKey, JsonEncoding(c->currentData().toString()));
+        });
+    }
 
     return w;
 }

@@ -25,7 +25,8 @@ HEADERS += \
     $$PWD/nextbutton.h \
     $$PWD/backbutton.h \
     $$PWD/loadingindicator.h \
-    $$PWD/optionlistpage.h
+    $$PWD/optionlistpage.h \
+    $$PWD/comboboxwidget.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -49,7 +50,8 @@ SOURCES += \
     $$PWD/nextbutton.cpp \
     $$PWD/backbutton.cpp \
     $$PWD/loadingindicator.cpp \
-    $$PWD/optionlistpage.cpp
+    $$PWD/optionlistpage.cpp \
+    $$PWD/comboboxwidget.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

@@ -44,7 +44,8 @@ private slots:
 private:
     void createOptionWidgets(const QString &section, const QJsonObject &keyObject);
     widgets::SettingsItem *createSwitchWidget(const QJsonObject &keyObject, const QJsonObject &infoObject);
-    widgets::SettingsItem *createEditWidget(const QJsonObject &keyObject, const QJsonObject &infoObject);
+    widgets::SettingsItem *createEditWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool password);
+    widgets::SettingsItem *createComboWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool editable);
 
 private:
     ConnectionSessionModel *m_sessionModel;
