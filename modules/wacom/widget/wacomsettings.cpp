@@ -21,6 +21,7 @@ WacomSettings::WacomSettings(QWidget *parent):
     m_pressureSlider->slider()->setTickPosition(QSlider::TicksBelow);
     m_pressureSlider->slider()->setRange(1, 7);
     m_pressureSlider->slider()->setTickInterval(1);
+    m_pressureSlider->slider()->setPageStep(1);
 
     QStringList delays;
     delays<<tr("light")<<""<<""<<""<<""<<""<<tr("heavy");
