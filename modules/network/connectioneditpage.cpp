@@ -69,6 +69,7 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     connect(m_recreateUITimer, &QTimer::timeout, this, &ConnectionEditPage::recreateUI);
     connect(m_cancelBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
     connect(m_acceptBtn, &QPushButton::clicked, this, &ConnectionEditPage::accept);
+    connect(m_acceptBtn, &QPushButton::clicked, this, &ConnectionEditPage::back, Qt::QueuedConnection);
 }
 
 ConnectionEditPage::~ConnectionEditPage()
@@ -213,7 +214,7 @@ SettingsItem *ConnectionEditPage::createEditWidget(const QJsonObject &keyObject,
 
     w->setTitle(keyObject.value("Name").toString());
     e->setText(infoObject.value("Value").toString());
-    e->setReadOnly(infoObject.value("Readonly").toBool());
+    e->setReadOnly(keyObject.value("Readonly").toBool());
     if (password)
         e->setEchoMode(QLineEdit::Password);
 

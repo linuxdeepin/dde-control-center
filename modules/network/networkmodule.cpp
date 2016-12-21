@@ -124,6 +124,7 @@ void NetworkModule::showWiredConnectionEditPage(const QString &session)
     p->setModel(sessionModel);
     connect(p, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
     connect(p, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
+    connect(p, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
 
     m_frameProxy->pushWidget(this, p);
 }

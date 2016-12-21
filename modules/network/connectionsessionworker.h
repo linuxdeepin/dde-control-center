@@ -22,6 +22,7 @@ public:
 public slots:
     void closeSession();
     void queryAllKeys();
+    void saveSettings();
     void changeSettings(const QString &section, const QString &vKey, const QString &data);
 
 private:
