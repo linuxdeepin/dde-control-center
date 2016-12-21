@@ -54,7 +54,7 @@ void AvatarWidget::setAvatarPath(const QString &avatar)
 {
     QUrl url(avatar);
     m_avatarPath = avatar;
-    m_avatar = QPixmap(url.toLocalFile()).scaled(size().width(), size().height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);;
+    m_avatar = QPixmap(url.toLocalFile()).scaled(size().width(), size().height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
     update();
 }

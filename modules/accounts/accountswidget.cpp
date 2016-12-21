@@ -2,7 +2,7 @@
 
 #include "nextpagewidget.h"
 #include "settingsgroup.h"
-#include "nextpagewidget.h"
+#include "useroptionitem.h"
 #include "switchwidget.h"
 #include "settingsheaderitem.h"
 
@@ -30,13 +30,16 @@ AccountsWidget::AccountsWidget()
 
 void AccountsWidget::addUser(User *user)
 {
-    NextPageWidget *w = new NextPageWidget;
-    w->setTitle(user->name());
+    UserOptionItem *w = new UserOptionItem;
 
     m_userGroup->appendItem(w);
 
     connect(user, &User::nameChanged, w, &NextPageWidget::setTitle);
+    connect(user, &User::currentAvatarChanged, w, &UserOptionItem::setAvatar);
     connect(w, &NextPageWidget::clicked, [=] { emit showAccountsDetail(user); });
+
+    w->setTitle(user->name());
+    w->setAvatar(user->currentAvatar());
 }
 
 void AccountsWidget::removeUser(User *user)

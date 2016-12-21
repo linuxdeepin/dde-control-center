@@ -10,7 +10,8 @@ HEADERS += \
     $$PWD/avatarwidget.h \
     $$PWD/createpage.h \
     $$PWD/creationresult.h \
-    $$PWD/removeuserdialog.h
+    $$PWD/removeuserdialog.h \
+    $$PWD/useroptionitem.h
 
 SOURCES += \
     $$PWD/accountsmodule.cpp \
@@ -24,7 +25,8 @@ SOURCES += \
     $$PWD/avatarwidget.cpp \
     $$PWD/createpage.cpp \
     $$PWD/creationresult.cpp \
-    $$PWD/removeuserdialog.cpp
+    $$PWD/removeuserdialog.cpp \
+    $$PWD/useroptionitem.cpp
 
 INCLUDEPATH += $$PWD/..
 
