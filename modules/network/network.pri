@@ -15,7 +15,8 @@ HEADERS += \
     $$PWD/connectionsessionmodel.h \
     $$PWD/connectionsessionworker.h \
     $$PWD/vpnpage.h \
-    $$PWD/connectioneditpage.h
+    $$PWD/connectioneditpage.h \
+    $$PWD/pppoepage.h
 
 SOURCES += \
     $$PWD/networkmodule.cpp \
@@ -31,7 +32,8 @@ SOURCES += \
     $$PWD/connectionsessionmodel.cpp \
     $$PWD/connectionsessionworker.cpp \
     $$PWD/vpnpage.cpp \
-    $$PWD/connectioneditpage.cpp
+    $$PWD/connectioneditpage.cpp \
+    $$PWD/pppoepage.cpp
 
 RESOURCES += \
     $$PWD/network.qrc

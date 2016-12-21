@@ -11,6 +11,7 @@
 #include "connectionsessionmodel.h"
 #include "connectionsessionworker.h"
 #include "vpnpage.h"
+#include "pppoepage.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -69,6 +70,7 @@ ModuleWidget *NetworkModule::moduleWidget()
     m_networkWidget->setModel(m_networkModel);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowDeviceDetail, this, &NetworkModule::showDeviceDetailPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowVpnPage, this, &NetworkModule::showVpnPage);
+    connect(m_networkWidget, &NetworkModuleWidget::requestShowPppPage, this, &NetworkModule::showPppPage);
 
     return m_networkWidget;
 }
@@ -108,6 +110,15 @@ void NetworkModule::showVpnPage()
     VpnPage *p = new VpnPage;
 
     connect(p, &VpnPage::requestVpnEnabled, m_networkWorker, &NetworkWorker::setVpnEnable);
+
+    p->setModel(m_networkModel);
+
+    m_frameProxy->pushWidget(this, p);
+}
+
+void NetworkModule::showPppPage()
+{
+    PppoePage *p = new PppoePage;
 
     p->setModel(m_networkModel);
 

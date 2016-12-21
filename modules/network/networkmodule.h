@@ -29,6 +29,7 @@ private:
 private slots:
     void showDeviceDetailPage(NetworkDevice *dev);
     void showVpnPage();
+    void showPppPage();
     void showWiredConnectionEditPage(const QString &session);
 
 private:

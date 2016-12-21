@@ -44,6 +44,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 
     connect(m_detailBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowInfomation);
     connect(m_vpnBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowVpnPage);
+    connect(m_pppBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowPppPage);
 }
 
 void NetworkModuleWidget::setModel(NetworkModel *model)
@@ -106,7 +107,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         NextPageWidget *w = new NextPageWidget;
         initButtonsConnection(w);
 
-        if (wiredDevice < 2)
+        if (wirelessDevice < 2)
             w->setTitle(tr("Wireless Network"));
         else
             w->setTitle(tr("Wireless Network%1").arg(++count));

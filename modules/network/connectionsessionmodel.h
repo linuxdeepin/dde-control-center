@@ -24,6 +24,7 @@ public:
     const QList<QJsonObject> sectionKeys(const QString &section) const { return m_visibleItems[section]; }
     const QJsonObject keysInfo(const QString &section, const QString &vKey) const;
     const QString sectionName(const QString &section) const { return m_sectionName[section]; }
+    const QString virtualSectionName(const QString &realSectionName) const { return m_virtualSectionName[realSectionName]; }
     const QMap<QString, QMap<QString, QJsonObject>> keys() const { return m_keys; }
 
 signals:
@@ -40,6 +41,7 @@ private slots:
 private:
     QList<QString> m_sections;
     QMap<QString, QString> m_sectionName;
+    QMap<QString, QString> m_virtualSectionName;
     QMap<QString, QList<QJsonObject>> m_visibleItems;
     QMap<QString, QMap<QString, QJsonObject>> m_keys;
 };

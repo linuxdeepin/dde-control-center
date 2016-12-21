@@ -169,7 +169,7 @@ void ConnectionEditPage::onErrorsChanged(const NetworkErrors &errors)
 
     for (auto it(errors.cbegin()); it != errors.cend(); ++it)
     {
-        const auto section = it.key();
+        const auto section = m_sessionModel->virtualSectionName(it.key());
         const auto eItems = it.value();
         for (auto its(eItems.begin()); its != eItems.end(); ++its)
             if (m_optionWidgets[section].contains(its.key()))

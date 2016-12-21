@@ -119,16 +119,13 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
             m_connections[it.key()].append(connObject.toObject());
     }
 
+    // update wired connection info
     for (const auto &wired : m_connections["wired"])
     {
         const QString hwAddr = wired.value("HwAddress").toString();
         for (auto *dev : m_devices)
-        {
             if (dev->type() == NetworkDevice::Wired && dev->hwAddr() == hwAddr)
-            {
                 static_cast<WiredDevice *>(dev)->onConnectionInfoChanged(wired);
-            }
-        }
     }
 }
 

@@ -24,6 +24,7 @@ public:
 
 signals:
     void requestShowVpnPage() const;
+    void requestShowPppPage() const;
     void requestShowInfomation() const;
     void requestShowDeviceDetail(NetworkDevice *device) const;
 

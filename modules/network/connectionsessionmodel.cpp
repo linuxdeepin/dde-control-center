@@ -68,10 +68,11 @@ void ConnectionSessionModel::setAllKeys(const QString &allKeys)
         for (const auto &keyObject : keyList)
         {
             const auto key = keyObject.toObject();
-//            const auto keySection = key.value("Section").toString();
+            const auto keySection = key.value("Section").toString();
             const auto keyKey = key.value("Key").toString();
 
             m_keys[sectionKey][keyKey] = key;
+            m_virtualSectionName[keySection] = sectionKey;
         }
     }
 
