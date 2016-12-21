@@ -3,9 +3,9 @@ dcc--widgets--NextButton Dtk--Widget--DImageButton {
 }
 
 dcc--widgets--BackButton Dtk--Widget--DImageButton {
-    qproperty-normalPic: url(:/widgets/icons/back_normal.png);
-    qproperty-hoverPic: url(:/widgets/icons/back_hover.png);
-    qproperty-pressPic: url(:/widgets/icons/back_press.png);
+    qproperty-normalPic: url(:/widgets/themes/dark/icons/back_normal.png);
+    qproperty-hoverPic: url(:/widgets/themes/dark/icons/back_hover.png);
+    qproperty-pressPic: url(:/widgets/themes/dark/icons/back_press.png);
 }
 
 /* SettingsItem */
@@ -15,6 +15,17 @@ dcc--widgets--SettingsItem {
 
 dcc--widgets--SettingsHead QLabel#Edit {
     color:#01bdff
+}
+
+/* FileChooseWidget */
+dcc--widgets--FileChooseWidget > Dtk--Widget--DImageButton {
+    qproperty-normalPic: url(:/widgets/themes/dark/icons/select_files.png);
+}
+
+dcc--widgets--FileChooseWidget > QLineEdit {
+    background: transparent;
+    border: none;
+    color: white;
 }
 
 /* OptionItem */

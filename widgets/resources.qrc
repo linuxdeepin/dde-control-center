@@ -3,15 +3,6 @@
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/select.png</file>
         <file>themes/common/common.qss</file>
-        <file>icons/next_hover.png</file>
-        <file>icons/next_normal.png</file>
-        <file>icons/next_press.png</file>
-        <file>icons/back_press.png</file>
-        <file>icons/back_normal.png</file>
-        <file>icons/back_hover.png</file>
-        <file>icons/search_hover.png</file>
-        <file>icons/search_normal.png</file>
-        <file>icons/search_press.png</file>
         <file>themes/dark/icons/Loading/loading_089.png</file>
         <file>themes/dark/icons/Loading/loading_088.png</file>
         <file>themes/dark/icons/Loading/loading_087.png</file>
@@ -103,5 +94,9 @@
         <file>themes/dark/icons/Loading/loading_001.png</file>
         <file>themes/dark/icons/Loading/loading_000.png</file>
         <file>themes/dark/icons/expand_arrow.png</file>
+        <file>themes/dark/icons/select_files.png</file>
+        <file>themes/dark/icons/back_hover.png</file>
+        <file>themes/dark/icons/back_normal.png</file>
+        <file>themes/dark/icons/back_press.png</file>
     </qresource>
 </RCC>
