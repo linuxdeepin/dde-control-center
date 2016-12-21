@@ -3,12 +3,12 @@
 
 #include "settingsitem.h"
 #include "translucentframe.h"
-
 #include <settingsgroup.h>
 #include <QObject>
 #include <QVBoxLayout>
 #include <QJsonObject>
 #include <QMap>
+
 namespace dcc
 {
 namespace widgets

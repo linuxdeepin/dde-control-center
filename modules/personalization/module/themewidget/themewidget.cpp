@@ -2,9 +2,11 @@
 #include "settingsgroup.h"
 #include "personalization/personalizationmodel.h"
 #include "theme.h"
+
 using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::personalization;
+
 ThemeWidget::ThemeWidget(QWidget *parent)
     :ContentWidget(parent)
 {
@@ -19,6 +21,8 @@ ThemeWidget::ThemeWidget(QWidget *parent)
     m_mainlayout->addWidget(m_mouseTheme);
 
     m_mainlayout->setMargin(0);
+    m_mainlayout->setSpacing(20);
+
     m_widget->setLayout(m_mainlayout);
     setTitle(tr("Theme"));
     setContent(m_widget);

@@ -70,7 +70,7 @@ void DefCategoryWidget::addItem(const QJsonObject &item)
     m_optionWidget = new OptionWidget;
     m_optionWidget->setItem(item);
     m_optionWidget->setMime(m_category->getName());
-    m_optionWidget->setFixedHeight(30);
+    m_optionWidget->setFixedHeight(36);
     m_userGroup->insertItem(1, m_optionWidget);
     m_mainMap.insert(m_optionWidget->id(), m_optionWidget);
     m_valueMap.insert(m_optionWidget, item);
@@ -84,7 +84,7 @@ void DefCategoryWidget::addUserItem(const QJsonObject &item)
     m_optionWidget->setItem(item);
     m_optionWidget->setMime(m_category->getName());
     m_optionWidget->setUserCheck(true);
-    m_optionWidget->setFixedHeight(30);
+    m_optionWidget->setFixedHeight(36);
     m_userGroup->insertItem(1, m_optionWidget);
     m_userMap.insert(m_optionWidget->id(), m_optionWidget);
     m_valueMap.insert(m_optionWidget, item);

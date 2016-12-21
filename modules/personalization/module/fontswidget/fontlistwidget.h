@@ -11,6 +11,7 @@
 #include <QLabel>
 #include <QFont>
 #include <QMap>
+
 namespace dcc
 {
 namespace widgets

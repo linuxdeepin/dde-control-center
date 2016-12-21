@@ -4,6 +4,7 @@
 #include "modulewidget.h"
 #include <QPushButton>
 #include <QVBoxLayout>
+
 namespace dcc
 {
 namespace widgets {

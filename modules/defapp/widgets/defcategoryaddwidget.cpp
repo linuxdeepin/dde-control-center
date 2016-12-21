@@ -20,7 +20,7 @@ using namespace dcc::defapp;
 DefCategoryAddWidget::DefCategoryAddWidget(QWidget *parent)
     : SettingsItem(parent)
 {
-    setFixedHeight(30);
+    setFixedHeight(36);
     m_add = new FuncButton;
     m_add->setAlignment(Qt::AlignCenter);
     m_add->setText(tr("Add"));

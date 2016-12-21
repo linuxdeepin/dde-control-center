@@ -1,6 +1,8 @@
 #include "fontitem.h"
+
 using namespace dcc;
 using namespace dcc::personalization;
+
 FontItem::FontItem(const QString &value, QWidget *parent) :
     QWidget(parent)
 {

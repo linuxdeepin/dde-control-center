@@ -2,7 +2,6 @@
 #define PERSONALIZATIONWORK_H
 
 #include "personalizationmodel.h"
-
 #include <QObject>
 #include <QDebug>
 #include <QStringList>
@@ -10,6 +9,7 @@
 #include <QString>
 #include <QJsonObject>
 #include <com_deepin_daemon_apperance.h>
+
 using com::deepin::daemon::Appearance;
 namespace dcc
 {

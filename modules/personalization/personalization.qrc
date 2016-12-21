@@ -3,7 +3,12 @@
         <file>themes/common/common.qss</file>
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_personalization.png</file>
-        <file>themes/icon/select.png</file>
         <file>themes/light/light.qss</file>
+        <file>themes/common/select.png</file>
+        <file>themes/dark/icons/fontsize_decrease.png</file>
+        <file>themes/dark/icons/fontsize_increase.png</file>
+        <file>themes/light/icons/fontsize_decrease.png</file>
+        <file>themes/light/icons/fontsize_increase.png</file>
+        <file>themes/light/icons/nav_personalization.png</file>
     </qresource>
 </RCC>

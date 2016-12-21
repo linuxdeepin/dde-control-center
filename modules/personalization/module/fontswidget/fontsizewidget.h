@@ -1,9 +1,7 @@
 #ifndef FONTSIZEWIDGET_H
 #define FONTSIZEWIDGET_H
 
-
 #include "translucentframe.h"
-
 #include <settingsgroup.h>
 #include <QObject>
 #include <QSlider>

@@ -2,10 +2,10 @@
 #define THEMEWIDGET_H
 
 #include "contentwidget.h"
-
 #include <QObject>
 #include <QWidget>
 #include <QVBoxLayout>
+
 namespace dcc
 {
 namespace widgets

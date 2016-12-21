@@ -3,11 +3,10 @@
 #include "../../model/fontsizemodel.h"
 #include "titledslideritem.h"
 #include "dccslider.h"
+
 using namespace dcc;
 using namespace dcc::personalization;
 using namespace dcc::widgets;
-const int smail = -1;
-const int big   = 1;
 
 FontSizeWidget::FontSizeWidget(QWidget *parent)
     :TranslucentFrame(parent)
@@ -17,12 +16,13 @@ FontSizeWidget::FontSizeWidget(QWidget *parent)
     m_sizeWidget = new TitledSliderItem(tr("Size"));
 
     m_sizeWidget->slider()->setType(DCCSlider::Vernier);
-    m_sizeWidget->slider()->setRange(smail, big);
+    m_sizeWidget->slider()->setRange(-1, 1);
     m_sizeWidget->slider()->setTickPosition(QSlider::TicksBelow);
     m_sizeWidget->slider()->setTickInterval(1);
     m_sizeWidget->setObjectName("FontSizeWidget");
     m_mainWidget->appendItem(m_sizeWidget);
     m_mainlayout->addWidget(m_mainWidget);
+    m_mainlayout->setMargin(0);
     setLayout(m_mainlayout);
 
     m_fontSlider = m_sizeWidget->slider();

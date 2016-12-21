@@ -3,7 +3,6 @@
 
 #include "moduleinterface.h"
 
-
 namespace dcc
 {
 namespace personalization

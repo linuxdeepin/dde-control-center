@@ -2,6 +2,7 @@
 #define FONTSIZEMODEL_H
 
 #include <QObject>
+
 namespace dcc
 {
 namespace personalization

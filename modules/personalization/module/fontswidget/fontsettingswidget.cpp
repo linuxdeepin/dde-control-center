@@ -3,9 +3,11 @@
 #include "nextpagewidget.h"
 #include "settingsgroup.h"
 #include "../../model/fontmodel.h"
+
 using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::personalization;
+
 FontSettingsWidget::FontSettingsWidget(QWidget *parent)
     :TranslucentFrame(parent)
 {
@@ -21,6 +23,7 @@ FontSettingsWidget::FontSettingsWidget(QWidget *parent)
     m_fontWidget->appendItem(m_mono);
 
     m_mainlayout->addWidget(m_fontWidget);
+    m_mainlayout->setMargin(0);
 
     setLayout(m_mainlayout);
     setObjectName("FontSettingsWidget");

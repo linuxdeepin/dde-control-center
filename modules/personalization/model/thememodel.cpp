@@ -1,6 +1,8 @@
 #include "thememodel.h"
+
 using namespace dcc;
 using namespace dcc::personalization;
+
 ThemeModel::ThemeModel(QObject * parent) : QObject(parent)
 {
 }

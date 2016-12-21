@@ -8,6 +8,7 @@
 using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::personalization;
+
 FontListWidget::FontListWidget(const QString &title, QWidget *parent)
     :ContentWidget(parent)
 {
@@ -16,6 +17,7 @@ FontListWidget::FontListWidget(const QString &title, QWidget *parent)
     m_widget     = new TranslucentFrame;
 
     m_mainLayout->addWidget(m_mainGroup);
+    m_mainLayout->setMargin(0);
     m_widget->setLayout(m_mainLayout);
     setTitle(title);
     setContent(m_widget);

@@ -3,9 +3,11 @@
 #include "fontsettingswidget.h"
 #include "nextpagewidget.h"
 #include "personalization/personalizationmodel.h"
+
 using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::personalization;
+
 FontsWidget::FontsWidget(QWidget *parent)
     :ContentWidget(parent)
 {
@@ -15,6 +17,8 @@ FontsWidget::FontsWidget(QWidget *parent)
     m_fontSettingsWidget = new FontSettingsWidget;
     m_mainlayout->addWidget(m_fontSizeWidget);
     m_mainlayout->addWidget(m_fontSettingsWidget);
+    m_mainlayout->setMargin(0);
+    m_mainlayout->setSpacing(10);
 
     m_widget->setLayout(m_mainlayout);
     setTitle(tr("Font"));

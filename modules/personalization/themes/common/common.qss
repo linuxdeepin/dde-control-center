@@ -1,5 +1,0 @@
-/* ContentWidget qss */
-dcc--widgets--TitledSliderItem#FontSizeWidget {
-    qproperty-leftIcon: url(":/personalization/themes/icon/dark/fontsize_decrease.png");
-    qproperty-rightIcon: url(":/personalization/themes/icon/dark/fontsize_increase.png");
-}
