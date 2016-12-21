@@ -10,7 +10,8 @@ using namespace dcc::display;
 ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
     : ContentWidget(parent),
 
-      m_resolutions(new SettingsGroup)
+      m_resolutions(new SettingsGroup),
+      m_currentItem(nullptr)
 {
     setTitle(tr("Resolution"));
     setContent(m_resolutions);
@@ -30,6 +31,7 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
 
     const Monitor *mon = model->monitorList().first();
     const auto modes = mon->modeList();
+    const auto currentMode = mon->currentMode();
 
     bool first = true;
     for (auto m : modes)
@@ -47,15 +49,32 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
             item->setTitle(res);
         }
 
+        if (m == currentMode)
+            m_currentItem = item;
+
         m_options[item] = m.id();
         m_resolutions->appendItem(item);
     }
+
+    Q_ASSERT(m_currentItem);
+    m_currentItem->blockSignals(true);
+    m_currentItem->setSelected(true);
+    m_currentItem->blockSignals(false);
 }
 
 void ResolutionDetailPage::onItemClicked()
 {
     OptionItem *item = qobject_cast<OptionItem *>(sender());
     Q_ASSERT(m_options.contains(item));
+
+    if (item == m_currentItem)
+        return;
+
+    Q_ASSERT(m_currentItem);
+    m_currentItem->blockSignals(true);
+    m_currentItem->setSelected(false);
+    m_currentItem->blockSignals(false);
+    m_currentItem = item;
 
     emit requestSetResolution(m_model->monitorList().first(), m_options[item]);
 }

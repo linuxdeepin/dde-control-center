@@ -20,7 +20,7 @@ namespace widgets {
 
 
 SettingsGroup::SettingsGroup(QFrame *parent) :
-    QFrame(parent),
+    TranslucentFrame(parent),
     m_layout(new QVBoxLayout),
     m_headerItem(nullptr),
     m_updateHeightTimer(new QTimer(this))

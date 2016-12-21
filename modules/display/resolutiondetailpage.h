@@ -34,6 +34,7 @@ private slots:
 private:
     DisplayModel *m_model;
     dcc::widgets::SettingsGroup *m_resolutions;
+    dcc::widgets::OptionItem *m_currentItem;
 
     QMap<dcc::widgets::OptionItem *, int> m_options;
 };

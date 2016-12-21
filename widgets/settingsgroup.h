@@ -13,6 +13,8 @@
 #include <QFrame>
 #include <QTimer>
 
+#include "translucentframe.h"
+
 class QVBoxLayout;
 
 namespace dcc {
@@ -21,7 +23,7 @@ namespace widgets {
 class SettingsItem;
 class SettingsHeaderItem;
 
-class SettingsGroup : public QFrame
+class SettingsGroup : public TranslucentFrame
 {
     Q_OBJECT
 
