@@ -27,6 +27,9 @@ public:
     void setPort(const Port *port);
     inline const Port *port() const { return m_port; }
 
+private slots:
+    void setPortItemSelected(bool state);
+
 private:
     const Port *m_port;
     QWidget *m_frame;

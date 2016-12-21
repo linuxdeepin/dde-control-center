@@ -104,6 +104,7 @@ void SoundWidget::setModel(SoundModel *model)
 {
     connect(model, &SoundModel::speakerOnChanged, [this] (bool on) {
         m_speakerSwitch->setChecked(on);
+        m_outputVolumeSliderItem->setVisible(on);
         m_outputBalanceSliderItem->setVisible(on);
     });
     connect(model, &SoundModel::microphoneOnChanged, [this] (bool on) {

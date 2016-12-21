@@ -45,11 +45,18 @@ void PortItem::setPort(const Port *port)
 
     connect(m_port, &Port::nameChanged, m_portLabel, &NormalLabel::setText);
     connect(m_port, &Port::cardNameChanged, m_portLabel, &NormalLabel::setText);
-    connect(m_port, &Port::isActiveChanged, this, &PortItem::setSelected);
+    connect(m_port, &Port::isActiveChanged, this, &PortItem::setPortItemSelected);
 
    m_portLabel->setText(m_port->name());
    m_cardLabel->setText(m_port->cardName());
-   setSelected(m_port->isActive());
+   setPortItemSelected(m_port->isActive());
+}
+
+void PortItem::setPortItemSelected(bool state)
+{
+    blockSignals(true);
+    setSelected(state);
+    blockSignals(false);
 }
 
 } // namespace sound
