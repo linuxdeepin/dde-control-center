@@ -5,6 +5,8 @@
 
 #include <QMap>
 
+#include <types/networkerrors.h>
+
 class QVBoxLayout;
 class QPushButton;
 
@@ -41,6 +43,7 @@ public slots:
 private slots:
     void recreateUI();
     void refershUI();
+    void onErrorsChanged(const NetworkErrors &errors);
 
 private:
     void createOptionWidgets(const QString &section, const QJsonObject &keyObject);

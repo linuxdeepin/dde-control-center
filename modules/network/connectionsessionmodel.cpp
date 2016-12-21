@@ -77,3 +77,8 @@ void ConnectionSessionModel::setAllKeys(const QString &allKeys)
 
     emit keysChanged(m_keys);
 }
+
+void ConnectionSessionModel::onErrorsChanged(const NetworkErrors &errors) const
+{
+    emit errorsChanged(errors);
+}

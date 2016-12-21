@@ -5,6 +5,8 @@
 #include <QMap>
 #include <QJsonObject>
 
+#include <types/networkerrors.h>
+
 namespace dcc {
 
 namespace network {
@@ -27,11 +29,13 @@ public:
 signals:
     void visibleItemsChanged(const QMap<QString, QList<QJsonObject>> &keys) const;
     void keysChanged(const QMap<QString, QMap<QString, QJsonObject>> &keys) const;
+    void errorsChanged(const NetworkErrors &errors) const;
 
 private slots:
 //    void setVisibleKeys(const QMap<QString, QStringList> &keys);
     void setAvailableItems(const QString &items);
     void setAllKeys(const QString &allKeys);
+    void onErrorsChanged(const NetworkErrors &errors) const;
 
 private:
     QList<QString> m_sections;

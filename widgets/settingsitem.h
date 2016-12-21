@@ -20,6 +20,7 @@ class SettingsItem : public QFrame
     Q_OBJECT
     Q_PROPERTY(bool isHead READ isHead DESIGNABLE true SCRIPTABLE true)
     Q_PROPERTY(bool isTail READ isTail DESIGNABLE true SCRIPTABLE true)
+    Q_PROPERTY(bool isErr READ isErr DESIGNABLE true SCRIPTABLE true)
 
 public:
     explicit SettingsItem(QWidget *parent = 0);
@@ -30,9 +31,13 @@ public:
     bool isTail() const;
     void setIsTail(bool tail = true);
 
+    bool isErr() const;
+    void setIsErr(const bool err = true);
+
 private:
     bool m_isHead;
     bool m_isTail;
+    bool m_isErr;
 };
 
 }

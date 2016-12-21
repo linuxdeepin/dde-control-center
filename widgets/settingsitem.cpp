@@ -17,7 +17,8 @@ namespace widgets {
 SettingsItem::SettingsItem(QWidget *parent)
     : QFrame(parent),
       m_isHead(false),
-      m_isTail(false)
+      m_isTail(false),
+      m_isErr(false)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
@@ -45,6 +46,20 @@ void SettingsItem::setIsTail(bool tail)
 {
     if (tail == m_isTail) return;
     m_isTail = tail;
+
+    style()->unpolish(this);
+    style()->polish(this);
+}
+
+bool SettingsItem::isErr() const
+{
+    return m_isErr;
+}
+
+void SettingsItem::setIsErr(const bool err)
+{
+    if (m_isErr == err) return;
+    m_isErr = err;
 
     style()->unpolish(this);
     style()->polish(this);

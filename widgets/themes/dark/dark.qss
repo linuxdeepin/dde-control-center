@@ -10,7 +10,12 @@ dcc--widgets--BackButton Dtk--Widget--DImageButton {
 
 /* SettingsItem */
 dcc--widgets--SettingsItem {
+    border: none;
     background-color: rgba(238, 238, 238, .2);
+}
+
+dcc--widgets--SettingsItem[isErr=true] {
+    border: 2px solid red;
 }
 
 dcc--widgets--SettingsHead QLabel#Edit {

@@ -69,20 +69,19 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     connect(m_recreateUITimer, &QTimer::timeout, this, &ConnectionEditPage::recreateUI);
     connect(m_cancelBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
     connect(m_acceptBtn, &QPushButton::clicked, this, &ConnectionEditPage::accept);
-    connect(m_acceptBtn, &QPushButton::clicked, this, &ConnectionEditPage::back, Qt::QueuedConnection);
 }
 
 ConnectionEditPage::~ConnectionEditPage()
 {
     emit requestCancelSession();
 
-    for (auto *w : m_sectionWidgets.values())
-        if (w)
-            w->deleteLater();
     for  (const auto &v : m_optionWidgets.values())
         for (auto *w : v)
             if (w)
                 w->deleteLater();
+    for (auto *w : m_sectionWidgets.values())
+        if (w)
+            w->deleteLater();
 }
 
 void ConnectionEditPage::setModel(ConnectionSessionModel *model)
@@ -91,6 +90,7 @@ void ConnectionEditPage::setModel(ConnectionSessionModel *model)
 
     connect(m_sessionModel, &ConnectionSessionModel::keysChanged, m_recreateUITimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_sessionModel, &ConnectionSessionModel::visibleItemsChanged, this, &ConnectionEditPage::refershUI);
+    connect(m_sessionModel, &ConnectionSessionModel::errorsChanged, this, &ConnectionEditPage::onErrorsChanged);
 
     m_recreateUITimer->start();
 }
@@ -103,6 +103,8 @@ void ConnectionEditPage::onDeviceRemoved()
 void ConnectionEditPage::recreateUI()
 {
     // delete all widgets
+    for (const auto &v : m_optionWidgets)
+        qDeleteAll(v.values());
     qDeleteAll(m_sectionWidgets.values());
 
     // construct new widgets
@@ -155,6 +157,23 @@ void ConnectionEditPage::refershUI()
 
         m_sectionsLayout->addWidget(grp);
         grp->setVisible(true);
+    }
+}
+
+void ConnectionEditPage::onErrorsChanged(const NetworkErrors &errors)
+{
+    // clear old errors
+    for (const auto &v : m_optionWidgets)
+        for (auto *i : v)
+            i->setIsErr(false);
+
+    for (auto it(errors.cbegin()); it != errors.cend(); ++it)
+    {
+        const auto section = it.key();
+        const auto eItems = it.value();
+        for (auto its(eItems.begin()); its != eItems.end(); ++its)
+            if (m_optionWidgets[section].contains(its.key()))
+                m_optionWidgets[section][its.key()]->setIsErr();
     }
 }
 
