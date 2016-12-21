@@ -28,6 +28,9 @@ public:
     void activate();
     void deactivate();
 
+    void setOnBattery(bool onBattery);
+    void setBatteryPercentage(const BatteryPercentageInfo &info);
+
 public slots:
     void checkForUpdates();
     void downloadUpdates();
@@ -56,6 +59,9 @@ private:
     UpdateInter* m_updateInter;
     ManagerInter* m_managerInter;
     PowerInter *m_powerInter;
+
+    bool m_onBattery;
+    double m_batteryPercentage;
 
     QList<QString> m_updatableApps;
     QList<QString> m_updatablePackages;

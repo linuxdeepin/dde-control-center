@@ -42,6 +42,8 @@ private:
     void setStatus(const UpdatesStatus &status);
     void setDownloadInfo(DownloadInfo *downloadInfo);
 
+    void setLowBattery(const bool &lowBattery);
+
 private:
     UpdateModel *m_model;
     UpdatesStatus m_status;
@@ -52,7 +54,7 @@ private:
     DownloadProgressBar* m_progress;
     SettingsGroup* m_summaryGroup;
     SummaryItem* m_summary;
-    QLabel* m_powerTip;
+    NormalLabel* m_powerTip;
 };
 
 }

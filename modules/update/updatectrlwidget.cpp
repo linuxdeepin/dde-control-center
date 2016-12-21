@@ -6,6 +6,7 @@
 
 #include "updatemodel.h"
 #include "loadingitem.h"
+#include "labels/normallabel.h"
 
 namespace dcc{
 namespace update{
@@ -13,13 +14,14 @@ namespace update{
 UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     : ContentWidget(parent),
       m_model(nullptr),
+      m_status(UpdatesStatus::Updated),
       m_downloadInfo(nullptr),
       m_checkGroup(new SettingsGroup),
       m_checkUpdateItem(new LoadingItem),
       m_progress(new DownloadProgressBar),
       m_summaryGroup(new SettingsGroup),
       m_summary(new SummaryItem),
-      m_powerTip(new QLabel)
+      m_powerTip(new NormalLabel)
 {
     setTitle(tr("Update"));
 
@@ -38,6 +40,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_summaryGroup->appendItem(m_summary);
 
     m_powerTip->setWordWrap(true);
+    m_powerTip->setAlignment(Qt::AlignHCenter);
     m_powerTip->setVisible(false);
 
     layout->addWidget(m_checkGroup);
@@ -95,29 +98,6 @@ void UpdateCtrlWidget::onProgressBarClicked()
     }
 }
 
-//void UpdateCtrlWidget::onStatus(bool useBattery, double percent)
-//{
-//    m_progress->setCurState(UpdateType::RebootInstall);
-//    if(useBattery)
-//    {
-//        if(percent >= 50)
-//        {
-//            m_powerTip->setText(tr("Please ensure sufficient power to restart,"
-//                                   " and don't power off or unplug your machine"));
-//        }
-//        else
-//        {
-//            m_powerTip->setText(tr("Your battery is lower than 50%, please plug in to continue"));
-//        }
-//        m_powerTip->show();
-//    }
-//    else
-//    {
-//        m_powerTip->setText(tr("Please ensure sufficient power to restart,"
-//                               " and don't power off or unplug your machine"));
-//    }
-//}
-
 void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 {
     if (m_status != status) {
@@ -140,6 +120,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
             m_checkGroup->setVisible(false);
             m_progress->setVisible(true);
             m_summaryGroup->setVisible(true);
+            m_progress->setValue(0);
             m_progress->setMessage(tr("%1 downloaded (Click to pause)").arg(m_progress->text()));
             break;
         case UpdatesStatus::DownloadPaused:
@@ -154,6 +135,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
             m_summaryGroup->setVisible(false);
             m_progress->setMessage(tr("Restart to install updates"));
             m_summary->setTitle(tr("Download completed"));
+            setLowBattery(m_model->lowBattery());
             break;
         default:
             qWarning() << "unknown status!!!";
@@ -181,6 +163,20 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
 
     m_downloadInfo = downloadInfo;
     connect(m_downloadInfo, &DownloadInfo::downloadProgressChanged, m_progress, &DownloadProgressBar::setValue);
+}
+
+void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
+{
+    if (m_status == UpdatesStatus::Downloaded) {
+        if(lowBattery) {
+            m_powerTip->setText(tr("Your battery is lower than 50%, please plug in to continue"));
+        } else {
+            m_powerTip->setText(tr("Please ensure sufficient power to restart, and don't power off or unplug your machine"));
+        }
+
+        m_progress->setDisabled(!lowBattery);
+        m_powerTip->setVisible(!lowBattery);
+    }
 }
 
 void UpdateCtrlWidget::setModel(UpdateModel *model)

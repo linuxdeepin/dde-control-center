@@ -36,7 +36,9 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
       m_checkUpdateJob(nullptr),
       m_updateInter(new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
       m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
-      m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
+      m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
+      m_onBattery(true),
+      m_batteryPercentage(0)
 {
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
@@ -44,6 +46,9 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
 
     connect(m_updateInter, &__Updater::AutoCheckUpdatesChanged, m_model, &UpdateModel::setAutoUpdate);
     connect(m_updateInter, &__Updater::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
+
+    connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWork::setOnBattery);
+    connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWork::setBatteryPercentage);
 }
 
 void UpdateWork::activate()
@@ -62,6 +67,8 @@ void UpdateWork::activate()
 
     m_model->setAutoUpdate(m_updateInter->autoCheckUpdates());
     m_model->setDefaultMirror(m_updateInter->mirrorSource());
+    setOnBattery(m_powerInter->onBattery());
+    setBatteryPercentage(m_powerInter->batteryPercentage());
 }
 
 void UpdateWork::deactivate()
@@ -224,6 +231,9 @@ DownloadInfo *UpdateWork::calculateDownloadInfo()
     QList<AppUpdateInfo> infos = getInfoList();
     const qlonglong size = m_managerInter->PackagesDownloadSize(m_updatablePackages);
 
+    qDebug() << "updatable packages:" <<  m_updatablePackages;
+    qDebug() << "total download size:" << formatCap(size);
+
     m_updateInter->setSync(false);
     m_managerInter->setSync(false);
 
@@ -335,6 +345,20 @@ QList<AppUpdateInfo> UpdateWork::getInfoList()
     }
 
     return infos;
+}
+
+void UpdateWork::setBatteryPercentage(const BatteryPercentageInfo &info)
+{
+    m_batteryPercentage = info.value("Display", 0);
+    if (m_onBattery) {
+        m_model->setLowBattery(m_batteryPercentage < 50);
+    }
+}
+
+void UpdateWork::setOnBattery(bool onBattery)
+{
+    m_onBattery = onBattery;
+    if (!onBattery) m_model->setLowBattery(false);
 }
 
 }

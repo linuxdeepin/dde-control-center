@@ -55,10 +55,14 @@ public:
     QMap<QString, int> mirrorSpeedInfo() const;
     void setMirrorSpeedInfo(const QMap<QString, int> &mirrorSpeedInfo);
 
+    bool lowBattery() const;
+    void setLowBattery(bool lowBattery);
+
 signals:
     void autoUpdateChanged(const bool &autoUpdate);
     void defaultMirrorChanged(const MirrorInfo &mirror);
 
+    void lowBatteryChanged(const bool &lowBattery);
     void statusChanged(const UpdatesStatus &status);
 
     void mirrorSpeedInfoAvaiable(const QMap<QString, int> &mirrorSpeedInfo);
@@ -66,6 +70,8 @@ signals:
 private:
     UpdatesStatus m_status;
     DownloadInfo *m_downloadInfo;
+
+    bool m_lowBattery;
 
     bool m_autoUpdate;
     QString m_mirrorId;

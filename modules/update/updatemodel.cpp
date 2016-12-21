@@ -25,6 +25,7 @@ UpdateModel::UpdateModel(QObject *parent) :
     QObject(parent),
     m_status(UpdatesStatus::Checking),
     m_downloadInfo(nullptr),
+    m_lowBattery(false),
     m_autoUpdate(true),
     m_mirrorId("")
 {
@@ -71,6 +72,19 @@ void UpdateModel::setMirrorSpeedInfo(const QMap<QString, int> &mirrorSpeedInfo)
     m_mirrorSpeedInfo = mirrorSpeedInfo;
 
     emit mirrorSpeedInfoAvaiable(mirrorSpeedInfo);
+}
+
+bool UpdateModel::lowBattery() const
+{
+    return m_lowBattery;
+}
+
+void UpdateModel::setLowBattery(bool lowBattery)
+{
+    if (lowBattery != m_lowBattery) {
+        m_lowBattery = lowBattery;
+        emit lowBatteryChanged(lowBattery);
+    }
 }
 
 MirrorInfo UpdateModel::defaultMirror() const
