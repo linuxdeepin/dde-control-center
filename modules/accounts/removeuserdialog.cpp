@@ -38,7 +38,7 @@ static QPixmap RoundPixmap(const QPixmap &pix) {
 
 RemoveUserDialog::RemoveUserDialog(const User *user, QWidget *parent) :
     DDialog(parent),
-    m_deleteHome(false)
+    m_deleteHome(true)
 {
     setTitle(tr("Are you sure to delete %1?").arg(user->name()));
 
@@ -47,6 +47,7 @@ RemoveUserDialog::RemoveUserDialog(const User *user, QWidget *parent) :
     setIconPixmap(RoundPixmap(pix));
 
     DCheckBox *box = new DCheckBox(tr("Delete account directory"));
+    box->setChecked(true);
     addContent(box, Qt::AlignTop);
 
     QStringList buttons;
