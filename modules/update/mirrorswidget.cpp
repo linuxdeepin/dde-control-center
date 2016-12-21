@@ -1,27 +1,53 @@
 #include "mirrorswidget.h"
 #include "translucentframe.h"
+
 #include <QVBoxLayout>
+
+#include "updatemodel.h"
 
 namespace dcc{
 namespace update{
 
-MirrorsWidget::MirrorsWidget(QWidget *parent)
+MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     :ContentWidget(parent),
       m_curItem(nullptr)
 {
+    setTitle(tr("Switch Mirror"));
+
     TranslucentFrame* widget = new TranslucentFrame();
-    QVBoxLayout* layout = new QVBoxLayout();
 
+    QVBoxLayout* layout = new QVBoxLayout;
     m_group = new SettingsGroup();
-
     layout->addWidget(m_group);
+
     widget->setLayout(layout);
     setContent(widget);
+
+    setModel(model);
 }
 
-void MirrorsWidget::setDefaultMirror(const QString &mirror)
+void MirrorsWidget::setModel(UpdateModel *model)
 {
-    m_defaultMirror = mirror;
+    setDefaultMirror(model->defaultMirror());
+    setMirrorInfoList(model->mirrorInfos());
+
+    connect(model, &UpdateModel::defaultMirrorChanged, this, &MirrorsWidget::setDefaultMirror);
+}
+
+void MirrorsWidget::setDefaultMirror(const MirrorInfo &mirror)
+{
+    if (mirror.m_id != m_defaultMirror.m_id) {
+        m_defaultMirror = mirror;
+
+        QList<MirrorItem*> items = findChildren<MirrorItem*>();
+        for (MirrorItem *item : items) {
+            if (item->mirrorInfo().m_id == m_defaultMirror.m_id) {
+                blockSignals(true);
+                setCurItem(item);
+                blockSignals(false);
+            }
+        }
+    }
 }
 
 void MirrorsWidget::setMirrorInfoList(const MirrorInfoList &list)
@@ -31,12 +57,14 @@ void MirrorsWidget::setMirrorInfoList(const MirrorInfoList &list)
     {
         MirrorItem* item = new MirrorItem();
         item->setMirrorInfo((*it));
-        if((*it).m_id == m_defaultMirror)
+
+        if((*it).m_id == m_defaultMirror.m_id)
         {
             item->setSelected(true);
             m_curItem = item;
         }
         m_group->appendItem(item);
+
         connect(item, SIGNAL(clicked(MirrorItem*)), this, SLOT(setCurItem(MirrorItem*)));
     }
 }
@@ -51,8 +79,9 @@ void MirrorsWidget::setCurItem(MirrorItem *item)
         }
         item->setSelected(true);
         m_curItem = item;
+
         MirrorInfo info = item->mirrorInfo();
-        emit mirrorName(info.m_name, info.m_id);
+        emit requestSetDefaultMirror(info);
     }
 }
 

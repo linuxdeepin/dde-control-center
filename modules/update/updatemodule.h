@@ -21,9 +21,9 @@ class UpdateModule : public QObject, public ModuleInterface
 
 public:
     explicit UpdateModule(FrameProxyInterface *frame, QObject *parent = 0);
+    ~UpdateModule();
 
 private:
-    ~UpdateModule();
     void initialize();
     void moduleActive();
     void moduleDeactive();
@@ -34,20 +34,15 @@ private:
 
 private slots:
     void onPushUpdate();
-    void onPushMirror();
+    void onPushMirrorsView();
     void onPushSettings();
-
-    void setCurMirrorName(const QString& name, const QString &src);
-    void setAutoUpdate(bool autoUpdate);
-
-    void onActionType(UpdateType type);
 
 private:
     UpdateWork* m_work;
     UpdateModel* m_model;
     UpdateView* m_updateView;
     UpdateCtrlWidget* m_updatePage;
-    UpdateSettings* m_updateMirrors;
+    UpdateSettings* m_settingsPage;
     MirrorsWidget* m_mirrorsWidget;
 };
 

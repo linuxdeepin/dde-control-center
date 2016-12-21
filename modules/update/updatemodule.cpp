@@ -9,7 +9,7 @@ UpdateModule::UpdateModule(FrameProxyInterface *frame, QObject *parent)
       ModuleInterface(frame),
       m_updateView(nullptr),
       m_updatePage(nullptr),
-      m_updateMirrors(nullptr),
+      m_settingsPage(nullptr),
       m_mirrorsWidget(nullptr)
 {
 
@@ -35,12 +35,12 @@ void UpdateModule::initialize()
 
 void UpdateModule::moduleActive()
 {
-//    qDebug() << "update active";
+    m_work->activate();
 }
 
 void UpdateModule::moduleDeactive()
 {
-    //    qDebug() << "update deactive";
+    m_work->deactivate();
 }
 
 void UpdateModule::reset()
@@ -53,8 +53,8 @@ void UpdateModule::contentPopped(ContentWidget * const w)
     Q_UNUSED(w);
     if(w == m_updatePage)
         m_updatePage = nullptr;
-    else if(w == m_updateMirrors)
-        m_updateMirrors = nullptr;
+    else if(w == m_settingsPage)
+        m_settingsPage = nullptr;
     else if(w == m_mirrorsWidget)
         m_mirrorsWidget = nullptr;
 
@@ -81,29 +81,28 @@ const QString UpdateModule::name() const
 
 void UpdateModule::onPushUpdate()
 {
-    m_work->checkUpdate();
+    m_work->checkForUpdates();
 
-    if (!m_updatePage)
-    {
-        m_updatePage = new UpdateCtrlWidget;
-        connect(m_model, &UpdateModel::appInfos, m_updatePage, &UpdateCtrlWidget::loadAppList);
-        connect(m_model, &UpdateModel::packageDownloadSize, m_updatePage, &UpdateCtrlWidget::onPackagesDownloadSize);
-        connect(m_model, &UpdateModel::progressChanged, m_updatePage, &UpdateCtrlWidget::updateDownloadProgress);
-        connect(m_updatePage, &UpdateCtrlWidget::actionType, this, &UpdateModule::onActionType);
-        connect(m_model, &UpdateModel::statusChanged, m_updatePage, &UpdateCtrlWidget::onStatus);
+    if (!m_updatePage) {
+        m_updatePage = new UpdateCtrlWidget(m_model);
+
+        connect(m_updatePage, &UpdateCtrlWidget::requestDownloadUpdates, m_work, &UpdateWork::downloadUpdates);
+        connect(m_updatePage, &UpdateCtrlWidget::requestPauseDownload, m_work, &UpdateWork::pauseDownload);
+        connect(m_updatePage, &UpdateCtrlWidget::requestResumeDownload, m_work, &UpdateWork::resumeDownload);
+        connect(m_updatePage, &UpdateCtrlWidget::requestInstallUpdates, [this] {
+            QProcess::startDetached("/usr/lib/deepin-daemon/dde-offline-upgrader");
+        });
     }
 
     m_frameProxy->pushWidget(this, m_updatePage);
 }
 
-void UpdateModule::onPushMirror()
+void UpdateModule::onPushMirrorsView()
 {
-    if(!m_mirrorsWidget)
-    {
-        m_mirrorsWidget = new MirrorsWidget();
-        m_mirrorsWidget->setDefaultMirror(m_work->defaultMirror());
-        m_mirrorsWidget->setMirrorInfoList(m_work->mirrorInfos());
-        connect(m_mirrorsWidget, SIGNAL(mirrorName(QString, QString)), this, SLOT(setCurMirrorName(QString, QString)));
+    if(!m_mirrorsWidget) {
+        m_mirrorsWidget = new MirrorsWidget(m_model);
+
+        connect(m_mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWork::setMirrorSource);
     }
 
     m_frameProxy->pushWidget(this, m_mirrorsWidget);
@@ -111,67 +110,14 @@ void UpdateModule::onPushMirror()
 
 void UpdateModule::onPushSettings()
 {
-    if(!m_updateMirrors)
-    {
-        m_updateMirrors = new UpdateSettings(m_model);
-        m_updateMirrors->setDefaultMirror(m_model->mirror());
-        m_updateMirrors->setAutoUpdate(m_work->autoUpdate());
-        connect(m_updateMirrors, SIGNAL(mirrors()), this, SLOT(onPushMirror()));
-        connect(m_updateMirrors, SIGNAL(autoUpdate(bool)), this, SLOT(setAutoUpdate(bool)));
+    if (!m_settingsPage) {
+        m_settingsPage = new UpdateSettings(m_model);
+
+        connect(m_settingsPage, &UpdateSettings::requestSetAutoUpdate, m_work, &UpdateWork::setAutoUpdate);
+        connect(m_settingsPage, &UpdateSettings::requestShowMirrorsView, this, &UpdateModule::onPushMirrorsView);
     }
 
-    m_frameProxy->pushWidget(this, m_updateMirrors);
-}
-
-void UpdateModule::setCurMirrorName(const QString &name, const QString& src)
-{
-    if(m_updateMirrors)
-    {
-        m_updateMirrors->setDefaultMirror(name);
-        m_work->setMirrorSource(src);
-    }
-}
-
-void UpdateModule::setAutoUpdate(bool autoUpdate)
-{
-    m_work->setAutoUpdate(autoUpdate);
-}
-
-void UpdateModule::onActionType(UpdateType type)
-{
-    if(type == UpdateType::CheckUpdate)
-    {
-        m_work->prepareDistUpgrade();
-        if(m_updatePage)
-        {
-            m_updatePage->setCurState(UpdateType::StartDownload);
-        }
-    }
-    else if(type == UpdateType::StartDownload)
-    {
-        if(m_work->pauseJob())
-        {
-            if(m_updatePage)
-            {
-                m_updatePage->setCurState(UpdateType::StopDownload);
-            }
-        }
-    }
-    else if(type == UpdateType::StopDownload)
-    {
-
-        if(m_work->startJob())
-        {
-            if(m_updatePage)
-            {
-                m_updatePage->setCurState(UpdateType::StartDownload);
-            }
-        }
-    }
-    else
-    {
-        QProcess::startDetached("/usr/lib/deepin-daemon/dde-offline-upgrader");
-    }
+    m_frameProxy->pushWidget(this, m_settingsPage);
 }
 
 }

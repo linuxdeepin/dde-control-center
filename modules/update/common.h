@@ -15,8 +15,32 @@ namespace update {
 
 enum UpdatesStatus {
     Checking,
-    Updated
+    Updated,
+    UpdatesAvailable,
+    Downloading,
+    DownloadPaused,
+    Downloaded
 };
+
+static inline QString formatCap(qulonglong cap, const int size = 1024)
+{
+    static QString type[] = {"B", "KB", "MB", "GB", "TB"};
+
+    if (cap < qulonglong(size)) {
+        return QString::number(cap) + type[0];
+    }
+    if (cap < qulonglong(size) * size) {
+        return QString::number(double(cap) / size, 'f', 2) + type[1];
+    }
+    if (cap < qulonglong(size) * size * size) {
+        return QString::number(double(cap) / size / size, 'f', 2) + type[2];
+    }
+    if (cap < qulonglong(size) * size * size * size) {
+        return QString::number(double(cap) / size / size / size, 'f', 2) + type[3];
+    }
+
+    return QString::number(double(cap) / size / size / size / size, 'f', 2) + type[4];
+}
 
 }
 }

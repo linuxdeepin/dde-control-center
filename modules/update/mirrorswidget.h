@@ -12,25 +12,31 @@ using namespace dcc;
 namespace dcc{
 namespace update{
 
+class UpdateModel;
+
 class MirrorsWidget : public ContentWidget
 {
     Q_OBJECT
 
 public:
-    explicit MirrorsWidget(QWidget* parent = 0);
-    void setDefaultMirror(const QString& mirror);
-    void setMirrorInfoList(const MirrorInfoList& list);
+    explicit MirrorsWidget(UpdateModel *model, QWidget* parent = 0);
+
+    void setModel(UpdateModel *model);
 
 signals:
-    void mirrorName(const QString& name, const QString& src);
+    void requestSetDefaultMirror(const MirrorInfo &mirror);
 
-public slots:
+private slots:
     void setCurItem(MirrorItem* item);
+
+private:
+    void setDefaultMirror(const MirrorInfo& mirror);
+    void setMirrorInfoList(const MirrorInfoList& list);
 
 private:
     MirrorItem* m_curItem;
     SettingsGroup* m_group;
-    QString m_defaultMirror;
+    MirrorInfo m_defaultMirror;
 };
 
 }

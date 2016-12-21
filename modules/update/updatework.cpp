@@ -1,5 +1,7 @@
 #include "updatework.h"
 
+#include <QtConcurrent>
+
 namespace dcc{
 namespace update{
 
@@ -7,158 +9,176 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
     : QObject(parent),
       m_model(model),
       m_downloadJob(nullptr),
-      m_checkUpdateJob(nullptr)
+      m_checkUpdateJob(nullptr),
+      m_updateInter(new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
+      m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
+      m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
 {
-    m_updateInter = new UpdateInter("com.deepin.lastore",
-                                    "/com/deepin/lastore",
-                                    QDBusConnection::systemBus(), this);
+    m_managerInter->setSync(false);
+    m_updateInter->setSync(false);
+    m_powerInter->setSync(false);
 
-    m_managerInter = new ManagerInter("com.deepin.lastore",
-                                      "/com/deepin/lastore",
-                                      QDBusConnection::systemBus(), this);
-
-    connect(this, SIGNAL(mirrorSourceChanged(QString)), m_model, SLOT(setDefaultMirror(QString)));
-    connect(this,SIGNAL(autoCheckUpdatesChanged(bool)), m_model, SLOT(setAutoUpdate(bool)));
-    connect(m_updateInter, SIGNAL(MirrorSourceChanged(QString)), this, SIGNAL(mirrorSourceChanged(QString)));
-    connect(m_updateInter, SIGNAL(AutoCheckUpdatesChanged(bool)), this, SIGNAL(autoCheckUpdatesChanged(bool)));
-    connect(this, &UpdateWork::appInfos, m_model, &UpdateModel::appInfos);
-    connect(this, &UpdateWork::packageDownloadSize, m_model, &UpdateModel::packageDownloadSize);
-    connect(this, &UpdateWork::progressChanged, m_model, &UpdateModel::progressChanged);
-    connect(this, &UpdateWork::statusChanged, m_model, &UpdateModel::statusChanged);
-
-    m_model->setMirrorInfoList(mirrorInfos());
-    m_model->setDefaultMirror(defaultMirror());
-    m_model->setAutoUpdate(autoUpdate());
+    connect(m_updateInter, &__Updater::AutoCheckUpdatesChanged, m_model, &UpdateModel::setAutoUpdate);
+    connect(m_updateInter, &__Updater::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
 }
 
-MirrorInfoList UpdateWork::mirrorInfos() const
+void UpdateWork::activate()
 {
-    return m_updateInter->ListMirrorSources(QLocale().name()).value();
+    QDBusPendingCall call = m_updateInter->ListMirrorSources(QLocale::system().name());
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        if (!call.isError()) {
+            QDBusReply<MirrorInfoList> reply = call.reply();
+            MirrorInfoList list  = reply.value();
+            m_model->setMirrorInfos(list);
+        } else {
+            qWarning() << "list mirror sources error: " << call.error().message();
+        }
+    });
+
+    m_model->setAutoUpdate(m_updateInter->autoCheckUpdates());
+    m_model->setDefaultMirror(m_updateInter->mirrorSource());
 }
 
-QString UpdateWork::defaultMirror() const
+void UpdateWork::deactivate()
 {
-    return m_updateInter->mirrorSource();
+
 }
 
-void UpdateWork::setMirrorSource(const QString &src)
+
+void UpdateWork::checkForUpdates()
 {
-    m_updateInter->SetMirrorSource(src);
+    QDBusPendingCall call = m_managerInter->UpdateSource();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        if (!call.isError()) {
+            QDBusReply<QDBusObjectPath> reply = call.reply();
+            const QString jobPath = reply.value().path();
+            setCheckUpdatesJob(jobPath);
+        } else {
+            qWarning() << "check for updates error: " << call.error().message();
+        }
+    });
 }
 
-bool UpdateWork::autoUpdate() const
+void UpdateWork::downloadUpdates()
 {
-    return m_updateInter->autoCheckUpdates();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_managerInter->PrepareDistUpgrade(), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
+        if (!watcher->isError()) {
+            QDBusReply<QDBusObjectPath> reply = watcher->reply();
+            setDownloadJob(reply.value().path());
+        } else {
+            qWarning() << "download updates error: " << watcher->error().message();
+        }
+    });
 }
 
-void UpdateWork::setAutoUpdate(bool autoUpdate)
+void UpdateWork::pauseDownload()
+{
+    if (m_downloadJob) {
+        m_managerInter->PauseJob(m_downloadJob->id());
+        m_model->setStatus(UpdatesStatus::DownloadPaused);
+    }
+}
+
+void UpdateWork::resumeDownload()
+{
+    if (m_downloadJob) {
+        m_managerInter->StartJob(m_downloadJob->id());
+        m_model->setStatus(UpdatesStatus::Downloading);
+    }
+}
+
+void UpdateWork::setAutoUpdate(const bool &autoUpdate)
 {
     m_updateInter->SetAutoCheckUpdates(autoUpdate);
 }
 
-void UpdateWork::prepareDistUpgrade()
+void UpdateWork::setMirrorSource(const MirrorInfo &mirror)
 {
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_managerInter->PrepareDistUpgrade(), this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
-        const QDBusPendingReply<QDBusObjectPath> &reply = *watcher;
-        const QDBusObjectPath &path = reply;
-        qDebug() << "start download job: " << path.path() << reply.error();
+    m_updateInter->SetMirrorSource(mirror.m_id);
+}
 
-        JobInter *job = new JobInter("com.deepin.lastore",
-                                  path.path(),
-                                  QDBusConnection::systemBus(), this);
-        if(job->isValid())
-        {
-            loadDownloadJob(job);
+void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
+{
+    if(m_checkUpdateJob) {
+        m_checkUpdateJob->deleteLater();
+        m_checkUpdateJob = nullptr;
+    }
+
+    m_checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
+    connect(m_checkUpdateJob, &__Job::StatusChanged, [this] (const QString & status) {
+        if (status == "failed") {
+            qWarning() << "check for updates job failed";
+        } else {
+            m_checkUpdateJob->deleteLater();
+            m_checkUpdateJob = nullptr;
+
+            QFutureWatcher<DownloadInfo*> *watcher = new QFutureWatcher<DownloadInfo*>(this);
+            connect(watcher, &QFutureWatcher<DownloadInfo*>::finished, [this, watcher] {
+                DownloadInfo *result = watcher->result();
+                if (result->downloadSize()) {
+                    m_model->setDownloadInfo(result);
+                    m_model->setStatus(UpdatesStatus::UpdatesAvailable);
+                } else {
+                    m_model->setStatus(UpdatesStatus::Downloaded);
+                }
+            });
+
+            QFuture<DownloadInfo*> future = QtConcurrent::run(this, &UpdateWork::calculateDownloadInfo);
+            watcher->setFuture(future);
         }
-        else
-        {
-            job->deleteLater();
-        }
-        watcher->deleteLater();
     });
 }
 
-bool UpdateWork::pauseJob()
+void UpdateWork::setDownloadJob(const QString &jobPath)
 {
-    if(m_downloadJob)
-    {
-        m_managerInter->PauseJob(m_downloadJob->id());
-        return true;
+    if (m_downloadJob) {
+        m_downloadJob->deleteLater();
+        m_downloadJob = nullptr;
     }
 
-    return false;
-}
+    m_downloadJob = new JobInter("com.deepin.lastore",
+                                 jobPath,
+                                 QDBusConnection::systemBus(), this);
+    m_model->setStatus(UpdatesStatus::Downloading);
 
-bool UpdateWork::startJob()
-{
-    if(m_downloadJob)
-    {
-        m_managerInter->StartJob(m_downloadJob->id());
-        return true;
-    }
-
-    return false;
-}
-
-void UpdateWork::onStatus(const QString &status)
-{
-    Q_UNUSED(status);
-
-    if(!m_downloadJob || !m_downloadJob->isValid())
-        return;
-
-    QString st = m_downloadJob->status();
-    if (status == "succeed" || status == "end" || status.isEmpty())
-    {
-        PowerInter inter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this);
-        if(!inter.batteryIsPresent().count() == 0)
-        {
-            BatteryPercentageInfo batterInfo = inter.batteryPercentage();
-            double percent = batterInfo.values().at(0);
-            emit statusChanged(true, percent);
+    connect(m_downloadJob, &__Job::ProgressChanged, [this] (double value){
+        DownloadInfo *info = m_model->downloadInfo();
+        if (info) {
+            info->setDownloadProgress(value);
         }
-        else
-        {
-            emit statusChanged(false, -1);
+    });
+
+    connect(m_downloadJob, &__Job::StatusChanged, [this] (const QString &status) {
+        if (status == "failed")  {
+            qWarning() << "download updates job failed";
+        } else {
+            m_downloadJob->deleteLater();
+            m_downloadJob = nullptr;
+
+            m_model->setStatus(UpdatesStatus::Downloaded);
         }
-    }
+    });
 }
 
-void UpdateWork::checkUpdate()
+DownloadInfo *UpdateWork::calculateDownloadInfo()
 {
+    m_updateInter->setSync(true);
+    m_managerInter->setSync(true);
 
-    QDBusPendingReply<QDBusObjectPath> reply = m_managerInter->UpdateSource();
-    reply.waitForFinished();
+    m_updatableApps = m_updateInter->updatableApps();
+    m_updatablePackages = m_updateInter->updatablePackages();
 
-    const QString jobPath = reply.value().path();
-    m_checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
+    QList<AppUpdateInfo> infos = getInfoList();
+    const qlonglong size = m_managerInter->PackagesDownloadSize(m_updatablePackages);
 
-    connect(m_checkUpdateJob, SIGNAL(StatusChanged(QString)), this, SLOT(onCheckUpdateStatus(QString)));
-}
+    m_updateInter->setSync(false);
+    m_managerInter->setSync(false);
 
-void UpdateWork::onCheckUpdateStatus(const QString &status)
-{
-    if(!m_checkUpdateJob)
-        return;
-
-    if(status == "end" || status == "failed")
-    {
-        loadAppList();
-        m_checkUpdateJob->deleteLater();
-        m_checkUpdateJob = nullptr;
-
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_managerInter->PackagesDownloadSize(m_updatablePackages), this);
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, &UpdateWork::onPackagesDownloadSize);
-    }
-}
-
-void UpdateWork::onPackagesDownloadSize(QDBusPendingCallWatcher *watcher)
-{
-    qlonglong size = watcher->reply().arguments().first().toLongLong();
-
-    emit packageDownloadSize(size, m_updatableApps.count());
-    watcher->deleteLater();
+    DownloadInfo *ret = new DownloadInfo(size, infos);
+    return ret;
 }
 
 AppUpdateInfo UpdateWork::getInfo(const QString &packageName, const QString &currentVersion, const QString &lastVersion) const
@@ -265,48 +285,6 @@ QList<AppUpdateInfo> UpdateWork::getInfoList()
     }
 
     return infos;
-}
-
-void UpdateWork::loadAppList()
-{
-    QList<AppUpdateInfo> infos = getInfoList();
-
-    emit appInfos(infos);
-    m_updatableApps = updatableApps();
-    m_updatablePackages = updatablePackages();
-}
-
-QStringList UpdateWork::updatableApps() const
-{
-    QStringList apps = m_updateInter->updatableApps();
-    apps.removeAll("dde");
-
-    return apps;
-}
-
-QStringList UpdateWork::updatablePackages() const
-{
-    QStringList pkgs = m_updateInter->updatablePackages();
-    return pkgs;
-}
-
-void UpdateWork::loadDownloadJob(JobInter *newJob)
-{
-    if(m_downloadJob)
-        m_downloadJob->deleteLater();
-
-    m_downloadJob = newJob;
-    QString status = m_downloadJob->status();
-
-    if (status == "succeed" || status == "end" || status.isEmpty())
-    {
-        //  finish download
-        emit statusChanged(true, 100);
-        return;
-    }
-
-    connect(m_downloadJob, SIGNAL(ProgressChanged(double)), this, SIGNAL(progressChanged(double)));
-    connect(m_downloadJob, SIGNAL(StatusChanged(QString)), this, SLOT(onStatus(QString)));
 }
 
 }

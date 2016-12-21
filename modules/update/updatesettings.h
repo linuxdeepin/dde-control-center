@@ -18,14 +18,12 @@ class UpdateSettings : public ContentWidget
 
 public:
     explicit UpdateSettings(UpdateModel* model, QWidget *parent = 0);
-    void setDefaultMirror(const QString& value);
+
+    void setModel(UpdateModel *model);
 
 signals:
-    void mirrors();
-    void autoUpdate(bool autoUpdate);
-
-public slots:
-    void setAutoUpdate(bool update);
+    void requestShowMirrorsView();
+    void requestSetAutoUpdate(const bool &autoUpdate);
 
 private:
     UpdateModel* m_model;

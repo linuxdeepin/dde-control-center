@@ -4,8 +4,32 @@
 #include <QObject>
 #include <com_deepin_lastore_updater.h>
 
+#include "common.h"
+
 namespace dcc{
 namespace update{
+
+class DownloadInfo : public QObject
+{
+    Q_OBJECT
+public:
+    explicit DownloadInfo(const qlonglong &downloadSize, const QList<AppUpdateInfo> &appInfos, QObject *parent = 0);
+    virtual ~DownloadInfo() {}
+
+    inline qlonglong downloadSize() const { return m_downloadSize; }
+    double downloadProgress() const { return m_downloadProgress; }
+    QList<AppUpdateInfo> appInfos() const { return m_appInfos; }
+
+    void setDownloadProgress(double downloadProgress);
+
+signals:
+    void downloadProgressChanged(const double &progress);
+
+private:
+    qlonglong m_downloadSize;
+    double m_downloadProgress;
+    QList<AppUpdateInfo> m_appInfos;
+};
 
 class UpdateModel : public QObject
 {
@@ -13,24 +37,33 @@ class UpdateModel : public QObject
 public:
     explicit UpdateModel(QObject *parent = 0);
 
-    QString mirror() const { return m_mirror; }
-    void setMirrorInfoList(const MirrorInfoList& list);
+    void setMirrorInfos(const MirrorInfoList& list);
     MirrorInfoList mirrorInfos() const { return m_mirrorList;}
 
-signals:
-    void autoUpdate(bool update);
-    void appInfos(const QList<AppUpdateInfo>& infos);
-    void packageDownloadSize(qlonglong size, int count);
-    void progressChanged(double progress);
-    void statusChanged(bool useBattery, double percent);
+    UpdatesStatus status() const;
+    void setStatus(const UpdatesStatus &status);
 
-public slots:
-    void setDefaultMirror(const QString& mirror);
+    inline bool autoUpdate() const { return m_autoUpdate; }
     void setAutoUpdate(bool update);
 
+    MirrorInfo defaultMirror() const;
+    void setDefaultMirror(const QString& mirrorId);
+
+    DownloadInfo *downloadInfo() const;
+    void setDownloadInfo(DownloadInfo *downloadInfo);
+
+signals:
+    void autoUpdateChanged(const bool &autoUpdate);
+    void defaultMirrorChanged(const MirrorInfo &mirror);
+
+    void statusChanged(const UpdatesStatus &status);
+
 private:
+    UpdatesStatus m_status;
+    DownloadInfo *m_downloadInfo;
+
     bool m_autoUpdate;
-    QString m_mirror;
+    QString m_mirrorId;
     MirrorInfoList m_mirrorList;
 };
 

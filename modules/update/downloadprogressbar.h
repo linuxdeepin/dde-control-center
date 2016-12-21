@@ -3,16 +3,16 @@
 
 #include <QProgressBar>
 
+#include "common.h"
+
+namespace dcc {
+namespace widgets {
+class NormalLabel;
+}
+}
 
 namespace dcc{
 namespace update{
-
-enum UpdateType{
-    CheckUpdate,
-    StartDownload,
-    StopDownload,
-    RebootInstall
-};
 
 class DownloadProgressBar : public QProgressBar
 {
@@ -21,18 +21,16 @@ class DownloadProgressBar : public QProgressBar
 public:
     explicit DownloadProgressBar(QWidget* parent = 0);
 
-    void setCurState(UpdateType type);
-
-signals:
-    void action(UpdateType type);
+    void setMessage(const QString &message);
 
 protected:
-    void paintEvent(QPaintEvent*);
     void mouseReleaseEvent(QMouseEvent *e);
 
+signals:
+    void clicked();
+
 private:
-    QString m_state;
-    UpdateType m_type;
+    dcc::widgets::NormalLabel *m_message;
 };
 
 }

@@ -1,31 +1,37 @@
 #include "updatesettings.h"
-#include "settingsgroup.h"
-#include "updatemodel.h"
-#include "updateitem.h"
-#include "translucentframe.h"
 
 #include <QVBoxLayout>
+
+#include "settingsgroup.h"
+#include "updatemodel.h"
+#include "translucentframe.h"
+#include "labels/smalllabel.h"
 
 namespace dcc{
 namespace update{
 
 UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     :ContentWidget(parent),
-      m_model(model)
+      m_model(nullptr)
 {
-    TranslucentFrame* widget = new TranslucentFrame();
-    QVBoxLayout *layout = new QVBoxLayout();
-    layout->setMargin(0);
-    SettingsGroup* ug = new SettingsGroup();
-    SettingsGroup* mg = new SettingsGroup();
+    setTitle(tr("Update Settings"));
 
-    m_autoUpdate = new SwitchWidget();
+    TranslucentFrame* widget = new TranslucentFrame;
+
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->setMargin(0);
+    layout->setSpacing(0);
+
+    SettingsGroup* ug = new SettingsGroup;
+    SettingsGroup* mg = new SettingsGroup;
+
+    m_autoUpdate = new SwitchWidget;
     m_autoUpdate->setTitle(tr("Auto-­download Updates"));
 
-    QLabel* label = new QLabel();
+    SmallLabel* label = new SmallLabel(tr("Updates will be auto-­downloaded in wireless or wired network"));
     label->setWordWrap(true);
-    label->setText(tr("Updates will be auto-­downloaded in wireless or wired network"));
-    m_updateMirrors = new NextPageWidget();
+
+    m_updateMirrors = new NextPageWidget;
     m_updateMirrors->setTitle(tr("Switch Mirror"));
 
     ug->appendItem(m_autoUpdate);
@@ -33,25 +39,38 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 
     layout->addWidget(ug);
     layout->addWidget(label);
+    layout->addSpacing(10);
     layout->addWidget(mg);
 
     widget->setLayout(layout);
 
     setContent(widget);
 
-    connect(m_updateMirrors, SIGNAL(clicked()), this, SIGNAL(mirrors()));
-    connect(m_autoUpdate,SIGNAL(checkedChanegd(bool)), this, SIGNAL(autoUpdate(bool)));
-    connect(m_model, SIGNAL(autoUpdate(bool)), this, SLOT(setAutoUpdate(bool)));
+    connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
+    connect(m_autoUpdate, &SwitchWidget::checkedChanegd, this, &UpdateSettings::requestSetAutoUpdate);
+
+    setModel(model);
 }
 
-void UpdateSettings::setDefaultMirror(const QString &value)
+void UpdateSettings::setModel(UpdateModel *model)
 {
-    m_updateMirrors->setValue(value);
-}
+    m_model = model;
 
-void UpdateSettings::setAutoUpdate(bool update)
-{
-    m_autoUpdate->setChecked(update);
+    auto setAutoUpdate = [this] (const bool &autoUpdate) {
+        m_autoUpdate->blockSignals(true);
+        m_autoUpdate->setChecked(autoUpdate);
+        m_autoUpdate->blockSignals(false);
+    };
+
+    auto setDefaultMirror = [this] (const MirrorInfo &mirror) {
+        m_updateMirrors->setValue(mirror.m_name);
+    };
+
+    setAutoUpdate(model->autoUpdate());
+    setDefaultMirror(model->defaultMirror());
+
+    connect(model, &UpdateModel::autoUpdateChanged, setAutoUpdate);
+    connect(model, &UpdateModel::defaultMirrorChanged, setDefaultMirror);
 }
 
 }

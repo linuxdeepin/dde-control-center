@@ -1,58 +1,43 @@
 #include "downloadprogressbar.h"
-#include <QPainter>
+
+#include <QMouseEvent>
+#include <QHBoxLayout>
+
+#include "labels/normallabel.h"
 
 namespace dcc{
 namespace update{
 
 DownloadProgressBar::DownloadProgressBar(QWidget* parent)
     :QProgressBar(parent),
-      m_type(CheckUpdate)
+      m_message(new dcc::widgets::NormalLabel)
 {
-    setRange(0, 100);
-    setValue(100);
+    setRange(0, 1);
+    setValue(1);
     setTextVisible(false);
     setFixedHeight(36);
+
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->setMargin(0);
+    layout->setSpacing(0);
+
+    layout->addStretch();
+    layout->addWidget(m_message, 0, Qt::AlignVCenter);
+    layout->addStretch();
+
+    setLayout(layout);
 }
 
-void DownloadProgressBar::setCurState(UpdateType type)
+void DownloadProgressBar::setMessage(const QString &message)
 {
-    if(m_type == type)
-        return;
-
-    m_type = type;
-    update();
-}
-
-void DownloadProgressBar::paintEvent(QPaintEvent *e)
-{
-    QProgressBar::paintEvent(e);
-    QPainter painter(this);
-
-    if(m_type == UpdateType::CheckUpdate)
-    {
-        m_state = tr("Download Update");
-    }
-    else if(m_type == UpdateType::StartDownload)
-    {
-        m_state = tr("Downloaded ") + text()  + tr(" (Click to pause)");
-    }
-    else if(m_type == UpdateType::StopDownload)
-    {
-        m_state = tr("Downloaded ") + text()  + tr(" (Click to continue)");
-    }
-    else
-    {
-        m_state = tr("Restart to install updates");
-    }
-    painter.drawText(this->rect(), Qt::AlignCenter, m_state);
+    m_message->setText(message);
 }
 
 void DownloadProgressBar::mouseReleaseEvent(QMouseEvent *e)
 {
-    if(m_type == UpdateType::CheckUpdate)
-        setValue(0);
+    e->accept();
+    emit clicked();
 
-    emit action(m_type);
     QProgressBar::mouseReleaseEvent(e);
 }
 

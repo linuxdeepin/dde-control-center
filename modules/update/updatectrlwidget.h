@@ -8,69 +8,50 @@
 
 #include <types/appupdateinfolist.h>
 
-#include <com_deepin_lastore_updater.h>
-#include <com_deepin_lastore_job.h>
-#include <com_deepin_lastore_jobmanager.h>
-#include <com_deepin_daemon_power.h>
-
-using UpdateInter=com::deepin::lastore::Updater;
-using JobInter=com::deepin::lastore::Job;
-using ManagerInter=com::deepin::lastore::Manager;
-using PowerInter=com::deepin::daemon::Power;
-
 using namespace dcc;
 using namespace dcc::widgets;
 
 namespace dcc{
 namespace update{
 
+class UpdateModel;
+class DownloadInfo;
+
 class UpdateCtrlWidget : public ContentWidget
 {
     Q_OBJECT
 
 public:
-    explicit UpdateCtrlWidget(QWidget *parent = 0);
+    explicit UpdateCtrlWidget(UpdateModel *model, QWidget *parent = 0);
     ~UpdateCtrlWidget();
 
-    static inline QString formatCap(qulonglong cap, const int size = 1024)
-    {
-        static QString type[] = {"B", "KB", "MB", "GB", "TB"};
-
-        if (cap < qulonglong(size)) {
-            return QString::number(cap) + type[0];
-        }
-        if (cap < qulonglong(size) * size) {
-            return QString::number(double(cap) / size, 'f', 2) + type[1];
-        }
-        if (cap < qulonglong(size) * size * size) {
-            return QString::number(double(cap) / size / size, 'f', 2) + type[2];
-        }
-        if (cap < qulonglong(size) * size * size * size) {
-            return QString::number(double(cap) / size / size / size, 'f', 2) + type[3];
-        }
-
-        return QString::number(double(cap) / size / size / size / size, 'f', 2) + type[4];
-    }
-
-    void setCurState(UpdateType type);
+    void setModel(UpdateModel *model);
 
 signals:
-    void actionType(UpdateType type);
+    void requestDownloadUpdates();
+    void requestPauseDownload();
+    void requestResumeDownload();
+    void requestInstallUpdates();
 
-public slots:
+private slots:
+    void onProgressBarClicked();
     void loadAppList(const QList<AppUpdateInfo> &infos);
-    void updateDownloadProgress(double progress);
-    void onStatus(bool useBattery, double percent);
-    void onPackagesDownloadSize(qlonglong size, int count);
 
 private:
-    QLabel* m_powerTip;
-    qlonglong m_total;
-    SummaryItem* m_summary;
-    CheckUpdateItem* m_checkUpdateItem;
-    SettingsGroup* m_group;
+    void setStatus(const UpdatesStatus &status);
+    void setDownloadInfo(DownloadInfo *downloadInfo);
+
+private:
+    UpdateModel *m_model;
+    UpdatesStatus m_status;
+    DownloadInfo *m_downloadInfo;
+
     SettingsGroup* m_checkGroup;
+    CheckUpdateItem* m_checkUpdateItem;
     DownloadProgressBar* m_progress;
+    SettingsGroup* m_summaryGroup;
+    SummaryItem* m_summary;
+    QLabel* m_powerTip;
 };
 
 }
