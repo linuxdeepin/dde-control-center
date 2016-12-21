@@ -27,7 +27,6 @@ void MirrorItem::setMirrorInfo(const MirrorInfo &info)
 {
     m_info = info;
     setMirrorName(info.m_name);
-    testMirrorSpeed(info.m_url);
 }
 
 void MirrorItem::setSelected(bool state)
@@ -41,42 +40,9 @@ void MirrorItem::setSelected(bool state)
     emit selectStateChanged(state);
 }
 
-QSize MirrorItem::sizeHint() const
+void MirrorItem::setSpeed(const int time)
 {
-    return QSize(width(), height());
-}
-
-void MirrorItem::testMirrorSpeed (const QString &mirrorAdr)
-{
-    QStringList args;
-    args << mirrorAdr << "-s" << "1";
-
-    QProcess *process = new QProcess;
-    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, &MirrorItem::testMirrorSpeed_finish);
-
-    process->start("netselect", args);
-}
-
-void MirrorItem::testMirrorSpeed_finish(int ret)
-{
-    QProcess *process = qobject_cast<QProcess *>(sender());
-
-    if (!process)
-        return;
-
-    // process exit with an error
-    if (ret)
-    {
-        //: the mirror cant reachable
-        m_mirrorSpeed->setText(tr("Timeout"));
-        return process->deleteLater();
-    }
-
-    const QString output = process->readAllStandardOutput().trimmed();
-    const QStringList result = output.split(' ');
-    const int time = result.first().toInt();
-
-    if (result.first().isEmpty())
+    if (time == -1)
         m_mirrorSpeed->setText(tr("Timeout"));
     else if (time > 2000)
         m_mirrorSpeed->setText(tr("Slow"));
@@ -84,8 +50,11 @@ void MirrorItem::testMirrorSpeed_finish(int ret)
         m_mirrorSpeed->setText(tr("Medium"));
     else
         m_mirrorSpeed->setText(tr("Fast"));
+}
 
-    process->deleteLater();
+QSize MirrorItem::sizeHint() const
+{
+    return QSize(width(), height());
 }
 
 void MirrorItem::mouseReleaseEvent(QMouseEvent *e)

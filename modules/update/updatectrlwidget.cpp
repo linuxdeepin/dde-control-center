@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 
 #include "updatemodel.h"
+#include "loadingitem.h"
 
 namespace dcc{
 namespace update{
@@ -14,7 +15,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
       m_model(nullptr),
       m_downloadInfo(nullptr),
       m_checkGroup(new SettingsGroup),
-      m_checkUpdateItem(new CheckUpdateItem),
+      m_checkUpdateItem(new LoadingItem),
       m_progress(new DownloadProgressBar),
       m_summaryGroup(new SettingsGroup),
       m_summary(new SummaryItem),

@@ -7,27 +7,11 @@ namespace dcc {
 namespace widgets {
 class NormalLabel;
 class SmallLabel;
-class LoadingIndicator;
 }
 }
 
 namespace dcc{
 namespace update{
-
-class CheckUpdateItem : public dcc::widgets::SettingsItem
-{
-    Q_OBJECT
-
-public:
-    explicit CheckUpdateItem(QFrame* parent = 0);
-
-    void setIndicatorVisible(bool visible);
-    void setMessage(const QString& message);
-
-private:
-    dcc::widgets::NormalLabel* m_messageLabel;
-    dcc::widgets::LoadingIndicator* m_indicator;
-};
 
 class SummaryItem : public dcc::widgets::SettingsItem
 {

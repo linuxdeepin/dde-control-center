@@ -37,6 +37,8 @@ public slots:
     void setAutoUpdate(const bool &autoUpdate);
     void setMirrorSource(const MirrorInfo &mirror);
 
+    void testMirrorSpeed();
+
 private slots:
     void setCheckUpdatesJob(const QString &jobPath);
     void setDownloadJob(const QString &jobPath);

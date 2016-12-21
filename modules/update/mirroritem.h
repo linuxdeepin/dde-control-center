@@ -28,19 +28,16 @@ public:
     inline bool selected() const {return m_selected;}
     void setSelected(bool state);
 
+    void setSpeed(const int speed);
+
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
     inline void setMirrorName(const QString &name) {m_mirrorName->setText(name);}
     inline QString mirrorName() const { return m_mirrorName->text(); }
 
-    void testMirrorSpeed(const QString &mirrorAdr);
-
 signals:
     void selectStateChanged(bool state) const;
     void clicked(MirrorItem* item) const;
-
-public slots:
-    void testMirrorSpeed_finish(int ret);
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;

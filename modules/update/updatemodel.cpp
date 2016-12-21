@@ -61,6 +61,18 @@ void UpdateModel::setDownloadInfo(DownloadInfo *downloadInfo)
     m_downloadInfo = downloadInfo;
 }
 
+QMap<QString, int> UpdateModel::mirrorSpeedInfo() const
+{
+    return m_mirrorSpeedInfo;
+}
+
+void UpdateModel::setMirrorSpeedInfo(const QMap<QString, int> &mirrorSpeedInfo)
+{
+    m_mirrorSpeedInfo = mirrorSpeedInfo;
+
+    emit mirrorSpeedInfoAvaiable(mirrorSpeedInfo);
+}
+
 MirrorInfo UpdateModel::defaultMirror() const
 {
     QList<MirrorInfo>::const_iterator it = m_mirrorList.begin();

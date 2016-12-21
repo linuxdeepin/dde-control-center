@@ -99,6 +99,8 @@ void UpdateModule::onPushUpdate()
 
 void UpdateModule::onPushMirrorsView()
 {
+    m_work->testMirrorSpeed();
+
     if(!m_mirrorsWidget) {
         m_mirrorsWidget = new MirrorsWidget(m_model);
 

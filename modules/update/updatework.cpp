@@ -1,9 +1,33 @@
 #include "updatework.h"
 
 #include <QtConcurrent>
+#include <QFuture>
+#include <QFutureWatcher>
 
 namespace dcc{
 namespace update{
+
+static int TestMirrorSpeedInternal(const QString &url)
+{
+    QStringList args;
+    args << url << "-s" << "1";
+
+    QProcess process;
+    process.start("netselect", args);
+    process.waitForFinished(5000);
+    process.kill();
+
+    const QString output = process.readAllStandardOutput().trimmed();
+    const QStringList result = output.split(' ');
+
+    qDebug() << "speed of url" << url << "is" << result.first();
+
+    if (!result.first().isEmpty()) {
+        return result.first().toInt();
+    }
+
+    return -1;
+}
 
 UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
     : QObject(parent),
@@ -98,6 +122,32 @@ void UpdateWork::setAutoUpdate(const bool &autoUpdate)
 void UpdateWork::setMirrorSource(const MirrorInfo &mirror)
 {
     m_updateInter->SetMirrorSource(mirror.m_id);
+}
+
+void UpdateWork::testMirrorSpeed()
+{
+    QList<MirrorInfo> mirrors = m_model->mirrorInfos();
+
+    QStringList urlList;
+    for (MirrorInfo &info : mirrors) {
+        urlList << info.m_url;
+    }
+
+    QFutureWatcher<int> *watcher = new QFutureWatcher<int>(this);
+    connect(watcher, &QFutureWatcher<int>::finished, [this, urlList, watcher, mirrors] {
+        QMap<QString, int> speedInfo;
+
+        for (int i = 0; i < urlList.length(); i++) {
+            int result = watcher->resultAt(i);
+            QString mirrorId = mirrors.at(i).m_id;
+            speedInfo[mirrorId] = result;
+        }
+
+        m_model->setMirrorSpeedInfo(speedInfo);
+    });
+
+    QFuture<int> future = QtConcurrent::mapped(urlList, TestMirrorSpeedInternal);
+    watcher->setFuture(future);
 }
 
 void UpdateWork::setCheckUpdatesJob(const QString &jobPath)

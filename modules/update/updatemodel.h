@@ -52,11 +52,16 @@ public:
     DownloadInfo *downloadInfo() const;
     void setDownloadInfo(DownloadInfo *downloadInfo);
 
+    QMap<QString, int> mirrorSpeedInfo() const;
+    void setMirrorSpeedInfo(const QMap<QString, int> &mirrorSpeedInfo);
+
 signals:
     void autoUpdateChanged(const bool &autoUpdate);
     void defaultMirrorChanged(const MirrorInfo &mirror);
 
     void statusChanged(const UpdatesStatus &status);
+
+    void mirrorSpeedInfoAvaiable(const QMap<QString, int> &mirrorSpeedInfo);
 
 private:
     UpdatesStatus m_status;
@@ -65,6 +70,7 @@ private:
     bool m_autoUpdate;
     QString m_mirrorId;
     MirrorInfoList m_mirrorList;
+    QMap<QString, int> m_mirrorSpeedInfo;
 };
 
 }

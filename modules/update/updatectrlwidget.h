@@ -16,6 +16,7 @@ namespace update{
 
 class UpdateModel;
 class DownloadInfo;
+class LoadingItem;
 
 class UpdateCtrlWidget : public ContentWidget
 {
@@ -47,7 +48,7 @@ private:
     DownloadInfo *m_downloadInfo;
 
     SettingsGroup* m_checkGroup;
-    CheckUpdateItem* m_checkUpdateItem;
+    LoadingItem* m_checkUpdateItem;
     DownloadProgressBar* m_progress;
     SettingsGroup* m_summaryGroup;
     SummaryItem* m_summary;

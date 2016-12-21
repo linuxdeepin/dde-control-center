@@ -1,46 +1,14 @@
 #include "summaryitem.h"
 
 #include <QVBoxLayout>
-#include <QTimer>
 
 #include "labels/normallabel.h"
 #include "labels/smalllabel.h"
-#include "loadingindicator.h"
 
 using namespace dcc::widgets;
 
 namespace dcc {
 namespace update {
-
-CheckUpdateItem::CheckUpdateItem(QFrame *parent)
-    : SettingsItem(parent),
-      m_messageLabel(new NormalLabel),
-      m_indicator(new LoadingIndicator)
-{
-    QVBoxLayout* layout = new QVBoxLayout();
-    layout->setMargin(0);
-    layout->setSpacing(0);
-
-    layout->addStretch();
-    layout->addWidget(m_indicator, 0, Qt::AlignHCenter);
-    layout->addWidget(m_messageLabel, 0, Qt::AlignHCenter);
-    layout->addStretch();
-
-    setLayout(layout);
-    setFixedHeight(100);
-
-    QTimer::singleShot(0, m_indicator, &LoadingIndicator::play);
-}
-
-void CheckUpdateItem::setIndicatorVisible(bool visible)
-{
-    m_indicator->setVisible(visible);
-}
-
-void CheckUpdateItem::setMessage(const QString &message)
-{
-    m_messageLabel->setText(message);
-}
 
 SummaryItem::SummaryItem(QFrame *parent)
     :SettingsItem(parent),

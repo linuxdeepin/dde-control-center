@@ -7,6 +7,8 @@
 
 #include <types/mirrorinfolist.h>
 
+class QStackedLayout;
+
 using namespace dcc;
 
 namespace dcc{
@@ -28,6 +30,7 @@ signals:
 
 private slots:
     void setCurItem(MirrorItem* item);
+    void onSpeedInfoAvailable(const QMap<QString, int> &info);
 
 private:
     void setDefaultMirror(const MirrorInfo& mirror);
@@ -35,8 +38,10 @@ private:
 
 private:
     MirrorItem* m_curItem;
-    SettingsGroup* m_group;
     MirrorInfo m_defaultMirror;
+    SettingsGroup *m_loadingGroup;
+    SettingsGroup *m_mirrorListGroup;
+    QStackedLayout *m_layout;
 };
 
 }
