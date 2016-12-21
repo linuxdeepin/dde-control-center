@@ -8,8 +8,10 @@
 #include <QDBusInterface>
 #include <QDebug>
 
-namespace dcc {
-namespace keyboard{
+namespace dcc
+{
+namespace keyboard
+{
 
 ShortcutModel::ShortcutModel(QObject *parent) : QObject(parent)
 {
@@ -51,12 +53,10 @@ QList<ShortcutInfo *> ShortcutModel::infos() const
 
 void ShortcutModel::delInfo(ShortcutInfo *info)
 {
-    if(m_infos.contains(info))
-    {
+    if (m_infos.contains(info)) {
         m_infos.removeOne(info);
     }
-    if(m_customInfos.contains(info))
-    {
+    if (m_customInfos.contains(info)) {
         m_customInfos.removeOne(info);
     }
 
@@ -72,14 +72,14 @@ void ShortcutModel::onParseInfo(const QString &info)
 
     QStringList systemFilter;
     systemFilter << "launcher" << "show-desktop" << "lock-screen" << "file-manager" << "screenshot"
-         << "screenshot-window" << "screenshot-delayed"
-         << "terminal"
-        << "terminal-quake"
-        << "logout" << "switch-layout"
-        << "preview-workspace" << "expose-windows" << "expose-all-windows"
-        << "switch-group" << "switch-group-backward" << "switch-applications"
-        << "switch-applications-backward" << "wm-switcher"
-        << "switch-applications-backward";
+                 << "screenshot-window" << "screenshot-delayed"
+                 << "terminal"
+                 << "terminal-quake"
+                 << "logout" << "switch-layout"
+                 << "preview-workspace" << "expose-windows" << "expose-all-windows"
+                 << "switch-group" << "switch-group-backward" << "switch-applications"
+                 << "switch-applications-backward" << "wm-switcher"
+                 << "switch-applications-backward";
 
 //    QDBusInterface dbus("com.deepin.daemon.InputDevice.InputDevices",
 //                        "/com/deepin/daemon/InputDevice/TouchPad",
@@ -89,42 +89,38 @@ void ShortcutModel::onParseInfo(const QString &info)
 
     QStringList windowFilter;
     windowFilter << "close" << "maximize" << "unmaximize" << "begin-move"
-             << "begin-resize";
+                 << "begin-resize";
 
     QStringList workspaceFilter;
     workspaceFilter << "switch-to-workspace-left" << "switch-to-workspace-right"
-             << "move-to-workspace-left" << "move-to-workspace-right";
+                    << "move-to-workspace-left" << "move-to-workspace-right";
 
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
-    foreach(QJsonValue value, array)
-    {
+    foreach(QJsonValue value, array) {
         ShortcutInfo *info = new ShortcutInfo();
 
         QJsonObject obj = value.toObject();
-        info->type = obj["Type"].toInt();
-        QString accels = obj["Accels"].toArray().at(0).toString();
-        if(accels.isEmpty())
-            accels = tr("None");
-        info->accels = accels;
+        int type = obj["Type"].toInt();
+        if (type != MEDIAKEY) {
+            info->type = type;
+            QString accels = obj["Accels"].toArray().at(0).toString();
+            if (accels.isEmpty()) {
+                accels = tr("None");
+            }
+            info->accels = accels;
 
-        info->name = obj["Name"].toString();
-        info->id = obj["Id"].toString();
-        m_infos.append(info);
-        if(systemFilter.contains(info->id))
-        {
-            m_systemInfos.append(info);
-        }
-        else if(windowFilter.contains(info->id))
-        {
-            m_windowInfos.append(info);
-        }
-        else if(workspaceFilter.contains(info->id))
-        {
-            m_workspaceInfos.append(info);
-        }
-        else if(info->type == 1)
-        {
-            m_customInfos.append(info);
+            info->name = obj["Name"].toString();
+            info->id = obj["Id"].toString();
+            m_infos.append(info);
+            if (systemFilter.contains(info->id)) {
+                m_systemInfos.append(info);
+            } else if (windowFilter.contains(info->id)) {
+                m_windowInfos.append(info);
+            } else if (workspaceFilter.contains(info->id)) {
+                m_workspaceInfos.append(info);
+            } else if (info->type == 1) {
+                m_customInfos.append(info);
+            }
         }
     }
     emit parseFinish();
@@ -136,8 +132,9 @@ void ShortcutModel::onCustomInfo(const QString &json)
     ShortcutInfo *info = new ShortcutInfo();
     info->type = obj["Type"].toInt();
     QString accels = obj["Accels"].toArray().at(0).toString();
-    if(accels.isEmpty())
+    if (accels.isEmpty()) {
         accels = tr("None");
+    }
     info->accels = accels;
 
     info->name = obj["Name"].toString();
