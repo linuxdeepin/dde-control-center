@@ -168,7 +168,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::WidthChanged, mon, &Monitor::setW);
     connect(inter, &MonitorInter::HeightChanged, mon, &Monitor::setH);
     connect(inter, &MonitorInter::RotationChanged, mon, &Monitor::setRotate);
-//    connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
+    connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
     connect(inter, &MonitorInter::ModesChanged, mon, &Monitor::setModeList);
     connect(inter, &MonitorInter::RotationsChanged, mon, &Monitor::setRotateList);
@@ -176,8 +176,7 @@ void DisplayWorker::monitorAdded(const QString &path)
 
     inter->setSync(false);
 
-    const int baseLength = strlen("/com/deepin/daemon/Display/Monitor");
-    mon->setName(path.right(path.size() - baseLength));
+    mon->setName(inter->name());
     mon->setX(inter->x());
     mon->setY(inter->y());
     mon->setW(inter->width());
