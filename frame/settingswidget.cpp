@@ -214,5 +214,7 @@ void SettingsWidget::resetAllSettings()
 
 SettingsWidget::~SettingsWidget()
 {
+    for (auto v : m_moduleWidgets)
+        qDeleteAll(v);
     qDeleteAll(m_moduleInterfaces);
 }
