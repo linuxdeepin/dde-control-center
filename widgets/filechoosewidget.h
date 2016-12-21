@@ -3,9 +3,10 @@
 
 #include "settingsitem.h"
 
-#include <dfilechooseredit.h>
+#include <dimagebutton.h>
 
 class QLabel;
+class QLineEdit;
 
 namespace dcc {
 
@@ -18,12 +19,16 @@ class FileChooseWidget : public SettingsItem
 public:
     explicit FileChooseWidget(QWidget *parent = 0);
 
-    Dtk::Widget::DFileChooserEdit *edit() const { return m_edit; }
+    QLineEdit *edit() const { return m_edit; }
     void setTitle(const QString &title);
+
+private slots:
+    void chooseFile();
 
 private:
     QLabel *m_title;
-    Dtk::Widget::DFileChooserEdit *m_edit;
+    QLineEdit *m_edit;
+    Dtk::Widget::DImageButton *m_btn;
 };
 
 }

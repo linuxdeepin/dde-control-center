@@ -96,7 +96,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
 
         m_networkWorker->queryConnectionSession(devicePath, connPath);
 
-        connect(dev, &NetworkDevice::sessionCreated, this, &NetworkModule::showWiredConnectionEditPage);
+        connect(dev, &NetworkDevice::sessionCreated, this, &NetworkModule::showWiredConnectionEditPage, Qt::UniqueConnection);
     }
 
     if (c)

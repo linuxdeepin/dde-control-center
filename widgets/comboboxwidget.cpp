@@ -12,6 +12,8 @@ ComboBoxWidget::ComboBoxWidget(QWidget *parent)
       m_title(new QLabel),
       m_comboBox(new QComboBox)
 {
+    m_title->setFixedWidth(140);
+
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->addWidget(m_title);
     mainLayout->addWidget(m_comboBox);
@@ -19,6 +21,7 @@ ComboBoxWidget::ComboBoxWidget(QWidget *parent)
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
     setLayout(mainLayout);
+    setFixedHeight(36);
 }
 
 void ComboBoxWidget::setTitle(const QString &title)
