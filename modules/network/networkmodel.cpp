@@ -127,6 +127,11 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
             if (dev->type() == NetworkDevice::Wired && dev->hwAddr() == hwAddr)
                 static_cast<WiredDevice *>(dev)->onConnectionInfoChanged(wired);
     }
+
+    // update ppp connection info
+    for (auto *dev : m_devices)
+        if (dev->type() == NetworkDevice::Wired)
+            static_cast<WiredDevice *>(dev)->onPPPInfoChanged(m_connections["pppoe"]);
 }
 
 void NetworkModel::onActiveConnectionsChanged(const QString &conns)

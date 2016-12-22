@@ -77,6 +77,15 @@ void NetworkWorker::queryDeviceStatus(const QString &devPath)
     connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryDeviceStatusCB);
 }
 
+void NetworkWorker::createConnection(const QString &type, const QString &devPath)
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.CreateConnection(type, QDBusObjectPath(devPath)));
+
+    w->setProperty("devPath", devPath);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryConnectionSessionCB);
+}
+
 void NetworkWorker::queryAccessPointsCB(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = *w;

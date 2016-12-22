@@ -1,12 +1,21 @@
 #ifndef PPPOEPAGE_H
 #define PPPOEPAGE_H
 
-#include <contentwidget.h>
+#include "contentwidget.h"
+
+#include <QMap>
+
+class QVBoxLayout;
 
 namespace dcc {
 
+namespace widgets {
+    class SettingsGroup;
+}
+
 namespace network {
 
+class WiredDevice;
 class NetworkModel;
 class PppoePage : public ContentWidget
 {
@@ -21,6 +30,9 @@ signals:
 
 private:
     NetworkModel *m_model;
+
+    QVBoxLayout *m_grpsLayout;
+    QMap<WiredDevice *, widgets::SettingsGroup *> m_grps;
 };
 
 }
