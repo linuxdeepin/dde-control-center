@@ -94,6 +94,10 @@ void Frame::popWidget()
 {
     Q_ASSERT(m_frameWidgetStack.size() > 1);
 
+    // ensure top widget is sender()
+    ContentWidget *w = static_cast<ContentWidget *>(sender());
+    Q_ASSERT(w == m_frameWidgetStack.last()->content());
+
     // destory the container
     m_frameWidgetStack.pop()->destory();
     m_frameWidgetStack.last()->showBack();

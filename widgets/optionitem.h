@@ -19,6 +19,7 @@ public:
     explicit OptionItem(QString title, bool selected, QWidget *parent = 0);
 
     void setTitle(const QString &title);
+    const QString title() const { return m_title; }
     void setTitleFixedHeight(int height);
     void setTitleWidget(QWidget *titleWidget);
     void setContentWidget(QWidget *contentWidget);

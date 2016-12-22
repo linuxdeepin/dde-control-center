@@ -36,6 +36,7 @@ signals:
     void accept() const;
     void requestCancelSession() const;
     void requestChangeSettings(const QString &section, const QString &vKey, const QString &data) const;
+    void requestNextPage(ContentWidget * const page) const;
 
 public slots:
     void onDeviceRemoved();

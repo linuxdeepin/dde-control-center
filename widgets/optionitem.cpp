@@ -46,12 +46,14 @@ OptionItem::OptionItem(QString title, bool selected, QWidget *parent)
 
 void OptionItem::setTitle(const QString &title)
 {
+    m_title = title;
+
     if (m_titleWidget) {
         NormalLabel *label = qobject_cast<NormalLabel*>(m_titleWidget);
-        if (label) label->setText(title);
+        if (label) label->setText(m_title);
     }
 
-    setAccessibleName(title);
+    setAccessibleName(m_title);
 }
 
 void OptionItem::setTitleFixedHeight(int height)

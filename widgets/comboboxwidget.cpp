@@ -1,30 +1,94 @@
 #include "comboboxwidget.h"
+#include "contentwidget.h"
+#include "settingsgroup.h"
+#include "optionitem.h"
 
-#include <QLabel>
-#include <QComboBox>
 #include <QVBoxLayout>
+#include <QDebug>
 
 using namespace dcc::widgets;
 
-ComboBoxWidget::ComboBoxWidget(QWidget *parent)
-    : SettingsItem(parent),
+ComboBoxWidget::ComboBoxWidget(QFrame *parent)
+    : NextPageWidget(parent),
 
-      m_title(new QLabel),
-      m_comboBox(new QComboBox)
+      m_optionsGroup(new SettingsGroup),
+      m_contentPage(nullptr),
+      m_lastSelectedItem(nullptr)
 {
-    m_title->setFixedWidth(140);
-
-    QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->addWidget(m_title);
-    mainLayout->addWidget(m_comboBox);
-    mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
-
-    setLayout(mainLayout);
-    setFixedHeight(36);
+    connect(this, &NextPageWidget::clicked, this, &ComboBoxWidget::onNextPageClicked);
 }
 
-void ComboBoxWidget::setTitle(const QString &title)
+ComboBoxWidget::~ComboBoxWidget()
 {
-    m_title->setText(title);
+    if (!m_contentPage.isNull())
+        m_contentPage->deleteLater();
+}
+
+void ComboBoxWidget::appendOption(const QString &name, const QVariant &value)
+{
+    OptionItem *item = new OptionItem;
+    item->setTitle(name);
+
+    connect(item, &OptionItem::selectedChanged, this, &ComboBoxWidget::onItemClicked);
+
+    m_optionsGroup->appendItem(item);
+    m_options[item] = value;
+}
+
+void ComboBoxWidget::setCurrent(const QVariant &value)
+{
+    OptionItem *item = m_options.key(value);
+    if (!item)
+        return NextPageWidget::setValue(QString());
+
+    item->blockSignals(true);
+    item->setSelected(true);
+    item->blockSignals(false);
+    NextPageWidget::setValue(item->title());
+
+    m_lastSelectedItem = item;
+}
+
+void ComboBoxWidget::onNextPageClicked()
+{
+    Q_ASSERT(m_contentPage.isNull());
+
+    m_contentPage = new ContentWidget;
+
+    m_contentPage->setContent(m_optionsGroup);
+    m_optionsGroup->setVisible(true);
+
+    connect(m_contentPage, &ContentWidget::destroyed, this, &ComboBoxWidget::onContentDesktory);
+
+    emit requestPage(m_contentPage.data());
+}
+
+void ComboBoxWidget::onContentDesktory()
+{
+    m_optionsGroup->setVisible(false);
+    m_optionsGroup->setParent((this));
+}
+
+void ComboBoxWidget::onItemClicked()
+{
+    OptionItem *item = static_cast<OptionItem *>(sender());
+    Q_ASSERT(item);
+
+    if (item == m_lastSelectedItem)
+        return;
+
+    NextPageWidget::setValue(item->title());
+
+    if (m_options.contains(item))
+        emit dataChanged(m_options.value(item));
+    emit m_contentPage->back();
+
+    if (m_lastSelectedItem)
+    {
+        m_lastSelectedItem->blockSignals(true);
+        m_lastSelectedItem->setSelected(false);
+        m_lastSelectedItem->blockSignals(false);
+    }
+
+    m_lastSelectedItem = item;
 }

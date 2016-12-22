@@ -1,28 +1,49 @@
 #ifndef COMBOBOXWIDGET_H
 #define COMBOBOXWIDGET_H
 
-#include "settingsitem.h"
+#include "nextpagewidget.h"
 
-class QLabel;
-class QComboBox;
+#include <QPointer>
 
 namespace dcc {
 
+class ContentWidget;
+
 namespace widgets {
 
-class ComboBoxWidget : public SettingsItem
+class SettingsGroup;
+class OptionItem;
+class ComboBoxWidget : public NextPageWidget
 {
     Q_OBJECT
 
 public:
-    explicit ComboBoxWidget(QWidget *parent = 0);
+    explicit ComboBoxWidget(QFrame *parent = 0);
+    ~ComboBoxWidget();
 
-    QComboBox *comboBox() const { return m_comboBox; }
-    void setTitle(const QString &title);
+    void appendOption(const QString &name, const QVariant &value);
+    void setCurrent(const QVariant &value);
+
+signals:
+    void requestPage(ContentWidget * const page) const;
+    void dataChanged(const QVariant &data) const;
 
 private:
-    QLabel *m_title;
-    QComboBox *m_comboBox;
+    // block parent's signal
+    void clicked() const;
+    void setValue(const QString &);
+
+private slots:
+    void onNextPageClicked();
+    void onContentDesktory();
+    void onItemClicked();
+
+private:
+    SettingsGroup *m_optionsGroup;
+    QPointer<ContentWidget> m_contentPage;
+
+    OptionItem *m_lastSelectedItem;
+    QMap<OptionItem *, QVariant> m_options;
 };
 
 }

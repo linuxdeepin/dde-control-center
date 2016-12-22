@@ -248,40 +248,52 @@ SettingsItem *ConnectionEditPage::createEditWidget(const QJsonObject &keyObject,
 
 SettingsItem *ConnectionEditPage::createComboWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool editable)
 {
+    Q_UNUSED(editable);
     ComboBoxWidget *w = new ComboBoxWidget;
-    QComboBox *c = w->comboBox();
+//    QComboBox *c = w->comboBox();
 
-    w->setTitle(keyObject.value("Name").toString());
-    c->setEditable(editable);
+//    c->setEditable(editable);
 
-    // get value list
-    int index = 0;
-    const QString current = infoObject.value("Value").toString();
+//    // get value list
+//    int index = 0;
+//    const QString current = infoObject.value("Value").toString();
     for (const auto &v : infoObject.value("Values").toArray())
     {
         const auto vObject = v.toObject();
         const auto value = vObject.value("Value").toString();
-        c->addItem(vObject.value("Text").toString(), value);
+        w->appendOption(vObject.value("Text").toString(), value);
+//        c->addItem(vObject.value("Text").toString(), value);
 
-        if (value == current)
-            c->setCurrentIndex(index);
-        ++index;
+//        if (value == current)
+//            c->setCurrentIndex(index);
+//        ++index;
     }
-    if (editable)
-        c->setEditText(current);
+
+    w->setTitle(keyObject.value("Name").toString());
+    w->setCurrent(infoObject.value("Value").toString());
+//    w->setValue(infoObject.value("Value").toString());
+//    if (editable)
+//        c->setEditText(current);
+
+//    const QString section = keyObject.value("Section").toString();
+//    const QString vKey = keyObject.value("Key").toString();
+//    if (editable)
+//    {
+//        connect(c->lineEdit(), &QLineEdit::editingFinished, [=] {
+//            emit requestChangeSettings(section, vKey, JsonEncoding(c->lineEdit()->text()));
+//        });
+//    } else {
+//        connect(c, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [=] {
+//            emit requestChangeSettings(section, vKey, JsonEncoding(c->currentData().toString()));
+//        });
+//    }
 
     const QString section = keyObject.value("Section").toString();
     const QString vKey = keyObject.value("Key").toString();
-    if (editable)
-    {
-        connect(c->lineEdit(), &QLineEdit::editingFinished, [=] {
-            emit requestChangeSettings(section, vKey, JsonEncoding(c->lineEdit()->text()));
-        });
-    } else {
-        connect(c, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [=] {
-            emit requestChangeSettings(section, vKey, JsonEncoding(c->currentData().toString()));
-        });
-    }
+    connect(w, &ComboBoxWidget::requestPage, this, &ConnectionEditPage::requestNextPage);
+    connect(w, &ComboBoxWidget::dataChanged, [=](const QVariant &data) {
+        emit requestChangeSettings(section, vKey, JsonEncoding(data.toString()));
+    });
 
     return w;
 }
