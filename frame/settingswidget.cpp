@@ -43,9 +43,10 @@ SettingsWidget::SettingsWidget(Frame *frame)
 {
     m_resetBtn->setText(tr("Reset all settings"));
 
-    m_settingsLayout->addWidget(m_resetBtn);
     m_settingsLayout->setSpacing(30);
     m_settingsLayout->setMargin(0);
+    m_settingsLayout->addSpacing(10);
+    m_settingsLayout->addWidget(m_resetBtn);
 
     loadModule(new accounts::AccountsModule(this));
     loadModule(new display::DisplayModule(this));
@@ -141,7 +142,7 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
     }
 
     m_moduleActivable[module] = false;
-    m_settingsLayout->insertWidget(index, module->moduleWidget());
+    m_settingsLayout->insertWidget(index + 1, module->moduleWidget());
 
 //    qDebug() << "load module finished: " << module->name();
 

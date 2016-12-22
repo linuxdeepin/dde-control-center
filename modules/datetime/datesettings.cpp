@@ -3,8 +3,6 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QDebug>
-#include <dseparatorhorizontal.h>
-#include <dseparatorvertical.h>
 #include <dheaderline.h>
 #include <dimagebutton.h>
 #include <dswitchbutton.h>

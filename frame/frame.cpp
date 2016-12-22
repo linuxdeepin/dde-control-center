@@ -103,8 +103,8 @@ void Frame::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
 
-    QColor bgColor(Qt::black);
-    bgColor.setAlphaF(0.8);
+    QColor bgColor("#101010");
+    bgColor.setAlphaF(0.5);
 
     painter.fillRect(event->rect(), bgColor);
 

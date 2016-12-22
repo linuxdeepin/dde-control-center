@@ -8,8 +8,7 @@
 #include <QScroller>
 #include <QScrollBar>
 
-#include <dseparatorhorizontal.h>
-
+#include "separator.h"
 #include "backbutton.h"
 
 DWIDGET_USE_NAMESPACE
@@ -46,8 +45,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     QVBoxLayout *centeralLayout = new QVBoxLayout;
     centeralLayout->addLayout(titleLayout);
     centeralLayout->addSpacing(15);
-    centeralLayout->addWidget(new DSeparatorHorizontal);
-    centeralLayout->addSpacing(15);
+    centeralLayout->addWidget(new dcc::widgets::HSeparator);
     centeralLayout->addWidget(m_contentArea);
     centeralLayout->setContentsMargins(8, 8, 8, 0);
     centeralLayout->setSpacing(0);

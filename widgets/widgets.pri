@@ -27,7 +27,8 @@ HEADERS += \
     $$PWD/loadingindicator.h \
     $$PWD/optionlistpage.h \
     $$PWD/comboboxwidget.h \
-    $$PWD/filechoosewidget.h
+    $$PWD/filechoosewidget.h \
+    $$PWD/separator.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -53,7 +54,8 @@ SOURCES += \
     $$PWD/loadingindicator.cpp \
     $$PWD/optionlistpage.cpp \
     $$PWD/comboboxwidget.cpp \
-    $$PWD/filechoosewidget.cpp
+    $$PWD/filechoosewidget.cpp \
+    $$PWD/separator.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

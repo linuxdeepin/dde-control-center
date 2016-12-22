@@ -55,3 +55,11 @@ dcc--widgets--NextPageWidget{
     background-color: rgba(238, 238, 238, .2);
 }
 */
+
+dcc--widgets--HSeparator {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+dcc--widgets--VSeparator {
+    background-color: rgba(255, 255, 255, 0.15);
+}
