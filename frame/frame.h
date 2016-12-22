@@ -50,6 +50,7 @@ private:
     void keyPressEvent(QKeyEvent *e);
     void show();
     void hide();
+    void toggle();
 
 private:
     SettingsWidget *m_allSettingsPage;

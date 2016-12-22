@@ -87,13 +87,11 @@ void ContentWidget::scrollToWidget(QWidget * const w)
 {
     int y(0);
     QWidget *widget = w;
-    while (widget != m_contentArea)
+    while (widget != m_content)
     {
         y += widget->y();
         widget = qobject_cast<QWidget *>(widget->parent());
     }
-
-    qDebug() << Q_FUNC_INFO << y;
 
     m_contentArea->verticalScrollBar()->setValue(std::min(m_contentArea->verticalScrollBar()->maximum(), y));
 

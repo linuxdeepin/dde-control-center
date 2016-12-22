@@ -28,6 +28,7 @@
 #include <QtCore/QVariant>
 #include <QGuiApplication>
 #include <QScreen>
+#include <QString>
 
 /*
  * Implementation of adaptor class DBusControlCenter
@@ -111,16 +112,14 @@ void DBusControlCenterService::ShowModule(const QString &name)
     // handle method call com.deepin.dde.ControlCenter.ShowModule
     //parent()->ShowModule(name);
 //    parent()->selectModule(name);
+    parent()->showSettingsPage(name, QString());
 }
 
 void DBusControlCenterService::Toggle()
 {
     // handle method call com.deepin.dde.ControlCenter.Toggle
 //    parent()->toggle(false);
-    if (parent()->isVisible())
-        parent()->hide();
-    else
-        parent()->show();
+    parent()->toggle();
 }
 
 void DBusControlCenterService::ToggleInLeft()

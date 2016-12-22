@@ -146,6 +146,8 @@ void Frame::setAutoHide(const bool autoHide)
 
 void Frame::showAllSettings()
 {
+    Q_ASSERT(m_frameWidgetStack.size() == 1);
+
     if (!m_allSettingsPage) {
         m_allSettingsPage = new SettingsWidget(this);
 
@@ -157,14 +159,19 @@ void Frame::showAllSettings()
 
 void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
 {
-    // ensure current is main page
-    Q_ASSERT(m_frameWidgetStack.size() == 1);
+    // ensure current is main page or all settings page
+    if (m_frameWidgetStack.size() > 2)
+        popWidget();
 
-    // load all settings page
-    showAllSettings();
+    // current is main page
+    if (m_frameWidgetStack.size() == 1)
+        showAllSettings();
 
     // show specificed page
     m_allSettingsPage->showModulePage(moduleName, pageName);
+
+    if (m_appearAnimation.startValue().toRect().width() == 0)
+        show();
 }
 
 void Frame::contentDetached(QWidget *const c)
@@ -267,4 +274,12 @@ void Frame::hide()
 
     // unregister global mouse area
     m_mouseAreaInter->UnregisterArea(m_mouseAreaKey);
+}
+
+void Frame::toggle()
+{
+    if (m_appearAnimation.startValue().toRect().width() == 0)
+        hide();
+    else
+        show();
 }
