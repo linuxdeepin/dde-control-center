@@ -87,9 +87,9 @@ public:
     void setMicrophoneFeedback(double microphoneFeedback);
 
     void addPort(Port *port);
-    void removePort(const QString &portId);
-    bool containsPort(const QString &portId);
-    Port *portById(const QString &portId) const;
+    void removePort(const QString &portId, const uint &cardId);
+    bool containsPort(const Port *port);
+    Port *findPort(const QString &portId, const uint &cardId) const;
     QList<Port *> ports() const;
 
     inline double speakerVolume() const { return m_speakerVolume; }

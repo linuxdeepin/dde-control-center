@@ -57,13 +57,21 @@ private slots:
 //    void sourcesChanged(const QList<QDBusObjectPath> & value);
     void cardsChanged(const QString &cards);
 
-    void activeSinkPortChanged(const QString &activeSinkPort);
-    void activeSourcePortChanged(const QString &activeSourcePort);
+    void activeSinkPortChanged(const AudioPort &activeSinkPort);
+    void activeSourcePortChanged(const AudioPort &activeSourcePort);
+
+    void onSinkCardChanged(const uint &cardId);
+    void onSourceCardChanged(const uint &cardId);
+
+private:
+    void updatePortActivity();
 
 private:
     SoundModel *m_model;
     QString m_activeSinkPort;
     QString m_activeSourcePort;
+    uint m_activeOutputCard;
+    uint m_activeInputCard;
 
     Audio *m_audioInter;
     SoundEffect *m_soundEffectInter;

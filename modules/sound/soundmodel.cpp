@@ -81,16 +81,16 @@ void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
 void SoundModel::addPort(Port *port)
 {
     qDebug() << "add port: " << port->id();
-    if (!containsPort(port->id())) {
+    if (!containsPort(port)) {
         m_ports.append(port);
         emit portAdded(port);
     }
 }
 
-void SoundModel::removePort(const QString &portId)
+void SoundModel::removePort(const QString &portId, const uint &cardId)
 {
     qDebug() << "remove port: " << portId;
-    Port *port = portById(portId);
+    Port *port = findPort(portId, cardId);
     if (port) {
         m_ports.removeOne(port);
         port->deleteLater();
@@ -98,15 +98,15 @@ void SoundModel::removePort(const QString &portId)
     }
 }
 
-bool SoundModel::containsPort(const QString &portId)
+bool SoundModel::containsPort(const Port *port)
 {
-    return portById(portId) != nullptr;
+    return findPort(port->id(), port->cardId()) != nullptr;
 }
 
-Port *SoundModel::portById(const QString &portId) const
+Port *SoundModel::findPort(const QString &portId, const uint &cardId) const
 {
     for (Port *port : m_ports) {
-        if (port->id() == portId) {
+        if (port->id() == portId && port->cardId() == cardId) {
             return port;
         }
     }

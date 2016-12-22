@@ -20,6 +20,8 @@ namespace sound {
 SoundWorker::SoundWorker(SoundModel *model, QObject * parent) :
     QObject(parent),
     m_model(model),
+    m_activeOutputCard(UINT_MAX),
+    m_activeInputCard(UINT_MAX),
     m_audioInter(new Audio("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", QDBusConnection::sessionBus(), this)),
     m_soundEffectInter(new SoundEffect("com.deepin.daemon.SoundEffect", "/com/deepin/daemon/SoundEffect", QDBusConnection::sessionBus(), this)),
     m_defaultSink(nullptr),
@@ -38,8 +40,6 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent) :
 //    connect(m_audioInter, &Audio::SinksChanged, this, &SoundWorker::sinksChanged);
 //    connect(m_audioInter, &Audio::SourcesChanged, this, &SoundWorker::sourcesChanged);
     connect(m_audioInter, &Audio::CardsChanged, this, &SoundWorker::cardsChanged);
-    connect(m_audioInter, &Audio::ActiveSinkPortChanged, this, &SoundWorker::activeSinkPortChanged);
-    connect(m_audioInter, &Audio::ActiveSourcePortChanged, this, &SoundWorker::activeSourcePortChanged);
 
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_sourceMeter) m_sourceMeter->Tick(); });
 }
@@ -58,8 +58,6 @@ void SoundWorker::activate()
 //    sourcesChanged(m_audioInter->sources());
     defaultSinkChanged(m_audioInter->defaultSink());
     defaultSourceChanged(m_audioInter->defaultSource());
-    activeSinkPortChanged(m_audioInter->activeSinkPort());
-    activeSourcePortChanged(m_audioInter->activeSourcePort());
     cardsChanged(m_audioInter->cards());
 
     m_model->setSoundEffectOn(m_soundEffectInter->enabled());
@@ -133,10 +131,14 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
     connect(m_defaultSink, &Sink::MuteChanged, [this] (bool mute) { m_model->setSpeakerOn(!mute); });
     connect(m_defaultSink, &Sink::BalanceChanged, m_model, &SoundModel::setSpeakerBalance);
     connect(m_defaultSink, &Sink::VolumeChanged, m_model, &SoundModel::setSpeakerVolume);
+    connect(m_defaultSink, &Sink::ActivePortChanged, this, &SoundWorker::activeSinkPortChanged);
+    connect(m_defaultSink, &Sink::CardChanged, this, &SoundWorker::onSinkCardChanged);
 
     m_model->setSpeakerOn(!m_defaultSink->mute());
     m_model->setSpeakerBalance(m_defaultSink->balance());
     m_model->setSpeakerVolume(m_defaultSink->volume());
+    activeSinkPortChanged(m_defaultSink->activePort());
+    onSinkCardChanged(m_defaultSink->card());
 }
 
 void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
@@ -148,9 +150,13 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 
     connect(m_defaultSource, &Source::MuteChanged, [this] (bool mute) { m_model->setMicrophoneOn(!mute); });
     connect(m_defaultSource, &Source::VolumeChanged, m_model, &SoundModel::setMicrophoneVolume);
+    connect(m_defaultSource, &Source::ActivePortChanged, this, &SoundWorker::activeSourcePortChanged);
+    connect(m_defaultSource, &Source::CardChanged, this, &SoundWorker::onSourceCardChanged);
 
     m_model->setMicrophoneOn(!m_defaultSource->mute());
     m_model->setMicrophoneVolume(m_defaultSource->volume());
+    activeSourcePortChanged(m_defaultSource->activePort());
+    onSourceCardChanged(m_defaultSource->card());
 
     QDBusPendingCall call = m_defaultSource->GetMeter();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
@@ -215,7 +221,7 @@ void SoundWorker::cardsChanged(const QString &cards)
             const QString portId = jPort["Name"].toString();
             const QString portName = jPort["Description"].toString();
 
-            Port *port = m_model->portById(portId);
+            Port *port = m_model->findPort(portId, cardId);
             const bool include = port != nullptr;
             if (!include) { port = new Port(m_model); }
 
@@ -236,28 +242,48 @@ void SoundWorker::cardsChanged(const QString &cards)
     for (Port *port : m_model->ports()) {
         const QString id = port->id();
         if (!tmpPorts.contains(id)) {
-            m_model->removePort(id);
+            m_model->removePort(id, port->cardId());
         }
     }
 }
 
-void SoundWorker::activeSourcePortChanged(const QString &activeSourcePort)
+void SoundWorker::activeSinkPortChanged(const AudioPort &activeSinkPort)
 {
-    qDebug() << "active source port changed to: " << activeSourcePort;
-    m_activeSourcePort = activeSourcePort;
+    qDebug() << "active sink port changed to: " << activeSinkPort.name;
+    m_activeSinkPort = activeSinkPort.name;
 
-    for (Port *port : m_model->ports()) {
-        port->setIsActive(port->id() ==  activeSourcePort || port->id() == m_activeSinkPort);
-    }
+    updatePortActivity();
 }
 
-void SoundWorker::activeSinkPortChanged(const QString &activeSinkPort)
+void SoundWorker::activeSourcePortChanged(const AudioPort &activeSourcePort)
 {
-    qDebug() << "active sink port changed to: " << activeSinkPort;
-    m_activeSinkPort = activeSinkPort;
+    qDebug() << "active source port changed to: " << activeSourcePort.name;
+    m_activeSourcePort = activeSourcePort.name;
 
+    updatePortActivity();
+}
+
+void SoundWorker::onSinkCardChanged(const uint &cardId)
+{
+    m_activeOutputCard = cardId;
+
+    updatePortActivity();
+}
+
+void SoundWorker::onSourceCardChanged(const uint &cardId)
+{
+    m_activeInputCard = cardId;
+
+    updatePortActivity();
+}
+
+void SoundWorker::updatePortActivity()
+{
     for (Port *port : m_model->ports()) {
-        port->setIsActive(port->id() ==  activeSinkPort || port->id() == m_activeSourcePort);
+        const bool isActiveOuputPort = port->id() == m_activeSinkPort && port->cardId() == m_activeOutputCard;
+        const bool isActiveInputPort = port->id() == m_activeSourcePort && port->cardId() == m_activeInputCard;
+
+        port->setIsActive(isActiveInputPort || isActiveOuputPort);
     }
 }
 
