@@ -64,25 +64,38 @@ void KeyboardModule::initialize()
         append(md);
     }
 
-    QList<MetaData>::iterator it = m_datas.end();
-    --it;
-    int index = m_datas.count() - 1;
-    QChar ch = (*it).pinyin().at(0).toUpper();
-    for(; it != m_datas.begin(); --it)
+//    QList<MetaData>::iterator it = m_datas.end();
+//    --it;
+//    int index = m_datas.count() - 1;
+//    QChar ch = (*it).pinyin().at(0).toUpper();
+//    for(; it != m_datas.begin(); --it)
+//    {
+//        QChar pre = (*it).pinyin().at(0).toUpper();
+//        if(pre != ch)
+//        {
+//            m_datas.insert(index+1, MetaData(ch, true));
+//            m_letters.prepend(ch);
+//            ch = pre;
+//        }
+//        index--;
+//    }
+
+//    ch = (*it).pinyin().at(0).toUpper();
+//    m_datas.insert(index, MetaData(ch, true));
+//    m_letters.prepend(ch);
+
+    QChar ch = '\0';
+    for (int i(0); i != m_datas.size(); ++i)
     {
-        QChar pre = (*it).pinyin().at(0).toUpper();
-        if(pre != ch)
-        {
-            m_datas.insert(index+1, MetaData(ch, true));
-            m_letters.prepend(ch);
-            ch = pre;
-        }
-        index--;
+        const QChar flag = m_datas[i].pinyin().at(0).toUpper();
+        if (flag == ch)
+            continue;
+        ch = flag;
+
+        m_letters.append(ch);
+        m_datas.insert(i, MetaData(ch, true));
     }
 
-    ch = (*it).pinyin().at(0).toUpper();
-    m_datas.insert(index, MetaData(ch, true));
-    m_letters.prepend(ch);
     m_model->setLayoutLists(m_work->layoutLists());
     m_model->setLayout(m_work->curLayout());
     m_model->setUserLayout(m_work->userLayout());
