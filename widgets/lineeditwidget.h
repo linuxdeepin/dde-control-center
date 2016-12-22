@@ -18,6 +18,7 @@ public:
 
     inline QLineEdit *textEdit() const { return m_edit; }
     inline QString text() const { return m_edit->text(); }
+    void setTitleVisible(const bool visible) { m_title->setVisible(visible); }
 
 public slots:
     void setTitle(const QString &title);

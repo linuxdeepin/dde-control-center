@@ -106,6 +106,8 @@ void ConnectionEditPage::recreateUI()
     for (const auto &v : m_optionWidgets)
         qDeleteAll(v.values());
     qDeleteAll(m_sectionWidgets.values());
+    m_optionWidgets.clear();
+    m_sectionWidgets.clear();
 
     // construct new widgets
     const auto keys = m_sessionModel->keys();
@@ -248,45 +250,18 @@ SettingsItem *ConnectionEditPage::createEditWidget(const QJsonObject &keyObject,
 
 SettingsItem *ConnectionEditPage::createComboWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool editable)
 {
-    Q_UNUSED(editable);
     ComboBoxWidget *w = new ComboBoxWidget;
-//    QComboBox *c = w->comboBox();
 
-//    c->setEditable(editable);
-
-//    // get value list
-//    int index = 0;
-//    const QString current = infoObject.value("Value").toString();
     for (const auto &v : infoObject.value("Values").toArray())
     {
         const auto vObject = v.toObject();
         const auto value = vObject.value("Value").toString();
         w->appendOption(vObject.value("Text").toString(), value);
-//        c->addItem(vObject.value("Text").toString(), value);
-
-//        if (value == current)
-//            c->setCurrentIndex(index);
-//        ++index;
     }
 
+    w->setEditable(editable);
     w->setTitle(keyObject.value("Name").toString());
     w->setCurrent(infoObject.value("Value").toString());
-//    w->setValue(infoObject.value("Value").toString());
-//    if (editable)
-//        c->setEditText(current);
-
-//    const QString section = keyObject.value("Section").toString();
-//    const QString vKey = keyObject.value("Key").toString();
-//    if (editable)
-//    {
-//        connect(c->lineEdit(), &QLineEdit::editingFinished, [=] {
-//            emit requestChangeSettings(section, vKey, JsonEncoding(c->lineEdit()->text()));
-//        });
-//    } else {
-//        connect(c, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [=] {
-//            emit requestChangeSettings(section, vKey, JsonEncoding(c->currentData().toString()));
-//        });
-//    }
 
     const QString section = keyObject.value("Section").toString();
     const QString vKey = keyObject.value("Key").toString();

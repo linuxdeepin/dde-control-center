@@ -12,6 +12,7 @@ class ContentWidget;
 namespace widgets {
 
 class SettingsGroup;
+class LineEditWidget;
 class OptionItem;
 class ComboBoxWidget : public NextPageWidget
 {
@@ -23,6 +24,7 @@ public:
 
     void appendOption(const QString &name, const QVariant &value);
     void setCurrent(const QVariant &value);
+    void setEditable(const bool editable = true);
 
 signals:
     void requestPage(ContentWidget * const page) const;
@@ -39,6 +41,7 @@ private slots:
     void onItemClicked();
 
 private:
+    LineEditWidget *m_custom;
     SettingsGroup *m_optionsGroup;
     QPointer<ContentWidget> m_contentPage;
 

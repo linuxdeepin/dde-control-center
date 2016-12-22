@@ -2,6 +2,7 @@
 #include "contentwidget.h"
 #include "settingsgroup.h"
 #include "optionitem.h"
+#include "lineeditwidget.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -11,11 +12,17 @@ using namespace dcc::widgets;
 ComboBoxWidget::ComboBoxWidget(QFrame *parent)
     : NextPageWidget(parent),
 
+      m_custom(new LineEditWidget),
       m_optionsGroup(new SettingsGroup),
       m_contentPage(nullptr),
       m_lastSelectedItem(nullptr)
 {
     connect(this, &NextPageWidget::clicked, this, &ComboBoxWidget::onNextPageClicked);
+    connect(m_custom->textEdit(), &QLineEdit::editingFinished, [=] {
+        const QString txt = m_custom->textEdit()->text();
+        NextPageWidget::setValue(txt);
+        emit dataChanged(txt);
+    });
 }
 
 ComboBoxWidget::~ComboBoxWidget()
@@ -47,6 +54,15 @@ void ComboBoxWidget::setCurrent(const QVariant &value)
     NextPageWidget::setValue(item->title());
 
     m_lastSelectedItem = item;
+}
+
+void ComboBoxWidget::setEditable(const bool editable)
+{
+    if (editable)
+    {
+        m_custom->setTitleVisible(false);
+        m_optionsGroup->appendItem(m_custom);
+    }
 }
 
 void ComboBoxWidget::onNextPageClicked()
