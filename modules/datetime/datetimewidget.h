@@ -4,9 +4,12 @@
 #include <QFrame>
 #include <QLineEdit>
 #include <dimagebutton.h>
+
 #include "settingsitem.h"
+#include "labels/normallabel.h"
 
 DWIDGET_USE_NAMESPACE
+
 using namespace dcc::widgets;
 
 namespace dcc {
@@ -25,35 +28,21 @@ public:
 
 public:
     explicit DateWidget(Type type, QFrame *parent = 0);
+
     int data() const;
-    void setMax(int max);
-    int max() const;
-
-protected:
-    void paintEvent(QPaintEvent *);
-    void mousePressEvent(QMouseEvent *e);
-    void wheelEvent(QWheelEvent *e);
-
-signals:
-    void dataChanged(DateWidget::Type type, int data);
 
 public slots:
-    void setText();
-    void setText(const QString& text);
     void slotAdd();
     void slotReduced();
 
 private:
-    QLineEdit *m_lineEdit;
-    QRect m_plus;
-    QRect m_sub;
-    QRect m_text;
     Type m_type;
-    QString m_unit;
-    QString m_dateText;
+    int m_minimum;
+    int m_maximum;
+    QLineEdit *m_lineEdit;
+    NormalLabel *m_label;
     DImageButton* m_addBtn;
     DImageButton* m_reducedBtn;
-    int m_max;
 };
 
 class TimeWidget : public SettingsItem
@@ -62,31 +51,16 @@ class TimeWidget : public SettingsItem
 
 public:
     explicit TimeWidget(QFrame* parent = 0);
+
     int hour() const;
     int minute() const;
 
-public slots:
-    void setHourText();
-    void setHourText(const QString& text);
-    void setMinuteText();
-    void setMinuteText(const QString& text);
-
 protected:
-    void paintEvent(QPaintEvent *);
-    void mousePressEvent(QMouseEvent *e);
-    void wheelEvent(QWheelEvent *e);
-    void showEvent(QShowEvent *e);
+    bool eventFilter(QObject *watched, QEvent *event);
 
 private:
     QLineEdit *m_hourEdit;
     QLineEdit *m_minuteEdit;
-    QRect m_hour;
-    QRect m_minute;
-
-    QString m_hourText;
-    QString m_minuteText;
-
-    QFont m_font;
 };
 }
 }

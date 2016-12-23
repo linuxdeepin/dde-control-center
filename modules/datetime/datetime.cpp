@@ -21,7 +21,7 @@ Datetime::Datetime()
       m_bEdit(false),
       m_model(nullptr),
       m_timeSettingsGroup(new SettingsGroup),
-      m_ntpSwitch(new SwitchWidget(tr("Auto-­Sync"))),
+      m_ntpSwitch(new SwitchWidget(tr("Auto-Sync"))),
       m_timePageButton(new NextPageWidget),
       m_timezoneGroup(new SettingsGroup),
       m_headItem(new SettingsHead),

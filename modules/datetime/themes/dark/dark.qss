@@ -20,16 +20,6 @@ Dtk--Widget--DImageButton#DCC-Datetime-TimezoneItem-Remove{
     qproperty-pressPic: url(:/datetime/themes/dark/icons/list_delete_press.png);
 }
 
-QLineEdit#DCC-Datetime-QLineEdit{
-    border: 0px;
-    background-color: transparent;
-}
-
-QLabel#DCC-Datetime-TimezoneItem-Label{
-    background-color:transparent;
-}
-
-
 dcc--datetime--Clock[display=false] {
     background-color:transparent;
 }
