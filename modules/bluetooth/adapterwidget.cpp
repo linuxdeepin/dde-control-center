@@ -26,6 +26,8 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     m_otherDevicesGroup(new SettingsGroup(tr("Other devices")))
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->setMargin(0);
+    layout->setSpacing(10);
 
     m_titleGroup->appendItem(m_switch);
     m_myDevicesGroup->setHeaderVisible(true);

@@ -19,7 +19,7 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model) :
     setObjectName("Bluetooth");
 
     setTitle(tr("Bluetooth"));
-
+    m_centeralLayout->setMargin(0);
     setModel(model);
 }
 
