@@ -5,7 +5,6 @@
 #include "../../model/thememodel.h"
 #include "optionitem.h"
 #include "personalization/personalizationmodel.h"
-#include "settingshead.h"
 
 using namespace dcc;
 using namespace dcc::personalization;
@@ -15,11 +14,7 @@ Theme::Theme(const QString &title, QWidget *parent)
     : TranslucentFrame(parent)
 {
     m_mainLayout = new QVBoxLayout;
-    m_mainGroup = new SettingsGroup;
-    m_head = new SettingsHead;
-    m_head->setTitle(title);
-    m_head->setEditEnable(false);
-    m_mainGroup->appendItem(m_head);
+    m_mainGroup = new SettingsGroup(title);
     m_mainLayout->addWidget(m_mainGroup);
     m_mainGroup->setMargin(10, 0, 15, 10);
     m_mainLayout->setMargin(0);

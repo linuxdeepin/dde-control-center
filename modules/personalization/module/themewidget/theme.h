@@ -14,7 +14,6 @@ namespace dcc
 namespace widgets
 {
 class OptionItem;
-class SettingsHead;
 class SettingsGroup;
 }
 namespace personalization
@@ -36,11 +35,10 @@ public slots:
     void onItemClicked(const bool selected);
 
 private:
-    QVBoxLayout          *m_mainLayout;
-    widgets::SettingsGroup        *m_mainGroup;
-    widgets::SettingsHead         *m_head;
+    QVBoxLayout                             *m_mainLayout;
+    widgets::SettingsGroup                  *m_mainGroup;
     QMap<widgets::OptionItem *, QJsonObject> m_valueMap;
-    ThemeModel           *m_model;
+    ThemeModel                              *m_model;
 };
 }
 }
