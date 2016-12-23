@@ -42,12 +42,9 @@ ModuleWidget *DatetimeModule::moduleWidget()
         m_datetimeWidget = new Datetime();
         m_datetimeWidget->setModel(m_model);
 
-//        connect(m_datetimeWidget, SIGNAL(editDatetime()), this, SLOT(slotEditDatetime()));
-//        connect(m_choseDlg, SIGNAL(addTimezone(Timezone)), m_datetimeWidget, SLOT(addTimezone(Timezone)));
-//        connect(m_datetimeWidget, SIGNAL(addClick()), this, SLOT(onAddTimezoneClick()));
-
         connect(m_datetimeWidget, &Datetime::requestSetNtp, m_work, &DatetimeWork::setNTP);
         connect(m_datetimeWidget, &Datetime::requestTimeSettings, this, &DatetimeModule::showTimeSettingsPage);
+        connect(m_datetimeWidget, &Datetime::requestRemoveUserTimeZone, m_work, &DatetimeWork::removeUserTimeZone);
     }
 
     return m_datetimeWidget;

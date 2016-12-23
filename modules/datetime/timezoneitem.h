@@ -31,12 +31,7 @@ public:
     void toNormalMode();
 
 signals:
-    void destroySelf();
-//    void removeTimezone(const Timezone& tz);
-
-public slots:
-    void slotStatus(bool flags);
-    void slotRemoveSelf();
+    void removeClicked();
 
 private:
     ZoneInfo m_timezone;
@@ -45,8 +40,6 @@ private:
     QLabel *m_details;
     Clock *m_clock;
     DImageButton* m_removeBtn;
-    QHBoxLayout* m_layout;
-    QFrame* m_back;
 };
 }
 }

@@ -40,19 +40,14 @@ signals:
 
     void requestSetNtp(const bool &ntp);
     void requestTimeSettings();
+    void requestRemoveUserTimeZone(const ZoneInfo &zone);
 
 public slots:
-//    void addTimezone(const Timezone& tz);
-    void slotClick();
-    void slotEditMode(bool edit);
-//    void slotRemoveTimezone(const Timezone& tz);
-
     void addTimezone(const ZoneInfo &zone);
     void addTimezones(const QList<ZoneInfo> &zones);
     void removeTimezone(const ZoneInfo &zone);
 
 private:
-    bool m_bEdit;
     const DatetimeModel *m_model;
 
     SettingsGroup *m_timeSettingsGroup;

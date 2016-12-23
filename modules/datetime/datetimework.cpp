@@ -58,6 +58,11 @@ void DatetimeWork::setNTP(bool ntp)
     m_timedateInter->SetNTP(ntp);
 }
 
+void DatetimeWork::removeUserTimeZone(const ZoneInfo &info)
+{
+    m_timedateInter->DeleteUserTimezone(info.getZoneName());
+}
+
 void DatetimeWork::onTimezoneListChanged(const QStringList &timezones)
 {
     QFutureWatcher<ZoneInfo> *watcher = new QFutureWatcher<ZoneInfo>;

@@ -1,55 +1,52 @@
 #include "timezoneitem.h"
 
-#include "datetime/datetimeutil.h"
 #include <QDebug>
 #include <QVBoxLayout>
 
-using namespace dcc;
+#include "datetime/datetimeutil.h"
+#include "labels/normallabel.h"
+
+using namespace dcc::widgets;
 
 namespace dcc {
 namespace datetime {
 
 TimezoneItem::TimezoneItem(QFrame *parent)
-    :SettingsItem(parent)
+    :SettingsItem(parent),
+      m_city(new NormalLabel),
+      m_details(new NormalLabel),
+      m_clock(new Clock),
+      m_removeBtn(new DImageButton)
 {
+    setFixedHeight(60);
+
     QVBoxLayout* vlayout = new QVBoxLayout();
     vlayout->setMargin(1);
     vlayout->setSpacing(1);
-    m_city = new QLabel();
+
     m_city->setObjectName("DCC-Datetime-TimezoneItem-Label");
-    m_details = new QLabel();
     m_details->setObjectName("DCC-Datetime-TimezoneItem-Label");
+
     vlayout->addWidget(m_city);
     vlayout->addWidget(m_details);
 
-    m_removeBtn = new DImageButton(this);
     m_removeBtn->setObjectName("DCC-Datetime-TimezoneItem-Remove");
     m_removeBtn->setFixedSize(18,18);
+    m_removeBtn->setVisible(false);
 
-    m_back = new QFrame();
-    m_back->setFixedSize(48,48);
-    QVBoxLayout* removeLayout = new QVBoxLayout();
-    removeLayout->addWidget(m_removeBtn);
-    removeLayout->setAlignment(m_removeBtn, Qt::AlignCenter);
-    m_back->setLayout(removeLayout);
-    m_back->hide();
-
-    m_clock = new Clock();
     m_clock->setDrawTicks(false);
     m_clock->setFixedSize(QSize(48,48));
+
     QHBoxLayout* hlayout = new QHBoxLayout();
-    m_layout = hlayout;
     hlayout->setMargin(0);
-    hlayout->setSpacing(1);
+    hlayout->setSpacing(0);
     hlayout->addLayout(vlayout);
     hlayout->addStretch();
-    hlayout->addWidget(m_back);
-    hlayout->addWidget(m_clock);
-    hlayout->setAlignment(m_clock, Qt::AlignVCenter);
+    hlayout->addWidget(m_clock, 0, Qt::AlignVCenter);
+    hlayout->addWidget(m_removeBtn);
     setLayout(hlayout);
 
-    connect(m_removeBtn, SIGNAL(clicked()), this, SLOT(slotRemoveSelf()));
-    setFixedHeight(60);
+    connect(m_removeBtn, &DImageButton::clicked, this, &TimezoneItem::removeClicked);
 }
 
 void TimezoneItem::setTimeZone(const ZoneInfo &info)
@@ -74,33 +71,17 @@ void TimezoneItem::setTimeZone(const ZoneInfo &info)
     m_clock->setTimeZone(QTimeZone(info.getZoneName().toLatin1()));
 }
 
-void TimezoneItem::slotStatus(bool flags)
-{
-    if(flags)
-    {
-        toRemoveMode();
-    }
-    else
-    {
-        toNormalMode();
-    }
-}
-
-void TimezoneItem::slotRemoveSelf()
-{
-    emit destroySelf();
-}
-
 void TimezoneItem::toRemoveMode()
 {
     m_clock->setVisible(false);
-    m_back->setVisible(true);
+    m_removeBtn->setVisible(true);
 }
 
 void TimezoneItem::toNormalMode()
 {
-    m_back->setVisible(false);;
+    m_removeBtn->setVisible(false);;
     m_clock->setVisible(true);
 }
+
 }
 }

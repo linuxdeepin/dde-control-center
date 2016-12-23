@@ -13,7 +13,6 @@ namespace datetime {
 
 Datetime::Datetime()
     : ModuleWidget(),
-      m_bEdit(false),
       m_model(nullptr),
       m_timeSettingsGroup(new SettingsGroup),
       m_ntpSwitch(new SwitchWidget(tr("Auto-Sync"))),
@@ -67,69 +66,39 @@ void Datetime::setModel(const DatetimeModel *model)
     m_ntpSwitch->setChecked(model->nTP());
 }
 
-//void Datetime::addTimezone(const Timezone &tz)
-//{
-//    if(m_addeds.contains(tz))
-//    {
-//        return;
-//    }
-//    TimezoneItem* item = new TimezoneItem();
-//    connect(m_headItem, SIGNAL(editChanged(bool)), item, SLOT(slotStatus(bool)));
-//    connect(item, SIGNAL(destroySelf()), m_headItem, SLOT(initStatus()));
-//    connect(item, SIGNAL(removeTimezone(Timezone)), this, SLOT(slotRemoveTimezone(Timezone)));
-
-//    item->setCity(tz);
-//    item->slotStatus(m_bEdit);
-//    m_group->appendItem(item);
-//    m_addeds.append(tz);
-
-//    m_settings->beginGroup(tz.m_city);
-//    m_settings->setValue("City", tz.m_city);
-//    m_settings->setValue("Timezone", tz.m_timezone);
-//    m_settings->endGroup();
-//}
-
-void Datetime::slotClick()
-{
-}
-
-void Datetime::slotEditMode(bool edit)
-{
-    m_bEdit = edit;
-//    m_addItem->setEnabled(!m_bEdit);
-}
-
-//void Datetime::slotRemoveTimezone(const Timezone &tz)
-//{
-//    TimezoneItem* item = qobject_cast<TimezoneItem*>(sender());
-//    if(item)
-//    {
-//        m_timezoneGroup->removeItem(item);
-//        item->deleteLater();
-//        m_settings->remove(tz.m_city+"/"+"City");
-//        m_settings->remove(tz.m_city+"/"+"Timezone");
-//    }
-//}
-
 void Datetime::addTimezone(const ZoneInfo &zone)
 {
     qDebug() << "user time zone added: " << zone;
 
+    if (zone.getZoneName() == QTimeZone::systemTimeZoneId()) return;
+
     TimezoneItem* item = new TimezoneItem;
 
-//    connect(m_headItem, SIGNAL(editChanged(bool)), item, SLOT(slotStatus(bool)));
-//    connect(item, SIGNAL(destroySelf()), m_headItem, SLOT(initStatus()));
-//    connect(item, SIGNAL(removeTimezone(Timezone)), this, SLOT(slotRemoveTimezone(Timezone)));
+    connect(m_headItem, &SettingsHead::editChanged, [this, item] (bool edit) {
+        if (edit)  {
+            item->toRemoveMode();
+        } else {
+            item->toNormalMode();
+        }
+    });
+    connect(item, &TimezoneItem::removeClicked, [this, item] {
+        item->setVisible(false);
+        m_headItem->setEditEnable(false);
+        emit requestRemoveUserTimeZone(item->timeZone());
+    });
 
     item->setTimeZone(zone);
-    item->slotStatus(m_bEdit);
 
     m_timezoneGroup->appendItem(item);
+
+    m_headItem->setEditEnable(true);
 }
 
 void Datetime::addTimezones(const QList<ZoneInfo> &zones)
 {
     qDebug() << "add user timezones: " << zones;
+
+    m_headItem->setEditEnable(false);
 
     for (const ZoneInfo &zone : zones) {
         addTimezone(zone);
@@ -145,6 +114,10 @@ void Datetime::removeTimezone(const ZoneInfo &zone)
             m_timezoneGroup->removeItem(item);
             item->deleteLater();
         }
+    }
+
+    if (items.length() <= 1) {
+        m_headItem->setEditEnable(false);
     }
 }
 
