@@ -40,6 +40,8 @@ Datetime::Datetime()
 
     m_timezoneGroup->appendItem(m_headItem);
 
+    m_dialog->setFixedSize(1366, 768);
+
     m_centeralLayout->addWidget(clockGroup);
     m_centeralLayout->addSpacing(10);
     m_centeralLayout->addWidget(m_timeSettingsGroup);

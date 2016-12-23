@@ -9,14 +9,15 @@
 #include <com_deepin_daemon_display.h>
 #include <com_deepin_api_xmousearea.h>
 
-#include <QFrame>
 #include <QStack>
 #include <QPropertyAnimation>
+
+#include "blurredframe.h"
 
 using XMouseArea = com::deepin::api::XMouseArea;
 using DBusDisplay = com::deepin::daemon::Display;
 
-class Frame : public QFrame
+class Frame : public BlurredFrame
 {
     Q_OBJECT
 
@@ -30,10 +31,6 @@ public slots:
 
     void pushWidget(ContentWidget * const w);
     void popWidget();
-
-protected:
-    void paintEvent(QPaintEvent *);
-    void resizeEvent(QResizeEvent *event);
 
 private slots:
     void init();

@@ -28,7 +28,8 @@ HEADERS += \
     $$PWD/optionlistpage.h \
     $$PWD/comboboxwidget.h \
     $$PWD/filechoosewidget.h \
-    $$PWD/separator.h
+    $$PWD/separator.h \
+    $$PWD/blurredframe.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -55,7 +56,8 @@ SOURCES += \
     $$PWD/optionlistpage.cpp \
     $$PWD/comboboxwidget.cpp \
     $$PWD/filechoosewidget.cpp \
-    $$PWD/separator.cpp
+    $$PWD/separator.cpp \
+    $$PWD/blurredframe.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

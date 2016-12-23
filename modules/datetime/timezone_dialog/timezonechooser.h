@@ -10,7 +10,9 @@
 #ifndef TIMEZONECHOOSER_H
 #define TIMEZONECHOOSER_H
 
-#include "frame.h"
+#include "blurredframe.h"
+
+class QPushButton;
 
 namespace installer {
 class TimezoneMap;
@@ -19,7 +21,7 @@ class TimezoneMap;
 namespace dcc {
 namespace datetime {
 
-class TimeZoneChooser : public QWidget
+class TimeZoneChooser : public dcc::widgets::BlurredFrame
 {
     Q_OBJECT
 public:

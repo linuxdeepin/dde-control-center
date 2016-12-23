@@ -10,27 +10,35 @@
 #include "timezonechooser.h"
 
 #include <QVBoxLayout>
+#include <QPushButton>
 
 #include "timezone_map.h"
+
+using namespace dcc::widgets;
 
 namespace dcc {
 namespace datetime {
 
 TimeZoneChooser::TimeZoneChooser()
-    : QWidget(),
+    : BlurredFrame(),
       m_map(new installer::TimezoneMap),
       m_cancelBtn(new QPushButton(tr("Cancel"))),
       m_confirmBtn(new QPushButton(tr("Confirm")))
 {
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
+    setAttribute(Qt::WA_TranslucentBackground);
+
     m_cancelBtn->setFixedWidth(200);
     m_confirmBtn->setFixedWidth(200);
+
+    m_map->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->setSpacing(0);
 
     layout->addStretch();
-    layout->addWidget(m_map);
+    layout->addWidget(m_map, 0, Qt::AlignHCenter);
     layout->addSpacing(20);
     layout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
     layout->addSpacing(10);

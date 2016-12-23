@@ -3,47 +3,13 @@
 
 #include <QApplication>
 #include <QKeyEvent>
-#include <QPainter>
 #include <QScreen>
-#include <QWindow>
-#include <QX11Info>
-
-#include <xcb/xproto.h>
-
-static void BlurWindowBackground(const WId windowId, const QRect &region)
-{
-    xcb_connection_t *connection = QX11Info::connection();
-    const char *name = "_NET_WM_DEEPIN_BLUR_REGION";
-    xcb_intern_atom_cookie_t cookie = xcb_intern_atom(connection,
-                                      0,
-                                      strlen(name),
-                                      name);
-
-    xcb_intern_atom_reply_t *reply = xcb_intern_atom_reply(connection,
-                                     cookie,
-                                     NULL);
-    if (reply) {
-        const int data[] = {region.x(), region.y(), region.width(), region.height()};
-
-        xcb_change_property_checked(connection,
-                                    XCB_PROP_MODE_REPLACE,
-                                    windowId,
-                                    reply->atom,
-                                    XCB_ATOM_CARDINAL,
-                                    32,
-                                    4,
-                                    data);
-        xcb_flush(connection);
-
-        free(reply);
-    }
-}
 
 #define BUTTON_LEFT 1
 #define FRAME_WIDTH 360
 
 Frame::Frame(QWidget *parent)
-    : QFrame(parent),
+    : BlurredFrame(parent),
 
       m_allSettingsPage(nullptr),
 
@@ -101,27 +67,6 @@ void Frame::popWidget()
     // destory the container
     m_frameWidgetStack.pop()->destory();
     m_frameWidgetStack.last()->showBack();
-}
-
-void Frame::paintEvent(QPaintEvent *event)
-{
-    QPainter painter(this);
-
-    QColor bgColor("#101010");
-    bgColor.setAlphaF(0.5);
-
-    painter.fillRect(event->rect(), bgColor);
-
-    painter.end();
-}
-
-void Frame::resizeEvent(QResizeEvent *event)
-{
-    const QSize size(event->size());
-    const QRect region(QPoint(0, 0), size);
-    BlurWindowBackground(winId(), region);
-
-    QFrame::resizeEvent(event);
 }
 
 void Frame::init()
