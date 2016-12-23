@@ -37,6 +37,7 @@ void Clock::paintEvent(QPaintEvent *)
 
     // draw plate
     const bool nightMode = !(6 < time.hour() && time.hour() < 18);
+    painter.setPen(Qt::transparent);
     painter.setBrush(nightMode ? Qt::black : Qt::white);
     painter.drawRoundedRect(rct, rct.width() / 2.0, rct.height() / 2.0);
 

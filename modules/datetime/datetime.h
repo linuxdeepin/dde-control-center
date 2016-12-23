@@ -22,6 +22,7 @@ namespace dcc {
 namespace datetime {
 
 class DatetimeModel;
+class TimeZoneChooser;
 
 class Datetime : public ModuleWidget
 {
@@ -40,6 +41,7 @@ signals:
 
     void requestSetNtp(const bool &ntp);
     void requestTimeSettings();
+    void requestAddUserTimeZone(const QString &zone);
     void requestRemoveUserTimeZone(const ZoneInfo &zone);
 
 public slots:
@@ -57,6 +59,8 @@ private:
     SettingsGroup *m_timezoneGroup;
     SettingsHead *m_headItem;
     QPushButton *m_addTimezoneButton;
+
+    TimeZoneChooser *m_dialog;
 };
 }
 }

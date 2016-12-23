@@ -63,6 +63,11 @@ void DatetimeWork::removeUserTimeZone(const ZoneInfo &info)
     m_timedateInter->DeleteUserTimezone(info.getZoneName());
 }
 
+void DatetimeWork::addUserTimeZone(const QString &zone)
+{
+    m_timedateInter->AddUserTimezone(zone);
+}
+
 void DatetimeWork::onTimezoneListChanged(const QStringList &timezones)
 {
     QFutureWatcher<ZoneInfo> *watcher = new QFutureWatcher<ZoneInfo>;

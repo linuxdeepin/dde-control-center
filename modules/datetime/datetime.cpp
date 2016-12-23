@@ -7,6 +7,7 @@
 #include "datetimemodel.h"
 #include "clockitem.h"
 #include "timezoneitem.h"
+#include "timezone_dialog/timezonechooser.h"
 
 namespace dcc {
 namespace datetime {
@@ -19,7 +20,8 @@ Datetime::Datetime()
       m_timePageButton(new NextPageWidget),
       m_timezoneGroup(new SettingsGroup),
       m_headItem(new SettingsHead),
-      m_addTimezoneButton(new QPushButton(tr("Add Timezone")))
+      m_addTimezoneButton(new QPushButton(tr("Add Timezone"))),
+      m_dialog(new TimeZoneChooser)
 {
     setObjectName("Datetime");
     setTitle(tr("Time and Date"));
@@ -46,8 +48,11 @@ Datetime::Datetime()
     m_centeralLayout->addSpacing(10);
     m_centeralLayout->addWidget(m_addTimezoneButton);
 
+    connect(m_dialog, &TimeZoneChooser::confirmed, this, &Datetime::requestAddUserTimeZone);
+
     connect(m_ntpSwitch, &SwitchWidget::checkedChanegd, this, &Datetime::requestSetNtp);
     connect(m_timePageButton, &NextPageWidget::clicked, this, &Datetime::requestTimeSettings);
+    connect(m_addTimezoneButton, &QPushButton::clicked, m_dialog, &TimeZoneChooser::show);
 }
 
 Datetime::~Datetime()

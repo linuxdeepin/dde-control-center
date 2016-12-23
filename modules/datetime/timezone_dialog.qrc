@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>timezone_dialog/images/timezone_map_big.png</file>
+        <file>timezone_dialog/images/indicator_active.png</file>
+    </qresource>
+</RCC>

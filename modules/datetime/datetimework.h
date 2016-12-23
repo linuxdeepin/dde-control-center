@@ -25,6 +25,7 @@ public slots:
     void setDatetime(const QDateTime &time);
     void setNTP(bool ntp);
     void removeUserTimeZone(const ZoneInfo &info);
+    void addUserTimeZone(const QString &zone);
 
 private slots:
     void onTimezoneListChanged(const QStringList &timezones);

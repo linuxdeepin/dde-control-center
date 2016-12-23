@@ -17,66 +17,6 @@ DatetimeUtil::DatetimeUtil()
 
 }
 
-const QStringList DatetimeUtil::city2UTC(const QString &city)
-{
-    QSqlDatabase db;
-    if(QSqlDatabase::contains(timezone_database))
-    {
-        db = QSqlDatabase::database(QLatin1String(timezone_database));
-    }
-    else
-    {
-        db = QSqlDatabase::addDatabase(QLatin1String("QSQLITE"), timezone_database);
-    }
-
-#ifdef QT_DEBUG
-    db.setDatabaseName(CITIES_DATABASE_PATH + QString(timezone_database) + ".db");
-#else
-    db.setDatabaseName(DATABASE_RELEASE_PATH + QString(timezone_database) + ".db");
-#endif
-
-    if (!db.open())
-    {
-        qWarning() << QString("Failed to open %1 database").arg(db.databaseName());
-        qWarning() << db.lastError();
-        return QStringList();
-    }
-
-    QSqlQuery query(db);
-
-    QString schema = QString("SELECT timezone from tzcity where name='%1'").arg(city);
-
-    if(!query.exec(schema))
-    {
-        qDebug()<<query.lastError();
-        return QStringList();
-    }
-
-    QStringList timezones;
-    while(query.next())
-    {
-        QSqlRecord record = query.record();
-        for(int i = 0; i<record.count(); i++)
-        {
-            QSqlField field = record.field(i);
-            if(field.name() == "timezone")
-            {
-                QTimeZone tz(field.value().toByteArray());
-                timezones<<tz.displayName(QTimeZone::StandardTime, QTimeZone::OffsetName);
-            }
-        }
-    }
-
-    db.close();
-    return timezones;
-}
-
-int DatetimeUtil::dayOfMonth(int year, int month)
-{
-    QDate date(year, month, 1);
-    return date.daysInMonth();
-}
-
 float DatetimeUtil::hoursBetweenTwoTimeZone(const QTimeZone &tz, const QTimeZone &cur)
 {
     QDateTime dt = QDateTime::currentDateTime().toTimeZone(tz);
