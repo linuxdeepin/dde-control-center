@@ -78,7 +78,9 @@ void AccountsWorker::setAvatar(User *user, const QString &iconPath)
 
 void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
 {
-    m_accountsInter->DeleteUser(user->name(), deleteHome);
+    emit requestFrameAutoHide(false);
+    m_accountsInter->DeleteUser(user->name(), deleteHome).waitForFinished();
+    QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
 }
 
 void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
