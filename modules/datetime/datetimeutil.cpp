@@ -12,29 +12,6 @@
 namespace dcc {
 namespace datetime {
 
-Timezone::Timezone(bool valid)
-    :m_valid(valid)
-{
-
-}
-
-bool Timezone::operator ==(const Timezone &tz) const
-{
-    return (this->m_city == tz.m_city);
-}
-
-void Timezone::millerTranstion(int w, int h)
-{
-    double PI = 3.141592653589793;
-    double y = m_lon / 180;
-    double rlat = m_lat * PI / 180;
-    double x = 1.25 * log( tan( 0.25 * PI + 0.4 * rlat ) );
-    x = x / 2.3034125433763912;
-
-    m_x =  w/2*(y + 1);
-    m_y =  h/2*(1 - x);
-}
-
 DatetimeUtil::DatetimeUtil()
 {
 

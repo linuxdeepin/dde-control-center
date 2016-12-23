@@ -7,8 +7,7 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frame, QObject *parent)
     :QObject(parent),
       ModuleInterface(frame),
       m_datetimeWidget(nullptr),
-      m_dateSettings(nullptr),
-      m_choseDlg(new ChoseDialog())
+      m_dateSettings(nullptr)
 {
 }
 
@@ -23,16 +22,12 @@ void DatetimeModule::initialize()
 
 void DatetimeModule::moduleActive()
 {
-
+    m_work->activate();
 }
 
 void DatetimeModule::moduleDeactive()
 {
-//    if(m_datetimeWidget)
-//    {
-//        m_datetimeWidget->deleteLater();
-//        m_datetimeWidget = nullptr;
-    //    }
+    m_work->deactivate();
 }
 
 void DatetimeModule::reset()
@@ -45,9 +40,14 @@ ModuleWidget *DatetimeModule::moduleWidget()
     if(!m_datetimeWidget)
     {
         m_datetimeWidget = new Datetime();
-        connect(m_datetimeWidget, SIGNAL(editDatetime()), this, SLOT(slotEditDatetime()));
-        connect(m_choseDlg, SIGNAL(addTimezone(Timezone)), m_datetimeWidget, SLOT(addTimezone(Timezone)));
-        connect(m_datetimeWidget, SIGNAL(addClick()), this, SLOT(onAddTimezoneClick()));
+        m_datetimeWidget->setModel(m_model);
+
+//        connect(m_datetimeWidget, SIGNAL(editDatetime()), this, SLOT(slotEditDatetime()));
+//        connect(m_choseDlg, SIGNAL(addTimezone(Timezone)), m_datetimeWidget, SLOT(addTimezone(Timezone)));
+//        connect(m_datetimeWidget, SIGNAL(addClick()), this, SLOT(onAddTimezoneClick()));
+
+        connect(m_datetimeWidget, &Datetime::requestSetNtp, m_work, &DatetimeWork::setNTP);
+        connect(m_datetimeWidget, &Datetime::requestTimeSettings, this, &DatetimeModule::showTimeSettingsPage);
     }
 
     return m_datetimeWidget;
@@ -66,48 +66,16 @@ void DatetimeModule::contentPopped(ContentWidget * const w)
     w->deleteLater();
 }
 
-void DatetimeModule::slotEditDatetime()
+void DatetimeModule::showTimeSettingsPage()
 {
-    if(!m_dateSettings)
-    {
-        m_dateSettings = new DateSettings();
+    if (!m_dateSettings) {
+        m_dateSettings = new DateSettings;
+        m_dateSettings->setModel(m_model);
 
-        m_dateSettings->setNTP(m_model->nTP());
-        connect(m_model, SIGNAL(NTPChanged(bool)), m_dateSettings, SLOT(slotAutoSync(bool)));
-        connect(m_dateSettings, SIGNAL(autoSyncChanged(bool)), m_work, SLOT(setNTP(bool)));
-        connect(m_dateSettings,SIGNAL(dateChanged(int,int,int,int,int)), m_work, SLOT(setDatetime(int,int,int,int,int)));
-        connect(m_model, SIGNAL(NTPChanged(bool)), m_dateSettings, SLOT(slotAutoSync(bool)));
-        connect(m_dateSettings, SIGNAL(changeClick()), this, SLOT(onChangeClick()));
-        connect(m_choseDlg, SIGNAL(curTimezone(Timezone)), this, SLOT(onSetTimezone(Timezone)));
-        connect(m_model, SIGNAL(timezoneChanged(QString)), m_dateSettings, SLOT(setTimezone(QString)));
+        connect(m_dateSettings, &DateSettings::requestSetTime, m_work, &DatetimeWork::setDatetime);
     }
 
     m_frameProxy->pushWidget(this, m_dateSettings);
-}
-
-void DatetimeModule::onAddTimezoneClick()
-{
-    if(m_choseDlg)
-    {
-        m_choseDlg->setFlag(false);
-        m_choseDlg->show();
-    }
-}
-
-void DatetimeModule::onChangeClick()
-{
-    if(m_choseDlg)
-    {
-        m_choseDlg->setFlag(true);
-        m_choseDlg->show();
-    }
-}
-
-void DatetimeModule::onSetTimezone(const Timezone &tz)
-{
-    // 暂时不支持设置时区
-    QTimeZone zone(tz.m_timezone.toStdString().c_str());
-//    m_work->setTimezone(zone.id());
 }
 
 DatetimeModule::~DatetimeModule()
@@ -117,7 +85,6 @@ DatetimeModule::~DatetimeModule()
 
     if (m_datetimeWidget)
         m_datetimeWidget->deleteLater();
-    m_choseDlg->deleteLater();
 }
 
 }

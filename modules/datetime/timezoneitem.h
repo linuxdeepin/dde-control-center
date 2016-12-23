@@ -10,6 +10,8 @@
 #include <dimagebutton.h>
 #include <QHBoxLayout>
 
+#include <types/zoneinfo.h>
+
 DWIDGET_USE_NAMESPACE
 
 namespace dcc {
@@ -21,28 +23,30 @@ class TimezoneItem : public dcc::widgets::SettingsItem
 
 public:
     explicit TimezoneItem(QFrame *parent =0);
-    void setCity(const Timezone& tz);
-    void setDetails(const QString& details);
+
+    inline ZoneInfo timeZone() const { return m_timezone; }
+    void setTimeZone(const ZoneInfo &info);
 
     void toRemoveMode();
     void toNormalMode();
 
 signals:
     void destroySelf();
-    void removeTimezone(const Timezone& tz);
+//    void removeTimezone(const Timezone& tz);
 
 public slots:
     void slotStatus(bool flags);
     void slotRemoveSelf();
 
 private:
+    ZoneInfo m_timezone;
+
     QLabel *m_city;
     QLabel *m_details;
     Clock *m_clock;
     DImageButton* m_removeBtn;
     QHBoxLayout* m_layout;
     QFrame* m_back;
-    Timezone m_curTimezone;
 };
 }
 }

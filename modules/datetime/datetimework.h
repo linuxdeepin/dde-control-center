@@ -17,15 +17,16 @@ class DatetimeWork : public QObject
 public:
     explicit DatetimeWork(DatetimeModel* model, QObject *parent = 0);
 
-    void setTimezone(const QString& timezone);
-
-signals:
-    void NTPChanged(bool  value) const;
+    void activate();
+    void deactivate();
 
 public slots:
-    void setDatetime(int year, int month, int day, int hour, int minute);
+    void setTimezone(const QString& timezone);
+    void setDatetime(const QDateTime &time);
     void setNTP(bool ntp);
-    void onProperty(const QString &propName, const QVariant &value);
+
+private slots:
+    void onTimezoneListChanged(const QStringList &timezones);
 
 private:
     DatetimeModel* m_model;

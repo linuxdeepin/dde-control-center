@@ -32,22 +32,6 @@ private:
     QLabel *m_edit;
 };
 
-class TimeButton : public SettingsItem
-{
-    Q_OBJECT
-
-public:
-    explicit TimeButton(QFrame *parent = 0);
-
-signals:
-    void confirm();
-    void cancel();
-
-private:
-    QPushButton* m_confirm;
-    QPushButton* m_cancel;
-};
-
 }
 }
 

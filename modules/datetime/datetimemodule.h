@@ -21,16 +21,11 @@ public:
     void moduleDeactive();
     void reset();
     ModuleWidget *moduleWidget();
-
     const QString name() const;
-
     void contentPopped(ContentWidget * const w);
 
 public slots:
-    void slotEditDatetime();
-    void onAddTimezoneClick();
-    void onChangeClick();
-    void onSetTimezone(const Timezone& tz);
+    void showTimeSettingsPage();
 
 private:
     ~DatetimeModule();
@@ -40,7 +35,6 @@ private:
     DatetimeModel* m_model;
     Datetime* m_datetimeWidget;
     DateSettings* m_dateSettings;
-    ChoseDialog* m_choseDlg;
 };
 }
 }

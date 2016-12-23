@@ -1,4 +1,9 @@
 #include "datetime.h"
+
+#include <QFrame>
+#include <QDebug>
+#include <QPushButton>
+
 #include "contentwidget.h"
 #include "timezoneitem.h"
 #include "datesettings.h"
@@ -6,90 +11,89 @@
 #include "switchwidget.h"
 #include "settingshead.h"
 
-#include <QFrame>
-#include <QDebug>
-#include <QPushButton>
+#include "datetimemodel.h"
 
 namespace dcc {
 namespace datetime {
 
 Datetime::Datetime()
-    :ModuleWidget(),
-      m_bEdit(false)
+    : ModuleWidget(),
+      m_bEdit(false),
+      m_model(nullptr),
+      m_timeSettingsGroup(new SettingsGroup),
+      m_ntpSwitch(new SwitchWidget(tr("Auto-­Sync"))),
+      m_timePageButton(new NextPageWidget),
+      m_timezoneGroup(new SettingsGroup),
+      m_headItem(new SettingsHead),
+      m_addTimezoneButton(new QPushButton(tr("Add Timezone")))
 {
     setObjectName("Datetime");
-
-    m_settings = new QSettings("dde-control-center", "datetime", this);
+    setTitle(tr("Time and Date"));
 
     this->installEventFilter(parent());
-    setTitle(tr("Time and Date"));
-    Clock* clock = new Clock();
+
+    SettingsGroup *clockGroup = new SettingsGroup;
+    Clock *clock = new Clock;
     clock->setDisplay(true);
-    SettingsGroup* clockGroup = new SettingsGroup();
     clockGroup->appendItem(clock);
-    m_centeralLayout->addWidget(clockGroup);
 
-    m_group = new SettingsGroup();
-    m_headItem = new SettingsHead();
+    m_timePageButton->setTitle(tr("Time Settings"));
+    m_timeSettingsGroup->appendItem(m_ntpSwitch);
+    m_timeSettingsGroup->appendItem(m_timePageButton);
+
     m_headItem->setTitle(tr("Timezone List"));
-    m_group->appendItem(m_headItem);
-    m_centeralLayout->addWidget(m_group);
 
-    SettingsGroup* addTimezone = new SettingsGroup();
-    m_addItem = new NextPageWidget();
-    m_addItem->setTitle(tr("Add Timezone"));
-    addTimezone->appendItem(m_addItem);
+    m_timezoneGroup->appendItem(m_headItem);
 
-    SettingsGroup* timeSettings = new SettingsGroup();
-    NextPageWidget* timeItem = new NextPageWidget();
-    timeItem->setTitle(tr("Time Settings"));
-    timeSettings->appendItem(timeItem);
-//    timeSettings->appendItem(new SwitchWidget());
+    m_centeralLayout->addWidget(clockGroup);
+    m_centeralLayout->addSpacing(10);
+    m_centeralLayout->addWidget(m_timeSettingsGroup);
+    m_centeralLayout->addSpacing(10);
+    m_centeralLayout->addWidget(m_timezoneGroup);
+    m_centeralLayout->addSpacing(10);
+    m_centeralLayout->addWidget(m_addTimezoneButton);
 
-    m_centeralLayout->addWidget(addTimezone);
-    m_centeralLayout->addWidget(timeSettings);
-
-    connect(m_addItem, SIGNAL(clicked()), this, SIGNAL(addClick()));
-    connect(timeItem, SIGNAL(clicked()), this, SIGNAL(editDatetime()));
-    connect(m_headItem, SIGNAL(editChanged(bool)), this, SLOT(slotEditMode(bool)));
-
-    QStringList groups = m_settings->childGroups();
-    for(int i = 0; i<groups.count(); i++)
-    {
-        m_settings->beginGroup(groups.at(i));
-        Timezone tz;
-        tz.m_city = m_settings->value("City").toString();
-        tz.m_timezone = m_settings->value("Timezone").toString();
-        m_settings->endGroup();
-        this->addTimezone(tz);
-    }
+    connect(m_ntpSwitch, &SwitchWidget::checkedChanegd, this, &Datetime::requestSetNtp);
+    connect(m_timePageButton, &NextPageWidget::clicked, this, &Datetime::requestTimeSettings);
 }
 
 Datetime::~Datetime()
 {
 }
 
-void Datetime::addTimezone(const Timezone &tz)
+void Datetime::setModel(const DatetimeModel *model)
 {
-    if(m_addeds.contains(tz))
-    {
-        return;
-    }
-    TimezoneItem* item = new TimezoneItem();
-    connect(m_headItem, SIGNAL(editChanged(bool)), item, SLOT(slotStatus(bool)));
-    connect(item, SIGNAL(destroySelf()), m_headItem, SLOT(initStatus()));
-    connect(item, SIGNAL(removeTimezone(Timezone)), this, SLOT(slotRemoveTimezone(Timezone)));
+    m_model = model;
 
-    item->setCity(tz);
-    item->slotStatus(m_bEdit);
-    m_group->appendItem(item);
-    m_addeds.append(tz);
+    connect(model, &DatetimeModel::userTimeZoneAdded, this, &Datetime::addTimezone);
+    connect(model, &DatetimeModel::userTimeZoneRemoved, this, &Datetime::removeTimezone);
+    connect(model, &DatetimeModel::NTPChanged, m_ntpSwitch, &SwitchWidget::setChecked);
 
-    m_settings->beginGroup(tz.m_city);
-    m_settings->setValue("City", tz.m_city);
-    m_settings->setValue("Timezone", tz.m_timezone);
-    m_settings->endGroup();
+    addTimezones(model->userTimeZones());
+    m_ntpSwitch->setChecked(model->nTP());
 }
+
+//void Datetime::addTimezone(const Timezone &tz)
+//{
+//    if(m_addeds.contains(tz))
+//    {
+//        return;
+//    }
+//    TimezoneItem* item = new TimezoneItem();
+//    connect(m_headItem, SIGNAL(editChanged(bool)), item, SLOT(slotStatus(bool)));
+//    connect(item, SIGNAL(destroySelf()), m_headItem, SLOT(initStatus()));
+//    connect(item, SIGNAL(removeTimezone(Timezone)), this, SLOT(slotRemoveTimezone(Timezone)));
+
+//    item->setCity(tz);
+//    item->slotStatus(m_bEdit);
+//    m_group->appendItem(item);
+//    m_addeds.append(tz);
+
+//    m_settings->beginGroup(tz.m_city);
+//    m_settings->setValue("City", tz.m_city);
+//    m_settings->setValue("Timezone", tz.m_timezone);
+//    m_settings->endGroup();
+//}
 
 void Datetime::slotClick()
 {
@@ -98,20 +102,57 @@ void Datetime::slotClick()
 void Datetime::slotEditMode(bool edit)
 {
     m_bEdit = edit;
-    m_addItem->setEnabled(!m_bEdit);
+//    m_addItem->setEnabled(!m_bEdit);
 }
 
-void Datetime::slotRemoveTimezone(const Timezone &tz)
+//void Datetime::slotRemoveTimezone(const Timezone &tz)
+//{
+//    TimezoneItem* item = qobject_cast<TimezoneItem*>(sender());
+//    if(item)
+//    {
+//        m_timezoneGroup->removeItem(item);
+//        item->deleteLater();
+//        m_settings->remove(tz.m_city+"/"+"City");
+//        m_settings->remove(tz.m_city+"/"+"Timezone");
+//    }
+//}
+
+void Datetime::addTimezone(const ZoneInfo &zone)
 {
-    TimezoneItem* item = qobject_cast<TimezoneItem*>(sender());
-    if(item)
-    {
-        m_addeds.removeOne(tz);
-        m_group->removeItem(item);
-        item->deleteLater();
-        m_settings->remove(tz.m_city+"/"+"City");
-        m_settings->remove(tz.m_city+"/"+"Timezone");
+    qDebug() << "user time zone added: " << zone;
+
+    TimezoneItem* item = new TimezoneItem;
+
+//    connect(m_headItem, SIGNAL(editChanged(bool)), item, SLOT(slotStatus(bool)));
+//    connect(item, SIGNAL(destroySelf()), m_headItem, SLOT(initStatus()));
+//    connect(item, SIGNAL(removeTimezone(Timezone)), this, SLOT(slotRemoveTimezone(Timezone)));
+
+    item->setTimeZone(zone);
+    item->slotStatus(m_bEdit);
+
+    m_timezoneGroup->appendItem(item);
+}
+
+void Datetime::addTimezones(const QList<ZoneInfo> &zones)
+{
+    qDebug() << "add user timezones: " << zones;
+
+    for (const ZoneInfo &zone : zones) {
+        addTimezone(zone);
     }
 }
+
+void Datetime::removeTimezone(const ZoneInfo &zone)
+{
+    QList<TimezoneItem*> items = findChildren<TimezoneItem*>();
+    for (TimezoneItem *item : items) {
+        if (item->timeZone().getZoneName() == zone.getZoneName()) {
+            item->setVisible(false);
+            m_timezoneGroup->removeItem(item);
+            item->deleteLater();
+        }
+    }
+}
+
 }
 }

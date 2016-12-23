@@ -2,19 +2,30 @@
 #define DATESETTINGS_H
 
 #include <QWidget>
-#include "clock.h"
-#include "datetimewidget.h"
-#include "settingshead.h"
-#include "switchwidget.h"
-#include "settingsgroup.h"
+
+#include <types/zoneinfo.h>
+
 #include "contentwidget.h"
-#include "nextpagewidget.h"
-#include "datetimeutil.h"
+
+class QPushButton;
+
+namespace dcc {
+namespace widgets {
+class SettingsGroup;
+class NextPageWidget;
+}
+}
 
 using namespace dcc;
+using namespace dcc::widgets;
 
 namespace dcc {
 namespace datetime {
+
+class DatetimeModel;
+class TimeWidget;
+class DateWidget;
+class Clock;
 
 class DateSettings : public ContentWidget
 {
@@ -23,30 +34,33 @@ class DateSettings : public ContentWidget
 public:
     explicit DateSettings(QWidget *parent = 0);
 
-    void setNTP(bool ntp);
+    void setModel(DatetimeModel *model);
 
 signals:
-    void dateChanged(int year, int month, int day, int hour, int minute);
-    void autoSyncChanged(const bool checked);
-    void changeClick();
+    void requestSetTime(const QDateTime &time);
+    void requestSetTimeZone(const QString &zone);
 
-public slots:
-    void slotMonthChange(DateWidget::Type type, int data);
-    void slotConfirm();
-    void slotCancel();
-    void slotAutoSync(const bool checked);
-    void setTimezone(const QString &timezone);
+private slots:
+    void onCancelButtonClicked();
+    void onConfirmButtonClicked();
+
+    void setTimeZone(const QString &zone);
 
 private:
+    DatetimeModel *m_model;
+
+    SettingsGroup *m_datetimeGroup;
+
     Clock *m_clock;
-    SwitchWidget* m_autoItem;
-    TimeButton* m_timeBtn;
-    TimeWidget* m_timeWidget;
-    DateWidget* m_dayWidget;
-    DateWidget* m_yearWidget;
-    DateWidget* m_monthWidget;
-    NextPageWidget* m_timezoneItem;
-    SettingsGroup *m_okGroup;
+    TimeWidget *m_timeWidget;
+    DateWidget *m_yearWidget;
+    DateWidget *m_monthWidget;
+    DateWidget *m_dayWidget;
+    QPushButton *m_cancelButton;
+    QPushButton *m_confirmButton;
+
+    SettingsGroup *m_timezoneGroup;
+    NextPageWidget *m_timezoneItem;
 };
 }
 }

@@ -9,22 +9,6 @@ namespace datetime {
 
 static const char *const timezone_database = "timezone";
 
-struct Timezone
-{
-    explicit Timezone(bool valid = true);
-    bool operator ==(const Timezone& tz) const;
-
-    void millerTranstion(int w, int h);
-
-    double m_lon;
-    double m_lat;
-    double m_x;
-    double m_y;
-    bool m_valid;
-    QString m_city;
-    QString m_timezone;
-};
-
 class DatetimeUtil
 {
 public:

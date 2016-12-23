@@ -13,7 +13,6 @@ HEADERS += \
     $$PWD/datetimewidget.h \
     $$PWD/datetimemodule.h \
     $$PWD/datetimework.h \
-    $$PWD/chosedialog.h \
     $$PWD/datetimemodel.h \
     $$PWD/timezoneitem.h
 
@@ -25,7 +24,6 @@ SOURCES += \
     $$PWD/datetimewidget.cpp \
     $$PWD/datetimemodule.cpp \
     $$PWD/datetimework.cpp \
-    $$PWD/chosedialog.cpp \
     $$PWD/datetimemodel.cpp \
     $$PWD/timezoneitem.cpp
 

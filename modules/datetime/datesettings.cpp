@@ -3,10 +3,11 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QDebug>
-#include <dheaderline.h>
-#include <dimagebutton.h>
-#include <dswitchbutton.h>
 #include <QDate>
+
+#include "clock.h"
+#include "datetimewidget.h"
+#include "datetimemodel.h"
 
 #include "settingsgroup.h"
 #include "settingsitem.h"
@@ -15,139 +16,138 @@
 #include "nextpagewidget.h"
 #include "translucentframe.h"
 
-DWIDGET_USE_NAMESPACE
 using namespace dcc;
+using namespace dcc::widgets;
 
 namespace dcc {
 namespace datetime {
 
 DateSettings::DateSettings(QWidget *parent)
     :ContentWidget(parent),
-      m_clock(new Clock()),
-      m_timeWidget(new TimeWidget()),
-      m_dayWidget(new DateWidget(DateWidget::Day)),
+      m_datetimeGroup(new SettingsGroup),
+      m_clock(new Clock),
+      m_timeWidget(new TimeWidget),
       m_yearWidget(new DateWidget(DateWidget::Year)),
-      m_monthWidget(new DateWidget(DateWidget::Month))
+      m_monthWidget(new DateWidget(DateWidget::Month)),
+      m_dayWidget(new DateWidget(DateWidget::Day)),
+      m_cancelButton(new QPushButton(tr("Cancel"))),
+      m_confirmButton(new QPushButton(tr("Confirm"))),
+      m_timezoneGroup(new SettingsGroup),
+      m_timezoneItem(new NextPageWidget)
 {
-    setTitle(tr("Date time details"));
-    m_clock->setDisplay(true);
+    setTitle(tr("Change Time Settings"));
 
     TranslucentFrame *widget = new TranslucentFrame;
     QVBoxLayout* layout = new QVBoxLayout(widget);
     layout->setSpacing(1);
     layout->setMargin(0);
 
-    SettingsGroup* autosyncGroup = new SettingsGroup();
-    m_autoItem = new SwitchWidget();
-    m_autoItem->setTitle(tr("Auto-­Sync"));
-    autosyncGroup->appendItem(m_autoItem);
+    m_clock->setDisplay(true);
 
-    SettingsGroup* datetimeGroup = new SettingsGroup();
-    datetimeGroup->appendItem(m_clock);
-    datetimeGroup->appendItem(m_timeWidget);
-    datetimeGroup->appendItem(m_yearWidget);
-    datetimeGroup->appendItem(m_monthWidget);
-    datetimeGroup->appendItem(m_dayWidget);
+    m_datetimeGroup->appendItem(m_clock);
+    m_datetimeGroup->appendItem(m_timeWidget);
+    m_datetimeGroup->appendItem(m_yearWidget);
+    m_datetimeGroup->appendItem(m_monthWidget);
+    m_datetimeGroup->appendItem(m_dayWidget);
 
-    m_okGroup = new SettingsGroup();
-    m_timeBtn = new TimeButton();
-    m_okGroup->appendItem(m_timeBtn);
+    QHBoxLayout *buttonLayout = new QHBoxLayout;
+    buttonLayout->setMargin(0);
+    buttonLayout->setSpacing(0);
+    buttonLayout->addWidget(m_cancelButton);
+    buttonLayout->addSpacing(10);
+    buttonLayout->addWidget(m_confirmButton);
 
-    SettingsGroup* timezoneGroup = new SettingsGroup();
-    m_timezoneItem = new NextPageWidget();
     m_timezoneItem->setTitle(tr("Change System Timezone"));
-    m_timezoneItem->setValue(QTimeZone::systemTimeZone().displayName(QTimeZone::StandardTime, QTimeZone::OffsetName));
-    timezoneGroup->appendItem(m_timezoneItem);
+    m_timezoneGroup->appendItem(m_timezoneItem);
 
-    layout->addWidget(autosyncGroup);
-    layout->addWidget(datetimeGroup);
-    layout->addSpacerItem(new QSpacerItem(300,10));
-    layout->addWidget(m_okGroup);
-    layout->addSpacerItem(new QSpacerItem(300,20));
-    layout->addWidget(timezoneGroup);
+    layout->addWidget(m_datetimeGroup);
+    layout->addSpacing(10);
+    layout->addLayout(buttonLayout);
+    layout->addSpacing(10);
+    layout->addWidget(m_timezoneGroup);
 
     setContent(widget);
 
-    connect(m_timeBtn, SIGNAL(confirm()), this, SLOT(slotConfirm()));
-    connect(m_timeBtn, SIGNAL(cancel()), this, SIGNAL(back()));
-    connect(m_autoItem, SIGNAL(checkedChanegd(const bool)), this, SIGNAL(autoSyncChanged(const bool)));
-//    connect(autoItem, SIGNAL(checkedChanegd(const bool)), this, SLOT(slotAutoSync(bool)));
-    connect(m_yearWidget, SIGNAL(dataChanged(DateWidget::Type,int)), this, SLOT(slotMonthChange(DateWidget::Type, int)));
-    connect(m_monthWidget, SIGNAL(dataChanged(DateWidget::Type,int)), this, SLOT(slotMonthChange(DateWidget::Type, int)));
-    connect(m_dayWidget, SIGNAL(dataChanged(DateWidget::Type,int)), this, SLOT(slotMonthChange(DateWidget::Type, int)));
-    connect(m_timezoneItem, SIGNAL(clicked()), this, SIGNAL(changeClick()));
+    connect(m_cancelButton, &QPushButton::clicked, this, &DateSettings::onCancelButtonClicked);
+    connect(m_confirmButton, &QPushButton::clicked, this, &DateSettings::onConfirmButtonClicked);
 }
 
-void DateSettings::setNTP(bool ntp)
+void DateSettings::setModel(DatetimeModel *model)
 {
-    slotAutoSync(ntp);
+    m_model = model;
+
+    connect(model, &DatetimeModel::systemTimeZoneIdChanged, this, &DateSettings::setTimeZone);
+
+    setTimeZone(model->systemTimeZoneId());
 }
 
-void DateSettings::setTimezone(const QString &timezone)
+void DateSettings::onCancelButtonClicked()
 {
-    QTimeZone tz(timezone.toStdString().c_str());
-    m_timezoneItem->setValue(tz.utc().id());
-    m_clock->setTimezone(timezone);
+    back();
 }
 
-void DateSettings::slotMonthChange(DateWidget::Type type, int data)
+void DateSettings::onConfirmButtonClicked()
 {
-    if(type == DateWidget::Year)
-    {
-        QDate date(data, m_monthWidget->data(), 1);
-        int day = date.daysInMonth();
-        m_dayWidget->setMax(day);
-    }
-    else if(type == DateWidget::Month)
-    {
-        QDate date(m_yearWidget->data(), data, 1);
-        int day = date.daysInMonth();
-        m_dayWidget->setMax(day);
-    }
-    else
-    {
-//        QDate date(m_monthWidget->data(), data, m_dayWidget->data());
+    QDate date; date.setDate(m_yearWidget->data(), m_monthWidget->data(), m_dayWidget->data());
+    QTime time; time.setHMS(m_timeWidget->hour(), m_timeWidget->minute(), 0);
+
+    QDateTime datetime(date, time);
+    emit requestSetTime(datetime);
+
+    back();
+}
+
+void DateSettings::setTimeZone(const QString &zone)
+{
+    qDebug() << "sett time zone " << zone;
+    m_timezoneItem->setValue(zone);
+}
+
+//void DateSettings::setTimezone(const QString &timezone)
+//{
+//    QTimeZone tz(timezone.toStdString().c_str());
+//    m_timezoneItem->setValue(tz.utc().id());
+//    m_clock->setTimezone(timezone);
+//}
+
+//void DateSettings::slotMonthChange(DateWidget::Type type, int data)
+//{
+//    if(type == DateWidget::Year)
+//    {
+//        QDate date(data, m_monthWidget->data(), 1);
 //        int day = date.daysInMonth();
 //        m_dayWidget->setMax(day);
-    }
-}
+//    }
+//    else if(type == DateWidget::Month)
+//    {
+//        QDate date(m_yearWidget->data(), data, 1);
+//        int day = date.daysInMonth();
+//        m_dayWidget->setMax(day);
+//    }
+//    else
+//    {
+////        QDate date(m_monthWidget->data(), data, m_dayWidget->data());
+////        int day = date.daysInMonth();
+////        m_dayWidget->setMax(day);
+//    }
+//}
 
-void DateSettings::slotConfirm()
-{
-    int year = m_yearWidget->data();
-    int month = m_monthWidget->data();
-    int day = m_dayWidget->data();
+//void DateSettings::slotConfirm()
+//{
+//    int year = m_yearWidget->data();
+//    int month = m_monthWidget->data();
+//    int day = m_dayWidget->data();
 
-    int hour = m_timeWidget->hour();
-    int minute = m_timeWidget->minute();
+//    int hour = m_timeWidget->hour();
+//    int minute = m_timeWidget->minute();
 
-    emit dateChanged(year, month, day, hour, minute);
-}
+//    emit dateChanged(year, month, day, hour, minute);
+//}
 
-void DateSettings::slotCancel()
-{
-}
+//void DateSettings::slotCancel()
+//{
 
-void DateSettings::slotAutoSync(const bool checked)
-{
-    m_autoItem->setChecked(checked);
+//}
 
-    if(checked)
-    {
-        m_timeWidget->hide();
-        m_yearWidget->hide();
-        m_monthWidget->hide();
-        m_dayWidget->hide();
-        m_okGroup->hide();
-    }
-    else
-    {
-        m_timeWidget->show();
-        m_yearWidget->show();
-        m_monthWidget->show();
-        m_dayWidget->show();
-        m_okGroup->show();
-    }
-}
 }
 }

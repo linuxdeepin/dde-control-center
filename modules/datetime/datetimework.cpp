@@ -1,50 +1,87 @@
 #include "datetimework.h"
 #include <QDebug>
 
+#include <QtConcurrent>
+#include <QFutureWatcher>
+
 namespace dcc {
 namespace datetime {
 
+static Timedate *timedateInter = new Timedate("com.deepin.daemon.Timedate",
+                                              "/com/deepin/daemon/Timedate",
+                                              QDBusConnection::sessionBus());
+static ZoneInfo GetZoneInfo (const QString &zoneId) {
+    return timedateInter->GetZoneInfo(zoneId);
+}
+
 DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     : QObject(parent),
-      m_model(model)
+      m_model(model),
+      m_timedateInter(timedateInter)
 {
-    m_timedateInter = new Timedate("com.deepin.daemon.Timedate",
-                                   "/com/deepin/daemon/Timedate",
-                                   QDBusConnection::sessionBus(), this);
-
-    connect(m_timedateInter, SIGNAL(TimezoneChanged(QString)), m_model, SIGNAL(timezoneChanged(QString)));
-    connect(m_timedateInter, SIGNAL(NTPChanged(bool)), m_model, SLOT(setNTP(bool)));
-    connect(this, SIGNAL(NTPChanged(bool)), m_model, SLOT(setNTP(bool)));
-
-    m_model->setNTP(m_timedateInter->nTP());
-
     m_timedateInter->setSync(false);
+
+    connect(m_timedateInter, &__Timedate::UserTimezonesChanged, this, &DatetimeWork::onTimezoneListChanged);
+    connect(m_timedateInter, &__Timedate::TimezoneChanged, m_model, &DatetimeModel::setSystemTimeZoneId);
+    connect(m_timedateInter, &__Timedate::NTPChanged, m_model, &DatetimeModel::setNTP);
+}
+
+void DatetimeWork::activate()
+{
+    m_model->setNTP(m_timedateInter->nTP());
+    onTimezoneListChanged(m_timedateInter->userTimezones());
+    m_model->setSystemTimeZoneId(m_timedateInter->timezone());
+}
+
+void DatetimeWork::deactivate()
+{
+
 }
 
 void DatetimeWork::setTimezone(const QString &timezone)
 {
-    QDBusPendingReply<> reply = m_timedateInter->SetTimezone(timezone);
-    reply.waitForFinished();
+    m_timedateInter->SetTimezone(timezone);
 }
 
-void DatetimeWork::setDatetime(int year, int month, int day, int hour, int minute)
+void DatetimeWork::setDatetime(const QDateTime &datetime)
 {
-    m_timedateInter->SetDate(year,month,day, hour, minute, 0, 0);
+    m_timedateInter->SetNTP(false);
+
+    const QDate date = datetime.date();
+    const QTime time = datetime.time();
+
+    m_timedateInter->SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), 0, 0);
 }
 
 void DatetimeWork::setNTP(bool ntp)
 {
-    QDBusPendingReply<> reply = m_timedateInter->SetNTP(ntp);
-    reply.waitForFinished();
-    if(reply.isError())
-    {
-        emit NTPChanged(m_timedateInter->nTP());
-    }
+    m_timedateInter->SetNTP(ntp);
 }
 
-void DatetimeWork::onProperty(const QString &propName, const QVariant &value)
+void DatetimeWork::onTimezoneListChanged(const QStringList &timezones)
 {
-    qDebug()<<Q_FUNC_INFO<<propName<<value;
+    QFutureWatcher<ZoneInfo> *watcher = new QFutureWatcher<ZoneInfo>;
+    connect(watcher, &QFutureWatcher<ZoneInfo>::finished, [this, watcher] {
+        QFuture<ZoneInfo> future = watcher->future();
+        QStringList records;
+
+        for (int i = 0; i < future.resultCount(); i++) {
+            ZoneInfo info = watcher->resultAt(i);
+            m_model->addUserTimeZone(info);
+            records.append(info.getZoneName());
+        }
+
+        for (const ZoneInfo &zone : m_model->userTimeZones()) {
+            if (!records.contains(zone.getZoneName())) {
+                m_model->removeUserTimeZone(zone);
+            }
+        }
+
+        watcher->deleteLater();
+    });
+
+    QFuture<ZoneInfo> future = QtConcurrent::mapped(timezones, GetZoneInfo);
+    watcher->setFuture(future);
 }
 
 }
