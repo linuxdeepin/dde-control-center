@@ -20,12 +20,15 @@ VpnPage::VpnPage(QWidget *parent)
       m_vpnGroup(new SettingsGroup)
 {
     m_vpnSwitch->setTitle(tr("VPN Status"));
-    m_vpnGroup->appendItem(m_vpnSwitch);
 
     QPushButton *createVpnBtn = new QPushButton;
     createVpnBtn->setText(tr("Create VPN"));
 
+    SettingsGroup *switchGrp = new SettingsGroup;
+    switchGrp->appendItem(m_vpnSwitch);
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addWidget(switchGrp);
     mainLayout->addWidget(m_vpnGroup);
     mainLayout->addWidget(createVpnBtn);
     mainLayout->setSpacing(10);
@@ -53,11 +56,28 @@ void VpnPage::setModel(NetworkModel *model)
 
 void VpnPage::refershVpnList(const QList<QJsonObject> &vpnList)
 {
+    m_vpnGroup->clear();
+    qDeleteAll(m_vpns.keys());
+    m_vpns.clear();
+
     for (const auto &vpn : vpnList)
     {
         NextPageWidget *w = new NextPageWidget;
         w->setTitle(vpn.value("Id").toString());
 
+        connect(w, &NextPageWidget::clicked, this, &VpnPage::onVpnClicked);
+
+        m_vpns[w] = vpn;
         m_vpnGroup->appendItem(w);
     }
+}
+
+void VpnPage::onVpnClicked()
+{
+    NextPageWidget *w = static_cast<NextPageWidget *>(sender());
+    Q_ASSERT(w && m_vpns.contains(w));
+
+    const QString connPath = m_vpns[w].value("Path").toString();
+
+    emit requestEditVpn("/", connPath);
 }

@@ -110,6 +110,7 @@ void NetworkModule::showVpnPage()
     VpnPage *p = new VpnPage;
 
     connect(p, &VpnPage::requestVpnEnabled, m_networkWorker, &NetworkWorker::setVpnEnable);
+    connect(p, &VpnPage::requestEditVpn, m_networkWorker, &NetworkWorker::queryConnectionSession);
 
     p->setModel(m_networkModel);
 
