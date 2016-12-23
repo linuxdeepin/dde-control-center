@@ -15,6 +15,7 @@
 #include "switchwidget.h"
 #include "nextpagewidget.h"
 #include "translucentframe.h"
+#include "clockitem.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -25,7 +26,7 @@ namespace datetime {
 DateSettings::DateSettings(QWidget *parent)
     :ContentWidget(parent),
       m_datetimeGroup(new SettingsGroup),
-      m_clock(new Clock),
+      m_clock(new ClockItem),
       m_timeWidget(new TimeWidget),
       m_yearWidget(new DateWidget(DateWidget::Year)),
       m_monthWidget(new DateWidget(DateWidget::Month)),
@@ -41,8 +42,6 @@ DateSettings::DateSettings(QWidget *parent)
     QVBoxLayout* layout = new QVBoxLayout(widget);
     layout->setSpacing(1);
     layout->setMargin(0);
-
-    m_clock->setDisplay(true);
 
     m_datetimeGroup->appendItem(m_clock);
     m_datetimeGroup->appendItem(m_timeWidget);

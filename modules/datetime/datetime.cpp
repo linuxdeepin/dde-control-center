@@ -4,14 +4,9 @@
 #include <QDebug>
 #include <QPushButton>
 
-#include "contentwidget.h"
-#include "timezoneitem.h"
-#include "datesettings.h"
-#include "nextpagewidget.h"
-#include "switchwidget.h"
-#include "settingshead.h"
-
 #include "datetimemodel.h"
+#include "clockitem.h"
+#include "timezoneitem.h"
 
 namespace dcc {
 namespace datetime {
@@ -33,8 +28,7 @@ Datetime::Datetime()
     this->installEventFilter(parent());
 
     SettingsGroup *clockGroup = new SettingsGroup;
-    Clock *clock = new Clock;
-    clock->setDisplay(true);
+    ClockItem *clock = new ClockItem;
     clockGroup->appendItem(clock);
 
     m_timePageButton->setTitle(tr("Time Settings"));

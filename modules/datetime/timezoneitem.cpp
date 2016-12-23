@@ -35,6 +35,7 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     m_back->hide();
 
     m_clock = new Clock();
+    m_clock->setDrawTicks(false);
     m_clock->setFixedSize(QSize(48,48));
     QHBoxLayout* hlayout = new QHBoxLayout();
     m_layout = hlayout;
@@ -70,7 +71,7 @@ void TimezoneItem::setTimeZone(const ZoneInfo &info)
 
     m_details->setText(str);
     m_city->setText(info.getZoneCity());
-
+    m_clock->setTimeZone(QTimeZone(info.getZoneName().toLatin1()));
 }
 
 void TimezoneItem::slotStatus(bool flags)

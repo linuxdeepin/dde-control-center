@@ -14,7 +14,8 @@ HEADERS += \
     $$PWD/datetimemodule.h \
     $$PWD/datetimework.h \
     $$PWD/datetimemodel.h \
-    $$PWD/timezoneitem.h
+    $$PWD/timezoneitem.h \
+    $$PWD/clockitem.h
 
 SOURCES += \
     $$PWD/datetime.cpp \
@@ -25,7 +26,8 @@ SOURCES += \
     $$PWD/datetimemodule.cpp \
     $$PWD/datetimework.cpp \
     $$PWD/datetimemodel.cpp \
-    $$PWD/timezoneitem.cpp
+    $$PWD/timezoneitem.cpp \
+    $$PWD/clockitem.cpp
 
 RESOURCES += \
     $$PWD/datetime.qrc

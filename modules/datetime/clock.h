@@ -1,38 +1,31 @@
 #ifndef CLOCK_H
 #define CLOCK_H
 
-#include <QFrame>
-#include <QPoint>
-#include <QTimer>
+#include <QWidget>
 #include <QTimeZone>
-#include "settingsitem.h"
-using namespace dcc;
 
 namespace dcc {
 namespace datetime {
 
-class Clock: public widgets::SettingsItem
+class Clock: public QWidget
 {
     Q_OBJECT
-
-    Q_PROPERTY(bool display READ display WRITE setDisplay  DESIGNABLE true SCRIPTABLE true)
-
 public:
-    explicit Clock(QFrame *parent = 0);
+    explicit Clock(QWidget *parent = 0);
     virtual ~Clock();
 
-    void setTimezone(const QString& timezone);
-    void setDisplay(bool display);
-    bool display() const { return m_display;}
+    bool drawTicks() const;
+    void setDrawTicks(bool drawTicks);
+
+    QTimeZone timeZone() const;
+    void setTimeZone(const QTimeZone &timeZone);
 
 protected:
     void paintEvent(QPaintEvent *event);
-    void resizeEvent(QResizeEvent *e);
 
 private:
-    QTimer *m_timer;
-    QTimeZone m_timezone;
-    bool m_display;
+    bool m_drawTicks;
+    QTimeZone m_timeZone;
 };
 }
 }

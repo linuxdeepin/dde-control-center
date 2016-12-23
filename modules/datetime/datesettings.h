@@ -25,7 +25,7 @@ namespace datetime {
 class DatetimeModel;
 class TimeWidget;
 class DateWidget;
-class Clock;
+class ClockItem;
 
 class DateSettings : public ContentWidget
 {
@@ -51,7 +51,7 @@ private:
 
     SettingsGroup *m_datetimeGroup;
 
-    Clock *m_clock;
+    ClockItem *m_clock;
     TimeWidget *m_timeWidget;
     DateWidget *m_yearWidget;
     DateWidget *m_monthWidget;
