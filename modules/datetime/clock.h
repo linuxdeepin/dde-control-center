@@ -20,11 +20,15 @@ public:
     QTimeZone timeZone() const;
     void setTimeZone(const QTimeZone &timeZone);
 
+    bool autoNightMode() const;
+    void setAutoNightMode(bool autoNightMode);
+
 protected:
     void paintEvent(QPaintEvent *event);
 
 private:
     bool m_drawTicks;
+    bool m_autoNightMode;
     QTimeZone m_timeZone;
 };
 }

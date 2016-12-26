@@ -27,6 +27,7 @@ ClockItem::ClockItem(QWidget *parent) :
     m_label(new NormalLabel)
 {
     m_clock->setFixedSize(150, 150);
+    m_clock->setAutoNightMode(false);
     m_label->setText(m_datetime.toString(Qt::SystemLocaleShortDate));
 
     QVBoxLayout *layout = new QVBoxLayout;

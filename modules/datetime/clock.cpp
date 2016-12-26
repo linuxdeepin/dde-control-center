@@ -12,6 +12,7 @@ namespace datetime {
 Clock::Clock(QWidget *parent) :
     QWidget(parent),
     m_drawTicks(true),
+    m_autoNightMode(true),
     m_timeZone(QTimeZone::systemTimeZone())
 {
 
@@ -38,7 +39,7 @@ void Clock::paintEvent(QPaintEvent *)
     // draw plate
     const bool nightMode = !(6 < time.hour() && time.hour() < 18);
     painter.setPen(Qt::transparent);
-    painter.setBrush(nightMode ? Qt::black : Qt::white);
+    painter.setBrush(nightMode && autoNightMode() ? Qt::black : Qt::white);
     painter.drawRoundedRect(rct, rct.width() / 2.0, rct.height() / 2.0);
 
     // draw ticks
@@ -86,6 +87,19 @@ void Clock::paintEvent(QPaintEvent *)
     painter.restore();
 
     painter.end();
+}
+
+bool Clock::autoNightMode() const
+{
+    return m_autoNightMode;
+}
+
+void Clock::setAutoNightMode(bool autoNightMode)
+{
+    if (m_autoNightMode != autoNightMode) {
+        m_autoNightMode = autoNightMode;
+        update();
+    }
 }
 
 QTimeZone Clock::timeZone() const
