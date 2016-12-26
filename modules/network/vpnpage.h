@@ -6,6 +6,7 @@
 #include <QList>
 #include <QJsonObject>
 #include <QMap>
+#include <QPointer>
 
 namespace dcc {
 
@@ -20,14 +21,17 @@ class NextPageWidget;
 namespace network {
 
 class NetworkModel;
+class ConnectionEditPage;
 class VpnPage : public ContentWidget
 {
     Q_OBJECT
 
 public:
     explicit VpnPage(QWidget *parent = 0);
+    ~VpnPage();
 
 signals:
+    void requestNextPage(ContentWidget * const w) const;
     void requestVpnEnabled(const bool enabled) const;
     void requestEditVpn(const QString &devPath, const QString &connPath) const;
 
@@ -37,12 +41,15 @@ public slots:
 
 private slots:
     void onVpnClicked();
+    void onVpnSessionCreated(const QString &device, const QString &sessionPath);
 
 private:
     NetworkModel *m_model;
 
     widgets::SwitchWidget *m_vpnSwitch;
     widgets::SettingsGroup *m_vpnGroup;
+
+    QPointer<ConnectionEditPage> m_editPage;
 
     QMap<widgets::NextPageWidget *, QJsonObject> m_vpns;
 };

@@ -195,7 +195,7 @@ void ConnectionEditPage::createOptionWidgets(const QString &section, const QJson
     SettingsItem *item = nullptr;
     if (vType == "EditLineSwitchButton")
         item = createSwitchWidget(keyObject, vInfo);
-    else if (vType == "EditLineTextInput" || vType == "EditLineIpv4Input" || vType == "EditLineSpinner")
+    else if (vType == "EditLineTextInput" || vType == "EditLineIpv4Input" || vType == "EditLineSpinner" || vType == "EditLineMissingPackage")
         item = createEditWidget(keyObject, vInfo, false);
     else if (vType == "EditLinePasswordInput")
         item = createEditWidget(keyObject, vInfo, true);

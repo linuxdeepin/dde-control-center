@@ -32,6 +32,7 @@ public:
 signals:
     void vpnEnabledChanged(const bool enabled) const;
     void deviceListChanged(const QList<NetworkDevice *> devices) const;
+    void unhandledConnectionSessionCreated(const QString &device, const QString &sessionPath) const;
 
 private slots:
     void onVPNEnabledChanged(const bool enabled);

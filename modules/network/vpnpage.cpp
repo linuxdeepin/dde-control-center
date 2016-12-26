@@ -4,6 +4,9 @@
 #include "translucentframe.h"
 #include "networkmodel.h"
 #include "nextpagewidget.h"
+#include "connectioneditpage.h"
+#include "connectionsessionworker.h"
+#include "connectionsessionmodel.h"
 
 #include <QDebug>
 #include <QVBoxLayout>
@@ -43,11 +46,18 @@ VpnPage::VpnPage(QWidget *parent)
     connect(m_vpnSwitch, &SwitchWidget::checkedChanegd, this, &VpnPage::requestVpnEnabled);
 }
 
+VpnPage::~VpnPage()
+{
+    if (!m_editPage.isNull())
+        m_editPage->deleteLater();
+}
+
 void VpnPage::setModel(NetworkModel *model)
 {
     m_model = model;
 
     connect(m_model, &NetworkModel::vpnEnabledChanged, m_vpnSwitch, &SwitchWidget::setChecked);
+    connect(m_model, &NetworkModel::unhandledConnectionSessionCreated, this, &VpnPage::onVpnSessionCreated);
 
     m_vpnSwitch->setChecked(m_model->vpnEnabled());
 
@@ -80,4 +90,23 @@ void VpnPage::onVpnClicked()
     const QString connPath = m_vpns[w].value("Path").toString();
 
     emit requestEditVpn("/", connPath);
+}
+
+void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionPath)
+{
+    Q_ASSERT(device == "/");
+    Q_ASSERT(m_editPage.isNull());
+
+    m_editPage = new ConnectionEditPage;
+
+    ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
+    ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
+
+    m_editPage->setModel(sessionModel);
+    connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
+    connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
+    connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
+    connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &VpnPage::requestNextPage);
+
+    emit requestNextPage(m_editPage);
 }

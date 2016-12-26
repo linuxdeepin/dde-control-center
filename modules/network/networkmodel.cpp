@@ -149,8 +149,7 @@ void NetworkModel::onConnectionSessionCreated(const QString &device, const QStri
         return;
     }
 
-    qWarning() << "session not handled";
-    qWarning() << device << sessionPath;
+    emit unhandledConnectionSessionCreated(device, sessionPath);
 }
 
 void NetworkModel::onDeviceAPListChanged(const QString &device, const QString &apList)
