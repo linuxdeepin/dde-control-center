@@ -55,6 +55,8 @@ Datetime::Datetime()
     connect(m_ntpSwitch, &SwitchWidget::checkedChanegd, this, &Datetime::requestSetNtp);
     connect(m_timePageButton, &NextPageWidget::clicked, this, &Datetime::requestTimeSettings);
     connect(m_addTimezoneButton, &QPushButton::clicked, m_dialog, &TimeZoneChooser::show);
+
+    connect(m_headItem, &SettingsHead::editChanged, this, &Datetime::onEditClicked);
 }
 
 Datetime::~Datetime()
@@ -81,13 +83,6 @@ void Datetime::addTimezone(const ZoneInfo &zone)
 
     TimezoneItem* item = new TimezoneItem;
 
-    connect(m_headItem, &SettingsHead::editChanged, [this, item] (bool edit) {
-        if (edit)  {
-            item->toRemoveMode();
-        } else {
-            item->toNormalMode();
-        }
-    });
     connect(item, &TimezoneItem::removeClicked, [this, item] {
         item->setVisible(false);
         m_headItem->setEditEnable(false);
@@ -120,11 +115,27 @@ void Datetime::removeTimezone(const ZoneInfo &zone)
             item->setVisible(false);
             m_timezoneGroup->removeItem(item);
             item->deleteLater();
+        } else {
+            item->toNormalMode();
         }
     }
 
-    if (items.length() <= 1) {
-        m_headItem->setEditEnable(false);
+    m_headItem->blockSignals(true);
+    m_headItem->initStatus();
+    m_headItem->blockSignals(false);
+
+    m_headItem->setEditEnable(items.length() > 1);
+}
+
+void Datetime::onEditClicked(const bool &edit)
+{
+    QList<TimezoneItem*> items = findChildren<TimezoneItem*>();
+    for (TimezoneItem *item : items) {
+        if (edit) {
+            item->toRemoveMode();
+        } else {
+            item->toNormalMode();
+        }
     }
 }
 

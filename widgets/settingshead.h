@@ -14,6 +14,7 @@ class SettingsHead : public SettingsItem
 
 public:
     explicit SettingsHead(QFrame *parent = 0);
+
     void setTitle(const QString& title);
     void setEditEnable(bool state);
 

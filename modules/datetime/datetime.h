@@ -49,6 +49,9 @@ public slots:
     void addTimezones(const QList<ZoneInfo> &zones);
     void removeTimezone(const ZoneInfo &zone);
 
+private slots:
+    void onEditClicked(const bool &edit);
+
 private:
     const DatetimeModel *m_model;
 
