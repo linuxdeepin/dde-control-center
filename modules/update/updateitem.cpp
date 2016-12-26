@@ -3,6 +3,7 @@
 #include <QHBoxLayout>
 
 #include "labels/smalllabel.h"
+#include "translucentframe.h"
 
 using namespace dcc::widgets;
 
@@ -16,6 +17,17 @@ UpdateItem::UpdateItem(QFrame *parent)
       m_appVersion(new SmallLabel),
       m_appChangelog(new SmallLabel)
 {
+    TranslucentFrame *iconContainer = new TranslucentFrame;
+    iconContainer->setFixedWidth(36);
+
+    QVBoxLayout *iconLayout = new QVBoxLayout;
+    iconLayout->setMargin(0);
+    iconLayout->setSpacing(0);
+    iconLayout->addSpacing(20);
+    iconLayout->addWidget(m_appIcon, 0, Qt::AlignCenter);
+    iconLayout->addStretch();
+    iconContainer->setLayout(iconLayout);
+
     m_appIcon->setFixedSize(36, 36);
 
     m_appChangelog->setWordWrap(true);
@@ -49,8 +61,7 @@ UpdateItem::UpdateItem(QFrame *parent)
     rightLayout->addStretch();
 
     QHBoxLayout* layout = new QHBoxLayout();
-    layout->addWidget(m_appIcon);
-    layout->setAlignment(m_appIcon, Qt::AlignVCenter);
+    layout->addWidget(iconContainer);
     layout->addSpacing(10);
     layout->addLayout(rightLayout, 1);
 
