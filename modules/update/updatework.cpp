@@ -175,11 +175,15 @@ void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
             QFutureWatcher<DownloadInfo*> *watcher = new QFutureWatcher<DownloadInfo*>(this);
             connect(watcher, &QFutureWatcher<DownloadInfo*>::finished, [this, watcher] {
                 DownloadInfo *result = watcher->result();
-                if (result->downloadSize()) {
-                    m_model->setDownloadInfo(result);
-                    m_model->setStatus(UpdatesStatus::UpdatesAvailable);
+                if (result->appInfos().length() == 0) {
+                    m_model->setStatus(UpdatesStatus::Updated);
                 } else {
-                    m_model->setStatus(UpdatesStatus::Downloaded);
+                    if (result->downloadSize()) {
+                        m_model->setDownloadInfo(result);
+                        m_model->setStatus(UpdatesStatus::UpdatesAvailable);
+                    } else {
+                        m_model->setStatus(UpdatesStatus::Downloaded);
+                    }
                 }
             });
 

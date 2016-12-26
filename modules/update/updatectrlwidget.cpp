@@ -31,7 +31,6 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     layout->setSpacing(3);
 
     m_checkGroup->setVisible(false);
-    m_checkUpdateItem->setMessage(tr("Checking for updates, please wait..."));
     m_checkGroup->appendItem(m_checkUpdateItem);
 
     m_progress->setVisible(false);
@@ -100,46 +99,51 @@ void UpdateCtrlWidget::onProgressBarClicked()
 
 void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 {
-    if (m_status != status) {
-        m_status = status;
-
-        switch (status) {
-        case UpdatesStatus::Checking:
-            m_checkGroup->setVisible(true);
-            m_progress->setVisible(false);
-            m_summaryGroup->setVisible(false);
-            break;
-        case UpdatesStatus::UpdatesAvailable:
-            m_checkGroup->setVisible(false);
-            m_progress->setVisible(true);
-            m_summaryGroup->setVisible(true);
-            m_progress->setMessage(tr("Download Updates"));
-            setDownloadInfo(m_model->downloadInfo());
-            break;
-        case UpdatesStatus::Downloading:
-            m_checkGroup->setVisible(false);
-            m_progress->setVisible(true);
-            m_summaryGroup->setVisible(true);
-            m_progress->setValue(0);
-            m_progress->setMessage(tr("%1 downloaded (Click to pause)").arg(m_progress->text()));
-            break;
-        case UpdatesStatus::DownloadPaused:
-            m_checkGroup->setVisible(false);
-            m_progress->setVisible(true);
-            m_summaryGroup->setVisible(true);
-            m_progress->setMessage(tr("%1 downloaded (Click to continue)").arg(m_progress->text()));
-            break;
-        case UpdatesStatus::Downloaded:
-            m_checkGroup->setVisible(false);
-            m_progress->setVisible(true);
-            m_summaryGroup->setVisible(false);
-            m_progress->setMessage(tr("Restart to install updates"));
-            m_summary->setTitle(tr("Download completed"));
-            setLowBattery(m_model->lowBattery());
-            break;
-        default:
-            qWarning() << "unknown status!!!";
-        }
+    switch (status) {
+    case UpdatesStatus::Checking:
+        m_checkGroup->setVisible(true);
+        m_progress->setVisible(false);
+        m_summaryGroup->setVisible(false);
+        m_checkUpdateItem->setIndicatorVisible(true);
+        m_checkUpdateItem->setMessage(tr("Checking for updates, please wait..."));
+        break;
+    case UpdatesStatus::UpdatesAvailable:
+        m_checkGroup->setVisible(false);
+        m_progress->setVisible(true);
+        m_summaryGroup->setVisible(true);
+        m_progress->setMessage(tr("Download Updates"));
+        setDownloadInfo(m_model->downloadInfo());
+        break;
+    case UpdatesStatus::Downloading:
+        m_checkGroup->setVisible(false);
+        m_progress->setVisible(true);
+        m_summaryGroup->setVisible(true);
+        m_progress->setValue(0);
+        m_progress->setMessage(tr("%1 downloaded (Click to pause)").arg(m_progress->text()));
+        break;
+    case UpdatesStatus::DownloadPaused:
+        m_checkGroup->setVisible(false);
+        m_progress->setVisible(true);
+        m_summaryGroup->setVisible(true);
+        m_progress->setMessage(tr("%1 downloaded (Click to continue)").arg(m_progress->text()));
+        break;
+    case UpdatesStatus::Downloaded:
+        m_checkGroup->setVisible(false);
+        m_progress->setVisible(true);
+        m_summaryGroup->setVisible(false);
+        m_progress->setMessage(tr("Restart to install updates"));
+        m_summary->setTitle(tr("Download completed"));
+        setLowBattery(m_model->lowBattery());
+        break;
+    case UpdatesStatus::Updated:
+        m_checkGroup->setVisible(true);
+        m_progress->setVisible(false);
+        m_summaryGroup->setVisible(false);
+        m_checkUpdateItem->setMessage(tr("Your system is up to date"));
+        m_checkUpdateItem->setIndicatorVisible(false);
+        break;
+    default:
+        qWarning() << "unknown status!!!";
     }
 }
 
