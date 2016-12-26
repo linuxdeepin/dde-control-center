@@ -26,7 +26,7 @@ SOURCES += \
     $$PWD/model/mousemodelmousesettings.cpp \
     $$PWD/model/mousemodelthinkpadsettings.cpp
 
-INCLUDEPATH += $$PWD/..
+#INCLUDEPATH += $$PWD/..
 
 RESOURCES += \
     $$PWD/mouse.qrc

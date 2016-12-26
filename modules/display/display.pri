@@ -30,7 +30,7 @@ SOURCES += \
     $$PWD/monitorsground.cpp \
     $$PWD/monitorproxywidget.cpp
 
-INCLUDEPATH += $$PWD/..
+#INCLUDEPATH += $$PWD/..
 
 RESOURCES += \
     $$PWD/display.qrc

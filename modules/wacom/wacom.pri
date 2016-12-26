@@ -14,7 +14,7 @@ SOURCES += \
     $$PWD/model/wacommodelbase.cpp \
     $$PWD/widget/wacomsettings.cpp
 
-INCLUDEPATH += $$PWD/..
+#INCLUDEPATH += $$PWD/..
 
 RESOURCES += \
     $$PWD/wacom.qrc

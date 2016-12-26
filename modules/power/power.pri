@@ -1,6 +1,6 @@
 
 
-INCLUDEPATH += $$PWD/..
+#INCLUDEPATH += $$PWD/..
 
 HEADERS += \
     $$PWD/powermodule.h \

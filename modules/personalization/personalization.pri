@@ -32,7 +32,7 @@ SOURCES += \
     $$PWD/widget/fontitem.cpp \
     $$PWD/widget/themeitempic.cpp
 
-INCLUDEPATH += $$PWD/..
+#INCLUDEPATH += $$PWD/..
 
 RESOURCES += \
     $$PWD/personalization.qrc

@@ -28,7 +28,7 @@ SOURCES += \
     $$PWD/removeuserdialog.cpp \
     $$PWD/useroptionitem.cpp
 
-INCLUDEPATH += $$PWD/..
+#INCLUDEPATH += $$PWD/..
 
 RESOURCES += \
     $$PWD/accounts.qrc

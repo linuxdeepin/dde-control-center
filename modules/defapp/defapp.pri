@@ -22,7 +22,7 @@ SOURCES += \
     $$PWD/widgets/optionwidget.cpp \
     $$PWD/model/category.cpp
 
-INCLUDEPATH += $$PWD/..
+#INCLUDEPATH += $$PWD/..
 
 RESOURCES += \
     $$PWD/defapp.qrc

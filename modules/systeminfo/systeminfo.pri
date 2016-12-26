@@ -1,6 +1,6 @@
 
 
-INCLUDEPATH += $$PWD/..
+#INCLUDEPATH += $$PWD/..
 
 RESOURCES += \
     $$PWD/systeminfo.qrc
