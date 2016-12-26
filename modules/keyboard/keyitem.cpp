@@ -117,12 +117,12 @@ void KeyItem::deleteItems()
 
 void KeyItem::paint(QPainter *painter, const QRect &rect)
 {
-//    QFont font = painter->font();
-//    QPen pen = painter->pen();
+    QFont font = painter->font();
+    QPen pen = painter->pen();
     painter->setRenderHint(QPainter::Antialiasing);
-//    pen.setBrush(Qt::white);
-//    painter->setPen(pen);
-//    font.setPixelSize(12);
+    pen.setBrush(Qt::white);
+    painter->setPen(pen);
+    font.setPixelSize(10);
     int height = (rect.height() - 10)/6;
     int count = (m_row == 0) ? 14 :(16- (m_row == 1 ? 2 : m_row));
     int width;
@@ -270,7 +270,7 @@ void KeyItem::paint(QPainter *painter, const QRect &rect)
         }
 //        painter->fillRect(m_rect, QColor(qrand()%255,qrand()%255,qrand()%255));
     }
-//    painter->setFont(font);
+    painter->setFont(font);
     painter->drawText(m_rect,Qt::AlignCenter, m_mainKey);
 
     if(m_press && (m_keycode != 108 && m_keycode != 62))

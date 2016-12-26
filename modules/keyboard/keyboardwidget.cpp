@@ -25,7 +25,7 @@ KeyboardWidget::KeyboardWidget()
     m_timer->setSingleShot(true);
 
     SettingsGroup *keyTest = new SettingsGroup();
-    TitledSliderItem* delayItem =  new TitledSliderItem(tr("重复延迟时间"));
+    TitledSliderItem* delayItem =  new TitledSliderItem(tr("Repeat Delay"));
     m_delaySlider = delayItem->slider();
     m_delaySlider->setType(DCCSlider::Vernier);
     m_delaySlider->setOrientation(Qt::Horizontal);
@@ -33,11 +33,11 @@ KeyboardWidget::KeyboardWidget()
     m_delaySlider->setTickInterval(580/6);
     m_delaySlider->setTickPosition(QSlider::TicksBelow);
     QStringList delays;
-    delays<<tr("短")<<""<<""<<""<<""<<""<<tr("长");
+    delays<<tr("Short")<<""<<""<<""<<""<<""<<tr("Long");
     delayItem->setAnnotations(delays);
     keyTest->appendItem(delayItem);
 
-    TitledSliderItem* speedItem =  new TitledSliderItem(tr("重复速度"));
+    TitledSliderItem* speedItem =  new TitledSliderItem(tr("Repeat Rate"));
     speedItem->setFixedHeight(speedItem->height() + 30);
     m_speedSlider = speedItem->slider();
     m_speedSlider->setType(DCCSlider::Vernier);
@@ -46,7 +46,7 @@ KeyboardWidget::KeyboardWidget()
     m_speedSlider->setTickInterval((1000-200)/6);
     m_speedSlider->setTickPosition(QSlider::TicksBelow);
     QStringList speeds;
-    speeds<<tr("慢")<<""<<""<<""<<""<<""<<tr("快");
+    speeds<<tr("Slow")<<""<<""<<""<<""<<""<<tr("Fast");
     speedItem->setAnnotations(speeds);
     SearchInput* testArea = new SearchInput();
     testArea->setFixedWidth(200);
@@ -58,7 +58,7 @@ KeyboardWidget::KeyboardWidget()
     keyTest->appendItem(speedItem);
 
     m_upper = new SwitchWidget();
-    m_upper->setTitle(tr("大写键提示"));
+    m_upper->setTitle(tr("Caps Lock Prompt"));
     keyTest->appendItem(m_upper);
 
     SettingsGroup* keyGroup = new SettingsGroup();

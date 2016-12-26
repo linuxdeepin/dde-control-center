@@ -18,6 +18,7 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     :ContentWidget(parent),
       textLength(0)
 {
+    setTitle(tr("Add Keyboard Layout"));
     TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);

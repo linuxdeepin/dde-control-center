@@ -22,6 +22,7 @@ KeyboardDetails::KeyboardDetails(QWidget *parent)
     m_group = new SettingsGroup();
     m_head = new SettingsHead();
     m_head->setTitle(tr("Keyboard Layout"));
+    setTitle(tr("Keyboard Layout"));
 
     m_group->appendItem(m_head);
 

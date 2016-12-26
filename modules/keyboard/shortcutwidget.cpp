@@ -24,8 +24,8 @@ ShortcutWidget::ShortcutWidget(QWidget *parent)
     m_widget = new TranslucentFrame();
     m_searchText = QString();
 
-    m_systemGroup = new SettingsGroup();
-    m_windowGroup = new SettingsGroup();
+    m_systemGroup = new SettingsGroup(tr("System"));
+    m_windowGroup = new SettingsGroup(tr("Window"));
     m_workspaceGroup = new SettingsGroup();
     m_custonGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
@@ -48,6 +48,7 @@ ShortcutWidget::ShortcutWidget(QWidget *parent)
     connect(m_addCustom, SIGNAL(clicked()), this, SIGNAL(customShortcut()));
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
     connect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
+    setTitle(tr("Shortcuts"));
 }
 
 void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutWidget::InfoType type)

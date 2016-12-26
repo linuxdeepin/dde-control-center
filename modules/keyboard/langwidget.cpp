@@ -17,6 +17,7 @@ namespace keyboard{
 LangWidget::LangWidget(QWidget *parent)
     :ContentWidget(parent)
 {
+    setTitle(tr("System Language"));
     TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);

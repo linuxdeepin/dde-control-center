@@ -15,6 +15,7 @@ CustomContent::CustomContent(KeyboardWork* work, QWidget *parent)
     :ContentWidget(parent),
       m_work(work)
 {
+    setTitle(tr("Shortcuts"));
     TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);

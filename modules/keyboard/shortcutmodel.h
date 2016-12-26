@@ -1,6 +1,8 @@
 #ifndef SHORTCUTMODEL_H
 #define SHORTCUTMODEL_H
 
+#define MEDIAKEY 2
+
 #include <QObject>
 
 namespace dcc {

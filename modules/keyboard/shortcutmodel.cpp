@@ -101,30 +101,33 @@ void ShortcutModel::onParseInfo(const QString &info)
         ShortcutInfo *info = new ShortcutInfo();
 
         QJsonObject obj = value.toObject();
-        info->type = obj["Type"].toInt();
-        QString accels = obj["Accels"].toArray().at(0).toString();
-        if(accels.isEmpty())
-            accels = tr("None");
-        info->accels = accels;
+        int type = obj["Type"].toInt();
+        if (type != MEDIAKEY) {
+            info->type = type;
+            QString accels = obj["Accels"].toArray().at(0).toString();
+            if(accels.isEmpty())
+                accels = tr("None");
+            info->accels = accels;
 
-        info->name = obj["Name"].toString();
-        info->id = obj["Id"].toString();
-        m_infos.append(info);
-        if(systemFilter.contains(info->id))
-        {
-            m_systemInfos.append(info);
-        }
-        else if(windowFilter.contains(info->id))
-        {
-            m_windowInfos.append(info);
-        }
-        else if(workspaceFilter.contains(info->id))
-        {
-            m_workspaceInfos.append(info);
-        }
-        else if(info->type == 1)
-        {
-            m_customInfos.append(info);
+            info->name = obj["Name"].toString();
+            info->id = obj["Id"].toString();
+            m_infos.append(info);
+            if(systemFilter.contains(info->id))
+            {
+                m_systemInfos.append(info);
+            }
+            else if(windowFilter.contains(info->id))
+            {
+                m_windowInfos.append(info);
+            }
+            else if(workspaceFilter.contains(info->id))
+            {
+                m_workspaceInfos.append(info);
+            }
+            else if(info->type == 1)
+            {
+                m_customInfos.append(info);
+            }
         }
     }
     emit parseFinish();
