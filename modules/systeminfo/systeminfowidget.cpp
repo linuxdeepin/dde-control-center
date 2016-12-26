@@ -29,7 +29,7 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
 
     m_type = new TitleValueItem();
     m_type->setTitle(tr("Type:"));
-    m_type->setValue(m_model->type());
+    m_type->setValue(tr("%1Bit").arg(m_model->type()));
 
     m_processor = new TitleValueItem();
     m_processor->setTitle(tr("Processor:"));
