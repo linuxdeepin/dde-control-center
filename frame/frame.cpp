@@ -5,9 +5,6 @@
 #include <QKeyEvent>
 #include <QScreen>
 
-#define BUTTON_LEFT 1
-#define FRAME_WIDTH 360
-
 Frame::Frame(QWidget *parent)
     : BlurredFrame(parent),
 
@@ -80,7 +77,7 @@ void Frame::init()
     onScreenRectChanged(m_primaryRect);
 
 #ifdef QT_DEBUG
-    showSettingsPage("network", QString());
+//    showSettingsPage("network", QString());
 #endif
 }
 

@@ -31,7 +31,8 @@ MainWidget::MainWidget(Frame *parent)
       m_currentDateLbl(new QLabel),
       m_pluginsLayout(new QHBoxLayout),
       m_pluginsIndicator(new DPageIndicator),
-      m_nextPluginBtn(new QPushButton),
+      m_nextPluginBtn(new Dtk::Widget::DImageButton),
+      m_prevPluginBtn(new Dtk::Widget::DImageButton),
       m_quickSettingsPanel(new QuickControlPanel)
 {
     // TODO: get dbus data
@@ -56,7 +57,8 @@ MainWidget::MainWidget(Frame *parent)
     m_timeRefersh->setSingleShot(false);
     m_timeRefersh->start();
 
-    m_nextPluginBtn->setText("Next");
+    m_prevPluginBtn->setObjectName("PrevBtn");
+    m_nextPluginBtn->setObjectName("NextBtn");
 
     m_currentTimeLbl->setStyleSheet("QLabel {"
                                     "color: white;"
@@ -70,6 +72,13 @@ MainWidget::MainWidget(Frame *parent)
     m_pluginsIndicator->setFixedHeight(20);
     m_pluginsIndicator->setPageCount(2);
     m_pluginsIndicator->setCurrentPage(0);
+    m_pluginsIndicator->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
+    QHBoxLayout *indicatorLayout = new QHBoxLayout;
+    indicatorLayout->addWidget(m_prevPluginBtn);
+    indicatorLayout->addWidget(m_pluginsIndicator);
+    indicatorLayout->addWidget(m_nextPluginBtn);
+    indicatorLayout->setContentsMargins(10, 0, 10, 0);
 
     QVBoxLayout *timedateLayout = new QVBoxLayout;
     timedateLayout->addWidget(m_currentTimeLbl);
@@ -86,15 +95,15 @@ MainWidget::MainWidget(Frame *parent)
     QVBoxLayout *centeralLayout = static_cast<QVBoxLayout *>(layout());
     centeralLayout->addLayout(headerLayout);
     centeralLayout->addLayout(m_pluginsLayout);
-    centeralLayout->addWidget(m_pluginsIndicator);
-    centeralLayout->addWidget(m_nextPluginBtn);
+    centeralLayout->addLayout(indicatorLayout);
     centeralLayout->addStretch();
     centeralLayout->addWidget(m_quickSettingsPanel);
     centeralLayout->setSpacing(0);
     centeralLayout->setMargin(0);
 
     connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded);
-    connect(m_nextPluginBtn, &QPushButton::clicked, this, &MainWidget::showNextPlugin);
+    connect(m_prevPluginBtn, &DImageButton::clicked, this, &MainWidget::showPrevPlugin);
+    connect(m_nextPluginBtn, &DImageButton::clicked, this, &MainWidget::showNextPlugin);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestDetailConfig, this, &MainWidget::showAllSettings);
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
 
@@ -127,6 +136,19 @@ void MainWidget::showNextPlugin()
         showPlugin(item->widget());
     else
         showPlugin(m_pluginsLayout->itemAt(0)->widget());
+}
+
+void MainWidget::showPrevPlugin()
+{
+    m_pluginsIndicator->previousPage();
+
+    const int index = m_pluginsLayout->indexOf(m_lastPluginWidget);
+    const int count = m_pluginsLayout->count();
+
+    if (index == 0)
+        showPlugin(m_pluginsLayout->itemAt(count - 1)->widget());
+    else
+        showPlugin(m_pluginsLayout->itemAt(index - 1)->widget());
 }
 
 void MainWidget::refershTimedate()

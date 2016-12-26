@@ -21,7 +21,8 @@ FrameWidget::FrameWidget(Frame *parent)
     setLayout(centeralLayout);
 
     parent->installEventFilter(this);
-    setFixedSize(parent->size());
+    setFixedHeight(parent->size().height());
+    setFixedWidth(FRAME_WIDTH);
 }
 
 QWidget *FrameWidget::setContent(QWidget * const c)
@@ -91,7 +92,7 @@ int FrameWidget::animationDuration() const
 bool FrameWidget::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched == parent() && event->type() == QEvent::Resize)
-        setFixedSize(static_cast<QResizeEvent *>(event)->size());
+        setFixedHeight(static_cast<QResizeEvent *>(event)->size().height());
 
     return false;
 }

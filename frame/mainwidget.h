@@ -34,6 +34,7 @@ private:
 private slots:
     void pluginAdded(QWidget * const w);
     void showNextPlugin();
+    void showPrevPlugin();
     void refershTimedate();
 
 private:
@@ -48,7 +49,8 @@ private:
     QLabel *m_currentDateLbl;
     QHBoxLayout *m_pluginsLayout;
     Dtk::Widget::DPageIndicator *m_pluginsIndicator;
-    QPushButton *m_nextPluginBtn;
+    Dtk::Widget::DImageButton *m_nextPluginBtn;
+    Dtk::Widget::DImageButton *m_prevPluginBtn;
     QuickControlPanel *m_quickSettingsPanel;
 };
 

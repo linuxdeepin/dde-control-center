@@ -14,6 +14,9 @@
 
 #include "blurredframe.h"
 
+#define BUTTON_LEFT 1
+#define FRAME_WIDTH 360
+
 using XMouseArea = com::deepin::api::XMouseArea;
 using DBusDisplay = com::deepin::daemon::Display;
 
