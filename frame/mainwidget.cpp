@@ -46,6 +46,7 @@ MainWidget::MainWidget(Frame *parent)
             m_userAvatarBtn = new AvatarWidget(inter->iconFile());
 
             connect(inter, &UserInter::IconFileChanged, m_userAvatarBtn, &AvatarWidget::setAvatarPath);
+            connect(m_userAvatarBtn, &AvatarWidget::clicked, this, &MainWidget::showAccountsModule);
 
             // keep pointer
             break;
@@ -157,4 +158,9 @@ void MainWidget::refershTimedate()
 
     m_currentTimeLbl->setText(tm.toString("HH:mm"));
     m_currentDateLbl->setText(tm.toString(Qt::SystemLocaleShortDate));
+}
+
+void MainWidget::showAccountsModule()
+{
+    emit showSettingPage("accounts", QString());
 }

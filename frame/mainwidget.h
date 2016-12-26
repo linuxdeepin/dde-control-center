@@ -27,6 +27,7 @@ public:
 
 signals:
     void showAllSettings() const;
+    void showSettingPage(const QString &module, const QString &page);
 
 private:
     void showPlugin(QWidget * const w);
@@ -36,6 +37,7 @@ private slots:
     void showNextPlugin();
     void showPrevPlugin();
     void refershTimedate();
+    void showAccountsModule();
 
 private:
     PluginsController *m_pluginsController;

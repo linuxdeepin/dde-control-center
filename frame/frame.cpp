@@ -71,6 +71,7 @@ void Frame::init()
     // main page
     MainWidget *w = new MainWidget(this);
     connect(w, &MainWidget::showAllSettings, this, &Frame::showAllSettings);
+    connect(w, &MainWidget::showSettingPage, this, &Frame::showSettingsPage);
     m_frameWidgetStack.push(w);
 
     // frame position adjust
@@ -112,7 +113,7 @@ void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
     // show specificed page
     m_allSettingsPage->showModulePage(moduleName, pageName);
 
-    if (m_appearAnimation.startValue().toRect().width() == 0)
+    if (m_appearAnimation.startValue().toRect().width() != 0)
         show();
 }
 
