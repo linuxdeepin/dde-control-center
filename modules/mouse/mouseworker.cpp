@@ -23,6 +23,15 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
     connect(m_dbusTouchPad, &TouchPad::MotionAccelerationChanged, this, &MouseWorker::setTouchpadMotionAcceleration);
     connect(m_dbusTouchPad, &TouchPad::TapClickChanged, this, &MouseWorker::setTapClick);
     connect(m_dbusTrackPoint, &TrackPoint::MotionAccelerationChanged, this, &MouseWorker::setTrackPointMotionAcceleration);
+
+    MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
+    connect(m_dbusMouse, &Mouse::ExistChanged, modelMouse, &MouseModelMouseSettings::setExist);
+
+    MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
+    connect(m_dbusTouchPad, &TouchPad::ExistChanged, modelTouch, &MouseModelMouseSettings::setExist);
+
+    MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
+    connect(m_dbusTrackPoint, &TrackPoint::ExistChanged, modelTrack, &MouseModelThinkpadSettings::setExist);
 }
 
 void MouseWorker::active()
@@ -41,18 +50,15 @@ void MouseWorker::active()
     modelMouse->setSliderValue(converToModelMotionAcceleration(m_dbusMouse->motionAcceleration()));
     modelMouse->setSwitchState(m_dbusMouse->disableTpad());
     modelBase->setExist(m_dbusMouse->exist());
-    connect(m_dbusMouse, &Mouse::ExistChanged, modelMouse, &MouseModelMouseSettings::setExist);
 
     MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
     modelTouch->setSliderValue(converToModelMotionAcceleration(m_dbusTouchPad->motionAcceleration()));
     modelTouch->setSwitchState(m_dbusTouchPad->tapClick());
     modelTouch->setExist(m_dbusTouchPad->exist());
-    connect(m_dbusTouchPad, &TouchPad::ExistChanged, modelTouch, &MouseModelMouseSettings::setExist);
 
     MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
     modelTrack->setSliderValue(converToModelMotionAcceleration(m_dbusTrackPoint->motionAcceleration()));
     modelTrack->setExist(m_dbusTrackPoint->exist());
-    connect(m_dbusTrackPoint, &TrackPoint::ExistChanged, modelTrack, &MouseModelThinkpadSettings::setExist);
 }
 
 void MouseWorker::deactive()
@@ -177,7 +183,7 @@ int MouseWorker::converToDouble(int value)
 
 int MouseWorker::converToDoubleModel(int value)
 {
-    return (800 - value )/100;
+    return (800 - value) / 100;
 }
 //conver slider value to real value
 double MouseWorker::converToMotionAcceleration(int value)

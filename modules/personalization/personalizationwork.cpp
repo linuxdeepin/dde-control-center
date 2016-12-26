@@ -14,8 +14,6 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
       m_model(model),
       m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus(), this))
 {
-    active();
-
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();
     ThemeModel *iconTheme        = m_model->getIconModel();
@@ -35,19 +33,25 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     setList("standardfont", m_dbus->List("standardfont"));
     setList("monospacefont", m_dbus->List("monospacefont"));
 
-    windowTheme->setDefault(m_dbus->gtkTheme());
-    iconTheme->setDefault(m_dbus->iconTheme());
-    cursorTheme->setDefault(m_dbus->cursorTheme());
-    fontMono->setFontName(m_dbus->monospaceFont());
-    fontStand->setFontName(m_dbus->standardFont());
-    FontSizeChanged(m_dbus->fontSize());
-
     m_dbus->setSync(false);
 }
 
 void PersonalizationWork::active()
 {
     m_dbus->blockSignals(false);
+
+    ThemeModel *cursorTheme      = m_model->getMouseModel();
+    ThemeModel *windowTheme      = m_model->getWindowModel();
+    ThemeModel *iconTheme        = m_model->getIconModel();
+    FontModel *fontMono          = m_model->getMonoFontModel();
+    FontModel *fontStand         = m_model->getStandFontModel();
+
+    windowTheme->setDefault(m_dbus->gtkTheme());
+    iconTheme->setDefault(m_dbus->iconTheme());
+    cursorTheme->setDefault(m_dbus->cursorTheme());
+    fontMono->setFontName(m_dbus->monospaceFont());
+    fontStand->setFontName(m_dbus->standardFont());
+    FontSizeChanged(m_dbus->fontSize());
 }
 
 void PersonalizationWork::deactive()
