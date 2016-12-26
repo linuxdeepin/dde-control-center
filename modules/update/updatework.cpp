@@ -341,9 +341,10 @@ QList<AppUpdateInfo> UpdateWork::getInfoList()
             // then fake one dde update item.
             AppUpdateInfo ddeUpdateInfo = getInfo("dde", "", "");
             ddeUpdateInfo.m_name = "Deepin";
+            ddeUpdateInfo.m_packageId = "dde";
             ddeUpdateInfo.m_avilableVersion = tr("Patches");
             if(ddeUpdateInfo.m_changelog.isEmpty())
-                ddeUpdateInfo.m_changelog = tr("Default Changelog");
+                ddeUpdateInfo.m_changelog = tr("System patches.");
             infos.prepend(ddeUpdateInfo);
         }
     }

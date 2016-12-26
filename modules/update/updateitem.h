@@ -4,15 +4,20 @@
 #include "settingsitem.h"
 
 #include <types/appupdateinfolist.h>
+
 #include <QLabel>
 #include <QPushButton>
 
-using namespace dcc::widgets;
+namespace dcc {
+namespace widgets {
+class SmallLabel;
+}
+}
 
 namespace dcc{
 namespace update{
 
-class UpdateItem : public SettingsItem
+class UpdateItem : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
 
@@ -25,10 +30,10 @@ public:
     int changelogLines() const;
 
 private:
-    QLabel* m_appIcon;
-    QLabel* m_appName;
-    QLabel* m_appVersion;
-    QLabel* m_appChangelog;
+    dcc::widgets::SmallLabel *m_appIcon;
+    dcc::widgets::SmallLabel *m_appName;
+    dcc::widgets::SmallLabel *m_appVersion;
+    dcc::widgets::SmallLabel *m_appChangelog;
 
     QPushButton* m_details;
 

@@ -1,73 +1,91 @@
 #include "updateitem.h"
+
 #include <QHBoxLayout>
+
+#include "labels/smalllabel.h"
+
+using namespace dcc::widgets;
 
 namespace dcc{
 namespace update{
 
-const int ChangelogLineHeight = 20;
 UpdateItem::UpdateItem(QFrame *parent)
-    :SettingsItem(parent)
+    :SettingsItem(parent),
+      m_appIcon(new SmallLabel),
+      m_appName(new SmallLabel),
+      m_appVersion(new SmallLabel),
+      m_appChangelog(new SmallLabel)
 {
-    m_appIcon = new QLabel();
-    m_appName = new QLabel();
-    m_appVersion = new QLabel();
+    m_appIcon->setFixedSize(36, 36);
 
-    m_appChangelog = new QLabel();
     m_appChangelog->setWordWrap(true);
     m_appChangelog->setAlignment(Qt::AlignTop);
 
-    m_details = new QPushButton();
+    m_details = new QPushButton;
     m_details->setObjectName("DCC-Update-UpdateItem-Details");
     m_details->setText(tr("Details"));
 
-    QHBoxLayout* logLayout = new QHBoxLayout();
-    logLayout->addWidget(m_appChangelog);
-    logLayout->addStretch();
+    QHBoxLayout* logLayout = new QHBoxLayout;
+    logLayout->setMargin(0);
+    logLayout->setSpacing(0);
+    logLayout->addWidget(m_appChangelog, 1);
     logLayout->addWidget(m_details);
 
-    QVBoxLayout* rightLayout = new QVBoxLayout();
+    QHBoxLayout *nameLayout = new QHBoxLayout;
+    nameLayout->setMargin(0);
+    nameLayout->setSpacing(0);
+    nameLayout->addWidget(m_appName);
+    nameLayout->addSpacing(4);
+    nameLayout->addWidget(m_appVersion);
+    nameLayout->addStretch();
+
+    QVBoxLayout* rightLayout = new QVBoxLayout;
+    rightLayout->setMargin(0);
     rightLayout->setSpacing(0);
-    rightLayout->addWidget(m_appName);
-    rightLayout->addWidget(m_appVersion);
+    rightLayout->addStretch();
+    rightLayout->addLayout(nameLayout);
+    rightLayout->addSpacing(4);
     rightLayout->addLayout(logLayout);
+    rightLayout->addStretch();
 
     QHBoxLayout* layout = new QHBoxLayout();
     layout->addWidget(m_appIcon);
-    layout->setAlignment(m_appIcon, Qt::AlignCenter);
-    layout->addLayout(rightLayout);
+    layout->setAlignment(m_appIcon, Qt::AlignVCenter);
+    layout->addSpacing(10);
+    layout->addLayout(rightLayout, 1);
 
     setLayout(layout);
 
     connect(m_details, &QPushButton::clicked, [this] {
-        int lines = changelogLines();
-        int expandHeight = (lines - 2)*20;
+        const int lines = changelogLines();
+        const int expandHeight = (lines - 2) * 20;
+
         m_appChangelog->setText(m_info.m_changelog);
         m_appChangelog->setFixedHeight(m_appChangelog->height() + expandHeight);
+
         setFixedHeight(height() + expandHeight + 5);
+
         m_details->hide();
-        qDebug()<<Q_FUNC_INFO<<height();
      });
 }
 
 void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 {
     m_info = info;
-    QPixmap pix(m_info.m_icon);
+
+    QPixmap pix = QPixmap(m_info.m_icon).scaled(m_appIcon->size());
     m_appIcon->setPixmap(pix);
-    m_appName->setText(info.m_name);
-    m_appVersion->setText(info.m_avilableVersion);
-    if(!info.m_changelog.isEmpty())
-    {
+
+    m_appName->setText(info.m_name.trimmed());
+    m_appVersion->setText(info.m_avilableVersion.trimmed());
+
+    if(!info.m_changelog.isEmpty()) {
         setFixedHeight(80);
         m_appChangelog->setText(elideChangelog());
-    }
-    else
-    {
+    } else {
         setFixedHeight(50);
         m_details->hide();
     }
-    if(info.m_name == "Deepin")
-        m_details->setVisible(info.m_changelog != tr("Default Changelog"));
 }
 
 QString UpdateItem::elideChangelog() const
@@ -75,7 +93,7 @@ QString UpdateItem::elideChangelog() const
     const QString text = m_info.m_changelog;
 
     const QFontMetrics fm(m_appChangelog->font());
-    const QRect rect(0, 0, 200, ChangelogLineHeight * 2);
+    const QRect rect(0, 0, 200, fm.height() * 2);
     const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
 
     if (rect.contains(fm.boundingRect(rect, textFlag, text)))
@@ -101,9 +119,10 @@ QString UpdateItem::elideChangelog() const
 int UpdateItem::changelogLines() const
 {
     const QString text = m_info.m_changelog;
-
-    QRect rect(0, 0, 240, ChangelogLineHeight * 2);
     const QFontMetrics fm(m_appChangelog->font());
+    const int changelogLineHeight = fm.height();
+
+    QRect rect(0, 0, 240, changelogLineHeight * 2);
     const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
 
     while (true)
@@ -112,10 +131,10 @@ int UpdateItem::changelogLines() const
         if (rect.contains(boundingRect))
             break;
 
-        rect.setHeight(rect.height() + ChangelogLineHeight);
+        rect.setHeight(rect.height() + changelogLineHeight);
     }
 
-    return rect.height() / ChangelogLineHeight;
+    return rect.height() / changelogLineHeight;
 }
 
 }

@@ -159,8 +159,15 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
     const QList<AppUpdateInfo> &apps = downloadInfo->appInfos();
     const qlonglong downloadSize = downloadInfo->downloadSize();
 
+    int appCount = apps.length();
+    for (const AppUpdateInfo &info : apps) {
+        if (info.m_packageId == "dde") {
+            appCount--;
+        }
+    }
+
     m_progress->setMessage(tr("Download Updates"));
-    m_summary->setTitle(tr("New system edition and %1 application updates detected").arg(apps.length()));
+    m_summary->setTitle(tr("New system edition and %1 application updates detected").arg(appCount));
     m_summary->setDetails(QString(tr("Update size: %1").arg(formatCap(downloadSize, 1000))));
 
     loadAppList(apps);
