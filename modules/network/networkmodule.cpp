@@ -122,6 +122,10 @@ void NetworkModule::showPppPage()
 {
     PppoePage *p = new PppoePage;
 
+    connect(p, &PppoePage::requestCreateConnection, m_networkWorker, &NetworkWorker::createConnection);
+    connect(p, &PppoePage::requestEditConnection, m_networkWorker, &NetworkWorker::queryConnectionSession);
+    connect(p, &PppoePage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
+
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);

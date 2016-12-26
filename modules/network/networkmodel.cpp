@@ -129,9 +129,9 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
     }
 
     // update ppp connection info
-    for (auto *dev : m_devices)
-        if (dev->type() == NetworkDevice::Wired)
-            static_cast<WiredDevice *>(dev)->onPPPInfoChanged(m_connections["pppoe"]);
+//    for (auto *dev : m_devices)
+//        if (dev->type() == NetworkDevice::Wired)
+//            static_cast<WiredDevice *>(dev)->onPPPInfoChanged(m_connections["pppoe"]);
 }
 
 void NetworkModel::onActiveConnectionsChanged(const QString &conns)
