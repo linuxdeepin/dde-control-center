@@ -46,6 +46,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     centeralLayout->addLayout(titleLayout);
     centeralLayout->addSpacing(15);
     centeralLayout->addWidget(new dcc::widgets::HSeparator);
+    centeralLayout->addSpacing(15);
     centeralLayout->addWidget(m_contentArea);
     centeralLayout->setContentsMargins(8, 8, 8, 0);
     centeralLayout->setSpacing(0);

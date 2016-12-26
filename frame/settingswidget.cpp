@@ -41,6 +41,11 @@ SettingsWidget::SettingsWidget(Frame *frame)
       m_moduleLoadDelay(0),
       m_loadFinished(false)
 {
+    // NOTE: 由于控件的统一风格，ContentWidget 这里有个 spacing item，
+    // 但是首页又有神奇的需求不加个这 spacing，所以在这里去掉它
+    // sbw
+    delete layout()->takeAt(3);
+
     m_resetBtn->setText(tr("Reset all settings"));
 
     m_settingsLayout->setSpacing(30);
