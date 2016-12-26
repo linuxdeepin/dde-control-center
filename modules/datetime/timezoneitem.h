@@ -3,7 +3,6 @@
 
 #include "settingsitem.h"
 #include "datetime/clock.h"
-#include "datetime/datetimeutil.h"
 
 #include <QLabel>
 #include <QString>

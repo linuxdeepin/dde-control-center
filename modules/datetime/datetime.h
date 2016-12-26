@@ -3,7 +3,6 @@
 
 #include "datesettings.h"
 #include "contentwidget.h"
-#include "datetimeutil.h"
 
 #include "modulewidget.h"
 #include "settingsgroup.h"

@@ -3,7 +3,6 @@
 #include <QDebug>
 #include <QVBoxLayout>
 
-#include "datetime/datetimeutil.h"
 #include "labels/normallabel.h"
 
 using namespace dcc::widgets;
@@ -53,20 +52,30 @@ void TimezoneItem::setTimeZone(const ZoneInfo &info)
 {
     m_timezone = info;
 
-    DatetimeUtil util;
-    float del = util.hoursBetweenTwoTimeZone(info.getZoneName());
+    const QTimeZone localZone( QTimeZone::systemTimeZone() );
+    const QDateTime localTime( QDateTime::currentDateTime() );
+    const QTimeZone zone(info.getZoneName().toLatin1());
+    const QDateTime utcTime( QDateTime::currentDateTimeUtc() );
 
-    QString str;
-    if(del > 0)
-    {
-        str = tr("比本地快%1个小时").arg(del);
-    }
-    else
-    {
-        str = tr("比本地晚%1个小时").arg(-del);
+    const int timeDelta = (zone.offsetFromUtc(utcTime) - localZone.offsetFromUtc(utcTime)) / 3600;
+
+    QString dateLiteral;
+    if (localTime.time().hour() + timeDelta >= 24) {
+        dateLiteral = tr("Tomorrow");
+    } else if (localTime.time().hour() + timeDelta <= 0) {
+        dateLiteral = tr("Yesterday");
+    } else {
+        dateLiteral = tr("Today");
     }
 
-    m_details->setText(str);
+    QString compareLiteral;
+    if(timeDelta > 0) {
+        compareLiteral = tr("%1 hours earlier than local").arg(timeDelta);
+    } else {
+        compareLiteral = tr("%1 hours late than local").arg(-timeDelta);
+    }
+
+    m_details->setText(QString("%1, %2").arg(dateLiteral).arg(compareLiteral));
     m_city->setText(info.getZoneCity());
     m_clock->setTimeZone(QTimeZone(info.getZoneName().toLatin1()));
 }

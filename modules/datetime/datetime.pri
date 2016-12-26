@@ -2,7 +2,6 @@ include(timezone_dialog.pri)
 
 HEADERS += \
     $$PWD/datetime.h \
-    $$PWD/datetimeutil.h \
     $$PWD/clock.h \
     $$PWD/datesettings.h \
     $$PWD/datetimewidget.h \
@@ -14,7 +13,6 @@ HEADERS += \
 
 SOURCES += \
     $$PWD/datetime.cpp \
-    $$PWD/datetimeutil.cpp \
     $$PWD/clock.cpp \
     $$PWD/datesettings.cpp \
     $$PWD/datetimewidget.cpp \
