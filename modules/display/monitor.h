@@ -1,103 +1,78 @@
-/**
- * Copyright (C) 2015 Deepin Technology Co., Ltd.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- **/
-
 #ifndef MONITOR_H
 #define MONITOR_H
 
-#include <QLabel>
+#include <QObject>
 
-class MonitorInterface;
-class Monitor : public QFrame
+#include <com_deepin_daemon_display_monitor.h>
+
+using MonitorInter = com::deepin::daemon::display::Monitor;
+
+namespace dcc {
+
+namespace display {
+
+class DisplayWorker;
+class Monitor : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QColor dockBgColor READ dockBgColor WRITE setDockBgColor)
-    Q_PROPERTY(QColor childBorderColor READ childBorderColor WRITE setChildBorderColor)
-    Q_PROPERTY(QString name READ name WRITE setName)
-    Q_PROPERTY(Qt::Alignment nameAlignment READ nameAlignment WRITE setNameAlignment)
-    Q_PROPERTY(const Monitor *child READ child)
-    Q_PROPERTY(bool draggable READ draggable WRITE setDraggable)
-    Q_PROPERTY(bool draging READ draging NOTIFY dragingChanged)
-    Q_PROPERTY(bool eyeing READ eyeing NOTIFY eyeingChanged)
-    Q_PROPERTY(bool isPrimary READ isPrimary WRITE setIsPrimary)
+    friend class DisplayWorker;
 
 public:
-    explicit Monitor(MonitorInterface *dbus, QWidget *parent = 0);
+    explicit Monitor(QObject *parent = 0);
 
-    void setName(QString name);
-
-    QRect resolution() const;
-    MonitorInterface *dbusInterface() const;
-    QColor dockBgColor() const;
-    QColor childBorderColor() const;
-    bool draggable() const;
-    QString name() const;
-    Qt::Alignment nameAlignment() const;
-    bool draging() const;
-    bool eyeing() const;
-    bool isPrimary() const;
-    bool hasChanged() const;
-    const Monitor *child() const;
-
-    QRect parentRect() const;
-    void setParentRect(const QRect &rect);
-
-    QPoint mapToRealPoint() const;
-
-public slots:
-    void setResolution(const QRect &rect);
-    void setDockBgColor(QColor dockBgColor);
-    void setChildBorderColor(QColor childBorderColor);
-    void setDraggable(bool draggable);
-    void setAlignment(Qt::Alignment aalignment);
-    void setNameAlignment(Qt::Alignment nameAlignment);
-    void setIsPrimary(bool isPrimary);
-    bool dragEnter(Monitor *e);
-    void dragLeave();
-    bool drop(Monitor *e);
-    Monitor *split();
-    void applyPostion();
-    void resetResolution();
+    inline int x() const { return m_x; }
+    inline int y() const { return m_y; }
+    inline int w() const { return m_w; }
+    inline int h() const { return m_h; }
+    inline bool isPrimary() const { return m_primary; }
+    inline quint16 rotate() const { return m_rotate; }
+    inline double brightness() const { return m_brightness; }
+    inline const QRect rect() const { return QRect(m_x, m_y, m_w, m_h); }
+    inline const QString name() const { return m_name; }
+    inline const Resolution currentMode() const { return m_currentMode; }
+    inline const QList<quint16> rotateList() const { return m_rotateList; }
+    inline const QList<Resolution> modeList() const { return m_modeList; }
 
 signals:
-    void dragingChanged(bool draging);
-    void mousePressed(QPoint pos);
-    void mouseMoveing(QPoint pos);
-    void mouseRelease(QPoint pos);
-    void eyeingChanged(bool eyeing);
-    void resolutionChanged(QRect rect);
+    void geometryChanged() const;
+    void xChanged(const int x) const;
+    void yChanged(const int y) const;
+    void wChanged(const int w) const;
+    void hChanged(const int h) const;
+    void rotateChanged(const quint16 rotate) const;
+    void brightnessChanged(const double brightness) const;
+    void currentModeChanged(const Resolution &resolution) const;
 
-protected:
-    void paintEvent(QPaintEvent *e) Q_DECL_OVERRIDE;
-    void mousePressEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
-    void mouseMoveEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
-    void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
-    void keyPressEvent(QKeyEvent *e) Q_DECL_OVERRIDE;
+private slots:
+    void setX(const int x);
+    void setY(const int y);
+    void setW(const int w);
+    void setH(const int h);
+    void setIsPrimary(const QString &primaryName);
+    void setRotate(const quint16 rotate);
+    void setBrightness(const double brightness);
+    void setName(const QString &name);
+    void setRotateList(const QList<quint16> &rotateList);
+    void setCurrentMode(const Resolution &resolution);
+    void setModeList(const ResolutionList &modeList);
 
 private:
-    MonitorInterface *m_dbusInterface;
-    QColor m_dockBgColor;
-    QColor m_childBorderColor;
-    bool m_draggable;
-    QPoint m_pressPos;
-    QPoint m_oldPos;
+    int m_x;
+    int m_y;
+    int m_w;
+    int m_h;
+    bool m_primary;
+    quint16 m_rotate;
+    double m_brightness;
     QString m_name;
-    Qt::Alignment m_nameAlignment;
-    bool m_draging;
-    bool m_eyeing;
-    bool m_isPrimary;
-    Monitor *m_child;
-    QRect m_parentRect;
-    QRect m_resolution;
-
-    void setDraging(bool arg);
-    void setEyeing(bool arg);
+    Resolution m_currentMode;
+    QList<quint16> m_rotateList;
+    QList<Resolution> m_modeList;
 };
+
+} // namespace display
+
+} // namespace dcc
 
 #endif // MONITOR_H

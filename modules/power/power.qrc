@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/power">
+        <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/nav_power.png</file>
+    </qresource>
+</RCC>

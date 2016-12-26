@@ -1,64 +1,59 @@
-QT += widgets dbus svg
 
-HEADERS    = frame.h \
-    homescreen.h \
-    modulemetadata.h \
-    constants.h \
-    sidebar.h \
-    contentview.h \
-    dtipsframe.h \
-    dbus/dbuscontrolcenter.h \
-    dbus/dbusxmousearea.h \
-    ../modules/display/dbus/displayinterface.h \
-    dbus/dbuscontrolcenterservice.h \
-    pluginsmanager.h \
-    dbus/dbusbluetooth.h \
-    dbus/dbuswacom.h \
-    controlcenterproxy.h \
-    sidebarview.h \
-    sidebarmodel.h \
-    sidebardelegate.h \
-    dbus/dbuslauncher.h
-SOURCES    = frame.cpp \
-             main.cpp \
-    homescreen.cpp \
-    sidebar.cpp \
-    contentview.cpp \
-    dtipsframe.cpp \
-    dbus/dbuscontrolcenter.cpp \
-    dbus/dbusxmousearea.cpp \
-    ../modules/display/dbus/displayinterface.cpp \
-    dbus/dbuscontrolcenterservice.cpp \
-    pluginsmanager.cpp \
-    dbus/dbuswacom.cpp \
-    dbus/dbusbluetooth.cpp \
-    controlcenterproxy.cpp \
-    sidebarview.cpp \
-    sidebarmodel.cpp \
-    sidebardelegate.cpp \
-    dbus/dbuslauncher.cpp
+include(../interfaces/interfaces.pri)
+include(../widgets/widgets.pri)
 
-include(../common.pri)
+# modules
+include(../modules/modules.pri)
+
+QT += widgets dbus svg sql x11extras concurrent
 
 TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../
-
+TEMPLATE   = app
 CONFIG += c++11 link_pkgconfig
-LIBS += -L../widgets -lwidgets
-PKGCONFIG      += gtk+-2.0 dtkbase dtkutil dtkwidget
+#LIBS += -L../widgets -lwidgets
+PKGCONFIG      += dtkwidget dtkbase dtkutil dframeworkdbus xcb
+
+HEADERS    += \
+    frame.h \
+    pluginscontroller.h \
+    framewidget.h \
+    mainwidget.h \
+    settingswidget.h \
+    moduleinitthread.h \
+    dbuscontrolcenterservice.h \
+    quick_control/quickcontrolpanel.h \
+    quick_control/basicsettingspage.h \
+    quick_control/quickswitchbutton.h
+
+SOURCES    += \
+            main.cpp \
+    frame.cpp \
+    pluginscontroller.cpp \
+    framewidget.cpp \
+    mainwidget.cpp \
+    settingswidget.cpp \
+    moduleinitthread.cpp \
+    dbuscontrolcenterservice.cpp \
+    quick_control/quickcontrolpanel.cpp \
+    quick_control/basicsettingspage.cpp \
+    quick_control/quickswitchbutton.cpp
+
+#RESOURCES += \
+#    qss.qrc \
+#    images.qrc
+
+#INCLUDEPATH    += ../widgets ../modules/display
+
+#include(../interfaces/interfaces.pri)
+
+#isEqual(DCC_DISABLE_ANIMATION, YES){
+#    DEFINES += DCC_DISABLE_ANIMATION
+#}
+
+#isEqual(DCC_CACHE_MODULES, YES){
+#    DEFINES += DCC_CACHE_MODULES
+#}
 
 RESOURCES += \
-    qss.qrc \
-    images.qrc
-
-INCLUDEPATH    += ../widgets ../modules/display
-
-include(../interfaces/interfaces.pri)
-
-isEqual(DCC_DISABLE_ANIMATION, YES){
-    DEFINES += DCC_DISABLE_ANIMATION
-}
-
-isEqual(DCC_CACHE_MODULES, YES){
-    DEFINES += DCC_CACHE_MODULES
-}
+    frame.qrc

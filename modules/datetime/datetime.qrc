@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/datetime">
+        <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/nav_datetime.png</file>
+        <file>themes/light/light.qss</file>
+        <file>themes/dark/icons/add_disabled.png</file>
+        <file>themes/dark/icons/add_hover.png</file>
+        <file>themes/dark/icons/add_normal.png</file>
+        <file>themes/dark/icons/add_press.png</file>
+        <file>themes/dark/icons/list_delete_hover.png</file>
+        <file>themes/dark/icons/list_delete_normal.png</file>
+        <file>themes/dark/icons/list_delete_press.png</file>
+        <file>themes/dark/icons/map_dark.png</file>
+        <file>themes/dark/icons/reduce_hover.png</file>
+        <file>themes/dark/icons/reduce_normal.png</file>
+        <file>themes/dark/icons/reduce_press.png</file>
+        <file>themes/dark/icons/reducedisabled.png</file>
+        <file>themes/dark/icons/map.svg</file>
+        <file>themes/light/icons/add_disabled.png</file>
+        <file>themes/light/icons/add_hover.png</file>
+        <file>themes/light/icons/add_normal.png</file>
+        <file>themes/light/icons/add_press.png</file>
+        <file>themes/light/icons/list_delete_hover.png</file>
+        <file>themes/light/icons/list_delete_normal.png</file>
+        <file>themes/light/icons/list_delete_press.png</file>
+        <file>themes/light/icons/map_light.png</file>
+        <file>themes/light/icons/map.svg</file>
+        <file>themes/light/icons/nav_time.png</file>
+        <file>themes/light/icons/reduce_hover.png</file>
+        <file>themes/light/icons/reduce_normal.png</file>
+        <file>themes/light/icons/reduce_press.png</file>
+        <file>themes/light/icons/reducedisabled.png</file>
+        <file>themes/dark/icons/map.png</file>
+        <file>themes/light/icons/map.png</file>
+    </qresource>
+</RCC>

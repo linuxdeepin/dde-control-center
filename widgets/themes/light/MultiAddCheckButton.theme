@@ -1,5 +1,0 @@
-MultiAddCheckButton {
-    qproperty-normalPic: url(":/dark/images/multiselect_inactive_normal.png");
-    qproperty-hoverPic: url(":/dark/images/multiselect_inactive_hover.png");
-    qproperty-checkedPic: url(":/dark/images/multiselect_active_normal.png");
-}

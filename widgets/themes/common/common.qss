@@ -1,0 +1,35 @@
+QScrollArea {
+    background: transparent;
+}
+
+QScrollArea > QFrame {
+    background: transparent;
+}
+
+dcc--widgets--TranslucentFrame {
+    background: transparent;
+}
+
+#LineEditWidget QLineEdit
+{
+    background: transparent;
+    border: none;
+}
+
+#LineEditWidget QLabel
+{
+    color: white;
+}
+
+dcc--widgets--SettingsItem[isHead=true] {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+dcc--widgets--SettingsItem[isTail=true] {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+QLabel#SliderLeftIcon, QLabel#SliderRightIcon {
+    margin: 5px 0px 0px 0px;
+}

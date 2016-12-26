@@ -1,0 +1,8 @@
+QLabel#ModuleHeaderIconSysInfo {
+    background-image: url(:/systeminfo/themes/dark/icons/nav_info.png);
+}
+
+
+dcc--systeminfo--LogoItem  {
+    qproperty-logo: url(:/systeminfo/themes/dark/icons/logo.png);
+}

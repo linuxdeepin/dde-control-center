@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ * Copyright (C) 2016 Deepin Technology Co., Ltd.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -12,50 +12,47 @@
 
 #include <QWidget>
 
-#include <dlistwidget.h>
-#include <dloadingindicator.h>
-#include <dswitchbutton.h>
-#include <dseparatorhorizontal.h>
-#include <darrowlineexpand.h>
+#include "adapter.h"
 
-#include "bluetoothmainwidget.h"
-#include "confrimwidget.h"
+#include "switchwidget.h"
+#include "settingsgroup.h"
 
-DWIDGET_USE_NAMESPACE
+using namespace dcc::widgets;
 
-class NormalLabel;
+namespace dcc {
+namespace bluetooth {
+
 class AdapterWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AdapterWidget(BluetoothMainWidget::AdapterInfo *info,
-                           QWidget *parent = 0);
-    ~AdapterWidget();
+    explicit AdapterWidget(const Adapter *adapter);
 
-    void removeConfirm(ConfrimWidget *confrim);
-    void addConfirm(ConfrimWidget *confirm, BluetoothMainWidget::DeviceInfo *info);
-    void addDevice(BluetoothMainWidget::DeviceInfo *info);
-    void addTrustedDevice(BluetoothMainWidget::DeviceInfo *info);
-    void removeDevice(BluetoothMainWidget::DeviceInfo *info, bool isDelete);
-    void removeTrustedDevice(BluetoothMainWidget::DeviceInfo *info);
+    void setAdapter(const Adapter *adapter);
+
+    const Adapter *adapter() const;
 
 public slots:
-    void updateUI();
+    void toggleSwitch(const bool &checked);
+
+signals:
+    void requestToggleAdapter(const bool &powered);
+    void requestConnectDevice(const Device *device);
+    void requestShowDetail(const Adapter *adapter, const Device *device);
+
+private slots:
+    void addDevice(const Device *device);
+    void removeDevice(const QString &deviceId);
 
 private:
-    void initUI();
-
-    DListWidget *m_deviceItemList = nullptr;
-    DSeparatorHorizontal *m_listWidgetSeparator = nullptr;
-    BluetoothMainWidget::AdapterInfo *m_info = nullptr;
-    NormalLabel *m_bluetoothName;
-    DSwitchButton *m_bluetoothSwitch;
-    DArrowLineExpand *m_activeDeviceExpand;
-    DListWidget *m_activeDeviceList;
-    DLoadingIndicator *m_refreshnndicator;
-    QLabel *m_tipsLabel;
-    DHeaderLine *m_headerLine;
-    DSeparatorHorizontal *m_separator;
+    const Adapter *m_adapter;
+    SwitchWidget *m_switch;
+    SettingsGroup *m_titleGroup;
+    SettingsGroup *m_myDevicesGroup;
+    SettingsGroup *m_otherDevicesGroup;
 };
+
+}
+}
 
 #endif // ADAPTERWIDGET_H

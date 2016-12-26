@@ -1,0 +1,19 @@
+QLabel#ModuleHeaderIconDefapp {
+    background-image: url(:/defapp/themes/dark/icons/nav_defapp.png);
+}
+
+#DefAppViewer {
+    background: transparent;
+}
+
+#DefCategoryHeadWidget QLabel {
+    color: white;
+}
+
+#DefCategoryAddWidget FuncButton {
+    color: white;
+}
+
+#OptionWidget QLabel {
+    color: white;
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.2 (33826) - http://www.bohemiancoding.com/sketch -->
+    <title>扬沙</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="扬沙">
+            <g id="Group" transform="translate(7.000000, 8.000000)">
+                <path d="M0,16 L27,16" id="Path-5" stroke="#DFB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M0,20 L21,20" id="Path-5" stroke="#DFB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M17.5544736,28.6233198 C18.4513083,29.4764145 19.6645092,30 21,30 C23.7614237,30 26,27.7614237 26,25 C26,22.2385763 23.7614237,20 21,20" id="Oval-4" stroke="#DFB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M23.5544736,14.6233198 C24.4513083,15.4764145 25.6645092,16 27,16 C29.7614237,16 32,13.7614237 32,11 C32,8.23857625 29.7614237,6 27,6" id="Oval-4" stroke="#DFB40A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(27.777237, 11.000000) scale(1, -1) translate(-27.777237, -11.000000) "></path>
+                <circle id="Oval-5" fill="#DEB40A" cx="17.5" cy="1.5" r="1.5"></circle>
+                <circle id="Oval-5" fill="#DEB40A" cx="33.5" cy="19.5" r="1.5"></circle>
+                <circle id="Oval-5" fill="#DEB40A" cx="28.5" cy="30.5" r="1.5"></circle>
+                <circle id="Oval-5" fill="#DEB40A" cx="6.5" cy="24.5" r="1.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

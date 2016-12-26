@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/accounts">
+        <file>themes/common/common.qss</file>
+        <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/nav_accounts.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,22 @@
+QLabel#ModuleHeaderIconPersonalization {
+    background-image: url(:/personalization/themes/dark/icons/nav_personalization.png);
+}
+
+/* ContentWidget qss */
+dcc--widgets--TitledSliderItem#FontSizeWidget {
+    qproperty-leftIcon: url(":/personalization/themes/dark/icons/fontsize_decrease.png");
+    qproperty-rightIcon: url(":/personalization/themes/dark/icons/fontsize_increase.png");
+}
+
+
+#FontList QLabel {
+    color: white;
+}
+
+#FontItem QLabel {
+    color: white;
+}
+
+#FontSettingsWidget NormalLabel {
+    color: white;
+}

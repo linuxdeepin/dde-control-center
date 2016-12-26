@@ -1,4 +1,0 @@
-DynamicLabel QLabel#Label{
-    color: #d98424;
-    font-size: 12px;
-}

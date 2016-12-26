@@ -1,7 +1,0 @@
-TimezoneItemWidget #Zones {
-    color:white;
-}
-
-TimezoneItemWidget #UTCOffset {
-    color:white;
-}

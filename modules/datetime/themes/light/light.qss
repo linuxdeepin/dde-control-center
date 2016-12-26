@@ -1,0 +1,22 @@
+QLabel#ModuleHeaderIconDatetime {
+    background-image: url(:/datetime/themes/light/icons/nav_datetime.png);
+}
+
+Dtk--Widget--DImageButton#DCC-Datetime-Datewidget-Add{
+    qproperty-normalPic: url(:/datetime/themes/light/icons/add_normal.png);
+    qproperty-hoverPic: url(:/datetime/themes/light/icons/add_hover.png);
+    qproperty-pressPic: url(:/datetime/themes/light/icons/add_press.png);
+}
+
+Dtk--Widget--DImageButton#DCC-Datetime-Datewidget-Reduce{
+    qproperty-normalPic: url(:/datetime/themes/light/icons/reduce_normal.png);
+    qproperty-hoverPic: url(:/datetime/themes/light/icons/reduce_hover.png);
+    qproperty-pressPic: url(:/datetime/themes/light/icons/reduce_press.png);
+}
+
+Dtk--Widget--DImageButton#DCC-Datetime-TimezoneItem-Remove{
+    qproperty-normalPic: url(:/datetime/themes/light/icons/list_delete_normal.png);
+    qproperty-hoverPic: url(:/datetime/themes/light/icons/list_delete_hover.png);
+    qproperty-pressPic: url(:/datetime/themes/light/icons/list_delete_press.png);
+}
+

@@ -1,96 +1,67 @@
-/**
- * Copyright (C) 2015 Deepin Technology Co., Ltd.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- **/
-
 #ifndef FRAME_H
 #define FRAME_H
 
-#include <QFrame>
-#include <QList>
-#include <QDBusAbstractAdaptor>
+#include "mainwidget.h"
+#include "contentwidget.h"
+#include "settingswidget.h"
+#include "frameproxyinterface.h"
+
+#include <com_deepin_daemon_display.h>
+#include <com_deepin_api_xmousearea.h>
+
+#include <QStack>
 #include <QPropertyAnimation>
 
-#include "interfaces.h"
-#include "modulemetadata.h"
-#include "dbus/dbuscontrolcenter.h"
-#include "dbus/dbusxmousearea.h"
-#include "dbus/displayinterface.h"
+#include "blurredframe.h"
 
-class QStackedLayout;
-class QKeyEvent;
-class HomeScreen;
-class ContentView;
-class DBusControlCenterService;
-class ControlCenterProxy;
-class Frame: public QFrame
+using XMouseArea = com::deepin::api::XMouseArea;
+using DBusDisplay = com::deepin::daemon::Display;
+
+class Frame : public BlurredFrame
 {
     Q_OBJECT
-    Q_PROPERTY(bool hideInLeft READ isHideInLeft WRITE setHideInLeft NOTIFY hideInLeftChanged)
-    Q_PROPERTY(bool autoHide READ autoHide WRITE setAutoHide NOTIFY autoHideChanged)
-    Q_PROPERTY(bool visible READ isVisible NOTIFY visibleChanged)
+
+    friend class DBusControlCenterService;
 
 public:
-    Frame(QWidget *parent = 0);
-    ~Frame();
-
-    void show(bool imme = false);
-    void hide(bool imme = false);
-    inline bool isHideInLeft() const {return m_hideInLeft;}
-    int visibleFrameXPos();
-    bool autoHide() const;
+    explicit Frame(QWidget *parent = 0);
 
 public slots:
-    void setHideInLeft(bool hideInLeft);
-    void updateGeometry();
-    void setAutoHide(bool autoHide);
-    void toggle(bool inLeft);
-    void selectModule(const QString &pluginId);
-    bool isVisible() const;
-    void loadContens();
+    void startup();
 
-signals:
-    void hideInLeftChanged(bool hideInLeft);
-    void xChanged();
-    void autoHideChanged(bool autoHide);
-    void visibleChanged(bool visible);
+    void pushWidget(ContentWidget * const w);
+    void popWidget();
 
 private slots:
-    void globalMouseReleaseEvent(int button, int x, int y);
-    void hideAndShowAnotherSide();
-    void hideAndShowAnotherSideFinish();
-    void showHelpDocument();
+    void init();
+    void setAutoHide(const bool autoHide);
 
-protected:
-    void hideEvent(QHideEvent *e);
-    void showEvent(QShowEvent *e);
-    void keyPressEvent(QKeyEvent *e);
+    void showAllSettings();
+    void showSettingsPage(const QString &moduleName, const QString &pageName);
+    void contentDetached(QWidget * const c);
+
+    void onScreenRectChanged(const QRect &primaryRect);
+    void onMouseButtonReleased(const int button, const int x, const int y, const QString &key);
 
 private:
-    HomeScreen *m_homeScreen;
-    ContentView *m_contentView;
-    QPropertyAnimation *m_showAni;
-    QPropertyAnimation *m_hideAni;
-    DBusXMouseArea *m_dbusXMouseArea;
-    QWidget *m_centeralWidget;
-    QWidget *m_centeralWarpper;
-    QWidget *m_leftShadow;
-    QWidget *m_rightShadow;
-    ControlCenterProxy *m_controlProxy;
-    QThread *m_pluginLoadThread = NULL;
-    QString m_dbusFullScreenKey = QString();
-    QPointer<const QScreen> primaryScreen;
+    void keyPressEvent(QKeyEvent *e);
+    void show();
+    void hide();
+    void toggle();
 
-    DisplayInterface *m_displayInter;
-    QTimer *m_posAdjustTimer;
+private:
+    SettingsWidget *m_allSettingsPage;
 
-    bool m_visible = false;
-    bool m_hideInLeft = true;
-    bool m_autoHide = true;
+    XMouseArea *m_mouseAreaInter;
+    DBusDisplay *m_displayInter;
+
+    QString m_mouseAreaKey;
+    QStack<FrameWidget *> m_frameWidgetStack;
+
+    QRect m_primaryRect;
+    QPropertyAnimation m_appearAnimation;
+
+    bool m_autoHide;
 };
 
-#endif
+#endif // FRAME_H

@@ -20,6 +20,8 @@ Build-Depends: debhelper (>= 9),
  libdtkbase-dev,
  libdtkutil-dev,
  libdtkwidget-dev,
+ libgeoip-dev,
+ libdframeworkdbus-dev, distcc,
 Standards-Version: 3.9.5
 Homepage: http://gitcafe.com/Deepin/dde-control-center.git
 
@@ -36,5 +38,12 @@ Depends: ${shlibs:Depends},
  xkb-data,
  tzdata-l10n,
  netselect,
+ geoip-database-extra, 
 Description: New control center for linux deepin
  New control center for linux deepin
+
+Package: dde-control-center-dbg
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, dde-control-center-dbg(= ${binary:Version})
+Description: New control center for linux deepin dbg
+ New control center for linux deepin dbg

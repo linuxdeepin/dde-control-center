@@ -1,394 +1,230 @@
-/**
- * Copyright (C) 2015 Deepin Technology Co., Ltd.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- **/
-
 #include "frame.h"
-#include "homescreen.h"
-#include "contentview.h"
-#include "constants.h"
-#include "dtipsframe.h"
-#include "controlcenterproxy.h"
-#include "sidebarview.h"
-#include "dbus/displayinterface.h"
-#include "dbus/dbuslauncher.h"
+#include "settingswidget.h"
 
-#include <QDir>
-#include <QLibrary>
-#include <QPluginLoader>
-#include <QtWidgets>
-#include <QJsonObject>
-#include <QJsonDocument>
-#include <QHBoxLayout>
-#include <QDebug>
-#include <QDesktopWidget>
+#include <QApplication>
+#include <QKeyEvent>
+#include <QScreen>
 
-#include <dapplication.h>
+#define BUTTON_LEFT 1
+#define FRAME_WIDTH 360
 
-DWIDGET_USE_NAMESPACE
+Frame::Frame(QWidget *parent)
+    : BlurredFrame(parent),
 
-Frame::Frame(QWidget *parent) :
-    QFrame(parent),
-    m_dbusXMouseArea(new DBusXMouseArea(this)),
-    m_controlProxy(new ControlCenterProxy(this))
+      m_allSettingsPage(nullptr),
+
+      m_mouseAreaInter(new XMouseArea("com.deepin.api.XMouseArea", "/com/deepin/api/XMouseArea", QDBusConnection::sessionBus(), this)),
+      m_displayInter(new DBusDisplay("com.deepin.daemon.Display", "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)),
+
+      m_primaryRect(m_displayInter->primaryRect()),
+      m_appearAnimation(this, "geometry"),
+
+      m_autoHide(true)
 {
-    QPalette palette;
-    palette.setColor(QPalette::Background, DCC::BgLightColor);
-    m_centeralWidget = new QWidget;
-    m_centeralWidget->setPalette(palette);
-    m_centeralWidget->setAutoFillBackground(true);
+    // set async
+    m_displayInter->setSync(false);
 
-    m_homeScreen = new HomeScreen(m_centeralWidget);
-    m_contentView = new ContentView(m_controlProxy, m_centeralWidget);
+    m_appearAnimation.setEasingCurve(QEasingCurve::OutCubic);
 
-    m_leftShadow = new QWidget;
-    m_leftShadow->setFixedWidth(DCC::FrameShadowWidth);
-    m_leftShadow->setStyleSheet("background-image:url(:/resources/images/shadow_left.png) repeat-y;");
-    m_rightShadow = new QWidget;
-    m_rightShadow->setFixedWidth(DCC::FrameShadowWidth);
-    m_rightShadow->setStyleSheet("background-image:url(:/resources/images/shadow_right.png) repeat-y;");
-
-    QHBoxLayout *warpperLayout = new QHBoxLayout;
-    warpperLayout->addWidget(m_leftShadow);
-    warpperLayout->addWidget(m_centeralWidget);
-    warpperLayout->addWidget(m_rightShadow);
-    warpperLayout->setSpacing(0);
-    warpperLayout->setMargin(0);
-
-    m_centeralWarpper = new QWidget(this);
-    m_centeralWarpper->setLayout(warpperLayout);
-
-    m_showAni = new QPropertyAnimation(m_centeralWarpper, "pos");
-    m_showAni->setDuration(DCC::FrameAnimationDuration);
-    m_showAni->setEasingCurve(DCC::FrameShowCurve);
-
-    m_hideAni = new QPropertyAnimation(m_centeralWarpper, "pos");
-    m_hideAni->setDuration(DCC::FrameAnimationDuration);
-    m_hideAni->setEasingCurve(DCC::FrameHideCurve);
-
-    const int frameHeight = qApp->primaryScreen()->size().height();
-    const int frameWidth = DCC::ControlCenterWidth + DCC::FrameShadowWidth;
-    m_centeralWidget->setFixedSize(DCC::ControlCenterWidth, frameHeight);
-    m_contentView->setFixedSize(DCC::ControlCenterWidth, frameHeight);
-    m_homeScreen->setFixedSize(DCC::ControlCenterWidth, frameHeight);
-
-    m_displayInter = new DisplayInterface(this);
-//    DisplayInterface *display_dbus = new DisplayInterface(this);
-    DBusLauncher *m_dbusLauncher = new DBusLauncher(this);
-
-    m_posAdjustTimer = new QTimer(this);
-    m_posAdjustTimer->setInterval(500);
-    m_posAdjustTimer->setSingleShot(true);
-
-//    auto updateGeometry = [display_dbus, this] {
-//        QRect primaryRect = display_dbus->primaryRect();
-//        const QString &primaryScreenName = display_dbus->primary();
-
-//        qDebug() << "change screen, primary is: " << primaryScreenName;
-
-//        if (primaryScreen)
-//            disconnect(primaryScreen, &QScreen::geometryChanged, this, &Frame::updateGeometry);
-
-//        for (const QScreen *screen : qApp->screens())
-//        {
-//            if (screen->name() == primaryScreenName) {
-//                primaryScreen = screen;
-//                primaryRect = screen->geometry();
-//                connect(screen, &QScreen::geometryChanged, this, &Frame::updateGeometry);
-//                break;
-//            }
-//        }
-
-//        this->updateGeometry(primaryRect);
-//    };
-
-    connect(m_posAdjustTimer, &QTimer::timeout, this, &Frame::updateGeometry);
-    connect(m_displayInter, &DisplayInterface::PrimaryRectChanged, m_posAdjustTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_displayInter, &DisplayInterface::ScreenHeightChanged, m_posAdjustTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_displayInter, &DisplayInterface::ScreenWidthChanged, m_posAdjustTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-//    connect(display_dbus, &DisplayInterface::PrimaryChanged, this, updateGeometry);
-    connect(m_dbusLauncher, &DBusLauncher::Shown, [this] {hide(true);});
-
-    connect(m_homeScreen, &HomeScreen::powerBtnClicked, [this] {hide(true);});
-    connect(this, &Frame::hideInLeftChanged, m_posAdjustTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-//    connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
-    connect(m_hideAni, &QPropertyAnimation::finished, this, &QFrame::hide, Qt::QueuedConnection);
-    connect(m_hideAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged, Qt::QueuedConnection);
-    connect(m_showAni, &QPropertyAnimation::valueChanged, this, &Frame::xChanged, Qt::QueuedConnection);
-    connect(m_showAni, &QPropertyAnimation::finished, m_centeralWarpper, static_cast<void (QWidget::*)()>(&QWidget::update), Qt::QueuedConnection);
-    connect(m_homeScreen, &HomeScreen::moduleSelected, this, &Frame::selectModule);
-    connect(m_contentView, &ContentView::shutdownSelected, m_homeScreen, &HomeScreen::powerButtonClicked, Qt::DirectConnection);
-    connect(m_contentView, &ContentView::shutdownSelected, [this]() -> void {hide();});
-    connect(m_homeScreen, &HomeScreen::showAniFinished, m_contentView, &ContentView::unloadPlugin);
-    connect(this, &Frame::hideInLeftChanged, m_contentView, &ContentView::reLayout);
-    connect(m_contentView, &ContentView::backToHome, [this] {selectModule("home");});
-
-    setFixedSize(frameWidth, frameHeight);
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
-    setAttribute(Qt::WA_TranslucentBackground);
-    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    setFocusPolicy(Qt::StrongFocus);
-    setHideInLeft(false);
+    setAttribute(Qt::WA_TranslucentBackground, true);
+    setMaximumWidth(FRAME_WIDTH);
 
-    updateGeometry();
+    connect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased);
+    connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
 
-#ifdef ARCH_MIPSEL
-    setCursor(Qt::WaitCursor);
-    PluginLoader *rpc = new PluginLoader();
-    m_pluginLoadThread = new QThread(this);
-    rpc->list = PluginsManager::getInstance(this)->pluginsList();;
-    rpc->connect(m_pluginLoadThread, SIGNAL(started()), rpc, SLOT(runLoader()));
-    rpc->connect(rpc, SIGNAL(workFinished()), m_pluginLoadThread, SLOT(quit()));
-    rpc->connect(rpc, &PluginLoader::pluginLoad, m_contentView, &ContentView::loadPluginInstance);
-    rpc->connect(m_pluginLoadThread, SIGNAL(finished()), rpc, SLOT(deleteLater()));
-    rpc->connect(m_pluginLoadThread, SIGNAL(finished()), m_pluginLoadThread, SLOT(deleteLater()));
-    rpc->moveToThread(m_pluginLoadThread);
-#endif
+    QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
 }
 
-void Frame::loadContens()
+void Frame::startup()
 {
-#ifdef ARCH_MIPSEL
-    m_pluginLoadThread->start();
-    qDebug() << "plugin load thread" << m_pluginLoadThread << "started";
-
-    PluginsManager *pm = PluginsManager::getInstance(this);
-    connect(pm, &PluginsManager::pluginLoaded, [this, pm] {
-        if (pm->count() == m_homeScreen->count())
-        {
-            QTimer::singleShot(5000, this, [ = ] {
-                setCursor(Qt::ArrowCursor);
-            });
-        }
-    });
-#endif
-}
-
-Frame::~Frame()
-{
-//    m_showAni->deleteLater();
-//    m_hideAni->deleteLater();
-}
-
-void Frame::show(bool imme)
-{
-    qDebug() << "frame show";
-    if (m_visible || m_hideAni->state() == QPropertyAnimation::Running) {
-        return;
-    }
-    m_visible = true;
-
-    if (imme) {
-        m_centeralWarpper->move(0, 0);
-    } else {
-        int startX = m_hideInLeft ? -DCC::ControlCenterWidth : DCC::ControlCenterWidth;
-        startX += m_hideInLeft ? -DCC::FrameShadowWidth : DCC::FrameShadowWidth;
-        int endX = m_hideInLeft ? -DCC::FrameShadowWidth : 0;
-
-        m_hideAni->stop();
-        m_showAni->stop();
-        m_showAni->setStartValue(QPoint(startX, 0));
-        m_showAni->setEndValue(QPoint(endX, 0));
-        m_showAni->start();
-    }
-
-    connect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
-    QDBusPendingReply<QString> reply = m_dbusXMouseArea->RegisterFullScreen();
-    reply.waitForFinished();
-    m_dbusFullScreenKey = reply.value();
-
-    QFrame::show();
-    setFocus();
-    activateWindow();
-
-    emit xChanged();
-    emit visibleChanged(isVisible());
-}
-
-void Frame::hide(bool imme)
-{
-    if (!m_autoHide || !m_visible || m_showAni->state() == QPropertyAnimation::Running) {
-        qDebug() << "not hide" << m_autoHide << m_visible << m_showAni->state();
-        return;
-    }
-    m_visible = false;
-
-    if (imme) {
-        QFrame::hide();
-    } else {
-        int endX = m_hideInLeft ? -DCC::ControlCenterWidth : DCC::ControlCenterWidth;
-        int startX = m_hideInLeft ? -DCC::FrameShadowWidth : 0;
-
-        m_hideAni->stop();
-        m_showAni->stop();
-        m_hideAni->setEndValue(QPoint(endX, 0));
-        m_hideAni->setStartValue(QPoint(startX, 0));
-        m_hideAni->start();
-    }
-
-    qDebug() << "unregister: " << m_dbusFullScreenKey;
-    m_dbusXMouseArea->UnregisterArea(m_dbusFullScreenKey);//waitForFinished();
-    disconnect(m_dbusXMouseArea, &DBusXMouseArea::ButtonRelease, this, &Frame::globalMouseReleaseEvent);
-
-    emit xChanged();
-    emit visibleChanged(isVisible());
-}
-
-// private slots
-void Frame::selectModule(const QString &pluginId)
-{
-    qDebug() << "select" << pluginId;
-
-    // when module changed, clear old module settings
-    m_autoHide = true;
-
-    if (pluginId == "home") {
-        m_homeScreen->show();
-        m_contentView->hide();
-    } else {
-        m_homeScreen->hide();
-        m_contentView->show();
-        m_contentView->switchToModule(pluginId);
-    }
-
-    if (!m_visible) {
-        show();
-    }
-}
-
-bool Frame::isVisible() const
-{
-    return m_visible && QFrame::isVisible();
-}
-
-void Frame::globalMouseReleaseEvent(int button, int x, int y)
-{
-    Q_UNUSED(button);
-
-    if (!rect().contains(x - this->x(), y - this->y())) {
-        qDebug() << "hide by global btn release";
-        hide();
-    }
-}
-
-void Frame::hideAndShowAnotherSide()
-{
-    hide();
-    m_hideInLeft = !m_hideInLeft;
-    QTimer::singleShot(DCC::CommonAnimationDuration + 10, this, SLOT(hideAndShowAnotherSideFinish()));
-}
-
-void Frame::hideAndShowAnotherSideFinish()
-{
-    emit hideInLeftChanged(m_hideInLeft);
     show();
 }
 
-void Frame::showHelpDocument()
+void Frame::pushWidget(ContentWidget *const w)
 {
-    QProcess *process = new QProcess;
+    Q_ASSERT(!m_frameWidgetStack.empty());
 
-    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), process, &QProcess::deleteLater);
+    FrameWidget *fw = new FrameWidget(this);
+    fw->setContent(w);
+    fw->show();
 
-    process->start("dman dde-control-center");
+    m_frameWidgetStack.last()->hide();
+    m_frameWidgetStack.push(fw);
+
+    connect(w, &ContentWidget::back, this, &Frame::popWidget, Qt::UniqueConnection);
+    connect(fw, &FrameWidget::contentDetached, this, &Frame::contentDetached, Qt::UniqueConnection);
 }
 
-void Frame::hideEvent(QHideEvent *e)
+void Frame::popWidget()
 {
-    QFrame::hideEvent(e);
+    Q_ASSERT(m_frameWidgetStack.size() > 1);
 
-    emit visibleChanged(isVisible());
+    // ensure top widget is sender()
+    ContentWidget *w = static_cast<ContentWidget *>(sender());
+    Q_ASSERT(w == m_frameWidgetStack.last()->content());
+
+    // destory the container
+    m_frameWidgetStack.pop()->destory();
+    m_frameWidgetStack.last()->showBack();
 }
 
-void Frame::showEvent(QShowEvent *e)
+void Frame::init()
 {
-    QFrame::showEvent(e);
+    // main page
+    MainWidget *w = new MainWidget(this);
+    connect(w, &MainWidget::showAllSettings, this, &Frame::showAllSettings);
+    m_frameWidgetStack.push(w);
 
-    emit visibleChanged(isVisible());
+    // frame position adjust
+    onScreenRectChanged(m_primaryRect);
+
+#ifdef QT_DEBUG
+    showSettingsPage("network", QString());
+#endif
+}
+
+void Frame::setAutoHide(const bool autoHide)
+{
+    m_autoHide = autoHide;
+}
+
+void Frame::showAllSettings()
+{
+    Q_ASSERT(m_frameWidgetStack.size() == 1);
+
+    if (!m_allSettingsPage) {
+        m_allSettingsPage = new SettingsWidget(this);
+
+        connect(m_allSettingsPage, &SettingsWidget::requestAutohide, this, &Frame::setAutoHide);
+    }
+
+    pushWidget(m_allSettingsPage);
+}
+
+void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
+{
+    // ensure current is main page or all settings page
+    if (m_frameWidgetStack.size() > 2)
+        popWidget();
+
+    // current is main page
+    if (m_frameWidgetStack.size() == 1)
+        showAllSettings();
+
+    // show specificed page
+    m_allSettingsPage->showModulePage(moduleName, pageName);
+
+    if (m_appearAnimation.startValue().toRect().width() == 0)
+        show();
+}
+
+void Frame::contentDetached(QWidget *const c)
+{
+    ContentWidget *cw = qobject_cast<ContentWidget *>(c);
+    Q_ASSERT(cw);
+
+    if (cw != m_allSettingsPage) {
+        return m_allSettingsPage->contentPopuped(cw);
+    }
+
+    // delete all settings panel
+    m_allSettingsPage->deleteLater();
+    m_allSettingsPage = nullptr;
+}
+
+void Frame::onScreenRectChanged(const QRect &primaryRect)
+{
+    // pass invalid data
+    if (primaryRect.isEmpty()) {
+        return;
+    }
+
+    m_primaryRect = primaryRect;
+
+    setFixedHeight(m_primaryRect.height());
+    QFrame::move(m_primaryRect.right() - width() + 1, m_primaryRect.y());
+}
+
+void Frame::onMouseButtonReleased(const int button, const int x, const int y, const QString &key)
+{
+    if (button != BUTTON_LEFT) {
+        return;
+    }
+
+    if (!m_autoHide) {
+        return;
+    }
+
+    if (key != m_mouseAreaKey) {
+        return;
+    }
+
+    const QPoint p(pos());
+    if (rect().contains(x - p.x(), y - p.y())) {
+        return;
+    }
+
+    // ready to hide frame
+    hide();
 }
 
 void Frame::keyPressEvent(QKeyEvent *e)
 {
+    QFrame::keyPressEvent(e);
+
     switch (e->key()) {
-    case Qt::Key_F1:        showHelpDocument();     break;
 #ifdef QT_DEBUG
-    case Qt::Key_Escape:    qApp->quit();           break;
+    case Qt::Key_Escape:
+        qApp->quit();
+        break;
+    case Qt::Key_F1:
+        hide();
+        break;
 #endif
     default:;
     }
-
-    QFrame::keyPressEvent(e);
 }
 
-int Frame::visibleFrameXPos()
+void Frame::show()
 {
-    return pos().x() + m_centeralWarpper->pos().x() - DCC::FrameShadowWidth;
+    // animation
+    QRect r = m_primaryRect;
+    r.setLeft(m_primaryRect.x() + m_primaryRect.width());
+    m_appearAnimation.setStartValue(r);
+    r.setLeft(m_primaryRect.x() + m_primaryRect.width() - FRAME_WIDTH);
+    m_appearAnimation.setEndValue(r);
+    m_appearAnimation.start();
+
+    // show frame
+    QFrame::show();
+
+    // register global mouse area
+    m_mouseAreaKey = m_mouseAreaInter->RegisterFullScreen();
 }
 
-bool Frame::autoHide() const
+void Frame::hide()
 {
-    return m_autoHide;
+    // reset auto-hide
+    m_autoHide = true;
+
+    // animation
+    QRect r = m_primaryRect;
+    r.setLeft(m_primaryRect.x() + m_primaryRect.width());
+    m_appearAnimation.setStartValue(geometry());
+    m_appearAnimation.setEndValue(r);
+    m_appearAnimation.start();
+
+    QTimer::singleShot(m_appearAnimation.duration(), this, &QFrame::hide);
+
+    // unregister global mouse area
+    m_mouseAreaInter->UnregisterArea(m_mouseAreaKey);
 }
 
-void Frame::setHideInLeft(bool hideInLeft)
+void Frame::toggle()
 {
-    if (m_hideInLeft == hideInLeft) {
-        return;
-    }
-
-    m_hideInLeft = hideInLeft;
-
-    emit hideInLeftChanged(hideInLeft);
-}
-
-void Frame::updateGeometry()
-{
-    const QRect primaryRect = m_displayInter->primaryRect();
-    qDebug() << "updateGeometry: " << primaryRect;
-
-    int posX;
-    if (m_hideInLeft) {
-        posX = primaryRect.left();
-    } else {
-        posX = primaryRect.right() - DCC::ControlCenterWidth - DCC::FrameShadowWidth + 1;
-    }
-
-    move(posX, primaryRect.y());
-    setFixedHeight(primaryRect.height());
-    m_centeralWarpper->setFixedHeight(primaryRect.height());
-    m_centeralWidget->setFixedHeight(primaryRect.height());
-    m_contentView->setFixedHeight(primaryRect.height());
-    m_homeScreen->setFixedHeight(primaryRect.height());
-
-    QFrame::updateGeometry();
-}
-
-void Frame::setAutoHide(bool autoHide)
-{
-    if (m_autoHide == autoHide) {
-        return;
-    }
-
-    m_autoHide = autoHide;
-    emit autoHideChanged(autoHide);
-}
-
-void Frame::toggle(bool inLeft)
-{
-    if (m_hideAni->state() == QPropertyAnimation::Running ||
-            m_showAni->state() == QPropertyAnimation::Running) {
-        return;
-    }
-
-    const bool lastState = isHideInLeft();
-
-    if (lastState == inLeft) {
-        isVisible() ? hide() : show();
-    } else {
-        hideAndShowAnotherSide();
-    }
+    if (m_appearAnimation.startValue().toRect().width() == 0)
+        hide();
+    else
+        show();
 }

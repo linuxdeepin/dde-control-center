@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.2 (33826) - http://www.bohemiancoding.com/sketch -->
+    <title>暴风</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="暴风" stroke="#FFFFFF" stroke-width="2">
+            <g id="Group" transform="translate(7.000000, 9.000000)">
+                <path d="M0,15 L28,15" id="Path-5"></path>
+                <path d="M0,11 L19,11" id="Path-5"></path>
+                <path d="M0,19 L27,19" id="Path-5"></path>
+                <path d="M17.5544736,25.5812162 C18.2389273,26.2322881 19.1648279,26.6318824 20.1840588,26.6318824 C22.2915449,26.6318824 24,24.9234273 24,22.8159412 C24,20.7084551 22.2915449,19 20.1840588,19" id="Oval-4"></path>
+                <path d="M17,10.1849648 C17.5309526,10.690022 18.2492031,11 19.039853,11 C20.674697,11 22,9.67469703 22,8.03985297 C22,6.40500891 20.674697,5.07970594 19.039853,5.07970594" id="Oval-4" transform="translate(19.500000, 8.039853) scale(1, -1) translate(-19.500000, -8.039853) "></path>
+                <path d="M23.3999996,12.9603186 C24.7287447,14.2242589 26.526216,15 28.5048713,15 C32.5961805,15 35.9128419,11.6833386 35.9128419,7.59202941 C35.9128419,3.50072022 32.5961805,0.184058812 28.5048713,0.184058812" id="Oval-4" transform="translate(29.656421, 7.592029) scale(1, -1) translate(-29.656421, -7.592029) "></path>
+                <path d="M22.5,30.7420954 C23.7211909,31.903727 25.3731672,32.6166763 27.1916618,32.6166763 C30.9518032,32.6166763 34,29.5684795 34,25.8083382 C34,22.0481968 30.9518032,19 27.1916618,19" id="Oval-4"></path>
+            </g>
+        </g>
+    </g>
+</svg>

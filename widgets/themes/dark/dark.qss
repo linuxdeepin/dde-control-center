@@ -1,0 +1,65 @@
+dcc--widgets--NextButton Dtk--Widget--DImageButton {
+    qproperty-normalPic: url(:/widgets/themes/dark/icons/expand_arrow.png);
+}
+
+dcc--widgets--BackButton Dtk--Widget--DImageButton {
+    qproperty-normalPic: url(:/widgets/themes/dark/icons/back_normal.png);
+    qproperty-hoverPic: url(:/widgets/themes/dark/icons/back_hover.png);
+    qproperty-pressPic: url(:/widgets/themes/dark/icons/back_press.png);
+}
+
+/* SettingsItem */
+dcc--widgets--SettingsItem {
+    border: none;
+    background-color: rgba(238, 238, 238, .2);
+}
+
+dcc--widgets--SettingsItem[isErr=true] {
+    border: 2px solid red;
+}
+
+dcc--widgets--SettingsHead QLabel#Edit {
+    color:#01bdff
+}
+
+/* FileChooseWidget */
+dcc--widgets--FileChooseWidget > Dtk--Widget--DImageButton {
+    qproperty-normalPic: url(:/widgets/themes/dark/icons/select_files.png);
+}
+
+dcc--widgets--FileChooseWidget > QLineEdit {
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+/* OptionItem */
+dcc--widgets--NormalLabel#OptionItemTitle {
+    color: white;
+}
+
+QLabel#OptionItemSelectedIcon {
+    background: url(:/widgets/themes/dark/icons/select.png);
+}
+
+dcc--widgets--LoadingIndicator {
+    qproperty-theme: "dark";
+}
+
+/**
+dcc--widgets--NextPageWidget{
+    background-color: rgba(238, 238, 238, .4);
+}
+
+dcc--widgets--NextPageWidget{
+    background-color: rgba(238, 238, 238, .2);
+}
+*/
+
+dcc--widgets--HSeparator {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+dcc--widgets--VSeparator {
+    background-color: rgba(255, 255, 255, 0.15);
+}

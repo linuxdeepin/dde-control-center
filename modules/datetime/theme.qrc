@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>dark/TimeSpinBox.theme</file>
-        <file>dark/EditWidget.theme</file>
-        <file>dark/NormalWidget.theme</file>
-        <file>dark/TimezoneWidget.theme</file>
-        <file>dark/TimezoneItemWidget.theme</file>
-    </qresource>
-</RCC>

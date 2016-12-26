@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/frame">
+        <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/home_light_low.png</file>
+        <file>themes/dark/icons/home_light_high.png</file>
+        <file>themes/dark/icons/home_volume_low.png</file>
+        <file>themes/dark/icons/home_volume_high.png</file>
+        <file>themes/dark/icons/VPN_on.png</file>
+        <file>themes/dark/icons/VPN_off.png</file>
+        <file>themes/dark/icons/wifi_on.png</file>
+        <file>themes/dark/icons/wifi_off.png</file>
+        <file>themes/dark/icons/display_off.png</file>
+        <file>themes/dark/icons/display_on.png</file>
+        <file>themes/dark/icons/all_settings_on.png</file>
+        <file>themes/dark/icons/all_settings_off.png</file>
+        <file>themes/dark/icons/bluetooth_on.png</file>
+        <file>themes/dark/icons/bluetooth_off.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,25 @@
+QLabel#ModuleHeaderIconDatetime {
+    background-image: url(:/datetime/themes/dark/icons/nav_datetime.png);
+}
+
+Dtk--Widget--DImageButton#DCC-Datetime-Datewidget-Add{
+    qproperty-normalPic: url(:/datetime/themes/dark/icons/add_normal.png);
+    qproperty-hoverPic: url(:/datetime/themes/dark/icons/add_hover.png);
+    qproperty-pressPic: url(:/datetime/themes/dark/icons/add_press.png);
+}
+
+Dtk--Widget--DImageButton#DCC-Datetime-Datewidget-Reduce{
+    qproperty-normalPic: url(:/datetime/themes/dark/icons/reduce_normal.png);
+    qproperty-hoverPic: url(:/datetime/themes/dark/icons/reduce_hover.png);
+    qproperty-pressPic: url(:/datetime/themes/dark/icons/reduce_press.png);
+}
+
+Dtk--Widget--DImageButton#DCC-Datetime-TimezoneItem-Remove{
+    qproperty-normalPic: url(:/datetime/themes/dark/icons/list_delete_normal.png);
+    qproperty-hoverPic: url(:/datetime/themes/dark/icons/list_delete_hover.png);
+    qproperty-pressPic: url(:/datetime/themes/dark/icons/list_delete_press.png);
+}
+
+dcc--datetime--Clock[display=false] {
+    background-color:transparent;
+}

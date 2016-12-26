@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/display">
+        <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/nav_display.png</file>
+    </qresource>
+</RCC>

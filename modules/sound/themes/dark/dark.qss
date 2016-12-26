@@ -1,0 +1,26 @@
+QLabel#ModuleHeaderIconSound {
+    background-image: url(:/sound/themes/dark/icons/nav_sound.png);
+}
+
+dcc--widgets--TitledSliderItem#OutputVolumeSliderItem {
+    qproperty-leftIcon: url(":/sound/themes/dark/volume-low.png");
+    qproperty-rightIcon: url(":/sound/themes/dark/volume-high.png");
+}
+
+dcc--widgets--TitledSliderItem#OutputBalanceSliderItem {
+    qproperty-leftIcon: url(":/sound/themes/dark/balance-left.png");
+    qproperty-rightIcon: url(":/sound/themes/dark/balance-right.png");
+}
+
+dcc--widgets--TitledSliderItem#InputVolumeSliderItem {
+    qproperty-leftIcon: url(":/sound/themes/dark/volume-low.png");
+    qproperty-rightIcon: url(":/sound/themes/dark/volume-high.png");
+}
+
+dcc--widgets--TitledSliderItem#InputFeedbackSliderItem {
+    qproperty-leftIcon: url(":/sound/themes/dark/volume-feedback-low.png");
+    qproperty-rightIcon: url(":/sound/themes/dark/volume-feedback-high.png");
+}
+
+NormalLabel#PortItemPortName { color: white; }
+NormalLabel#PortItemCardName { color: white; }

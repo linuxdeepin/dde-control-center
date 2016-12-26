@@ -1,107 +1,67 @@
-/**
- * Copyright (C) 2015 Deepin Technology Co., Ltd.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- **/
-
 #ifndef DATETIME_H
 #define DATETIME_H
 
-#include <QObject>
-#include <QtPlugin>
+#include "datesettings.h"
+#include "contentwidget.h"
+#include "datetimeutil.h"
+
+#include "modulewidget.h"
+#include "settingsgroup.h"
+#include "settingsitem.h"
+#include "settingshead.h"
+#include "nextpagewidget.h"
+#include "switchwidget.h"
+
 #include <QSettings>
 
-#include "interfaces.h"
-#include "datecontrolwidget.h"
-#include "timezonectrlwidget.h"
-#include "timezonewidget.h"
-#include "timewidget.h"
-#include "timezoneitemwidget.h"
-#include "dbus/dbustimedate.h"
+#include <types/zoneinfo.h>
 
-#include "searchlist.h"
+using namespace dcc;
 
-#include <dcalendar.h>
-#include <dswitchbutton.h>
-#include <dheaderline.h>
-#include <dseparatorhorizontal.h>
+namespace dcc {
+namespace datetime {
 
-DWIDGET_USE_NAMESPACE
+class DatetimeModel;
+class TimeZoneChooser;
 
-class QFrame;
-
-class Datetime: public QObject
+class Datetime : public ModuleWidget
 {
     Q_OBJECT
 
 public:
-    Datetime(QObject *parent = NULL);
+    explicit Datetime();
     ~Datetime();
-    QFrame *getContent();
 
-protected:
-    bool eventFilter(QObject *o, QEvent *e) Q_DECL_OVERRIDE;
+    void setModel(const DatetimeModel *model);
 
-private:
-    static const QString getUTCOffset(int offset);
-    const QString getZoneCityListByOffset(int zoneOffset);
-    const ZoneInfo &getZoneInfoByName(const QString &zoneName);
-    void loadTimezoneList();
-    void reloadTimezoneList();
-    void showTimezoneList();
-    void toRemoveTimezoneMode();
-    void adjustItemHeight();
+signals:
+    void editChanged(bool edit);
+    void editDatetime();
+    void addClick();
 
-private slots:
-    void toggleTimeZone(TimezoneWidget *zone);
-    void removeTimeZone(TimezoneWidget *zone);
-    void addUserTimeZone();
-    void timezoneItemChoosed();
-    void loadZoneList();
+    void requestSetNtp(const bool &ntp);
+    void requestTimeSettings();
+    void requestAddUserTimeZone(const QString &zone);
+    void requestRemoveUserTimeZone(const ZoneInfo &zone);
+
+public slots:
+    void addTimezone(const ZoneInfo &zone);
+    void addTimezones(const QList<ZoneInfo> &zones);
+    void removeTimezone(const ZoneInfo &zone);
 
 private:
-    QFrame *m_frame = NULL;
+    const DatetimeModel *m_model;
 
-    DBusTimedate m_dbusInter;
+    SettingsGroup *m_timeSettingsGroup;
+    SwitchWidget *m_ntpSwitch;
+    NextPageWidget *m_timePageButton;
 
-    QList<ZoneInfo> *m_zoneInfoList = NULL;
+    SettingsGroup *m_timezoneGroup;
+    SettingsHead *m_headItem;
+    QPushButton *m_addTimezoneButton;
 
-    DSeparatorHorizontal *m_clockSeparator = NULL;
-    DSeparatorHorizontal *m_syncSeparator = NULL;
-    DSeparatorHorizontal *m_dateSeparator = NULL;
-    DSeparatorHorizontal *m_calendarSeparator = NULL;
-    DHeaderLine *m_clockHeaderLine = NULL;
-    DHeaderLine *m_syncHeaderLine = NULL;
-    DHeaderLine *m_dateHeaderLine = NULL;
-    DHeaderLine *m_timezoneHeaderLine = NULL;
-    DCalendar *m_calendar = NULL;
-    DSwitchButton *m_clockFormatSwitcher = NULL;
-    DSwitchButton *m_autoSyncSwitcher = NULL;
-    DateControlWidget *m_dateCtrlWidget = NULL;
-    TimezoneCtrlWidget *m_timezoneCtrlWidget = NULL;
-    TimeWidget *m_timeWidget = NULL;
-    SearchList *m_timezoneListWidget = NULL;
-    QTimer *m_refershClockTimer = NULL;
-    QSettings *m_settings = NULL;
-
-    QList<QString> m_choosedZoneList;
+    TimeZoneChooser *m_dialog;
 };
-
-class DatetimeModuele: public QObject, ModuleInterface
-{
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.deepin.ControlCenter.ModuleInterface" FILE "datetime.json")
-    Q_INTERFACES(ModuleInterface)
-
-public:
-    QFrame *getContent() Q_DECL_OVERRIDE;
-
-private:
-    Datetime *m_datetime = NULL;
-};
-
-
-#endif //DATETIME_H
+}
+}
+#endif // DATETIME_H

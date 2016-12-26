@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/sound">
+        <file>themes/light/light.qss</file>
+        <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/nav_sound.png</file>
+        <file>themes/dark/balance-left.png</file>
+        <file>themes/dark/balance-right.png</file>
+        <file>themes/dark/volume-low.png</file>
+        <file>themes/dark/volume-high.png</file>
+        <file>themes/dark/volume-feedback-high.png</file>
+        <file>themes/dark/volume-feedback-low.png</file>
+    </qresource>
+</RCC>

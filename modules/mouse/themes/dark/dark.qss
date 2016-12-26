@@ -1,0 +1,22 @@
+QLabel#ModuleHeaderIconMouse {
+    background-image: url(:/mouse/themes/dark/icons/nav_mouse.png);
+}
+
+#BaseSettings QLabel {
+    color: white;
+}
+#MouseSettings QLabel {
+    color: white;
+}
+
+#ThinkpadSettings QLabel {
+    color: white;
+}
+
+#SpeedSlider QLabel {
+    color: white;
+}
+
+dcc--ModuleTitle QLabel {
+    color: white;
+}

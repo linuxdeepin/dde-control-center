@@ -1,0 +1,7 @@
+QLabel#ModuleHeaderIconWacom {
+    background-image: url(:/wacom/themes/dark/icons/nav_wacom.png);
+}
+
+#WacomPressure QLabel {
+    color: white;
+}

@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/defapp">
+        <file>icons/list_delete_hover.png</file>
+        <file>icons/list_delete_normal.png</file>
+        <file>icons/list_delete_press.png</file>
+        <file>icons/select.png</file>
+        <file>themes/light/light.qss</file>
+        <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/nav_defapp.png</file>
+        <file>themes/common/common.qss</file>
+    </qresource>
+</RCC>

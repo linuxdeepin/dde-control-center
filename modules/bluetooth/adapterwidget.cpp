@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2015 Deepin Technology Co., Ltd.
+ * Copyright (C) 2016 Deepin Technology Co., Ltd.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -7,245 +7,115 @@
  * (at your option) any later version.
  **/
 
-#include <dthememanager.h>
-#include <dwidget_global.h>
-#include <dlineedit.h>
-#include <dtextbutton.h>
-#include <dheaderline.h>
-
-#include "constants.h"
-
-#include "imagenamebutton.h"
-#include "normallabel.h"
-
 #include "adapterwidget.h"
-#include "deviceitemwidget.h"
 
-DWIDGET_USE_NAMESPACE
+#include <QVBoxLayout>
+#include <QDebug>
 
-AdapterWidget::AdapterWidget(BluetoothMainWidget::AdapterInfo *info,
-                             QWidget *parent) :
-    QWidget(parent),
-    m_info(info)
+#include "devicesettingsitem.h"
+
+namespace dcc {
+namespace bluetooth {
+
+AdapterWidget::AdapterWidget(const Adapter *adapter) :
+    QWidget(),
+    m_adapter(adapter),
+    m_switch(new SwitchWidget),
+    m_titleGroup(new SettingsGroup),
+    m_myDevicesGroup(new SettingsGroup(tr("My devices"))),
+    m_otherDevicesGroup(new SettingsGroup(tr("Other devices")))
 {
-    D_THEME_INIT_WIDGET(AdapterWidget);
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->setMargin(0);
+    layout->setSpacing(10);
 
-    initUI();
+    m_titleGroup->appendItem(m_switch);
+    m_myDevicesGroup->setHeaderVisible(true);
+    m_otherDevicesGroup->setHeaderVisible(true);
+
+    layout->addWidget(m_titleGroup);
+    layout->addWidget(m_myDevicesGroup);
+    layout->addWidget(m_otherDevicesGroup);
+
+    connect(m_switch, &SwitchWidget::checkedChanegd, this, &AdapterWidget::toggleSwitch);
+    setAdapter(adapter);
 }
 
-AdapterWidget::~AdapterWidget()
+void AdapterWidget::setAdapter(const Adapter *adapter)
 {
-    if(m_info)
-        delete m_info;
-}
+    connect(adapter, &Adapter::nameChanged, m_switch, &SwitchWidget::setTitle);
+    connect(adapter, &Adapter::deviceAdded, this, &AdapterWidget::addDevice);
+    connect(adapter, &Adapter::deviceRemoved, this, &AdapterWidget::removeDevice);
+    connect(adapter, &Adapter::poweredChanged, m_switch, &SwitchWidget::setChecked);
 
-void AdapterWidget::removeConfirm(ConfrimWidget *confrim)
-{
-    m_activeDeviceList->removeWidget(m_activeDeviceList->indexOf(confrim), false);
-}
+    m_switch->blockSignals(true);
+    m_switch->setTitle(adapter->name());
+    m_switch->setChecked(adapter->powered());
+    m_switch->blockSignals(false);
 
-void AdapterWidget::addConfirm(ConfrimWidget *confirm, BluetoothMainWidget::DeviceInfo *info)
-{
-    // confirm widget already exists
-    if (m_activeDeviceList->indexOf(confirm) != -1)
-        return;
+    blockSignals(true);
+    toggleSwitch(adapter->powered());
+    blockSignals(false);
 
-    int index = m_activeDeviceList->indexOf(info->item);
-    m_activeDeviceList->insertWidget(index + 1, confirm);
-}
-
-void AdapterWidget::addDevice(BluetoothMainWidget::DeviceInfo *info)
-{
-//    qDebug() << info->name << info->trusted << info->state;
-
-    info->adapterInfo = m_info;
-
-    m_deviceItemList->addWidget(info->item);
-}
-
-void AdapterWidget::addTrustedDevice(BluetoothMainWidget::DeviceInfo *info)
-{
-    info->adapterInfo = m_info;
-
-    m_activeDeviceList->addWidget(info->item);
-    m_activeDeviceExpand->setVisible(m_bluetoothSwitch->checked());
-}
-
-void AdapterWidget::removeDevice(BluetoothMainWidget::DeviceInfo *info, bool isDelete)
-{
-    int index = m_deviceItemList->indexOf(info->item);
-
-    qDebug() << "remove" << index << info->item;
-
-    if(index >= 0){
-        info->adapterInfo = nullptr;
-        m_deviceItemList->removeWidget(index, isDelete);
+    for (const Device *device : adapter->devices()) {
+        addDevice(device);
     }
 }
 
-void AdapterWidget::removeTrustedDevice(BluetoothMainWidget::DeviceInfo *info)
+void AdapterWidget::toggleSwitch(const bool &checked)
 {
-    int index = m_activeDeviceList->indexOf(info->item);
+    m_myDevicesGroup->setVisible(checked);
+    m_otherDevicesGroup->setVisible(checked);
 
-    if(index >= 0){
-        info->adapterInfo = nullptr;
-        m_activeDeviceList->removeWidget(index);
-    }
-
-    qDebug() << "remove trusted device: " << m_activeDeviceList->count();
-
-    m_activeDeviceExpand->setVisible(m_activeDeviceList->count() != 0 && m_bluetoothSwitch->checked());
+    emit requestToggleAdapter(checked);
 }
 
-void AdapterWidget::updateUI()
+void AdapterWidget::addDevice(const Device *device)
 {
-    QString text = m_info->name;
-    QFontMetrics metrics(m_bluetoothName->font());
 
-    const bool powered = m_info->powered;
-    qDebug() << "powered = " << powered;
+    DeviceSettingsItem *w = new DeviceSettingsItem(device);
 
-    m_bluetoothName->setText(metrics.elidedText(text, Qt::ElideRight, 210));
-    m_bluetoothSwitch->setChecked(powered);
-    m_refreshnndicator->setLoading(m_info->discovering);
-    m_deviceItemList->setVisible(powered);
-    m_listWidgetSeparator->setVisible(m_deviceItemList->count() > 0 && powered);
-    m_activeDeviceExpand->setVisible(powered && m_activeDeviceList->count());
+    auto CategoryDevice = [this, w] (const bool paired) {
+        if (paired) {
+            m_myDevicesGroup->appendItem(w);
+        } else {
+            m_otherDevicesGroup->appendItem(w);
+        }
+    };
+    CategoryDevice(device->paired());
+
+    connect(w, &DeviceSettingsItem::requestConnectDevice, this, &AdapterWidget::requestConnectDevice);
+    connect(device, &Device::pairedChanged, CategoryDevice);
+    connect(w, &DeviceSettingsItem::requestShowDetail, [this] (const Device *device) {
+        emit requestShowDetail(m_adapter, device);
+    });
 }
 
-void AdapterWidget::initUI()
+void AdapterWidget::removeDevice(const QString &deviceId)
 {
-    QVBoxLayout *main_layout = new QVBoxLayout(this);
-
-    main_layout->setMargin(0);
-    main_layout->setSpacing(0);
-
-    setFixedWidth(DCC::ModuleContentWidth);
-
-    QWidget *name_edit_switch = new QWidget;
-    QHBoxLayout *h_layout = new QHBoxLayout(name_edit_switch);
-    m_bluetoothName = new NormalLabel;
-    ImageNameButton *edit_button = new ImageNameButton("edit");
-    m_bluetoothSwitch = new DSwitchButton;
-
-    name_edit_switch->setFixedWidth(DCC::ModuleContentWidth);
-    name_edit_switch->setFixedHeight(DTK_WIDGET_NAMESPACE::CONTENT_HEADER_HEIGHT);
-
-    h_layout->setSpacing(10);
-    h_layout->setMargin(0);
-    h_layout->addSpacing(10);
-    h_layout->addWidget(m_bluetoothName);
-    h_layout->addWidget(edit_button);
-    h_layout->addStretch(1);
-    h_layout->addWidget(m_bluetoothSwitch);
-    h_layout->addSpacing(10);
-
-    connect(m_bluetoothSwitch, &DSwitchButton::checkedChanged, this, [this](bool checked){
-        qDebug() << "checked = " << checked << "powere = " << m_info->powered;
-        if(m_info->powered != checked)
-            m_info->bluetoothDbus->SetAdapterPowered(QDBusObjectPath(m_info->path), checked);//.waitForFinished();
-//        m_info->powered = checked;
-        m_activeDeviceExpand->setVisible(checked && m_activeDeviceList->count());
-        m_tipsLabel->setVisible(!checked);
-        m_headerLine->setVisible(checked);
-        m_deviceItemList->setVisible(checked);
-        m_listWidgetSeparator->setVisible(m_deviceItemList->count() > 0 && checked);
-//        m_separator->setVisible(checked);
-    });
-
-    QWidget *edit_name_widget = new QWidget;
-    QVBoxLayout *editWidget_vLayout = new QVBoxLayout(edit_name_widget);
-    DLineEdit *name_lineEdit = new DLineEdit;
-
-    edit_name_widget->hide();
-    editWidget_vLayout->setContentsMargins(10, 5, 10, 5);
-    editWidget_vLayout->addWidget(name_lineEdit);
-
-    connect(edit_button, &ImageNameButton::clicked,
-            this, [name_edit_switch, edit_name_widget, name_lineEdit, this]{
-        name_lineEdit->setText(m_info->name);
-        name_lineEdit->setFocus();
-        name_edit_switch->hide();
-        edit_name_widget->show();
-    });
-
-    connect(name_lineEdit, &DLineEdit::editingFinished, [this, edit_name_widget, name_lineEdit, name_edit_switch] {
-        if (name_lineEdit->text().isEmpty())
+    QList<DeviceSettingsItem*> devices = m_myDevicesGroup->findChildren<DeviceSettingsItem*>();
+    for (DeviceSettingsItem *item : devices) {
+        if (item->device()->id() == deviceId) {
+            m_myDevicesGroup->removeItem(item);
+            item->deleteLater();
             return;
+        }
+    }
 
-        // remove all invisible chatacter
-        const QString newName = name_lineEdit->text().remove(QRegularExpression("\\s"));
+    devices = m_otherDevicesGroup->findChildren<DeviceSettingsItem*>();
+    for (DeviceSettingsItem *item : devices) {
+        if (item->device()->id() == deviceId) {
+            m_otherDevicesGroup->removeItem(item);
+            item->deleteLater();
+            return;
+        }
+    }
+}
 
-        m_info->bluetoothDbus->SetAdapterAlias(QDBusObjectPath(m_info->path), newName);
+const Adapter *AdapterWidget::adapter() const
+{
+    return m_adapter;
+}
 
-        name_edit_switch->show();
-        edit_name_widget->hide();
-    });
-    connect(name_lineEdit, &DLineEdit::focusChanged, [this, edit_name_widget, name_lineEdit, name_edit_switch] (bool focus) {
-        if (!focus)
-            name_lineEdit->editingFinished();
-    });
-
-    m_headerLine = new DHeaderLine;
-    m_headerLine->hide();
-//    ImageNameButton *refresh_button = new ImageNameButton("waiting");
-    DImageButton *refresh_button = new DImageButton;
-    refresh_button->setNormalPic(":/dark/images/waiting.png");
-    m_refreshnndicator = new DLoadingIndicator;
-
-    refresh_button->setAttribute(Qt::WA_TranslucentBackground);
-    m_refreshnndicator->setFixedSize(refresh_button->sizeHint());
-    m_refreshnndicator->setWidgetSource(refresh_button);
-    m_refreshnndicator->setSmooth(true);
-    m_refreshnndicator->setLoading(m_info->discovering);
-
-    m_headerLine->setTitle(tr("Other devices"));
-    m_headerLine->setLeftMargin(10);
-    m_headerLine->setContent(m_refreshnndicator);
-    m_headerLine->setFixedHeight(DTK_WIDGET_NAMESPACE::EXPAND_HEADER_HEIGHT);
-
-    m_deviceItemList = new DListWidget;
-    m_listWidgetSeparator = new DSeparatorHorizontal;
-
-//    m_deviceItemList->setVisible(m_info->powered);
-    m_deviceItemList->setStyleSheet(styleSheet());
-    m_listWidgetSeparator->hide();
-    m_info->widget = this;
-
-//    connect(m_deviceItemList, &DListWidget::visibleCountChanged, this, [this](int count){
-//        m_listWidgetSeparator->setVisible(count > 0 && m_bluetoothSwitch->checked());
-//    });
-    connect(refresh_button, &ImageNameButton::clicked, this, [this] {
-        m_info->bluetoothDbus->RequestDiscovery(QDBusObjectPath(m_info->path));
-    });
-
-    m_activeDeviceList = new DListWidget;
-    m_activeDeviceExpand = new DArrowLineExpand;
-    m_activeDeviceExpand->setTitle(tr("My devices"));
-    m_activeDeviceExpand->setContent(m_activeDeviceList);
-    m_activeDeviceExpand->setExpand(true);
-    m_activeDeviceExpand->setHidden(true);
-
-    m_tipsLabel = new QLabel;
-    m_tipsLabel->setWordWrap(true);
-    m_tipsLabel->setText(tr("Open bluetooth to find nearby devices (loudspeaker, keyboard, mouse)"));
-    m_tipsLabel->setStyleSheet("color:#b2b2b2;"
-                             "margin:3px 5px;");
-
-    m_separator = new DSeparatorHorizontal;
-//    m_separator->hide();
-
-    main_layout->addWidget(name_edit_switch);
-    main_layout->addWidget(edit_name_widget);
-    main_layout->addWidget(new DSeparatorHorizontal);
-    main_layout->addWidget(m_activeDeviceExpand);
-//    main_layout->addWidget(new DSeparatorHorizontal);
-    main_layout->addWidget(m_headerLine);
-    main_layout->addWidget(m_tipsLabel);
-    main_layout->addWidget(m_separator);
-    main_layout->addWidget(m_deviceItemList);
-    main_layout->addWidget(m_listWidgetSeparator);
-
-//    updateUI();
-    QMetaObject::invokeMethod(this, "updateUI", Qt::QueuedConnection);
+}
 }

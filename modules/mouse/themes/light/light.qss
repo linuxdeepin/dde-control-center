@@ -1,0 +1,18 @@
+#BaseSettings QLabel {
+    color: black;
+}
+#MouseSettings QLabel {
+    color: black;
+}
+
+#ThinkpadSettings QLabel {
+    color: black;
+}
+
+#SpeedSlider QLabel {
+    color: black;
+}
+
+dcc--ModuleTitle QLabel {
+    color: black;
+}

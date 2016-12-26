@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.2 (33826) - http://www.bohemiancoding.com/sketch -->
+    <title>暴风雨</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="暴风雨">
+            <path d="M13,30 L15,33" id="Path-3" stroke="#53C0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M19,37 L21,40" id="Path-3" stroke="#53C0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M27,37 L29,40" id="Path-3" stroke="#53C0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M17,26 L11.5951272,26 C8.50965405,26 6,23.3762164 6,20.1507505 C6,16.9252845 8.50965405,14.3008412 11.5951272,14.3008412 L11.6282495,14.3008412 C12.4091723,9.47484744 16.3328954,6 21.0509176,6 C24.8319599,6 28.3263665,8.41860465 29.8238783,12.0445324 C30.2920498,11.9383144 30.7710498,11.8848755 31.2513237,11.8848755 C34.6669032,11.8848755 37.4980751,14.552309 37.9400406,18 L23.0001062,18 C21.8900584,18 21,18.8954305 21,20 L21,22 L19,22 C17.8877296,22 17,22.8954305 17,24 L17,26 L17,26 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+            <g id="Group" transform="translate(30.000000, 27.500000) scale(1, -1) translate(-30.000000, -27.500000) translate(20.000000, 24.000000)" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M0,6 L17,6" id="Path-5"></path>
+                <path d="M15,5.18496481 C15.5309526,5.69002201 16.2492031,6 17.039853,6 C18.674697,6 20,4.67469703 20,3.03985297 C20,1.40500891 18.674697,0.0797059396 17.039853,0.0797059396" id="Oval-4" transform="translate(17.500000, 3.039853) scale(1, -1) translate(-17.500000, -3.039853) "></path>
+            </g>
+            <path d="M29,30 L31,33" id="Path-3" stroke="#53C0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <g id="Group" transform="translate(24.000000, 15.000000)" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M0,6 L17,6" id="Path-5"></path>
+                <path d="M15,5.18496481 C15.5309526,5.69002201 16.2492031,6 17.039853,6 C18.674697,6 20,4.67469703 20,3.03985297 C20,1.40500891 18.674697,0.0797059396 17.039853,0.0797059396" id="Oval-4" transform="translate(17.500000, 3.039853) scale(1, -1) translate(-17.500000, -3.039853) "></path>
+            </g>
+            <path d="M21,30 L23,33" id="Path-3" stroke="#53C0FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>

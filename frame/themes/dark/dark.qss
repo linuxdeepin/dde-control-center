@@ -1,0 +1,24 @@
+QLabel#ModuleHeaderTitle {
+    color: white;
+    margin: 0 0 0 5px;
+}
+
+QLabel#HomeVolumeLowLabel {
+    background-image: url(":/frame/themes/dark/icons/home_volume_low.png");
+}
+
+QLabel#HomeVolumeHighLabel {
+    background-image: url(":/frame/themes/dark/icons/home_volume_high.png");
+}
+
+QLabel#HomeBrightnessLowLabel {
+    background-image: url(":/frame/themes/dark/icons/home_light_low.png");
+}
+
+QLabel#HomeBrightnessHighLabel {
+    background-image: url(":/frame/themes/dark/icons/home_light_high.png");
+}
+
+dcc--QuickSwitchButton#QuickSwitchBluetooth, dcc--QuickSwitchButton#QuickSwitchVPN, dcc--QuickSwitchButton#QuickSwitchWiFi, dcc--QuickSwitchButton#QuickSwitchDisplay, dcc--QuickSwitchButton#QuickSwitchAllSettings {
+    qproperty-themeName: "dark";
+}
