@@ -34,6 +34,7 @@ signals:
     void requestNextPage(ContentWidget * const w) const;
     void requestVpnEnabled(const bool enabled) const;
     void requestEditVpn(const QString &devPath, const QString &connPath) const;
+    void requestCreateConnection(const QString &type, const QString &devicePath) const;
 
 public slots:
     void setModel(NetworkModel *model);
@@ -42,6 +43,7 @@ public slots:
 private slots:
     void onVpnClicked();
     void onVpnSessionCreated(const QString &device, const QString &sessionPath);
+    void createVPN();
 
 private:
     NetworkModel *m_model;

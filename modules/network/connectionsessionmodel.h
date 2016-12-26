@@ -28,6 +28,7 @@ public:
     const QMap<QString, QMap<QString, QJsonObject>> keys() const { return m_keys; }
 
 signals:
+    void connectionNameChanged(const QString &connName) const;
     void visibleItemsChanged(const QMap<QString, QList<QJsonObject>> &keys) const;
     void keysChanged(const QMap<QString, QMap<QString, QJsonObject>> &keys) const;
     void errorsChanged(const NetworkErrors &errors) const;
