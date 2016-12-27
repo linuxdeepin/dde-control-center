@@ -4,6 +4,8 @@
 namespace dcc{
 namespace update{
 
+static const QString OfflineUpgraderService = "com.deepin.dde.OfflineUpgrader";
+
 UpdateModule::UpdateModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),
@@ -51,8 +53,10 @@ void UpdateModule::reset()
 void UpdateModule::contentPopped(ContentWidget * const w)
 {
     Q_UNUSED(w);
-    if(w == m_updatePage)
+    if(w == m_updatePage) {
         m_updatePage = nullptr;
+        QDBusConnection::sessionBus().unregisterService(OfflineUpgraderService);
+    }
     else if(w == m_settingsPage)
         m_settingsPage = nullptr;
     else if(w == m_mirrorsWidget)
@@ -83,6 +87,9 @@ void UpdateModule::onPushUpdate()
 {
     m_work->checkForUpdates();
 
+    // prohibit dde-offline-upgrader from showing while this page is showing.
+    QDBusConnection::sessionBus().registerService(OfflineUpgraderService);
+
     if (!m_updatePage) {
         m_updatePage = new UpdateCtrlWidget(m_model);
 
@@ -90,6 +97,8 @@ void UpdateModule::onPushUpdate()
         connect(m_updatePage, &UpdateCtrlWidget::requestPauseDownload, m_work, &UpdateWork::pauseDownload);
         connect(m_updatePage, &UpdateCtrlWidget::requestResumeDownload, m_work, &UpdateWork::resumeDownload);
         connect(m_updatePage, &UpdateCtrlWidget::requestInstallUpdates, [this] {
+            QDBusConnection::sessionBus().unregisterService(OfflineUpgraderService);
+
             QProcess::startDetached("/usr/lib/deepin-daemon/dde-offline-upgrader");
         });
     }
