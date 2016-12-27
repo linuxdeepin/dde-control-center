@@ -22,7 +22,14 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     connect(m_systemInfoInter, SIGNAL(ProcessorChanged(QString)), this, SIGNAL(ProcessorChanged(QString)));
     connect(m_systemInfoInter, SIGNAL(MemoryCapChanged(qulonglong)), this, SIGNAL(MemoryCapChanged(qulonglong)));
     connect(m_systemInfoInter, SIGNAL(DiskCapChanged(qulonglong)), this, SIGNAL(DiskCapChanged(qulonglong)));
+
     connect(m_dbusGrub,SIGNAL(DefaultEntryChanged(QString)), m_model, SLOT(setDefaultEntry(QString)));
+    connect(m_dbusGrub, &GrubDbus::TimeoutChanged, m_model, &SystemInfoModel::setBootTimeout);
+    connect(m_dbusGrub, &GrubDbus::EnableThemeChanged, m_model, &SystemInfoModel::setThemeEnabled);
+
+    m_model->setDefaultEntry(m_dbusGrub->defaultEntry());
+    m_model->setBootTimeout(m_dbusGrub->timeout());
+    m_model->setThemeEnabled(m_dbusGrub->enableTheme());
 }
 
 QString SystemInfoWork::version() const

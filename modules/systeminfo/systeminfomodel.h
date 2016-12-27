@@ -21,6 +21,9 @@ public:
     QString memory() const { return m_memory;}
     QString disk() const { return m_disk;}
 
+    int bootTimeout() const { return m_bootTimeout; }
+    bool themeEnabled() const { return m_themeEnabled; }
+
     static inline QString formatCap(qulonglong cap, const int size = 1024)
     {
         static QString type[] = {"B", "KB", "MB", "GB", "TB"};
@@ -41,6 +44,8 @@ public:
     }
 
 signals:
+    void bootTimeoutChanged(const int timeout) const;
+    void themeEnabledChanged(const bool enabled) const;
     void versionChanged(const QString& version);
     void typeChanged(const QString& type);
     void processorChanged(const QString& processor);
@@ -49,6 +54,8 @@ signals:
     void defaultEntryChanged(const QString& entry);
 
 public slots:
+    void setBootTimeout(const int timeout);
+    void setThemeEnabled(const bool enabled);
     void setVersion(const QString& version);
     void setType(qlonglong type);
     void setProcessor(const QString& processor);
@@ -57,6 +64,8 @@ public slots:
     void setDefaultEntry(const QString& entry);
 
 private:
+    int m_bootTimeout;
+    bool m_themeEnabled;
     QString m_version;
     QString m_type;
     QString m_processor;

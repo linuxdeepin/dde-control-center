@@ -9,13 +9,16 @@ using namespace dcc::widgets;
 namespace dcc{
 namespace systeminfo{
 
+class SystemInfoModel;
 class BootWidget : public ContentWidget
 {
     Q_OBJECT
 
 public:
     explicit BootWidget(QWidget* parent = 0);
+
     void setDefaultEntry(const QString& value);
+    void setModel(SystemInfoModel *model);
 
 signals:
     void enableTheme(bool value);
@@ -23,7 +26,6 @@ signals:
     void defaultEntry(const QString& item);
 
 public slots:
-    void setChecked(bool value);
     void setEntryList(const QStringList& list);
     void onItemActivated(QListWidgetItem* item);
     void onCurrentItem(QListWidgetItem* cur, QListWidgetItem* pre);

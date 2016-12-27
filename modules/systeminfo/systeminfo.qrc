@@ -11,5 +11,6 @@
         <file>gpl/gpl-3.0-zh_CN-title.txt</file>
         <file>gpl/gpl-3.0-zh_TW-body.txt</file>
         <file>gpl/gpl-3.0-zh_TW-title.txt</file>
+        <file>themes/common/icons/select.png</file>
     </qresource>
 </RCC>

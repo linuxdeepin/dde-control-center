@@ -103,7 +103,8 @@ void SystemInfoModule::onPushBoot()
 {
     if(!m_bootWidget)
     {
-        m_bootWidget = new BootWidget();
+        m_bootWidget = new BootWidget;
+        m_bootWidget->setModel(m_model);
         m_bootWidget->setDefaultEntry(m_model->defaultEntry());
         m_bootWidget->setEntryList(m_model->entryLists());
 

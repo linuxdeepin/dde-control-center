@@ -2,6 +2,7 @@
 #include "settingsgroup.h"
 #include "grubbackgrounditem.h"
 #include "translucentframe.h"
+#include "systeminfomodel.h"
 
 #include <QVBoxLayout>
 
@@ -56,6 +57,12 @@ void BootWidget::setDefaultEntry(const QString &value)
     m_defaultEntry = value;
 }
 
+void BootWidget::setModel(SystemInfoModel *model)
+{
+    m_boot->setChecked(model->bootTimeout());
+    m_theme->setChecked(model->themeEnabled());
+}
+
 void BootWidget::setEntryList(const QStringList &list)
 {
     for(int i = 0; i<list.count(); i++)
@@ -89,23 +96,16 @@ void BootWidget::onCurrentItem(QListWidgetItem *cur, QListWidgetItem *pre)
 {
     if(pre)
     {
-        QPixmap pix(32,32);
+        QPixmap pix(16, 16);
         pix.fill(Qt::transparent);
         pre->setIcon(pix);
     }
 
     if(cur)
     {
-        QPixmap pix(32,32);
-        pix.fill(Qt::red);
+        QPixmap pix(":/gpl/themes/common/icons/select.png");
         cur->setIcon(pix);
     }
 }
-
-void BootWidget::setChecked(bool value)
-{
-    m_theme->setChecked(value);
-}
-
 }
 }

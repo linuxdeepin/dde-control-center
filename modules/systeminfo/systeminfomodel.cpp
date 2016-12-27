@@ -14,6 +14,26 @@ void SystemInfoModel::setEntryLists(const QStringList &list)
     m_entryLists = list;
 }
 
+void SystemInfoModel::setBootTimeout(const int timeout)
+{
+    if (m_bootTimeout != timeout)
+    {
+        m_bootTimeout = timeout;
+
+        emit bootTimeoutChanged(m_bootTimeout);
+    }
+}
+
+void SystemInfoModel::setThemeEnabled(const bool enabled)
+{
+    if (m_themeEnabled != enabled)
+    {
+        m_themeEnabled = enabled;
+
+        emit themeEnabledChanged(m_themeEnabled);
+    }
+}
+
 void SystemInfoModel::setDefaultEntry(const QString &entry)
 {
     m_defaultEntry = entry;
