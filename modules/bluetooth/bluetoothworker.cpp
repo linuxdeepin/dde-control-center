@@ -40,6 +40,7 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
         PinCodeDialog dialog(in1);
         int ret = dialog.exec();
 
+
         m_bluetoothInter->Confirm(in0, bool(ret));
     });
 
@@ -300,6 +301,11 @@ void BluetoothWorker::removeDevice(const QString &json)
         Device *device = const_cast<Device*>(result);
         device->deleteLater();
     }
+}
+
+void BluetoothWorker::setAlias(const Adapter *adapter, const QString &alias)
+{
+    m_bluetoothInter->SetAdapterAlias(QDBusObjectPath(adapter->id()), alias);
 }
 
 void BluetoothWorker::setAdapterDiscoverable(const QString &path)

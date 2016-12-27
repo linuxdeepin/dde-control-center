@@ -17,6 +17,7 @@ SwitchWidget::SwitchWidget(QFrame *parent)
     m_switchBtn = new DSwitchButton;
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
+
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addWidget(m_switchBtn);
@@ -32,6 +33,24 @@ SwitchWidget::SwitchWidget(const QString &title, QFrame *parent) :
     SwitchWidget(parent)
 {
     setTitle(title);
+}
+
+SwitchWidget::SwitchWidget(QWidget *widget, QFrame *parent):
+    SettingsItem(parent)
+{
+    m_switchBtn = new DSwitchButton;
+
+    QHBoxLayout *mainLayout = new QHBoxLayout;
+
+    mainLayout->addWidget(widget, 0, Qt::AlignLeft);
+    mainLayout->addStretch();
+    mainLayout->addWidget(m_switchBtn);
+    mainLayout->setSpacing(0);
+
+    setFixedHeight(36);
+    setLayout(mainLayout);
+
+    connect(m_switchBtn, &DSwitchButton::checkedChanged, this, &SwitchWidget::checkedChanegd);
 }
 
 void SwitchWidget::setChecked(const bool checked)

@@ -8,24 +8,26 @@
  **/
 
 #include "adapterwidget.h"
-
 #include <QVBoxLayout>
 #include <QDebug>
 
 #include "devicesettingsitem.h"
+#include "translucentframe.h"
 
 namespace dcc {
 namespace bluetooth {
 
 AdapterWidget::AdapterWidget(const Adapter *adapter) :
-    QWidget(),
     m_adapter(adapter),
-    m_switch(new SwitchWidget),
+    m_titleEdit(new TitleEdit),
+    m_switch(new SwitchWidget(m_titleEdit)),
     m_titleGroup(new SettingsGroup),
     m_myDevicesGroup(new SettingsGroup(tr("My devices"))),
     m_otherDevicesGroup(new SettingsGroup(tr("Other devices")))
 {
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    setTitle(tr("Bluetooth"));
+
+    QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->setSpacing(10);
 
@@ -38,18 +40,26 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     layout->addWidget(m_otherDevicesGroup);
 
     connect(m_switch, &SwitchWidget::checkedChanegd, this, &AdapterWidget::toggleSwitch);
+    connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, [=](const QString &alias) {
+            emit requestSetAlias(adapter, alias);
+    });
+
+    TranslucentFrame *w = new TranslucentFrame;
+    w->setLayout(layout);
+    setContent(w);
+
     setAdapter(adapter);
 }
 
 void AdapterWidget::setAdapter(const Adapter *adapter)
 {
-    connect(adapter, &Adapter::nameChanged, m_switch, &SwitchWidget::setTitle);
+    connect(adapter, &Adapter::nameChanged, m_titleEdit, &TitleEdit::setTitle);
     connect(adapter, &Adapter::deviceAdded, this, &AdapterWidget::addDevice);
     connect(adapter, &Adapter::deviceRemoved, this, &AdapterWidget::removeDevice);
     connect(adapter, &Adapter::poweredChanged, m_switch, &SwitchWidget::setChecked);
 
     m_switch->blockSignals(true);
-    m_switch->setTitle(adapter->name());
+    m_titleEdit->setTitle(adapter->name());
     m_switch->setChecked(adapter->powered());
     m_switch->blockSignals(false);
 
@@ -67,7 +77,7 @@ void AdapterWidget::toggleSwitch(const bool &checked)
     m_myDevicesGroup->setVisible(checked);
     m_otherDevicesGroup->setVisible(checked);
 
-    emit requestToggleAdapter(checked);
+    emit requestSetToggleAdapter(m_adapter, checked);
 }
 
 void AdapterWidget::addDevice(const Device *device)

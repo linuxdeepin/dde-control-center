@@ -20,6 +20,7 @@ public:
 
 public slots:
     void showDetail(const Adapter *adapter, const Device *device);
+    void showBluetoothDetail(const Adapter *adapter);
 
 private:
     ~BluetoothModule();

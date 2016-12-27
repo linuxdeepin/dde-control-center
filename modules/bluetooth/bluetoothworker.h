@@ -36,6 +36,7 @@ public slots:
     void connectDevice(const Device *device);
     void disconnectDevice(const Device *device);
     void ignoreDevice(const Adapter *adapter, const Device *device);
+    void setAlias(const Adapter *adapter, const QString &alias);
 
 private:
     void inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj);

@@ -32,7 +32,7 @@ const Adapter *BluetoothModel::removeAdapater(const QString &adapterId)
     adapter = adapterById(adapterId);
     if (adapter) {
         m_adapters.removeOne(adapter);
-        emit adapterRemoved(adapterId);
+        emit adapterRemoved(adapter);
     }
 
     return adapter;

@@ -8,20 +8,23 @@
  **/
 
 #include "bluetoothwidget.h"
+#include "settingsgroup.h"
 
-namespace dcc {
-namespace bluetooth {
+using namespace dcc;
+using namespace dcc::bluetooth;
+using namespace dcc::widgets;
 
 BluetoothWidget::BluetoothWidget(BluetoothModel *model) :
     ModuleWidget(),
-    m_model(model)
+    m_model(model),
+    m_mainGroup(new SettingsGroup)
 {
     setObjectName("Bluetooth");
-
-    setTitle(tr("Bluetooth"));
-    m_centeralLayout->setMargin(0);
     setModel(model);
+    m_centeralLayout->setMargin(0);
+    m_centeralLayout->addWidget(m_mainGroup);
 }
+
 
 void BluetoothWidget::setModel(BluetoothModel *model)
 {
@@ -29,67 +32,44 @@ void BluetoothWidget::setModel(BluetoothModel *model)
     connect(model, &BluetoothModel::adapterAdded, this, &BluetoothWidget::addAdapter);
     connect(model, &BluetoothModel::adapterRemoved, this, &BluetoothWidget::removeAdapter);
 
-    QStringList tmpList;
-    for (const Adapter *adapter : model->adapters()) {
-        const QString adapterId = adapter->id();
-        tmpList << adapterId;
+    for (const Adapter *adapter : model->adapters())
+        addAdapter(adapter);
 
-        if (!widgetByAdapterId(adapterId)) {
-            addAdapter(adapter);
-        }
-    }
-
-    QList<AdapterWidget*> aws = findChildren<AdapterWidget*>();
-    for (AdapterWidget *aw : aws) {
-        if (!tmpList.contains(aw->adapter()->id())) {
-            m_centeralLayout->removeWidget(aw);
-            aw->deleteLater();
-        }
-    }
-
-    setVisible(model->adapters().length() != 0);
-}
-
-AdapterWidget *BluetoothWidget::widgetByAdapterId(const QString &adapterId)
-{
-    QList<AdapterWidget*> aws = findChildren<AdapterWidget*>();
-    for (AdapterWidget *aw : aws) {
-        if (aw->adapter()->id() == adapterId) {
-            return aw;
-        }
-    }
-
-    return nullptr;
+    setVisibleState();
 }
 
 void BluetoothWidget::addAdapter(const Adapter *adapter)
 {
-    if (widgetByAdapterId(adapter->id())) return;
+    if (!m_valueMap.contains(adapter)) {
+        NextPageWidget *showBluetoothDetailWidget = new NextPageWidget;
+        showBluetoothDetailWidget->setTitle(adapter->name());
+        m_valueMap.insert(adapter, showBluetoothDetailWidget);
+        m_mainGroup->appendItem(showBluetoothDetailWidget);
 
-    AdapterWidget * widget = new AdapterWidget(adapter);
-    m_widgets.append(widget);
-
-    m_centeralLayout->addWidget(widget);
-
-    connect(widget, &AdapterWidget::requestToggleAdapter, [this, adapter] (const bool &toggled) { emit requestToggleAdapter(adapter, toggled); });
-    connect(widget, &AdapterWidget::requestConnectDevice, this, &BluetoothWidget::requestConnectDevice);
-    connect(widget, &AdapterWidget::requestShowDetail, this, &BluetoothWidget::requestShowDetail);
-
-    setVisible(true);
+        connect(showBluetoothDetailWidget, &NextPageWidget::clicked, [=]{
+            emit showBluetoothDetail(adapter);
+        });
+        setVisibleState();
+    }
 }
 
-void BluetoothWidget::removeAdapter(const QString &adapterId)
+void BluetoothWidget::removeAdapter(const Adapter *adapter)
 {
-    AdapterWidget *aw = widgetByAdapterId(adapterId);
-    if (aw) {
-        m_centeralLayout->removeWidget(aw);
-        aw->deleteLater();
-    }
-
-    if (m_model->adapters().length() == 0) {
-        setVisible(false);
+    if (m_valueMap.contains(adapter)) {
+        m_mainGroup->removeItem(m_valueMap.value(adapter));
+        m_valueMap.take(adapter)->deleteLater();
+        Adapter *w = const_cast<Adapter*>(adapter);
+        if (w) {
+            w->deleteLater();
+        }
+        setVisibleState();
     }
 }
 
-} // namespace bluetooth
-} // namespace dcc
+void BluetoothWidget::setVisibleState()
+{
+    if(m_valueMap.size() != 0)
+        setVisible(true);
+    else
+        setVisible(false);
+}

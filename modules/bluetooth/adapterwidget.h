@@ -10,10 +10,9 @@
 #ifndef ADAPTERWIDGET_H
 #define ADAPTERWIDGET_H
 
-#include <QWidget>
-
+#include "contentwidget.h"
 #include "adapter.h"
-
+#include "TitleEdit.h"
 #include "switchwidget.h"
 #include "settingsgroup.h"
 
@@ -22,23 +21,23 @@ using namespace dcc::widgets;
 namespace dcc {
 namespace bluetooth {
 
-class AdapterWidget : public QWidget
+class AdapterWidget : public ContentWidget
 {
     Q_OBJECT
 public:
     explicit AdapterWidget(const Adapter *adapter);
 
     void setAdapter(const Adapter *adapter);
-
     const Adapter *adapter() const;
 
 public slots:
     void toggleSwitch(const bool &checked);
 
 signals:
-    void requestToggleAdapter(const bool &powered);
+    void requestSetToggleAdapter(const Adapter *adapter, const bool &toggled);
     void requestConnectDevice(const Device *device);
     void requestShowDetail(const Adapter *adapter, const Device *device);
+    void requestSetAlias(const Adapter *adapter, const QString &alias);
 
 private slots:
     void addDevice(const Device *device);
@@ -46,6 +45,7 @@ private slots:
 
 private:
     const Adapter *m_adapter;
+    TitleEdit *m_titleEdit;
     SwitchWidget *m_switch;
     SettingsGroup *m_titleGroup;
     SettingsGroup *m_myDevicesGroup;

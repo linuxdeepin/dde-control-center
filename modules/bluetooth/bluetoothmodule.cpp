@@ -2,7 +2,7 @@
 #include "bluetoothwidget.h"
 #include "bluetoothmodel.h"
 #include "bluetoothworker.h"
-
+#include "adapterwidget.h"
 #include "contentwidget.h"
 #include "detailpage.h"
 
@@ -30,6 +30,18 @@ void BluetoothModule::showDetail(const Adapter *adapter, const Device *device)
     m_frameProxy->pushWidget(this, page);
 }
 
+void BluetoothModule::showBluetoothDetail(const Adapter *adapter)
+{
+    AdapterWidget *w = new AdapterWidget(adapter);
+
+    connect(w, &AdapterWidget::requestSetToggleAdapter, m_bluetoothWorker, &BluetoothWorker::setAdapterPowered);
+    connect(w, &AdapterWidget::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectDevice);
+    connect(w, &AdapterWidget::requestShowDetail, this, &BluetoothModule::showDetail);
+    connect(w, &AdapterWidget::requestSetAlias, m_bluetoothWorker, &BluetoothWorker::setAlias);
+
+    m_frameProxy->pushWidget(this, w);
+}
+
 BluetoothModule::~BluetoothModule()
 {
     if (m_bluetoothView)
@@ -49,9 +61,6 @@ void BluetoothModule::moduleActive()
 {
     m_bluetoothWorker->activate();
     // refresh the view
-    if (m_bluetoothView && m_bluetoothModel) {
-        m_bluetoothView->setModel(m_bluetoothModel);
-    }
 }
 
 void BluetoothModule::moduleDeactive()
@@ -80,10 +89,7 @@ ModuleWidget *BluetoothModule::moduleWidget()
     {
         m_bluetoothView = new BluetoothWidget(m_bluetoothModel);
         m_bluetoothView->setTitle("Bluetooth");
-
-        connect(m_bluetoothView, &BluetoothWidget::requestToggleAdapter, m_bluetoothWorker, &BluetoothWorker::setAdapterPowered);
-        connect(m_bluetoothView, &BluetoothWidget::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectDevice);
-        connect(m_bluetoothView, &BluetoothWidget::requestShowDetail, this, &BluetoothModule::showDetail);
+        connect(m_bluetoothView, &BluetoothWidget::showBluetoothDetail, this, &BluetoothModule::showBluetoothDetail);
     }
 
     return m_bluetoothView;

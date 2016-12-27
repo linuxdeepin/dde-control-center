@@ -11,8 +11,8 @@
 #define DCC_BLUETOOTH_BLUETOOTHWIDGET_H
 
 #include "modulewidget.h"
+#include "nextpagewidget.h"
 #include "bluetoothmodel.h"
-
 #include "adapterwidget.h"
 
 namespace dcc {
@@ -22,23 +22,22 @@ class BluetoothWidget : public ModuleWidget
 {
     Q_OBJECT
 public:
-    explicit BluetoothWidget(BluetoothModel *model = 0);
-
+    explicit BluetoothWidget(BluetoothModel *model);
     void setModel(BluetoothModel *model);
     AdapterWidget *widgetByAdapterId(const QString &adapterId);
 
 signals:
-    void requestToggleAdapter(const Adapter *adapter, const bool &toggled);
-    void requestConnectDevice(const Device *device);
-    void requestShowDetail(const Adapter *adapter, const Device *device);
-
-private slots:
+    void showBluetoothDetail(const Adapter *adapter) const;
+public slots:
     void addAdapter(const Adapter *adapter);
-    void removeAdapter(const QString &adapterId);
-
+    void removeAdapter(const Adapter *adapter);
+private:
+    void setVisibleState();
 private:
     BluetoothModel *m_model;
     QList<AdapterWidget *> m_widgets;
+    QMap<const Adapter*, NextPageWidget*> m_valueMap;
+    SettingsGroup *m_mainGroup;
 };
 
 } // namespace bluetooth
