@@ -137,26 +137,26 @@ void PersonalizationWork::FontSizeChanged(const int value) const
 
 int PersonalizationWork::sizeToSliderValue(const int value) const
 {
-    if (value < 11) {
+    if (value <= 7.5) {
         return -1;
-    } else if (value > 15) {
+    } else if (value >= 12) {
         return 1;
     } else {
         return 0;
     }
 }
 
-int PersonalizationWork::sliderValueToSize(const int value) const
+float PersonalizationWork::sliderValueToSize(const int value) const
 {
     switch (value) {
     case -1:
-        return 10;
+        return 7.5;
     case 0:
-        return 12;
+        return 9;
     case 1:
-        return 16;
-    default:
         return 12;
+    default:
+        return 9;
     }
 }
 

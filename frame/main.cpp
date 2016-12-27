@@ -80,6 +80,39 @@ static void onThemeChange(const QString &theme)
     qApp->setStyleSheet(qss);
 }
 
+static void onFontSizeChanged(const float pointSizeF) {
+    Q_UNUSED(pointSizeF)
+
+    // TODO(hualet): DPI default to 96.
+    auto PxToPt = [] (int px) -> float {
+        return px * 72.0 / 96;
+    };
+
+    QFont font(qApp->font());
+    if (pointSizeF == 7.5) {
+        font.setPointSizeF(PxToPt(9));
+        qApp->setFont(font, "dcc::widgets::SmallLabel");
+        font.setPointSizeF(PxToPt(10));
+        qApp->setFont(font, "dcc::widgets::NormalLabel");
+        font.setPointSizeF(PxToPt(12));
+        qApp->setFont(font, "dcc::widgets::LargeLabel");
+    } else if (pointSizeF == 9) {
+        font.setPointSizeF(PxToPt(11));
+        qApp->setFont(font, "dcc::widgets::SmallLabel");
+        font.setPointSizeF(PxToPt(12));
+        qApp->setFont(font, "dcc::widgets::NormalLabel");
+        font.setPointSizeF(PxToPt(16));
+        qApp->setFont(font, "dcc::widgets::LargeLabel");
+    } else if (pointSizeF == 12) {
+        font.setPointSizeF(PxToPt(14));
+        qApp->setFont(font, "dcc::widgets::SmallLabel");
+        font.setPointSizeF(PxToPt(16));
+        qApp->setFont(font, "dcc::widgets::NormalLabel");
+        font.setPointSizeF(PxToPt(20));
+        qApp->setFont(font, "dcc::widgets::LargeLabel");
+    }
+}
+
 int main(int argc, char *argv[])
 {
     DApplication app(argc, argv);
@@ -89,14 +122,7 @@ int main(int argc, char *argv[])
     app.setStyle("ddark");
     onThemeChange("dark");
 
-    QFont font(qApp->font());
-
-    font.setPointSize(6);
-    qApp->setFont(font, "SmallLabel");
-    font.setPointSize(10);
-    qApp->setFont(font, "NormalLabel");
-    font.setPointSize(14);
-    qApp->setFont(font, "LargeLabel");
+    QTimer::singleShot(0, [] { onFontSizeChanged(9.f); });
 
     qApp->setQuitOnLastWindowClosed(false);
 

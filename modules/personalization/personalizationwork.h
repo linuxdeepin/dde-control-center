@@ -34,7 +34,7 @@ private slots:
 
 private:
     int sizeToSliderValue(const int value) const;
-    int sliderValueToSize(const int value) const;
+    float sliderValueToSize(const int value) const;
     bool isFont(const QString &type);
     QString getThumbnail(const QString &Type, const QString &key);
     QList<QJsonObject> converToList(const QString &type, QJsonArray &array);
