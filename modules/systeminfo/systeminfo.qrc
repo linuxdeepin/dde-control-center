@@ -1,9 +1,15 @@
 <RCC>
-    <qresource prefix="/systeminfo">
+    <qresource prefix="/gpl">
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_info.png</file>
         <file>themes/light/light.qss</file>
         <file>themes/dark/icons/logo.png</file>
         <file>themes/light/icons/logo.png</file>
+        <file>gpl/gpl-3.0-en-body.txt</file>
+        <file>gpl/gpl-3.0-en-title.txt</file>
+        <file>gpl/gpl-3.0-zh_CN-body.txt</file>
+        <file>gpl/gpl-3.0-zh_CN-title.txt</file>
+        <file>gpl/gpl-3.0-zh_TW-body.txt</file>
+        <file>gpl/gpl-3.0-zh_TW-title.txt</file>
     </qresource>
 </RCC>

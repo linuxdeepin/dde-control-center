@@ -7,7 +7,8 @@
 #include <dboxwidget.h>
 #include <QLocale>
 
-using namespace dcc;
+using namespace dcc::widgets;
+
 DWIDGET_USE_NAMESPACE
 
 namespace dcc{
@@ -16,15 +17,15 @@ namespace systeminfo{
 CopyrightWidget::CopyrightWidget(QWidget *parent)
     :ContentWidget(parent)
 {
-    dcc::widgets::TranslucentFrame* widget = new dcc::widgets::TranslucentFrame();
+    TranslucentFrame* widget = new TranslucentFrame;
     QVBoxLayout *layout =new QVBoxLayout();
     m_title = new QLabel();
-    m_title->setText(getLicense("/usr/share/gpl/gpl-3.0-%1-%2.txt", "title"));
+    m_title->setText(getLicense(":/gpl/gpl/gpl-3.0-%1-%2.txt", "title"));
 
     m_body = new QLabel();
     m_body->setWordWrap(true);
     m_body->setMargin(10);
-    m_body->setText(getLicense("/usr/share/gpl/gpl-3.0-%1-%2.txt", "body"));
+    m_body->setText(getLicense(":/gpl/gpl/gpl-3.0-%1-%2.txt", "body"));
 
     layout->addWidget(m_title);
     layout->setAlignment(m_title, Qt::AlignCenter);
@@ -32,21 +33,19 @@ CopyrightWidget::CopyrightWidget(QWidget *parent)
 
     widget->setLayout(layout);
     setContent(widget);
+    setTitle(tr("License"));
 }
 
 QString CopyrightWidget::getLicense(const QString &filePath, const QString &type) const
 {
     QString lang = QLocale::system().name();
     if (lang != "zh_CN" && lang != "zh_TW")
-    {
         lang = "en";
-    }
+
     QString path = QString(filePath).arg(lang).arg(type);
     QFile license(path);
     if (!license.open(QIODevice::ReadOnly))
-    {
-        return "";
-    }
+        return QString();
 
     const QByteArray buf = license.readAll();
     license.close();
