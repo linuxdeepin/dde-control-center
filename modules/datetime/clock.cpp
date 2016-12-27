@@ -30,8 +30,8 @@ void Clock::paintEvent(QPaintEvent *)
 
     const QTime time( datetime.time() );
     const QRect rct( rect() );
-    const int rWidth = 20;
-    const int rHeight = 20;
+    const int rWidth = 30;
+    const int rHeight = 30;
 
     QPainter painter(this);
     painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
@@ -62,7 +62,6 @@ void Clock::paintEvent(QPaintEvent *)
     }
 
     QPen pen( painter.pen() );
-    pen.setWidth(2);
 
     // draw hour hand
     const int hourAngle = time.hour() * 30;
@@ -70,9 +69,10 @@ void Clock::paintEvent(QPaintEvent *)
     painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
     painter.translate(rct.width() / 2.0, rct.height() / 2.0);
     painter.rotate(hourAngle);
-    pen.setColor(Qt::cyan);
+    pen.setColor(QColor("#07c5fb"));
+    pen.setWidth(3);
     painter.setPen(pen);
-    painter.drawLine(QPointF(0, 0), QPointF(0, -rct.width() / 2 * 0.5));
+    painter.drawLine(QPointF(0, 0), QPointF(0, -rct.width() / 2 * 0.55));
     painter.restore();
 
     // draw minute hand
@@ -81,9 +81,10 @@ void Clock::paintEvent(QPaintEvent *)
     painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
     painter.translate(rct.width() / 2.0, rct.height() / 2.0);
     painter.rotate(minuteAngle);
-    pen.setColor(Qt::red);
+    pen.setColor(QColor("#f97676"));
+    pen.setWidth(2);
     painter.setPen(pen);
-    painter.drawLine(QPointF(0, 0), QPointF(0, -rct.width() / 2 * 0.7));
+    painter.drawLine(QPointF(0, 0), QPointF(0, -rct.width() / 2 * 0.65));
     painter.restore();
 
     painter.end();

@@ -26,7 +26,7 @@ ClockItem::ClockItem(QWidget *parent) :
     m_clock(new Clock),
     m_label(new NormalLabel)
 {
-    m_clock->setFixedSize(150, 150);
+    m_clock->setFixedSize(160, 160);
     m_clock->setAutoNightMode(false);
     m_label->setText(m_datetime.date().toString(Qt::SystemLocaleLongDate));
 
