@@ -32,7 +32,7 @@ signals:
 
 private:
     // block parent's signal
-    void clicked() const;
+    void acceptNextPage() const;
     void setValue(const QString &);
 
 private slots:

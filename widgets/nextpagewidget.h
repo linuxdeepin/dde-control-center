@@ -23,8 +23,13 @@ public:
 //    void setDisplay(bool display);
 //    bool display() const;
 
+protected:
+    void mouseReleaseEvent(QMouseEvent *e);
+
 signals:
     void clicked() const;
+    void selected() const;
+    void acceptNextPage() const;
 
 private:
     NormalLabel *m_title;

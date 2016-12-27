@@ -1,6 +1,7 @@
 #include "nextpagewidget.h"
 
 #include <QHBoxLayout>
+#include <QMouseEvent>
 
 #include "nextbutton.h"
 
@@ -32,6 +33,7 @@ NextPageWidget::NextPageWidget(QFrame *parent)
     setLayout(mainLayout);
     setObjectName("NextPageWidget");
 
+    connect(m_nextPageBtn, &widgets::NextButton::clicked, this, &NextPageWidget::acceptNextPage);
     connect(m_nextPageBtn, &widgets::NextButton::clicked, this, &NextPageWidget::clicked);
 }
 
@@ -45,6 +47,14 @@ void NextPageWidget::setTitle(const QString &title)
 void NextPageWidget::setValue(const QString &value)
 {
     m_value->setText(value);
+}
+
+void NextPageWidget::mouseReleaseEvent(QMouseEvent *e)
+{
+    e->accept();
+
+    emit selected();
+    emit clicked();
 }
 
 /*
