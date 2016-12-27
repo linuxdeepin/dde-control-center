@@ -186,6 +186,9 @@ void Frame::keyPressEvent(QKeyEvent *e)
 
 void Frame::show()
 {
+    if (m_appearAnimation.state() == QPropertyAnimation::Running)
+        return;
+
     // animation
     QRect r = m_primaryRect;
     r.setLeft(m_primaryRect.x() + m_primaryRect.width());
@@ -213,7 +216,11 @@ void Frame::hide()
     m_appearAnimation.setEndValue(r);
     m_appearAnimation.start();
 
-    QTimer::singleShot(m_appearAnimation.duration(), this, &QFrame::hide);
+//    QTimer::singleShot(m_appearAnimation.duration(), this, &QFrame::hide);
+    QTimer::singleShot(m_appearAnimation.duration(), [=] {
+        if (m_appearAnimation.state() != QPropertyAnimation::Running)
+            QFrame::hide();
+    });
 
     // unregister global mouse area
     m_mouseAreaInter->UnregisterArea(m_mouseAreaKey);
