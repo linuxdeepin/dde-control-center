@@ -93,12 +93,15 @@ void UpdateCtrlWidget::onProgressBarClicked()
         emit requestInstallUpdates();
         break;
     default:
+        qWarning() << "unhandled status " << m_status;
         break;
     }
 }
 
 void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 {
+    m_status = status;
+
     switch (status) {
     case UpdatesStatus::Checking:
         m_checkGroup->setVisible(true);
@@ -131,6 +134,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkGroup->setVisible(false);
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(false);
+        m_progress->setValue(1);
         m_progress->setMessage(tr("Restart to install updates"));
         m_summary->setTitle(tr("Download completed"));
         setLowBattery(m_model->lowBattery());
@@ -185,8 +189,8 @@ void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
             m_powerTip->setText(tr("Please ensure sufficient power to restart, and don't power off or unplug your machine"));
         }
 
-        m_progress->setDisabled(!lowBattery);
-        m_powerTip->setVisible(!lowBattery);
+        m_progress->setDisabled(lowBattery);
+        m_powerTip->setVisible(lowBattery);
     }
 }
 
