@@ -63,8 +63,9 @@ MainWidget::MainWidget(Frame *parent)
 
     m_currentTimeLbl->setStyleSheet("QLabel {"
                                     "color: white;"
-                                    "font-size: 28px;"
+                                    "font-size: 46px;"
                                     "font-weight: 200;"
+                                    "font-family: SourceHanSansSC-ExtraLight"
                                     "}");
     m_currentDateLbl->setStyleSheet("QLabel {"
                                     "color: white;"
@@ -157,7 +158,7 @@ void MainWidget::refershTimedate()
     const QDateTime tm = QDateTime::currentDateTime();
 
     m_currentTimeLbl->setText(tm.toString("HH:mm"));
-    m_currentDateLbl->setText(tm.toString(Qt::SystemLocaleShortDate));
+    m_currentDateLbl->setText(tm.toString(" MM/dd ddd"));
 }
 
 void MainWidget::showAccountsModule()
