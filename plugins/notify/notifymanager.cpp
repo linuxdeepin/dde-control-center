@@ -8,17 +8,18 @@
  **/
 
 #include "notifymanager.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 
 NotifyManager::NotifyManager(QWidget *parent) : QWidget(parent) {
     m_layout = new QVBoxLayout;
-    m_dataSource = new NotifyDataThread;
+    m_dataSource = new NotifyData;
     m_layout->addStretch();
     m_layout->setDirection(QVBoxLayout::BottomToTop);
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(1);
     setLayout(m_layout);
-    m_dataSource->start();
-    connect(m_dataSource, &NotifyDataThread::ValueChanged, this, &NotifyManager::setValue);
+    connect(m_dataSource, &NotifyData::ValueChanged, this, &NotifyManager::setValue);
 }
 
 NotifyManager::~NotifyManager() {

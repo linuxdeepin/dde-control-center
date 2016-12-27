@@ -12,7 +12,7 @@
 
 #include <QObject>
 #include <QWidget>
-#include "notifydatathread.h"
+#include "notifydata.h"
 #include "notifyviewer.h"
 #include <QVBoxLayout>
 #include <QTime>
@@ -28,7 +28,7 @@ public slots:
     void setValue(QByteArray s);
 
 private:
-    NotifyDataThread *m_dataSource;
+    NotifyData *m_dataSource;
     Viewer *m_viewer;
     QVBoxLayout *m_layout;
 };
