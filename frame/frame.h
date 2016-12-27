@@ -8,6 +8,7 @@
 
 #include <com_deepin_daemon_display.h>
 #include <com_deepin_api_xmousearea.h>
+#include <com_deepin_dde_launcher.h>
 
 #include <QStack>
 #include <QPropertyAnimation>
@@ -19,6 +20,7 @@
 
 using XMouseArea = com::deepin::api::XMouseArea;
 using DBusDisplay = com::deepin::daemon::Display;
+using LauncherInter = com::deepin::dde::Launcher;
 
 class Frame : public BlurredFrame
 {
@@ -57,6 +59,7 @@ private:
 
     XMouseArea *m_mouseAreaInter;
     DBusDisplay *m_displayInter;
+    LauncherInter *m_launcherInter;
 
     QString m_mouseAreaKey;
     QStack<FrameWidget *> m_frameWidgetStack;

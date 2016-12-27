@@ -12,6 +12,7 @@ Frame::Frame(QWidget *parent)
 
       m_mouseAreaInter(new XMouseArea("com.deepin.api.XMouseArea", "/com/deepin/api/XMouseArea", QDBusConnection::sessionBus(), this)),
       m_displayInter(new DBusDisplay("com.deepin.daemon.Display", "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)),
+      m_launcherInter(new LauncherInter("com.deepin.dde.Launcher", "/com/deepin/dde/Launcher", QDBusConnection::sessionBus(), this)),
 
       m_primaryRect(m_displayInter->primaryRect()),
       m_appearAnimation(this, "geometry"),
@@ -29,6 +30,7 @@ Frame::Frame(QWidget *parent)
 
     connect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased);
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
+    connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hide);
 
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
 }
