@@ -66,6 +66,7 @@ void OptionWidget::setItem(const QJsonObject &item)
     if (!icon.isNull()) {
         m_optionIcon->setPixmap(icon.pixmap(QSize(17,17)));
     }
+    setAccessibleName(m_displayName->text());
 }
 void OptionWidget::setDelete(const bool delchecked)     //删除
 {

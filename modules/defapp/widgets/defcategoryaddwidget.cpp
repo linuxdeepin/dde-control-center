@@ -2,13 +2,9 @@
 #include "funcbutton.h"
 #include <QObject>
 #include <QHBoxLayout>
-
 #include <QLabel>
 #include <QFileDialog>
-#include <QDesktopWidget>
-#include <QApplication>
 #include <QDebug>
-#include <QProcess>
 #include <QTimer>
 #include <QFile>
 #include <QMessageBox>
@@ -27,6 +23,7 @@ DefCategoryAddWidget::DefCategoryAddWidget(QWidget *parent)
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setContentsMargins(15, 0, 20, 0);
+    mainLayout->addSpacing(31);
     mainLayout->addWidget(m_add);
     mainLayout->addStretch();
 

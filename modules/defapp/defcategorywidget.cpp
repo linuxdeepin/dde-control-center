@@ -22,6 +22,7 @@ DefCategoryWidget::DefCategoryWidget(const QString &name, QWidget *parent)
     m_userGroup = new SettingsGroup;
     m_addWidget  = new DefCategoryAddWidget(this);
     m_headWidget = new SettingsHead;
+    m_addWidget->setAccessibleName(name);
     m_headWidget->setTitle(name);
     m_userGroup->insertItem(0, m_headWidget);
     m_userGroup->insertItem(1, m_addWidget);
@@ -56,6 +57,12 @@ void DefCategoryWidget::setCategory(Category *const category)
     onDefaultAppSet(category->getDefault());
     m_categoryName = category->getName();
     m_addWidget->setCategory(m_categoryName);
+
+    if(m_userMap.empty()) {
+        m_headWidget->setEditEnable(false);
+    } else {
+        m_headWidget->setEditEnable(true);
+    }
 }
 
 void DefCategoryWidget::setDefault()
@@ -90,6 +97,8 @@ void DefCategoryWidget::addUserItem(const QJsonObject &item)
     m_valueMap.insert(m_optionWidget, item);
     connect(m_optionWidget, &OptionWidget::setDefault, this, &DefCategoryWidget::setDefault);
     connect(m_optionWidget, &OptionWidget::removeItem, this, &DefCategoryWidget::removeItem);
+
+    m_headWidget->setEditEnable(true);
 }
 
 void DefCategoryWidget::removeItem(const QJsonObject &item)
@@ -100,6 +109,13 @@ void DefCategoryWidget::removeItem(const QJsonObject &item)
     m_userMap.remove(m_userMap.key(m_valueMap.key(item)));
     m_valueMap.remove(m_valueMap.key(item));
     emit requestDelUserApp(m_categoryName, item);
+
+    if(m_userMap.empty()) {
+        m_headWidget->setEditEnable(false);
+        m_headWidget->initStatus();
+    } else {
+        m_headWidget->setEditEnable(true);
+    }
 }
 
 void DefCategoryWidget::onDefaultAppSet(const QString &id)
