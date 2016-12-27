@@ -41,6 +41,8 @@ void ModifyAvatarPage::appendAvatar(const QString &avatar, const int index, cons
     w->setDeletable(deletable);
 
     connect(w, &AvatarWidget::clicked, [=] (const QString &iconPath) { emit requestSetAvatar(m_userInter, iconPath); });
+    if (deletable)
+        connect(w, &AvatarWidget::requestDelete, [=](const QString &iconPath) { emit requestDeleteAvatar(m_userInter, iconPath); });
 
     m_avatarsLayout->addWidget(w, index / 4, index % 4, Qt::AlignCenter);
 }
@@ -75,6 +77,9 @@ void ModifyAvatarPage::updateAvatarList()
     }
 
     DImageButton *btn = new DImageButton;
+    btn->setNormalPic(":/accounts/themes/common/icons/add_avatar_normal.png");
+    btn->setHoverPic(":/accounts/themes/common/icons/add_avatar_hover.png");
+    btn->setPressPic(":/accounts/themes/common/icons/add_avatar_press.png");
     connect(btn, &DImageButton::clicked, [=] { emit requestAddNewAvatar(m_userInter); });
     m_avatarsLayout->addWidget(btn, count / 4, count % 4, Qt::AlignCenter);
 }

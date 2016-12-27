@@ -23,6 +23,7 @@ public:
 
 signals:
     void clicked(const QString &iconPath) const;
+    void requestDelete(const QString &iconPath) const;
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);

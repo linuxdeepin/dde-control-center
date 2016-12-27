@@ -19,6 +19,7 @@ public:
 signals:
     void requestAddNewAvatar(User *user) const;
     void requestSetAvatar(User *user, const QString &filePath) const;
+    void requestDeleteAvatar(User *user, const QString &iconPath) const;
 
 private:
     void appendAvatar(const QString &avatar, const int index, const bool selected, const bool deletable = false);

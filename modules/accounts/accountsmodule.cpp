@@ -78,6 +78,7 @@ void AccountsModule::showAvatarPage(User *account)
 
     connect(w, &ModifyAvatarPage::requestAddNewAvatar, m_accountsWorker, &AccountsWorker::addNewAvatar);
     connect(w, &ModifyAvatarPage::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
+    connect(w, &ModifyAvatarPage::requestDeleteAvatar, m_accountsWorker, &AccountsWorker::deleteUserIcon);
 
     m_frameProxy->pushWidget(this, w);
 }

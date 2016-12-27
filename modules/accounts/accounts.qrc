@@ -3,5 +3,8 @@
         <file>themes/common/common.qss</file>
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_accounts.png</file>
+        <file>themes/common/icons/add_avatar_hover.png</file>
+        <file>themes/common/icons/add_avatar_normal.png</file>
+        <file>themes/common/icons/add_avatar_press.png</file>
     </qresource>
 </RCC>

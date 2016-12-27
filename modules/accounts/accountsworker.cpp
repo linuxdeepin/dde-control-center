@@ -117,6 +117,14 @@ void AccountsWorker::setPassword(User *user, const QString &passwd)
     QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
 }
 
+void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
+{
+    AccountsUser *userInter = m_userInters[user];
+    Q_ASSERT(userInter);
+
+    userInter->DeleteIconFile(iconPath);
+}
+
 void AccountsWorker::addUser(const QString &userPath)
 {
     qDebug() << "user added: " << userPath;

@@ -30,6 +30,8 @@ AvatarWidget::AvatarWidget(QWidget *parent)
     setLayout(mainLayout);
     setFixedSize(PIX_SIZE, PIX_SIZE);
     setObjectName("AvatarWidget");
+
+    connect(m_delBtn, &QPushButton::clicked, [=] { emit requestDelete(m_avatarPath); });
 }
 
 AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
