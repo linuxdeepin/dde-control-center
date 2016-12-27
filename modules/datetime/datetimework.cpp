@@ -45,12 +45,18 @@ void DatetimeWork::setTimezone(const QString &timezone)
 
 void DatetimeWork::setDatetime(const QDateTime &datetime)
 {
-    m_timedateInter->SetNTP(false);
+    QDBusPendingCall call = m_timedateInter->SetNTP(false);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call, datetime] {
+        if (!call.isError()) {
+            const QDate date = datetime.date();
+            const QTime time = datetime.time();
 
-    const QDate date = datetime.date();
-    const QTime time = datetime.time();
-
-    m_timedateInter->SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), 0, 0);
+            m_timedateInter->SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), 0, 0);
+        } else {
+            qWarning() << "disable ntp failed : " << call.error().message();
+        }
+    });
 }
 
 void DatetimeWork::setNTP(bool ntp)
