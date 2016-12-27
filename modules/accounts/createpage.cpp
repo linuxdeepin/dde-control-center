@@ -100,8 +100,11 @@ void CreatePage::setCreationResult(CreationResult *result)
     result->deleteLater();
 }
 
-void CreatePage::createUser() const
+void CreatePage::createUser()
 {
+    if (m_password->text().isEmpty())
+        return showPasswordEmptyErrorTip(tr("Password can't be empty."));
+
     m_user->setName(m_username->text());
     m_user->setPassword(m_password->text());
     m_user->setRepeatPassword(m_repeatpass->text());
@@ -122,6 +125,14 @@ void CreatePage::showUsernameErrorTip(QString error)
     m_errorTip->setText(error);
     m_errorTip->show(globalStart.x() + m_username->width() / 2,
                      globalStart.y() + m_username->height() / 2 + 10);
+}
+
+void CreatePage::showPasswordEmptyErrorTip(const QString &error)
+{
+    QPoint globalStart = m_password->mapToGlobal(QPoint(0, 0));
+    m_errorTip->setText(error);
+    m_errorTip->show(globalStart.x() + m_password->width() / 2,
+                     globalStart.y() + m_password->height() / 2 + 10);
 }
 
 void CreatePage::showPasswordMatchErrorTip(QString error)

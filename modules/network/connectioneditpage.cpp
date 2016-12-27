@@ -129,6 +129,9 @@ void ConnectionEditPage::recreateUI()
 
 void ConnectionEditPage::refershUI()
 {
+    const QString name = m_sessionModel->keysInfo("vs-general", "id").value("Value").toString();
+    setTitle(name);
+
     // hide all widgets
     while (QLayoutItem *item = m_sectionsLayout->takeAt(0))
     {

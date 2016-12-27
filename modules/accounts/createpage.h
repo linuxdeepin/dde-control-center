@@ -52,10 +52,11 @@ public slots:
     void setCreationResult(CreationResult *result);
 
 private:
-    void createUser() const;
+    void createUser();
     void cancelCreation() const;
 
     void showUsernameErrorTip(QString error);
+    void showPasswordEmptyErrorTip(const QString &error);
     void showPasswordMatchErrorTip(QString error);
 
 private:

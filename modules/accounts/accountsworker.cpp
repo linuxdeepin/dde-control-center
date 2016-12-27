@@ -19,9 +19,9 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser);
     connect(m_accountsInter, &Accounts::UserDeleted, this, &AccountsWorker::removeUser);
 
-    onUserListChanged(m_accountsInter->userList());
-
     m_accountsInter->setSync(false);
+
+    onUserListChanged(m_accountsInter->userList());
 }
 
 void AccountsWorker::randomUserIcon(User *user)
