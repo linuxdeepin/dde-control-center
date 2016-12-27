@@ -36,12 +36,8 @@ QList<User *> UserModel::userList() const
 
 void UserModel::addUser(const QString &id, User *user)
 {
-    if (getUser(id)) {
-        qDebug() << "user: " << user->name() << " already exists, abort add.";
-        return;
-    }
+    Q_ASSERT(!m_userList.contains(id));
 
-    qDebug() << "add user: " << user->name();
     m_userList[id] = user;
 
     emit userAdded(user);
@@ -49,10 +45,13 @@ void UserModel::addUser(const QString &id, User *user)
 
 void UserModel::removeUser(const QString &id)
 {
-    qDebug() << "remove user: " << id;
-
     User * user = getUser(id);
 
     if (user)
         emit userRemoved(user);
+}
+
+bool UserModel::contains(const QString &id)
+{
+    return m_userList.contains(id);
 }

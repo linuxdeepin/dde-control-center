@@ -25,10 +25,11 @@ public:
     explicit UserModel(QObject *parent = 0);
     ~UserModel();
 
-    User * getUser(const QString &id);
+    User *getUser(const QString &id);
     QList<User *> userList() const;
     void addUser(const QString &id, User *user);
     void removeUser(const QString &id);
+    bool contains(const QString &id);
 
 signals:
     void userAdded(User *user);

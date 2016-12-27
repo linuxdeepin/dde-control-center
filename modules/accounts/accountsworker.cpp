@@ -98,13 +98,9 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
 
 void AccountsWorker::onUserListChanged(const QStringList &userList)
 {
-    if (m_userInters.size() == 0) {
-        const QSet<QString> userSet = userList.toSet();
-        for (const QString &userPath : userSet)
-        {
-            addUser(userPath);
-        }
-    }
+    for (const auto &path : userList)
+        if (!m_userModel->contains(path))
+            addUser(path);
 }
 
 void AccountsWorker::setPassword(User *user, const QString &passwd)
@@ -127,8 +123,8 @@ void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
 
 void AccountsWorker::addUser(const QString &userPath)
 {
-    qDebug() << "user added: " << userPath;
     AccountsUser *userInter = new AccountsUser(AccountsService, userPath, QDBusConnection::systemBus(), this);
+    userInter->setSync(false);
 
     User * user = new User(m_userModel);
     connect(userInter, &AccountsUser::UserNameChanged, user, &User::setName);
@@ -141,21 +137,22 @@ void AccountsWorker::addUser(const QString &userPath)
     user->setAvatars(userInter->iconList());
     user->setCurrentAvatar(userInter->iconFile());
 
-    userInter->setSync(false);
-
     m_userInters[user] = userInter;
     m_userModel->addUser(userPath, user);
 }
 
 void AccountsWorker::removeUser(const QString &userPath)
 {
-    qDebug() << "user removed: " << userPath;
-    for (AccountsUser *userInter : m_userInters.values()) {
-        if (userInter->path() == userPath) {
+    for (AccountsUser *userInter : m_userInters.values())
+    {
+        if (userInter->path() == userPath)
+        {
             User *user = m_userInters.key(userInter);
-            m_userInters.remove(user);
 
+            m_userInters.remove(user);
             m_userModel->removeUser(userPath);
+
+            return;
         }
     }
 }
