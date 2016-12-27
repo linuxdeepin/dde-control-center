@@ -37,6 +37,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     mainLayout->addWidget(m_accountSettings);
     mainLayout->addWidget(m_deleteAccount);
     mainLayout->setMargin(0);
+    mainLayout->setSpacing(10);
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(mainLayout);

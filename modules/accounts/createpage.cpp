@@ -47,18 +47,21 @@ CreatePage::CreatePage(QWidget *parent) :
     m_group->appendItem(m_repeatpass);
 
     QHBoxLayout *buttonLayout = new QHBoxLayout;
-    buttonLayout->setContentsMargins(0, 20, 0, 20);
     buttonLayout->addWidget(m_cancelBtn);
     buttonLayout->addWidget(m_confirmBtn);
+    buttonLayout->setSpacing(0);
+    buttonLayout->setMargin(0);
 
     TranslucentFrame *container = new TranslucentFrame;
-    setContent(container);
 
     QVBoxLayout *layout = new QVBoxLayout(container);
     layout->addWidget(m_avatar, 0, Qt::AlignHCenter);
-    layout->addSpacing(10);
     layout->addWidget(m_group);
     layout->addLayout(buttonLayout);
+    layout->setSpacing(10);
+
+    setContent(container);
+    setTitle(tr("New Account"));
 
     connect(m_confirmBtn, &QPushButton::clicked, this, &CreatePage::createUser);
     connect(m_cancelBtn, &QPushButton::clicked, this, &CreatePage::cancelCreation);
