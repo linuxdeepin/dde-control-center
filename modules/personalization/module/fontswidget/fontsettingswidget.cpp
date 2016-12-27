@@ -16,8 +16,11 @@ FontSettingsWidget::FontSettingsWidget(QWidget *parent)
     m_standard    = new NextPageWidget;
     m_mono       = new NextPageWidget;
 
-    m_standard->setTitle(tr("Standard Font"));
-    m_mono->setTitle(tr("Monospaced font"));
+    m_standard->setTitle(tr("StandardFont"));
+    m_mono->setTitle(tr("MonospacedFont"));
+
+    m_standard->setAccessibleName("StandardFont");
+    m_mono->setAccessibleName("MonospacedFont");
 
     m_fontWidget->appendItem(m_standard);
     m_fontWidget->appendItem(m_mono);

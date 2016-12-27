@@ -14,6 +14,7 @@ FontSizeWidget::FontSizeWidget(QWidget *parent)
     m_mainlayout = new QVBoxLayout;
     m_mainWidget = new SettingsGroup;
     m_sizeWidget = new TitledSliderItem(tr("Size"));
+    m_sizeWidget->setAccessibleName("FontSizeWidget");
 
     m_sizeWidget->slider()->setType(DCCSlider::Vernier);
     m_sizeWidget->slider()->setRange(-1, 1);

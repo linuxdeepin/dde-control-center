@@ -18,6 +18,7 @@ Theme::Theme(const QString &title, QWidget *parent)
     m_mainLayout->addWidget(m_mainGroup);
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
+    setAccessibleName(title);
 }
 
 void Theme::setModel(ThemeModel *const model)
