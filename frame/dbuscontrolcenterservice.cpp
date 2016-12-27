@@ -74,12 +74,7 @@ int DBusControlCenterService::x() const
     if (!parent()->isVisible())
         return qApp->primaryScreen()->geometry().right();
 
-    // FIXME
-    return 0;
-    // get the value of property X
-//    return parent()->isHideInLeft()
-//            ? qApp->primaryScreen()->geometry().right()
-//            : qvariant_cast< int >(parent()->visibleFrameXPos());
+    return parent()->x();
 }
 
 void DBusControlCenterService::Hide()
@@ -108,7 +103,6 @@ void DBusControlCenterService::ShowImmediately()
 
 void DBusControlCenterService::ShowModule(const QString &name)
 {
-    Q_UNUSED(name);
     // handle method call com.deepin.dde.ControlCenter.ShowModule
     //parent()->ShowModule(name);
 //    parent()->selectModule(name);
@@ -126,6 +120,7 @@ void DBusControlCenterService::ToggleInLeft()
 {
     // handle method call com.deepin.dde.ControlCenter.ToggleInLeft
 //    parent()->toggle(true);
+    parent()->show();
 }
 
 bool DBusControlCenterService::isNetworkCanShowPassword()
