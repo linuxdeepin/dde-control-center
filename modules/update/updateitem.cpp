@@ -1,6 +1,8 @@
 #include "updateitem.h"
 
 #include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 #include "labels/smalllabel.h"
 #include "translucentframe.h"
@@ -20,13 +22,13 @@ UpdateItem::UpdateItem(QFrame *parent)
     TranslucentFrame *iconContainer = new TranslucentFrame;
     iconContainer->setFixedWidth(36);
 
-    QVBoxLayout *iconLayout = new QVBoxLayout;
-    iconLayout->setMargin(0);
-    iconLayout->setSpacing(0);
-    iconLayout->addSpacing(20);
-    iconLayout->addWidget(m_appIcon, 0, Qt::AlignCenter);
-    iconLayout->addStretch();
-    iconContainer->setLayout(iconLayout);
+    m_iconLayout = new QVBoxLayout;
+    m_iconLayout->setMargin(0);
+    m_iconLayout->setSpacing(0);
+    m_iconLayout->addWidget(m_appIcon, 0, Qt::AlignCenter);
+    m_iconLayout->addStretch();
+
+    iconContainer->setLayout(m_iconLayout);
 
     m_appIcon->setFixedSize(36, 36);
 
@@ -56,7 +58,7 @@ UpdateItem::UpdateItem(QFrame *parent)
     rightLayout->setSpacing(0);
     rightLayout->addStretch();
     rightLayout->addLayout(nameLayout);
-    rightLayout->addSpacing(4);
+    rightLayout->addSpacing(1);
     rightLayout->addLayout(logLayout);
     rightLayout->addStretch();
 
@@ -84,7 +86,7 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 {
     m_info = info;
 
-    QPixmap pix = QPixmap(m_info.m_icon).scaled(m_appIcon->size());
+    QPixmap pix = QPixmap(m_info.m_icon).scaled(m_appIcon->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     m_appIcon->setPixmap(pix);
 
     m_appName->setText(info.m_name.trimmed());
@@ -92,9 +94,11 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 
     if(!info.m_changelog.isEmpty()) {
         setFixedHeight(80);
+        m_iconLayout->setContentsMargins(0, 20, 0, 0);
         m_appChangelog->setText(elideChangelog());
     } else {
         setFixedHeight(50);
+        m_iconLayout->setContentsMargins(0, 8, 0, 0);
         m_details->hide();
     }
 }

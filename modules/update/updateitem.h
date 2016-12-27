@@ -6,7 +6,9 @@
 #include <types/appupdateinfolist.h>
 
 #include <QLabel>
-#include <QPushButton>
+
+class QVBoxLayout;
+class QPushButton;
 
 namespace dcc {
 namespace widgets {
@@ -30,14 +32,15 @@ public:
     int changelogLines() const;
 
 private:
+    AppUpdateInfo m_info;
+
     dcc::widgets::SmallLabel *m_appIcon;
     dcc::widgets::SmallLabel *m_appName;
     dcc::widgets::SmallLabel *m_appVersion;
     dcc::widgets::SmallLabel *m_appChangelog;
 
-    QPushButton* m_details;
-
-    AppUpdateInfo m_info;
+    QPushButton *m_details;
+    QVBoxLayout *m_iconLayout;
 };
 
 }
