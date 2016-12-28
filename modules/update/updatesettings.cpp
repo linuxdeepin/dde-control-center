@@ -41,6 +41,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     layout->addWidget(label);
     layout->addSpacing(10);
     layout->addWidget(mg);
+    layout->addStretch();
 
     widget->setLayout(layout);
 

@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
     app.setStyle("ddark");
     onThemeChange("dark");
 
-    QTimer::singleShot(0, [] { onFontSizeChanged(9.f); });
+    QTimer::singleShot(0, [] { onFontSizeChanged(qApp->font().pointSizeF()); });
 
     qApp->setQuitOnLastWindowClosed(false);
 

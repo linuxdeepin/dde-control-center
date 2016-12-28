@@ -7,7 +7,11 @@
 #include <dimagebutton.h>
 #include <types/mirrorinfolist.h>
 
+#include "labels/smalllabel.h"
+
 DWIDGET_USE_NAMESPACE
+
+class QHBoxLayout;
 
 using namespace dcc::widgets;
 
@@ -30,9 +34,7 @@ public:
 
     void setSpeed(const int speed);
 
-    QSize sizeHint() const Q_DECL_OVERRIDE;
-
-    inline void setMirrorName(const QString &name) {m_mirrorName->setText(name);}
+    void setMirrorName(const QString &name);
     inline QString mirrorName() const { return m_mirrorName->text(); }
 
 signals:
@@ -40,15 +42,18 @@ signals:
     void clicked(MirrorItem* item) const;
 
 protected:
+    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
 
 private:
-    DImageButton *m_selectedBtn;
-    QLabel *m_mirrorName;
-    QLabel *m_mirrorSpeed;
-
     bool m_selected = false;
     MirrorInfo m_info;
+
+    DImageButton *m_selectedBtn;
+    SmallLabel *m_mirrorName;
+    SmallLabel *m_mirrorSpeed;
+
+    QHBoxLayout *m_layout;
 };
 
 }
