@@ -1,0 +1,3 @@
+dcc--widgets--SearchInput {
+    qproperty-pixmap: url(:/widgets/themes/light/icons/search_light.png);
+}

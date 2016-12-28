@@ -12,7 +12,6 @@ SearchInput::SearchInput(QWidget* parent)
 {
     setFocusPolicy(Qt::ClickFocus);
     m_search = tr("Search");
-    m_icon = QPixmap(":/widgets/icons/search_press.png");
 }
 
 void SearchInput::setSearchText(const QString &text)
@@ -23,6 +22,16 @@ void SearchInput::setSearchText(const QString &text)
 void SearchInput::setIconVisible(bool visible)
 {
     m_iconVisible = visible;
+}
+
+QPixmap SearchInput::pixmap() const
+{
+    return m_icon;
+}
+
+void SearchInput::setPixmap(const QPixmap &pixmap)
+{
+    m_icon = pixmap;
 }
 
 void SearchInput::paintEvent(QPaintEvent *e)

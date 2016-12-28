@@ -64,6 +64,11 @@ dcc--widgets--VSeparator {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
+
 dcc--widgets--TipsLabel {
     color: rgba(255, 255, 255, 0.8)
+}
+
+dcc--widgets--SearchInput {
+    qproperty-pixmap: url(:/widgets/themes/dark/icons/search_dark.png);
 }

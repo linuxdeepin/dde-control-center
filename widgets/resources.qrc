@@ -98,5 +98,8 @@
         <file>themes/dark/icons/back_hover.png</file>
         <file>themes/dark/icons/back_normal.png</file>
         <file>themes/dark/icons/back_press.png</file>
+        <file>themes/dark/icons/search_dark.png</file>
+        <file>themes/light/light.qss</file>
+        <file>themes/light/icons/search_light.png</file>
     </qresource>
 </RCC>
