@@ -2,7 +2,7 @@
 #include <QHBoxLayout>
 
 namespace dcc{
-namespace systeminfo{
+namespace systeminfo {
 
 TitleValueItem::TitleValueItem(QFrame *parent)
     :SettingsItem(parent)
@@ -12,13 +12,14 @@ TitleValueItem::TitleValueItem(QFrame *parent)
     m_title = new QLabel();
     m_value = new QLabel();
     m_value->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
+    m_value->setWordWrap(true);
 
     layout->addWidget(m_title);
     layout->addWidget(m_value);
 
     setLayout(layout);
 
-    setFixedHeight(36);
+//    setFixedHeight(36);
 }
 
 void TitleValueItem::setTitle(const QString &title)
@@ -34,20 +35,16 @@ void TitleValueItem::setValue(const QString &value)
 LogoItem::LogoItem(QFrame *parent)
     :SettingsItem(parent)
 {
-    setFixedHeight(36*3);
-
-    QVBoxLayout* layout = new QVBoxLayout();
-
-    QLabel* label = new QLabel();
-    label->setFixedHeight(20);
-
     m_logo = new QLabel();
     m_description = new QLabel();
+    m_description->setWordWrap(true);
     m_description->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 
-    layout->addWidget(label);
+    QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(m_logo);
     layout->addWidget(m_description);
+    layout->setSpacing(15);
+    layout->setContentsMargins(0, 25, 0, 0);
 
     layout->setAlignment(m_logo, Qt::AlignCenter);
     layout->setAlignment(m_description, Qt::AlignCenter);
@@ -61,8 +58,7 @@ void LogoItem::setDescription(const QString &des)
 
 void LogoItem::setLogo(const QString &logo)
 {
-    QPixmap pix(logo);
-    m_logo->setPixmap(pix);
+    m_logo->setPixmap(QPixmap(logo));
 }
 
 }

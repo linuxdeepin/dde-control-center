@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/gpl">
+    <qresource prefix="/systeminfo">
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_info.png</file>
         <file>themes/light/light.qss</file>

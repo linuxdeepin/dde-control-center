@@ -14,14 +14,14 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     setObjectName("SysInfo");
 
     this->installEventFilter(parent());
-    setTitle(tr("Systen Information"));
+    setTitle(tr("System Information"));
 
     SettingsGroup* infoGroup = new SettingsGroup();
     SettingsGroup* crGroup = new SettingsGroup();
     SettingsGroup* bootGroup = new SettingsGroup();
 
     LogoItem* logo = new LogoItem();
-    logo->setDescription(tr("Wuhan Deepin Technology Co., Ltd."));
+    logo->setDescription(tr("Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd."));
 
     m_version = new TitleValueItem();
     m_version->setTitle(tr("Edition:"));

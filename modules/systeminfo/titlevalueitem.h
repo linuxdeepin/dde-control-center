@@ -28,11 +28,13 @@ class LogoItem : public SettingsItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString logo WRITE setLogo)
+    Q_PROPERTY(QString logo READ logo WRITE setLogo DESIGNABLE true SCRIPTABLE true)
+
 public:
     explicit LogoItem(QFrame* parent = 0);
     void setDescription(const QString& des);
     void setLogo(const QString& logo);
+    const QString logo() const { return m_logo->text(); }
 
 private:
     QLabel* m_logo;

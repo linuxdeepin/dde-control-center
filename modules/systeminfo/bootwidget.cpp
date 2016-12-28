@@ -104,7 +104,7 @@ void BootWidget::onCurrentItem(QListWidgetItem *cur, QListWidgetItem *pre)
 
     if(cur)
     {
-        QPixmap pix(":/gpl/themes/common/icons/select.png");
+        QPixmap pix(":/systeminfo/themes/common/icons/select.png");
         cur->setIcon(pix);
     }
 }

@@ -3,6 +3,6 @@ QLabel#ModuleHeaderIconSysInfo {
 }
 
 
-dcc--systeminfo--LogoItem  {
+dcc--systeminfo--LogoItem {
     qproperty-logo: url(:/systeminfo/themes/dark/icons/logo.png);
 }
