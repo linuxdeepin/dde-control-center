@@ -30,7 +30,7 @@ public slots:
     void setList(const QString &type, const QString &key);
 
 private slots:
-    void FontSizeChanged(const int  value) const;
+    void FontSizeChanged(const double value) const;
 
 private:
     int sizeToSliderValue(const int value) const;

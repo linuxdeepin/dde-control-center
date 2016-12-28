@@ -128,7 +128,7 @@ void PersonalizationWork::setList(const QString &type, const QString &key)
     }
 }
 
-void PersonalizationWork::FontSizeChanged(const int value) const
+void PersonalizationWork::FontSizeChanged(const double value) const
 {
     FontSizeModel *fontSizeModel = m_model->getFontSizeModel();
     fontSizeModel->setFontSize(sizeToSliderValue(value));
