@@ -15,7 +15,7 @@ GrubBackgroundItem::GrubBackgroundItem(QFrame *parent)
                                     QDBusConnection::sessionBus(), this);
 
     updateBackground(m_themeDbus->background());
-    connect(m_themeDbus, &GrubThemeDbus::BackgroundChanged, this, &GrubBackgroundItem::updateBackground);
+//    connect(m_themeDbus, &GrubThemeDbus::BackgroundChanged, this, &GrubBackgroundItem::updateBackground);
     connect(m_themeDbus, SIGNAL(propertyChanged(QString,QVariant)), this, SLOT(onProperty(QString,QVariant)));
 
     setAcceptDrops(true);
@@ -88,7 +88,9 @@ bool GrubBackgroundItem::updateBackground(const QString &filename)
 
 void GrubBackgroundItem::onProperty(const QString &property, const QVariant &variant)
 {
-    qDebug()<<Q_FUNC_INFO<<property<<variant;
+//    qDebug()<<Q_FUNC_INFO<<property<<variant;
+    if (property == "Background")
+        updateBackground(variant.toString());
 }
 
 }
