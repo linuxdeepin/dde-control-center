@@ -25,6 +25,7 @@ BootWidget::BootWidget(QWidget *parent)
     m_bootList->setDefaultDropAction(Qt::MoveAction);
     m_bootList->move(50,50);
     m_bootList->setPalette(Qt::transparent);
+    m_bootList->setWordWrap(true);
 
     m_boot = new SwitchWidget();
     m_boot->setTitle(tr("Startup Delay"));
