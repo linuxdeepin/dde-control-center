@@ -22,6 +22,7 @@ KeyboardDetails::KeyboardDetails(QWidget *parent)
     m_group = new SettingsGroup();
     m_head = new SettingsHead();
     m_head->setTitle(tr("Keyboard Layout"));
+    m_head->setEditEnable(false);
     setTitle(tr("Keyboard Layout"));
 
     m_group->appendItem(m_head);
@@ -68,6 +69,8 @@ void KeyboardDetails::onAddKeyboard(const MetaData &value)
         m_default = checkItem;
         m_default->setChecked(true);
     }
+
+    m_head->setEditEnable(m_maps.size() > 1);
 }
 
 void KeyboardDetails::onEdit(bool value)
@@ -98,6 +101,11 @@ void KeyboardDetails::onRemoveLayout(CheckItem *item)
         m_group->removeItem(item);
         emit delUserLayout(m_maps.key(item->title()));
         m_maps.remove(m_maps.key(item->title()));
+    }
+
+    if (m_maps.size() < 2)
+    {
+        m_head->setEditEnable(false);
     }
 }
 

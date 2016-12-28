@@ -120,9 +120,9 @@ void Datetime::removeTimezone(const ZoneInfo &zone)
         }
     }
 
-    m_headItem->blockSignals(true);
-    m_headItem->initStatus();
-    m_headItem->blockSignals(false);
+//    m_headItem->blockSignals(true);
+//    m_headItem->initStatus();
+//    m_headItem->blockSignals(false);
 
     m_headItem->setEditEnable(items.length() > 1);
 }

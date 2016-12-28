@@ -6,27 +6,31 @@ namespace dcc {
 namespace widgets {
 
 SettingsHead::SettingsHead(QFrame *parent)
-    :SettingsItem(parent)
-{
-    setMouseTracking(true);
-    setFixedHeight(36);
-    m_title = new QLabel;
-    m_edit = new QLabel;
-    m_edit->setObjectName("Edit");
-    m_edit->setAlignment(Qt::AlignCenter);
-    m_edit->installEventFilter(this);
-    m_edit->setText(tr("Edit"));
-    m_edit->setMouseTracking(true);
+    : SettingsItem(parent),
 
-    QFont font = m_edit->font();
-    QFontMetrics fm(font);
-    m_edit->setFixedWidth(fm.width(tr("Cancel")));
+      m_title(new QLabel),
+      m_edit(new QPushButton),
+      m_cancel(new QPushButton),
+
+      m_state(Cancel)
+{
+    m_edit->setText(tr("Edit"));
+    m_edit->setVisible(false);
+
+    m_cancel->setText(tr("Cancel"));
+    m_cancel->setVisible(false);
+
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addWidget(m_edit);
+    mainLayout->addWidget(m_cancel);
 
+    setFixedHeight(36);
     setLayout(mainLayout);
+
+    connect(m_edit, &QPushButton::clicked, this, &SettingsHead::toEdit);
+    connect(m_cancel, &QPushButton::clicked, this, &SettingsHead::toCancel);
 }
 
 void SettingsHead::setTitle(const QString &title)
@@ -36,51 +40,35 @@ void SettingsHead::setTitle(const QString &title)
 
 void SettingsHead::setEditEnable(bool state)
 {
-    m_edit->setVisible(state);
+    // reset state
+    toCancel();
+
+    m_edit->setVisible(state && m_state == Cancel);
+    m_cancel->setVisible(state && m_state == Edit);
 }
 
-void SettingsHead::initStatus()
+void SettingsHead::toEdit()
 {
+    m_state = Edit;
+    refershButton();
+
+    emit editChanged(true);
+}
+
+void SettingsHead::toCancel()
+{
+    m_state = Cancel;
+    refershButton();
+
     emit editChanged(false);
-    m_edit->setText(tr("Edit"));
 }
 
-void SettingsHead::mouseMoveEvent(QMouseEvent *e)
+void SettingsHead::refershButton()
 {
-    if(!m_edit->rect().contains(e->pos()))
-    {
-        setCursor(Qt::ArrowCursor);
-    }
-}
-
-// FIXME:
-bool SettingsHead::eventFilter(QObject *watched, QEvent *event)
-{
-    if(watched == m_edit)
-    {
-        if(event->type() == QEvent::MouseMove)
-        {
-            QMouseEvent* e = static_cast<QMouseEvent *>(event);
-            if(m_edit->rect().contains(e->pos()))
-            {
-                m_edit->setCursor(QCursor(Qt::PointingHandCursor));
-                return true;
-            }
-        }
-        else if(event->type() == QEvent::MouseButtonRelease)
-        {
-            QMouseEvent* e = static_cast<QMouseEvent *>(event);
-            if(m_edit->rect().contains(e->pos()))
-            {
-                QString text = m_edit->text() == "Edit" ? "Cancel" : "Edit";
-                m_edit->setText(text);
-                emit editChanged(text=="Cancel");
-                return true;
-            }
-        }
-    }
-    return false;
+    m_edit->setVisible(m_state == Cancel);
+    m_cancel->setVisible(m_state == Edit);
 }
 
 }
+
 }

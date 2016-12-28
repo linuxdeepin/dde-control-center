@@ -13,24 +13,32 @@ class SettingsHead : public SettingsItem
     Q_OBJECT
 
 public:
+    enum State
+    {
+        Edit,
+        Cancel,
+    };
+
+public:
     explicit SettingsHead(QFrame *parent = 0);
 
     void setTitle(const QString& title);
-    void setEditEnable(bool state);
+    void setEditEnable(bool state = true);
 
 signals:
     void editChanged(bool edit);
 
-public slots:
-    void initStatus();
-
-protected:
-    void mouseMoveEvent(QMouseEvent* e);
-    bool eventFilter(QObject *watched, QEvent *event);
+private slots:
+    void toEdit();
+    void toCancel();
+    void refershButton();
 
 private:
     QLabel *m_title;
-    QLabel *m_edit;
+    QPushButton *m_edit;
+    QPushButton *m_cancel;
+
+    State m_state;
 };
 
 }
