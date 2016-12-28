@@ -13,9 +13,16 @@
 #include "blurredframe.h"
 
 class QPushButton;
+class QComboBox;
 
 namespace installer {
 class TimezoneMap;
+}
+
+namespace dcc {
+namespace widgets {
+class SearchInput;
+}
 }
 
 namespace dcc {
@@ -33,6 +40,7 @@ signals:
 
 private:
     installer::TimezoneMap *m_map;
+    dcc::widgets::SearchInput *m_searchInput;
     QPushButton *m_cancelBtn;
     QPushButton *m_confirmBtn;
 };
