@@ -20,6 +20,8 @@ public:
 
 signals:
     void back() const;
+    void appear() const;
+    void disappear() const;
 
 public slots:
     void scrollToWidget(QWidget * const w);

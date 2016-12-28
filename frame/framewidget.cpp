@@ -1,10 +1,13 @@
 
 #include "frame.h"
 #include "framewidget.h"
+#include "contentwidget.h"
 
 #include <QResizeEvent>
 #include <QTimer>
 #include <QVBoxLayout>
+
+using namespace dcc;
 
 FrameWidget::FrameWidget(Frame *parent)
     : TranslucentFrame(parent),
@@ -25,16 +28,16 @@ FrameWidget::FrameWidget(Frame *parent)
     setFixedWidth(FRAME_WIDTH);
 }
 
-QWidget *FrameWidget::setContent(QWidget * const c)
+ContentWidget *FrameWidget::setContent(ContentWidget * const c)
 {
-    QWidget *lastContent = m_content;
+    ContentWidget *lastContent = m_content;
     m_content = c;
     layout()->addWidget(c);
 
     return lastContent;
 }
 
-QWidget *FrameWidget::content()
+ContentWidget *FrameWidget::content()
 {
     return m_content;
 }

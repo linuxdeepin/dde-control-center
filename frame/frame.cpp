@@ -202,6 +202,14 @@ void Frame::show()
     // show frame
     QFrame::show();
 
+    // notify top widget appear
+    if (m_frameWidgetStack.last() && m_frameWidgetStack.last()->content())
+    {
+        QTimer::singleShot(m_frameWidgetStack.last()->animationDuration(), [=] {
+            emit m_frameWidgetStack.last()->content()->appear();
+        });
+    }
+
     // register global mouse area
     m_mouseAreaKey = m_mouseAreaInter->RegisterFullScreen();
 }
@@ -223,6 +231,10 @@ void Frame::hide()
         if (m_appearAnimation.state() != QPropertyAnimation::Running)
             QFrame::hide();
     });
+
+    // notify top widget disappear
+    if (m_frameWidgetStack.last() && m_frameWidgetStack.last()->content())
+        emit m_frameWidgetStack.last()->content()->disappear();
 
     // unregister global mouse area
     m_mouseAreaInter->UnregisterArea(m_mouseAreaKey);

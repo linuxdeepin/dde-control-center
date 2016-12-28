@@ -12,6 +12,12 @@
 
 using namespace dcc::widgets;
 
+namespace dcc {
+
+class ContentWidget;
+
+}
+
 class Frame;
 class FrameWidget : public TranslucentFrame
 {
@@ -20,8 +26,8 @@ class FrameWidget : public TranslucentFrame
 public:
     explicit FrameWidget(Frame *parent = 0);
 
-    QWidget *setContent(QWidget * const c);
-    QWidget *content();
+    dcc::ContentWidget *setContent(dcc::ContentWidget * const c);
+    dcc::ContentWidget *content();
 
     void show();
     void hide();
@@ -32,7 +38,7 @@ public:
     int animationDuration() const;
 
 signals:
-    void contentDetached(QWidget * const w) const;
+    void contentDetached(dcc::ContentWidget * const w) const;
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
@@ -43,7 +49,7 @@ private slots:
 private:
     QPropertyAnimation *m_slideAni;
 
-    QWidget *m_content;
+    dcc::ContentWidget *m_content;
 };
 
 #endif // FRAMEWIDGET_H

@@ -31,6 +31,11 @@ public:
     explicit ErrorTip();
 
     void setText(QString text);
+    void clear();
+    bool isEmpty() const;
+
+public slots:
+    void appearIfNotEmpty();
 
 private:
     QLabel *m_label;

@@ -66,9 +66,12 @@ CreatePage::CreatePage(QWidget *parent) :
     connect(m_confirmBtn, &QPushButton::clicked, this, &CreatePage::createUser);
     connect(m_cancelBtn, &QPushButton::clicked, this, &CreatePage::cancelCreation);
 
-    connect(m_username->textEdit(), &QLineEdit::textChanged, [this] { m_errorTip->hide(); });
-    connect(m_repeatpass->textEdit(), &QLineEdit::textChanged, [this] { m_errorTip->hide(); });
-    connect(m_password->textEdit(), &QLineEdit::textChanged, [this] { m_errorTip->hide(); });
+    connect(this, &CreatePage::disappear, m_errorTip, &ErrorTip::hide);
+    connect(this, &CreatePage::appear, m_errorTip, &ErrorTip::appearIfNotEmpty, Qt::QueuedConnection);
+
+    connect(m_username->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
+    connect(m_repeatpass->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
+    connect(m_password->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
 }
 
 void CreatePage::setModel(User *user)
@@ -159,6 +162,23 @@ void ErrorTip::setText(QString text)
     m_label->setText(text);
     m_label->adjustSize();
     resizeWithContent();
+}
+
+void ErrorTip::clear()
+{
+    m_label->clear();
+    hide();
+}
+
+bool ErrorTip::isEmpty() const
+{
+    return m_label->text().isEmpty();
+}
+
+void ErrorTip::appearIfNotEmpty()
+{
+    if (!isEmpty() && !isVisible())
+        QWidget::show();
 }
 
 } // namespace accounts
