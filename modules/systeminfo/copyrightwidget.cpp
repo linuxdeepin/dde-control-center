@@ -24,7 +24,6 @@ CopyrightWidget::CopyrightWidget(QWidget *parent)
 
     m_body = new QLabel();
     m_body->setWordWrap(true);
-    m_body->setMargin(10);
     m_body->setText(getLicense(":/gpl/gpl/gpl-3.0-%1-%2.txt", "body"));
 
     layout->addWidget(m_title);
