@@ -63,3 +63,7 @@ dcc--widgets--HSeparator {
 dcc--widgets--VSeparator {
     background-color: rgba(255, 255, 255, 0.15);
 }
+
+dcc--widgets--TipsLabel {
+    color: rgba(255, 255, 255, 0.8)
+}

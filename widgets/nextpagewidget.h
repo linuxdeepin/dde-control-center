@@ -3,6 +3,7 @@
 
 #include "settingsitem.h"
 #include "labels/normallabel.h"
+#include "labels/tipslabel.h"
 #include "nextbutton.h"
 
 #include <QLabel>
@@ -33,8 +34,8 @@ signals:
 
 private:
     NormalLabel *m_title;
-    NormalLabel *m_value;
-    dcc::widgets::NextButton *m_nextPageBtn;
+    TipsLabel *m_value;
+    NextButton *m_nextPageBtn;
 };
 
 }

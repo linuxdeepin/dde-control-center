@@ -3,31 +3,26 @@
 #include <QHBoxLayout>
 #include <QMouseEvent>
 
-#include "nextbutton.h"
-
 DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace widgets {
 
 NextPageWidget::NextPageWidget(QFrame *parent)
-    : SettingsItem(parent)
+    : SettingsItem(parent),
+      m_title(new NormalLabel),
+      m_value(new TipsLabel),
+      m_nextPageBtn(new dcc::widgets::NextButton)
 {
-    m_title = new NormalLabel;
-    m_title->setStyleSheet("color: white; font: 12px");
-
-    m_value = new NormalLabel;
-    m_value->setStyleSheet("color: white; font:11px");
-
-    m_nextPageBtn = new dcc::widgets::NextButton;
-
     QHBoxLayout *mainLayout = new QHBoxLayout;
+    mainLayout->setSpacing(0);
+    mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(20, 0, 10, 0);
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addWidget(m_value);
     mainLayout->addSpacerItem(new QSpacerItem(3,36));
     mainLayout->addWidget(m_nextPageBtn);
-    mainLayout->setSpacing(0);
 
     setFixedHeight(36);
     setLayout(mainLayout);
