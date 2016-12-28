@@ -16,7 +16,6 @@ Theme::Theme(const QString &title, QWidget *parent)
     m_mainLayout = new QVBoxLayout;
     m_mainGroup = new SettingsGroup(title);
     m_mainLayout->addWidget(m_mainGroup);
-    m_mainGroup->setMargin(10, 0, 15, 10);
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
 }

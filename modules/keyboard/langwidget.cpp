@@ -23,7 +23,7 @@ LangWidget::LangWidget(QWidget *parent)
     layout->setMargin(0);
 
     SettingsGroup* group = new SettingsGroup();
-    group->setMargin(3,0,0,0);
+
     SettingsItem* indexItem = new SettingsItem();
 //    indexItem->setPalette(QPalette(QColor(19, 89, 177)));
 

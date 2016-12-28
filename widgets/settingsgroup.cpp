@@ -69,8 +69,6 @@ void SettingsGroup::setHeaderVisible(const bool visible)
 
 void SettingsGroup::insertItem(const int index, SettingsItem *item)
 {
-    updateItemPaddings(item);
-
     m_layout->insertWidget(index, item);
     item->installEventFilter(this);
 
@@ -137,14 +135,6 @@ void SettingsGroup::clear()
     m_updateHeightTimer->start();
 }
 
-void SettingsGroup::setMargin(int left, int top, int right, int bottom)
-{
-    m_itemMarginLeft = left;
-    m_itemMarginTop = top;
-    m_itemMarginRight = right;
-    m_itemMarginBottom = bottom;
-}
-
 SettingsItem *SettingsGroup::getItem(int index)
 {
     if(index < 0)
@@ -184,17 +174,6 @@ void SettingsGroup::updateHeight()
     Q_ASSERT(sender() == m_updateHeightTimer);
 
     setFixedHeight(m_layout->sizeHint().height());
-}
-
-void SettingsGroup::updateItemPaddings(SettingsItem *item)
-{
-    QLayout * layout = qobject_cast<QLayout*>(item->layout());
-    if (layout) {
-        layout->setContentsMargins(m_itemMarginLeft,
-                                   m_itemMarginTop,
-                                   m_itemMarginRight,
-                                   m_itemMarginBottom);
-    }
 }
 
 }
