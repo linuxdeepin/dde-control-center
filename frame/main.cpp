@@ -126,10 +126,6 @@ int main(int argc, char *argv[])
 
     qApp->setQuitOnLastWindowClosed(false);
 
-#ifndef QT_DEBUG
-    QDir::setCurrent(QApplication::applicationDirPath());
-#endif
-
     Frame f;
     QTimer::singleShot(1, &f, &Frame::startup);
 

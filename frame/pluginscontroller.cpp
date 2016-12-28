@@ -14,11 +14,13 @@ PluginsController::PluginsController(QObject *parent)
 
 void PluginsController::loadPlugins()
 {
+    QDir pluginsDir(qApp->applicationDirPath());
 #ifdef QT_DEBUG
-    const QDir pluginsDir("plugins");
+    pluginsDir.cd("plugins");
 #else
-    const QDir pluginsDir("../lib/dde-control-center/plugins");
+    pluginsDir.cd("../lib/dde-control-center/plugins");
 #endif
+
     const QStringList plugins = pluginsDir.entryList(QDir::Files);
 
     for (const QString file : plugins)
