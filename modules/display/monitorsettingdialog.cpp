@@ -51,6 +51,7 @@ void MonitorSettingDialog::init()
     m_resolutionsWidget->setTitle(tr("Resolution"));
 
     m_rotateBtn = new DImageButton;
+    m_rotateBtn->setPixmap(QPixmap(":/display/themes/common/icon/rotate.png"));
 
     m_lightSlider = new DCCSlider;
     m_lightSlider->setOrientation(Qt::Horizontal);

@@ -2,5 +2,6 @@
     <qresource prefix="/display">
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_display.png</file>
+        <file>themes/common/icon/rotate.png</file>
     </qresource>
 </RCC>
