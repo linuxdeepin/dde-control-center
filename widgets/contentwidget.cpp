@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QScroller>
 #include <QScrollBar>
+#include <QScrollArea>
 
 #include "separator.h"
 #include "backbutton.h"
@@ -25,6 +26,10 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_title = new QLabel;
     m_title->setAlignment(Qt::AlignCenter);
     m_title->setStyleSheet("color: white;");
+
+    m_contentTopLayout = new QVBoxLayout;
+    m_contentTopLayout->setMargin(0);
+    m_contentTopLayout->setSpacing(0);
 
     m_contentArea = new QScrollArea;
     m_contentArea->setWidgetResizable(true);
@@ -47,6 +52,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     centeralLayout->addSpacing(15);
     centeralLayout->addWidget(new dcc::widgets::HSeparator);
     centeralLayout->addSpacing(15);
+    centeralLayout->addLayout(m_contentTopLayout);
     centeralLayout->addWidget(m_contentArea);
     centeralLayout->setContentsMargins(8, 8, 8, 0);
     centeralLayout->setSpacing(0);

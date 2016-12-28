@@ -21,6 +21,7 @@
 #include <QResizeEvent>
 #include <QScrollBar>
 #include <QVBoxLayout>
+#include <QScrollArea>
 
 using namespace dcc::datetime;
 using namespace dcc::keyboard;

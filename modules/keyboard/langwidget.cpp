@@ -9,6 +9,7 @@
 
 #include <QVBoxLayout>
 #include <QLineEdit>
+#include <QDebug>
 
 using namespace dcc;
 
@@ -42,7 +43,9 @@ LangWidget::LangWidget(QWidget *parent)
 
     group->appendItem(indexItem);
     m_search = new SearchInput();
-    layout->addWidget(m_search);
+
+    m_contentTopLayout->addWidget(m_search);
+    m_contentTopLayout->addSpacing(10);
     layout->addWidget(group);
     widget->setLayout(layout);
 

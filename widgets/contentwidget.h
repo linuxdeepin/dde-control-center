@@ -3,7 +3,9 @@
 
 #include <QWidget>
 #include <QLabel>
-#include <QScrollArea>
+
+class QVBoxLayout;
+class QScrollArea;
 
 namespace dcc {
 
@@ -31,6 +33,7 @@ private:
 
 protected:
     QLabel *m_title;
+    QVBoxLayout *m_contentTopLayout;
     QScrollArea *m_contentArea;
 
     QWidget *m_content;
