@@ -23,6 +23,7 @@ public:
 public slots:
     void setTitle(const QString &title);
     void setText(const QString &text);
+    void setPlaceholderText(const QString &text);
 
 private:
     QLabel *m_title;

@@ -34,9 +34,12 @@ CreatePage::CreatePage(QWidget *parent) :
     m_avatar->setFixedSize(90, 90);
 
     m_username->setTitle(tr("Username"));
+    m_username->setPlaceholderText(tr("Required"));
     m_password->setTitle(tr("Password"));
+    m_password->setPlaceholderText(tr("Required"));
     m_password->textEdit()->setEchoMode(QLineEdit::Password);
     m_repeatpass->setTitle(tr("Repeat password"));
+    m_repeatpass->setPlaceholderText(tr("Required"));
     m_repeatpass->textEdit()->setEchoMode(QLineEdit::Password);
 
     m_errorTip->setWindowFlags(Qt::ToolTip);

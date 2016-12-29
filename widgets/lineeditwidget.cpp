@@ -36,5 +36,10 @@ void LineEditWidget::setText(const QString &text)
     m_edit->setText(text);
 }
 
+void LineEditWidget::setPlaceholderText(const QString &text)
+{
+    m_edit->setPlaceholderText(text);
+}
+
 }
 }

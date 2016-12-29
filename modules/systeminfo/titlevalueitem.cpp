@@ -44,7 +44,7 @@ LogoItem::LogoItem(QFrame *parent)
     layout->addWidget(m_logo);
     layout->addWidget(m_description);
     layout->setSpacing(15);
-    layout->setContentsMargins(0, 25, 0, 0);
+    layout->setContentsMargins(0, 25, 0, 20);
 
     layout->setAlignment(m_logo, Qt::AlignCenter);
     layout->setAlignment(m_description, Qt::AlignCenter);
