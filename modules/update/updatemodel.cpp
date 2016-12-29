@@ -26,7 +26,7 @@ UpdateModel::UpdateModel(QObject *parent) :
     m_status(UpdatesStatus::Checking),
     m_downloadInfo(nullptr),
     m_lowBattery(false),
-    m_autoUpdate(true),
+    m_autoDownloadUpdates(true),
     m_mirrorId("")
 {
 
@@ -87,6 +87,19 @@ void UpdateModel::setLowBattery(bool lowBattery)
     }
 }
 
+bool UpdateModel::autoDownloadUpdates() const
+{
+    return m_autoDownloadUpdates;
+}
+
+void UpdateModel::setAutoDownloadUpdates(bool autoDownloadUpdates)
+{
+    if (m_autoDownloadUpdates != autoDownloadUpdates) {
+        m_autoDownloadUpdates = autoDownloadUpdates;
+        emit autoDownloadUpdatesChanged(autoDownloadUpdates);
+    }
+}
+
 MirrorInfo UpdateModel::defaultMirror() const
 {
     QList<MirrorInfo>::const_iterator it = m_mirrorList.begin();
@@ -99,15 +112,6 @@ MirrorInfo UpdateModel::defaultMirror() const
     }
 
     return m_mirrorList.at(0);
-}
-
-void UpdateModel::setAutoUpdate(bool update)
-{
-    if(m_autoUpdate == update)
-        return;
-
-    m_autoUpdate = update;
-    emit autoUpdateChanged(m_autoUpdate);
 }
 
 UpdatesStatus UpdateModel::status() const

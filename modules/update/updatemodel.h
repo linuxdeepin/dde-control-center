@@ -43,9 +43,6 @@ public:
     UpdatesStatus status() const;
     void setStatus(const UpdatesStatus &status);
 
-    inline bool autoUpdate() const { return m_autoUpdate; }
-    void setAutoUpdate(bool update);
-
     MirrorInfo defaultMirror() const;
     void setDefaultMirror(const QString& mirrorId);
 
@@ -58,8 +55,11 @@ public:
     bool lowBattery() const;
     void setLowBattery(bool lowBattery);
 
+    bool autoDownloadUpdates() const;
+    void setAutoDownloadUpdates(bool autoDownloadUpdates);
+
 signals:
-    void autoUpdateChanged(const bool &autoUpdate);
+    void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
 
     void lowBatteryChanged(const bool &lowBattery);
@@ -73,7 +73,7 @@ private:
 
     bool m_lowBattery;
 
-    bool m_autoUpdate;
+    bool m_autoDownloadUpdates;
     QString m_mirrorId;
     MirrorInfoList m_mirrorList;
     QMap<QString, int> m_mirrorSpeedInfo;

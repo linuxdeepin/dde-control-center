@@ -44,7 +44,7 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
     m_updateInter->setSync(false);
     m_powerInter->setSync(false);
 
-    connect(m_updateInter, &__Updater::AutoCheckUpdatesChanged, m_model, &UpdateModel::setAutoUpdate);
+    connect(m_updateInter, &__Updater::AutoDownloadUpdatesChanged, m_model, &UpdateModel::setAutoDownloadUpdates);
     connect(m_updateInter, &__Updater::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
 
     connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWork::setOnBattery);
@@ -65,7 +65,7 @@ void UpdateWork::activate()
         }
     });
 
-    m_model->setAutoUpdate(m_updateInter->autoCheckUpdates());
+    m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
     m_model->setDefaultMirror(m_updateInter->mirrorSource());
     setOnBattery(m_powerInter->onBattery());
     setBatteryPercentage(m_powerInter->batteryPercentage());
@@ -121,9 +121,9 @@ void UpdateWork::resumeDownload()
     }
 }
 
-void UpdateWork::setAutoUpdate(const bool &autoUpdate)
+void UpdateWork::setAutoDownloadUpdates(const bool &autoDownload)
 {
-    m_updateInter->SetAutoCheckUpdates(autoUpdate);
+    m_updateInter->SetAutoDownloadUpdates(autoDownload);
 }
 
 void UpdateWork::setMirrorSource(const MirrorInfo &mirror)

@@ -27,7 +27,7 @@ signals:
 
 private:
     UpdateModel* m_model;
-    SwitchWidget* m_autoUpdate;
+    SwitchWidget* m_autoDownloadSwitch;
     NextPageWidget* m_updateMirrors;
 };
 

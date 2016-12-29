@@ -25,16 +25,16 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     SettingsGroup* ug = new SettingsGroup;
     SettingsGroup* mg = new SettingsGroup;
 
-    m_autoUpdate = new SwitchWidget;
-    m_autoUpdate->setTitle(tr("Auto-­download Updates"));
+    m_autoDownloadSwitch = new SwitchWidget;
+    m_autoDownloadSwitch->setTitle(tr("Auto-download Updates"));
 
-    SmallLabel* label = new SmallLabel(tr("Updates will be auto-­downloaded in wireless or wired network"));
+    SmallLabel* label = new SmallLabel(tr("Updates will be auto-downloaded in wireless or wired network"));
     label->setWordWrap(true);
 
     m_updateMirrors = new NextPageWidget;
     m_updateMirrors->setTitle(tr("Switch Mirror"));
 
-    ug->appendItem(m_autoUpdate);
+    ug->appendItem(m_autoDownloadSwitch);
     mg->appendItem(m_updateMirrors);
 
     layout->addWidget(ug);
@@ -48,7 +48,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     setContent(widget);
 
     connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
-    connect(m_autoUpdate, &SwitchWidget::checkedChanegd, this, &UpdateSettings::requestSetAutoUpdate);
+    connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanegd, this, &UpdateSettings::requestSetAutoUpdate);
 
     setModel(model);
 }
@@ -57,20 +57,20 @@ void UpdateSettings::setModel(UpdateModel *model)
 {
     m_model = model;
 
-    auto setAutoUpdate = [this] (const bool &autoUpdate) {
-        m_autoUpdate->blockSignals(true);
-        m_autoUpdate->setChecked(autoUpdate);
-        m_autoUpdate->blockSignals(false);
+    auto setAutoDownload = [this] (const bool &autoDownload) {
+        m_autoDownloadSwitch->blockSignals(true);
+        m_autoDownloadSwitch->setChecked(autoDownload);
+        m_autoDownloadSwitch->blockSignals(false);
     };
 
     auto setDefaultMirror = [this] (const MirrorInfo &mirror) {
         m_updateMirrors->setValue(mirror.m_name);
     };
 
-    setAutoUpdate(model->autoUpdate());
+    setAutoDownload(model->autoDownloadUpdates());
     setDefaultMirror(model->defaultMirror());
 
-    connect(model, &UpdateModel::autoUpdateChanged, setAutoUpdate);
+    connect(model, &UpdateModel::autoDownloadUpdatesChanged, setAutoDownload);
     connect(model, &UpdateModel::defaultMirrorChanged, setDefaultMirror);
 }
 

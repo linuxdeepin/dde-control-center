@@ -37,7 +37,7 @@ public slots:
     void pauseDownload();
     void resumeDownload();
 
-    void setAutoUpdate(const bool &autoUpdate);
+    void setAutoDownloadUpdates(const bool &autoDownload);
     void setMirrorSource(const MirrorInfo &mirror);
 
     void testMirrorSpeed();
