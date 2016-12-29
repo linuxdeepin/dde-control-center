@@ -192,7 +192,7 @@ void ShortcutItem::paintEvent(QPaintEvent *e)
             QColor col = pen.color();
             pen.setColor(Qt::red);
             painter.setPen(pen);
-            painter.drawText(r,Qt::AlignCenter,tr("冲突"));
+            painter.drawText(r,Qt::AlignCenter,tr("Conflict"));
             pen.setColor(col);
             painter.setPen(pen);
         }

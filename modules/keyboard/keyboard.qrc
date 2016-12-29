@@ -12,5 +12,7 @@
         <file>themes/light/icons/list_delete_press.png</file>
         <file>themes/light/icons/nav_keyboard.png</file>
         <file>themes/light/icons/select.png</file>
+        <file>themes/common/icons/power.png</file>
+        <file>themes/common/icons/super_key.png</file>
     </qresource>
 </RCC>

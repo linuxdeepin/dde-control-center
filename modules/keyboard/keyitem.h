@@ -35,6 +35,7 @@ public:
 private:
     QString m_mainKey;
     QString m_viceKey;
+    QPixmap m_mainPix;
     int m_row;
     int m_col;
     quint32 m_keycode;

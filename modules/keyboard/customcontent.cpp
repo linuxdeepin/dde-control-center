@@ -69,7 +69,7 @@ void CustomContent::setBottomTip(ShortcutInfo *conflict)
     m_conflict = conflict;
     if(conflict)
     {
-        QString str = tr("此快捷键和%1快捷键冲突，您依然可以点替换使冲突的快捷键失效").arg(conflict->name);
+        QString str = tr("This shortcut conflicts with %1, click on Add to make this chortcut effective immediately").arg(conflict->name);
         m_bottomTip->setText(str);
         m_bottomTip->show();
     }

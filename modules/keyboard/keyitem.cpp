@@ -1,5 +1,6 @@
 #include "keyitem.h"
 #include <QPainter>
+#include <QPixmap>
 
 namespace dcc {
 namespace keyboard{
@@ -100,10 +101,9 @@ QList<KeyItem *> KeyItem::keyboards()
                 <<(new KeyItem(4,10,61,"?/"))<<(new KeyItem(4,11,62,"Shift"))
                 <<(new KeyItem(5,0,-1,"Fn"))<<(new KeyItem(5,1,37,"Ctrl"))
                 <<(new KeyItem(5,2, 64,"Alt"))<<(new KeyItem(5,3,133,"Super"))
-                <<(new KeyItem(5,4,65,"Space"))<<(new KeyItem(5,5,-1,"Option"))
-                <<(new KeyItem(5,6,108,"Alt"))<<(new KeyItem(5,7,113,"Left"))
-                <<(new KeyItem(5,8, 111, "Up"))<<(new KeyItem(5,9,114,"Right"))
-                <<(new KeyItem(5,10,116,"Down"));
+                <<(new KeyItem(5,4,65,"Space"))<<(new KeyItem(5,6,108,"Alt"))
+                <<(new KeyItem(5,7,113,"Left"))<<(new KeyItem(5,8, 111, "Up"))
+                <<(new KeyItem(5,9,114,"Right"))<<(new KeyItem(5,10,116,"Down"));
     }
 
     return m_keys;
@@ -129,8 +129,12 @@ void KeyItem::paint(QPainter *painter, const QRect &rect)
 
     if(m_row == 0)
     {
-        width = rect.width()/count;
-        m_rect = QRect(m_col*width,m_row*height, width, height);
+        if(m_mainKey == "Power") {
+            width = rect.width()/count;
+            m_rect = QRect(m_col*width+width/3,m_row*height+height/3, 11, 11);
+        } else {
+            width = rect.width()/count;
+            m_rect = QRect(m_col*width,m_row*height, width, height);}
     }
     else if(m_row == 1)
     {
@@ -194,8 +198,10 @@ void KeyItem::paint(QPainter *painter, const QRect &rect)
         if(m_mainKey == "Space")
         {
             m_rect = QRect(m_col*width, m_row*height, width + expand, height + 10);
+        } else if (m_mainKey == "Super") {
+            m_rect = QRect(m_col*width+width/3, m_row*height+height/2, 11 , 11);
         }
-        else if(m_mainKey == "Option" || (m_mainKey == "Alt" && m_col == 6))
+        else if(m_mainKey == "Alt" && m_col == 6)
         {
             m_rect = QRect(m_col*width + expand, m_row*height, width, height + 10);
         }
@@ -271,8 +277,14 @@ void KeyItem::paint(QPainter *painter, const QRect &rect)
 //        painter->fillRect(m_rect, QColor(qrand()%255,qrand()%255,qrand()%255));
     }
     painter->setFont(font);
-    painter->drawText(m_rect,Qt::AlignCenter, m_mainKey);
-
+//    painter->drawText(m_rect,Qt::AlignCenter, m_mainKey);
+    if(m_mainKey == "Power") {
+        painter->drawPixmap(m_rect, QPixmap(":/keyboard/themes/common/icons/power.png"));
+    } else if (m_mainKey == "Super") {
+        painter->drawPixmap(m_rect, QPixmap(":/keyboard/themes/common/icons/super_key.png"));
+    }else {
+            painter->drawText(m_rect,Qt::AlignCenter, m_mainKey);
+    }
     if(m_press && (m_keycode != 108 && m_keycode != 62))
     {
         painter->save();
