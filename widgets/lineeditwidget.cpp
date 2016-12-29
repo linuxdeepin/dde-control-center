@@ -27,6 +27,8 @@ LineEditWidget::LineEditWidget(QFrame *parent)
 void LineEditWidget::setTitle(const QString &title)
 {
     m_title->setText(title);
+
+    setAccessibleName(title);
 }
 
 void LineEditWidget::setText(const QString &text)

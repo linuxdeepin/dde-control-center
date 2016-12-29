@@ -41,6 +41,8 @@ FileChooseWidget::FileChooseWidget(QWidget *parent)
 void FileChooseWidget::setTitle(const QString &title)
 {
     m_title->setText(title);
+
+    setAccessibleName(title);
 }
 
 void FileChooseWidget::chooseFile()
