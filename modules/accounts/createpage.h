@@ -46,7 +46,7 @@ class CreatePage : public ContentWidget
     Q_OBJECT
 public:
     explicit CreatePage(QWidget *parent = 0);
-    ~CreatePage() {}
+    ~CreatePage();
 
     void setModel(User *user);
 

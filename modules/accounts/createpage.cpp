@@ -66,12 +66,18 @@ CreatePage::CreatePage(QWidget *parent) :
     connect(m_confirmBtn, &QPushButton::clicked, this, &CreatePage::createUser);
     connect(m_cancelBtn, &QPushButton::clicked, this, &CreatePage::cancelCreation);
 
+    connect(this, &CreatePage::back, m_errorTip, &ErrorTip::hide);
     connect(this, &CreatePage::disappear, m_errorTip, &ErrorTip::hide);
     connect(this, &CreatePage::appear, m_errorTip, &ErrorTip::appearIfNotEmpty, Qt::QueuedConnection);
 
     connect(m_username->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
     connect(m_repeatpass->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
     connect(m_password->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
+}
+
+CreatePage::~CreatePage()
+{
+    m_errorTip->deleteLater();
 }
 
 void CreatePage::setModel(User *user)
