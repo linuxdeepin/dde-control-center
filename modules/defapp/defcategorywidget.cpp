@@ -60,8 +60,6 @@ void DefCategoryWidget::setCategory(Category *const category)
 
     if(m_userMap.empty()) {
         m_headWidget->setEditEnable(false);
-    } else {
-        m_headWidget->setEditEnable(true);
     }
 }
 
@@ -112,8 +110,6 @@ void DefCategoryWidget::removeItem(const QJsonObject &item)
 
     if(m_userMap.empty()) {
         m_headWidget->setEditEnable(false);
-    } else {
-        m_headWidget->setEditEnable(true);
     }
 }
 
