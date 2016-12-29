@@ -9,7 +9,7 @@ using namespace dcc::personalization;
 using namespace dcc::widgets;
 
 FontSizeWidget::FontSizeWidget(QWidget *parent)
-    :TranslucentFrame(parent)
+    : TranslucentFrame(parent)
 {
     m_mainlayout = new QVBoxLayout;
     m_mainWidget = new SettingsGroup;
@@ -23,7 +23,10 @@ FontSizeWidget::FontSizeWidget(QWidget *parent)
     m_sizeWidget->setObjectName("FontSizeWidget");
     m_mainWidget->appendItem(m_sizeWidget);
     m_mainlayout->addWidget(m_mainWidget);
+
+    m_mainlayout->setSpacing(0);
     m_mainlayout->setMargin(0);
+
     setLayout(m_mainlayout);
 
     m_fontSlider = m_sizeWidget->slider();

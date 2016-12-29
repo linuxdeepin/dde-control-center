@@ -28,17 +28,18 @@ OptionWidget::OptionWidget(QWidget *parent)
     m_checkedIconLabel->setFixedSize(17, 17);
 
     QHBoxLayout *m_leftOption = new QHBoxLayout;
-    m_leftOption->addWidget(m_optionIcon,  0, Qt::AlignLeft);
+    m_leftOption->addWidget(m_optionIcon,  0, Qt::AlignCenter);
     m_leftOption->addSpacing(14);
-    m_leftOption->addWidget(m_displayName, 0, Qt::AlignLeft);
-    m_leftOption->addWidget(m_execPath,        0, Qt::AlignLeft);
+    m_leftOption->addWidget(m_displayName, 0, Qt::AlignCenter);
+    m_leftOption->addWidget(m_execPath,        0, Qt::AlignCenter);
     m_leftOption->addStretch();
+    m_leftOption->setContentsMargins(10,0,0,0);
 
     QHBoxLayout *m_rightOption = new QHBoxLayout;
     m_rightOption->setSpacing(0);
     m_rightOption->addStretch();
-    m_rightOption->addWidget(m_checkedIconLabel, 0, Qt::AlignLeft);
-    m_rightOption->addWidget(m_delete,           0, Qt::AlignLeft);
+    m_rightOption->addWidget(m_checkedIconLabel, 0, Qt::AlignCenter);
+    m_rightOption->addWidget(m_delete,           0, Qt::AlignCenter);
     m_checkedIconLabel->setVisible(false);
     m_delete->setVisible(false);
 
@@ -47,7 +48,7 @@ OptionWidget::OptionWidget(QWidget *parent)
     m_mainlayout->addLayout(m_leftOption, Qt::AlignLeft);
     m_mainlayout->addStretch();
     m_mainlayout->addLayout(m_rightOption, Qt::AlignRight);
-    m_mainlayout->setContentsMargins(5, 0, 5, 0);
+    m_mainlayout->setContentsMargins(0, 0, 10, 0);
 
     setLayout(m_mainlayout);
     setObjectName("OptionWidget");

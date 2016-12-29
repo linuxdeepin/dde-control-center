@@ -23,6 +23,7 @@ public:
     void setTitleFixedHeight(int height);
     void setTitleWidget(QWidget *titleWidget);
     void setContentWidget(QWidget *contentWidget);
+    void setContentsMargins(int left, int top, int right, int bottom);
 
     inline bool selected() const { return m_selected; }
     void setSelected(bool selected);

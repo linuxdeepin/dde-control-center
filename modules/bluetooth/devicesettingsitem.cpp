@@ -40,6 +40,8 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device) :
     QHBoxLayout *layout = new QHBoxLayout;
     layout->setSpacing(0);
     layout->setMargin(0);
+
+    layout->addSpacing(10);
     layout->addWidget(m_titleLabel);
     layout->addStretch();
     layout->addWidget(m_tipLabel);

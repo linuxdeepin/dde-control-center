@@ -36,6 +36,7 @@ void FontListWidget::setList(const QList<QJsonObject> &list)
 {
     for (QJsonObject item : list) {
         OptionItem *w = new OptionItem;
+        w->setContentsMargins(10, 0, 10, 0);
         w->setAccessibleName("FontListWidget");
         FontItem   *font = new FontItem(item["Id"].toString());
         w->setTitleWidget(font);

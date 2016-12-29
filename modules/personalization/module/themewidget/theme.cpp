@@ -16,7 +16,10 @@ Theme::Theme(const QString &title, QWidget *parent)
     m_mainLayout = new QVBoxLayout;
     m_mainGroup = new SettingsGroup(title);
     m_mainLayout->addWidget(m_mainGroup);
+
     m_mainLayout->setMargin(0);
+    m_mainLayout->setSpacing(0);
+
     setLayout(m_mainLayout);
     setAccessibleName(title);
 }
@@ -35,6 +38,7 @@ void Theme::setList(const QList<QJsonObject> &list)
 {
     for (QJsonObject json : list) {
         OptionItem *theme = new OptionItem;
+        theme->setContentsMargins(10,0,10,10);
         ThemeItemPic *t = new ThemeItemPic(json["url"].toString());
         theme->setContentWidget(t);
         m_mainGroup->appendItem(theme);

@@ -22,7 +22,7 @@ DefCategoryAddWidget::DefCategoryAddWidget(QWidget *parent)
     m_add->setText(tr("Add"));
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->setContentsMargins(15, 0, 20, 0);
+    mainLayout->setContentsMargins(10, 0, 0, 0);
     mainLayout->addSpacing(31);
     mainLayout->addWidget(m_add);
     mainLayout->addStretch();

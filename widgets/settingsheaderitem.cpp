@@ -5,21 +5,18 @@ namespace widgets {
 
 SettingsHeaderItem::SettingsHeaderItem(QWidget *parent)
     : SettingsItem(parent),
-
       m_mainLayout(new QHBoxLayout),
-      m_headerIcon(new QLabel),
       m_headerText(new QLabel)
 {
-    m_mainLayout->addWidget(m_headerIcon);
+    m_mainLayout->addSpacing(20);
     m_mainLayout->addWidget(m_headerText);
     m_mainLayout->addStretch();
 
-    setLayout(m_mainLayout);
-}
+    setFixedHeight(36);
+    m_mainLayout->setSpacing(0);
+    m_mainLayout->setMargin(0);
 
-void SettingsHeaderItem::setIcon(const QPixmap &icon)
-{
-    m_headerIcon->setPixmap(icon);
+    setLayout(m_mainLayout);
 }
 
 void SettingsHeaderItem::setTitle(const QString &title)

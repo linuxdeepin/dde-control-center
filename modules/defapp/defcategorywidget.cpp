@@ -29,6 +29,7 @@ DefCategoryWidget::DefCategoryWidget(const QString &name, QWidget *parent)
     m_centeralLayout->addWidget(m_userGroup);
 
     m_centeralLayout->setMargin(0);
+
     setLayout(m_centeralLayout);
     setObjectName("DefCategoryWidget");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);

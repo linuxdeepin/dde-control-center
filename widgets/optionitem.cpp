@@ -83,6 +83,11 @@ void OptionItem::setContentWidget(QWidget *contentWidget)
     m_contentWidget = contentWidget;
 }
 
+void OptionItem::setContentsMargins(int left, int top, int right, int bottom)
+{
+    m_mainLayout->setContentsMargins(left, top, right, bottom);
+}
+
 void OptionItem::mouseReleaseEvent(QMouseEvent *e)
 {
     SettingsItem::mouseReleaseEvent(e);
