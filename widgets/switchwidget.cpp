@@ -2,50 +2,38 @@
 
 #include <QHBoxLayout>
 
+#include "labels/normallabel.h"
+
 DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace widgets {
 
 SwitchWidget::SwitchWidget(QFrame *parent)
-    : SettingsItem(parent)
+    : SwitchWidget(new NormalLabel, parent)
 {
-    m_title = new NormalLabel;
-    m_title->setStyleSheet("color: white;");
-    m_title->setText("title");
 
-    m_switchBtn = new DSwitchButton;
-
-    QHBoxLayout *mainLayout = new QHBoxLayout;
-
-    mainLayout->addWidget(m_title);
-    mainLayout->addStretch();
-    mainLayout->addWidget(m_switchBtn);
-    mainLayout->setSpacing(0);
-
-    setFixedHeight(36);
-    setLayout(mainLayout);
-
-    connect(m_switchBtn, &DSwitchButton::checkedChanged, this, &SwitchWidget::checkedChanegd);
 }
 
 SwitchWidget::SwitchWidget(const QString &title, QFrame *parent) :
-    SwitchWidget(parent)
+    SwitchWidget(new NormalLabel(title), parent)
 {
-    setTitle(title);
+
 }
 
 SwitchWidget::SwitchWidget(QWidget *widget, QFrame *parent):
-    SettingsItem(parent)
+    SettingsItem(parent),
+    m_leftWidget(widget),
+    m_switchBtn(new DSwitchButton)
 {
-    m_switchBtn = new DSwitchButton;
-
     QHBoxLayout *mainLayout = new QHBoxLayout;
-
-    mainLayout->addWidget(widget, 0, Qt::AlignLeft);
-    mainLayout->addStretch();
-    mainLayout->addWidget(m_switchBtn);
+    mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins(20, 0, 10, 0);
+
+    mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
+    mainLayout->addStretch();
+    mainLayout->addWidget(m_switchBtn, 0, Qt::AlignVCenter);
 
     setFixedHeight(36);
     setLayout(mainLayout);
@@ -62,7 +50,10 @@ void SwitchWidget::setChecked(const bool checked)
 
 void SwitchWidget::setTitle(const QString &title)
 {
-    m_title->setText(title);
+    QLabel *label = qobject_cast<QLabel*>(m_leftWidget);
+    if (label) {
+        label->setText(title);
+    }
 
     setAccessibleName(title);
 }

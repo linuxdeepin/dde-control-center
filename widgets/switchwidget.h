@@ -2,11 +2,8 @@
 #define SWITCHWIDGET_H
 
 #include "settingsitem.h"
-#include "labels/normallabel.h"
 
 #include <dswitchbutton.h>
-
-#include <QLabel>
 
 namespace dcc {
 namespace widgets {
@@ -27,7 +24,7 @@ signals:
     void checkedChanegd(const bool checked) const;
 
 private:
-    NormalLabel *m_title;
+    QWidget *m_leftWidget;
     Dtk::Widget::DSwitchButton *m_switchBtn;
 };
 
