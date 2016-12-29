@@ -26,8 +26,8 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
     connect(m_bluetoothInter, &DBusBluetooth::AdapterAdded, this, &BluetoothWorker::addAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterPropertiesChanged, this, &BluetoothWorker::onAdapterPropertiesChanged);
-    connect(m_bluetoothInter, &__Bluetooth::DeviceAdded, this, &BluetoothWorker::addDevice);
-    connect(m_bluetoothInter, &__Bluetooth::DeviceRemoved, this, &BluetoothWorker::removeDevice);
+    connect(m_bluetoothInter, &DBusBluetooth::DeviceAdded, this, &BluetoothWorker::addDevice);
+    connect(m_bluetoothInter, &DBusBluetooth::DeviceRemoved, this, &BluetoothWorker::removeDevice);
     connect(m_bluetoothInter, &DBusBluetooth::DevicePropertiesChanged, this, &BluetoothWorker::onDevicePropertiesChanged);
 
     connect(m_bluetoothInter, &DBusBluetooth::RequestAuthorization, [] (const QDBusObjectPath &in0) {
@@ -52,18 +52,17 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
         qDebug() << "request pincode: " << in0.path();
     });
 
-    connect(m_bluetoothInter, &__Bluetooth::DisplayPasskey, [] (const QDBusObjectPath &in0, uint in1, uint in2) {
+    connect(m_bluetoothInter, &DBusBluetooth::DisplayPasskey, [] (const QDBusObjectPath &in0, uint in1, uint in2) {
         qDebug() << "request display passkey: " << in0.path() << in1 << in2;
     });
 
-    connect(m_bluetoothInter, &__Bluetooth::DisplayPinCode, [] (const QDBusObjectPath &in0, const QString &in1) {
+    connect(m_bluetoothInter, &DBusBluetooth::DisplayPinCode, [] (const QDBusObjectPath &in0, const QString &in1) {
         qDebug() << "request display pincode: " << in0.path() << in1;
 
         PinCodeDialog dialog(in1, false);
         dialog.exec();
     });
 
-    activate();
 }
 
 void BluetoothWorker::activate()
