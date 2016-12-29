@@ -14,6 +14,9 @@ SettingsHead::SettingsHead(QFrame *parent)
 
       m_state(Cancel)
 {
+    m_edit->setFlat(true);
+    m_cancel->setFlat(true);
+
     m_edit->setText(tr("Edit"));
     m_edit->setVisible(false);
 
@@ -21,6 +24,9 @@ SettingsHead::SettingsHead(QFrame *parent)
     m_cancel->setVisible(false);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins(20, 0, 10, 0);
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addWidget(m_edit);
