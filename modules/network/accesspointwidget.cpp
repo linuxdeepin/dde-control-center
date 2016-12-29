@@ -64,6 +64,13 @@ void AccessPointWidget::setPath(const QString &path)
     m_path = path;
 }
 
+void AccessPointWidget::mouseReleaseEvent(QMouseEvent *e)
+{
+    SettingsItem::mouseReleaseEvent(e);
+
+    emit requestConnect(m_path, m_apName->text());
+}
+
 void AccessPointWidget::setStrength(const int strength)
 {
     m_strength = strength;

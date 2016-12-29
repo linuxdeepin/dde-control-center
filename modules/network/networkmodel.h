@@ -27,7 +27,8 @@ public:
     const QList<QJsonObject> vpns() const { return m_connections.value("vpn"); }
     const QList<QJsonObject> wireds() const { return m_connections.value("wired"); }
     const QList<QJsonObject> pppoes() const { return m_connections.value("pppoe"); }
-    const QString connectionUuid(const QString &connPath) const;
+    const QString connectionUuidByPath(const QString &connPath) const;
+    const QString connectionUuidBySsid(const QString &ssid) const;
 
 signals:
     void vpnEnabledChanged(const bool enabled) const;

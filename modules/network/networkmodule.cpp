@@ -85,6 +85,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         connect(p, &WirelessPage::requestDeviceStatus, m_networkWorker, &NetworkWorker::queryDeviceStatus);
         connect(p, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
         connect(p, &WirelessPage::requestEditAP, m_networkWorker, &NetworkWorker::queryConnectionSession);
+        connect(p, &WirelessPage::requestConnectAp, m_networkWorker, &NetworkWorker::activateAccessPoint);
         connect(p, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
         connect(p, &WirelessPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
 

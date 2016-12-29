@@ -26,6 +26,7 @@ public slots:
     void queryConnectionSession(const QString &devPath, const QString &connPath);
     void queryDeviceStatus(const QString &devPath);
     void createConnection(const QString &type, const QString &devPath);
+    void activateAccessPoint(const QString &devPath, const QString &apPath, const QString &connPath);
 
 private:
     void queryAccessPointsCB(QDBusPendingCallWatcher *w);

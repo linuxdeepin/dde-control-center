@@ -38,6 +38,7 @@ public slots:
 
 signals:
     void requestEditAP(const QString &devPath, const QString &apPath) const;
+    void requestConnectAp(const QString &devPath, const QString &apPath, const QString ssid) const;
     void requestNextPage(ContentWidget * const w) const;
     void requestDeviceStatus(const QString &devPath) const;
     void requestDeviceAPList(const QString &devPath) const;

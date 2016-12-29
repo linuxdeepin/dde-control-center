@@ -93,7 +93,8 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 
     w->setPath(apInfo.value("Path").toString());
 
-    connect(w, &AccessPointWidget::requestEdit, [=] { emit requestEditAP(m_device->path(), w->path()); });
+    connect(w, &AccessPointWidget::requestEdit, [=](const QString &path) { emit requestEditAP(m_device->path(), path); });
+    connect(w, &AccessPointWidget::requestConnect, [=](const QString &path, const QString &ssid) { emit requestConnectAp(m_device->path(), path, ssid); });
 
     m_apItems.insert(ssid, w);
     m_listGroup->appendItem(w);

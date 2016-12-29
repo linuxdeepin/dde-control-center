@@ -32,13 +32,27 @@ NetworkModel::~NetworkModel()
     qDeleteAll(m_devices);
 }
 
-const QString NetworkModel::connectionUuid(const QString &connPath) const
+const QString NetworkModel::connectionUuidByPath(const QString &connPath) const
 {
     for (const auto &list : m_connections)
     {
         for (const auto &cfg : list)
         {
             if (cfg.value("Path").toString() == connPath)
+                return cfg.value("Uuid").toString();
+        }
+    }
+
+    return QString();
+}
+
+const QString NetworkModel::connectionUuidBySsid(const QString &ssid) const
+{
+    for (const auto &list : m_connections)
+    {
+        for (const auto &cfg : list)
+        {
+            if (cfg.value("Ssid").toString() == ssid)
                 return cfg.value("Uuid").toString();
         }
     }

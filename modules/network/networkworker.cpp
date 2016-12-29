@@ -48,7 +48,7 @@ void NetworkWorker::queryConnectionSession(const QString &devPath, const QString
 {
     QDBusPendingReply<QDBusObjectPath> reply;
 
-    const QString uuid = m_networkModel->connectionUuid(connPath);
+    const QString uuid = m_networkModel->connectionUuidByPath(connPath);
     if (!uuid.isEmpty())
     {
         reply = m_networkInter.EditConnection(uuid, QDBusObjectPath(devPath));
@@ -84,6 +84,15 @@ void NetworkWorker::createConnection(const QString &type, const QString &devPath
     w->setProperty("devPath", devPath);
 
     connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryConnectionSessionCB);
+}
+
+void NetworkWorker::activateAccessPoint(const QString &devPath, const QString &apPath, const QString &ssid)
+{
+    const QString uuid = m_networkModel->connectionUuidBySsid(ssid);
+
+    qDebug() << uuid;
+
+    m_networkInter.ActivateAccessPoint(uuid, QDBusObjectPath(apPath), QDBusObjectPath(devPath));
 }
 
 void NetworkWorker::queryAccessPointsCB(QDBusPendingCallWatcher *w)

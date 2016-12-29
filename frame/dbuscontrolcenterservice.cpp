@@ -128,6 +128,6 @@ bool DBusControlCenterService::isNetworkCanShowPassword()
     // handle method call com.deepin.dde.ControlCenter.isNetworkCanShowPassword
     //return parent()->isNetworkCanShowPassword();
 
-    return true; // for remove gcc warning.
+    return false; // for remove gcc warning.
 }
 

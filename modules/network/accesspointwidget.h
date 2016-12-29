@@ -33,6 +33,7 @@ public:
 
 signals:
     void requestEdit(const QString &path) const;
+    void requestConnect(const QString &path, const QString &ssid) const;
 
 public slots:
     void setStrength(const int strength);
@@ -41,6 +42,9 @@ public slots:
     void setEditable(const bool editable);
     void setAPName(const QString &name);
     void setPath(const QString &path);
+
+protected:
+    void mouseReleaseEvent(QMouseEvent *e);
 
 private:
     QLabel *m_lockIcon;
