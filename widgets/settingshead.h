@@ -25,12 +25,14 @@ public:
     void setTitle(const QString& title);
     void setEditEnable(bool state = true);
 
+public slots:
+    void toEdit();
+    void toCancel();
+
 signals:
     void editChanged(bool edit);
 
 private slots:
-    void toEdit();
-    void toCancel();
     void refershButton();
 
 private:

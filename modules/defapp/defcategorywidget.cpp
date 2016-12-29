@@ -112,7 +112,6 @@ void DefCategoryWidget::removeItem(const QJsonObject &item)
 
     if(m_userMap.empty()) {
         m_headWidget->setEditEnable(false);
-        m_headWidget->initStatus();
     } else {
         m_headWidget->setEditEnable(true);
     }
