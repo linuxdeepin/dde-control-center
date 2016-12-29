@@ -65,7 +65,9 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     setAttribute(Qt::WA_TranslucentBackground);
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
 
+#ifndef QT_DEBUG
     qApp->setOverrideCursor(Qt::BlankCursor);
+#endif
 }
 
 void RotateDialog::mousePressEvent(QMouseEvent *e)
@@ -84,7 +86,7 @@ void RotateDialog::mouseMoveEvent(QMouseEvent *e)
 {
     QDialog::mouseMoveEvent(e);
 
-    QCursor::setPos(rect().center());
+    QCursor::setPos(rect().center() + pos());
 }
 
 void RotateDialog::resizeEvent(QResizeEvent *e)
@@ -94,14 +96,14 @@ void RotateDialog::resizeEvent(QResizeEvent *e)
 
     BlurWindowBackground(winId(), r);
 
-    RotateDialog::resizeEvent(e);
+    QDialog::resizeEvent(e);
 }
 
 void RotateDialog::leaveEvent(QEvent *e)
 {
     QDialog::leaveEvent(e);
 
-    QCursor::setPos(rect().center());
+    QCursor::setPos(rect().center() + pos());
 }
 
 void RotateDialog::paintEvent(QPaintEvent *e)
