@@ -4,6 +4,7 @@
 #include <QVBoxLayout>
 
 #include "labels/normallabel.h"
+#include "labels/tipslabel.h"
 
 using namespace dcc::widgets;
 
@@ -13,21 +14,24 @@ namespace datetime {
 TimezoneItem::TimezoneItem(QFrame *parent)
     :SettingsItem(parent),
       m_city(new NormalLabel),
-      m_details(new NormalLabel),
+      m_details(new TipsLabel),
       m_clock(new Clock),
       m_removeBtn(new DImageButton)
 {
     setFixedHeight(60);
 
     QVBoxLayout* vlayout = new QVBoxLayout();
-    vlayout->setMargin(1);
-    vlayout->setSpacing(1);
+    vlayout->setMargin(0);
+    vlayout->setSpacing(0);
 
     m_city->setObjectName("DCC-Datetime-TimezoneItem-Label");
     m_details->setObjectName("DCC-Datetime-TimezoneItem-Label");
 
+    vlayout->addStretch();
     vlayout->addWidget(m_city);
+    vlayout->addSpacing(1);
     vlayout->addWidget(m_details);
+    vlayout->addStretch();
 
     m_removeBtn->setObjectName("DCC-Datetime-TimezoneItem-Remove");
     m_removeBtn->setFixedSize(18,18);
@@ -39,6 +43,7 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     QHBoxLayout* hlayout = new QHBoxLayout();
     hlayout->setMargin(0);
     hlayout->setSpacing(0);
+    hlayout->setContentsMargins(20, 0, 10, 0);
     hlayout->addLayout(vlayout);
     hlayout->addStretch();
     hlayout->addWidget(m_clock, 0, Qt::AlignVCenter);

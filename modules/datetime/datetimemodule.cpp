@@ -71,6 +71,7 @@ void DatetimeModule::showTimeSettingsPage()
         m_dateSettings->setModel(m_model);
 
         connect(m_dateSettings, &DateSettings::requestSetTime, m_work, &DatetimeWork::setDatetime);
+        connect(m_dateSettings, &DateSettings::requestSetTimeZone, m_work, &DatetimeWork::setTimezone);
     }
 
     m_frameProxy->pushWidget(this, m_dateSettings);

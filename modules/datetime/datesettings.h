@@ -26,6 +26,7 @@ class DatetimeModel;
 class TimeWidget;
 class DateWidget;
 class ClockItem;
+class TimeZoneChooser;
 
 class DateSettings : public ContentWidget
 {
@@ -61,6 +62,8 @@ private:
 
     SettingsGroup *m_timezoneGroup;
     NextPageWidget *m_timezoneItem;
+
+    TimeZoneChooser *m_dialog;
 };
 }
 }

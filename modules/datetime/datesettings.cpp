@@ -16,6 +16,7 @@
 #include "nextpagewidget.h"
 #include "translucentframe.h"
 #include "clockitem.h"
+#include "timezone_dialog/timezonechooser.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -34,7 +35,8 @@ DateSettings::DateSettings(QWidget *parent)
       m_cancelButton(new QPushButton(tr("Cancel"))),
       m_confirmButton(new QPushButton(tr("Confirm"))),
       m_timezoneGroup(new SettingsGroup),
-      m_timezoneItem(new NextPageWidget)
+      m_timezoneItem(new NextPageWidget),
+      m_dialog(new TimeZoneChooser)
 {
     setTitle(tr("Change Time Settings"));
 
@@ -69,6 +71,9 @@ DateSettings::DateSettings(QWidget *parent)
 
     connect(m_cancelButton, &QPushButton::clicked, this, &DateSettings::onCancelButtonClicked);
     connect(m_confirmButton, &QPushButton::clicked, this, &DateSettings::onConfirmButtonClicked);
+
+    connect(m_timezoneItem, &NextPageWidget::clicked, m_dialog, &TimeZoneChooser::show);
+    connect(m_dialog, &TimeZoneChooser::confirmed, this, &DateSettings::requestSetTimeZone);
 }
 
 void DateSettings::setModel(DatetimeModel *model)
