@@ -4,7 +4,6 @@ using namespace dcc::display;
 
 Monitor::Monitor(QObject *parent)
     : QObject(parent),
-      m_primary(false),
       m_brightness(1.)
 {
 
@@ -54,9 +53,9 @@ void Monitor::setH(const int h)
     emit geometryChanged();
 }
 
-void Monitor::setIsPrimary(const QString &primaryName)
+void Monitor::setPrimary(const QString &primaryName)
 {
-    m_primary = primaryName == m_name;
+    m_primary = primaryName;
 }
 
 void Monitor::setRotate(const quint16 rotate)
@@ -82,6 +81,11 @@ void Monitor::setBrightness(const double brightness)
 void Monitor::setName(const QString &name)
 {
     m_name = name;
+}
+
+void Monitor::setPath(const QString &path)
+{
+    m_path = path;
 }
 
 void Monitor::setRotateList(const QList<quint16> &rotateList)

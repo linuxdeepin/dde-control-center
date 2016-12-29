@@ -9,6 +9,10 @@
 
 using DisplayInter = com::deepin::daemon::Display;
 
+#define CUSTOM_MODE     0
+#define MERGE_MODE      1
+#define EXTEND_MODE     2
+
 namespace dcc {
 
 namespace display {
@@ -27,6 +31,8 @@ public slots:
     void discardChanges();
     void mergeScreens();
     void splitScreens();
+    void switchCustom();
+    void switchMode(const int mode);
     void setPrimary(const int index);
     void setMonitorEnable(Monitor *mon, const bool enabled);
     void setMonitorRotate(Monitor *mon, const quint16 rotate);

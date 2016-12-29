@@ -43,6 +43,8 @@ void DisplayModule::initialize()
     m_displayModel = new DisplayModel;
     m_displayWorker = new DisplayWorker(m_displayModel);
 
+    qApp->processEvents();
+
     m_displayWorker->moveToThread(qApp->thread());
     m_displayModel->moveToThread(qApp->thread());
 }
@@ -88,6 +90,10 @@ ModuleWidget *DisplayModule::moduleWidget()
 
 void DisplayModule::showCustomSettings()
 {
+    // switch to custom settings
+    if (m_displayModel->displayMode() != CUSTOM_MODE)
+        m_displayWorker->switchCustom();
+
     // open all monitors
     for (auto mon : m_displayModel->monitorList())
         m_displayWorker->setMonitorEnable(mon, true);

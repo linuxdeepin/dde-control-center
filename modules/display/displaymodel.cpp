@@ -75,6 +75,15 @@ void DisplayModel::setScreenWidth(const int w)
     }
 }
 
+void DisplayModel::setDisplayMode(const int mode)
+{
+    if (m_mode != mode)
+    {
+        m_mode = mode;
+        emit displayModeChanged(m_mode);
+    }
+}
+
 void DisplayModel::setPrimary(const QString &primary)
 {
     if (m_primary != primary)

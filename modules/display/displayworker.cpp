@@ -19,6 +19,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     connect(&m_displayInter, &DisplayInter::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
     connect(&m_displayInter, &DisplayInter::ScreenHeightChanged, model, &DisplayModel::setScreenHeight);
     connect(&m_displayInter, &DisplayInter::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
+    connect(&m_displayInter, &DisplayInter::DisplayModeChanged, model, &DisplayModel::setDisplayMode);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), model, &DisplayModel::setPrimary);
     connect(&m_displayInter, &DisplayInter::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
 
@@ -26,6 +27,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     onMonitorsBrightnessChanged(m_displayInter.brightness());
     model->setScreenHeight(m_displayInter.screenHeight());
     model->setScreenWidth(m_displayInter.screenWidth());
+    model->setDisplayMode(m_displayInter.displayMode());
     model->setPrimary(m_displayInter.primary());
 
     m_displayInter.setSync(false);
@@ -49,25 +51,70 @@ void DisplayWorker::discardChanges()
 
 void DisplayWorker::mergeScreens()
 {
-    qDebug() << Q_FUNC_INFO;
-    m_displayInter.SwitchMode(1, QString()).waitForFinished();
+    const auto mList = m_model->monitorList();
+    Q_ASSERT(mList.size() == 2);
+
+    const auto mode = m_model->monitorsSameModeList().first();
+    for (auto *mon : mList)
+    {
+        auto *mInter = m_monitors[mon];
+        Q_ASSERT(mInter);
+
+        mInter->SetPosition(0, 0).waitForFinished();
+        mInter->SetModeBySize(mode.width(), mode.height()).waitForFinished();
+    }
+
     m_displayInter.ApplyChanges();
 }
 
 void DisplayWorker::splitScreens()
 {
-    m_displayInter.SwitchMode(2, QString()).waitForFinished();
+    const auto mList = m_model->monitorList();
+    Q_ASSERT(mList.size() == 2);
+
+    const auto *primary = m_model->primaryMonitor();
+
+    int xOffset = primary->w();
+    for (auto *mon : mList)
+    {
+        // pass primary
+        if (mon == primary)
+            continue;
+
+        auto *mInter = m_monitors[mon];
+        Q_ASSERT(mInter);
+
+        mInter->SetPosition(xOffset, 0).waitForFinished();
+        xOffset += mon->w();
+    }
+
     m_displayInter.ApplyChanges();
+}
+
+void DisplayWorker::switchCustom()
+{
+    // delete old config file
+    m_displayInter.DeleteCustomConfig().waitForFinished();
+
+    switchMode(CUSTOM_MODE);
+}
+
+void DisplayWorker::switchMode(const int mode)
+{
+    m_displayInter.SwitchMode(mode, QString()).waitForFinished();
 }
 
 void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
 {
-    for (auto op : mons)
+    QList<QString> ops;
+    for (const auto *mon : m_monitors.keys())
+        ops << mon->path();
+
+    for (const auto op : mons)
     {
         const QString path = op.path();
-//        if (m_monitors.contains(path))
-//            continue;
-        monitorAdded(path);
+        if (!ops.contains(path))
+            monitorAdded(path);
     }
 
     // TODO: remove
@@ -118,7 +165,6 @@ void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
 
 void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
 {
-    qDebug() << Q_FUNC_INFO << mon->name() << x << y;
     MonitorInter *inter = m_monitors.value(mon);
     Q_ASSERT(inter);
 
@@ -172,10 +218,11 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
     connect(inter, &MonitorInter::ModesChanged, mon, &Monitor::setModeList);
     connect(inter, &MonitorInter::RotationsChanged, mon, &Monitor::setRotateList);
-    connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), mon, &Monitor::setIsPrimary);
+    connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), mon, &Monitor::setPrimary);
 
     inter->setSync(false);
 
+    mon->setPath(path);
     mon->setName(inter->name());
     mon->setX(inter->x());
     mon->setY(inter->y());
@@ -185,14 +232,10 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setCurrentMode(inter->currentMode());
     mon->setModeList(inter->modes());
     mon->setRotateList(inter->rotations());
-    mon->setIsPrimary(m_displayInter.primary());
+    mon->setPrimary(m_displayInter.primary());
 
     m_model->monitorAdded(mon);
     m_monitors.insert(mon, inter);
-
-    // TODO: optimize
-//    loadRotations(mon);
-//    loadModes(mon);
 }
 
 void DisplayWorker::updateMonitorBrightness(const QString &monName, const double brightness)
