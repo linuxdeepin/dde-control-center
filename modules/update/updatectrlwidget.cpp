@@ -21,7 +21,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
       m_progress(new DownloadProgressBar),
       m_summaryGroup(new SettingsGroup),
       m_summary(new SummaryItem),
-      m_powerTip(new NormalLabel)
+      m_powerTip(new TipsLabel)
 {
     setTitle(tr("Update"));
 

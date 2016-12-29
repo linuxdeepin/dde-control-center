@@ -8,6 +8,8 @@
 
 #include <types/appupdateinfolist.h>
 
+#include "labels/tipslabel.h"
+
 using namespace dcc;
 using namespace dcc::widgets;
 
@@ -54,7 +56,7 @@ private:
     DownloadProgressBar* m_progress;
     SettingsGroup* m_summaryGroup;
     SummaryItem* m_summary;
-    NormalLabel* m_powerTip;
+    TipsLabel *m_powerTip;
 };
 
 }
