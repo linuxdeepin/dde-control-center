@@ -58,5 +58,10 @@ void SwitchWidget::setTitle(const QString &title)
     setAccessibleName(title);
 }
 
+bool SwitchWidget::checked() const
+{
+    return m_switchBtn->checked();
+}
+
 }
 }

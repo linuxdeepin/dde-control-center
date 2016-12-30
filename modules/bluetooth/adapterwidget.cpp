@@ -35,11 +35,20 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     m_myDevicesGroup->setHeaderVisible(true);
     m_otherDevicesGroup->setHeaderVisible(true);
 
+    m_tip = new QLabel(tr("Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)"));
+    m_tip->setVisible(!m_switch->checked());
+    m_tip->setWordWrap(true);
+
     layout->addWidget(m_titleGroup);
+    layout->addWidget(m_tip, 0, Qt::AlignTop);
     layout->addWidget(m_myDevicesGroup);
     layout->addWidget(m_otherDevicesGroup);
+    layout->addStretch();
 
     connect(m_switch, &SwitchWidget::checkedChanegd, this, &AdapterWidget::toggleSwitch);
+    connect(m_switch, &SwitchWidget::checkedChanegd, [=](bool state) {
+        m_tip->setVisible(!state);
+    });
     connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, [=](const QString &alias) {
             emit requestSetAlias(adapter, alias);
     });
@@ -61,6 +70,7 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     m_switch->blockSignals(true);
     m_titleEdit->setTitle(adapter->name());
     m_switch->setChecked(adapter->powered());
+    m_tip->setVisible(!m_switch->checked());
     m_switch->blockSignals(false);
 
     blockSignals(true);

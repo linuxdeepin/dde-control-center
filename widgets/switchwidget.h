@@ -19,6 +19,7 @@ public:
 
     void setChecked(const bool checked = true);
     void setTitle(const QString& title);
+    bool checked() const;
 
 signals:
     void checkedChanegd(const bool checked) const;

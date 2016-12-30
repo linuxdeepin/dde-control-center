@@ -50,6 +50,7 @@ private:
     SettingsGroup *m_titleGroup;
     SettingsGroup *m_myDevicesGroup;
     SettingsGroup *m_otherDevicesGroup;
+    QLabel        *m_tip;
 };
 
 }
