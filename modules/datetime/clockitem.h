@@ -31,6 +31,9 @@ class ClockItem : public dcc::widgets::SettingsItem
 public:
     explicit ClockItem(QWidget *parent = 0);
 
+private slots:
+    void updateDateTime();
+
 private:
     QDateTime m_datetime;
 

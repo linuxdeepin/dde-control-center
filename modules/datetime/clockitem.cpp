@@ -28,7 +28,7 @@ ClockItem::ClockItem(QWidget *parent) :
 {
     m_clock->setFixedSize(160, 160);
     m_clock->setAutoNightMode(false);
-    m_label->setText(m_datetime.date().toString(Qt::SystemLocaleLongDate));
+    updateDateTime();
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -44,8 +44,15 @@ ClockItem::ClockItem(QWidget *parent) :
 
     QTimer *timer = new QTimer(this);
     timer->setSingleShot(false);
-    connect(timer, &QTimer::timeout, [this] { m_clock->update(); });
+    connect(timer, &QTimer::timeout, this, &ClockItem::updateDateTime);
+
     timer->start(1000);
+}
+
+void ClockItem::updateDateTime()
+{
+    m_clock->update();
+    m_label->setText(m_datetime.date().toString(Qt::SystemLocaleLongDate));
 }
 
 } // namespace datetime
