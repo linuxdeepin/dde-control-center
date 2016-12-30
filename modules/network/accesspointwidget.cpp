@@ -38,7 +38,7 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
 
     m_mainLayout->addLayout(basicInfoLayout);
     m_mainLayout->setSpacing(0);
-    m_mainLayout->setContentsMargins(0, 0, 0, 0);
+    m_mainLayout->setContentsMargins(20, 0, 10, 0);
 
     setLayout(m_mainLayout);
     setObjectName("AccessPointWidget");

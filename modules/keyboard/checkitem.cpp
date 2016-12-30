@@ -14,7 +14,7 @@ CheckItem::CheckItem(QFrame *parent)
       m_circle(0)
 {
     QHBoxLayout* hlayout = new QHBoxLayout();
-    hlayout->setContentsMargins(15,0,20,0);
+    hlayout->setContentsMargins(20, 0, 10, 0);
     m_title = new QLabel();
     m_checkBtn = new DImageButton();
 

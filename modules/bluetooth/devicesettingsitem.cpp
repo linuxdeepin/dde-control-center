@@ -41,7 +41,7 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device) :
     layout->setSpacing(0);
     layout->setMargin(0);
 
-    layout->addSpacing(10);
+    layout->addSpacing(20);
     layout->addWidget(m_titleLabel);
     layout->addStretch();
     layout->addWidget(m_tipLabel);

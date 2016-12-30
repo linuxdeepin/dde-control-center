@@ -34,6 +34,7 @@ ComboBoxWidget::~ComboBoxWidget()
 void ComboBoxWidget::appendOption(const QString &name, const QVariant &value)
 {
     OptionItem *item = new OptionItem;
+    item->setContentsMargins(20, 0, 10, 0);
     item->setTitle(name);
 
     connect(item, &OptionItem::selectedChanged, this, &ComboBoxWidget::onItemClicked);

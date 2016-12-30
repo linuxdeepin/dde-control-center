@@ -26,6 +26,8 @@ AdvancedPage::AdvancedPage(SoundModel *model)
 
     TranslucentFrame *frame = new TranslucentFrame;
     QVBoxLayout *layout = new QVBoxLayout(frame);
+    layout->setSpacing(10);
+    layout->setMargin(0);
     layout->addWidget(m_outputGroup);
     layout->addWidget(m_inputGroup);
 
@@ -47,7 +49,7 @@ void AdvancedPage::setModel(SoundModel *model)
 void AdvancedPage::addPort(const Port *port)
 {
     PortItem *item = new PortItem(port);
-
+    item->setContentsMargins(20, 0, 10, 0);
     connect(item, &PortItem::selectedChanged, [this, port] (bool selected) {
         if (selected) {
             emit requestSetPort(port);

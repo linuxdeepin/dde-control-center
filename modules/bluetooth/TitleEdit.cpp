@@ -24,10 +24,11 @@ TitleEdit::TitleEdit(QWidget *parent)
 
     mainlayout->addWidget(m_name);
     mainlayout->addWidget(m_lineEdit);
+    mainlayout->addSpacing(5);
     mainlayout->addWidget(m_editWidget);
     mainlayout->addStretch();
     mainlayout->setMargin(0);
-    mainlayout->setSpacing(1);
+    mainlayout->setSpacing(0);
     setLayout(mainlayout);
 
     connect(m_lineEdit, &QLineEdit::editingFinished, this, &TitleEdit::setName);

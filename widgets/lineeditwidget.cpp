@@ -14,6 +14,7 @@ LineEditWidget::LineEditWidget(QFrame *parent)
     m_title->setFixedWidth(140);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
+    mainLayout->addSpacing(20);
     mainLayout->addWidget(m_title);
     mainLayout->addWidget(m_edit);
     mainLayout->setSpacing(0);
