@@ -36,9 +36,10 @@ void SystemInfoModel::setThemeEnabled(const bool enabled)
 
 void SystemInfoModel::setDefaultEntry(const QString &entry)
 {
-    m_defaultEntry = entry;
-
-    emit defaultEntryChanged(entry);
+    if (m_defaultEntry != entry) {
+        m_defaultEntry = entry;
+        emit defaultEntryChanged(entry);
+    }
 }
 
 void SystemInfoModel::setVersion(const QString &version)

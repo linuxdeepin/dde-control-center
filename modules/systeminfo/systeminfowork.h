@@ -19,20 +19,9 @@ class SystemInfoWork : public QObject
 
 public:
     explicit SystemInfoWork(SystemInfoModel* model, QObject* parent = 0);
-    QString version() const;
-    qlonglong type() const;
-    QString processor() const;
-    qlonglong memory() const;
-    qlonglong disk() const;
-    QStringList entryLists() const;
-    QString defaultEntry() const;
 
-signals:
-    void DiskCapChanged(qulonglong  value) const;
-    void MemoryCapChanged(qulonglong  value) const;
-    void ProcessorChanged(const QString & value) const;
-    void SystemTypeChanged(qlonglong  value) const;
-    void VersionChanged(const QString & value) const;
+    void activate();
+    void deactivate();
 
 public slots:
     void setBootDelay(bool value);

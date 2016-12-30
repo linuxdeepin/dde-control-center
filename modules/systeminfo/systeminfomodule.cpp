@@ -29,32 +29,18 @@ void SystemInfoModule::initialize()
     m_model = new SystemInfoModel();
     m_work = new SystemInfoWork(m_model);
 
-    m_model->setDefaultEntry(m_work->defaultEntry());
-    m_model->setEntryLists(m_work->entryLists());
-    m_model->setVersion(m_work->version());
-    m_model->setType(m_work->type());
-    m_model->setProcessor(m_work->processor());
-    m_model->setMemory(m_work->memory());
-    m_model->setDisk(m_work->disk());
-
-    connect(m_work, SIGNAL(VersionChanged(QString)), m_model, SLOT(setVersion(QString)));
-    connect(m_work,SIGNAL(SystemTypeChanged(qlonglong)), m_model, SLOT(setType(qlonglong)));
-    connect(m_work, SIGNAL(ProcessorChanged(QString)), m_model, SLOT(setProcessor(QString)));
-    connect(m_work, SIGNAL(MemoryCapChanged(qulonglong)), m_model, SLOT(setMemory(qulonglong)));
-    connect(m_work, SIGNAL(DiskCapChanged(qulonglong)), m_model, SLOT(setDisk(qulonglong)));
-
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
 }
 
 void SystemInfoModule::moduleActive()
 {
-
+    m_work->activate();
 }
 
 void SystemInfoModule::moduleDeactive()
 {
-
+    m_work->deactivate();
 }
 
 void SystemInfoModule::reset()

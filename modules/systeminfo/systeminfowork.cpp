@@ -17,75 +17,53 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                               QDBusConnection::sessionBus(),
                               this);
 
-    connect(m_systemInfoInter, SIGNAL(VersionChanged(QString)), this, SIGNAL(VersionChanged(QString)));
-    connect(m_systemInfoInter, SIGNAL(SystemTypeChanged(qlonglong)), this, SIGNAL(SystemTypeChanged(qlonglong)));
-    connect(m_systemInfoInter, SIGNAL(ProcessorChanged(QString)), this, SIGNAL(ProcessorChanged(QString)));
-    connect(m_systemInfoInter, SIGNAL(MemoryCapChanged(qulonglong)), this, SIGNAL(MemoryCapChanged(qulonglong)));
-    connect(m_systemInfoInter, SIGNAL(DiskCapChanged(qulonglong)), this, SIGNAL(DiskCapChanged(qulonglong)));
+    m_systemInfoInter->setSync(false);
+    m_dbusGrub->setSync(false);
 
-    connect(m_dbusGrub,SIGNAL(DefaultEntryChanged(QString)), m_model, SLOT(setDefaultEntry(QString)));
+    connect(m_dbusGrub, &GrubDbus::DefaultEntryChanged, m_model, &SystemInfoModel::setDefaultEntry);
     connect(m_dbusGrub, &GrubDbus::TimeoutChanged, m_model, &SystemInfoModel::setBootTimeout);
     connect(m_dbusGrub, &GrubDbus::EnableThemeChanged, m_model, &SystemInfoModel::setThemeEnabled);
 
-    m_model->setDefaultEntry(m_dbusGrub->defaultEntry());
+    connect(m_systemInfoInter, &__SystemInfo::VersionChanged, m_model, &SystemInfoModel::setVersion);
+    connect(m_systemInfoInter, &__SystemInfo::SystemTypeChanged, m_model, &SystemInfoModel::setType);
+    connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
+    connect(m_systemInfoInter, &__SystemInfo::MemoryCapChanged, m_model, &SystemInfoModel::setMemory);
+    connect(m_systemInfoInter, &__SystemInfo::DiskCapChanged, m_model, &SystemInfoModel::setDisk);
+}
+
+void SystemInfoWork::activate()
+{
+    m_model->setVersion(m_systemInfoInter->version());
+    m_model->setType(m_systemInfoInter->systemType());
+    m_model->setProcessor(m_systemInfoInter->processor());
+    m_model->setMemory(m_systemInfoInter->memoryCap());
+    m_model->setDisk(m_systemInfoInter->diskCap());
+
     m_model->setBootTimeout(m_dbusGrub->timeout());
     m_model->setThemeEnabled(m_dbusGrub->enableTheme());
+
+    QDBusPendingCall call = m_dbusGrub->GetSimpleEntryTitles();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        if (!call.isError()) {
+            QDBusReply<QStringList> reply = call.reply();
+            QStringList entries = reply.value();
+            m_model->setEntryLists(entries);
+            m_model->setDefaultEntry(m_dbusGrub->defaultEntry());
+        } else {
+            qWarning() << "get grub entry list failed : " << call.error().message();
+        }
+    });
 }
 
-QString SystemInfoWork::version() const
+void SystemInfoWork::deactivate()
 {
-    return m_systemInfoInter->version();
-}
 
-qlonglong SystemInfoWork::type() const
-{
-    return m_systemInfoInter->systemType();
-}
-
-QString SystemInfoWork::processor() const
-{
-    return m_systemInfoInter->processor();
-}
-
-qlonglong SystemInfoWork::memory() const
-{
-    return m_systemInfoInter->memoryCap();
-}
-
-qlonglong SystemInfoWork::disk() const
-{
-    return m_systemInfoInter->diskCap();
-}
-
-QStringList SystemInfoWork::entryLists() const
-{
-    return m_dbusGrub->GetSimpleEntryTitles();
-}
-
-QString SystemInfoWork::defaultEntry() const
-{
-    return m_dbusGrub->defaultEntry();
 }
 
 void SystemInfoWork::setBootDelay(bool value)
 {
-
-    if(value)
-    {
-        QStringList list = m_dbusGrub->GetSimpleEntryTitles();
-        if(list.count() == 1)
-        {
-            m_dbusGrub->setTimeout(1);
-        }
-        else
-        {
-            m_dbusGrub->setTimeout(5);
-        }
-    }
-    else
-    {
-        m_dbusGrub->setTimeout(1);
-    }
+    m_dbusGrub->setTimeout(value ? 5 : 1);
 }
 
 void SystemInfoWork::setEnableTheme(bool value)

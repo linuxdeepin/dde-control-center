@@ -3,7 +3,9 @@
 
 #include "contentwidget.h"
 #include "switchwidget.h"
+
 #include <QListWidget>
+
 using namespace dcc::widgets;
 
 namespace dcc{

@@ -2,7 +2,17 @@ QLabel#ModuleHeaderIconSysInfo {
     background-image: url(:/systeminfo/themes/dark/icons/nav_info.png);
 }
 
-
 dcc--systeminfo--LogoItem {
     qproperty-logo: url(:/systeminfo/themes/dark/icons/logo.png);
+}
+
+QListWidget
+{
+    background: transparent;
+}
+
+QListWidget::item:selected
+{
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
 }

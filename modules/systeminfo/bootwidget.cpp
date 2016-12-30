@@ -1,10 +1,12 @@
 #include "bootwidget.h"
+
+#include <QVBoxLayout>
+
 #include "settingsgroup.h"
 #include "grubbackgrounditem.h"
 #include "translucentframe.h"
 #include "systeminfomodel.h"
-
-#include <QVBoxLayout>
+#include "labels/tipslabel.h"
 
 namespace dcc{
 namespace systeminfo{
@@ -20,10 +22,9 @@ BootWidget::BootWidget(QWidget *parent)
     GrubBackgroundItem* background = new GrubBackgroundItem();
 
     m_bootList = new QListWidget(background);
-    m_bootList->setStyleSheet("background-color: transparent");
     m_bootList->setDragDropMode(QListWidget::DragDrop);
     m_bootList->setDefaultDropAction(Qt::MoveAction);
-    m_bootList->move(50,50);
+    m_bootList->move(50, 50);
     m_bootList->setPalette(Qt::transparent);
     m_bootList->setWordWrap(true);
 
@@ -33,15 +34,18 @@ BootWidget::BootWidget(QWidget *parent)
     m_theme = new SwitchWidget();
     m_theme->setTitle(tr("Theme"));
 
+    TipsLabel *label = new TipsLabel(tr("The boot image can be replaced by dragging one to it, "
+                                        "and the boot order can be changed by dragging the highlight"));
+    label->setWordWrap(true);
+    label->setMargin(10);
+
     group->appendItem(background);
     group->appendItem(m_boot);
     group->appendItem(m_theme);
 
     layout->addWidget(group);
-
-    QLabel* label = new QLabel(tr("The boot image can be replaced by dragging one to it,\n"
-                                  "and the boot order can be changed by dragging \n the highlight"));
     layout->addWidget(label);
+    layout->addStretch();
 
     widget->setLayout(layout);
 
@@ -68,45 +72,47 @@ void BootWidget::setEntryList(const QStringList &list)
 {
     for(int i = 0; i<list.count(); i++)
     {
-        QPixmap pix(32,32);
-        if(i == 0)
-            pix.fill(Qt::red);
-        else
-            pix.fill(Qt::transparent);
+        const QString entry = list.at(i);
 
-        QListWidgetItem* item = new QListWidgetItem(QIcon(pix), list.at(i));
+        QListWidgetItem* item = new QListWidgetItem(entry);
         item->setBackground(Qt::transparent);
+        item->setSizeHint(QSize(m_bootList->width(), 30));
         m_bootList->addItem(item);
 
-        if(m_defaultEntry == list.at(i))
-        {
+        blockSignals(true);
+        if (m_defaultEntry == entry) {
             m_bootList->setCurrentRow(i);
+
+            onCurrentItem(item, nullptr);
+        } else {
+            onCurrentItem(nullptr, item);
         }
+        blockSignals(false);
     }
 }
 
 void BootWidget::onItemActivated(QListWidgetItem *item)
 {
-    if(item)
-    {
+    if (item) {
         emit defaultEntry(item->text());
     }
 }
 
 void BootWidget::onCurrentItem(QListWidgetItem *cur, QListWidgetItem *pre)
 {
-    if(pre)
-    {
+    if ( pre ) {
         QPixmap pix(16, 16);
         pix.fill(Qt::transparent);
         pre->setIcon(pix);
     }
 
-    if(cur)
-    {
+    if ( cur ) {
         QPixmap pix(":/systeminfo/themes/common/icons/select.png");
         cur->setIcon(pix);
+
+        emit defaultEntry(cur->text());
     }
 }
+
 }
 }
