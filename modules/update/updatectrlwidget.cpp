@@ -46,6 +46,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     layout->addWidget(m_progress);
     layout->addWidget(m_summaryGroup);
     layout->addWidget(m_powerTip);
+    layout->addStretch();
 
     widget->setLayout(layout);
     setContent(widget);

@@ -63,6 +63,8 @@ UpdateItem::UpdateItem(QFrame *parent)
     rightLayout->addStretch();
 
     QHBoxLayout* layout = new QHBoxLayout();
+    layout->setMargin(10);
+    layout->setSpacing(0);
     layout->addWidget(iconContainer);
     layout->addSpacing(10);
     layout->addLayout(rightLayout, 1);
@@ -94,11 +96,11 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 
     if(!info.m_changelog.isEmpty()) {
         setFixedHeight(80);
-        m_iconLayout->setContentsMargins(0, 20, 0, 0);
+        m_iconLayout->setContentsMargins(0, 10, 0, 0);
         m_appChangelog->setText(elideChangelog());
     } else {
-        setFixedHeight(50);
-        m_iconLayout->setContentsMargins(0, 8, 0, 0);
+        setFixedHeight(60);
+        m_iconLayout->setContentsMargins(0, 0, 0, 0);
         m_details->hide();
     }
 }
