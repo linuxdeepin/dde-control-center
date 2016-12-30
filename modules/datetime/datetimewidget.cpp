@@ -10,9 +10,11 @@
 namespace dcc {
 namespace datetime {
 
-DateWidget::DateWidget(Type type, QFrame *parent)
+DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
     : SettingsItem(parent),
       m_type(type),
+      m_minimum(minimum),
+      m_maximum(maximum),
       m_lineEdit(new QLineEdit),
       m_label(new NormalLabel),
       m_addBtn(new DImageButton),
@@ -24,27 +26,18 @@ DateWidget::DateWidget(Type type, QFrame *parent)
     m_addBtn->setObjectName("DCC-Datetime-Datewidget-Add");
     m_reducedBtn->setObjectName("DCC-Datetime-Datewidget-Reduce");
 
-    QDate date = QDate::currentDate();
-    if(m_type == Year) {
+    if (m_type == Year) {
         m_label->setText(tr("Year"));
-        m_minimum = 1;
-        m_maximum = 9999;
-        m_lineEdit->setText(QString::number(date.year()));
-    } else if(m_type == Month) {
+    } else if (m_type == Month) {
         m_label->setText(tr("Month"));
-        m_minimum = 1;
-        m_maximum = 12;
-        m_lineEdit->setText(QString::number(date.month()));
     } else {
         m_label->setText(tr("Day"));
-        m_minimum = 1;
-        m_maximum = 31;
-        m_lineEdit->setText(QString::number(date.day()));
     }
 
     m_lineEdit->setFixedWidth(40);
     m_lineEdit->setAlignment(Qt::AlignCenter);
-    m_lineEdit->setValidator(new QIntValidator(m_minimum, m_maximum, this));
+    setRange(minimum, maximum);
+    m_lineEdit->installEventFilter(this);
 
     QHBoxLayout *layout = new QHBoxLayout;
     layout->setMargin(0);
@@ -71,9 +64,21 @@ DateWidget::DateWidget(Type type, QFrame *parent)
 
     connect(m_addBtn, &DImageButton::clicked, this, &DateWidget::slotAdd);
     connect(m_reducedBtn, &DImageButton::clicked, this, &DateWidget::slotReduced);
+
+    connect(m_lineEdit, &QLineEdit::editingFinished, [this] {
+        fixup();
+        emit editingFinished();
+    });
 }
 
-int DateWidget::data() const
+void DateWidget::setValue(const int &value)
+{
+    m_lineEdit->blockSignals(true);
+    m_lineEdit->setText(QString::number(value));
+    m_lineEdit->blockSignals(false);
+}
+
+int DateWidget::value() const
 {
     return m_lineEdit->text().toInt();
 }
@@ -81,17 +86,65 @@ int DateWidget::data() const
 void DateWidget::slotAdd()
 {
     int value = m_lineEdit->text().toInt() + 1;
-    if (m_minimum <= value && value <= m_maximum) {
-        m_lineEdit->setText(QString::number(value));
+
+    if (value < m_minimum) {
+        value = m_maximum;
+    } else if (value > m_maximum) {
+        value = m_minimum;
     }
+
+    m_lineEdit->setText(QString::number(value));
 }
 
 void DateWidget::slotReduced()
 {
     int value = m_lineEdit->text().toInt() - 1;
-    if (m_minimum <= value && value <= m_maximum) {
-        m_lineEdit->setText(QString::number(value));
+
+    if (value < m_minimum) {
+        value = m_maximum;
+    } else if (value > m_maximum) {
+        value = m_minimum;
     }
+
+    m_lineEdit->setText(QString::number(value));
+}
+
+void DateWidget::fixup()
+{
+    int value = m_lineEdit->text().toInt();
+    value = qMin(m_maximum, qMax(m_minimum, value));
+    m_lineEdit->setText(QString::number(value));
+}
+
+int DateWidget::maximum() const
+{
+    return m_maximum;
+}
+
+void DateWidget::setRange(int minimum, int maximum)
+{
+    m_minimum = minimum;
+    m_maximum = maximum;
+
+    QIntValidator *validator = new QIntValidator(m_minimum, m_maximum, this);
+    m_lineEdit->setValidator(validator);
+
+    fixup();
+}
+
+bool DateWidget::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == m_lineEdit && event->type() == QEvent::FocusOut) {
+        fixup();
+        emit editingFinished();
+    }
+
+    return false;
+}
+
+int DateWidget::minimum() const
+{
+    return m_minimum;
 }
 
 

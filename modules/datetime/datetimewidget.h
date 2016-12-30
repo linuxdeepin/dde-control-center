@@ -27,18 +27,33 @@ public:
     };
 
 public:
-    explicit DateWidget(Type type, QFrame *parent = 0);
+    explicit DateWidget(Type type, int minimum, int maximum, QFrame *parent = 0);
 
-    int data() const;
+    int value() const;
+    void setValue(const int &value);
+
+    int minimum() const;
+    int maximum() const;
+    void setRange(int minimum, int maximum);
+
+protected:
+    bool eventFilter(QObject *watched, QEvent *event);
+
+signals:
+    void editingFinished();
 
 public slots:
     void slotAdd();
     void slotReduced();
 
+    void fixup();
+
 private:
     Type m_type;
+
     int m_minimum;
     int m_maximum;
+
     QLineEdit *m_lineEdit;
     NormalLabel *m_label;
     DImageButton* m_addBtn;

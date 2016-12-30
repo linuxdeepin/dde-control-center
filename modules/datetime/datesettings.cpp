@@ -29,9 +29,9 @@ DateSettings::DateSettings(QWidget *parent)
       m_datetimeGroup(new SettingsGroup),
       m_clock(new ClockItem),
       m_timeWidget(new TimeWidget),
-      m_yearWidget(new DateWidget(DateWidget::Year)),
-      m_monthWidget(new DateWidget(DateWidget::Month)),
-      m_dayWidget(new DateWidget(DateWidget::Day)),
+      m_yearWidget(new DateWidget(DateWidget::Year, 1970, 9999)),
+      m_monthWidget(new DateWidget(DateWidget::Month, 1, 12)),
+      m_dayWidget(new DateWidget(DateWidget::Day, 1, 31)),
       m_cancelButton(new QPushButton(tr("Cancel"))),
       m_confirmButton(new QPushButton(tr("Confirm"))),
       m_timezoneGroup(new SettingsGroup),
@@ -39,6 +39,11 @@ DateSettings::DateSettings(QWidget *parent)
       m_dialog(new TimeZoneChooser)
 {
     setTitle(tr("Change Time Settings"));
+
+    QDate date ( QDate::currentDate() );
+    m_yearWidget->setValue(date.year());
+    m_monthWidget->setValue(date.month());
+    m_dayWidget->setValue(date.day());
 
     TranslucentFrame *widget = new TranslucentFrame;
     QVBoxLayout* layout = new QVBoxLayout(widget);
@@ -74,6 +79,8 @@ DateSettings::DateSettings(QWidget *parent)
 
     connect(m_timezoneItem, &NextPageWidget::clicked, m_dialog, &TimeZoneChooser::show);
     connect(m_dialog, &TimeZoneChooser::confirmed, this, &DateSettings::requestSetTimeZone);
+
+    connect(m_monthWidget, &DateWidget::editingFinished, this, &DateSettings::updateDayRange);
 }
 
 void DateSettings::setModel(DatetimeModel *model)
@@ -92,7 +99,7 @@ void DateSettings::onCancelButtonClicked()
 
 void DateSettings::onConfirmButtonClicked()
 {
-    QDate date; date.setDate(m_yearWidget->data(), m_monthWidget->data(), m_dayWidget->data());
+    QDate date; date.setDate(m_yearWidget->value(), m_monthWidget->value(), m_dayWidget->value());
     QTime time; time.setHMS(m_timeWidget->hour(), m_timeWidget->minute(), 0);
 
     QDateTime datetime(date, time);
@@ -105,6 +112,15 @@ void DateSettings::setTimeZone(const QString &zone)
 {
     qDebug() << "sett time zone " << zone;
     m_timezoneItem->setValue(zone);
+}
+
+void DateSettings::updateDayRange()
+{
+    const int year = m_yearWidget->value();
+    const int month = m_monthWidget->value();
+
+    QDate date(year, month, 1);
+    m_dayWidget->setRange(1, date.daysInMonth());
 }
 
 //void DateSettings::setTimezone(const QString &timezone)

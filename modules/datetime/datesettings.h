@@ -47,6 +47,8 @@ private slots:
 
     void setTimeZone(const QString &zone);
 
+    void updateDayRange();
+
 private:
     DatetimeModel *m_model;
 
