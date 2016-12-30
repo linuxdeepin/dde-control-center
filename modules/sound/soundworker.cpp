@@ -125,6 +125,8 @@ void SoundWorker::setPort(const Port *port)
 
 void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 {
+    if (path.path().isEmpty()) return;
+
     if (m_defaultSink) m_defaultSink->deleteLater();
     m_defaultSink = new Sink("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
 
