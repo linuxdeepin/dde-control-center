@@ -91,8 +91,6 @@ void SystemInfoModule::onPushBoot()
     {
         m_bootWidget = new BootWidget;
         m_bootWidget->setModel(m_model);
-        m_bootWidget->setDefaultEntry(m_model->defaultEntry());
-        m_bootWidget->setEntryList(m_model->entryLists());
 
         connect(m_bootWidget, SIGNAL(bootdelay(bool)), m_work, SLOT(setBootDelay(bool)));
         connect(m_bootWidget, SIGNAL(enableTheme(bool)),m_work, SLOT(setEnableTheme(bool)));

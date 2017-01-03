@@ -64,8 +64,11 @@ void BootWidget::setDefaultEntry(const QString &value)
 
 void BootWidget::setModel(SystemInfoModel *model)
 {
-    m_boot->setChecked(model->bootTimeout());
+    m_boot->setChecked(model->bootDelay());
     m_theme->setChecked(model->themeEnabled());
+
+    setEntryList(model->entryLists());
+    setDefaultEntry(model->defaultEntry());
 }
 
 void BootWidget::setEntryList(const QStringList &list)
@@ -79,15 +82,14 @@ void BootWidget::setEntryList(const QStringList &list)
         item->setSizeHint(QSize(m_bootList->width(), 30));
         m_bootList->addItem(item);
 
-        blockSignals(true);
+        this->blockSignals(true);
         if (m_defaultEntry == entry) {
             m_bootList->setCurrentRow(i);
-
             onCurrentItem(item, nullptr);
         } else {
             onCurrentItem(nullptr, item);
         }
-        blockSignals(false);
+        this->blockSignals(false);
     }
 }
 

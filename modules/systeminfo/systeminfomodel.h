@@ -11,6 +11,7 @@ class SystemInfoModel : public QObject
     Q_OBJECT
 public:
     explicit SystemInfoModel(QObject *parent = 0);
+
     void setEntryLists(const QStringList& list);
     QStringList entryLists() const { return m_entryLists;}
 
@@ -21,30 +22,11 @@ public:
     QString memory() const { return m_memory;}
     QString disk() const { return m_disk;}
 
-    int bootTimeout() const { return m_bootTimeout; }
+    bool bootDelay() const;
     bool themeEnabled() const { return m_themeEnabled; }
 
-    static inline QString formatCap(qulonglong cap, const int size = 1024)
-    {
-        static QString type[] = {"B", "KB", "MB", "GB", "TB"};
-
-        if (cap < qulonglong(size)) {
-            return QString::number(cap) + type[0];
-        }
-        if (cap < qulonglong(size) * size) {
-            return QString::number(double(cap) / size, 'f', 2) + type[1];
-        }
-        if (cap < qulonglong(size) * size * size) {
-            return QString::number(double(cap) / size / size, 'f', 2) + type[2];
-        }
-        if (cap < qulonglong(size) * size * size * size) {
-            return QString::number(double(cap) / size / size / size, 'f', 2) + type[3];
-        }
-        return QString::number(double(cap) / size / size / size / size, 'f', 2) + type[4];
-    }
-
 signals:
-    void bootTimeoutChanged(const int timeout) const;
+    void bootDelayChanged(const int timeout) const;
     void themeEnabledChanged(const bool enabled) const;
     void versionChanged(const QString& version);
     void typeChanged(const QString& type);
@@ -54,7 +36,7 @@ signals:
     void defaultEntryChanged(const QString& entry);
 
 public slots:
-    void setBootTimeout(const int timeout);
+    void setBootDelay(bool bootDelay);
     void setThemeEnabled(const bool enabled);
     void setVersion(const QString& version);
     void setType(qlonglong type);
@@ -64,8 +46,9 @@ public slots:
     void setDefaultEntry(const QString& entry);
 
 private:
-    int m_bootTimeout;
+    bool m_bootDelay;
     bool m_themeEnabled;
+
     QString m_version;
     QString m_type;
     QString m_processor;

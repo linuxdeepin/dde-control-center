@@ -3,6 +3,25 @@
 namespace dcc{
 namespace systeminfo{
 
+static QString formatCap(qulonglong cap, const int size = 1024)
+{
+    static QString type[] = {"B", "KB", "MB", "GB", "TB"};
+
+    if (cap < qulonglong(size)) {
+        return QString::number(cap) + type[0];
+    }
+    if (cap < qulonglong(size) * size) {
+        return QString::number(double(cap) / size, 'f', 2) + type[1];
+    }
+    if (cap < qulonglong(size) * size * size) {
+        return QString::number(double(cap) / size / size, 'f', 2) + type[2];
+    }
+    if (cap < qulonglong(size) * size * size * size) {
+        return QString::number(double(cap) / size / size / size, 'f', 2) + type[3];
+    }
+    return QString::number(double(cap) / size / size / size / size, 'f', 2) + type[4];
+}
+
 SystemInfoModel::SystemInfoModel(QObject *parent)
     : QObject(parent)
 {
@@ -12,16 +31,6 @@ SystemInfoModel::SystemInfoModel(QObject *parent)
 void SystemInfoModel::setEntryLists(const QStringList &list)
 {
     m_entryLists = list;
-}
-
-void SystemInfoModel::setBootTimeout(const int timeout)
-{
-    if (m_bootTimeout != timeout)
-    {
-        m_bootTimeout = timeout;
-
-        emit bootTimeoutChanged(m_bootTimeout);
-    }
 }
 
 void SystemInfoModel::setThemeEnabled(const bool enabled)
@@ -39,6 +48,19 @@ void SystemInfoModel::setDefaultEntry(const QString &entry)
     if (m_defaultEntry != entry) {
         m_defaultEntry = entry;
         emit defaultEntryChanged(entry);
+    }
+}
+
+bool SystemInfoModel::bootDelay() const
+{
+    return m_bootDelay;
+}
+
+void SystemInfoModel::setBootDelay(bool bootDelay)
+{
+    if (m_bootDelay != bootDelay) {
+        m_bootDelay = bootDelay;
+        emit bootDelayChanged(bootDelay);
     }
 }
 
