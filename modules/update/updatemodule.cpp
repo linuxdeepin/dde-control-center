@@ -99,7 +99,9 @@ void UpdateModule::onPushUpdate()
         connect(m_updatePage, &UpdateCtrlWidget::requestInstallUpdates, [this] {
             QDBusConnection::sessionBus().unregisterService(OfflineUpgraderService);
 
-            QProcess::startDetached("/usr/lib/deepin-daemon/dde-offline-upgrader");
+            QTimer::singleShot(0, this, [] {
+                QProcess::startDetached("/usr/lib/deepin-daemon/dde-offline-upgrader");
+            });
         });
     }
 
