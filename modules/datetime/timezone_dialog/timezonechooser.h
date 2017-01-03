@@ -38,6 +38,13 @@ signals:
     void confirmed(const QString &zone);
     void cancelled();
 
+protected:
+    void keyReleaseEvent(QKeyEvent *event);
+
+private:
+    QSize getFitSize() const;
+    void setupSize();
+
 private:
     installer::TimezoneMap *m_map;
     dcc::widgets::SearchInput *m_searchInput;

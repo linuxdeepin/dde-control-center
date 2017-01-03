@@ -21,9 +21,15 @@ class BlurredFrame : public QFrame
 public:
     explicit BlurredFrame(QWidget *parent = 0);
 
+    float radius() const;
+    void setRadius(float radius);
+
 protected:
     void paintEvent(QPaintEvent *);
     void resizeEvent(QResizeEvent *event);
+
+private:
+    float m_radius;
 };
 
 } // namespace widgets

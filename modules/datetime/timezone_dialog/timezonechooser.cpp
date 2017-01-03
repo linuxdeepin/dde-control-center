@@ -16,6 +16,10 @@
 #include <QTimeZone>
 #include <QTimer>
 #include <QCompleter>
+#include <QKeyEvent>
+
+#include <QApplication>
+#include <QDesktopWidget>
 
 #include "timezone_map.h"
 #include "searchinput.h"
@@ -34,13 +38,12 @@ TimeZoneChooser::TimeZoneChooser()
 {
     setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
+    setupSize();
 
-    m_searchInput->setFixedWidth(300);
+    m_searchInput->setFixedWidth(200);
 
     m_cancelBtn->setFixedWidth(200);
     m_confirmBtn->setFixedWidth(200);
-
-    m_map->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -83,6 +86,43 @@ TimeZoneChooser::TimeZoneChooser()
 
         m_searchInput->setCompleter(completer);
     });
+}
+
+void TimeZoneChooser::keyReleaseEvent(QKeyEvent *event)
+{
+    if (event->matches(QKeySequence::Cancel)) {
+        hide();
+        emit cancelled();
+    }
+}
+
+QSize TimeZoneChooser::getFitSize() const
+{
+    const QDesktopWidget *desktop = QApplication::desktop();
+    const QRect primaryRect = desktop->availableGeometry(desktop->primaryScreen());
+
+    double width = primaryRect.width() - 360/* dcc */ - 20 * 2;
+    double height = primaryRect.height() - 70/* dock */ - 20;
+    width = qMin(width, primaryRect.width() * 0.6);
+    height = qMin(height, primaryRect.height() * 0.6);
+
+    return QSize(width, height);
+}
+
+void TimeZoneChooser::setupSize()
+{
+    setRadius(4);
+
+    const QSize fitSize = getFitSize();
+    setFixedSize(fitSize.width(), fitSize.height());
+
+    const float mapWidth = fitSize.width() - 20 * 2;
+    const float mapHeight = fitSize.height() - 20 * 2 - 36 * 2 - 10 - 20 * 2;
+    const double widthScale = 760.0 / mapWidth;
+    const double heightScale = 557.0 / mapHeight;
+    const double scale = qMax(widthScale, heightScale);
+
+    m_map->setFixedSize(760.0 / scale, 557.0 / scale);
 }
 
 } // namespace datetime

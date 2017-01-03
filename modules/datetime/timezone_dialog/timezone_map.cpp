@@ -91,6 +91,11 @@ void TimezoneMap::mousePressEvent(QMouseEvent* event) {
 }
 
 void TimezoneMap::resizeEvent(QResizeEvent* event) {
+    QPixmap timezone_pixmap(kTimezoneMapFile);
+    timezone_pixmap = timezone_pixmap.scaled(event->size().width(), event->size().height());
+    Q_ASSERT(!timezone_pixmap.isNull());
+    background_label_->setPixmap(timezone_pixmap);
+
   if (popup_window_->isVisible()) {
     dot_->hide();
     popup_window_->hide();
@@ -109,11 +114,8 @@ void TimezoneMap::initConnections() {
 }
 
 void TimezoneMap::initUI() {
-  QLabel* background_label = new QLabel(this);
-  background_label->setObjectName("background_label");
-  QPixmap timezone_pixmap(kTimezoneMapFile);
-  Q_ASSERT(!timezone_pixmap.isNull());
-  background_label->setPixmap(timezone_pixmap);
+  background_label_ = new QLabel(this);
+  background_label_->setObjectName("background_label");
 
   dot_ = new QLabel(this);
   QPixmap dot_pixmap(kDotFile);
@@ -131,7 +133,6 @@ void TimezoneMap::initUI() {
   popup_window_->hide();
 
   this->setContentsMargins(0, 0, 0, 0);
-  this->setFixedSize(timezone_pixmap.size());
 }
 
 void TimezoneMap::popupZoneWindow(const QPoint& pos) {

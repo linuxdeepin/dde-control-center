@@ -49,19 +49,23 @@ static void BlurWindowBackground(const WId windowId, const QRect &region)
 }
 
 BlurredFrame::BlurredFrame(QWidget *parent)
-    : QFrame(parent)
+    : QFrame(parent),
+      m_radius(0)
 {
 
 }
 
-void BlurredFrame::paintEvent(QPaintEvent *event)
+void BlurredFrame::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
+    painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
 
     QColor bgColor("#101010");
     bgColor.setAlphaF(0.5);
 
-    painter.fillRect(event->rect(), bgColor);
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(bgColor);
+    painter.drawRoundedRect(rect(), m_radius, m_radius);
 
     painter.end();
 }
@@ -73,6 +77,16 @@ void BlurredFrame::resizeEvent(QResizeEvent *event)
     BlurWindowBackground(winId(), region);
 
     QFrame::resizeEvent(event);
+}
+
+float BlurredFrame::radius() const
+{
+    return m_radius;
+}
+
+void BlurredFrame::setRadius(float radius)
+{
+    m_radius = radius;
 }
 
 } // namespace widgets
