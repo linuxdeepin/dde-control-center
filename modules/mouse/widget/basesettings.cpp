@@ -28,6 +28,10 @@ BaseSettings::BaseSettings(QWidget *parent)
     m_naturalScroll->setTitle(tr("Natural Scrolling"));
     m_isTyping->setTitle(tr("Disable the touchpad while typing"));
 
+    m_leftHand->setAccessibleName("Left Hand");
+    m_naturalScroll->setAccessibleName("Natural Scrolling");
+    m_isTyping->setAccessibleName("Disable the touchpad while typing");
+
     m_mainGroup->appendItem(m_leftHand);
     m_mainGroup->appendItem(m_naturalScroll);
     m_mainGroup->appendItem(m_isTyping);
@@ -43,6 +47,7 @@ BaseSettings::BaseSettings(QWidget *parent)
     douSlider->slider()->setTickInterval(1);
     douSlider->slider()->setPageStep(1);
     douSlider->setAnnotations(list);
+    douSlider->slider()->setAccessibleName("Double-click Speed");
 
     m_mainGroup->appendItem(douSlider);
 

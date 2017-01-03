@@ -42,6 +42,7 @@ SettingsHead::SettingsHead(QFrame *parent)
 void SettingsHead::setTitle(const QString &title)
 {
     m_title->setText(title);
+    m_edit->setAccessibleName(title);
 }
 
 void SettingsHead::setEditEnable(bool state)

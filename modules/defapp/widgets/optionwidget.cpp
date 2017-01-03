@@ -70,7 +70,7 @@ void OptionWidget::setItem(const QJsonObject &item)
         const QIcon &icon = QIcon::fromTheme("application-default-icon");
         m_optionIcon->setPixmap(icon.pixmap(QSize(17, 17)));
     }
-    setAccessibleName(m_displayName->text());
+    setAccessibleName(item["Id"].toString());
 }
 void OptionWidget::setDelete(const bool delchecked)     //删除
 {

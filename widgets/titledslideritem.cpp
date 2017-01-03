@@ -33,6 +33,7 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent) :
     m_rightIconLabel(new QLabel)
 {
     m_slider->slider()->setOrientation(Qt::Horizontal);
+    m_slider->slider()->setAccessibleName(title);
 
     m_leftIconLabel->setObjectName("SliderLeftIcon");
     m_rightIconLabel->setObjectName("SliderRightIcon");
