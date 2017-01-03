@@ -55,23 +55,23 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 
 void UpdateSettings::setModel(UpdateModel *model)
 {
-    m_model = model;
+    if (model) {
+        m_model = model;
 
-    auto setAutoDownload = [this] (const bool &autoDownload) {
-        m_autoDownloadSwitch->blockSignals(true);
-        m_autoDownloadSwitch->setChecked(autoDownload);
-        m_autoDownloadSwitch->blockSignals(false);
-    };
+        auto setAutoDownload = [this] (const bool &autoDownload) {
+            m_autoDownloadSwitch->setChecked(autoDownload);
+        };
 
-    auto setDefaultMirror = [this] (const MirrorInfo &mirror) {
-        m_updateMirrors->setValue(mirror.m_name);
-    };
+        auto setDefaultMirror = [this] (const MirrorInfo &mirror) {
+            m_updateMirrors->setValue(mirror.m_name);
+        };
 
-    setAutoDownload(model->autoDownloadUpdates());
-    setDefaultMirror(model->defaultMirror());
+        setAutoDownload(model->autoDownloadUpdates());
+        setDefaultMirror(model->defaultMirror());
 
-    connect(model, &UpdateModel::autoDownloadUpdatesChanged, setAutoDownload);
-    connect(model, &UpdateModel::defaultMirrorChanged, setDefaultMirror);
+        connect(model, &UpdateModel::autoDownloadUpdatesChanged, this, setAutoDownload);
+        connect(model, &UpdateModel::defaultMirrorChanged, this, setDefaultMirror);
+    }
 }
 
 }
