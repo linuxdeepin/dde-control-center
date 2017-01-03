@@ -19,7 +19,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 {
     setMouseTracking(true);
     QHBoxLayout* layout = new QHBoxLayout();
-    layout->setContentsMargins(15,0,20,0);
+    layout->setContentsMargins(20,0,10,0);
     layout->setSpacing(2);
 
     m_title = new QLabel();
@@ -165,6 +165,9 @@ void ShortcutItem::paintEvent(QPaintEvent *e)
     accels = accels.replace("Control", "Ctrl");
     accels = accels.replace("<", "");
     accels = accels.replace(">", "-");
+    accels = accels.replace("Above_Tab", "`");
+    accels = accels.replace("Super_L", "Super");
+
     QStringList splits = accels.split("-");
     int right = this->rect().right() - 2;
     for(int i = splits.count() - 1; i>=0; --i)

@@ -26,7 +26,7 @@ ShortcutWidget::ShortcutWidget(QWidget *parent)
 
     m_systemGroup = new SettingsGroup(tr("System"));
     m_windowGroup = new SettingsGroup(tr("Window"));
-    m_workspaceGroup = new SettingsGroup();
+    m_workspaceGroup = new SettingsGroup(tr("WorkSpace"));
     m_custonGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
     m_search = new SearchInput();
