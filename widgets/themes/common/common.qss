@@ -2,10 +2,6 @@ QScrollArea {
     background: transparent;
 }
 
-QScrollArea > QFrame {
-    background: transparent;
-}
-
 dcc--widgets--TranslucentFrame {
     background: transparent;
 }

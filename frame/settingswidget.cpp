@@ -22,6 +22,7 @@
 #include <QScrollBar>
 #include <QVBoxLayout>
 #include <QScrollArea>
+#include <QScroller>
 
 using namespace dcc::datetime;
 using namespace dcc::keyboard;
@@ -75,7 +76,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     setTitle(tr("All Settings"));
 
     m_refershModuleActivableTimer->setSingleShot(true);
-    m_refershModuleActivableTimer->setInterval(100);
+    m_refershModuleActivableTimer->setInterval(500);
 
     connect(m_resetBtn, &QPushButton::clicked, this, &SettingsWidget::resetAllSettings);
     connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, m_refershModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
@@ -194,6 +195,12 @@ void SettingsWidget::showModulePage(const QString &moduleName, const QString &pa
 
 void SettingsWidget::refershModuleActivable()
 {
+    QScroller *scroller = QScroller::scroller(m_contentArea);
+    if (scroller->state() != QScroller::Inactive) {
+        m_refershModuleActivableTimer->start();
+        return;
+    }
+
     const QRect containerRect = QRect(QPoint(), m_contentArea->size());
 
     for (ModuleInterface *module : m_moduleInterfaces)
