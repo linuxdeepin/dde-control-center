@@ -2,8 +2,8 @@ QLabel#ModuleHeaderIconBluetooth {
     background-image: url(:/bluetooth/themes/dark/icons/nav_bluetooth.png);
 }
 
-NormalLabel#DeviceTitle, NormalLabel#DeviceState {
-    color: white
+dcc-widgets--NormalLabel#DeviceTitle, dcc-widgets--NormalLabel#DeviceState {
+    color: white;
 }
 
 dcc--bluetooth--TitleEdit Dtk--Widget--DImageButton {

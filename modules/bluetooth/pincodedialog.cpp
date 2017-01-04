@@ -23,6 +23,10 @@ PinCodeDialog::PinCodeDialog(const QString &pinCode, const bool &cancelable) :
     setTitle(tr("The PIN for connecting to the Bluetooth device is:"));
     setIcon(QIcon::fromTheme("notification-bluetooth-connected"));
 
+    m_pinCodeLabel->setObjectName("PinCodeText");
+    // FIXME(hualet): don't know why the style sheet cannot be moved to dark.qss,
+    // maybe DDialog's using style sheets concerns, fix it later.
+    m_pinCodeLabel->setStyleSheet("color: white");
     addContent(m_pinCodeLabel, Qt::AlignTop);
 
     QStringList btns;

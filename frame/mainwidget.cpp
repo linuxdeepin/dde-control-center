@@ -103,7 +103,7 @@ MainWidget::MainWidget(Frame *parent)
 
     QHBoxLayout *headerLayout = new QHBoxLayout;
     headerLayout->addLayout(avatarLayout);
-    headerLayout->addSpacing(20);
+    headerLayout->addSpacing(30);
     headerLayout->addLayout(timedateLayout);
     headerLayout->setSpacing(0);
     headerLayout->setMargin(0);
