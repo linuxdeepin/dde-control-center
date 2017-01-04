@@ -49,12 +49,13 @@ private slots:
     void onErrorsChanged(const NetworkErrors &errors);
 
 private:
-    void createOptionWidgets(const QString &section, const QJsonObject &keyObject);
+    widgets::SettingsItem *optionWidgets(const QString &section, const QJsonObject &keyObject);
     widgets::SettingsItem *createSwitchWidget(const QJsonObject &keyObject, const QJsonObject &infoObject);
     widgets::SettingsItem *createEditWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool password);
     widgets::SettingsItem *createComboWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool editable);
     widgets::SettingsItem *createFileChooserWidget(const QJsonObject &keyObject, const QJsonObject &infoObject);
     widgets::SettingsItem *createSpinBoxWidget(const QJsonObject &keyObject, const QJsonObject &infoObject);
+    void updateSpinBoxWidget(widgets::SettingsItem *item, const QJsonObject &infoObject);
 
 private:
     ConnectionSessionModel *m_sessionModel;

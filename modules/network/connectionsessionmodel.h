@@ -25,12 +25,13 @@ public:
     const QJsonObject keysInfo(const QString &section, const QString &vKey) const;
     const QString sectionName(const QString &section) const { return m_sectionName[section]; }
     const QString virtualSectionName(const QString &realSectionName) const { return m_virtualSectionName[realSectionName]; }
-    const QMap<QString, QMap<QString, QJsonObject>> keys() const { return m_keys; }
+    const QMap<QString, QMap<QString, QJsonObject>> vkList() const { return m_vks; }
+    const QJsonObject vkInfo(const QString &section, const QString &vKey) const { return m_vks[section][vKey]; }
 
 signals:
     void connectionNameChanged(const QString &connName) const;
-    void visibleItemsChanged(const QMap<QString, QList<QJsonObject>> &keys) const;
-    void keysChanged(const QMap<QString, QMap<QString, QJsonObject>> &keys) const;
+    void visibleItemsChanged(const QMap<QString, QList<QJsonObject>> &vkList) const;
+    void keysChanged(const QMap<QString, QMap<QString, QJsonObject>> &vkList) const;
     void errorsChanged(const NetworkErrors &errors) const;
     void saveFinished(const bool ret) const;
 
@@ -45,7 +46,7 @@ private:
     QMap<QString, QString> m_sectionName;
     QMap<QString, QString> m_virtualSectionName;
     QMap<QString, QList<QJsonObject>> m_visibleItems;
-    QMap<QString, QMap<QString, QJsonObject>> m_keys;
+    QMap<QString, QMap<QString, QJsonObject>> m_vks;
 };
 
 }

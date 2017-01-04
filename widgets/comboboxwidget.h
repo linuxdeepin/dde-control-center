@@ -20,7 +20,6 @@ class ComboBoxWidget : public NextPageWidget
 
 public:
     explicit ComboBoxWidget(QFrame *parent = 0);
-    ~ComboBoxWidget();
 
     void appendOption(const QString &name, const QVariant &value);
     void setCurrent(const QVariant &value);

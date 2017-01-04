@@ -120,7 +120,7 @@ void ConnectionEditPage::recreateUI()
     m_sectionWidgets.clear();
 
     // construct new widgets
-    const auto keys = m_sessionModel->keys();
+    const auto keys = m_sessionModel->vkList();
     for (auto it(keys.cbegin()); it != keys.cend(); ++it)
     {
         SettingsGroup *grp = new SettingsGroup;
@@ -129,9 +129,9 @@ void ConnectionEditPage::recreateUI()
 
         m_sectionWidgets[it.key()] = grp;
 
-        const auto keys = it.value();
-        for (auto its(keys.cbegin()); its != keys.cend(); ++its)
-            createOptionWidgets(it.key(), its.value());
+//        const auto keys = it.value();
+//        for (auto its(keys.cbegin()); its != keys.cend(); ++its)
+//            createOptionWidgets(it.key(), its.value());
     }
 
     refershUI();
@@ -164,11 +164,11 @@ void ConnectionEditPage::refershUI()
         const auto visibleKeys = m_sessionModel->sectionKeys(section);
         for (const auto &vKey : visibleKeys)
         {
-            SettingsItem *item = m_optionWidgets[section][vKey.value("Key").toString()];
-            if (item)
-                grp->appendItem(item);
-        }
+            const QString vk = vKey.value("Key").toString();
+            SettingsItem *item = optionWidgets(section, m_sessionModel->vkInfo(section, vk));
 
+            grp->appendItem(item);
+        }
 
         m_sectionsLayout->addWidget(grp);
         grp->setVisible(true);
@@ -198,7 +198,7 @@ void ConnectionEditPage::onErrorsChanged(const NetworkErrors &errors)
     }
 }
 
-void ConnectionEditPage::createOptionWidgets(const QString &section, const QJsonObject &keyObject)
+SettingsItem *ConnectionEditPage::optionWidgets(const QString &section, const QJsonObject &keyObject)
 {
     const QString vKey = keyObject.value("Key").toString();
     const QString vType = keyObject.value("WidgetType").toString();
@@ -207,8 +207,13 @@ void ConnectionEditPage::createOptionWidgets(const QString &section, const QJson
     // delete old widgets
     if (m_optionWidgets[section][vKey] != nullptr)
     {
-        m_optionWidgets[section][vKey]->deleteLater();
-        m_optionWidgets[section].remove(vKey);
+        SettingsItem *item = m_optionWidgets[section][vKey];
+
+        // TODO: update exist widgets value
+        if (vType == "EditLineSpinner")
+            updateSpinBoxWidget(item, vInfo);
+
+        return item;
     }
 
     SettingsItem *item = nullptr;
@@ -227,10 +232,11 @@ void ConnectionEditPage::createOptionWidgets(const QString &section, const QJson
     else if (vType == "EditLineSpinner")
         item = createSpinBoxWidget(keyObject, vInfo);
 
-    if (item)
-        m_optionWidgets[section][vKey] = item;
-    else
+    if (!item)
         qWarning() << "type not handled: " << keyObject << vInfo;
+
+    m_optionWidgets[section][vKey] = item;
+    return item;
 }
 
 SettingsItem *ConnectionEditPage::createSwitchWidget(const QJsonObject &keyObject, const QJsonObject &infoObject)
@@ -321,4 +327,11 @@ SettingsItem *ConnectionEditPage::createSpinBoxWidget(const QJsonObject &keyObje
     });
 
     return w;
+}
+
+void ConnectionEditPage::updateSpinBoxWidget(SettingsItem *item, const QJsonObject &infoObject)
+{
+    SpinBoxWidget *w = static_cast<SpinBoxWidget *>(item);
+
+    w->spinBox()->setValue(infoObject.value("Value").toInt());
 }

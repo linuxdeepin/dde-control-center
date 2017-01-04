@@ -25,12 +25,6 @@ ComboBoxWidget::ComboBoxWidget(QFrame *parent)
     });
 }
 
-ComboBoxWidget::~ComboBoxWidget()
-{
-    if (!m_contentPage.isNull())
-        m_contentPage->deleteLater();
-}
-
 void ComboBoxWidget::appendOption(const QString &name, const QVariant &value)
 {
     OptionItem *item = new OptionItem;
@@ -83,7 +77,7 @@ void ComboBoxWidget::onNextPageClicked()
 void ComboBoxWidget::onContentDesktory()
 {
     m_optionsGroup->setVisible(false);
-    m_optionsGroup->setParent((this));
+    m_optionsGroup->setParent(this);
 }
 
 void ComboBoxWidget::onItemClicked()
