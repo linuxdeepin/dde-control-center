@@ -35,14 +35,19 @@ public:
     inline QString repeatPassword() const { return m_repeatPassword; }
     void setRepeatPassword(const QString &repeatPassword);
 
+    inline bool online() const { return m_online; }
+    void setOnline(bool online);
+
 signals:
     void nameChanged(const QString &name) const;
     void currentAvatarChanged(const QString &avatar) const;
     void autoLoginChanged(const bool autoLogin) const;
     void avatarListChanged(const QList<QString> &avatars) const;
+    void onlineChanged(const bool &online) const;
 
 private:
     bool m_autoLogin;
+    bool m_online;
     QString m_name;
     QString m_password;
     QString m_repeatPassword;

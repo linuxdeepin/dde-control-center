@@ -49,3 +49,10 @@ void User::setRepeatPassword(const QString &repeatPassword)
 {
     m_repeatPassword = repeatPassword;
 }
+
+void User::setOnline(bool online)
+{
+    m_online = online;
+
+    emit onlineChanged(online);
+}

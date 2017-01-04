@@ -9,19 +9,25 @@
 using namespace dcc::accounts;
 
 const QString AccountsService("com.deepin.daemon.Accounts");
+const QString DisplayManagerService("org.freedesktop.DisplayManager");
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent),
       m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this)),
+      m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager", QDBusConnection::systemBus(), this)),
       m_userModel(userList)
 {
     connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged);
     connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser);
     connect(m_accountsInter, &Accounts::UserDeleted, this, &AccountsWorker::removeUser);
 
+    connect(m_dmInter, &DisplayManager::SessionsChanged, this, &AccountsWorker::updateUserOnlineStatus);
+
     m_accountsInter->setSync(false);
+    m_dmInter->setSync(false);
 
     onUserListChanged(m_accountsInter->userList());
+    updateUserOnlineStatus(m_dmInter->sessions());
 }
 
 void AccountsWorker::randomUserIcon(User *user)
@@ -127,7 +133,12 @@ void AccountsWorker::addUser(const QString &userPath)
     userInter->setSync(false);
 
     User * user = new User(m_userModel);
-    connect(userInter, &AccountsUser::UserNameChanged, user, &User::setName);
+
+    connect(userInter, &AccountsUser::UserNameChanged, user, [this, user] (const QString &name) {
+        user->setName(name);
+        user->setOnline(m_onlineUsers.contains(name));
+    });
+
     connect(userInter, &AccountsUser::AutomaticLoginChanged, user, &User::setAutoLogin);
     connect(userInter, &AccountsUser::IconListChanged, user, &User::setAvatars);
     connect(userInter, &AccountsUser::IconFileChanged, user, &User::setCurrentAvatar);
@@ -136,6 +147,7 @@ void AccountsWorker::addUser(const QString &userPath)
     user->setAutoLogin(userInter->automaticLogin());
     user->setAvatars(userInter->iconList());
     user->setCurrentAvatar(userInter->iconFile());
+    user->setOnline(m_onlineUsers.contains(user->name()));
 
     m_userInters[user] = userInter;
     m_userModel->addUser(userPath, user);
@@ -154,6 +166,21 @@ void AccountsWorker::removeUser(const QString &userPath)
 
             return;
         }
+    }
+}
+
+void AccountsWorker::updateUserOnlineStatus(const QList<QDBusObjectPath> paths)
+{
+    m_onlineUsers.clear();
+
+    for (const QDBusObjectPath &path : paths) {
+        Session tmpSession(DisplayManagerService, path.path(), QDBusConnection::systemBus());
+        m_onlineUsers << tmpSession.userName();
+    }
+
+    for (User *user : m_userModel->userList()) {
+        const bool online = m_onlineUsers.contains(user->name());
+        user->setOnline(online);
     }
 }
 
