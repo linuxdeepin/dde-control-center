@@ -70,6 +70,13 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
 #endif
 }
 
+RotateDialog::~RotateDialog()
+{
+#ifndef QT_DEBUG
+    qApp->restoreOverrideCursor();
+#endif
+}
+
 void RotateDialog::mousePressEvent(QMouseEvent *e)
 {
     QDialog::mousePressEvent(e);

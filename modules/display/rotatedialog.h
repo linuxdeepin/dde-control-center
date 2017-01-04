@@ -14,6 +14,7 @@ class RotateDialog : public QDialog
 
 public:
     explicit RotateDialog(Monitor *mon, QWidget *parent = 0);
+    ~RotateDialog();
 
 signals:
     void requestRotate(Monitor *mon, const quint16 rotate) const;
