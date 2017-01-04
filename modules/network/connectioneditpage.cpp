@@ -74,6 +74,7 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     connect(m_recreateUITimer, &QTimer::timeout, this, &ConnectionEditPage::recreateUI);
     connect(m_cancelBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
     connect(m_acceptBtn, &QPushButton::clicked, this, &ConnectionEditPage::accept);
+    connect(this, &ConnectionEditPage::requestNextPage, [=](ContentWidget *w) { m_nextPage = w; });
 }
 
 ConnectionEditPage::~ConnectionEditPage()
@@ -103,6 +104,9 @@ void ConnectionEditPage::setModel(ConnectionSessionModel *model)
 
 void ConnectionEditPage::onDeviceRemoved()
 {
+    if (!m_nextPage.isNull())
+        emit m_nextPage->back();
+
     emit back();
 }
 

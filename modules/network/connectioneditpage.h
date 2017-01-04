@@ -4,6 +4,7 @@
 #include "contentwidget.h"
 
 #include <QMap>
+#include <QPointer>
 
 #include <types/networkerrors.h>
 
@@ -65,6 +66,7 @@ private:
     QMap<QString, widgets::SettingsGroup *> m_sectionWidgets;
     QMap<QString, QMap<QString, widgets::SettingsItem*>> m_optionWidgets;
 
+    QPointer<ContentWidget> m_nextPage;
     QTimer *m_recreateUITimer;
 };
 
