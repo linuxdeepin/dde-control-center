@@ -99,3 +99,10 @@ void DisplayModel::monitorAdded(Monitor *mon)
 
     emit monitorListChanged();
 }
+
+void DisplayModel::monitorRemoved(Monitor *mon)
+{
+    m_monitors.removeOne(mon);
+
+    emit monitorListChanged();
+}

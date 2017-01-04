@@ -110,14 +110,18 @@ void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
     for (const auto *mon : m_monitors.keys())
         ops << mon->path();
 
+    QList<QString> pathList;
     for (const auto op : mons)
     {
         const QString path = op.path();
+        pathList << path;
         if (!ops.contains(path))
             monitorAdded(path);
     }
 
-    // TODO: remove
+    for (const auto op : ops)
+        if (!pathList.contains(op))
+            monitorRemoved(op);
 }
 
 void DisplayWorker::onMonitorsBrightnessChanged(const BrightnessMap &brightness)
@@ -236,6 +240,28 @@ void DisplayWorker::monitorAdded(const QString &path)
 
     m_model->monitorAdded(mon);
     m_monitors.insert(mon, inter);
+}
+
+void DisplayWorker::monitorRemoved(const QString &path)
+{
+    Monitor *monitor = nullptr;
+    for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it)
+    {
+        if (it.key()->path() == path)
+        {
+            monitor = it.key();
+            break;
+        }
+    }
+    if (!monitor)
+        return;
+
+    m_model->monitorRemoved(monitor);
+
+    m_monitors[monitor]->deleteLater();
+    m_monitors.remove(monitor);
+
+    monitor->deleteLater();
 }
 
 void DisplayWorker::updateMonitorBrightness(const QString &monName, const double brightness)

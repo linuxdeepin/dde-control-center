@@ -31,6 +31,7 @@ signals:
 
 private slots:
     void onScreenListChanged() const;
+    void onScreenSizeChanged() const;
 
 private:
     DisplayModel *m_model;

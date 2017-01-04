@@ -40,8 +40,11 @@ void DisplayWidget::setModel(DisplayModel *model)
     m_model = model;
 
     connect(m_model, &DisplayModel::monitorListChanged, this, &DisplayWidget::onScreenListChanged);
+    connect(m_model, &DisplayModel::screenHeightChanged, this, &DisplayWidget::onScreenSizeChanged);
+    connect(m_model, &DisplayModel::screenWidthChanged, this, &DisplayWidget::onScreenSizeChanged);
 
     onScreenListChanged();
+    onScreenSizeChanged();
 }
 
 void DisplayWidget::onScreenListChanged() const
@@ -58,7 +61,10 @@ void DisplayWidget::onScreenListChanged() const
         m_resolution->hide();
         m_rotate->hide();
     }
+}
 
+void DisplayWidget::onScreenSizeChanged() const
+{
     const QString resolution = QString("%1×%2").arg(m_model->screenWidth()).arg(m_model->screenHeight());
     m_resolution->setValue(resolution);
 }

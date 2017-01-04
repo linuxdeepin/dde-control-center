@@ -42,6 +42,7 @@ private slots:
     void setDisplayMode(const int mode);
     void setPrimary(const QString &primary);
     void monitorAdded(Monitor *mon);
+    void monitorRemoved(Monitor *mon);
 
 private:
     int m_screenHeight;

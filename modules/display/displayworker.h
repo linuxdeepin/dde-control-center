@@ -50,6 +50,7 @@ private:
 //    void loadModes(Monitor * const mon);
 //    void loadModesFinished(Monitor * const mon, QDBusPendingCallWatcher *watcher);
     void monitorAdded(const QString &path);
+    void monitorRemoved(const QString &path);
     void updateMonitorBrightness(const QString &monName, const double brightness);
 
 private:
