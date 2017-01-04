@@ -33,7 +33,10 @@ void ConnectionSessionWorker::queryAllKeys()
 
 void ConnectionSessionWorker::saveSettings()
 {
-    m_sessionInter.Save();
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_sessionInter.Save(), this);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &ConnectionSessionWorker::saveSettingsCB);
+
 }
 
 void ConnectionSessionWorker::changeSettings(const QString &section, const QString &vKey, const QString &data)
@@ -64,6 +67,15 @@ void ConnectionSessionWorker::queryAvailableKeysCB(QDBusPendingCallWatcher *w)
     QDBusPendingReply<QString> reply = *w;
 
     m_connModel->setAvailableItems(reply.value());
+
+    w->deleteLater();
+}
+
+void ConnectionSessionWorker::saveSettingsCB(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<bool> reply = *w;
+
+    emit m_connModel->saveFinished(reply.value());
 
     w->deleteLater();
 }

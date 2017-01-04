@@ -30,7 +30,8 @@ HEADERS += \
     $$PWD/filechoosewidget.h \
     $$PWD/separator.h \
     $$PWD/blurredframe.h \
-    $$PWD/labels/tipslabel.h
+    $$PWD/labels/tipslabel.h \
+    $$PWD/spinboxwidget.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -59,7 +60,8 @@ SOURCES += \
     $$PWD/filechoosewidget.cpp \
     $$PWD/separator.cpp \
     $$PWD/blurredframe.cpp \
-    $$PWD/labels/tipslabel.cpp
+    $$PWD/labels/tipslabel.cpp \
+    $$PWD/spinboxwidget.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

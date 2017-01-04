@@ -31,6 +31,7 @@ private:
 private slots:
     void queryAllKeysCB(QDBusPendingCallWatcher *w);
     void queryAvailableKeysCB(QDBusPendingCallWatcher *w);
+    void saveSettingsCB(QDBusPendingCallWatcher *w);
 
 private:
     ConnectionSessionModel *m_connModel;

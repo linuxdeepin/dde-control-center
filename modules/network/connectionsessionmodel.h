@@ -32,6 +32,7 @@ signals:
     void visibleItemsChanged(const QMap<QString, QList<QJsonObject>> &keys) const;
     void keysChanged(const QMap<QString, QMap<QString, QJsonObject>> &keys) const;
     void errorsChanged(const NetworkErrors &errors) const;
+    void saveFinished(const bool ret) const;
 
 private slots:
 //    void setVisibleKeys(const QMap<QString, QStringList> &keys);

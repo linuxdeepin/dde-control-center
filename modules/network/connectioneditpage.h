@@ -44,6 +44,7 @@ public slots:
 private slots:
     void recreateUI();
     void refershUI();
+    void saveFinished(const bool ret);
     void onErrorsChanged(const NetworkErrors &errors);
 
 private:
@@ -52,6 +53,7 @@ private:
     widgets::SettingsItem *createEditWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool password);
     widgets::SettingsItem *createComboWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool editable);
     widgets::SettingsItem *createFileChooserWidget(const QJsonObject &keyObject, const QJsonObject &infoObject);
+    widgets::SettingsItem *createSpinBoxWidget(const QJsonObject &keyObject, const QJsonObject &infoObject);
 
 private:
     ConnectionSessionModel *m_sessionModel;

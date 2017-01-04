@@ -8,6 +8,9 @@
 #include "lineeditwidget.h"
 #include "comboboxwidget.h"
 #include "filechoosewidget.h"
+#include "spinboxwidget.h"
+
+#include <dspinbox.h>
 
 #include <QDebug>
 #include <QTimer>
@@ -19,6 +22,8 @@
 
 using namespace dcc::widgets;
 using namespace dcc::network;
+
+DWIDGET_USE_NAMESPACE
 
 const QString JsonEncoding(const QString &str)
 {
@@ -91,6 +96,7 @@ void ConnectionEditPage::setModel(ConnectionSessionModel *model)
     connect(m_sessionModel, &ConnectionSessionModel::keysChanged, m_recreateUITimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_sessionModel, &ConnectionSessionModel::visibleItemsChanged, this, &ConnectionEditPage::refershUI);
     connect(m_sessionModel, &ConnectionSessionModel::errorsChanged, this, &ConnectionEditPage::onErrorsChanged);
+    connect(m_sessionModel, &ConnectionSessionModel::saveFinished, this, &ConnectionEditPage::saveFinished);
 
     m_recreateUITimer->start();
 }
@@ -165,6 +171,12 @@ void ConnectionEditPage::refershUI()
     }
 }
 
+void ConnectionEditPage::saveFinished(const bool ret)
+{
+    if (ret)
+        emit back();
+}
+
 void ConnectionEditPage::onErrorsChanged(const NetworkErrors &errors)
 {
     // clear old errors
@@ -198,7 +210,7 @@ void ConnectionEditPage::createOptionWidgets(const QString &section, const QJson
     SettingsItem *item = nullptr;
     if (vType == "EditLineSwitchButton")
         item = createSwitchWidget(keyObject, vInfo);
-    else if (vType == "EditLineTextInput" || vType == "EditLineIpv4Input" || vType == "EditLineSpinner" || vType == "EditLineMissingPackage")
+    else if (vType == "EditLineTextInput" || vType == "EditLineIpv4Input" || vType == "EditLineMissingPackage")
         item = createEditWidget(keyObject, vInfo, false);
     else if (vType == "EditLinePasswordInput")
         item = createEditWidget(keyObject, vInfo, true);
@@ -208,6 +220,8 @@ void ConnectionEditPage::createOptionWidgets(const QString &section, const QJson
         item = createComboWidget(keyObject, vInfo, true);
     else if (vType == "EditLineFileChooser")
         item = createFileChooserWidget(keyObject, vInfo);
+    else if (vType == "EditLineSpinner")
+        item = createSpinBoxWidget(keyObject, vInfo);
 
     if (item)
         m_optionWidgets[section][vKey] = item;
@@ -283,6 +297,24 @@ SettingsItem *ConnectionEditPage::createFileChooserWidget(const QJsonObject &key
     FileChooseWidget *w = new FileChooseWidget;
 
     w->setTitle(keyObject.value("Name").toString());
+
+    return w;
+}
+
+SettingsItem *ConnectionEditPage::createSpinBoxWidget(const QJsonObject &keyObject, const QJsonObject &infoObject)
+{
+    SpinBoxWidget *w = new SpinBoxWidget;
+
+    w->setTitle(keyObject.value("Name").toString());
+    w->spinBox()->setMinimum(keyObject.value("MinValue").toInt());
+    w->spinBox()->setMaximum(keyObject.value("MaxValue").toInt());
+    w->spinBox()->setValue(infoObject.value("Value").toInt());
+
+    const QString section = keyObject.value("Section").toString();
+    const QString vKey = keyObject.value("Key").toString();
+    connect(w->spinBox(), static_cast<void (DSpinBox::*)(int)>(&DSpinBox::valueChanged), [=](const int value) {
+        emit requestChangeSettings(section, vKey, QString::number(value));
+    });
 
     return w;
 }
