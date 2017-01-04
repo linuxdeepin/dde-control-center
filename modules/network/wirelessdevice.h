@@ -3,6 +3,8 @@
 
 #include "networkdevice.h"
 
+#include <QMap>
+
 namespace dcc {
 
 namespace network {
@@ -15,16 +17,17 @@ public:
     explicit WirelessDevice(const QJsonObject &info, QObject *parent = 0);
 
 signals:
-    void apAdded(const QJsonObject &apInfo);
-    void apInfoChanged(const QJsonObject &apInfo);
-    void apRemoved(const QString &ssid);
+    void apAdded(const QJsonObject &apInfo) const;
+    void apInfoChanged(const QJsonObject &apInfo) const;
+    void apRemoved(const QString &ssid) const;
 
 public slots:
     void setAPList(const QString &apList);
     void updateAPInfo(const QString &apInfo);
+    void deleteAP(const QString &apInfo);
 
 private:
-    QSet<QString> m_ssidSet;
+    QMap<QString, QJsonObject> m_aps;
 };
 
 }

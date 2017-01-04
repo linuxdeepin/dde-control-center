@@ -186,6 +186,16 @@ void NetworkModel::onDeviceAPInfoChanged(const QString &device, const QString &a
     }
 }
 
+void NetworkModel::onDeviceAPRemoved(const QString &device, const QString &apInfo)
+{
+    for (auto const dev : m_devices)
+    {
+        if (dev->type() != NetworkDevice::Wireless || dev->path() != device)
+            continue;
+        return static_cast<WirelessDevice *>(dev)->deleteAP(apInfo);
+    }
+}
+
 
 void NetworkModel::onDeviceEnableChaned(const QString &device, const bool enabled)
 {

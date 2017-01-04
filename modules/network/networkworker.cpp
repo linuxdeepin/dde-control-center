@@ -13,7 +13,9 @@ NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
     connect(&m_networkInter, &NetworkInter::DevicesChanged, m_networkModel, &NetworkModel::onDeviceListChanged);
     connect(&m_networkInter, &NetworkInter::ConnectionsChanged, m_networkModel, &NetworkModel::onConnectionListChanged);
     connect(&m_networkInter, &NetworkInter::DeviceEnabled, m_networkModel, &NetworkModel::onDeviceEnableChaned);
+    connect(&m_networkInter, &NetworkInter::AccessPointAdded, m_networkModel, &NetworkModel::onDeviceAPInfoChanged);
     connect(&m_networkInter, &NetworkInter::AccessPointPropertiesChanged, m_networkModel, &NetworkModel::onDeviceAPInfoChanged);
+    connect(&m_networkInter, &NetworkInter::AccessPointRemoved, m_networkModel, &NetworkModel::onDeviceAPRemoved);
     connect(&m_networkInter, &NetworkInter::ActiveConnectionsChanged, m_networkModel, &NetworkModel::onActiveConnectionsChanged);
     connect(&m_networkInter, &NetworkInter::VpnEnabledChanged, m_networkModel, &NetworkModel::onVPNEnabledChanged);
 

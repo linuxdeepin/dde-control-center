@@ -91,7 +91,11 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 
     AccessPointWidget *w = new AccessPointWidget;
 
-    w->setPath(apInfo.value("Path").toString());
+#ifdef QT_DEBUG
+    w->setAPName(QString::number(apInfo.value("Strength").toInt()) + " " + ssid);
+#else
+    w->setAPName(ssid);
+#endif
 
     connect(w, &AccessPointWidget::requestEdit, [=](const QString &path) { emit requestEditAP(m_device->path(), path); });
     connect(w, &AccessPointWidget::requestConnect, [=](const QString &path, const QString &ssid) { emit requestConnectAp(m_device->path(), path, ssid); });
@@ -108,15 +112,22 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
     if (!m_apItems.contains(ssid))
         return;
 
+    const QString path = apInfo.value("Path").toString();
+    const int strength = apInfo.value("Strength").toInt();
+
     AccessPointWidget *w = m_apItems[ssid];
 
-#ifdef QT_DEBUG
-    w->setAPName(QString::number(apInfo.value("Strength").toInt()) + " " + ssid);
-#else
-    w->setAPName(ssid);
-#endif
+    if (w->path() == path)
+    {
+        w->setStrength(strength);
+    }
+    else if (strength > w->strength())
+    {
+        w->setStrength(strength);
+        w->setPath(path);
+    }
+
     w->setEncyrpt(apInfo.value("Secured").toBool());
-    w->setStrength(apInfo.value("Strength").toInt());
 
     m_sortDelayTimer.start();
 }
