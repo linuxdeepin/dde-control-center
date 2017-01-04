@@ -168,7 +168,7 @@ void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
     connect(m_checkUpdateJob, &__Job::StatusChanged, [this] (const QString & status) {
         if (status == "failed") {
             qWarning() << "check for updates job failed";
-        } else {
+        } else if (status == "success" || status == "succeed"){
             m_checkUpdateJob->deleteLater();
             m_checkUpdateJob = nullptr;
 
@@ -214,8 +214,9 @@ void UpdateWork::setDownloadJob(const QString &jobPath)
 
     connect(m_downloadJob, &__Job::StatusChanged, [this] (const QString &status) {
         if (status == "failed")  {
+            m_model->setStatus(UpdatesStatus::UpdatesAvailable);
             qWarning() << "download updates job failed";
-        } else {
+        } else if (status == "success" || status == "succeed") {
             m_downloadJob->deleteLater();
             m_downloadJob = nullptr;
 
