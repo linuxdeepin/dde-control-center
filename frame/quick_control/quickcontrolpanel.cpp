@@ -26,10 +26,10 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     detailSwitch->setObjectName("QuickSwitchAllSettings");
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
-    btnsLayout->addWidget(btSwitch);
-    btnsLayout->addWidget(vpnSwitch);
-    btnsLayout->addWidget(wifiSwitch);
-    btnsLayout->addWidget(displaySwitch);
+//    btnsLayout->addWidget(btSwitch);
+//    btnsLayout->addWidget(vpnSwitch);
+//    btnsLayout->addWidget(wifiSwitch);
+//    btnsLayout->addWidget(displaySwitch);
     btnsLayout->addWidget(detailSwitch);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;

@@ -61,15 +61,13 @@ MainWidget::MainWidget(Frame *parent)
     m_prevPluginBtn->setObjectName("PrevBtn");
     m_nextPluginBtn->setObjectName("NextBtn");
 
-    m_currentTimeLbl->setStyleSheet("QLabel {"
-                                    "color: white;"
-                                    "font-size: 46px;"
-                                    "font-weight: 200;"
-                                    "font-family: SourceHanSansSC-ExtraLight"
-                                    "}");
-    m_currentDateLbl->setStyleSheet("QLabel {"
-                                    "color: white;"
-                                    "}");
+    QFont font = m_currentTimeLbl->font();
+    font.setPixelSize(46);
+    font.setWeight(QFont::Light);
+
+    m_currentTimeLbl->setObjectName("CurrentTimeLabel");
+    m_currentTimeLbl->setFont(font);
+    m_currentDateLbl->setObjectName("CurrentDateLabel");
 
     m_pluginsIndicator->setFixedHeight(20);
     m_pluginsIndicator->setPageCount(2);
@@ -82,21 +80,46 @@ MainWidget::MainWidget(Frame *parent)
     indicatorLayout->addWidget(m_nextPluginBtn);
     indicatorLayout->setContentsMargins(10, 0, 10, 0);
 
+    // Header
+    TranslucentFrame *headerFrame = new TranslucentFrame;
+    headerFrame->setFixedHeight(140);
+    headerFrame->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
     QVBoxLayout *timedateLayout = new QVBoxLayout;
+    timedateLayout->setSpacing(0);
+    timedateLayout->setMargin(0);
+    timedateLayout->addStretch();
     timedateLayout->addWidget(m_currentTimeLbl);
     timedateLayout->addWidget(m_currentDateLbl);
-    timedateLayout->setSpacing(0);
-    timedateLayout->setContentsMargins(30, 0, 0, 0);
+    timedateLayout->addStretch();
+
+    QVBoxLayout *avatarLayout = new QVBoxLayout;
+    avatarLayout->setSpacing(0);
+    avatarLayout->setMargin(0);
+    avatarLayout->addStretch();
+    avatarLayout->addSpacing(20);
+    avatarLayout->addWidget(m_userAvatarBtn);
+    avatarLayout->addStretch();
 
     QHBoxLayout *headerLayout = new QHBoxLayout;
-    headerLayout->addWidget(m_userAvatarBtn);
+    headerLayout->addLayout(avatarLayout);
+    headerLayout->addSpacing(20);
     headerLayout->addLayout(timedateLayout);
     headerLayout->setSpacing(0);
-    headerLayout->setContentsMargins(30, 40, 0, 0);
+    headerLayout->setMargin(0);
+    headerLayout->setContentsMargins(30, 0, 30, 20);
+
+    headerFrame->setLayout(headerLayout);
+
+    // Plugins
+    QFrame *frame = new QFrame;
+    frame->setObjectName("HomePluginsFrame");
+    frame->setLayout(m_pluginsLayout);
 
     QVBoxLayout *centeralLayout = static_cast<QVBoxLayout *>(layout());
-    centeralLayout->addLayout(headerLayout);
-    centeralLayout->addLayout(m_pluginsLayout);
+    centeralLayout->addWidget(headerFrame);
+    centeralLayout->addWidget(frame);
+    centeralLayout->addSpacing(20);
     centeralLayout->addLayout(indicatorLayout);
     centeralLayout->addStretch();
     centeralLayout->addWidget(m_quickSettingsPanel);
@@ -157,8 +180,8 @@ void MainWidget::refershTimedate()
 {
     const QDateTime tm = QDateTime::currentDateTime();
 
-    m_currentTimeLbl->setText(tm.toString("HH:mm"));
-    m_currentDateLbl->setText(tm.toString(" MM/dd ddd"));
+    m_currentTimeLbl->setText(tm.time().toString("HH:mm"));
+    m_currentDateLbl->setText(tm.date().toString(Qt::SystemLocaleLongDate));
 }
 
 void MainWidget::showAccountsModule()

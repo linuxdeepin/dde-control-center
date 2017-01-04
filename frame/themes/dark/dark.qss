@@ -3,6 +3,18 @@ QLabel#ModuleHeaderTitle {
     margin: 0 0 0 5px;
 }
 
+QFrame#HomePluginsFrame {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+QLabel#CurrentDateLabel {
+    color: white
+}
+
+QLabel#CurrentTimeLabel {
+    color: white
+}
+
 QLabel#HomeVolumeLowLabel {
     background-image: url(":/frame/themes/dark/icons/home_volume_low.png");
 }
