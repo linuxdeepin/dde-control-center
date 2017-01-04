@@ -11,8 +11,37 @@ NetworkDevice::NetworkDevice(const DeviceType type, const QJsonObject &info, QOb
     : QObject(parent),
 
       m_type(type),
-      m_deviceInfo(info)
+      m_status(Unknow)
 {
+    updateDeviceInfo(info);
+}
+
+void NetworkDevice::setDeviceStatus(const int status)
+{
+    DeviceStatus stat = Unknow;
+
+    switch (status)
+    {
+    case 10:    stat = Unmanaged;       break;
+    case 20:    stat = Unavailable;     break;
+    case 30:    stat = Disconnected;    break;
+    case 40:    stat = Prepare;         break;
+    case 50:    stat = Config;          break;
+    case 60:    stat = NeedAuth;        break;
+    case 70:    stat = IpConfig;        break;
+    case 80:    stat = IpCheck;         break;
+    case 90:    stat = Secondaries;     break;
+    case 100:   stat = Activated;       break;
+    case 110:   stat = Deactivation;    break;
+    case 120:   stat = Failed;          break;
+    }
+
+    if (m_status != stat)
+    {
+        m_status = stat;
+
+        emit statusChanged(m_status);
+    }
 }
 
 NetworkDevice::~NetworkDevice()
@@ -41,4 +70,6 @@ const QString NetworkDevice::hwAddr() const
 void NetworkDevice::updateDeviceInfo(const QJsonObject &devInfo)
 {
     m_deviceInfo = devInfo;
+
+    setDeviceStatus(m_deviceInfo.value("State").toInt());
 }

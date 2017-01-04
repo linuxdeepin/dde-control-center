@@ -27,7 +27,7 @@ public slots:
     void deleteAP(const QString &apInfo);
 
 private:
-    QMap<QString, QJsonObject> m_aps;
+    QSet<QString> m_aps;
 };
 
 }

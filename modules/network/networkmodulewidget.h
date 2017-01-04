@@ -33,7 +33,7 @@ private slots:
     void onNextPageClicked();
 
 private:
-    void initButtonsConnection(dcc::widgets::NextPageWidget *w);
+    void initButtonsConnection(NetworkDevice *dev, dcc::widgets::NextPageWidget *w);
 
 private:
     dcc::widgets::SettingsGroup *m_devicesLayout;

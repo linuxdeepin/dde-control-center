@@ -19,7 +19,7 @@ NetworkDevice::DeviceType parseDeviceType(const QString &type)
         return NetworkDevice::Wired;
     }
 
-    return NetworkDevice::Unknow;
+    return NetworkDevice::None;
 }
 
 NetworkModel::NetworkModel(QObject *parent)
@@ -80,7 +80,7 @@ void NetworkModel::onDeviceListChanged(const QString &devices)
         const auto type = parseDeviceType(it.key());
         const auto list = it.value().toArray();
 
-        if (type == NetworkDevice::Unknow)
+        if (type == NetworkDevice::None)
             continue;
 
         for (auto const &l : list)
@@ -150,7 +150,16 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
 
 void NetworkModel::onActiveConnectionsChanged(const QString &conns)
 {
-    qDebug() << conns;
+    QJsonObject activeConns = QJsonDocument::fromJson(conns.toUtf8()).object();
+    for (auto it(activeConns.constBegin()); it != activeConns.constEnd(); ++it)
+    {
+        const auto info = it.value().toObject();
+        const auto devList = info.value("Devices").toArray();
+        for (const auto &devPath : devList)
+        {
+            qDebug() << devPath;
+        }
+    }
 }
 
 void NetworkModel::onConnectionSessionCreated(const QString &device, const QString &sessionPath)

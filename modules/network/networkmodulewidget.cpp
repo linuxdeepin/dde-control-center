@@ -85,7 +85,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
             continue;
 
         NextPageWidget *w = new NextPageWidget;
-        initButtonsConnection(w);
+        initButtonsConnection(dev, w);
 
         if (wiredDevice < 2)
             w->setTitle(tr("Wired Network"));
@@ -105,7 +105,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
             continue;
 
         NextPageWidget *w = new NextPageWidget;
-        initButtonsConnection(w);
+        initButtonsConnection(dev, w);
 
         if (wirelessDevice < 2)
             w->setTitle(tr("Wireless Network"));
@@ -129,7 +129,11 @@ void NetworkModuleWidget::onNextPageClicked()
     emit requestShowDeviceDetail(dev);
 }
 
-void NetworkModuleWidget::initButtonsConnection(NextPageWidget *w)
+void NetworkModuleWidget::initButtonsConnection(NetworkDevice *dev, NextPageWidget *w)
 {
     connect(w, &NextPageWidget::clicked, this, &NetworkModuleWidget::onNextPageClicked);
+
+    connect(dev, &NetworkDevice::statusChanged, w, [=](NetworkDevice::DeviceStatus stat) { w->setValue(QString::number(stat)); });
+
+    w->setValue(QString::number(dev->status()));
 }

@@ -308,6 +308,12 @@ SettingsItem *ConnectionEditPage::createFileChooserWidget(const QJsonObject &key
 
     w->setTitle(keyObject.value("Name").toString());
 
+    const QString section = keyObject.value("Section").toString();
+    const QString vKey = keyObject.value("Key").toString();
+    connect(w->edit(), &QLineEdit::editingFinished, [=] {
+        emit requestChangeSettings(section, vKey, JsonEncoding(w->edit()->text()));
+    });
+
     return w;
 }
 
