@@ -52,7 +52,7 @@ CreatePage::CreatePage(QWidget *parent) :
     QHBoxLayout *buttonLayout = new QHBoxLayout;
     buttonLayout->addWidget(m_cancelBtn);
     buttonLayout->addWidget(m_confirmBtn);
-    buttonLayout->setSpacing(0);
+    buttonLayout->setSpacing(1);
     buttonLayout->setMargin(0);
 
     TranslucentFrame *container = new TranslucentFrame;
