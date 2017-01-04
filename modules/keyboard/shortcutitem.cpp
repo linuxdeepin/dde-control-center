@@ -34,6 +34,9 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     m_shortcutEdit->hide();
 
     m_checkBtn = new DImageButton();
+    m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/list_delete_normal.png");
+    m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.png");
+    m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/list_delete_press.png");
 
     layout->addStretch();
     layout->addWidget(m_checkBtn);
@@ -67,25 +70,6 @@ void ShortcutItem::displayConflict(bool display)
 ShortcutInfo *ShortcutItem::curInfo()
 {
     return m_info;
-}
-
-void ShortcutItem::setChecked(bool checked)
-{
-    if(m_checked == checked)
-        return ;
-
-    m_checked = checked;
-    if(m_checked)
-    {
-        m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/select.png");
-        m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/select.png");
-        m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/select.png");
-        m_checkBtn->show();
-    }
-    else
-        m_checkBtn->hide();
-
-    emit checkedChanged(m_checked);
 }
 
 void ShortcutItem::onFocusChanged(QWidget *old, QWidget *now)
@@ -126,19 +110,13 @@ void ShortcutItem::onKeyEvent(bool press, QString shortcut)
 
 void ShortcutItem::onEditMode(bool value)
 {
-    if(!m_checked)
+    if(value)
     {
-        if(value)
-        {
-            m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/list_delete_normal.png");
-            m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.png");
-            m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/list_delete_press.png");
-            m_checkBtn->show();
-        }
-        else
-        {
-            m_checkBtn->hide();
-        }
+        m_checkBtn->show();
+    }
+    else
+    {
+        m_checkBtn->hide();
     }
     update();
 }

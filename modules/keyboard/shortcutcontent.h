@@ -12,7 +12,7 @@ using namespace dcc;
 namespace dcc {
 namespace keyboard{
 class KeyboardWork;
-class ShortcutInfo;
+struct ShortcutInfo;
 class KeyboardControl;
 
 class ShortcutContent  : public ContentWidget

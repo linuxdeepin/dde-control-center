@@ -25,11 +25,9 @@ public:
     bool capsLock() const;
 
 signals:
-    void curLayout(const QString& layout);
-    void curLang(const QString& lang);
-    void delayChanged(uint value);
-    void speedChanged(uint value);
-    void capsLockChanged(bool value);
+    void requestCurLayout(const QString& layout);
+    void requestCurLang(const QString& lang);
+    void requestCapsLockChanged(bool value);
 
 public slots:
     void setLayout(const QString& value);

@@ -2,7 +2,6 @@
 #include "shortcutitem.h"
 #include "settingshead.h"
 #include "translucentframe.h"
-
 #include <QVBoxLayout>
 #include <QLineEdit>
 #include <QPushButton>
@@ -41,6 +40,7 @@ ShortcutWidget::ShortcutWidget(QWidget *parent)
     m_layout->addWidget(m_custonGroup);
 
     m_addCustom = new QPushButton(tr("Add Custom Shortcut"));
+
     m_layout->addWidget(m_addCustom);
     m_widget->setLayout(m_layout);
 
@@ -69,11 +69,11 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutWidget::Inf
             m_workspaceGroup->appendItem(item);
         else if(type == ShortcutWidget::Custom)
         {
-            if(m_custonGroup->itemCount() == 0)
-            {
+            if (m_custonGroup->layout()->count() == 0) {
                 m_head = new SettingsHead();
+                m_head->setEditEnable(true);
                 m_head->setTitle(tr("Custom Shortcut"));
-                m_custonGroup->appendItem(m_head);
+                m_custonGroup->insertItem(0, m_head);
             }
             connect(m_head, SIGNAL(editChanged(bool)), item, SLOT(onEditMode(bool)));
             m_custonGroup->appendItem(item);
@@ -135,11 +135,11 @@ void ShortcutWidget::onCustomAdded(ShortcutInfo *info)
        ShortcutItem* item = new ShortcutItem();
        connect(item, SIGNAL(shortcutChangd(bool, ShortcutInfo*, QString)), this, SIGNAL(shortcutChanged(bool, ShortcutInfo*, QString)));
        item->setShortcutInfo(info);
-       if(m_custonGroup->itemCount() == 0)
-       {
+       if (m_custonGroup->layout()->count() == 0) {
            m_head = new SettingsHead();
+           m_head->setEditEnable(true);
            m_head->setTitle(tr("Custom Shortcut"));
-           m_custonGroup->appendItem(m_head);
+           m_custonGroup->insertItem(0, m_head);
        }
        connect(m_head, SIGNAL(editChanged(bool)), item, SLOT(onEditMode(bool)));
        m_custonGroup->appendItem(item);

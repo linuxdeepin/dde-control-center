@@ -7,45 +7,102 @@ namespace dcc {
 namespace keyboard{
 KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
     : QObject(parent),
-      m_model(model)
-{
-    qRegisterMetaType<LocaleInfo>("LocaleInfo");
-    qDBusRegisterMetaType<LocaleInfo>();
-
-    m_keyboardInter = new KeyboardInter("com.deepin.daemon.InputDevices",
+      m_model(model),
+      m_keyboardInter(new KeyboardInter("com.deepin.daemon.InputDevices",
                                         "/com/deepin/daemon/InputDevice/Keyboard",
-                                        QDBusConnection::sessionBus(), this);
-
-    m_langSelector = new LangSelector("com.deepin.daemon.LangSelector",
+                                        QDBusConnection::sessionBus(), this)),
+      m_langSelector(new LangSelector("com.deepin.daemon.LangSelector",
                                       "/com/deepin/daemon/LangSelector",
-                                      QDBusConnection::sessionBus(), this);
-
-    m_keybindInter = new KeybingdingInter("com.deepin.daemon.Keybinding",
+                                      QDBusConnection::sessionBus(), this)),
+      m_keybindInter(new KeybingdingInter("com.deepin.daemon.Keybinding",
                                           "/com/deepin/daemon/Keybinding",
-                                          QDBusConnection::sessionBus(), this);
-
+                                          QDBusConnection::sessionBus(), this))
+{
     connect(m_keybindInter, SIGNAL(Added(QString,int)), this,SLOT(onAdded(QString,int)));
     connect(m_keybindInter, SIGNAL(KeyEvent(bool,QString)), this, SIGNAL(KeyEvent(bool,QString)));
-    connect(m_keyboardInter, SIGNAL(UserLayoutListChanged(QStringList)), this, SIGNAL(UserLayoutListChanged(QStringList)));
-    connect(m_keyboardInter, SIGNAL(CurrentLayoutChanged(QString)), this, SIGNAL(curLayout(QString)));
-    connect(m_langSelector, SIGNAL(serviceValidChanged(bool)), this ,SLOT(onValid(bool)));
-    connect(m_langSelector, SIGNAL(CurrentLocaleChanged(QString)), this, SIGNAL(curLang(QString)));
-    connect(m_keyboardInter, SIGNAL(RepeatDelayChanged(uint)), m_model, SIGNAL(delayChanged(uint)));
-    connect(m_keyboardInter, SIGNAL(RepeatIntervalChanged(uint)), m_model, SIGNAL(speedChanged(uint)));
+    connect(m_keyboardInter, SIGNAL(UserLayoutListChanged(QStringList)), m_model, SLOT(setUserLayout(QStringList)));
+    connect(m_keyboardInter, SIGNAL(CurrentLayoutChanged(QString)), m_model, SLOT(setLayout(QString)));
+    connect(m_langSelector, SIGNAL(CurrentLocaleChanged(QString)), m_model, SLOT(setLang(QString)));
     connect(m_keyboardInter, SIGNAL(CapslockToggleChanged(bool)), m_model, SLOT(setCapsLock(bool)));
 
-    m_model->setCapsLock(m_keyboardInter->capslockToggle());
+    getProperty();
 
     m_keyboardInter->setSync(false);
-    m_langSelector->setSync(false);
     m_keybindInter->setSync(false);
+
+    if (m_langSelector->isValid()) {
+        onValid();
+    } else {
+        m_langSelector->setSync(false);
+    }
+
+    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->List(), this);
+    connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
+            SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
+}
+
+void KeyboardWork::active()
+{
+    m_keyboardInter->blockSignals(false);
+    m_langSelector->blockSignals(false);
+    m_keybindInter->blockSignals(false);
+
+    onValid();
+
+    m_model->setCapsLock(m_keyboardInter->capslockToggle());
+    m_model->setLang(curLang());
+}
+
+void KeyboardWork::deactive()
+{
+    m_keyboardInter->blockSignals(true);
+    m_langSelector->blockSignals(true);
+    m_keybindInter->blockSignals(true);
 }
 
 void KeyboardWork::getProperty()
 {
-    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->List(), this);
-    connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
-            SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
+    m_metaDatas.clear();
+    m_letters.clear();
+
+    KeyboardLayoutList tmp_map = layoutLists();
+    QDBusInterface dbus_pinyin("com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
+                               "com.deepin.api.Pinyin");
+
+    foreach(const QString & str, tmp_map.keys()) {
+        MetaData md;
+        QString title = tmp_map[str];
+        md.setText(title);
+        md.setKey(str);
+        QChar letterFirst = title[0];
+        QStringList letterFirstList;
+        if (letterFirst.isLower() || letterFirst.isUpper()) {
+            letterFirstList << QString(letterFirst);
+            md.setPinyin(title);
+        } else {
+            QDBusMessage message = dbus_pinyin.call("Query", title);
+            letterFirstList = message.arguments()[0].toStringList();
+            md.setPinyin(letterFirstList.at(0));
+        }
+
+        append(md);
+    }
+
+    QChar ch = '\0';
+    for (int i(0); i != m_metaDatas.size(); ++i)
+    {
+        const QChar flag = m_metaDatas[i].pinyin().at(0).toUpper();
+        if (flag == ch)
+            continue;
+        ch = flag;
+
+        m_letters.append(ch);
+        m_metaDatas.insert(i, MetaData(ch, true));
+    }
+
+    m_model->setLayoutLists(layoutLists());
+    m_model->setLayout(curLayout());
+    m_model->setUserLayout(userLayout());
 }
 
 KeyboardLayoutList KeyboardWork::layoutLists() const
@@ -146,48 +203,49 @@ void KeyboardWork::addUserLayout(const QString &value)
 {
     m_keyboardInter->AddUserLayout(value);
 
-    emit addLayout(value);
+    m_model->addUserLayout(value);
 }
 
 void KeyboardWork::delUserLayout(const QString &value)
 {
     m_keyboardInter->DeleteUserLayout(value);
 
-    emit delLayout(value);
+    m_model->delUserLayout(value);
 }
 
-void KeyboardWork::onValid(bool value)
+void KeyboardWork::onValid()
 {
+    if (!m_langSelector->isValid())
+        return;
+
     m_datas.clear();
-    if(value)
-    {
-        QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_langSelector->GetLocaleList(), this);
-        connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
-                SLOT(onLocaleListFinish(QDBusPendingCallWatcher*)));
-    }
+    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_langSelector->GetLocaleList(), this);
+    connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
+            SLOT(onLocaleListFinish(QDBusPendingCallWatcher*)));
 }
 
 void KeyboardWork::onLocaleListFinish(QDBusPendingCallWatcher *watch)
 {
     QDBusPendingReply<LocaleList> reply = *watch;
-    if(reply.isError())
-    {
+
+    if (reply.isError()) {
         qDebug()<<Q_FUNC_INFO<<reply.error().message();
         watch->deleteLater();
         return;
     }
 
     QString key = m_langSelector->currentLocale();
-    emit curLang(key);
+    m_model->setLang(key);
     LocaleList list = reply.value();
-    for(int i = 0; i<list.count(); i++)
-    {
+
+    for (int i = 0; i!=list.size(); ++i) {
         MetaData md;
         md.setKey(list.at(i).id);
         md.setText(list.at(i).name);
         m_datas.append(md);
     }
-    emit langValid(m_datas);
+    m_model->setLocaleList(m_datas);
+    emit requestSetLangTitle(m_model->langByKey(key));
     watch->deleteLater();
 }
 
@@ -201,6 +259,7 @@ void KeyboardWork::onRequestShortcut(QDBusPendingCallWatcher *watch)
     }
 
     QString info = reply.value();
+
     emit shortcutInfo(info);
     watch->deleteLater();
 }
@@ -208,6 +267,27 @@ void KeyboardWork::onRequestShortcut(QDBusPendingCallWatcher *watch)
 void KeyboardWork::onAdded(const QString &in0, int in1)
 {
     emit custonInfo(m_keybindInter->Query(in0, in1));
+}
+
+void KeyboardWork::append(const MetaData &md)
+{
+    if(m_metaDatas.count() == 0)
+    {
+        m_metaDatas.append(md);
+        return;
+    }
+
+    int index = 0;
+    for (int i = 0; i != m_metaDatas.size(); ++i) {
+        if(m_metaDatas.at(i) > md)
+        {
+            m_metaDatas.insert(index,md);
+            return;
+        }
+        index++;
+    }
+
+    m_metaDatas.append(md);
 }
 
 QStringList KeyboardWork::userLayout() const
@@ -218,7 +298,7 @@ QStringList KeyboardWork::userLayout() const
 void KeyboardWork::setLayout(const QString &value)
 {
     m_keyboardInter->setCurrentLayout(value);
-    emit curLayout(value);
+    m_model->setLayout(value);
 }
 
 QString KeyboardWork::curLayout() const

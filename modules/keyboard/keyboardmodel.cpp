@@ -39,7 +39,7 @@ void KeyboardModel::setLayout(const QString &key)
         return ;
 
     m_layout = value;
-    emit curLayout(m_layout);
+    emit requestCurLayout(m_layout);
 }
 
 QString KeyboardModel::curLayout() const
@@ -49,11 +49,11 @@ QString KeyboardModel::curLayout() const
 
 void KeyboardModel::setLang(const QString &value)
 {
-    if(m_lang == value)
+    if(m_lang == value || value.isEmpty())
         return;
 
     m_lang = value;
-    emit curLang(m_lang);
+    emit requestCurLang(m_lang);
 }
 
 void KeyboardModel::addUserLayout(const QString &value)
@@ -75,7 +75,7 @@ void KeyboardModel::setCapsLock(bool value)
 {
     m_capsLock = value;
 
-    emit capsLockChanged(value);
+    emit requestCapsLockChanged(value);
 }
 
 QString KeyboardModel::curLang() const

@@ -12,6 +12,7 @@ class ShortcutItem;
 struct ShortcutInfo
 {
     ShortcutInfo();
+    ~ShortcutInfo();
 
     QString accels;
     QString id;

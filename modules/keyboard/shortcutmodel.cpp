@@ -20,10 +20,13 @@ ShortcutModel::ShortcutModel(QObject *parent) : QObject(parent)
 
 ShortcutModel::~ShortcutModel()
 {
+    qDeleteAll(m_infos);
+
+    m_infos.clear();
     m_systemInfos.clear();
     m_windowInfos.clear();
     m_workspaceInfos.clear();
-    qDeleteAll(m_infos.begin(), m_infos.end());
+    m_customInfos.clear();
 }
 
 QList<ShortcutInfo *> ShortcutModel::systemInfo() const
@@ -65,10 +68,13 @@ void ShortcutModel::delInfo(ShortcutInfo *info)
 
 void ShortcutModel::onParseInfo(const QString &info)
 {
+    qDeleteAll(m_infos);
+
+    m_infos.clear();
     m_systemInfos.clear();
     m_windowInfos.clear();
     m_workspaceInfos.clear();
-    qDeleteAll(m_infos.begin(), m_infos.end());
+    m_customInfos.clear();
 
     QStringList systemFilter;
     systemFilter << "terminal" << "terminal-quake" << "screenshot" << "screenshot-delayed" << "screenshot-window"
@@ -169,7 +175,6 @@ void ShortcutModel::onParseInfo(const QString &info)
             m_customInfos.append(info);
         }
     }
-
     emit parseFinish();
 }
 
@@ -194,6 +199,11 @@ void ShortcutModel::onCustomInfo(const QString &json)
 ShortcutInfo::ShortcutInfo()
 {
     item = NULL;
+}
+
+ShortcutInfo::~ShortcutInfo()
+{
+    item->deleteLater();
 }
 
 }

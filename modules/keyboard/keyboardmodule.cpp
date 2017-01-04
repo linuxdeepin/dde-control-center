@@ -24,81 +24,11 @@ void KeyboardModule::initialize()
     m_shortcutModel = new ShortcutModel();
     m_work = new KeyboardWork(m_model);
 
-    connect(m_model, SIGNAL(curLang(QString)),this, SLOT(setUILang(QString)));
-    connect(m_model, SIGNAL(curLayout(QString)), this, SLOT(setUILayout(QString)));
-    connect(m_work, SIGNAL(curLang(QString)), m_model, SLOT(setLang(QString)));
-    connect(m_work, SIGNAL(curLayout(QString)), m_model, SLOT(setLayout(QString)));
-    connect(m_work, SIGNAL(addLayout(QString)), m_model, SLOT(addUserLayout(QString)));
-    connect(m_work,SIGNAL(delLayout(QString)), m_model, SLOT(delUserLayout(QString)));
-    connect(m_work, SIGNAL(langValid(QList<MetaData>)), m_model, SLOT(setLocaleList(QList<MetaData>)));
-    connect(m_work, SIGNAL(UserLayoutListChanged(QStringList)), m_model, SLOT(setUserLayout(QStringList)));
+    connect(m_work, &KeyboardWork::requestSetLangTitle, this, &KeyboardModule::setUILang);
+    connect(m_model, &KeyboardModel::requestCurLayout, this, &KeyboardModule::setUILayout);
     connect(m_work, SIGNAL(shortcutInfo(QString)), m_shortcutModel, SLOT(onParseInfo(QString)));
     connect(m_work, SIGNAL(custonInfo(QString)), m_shortcutModel, SLOT(onCustomInfo(QString)));
     connect(m_shortcutModel, SIGNAL(parseFinish()), this, SLOT(onParseFinish()));
-
-    m_work->getProperty();
-
-    m_datas.clear();
-    m_letters.clear();
-
-    KeyboardLayoutList tmp_map = m_work->layoutLists();
-    QDBusInterface dbus_pinyin("com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
-                               "com.deepin.api.Pinyin");
-
-    foreach(const QString & str, tmp_map.keys()) {
-        MetaData md;
-        QString title = tmp_map[str];
-        md.setText(title);
-        md.setKey(str);
-        QChar letterFirst = title[0];
-        QStringList letterFirstList;
-        if (letterFirst.isLower() || letterFirst.isUpper()) {
-            letterFirstList << QString(letterFirst);
-            md.setPinyin(title);
-        } else {
-            QDBusMessage message = dbus_pinyin.call("Query", title);
-            letterFirstList = message.arguments()[0].toStringList();
-            md.setPinyin(letterFirstList.at(0));
-        }
-
-        append(md);
-    }
-
-//    QList<MetaData>::iterator it = m_datas.end();
-//    --it;
-//    int index = m_datas.count() - 1;
-//    QChar ch = (*it).pinyin().at(0).toUpper();
-//    for(; it != m_datas.begin(); --it)
-//    {
-//        QChar pre = (*it).pinyin().at(0).toUpper();
-//        if(pre != ch)
-//        {
-//            m_datas.insert(index+1, MetaData(ch, true));
-//            m_letters.prepend(ch);
-//            ch = pre;
-//        }
-//        index--;
-//    }
-
-//    ch = (*it).pinyin().at(0).toUpper();
-//    m_datas.insert(index, MetaData(ch, true));
-//    m_letters.prepend(ch);
-
-    QChar ch = '\0';
-    for (int i(0); i != m_datas.size(); ++i)
-    {
-        const QChar flag = m_datas[i].pinyin().at(0).toUpper();
-        if (flag == ch)
-            continue;
-        ch = flag;
-
-        m_letters.append(ch);
-        m_datas.insert(i, MetaData(ch, true));
-    }
-
-    m_model->setLayoutLists(m_work->layoutLists());
-    m_model->setLayout(m_work->curLayout());
-    m_model->setUserLayout(m_work->userLayout());
 
     m_model->moveToThread(qApp->thread());
     m_shortcutModel->moveToThread(qApp->thread());
@@ -107,12 +37,12 @@ void KeyboardModule::initialize()
 
 void KeyboardModule::moduleActive()
 {
-
+    m_work->active();
 }
 
 void KeyboardModule::moduleDeactive()
 {
-
+    m_work->deactive();
 }
 
 void KeyboardModule::reset()
@@ -137,9 +67,7 @@ ModuleWidget *KeyboardModule::moduleWidget()
         connect(m_keyboardWidget, SIGNAL(delayChanged(int)), this, SLOT(onDelay(int)));
         connect(m_keyboardWidget, SIGNAL(speedChanged(int)), this, SLOT(onSpeed(int)));
         connect(m_keyboardWidget, SIGNAL(capsLockChanged(bool)), this, SLOT(setCapsLock(bool)));
-        connect(m_model, SIGNAL(delayChanged(uint)), m_keyboardWidget, SLOT(setDelayValue(uint)));
-        connect(m_model, SIGNAL(speedChanged(uint)), m_keyboardWidget, SLOT(setSpeedValue(uint)));
-        connect(m_model, SIGNAL(capsLockChanged(bool)), m_keyboardWidget, SLOT(setCapsLock(bool)));
+        connect(m_model, SIGNAL(requestCapsLockChanged(bool)), m_keyboardWidget, SLOT(setCapsLock(bool)));
     }
 
     return m_keyboardWidget;
@@ -239,8 +167,8 @@ void KeyboardModule::onPushKeyboard()
     if(!m_kbLayoutWidget)
     {
         m_kbLayoutWidget = new KeyboardLayoutWidget();
-        m_kbLayoutWidget->setMetaData(m_datas);
-        m_kbLayoutWidget->setLetters(m_letters);
+        m_kbLayoutWidget->setMetaData(m_work->getDatas());
+        m_kbLayoutWidget->setLetters(m_work->getLetters());
         connect(m_kbLayoutWidget, SIGNAL(back()), this, SLOT(onKeyboardBack()));
     }
     m_frameProxy->pushWidget(this, m_kbLayoutWidget);
@@ -303,12 +231,13 @@ void KeyboardModule::onPushShortcut()
         connect(m_shortcutModel, SIGNAL(addCustonInfo(ShortcutInfo*)), m_shortcutWidget, SLOT(onCustomAdded(ShortcutInfo*)));
         connect(m_shortcutWidget, SIGNAL(delShortcutInfo(ShortcutInfo*)), this, SLOT(onDelShortcut(ShortcutInfo*)));
         connect(m_work, SIGNAL(searchChangd(ShortcutInfo*,QString)), m_shortcutWidget, SLOT(onSearchInfo(ShortcutInfo*,QString)));
-    }
-    m_shortcutWidget->addShortcut(m_shortcutModel->systemInfo(), ShortcutWidget::System);
-    m_shortcutWidget->addShortcut(m_shortcutModel->windowInfo(), ShortcutWidget::Window);
-    m_shortcutWidget->addShortcut(m_shortcutModel->workspaceInfo(), ShortcutWidget::Workspace);
-    m_shortcutWidget->addShortcut(m_shortcutModel->customInfo(), ShortcutWidget::Custom);
 
+
+        m_shortcutWidget->addShortcut(m_shortcutModel->systemInfo(), ShortcutWidget::System);
+        m_shortcutWidget->addShortcut(m_shortcutModel->windowInfo(), ShortcutWidget::Window);
+        m_shortcutWidget->addShortcut(m_shortcutModel->workspaceInfo(), ShortcutWidget::Workspace);
+        m_shortcutWidget->addShortcut(m_shortcutModel->customInfo(), ShortcutWidget::Custom);
+    }
     m_frameProxy->pushWidget(this, m_shortcutWidget);
 }
 
@@ -373,8 +302,7 @@ void KeyboardModule::setUILang(const QString &key)
 {
     if(m_keyboardWidget)
     {
-        QString value = m_model->langByKey(key);
-        m_keyboardWidget->setLangValue(value);
+        m_keyboardWidget->setLangValue(key);
     }
 }
 
@@ -505,32 +433,10 @@ KeyboardModule::~KeyboardModule()
 {
     m_work->deleteLater();
     m_model->deleteLater();
+    m_shortcutModel->deleteLater();
 
     if(m_keyboardWidget)
         m_keyboardWidget->deleteLater();
-}
-
-void KeyboardModule::append(const MetaData &md)
-{
-    if(m_datas.count() == 0)
-    {
-        m_datas.append(md);
-        return;
-    }
-
-    int index = 0;
-    QList<MetaData>::iterator it = m_datas.begin();
-
-    for(; it != m_datas.end(); ++it)
-    {
-        if((*it)>md)
-        {
-            m_datas.insert(index,md);
-            return;
-        }
-        index++;
-    }
-    m_datas.append(md);
 }
 
 }

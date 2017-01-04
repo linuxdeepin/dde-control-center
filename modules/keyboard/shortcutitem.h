@@ -15,7 +15,7 @@ using namespace dcc::widgets;
 namespace dcc {
 namespace keyboard{
 
-class ShortcutInfo;
+struct ShortcutInfo;
 using KeybingdingInter = com::deepin::daemon::Keybinding;
 
 class ShortcutItem : public SettingsItem
@@ -32,7 +32,6 @@ public:
 
 signals:
     void shortcutChangd(bool valid, ShortcutInfo* info, const QString& shortcut);
-    void checkedChanged(bool checked);
 
 public slots:
     void onFocusChanged(QWidget* old, QWidget *now);

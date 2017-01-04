@@ -65,12 +65,9 @@ public slots:
 
 private:
     ~KeyboardModule();
-    void append(const MetaData& md);
 
 private:
     bool m_loaded;
-    QList<MetaData> m_datas;
-    QList<QString> m_letters;
     KeyboardWork* m_work;
     ShortcutModel* m_shortcutModel;
     KeyboardModel* m_model;
