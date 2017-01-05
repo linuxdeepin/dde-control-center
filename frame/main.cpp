@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
 
     DLogManager::registerConsoleAppender();
 
-    app.setStyle("dsemidark");
+    app.setTheme("semidark");
     onThemeChange("dark");
 
     QTimer::singleShot(0, [] { onFontSizeChanged(qApp->font().pointSizeF()); });
