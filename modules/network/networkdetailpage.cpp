@@ -48,6 +48,7 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
     {
         const QString name = info.value("ConnectionName").toString();
         const QString speed = info.value("Speed").toString();
+        const QString mac = info.value("HwAddress").toString();
 
         TitleValueItem *speedItem = new TitleValueItem;
         speedItem->setTitle(tr("Speed"));
@@ -57,6 +58,14 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         grp->setHeaderVisible(true);
         grp->headerItem()->setTitle(name);
         grp->appendItem(speedItem);
+
+        if (!mac.isEmpty())
+        {
+            TitleValueItem *macItem = new TitleValueItem;
+            macItem->setTitle(tr("MAC"));
+            macItem->setValue(mac);
+            grp->appendItem(macItem);
+        }
 
         m_groupsLayout->addWidget(grp);
     }
