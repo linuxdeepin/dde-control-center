@@ -27,9 +27,10 @@ private:
     ModuleWidget *moduleWidget();
 
 private slots:
-    void showDeviceDetailPage(NetworkDevice *dev);
     void showVpnPage();
     void showPppPage();
+    void showDetailPage();
+    void showDeviceDetailPage(NetworkDevice *dev);
     void showWiredConnectionEditPage(const QString &session);
 
 private:
