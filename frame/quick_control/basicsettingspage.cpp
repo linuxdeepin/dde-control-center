@@ -9,7 +9,10 @@ using namespace dcc::widgets;
 namespace dcc {
 
 BasicSettingsModel::BasicSettingsModel(QObject *parent) :
-    QObject(parent)
+    QObject(parent),
+    m_mute(false),
+    m_volume(1),
+    m_brightness(1)
 {
 
 }
@@ -30,6 +33,14 @@ void BasicSettingsModel::setBrightness(double brightness)
     }
 }
 
+void BasicSettingsModel::setMute(bool mute)
+{
+    if (m_mute != mute) {
+        m_mute = mute;
+        emit muteChanged(mute);
+    }
+}
+
 
 BasicSettingsWorker::BasicSettingsWorker(BasicSettingsModel *model, QObject *parent) :
     QObject(parent),
@@ -47,6 +58,12 @@ BasicSettingsWorker::BasicSettingsWorker(BasicSettingsModel *model, QObject *par
     m_displayInter->brightness();
 }
 
+void BasicSettingsWorker::setMute(const bool &mute)
+{
+    if (m_sinkInter)
+        m_sinkInter->SetMute(mute);
+}
+
 void BasicSettingsWorker::setVolume(const double &volume)
 {
     if(m_sinkInter)
@@ -62,13 +79,17 @@ void BasicSettingsWorker::setBrightness(const double &brightness)
 
 void BasicSettingsWorker::onDefaultSinkChanged(const QDBusObjectPath &value)
 {
+    if (value.path().isEmpty()) return;
+
     if (m_sinkInter) m_sinkInter->deleteLater();
 
     m_sinkInter = new com::deepin::daemon::audio::Sink("com.deepin.daemon.Audio", value.path(), QDBusConnection::sessionBus(), this);
     m_sinkInter->setSync(false);
 
     connect(m_sinkInter, &com::deepin::daemon::audio::Sink::VolumeChanged, m_model, &BasicSettingsModel::setVolume);
+    connect(m_sinkInter, &com::deepin::daemon::audio::Sink::MuteChanged, m_model, &BasicSettingsModel::setMute);
     m_model->setVolume(m_sinkInter->volume());
+    m_model->setMute(m_sinkInter->mute());
 }
 
 void BasicSettingsWorker::onBrightnessChanged(const BrightnessMap value)
@@ -137,9 +158,11 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     setLayout(mainLayout);
 
     auto onVolumeChanged = [this] (const double &volume) {
-        m_soundSlider->blockSignals(true);
-        m_soundSlider->setValue(volume * 100);
-        m_soundSlider->blockSignals(false);
+        if (!m_model->mute()) {
+            m_soundSlider->blockSignals(true);
+            m_soundSlider->setValue(volume * 100);
+            m_soundSlider->blockSignals(false);
+        }
     };
 
     auto onBrightnessChanged = [this] (const double &brightness) {
@@ -148,14 +171,30 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
         m_lightSlider->blockSignals(false);
     };
 
-    connect(m_model, &BasicSettingsModel::volumeChanged, onVolumeChanged);
-    connect(m_model, &BasicSettingsModel::brightnessChanged, onBrightnessChanged);
+    connect(m_model, &BasicSettingsModel::muteChanged, this, &BasicSettingsPage::onMuteChanged);
+    connect(m_model, &BasicSettingsModel::volumeChanged, this, onVolumeChanged);
+    connect(m_model, &BasicSettingsModel::brightnessChanged, this, onBrightnessChanged);
 
     onVolumeChanged(m_model->volume());
     onBrightnessChanged(m_model->brightness());
+    onMuteChanged(m_model->mute());
 
-    connect(m_soundSlider, &DCCSlider::valueChanged, m_worker, &BasicSettingsWorker::setVolume);
+    connect(m_soundSlider, &DCCSlider::valueChanged, this, [this] (const int &value) {
+        m_worker->setVolume(value);
+        m_worker->setMute(false);
+    });
     connect(m_lightSlider, &DCCSlider::valueChanged, m_worker, &BasicSettingsWorker::setBrightness);
+}
+
+void BasicSettingsPage::onMuteChanged(const bool &mute)
+{
+    if (mute) {
+        m_soundSlider->blockSignals(true);
+        m_soundSlider->setValue(0);
+        m_soundSlider->blockSignals(false);
+    } else {
+        m_soundSlider->setValue(m_model->volume() * 100);
+    }
 }
 
 }

@@ -25,11 +25,16 @@ public:
     inline double brightness() const { return m_brightness; }
     void setBrightness(double brightness);
 
+    inline bool mute() const { return m_mute; }
+    void setMute(bool mute);
+
 signals:
+    void muteChanged(const bool &mute) const;
     void volumeChanged(const double &volume) const;
     void brightnessChanged(const double &brightness) const;
 
 private:
+    bool m_mute;
     double m_volume;
     double m_brightness;
 };
@@ -40,6 +45,7 @@ public:
     explicit BasicSettingsWorker(BasicSettingsModel *model, QObject *parent=0);
 
 public slots:
+    void setMute(const bool &mute);
     void setVolume(const double &volume);
     void setBrightness(const double &brightness);
 
@@ -60,6 +66,9 @@ class BasicSettingsPage : public QWidget
     Q_OBJECT
 public:
     explicit BasicSettingsPage(QWidget *parent = 0);
+
+private slots:
+    void onMuteChanged(const bool &mute);
 
 private:
     QLabel *m_volumeLow;
