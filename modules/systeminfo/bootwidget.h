@@ -3,6 +3,7 @@
 
 #include "contentwidget.h"
 #include "switchwidget.h"
+#include "labels/tipslabel.h"
 
 #include <QListWidget>
 
@@ -29,7 +30,6 @@ signals:
 
 public slots:
     void setEntryList(const QStringList& list);
-    void onItemActivated(QListWidgetItem* item);
     void onCurrentItem(QListWidgetItem* cur, QListWidgetItem* pre);
 
 private:
@@ -37,6 +37,7 @@ private:
     SwitchWidget* m_boot;
     SwitchWidget* m_theme;
     QListWidget* m_bootList;
+    TipsLabel *m_updatingLabel;
 };
 
 }

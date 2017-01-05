@@ -25,6 +25,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     connect(m_dbusGrub, &GrubDbus::TimeoutChanged, this, [this] (const int &value) {
         m_model->setBootDelay(value > 1);
     });
+    connect(m_dbusGrub, &__Grub2::UpdatingChanged, m_model, &SystemInfoModel::setUpdating);
 
     connect(m_systemInfoInter, &__SystemInfo::VersionChanged, m_model, &SystemInfoModel::setVersion);
     connect(m_systemInfoInter, &__SystemInfo::SystemTypeChanged, m_model, &SystemInfoModel::setType);
@@ -43,6 +44,7 @@ void SystemInfoWork::activate()
 
     m_model->setBootDelay(m_dbusGrub->timeout() > 1);
     m_model->setThemeEnabled(m_dbusGrub->enableTheme());
+    m_model->setUpdating(m_dbusGrub->updating());;
 
     QDBusPendingCall call = m_dbusGrub->GetSimpleEntryTitles();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);

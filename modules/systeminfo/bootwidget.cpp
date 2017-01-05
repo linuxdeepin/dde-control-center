@@ -6,27 +6,39 @@
 #include "grubbackgrounditem.h"
 #include "translucentframe.h"
 #include "systeminfomodel.h"
-#include "labels/tipslabel.h"
 
 namespace dcc{
 namespace systeminfo{
 
 BootWidget::BootWidget(QWidget *parent)
-    :ContentWidget(parent)
+    : ContentWidget(parent)
 {
-    TranslucentFrame* widget = new TranslucentFrame();
+    TranslucentFrame* widget = new TranslucentFrame;
 
-    QVBoxLayout* layout = new QVBoxLayout();
-    SettingsGroup *group = new SettingsGroup();
+    QVBoxLayout* layout = new QVBoxLayout;
+    SettingsGroup *group = new SettingsGroup;
 
-    GrubBackgroundItem* background = new GrubBackgroundItem();
+    GrubBackgroundItem* background = new GrubBackgroundItem;
 
-    m_bootList = new QListWidget(background);
+    QVBoxLayout *listLayout = new QVBoxLayout;
+    listLayout->setSpacing(0);
+    listLayout->setMargin(0);
+
+    m_bootList = new QListWidget;
     m_bootList->setDragDropMode(QListWidget::DragDrop);
     m_bootList->setDefaultDropAction(Qt::MoveAction);
-    m_bootList->move(50, 50);
     m_bootList->setPalette(Qt::transparent);
     m_bootList->setWordWrap(true);
+
+    m_updatingLabel = new TipsLabel(tr("Updating..."));
+    m_updatingLabel->setVisible(false);
+
+    listLayout->addSpacing(20);
+    listLayout->addWidget(m_bootList, 0, Qt::AlignHCenter);
+    listLayout->addStretch();
+    listLayout->addWidget(m_updatingLabel, 0, Qt::AlignHCenter);
+    listLayout->addSpacing(10);
+    background->setLayout(listLayout);
 
     m_boot = new SwitchWidget();
     m_boot->setTitle(tr("Startup Delay"));
@@ -53,19 +65,33 @@ BootWidget::BootWidget(QWidget *parent)
 
     connect(m_theme, SIGNAL(checkedChanegd(bool)), this, SIGNAL(enableTheme(bool)));
     connect(m_boot, SIGNAL(checkedChanegd(bool)), this, SIGNAL(bootdelay(bool)));
-    connect(m_bootList, SIGNAL(itemActivated(QListWidgetItem*)), this, SLOT(onItemActivated(QListWidgetItem*)));
     connect(m_bootList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),this, SLOT(onCurrentItem(QListWidgetItem*,QListWidgetItem*)));
 }
 
 void BootWidget::setDefaultEntry(const QString &value)
 {
     m_defaultEntry = value;
+
+    blockSignals(true);
+    for (int i = 0; i < m_bootList->count(); i++) {
+        QListWidgetItem * item = m_bootList->item(i);
+        if (item->text() == value) {
+            m_bootList->setCurrentRow(i);
+        }
+    }
+    blockSignals(false);
 }
 
 void BootWidget::setModel(SystemInfoModel *model)
 {
+    connect(model, &SystemInfoModel::bootDelayChanged, m_boot, &SwitchWidget::setChecked);
+    connect(model, &SystemInfoModel::themeEnabledChanged, m_theme, &SwitchWidget::setChecked);
+    connect(model, &SystemInfoModel::defaultEntryChanged, this, &BootWidget::setDefaultEntry);
+    connect(model, &SystemInfoModel::updatingChanged, m_updatingLabel, &SmallLabel::setVisible);
+
     m_boot->setChecked(model->bootDelay());
     m_theme->setChecked(model->themeEnabled());
+    m_updatingLabel->setVisible(model->updating());
 
     setEntryList(model->entryLists());
     setDefaultEntry(model->defaultEntry());
@@ -73,31 +99,24 @@ void BootWidget::setModel(SystemInfoModel *model)
 
 void BootWidget::setEntryList(const QStringList &list)
 {
+    int currentIndex = 0;
+
     for(int i = 0; i<list.count(); i++)
     {
         const QString entry = list.at(i);
 
         QListWidgetItem* item = new QListWidgetItem(entry);
         item->setBackground(Qt::transparent);
-        item->setSizeHint(QSize(m_bootList->width(), 30));
+        item->setSizeHint(QSize(200, 30));
+        onCurrentItem(nullptr, item);
         m_bootList->addItem(item);
 
-        this->blockSignals(true);
         if (m_defaultEntry == entry) {
-            m_bootList->setCurrentRow(i);
-            onCurrentItem(item, nullptr);
-        } else {
-            onCurrentItem(nullptr, item);
+            currentIndex = i;
         }
-        this->blockSignals(false);
     }
-}
 
-void BootWidget::onItemActivated(QListWidgetItem *item)
-{
-    if (item) {
-        emit defaultEntry(item->text());
-    }
+    m_bootList->setCurrentRow(currentIndex);
 }
 
 void BootWidget::onCurrentItem(QListWidgetItem *cur, QListWidgetItem *pre)

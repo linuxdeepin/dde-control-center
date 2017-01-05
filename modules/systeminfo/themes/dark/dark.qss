@@ -14,5 +14,6 @@ QListWidget
 QListWidget::item:selected
 {
     border-radius: 4px;
+    color: white;
     background: rgba(255, 255, 255, 0.2);
 }

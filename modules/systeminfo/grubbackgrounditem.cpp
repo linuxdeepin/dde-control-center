@@ -79,7 +79,8 @@ bool GrubBackgroundItem::updateBackground(const QString &filename)
 {
     bool result = m_background.load(filename);
     if(result){
-        setMinimumSize(m_background.size());
+        setMinimumWidth(m_background.width());
+        setFixedHeight(m_background.height());
         update();
     }
 

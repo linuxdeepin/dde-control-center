@@ -51,6 +51,14 @@ void SystemInfoModel::setDefaultEntry(const QString &entry)
     }
 }
 
+void SystemInfoModel::setUpdating(bool updating)
+{
+    if (updating != m_updating) {
+        m_updating = updating;
+        emit updatingChanged(updating);
+    }
+}
+
 bool SystemInfoModel::bootDelay() const
 {
     return m_bootDelay;

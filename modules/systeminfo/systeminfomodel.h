@@ -24,6 +24,7 @@ public:
 
     bool bootDelay() const;
     bool themeEnabled() const { return m_themeEnabled; }
+    bool updating() const { return m_updating; }
 
 signals:
     void bootDelayChanged(const int timeout) const;
@@ -34,6 +35,7 @@ signals:
     void memoryChanged(const QString& memory);
     void diskChanged(const QString& disk);
     void defaultEntryChanged(const QString& entry);
+    void updatingChanged(const bool &updating);
 
 public slots:
     void setBootDelay(bool bootDelay);
@@ -44,18 +46,20 @@ public slots:
     void setMemory(qulonglong memory);
     void setDisk(qulonglong disk);
     void setDefaultEntry(const QString& entry);
+    void setUpdating(bool updating);
 
 private:
     bool m_bootDelay;
     bool m_themeEnabled;
+    bool m_updating;
+    QStringList m_entryLists;
+    QString m_defaultEntry;
 
     QString m_version;
     QString m_type;
     QString m_processor;
     QString m_memory;
     QString m_disk;
-    QStringList m_entryLists;
-    QString m_defaultEntry;
 };
 
 }
