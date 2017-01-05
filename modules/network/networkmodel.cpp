@@ -148,13 +148,29 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
 //            static_cast<WiredDevice *>(dev)->onPPPInfoChanged(m_connections["pppoe"]);
 }
 
-void NetworkModel::onActiveConnectionsChanged(const QString &conns)
+void NetworkModel::onActiveConnInfoChanged(const QString &conns)
 {
-    QJsonObject activeConns = QJsonDocument::fromJson(conns.toUtf8()).object();
-    for (auto it(activeConns.constBegin()); it != activeConns.constEnd(); ++it)
+//    QJsonObject activeConns = QJsonDocument::fromJson(conns.toUtf8()).object();
+//    for (auto it(activeConns.constBegin()); it != activeConns.constEnd(); ++it)
+//    {
+//        const auto info = it.value().toObject();
+//        qDebug() << it.key() << info;
+//    }
+
+//    qDebug() << conns;
+    QJsonArray activeConns = QJsonDocument::fromJson(conns.toUtf8()).array();
+    for (const auto &info : activeConns)
     {
-        const auto info = it.value().toObject();
-        qDebug() << it.key() << info;
+        const auto connInfo = info.toObject();
+        const auto hwAddr = connInfo.value("HwAddress").toString();
+
+        for (const auto *dev : m_devices)
+        {
+            if (dev->hwAddr() == hwAddr)
+            {
+                qDebug() << dev->path() << hwAddr;
+            }
+        }
     }
 }
 

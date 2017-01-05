@@ -22,16 +22,18 @@ public:
 public slots:
     void setVpnEnable(const bool enable);
     void setDeviceEnable(const QString &devPath, const bool enable);
+    void queryActiveConnInfo();
     void queryAccessPoints(const QString &devPath);
     void queryConnectionSession(const QString &devPath, const QString &connPath);
     void queryDeviceStatus(const QString &devPath);
     void createConnection(const QString &type, const QString &devPath);
     void activateAccessPoint(const QString &devPath, const QString &apPath, const QString &connPath);
 
-private:
+private slots:
     void queryAccessPointsCB(QDBusPendingCallWatcher *w);
     void queryConnectionSessionCB(QDBusPendingCallWatcher *w);
     void queryDeviceStatusCB(QDBusPendingCallWatcher *w);
+    void queryActiveConnInfoCB(QDBusPendingCallWatcher *w);
 
 private:
     NetworkInter m_networkInter;

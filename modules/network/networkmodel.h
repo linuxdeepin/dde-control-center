@@ -39,7 +39,7 @@ private slots:
     void onVPNEnabledChanged(const bool enabled);
     void onDeviceListChanged(const QString &devices);
     void onConnectionListChanged(const QString &conns);
-    void onActiveConnectionsChanged(const QString &conns);
+    void onActiveConnInfoChanged(const QString &conns);
     void onConnectionSessionCreated(const QString &device, const QString &sessionPath);
     void onDeviceAPListChanged(const QString &device, const QString &apList);
     void onDeviceAPInfoChanged(const QString &device, const QString &apInfo);

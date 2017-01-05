@@ -3,6 +3,7 @@
 #include "settingsgroup.h"
 #include "translucentframe.h"
 #include "networkmodel.h"
+#include "optionitem.h"
 #include "nextpagewidget.h"
 #include "connectioneditpage.h"
 #include "connectionsessionworker.h"
@@ -20,7 +21,8 @@ VpnPage::VpnPage(QWidget *parent)
     : ContentWidget(parent),
 
       m_vpnSwitch(new SwitchWidget),
-      m_vpnGroup(new SettingsGroup)
+      m_vpnGroup(new SettingsGroup),
+      m_vpnTypePage(nullptr)
 {
     m_vpnSwitch->setTitle(tr("VPN Status"));
 
@@ -44,11 +46,13 @@ VpnPage::VpnPage(QWidget *parent)
     setTitle(tr("VPN"));
 
     connect(m_vpnSwitch, &SwitchWidget::checkedChanegd, this, &VpnPage::requestVpnEnabled);
-    connect(createVpnBtn, &QPushButton::clicked, this, &VpnPage::createVPN);
+    connect(createVpnBtn, &QPushButton::clicked, this, &VpnPage::createVPNSession);
 }
 
 VpnPage::~VpnPage()
 {
+    Q_ASSERT(!m_vpnTypePage);
+
     if (!m_editPage.isNull())
         m_editPage->deleteLater();
 }
@@ -93,6 +97,12 @@ void VpnPage::onVpnClicked()
     emit requestEditVpn("/", connPath);
 }
 
+void VpnPage::onSessionPageFinished()
+{
+    if (m_vpnTypePage)
+        emit m_vpnTypePage->back();
+}
+
 void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionPath)
 {
     Q_ASSERT(device == "/");
@@ -108,11 +118,58 @@ void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionP
     connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
     connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &VpnPage::requestNextPage);
+    connect(m_editPage, &ConnectionEditPage::back, this, &VpnPage::onSessionPageFinished, Qt::QueuedConnection);
 
     emit requestNextPage(m_editPage);
 }
 
-void VpnPage::createVPN()
+void VpnPage::createVPNSession()
 {
-    emit requestCreateConnection("vpn", "/");
+//    emit requestCreateConnection("vpn", "/");
+
+    if (!m_vpnTypePage)
+    {
+        OptionItem *l2tp = new OptionItem;
+        l2tp->setTitle(tr("L2TP"));
+        OptionItem *pptp = new OptionItem;
+        pptp->setTitle(tr("PPTP"));
+        OptionItem *vpnc = new OptionItem;
+        vpnc->setTitle(tr("VPNC"));
+        OptionItem *openvpn = new OptionItem;
+        openvpn->setTitle(tr("OpenVPN"));
+        OptionItem *strongswan = new OptionItem;
+        strongswan->setTitle(tr("StrongSwan"));
+        OptionItem *openconnect = new OptionItem;
+        openconnect->setTitle(tr("OpenConnect"));
+
+        connect(l2tp, &OptionItem::selectedChanged, [=] { createVPN("vpn-l2tp"); });
+        connect(pptp, &OptionItem::selectedChanged, [=] { createVPN("vpn-pptp"); });
+        connect(vpnc, &OptionItem::selectedChanged, [=] { createVPN("vpn-vpnc"); });
+        connect(openvpn, &OptionItem::selectedChanged, [=] { createVPN("vpn-openvpn"); });
+        connect(strongswan, &OptionItem::selectedChanged, [=] { createVPN("vpn-strongswan"); });
+        connect(openconnect, &OptionItem::selectedChanged, [=] { createVPN("vpn-openconnect"); });
+
+        SettingsGroup *grp = new SettingsGroup;
+        grp->appendItem(l2tp);
+        grp->appendItem(pptp);
+        grp->appendItem(vpnc);
+        grp->appendItem(openvpn);
+        grp->appendItem(strongswan);
+        grp->appendItem(openconnect);
+
+        m_vpnTypePage = new ContentWidget;
+        m_vpnTypePage->setTitle(tr("New VPN"));
+        m_vpnTypePage->setContent(grp);
+
+        connect(m_vpnTypePage, &ContentWidget::back, [=] { m_vpnTypePage = nullptr; });
+    }
+
+    emit requestNextPage(m_vpnTypePage);
+}
+
+void VpnPage::createVPN(const QString &type)
+{
+    Q_ASSERT(m_vpnTypePage);
+
+    emit requestCreateConnection(type, "/");
 }

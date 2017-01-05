@@ -10,21 +10,22 @@ NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
 
       m_networkModel(model)
 {
+    connect(&m_networkInter, &NetworkInter::ActiveConnectionsChanged, this, &NetworkWorker::queryActiveConnInfo);
     connect(&m_networkInter, &NetworkInter::DevicesChanged, m_networkModel, &NetworkModel::onDeviceListChanged);
     connect(&m_networkInter, &NetworkInter::ConnectionsChanged, m_networkModel, &NetworkModel::onConnectionListChanged);
     connect(&m_networkInter, &NetworkInter::DeviceEnabled, m_networkModel, &NetworkModel::onDeviceEnableChaned);
     connect(&m_networkInter, &NetworkInter::AccessPointAdded, m_networkModel, &NetworkModel::onDeviceAPInfoChanged);
     connect(&m_networkInter, &NetworkInter::AccessPointPropertiesChanged, m_networkModel, &NetworkModel::onDeviceAPInfoChanged);
     connect(&m_networkInter, &NetworkInter::AccessPointRemoved, m_networkModel, &NetworkModel::onDeviceAPRemoved);
-    connect(&m_networkInter, &NetworkInter::ActiveConnectionsChanged, m_networkModel, &NetworkModel::onActiveConnectionsChanged);
     connect(&m_networkInter, &NetworkInter::VpnEnabledChanged, m_networkModel, &NetworkModel::onVPNEnabledChanged);
 
     m_networkModel->onDeviceListChanged(m_networkInter.devices());
     m_networkModel->onConnectionListChanged(m_networkInter.connections());
-    m_networkModel->onActiveConnectionsChanged(m_networkInter.activeConnections());
     m_networkModel->onVPNEnabledChanged(m_networkInter.vpnEnabled());
 
     m_networkInter.setSync(false);
+
+    queryActiveConnInfo();
 }
 
 void NetworkWorker::setVpnEnable(const bool enable)
@@ -35,6 +36,13 @@ void NetworkWorker::setVpnEnable(const bool enable)
 void NetworkWorker::setDeviceEnable(const QString &devPath, const bool enable)
 {
     m_networkInter.EnableDevice(QDBusObjectPath(devPath), enable);
+}
+
+void NetworkWorker::queryActiveConnInfo()
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.GetActiveConnectionInfo(), this);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryActiveConnInfoCB);
 }
 
 void NetworkWorker::queryAccessPoints(const QString &devPath)
@@ -120,6 +128,15 @@ void NetworkWorker::queryDeviceStatusCB(QDBusPendingCallWatcher *w)
     QDBusPendingReply<bool> reply = *w;
 
     m_networkModel->onDeviceEnableChaned(w->property("devPath").toString(), reply.value());
+
+    w->deleteLater();
+}
+
+void NetworkWorker::queryActiveConnInfoCB(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QString> reply = *w;
+
+    m_networkModel->onActiveConnInfoChanged(reply.value());
 
     w->deleteLater();
 }

@@ -42,8 +42,10 @@ public slots:
 
 private slots:
     void onVpnClicked();
+    void onSessionPageFinished();
     void onVpnSessionCreated(const QString &device, const QString &sessionPath);
-    void createVPN();
+    void createVPNSession();
+    void createVPN(const QString &type);
 
 private:
     NetworkModel *m_model;
@@ -52,6 +54,7 @@ private:
     widgets::SettingsGroup *m_vpnGroup;
 
     QPointer<ConnectionEditPage> m_editPage;
+    ContentWidget *m_vpnTypePage;
 
     QMap<widgets::NextPageWidget *, QJsonObject> m_vpns;
 };
