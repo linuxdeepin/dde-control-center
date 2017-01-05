@@ -242,7 +242,7 @@ void Frame::hide()
 
 void Frame::toggle()
 {
-    if (m_appearAnimation.startValue().toRect().width() == 0)
+    if (m_appearAnimation.endValue().toRect().width() != 0)
         hide();
     else
         show();

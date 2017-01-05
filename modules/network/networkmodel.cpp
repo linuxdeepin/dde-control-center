@@ -154,11 +154,7 @@ void NetworkModel::onActiveConnectionsChanged(const QString &conns)
     for (auto it(activeConns.constBegin()); it != activeConns.constEnd(); ++it)
     {
         const auto info = it.value().toObject();
-        const auto devList = info.value("Devices").toArray();
-        for (const auto &devPath : devList)
-        {
-            qDebug() << devPath;
-        }
+        qDebug() << it.key() << info;
     }
 }
 
