@@ -24,6 +24,7 @@ public:
 
     void setChooseVisible(bool visible);
     void setRightText(const QString& text);
+    void setPlaceholderText(const QString& text);
 
     QString value() const;
 

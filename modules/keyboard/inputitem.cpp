@@ -11,11 +11,14 @@ InputItem::InputItem(QFrame *parent)
     setFixedHeight(36);
 
     QHBoxLayout* layout = new QHBoxLayout();
-    m_choose = new QPushButton(tr(" ... "));
+    layout->setMargin(0);
+    layout->setSpacing(0);
+    m_choose = new QPushButton(" ... ");
     m_title = new QLabel();
     m_title->setFixedWidth(60);
     m_input = new QLineEdit();
 
+    layout->addSpacing(20);
     layout->addWidget(m_title);
     layout->addSpacerItem(new QSpacerItem(10,height()));
     layout->addWidget(m_input);
@@ -47,6 +50,11 @@ void InputItem::setRightText(const QString &text)
     {
         m_choose->setText(text);
     }
+}
+
+void InputItem::setPlaceholderText(const QString &text)
+{
+    m_input->setPlaceholderText(text);
 }
 
 QString InputItem::value() const

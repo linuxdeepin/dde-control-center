@@ -159,7 +159,7 @@ void KeyItem::paint(QPainter *painter, const QRect &rect)
         width = ((rect.width() - space) /count);
         if(m_mainKey == "CAPS")
         {
-            m_rect = QRect(m_col*width,m_row*height, width + space/2, height);
+            m_rect = QRect(m_col*width,m_row*height, rect.width()/count, height);
         }
         else if(m_mainKey == "ENTER")
         {
@@ -178,7 +178,7 @@ void KeyItem::paint(QPainter *painter, const QRect &rect)
         {
             if(m_col == 0)
             {
-                m_rect = QRect(m_col*width,m_row*height, width + space/2, height);
+                m_rect = QRect(m_col*width,m_row*height, rect.width()/count, height);
             }
             else
             {

@@ -27,6 +27,7 @@ CustomContent::CustomContent(KeyboardWork* work, QWidget *parent)
     m_command = new InputItem();
     m_command->setTitle(tr("Command"));
     m_command->setChooseVisible(true);
+    m_command->setPlaceholderText(tr("Required"));
     connect(m_command, SIGNAL(click()), m_command, SLOT(onClick()));
 
     m_shortcut = new InputItem();
