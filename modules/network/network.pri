@@ -11,7 +11,6 @@ HEADERS += \
     $$PWD/accesspointwidget.h \
     $$PWD/wirelessdevice.h \
     $$PWD/wireddevice.h \
-    $$PWD/connecthiddenpage.h \
     $$PWD/connectionsessionmodel.h \
     $$PWD/connectionsessionworker.h \
     $$PWD/vpnpage.h \
@@ -28,7 +27,6 @@ SOURCES += \
     $$PWD/accesspointwidget.cpp \
     $$PWD/wirelessdevice.cpp \
     $$PWD/wireddevice.cpp \
-    $$PWD/connecthiddenpage.cpp \
     $$PWD/connectionsessionmodel.cpp \
     $$PWD/connectionsessionworker.cpp \
     $$PWD/vpnpage.cpp \

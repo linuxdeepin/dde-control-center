@@ -39,6 +39,7 @@ public slots:
 signals:
     void requestEditAP(const QString &devPath, const QString &apPath) const;
     void requestConnectAp(const QString &devPath, const QString &apPath, const QString ssid) const;
+    void requestCreateConnection(const QString &type, const QString &devPath) const;
     void requestNextPage(ContentWidget * const w) const;
     void requestDeviceStatus(const QString &devPath) const;
     void requestDeviceAPList(const QString &devPath) const;
@@ -58,7 +59,6 @@ private:
     dcc::widgets::SwitchWidget *m_switchBtn;
     AccessPointWidget *m_connectHideSSID;
 
-    QPointer<ConnectHiddenPage> m_connectHidePage;
     QPointer<ConnectionEditPage> m_apEditPage;
 
     QTimer m_sortDelayTimer;

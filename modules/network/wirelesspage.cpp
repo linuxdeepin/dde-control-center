@@ -4,7 +4,6 @@
 #include "settingsgroup.h"
 #include "switchwidget.h"
 #include "translucentframe.h"
-#include "connecthiddenpage.h"
 #include "connectioneditpage.h"
 #include "connectionsessionworker.h"
 #include "connectionsessionmodel.h"
@@ -73,9 +72,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
 WirelessPage::~WirelessPage()
 {
-    if (!m_connectHidePage.isNull())
-        m_connectHidePage->deleteLater();
-
     if (!m_apEditPage.isNull())
         m_apEditPage->deleteLater();
 }
@@ -146,10 +142,6 @@ void WirelessPage::onAPRemoved(const QString &ssid)
 
 void WirelessPage::onDeviceRemoved()
 {
-    // back if this page exist
-    if (!m_connectHidePage.isNull())
-        m_connectHidePage->onDeviceRemoved();
-
     // back if ap edit page exist
     if (!m_apEditPage.isNull())
         m_apEditPage->onDeviceRemoved();
@@ -181,13 +173,15 @@ void WirelessPage::sortAPList()
 
 void WirelessPage::showConnectHidePage()
 {
-    if (m_connectHidePage.isNull())
-    {
-        m_connectHidePage = new ConnectHiddenPage(this);
-        connect(m_connectHidePage, &ConnectHiddenPage::requestNextPage, this, &WirelessPage::requestNextPage);
-    }
+//    if (m_connectHidePage.isNull())
+//    {
+//        m_connectHidePage = new ConnectHiddenPage(this);
+//        connect(m_connectHidePage, &ConnectHiddenPage::requestNextPage, this, &WirelessPage::requestNextPage);
+//    }
 
-    emit requestNextPage(m_connectHidePage);
+//    emit requestNextPage(m_connectHidePage);
+
+    emit requestCreateConnection("wireless", m_device->path());
 }
 
 void WirelessPage::showAPEditPage(const QString &session)
