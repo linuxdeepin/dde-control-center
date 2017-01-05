@@ -1,6 +1,8 @@
 #include "systeminfowidget.h"
 #include "settingsgroup.h"
 #include "titlevalueitem.h"
+#include "logoitem.h"
+#include "nextpagewidget.h"
 
 #include <QVBoxLayout>
 
@@ -20,7 +22,7 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     SettingsGroup* crGroup = new SettingsGroup();
     SettingsGroup* bootGroup = new SettingsGroup();
 
-    LogoItem* logo = new LogoItem();
+    LogoItem* logo = new LogoItem;
     logo->setDescription(tr("Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd."));
 
     m_version = new TitleValueItem();
@@ -29,7 +31,6 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
 
     m_type = new TitleValueItem();
     m_type->setTitle(tr("Type:"));
-    m_type->setValue(tr("%1Bit").arg(m_model->type()));
 
     m_processor = new TitleValueItem();
     m_processor->setTitle(tr("Processor:"));
@@ -70,6 +71,8 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     connect(m_model, SIGNAL(processorChanged(QString)), this, SLOT(setProcessor(QString)));
     connect(m_model, SIGNAL(memoryChanged(QString)), this, SLOT(setMemory(QString)));
     connect(m_model, SIGNAL(diskChanged(QString)), this, SLOT(setDisk(QString)));
+
+    setType(m_model->type());
 }
 
 void SystemInfoWidget::setEditor(const QString &edition)
@@ -79,7 +82,7 @@ void SystemInfoWidget::setEditor(const QString &edition)
 
 void SystemInfoWidget::setType(const QString &type)
 {
-    m_type->setValue(type);
+    m_type->setValue(tr("%1Bit").arg(type));
 }
 
 void SystemInfoWidget::setProcessor(const QString &processor)

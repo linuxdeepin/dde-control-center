@@ -3,6 +3,7 @@
 #include "settingsgroup.h"
 #include "settingsheaderitem.h"
 #include "translucentframe.h"
+#include "titlevalueitem.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -46,14 +47,21 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
     for (const auto &info : infos)
     {
         const QString name = info.value("ConnectionName").toString();
-//        const QString speed = info.value("Speed").toString();
+        const QString speed = info.value("Speed").toString();
+
+        TitleValueItem *speedItem = new TitleValueItem;
+        speedItem->setTitle(tr("Speed"));
+        speedItem->setValue(speed);
 
         SettingsGroup *grp = new SettingsGroup;
         grp->setHeaderVisible(true);
         grp->headerItem()->setTitle(name);
+        grp->appendItem(speedItem);
 
         m_groupsLayout->addWidget(grp);
     }
+
+    m_groupsLayout->addStretch();
 }
 
 }

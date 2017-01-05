@@ -2,14 +2,22 @@
 #define SYSTEMINFOWIDGET_H
 
 #include "modulewidget.h"
-#include "nextpagewidget.h"
-#include "titlevalueitem.h"
 #include "systeminfomodel.h"
 
 using namespace dcc;
 
-namespace dcc{
-namespace systeminfo{
+namespace dcc
+{
+
+namespace widgets {
+
+class TitleValueItem;
+class NextPageWidget;
+
+}
+
+namespace systeminfo
+{
 
 class SystemInfoWidget : public ModuleWidget
 {
@@ -30,14 +38,14 @@ public slots:
     void setDisk(const QString& disk);
 
 private:
-    TitleValueItem* m_version;
-    TitleValueItem* m_type;
-    TitleValueItem* m_processor;
-    TitleValueItem* m_memory;
-    TitleValueItem* m_disk;
+    widgets::TitleValueItem* m_version;
+    widgets::TitleValueItem* m_type;
+    widgets::TitleValueItem* m_processor;
+    widgets::TitleValueItem* m_memory;
+    widgets::TitleValueItem* m_disk;
 
-    NextPageWidget* m_copyright;
-    NextPageWidget* m_boot;
+    widgets::NextPageWidget* m_copyright;
+    widgets::NextPageWidget* m_boot;
     SystemInfoModel* m_model;
 };
 
