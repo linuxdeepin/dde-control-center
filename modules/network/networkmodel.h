@@ -27,11 +27,13 @@ public:
     const QList<QJsonObject> vpns() const { return m_connections.value("vpn"); }
     const QList<QJsonObject> wireds() const { return m_connections.value("wired"); }
     const QList<QJsonObject> pppoes() const { return m_connections.value("pppoe"); }
+    const QList<QJsonObject> activeConnInfos() const { return m_activeConnections; }
     const QString connectionUuidByPath(const QString &connPath) const;
     const QString connectionUuidBySsid(const QString &ssid) const;
 
 signals:
     void connectionListChanged() const;
+    void activeConnInfoChanged(const QList<QJsonObject> &infos) const;
     void vpnEnabledChanged(const bool enabled) const;
     void deviceListChanged(const QList<NetworkDevice *> devices) const;
     void unhandledConnectionSessionCreated(const QString &device, const QString &sessionPath) const;
@@ -55,6 +57,7 @@ private:
     bool m_vpnEnabled;
     QList<NetworkDevice *> m_devices;
     QMap<QString, QList<QJsonObject>> m_connections;
+    QList<QJsonObject> m_activeConnections;
 };
 
 }   // namespace network
