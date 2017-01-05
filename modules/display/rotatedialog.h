@@ -25,6 +25,7 @@ protected:
     void resizeEvent(QResizeEvent *e);
     void leaveEvent(QEvent *e);
     void paintEvent(QPaintEvent *e);
+    void showEvent(QShowEvent *e);
 
 private:
     void rotate();

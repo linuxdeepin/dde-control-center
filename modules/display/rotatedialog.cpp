@@ -145,6 +145,13 @@ void RotateDialog::paintEvent(QPaintEvent *e)
     painter.drawText((h + tw) / -2, w - margin, Tips);
 }
 
+void RotateDialog::showEvent(QShowEvent *e)
+{
+    QDialog::showEvent(e);
+
+    QTimer::singleShot(1, this, &RotateDialog::grabKeyboard);
+}
+
 void RotateDialog::rotate()
 {
     const auto rotates = m_mon->rotateList();
