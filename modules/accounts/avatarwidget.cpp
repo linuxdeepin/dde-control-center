@@ -7,7 +7,6 @@
 #include <QVBoxLayout>
 #include <QApplication>
 
-#define PIX_SIZE    60
 
 using namespace dcc::accounts;
 
@@ -18,12 +17,13 @@ AvatarWidget::AvatarWidget(QWidget *parent)
     m_deleable(false),
     m_selected(false),
 
-    m_delBtn(new QPushButton)
+    m_delBtn(new AvatarDel)
 {
-    m_delBtn->setText("x");
     m_delBtn->setVisible(false);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(0);
     mainLayout->addWidget(m_delBtn);
     mainLayout->setAlignment(m_delBtn, Qt::AlignCenter);
 
@@ -31,7 +31,7 @@ AvatarWidget::AvatarWidget(QWidget *parent)
     setFixedSize(PIX_SIZE, PIX_SIZE);
     setObjectName("AvatarWidget");
 
-    connect(m_delBtn, &QPushButton::clicked, [=] { emit requestDelete(m_avatarPath); });
+    connect(m_delBtn, &AvatarDel::click, [=] { emit requestDelete(m_avatarPath); });
 }
 
 AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)

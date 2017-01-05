@@ -1,8 +1,11 @@
 #ifndef AVATARWIDGET_H
 #define AVATARWIDGET_H
 
+#include "avatardel.h"
 #include <QWidget>
 #include <QPushButton>
+
+#define PIX_SIZE    60
 
 namespace dcc {
 namespace accounts {
@@ -40,7 +43,7 @@ private:
     QPixmap m_avatar;
     QString m_avatarPath;
 
-    QPushButton *m_delBtn;
+    AvatarDel *m_delBtn;
 };
 
 }   // namespace accounts

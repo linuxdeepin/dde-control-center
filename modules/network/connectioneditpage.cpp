@@ -57,7 +57,7 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addWidget(m_cancelBtn);
     btnsLayout->addWidget(m_acceptBtn);
-    btnsLayout->setSpacing(0);
+    btnsLayout->setSpacing(1);
     btnsLayout->setContentsMargins(0, 0, 0, 0);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;

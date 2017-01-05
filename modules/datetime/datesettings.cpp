@@ -58,9 +58,8 @@ DateSettings::DateSettings(QWidget *parent)
 
     QHBoxLayout *buttonLayout = new QHBoxLayout;
     buttonLayout->setMargin(0);
-    buttonLayout->setSpacing(0);
+    buttonLayout->setSpacing(1);
     buttonLayout->addWidget(m_cancelButton);
-    buttonLayout->addSpacing(10);
     buttonLayout->addWidget(m_confirmButton);
 
     m_timezoneItem->setTitle(tr("Change System Timezone"));

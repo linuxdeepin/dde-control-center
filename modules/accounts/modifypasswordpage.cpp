@@ -34,13 +34,13 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     QHBoxLayout *buttonsLayout = new QHBoxLayout;
     buttonsLayout->addWidget(m_cancel);
     buttonsLayout->addWidget(m_accept);
-    buttonsLayout->setSpacing(0);
+    buttonsLayout->setSpacing(1);
     buttonsLayout->setMargin(0);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(pwdGroup);
     mainLayout->addLayout(buttonsLayout);
-    mainLayout->setSpacing(0);
+    mainLayout->setSpacing(10);
     mainLayout->setMargin(0);
 
     TranslucentFrame *mainWidget = new TranslucentFrame;
