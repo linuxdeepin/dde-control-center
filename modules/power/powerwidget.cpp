@@ -51,7 +51,7 @@ PowerWidget::PowerWidget()
     m_wakeNeedPassword->setTitle(tr("Password required to wake the computer"));
     m_passwordSettings->appendItem(m_wakeNeedPassword);
 
-    m_sleepOnLidOff->setTitle(tr("Suspend on lid off"));
+    m_sleepOnLidOff->setTitle(tr("Suspend on lid close"));
     m_notebookSettings->appendItem(m_sleepOnLidOff);
 
     m_centeralLayout->addWidget(m_sleepTimeoutSettings);

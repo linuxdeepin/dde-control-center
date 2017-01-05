@@ -51,7 +51,7 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     infoGroup->appendItem(m_disk);
 
     m_copyright = new NextPageWidget();
-    m_copyright->setTitle(tr("Protocol"));
+    m_copyright->setTitle(tr("License"));
 
     m_boot = new NextPageWidget();
     m_boot->setTitle(tr("Startup Menu"));

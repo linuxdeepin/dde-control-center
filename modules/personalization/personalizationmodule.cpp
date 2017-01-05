@@ -84,7 +84,7 @@ void PersonalizationModule::showStanardFontsListWidget()
 
 void PersonalizationModule::showMonoFontsListWidget()
 {
-    FontListWidget *w = new FontListWidget(tr("Monospaced font"));
+    FontListWidget *w = new FontListWidget(tr("Monospaced Font"));
     w->setModel(m_model->getMonoFontModel());
     connect(w, &FontListWidget::requestSetDefault, m_work, &PersonalizationWork::setDefault);
     m_frameProxy->pushWidget(this, w);

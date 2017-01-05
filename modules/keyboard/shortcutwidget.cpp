@@ -40,7 +40,7 @@ ShortcutWidget::ShortcutWidget(QWidget *parent)
     m_layout->addWidget(m_workspaceGroup);
     m_layout->addWidget(m_custonGroup);
 
-    m_addCustom = new QPushButton(tr("Add Custon Shortcut"));
+    m_addCustom = new QPushButton(tr("Add Custom Shortcut"));
     m_layout->addWidget(m_addCustom);
     m_widget->setLayout(m_layout);
 
