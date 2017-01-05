@@ -2,9 +2,16 @@
 #include "shortcutitem.h"
 #include <QTime>
 #include <QDebug>
+#include <QLocale>
+#include <QCollator>
+
 
 namespace dcc {
 namespace keyboard{
+
+
+bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2);
+
 KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
     : QObject(parent),
       m_model(model),
@@ -244,9 +251,22 @@ void KeyboardWork::onLocaleListFinish(QDBusPendingCallWatcher *watch)
         md.setText(list.at(i).name);
         m_datas.append(md);
     }
+
+    qSort(m_datas.begin(), m_datas.end(), caseInsensitiveLessThan);
+
     m_model->setLocaleList(m_datas);
     emit requestSetLangTitle(m_model->langByKey(key));
     watch->deleteLater();
+}
+
+bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2)
+{
+    QCollator qc;
+    int i = qc.compare(s1.text(), s2.text());
+    if (i < 0)
+        return true;
+    else
+        return false;
 }
 
 void KeyboardWork::onRequestShortcut(QDBusPendingCallWatcher *watch)
