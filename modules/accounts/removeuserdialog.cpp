@@ -12,8 +12,7 @@
 #include <QUrl>
 #include <QPainter>
 #include <QPainterPath>
-
-#include <dcheckbox.h>
+#include <QCheckBox>
 
 #include "avatarwidget.h"
 
@@ -46,7 +45,7 @@ RemoveUserDialog::RemoveUserDialog(const User *user, QWidget *parent) :
     const QPixmap pix = QPixmap(iconFile).scaled(48, 48, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     setIconPixmap(RoundPixmap(pix));
 
-    DCheckBox *box = new DCheckBox(tr("Delete account directory"));
+    QCheckBox *box = new QCheckBox(tr("Delete account directory"));
     box->setChecked(true);
     addContent(box, Qt::AlignTop);
 
@@ -54,7 +53,7 @@ RemoveUserDialog::RemoveUserDialog(const User *user, QWidget *parent) :
     buttons << tr("Cancel") << tr("Delete");
     addButtons(buttons);
 
-    connect(box, &DCheckBox::toggled, [this, box] {
+    connect(box, &QCheckBox::toggled, [this, box] {
         m_deleteHome = box->checkState() == Qt::Checked;
     });
 }
