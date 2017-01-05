@@ -34,6 +34,7 @@ signals:
     void requestNextPage(ContentWidget * const w) const;
     void requestVpnEnabled(const bool enabled) const;
     void requestEditVpn(const QString &devPath, const QString &connPath) const;
+    void requestActivateConnection(const QString &devPath, const QString &uuid) const;
     void requestCreateConnection(const QString &type, const QString &devicePath) const;
 
 public slots:
@@ -41,7 +42,8 @@ public slots:
     void refershVpnList(const QList<QJsonObject> &vpnList);
 
 private slots:
-    void onVpnClicked();
+    void onVpnDetailClicked();
+    void onVpnSelected();
     void onSessionPageFinished();
     void onVpnSessionCreated(const QString &device, const QString &sessionPath);
     void createVPNSession();

@@ -146,6 +146,8 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
 //    for (auto *dev : m_devices)
 //        if (dev->type() == NetworkDevice::Wired)
 //            static_cast<WiredDevice *>(dev)->onPPPInfoChanged(m_connections["pppoe"]);
+
+    emit connectionListChanged();
 }
 
 void NetworkModel::onActiveConnInfoChanged(const QString &conns)

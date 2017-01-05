@@ -96,6 +96,11 @@ void NetworkWorker::createConnection(const QString &type, const QString &devPath
     connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryConnectionSessionCB);
 }
 
+void NetworkWorker::activateConnection(const QString &devPath, const QString &uuid)
+{
+    m_networkInter.ActivateConnection(uuid, QDBusObjectPath(devPath));
+}
+
 void NetworkWorker::activateAccessPoint(const QString &devPath, const QString &apPath, const QString &ssid)
 {
     const QString uuid = m_networkModel->connectionUuidBySsid(ssid);

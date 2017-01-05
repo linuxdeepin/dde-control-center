@@ -63,6 +63,7 @@ void VpnPage::setModel(NetworkModel *model)
 
     connect(m_model, &NetworkModel::vpnEnabledChanged, m_vpnSwitch, &SwitchWidget::setChecked);
     connect(m_model, &NetworkModel::unhandledConnectionSessionCreated, this, &VpnPage::onVpnSessionCreated);
+    connect(m_model, &NetworkModel::connectionListChanged, this, [=] { refershVpnList(m_model->vpns()); });
 
     m_vpnSwitch->setChecked(m_model->vpnEnabled());
 
@@ -71,6 +72,9 @@ void VpnPage::setModel(NetworkModel *model)
 
 void VpnPage::refershVpnList(const QList<QJsonObject> &vpnList)
 {
+    if (vpnList.size() == m_vpnGroup->itemCount())
+        return;
+
     m_vpnGroup->clear();
     qDeleteAll(m_vpns.keys());
     m_vpns.clear();
@@ -80,14 +84,15 @@ void VpnPage::refershVpnList(const QList<QJsonObject> &vpnList)
         NextPageWidget *w = new NextPageWidget;
         w->setTitle(vpn.value("Id").toString());
 
-        connect(w, &NextPageWidget::clicked, this, &VpnPage::onVpnClicked);
+        connect(w, &NextPageWidget::acceptNextPage, this, &VpnPage::onVpnDetailClicked);
+        connect(w, &NextPageWidget::selected, this, &VpnPage::onVpnSelected);
 
         m_vpns[w] = vpn;
         m_vpnGroup->appendItem(w);
     }
 }
 
-void VpnPage::onVpnClicked()
+void VpnPage::onVpnDetailClicked()
 {
     NextPageWidget *w = static_cast<NextPageWidget *>(sender());
     Q_ASSERT(w && m_vpns.contains(w));
@@ -95,6 +100,17 @@ void VpnPage::onVpnClicked()
     const QString connPath = m_vpns[w].value("Path").toString();
 
     emit requestEditVpn("/", connPath);
+}
+
+void VpnPage::onVpnSelected()
+{
+    NextPageWidget *w = static_cast<NextPageWidget *>(sender());
+    Q_ASSERT(w && m_vpns.contains(w));
+
+    const auto info = m_vpns[w];
+    const QString uuid = info.value("Uuid").toString();
+
+    emit requestActivateConnection("/", uuid);
 }
 
 void VpnPage::onSessionPageFinished()

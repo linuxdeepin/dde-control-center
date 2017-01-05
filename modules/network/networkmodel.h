@@ -31,6 +31,7 @@ public:
     const QString connectionUuidBySsid(const QString &ssid) const;
 
 signals:
+    void connectionListChanged() const;
     void vpnEnabledChanged(const bool enabled) const;
     void deviceListChanged(const QList<NetworkDevice *> devices) const;
     void unhandledConnectionSessionCreated(const QString &device, const QString &sessionPath) const;
