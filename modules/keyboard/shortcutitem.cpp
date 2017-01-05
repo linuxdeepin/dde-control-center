@@ -168,12 +168,19 @@ void ShortcutItem::paintEvent(QPaintEvent *e)
     accels = accels.replace("Above_Tab", "`");
     accels = accels.replace("Super_L", "Super");
 
+    QString conflict(tr("Conflict"));
     QStringList splits = accels.split("-");
     int right = this->rect().right() - 2;
     for(int i = splits.count() - 1; i>=0; --i)
     {
+
         QString str = splits.at(i);
-        int w = fm.width(str);
+        int w;
+        if (str == "null" && m_display) {
+            w = fm.width(conflict);
+        } else {
+            w = fm.width(str);
+        }
         int h = (height() - fm.height()-6)/2;
         QRect r(0,0,w+8,height());
         r.moveRight(right);
