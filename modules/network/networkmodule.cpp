@@ -28,6 +28,13 @@ NetworkModule::NetworkModule(FrameProxyInterface *frame, QObject *parent)
 {
 }
 
+NetworkModule::~NetworkModule()
+{
+    m_networkModel->deleteLater();
+    m_networkWorker->deleteLater();
+    m_networkWidget->deleteLater();
+}
+
 void NetworkModule::initialize()
 {
     m_networkModel = new NetworkModel;
