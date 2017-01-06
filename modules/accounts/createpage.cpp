@@ -74,6 +74,7 @@ CreatePage::CreatePage(QWidget *parent) :
     connect(this, &CreatePage::appear, m_errorTip, &ErrorTip::appearIfNotEmpty, Qt::QueuedConnection);
 
     connect(m_username->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
+    connect(m_username->textEdit(), &QLineEdit::textEdited, [=] { m_username->textEdit()->setText(m_username->textEdit()->text().toLower()); });
     connect(m_repeatpass->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
     connect(m_password->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
 }
