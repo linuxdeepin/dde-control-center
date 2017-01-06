@@ -16,14 +16,13 @@ class NextPageWidget;
 }
 namespace personalization
 {
-class FontModel;
+class PersonalizationModel;
 class FontSettingsWidget : public widgets::TranslucentFrame
 {
     Q_OBJECT
 public:
     explicit FontSettingsWidget(QWidget *parent = 0);
-    void setFontStandModel(FontModel *const model);
-    void setFontMonoModel(FontModel *const model);
+    void setModel(PersonalizationModel *const model);
 
 signals:
     void showStandardFont();

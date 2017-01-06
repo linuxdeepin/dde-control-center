@@ -12,7 +12,11 @@ using namespace dcc::personalization;
 PersonalizationModule::PersonalizationModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),
-      m_personalizationWidget(nullptr)
+      m_personalizationWidget(nullptr),
+      m_themeWidget(nullptr),
+      m_fontSWidget(nullptr),
+      m_StandardfontList(nullptr),
+      m_MonofontList(nullptr)
 {
 }
 
@@ -56,38 +60,44 @@ const QString PersonalizationModule::name() const
 
 void PersonalizationModule::showThemeWidget()
 {
-    ThemeWidget *w = new ThemeWidget;
-    w->setModel(m_model);
-    connect(w, &ThemeWidget::requestSetDefault, m_work, &PersonalizationWork::setDefault);
-    m_frameProxy->pushWidget(this, w);
+    if (!m_themeWidget) {
+        m_themeWidget = new ThemeWidget;
+        m_themeWidget->setModel(m_model);
+        connect(m_themeWidget, &ThemeWidget::requestSetDefault, m_work, &PersonalizationWork::setDefault);
+    }
+    m_frameProxy->pushWidget(this, m_themeWidget);
 }
 
 void PersonalizationModule::showFontsWidget()
 {
-    FontsWidget *w = new FontsWidget;
-    w->setModel(m_model);
-
-    connect(w, &FontsWidget::showStandardFont, this, &PersonalizationModule::showStanardFontsListWidget);
-    connect(w, &FontsWidget::showMonoFont,    this, &PersonalizationModule::showMonoFontsListWidget);
-    connect(w, &FontsWidget::requestSetFontSize, m_work, &PersonalizationWork::setFontSize);
-
-    m_frameProxy->pushWidget(this, w);
+    if (!m_fontSWidget) {
+        m_fontSWidget = new FontsWidget;
+        m_fontSWidget->setModel(m_model);
+        connect(m_fontSWidget, &FontsWidget::showStandardFont, this, &PersonalizationModule::showStanardFontsListWidget);
+        connect(m_fontSWidget, &FontsWidget::showMonoFont,    this, &PersonalizationModule::showMonoFontsListWidget);
+        connect(m_fontSWidget, &FontsWidget::requestSetFontSize, m_work, &PersonalizationWork::setFontSize);
+    }
+    m_frameProxy->pushWidget(this, m_fontSWidget);
 }
 
 void PersonalizationModule::showStanardFontsListWidget()
 {
-    FontListWidget *w = new FontListWidget(tr("Standard Font"));
-    w->setModel(m_model->getStandFontModel());
-    connect(w, &FontListWidget::requestSetDefault, m_work, &PersonalizationWork::setDefault);
-    m_frameProxy->pushWidget(this, w);
+    if (!m_StandardfontList) {
+        m_StandardfontList = new FontListWidget(tr("Standard Font"));
+        m_StandardfontList->setModel(m_model->getStandFontModel());
+        connect(m_StandardfontList, &FontListWidget::requestSetDefault, m_work, &PersonalizationWork::setDefault);
+    }
+    m_frameProxy->pushWidget(this, m_StandardfontList);
 }
 
 void PersonalizationModule::showMonoFontsListWidget()
 {
-    FontListWidget *w = new FontListWidget(tr("Monospaced Font"));
-    w->setModel(m_model->getMonoFontModel());
-    connect(w, &FontListWidget::requestSetDefault, m_work, &PersonalizationWork::setDefault);
-    m_frameProxy->pushWidget(this, w);
+    if (!m_MonofontList) {
+        m_MonofontList = new FontListWidget(tr("Monospaced Font"));
+        m_MonofontList->setModel(m_model->getMonoFontModel());
+        connect(m_MonofontList, &FontListWidget::requestSetDefault, m_work, &PersonalizationWork::setDefault);
+    }
+    m_frameProxy->pushWidget(this, m_MonofontList);
 }
 
 PersonalizationModule::~PersonalizationModule()
@@ -102,5 +112,14 @@ PersonalizationModule::~PersonalizationModule()
 
 void PersonalizationModule::contentPopped(ContentWidget *const w)
 {
+    if (w == m_StandardfontList)
+        m_StandardfontList = nullptr;
+    else if (w == m_MonofontList)
+        m_MonofontList = nullptr;
+    else if (w == m_themeWidget)
+        m_themeWidget = nullptr;
+    else if (w == m_fontSWidget)
+        m_fontSWidget = nullptr;
+
     w->deleteLater();
 }

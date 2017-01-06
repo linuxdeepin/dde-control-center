@@ -3,6 +3,7 @@
 #include "fontsettingswidget.h"
 #include "nextpagewidget.h"
 #include "personalization/personalizationmodel.h"
+#include "personalization/model/fontmodel.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -32,6 +33,5 @@ FontsWidget::FontsWidget(QWidget *parent)
 void FontsWidget::setModel(PersonalizationModel *const model)
 {
     m_fontSizeWidget->setModel(model->getFontSizeModel());
-    m_fontSettingsWidget->setFontStandModel(model->getStandFontModel());
-    m_fontSettingsWidget->setFontMonoModel(model->getMonoFontModel());
+    m_fontSettingsWidget->setModel(model);
 }

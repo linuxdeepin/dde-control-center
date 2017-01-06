@@ -32,7 +32,6 @@ public:
 signals:
     void requestSetDefault(const QJsonObject &value);
 
-
 public slots:
     void setModel(FontModel *const model);
     void setList(const QList<QJsonObject> &list);

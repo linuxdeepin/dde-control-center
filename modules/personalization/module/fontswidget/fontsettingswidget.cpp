@@ -2,6 +2,7 @@
 #include "contentwidget.h"
 #include "nextpagewidget.h"
 #include "settingsgroup.h"
+#include "personalization/personalizationmodel.h"
 #include "../../model/fontmodel.h"
 
 using namespace dcc;
@@ -35,12 +36,13 @@ FontSettingsWidget::FontSettingsWidget(QWidget *parent)
     connect(m_mono, &NextPageWidget::clicked, this, &FontSettingsWidget::showMonoFont);
 }
 
-void FontSettingsWidget::setFontStandModel(FontModel *const model)
+void FontSettingsWidget::setModel(PersonalizationModel * const model)
 {
-    m_standard->setValue(model->getFontName());
-}
+    FontModel *standmodel = model->getStandFontModel();
+    FontModel *monomodel  = model->getMonoFontModel();
+    connect(standmodel, &FontModel::defaultFontChanged, m_standard, &NextPageWidget::setValue);
+    connect(monomodel, &FontModel::defaultFontChanged, m_mono, &NextPageWidget::setValue);
 
-void FontSettingsWidget::setFontMonoModel(FontModel *const model)
-{
-    m_mono->setValue(model->getFontName());
+    m_standard->setValue(standmodel->getFontName());
+    m_mono->setValue(monomodel->getFontName());
 }

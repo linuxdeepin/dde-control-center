@@ -25,8 +25,8 @@ PersonalizationWidget::PersonalizationWidget()
     NextPageWidget *theme = new NextPageWidget;
     NextPageWidget *font = new NextPageWidget;
 
-    theme->setTitle(tr("Themes"));
-    font->setTitle(tr("Fonts"));
+    theme->setTitle(tr("Theme"));
+    font->setTitle(tr("Font"));
 
     m_userGroup->appendItem(theme);
     m_userGroup->appendItem(font);
