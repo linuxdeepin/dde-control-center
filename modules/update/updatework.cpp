@@ -14,8 +14,7 @@ static int TestMirrorSpeedInternal(const QString &url)
 
     QProcess process;
     process.start("netselect", args);
-    process.waitForFinished(5000);
-    process.kill();
+    process.waitForFinished();
 
     const QString output = process.readAllStandardOutput().trimmed();
     const QStringList result = output.split(' ');
