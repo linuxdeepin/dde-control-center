@@ -22,6 +22,7 @@ signals:
 
 private slots:
     void passwordSubmit();
+    void checkPwd();
 
 private:
     User *m_userInter;

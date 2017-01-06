@@ -51,6 +51,8 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
 
     connect(m_accept, &QPushButton::clicked, this, &ModifyPasswordPage::passwordSubmit);
     connect(m_cancel, &QPushButton::clicked, this, &ModifyPasswordPage::back);
+    connect(m_pwdEdit->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::checkPwd);
+    connect(m_pwdEditRepeat->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::checkPwd);
 }
 
 void ModifyPasswordPage::passwordSubmit()
@@ -58,12 +60,15 @@ void ModifyPasswordPage::passwordSubmit()
     const QString pwd0 = m_pwdEdit->textEdit()->text();
     const QString pwd1 = m_pwdEditRepeat->textEdit()->text();
 
-    if (pwd0 == pwd1)
-    {
-        emit requestChangePassword(m_userInter, pwd0);
+    if (pwd0 != pwd1)
         return;
-    }
 
-    // TODO: password not match
-    qDebug() << "password not match";
+    emit requestChangePassword(m_userInter, pwd0);
+    emit back();
+}
+
+void ModifyPasswordPage::checkPwd()
+{
+    m_pwdEdit->setIsErr(m_pwdEdit->text().isEmpty());
+    m_pwdEditRepeat->setIsErr(m_pwdEditRepeat->text() != m_pwdEdit->text());
 }
