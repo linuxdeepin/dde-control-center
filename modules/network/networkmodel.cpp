@@ -220,7 +220,7 @@ void NetworkModel::onDeviceAPRemoved(const QString &device, const QString &apInf
 }
 
 
-void NetworkModel::onDeviceEnableChaned(const QString &device, const bool enabled)
+void NetworkModel::onDeviceEnableChanged(const QString &device, const bool enabled)
 {
     NetworkDevice *dev = nullptr;
     for (auto const d : m_devices)

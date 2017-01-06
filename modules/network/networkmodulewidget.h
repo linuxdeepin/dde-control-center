@@ -27,6 +27,7 @@ signals:
     void requestShowPppPage() const;
     void requestShowInfomation() const;
     void requestShowDeviceDetail(NetworkDevice *device) const;
+    void requestDeviceEnable(const QString &devPath, const bool enable) const;
 
 private slots:
     void onDeviceListChanged(const QList<NetworkDevice *> &devices);

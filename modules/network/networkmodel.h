@@ -48,7 +48,7 @@ private slots:
     void onDeviceAPListChanged(const QString &device, const QString &apList);
     void onDeviceAPInfoChanged(const QString &device, const QString &apInfo);
     void onDeviceAPRemoved(const QString &device, const QString &apInfo);
-    void onDeviceEnableChaned(const QString &device, const bool enabled);
+    void onDeviceEnableChanged(const QString &device, const bool enabled);
 
 private:
     bool containsDevice(const QString &devPath) const;

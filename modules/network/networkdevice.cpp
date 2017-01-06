@@ -11,7 +11,8 @@ NetworkDevice::NetworkDevice(const DeviceType type, const QJsonObject &info, QOb
     : QObject(parent),
 
       m_type(type),
-      m_status(Unknow)
+      m_status(Unknow),
+      m_enabled(true)
 {
     updateDeviceInfo(info);
 }
