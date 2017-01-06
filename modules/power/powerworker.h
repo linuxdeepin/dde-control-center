@@ -28,11 +28,7 @@ public slots:
     void setSleepDelayToModel(const int delay);
     void setScreenBlackDelayToModel(const int delay);
 
-private slots:
-    void lidClosedActionChanged(const QString & value);
-
 private:
-    bool isActionSuspend(const QString &action);
     int  converToDelayModel(int value);
     int  converToDelayDBus(int value);
 

@@ -1,7 +1,5 @@
 #include "powerworker.h"
 
-static const char *SuspendAction = "dbus-send --print-reply --dest=com.deepin.SessionManager /com/deepin/SessionManager com.deepin.SessionManager.RequestSuspend";
-
 PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     : QObject(parent),
 
@@ -14,7 +12,7 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::ScreenBlackLockChanged, m_powerModel, &PowerModel::setScreenBlackLock);
     connect(m_powerInter, &PowerInter::SleepLockChanged, m_powerModel, &PowerModel::setSleepLock);
     connect(m_powerInter, &PowerInter::LidIsPresentChanged, m_powerModel, &PowerModel::setLidPresent);
-    connect(m_powerInter, &PowerInter::LidClosedActionChanged, this, &PowerWorker::lidClosedActionChanged);
+    connect(m_powerInter, &PowerInter::LidCloseSleepChanged, m_powerModel, &PowerModel::setSleepOnLidClose);
     connect(m_powerInter, &PowerInter::LinePowerScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModel);
     connect(m_powerInter, &PowerInter::LinePowerSleepDelayChanged, this, &PowerWorker::setSleepDelayToModel);
 }
@@ -27,7 +25,7 @@ void PowerWorker::active()
     m_powerModel->setScreenBlackLock(m_powerInter->screenBlackLock());
     m_powerModel->setSleepLock(m_powerInter->sleepLock());
     m_powerModel->setLidPresent(m_powerInter->lidIsPresent());
-    m_powerModel->setSleepOnLidClose(isActionSuspend(m_powerInter->lidClosedAction()));
+    m_powerModel->setSleepOnLidClose(m_powerInter->lidCloseSleep());
 
     setScreenBlackDelayToModel(m_powerInter->linePowerScreenBlackDelay());
     setSleepDelayToModel(m_powerInter->linePowerSleepDelay());
@@ -50,7 +48,7 @@ void PowerWorker::setSleepLock(const bool lock)
 
 void PowerWorker::setSleepOnLidClosed(const bool sleep)
 {
-    m_powerInter->setLidClosedAction(sleep ? SuspendAction : "");
+    m_powerInter->setLidCloseSleep(sleep);
 }
 
 void PowerWorker::setSleepDelay(const int delay)
@@ -73,16 +71,6 @@ void PowerWorker::setSleepDelayToModel(const int delay)
 void PowerWorker::setScreenBlackDelayToModel(const int delay)
 {
     m_powerModel->setScreenBlackDelay(converToDelayModel(delay));
-}
-
-void PowerWorker::lidClosedActionChanged(const QString &value)
-{
-    m_powerModel->setSleepOnLidClose(isActionSuspend(value));
-}
-
-bool PowerWorker::isActionSuspend(const QString &action)
-{
-    return action.contains("RequestSuspend");
 }
 
 int PowerWorker::converToDelayModel(int value)
