@@ -57,6 +57,7 @@ private:
     SettingsHeaderItem *m_headerItem;
 
     QTimer *m_updateHeightTimer;
+    QTimer *m_updateHeadTailTimer;
 };
 
 }

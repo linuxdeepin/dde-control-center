@@ -23,15 +23,20 @@ SettingsGroup::SettingsGroup(QFrame *parent) :
     TranslucentFrame(parent),
     m_layout(new QVBoxLayout),
     m_headerItem(nullptr),
-    m_updateHeightTimer(new QTimer(this))
+    m_updateHeightTimer(new QTimer(this)),
+    m_updateHeadTailTimer(new QTimer(this))
 {
     m_layout->setMargin(0);
     m_layout->setSpacing(1);
 
     m_updateHeightTimer->setSingleShot(true);
-    m_updateHeightTimer->setInterval(1);
+    m_updateHeightTimer->setInterval(10);
+
+    m_updateHeadTailTimer->setSingleShot(true);
+    m_updateHeadTailTimer->setInterval(10);
 
     connect(m_updateHeightTimer, &QTimer::timeout, this, &SettingsGroup::updateHeight, Qt::QueuedConnection);
+    connect(m_updateHeadTailTimer, &QTimer::timeout, this, &SettingsGroup::updateHeadTail, Qt::QueuedConnection);
 
     setLayout(m_layout);
 }
@@ -72,7 +77,7 @@ void SettingsGroup::insertItem(const int index, SettingsItem *item)
     m_layout->insertWidget(index, item);
     item->installEventFilter(this);
 
-    updateHeadTail();
+    m_updateHeadTailTimer->start();
     m_updateHeightTimer->start();
 }
 
@@ -86,7 +91,7 @@ void SettingsGroup::removeItem(SettingsItem *item)
     m_layout->removeWidget(item);
     item->removeEventFilter(this);
 
-    updateHeadTail();
+    m_updateHeadTailTimer->start();
     m_updateHeightTimer->start();
 }
 
@@ -102,7 +107,7 @@ void SettingsGroup::moveItem(SettingsItem *item, const int index)
     const int max = m_layout->count() - 1;
     if (index == 0 || index == max ||
         oldIndex == 0 || oldIndex == max)
-        updateHeadTail();
+        m_updateHeadTailTimer->start();
 }
 
 void SettingsGroup::setSpacing(const int spaceing)
@@ -131,7 +136,7 @@ void SettingsGroup::clear()
         delete item;
     }
 
-    updateHeadTail();
+    m_updateHeadTailTimer->start();
     m_updateHeightTimer->start();
 }
 
@@ -150,23 +155,47 @@ SettingsItem *SettingsGroup::getItem(int index)
 
 bool SettingsGroup::eventFilter(QObject *, QEvent *event)
 {
-    if (event->type() == QEvent::Resize || event->type() == QEvent::Show || event->type() == QEvent::Hide)
-        m_updateHeightTimer->start();
+//    if (event->type() == QEvent::Resize || event->type() == QEvent::Show || event->type() == QEvent::Hide)
+//        m_updateHeightTimer->start();
+
+    switch (event->type())
+    {
+    case QEvent::Show:
+    case QEvent::Hide:          m_updateHeadTailTimer->start();     // not break
+
+    case QEvent::Resize:        m_updateHeightTimer->start();       break;
+    default:;
+    }
 
     return false;
 }
 
 void SettingsGroup::updateHeadTail()
 {
+    SettingsItem *head = nullptr;
+    SettingsItem *tail = nullptr;
+
     const int count = m_layout->count();
     for (int i(0); i != count; ++i)
     {
         SettingsItem *item = qobject_cast<SettingsItem *>(m_layout->itemAt(i)->widget());
         Q_ASSERT(item);
 
-        item->setIsHead(i == 0);
-        item->setIsTail(i == count - 1);
+        if (!item->isVisible())
+            continue;
+
+        item->setIsHead(false);
+        item->setIsTail(false);
+
+        if (!head)
+            head = item;
+        tail = item;
     }
+
+    if (head)
+        head->setIsHead();
+    if (tail)
+        tail->setIsTail();
 }
 
 void SettingsGroup::updateHeight()
