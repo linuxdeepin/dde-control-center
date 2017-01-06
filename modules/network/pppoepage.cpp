@@ -6,6 +6,8 @@
 #include "translucentframe.h"
 #include "nextpagewidget.h"
 #include "switchwidget.h"
+#include "connectionsessionworker.h"
+#include "connectionsessionmodel.h"
 #include "connectioneditpage.h"
 
 #include <QPushButton>
@@ -18,10 +20,8 @@ using namespace dcc::network;
 PppoePage::PppoePage(QWidget *parent)
     : ContentWidget(parent),
       m_settingsGrp(new SettingsGroup),
-      m_pppoeSwitch(new SwitchWidget),
       m_createBtn(new QPushButton)
 {
-    m_settingsGrp->appendItem(m_pppoeSwitch);
     m_createBtn->setText(tr("Create PPPoE Connection"));
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -59,7 +59,7 @@ void PppoePage::setModel(NetworkModel *model)
         NextPageWidget *w = new NextPageWidget;
         w->setTitle(name);
 
-        connect(w, &NextPageWidget::clicked,  this, &PppoePage::onConnectionDetailClicked);
+        connect(w, &NextPageWidget::acceptNextPage,  this, &PppoePage::onConnectionDetailClicked);
 
         m_settingsGrp->appendItem(w);
         m_connPath[w] = path;
@@ -82,6 +82,18 @@ void PppoePage::onConnectionDetailClicked()
 void PppoePage::onConnectionSessionCreated(const QString &devicePath, const QString &sessionPath)
 {
     Q_ASSERT(devicePath == "/");
+    Q_ASSERT(m_editPage.isNull());
 
-    qDebug() << sessionPath;
+    m_editPage = new ConnectionEditPage;
+
+    ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
+    ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
+
+    m_editPage->setModel(sessionModel);
+    connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
+    connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
+    connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
+    connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
+
+    emit requestNextPage(m_editPage);
 }

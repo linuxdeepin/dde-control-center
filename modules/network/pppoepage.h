@@ -45,7 +45,6 @@ private:
     NetworkModel *m_model;
 
     widgets::SettingsGroup *m_settingsGrp;
-    widgets::SwitchWidget *m_pppoeSwitch;
     QPushButton *m_createBtn;
     QMap<widgets::NextPageWidget *, QString> m_connPath;
     QPointer<ConnectionEditPage> m_editPage;
