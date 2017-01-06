@@ -22,9 +22,6 @@ public:
 protected:
     void paintEvent(QPaintEvent *);
 
-signals:
-    void shortcutChanged(const QString& shortcut);
-
 private:
     bool m_modifiers;
     int m_keycount;

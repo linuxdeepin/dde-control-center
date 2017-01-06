@@ -41,7 +41,6 @@ public slots:
     void onPushKBDetails();
     void onPushLanguage();
     void onPushShortcut();
-    void onPushShortcutControl(const QString& shortcut);
     void onPushCustonShortcut();
 
     void onKeyboardBack();
@@ -56,6 +55,7 @@ public slots:
     void onSetLocale(const QModelIndex &index);
     void onShortcutChecked(bool valid, ShortcutInfo *info, const QString& shortcut);
     void onShortcutSet(const QString& shortcut);
+    void onShortcutKeySet(const QString& shortcut);
 
     void onAdded(const QString& in0, int in1);
     void onDelShortcut(ShortcutInfo* info);

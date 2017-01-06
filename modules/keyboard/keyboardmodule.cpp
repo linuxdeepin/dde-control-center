@@ -241,18 +241,12 @@ void KeyboardModule::onPushShortcut()
     m_frameProxy->pushWidget(this, m_shortcutWidget);
 }
 
-void KeyboardModule::onPushShortcutControl(const QString &shortcut)
-{
-    Q_UNUSED(shortcut);
-}
-
 void KeyboardModule::onPushCustonShortcut()
 {
     if(!m_customContent)
     {
         m_customContent = new CustomContent(m_work);
         connect(m_customContent, SIGNAL(shortcut(QString)), this, SLOT(onShortcutSet(QString)));
-//        connect(m_customContent, SIGNAL(click()), this, SLOT(onPushCustonShortcut()));
     }
 
     m_frameProxy->pushWidget(this, m_customContent);
@@ -379,6 +373,7 @@ void KeyboardModule::onShortcutChecked(bool valid, ShortcutInfo* info, const QSt
         if(!m_scContent)
         {
             m_scContent = new ShortcutContent(m_work);
+            connect(m_scContent, &ShortcutContent::shortcut, this, &KeyboardModule::onShortcutKeySet);
             checkeds<<dests;
             m_scContent->setConflictString(checkeds);
             if(conflict)
@@ -400,6 +395,18 @@ void KeyboardModule::onShortcutSet(const QString &shortcut)
     {
         m_customContent->setBottomTip(conflict);
         m_customContent->setConflictString(list);
+    }
+}
+
+void KeyboardModule::onShortcutKeySet(const QString &shortcut)
+{
+    QStringList list;
+    ShortcutInfo* conflict = checkConflict(shortcut, list);
+
+    if(m_scContent)
+    {
+        m_scContent->setBottomTip(conflict);
+        m_scContent->setConflictString(list);
     }
 }
 

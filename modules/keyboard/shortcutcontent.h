@@ -26,12 +26,11 @@ public:
     void setConflictString(const QStringList& list);
 
 signals:
-    void shortcutChanged(const QString& shortcut);
+    void shortcut(const QString &shortcut);
 
 public slots:
     void onClick();
     void onReplace();
-    void setShortcut(const QString& shortcut);
     void onKeyEvent(bool press, QString shortcut);
 private:
     KeyboardWork* m_work;

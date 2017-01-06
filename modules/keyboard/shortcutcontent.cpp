@@ -45,15 +45,23 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
     connect(m_ok, SIGNAL(clicked()), this, SLOT(onReplace()));
     connect(m_cancel, SIGNAL(clicked()), this, SIGNAL(back()));
     connect(item,SIGNAL(click()), this, SLOT(onClick()));
-    connect(m_control, SIGNAL(shortcutChanged(QString)), this, SLOT(setShortcut(QString)));
     connect(m_work, SIGNAL(KeyEvent(bool,QString)), this, SLOT(onKeyEvent(bool,QString)));
 }
 
 void ShortcutContent::setBottomTip(ShortcutInfo* conflict)
 {
-    QString str = tr("This shortcut conflicts with  %1, click on Replace to make this chortcut effective immediately").arg(conflict->name);
-    m_bottomTip->setText(str);
     m_conflict = conflict;
+    if(conflict)
+    {
+        QString str = tr("This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately").arg(conflict->name);
+        m_bottomTip->setText(str);
+        m_bottomTip->show();
+    }
+    else
+    {
+        m_bottomTip->clear();
+        m_bottomTip->hide();
+    }
 }
 
 void ShortcutContent::setCurInfo(ShortcutInfo *info)
@@ -69,6 +77,7 @@ void ShortcutContent::setConflictString(const QStringList &list)
 void ShortcutContent::onClick()
 {
     m_work->grabScreen();
+    m_control->setFocus();
 }
 
 void ShortcutContent::onReplace()
@@ -78,12 +87,6 @@ void ShortcutContent::onReplace()
     m_work->modifyShortcut(m_curInfo, key);
     m_conflict->item->displayConflict(true);
     m_curInfo->item->displayConflict();
-    sendBackSignal();
-}
-
-void ShortcutContent::setShortcut(const QString &shortcut)
-{
-    m_work->modifyShortcut(m_curInfo, shortcut);
     sendBackSignal();
 }
 
@@ -98,9 +101,11 @@ void ShortcutContent::onKeyEvent(bool press, QString shortcut)
     {
         m_control->setPress(keys.at(i), press);
     }
+
     if(!press)
     {
         bool result = m_work->checkAvaliable(shortcut);
+        emit this->shortcut(shortcut);
         if(result)
         {
             m_work->modifyShortcut(m_curInfo, shortcut);
