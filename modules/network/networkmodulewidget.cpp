@@ -119,7 +119,7 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
     connect(s, &SwitchWidget::checkedChanegd, [=](const bool checked) { emit requestDeviceEnable(dev->path(), checked); });
     connect(w, &NextPageWidget::clicked, this, &NetworkModuleWidget::onNextPageClicked);
     connect(dev, &NetworkDevice::enableChanged, s, &SwitchWidget::setChecked);
-    connect(dev, &NetworkDevice::statusChanged, w, [=](NetworkDevice::DeviceStatus stat) { w->setValue(QString::number(stat)); });
+    connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), w, &NextPageWidget::setValue);
 
     if (dev->type() == NetworkDevice::Wired)
     {
@@ -152,7 +152,7 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
     s->setChecked(dev->enabled());
     s->blockSignals(false);
     w->setVisible(dev->enabled());
-    w->setValue(QString::number(dev->status()));
+    w->setValue(dev->statusString());
 
     g->appendItem(s);
     g->appendItem(w);

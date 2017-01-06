@@ -44,6 +44,7 @@ public:
     bool enabled() const { return m_enabled; }
     DeviceType type() const { return m_type; }
     DeviceStatus status() const { return m_status; }
+    const QString statusString() const;
     const QJsonObject info() const { return m_deviceInfo; }
     const QString path() const;
     const QString hwAddr() const;
@@ -51,6 +52,7 @@ public:
 signals:
     void removed() const;
     void statusChanged(DeviceStatus stat) const;
+    void statusChanged(const QString &statStr) const;
     void enableChanged(const bool enabled) const;
     void sessionCreated(const QString &sessionPath) const;
 

@@ -42,7 +42,29 @@ void NetworkDevice::setDeviceStatus(const int status)
         m_status = stat;
 
         emit statusChanged(m_status);
+        emit statusChanged(statusString());
     }
+}
+
+const QString NetworkDevice::statusString() const
+{
+    switch (m_status)
+    {
+    case Unmanaged:
+    case Unavailable:
+    case Disconnected:  return tr("Disconnected");
+    case Prepare:
+    case Config:        return tr("Connecting");
+    case NeedAuth:      return tr("Authing");
+    case IpConfig:
+    case IpCheck:       return tr("Obtaining Address");
+    case Activated:     return tr("Connected");
+    case Deactivation:
+    case Failed:        return tr("Failed");
+    default:;
+    }
+
+    return QString();
 }
 
 NetworkDevice::~NetworkDevice()
