@@ -18,6 +18,7 @@ NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
     connect(&m_networkInter, &NetworkInter::AccessPointPropertiesChanged, m_networkModel, &NetworkModel::onDeviceAPInfoChanged);
     connect(&m_networkInter, &NetworkInter::AccessPointRemoved, m_networkModel, &NetworkModel::onDeviceAPRemoved);
     connect(&m_networkInter, &NetworkInter::VpnEnabledChanged, m_networkModel, &NetworkModel::onVPNEnabledChanged);
+    connect(m_networkModel, &NetworkModel::requestDeviceStatus, this, &NetworkWorker::queryDeviceStatus);
 
     m_networkModel->onDeviceListChanged(m_networkInter.devices());
     m_networkModel->onConnectionListChanged(m_networkInter.connections());

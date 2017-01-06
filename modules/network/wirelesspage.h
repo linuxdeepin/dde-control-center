@@ -41,7 +41,6 @@ signals:
     void requestConnectAp(const QString &devPath, const QString &apPath, const QString ssid) const;
     void requestCreateConnection(const QString &type, const QString &devPath) const;
     void requestNextPage(ContentWidget * const w) const;
-    void requestDeviceStatus(const QString &devPath) const;
     void requestDeviceAPList(const QString &devPath) const;
     void requestDeviceEnabled(const QString &devPath, const bool enabled) const;
 
@@ -56,7 +55,6 @@ private:
     NetworkModel *m_model;
 
     dcc::widgets::SettingsGroup *m_listGroup;
-    dcc::widgets::SwitchWidget *m_switchBtn;
     AccessPointWidget *m_connectHideSSID;
 
     QPointer<ConnectionEditPage> m_apEditPage;

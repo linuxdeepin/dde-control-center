@@ -3,6 +3,7 @@
 #include "networkmodel.h"
 #include "nextpagewidget.h"
 #include "settingsgroup.h"
+#include "switchwidget.h"
 
 #include <QDebug>
 
@@ -12,7 +13,7 @@ using namespace dcc::network;
 NetworkModuleWidget::NetworkModuleWidget()
     : ModuleWidget(),
 
-      m_devicesLayout(new SettingsGroup),
+      m_devicesLayout(new QVBoxLayout),
 
       m_pppBtn(new NextPageWidget),
       m_vpnBtn(new NextPageWidget),
@@ -28,6 +29,9 @@ NetworkModuleWidget::NetworkModuleWidget()
 
     m_detailBtn->setTitle(tr("Network Details"));
 
+    m_devicesLayout->setMargin(0);
+    m_devicesLayout->setSpacing(10);
+
     SettingsGroup *connGroup = new SettingsGroup;
     connGroup->appendItem(m_pppBtn);
     connGroup->appendItem(m_vpnBtn);
@@ -36,7 +40,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     SettingsGroup *detailGroup = new SettingsGroup;
     detailGroup->appendItem(m_detailBtn);
 
-    m_centeralLayout->addWidget(m_devicesLayout);
+    m_centeralLayout->addLayout(m_devicesLayout);
     m_centeralLayout->addWidget(connGroup);
     m_centeralLayout->addWidget(detailGroup);
 
@@ -57,13 +61,11 @@ void NetworkModuleWidget::setModel(NetworkModel *model)
 void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devices)
 {
     // remove old widgets
-    QList<SettingsItem *> removeList;
-    const int itemCount = m_devicesLayout->itemCount();
-    for (int i(0); i != itemCount; ++i)
-        removeList.append(m_devicesLayout->getItem(i));
-    for (auto const item : removeList)
-        m_devicesLayout->removeItem(item);
-    qDeleteAll(removeList);
+    while (QLayoutItem *item = m_devicesLayout->takeAt(0))
+    {
+        item->widget()->deleteLater();
+        delete item;
+    }
 
     int wiredDevice = 0;
     int wirelessDevice = 0;
@@ -75,8 +77,6 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         default:;
         }
 
-    int index = 0;
-
     // add wired device list
     int count = 0;
     for (auto const dev : devices)
@@ -84,17 +84,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         if (dev->type() != NetworkDevice::Wired)
             continue;
 
-        NextPageWidget *w = new NextPageWidget;
-        initButtonsConnection(dev, w);
-
-        if (wiredDevice < 2)
-            w->setTitle(tr("Wired Network"));
-        else
-            w->setTitle(tr("Wired Network%1").arg(++count));
-
-        m_devices[w] = dev;
-        m_devicesLayout->insertItem(index, w);
-        ++index;
+        createDeviceGroup(dev, ++count, wiredDevice > 1);
     }
 
     // add wireless device list
@@ -104,17 +94,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         if (dev->type() != NetworkDevice::Wireless)
             continue;
 
-        NextPageWidget *w = new NextPageWidget;
-        initButtonsConnection(dev, w);
-
-        if (wirelessDevice < 2)
-            w->setTitle(tr("Wireless Network"));
-        else
-            w->setTitle(tr("Wireless Network%1").arg(++count));
-
-        m_devices[w] = dev;
-        m_devicesLayout->insertItem(index, w);
-        ++index;
+        createDeviceGroup(dev, ++count, wirelessDevice > 1);
     }
 }
 
@@ -129,11 +109,49 @@ void NetworkModuleWidget::onNextPageClicked()
     emit requestShowDeviceDetail(dev);
 }
 
-void NetworkModuleWidget::initButtonsConnection(NetworkDevice *dev, NextPageWidget *w)
+void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number, const bool multiple)
 {
+    SettingsGroup *g = new SettingsGroup;
+    SwitchWidget *s = new SwitchWidget;
+    NextPageWidget *w = new NextPageWidget;
+
     connect(w, &NextPageWidget::clicked, this, &NetworkModuleWidget::onNextPageClicked);
-
     connect(dev, &NetworkDevice::statusChanged, w, [=](NetworkDevice::DeviceStatus stat) { w->setValue(QString::number(stat)); });
+    connect(s, &SwitchWidget::checkedChanegd, w, &NextPageWidget::setVisible);
 
+    if (dev->type() == NetworkDevice::Wired)
+    {
+        if (multiple)
+        {
+            s->setTitle(tr("Wired Network Card%1").arg(number));
+            w->setTitle(tr("Wired Network%1").arg(number));
+        }
+        else
+        {
+            s->setTitle(tr("Wired Network Card"));
+            w->setTitle(tr("Wired Network"));
+        }
+    }
+    else if (dev->type() == NetworkDevice::Wireless)
+    {
+        if (multiple)
+        {
+            s->setTitle(tr("Wireless Network Card%1").arg(number));
+            w->setTitle(tr("Wireless Network%1").arg(number));
+        }
+        else
+        {
+            s->setTitle(tr("Wireless Network Card"));
+            w->setTitle(tr("Wireless Network"));
+        }
+    }
+
+    s->setChecked(false);
     w->setValue(QString::number(dev->status()));
+
+    g->appendItem(s);
+    g->appendItem(w);
+
+    m_devices[w] = dev;
+    m_devicesLayout->addWidget(g);
 }

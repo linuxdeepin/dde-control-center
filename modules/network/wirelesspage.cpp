@@ -20,19 +20,15 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
       m_device(dev),
 
       m_listGroup(new SettingsGroup),
-      m_switchBtn(new SwitchWidget),
 
       m_connectHideSSID(new AccessPointWidget(this))
 {
     m_sortDelayTimer.setInterval(100);
     m_sortDelayTimer.setSingleShot(true);
 
-    m_switchBtn->setTitle(tr("Status"));
-
     m_connectHideSSID->setAPName(tr("Connect to hidden network"));
     m_connectHideSSID->setStrength(-1);
 
-    m_listGroup->appendItem(m_switchBtn);
     m_listGroup->appendItem(m_connectHideSSID);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -52,20 +48,16 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     connect(&m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
     connect(m_connectHideSSID, &AccessPointWidget::requestEdit, this, &WirelessPage::showConnectHidePage);
-    connect(m_switchBtn, &SwitchWidget::checkedChanegd, [=](const bool enabled) { emit requestDeviceEnabled(m_device->path(), enabled); });
-    connect(dev, &WirelessDevice::enableChanged, m_switchBtn, &SwitchWidget::setChecked);
     connect(dev, &WirelessDevice::apAdded, this, &WirelessPage::onAPAdded);
     connect(dev, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
     connect(dev, &WirelessDevice::apRemoved, this, &WirelessPage::onAPRemoved);
     connect(dev, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
     connect(dev, &WirelessDevice::sessionCreated, this, &WirelessPage::showAPEditPage);
-    m_switchBtn->setChecked(dev->enabled());
 
     // init data
     QTimer::singleShot(0, this, [=] {
         const QString devPath = m_device->path();
 
-        emit requestDeviceStatus(devPath);
         emit requestDeviceAPList(devPath);
     });
 }
@@ -168,7 +160,7 @@ void WirelessPage::sortAPList()
 
     // sort list
     for (int i(0); i != sortedList.size(); ++i)
-        m_listGroup->moveItem(sortedList[i], i + 1);
+        m_listGroup->moveItem(sortedList[i], i);
 }
 
 void WirelessPage::showConnectHidePage()

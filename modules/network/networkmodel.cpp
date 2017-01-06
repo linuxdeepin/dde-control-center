@@ -100,6 +100,9 @@ void NetworkModel::onDeviceListChanged(const QString &devices)
                 default:;
                 }
                 m_devices.append(d);
+
+                // init device enabled status
+                emit requestDeviceStatus(d->path());
             } else {
                 d->updateDeviceInfo(info);
             }

@@ -42,7 +42,6 @@ public:
     virtual ~NetworkDevice();
 
     bool enabled() const { return m_enabled; }
-    void setEnabled(const bool enabled);
     DeviceType type() const { return m_type; }
     DeviceStatus status() const { return m_status; }
     const QJsonObject info() const { return m_deviceInfo; }
@@ -56,6 +55,7 @@ signals:
     void sessionCreated(const QString &sessionPath) const;
 
 public slots:
+    void setEnabled(const bool enabled);
     void updateDeviceInfo(const QJsonObject &devInfo);
 
 protected:

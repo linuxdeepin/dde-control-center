@@ -33,6 +33,7 @@ public:
 
 signals:
     void connectionListChanged() const;
+    void requestDeviceStatus(const QString &devPath) const;
     void activeConnInfoChanged(const QList<QJsonObject> &infos) const;
     void vpnEnabledChanged(const bool enabled) const;
     void deviceListChanged(const QList<NetworkDevice *> devices) const;

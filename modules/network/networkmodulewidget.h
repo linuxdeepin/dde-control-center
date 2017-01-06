@@ -33,10 +33,10 @@ private slots:
     void onNextPageClicked();
 
 private:
-    void initButtonsConnection(NetworkDevice *dev, dcc::widgets::NextPageWidget *w);
+    void createDeviceGroup(NetworkDevice *dev, const int number, const bool multiple);
 
 private:
-    dcc::widgets::SettingsGroup *m_devicesLayout;
+    QVBoxLayout *m_devicesLayout;
     dcc::widgets::NextPageWidget *m_pppBtn;
     dcc::widgets::NextPageWidget *m_vpnBtn;
     dcc::widgets::NextPageWidget *m_proxyBtn;
