@@ -66,16 +66,21 @@ bool DBusControlCenterService::showInRight() const
     // get the value of property ShowInRight
     // FIXME
 //    return qvariant_cast< bool >(!parent()->isHideInLeft());
-    return false;
+    return true;
 }
 
-int DBusControlCenterService::x() const
+const QRect DBusControlCenterService::rect() const
 {
-    if (!parent()->isVisible())
-        return qApp->primaryScreen()->geometry().right();
-
-    return parent()->x();
+    return parent()->rect();
 }
+
+//int DBusControlCenterService::x() const
+//{
+//    if (!parent()->isVisible())
+//        return qApp->primaryScreen()->geometry().right();
+
+//    return parent()->x();
+//}
 
 void DBusControlCenterService::Hide()
 {

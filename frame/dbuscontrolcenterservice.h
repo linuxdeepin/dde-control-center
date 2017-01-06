@@ -42,24 +42,24 @@ class DBusControlCenterService: public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "com.deepin.dde.ControlCenter")
-    Q_CLASSINFO("D-Bus Introspection", ""
-                "  <interface name=\"com.deepin.dde.ControlCenter\">\n"
-                "    <property access=\"read\" type=\"i\" name=\"X\"/>\n"
-                "    <property access=\"read\" type=\"b\" name=\"ShowInRight\"/>\n"
-                "    <method name=\"Toggle\"/>\n"
-                "    <method name=\"ToggleInLeft\"/>\n"
-                "    <method name=\"Show\"/>\n"
-                "    <method name=\"ShowModule\">\n"
-                "      <arg direction=\"in\" type=\"s\" name=\"name\"/>\n"
-                "    </method>\n"
-                "    <method name=\"ShowImmediately\"/>\n"
-                "    <method name=\"Hide\"/>\n"
-                "    <method name=\"HideImmediately\"/>\n"
-                "    <method name=\"isNetworkCanShowPassword\">\n"
-                "      <arg direction=\"out\" type=\"b\"/>\n"
-                "    </method>\n"
-                "  </interface>\n"
-                "")
+//    Q_CLASSINFO("D-Bus Introspection", ""
+//                "  <interface name=\"com.deepin.dde.ControlCenter\">\n"
+//                "    <property access=\"read\" type=\"i\" name=\"X\"/>\n"
+//                "    <property access=\"read\" type=\"b\" name=\"ShowInRight\"/>\n"
+//                "    <method name=\"Toggle\"/>\n"
+//                "    <method name=\"ToggleInLeft\"/>\n"
+//                "    <method name=\"Show\"/>\n"
+//                "    <method name=\"ShowModule\">\n"
+//                "      <arg direction=\"in\" type=\"s\" name=\"name\"/>\n"
+//                "    </method>\n"
+//                "    <method name=\"ShowImmediately\"/>\n"
+//                "    <method name=\"Hide\"/>\n"
+//                "    <method name=\"HideImmediately\"/>\n"
+//                "    <method name=\"isNetworkCanShowPassword\">\n"
+//                "      <arg direction=\"out\" type=\"b\"/>\n"
+//                "    </method>\n"
+//                "  </interface>\n"
+//                "")
 public:
     explicit DBusControlCenterService(Frame *parent);
     virtual ~DBusControlCenterService();
@@ -68,10 +68,13 @@ public:
 
 public: // PROPERTIES
     Q_PROPERTY(bool ShowInRight READ showInRight)
+    Q_PROPERTY(QRect Rect READ rect)
+
     bool showInRight() const;
 
-    Q_PROPERTY(int X READ x)
-    int x() const;
+//    Q_PROPERTY(int X READ x)
+//    int x() const;
+    const QRect rect() const;
 
 public Q_SLOTS: // METHODS
     void Hide();
