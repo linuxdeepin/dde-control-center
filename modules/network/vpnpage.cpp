@@ -63,11 +63,13 @@ void VpnPage::setModel(NetworkModel *model)
 
     connect(m_model, &NetworkModel::vpnEnabledChanged, m_vpnSwitch, &SwitchWidget::setChecked);
     connect(m_model, &NetworkModel::unhandledConnectionSessionCreated, this, &VpnPage::onVpnSessionCreated);
+    connect(m_model, &NetworkModel::activeConnInfoChanged, this, &VpnPage::onActiveConnsInfoChanged);
     connect(m_model, &NetworkModel::connectionListChanged, this, [=] { refershVpnList(m_model->vpns()); });
 
     m_vpnSwitch->setChecked(m_model->vpnEnabled());
 
     refershVpnList(m_model->vpns());
+    onActiveConnsInfoChanged(m_model->activeConnInfos());
 }
 
 void VpnPage::refershVpnList(const QList<QJsonObject> &vpnList)
@@ -137,6 +139,28 @@ void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionP
     connect(m_editPage, &ConnectionEditPage::back, this, &VpnPage::onSessionPageFinished, Qt::QueuedConnection);
 
     emit requestNextPage(m_editPage);
+}
+
+void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
+{
+    QList<QString> activeVpns;
+
+    for (const auto &info : infos)
+    {
+        const QString type = info.value("ConnectionType").toString();
+        if (!type.startsWith("vpn"))
+            continue;
+
+        const QString name = info.value("ConnectionName").toString();
+        activeVpns << name;
+    }
+
+    for (auto it(m_vpns.cbegin()); it != m_vpns.cend(); ++it)
+    {
+        const QString t = it.key()->title();
+
+        it.key()->setValue(activeVpns.contains(t) ? "✔" : QString());
+    }
 }
 
 void VpnPage::createVPNSession()
