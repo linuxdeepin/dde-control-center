@@ -68,7 +68,10 @@ TimeZoneChooser::TimeZoneChooser()
         hide();
     });
 
-    connect(m_cancelBtn, &QPushButton::clicked, this, &TimeZoneChooser::hide);
+    connect(m_cancelBtn, &QPushButton::clicked, this, [this] {
+        hide();
+        emit cancelled();
+    });
 
     connect(m_searchInput, &SearchInput::editingFinished, [this] {
         m_map->setTimezone(m_searchInput->text());

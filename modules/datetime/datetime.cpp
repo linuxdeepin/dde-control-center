@@ -48,11 +48,21 @@ Datetime::Datetime()
     m_centeralLayout->addSpacing(10);
     m_centeralLayout->addWidget(m_addTimezoneButton);
 
-    connect(m_dialog, &TimeZoneChooser::confirmed, this, &Datetime::requestAddUserTimeZone);
+    connect(m_dialog, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
+        emit requestAddUserTimeZone(timezone);
+        emit requestUnhold();
+    });
+    connect(m_dialog, &TimeZoneChooser::cancelled, this, [this] {
+        emit requestUnhold();
+    });
 
     connect(m_ntpSwitch, &SwitchWidget::checkedChanegd, this, &Datetime::requestSetNtp);
     connect(m_timePageButton, &NextPageWidget::clicked, this, &Datetime::requestTimeSettings);
-    connect(m_addTimezoneButton, &QPushButton::clicked, m_dialog, &TimeZoneChooser::show);
+
+    connect(m_addTimezoneButton, &QPushButton::clicked, this, [this] {
+        emit requestHold();
+        m_dialog->show();
+    });
 
     connect(m_headItem, &SettingsHead::editChanged, this, &Datetime::onEditClicked);
 }

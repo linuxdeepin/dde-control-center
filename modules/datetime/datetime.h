@@ -43,6 +43,9 @@ signals:
     void requestAddUserTimeZone(const QString &zone);
     void requestRemoveUserTimeZone(const ZoneInfo &zone);
 
+    void requestHold();
+    void requestUnhold();
+
 public slots:
     void addTimezone(const ZoneInfo &zone);
     void addTimezones(const QList<ZoneInfo> &zones);

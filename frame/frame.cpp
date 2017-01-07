@@ -28,7 +28,11 @@ Frame::Frame(QWidget *parent)
     setAttribute(Qt::WA_TranslucentBackground, true);
     setMaximumWidth(FRAME_WIDTH);
 
-    connect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased);
+    // NOTE(hualet): should subscribe to button pressed events, because some dwidgets emit
+    // clicked signal on button pressed, so if we restore auto-hide on that point, the
+    // following button released event will cause dcc to hide.
+    connect(m_mouseAreaInter, &XMouseArea::ButtonPress, this, &Frame::onMouseButtonPressed);
+
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
     connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hide);
 
@@ -146,7 +150,7 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
     QFrame::move(m_primaryRect.right() - width() + 1, m_primaryRect.y());
 }
 
-void Frame::onMouseButtonReleased(const int button, const int x, const int y, const QString &key)
+void Frame::onMouseButtonPressed(const int button, const int x, const int y, const QString &key)
 {
     if (button != BUTTON_LEFT) {
         return;

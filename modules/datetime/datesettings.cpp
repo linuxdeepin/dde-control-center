@@ -77,8 +77,18 @@ DateSettings::DateSettings(QWidget *parent)
     connect(m_cancelButton, &QPushButton::clicked, this, &DateSettings::onCancelButtonClicked);
     connect(m_confirmButton, &QPushButton::clicked, this, &DateSettings::onConfirmButtonClicked);
 
-    connect(m_timezoneItem, &NextPageWidget::clicked, m_dialog, &TimeZoneChooser::show);
-    connect(m_dialog, &TimeZoneChooser::confirmed, this, &DateSettings::requestSetTimeZone);
+    connect(m_timezoneItem, &NextPageWidget::clicked, this, [this] {
+        emit requestHold();
+        m_dialog->show();
+    });
+    connect(m_dialog, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
+        emit requestSetTimeZone(timezone);
+        back();
+        emit requestUnhold();
+    });
+    connect(m_dialog, &TimeZoneChooser::cancelled, this, [this] {
+        emit requestUnhold();
+    });
 
     connect(m_monthWidget, &DateWidget::editingFinished, this, &DateSettings::updateDayRange);
 }

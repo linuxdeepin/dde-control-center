@@ -41,6 +41,9 @@ signals:
     void requestSetTime(const QDateTime &time);
     void requestSetTimeZone(const QString &zone);
 
+    void requestHold();
+    void requestUnhold();
+
 private slots:
     void onCancelButtonClicked();
     void onConfirmButtonClicked();
