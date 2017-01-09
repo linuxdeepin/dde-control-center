@@ -7,6 +7,7 @@
 
 #include <QVBoxLayout>
 #include <QDebug>
+#include <QJsonArray>
 
 using namespace dcc::widgets;
 
@@ -37,6 +38,15 @@ void NetworkDetailPage::setModel(NetworkModel *model)
 
 void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
 {
+    auto appendInfo = [](SettingsGroup *g, const QString &t, const QString &v)
+    {
+        TitleValueItem *i = new TitleValueItem;
+        i->setTitle(t);
+        i->setValue(v);
+        g->appendItem(i);
+    };
+
+
     // clear old infos
     while (QLayoutItem *item = m_groupsLayout->takeAt(0))
     {
@@ -46,26 +56,52 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
 
     for (const auto &info : infos)
     {
+//        qDebug() << info;
         const QString name = info.value("ConnectionName").toString();
-        const QString speed = info.value("Speed").toString();
-        const QString mac = info.value("HwAddress").toString();
-
-        TitleValueItem *speedItem = new TitleValueItem;
-        speedItem->setTitle(tr("Speed"));
-        speedItem->setValue(speed);
 
         SettingsGroup *grp = new SettingsGroup;
         grp->setHeaderVisible(true);
         grp->headerItem()->setTitle(name);
-        grp->appendItem(speedItem);
 
+        // mac info
+        const QString mac = info.value("HwAddress").toString();
         if (!mac.isEmpty())
+            appendInfo(grp, tr("MAC"), mac);
+
+        // ipv4 info
+        const auto ipv4 = info.value("Ip4").toObject();
+        if (!ipv4.isEmpty())
         {
-            TitleValueItem *macItem = new TitleValueItem;
-            macItem->setTitle(tr("MAC"));
-            macItem->setValue(mac);
-            grp->appendItem(macItem);
+            // ipv4 address
+            const auto ip4Addr = ipv4.value("Address").toString();
+            if (!ip4Addr.isEmpty())
+                appendInfo(grp, tr("IPv4 Address"), ip4Addr);
+
+            // ipv4 gateway
+            const auto gateway = ipv4.value("Gateways").toArray();
+            if (!gateway.isEmpty())
+                appendInfo(grp, tr("Gateway"), gateway.first().toString());
+
+            // ipv4 primary dns
+            const auto ip4PrimaryDns = ipv4.value("Dnses").toArray();
+            if (!ip4PrimaryDns.isEmpty())
+                appendInfo(grp, tr("Primary DNS"), ip4PrimaryDns.first().toString());
+
+            // ipv4 netmask
+            const auto ip4Netmask = ipv4.value("Mask").toString();
+            if (!ip4Netmask.isEmpty())
+                appendInfo(grp, tr("Netmask"), ip4Netmask);
         }
+
+        // device interface
+        const auto device = info.value("DeviceInterface").toString();
+        if (!device.isEmpty())
+            appendInfo(grp, tr("Interface"), device);
+
+        // speed info
+        const QString speed = info.value("Speed").toString();
+        if (!speed.isEmpty())
+            appendInfo(grp, tr("Speed"), speed);
 
         m_groupsLayout->addWidget(grp);
     }

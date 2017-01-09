@@ -35,7 +35,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     SettingsGroup *connGroup = new SettingsGroup;
     connGroup->appendItem(m_pppBtn);
     connGroup->appendItem(m_vpnBtn);
-    connGroup->appendItem(m_proxyBtn);
+//    connGroup->appendItem(m_proxyBtn);
 
     SettingsGroup *detailGroup = new SettingsGroup;
     detailGroup->appendItem(m_detailBtn);
