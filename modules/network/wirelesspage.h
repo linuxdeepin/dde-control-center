@@ -6,6 +6,7 @@
 #include <QMap>
 #include <QTimer>
 #include <QPointer>
+#include <QJsonObject>
 
 namespace dcc {
 
@@ -47,8 +48,12 @@ signals:
 private slots:
     void onDeviceRemoved();
     void sortAPList();
+    void onActiveConnInfoChanged(const QList<QJsonObject> &activeConns);
     void showConnectHidePage();
     void showAPEditPage(const QString &session);
+
+private:
+    void updateActiveAp();
 
 private:
     WirelessDevice *m_device;
@@ -59,6 +64,7 @@ private:
 
     QPointer<ConnectionEditPage> m_apEditPage;
 
+    QString m_activeApName;
     QTimer m_sortDelayTimer;
     QMap<QString, AccessPointWidget *> m_apItems;
 };

@@ -18,6 +18,7 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
       m_lockIcon(new QLabel),
       m_strengthIcon(new QLabel),
       m_apName(new NormalLabel),
+      m_activeIcon(new QLabel),
       m_detailBtn(new DImageButton),
 
       m_mainLayout(new QVBoxLayout),
@@ -27,12 +28,16 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
 {
     m_lockIcon->setFixedSize(16, 16);
     m_strengthIcon->setFixedSize(16, 16);
+    m_activeIcon->setFixedSize(16, 16);
+    m_activeIcon->setVisible(false);
+    m_activeIcon->setText("✔");
 
     QHBoxLayout *basicInfoLayout = new QHBoxLayout;
     basicInfoLayout->addWidget(m_lockIcon);
     basicInfoLayout->addWidget(m_strengthIcon);
     basicInfoLayout->addWidget(m_apName);
     basicInfoLayout->addStretch();
+    basicInfoLayout->addWidget(m_activeIcon);
     basicInfoLayout->addWidget(m_detailBtn);
     basicInfoLayout->setSpacing(5);
     basicInfoLayout->setContentsMargins(0, 5, 0, 5);
@@ -69,7 +74,8 @@ void AccessPointWidget::mouseReleaseEvent(QMouseEvent *e)
 {
     SettingsItem::mouseReleaseEvent(e);
 
-    emit requestConnect(m_path, m_apName->text());
+    if (!m_connected)
+        emit requestConnect(m_path, m_apName->text());
 }
 
 void AccessPointWidget::setStrength(const int strength)
@@ -87,6 +93,8 @@ void AccessPointWidget::setStrength(const int strength)
 void AccessPointWidget::setConnected(const bool connected)
 {
     m_connected = connected;
+
+    m_activeIcon->setVisible(m_connected);
 }
 
 void AccessPointWidget::setEditable(const bool editable)

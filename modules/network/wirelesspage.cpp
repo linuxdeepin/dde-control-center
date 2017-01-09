@@ -1,3 +1,4 @@
+#include "networkmodel.h"
 #include "wirelesspage.h"
 #include "wirelessdevice.h"
 #include "accesspointwidget.h"
@@ -71,6 +72,10 @@ WirelessPage::~WirelessPage()
 void WirelessPage::setModel(NetworkModel *model)
 {
     m_model = model;
+
+    connect(m_model, &NetworkModel::activeConnInfoChanged, this, &WirelessPage::onActiveConnInfoChanged);
+
+    onActiveConnInfoChanged(m_model->activeConnInfos());
 }
 
 void WirelessPage::onAPAdded(const QJsonObject &apInfo)
@@ -79,6 +84,7 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 
     AccessPointWidget *w = new AccessPointWidget;
 
+    w->setConnected(ssid == m_activeApName);
 #ifdef QT_DEBUG
     w->setAPName(QString::number(apInfo.value("Strength").toInt()) + " " + ssid);
 #else
@@ -163,6 +169,19 @@ void WirelessPage::sortAPList()
         m_listGroup->moveItem(sortedList[i], i);
 }
 
+void WirelessPage::onActiveConnInfoChanged(const QList<QJsonObject> &activeConns)
+{
+    const QString hwAddr = m_device->hwAddr();
+    for (const auto &info : activeConns)
+    {
+        if (hwAddr == info.value("HwAddress").toString())
+        {
+            m_activeApName = info.value("ConnectionName").toString();
+            return;
+        }
+    }
+}
+
 void WirelessPage::showConnectHidePage()
 {
 //    if (m_connectHidePage.isNull())
@@ -193,4 +212,12 @@ void WirelessPage::showAPEditPage(const QString &session)
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
 
     emit requestNextPage(m_apEditPage);
+}
+
+void WirelessPage::updateActiveAp()
+{
+    for (auto it(m_apItems.cbegin()); it != m_apItems.cend(); ++it)
+        it.value()->setConnected(it.key() == m_activeApName);
+
+    sortAPList();
 }

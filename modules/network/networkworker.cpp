@@ -106,8 +106,6 @@ void NetworkWorker::activateAccessPoint(const QString &devPath, const QString &a
 {
     const QString uuid = m_networkModel->connectionUuidBySsid(ssid);
 
-    qDebug() << uuid;
-
     m_networkInter.ActivateAccessPoint(uuid, QDBusObjectPath(apPath), QDBusObjectPath(devPath));
 }
 

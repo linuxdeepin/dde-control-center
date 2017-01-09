@@ -115,10 +115,10 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
     SwitchWidget *s = new SwitchWidget;
     NextPageWidget *w = new NextPageWidget;
 
-    connect(s, &SwitchWidget::checkedChanegd, w, &NextPageWidget::setVisible);
     connect(s, &SwitchWidget::checkedChanegd, [=](const bool checked) { emit requestDeviceEnable(dev->path(), checked); });
     connect(w, &NextPageWidget::clicked, this, &NetworkModuleWidget::onNextPageClicked);
     connect(dev, &NetworkDevice::enableChanged, s, &SwitchWidget::setChecked);
+    connect(dev, &NetworkDevice::enableChanged, w, &NextPageWidget::setVisible);
     connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), w, &NextPageWidget::setValue);
 
     if (dev->type() == NetworkDevice::Wired)
@@ -148,10 +148,9 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
         }
     }
 
-    s->blockSignals(true);
-    s->setChecked(dev->enabled());
-    s->blockSignals(false);
-    w->setVisible(dev->enabled());
+    const bool devEnabled = dev->enabled();
+    s->setChecked(devEnabled);
+    w->setVisible(devEnabled);
     w->setValue(dev->statusString());
 
     g->appendItem(s);

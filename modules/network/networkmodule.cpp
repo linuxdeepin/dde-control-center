@@ -99,6 +99,8 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         connect(p, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
         connect(p, &WirelessPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
 
+        p->setModel(m_networkModel);
+
         c = p;
     }
     else if (dev->type() == NetworkDevice::Wired)
