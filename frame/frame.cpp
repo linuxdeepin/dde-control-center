@@ -65,7 +65,8 @@ void Frame::popWidget()
 
     // ensure top widget is sender()
     ContentWidget *w = static_cast<ContentWidget *>(sender());
-    Q_ASSERT(w == m_frameWidgetStack.last()->content());
+    // w is nullptr if call this function directly
+    Q_ASSERT(!w || w == m_frameWidgetStack.last()->content());
 
     // destory the container
     m_frameWidgetStack.pop()->destory();
@@ -109,7 +110,7 @@ void Frame::showAllSettings()
 void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
 {
     // ensure current is main page or all settings page
-    if (m_frameWidgetStack.size() > 2)
+    while (m_frameWidgetStack.size() > 2)
         popWidget();
 
     // current is main page

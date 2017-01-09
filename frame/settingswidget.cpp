@@ -53,7 +53,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     m_settingsLayout->setSpacing(30);
     m_settingsLayout->setMargin(0);
     m_settingsLayout->addSpacing(10);
-    m_settingsLayout->addWidget(m_resetBtn);
+//    m_settingsLayout->addWidget(m_resetBtn);
 
     loadModule(new accounts::AccountsModule(this));
     loadModule(new display::DisplayModule(this));
