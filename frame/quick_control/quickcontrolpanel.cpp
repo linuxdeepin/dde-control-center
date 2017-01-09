@@ -20,10 +20,15 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     QuickSwitchButton *detailSwitch = new QuickSwitchButton(4, "all_settings");
 
     btSwitch->setObjectName("QuickSwitchBluetooth");
+    btSwitch->setAccessibleName("QuickSwitchBluetooth");
     vpnSwitch->setObjectName("QuickSwitchVPN");
+    vpnSwitch->setAccessibleName("QuickSwitchVPN");
     wifiSwitch->setObjectName("QuickSwitchWiFi");
+    wifiSwitch->setAccessibleName("QuickSwitchWiFi");
     displaySwitch->setObjectName("QuickSwitchDisplay");
+    displaySwitch->setAccessibleName("QuickSwitchDisplay");
     detailSwitch->setObjectName("QuickSwitchAllSettings");
+    detailSwitch->setAccessibleName("QuickSwitchAllSettings");
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
 //    btnsLayout->addWidget(btSwitch);

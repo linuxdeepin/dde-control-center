@@ -22,6 +22,7 @@ ContentWidget::ContentWidget(QWidget *parent)
       m_content(nullptr)
 {
     dcc::widgets::BackButton *backBtn = new dcc::widgets::BackButton;
+    backBtn->setAccessibleName("Back");
 
     m_title = new QLabel;
     m_title->setAlignment(Qt::AlignCenter);

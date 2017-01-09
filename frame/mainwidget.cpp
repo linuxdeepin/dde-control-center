@@ -59,7 +59,9 @@ MainWidget::MainWidget(Frame *parent)
     m_timeRefersh->start();
 
     m_prevPluginBtn->setObjectName("PrevBtn");
+    m_prevPluginBtn->setAccessibleName("PrevBtn");
     m_nextPluginBtn->setObjectName("NextBtn");
+    m_nextPluginBtn->setAccessibleName("NextBtn");
 
     QFont font = m_currentTimeLbl->font();
     font.setPixelSize(46);

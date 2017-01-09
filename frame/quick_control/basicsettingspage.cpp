@@ -130,8 +130,10 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
 
     m_soundSlider->setOrientation(Qt::Horizontal);
     m_soundSlider->setRange(0, 150);
+    m_soundSlider->setAccessibleName("SoundSlider");
     m_lightSlider->setOrientation(Qt::Horizontal);
     m_lightSlider->setRange(0, 100);
+    m_lightSlider->setAccessibleName("LightSlider");
 
     QHBoxLayout *volumeLayout = new QHBoxLayout;
     volumeLayout->setMargin(0);
