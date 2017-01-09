@@ -73,8 +73,9 @@ void BasicSettingsWorker::setVolume(const double &volume)
 void BasicSettingsWorker::setBrightness(const double &brightness)
 {
     for (QString monitor : m_monitors) {
-        m_displayInter->SetBrightness(monitor, brightness / 100.0);
+        m_displayInter->SetBrightness(monitor, brightness / 100.0).waitForFinished();
     }
+    m_displayInter->SaveBrightness().waitForFinished();
 }
 
 void BasicSettingsWorker::onDefaultSinkChanged(const QDBusObjectPath &value)
