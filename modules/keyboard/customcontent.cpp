@@ -53,7 +53,9 @@ CustomContent::CustomContent(KeyboardWork* work, QWidget *parent)
     layout->addLayout(hlayout);
 
     m_bottomTip = new QLabel();
+    m_bottomTip->setWordWrap(true);
     layout->addWidget(m_bottomTip);
+    layout->addStretch();
     m_bottomTip->hide();
 
     widget->setLayout(layout);

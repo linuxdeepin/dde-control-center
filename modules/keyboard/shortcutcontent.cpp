@@ -38,7 +38,9 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
     layout->addLayout(hlayout);
 
     m_bottomTip = new QLabel();
+    m_bottomTip->setWordWrap(true);
     layout->addWidget(m_bottomTip);
+    layout->addStretch();
     widget->setLayout(layout);
     setContent(widget);
 
