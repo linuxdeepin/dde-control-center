@@ -134,6 +134,7 @@ void MouseWorker::onLeftHandStateChanged(const bool state)
 {
     m_dbusMouse->setLeftHanded(state);
     m_dbusTouchPad->setLeftHanded(state);
+    m_dbusTrackPoint->setLeftHanded(state);
 }
 
 void MouseWorker::onNaturalScrollStateChanged(const bool state)
