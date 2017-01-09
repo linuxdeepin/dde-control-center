@@ -62,6 +62,7 @@ MainWidget::MainWidget(Frame *parent)
     m_prevPluginBtn->setAccessibleName("PrevBtn");
     m_nextPluginBtn->setObjectName("NextBtn");
     m_nextPluginBtn->setAccessibleName("NextBtn");
+    m_pluginsIndicator->setObjectName("DPIndicator");
 
     QFont font = m_currentTimeLbl->font();
     font.setPixelSize(46);
