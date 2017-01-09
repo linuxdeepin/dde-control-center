@@ -47,13 +47,6 @@ void NotifyManager::setValue(QByteArray s) {
                     m_viewer->setAppIcon(name);
                 }
             }
-            if(obj.contains("summary")) {
-                QJsonValue name_value = obj.take("summary");
-                if(name_value.isString()) {
-                    QString name = name_value.toString();
-                    m_viewer->setAppSummary(name);
-                }
-            }
             if(obj.contains("body")) {
                 QJsonValue name_value = obj.take("body");
                 if(name_value.isString()) {

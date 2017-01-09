@@ -39,7 +39,7 @@ protected:
     virtual void paintEvent(QPaintEvent *event);
 
 private:
-    QLabel *m_appName,*m_summary,*m_body,*m_time;
+    QLabel *m_appName,*m_body,*m_time;
     DImageButton *m_close;
     QLabel      *m_appIcon;
     QGridLayout *m_mainlayout;

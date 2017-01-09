@@ -11,7 +11,6 @@
 
 Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_appName(new QLabel),
-    m_summary(new QLabel),
     m_body(new QLabel),
     m_time(new QLabel),
     m_close(new DImageButton(":/images/close.png", ":/images/close.png", ":/images/close.png", nullptr)),
@@ -21,20 +20,14 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_appIcon->setMargin(0);
     m_close->setMargin(0);
     m_appName->setMargin(0);
-    m_summary->setMargin(0);
     m_body->setMargin(0);
     m_appIcon->setFixedSize(48,48);
     m_appName->setFixedWidth(165);
-    m_summary->setFixedWidth(220);
-    m_body->setFixedWidth(220);
     m_close->setFixedSize(10,10);
+    m_body->setWordWrap(true);
 
     m_appName->setStyleSheet("font-family: SourceHanSansSC;"
                              "font-size: 13px;"
-                             "font-style: normal;"
-                             "color: #ffffff;");
-    m_summary->setStyleSheet("font-family: SourceHanSansSC-Normal;"
-                             "font-size: 12px;"
                              "font-style: normal;"
                              "color: #ffffff;");
     m_body->setStyleSheet("font-family: SourceHanSansSC-Normal;"
@@ -50,8 +43,6 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_appName->setAutoFillBackground(false);
     m_appIcon->setAttribute(Qt::WA_TranslucentBackground, true);
     m_appIcon->setAutoFillBackground(false);
-    m_summary->setAttribute(Qt::WA_TranslucentBackground, true);
-    m_summary->setAutoFillBackground(false);
     m_close->setAttribute(Qt::WA_TranslucentBackground, true);
     m_close->setAutoFillBackground(false);
     m_body->setAttribute(Qt::WA_TranslucentBackground, true);
@@ -68,8 +59,7 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_mainlayout->addWidget(m_appIcon,    0, 0, 3, 3, Qt::AlignVCenter);
     m_mainlayout->addWidget(m_appName,    0, 3,       Qt::AlignLeft);
     m_mainlayout->addLayout(m_hboxlayout, 0, 4,       Qt::AlignRight);
-    m_mainlayout->addWidget(m_summary,    1, 3, 1, 2, Qt::AlignLeft);
-    m_mainlayout->addWidget(m_body,       2, 3, 1, 2, Qt::AlignLeft);
+    m_mainlayout->addWidget(m_body,       1, 3, 1, 2, Qt::AlignLeft);
 
     this->setLayout(m_mainlayout);
     connect(m_close, &DImageButton::clicked, [=]{
@@ -96,10 +86,6 @@ void Viewer::setAppIcon(const QString &s) {
     if (!icon.isNull()) {
         m_appIcon->setPixmap(icon.pixmap(m_appIcon->size()));
     }
-}
-
-void Viewer::setAppSummary(const QString &s) {
-    m_summary->setText(s);
 }
 
 void Viewer::setAppBody(const QString &s) {

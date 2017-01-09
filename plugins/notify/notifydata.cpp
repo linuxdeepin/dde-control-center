@@ -37,12 +37,12 @@ void NotifyData::Notify(const QString &app_name, uint replaces_id, const QString
     Q_UNUSED(replaces_id);
     Q_UNUSED(actions);
     Q_UNUSED(hints);
+    Q_UNUSED(summary);
     Q_UNUSED(expire_timeout);
 
     QJsonObject json;
     json.insert("appName", app_name);
     json.insert("appIcon", app_icon);
-    json.insert("summary", summary);
     json.insert("body"   , body);
     QJsonDocument document;
     document.setObject(json);
