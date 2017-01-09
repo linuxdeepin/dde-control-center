@@ -201,10 +201,5 @@ ShortcutInfo::ShortcutInfo()
     item = NULL;
 }
 
-ShortcutInfo::~ShortcutInfo()
-{
-    item->deleteLater();
-}
-
 }
 }
