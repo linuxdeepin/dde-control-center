@@ -66,6 +66,9 @@ void OptionWidget::setItem(const QJsonObject &item)
 
     if (!icon.isNull()) {
         m_optionIcon->setPixmap(icon.pixmap(QSize(17,17)));
+    } else {
+        const QIcon &icon = QIcon::fromTheme("application-default-icon");
+        m_optionIcon->setPixmap(icon.pixmap(QSize(17, 17)));
     }
     setAccessibleName(m_displayName->text());
 }

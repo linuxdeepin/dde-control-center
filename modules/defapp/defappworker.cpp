@@ -130,7 +130,7 @@ void DefAppWorker::onAddUserApp(const QString &mime, const QString &item)
     object.insert("Id", file.baseName() + ".desktop");
     object.insert("Nmae", file.baseName());
     object.insert("DisplayName", file.baseName());
-    object.insert("Icon", "");
+    object.insert("Icon", "application-default-icon");
     object.insert("Exec", item);
     Category *category = getCategory(mime);
     category->addUserItem(object);

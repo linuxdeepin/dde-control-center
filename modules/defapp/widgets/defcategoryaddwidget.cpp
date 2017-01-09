@@ -50,7 +50,7 @@ bool DefCategoryAddWidget::createDesktopFile(const QFileInfo &info)
         "Name=" + info.baseName() + "\n"
         "Path=" + info.path() + "\n"
         "Exec=" +  info.filePath() + "\n"
-        "Icon=" + "\n"
+        "Icon=application-default-icon\n"
         "Terminal=false\n"
         "Categories=" + m_category + ";"
         << endl;
