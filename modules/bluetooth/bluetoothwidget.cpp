@@ -49,6 +49,9 @@ void BluetoothWidget::addAdapter(const Adapter *adapter)
         connect(showBluetoothDetailWidget, &NextPageWidget::clicked, [=]{
             emit showBluetoothDetail(adapter);
         });
+
+        connect(adapter, &Adapter::nameChanged, showBluetoothDetailWidget, &NextPageWidget::setTitle);
+
         setVisibleState();
     }
 }

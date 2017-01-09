@@ -25,7 +25,7 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     m_myDevicesGroup(new SettingsGroup(tr("My devices"))),
     m_otherDevicesGroup(new SettingsGroup(tr("Other devices")))
 {
-    setTitle(tr("Bluetooth"));
+    setTitle(adapter->name());
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -50,8 +50,10 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
         m_tip->setVisible(!state);
     });
     connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, [=](const QString &alias) {
-            emit requestSetAlias(adapter, alias);
+        emit requestSetAlias(adapter, alias);
     });
+
+    connect(adapter, &Adapter::nameChanged, this, &AdapterWidget::setTitle);
 
     TranslucentFrame *w = new TranslucentFrame;
     w->setLayout(layout);
