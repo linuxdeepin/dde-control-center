@@ -39,9 +39,10 @@ public slots:
     void onItemClicked(const bool selected);
 
 private:
-    QVBoxLayout                 *m_mainLayout;
-    widgets::TranslucentFrame            *m_widget;
-    widgets::SettingsGroup               *m_mainGroup;
+    FontModel                               *m_model;
+    QVBoxLayout                             *m_mainLayout;
+    widgets::TranslucentFrame               *m_widget;
+    widgets::SettingsGroup                  *m_mainGroup;
     QMap<widgets::OptionItem *, QJsonObject> m_valueMap;
 };
 }
