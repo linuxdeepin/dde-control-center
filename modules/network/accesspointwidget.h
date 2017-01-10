@@ -50,7 +50,7 @@ private:
     QLabel *m_lockIcon;
     QLabel *m_strengthIcon;
     QLabel *m_apName;
-    QLabel *m_activeIcon;
+    Dtk::Widget::DImageButton *m_activeIcon;
     Dtk::Widget::DImageButton *m_detailBtn;
     QVBoxLayout *m_mainLayout;
 

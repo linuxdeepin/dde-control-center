@@ -18,7 +18,7 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
       m_lockIcon(new QLabel),
       m_strengthIcon(new QLabel),
       m_apName(new NormalLabel),
-      m_activeIcon(new QLabel),
+      m_activeIcon(new DImageButton),
       m_detailBtn(new DImageButton),
 
       m_mainLayout(new QVBoxLayout),
@@ -30,7 +30,8 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
     m_strengthIcon->setFixedSize(16, 16);
     m_activeIcon->setFixedSize(16, 16);
     m_activeIcon->setVisible(false);
-    m_activeIcon->setText("✔");
+    m_activeIcon->setNormalPic(":/network/themes/dark/icons/select.png");
+    m_detailBtn->setObjectName("DetailButton");
 
     QHBoxLayout *basicInfoLayout = new QHBoxLayout;
     basicInfoLayout->addWidget(m_lockIcon);

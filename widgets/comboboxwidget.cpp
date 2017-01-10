@@ -17,7 +17,7 @@ ComboBoxWidget::ComboBoxWidget(QFrame *parent)
       m_contentPage(nullptr),
       m_lastSelectedItem(nullptr)
 {
-    connect(this, &NextPageWidget::acceptNextPage, this, &ComboBoxWidget::onNextPageClicked);
+    connect(this, &NextPageWidget::clicked, this, &ComboBoxWidget::onNextPageClicked);
     connect(m_custom->textEdit(), &QLineEdit::editingFinished, [=] {
         const QString txt = m_custom->textEdit()->text();
         NextPageWidget::setValue(txt);

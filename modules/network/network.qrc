@@ -12,5 +12,6 @@
         <file>themes/dark/icons/next_hover.png</file>
         <file>themes/dark/icons/next_normal.png</file>
         <file>themes/dark/icons/next_press.png</file>
+        <file>themes/dark/icons/select.png</file>
     </qresource>
 </RCC>

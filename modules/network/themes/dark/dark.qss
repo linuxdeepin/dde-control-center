@@ -7,7 +7,7 @@ QLabel#ModuleHeaderIconNetwork {
     color: white;
 }
 
-#AccessPointWidget > .Dtk--Widget--DImageButton
+#AccessPointWidget > #DetailButton
 {
     qproperty-normalPic: url(:/network/themes/dark/icons/next_normal.png);
     qproperty-hoverPic: url(:/network/themes/dark/icons/next_hover.png);
