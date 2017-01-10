@@ -35,7 +35,9 @@ private slots:
 
 private:
     DisplayModel *m_model;
-    dcc::widgets::NextPageWidget *m_resolution;
+    widgets::NextPageWidget *m_resolution;
+    widgets::NextPageWidget *m_mySettings;
+    widgets::SettingsGroup *m_settingsGrp;
     QPushButton *m_rotate;
     QPushButton *m_custom;
 };

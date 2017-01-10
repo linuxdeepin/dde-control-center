@@ -56,6 +56,7 @@ void DisplayWorker::mergeScreens()
     const auto mList = m_model->monitorList();
     Q_ASSERT(mList.size() == 2);
 
+    const auto rotate = m_model->primaryMonitor()->rotate();
     const auto mode = m_model->monitorsSameModeList().first();
     for (auto *mon : mList)
     {
@@ -63,6 +64,7 @@ void DisplayWorker::mergeScreens()
         Q_ASSERT(mInter);
 
         mInter->SetPosition(0, 0).waitForFinished();
+        mInter->SetRotation(rotate).waitForFinished();
         mInter->SetModeBySize(mode.width(), mode.height()).waitForFinished();
     }
 

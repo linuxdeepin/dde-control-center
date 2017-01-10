@@ -11,6 +11,8 @@ DisplayWidget::DisplayWidget()
     : ModuleWidget(),
 
       m_resolution(new NextPageWidget),
+      m_mySettings(new NextPageWidget),
+      m_settingsGrp(new SettingsGroup),
       m_rotate(new QPushButton),
       m_custom(new QPushButton)
 {
@@ -20,12 +22,17 @@ DisplayWidget::DisplayWidget()
     m_custom->setText(tr("Custom"));
 
     m_resolution->setTitle(tr("Resolution"));
+    m_mySettings->setTitle(tr("My Settings"));
 
     SettingsGroup *resolutions = new SettingsGroup;
     resolutions->appendItem(m_resolution);
 
+    m_settingsGrp = new SettingsGroup;
+    m_settingsGrp->appendItem(m_mySettings);
+
     m_centeralLayout->addWidget(resolutions);
     m_centeralLayout->addWidget(m_rotate);
+    m_centeralLayout->addWidget(m_settingsGrp);
     m_centeralLayout->addWidget(m_custom);
 
     setTitle(tr("Display"));
@@ -54,10 +61,16 @@ void DisplayWidget::onScreenListChanged() const
     if (mons.size() <= 1)
     {
         m_custom->hide();
+        m_settingsGrp->hide();
+
         m_resolution->show();
         m_rotate->show();
     } else {
         m_custom->show();
+        // TODO:
+        m_settingsGrp->hide();
+//        m_settingsGrp->show();
+
         m_resolution->hide();
         m_rotate->hide();
     }

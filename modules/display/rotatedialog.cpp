@@ -57,8 +57,8 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
 {
     connect(m_mon, &Monitor::wChanged, this, &RotateDialog::setFixedWidth);
     connect(m_mon, &Monitor::hChanged, this, &RotateDialog::setFixedHeight);
-    connect(m_mon, &Monitor::xChanged, [=] (const int x) { move(x, y()); });
-    connect(m_mon, &Monitor::yChanged, [=] (const int y) { move(x(), y); });
+    connect(m_mon, &Monitor::xChanged, this, [=] (const int x) { move(x, y()); });
+    connect(m_mon, &Monitor::yChanged, this, [=] (const int y) { move(x(), y); });
 
     setFixedWidth(m_mon->w());
     setFixedHeight(m_mon->h());
