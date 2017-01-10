@@ -17,7 +17,8 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
       m_spinBox(new DSpinBox)
 {
     QHBoxLayout *mainLayout = new QHBoxLayout;
-
+    mainLayout->setContentsMargins(20, 0, 10, 0);
+    mainLayout->setSpacing(0);
     mainLayout->addWidget(m_title);
     mainLayout->addWidget(m_spinBox);
 
