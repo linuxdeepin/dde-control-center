@@ -1,6 +1,7 @@
 #include "rotatedialog.h"
 #include "displayworker.h"
 #include "monitor.h"
+#include "displaymodel.h"
 
 #include <QDebug>
 #include <QMouseEvent>
@@ -51,30 +52,49 @@ const QString Tips(QT_TR_NOOP("Left click to rotate and right click to exit"));
 RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     : QDialog(parent),
 
-      m_mon(mon)
+      m_mon(mon),
+      m_model(nullptr)
 {
     connect(m_mon, &Monitor::wChanged, this, &RotateDialog::setFixedWidth);
     connect(m_mon, &Monitor::hChanged, this, &RotateDialog::setFixedHeight);
     connect(m_mon, &Monitor::xChanged, [=] (const int x) { move(x, y()); });
     connect(m_mon, &Monitor::yChanged, [=] (const int y) { move(x(), y); });
 
-    setMouseTracking(true);
     setFixedWidth(m_mon->w());
     setFixedHeight(m_mon->h());
     move(m_mon->x(), m_mon->y());
+
+    init();
+}
+
+RotateDialog::RotateDialog(DisplayModel *model, QWidget *parent)
+    : QDialog(parent),
+
+      m_mon(nullptr),
+      m_model(model)
+{
+    connect(m_model, &DisplayModel::screenWidthChanged, this, &RotateDialog::setFixedWidth);
+    connect(m_model, &DisplayModel::screenHeightChanged, this, &RotateDialog::setFixedHeight);
+
+    setFixedWidth(m_model->screenWidth());
+    setFixedHeight(m_model->screenHeight());
+    move(0, 0);
+
+    init();
+}
+
+void RotateDialog::init()
+{
+    setMouseTracking(true);
     setAttribute(Qt::WA_TranslucentBackground);
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
 
-#ifndef QT_DEBUG
     qApp->setOverrideCursor(Qt::BlankCursor);
-#endif
 }
 
 RotateDialog::~RotateDialog()
 {
-#ifndef QT_DEBUG
     qApp->restoreOverrideCursor();
-#endif
 }
 
 void RotateDialog::mousePressEvent(QMouseEvent *e)
@@ -154,12 +174,23 @@ void RotateDialog::showEvent(QShowEvent *e)
 
 void RotateDialog::rotate()
 {
-    const auto rotates = m_mon->rotateList();
-    const auto rotate = m_mon->rotate();
+    Monitor *mon = m_mon ? m_mon : m_model->primaryMonitor();
+    Q_ASSERT(mon);
+
+    const auto rotates = mon->rotateList();
+    const auto rotate = mon->rotate();
 
     Q_ASSERT(rotates.contains(rotate));
 
     const quint16 nextValue = rotates[(rotates.indexOf(rotate) + 1) % rotates.size()];
 
-    emit requestRotate(m_mon, nextValue);
+    if (m_mon)
+    {
+        emit requestRotate(m_mon, nextValue);
+    }
+    else
+    {
+        for (auto *m : m_model->monitorList())
+            emit requestRotate(m, nextValue);
+    }
 }

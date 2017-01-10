@@ -8,12 +8,14 @@ namespace dcc {
 namespace display {
 
 class Monitor;
+class DisplayModel;
 class RotateDialog : public QDialog
 {
     Q_OBJECT
 
 public:
     explicit RotateDialog(Monitor *mon, QWidget *parent = 0);
+    explicit RotateDialog(DisplayModel *model, QWidget *parent = 0);
     ~RotateDialog();
 
 signals:
@@ -28,10 +30,12 @@ protected:
     void showEvent(QShowEvent *e);
 
 private:
+    void init();
     void rotate();
 
 private:
     Monitor *m_mon;
+    DisplayModel *m_model;
 };
 
 } // namespace display

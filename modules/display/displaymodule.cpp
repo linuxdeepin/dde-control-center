@@ -90,8 +90,11 @@ ModuleWidget *DisplayModule::moduleWidget()
 
 void DisplayModule::showCustomSettings()
 {
+    // save last mode
+    const int displayMode = m_displayModel->displayMode();
+
     // switch to custom settings
-    if (m_displayModel->displayMode() != CUSTOM_MODE)
+    if (displayMode != CUSTOM_MODE)
         m_displayWorker->switchCustom();
 
     // open all monitors
@@ -111,9 +114,17 @@ void DisplayModule::showCustomSettings()
 
     // discard or save
     if (dialog.exec() == QDialog::Accepted)
+    {
         m_displayWorker->saveChanges();
+    }
     else
+    {
         m_displayWorker->discardChanges();
+
+        // restore old mode
+        if (displayMode != CUSTOM_MODE)
+            m_displayWorker->switchMode(displayMode);
+    }
 }
 
 void DisplayModule::showRecognize()
@@ -124,9 +135,14 @@ void DisplayModule::showRecognize()
 
 void DisplayModule::showRotate(Monitor *mon)
 {
-    RotateDialog dialog(mon);
+    RotateDialog *dialog = nullptr;
+    if (mon)
+        dialog = new RotateDialog(mon);
+    else
+        dialog = new RotateDialog(m_displayModel);
 
-    connect(&dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
+    connect(dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
 
-    dialog.exec();
+    dialog->exec();
+    dialog->deleteLater();
 }

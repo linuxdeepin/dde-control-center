@@ -20,6 +20,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     connect(&m_displayInter, &DisplayInter::ScreenHeightChanged, model, &DisplayModel::setScreenHeight);
     connect(&m_displayInter, &DisplayInter::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
     connect(&m_displayInter, &DisplayInter::DisplayModeChanged, model, &DisplayModel::setDisplayMode);
+    connect(&m_displayInter, &DisplayInter::HasCustomConfigChanged, model, &DisplayModel::setHasConfig);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), model, &DisplayModel::setPrimary);
     connect(&m_displayInter, &DisplayInter::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
 
@@ -27,6 +28,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     onMonitorsBrightnessChanged(m_displayInter.brightness());
     model->setScreenHeight(m_displayInter.screenHeight());
     model->setScreenWidth(m_displayInter.screenWidth());
+    model->setHasConfig(m_displayInter.hasCustomConfig());
     model->setDisplayMode(m_displayInter.displayMode());
     model->setPrimary(m_displayInter.primary());
 
@@ -46,7 +48,7 @@ void DisplayWorker::saveChanges()
 
 void DisplayWorker::discardChanges()
 {
-    m_displayInter.ResetChanges();
+    m_displayInter.ResetChanges().waitForFinished();
 }
 
 void DisplayWorker::mergeScreens()
@@ -91,10 +93,11 @@ void DisplayWorker::splitScreens()
     m_displayInter.ApplyChanges();
 }
 
-void DisplayWorker::switchCustom()
+void DisplayWorker::switchCustom(const bool deleteConfig)
 {
     // delete old config file
-    m_displayInter.DeleteCustomConfig().waitForFinished();
+    if (deleteConfig)
+        m_displayInter.DeleteCustomConfig().waitForFinished();
 
     switchMode(CUSTOM_MODE);
 }

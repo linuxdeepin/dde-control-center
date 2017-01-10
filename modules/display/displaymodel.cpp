@@ -84,6 +84,15 @@ void DisplayModel::setDisplayMode(const int mode)
     }
 }
 
+void DisplayModel::setHasConfig(const bool config)
+{
+    if (m_hasConfig != config)
+    {
+        m_hasConfig = config;
+        emit hasConfigChanged(m_hasConfig);
+    }
+}
+
 void DisplayModel::setPrimary(const QString &primary)
 {
     if (m_primary != primary)
