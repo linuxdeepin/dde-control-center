@@ -82,7 +82,7 @@ SoundWidget::SoundWidget(SoundModel *model) :
     m_centeralLayout->addWidget(m_speakerGroup);
     m_centeralLayout->addWidget(m_microphoneGroup);
     m_centeralLayout->addWidget(m_advancedSettingsGroup);
-    m_centeralLayout->addWidget(m_soundEffectSwitch);
+    m_centeralLayout->addWidget(m_soundEffectGroup);
 
     setModel(model);
 
