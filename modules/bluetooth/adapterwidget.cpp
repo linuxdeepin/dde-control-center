@@ -54,6 +54,7 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     });
 
     connect(adapter, &Adapter::nameChanged, this, &AdapterWidget::setTitle);
+    connect(adapter, &Adapter::destroyed, this, &AdapterWidget::back);
 
     TranslucentFrame *w = new TranslucentFrame;
     w->setLayout(layout);
