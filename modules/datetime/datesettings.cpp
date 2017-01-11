@@ -40,6 +40,9 @@ DateSettings::DateSettings(QWidget *parent)
 {
     setTitle(tr("Change Time Settings"));
 
+    m_cancelButton->setAccessibleName("TimeCancel");
+    m_confirmButton->setAccessibleName("TimeConfirm");
+
     QDate date ( QDate::currentDate() );
     m_yearWidget->setValue(date.year());
     m_monthWidget->setValue(date.month());

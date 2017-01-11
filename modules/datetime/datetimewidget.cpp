@@ -28,10 +28,13 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
 
     if (m_type == Year) {
         m_label->setText(tr("Year"));
+        m_lineEdit->setAccessibleName("TimeYear");
     } else if (m_type == Month) {
         m_label->setText(tr("Month"));
+        m_lineEdit->setAccessibleName("TimeMonth");
     } else {
         m_label->setText(tr("Day"));
+        m_lineEdit->setAccessibleName("TimeDay");
     }
 
     m_lineEdit->setFixedWidth(40);
@@ -170,6 +173,9 @@ TimeWidget::TimeWidget(QFrame *parent)
     m_minuteEdit->setText(QString::number(time.minute()));
     m_minuteEdit->setValidator(new QIntValidator(0,59,this));
     m_minuteEdit->setFixedWidth(80);
+
+    m_hourEdit->setAccessibleName("TimeHour");
+    m_minuteEdit->setAccessibleName("TimeMinute");
 
     QLabel *sep = new QLabel;
     sep->setFont(font);
