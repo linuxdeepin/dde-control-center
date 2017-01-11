@@ -88,7 +88,7 @@ ModuleWidget *BluetoothModule::moduleWidget()
     if (!m_bluetoothView)
     {
         m_bluetoothView = new BluetoothWidget(m_bluetoothModel);
-        m_bluetoothView->setTitle("Bluetooth");
+        m_bluetoothView->setTitle(tr("Bluetooth"));
         connect(m_bluetoothView, &BluetoothWidget::showBluetoothDetail, this, &BluetoothModule::showBluetoothDetail);
     }
 
