@@ -135,6 +135,7 @@ void ConnectionEditPage::recreateUI()
     }
 
     refershUI();
+    initPlaceholderText(m_sessionModel->errors());
 }
 
 void ConnectionEditPage::refershUI()
@@ -179,6 +180,24 @@ void ConnectionEditPage::saveFinished(const bool ret)
 {
     if (ret)
         emit back();
+}
+
+void ConnectionEditPage::initPlaceholderText(const NetworkErrors &errors)
+{
+    for (auto it(errors.cbegin()); it != errors.cend(); ++it)
+    {
+        const auto section = m_sessionModel->virtualSectionName(it.key());
+        const auto eItems = it.value();
+        for (auto its(eItems.begin()); its != eItems.end(); ++its)
+        {
+            if (m_optionWidgets[section].contains(its.key()))
+            {
+                LineEditWidget *edit = qobject_cast<LineEditWidget *>(m_optionWidgets[section][its.key()]);
+                if (edit)
+                    edit->textEdit()->setPlaceholderText(tr("Required"));
+            }
+        }
+    }
 }
 
 void ConnectionEditPage::onErrorsChanged(const NetworkErrors &errors)

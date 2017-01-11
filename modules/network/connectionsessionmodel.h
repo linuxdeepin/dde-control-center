@@ -20,6 +20,7 @@ class ConnectionSessionModel : public QObject
 public:
     explicit ConnectionSessionModel(QObject *parent = 0);
 
+    const NetworkErrors errors() const { return m_errors; }
     const QStringList sections() const { return m_sections; }
     const QList<QJsonObject> sectionKeys(const QString &section) const { return m_visibleItems[section]; }
     const QJsonObject keysInfo(const QString &section, const QString &vKey) const;
@@ -37,12 +38,13 @@ signals:
 
 private slots:
 //    void setVisibleKeys(const QMap<QString, QStringList> &keys);
+    void setErrors(const NetworkErrors &errors);
     void setAvailableItems(const QString &items);
     void setAllKeys(const QString &allKeys);
-    void onErrorsChanged(const NetworkErrors &errors) const;
 
 private:
     QList<QString> m_sections;
+    NetworkErrors m_errors;
     QMap<QString, QString> m_sectionName;
     QMap<QString, QString> m_virtualSectionName;
     QMap<QString, QList<QJsonObject>> m_visibleItems;

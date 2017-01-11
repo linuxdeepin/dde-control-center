@@ -23,6 +23,13 @@ const QJsonObject ConnectionSessionModel::keysInfo(const QString &section, const
     return QJsonObject();
 }
 
+void ConnectionSessionModel::setErrors(const NetworkErrors &errors)
+{
+    m_errors = errors;
+
+    emit errorsChanged(m_errors);
+}
+
 void ConnectionSessionModel::setAvailableItems(const QString &items)
 {
     m_sections.clear();
@@ -77,9 +84,4 @@ void ConnectionSessionModel::setAllKeys(const QString &allKeys)
     }
 
     emit keysChanged(m_vks);
-}
-
-void ConnectionSessionModel::onErrorsChanged(const NetworkErrors &errors) const
-{
-    emit errorsChanged(errors);
 }

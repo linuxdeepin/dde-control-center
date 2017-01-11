@@ -12,7 +12,9 @@ ConnectionSessionWorker::ConnectionSessionWorker(const QString &sessionPath, Con
     m_sessionInter.setSync(false);
 
     connect(&m_sessionInter, &ConnectionSessionInter::AvailableKeysChanged, this, &ConnectionSessionWorker::queryAvailableKeys);
-    connect(&m_sessionInter, &ConnectionSessionInter::ErrorsChanged, m_connModel, &ConnectionSessionModel::onErrorsChanged);
+    connect(&m_sessionInter, &ConnectionSessionInter::ErrorsChanged, m_connModel, &ConnectionSessionModel::setErrors);
+
+    m_connModel->setErrors(m_sessionInter.errors());
 
     queryAllKeys();
     queryAvailableKeys();

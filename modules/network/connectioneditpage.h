@@ -46,6 +46,7 @@ private slots:
     void recreateUI();
     void refershUI();
     void saveFinished(const bool ret);
+    void initPlaceholderText(const NetworkErrors &errors);
     void onErrorsChanged(const NetworkErrors &errors);
 
 private:
