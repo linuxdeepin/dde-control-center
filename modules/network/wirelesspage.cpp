@@ -177,9 +177,12 @@ void WirelessPage::onActiveConnInfoChanged(const QList<QJsonObject> &activeConns
         if (hwAddr == info.value("HwAddress").toString())
         {
             m_activeApName = info.value("ConnectionName").toString();
-            return;
+            return updateActiveAp();
         }
     }
+
+    m_activeApName.clear();
+    updateActiveAp();
 }
 
 void WirelessPage::showConnectHidePage()
