@@ -11,3 +11,7 @@ dcc--bluetooth--TitleEdit Dtk--Widget--DImageButton {
     qproperty-hoverPic: url(:/bluetooth/themes/dark/icons/edit_hover.png);
     qproperty-pressPic: url(:/bluetooth/themes/dark/icons/edit_press.png);
 }
+
+dcc--widgets--LargeLabel#PinCodeText {
+    color: black;
+}
