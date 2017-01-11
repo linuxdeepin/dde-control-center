@@ -9,7 +9,7 @@ SUBDIRS  = \
 
 # Automating generation .qm files from .ts files
 CONFIG(release, debug|release) {
-#    system($$PWD/translate_generation.sh)
+    system($$PWD/translate_generation.sh)
 }
 
 isEmpty(PREFIX) {
@@ -42,6 +42,6 @@ docs.files = docs/*
 databases.path = $${PREFIX}/share/dde-control-center/
 databases.files = data/timezone.db
 
-TRANSLATIONS    = translations/dde-control-center.ts
+TRANSLATIONS = translations/dde-control-center.ts
 
 INSTALLS = binary desktop service qm_files docs databases

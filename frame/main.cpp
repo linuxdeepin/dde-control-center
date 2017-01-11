@@ -116,6 +116,10 @@ static void onFontSizeChanged(const float pointSizeF) {
 int main(int argc, char *argv[])
 {
     DApplication app(argc, argv);
+    app.setOrganizationName("deepin");
+    app.setApplicationName("dde-control-center");
+    app.setApplicationVersion("4.0");
+    app.loadTranslator();
 
     DLogManager::registerConsoleAppender();
 
