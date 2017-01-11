@@ -23,14 +23,14 @@ ModuleWidget::ModuleWidget()
 
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->setSpacing(0);
-    titleLayout->setContentsMargins(11,0,0,0);
+    titleLayout->setContentsMargins(11, 0, 0, 0);
     titleLayout->addWidget(m_moduleIcon);
     titleLayout->setAlignment(m_moduleIcon, Qt::AlignCenter);
     titleLayout->addWidget(m_moduleTitle);
 
     m_centeralLayout = new QVBoxLayout;
     m_centeralLayout->addLayout(titleLayout);
-    m_centeralLayout->setSpacing(8);
+    m_centeralLayout->setSpacing(10);
     m_centeralLayout->setMargin(0);
 
     setLayout(m_centeralLayout);

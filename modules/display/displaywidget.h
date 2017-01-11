@@ -38,6 +38,7 @@ private:
     widgets::NextPageWidget *m_resolution;
     widgets::NextPageWidget *m_mySettings;
     widgets::SettingsGroup *m_settingsGrp;
+    widgets::SettingsGroup *m_resolutionsGrp;
     QPushButton *m_rotate;
     QPushButton *m_custom;
 };

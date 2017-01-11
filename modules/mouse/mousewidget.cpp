@@ -15,13 +15,9 @@ using namespace dcc;
 using namespace dcc::mouse;
 using namespace dcc::widgets;
 MouseWidget::MouseWidget()
-    : ModuleWidget(),
-
-      m_userGroup(new SettingsGroup)
+    : ModuleWidget()
 {
     setObjectName("Mouse");
-
-    m_centeralLayout->addWidget(m_userGroup);
 
     m_baseSettings = new BaseSettings;
     m_centeralLayout->addWidget(m_baseSettings);

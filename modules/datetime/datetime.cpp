@@ -39,14 +39,9 @@ Datetime::Datetime()
     m_headItem->setTitle(tr("Timezone List"));
 
     m_timezoneGroup->appendItem(m_headItem);
-    m_centeralLayout->setMargin(0);
-    m_centeralLayout->setSpacing(0);
     m_centeralLayout->addWidget(clockGroup);
-    m_centeralLayout->addSpacing(10);
     m_centeralLayout->addWidget(m_timeSettingsGroup);
-    m_centeralLayout->addSpacing(10);
     m_centeralLayout->addWidget(m_timezoneGroup);
-    m_centeralLayout->addSpacing(10);
     m_centeralLayout->addWidget(m_addTimezoneButton);
 
     connect(m_dialog, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {

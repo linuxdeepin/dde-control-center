@@ -24,13 +24,13 @@ DisplayWidget::DisplayWidget()
     m_resolution->setTitle(tr("Resolution"));
     m_mySettings->setTitle(tr("My Settings"));
 
-    SettingsGroup *resolutions = new SettingsGroup;
-    resolutions->appendItem(m_resolution);
+    m_resolutionsGrp = new SettingsGroup;
+    m_resolutionsGrp->appendItem(m_resolution);
 
     m_settingsGrp = new SettingsGroup;
     m_settingsGrp->appendItem(m_mySettings);
 
-    m_centeralLayout->addWidget(resolutions);
+    m_centeralLayout->addWidget(m_resolutionsGrp);
     m_centeralLayout->addWidget(m_rotate);
     m_centeralLayout->addWidget(m_settingsGrp);
     m_centeralLayout->addWidget(m_custom);
@@ -63,6 +63,7 @@ void DisplayWidget::onScreenListChanged() const
         m_custom->hide();
         m_settingsGrp->hide();
 
+        m_resolutionsGrp->show();
         m_resolution->show();
         m_rotate->show();
     } else {
@@ -71,6 +72,7 @@ void DisplayWidget::onScreenListChanged() const
         m_settingsGrp->hide();
 //        m_settingsGrp->show();
 
+        m_resolutionsGrp->hide();
         m_resolution->hide();
         m_rotate->hide();
     }

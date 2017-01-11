@@ -38,7 +38,6 @@ signals:
     void requestSetTrackPointMotionAcceleration(const int &value);
 
 private:
-    widgets::SettingsGroup *m_userGroup;
     QPushButton *m_nextPage;
     BaseSettings *m_baseSettings;
     MouseSettings *m_mouseSettings;
