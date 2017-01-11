@@ -58,6 +58,7 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutWidget::Inf
     {
         ShortcutItem* item = new ShortcutItem();
         connect(item, SIGNAL(shortcutChangd(bool, ShortcutInfo*, QString)), this, SIGNAL(shortcutChanged(bool, ShortcutInfo*, QString)));
+        connect(item, &ShortcutItem::requestDisableShortcut, this, &ShortcutWidget::requestDisableShortcut);
         item->setShortcutInfo((*it));
         m_searchInfos[(*it)->name+(*it)->accels] = (*it);
 

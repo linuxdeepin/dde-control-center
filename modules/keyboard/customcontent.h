@@ -30,8 +30,8 @@ signals:
 
 public slots:
     void onClick();
-    void onKeyEvent(bool press, QString shortcut);
     void onShortcut();
+    void onKeyEvent(const bool state, const QString &keylist);
 
 private:
     KeyboardWork* m_work;

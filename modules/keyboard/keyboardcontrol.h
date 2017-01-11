@@ -18,6 +18,7 @@ public:
 
     void setConflictString(const QStringList& list);
     void setPress(const QString& key, bool press);
+    void setConflicts(const QString& key, bool press);
 
 protected:
     void paintEvent(QPaintEvent *);

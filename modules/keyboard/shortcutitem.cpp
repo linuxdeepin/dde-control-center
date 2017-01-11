@@ -50,7 +50,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
                                           "/com/deepin/daemon/Keybinding",
                                           QDBusConnection::sessionBus(), this);
 
-    connect(m_inter, SIGNAL(KeyEvent(bool,QString)), this, SLOT(onKeyEvent(bool,QString)));
+    connect(m_inter, &KeybingdingInter::KeyEvent, this, &ShortcutItem::onKeyEvent);
     connect(m_checkBtn, SIGNAL(clicked()), this, SLOT(onChecked()));
     connect(qApp, SIGNAL(focusChanged(QWidget*,QWidget*)), this, SLOT(onFocusChanged(QWidget*,QWidget*)));
 }
@@ -90,8 +90,9 @@ void ShortcutItem::onKeyEvent(bool press, QString shortcut)
             return;
         }
 
-        if(shortcut.toLower() == "backspace" || shortcut.toLower() == "delete"){
+        if(shortcut == "BackSpace" || shortcut == "delete"){
             m_shortcutEdit->hide();
+            emit requestDisableShortcut(m_info);
         }else{
             m_shortcutEdit->hide();
             if(m_info->accels != shortcut)
@@ -106,6 +107,7 @@ void ShortcutItem::onKeyEvent(bool press, QString shortcut)
         if(shortcut.isEmpty())
             m_shortcutEdit->hide();
     }
+    update();
 }
 
 void ShortcutItem::onEditMode(bool value)

@@ -2,7 +2,23 @@
 #define KEYBOARDMODEL_H
 
 #include <QObject>
+#include <QStringList>
+#include <QMap>
 #include "indexmodel.h"
+
+
+static QStringList ModelKeylist = { "Esc" , "F1" , "F2"  , "F3" , "F4"  , "F5" , "F6" , "F7" , "F8" , "F9" , "F10" , "F11" , "F12" , "Power"
+                               ,  "~" , "1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9" , "0" ,  "-" , "=" , "Delete" ,  "Tab" , "Q"
+                               , "W" , "E" , "R" , "T" , "Y" , "U" , "I" , "O" , "P" , "[" , "]" , "\\" , "CAPS" , "A" , "S" , "D"
+                               , "F" , "G" , "H" , "J" , "K" , "L" , ";" , "'" , "ENTER" , "Shift" , "Z" , "X" , "C" , "V" , "B"
+                               , "N" , "M" , ",<" , ">." , "?/" , "Shift" , "Fn" , "Ctrl" , "Alt" , "Super" , "Space" , "Alt" , "Left" , "Up"
+                               , "Right" , "Down"};
+
+static QMap<QString, QString> ModelKeycode = {{"minus", "-"},{"equal","="},{"backslash" ,"\\"},{"question" ,"?/"},{"exclam" ,"1"},{"numbersign" ,"3"},
+                                           {"semicolon" ,";"},{"apostrophe","'"},{"less",",<"},{"period" ,">."},{"slash" ,"?/"},{"parenleft" ,"9"},{"bracketleft" ,"["},
+                                           {"parenright" ,"0"},{"bracketright" ,"]"},{"quotedbl" ,"'"},{"space" ," "},{"dollar" ,"$"},{"plus" ,"+"},{"asterisk" ,"*"},
+                                           {"underscore" ,"_"},{"bar" ,"|"},{"grave" ,"`"},{"at" ,"2"},{"percent" ,"5"},{"greater" ,">."},{"asciicircum" ,"6"},
+                                           {"braceleft" ,"["},{"colon" ,":"},{"comma" ,",<"},{"asciitilde" ,"~"},{"ampersand" ,"7"},{"braceright" ,"]"},{"Escape" ,"Esc"}};
 
 namespace dcc {
 namespace keyboard{
@@ -23,6 +39,7 @@ public:
     QStringList userLayout() const;
     QList<MetaData> langLists() const;
     bool capsLock() const;
+    QMap<QStringList,int> allShortcut() const;
 
 signals:
     void requestCurLayout(const QString& layout);
@@ -37,6 +54,8 @@ public slots:
     void delUserLayout(const QString& value);
     void setLocaleList(const QList<MetaData>& langs);
     void setCapsLock(bool value);
+    void setAllShortcut(const QMap<QStringList,int> &map);
+
 private:
     bool m_capsLock;
     uint m_repeatInterval;
@@ -46,6 +65,7 @@ private:
     QStringList m_userLayout;
     QMap<QString, QString> m_layouts;
     QList<MetaData> m_langs;
+    QMap<QStringList,int> m_shortcutMap;
 };
 }
 }

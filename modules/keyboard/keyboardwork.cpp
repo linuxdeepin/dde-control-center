@@ -1,5 +1,6 @@
 #include "keyboardwork.h"
 #include "shortcutitem.h"
+#include "keyboardmodel.h"
 #include <QTime>
 #include <QDebug>
 #include <QLocale>
@@ -26,26 +27,22 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
                                           QDBusConnection::sessionBus(), this))
 {
     connect(m_keybindInter, SIGNAL(Added(QString,int)), this,SLOT(onAdded(QString,int)));
-    connect(m_keybindInter, SIGNAL(KeyEvent(bool,QString)), this, SIGNAL(KeyEvent(bool,QString)));
     connect(m_keyboardInter, SIGNAL(UserLayoutListChanged(QStringList)), m_model, SLOT(setUserLayout(QStringList)));
     connect(m_keyboardInter, SIGNAL(CurrentLayoutChanged(QString)), m_model, SLOT(setLayout(QString)));
     connect(m_langSelector, SIGNAL(CurrentLocaleChanged(QString)), m_model, SLOT(setLang(QString)));
     connect(m_keyboardInter, SIGNAL(CapslockToggleChanged(bool)), m_model, SLOT(setCapsLock(bool)));
+    connect(m_keybindInter, &KeybingdingInter::KeyEvent, this, &KeyboardWork::KeyEvent);
 
     getProperty();
+    onValid();
 
     m_keyboardInter->setSync(false);
     m_keybindInter->setSync(false);
 
-    if (m_langSelector->isValid()) {
-        onValid();
-    } else {
-        m_langSelector->setSync(false);
-    }
-
     QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->List(), this);
     connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
             SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
+
 }
 
 void KeyboardWork::active()
@@ -65,6 +62,33 @@ void KeyboardWork::deactive()
     m_keyboardInter->blockSignals(true);
     m_langSelector->blockSignals(true);
     m_keybindInter->blockSignals(true);
+}
+
+bool KeyboardWork::keyOccupy(const QStringList &list)
+{
+    int bit = 0;
+    for (QString t : list) {
+        if (t == "Control")
+            bit +=  Modifier::control;
+        else if (t == "Alt")
+            bit += Modifier::alt;
+        else if (t == "Super")
+            bit += Modifier::super;
+        else if (t == "Shift")
+            bit += Modifier::shift;
+        else
+            continue;
+    }
+
+    QMap<QStringList,int> keylist = m_model->allShortcut();
+    QMap<QStringList, int>::iterator i;
+    for (i = keylist.begin(); i != keylist.end(); ++i) {
+        if (bit == i.value() && i.key().last() == list.last()) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 void KeyboardWork::getProperty()
@@ -281,12 +305,52 @@ void KeyboardWork::onRequestShortcut(QDBusPendingCallWatcher *watch)
     QString info = reply.value();
 
     emit shortcutInfo(info);
+
+    QMap<QStringList,int> map;
+    QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
+    foreach(QJsonValue value, array) {
+        QJsonObject obj = value.toObject();
+        QString accels = obj["Accels"].toArray().at(0).toString();
+        accels.replace("<", "");
+        accels.replace(">", "-");
+        //转换为list
+        QStringList key;
+        key = accels.split("-");
+        int bit = 0;
+        for (QString &t : key) {
+            if (t == "Control")
+                bit += Modifier::control;
+            else if (t == "Alt")
+                bit += Modifier::alt;
+            else if (t == "Super")
+                bit += Modifier::super;
+            else if (t == "Shift")
+                bit += Modifier::shift;
+            else {
+                QString s = t;
+                s = ModelKeycode.value(s);
+                if (!s.isEmpty())
+                    t = s;
+            }
+        }
+        if (bit == 0)
+            continue;
+
+        map.insert(key, bit);
+    }
+    m_model->setAllShortcut(map);
     watch->deleteLater();
 }
 
 void KeyboardWork::onAdded(const QString &in0, int in1)
 {
     emit custonInfo(m_keybindInter->Query(in0, in1));
+}
+
+void KeyboardWork::onDisableShortcut(ShortcutInfo *info)
+{
+    m_keybindInter->Disable(info->id, info->type);
+    info->accels = tr("None");
 }
 
 void KeyboardWork::append(const MetaData &md)

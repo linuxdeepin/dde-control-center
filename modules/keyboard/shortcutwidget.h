@@ -40,6 +40,7 @@ signals:
     void shortcutChanged(bool valid, ShortcutInfo* info, const QString& shortcut);
     void customShortcut();
     void delShortcutInfo(ShortcutInfo* info);
+    void requestDisableShortcut(ShortcutInfo* info);
 
 public slots:
     void onSearch(const QString &text);

@@ -5,7 +5,6 @@ namespace keyboard{
 KeyboardModel::KeyboardModel(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void KeyboardModel::setLayoutLists(QMap<QString, QString> lists)
@@ -78,6 +77,11 @@ void KeyboardModel::setCapsLock(bool value)
     emit requestCapsLockChanged(value);
 }
 
+void KeyboardModel::setAllShortcut(const QMap<QStringList,int> &map)
+{
+    m_shortcutMap = map;
+}
+
 QString KeyboardModel::curLang() const
 {
     return langByKey(m_lang);
@@ -102,5 +106,11 @@ bool KeyboardModel::capsLock() const
 {
     return m_capsLock;
 }
+
+QMap<QStringList, int> KeyboardModel::allShortcut() const
+{
+    return m_shortcutMap;
+}
+
 }
 }

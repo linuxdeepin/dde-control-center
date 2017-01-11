@@ -4,7 +4,7 @@
 #include "shortcutitem.h"
 #include "keyboardcontrol.h"
 #include "translucentframe.h"
-
+#include "keyboardmodel.h"
 #include <QVBoxLayout>
 
 namespace dcc {
@@ -47,7 +47,8 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
     connect(m_ok, SIGNAL(clicked()), this, SLOT(onReplace()));
     connect(m_cancel, SIGNAL(clicked()), this, SIGNAL(back()));
     connect(item,SIGNAL(click()), this, SLOT(onClick()));
-    connect(m_work, SIGNAL(KeyEvent(bool,QString)), this, SLOT(onKeyEvent(bool,QString)));
+
+    connect(m_work, &KeyboardWork::KeyEvent, this, &ShortcutContent::onKeyEvent);
 }
 
 void ShortcutContent::setBottomTip(ShortcutInfo* conflict)
@@ -80,6 +81,13 @@ void ShortcutContent::onClick()
 {
     m_work->grabScreen();
     m_control->setFocus();
+
+    m_bottomTip->clear();
+    m_bottomTip->hide();
+
+    for (int i = 0; i < ModelKeylist.count(); i++) {
+        m_control->setConflicts(ModelKeylist.at(i), false);
+    }
 }
 
 void ShortcutContent::onReplace()
@@ -92,28 +100,36 @@ void ShortcutContent::onReplace()
     sendBackSignal();
 }
 
-void ShortcutContent::onKeyEvent(bool press, QString shortcut)
+void ShortcutContent::onKeyEvent(const bool state, const QString &keylist)
 {
-    QString key = shortcut;
-    key.replace("Control", "Ctrl");
-    key.replace("<","");
-    key.replace(">","-");
-    QStringList keys = key.split("-");
-    for(int i = 0; i<keys.count(); i++)
-    {
-        m_control->setPress(keys.at(i), press);
+    QString in = keylist;
+    in.replace("<", "");
+    in.replace(">", "-");
+    in.replace("_L", "");
+    QStringList value = in.split("-");
+    QMap<QString, bool> list;
+    for (QString key : ModelKeylist) {
+        QStringList t;
+        t << value << key;
+        list.insert(key, m_work->keyOccupy(t));
     }
 
-    if(!press)
-    {
-        bool result = m_work->checkAvaliable(shortcut);
-        emit this->shortcut(shortcut);
+    for (int i = 0; i < ModelKeylist.size(); ++i)
+        m_control->setPress(ModelKeylist.at(i), false);
+
+    for (int i = 0; i < ModelKeylist.size(); ++i) {
+        m_control->setPress(ModelKeylist.at(i), list[ModelKeylist.at(i)]);
+    }
+    if (!state && !keylist.isEmpty()){
+        bool result = m_work->checkAvaliable(keylist);
+        emit this->shortcut(keylist);
         if(result)
         {
-            m_work->modifyShortcut(m_curInfo, shortcut);
+            m_work->modifyShortcut(m_curInfo, keylist);
             sendBackSignal();
         }
     }
 }
+
 }
 }

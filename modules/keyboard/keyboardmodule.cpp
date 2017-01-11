@@ -1,5 +1,6 @@
 #include "keyboardmodule.h"
 #include "keyitem.h"
+#include "keyboardmodel.h"
 
 namespace dcc {
 namespace keyboard{
@@ -99,7 +100,7 @@ void KeyboardModule::contentPopped(ContentWidget * const w)
 ShortcutInfo *KeyboardModule::checkConflict(const QString &shortcut, QStringList &list)
 {
     QString dest = shortcut;
-    dest.replace("Control","Ctrl");
+    dest = dest.replace("Control", "Ctrl");
     dest = dest.replace("<", "");
     dest = dest.replace(">", "-");
     QStringList dests = dest.split("-");
@@ -108,36 +109,59 @@ ShortcutInfo *KeyboardModule::checkConflict(const QString &shortcut, QStringList
     QList<ShortcutInfo*>::iterator itinfo = infos.begin();
     ShortcutInfo* conflict = NULL;
     QStringList checkeds;
+
+    int dests_count = 0;
+    for (QString &t : dests){
+        if (t == "Ctrl")
+            dests_count += m_work->Modifier::control;
+        else if (t == "Alt")
+            dests_count += m_work->Modifier::alt;
+        else if (t == "Super")
+            dests_count += m_work->Modifier::super;
+        else if (t == "Shift")
+            dests_count += m_work->Modifier::shift;
+        else {
+            QString s = t;
+            s = ModelKeycode.value(s);
+            if (!s.isEmpty())
+                t = s;
+        }
+    }
+
     for(; itinfo != infos.end(); ++itinfo)
     {
         ShortcutInfo* item = (*itinfo);
         QString src = item->accels;
-        src.replace("Control", "Ctrl");
+        src = src.replace("Control", "Ctrl");
         src = src.replace("<", "");
         src = src.replace(">", "-");
         QStringList srcs = src.split("-");
-        if(srcs.count() == dests.count())
-        {
-            int score = 0;
-            for(int i = 0; i< dests.count() - 1; i++)
-            {
-                if(srcs.contains(dests.at(i)))
-                {
-                    score++;
-                }
-            }
 
-            if(score == dests.count() - 1)
-            {
-                checkeds<<srcs.last();
-                if(dests.last() == srcs.last())
-                    conflict = item;
+        int srcs_count = 0;
+        for (QString &t : srcs){
+            if (t == "Ctrl")
+                srcs_count += m_work->Modifier::control;
+            else if (t == "Alt")
+                srcs_count += m_work->Modifier::alt;
+            else if (t == "Super")
+                srcs_count += m_work->Modifier::super;
+            else if (t == "Shift")
+                srcs_count += m_work->Modifier::shift;
+            else {
+                QString s = t;
+                s = ModelKeycode.value(s);
+                if (!s.isEmpty())
+                    t = s;
             }
         }
+
+        if (srcs_count == dests_count && converKey(dests.last()) == converKey(srcs.last()))
+            conflict = item;
     }
 
     QList<KeyItem*> items = KeyItem::keyboards();
     QList<KeyItem*>::iterator it = items.begin();
+
     for(; it != items.end(); ++it)
     {
         if(conflict)
@@ -145,15 +169,18 @@ ShortcutInfo *KeyboardModule::checkConflict(const QString &shortcut, QStringList
             if(checkeds.contains((*it)->mainKey()) || dests.contains((*it)->mainKey()))
             {
                 (*it)->setPress(true);
+                (*it)->setConflict(true);
             }
             else
             {
                 (*it)->setPress(false);
+                (*it)->setConflict(false);
             }
         }
         else
         {
             (*it)->setPress(false);
+            (*it)->setConflict(false);
         }
     }
     checkeds<<dests;
@@ -161,6 +188,14 @@ ShortcutInfo *KeyboardModule::checkConflict(const QString &shortcut, QStringList
     return conflict;
 }
 
+QString KeyboardModule::converKey(const QString &key)
+{
+     QString converkey = ModelKeycode.value(key);
+     if (converkey.isEmpty())
+         return key;
+     else
+         return converkey;
+}
 
 void KeyboardModule::onPushKeyboard()
 {
@@ -231,7 +266,7 @@ void KeyboardModule::onPushShortcut()
         connect(m_shortcutModel, SIGNAL(addCustonInfo(ShortcutInfo*)), m_shortcutWidget, SLOT(onCustomAdded(ShortcutInfo*)));
         connect(m_shortcutWidget, SIGNAL(delShortcutInfo(ShortcutInfo*)), this, SLOT(onDelShortcut(ShortcutInfo*)));
         connect(m_work, SIGNAL(searchChangd(ShortcutInfo*,QString)), m_shortcutWidget, SLOT(onSearchInfo(ShortcutInfo*,QString)));
-
+        connect(m_shortcutWidget, &ShortcutWidget::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
 
         m_shortcutWidget->addShortcut(m_shortcutModel->systemInfo(), ShortcutWidget::System);
         m_shortcutWidget->addShortcut(m_shortcutModel->windowInfo(), ShortcutWidget::Window);
@@ -324,6 +359,25 @@ void KeyboardModule::onShortcutChecked(bool valid, ShortcutInfo* info, const QSt
         QStringList dests = dest.split("-");
         QList<ShortcutInfo*> infos = m_shortcutModel->infos();
 
+
+        int dests_count = 0;
+        for (QString &t : dests){
+            if (t == "Ctrl")
+                dests_count += m_work->Modifier::control;
+            else if (t == "Alt")
+                dests_count += m_work->Modifier::alt;
+            else if (t == "Super")
+                dests_count += m_work->Modifier::super;
+            else if (t == "Shift")
+                dests_count += m_work->Modifier::shift;
+            else {
+                QString s = t;
+                s = ModelKeycode.value(s);
+                if (!s.isEmpty())
+                    t = s;
+            }
+        }
+
         QList<ShortcutInfo*>::iterator itinfo = infos.begin();
         ShortcutInfo* conflict = NULL;
         QStringList checkeds;
@@ -331,35 +385,37 @@ void KeyboardModule::onShortcutChecked(bool valid, ShortcutInfo* info, const QSt
         {
             ShortcutInfo* item = (*itinfo);
             QString src = item->accels;
-            src.replace("Control", "Ctrl");
+            src = src.replace("Control", "Ctrl");
             src = src.replace("<", "");
             src = src.replace(">", "-");
             QStringList srcs = src.split("-");
-            if(srcs.count() == dests.count())
-            {
-                int score = 0;
-                for(int i = 0; i< dests.count() - 1; i++)
-                {
-                    if(srcs.contains(dests.at(i)))
-                    {
-                        score++;
-                    }
-                }
 
-                if(score == dests.count() - 1)
-                {
-                    checkeds<<srcs.last();
-                    if(dests.last() == srcs.last())
-                        conflict = item;
+            int srcs_count = 0;
+            for (QString &t : srcs){
+                if (t == "Ctrl")
+                    srcs_count += m_work->Modifier::control;
+                else if (t == "Alt")
+                    srcs_count += m_work->Modifier::alt;
+                else if (t == "Super")
+                    srcs_count += m_work->Modifier::super;
+                else if (t == "Shift")
+                    srcs_count += m_work->Modifier::shift;
+                else {
+                    QString s = t;
+                    s = ModelKeycode.value(s);
+                    if (!s.isEmpty())
+                        t = s;
                 }
             }
+            if (srcs_count == dests_count && converKey(dests.last()) == converKey(srcs.last()))
+                conflict = item;
         }
 
         QList<KeyItem*> items = KeyItem::keyboards();
         QList<KeyItem*>::iterator it = items.begin();
         for(; it != items.end(); ++it)
         {
-    //        if(checkeds.contains(dests.last()))
+//            if(checkeds.contains(dests.last()))
             {
                 if(checkeds.contains((*it)->mainKey()) || dests.contains((*it)->mainKey()))
                 {

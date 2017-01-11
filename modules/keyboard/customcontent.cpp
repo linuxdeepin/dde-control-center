@@ -4,20 +4,23 @@
 #include "shortcutmodel.h"
 #include "inputitem.h"
 #include "translucentframe.h"
-
+#include "keyboardmodel.h"
+#include <QMap>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
-namespace dcc {
-namespace keyboard{
+namespace dcc
+{
+namespace keyboard
+{
 
-CustomContent::CustomContent(KeyboardWork* work, QWidget *parent)
-    :ContentWidget(parent),
+CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
+    : ContentWidget(parent),
       m_work(work)
 {
     setTitle(tr("Shortcuts"));
-    TranslucentFrame* widget = new TranslucentFrame();
-    QVBoxLayout* layout = new QVBoxLayout();
+    TranslucentFrame *widget = new TranslucentFrame();
+    QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
 
     m_commandGroup = new SettingsGroup();
@@ -47,7 +50,7 @@ CustomContent::CustomContent(KeyboardWork* work, QWidget *parent)
     m_cancel = new QPushButton(tr("Cancel"));
     m_ok = new QPushButton(tr("Add"));
 
-    QHBoxLayout* hlayout = new QHBoxLayout();
+    QHBoxLayout *hlayout = new QHBoxLayout();
     hlayout->addWidget(m_cancel);
     hlayout->addWidget(m_ok);
     layout->addLayout(hlayout);
@@ -63,21 +66,18 @@ CustomContent::CustomContent(KeyboardWork* work, QWidget *parent)
 
     connect(m_cancel, SIGNAL(clicked()), this, SIGNAL(back()));
     connect(m_shortcut, SIGNAL(click()), this, SLOT(onClick()));
-    connect(m_work, SIGNAL(KeyEvent(bool,QString)), this, SLOT(onKeyEvent(bool,QString)));
+    connect(m_work, &KeyboardWork::KeyEvent, this, &CustomContent::onKeyEvent);
     connect(m_ok, SIGNAL(clicked()), this, SLOT(onShortcut()));
 }
 
 void CustomContent::setBottomTip(ShortcutInfo *conflict)
 {
     m_conflict = conflict;
-    if(conflict)
-    {
+    if (conflict) {
         QString str = tr("This shortcut conflicts with %1, click on Add to make this shortcut effective immediately").arg(conflict->name);
         m_bottomTip->setText(str);
         m_bottomTip->show();
-    }
-    else
-    {
+    } else {
         m_bottomTip->clear();
         m_bottomTip->hide();
     }
@@ -92,43 +92,53 @@ void CustomContent::onClick()
 {
     m_work->grabScreen();
     m_control->setFocus();
-}
 
-void CustomContent::onKeyEvent(bool press, QString shortcut)
-{
-    m_shortcut->setValue(shortcut);
+    m_bottomTip->clear();
+    m_bottomTip->hide();
 
-    QString key = shortcut;
-    key.replace("Control", "Ctrl");
-    key.replace("<","");
-    key.replace(">","-");
-    QStringList keys = key.split("-");
-    for(int i = 0; i<keys.count(); i++)
-    {
-        m_control->setPress(keys.at(i), press);
-    }
-    if(!press)
-    {
-        m_work->checkAvaliable(shortcut);
-        emit this->shortcut(shortcut);
+    for (int i = 0; i < ModelKeylist.size(); ++i) {
+        m_control->setConflicts(ModelKeylist.at(i), false);
     }
 }
 
 void CustomContent::onShortcut()
 {
     bool result = true;
-    if(m_conflict)
-    {
+    if (m_conflict) {
         QString key = m_conflict->accels;
         m_work->modifyShortcut(m_conflict, tr("null"));
         m_work->addCustonShortcut(m_name->value(), m_command->value(), key, result);
-    }
-    else
-    {
+    } else {
         m_work->addCustonShortcut(m_name->value(), m_command->value(), m_shortcut->value(), result);
     }
 
     sendBackSignal();
+}
+
+void CustomContent::onKeyEvent(const bool state, const QString &keylist)
+{
+    QString in = keylist;
+    in.replace("<", "");
+    in.replace(">", "-");
+    in.replace("_L", "");
+    QStringList value = in.split("-");
+    m_shortcut->setValue(in);
+    QMap<QString, bool> list;
+    for (QString key : ModelKeylist) {
+        QStringList t;
+        t << value << key;
+        list.insert(key, m_work->keyOccupy(t));
+    }
+
+    for (int i = 0; i < ModelKeylist.size(); ++i)
+        m_control->setPress(ModelKeylist.at(i), false);
+
+    for (int i = 0; i < ModelKeylist.size(); ++i) {
+        m_control->setPress(ModelKeylist.at(i), list[ModelKeylist.at(i)]);
+    }
+    if (!state && !keylist.isEmpty()){
+        emit shortcut(keylist);
+    }
 }
 
 }

@@ -13,7 +13,8 @@ KeyItem::KeyItem(int row, int col, const QString &main, const QString &vice)
       m_row(row),
       m_col(col),
       m_keycode(-1),
-      m_press(false)
+      m_press(false),
+      m_conflict(false)
 {
 
 }
@@ -24,7 +25,8 @@ KeyItem::KeyItem(int row, int col, int key, const QString &main, const QString &
       m_row(row),
       m_col(col),
       m_keycode(key),
-      m_press(false)
+      m_press(false),
+      m_conflict(false)
 {
     QStringList list;
     list<<"Ctrl"<<"Alt"<<"Super"<<"Shift"<<"Fn";
@@ -59,6 +61,11 @@ QString KeyItem::viceKey() const
 void KeyItem::setPress(bool press)
 {
     m_press = press;
+}
+
+void KeyItem::setConflict(bool conflict)
+{
+    m_conflict = conflict;
 }
 
 QList<KeyItem *> KeyItem::keyboards()
@@ -264,7 +271,7 @@ void KeyItem::paint(QPainter *painter, const QRect &rect)
             if(m_press)
             {
                 painter->save();
-                if(m_modifies)
+                if(m_modifies || m_conflict)
                     painter->setBrush(Qt::red);
                 else
                     painter->setBrush(Qt::green);
@@ -288,7 +295,7 @@ void KeyItem::paint(QPainter *painter, const QRect &rect)
     if(m_press && (m_keycode != 108 && m_keycode != 62))
     {
         painter->save();
-        if(m_modifies)
+        if(m_modifies || m_conflict)
             painter->setBrush(Qt::red);
         else
             painter->setBrush(Qt::green);

@@ -23,6 +23,8 @@ public:
     void setPress(bool press);
     bool press() const { return m_press; }
 
+    void setConflict(bool conflict);
+
     QRect rect() const { return m_rect; }
     quint32 keycode() const { return m_keycode;}
     bool modifies() const { return m_modifies;}
@@ -43,6 +45,7 @@ private:
     bool m_modifies;
     bool m_press;
     static QList<KeyItem*> m_keys;
+    bool m_conflict;
 };
 }
 }

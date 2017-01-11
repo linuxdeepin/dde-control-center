@@ -22,6 +22,12 @@ class KeyboardWork : public QObject
 
 public:
     explicit KeyboardWork(KeyboardModel* model, QObject *parent = 0);
+    enum Modifier {
+        control = 1,
+        super = 2,
+        alt = 4,
+        shift = 8
+    };
     void getProperty();
     inline QList<MetaData> getDatas() {return m_metaDatas;}
     inline QList<QString> getLetters() {return m_letters;}
@@ -46,12 +52,16 @@ public:
     void setCapsLock(bool value);
     void active();
     void deactive();
+    bool keyOccupy(const QStringList &list);
+
 signals:
     void shortcutInfo(const QString& info);
     void custonInfo(const QString& info);
-    void KeyEvent(bool in0, const QString &in1);
     void searchChangd(ShortcutInfo* info, const QString& key);
     void requestSetLangTitle(const QString &title);
+    void grabScreenResult(const QString &value);
+    void KeyEvent(bool in0, const QString &in1);
+    void grabScreenModifiers(const QStringList &value);
 
 public slots:
     void setLang(const QString& value);
@@ -62,6 +72,7 @@ public slots:
     void onLocaleListFinish(QDBusPendingCallWatcher* watch);
     void onRequestShortcut(QDBusPendingCallWatcher* watch);
     void onAdded(const QString&in0, int in1);
+    void onDisableShortcut(ShortcutInfo* info);
 
 private:
     void append(const MetaData& md);

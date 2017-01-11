@@ -35,6 +35,7 @@ public:
     void contentPopped(ContentWidget * const w);
 
     ShortcutInfo* checkConflict(const QString& shortcut, QStringList &list);
+    QString converKey(const QString &key);
 
 public slots:
     void onPushKeyboard();

@@ -42,6 +42,20 @@ void KeyboardControl::setPress(const QString &key, bool press)
     update();
 }
 
+void KeyboardControl::setConflicts(const QString &key, bool press)
+{
+    QList<KeyItem*> list = KeyItem::keyboards();
+    QList<KeyItem*>::iterator it = list.begin();
+    for(; it != list.end(); ++it)
+    {
+        if((*it)->mainKey() ==  key)
+        {
+            (*it)->setPress(press);
+        }
+    }
+    update();
+}
+
 void KeyboardControl::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);

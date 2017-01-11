@@ -31,7 +31,8 @@ signals:
 public slots:
     void onClick();
     void onReplace();
-    void onKeyEvent(bool press, QString shortcut);
+    void onKeyEvent(const bool state, const QString &keylist);
+
 private:
     KeyboardWork* m_work;
     QPushButton* m_ok;
