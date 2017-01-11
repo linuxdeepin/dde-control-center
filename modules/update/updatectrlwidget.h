@@ -49,7 +49,6 @@ private:
 private:
     UpdateModel *m_model;
     UpdatesStatus m_status;
-    DownloadInfo *m_downloadInfo;
 
     SettingsGroup* m_checkGroup;
     LoadingItem* m_checkUpdateItem;

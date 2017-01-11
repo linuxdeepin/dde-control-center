@@ -85,13 +85,9 @@ const QString UpdateModule::name() const
 
 void UpdateModule::onPushUpdate()
 {
-    m_work->checkForUpdates();
-
-    // prohibit dde-offline-upgrader from showing while this page is showing.
-    QDBusConnection::sessionBus().registerService(OfflineUpgraderService);
-
     if (!m_updatePage) {
         m_updatePage = new UpdateCtrlWidget(m_model);
+        m_work->checkForUpdates();
 
         connect(m_updatePage, &UpdateCtrlWidget::requestDownloadUpdates, m_work, &UpdateWork::downloadUpdates);
         connect(m_updatePage, &UpdateCtrlWidget::requestPauseDownload, m_work, &UpdateWork::pauseDownload);
@@ -106,6 +102,9 @@ void UpdateModule::onPushUpdate()
     }
 
     m_frameProxy->pushWidget(this, m_updatePage);
+
+    // prohibit dde-offline-upgrader from showing while this page is showing.
+    QDBusConnection::sessionBus().registerService(OfflineUpgraderService);
 }
 
 void UpdateModule::onPushMirrorsView()

@@ -158,6 +158,8 @@ void UpdateWork::testMirrorSpeed()
 
 void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
 {
+    m_model->setStatus(UpdatesStatus::Checking);
+
     if(m_checkUpdateJob) {
         m_checkUpdateJob->deleteLater();
         m_checkUpdateJob = nullptr;
@@ -174,12 +176,16 @@ void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
             QFutureWatcher<DownloadInfo*> *watcher = new QFutureWatcher<DownloadInfo*>(this);
             connect(watcher, &QFutureWatcher<DownloadInfo*>::finished, [this, watcher] {
                 DownloadInfo *result = watcher->result();
+
+                qDebug() << "updatable packages:" <<  m_updatablePackages << result->appInfos();
+                qDebug() << "total download size:" << formatCap(result->downloadSize());
+
                 if (result->appInfos().length() == 0) {
                     m_model->setStatus(UpdatesStatus::Updated);
                 } else {
                     if (result->downloadSize()) {
-                        m_model->setDownloadInfo(result);
                         m_model->setStatus(UpdatesStatus::UpdatesAvailable);
+                        m_model->setDownloadInfo(result);
                     } else {
                         m_model->setStatus(UpdatesStatus::Downloaded);
                     }
@@ -226,6 +232,10 @@ void UpdateWork::setDownloadJob(const QString &jobPath)
 
 DownloadInfo *UpdateWork::calculateDownloadInfo()
 {
+    // to work around a bug of lastore-daemon that update_infos.json is
+    // usually generated late than the update job's done.
+    QThread::sleep(5);
+
     m_updateInter->setSync(true);
     m_managerInter->setSync(true);
 
@@ -234,9 +244,6 @@ DownloadInfo *UpdateWork::calculateDownloadInfo()
 
     QList<AppUpdateInfo> infos = getInfoList();
     const qlonglong size = m_managerInter->PackagesDownloadSize(m_updatablePackages);
-
-    qDebug() << "updatable packages:" <<  m_updatablePackages;
-    qDebug() << "total download size:" << formatCap(size);
 
     m_updateInter->setSync(false);
     m_managerInter->setSync(false);

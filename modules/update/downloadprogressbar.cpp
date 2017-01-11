@@ -12,8 +12,8 @@ DownloadProgressBar::DownloadProgressBar(QWidget* parent)
     :QProgressBar(parent),
       m_message(new dcc::widgets::NormalLabel)
 {
-    setRange(0, 1);
-    setValue(1);
+    setRange(0, 100);
+    setValue(maximum());
     setTextVisible(false);
     setFixedHeight(36);
 

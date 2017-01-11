@@ -67,6 +67,8 @@ signals:
 
     void mirrorSpeedInfoAvaiable(const QMap<QString, int> &mirrorSpeedInfo);
 
+    void downloadInfoChanged(DownloadInfo *downloadInfo);
+
 private:
     UpdatesStatus m_status;
     DownloadInfo *m_downloadInfo;

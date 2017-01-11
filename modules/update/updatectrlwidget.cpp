@@ -15,7 +15,6 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     : ContentWidget(parent),
       m_model(nullptr),
       m_status(UpdatesStatus::Updated),
-      m_downloadInfo(nullptr),
       m_checkGroup(new SettingsGroup),
       m_checkUpdateItem(new LoadingItem),
       m_progress(new DownloadProgressBar),
@@ -122,7 +121,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkGroup->setVisible(false);
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
-        m_progress->setValue(0);
+        m_progress->setValue(m_progress->minimum());
         m_progress->setMessage(tr("%1 downloaded (Click to pause)").arg(m_progress->text()));
         break;
     case UpdatesStatus::DownloadPaused:
@@ -135,7 +134,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkGroup->setVisible(false);
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(false);
-        m_progress->setValue(1);
+        m_progress->setValue(m_progress->maximum());
         m_progress->setMessage(tr("Restart to install updates"));
         m_summary->setTitle(tr("Download completed"));
         setLowBattery(m_model->lowBattery());
@@ -154,12 +153,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 
 void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
 {
-    if (!downloadInfo) return;
-
-    if (m_downloadInfo) {
-        m_downloadInfo->deleteLater();
-        m_downloadInfo = nullptr;
-    }
+    if (!downloadInfo || m_status != UpdatesStatus::UpdatesAvailable) return;
 
     const QList<AppUpdateInfo> &apps = downloadInfo->appInfos();
     const qlonglong downloadSize = downloadInfo->downloadSize();
@@ -177,8 +171,10 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
 
     loadAppList(apps);
 
-    m_downloadInfo = downloadInfo;
-    connect(m_downloadInfo, &DownloadInfo::downloadProgressChanged, m_progress, &DownloadProgressBar::setValue);
+    connect(downloadInfo, &DownloadInfo::downloadProgressChanged, this, [this] (const double &value) {
+        m_progress->setValue(value * 100);
+        m_progress->setMessage(tr("%1 downloaded (Click to pause)").arg(m_progress->text()));
+    });
 }
 
 void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
@@ -201,9 +197,11 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
 
     connect(m_model, &UpdateModel::statusChanged, this, &UpdateCtrlWidget::setStatus);
     connect(m_model, &UpdateModel::lowBatteryChanged, this, &UpdateCtrlWidget::setLowBattery);
+    connect(m_model, &UpdateModel::downloadInfoChanged, this, &UpdateCtrlWidget::setDownloadInfo);
 
     setStatus(m_model->status());
     setLowBattery(m_model->lowBattery());
+    setDownloadInfo(m_model->downloadInfo());
 }
 
 }

@@ -59,7 +59,13 @@ DownloadInfo *UpdateModel::downloadInfo() const
 
 void UpdateModel::setDownloadInfo(DownloadInfo *downloadInfo)
 {
+    if (m_downloadInfo) {
+        m_downloadInfo->deleteLater();
+        m_downloadInfo = nullptr;
+    }
+
     m_downloadInfo = downloadInfo;
+    emit downloadInfoChanged(downloadInfo);
 }
 
 QMap<QString, int> UpdateModel::mirrorSpeedInfo() const
