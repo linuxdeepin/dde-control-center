@@ -200,8 +200,10 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     m_model = model;
 
     connect(m_model, &UpdateModel::statusChanged, this, &UpdateCtrlWidget::setStatus);
+    connect(m_model, &UpdateModel::lowBatteryChanged, this, &UpdateCtrlWidget::setLowBattery);
 
     setStatus(m_model->status());
+    setLowBattery(m_model->lowBattery());
 }
 
 }

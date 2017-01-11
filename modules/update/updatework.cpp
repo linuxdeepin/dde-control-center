@@ -355,15 +355,13 @@ QList<AppUpdateInfo> UpdateWork::getInfoList()
 void UpdateWork::setBatteryPercentage(const BatteryPercentageInfo &info)
 {
     m_batteryPercentage = info.value("Display", 0);
-    if (m_onBattery) {
-        m_model->setLowBattery(m_batteryPercentage < 50);
-    }
+    m_model->setLowBattery(m_onBattery && m_batteryPercentage < 50);
 }
 
 void UpdateWork::setOnBattery(bool onBattery)
 {
     m_onBattery = onBattery;
-    if (!onBattery) m_model->setLowBattery(false);
+    m_model->setLowBattery(m_onBattery && m_batteryPercentage < 50);
 }
 
 }
