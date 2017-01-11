@@ -17,9 +17,6 @@ SettingsListWidget::SettingsListWidget(QWidget *parent)
 
     QWidget *listWidget = new QWidget;
     listWidget->setObjectName("SettingsListWidget");
-    listWidget->setStyleSheet("QWidget #SettingsListWidget {"
-                              "border: 1px solid red;"
-                              "}");
     listWidget->setLayout(m_listLayout);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;

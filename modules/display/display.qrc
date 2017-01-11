@@ -3,5 +3,19 @@
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_display.png</file>
         <file>themes/common/icon/rotate.png</file>
+        <file>themes/dark/icons/rotate_press.png</file>
+        <file>themes/dark/icons/rotate_normal.png</file>
+        <file>themes/dark/icons/rotate_hover.png</file>
+        <file>themes/dark/icons/brightness_high.png</file>
+        <file>themes/dark/icons/brightness_low.png</file>
+        <file>themes/dark/icons/recognize_hover.png</file>
+        <file>themes/dark/icons/recognize_normal.png</file>
+        <file>themes/dark/icons/recognize_press.png</file>
+        <file>themes/dark/icons/split_hover.png</file>
+        <file>themes/dark/icons/split_normal.png</file>
+        <file>themes/dark/icons/split_press.png</file>
+        <file>themes/dark/icons/union_hover.png</file>
+        <file>themes/dark/icons/union_normal.png</file>
+        <file>themes/dark/icons/union_press.png</file>
     </qresource>
 </RCC>

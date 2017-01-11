@@ -9,9 +9,12 @@
 DWIDGET_USE_NAMESPACE
 
 using namespace dcc::widgets;
-using namespace dcc::display;
 
 const double BRIGHTNESS_MUL = 1000.;
+
+namespace dcc {
+
+namespace display {
 
 MonitorSettingDialog::MonitorSettingDialog(DisplayModel *model, QWidget *parent)
     : QDialog(parent),
@@ -51,25 +54,50 @@ void MonitorSettingDialog::init()
     m_resolutionsWidget->setTitle(tr("Resolution"));
 
     m_rotateBtn = new DImageButton;
-    m_rotateBtn->setPixmap(QPixmap(":/display/themes/common/icon/rotate.png"));
+    m_rotateBtn->setNormalPic(":/display/themes/dark/icons/rotate_normal.png");
+    m_rotateBtn->setHoverPic(":/display/themes/dark/icons/rotate_hover.png");
+    m_rotateBtn->setPressPic(":/display/themes/dark/icons/rotate_press.png");
+
+    m_monitorName = new QLabel;
+    m_monitorName->setAlignment(Qt::AlignCenter);
+    m_monitorName->setObjectName("MonitorName");
 
     m_lightSlider = new DCCSlider;
     m_lightSlider->setOrientation(Qt::Horizontal);
     m_lightSlider->setMinimum(0);
     m_lightSlider->setMaximum(1000);
-    m_lightSlider->setFixedWidth(350);
+    m_lightSlider->setMinimumWidth(430);
+
+    QLabel *minLight = new QLabel;
+    minLight->setPixmap(QPixmap(":/display/themes/dark/icons/brightness_low.png"));
+    QLabel *maxLight = new QLabel;
+    maxLight->setPixmap(QPixmap(":/display/themes/dark/icons/brightness_high.png"));
+
+    QHBoxLayout *lightLayout = new QHBoxLayout;
+    lightLayout->addStretch();
+    lightLayout->addWidget(minLight);
+    lightLayout->addWidget(m_lightSlider);
+    lightLayout->addWidget(maxLight);
+    lightLayout->addStretch();
+    lightLayout->setSpacing(10);
+    lightLayout->setContentsMargins(10, 0, 10, 0);
 
     m_btnsLayout = new QHBoxLayout;
     m_btnsLayout->addWidget(m_rotateBtn);
     m_btnsLayout->addStretch();
-    m_btnsLayout->setSpacing(0);
-    m_btnsLayout->setMargin(0);
+    m_btnsLayout->setSpacing(10);
+    m_btnsLayout->setContentsMargins(10, 0, 10, 0);
 
     m_mainLayout = new QVBoxLayout;
+    m_mainLayout->addWidget(m_monitorName);
     m_mainLayout->addWidget(m_resolutionsWidget);
-    m_mainLayout->addWidget(m_lightSlider);
+    m_mainLayout->addLayout(lightLayout);
+    m_mainLayout->addSpacing(10);
     m_mainLayout->addLayout(m_btnsLayout);
+    m_mainLayout->addSpacing(10);
     m_mainLayout->setSizeConstraint(QLayout::SetFixedSize);
+    m_mainLayout->setSpacing(0);
+    m_mainLayout->setMargin(0);
 
     m_smallDelayTimer->setSingleShot(true);
     m_smallDelayTimer->setInterval(1000);
@@ -98,11 +126,11 @@ void MonitorSettingDialog::initPrimary()
     // add primary screen settings widget
     m_primarySettingsWidget = new SettingsListWidget;
     m_primarySettingsWidget->setTitle(tr("Primary"));
-    m_mainLayout->insertWidget(0, m_primarySettingsWidget);
+    m_mainLayout->insertWidget(1, m_primarySettingsWidget);
 
     m_ctrlWidget = new MonitorControlWidget;
     m_ctrlWidget->setDisplayModel(m_model);
-    m_mainLayout->insertWidget(0, m_ctrlWidget);
+    m_mainLayout->insertWidget(1, m_ctrlWidget);
 
     // add primary settings
     for (auto mon : m_model->monitorList())
@@ -123,6 +151,8 @@ void MonitorSettingDialog::initPrimary()
     updateScreensRelation();
 
     reloadOtherScreensDialog();
+
+    applyBtn->setFocus();
 }
 
 void MonitorSettingDialog::reloadMonitorObject(Monitor *monitor)
@@ -144,6 +174,7 @@ void MonitorSettingDialog::reloadMonitorObject(Monitor *monitor)
     connect(m_monitor, &Monitor::brightnessChanged, this, &MonitorSettingDialog::onMonitorBrightnessChanegd);
     connect(m_monitor, &Monitor::geometryChanged, m_smallDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
 
+    m_monitorName->setText(m_monitor->name());
     setWindowTitle(m_monitor->name());
     onMonitorModeChanged();
     onMonitorBrightnessChanegd(m_monitor->brightness());
@@ -315,3 +346,7 @@ void MonitorSettingDialog::onBrightnessSliderChanged(const int value)
         emit requestSetMonitorBrightness(m_monitor, v);
     }
 }
+
+} // namespace display
+
+} // namespace dcc

@@ -7,10 +7,12 @@
 #include <QFrame>
 #include <QPushButton>
 
-using namespace dcc::display;
+namespace dcc {
+
+namespace display {
 
 MonitorControlWidget::MonitorControlWidget(QWidget *parent)
-    : QWidget(parent),
+    : QFrame(parent),
 
       m_screensGround(new MonitorsGround),
       m_recognize(new QPushButton),
@@ -18,16 +20,25 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
       m_join(new QPushButton)
 {
     m_recognize->setText(tr("Recognize"));
+    m_recognize->setCursor(Qt::PointingHandCursor);
+    m_recognize->setObjectName("Recognize");
     m_split->setText(tr("Split"));
+    m_split->setCursor(Qt::PointingHandCursor);
+    m_split->setObjectName("Split");
     m_join->setText(tr("Merge"));
+    m_join->setCursor(Qt::PointingHandCursor);
+    m_join->setObjectName("Merge");
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
+    btnsLayout->addStretch();
     btnsLayout->addWidget(m_recognize);
     btnsLayout->addWidget(m_split);
     btnsLayout->addWidget(m_join);
+    btnsLayout->addStretch();
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_screensGround);
+    mainLayout->setAlignment(m_screensGround, Qt::AlignHCenter);
     mainLayout->addLayout(btnsLayout);
 
     setLayout(mainLayout);
@@ -48,3 +59,8 @@ void MonitorControlWidget::setScreensMerged(const bool merged)
     m_split->setVisible(merged);
     m_join->setVisible(!merged);
 }
+
+} // namespace display
+
+} // namespace dcc
+

@@ -4,6 +4,10 @@
 #include <QWidget>
 #include <QLabel>
 
+namespace dcc {
+
+namespace display {
+
 class SettingsOptionItem : public QWidget
 {
     Q_OBJECT
@@ -24,5 +28,9 @@ private:
     QLabel *m_title;
     QLabel *m_icon;
 };
+
+} // namespace display
+
+} // namespace dcc
 
 #endif // SETTINGSOPTIONITEM_H

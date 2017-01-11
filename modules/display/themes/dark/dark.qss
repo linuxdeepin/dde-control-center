@@ -1,3 +1,65 @@
 QLabel#ModuleHeaderIconDisplay {
     background-image: url(:/display/themes/dark/icons/nav_display.png);
 }
+
+dcc--display--MonitorSettingDialog {
+    background-color: white;
+}
+
+dcc--display--MonitorSettingDialog QLabel {
+    color: black;
+}
+
+dcc--display--MonitorSettingDialog QPushButton {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px 25px;
+
+    color: black;
+}
+
+dcc--display--MonitorSettingDialog QPushButton:focus {
+    border-color: #2ca7f7;
+
+    color: #2ca7f7;
+}
+
+dcc--display--MonitorSettingDialog #SettingsListWidget {
+    border: 1px solid #ccc;
+}
+
+dcc--display--MonitorSettingDialog #MonitorName {
+    font-weight: bold;
+    font-size: 12px;
+    padding: 5px 0 0 0;
+}
+
+dcc--display--SettingsOptionItem > QLabel {
+    font-size: 13px;
+}
+
+dcc--display--MonitorControlWidget {
+    border: 1px solid transparent;
+    border-bottom-color: #ccc;
+}
+
+dcc--display--MonitorControlWidget QPushButton {
+    border: none;
+    padding: 5px;
+}
+
+dcc--display--MonitorControlWidget QPushButton:focus {
+    color: black;
+}
+
+dcc--display--MonitorControlWidget #Recognize {
+    qproperty-icon: url(":/display/themes/dark/icons/recognize_normal.png");
+}
+
+dcc--display--MonitorControlWidget #Split {
+    qproperty-icon: url(":/display/themes/dark/icons/split_normal.png");
+}
+
+dcc--display--MonitorControlWidget #Merge {
+    qproperty-icon: url(":/display/themes/dark/icons/union_normal.png");
+}

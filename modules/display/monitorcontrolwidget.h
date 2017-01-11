@@ -1,7 +1,7 @@
 #ifndef MONITORCONTROLWIDGET_H
 #define MONITORCONTROLWIDGET_H
 
-#include <QWidget>
+#include <QFrame>
 
 class QPushButton;
 
@@ -12,7 +12,7 @@ namespace display {
 class Monitor;
 class DisplayModel;
 class MonitorsGround;
-class MonitorControlWidget : public QWidget
+class MonitorControlWidget : public QFrame
 {
     Q_OBJECT
 

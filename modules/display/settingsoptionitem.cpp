@@ -2,6 +2,10 @@
 
 #include <QHBoxLayout>
 
+namespace dcc {
+
+namespace display {
+
 SettingsOptionItem::SettingsOptionItem(QWidget *parent)
     : QWidget(parent),
 
@@ -16,7 +20,7 @@ SettingsOptionItem::SettingsOptionItem(QWidget *parent)
     mainLayout->addStretch();
     mainLayout->addWidget(m_icon);
     mainLayout->setSpacing(0);
-    mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(30, 2, 15, 2);
 
     setLayout(mainLayout);
 }
@@ -35,3 +39,8 @@ void SettingsOptionItem::mouseReleaseEvent(QMouseEvent *)
 {
     emit clicked();
 }
+
+} // namespace display
+
+} // namespace dcc
+

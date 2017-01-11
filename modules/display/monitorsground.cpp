@@ -11,8 +11,8 @@ using namespace dcc::display;
 
 const int MARGIN_W = 20;
 const int MARGIN_H = 10;
-const double VIEW_WIDTH = 300.;
-const double VIEW_HEIGHT = 150.;
+const double VIEW_WIDTH = 400.;
+const double VIEW_HEIGHT = 200.;
 
 MonitorsGround::MonitorsGround(QWidget *parent)
     : QFrame(parent),
@@ -25,7 +25,9 @@ MonitorsGround::MonitorsGround(QWidget *parent)
     connect(m_refershTimer, &QTimer::timeout, this, &MonitorsGround::resetMonitorsView);
 
     setFixedSize(VIEW_WIDTH + MARGIN_W * 2, VIEW_HEIGHT + MARGIN_H * 2);
-    setStyleSheet("background-color: cyan;");
+#ifdef QT_DEBUG
+//    setStyleSheet("background-color: cyan;");
+#endif
 }
 
 MonitorsGround::~MonitorsGround()

@@ -62,6 +62,7 @@ private:
     DisplayModel *m_model;
     Monitor *m_monitor;
 
+    QLabel *m_monitorName;
     Dtk::Widget::DImageButton *m_rotateBtn;
     dcc::widgets::DCCSlider *m_lightSlider;
     SettingsListWidget *m_resolutionsWidget;
