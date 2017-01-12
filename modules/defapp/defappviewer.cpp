@@ -47,7 +47,7 @@ QWidget *DefAppViewer::defappDetail()
 
     QVBoxLayout *switchLayout = new QVBoxLayout;
     SettingsGroup *group = new SettingsGroup;
-    m_switchWidget = new SwitchWidget();
+    m_switchWidget = new SwitchWidget(tr("Autoplay"));
     connect(m_switchWidget, &SwitchWidget::checkedChanegd, this, &DefAppViewer::autoOpenChanged);
     group->appendItem(m_switchWidget);
     switchLayout->addWidget(group);
