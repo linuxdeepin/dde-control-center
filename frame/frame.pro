@@ -11,7 +11,7 @@ TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../
 TEMPLATE   = app
 CONFIG += c++11 link_pkgconfig
-#LIBS += -L../widgets -lwidgets
+LIBS += -L../widgets
 PKGCONFIG      += dtkwidget dtkbase dtkutil dframeworkdbus xcb
 
 HEADERS    += \

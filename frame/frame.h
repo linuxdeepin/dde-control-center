@@ -36,13 +36,13 @@ public slots:
 
     void pushWidget(ContentWidget * const w);
     void popWidget();
+    void showSettingsPage(const QString &moduleName, const QString &pageName);
 
 private slots:
     void init();
     void setAutoHide(const bool autoHide);
 
     void showAllSettings();
-    void showSettingsPage(const QString &moduleName, const QString &pageName);
     void contentDetached(QWidget * const c);
 
     void onScreenRectChanged(const QRect &primaryRect);

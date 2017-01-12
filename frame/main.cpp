@@ -123,16 +123,28 @@ int main(int argc, char *argv[])
 
     DLogManager::registerConsoleAppender();
 
+    qApp->setQuitOnLastWindowClosed(false);
+
+    // take care of command line options
+    QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
+    QCommandLineOption toggleOption(QStringList() << "t" << "toggle", "toggle control center visible.");
+    QCommandLineParser parser;
+    parser.setApplicationDescription("DDE Control Center");
+    parser.addHelpOption();
+    parser.addVersionOption();
+    parser.addOption(showOption);
+    parser.addOption(toggleOption);
+    parser.addPositionalArgument("module", "the module's id of which to be shown.");
+    parser.process(app);
+
     app.setTheme("semidark");
     onThemeChange("dark");
 
     QTimer::singleShot(0, [] { onFontSizeChanged(qApp->font().pointSizeF()); });
 
-    qApp->setQuitOnLastWindowClosed(false);
+    QStringList positionalArgs = parser.positionalArguments();
 
     Frame f;
-    QTimer::singleShot(1, &f, &Frame::startup);
-
     DBusControlCenterService adaptor(&f);
     Q_UNUSED(adaptor);
     QDBusConnection conn = QDBusConnection::sessionBus();
@@ -140,7 +152,15 @@ int main(int argc, char *argv[])
         !conn.registerObject("/com/deepin/dde/ControlCenter", &f)) {
         qDebug() << "dbus service already registered!";
 
-//        // call exist service
+        if (parser.isSet(toggleOption))
+            QProcess::startDetached("dbus-send --print-reply --dest=com.deepin.dde.ControlCenter /com/deepin/dde/ControlCenter com.deepin.dde.ControlCenter.Toggle");
+
+        if (!positionalArgs.isEmpty())
+            QProcess::startDetached(QString("dbus-send --print-reply --dest=com.deepin.dde.ControlCenter /com/deepin/dde/ControlCenter com.deepin.dde.ControlCenter.ShowModule \"string:%1\"").arg(positionalArgs.first()));
+        else if (parser.isSet(showOption))
+            QProcess::startDetached("dbus-send --print-reply --dest=com.deepin.dde.ControlCenter /com/deepin/dde/ControlCenter com.deepin.dde.ControlCenter.Show");
+
+        // call exist service
 //        DBusControlCenter c;
 
 //        if (parser.isSet(toggleOption)) {
@@ -158,6 +178,14 @@ int main(int argc, char *argv[])
 #endif
     }
 
+#ifndef QT_DEBUG
+    if (parser.isSet(showOption) || parser.isSet(toggleOption))
+#endif
+        QTimer::singleShot(1, &f, &Frame::startup);
+
+    if (!positionalArgs.isEmpty())
+        QTimer::singleShot(10, &f, [&] { f.showSettingsPage(positionalArgs.first(), QString()); });
+//        f.showSettingsPage(positionalArgs.first(), QString());
 
     return app.exec();
 }
