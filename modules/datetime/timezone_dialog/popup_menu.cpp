@@ -170,7 +170,7 @@ void PopupMenu::initUI() {
   PopupMenuDelegate* popup_delegate = new PopupMenuDelegate(this);
   menu_view_->setItemDelegate(popup_delegate);
   menu_view_->setMouseTracking(true);
-  menu_view_->setStyleSheet(ReadFile(":/styles/popup_menu.css"));
+  menu_view_->setStyleSheet(ReadFile(":/timezone_dialog/popup_menu.css"));
 
   this->setContentsMargins(0, 0, 0, 0);
   this->setAttribute(Qt::WA_TranslucentBackground, true);
