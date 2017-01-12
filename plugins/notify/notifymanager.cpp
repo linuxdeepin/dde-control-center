@@ -12,9 +12,11 @@
 #include <QJsonObject>
 
 NotifyManager::NotifyManager(QWidget *parent) : QWidget(parent) {
-    m_layout = new QVBoxLayout;
     m_dataSource = new NotifyData;
+
     m_emptyNotify  = new QLabel(tr("No system notifications"));
+
+    m_layout = new QVBoxLayout;
     m_layout->addStretch();
     m_layout->addWidget(m_emptyNotify, 0, Qt::AlignCenter);
     m_layout->addStretch();
@@ -22,7 +24,8 @@ NotifyManager::NotifyManager(QWidget *parent) : QWidget(parent) {
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(1);
     setLayout(m_layout);
-    connect(m_dataSource, &NotifyData::ValueChanged, this, &NotifyManager::setValue);
+
+    connect(m_dataSource, &NotifyData::dataReceived, this, &NotifyManager::setValue);
 }
 
 NotifyManager::~NotifyManager() {
@@ -37,15 +40,15 @@ void NotifyManager::setValue(QByteArray s) {
     if(json_error.error == QJsonParseError::NoError) {
         if(parse_doucment.isObject()) {
             QJsonObject obj = parse_doucment.object();
-            if(obj.contains("appName")) {
-                QJsonValue name_value = obj.take("appName");
+            if(obj.contains("summary")) {
+                QJsonValue name_value = obj.take("summary");
                 if(name_value.isString()) {
                     QString name = name_value.toString();
                     m_viewer->setAppName(name);
                 }
             }
-            if(obj.contains("appIcon")) {
-                QJsonValue name_value = obj.take("appIcon");
+            if(obj.contains("icon")) {
+                QJsonValue name_value = obj.take("icon");
                 if(name_value.isString()) {
                     QString name = name_value.toString();
                     m_viewer->setAppIcon(name);

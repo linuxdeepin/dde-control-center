@@ -1,0 +1,35 @@
+import sys
+import glib
+import dbus
+import json
+import prctl
+import signal
+from dbus.mainloop.glib import DBusGMainLoop
+
+# die with parent process.
+prctl.set_pdeathsig(signal.SIGKILL)
+
+def notifications(bus, message):
+    args = message.get_args_list()
+    if (len(args) == 8):
+        ret = {}
+
+        ret["icon"] = args[2]
+        ret["summary"] = args[3]
+        ret["body"] = args[4]
+
+        print json.dumps(ret)
+
+        # FIXME(hualet): this is necessary while this script running as a
+        # subprocess _and_ running with the gmainloop.
+        sys.stdout.flush()
+
+
+DBusGMainLoop(set_as_default=True)
+
+bus = dbus.SessionBus()
+bus.add_match_string_non_blocking("eavesdrop=true, interface='org.freedesktop.Notifications', member='Notify'")
+bus.add_message_filter(notifications)
+
+mainloop = glib.MainLoop()
+mainloop.run()

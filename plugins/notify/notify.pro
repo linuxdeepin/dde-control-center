@@ -9,7 +9,7 @@ CONFIG          += plugin c++11 link_pkgconfig
 PKGCONFIG += dtkbase dtkwidget
 TARGET          = $$qtLibraryTarget($$PLUGIN_NAME)
 DESTDIR          = $$_PRO_FILE_PWD_/../
-DISTFILES       += $$PLUGIN_NAME.json
+DISTFILES       += $$PLUGIN_NAME.json notify-monitor
 
 HEADERS += \
     notifyplugin.h \
@@ -24,7 +24,11 @@ SOURCES += \
     notifydata.cpp
 
 target.path = $${PREFIX}/lib/dde-control-center/plugins/
-INSTALLS += target
+
+utils.path = $${PREFIX}/lib/dde-control-center/plugins/bin/
+utils.files = notify-monitor
+
+INSTALLS += target utils
 
 RESOURCES += \
     images.qrc
