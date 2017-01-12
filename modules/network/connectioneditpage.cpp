@@ -40,6 +40,8 @@ const QString JsonEncoding(const QString &str)
 ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     : ContentWidget(parent),
 
+      m_disconnectBtn(new QPushButton),
+      m_removeBtn(new QPushButton),
       m_cancelBtn(new QPushButton),
       m_acceptBtn(new QPushButton),
       m_sectionsLayout(new QVBoxLayout),
@@ -48,6 +50,10 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
 {
     m_sectionsLayout->setSpacing(10);
 
+    m_disconnectBtn->setText(tr("Disconnect"));
+    m_disconnectBtn->setVisible(false);
+    m_removeBtn->setText(tr("Delete"));
+    m_removeBtn->setVisible(false);
     m_cancelBtn->setText(tr("Cancel"));
     m_acceptBtn->setText(tr("Save"));
 
@@ -61,6 +67,8 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     btnsLayout->setContentsMargins(0, 0, 0, 0);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addWidget(m_disconnectBtn);
+    mainLayout->addWidget(m_removeBtn);
     mainLayout->addLayout(m_sectionsLayout);
     mainLayout->addLayout(btnsLayout);
     mainLayout->setSpacing(10);
@@ -74,6 +82,9 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     connect(m_recreateUITimer, &QTimer::timeout, this, &ConnectionEditPage::recreateUI);
     connect(m_cancelBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
     connect(m_acceptBtn, &QPushButton::clicked, this, &ConnectionEditPage::accept);
+    connect(m_disconnectBtn, &QPushButton::clicked, this, &ConnectionEditPage::requestDisconnect);
+    connect(m_removeBtn, &QPushButton::clicked, this, &ConnectionEditPage::requestRemove);
+    connect(m_removeBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
     connect(this, &ConnectionEditPage::requestNextPage, [=](ContentWidget *w) { m_nextPage = w; });
 }
 
@@ -108,6 +119,16 @@ void ConnectionEditPage::onDeviceRemoved()
         emit m_nextPage->back();
 
     emit back();
+}
+
+void ConnectionEditPage::setDisconnectVisible(const bool visible)
+{
+    m_disconnectBtn->setVisible(visible);
+}
+
+void ConnectionEditPage::setDeleteVisible(const bool visible)
+{
+    m_removeBtn->setVisible(visible);
 }
 
 void ConnectionEditPage::recreateUI()

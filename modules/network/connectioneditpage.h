@@ -35,12 +35,16 @@ public:
 
 signals:
     void accept() const;
+    void requestDisconnect() const;
+    void requestRemove() const;
     void requestCancelSession() const;
     void requestChangeSettings(const QString &section, const QString &vKey, const QString &data) const;
     void requestNextPage(ContentWidget * const page) const;
 
 public slots:
     void onDeviceRemoved();
+    void setDisconnectVisible(const bool visible);
+    void setDeleteVisible(const bool visible);
 
 private slots:
     void recreateUI();
@@ -61,6 +65,8 @@ private:
 private:
     ConnectionSessionModel *m_sessionModel;
 
+    QPushButton *m_disconnectBtn;
+    QPushButton *m_removeBtn;
     QPushButton *m_cancelBtn;
     QPushButton *m_acceptBtn;
     QVBoxLayout *m_sectionsLayout;

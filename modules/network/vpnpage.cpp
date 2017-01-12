@@ -99,9 +99,9 @@ void VpnPage::onVpnDetailClicked()
     NextPageWidget *w = static_cast<NextPageWidget *>(sender());
     Q_ASSERT(w && m_vpns.contains(w));
 
-    const QString connPath = m_vpns[w].value("Path").toString();
+    m_editingConnPath = m_vpns[w].value("Path").toString();
 
-    emit requestEditVpn("/", connPath);
+    emit requestEditVpn("/", m_editingConnPath);
 }
 
 void VpnPage::onVpnSelected()
@@ -127,6 +127,7 @@ void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionP
     Q_ASSERT(m_editPage.isNull());
 
     m_editPage = new ConnectionEditPage;
+    m_editPage->setDeleteVisible(true);
 
     ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
     ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
@@ -137,6 +138,7 @@ void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionP
     connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &VpnPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::back, this, &VpnPage::onSessionPageFinished, Qt::QueuedConnection);
+    connect(m_editPage, &ConnectionEditPage::requestRemove, [=] { emit requestDeleteConnection(m_editingConnPath); });
 
     emit requestNextPage(m_editPage);
 }

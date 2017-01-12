@@ -89,6 +89,13 @@ void NetworkWorker::queryDeviceStatus(const QString &devPath)
     connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryDeviceStatusCB);
 }
 
+void NetworkWorker::deleteConnection(const QString &connPath)
+{
+    const QString uuid = m_networkModel->connectionUuidByPath(connPath);
+
+    m_networkInter.DeleteConnection(uuid);
+}
+
 void NetworkWorker::createConnection(const QString &type, const QString &devPath)
 {
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.CreateConnection(type, QDBusObjectPath(devPath)));
