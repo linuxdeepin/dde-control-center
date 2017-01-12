@@ -57,12 +57,14 @@ void DisplayWorker::mergeScreens()
     Q_ASSERT(mList.size() == 2);
 
     const auto rotate = m_model->primaryMonitor()->rotate();
+    const auto brightness = m_model->primaryMonitor()->brightness();
     const auto mode = m_model->monitorsSameModeList().first();
     for (auto *mon : mList)
     {
         auto *mInter = m_monitors[mon];
         Q_ASSERT(mInter);
 
+        m_displayInter.SetBrightness(mInter->name(), brightness);
         mInter->SetPosition(0, 0).waitForFinished();
         mInter->SetRotation(rotate).waitForFinished();
         mInter->SetModeBySize(mode.width(), mode.height()).waitForFinished();
