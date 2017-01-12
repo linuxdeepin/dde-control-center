@@ -7,19 +7,18 @@
 namespace dcc {
 namespace datetime {
 
+static Timedate *TimedateInter = nullptr;
 static Timedate *timedateInter(QObject *parent = nullptr)
 {
     static QMutex mutex;
-    static Timedate *TimedateInter = nullptr;
-
+    mutex.lock();
     if (!TimedateInter) {
-        mutex.lock();
         TimedateInter = new Timedate("com.deepin.daemon.Timedate",
                                      "/com/deepin/daemon/Timedate",
                                      QDBusConnection::sessionBus(),
                                      parent);
-        mutex.unlock();
     }
+    mutex.unlock();
 
     return TimedateInter;
 }
@@ -39,6 +38,13 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     connect(m_timedateInter, &__Timedate::UserTimezonesChanged, this, &DatetimeWork::onTimezoneListChanged);
     connect(m_timedateInter, &__Timedate::TimezoneChanged, m_model, &DatetimeModel::setSystemTimeZoneId);
     connect(m_timedateInter, &__Timedate::NTPChanged, m_model, &DatetimeModel::setNTP);
+}
+
+DatetimeWork::~DatetimeWork()
+{
+    if (TimedateInter)
+        TimedateInter->deleteLater();
+    TimedateInter = nullptr;
 }
 
 void DatetimeWork::activate()

@@ -16,6 +16,7 @@ class DatetimeWork : public QObject
     Q_OBJECT
 public:
     explicit DatetimeWork(DatetimeModel* model, QObject *parent = 0);
+    ~DatetimeWork();
 
     void activate();
     void deactivate();
