@@ -7,17 +7,32 @@
 namespace dcc {
 namespace datetime {
 
-static Timedate *timedateInter = new Timedate("com.deepin.daemon.Timedate",
-                                              "/com/deepin/daemon/Timedate",
-                                              QDBusConnection::sessionBus());
-static ZoneInfo GetZoneInfo (const QString &zoneId) {
-    return timedateInter->GetZoneInfo(zoneId);
+static Timedate *timedateInter(QObject *parent = nullptr)
+{
+    static QMutex mutex;
+    static Timedate *TimedateInter = nullptr;
+
+    if (!TimedateInter) {
+        mutex.lock();
+        TimedateInter = new Timedate("com.deepin.daemon.Timedate",
+                                     "/com/deepin/daemon/Timedate",
+                                     QDBusConnection::sessionBus(),
+                                     parent);
+        mutex.unlock();
+    }
+
+    return TimedateInter;
+}
+
+static ZoneInfo GetZoneInfo (const QString &zoneId)
+{
+    return timedateInter()->GetZoneInfo(zoneId);
 }
 
 DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     : QObject(parent),
       m_model(model),
-      m_timedateInter(timedateInter)
+      m_timedateInter(timedateInter(this))
 {
     m_timedateInter->setSync(false);
 
