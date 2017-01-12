@@ -242,7 +242,9 @@ void Frame::hide()
         emit m_frameWidgetStack.last()->content()->disappear();
 
     // unregister global mouse area
-    m_mouseAreaInter->UnregisterArea(m_mouseAreaKey);
+    if (!m_mouseAreaKey.isEmpty())
+        m_mouseAreaInter->UnregisterArea(m_mouseAreaKey);
+    m_mouseAreaKey.clear();
 }
 
 void Frame::toggle()
