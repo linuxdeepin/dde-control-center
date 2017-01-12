@@ -67,7 +67,8 @@ void NetworkWorker::queryConnectionSession(const QString &devPath, const QString
     else
     {
         // only support ap connection
-        Q_ASSERT(connPath.contains("AccessPoint"));
+        if (!connPath.contains("AccessPoint"))
+            qCritical() << Q_FUNC_INFO << devPath << connPath << uuid;
 
         reply = m_networkInter.CreateConnectionForAccessPoint(QDBusObjectPath(connPath), QDBusObjectPath(devPath));
     }

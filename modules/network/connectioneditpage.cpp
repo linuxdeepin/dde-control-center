@@ -252,7 +252,7 @@ SettingsItem *ConnectionEditPage::optionWidgets(const QString &section, const QJ
         item = createSpinBoxWidget(keyObject, vInfo);
 
     if (!item)
-        qWarning() << "type not handled: " << keyObject << vInfo;
+        qCritical() << "type not handled: " << keyObject << vInfo;
 
     m_optionWidgets[section][vKey] = item;
     return item;
