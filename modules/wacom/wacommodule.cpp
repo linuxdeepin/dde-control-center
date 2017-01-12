@@ -40,9 +40,9 @@ ModuleWidget *WacomModule::moduleWidget()
     if (!m_wacomWidget) {
         m_wacomWidget = new WacomWidget;
         m_wacomWidget->setModel(m_model);
-        connect(m_model, &WacomModel::existChanged, m_wacomWidget, &WacomWidget::setVisible);
+        m_wacomWidget->setVisible(m_worker->exist());
+        connect(m_worker, &WacomWorker::existChanged, m_wacomWidget, &WacomWidget::setVisible);
         connect(m_wacomWidget, &WacomWidget::requestSetPressureValue, m_worker, &WacomWorker::onPressureSensitiveChanged);
-        m_wacomWidget->setVisible(m_model->isExist());
     }
     return m_wacomWidget;
 }

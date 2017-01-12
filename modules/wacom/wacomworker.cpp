@@ -12,9 +12,11 @@ WacomWorker::WacomWorker(WacomModel *model, QObject *parent) :
     m_dbusWacom(new Wacom(Service, "/com/deepin/daemon/InputDevice/Wacom", QDBusConnection::sessionBus(), this)),
     m_model(model)
 {
+    //get real data
+    m_dbusWacom->exist();
     m_dbusWacom->setSync(false);
     connect(m_dbusWacom, &Wacom::StylusPressureSensitiveChanged, this, &WacomWorker::setPressureSensitive);
-    connect(m_dbusWacom, &Wacom::ExistChanged, m_model, &WacomModel::setIsExist);
+    connect(m_dbusWacom, &Wacom::ExistChanged, this, &WacomWorker::existChanged);
 }
 
 void WacomWorker::active()
@@ -23,8 +25,6 @@ void WacomWorker::active()
 
     WacomModelBase *ModelBase = m_model->getWacomModelBase();
     ModelBase->setPressureValue(m_dbusWacom->stylusPressureSensitive());
-
-    m_model->setIsExist(m_dbusWacom->exist());
 }
 
 void WacomWorker::deactive()
@@ -42,4 +42,9 @@ void WacomWorker::onPressureSensitiveChanged(const int value)
 {
     m_dbusWacom->setStylusPressureSensitive(value);
     m_dbusWacom->setEraserPressureSensitive(value);
+}
+
+bool WacomWorker::exist()
+{
+    return m_dbusWacom->exist();
 }

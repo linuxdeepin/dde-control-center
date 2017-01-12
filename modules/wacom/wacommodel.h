@@ -16,15 +16,9 @@ public:
     explicit WacomModel(QObject *parent = 0);
     ~WacomModel();
     WacomModelBase *getWacomModelBase();
-    void setIsExist(bool state);
-    inline bool isExist(){return m_exist;}
-
-signals:
-    void existChanged(bool state);
 
 private:
     WacomModelBase *m_wacomModelBase;
-    bool m_exist;
 };
 }
 }

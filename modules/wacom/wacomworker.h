@@ -18,9 +18,13 @@ public:
     void active();
     void deactive();
 
+signals:
+    void  existChanged(bool state);
+
 public slots:
     void setPressureSensitive(const int value);
     void onPressureSensitiveChanged(const int value);
+    bool exist();
 
 private:
     int converToPressureValue(int value);
