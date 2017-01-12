@@ -212,8 +212,12 @@ void ConnectionEditPage::onErrorsChanged(const NetworkErrors &errors)
         const auto section = m_sessionModel->virtualSectionName(it.key());
         const auto eItems = it.value();
         for (auto its(eItems.begin()); its != eItems.end(); ++its)
+        {
             if (m_optionWidgets[section].contains(its.key()))
+            {
                 m_optionWidgets[section][its.key()]->setIsErr();
+            }
+        }
     }
 }
 
@@ -290,6 +294,9 @@ SettingsItem *ConnectionEditPage::createEditWidget(const QJsonObject &keyObject,
     connect(e, &QLineEdit::editingFinished, [=] {
         emit requestChangeSettings(section, vKey, JsonEncoding(e->text()));
     });
+
+    if (m_sessionModel->errors()[section].contains(vKey))
+        w->setPlaceholderText(tr("Required"));
 
     return w;
 }
