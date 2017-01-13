@@ -13,7 +13,7 @@ DefAppViewer::DefAppViewer(QWidget *parent)
     : ContentWidget(parent)
 {
     QWidget *m_defAppViewer = defappDetail();
-    setTitle("Set Default Applications");
+    setTitle(tr("Default Applications"));
     m_defAppViewer->setObjectName("DefAppViewer");
     setContent(m_defAppViewer);
 }
