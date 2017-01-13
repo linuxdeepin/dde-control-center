@@ -1,5 +1,13 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="gl_ES" version="2.1">
 <context>
+    <name>NotifyManager</name>
+    <message>
+        <location filename="../plugins/notify/notifymanager.cpp" line="17"/>
+        <source>No system notifications</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PowerWidget</name>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="18"/>
@@ -55,6 +63,14 @@
         <location filename="../modules/power/powerwidget.cpp" line="110"/>
         <source>1 Hour</source>
         <translation>1 hora</translation>
+    </message>
+</context>
+<context>
+    <name>RotateDialog</name>
+    <message>
+        <location filename="../modules/display/rotatedialog.cpp" line="50"/>
+        <source>Left click to rotate and right click to exit</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -167,7 +183,7 @@
         <translation>Nova conta</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="121"/>
+        <location filename="../modules/accounts/createpage.cpp" line="122"/>
         <source>Password can&apos;t be empty.</source>
         <translation>O contrasinal non pode estar baleiro.</translation>
     </message>
@@ -203,22 +219,22 @@
 <context>
     <name>dcc::accounts::RemoveUserDialog</name>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="43"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Are you sure to delete %1?</source>
         <translation>Tes a certeza de querer eliminar %1?</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="49"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
         <source>Delete account directory</source>
         <translation>Eliminar o cartafol da conta</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="54"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="53"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="54"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="53"/>
         <source>Delete</source>
         <translation>Eliminar</translation>
     </message>
@@ -236,7 +252,15 @@
         <translation>Outros dispositivos</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="28"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="38"/>
+        <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::bluetooth::BluetoothModule</name>
+    <message>
+        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="91"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -270,12 +294,12 @@
         <translation>O PIN para ligar co dispositivo Bluetooth é:</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/pincodedialog.cpp" line="34"/>
+        <location filename="../modules/bluetooth/pincodedialog.cpp" line="31"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/pincodedialog.cpp" line="36"/>
+        <location filename="../modules/bluetooth/pincodedialog.cpp" line="33"/>
         <source>OK</source>
         <translation>Aceptar</translation>
     </message>
@@ -298,7 +322,7 @@
         <translation>Mudar os axustes da hora</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datesettings.cpp" line="66"/>
+        <location filename="../modules/datetime/datesettings.cpp" line="65"/>
         <source>Change System Timezone</source>
         <translation>Mudar o fuso horario do sistema</translation>
     </message>
@@ -452,6 +476,11 @@
         <source>Software</source>
         <translation>Software</translation>
     </message>
+    <message>
+        <location filename="../modules/defapp/defappviewer.cpp" line="50"/>
+        <source>Autoplay</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>dcc::defapp::DefCategoryAddWidget</name>
@@ -483,22 +512,27 @@
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="19"/>
+        <location filename="../modules/display/displaywidget.cpp" line="21"/>
         <source>Rotate</source>
         <translation>Rotar</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="20"/>
+        <location filename="../modules/display/displaywidget.cpp" line="22"/>
         <source>Custom</source>
         <translation>Personalizado</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="22"/>
+        <location filename="../modules/display/displaywidget.cpp" line="24"/>
         <source>Resolution</source>
         <translation>Resolución</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="31"/>
+        <location filename="../modules/display/displaywidget.cpp" line="25"/>
+        <source>My Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/display/displaywidget.cpp" line="38"/>
         <source>Display</source>
         <translation>Pantalla</translation>
     </message>
@@ -506,17 +540,17 @@
 <context>
     <name>dcc::display::MonitorControlWidget</name>
     <message>
-        <location filename="../modules/display/monitorcontrolwidget.cpp" line="20"/>
+        <location filename="../modules/display/monitorcontrolwidget.cpp" line="22"/>
         <source>Recognize</source>
         <translation>Recoñecer</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorcontrolwidget.cpp" line="21"/>
+        <location filename="../modules/display/monitorcontrolwidget.cpp" line="25"/>
         <source>Split</source>
         <translation>Dividir</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorcontrolwidget.cpp" line="22"/>
+        <location filename="../modules/display/monitorcontrolwidget.cpp" line="28"/>
         <source>Merge</source>
         <translation>Fusionar</translation>
     </message>
@@ -524,27 +558,27 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="51"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="54"/>
         <source>Resolution</source>
         <translation>Resolución</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="91"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="119"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="93"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="121"/>
         <source>Apply</source>
         <translation>Aplicar</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="100"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="128"/>
         <source>Primary</source>
         <translation>Primario</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="261"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="292"/>
         <source> (Recommended)</source>
         <translation>(Recomendado)</translation>
     </message>
@@ -580,32 +614,37 @@
         <translation>Comando</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="33"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="30"/>
+        <source>Required</source>
+        <translation>Requirido</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customcontent.cpp" line="34"/>
         <source>Shortcut</source>
         <translation>Atallo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="36"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="37"/>
         <source>Please Grab Shortcut Again</source>
         <translation>Por favor, obtén o atallo de novo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="46"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="47"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="47"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="48"/>
         <source>Add</source>
         <translation>Engadir</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="72"/>
-        <source>This shortcut conflicts with %1, click on Add to make this chortcut effective immediately</source>
-        <translation>Este atallo está en conflito con %1, preme sobre &quot;Engadir&quot; para facelo efectivo inmediatamente</translation>
+        <location filename="../modules/keyboard/customcontent.cpp" line="75"/>
+        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="120"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="123"/>
         <source>null</source>
         <translation>null</translation>
     </message>
@@ -613,17 +652,12 @@
 <context>
     <name>dcc::keyboard::InputItem</name>
     <message>
-        <location filename="../modules/keyboard/inputitem.cpp" line="14"/>
-        <source> ... </source>
-        <translation> ... </translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/inputitem.cpp" line="64"/>
+        <location filename="../modules/keyboard/inputitem.cpp" line="72"/>
         <source>Choose File</source>
         <translation>Seleccionar ficheiro</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/inputitem.cpp" line="64"/>
+        <location filename="../modules/keyboard/inputitem.cpp" line="72"/>
         <source>/usr/bin</source>
         <translation>/usr/bin</translation>
     </message>
@@ -716,8 +750,8 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="66"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="78"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="130"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="142"/>
         <source>None</source>
         <translation>Ningún</translation>
     </message>
@@ -753,12 +787,12 @@
         <translation>Substituír</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="54"/>
-        <source>This shortcut conflicts with  %1, click on Replace to make this chortcut effective immediately</source>
-        <translation>Este atallo está en conflito con %1, preme sobre &quot;Substituír&quot; para facelo efectivo inmediatamente</translation>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="58"/>
+        <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="77"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="88"/>
         <source>null</source>
         <translation>null</translation>
     </message>
@@ -766,7 +800,8 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="195"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="149"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="180"/>
         <source>Conflict</source>
         <translation>Conflito</translation>
     </message>
@@ -774,11 +809,11 @@
 <context>
     <name>dcc::keyboard::ShortcutModel</name>
     <message>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="97"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="119"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="141"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="162"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="183"/>
+        <location filename="../modules/keyboard/shortcutmodel.cpp" line="103"/>
+        <location filename="../modules/keyboard/shortcutmodel.cpp" line="125"/>
+        <location filename="../modules/keyboard/shortcutmodel.cpp" line="147"/>
+        <location filename="../modules/keyboard/shortcutmodel.cpp" line="168"/>
+        <location filename="../modules/keyboard/shortcutmodel.cpp" line="188"/>
         <source>None</source>
         <translation>Ningún</translation>
     </message>
@@ -786,24 +821,24 @@
 <context>
     <name>dcc::keyboard::ShortcutWidget</name>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="27"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="26"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="28"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="27"/>
         <source>Window</source>
         <translation>Xanela</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="29"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="28"/>
         <source>WorkSpace</source>
         <translation>Área de traballo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="43"/>
-        <source>Add Custon Shortcut</source>
-        <translation>Engadir atallo personalizado</translation>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="42"/>
+        <source>Add Custom Shortcut</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="51"/>
@@ -822,7 +857,7 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="27"/>
         <source>Left Hand</source>
-        <translation>Man esquerda</translation>
+        <translation>Xergo/a</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
@@ -835,17 +870,17 @@
         <translation>Desactivar a área táctil cando se está a escribir</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="37"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="41"/>
         <source>Slow</source>
         <translation>Lento</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="37"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="41"/>
         <source>Fast</source>
         <translation>Rápido</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="39"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="43"/>
         <source>Double-click Speed</source>
         <translation>Velocidade do duplo clic</translation>
     </message>
@@ -855,7 +890,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="19"/>
         <source>Double-click Test</source>
-        <translation>Proba de duplo clic</translation>
+        <translation>Proba do duplo clic</translation>
     </message>
 </context>
 <context>
@@ -879,27 +914,27 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="29"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="25"/>
         <source>Mouse</source>
         <translation>Rato</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="30"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="26"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Desactivar a área táctil ao conectar o rato</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="34"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="30"/>
         <source>TouchPad</source>
         <translation>Área táctil</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="35"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="31"/>
         <source>Tap to Click</source>
         <translation>Tocar para facer clic</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <source>Mouse and Touchpad</source>
         <translation>Rato e Área táctil</translation>
     </message>
@@ -930,60 +965,172 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="51"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="53"/>
+        <source>Disconnect</source>
+        <translation>Desconectar</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="55"/>
+        <source>Delete</source>
+        <translation>Eliminar</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="57"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="52"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="58"/>
         <source>Save</source>
         <translation>Gardar</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="218"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="320"/>
+        <source>Required</source>
+        <translation>Requirido</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::NetworkDetailPage</name>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="28"/>
+        <source>Network Details</source>
+        <translation>Detalles da rede</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="69"/>
+        <source>MAC</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="78"/>
+        <source>IPv4 Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="83"/>
+        <source>Gateway</source>
+        <translation>Pasarela</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="88"/>
+        <source>Primary DNS</source>
+        <translation>DNS primario</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="93"/>
+        <source>Netmask</source>
+        <translation>Máscara de rede</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="99"/>
+        <source>Interface</source>
+        <translation>Interface</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="104"/>
+        <source>Speed</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::network::NetworkDevice</name>
+    <message>
+        <location filename="../modules/network/networkdevice.cpp" line="55"/>
+        <source>Disconnected</source>
+        <translation>Desconectado</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdevice.cpp" line="57"/>
+        <source>Connecting</source>
+        <translation>Conectando</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdevice.cpp" line="58"/>
+        <source>Authing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdevice.cpp" line="60"/>
+        <source>Obtaining Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdevice.cpp" line="61"/>
+        <source>Connected</source>
+        <translation>Conectado</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdevice.cpp" line="63"/>
+        <source>Failed</source>
+        <translation>Con erros</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="25"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="26"/>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="26"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="27"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="27"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="28"/>
         <source>Proxy</source>
         <translation>Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="29"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="30"/>
         <source>Network Details</source>
         <translation>Detalles da rede</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="43"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="47"/>
         <source>Network</source>
         <translation>Rede</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="91"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="128"/>
+        <source>Wired Network Card%1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="133"/>
+        <source>Wired Network Card</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="134"/>
         <source>Wired Network</source>
         <translation>Rede con fíos</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="93"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="129"/>
         <source>Wired Network%1</source>
         <translation>Rede con fíos %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="111"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="141"/>
+        <source>Wireless Network Card%1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="146"/>
+        <source>Wireless Network Card</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
         <source>Wireless Network</source>
         <translation>Rede sen fíos</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="113"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="142"/>
         <source>Wireless Network%1</source>
         <translation>Rede sen fíos %1</translation>
     </message>
@@ -1004,48 +1151,86 @@
 <context>
     <name>dcc::network::VpnPage</name>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="25"/>
+        <location filename="../modules/network/vpnpage.cpp" line="27"/>
         <source>VPN Status</source>
         <translation>Estado da VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="28"/>
+        <location filename="../modules/network/vpnpage.cpp" line="30"/>
         <source>Create VPN</source>
         <translation>Crear VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="44"/>
+        <location filename="../modules/network/vpnpage.cpp" line="46"/>
         <source>VPN</source>
         <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/vpnpage.cpp" line="179"/>
+        <source>L2TP</source>
+        <translation>L2TP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/vpnpage.cpp" line="181"/>
+        <source>PPTP</source>
+        <translation>PPTP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/vpnpage.cpp" line="183"/>
+        <source>VPNC</source>
+        <translation>VPNC</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/vpnpage.cpp" line="185"/>
+        <source>OpenVPN</source>
+        <translation>OpenVPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/vpnpage.cpp" line="187"/>
+        <source>StrongSwan</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/vpnpage.cpp" line="189"/>
+        <source>OpenConnect</source>
+        <translation>OpenConnect</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/vpnpage.cpp" line="207"/>
+        <source>New VPN</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="30"/>
-        <source>Status</source>
-        <translation>Estado</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="32"/>
         <source>Connect to hidden network</source>
         <translation>Conectar a unha rede oculta</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="50"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="47"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
 </context>
 <context>
+    <name>dcc::personalization::FontListWidget</name>
+    <message>
+        <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="57"/>
+        <source> (Unsupported font)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::personalization::FontSettingsWidget</name>
     <message>
-        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="19"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="20"/>
         <source>Standard Font</source>
         <translation>Fonte Estándar</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="20"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="21"/>
         <source>Monospaced Font</source>
         <translation>Fonte Monospaced</translation>
     </message>
@@ -1061,7 +1246,7 @@
 <context>
     <name>dcc::personalization::FontsWidget</name>
     <message>
-        <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="24"/>
+        <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="25"/>
         <source>Font</source>
         <translation>Fonte</translation>
     </message>
@@ -1069,12 +1254,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="79"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="86"/>
         <source>Standard Font</source>
         <translation>Fonte Estándar</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="87"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="96"/>
         <source>Monospaced Font</source>
         <translation>Fonte Monospaced</translation>
     </message>
@@ -1083,13 +1268,13 @@
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
-        <source>Themes</source>
-        <translation>Temas</translation>
+        <source>Theme</source>
+        <translation>Tema</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="29"/>
-        <source>Fonts</source>
-        <translation>Fontes</translation>
+        <source>Font</source>
+        <translation>Fonte</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="34"/>
@@ -1138,7 +1323,7 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="22"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Entrada</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="24"/>
@@ -1197,17 +1382,22 @@
 <context>
     <name>dcc::systeminfo::BootWidget</name>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="32"/>
-        <source>Startup Delay</source>
-        <translation type="unfinished"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="33"/>
+        <source>Updating...</source>
+        <translation>Actualizando...</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="35"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="44"/>
+        <source>Startup Delay</source>
+        <translation>Espera para iniciar</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="47"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="37"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="49"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
         <translation type="unfinished"/>
     </message>
@@ -1223,52 +1413,52 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="17"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="19"/>
         <source>System Information</source>
         <translation>Información do sistema</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="24"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="26"/>
         <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="27"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="29"/>
         <source>Edition:</source>
         <translation>Edición:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="31"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="33"/>
         <source>Type:</source>
         <translation>Tipo:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="32"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="85"/>
         <source>%1Bit</source>
         <translation>%1Bit</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="35"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="36"/>
         <source>Processor:</source>
         <translation>Procesador:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="40"/>
         <source>Memory:</source>
         <translation>Memoria:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="44"/>
         <source>Disk:</source>
         <translation>Disco:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="54"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="55"/>
         <source>License</source>
         <translation>Licenza</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="57"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="58"/>
         <source>Startup Menu</source>
         <translation>Menú de Inicio</translation>
     </message>
@@ -1278,7 +1468,7 @@
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="53"/>
         <source>Timeout</source>
-        <translation>Timeout</translation>
+        <translation>Tempo de espera</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="55"/>
@@ -1306,69 +1496,70 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="22"/>
         <source>Checking speed, please wait</source>
-        <translation type="unfinished"/>
+        <translation>Probando velocidade, agarda por favor</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="25"/>
         <source>Update</source>
         <translation>Actualizar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="112"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="111"/>
         <source>Checking for updates, please wait...</source>
         <translation>Buscando actualizacións, por favor agarda...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="118"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="174"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="117"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="168"/>
         <source>Download Updates</source>
         <translation>Descargar actualizacións</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="126"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="125"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 descargado (Clic para pausar)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="132"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="131"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>%1 descargado (Clic para continuar)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="139"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="138"/>
         <source>Restart to install updates</source>
         <translation>Reiniciar para instalar as actualizacións</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="140"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="139"/>
         <source>Download completed</source>
         <translation>Descarga completada</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="147"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="146"/>
         <source>Your system is up to date</source>
         <translation>O sistema está actualizado</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="175"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="169"/>
         <source>New system edition and %1 application updates detected</source>
-        <translation type="unfinished"/>
+        <translation>Hai unha nova edición do sistema e %1 actualizacións de aplicacións</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Update size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Tamaño da actualización: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>A batería está a menos do 50%, por favor conecta á corrente para continuar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation type="unfinished"/>
     </message>
@@ -1421,14 +1612,14 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="346"/>
+        <location filename="../modules/update/updatework.cpp" line="352"/>
         <source>Patches</source>
         <translation>Parches</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="348"/>
+        <location filename="../modules/update/updatework.cpp" line="354"/>
         <source>System patches.</source>
-        <translation type="unfinished"/>
+        <translation>Parches do sistema.</translation>
     </message>
 </context>
 <context>
