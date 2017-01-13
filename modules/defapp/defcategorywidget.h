@@ -34,7 +34,7 @@ signals:
 
 public slots:
     void setDefault();
-    void onDefaultAppSet(const QString &id);
+    void onDefaultAppSet(const QJsonObject &json);
     void slotEditMode(bool edit);
 
 private:

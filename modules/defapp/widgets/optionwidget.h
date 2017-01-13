@@ -23,13 +23,14 @@ class OptionWidget : public widgets::SettingsItem
     Q_PROPERTY(bool checked READ checked WRITE setChecked NOTIFY checkedChanged)
 
 public:
-    explicit OptionWidget(QWidget *parent = 0);
+    explicit OptionWidget(const bool state = false, QWidget *parent = 0);
     const QJsonObject getItem() { return m_CategoryItem;}
     void setItem(const QJsonObject &item);
     const QString id()    const;
     const QString name()  const;
     const QString displayName() const;
     const QString mime() const;
+    const QString exec() const;
     bool checked() const;
     void setCheckedIcon(const QPixmap &icon);
     bool userCheck() const;

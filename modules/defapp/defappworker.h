@@ -1,11 +1,11 @@
 #ifndef DEFAPPWORKER_H
 #define DEFAPPWORKER_H
 
-#include <com_deepin_api_manager.h>
-#include <com_deepin_api_media.h>
+#include <com_deepin_daemon_mime.h>
+#include <com_deepin_daemon_mime_media.h>
 #include <QObject>
-using com::deepin::api::Manager;
-using com::deepin::api::Media;
+using com::deepin::daemon::Mime;
+using com::deepin::daemon::mime::Media;
 namespace dcc
 {
 namespace defapp
@@ -35,12 +35,11 @@ private slots:
     void getDefaultAppFinished(QDBusPendingCallWatcher *w);
     void saveListApp(const QString &mime, const QJsonArray &json);
     void saveUserApp(const QString &mime, const QJsonArray &json);
-    void saveDefaultApp(const QString &mime, const QString &app);
-    void serviceStartFinished();
+    void saveDefaultApp(const QString &mime, const QJsonObject &app);
 
 private:
     DefAppModel *m_defAppModel;
-    Manager     *m_dbusManager;
+    Mime     *m_dbusManager;
     Media       *m_dbusMedia;
 
     enum DefaultAppsCategory {

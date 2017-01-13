@@ -37,7 +37,7 @@ bool DefCategoryAddWidget::createDesktopFile(const QFileInfo &info)
     struct passwd *user;
     user = getpwuid(getuid());
     //create desktop file in ~/.local/share/applications/
-    QFile file(QString(user->pw_dir) + "/.local/share/applications/" + info.baseName() + ".desktop");
+    QFile file(QString(user->pw_dir) + "/.local/share/applications/deepin-custom-" + info.baseName() + ".desktop");
     //方式：Append为追加，WriteOnly，ReadOnly
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         return false;
@@ -61,26 +61,35 @@ bool DefCategoryAddWidget::createDesktopFile(const QFileInfo &info)
 
 void DefCategoryAddWidget::clicked()
 {
-    //暂时使用该对话框，测试添加代码
-    if (isEnabled()) {
+    do {
+        if (!isEnabled())
+            break;
+
         emit requestFrameAutoHide(false);
         QFileDialog dialog;
         dialog.setWindowTitle(tr("Open Desktop file"));
         dialog.setNameFilter(tr("Desktop Files(*.desktop);; All Files(*)"));
-        if (dialog.exec() == QDialog::Accepted) {
-            QString path = dialog.selectedFiles()[0];
-            if (!path.isEmpty()) {
-                QFileInfo info(path);
-                if (info.exists()) {
-                    if (info.isExecutable()) {
-                        if (createDesktopFile(info)) {
-                            emit addUserItem(m_category, info.filePath());
-                        }
-                    }
-                }
-            }
+
+        if (dialog.exec() != QDialog::Accepted)
+            break;
+
+        QString path = dialog.selectedFiles()[0];
+
+        if (path.isEmpty())
+            break;
+
+        QFileInfo info(path);
+
+        if (!info.exists() || !info.isExecutable())
+            break;
+
+        if (info.suffix() == "desktop") {
+            emit addUserItem(m_category, info.filePath());
+        } else if (createDesktopFile(info)) {
+            emit addUserItem(m_category, info.filePath());
         }
-    }
+    } while(false);
+
     QTimer::singleShot(500, this, [ = ] { emit requestFrameAutoHide(true); });
 }
 

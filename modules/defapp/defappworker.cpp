@@ -5,16 +5,19 @@
 #include <QStringList>
 #include <QList>
 #include <QFileInfo>
-const QString ManagerService = "com.deepin.api.Mime";
-const QString MediaService   = "com.deepin.api.Mime";
+const QString ManagerService = "com.deepin.daemon.Mime";
 using namespace dcc;
 using namespace dcc::defapp;
 DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     QObject(parent),
     m_defAppModel(model),
-    m_dbusManager(new Manager(ManagerService, "/com/deepin/api/Manager", QDBusConnection::sessionBus(), this)),
-    m_dbusMedia(new Media(MediaService, "/com/deepin/api/Media", QDBusConnection::sessionBus(), this))
+    m_dbusManager(new Mime(ManagerService, "/com/deepin/daemon/Mime", QDBusConnection::sessionBus(), this)),
+    m_dbusMedia(new Media(ManagerService, "/com/deepin/daemon/Mime/Media", QDBusConnection::sessionBus(), this))
 {
+
+    m_dbusManager->setSync(false);
+    m_dbusMedia->setSync(false);
+
     m_stringToCategory.insert("Browser",     Browser);
     m_stringToCategory.insert("Mail",        Mail);
     m_stringToCategory.insert("Text",        Text);
@@ -28,31 +31,19 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     m_stringToCategory.insert("Camera",      Camera);
     m_stringToCategory.insert("Software",    Software);
 
-
-    connect(m_dbusManager, &Manager::serviceValidChanged, this, &DefAppWorker::serviceStartFinished, Qt::QueuedConnection);
-    connect(m_dbusMedia,   &Media::serviceValidChanged,   this, &DefAppWorker::serviceStartFinished, Qt::QueuedConnection);
-
-    connect(m_dbusManager, &Manager::Change, this, &DefAppWorker::onGetDefaultApp);
-    connect(m_dbusManager, &Manager::Change, this, &DefAppWorker::onGetListApps);
-
+    connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetDefaultApp);
+    connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetListApps);
     connect(m_dbusMedia, &Media::AutoOpenChanged, m_defAppModel, static_cast<void (DefAppModel::*)(const bool)>(&DefAppModel::setAutoOpen));
-
-    active();
 }
 
 void DefAppWorker::active()
 {
     m_dbusManager->blockSignals(false);
     m_dbusMedia->blockSignals(false);
-    // refersh data
-    if (m_dbusManager->isValid() && m_dbusMedia->isValid()) {
-        qDebug() << "dbus is Valid";
-        serviceStartFinished();
-    } else {
-        qDebug() << "dbus is not Valid";
-        m_dbusManager->setSync(false);
-        m_dbusMedia->setSync(false);
-    }
+
+    onGetListApps();
+    onGetDefaultApp();
+    m_defAppModel->setAutoOpen(m_dbusMedia->autoOpen());
 }
 
 void DefAppWorker::deactive()
@@ -166,8 +157,7 @@ void DefAppWorker::getDefaultAppFinished(QDBusPendingCallWatcher *w)
     QDBusPendingReply<QString> reply = *w;
     const QString mime = w->property("mime").toString();
     const QJsonObject &defaultApp = QJsonDocument::fromJson(reply.value().toStdString().c_str()).object();
-    const QString &defAppId = defaultApp.value("Id").toString();
-    saveDefaultApp(mime, defAppId);
+    saveDefaultApp(mime, defaultApp);
     w->deleteLater();
 }
 
@@ -203,7 +193,7 @@ void DefAppWorker::saveUserApp(const QString &mime, const QJsonArray &json)
     category->setuserList(t);
 }
 
-void DefAppWorker::saveDefaultApp(const QString &mime, const QString &app)
+void DefAppWorker::saveDefaultApp(const QString &mime, const QJsonObject &app)
 {
     Category *category = getCategory(mime);
     if (!category) {
@@ -242,19 +232,6 @@ Category *DefAppWorker::getCategory(const QString &mime) const
         return m_defAppModel->getModSoftware();
     }
     return nullptr;
-}
-
-void DefAppWorker::serviceStartFinished()
-{
-    if (!m_dbusMedia->isValid() || !m_dbusManager->isValid()) {
-        return;
-    }
-
-    qDebug() << m_dbusMedia->isValid() << m_dbusManager->isValid();
-
-    onGetListApps();
-    onGetDefaultApp();
-    m_defAppModel->setAutoOpen(m_dbusMedia->autoOpen());
 }
 
 bool DefAppWorker::isMediaApps(const DefaultAppsCategory &category) const

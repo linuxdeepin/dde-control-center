@@ -68,7 +68,7 @@ void DefCategoryWidget::setDefault()
 {
     OptionWidget *item = qobject_cast<OptionWidget *>(sender());
     emit requestSetDefaultApp(m_category->getName(), m_valueMap.value(item));
-    onDefaultAppSet(m_valueMap.value(item)["Id"].toString());
+    onDefaultAppSet(m_valueMap.value(item));
 }
 
 void DefCategoryWidget::addItem(const QJsonObject &item)
@@ -86,7 +86,7 @@ void DefCategoryWidget::addItem(const QJsonObject &item)
 
 void DefCategoryWidget::addUserItem(const QJsonObject &item)
 {
-    m_optionWidget = new OptionWidget;
+    m_optionWidget = new OptionWidget(true);
     m_optionWidget->setItem(item);
     m_optionWidget->setMime(m_category->getName());
     m_optionWidget->setUserCheck(true);
@@ -114,14 +114,13 @@ void DefCategoryWidget::removeItem(const QJsonObject &item)
     }
 }
 
-void DefCategoryWidget::onDefaultAppSet(const QString &id)
+void DefCategoryWidget::onDefaultAppSet(const QJsonObject &json)
 {
+    const QString &id = json["Id"].toString();
+    const QString &exec = json["Exec"].toString();
+
     for (OptionWidget *item : m_valueMap.keys()) {
-        if (item->id() == id) {
-            item->setChecked(true);
-        } else {
-            item->setChecked(false);
-        }
+        item->setChecked(item->id() ==id  && item->exec() == exec);
     }
 }
 
@@ -138,6 +137,7 @@ void DefCategoryWidget::AppsItemChanged(const QList<QJsonObject> &list)
 {
     for (OptionWidget *item : m_mainMap.values()) {
         m_userGroup->removeItem(item);
+        m_valueMap.remove(item);
         item->deleteLater();
     }
     for (const QJsonObject item : list) {

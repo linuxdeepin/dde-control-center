@@ -24,12 +24,12 @@ void Category::setappList(const QList<QJsonObject> &list)
     }
 }
 
-void Category::setDefault(const QString &id)
+void Category::setDefault(const QJsonObject &def)
 {
-    if (m_id != id && id.size() != 0) {
-        m_id = id;
+    if (m_default != def && def.size() != 0) {
+        m_default = def;
+        emit defaultChanged(def);
     }
-    emit defaultChanged(id);
 }
 
 void Category::addUserItem(const QJsonObject &value)

@@ -3,7 +3,7 @@
 using namespace dcc;
 using namespace dcc::defapp;
 using namespace dcc::widgets;
-OptionWidget::OptionWidget(QWidget *parent)
+OptionWidget::OptionWidget(const bool state, QWidget *parent)
     :SettingsItem(parent),
       m_delete(new DImageButton)
 {
@@ -16,6 +16,7 @@ OptionWidget::OptionWidget(QWidget *parent)
 
     m_execPath = new QLabel;
     m_execPath->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_execPath->setVisible(state);
 
     m_delete->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     //send delete dbus
@@ -70,6 +71,7 @@ void OptionWidget::setItem(const QJsonObject &item)
         const QIcon &icon = QIcon::fromTheme("application-x-desktop");
         m_optionIcon->setPixmap(icon.pixmap(QSize(17, 17)));
     }
+    m_execPath->setText(" ("+item["Exec"].toString()+ ")");
     setAccessibleName(item["Id"].toString());
 }
 void OptionWidget::setDelete(const bool delchecked)     //删除
@@ -115,6 +117,11 @@ const QString OptionWidget::displayName() const
 const QString OptionWidget::mime() const
 {
     return m_mime;
+}
+
+const QString OptionWidget::exec() const
+{
+    return m_execPath->text();
 }
 
 bool OptionWidget::checked() const
