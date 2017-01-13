@@ -28,10 +28,6 @@ BaseSettings::BaseSettings(QWidget *parent)
     m_naturalScroll->setTitle(tr("Natural Scrolling"));
     m_isTyping->setTitle(tr("Disable the touchpad while typing"));
 
-    m_leftHand->setAccessibleName("Left Hand");
-    m_naturalScroll->setAccessibleName("Natural Scrolling");
-    m_isTyping->setAccessibleName("Disable the touchpad while typing");
-
     m_mainGroup->appendItem(m_leftHand);
     m_mainGroup->appendItem(m_naturalScroll);
     m_mainGroup->appendItem(m_isTyping);
