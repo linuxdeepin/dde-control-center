@@ -14,6 +14,9 @@
 NotifyManager::NotifyManager(QWidget *parent) : QWidget(parent) {
     m_layout = new QVBoxLayout;
     m_dataSource = new NotifyData;
+    m_emptyNotify  = new QLabel(tr("No system notifications"));
+    m_layout->addStretch();
+    m_layout->addWidget(m_emptyNotify, 0, Qt::AlignCenter);
     m_layout->addStretch();
     m_layout->setDirection(QVBoxLayout::BottomToTop);
     m_layout->setContentsMargins(0, 0, 0, 0);
@@ -27,6 +30,7 @@ NotifyManager::~NotifyManager() {
 }
 
 void NotifyManager::setValue(QByteArray s) {
+    m_emptyNotify->setVisible(false);
     m_viewer = new Viewer(this);
     QJsonParseError json_error;
     QJsonDocument parse_doucment = QJsonDocument::fromJson(s, &json_error);
@@ -63,4 +67,12 @@ void NotifyManager::setValue(QByteArray s) {
     m_viewer->setStyleSheet("Viewer {background-color: rgba(255, 255, 255, 0.03);}"
                             "Viewer:hover {background-color: rgba(254, 254, 254, 0.13);}");
     m_layout->addWidget(m_viewer);
+    connect(m_viewer, &Viewer::destroyed, this, &NotifyManager::checkNotify);
+}
+
+void NotifyManager::checkNotify()
+{
+    if (m_layout->count() == 4) {
+        m_emptyNotify->setVisible(true);
+    }
 }

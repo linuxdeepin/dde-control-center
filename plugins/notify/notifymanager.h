@@ -26,11 +26,13 @@ public:
 
 public slots:
     void setValue(QByteArray s);
+    void checkNotify();
 
 private:
     NotifyData *m_dataSource;
     Viewer *m_viewer;
     QVBoxLayout *m_layout;
+    QLabel *m_emptyNotify;
 };
 
 #endif // NOTIFYMANAGER_H
