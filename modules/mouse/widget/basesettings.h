@@ -31,9 +31,6 @@ signals:
 
 public slots:
     void setModel(MouseModelBaseSettings *const baseSettings);
-    void setLeftHandState(const bool state);
-    void setNaturalScroll(const bool state);
-    void setDisIfTypingState(const bool state);
     void setSliderValue(const int &value);
 
 private:

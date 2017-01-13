@@ -28,6 +28,10 @@ BaseSettings::BaseSettings(QWidget *parent)
     m_naturalScroll->setTitle(tr("Natural Scrolling"));
     m_isTyping->setTitle(tr("Disable the touchpad while typing"));
 
+    m_leftHand->setAccessibleName("Left Hand");
+    m_naturalScroll->setAccessibleName("Natural Scrolling");
+    m_isTyping->setAccessibleName("Disable the touchpad while typing");
+
     m_mainGroup->appendItem(m_leftHand);
     m_mainGroup->appendItem(m_naturalScroll);
     m_mainGroup->appendItem(m_isTyping);
@@ -68,36 +72,15 @@ void BaseSettings::setModel(MouseModelBaseSettings *const baseSettings)
 {
     m_baseSettings = baseSettings;
 
-    connect(m_baseSettings, &MouseModelBaseSettings::leftHandStateChanged, this, &BaseSettings::setLeftHandState);
-    connect(m_baseSettings, &MouseModelBaseSettings::naturalScrollChanged, this, &BaseSettings::setNaturalScroll);
-    connect(m_baseSettings, &MouseModelBaseSettings::disIfTypingStateChanged, this, &BaseSettings::setDisIfTypingState);
+    connect(m_baseSettings, &MouseModelBaseSettings::leftHandStateChanged, m_leftHand, &SwitchWidget::setChecked);
+    connect(m_baseSettings, &MouseModelBaseSettings::naturalScrollChanged, m_naturalScroll, &SwitchWidget::setChecked);
+    connect(m_baseSettings, &MouseModelBaseSettings::disIfTypingStateChanged, m_isTyping, &SwitchWidget::setChecked);
     connect(m_baseSettings, &MouseModelBaseSettings::sliderValueChanged, this, &BaseSettings::setSliderValue);
 
-    setLeftHandState(m_baseSettings->getLeftHandState());
-    setNaturalScroll(m_baseSettings->getNaturalScroll());
-    setDisIfTypingState(m_baseSettings->getDisIfTyping());
     setSliderValue(m_baseSettings->getSliderValue());
-}
-
-void BaseSettings::setLeftHandState(const bool state)
-{
-    blockSignals(true);
-    m_leftHand->setChecked(state);
-    blockSignals(false);
-}
-
-void BaseSettings::setNaturalScroll(const bool state)
-{
-    blockSignals(true);
-    m_naturalScroll->setChecked(state);
-    blockSignals(false);
-}
-
-void BaseSettings::setDisIfTypingState(const bool state)
-{
-    blockSignals(true);
-    m_isTyping->setChecked(state);
-    blockSignals(false);
+    m_leftHand->setChecked(m_baseSettings->getLeftHandState());
+    m_naturalScroll->setChecked(m_baseSettings->getNaturalScroll());
+    m_isTyping->setChecked(m_baseSettings->getDisIfTyping());
 }
 
 void BaseSettings::setSliderValue(const int &value)

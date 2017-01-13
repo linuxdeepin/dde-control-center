@@ -10,11 +10,8 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
     m_dbusTrackPoint(new TrackPoint(Service, "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this)),
     m_model(model)
 {
-    m_dbusMouse->setSync(false);
-    m_dbusTouchPad->setSync(false);
-    m_dbusTouchPad->setSync(false);
-
     connect(m_dbusMouse, &Mouse::LeftHandedChanged, this, &MouseWorker::setLeftHandState);
+    connect(m_dbusMouse, &Mouse::NaturalScrollChanged, this, &MouseWorker::setNaturalScrollState);
     connect(m_dbusTouchPad, &TouchPad::NaturalScrollChanged, this, &MouseWorker::setNaturalScrollState);
     connect(m_dbusTouchPad, &TouchPad::DisableIfTypingChanged, this, &MouseWorker::setDisTyping);
     connect(m_dbusMouse, &Mouse::DoubleClickChanged, this, &MouseWorker::setDouClick);
@@ -32,6 +29,12 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
 
     MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
     connect(m_dbusTrackPoint, &TrackPoint::ExistChanged, modelTrack, &MouseModelThinkpadSettings::setExist);
+
+    m_dbusMouse->setSync(false);
+    m_dbusTouchPad->setSync(false);
+    m_dbusTouchPad->setSync(false);
+
+    init();
 }
 
 void MouseWorker::active()
@@ -40,25 +43,7 @@ void MouseWorker::active()
     m_dbusTouchPad->blockSignals(false);
     m_dbusTrackPoint->blockSignals(false);
 
-    MouseModelBaseSettings *modelBase = m_model->getBaseSettings();
-    modelBase->setSliderValue(converToDoubleModel(m_dbusMouse->doubleClick()));
-    modelBase->setLeftHandState(m_dbusMouse->leftHanded());
-    modelBase->setNaturalScroll(m_dbusMouse->naturalScroll());
-    modelBase->setDisIfTyping(m_dbusTouchPad->disableIfTyping());
-
-    MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
-    modelMouse->setSliderValue(converToModelMotionAcceleration(m_dbusMouse->motionAcceleration()));
-    modelMouse->setSwitchState(m_dbusMouse->disableTpad());
-    modelBase->setExist(m_dbusMouse->exist());
-
-    MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
-    modelTouch->setSliderValue(converToModelMotionAcceleration(m_dbusTouchPad->motionAcceleration()));
-    modelTouch->setSwitchState(m_dbusTouchPad->tapClick());
-    modelTouch->setExist(m_dbusTouchPad->exist());
-
-    MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
-    modelTrack->setSliderValue(converToModelMotionAcceleration(m_dbusTrackPoint->motionAcceleration()));
-    modelTrack->setExist(m_dbusTrackPoint->exist());
+    init();
 }
 
 void MouseWorker::deactive()
@@ -66,6 +51,34 @@ void MouseWorker::deactive()
     m_dbusMouse->blockSignals(true);
     m_dbusTouchPad->blockSignals(true);
     m_dbusTrackPoint->blockSignals(true);
+}
+
+void MouseWorker::init()
+{
+    MouseModelBaseSettings *modelBase = m_model->getBaseSettings();
+    modelBase->setSliderValue(converToDoubleModel(m_dbusMouse->doubleClick()));
+
+    MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
+    modelMouse->setSliderValue(converToModelMotionAcceleration(m_dbusMouse->motionAcceleration()));
+    modelBase->setExist(m_dbusMouse->exist());
+
+    MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
+    modelTouch->setSliderValue(converToModelMotionAcceleration(m_dbusTouchPad->motionAcceleration()));
+    modelTouch->setExist(m_dbusTouchPad->exist());
+
+    MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
+    modelTrack->setSliderValue(converToModelMotionAcceleration(m_dbusTrackPoint->motionAcceleration()));
+    modelTrack->setExist(m_dbusTrackPoint->exist());
+
+    setLeftHandState(m_dbusMouse->leftHanded());
+    setNaturalScrollState(m_dbusMouse->naturalScroll());
+    setDisTyping(m_dbusTouchPad->disableIfTyping());
+    setDisTouchPad(m_dbusMouse->disableTpad());
+    setTapClick(m_dbusTouchPad->tapClick());
+    setDouClick(m_dbusTouchPad->doubleClick());
+    setMouseMotionAcceleration(m_dbusMouse->motionAcceleration());
+    setTouchpadMotionAcceleration(m_dbusTouchPad->motionAcceleration());
+    setTrackPointMotionAcceleration(m_dbusTrackPoint->motionAcceleration());
 }
 
 void MouseWorker::setLeftHandState(const bool state)

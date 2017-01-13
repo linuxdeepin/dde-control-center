@@ -34,7 +34,6 @@ signals:
 
 public slots:
     void setSwitchTitle(const QString &title);
-    void setSwitchState(const bool state);
     void setSliderValue(const int &value);
 
 private:

@@ -9,18 +9,24 @@ MouseModelBaseSettings::MouseModelBaseSettings(QObject *parent)
 
 void MouseModelBaseSettings::setLeftHandState(const bool state)
 {
-    m_leftHandState = state;
-    emit leftHandStateChanged(state);
+    if (m_leftHandState != state) {
+        m_leftHandState = state;
+        emit leftHandStateChanged(state);
+    }
 }
 
 void MouseModelBaseSettings::setNaturalScroll(const bool state)
 {
-    m_naturalScroll = state;
-    emit naturalScrollChanged(state);
+    if (m_naturalScroll != state) {
+        m_naturalScroll = state;
+        emit naturalScrollChanged(state);
+    }
 }
 
 void MouseModelBaseSettings::setDisIfTyping(const bool state)
 {
-    m_disIfTyping = state;
-    emit disIfTypingStateChanged(state);
+    if (m_disIfTyping != state) {
+        m_disIfTyping = state;
+        emit disIfTypingStateChanged(state);
+    }
 }

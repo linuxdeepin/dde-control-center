@@ -28,6 +28,7 @@ public:
     explicit MouseWorker(MouseModel *model, QObject *parent = 0);
     void active();
     void deactive();
+    void init();
 
 public slots:
     void setLeftHandState(const bool state);

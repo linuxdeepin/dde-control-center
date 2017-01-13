@@ -54,27 +54,18 @@ void MouseSettings::setModel(MouseModelMouseSettings *const baseSettings)
 {
     m_baseSettings = baseSettings;
 
-    connect(m_baseSettings, &MouseModelMouseSettings::switchChanged, this, &MouseSettings::setSwitchState);
+    connect(m_baseSettings, &MouseModelMouseSettings::switchChanged, m_switchWidget, &SwitchWidget::setChecked);
     connect(m_baseSettings, &MouseModelMouseSettings::sliderValueChanged, this, &MouseSettings::setSliderValue);
     connect(m_baseSettings, &MouseModelMouseSettings::existChanged, this, &MouseSettings::setVisible);
 
-    setSwitchState(m_baseSettings->getSwitchState());
+    m_switchWidget->setChecked(m_baseSettings->getSwitchState());
     setSliderValue(m_baseSettings->getSliderValue());
     setVisible(baseSettings->getExist());
 }
 
 void MouseSettings::setSwitchTitle(const QString &title)
 {
-    blockSignals(true);
     m_switchWidget->setTitle(title);
-    blockSignals(false);
-}
-
-void MouseSettings::setSwitchState(const bool state)
-{
-    blockSignals(true);
-    m_switchWidget->setChecked(state);
-    blockSignals(false);
 }
 
 void MouseSettings::setSliderValue(const int &value)
