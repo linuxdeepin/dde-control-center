@@ -147,10 +147,10 @@ void MonitorSettingDialog::initPrimary()
     connect(cancelBtn, &QPushButton::clicked, this, &MonitorSettingDialog::reject);
     connect(applyBtn, &QPushButton::clicked, this, &MonitorSettingDialog::accept);
 
-    onPrimaryChanged();
-    updateScreensRelation();
-
     reloadOtherScreensDialog();
+
+    onPrimaryChanged();
+    QTimer::singleShot(1, this, &MonitorSettingDialog::updateScreensRelation);
 
     applyBtn->setFocus();
 }
