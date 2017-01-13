@@ -209,12 +209,18 @@ int TimeWidget::minute() const
 bool TimeWidget::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched == m_hourEdit && event->type() == QEvent::FocusOut) {
-        if (m_hourEdit->text().isEmpty()) {
+        const QString hourText = m_hourEdit->text();
+        if (hourText.isEmpty()) {
             m_hourEdit->setText(QString::number(QTime::currentTime().hour()));
+        } else if (hourText.count() == 1) {
+            m_hourEdit->setText(QString("0%1").arg(hourText));
         }
     } else if (watched == m_minuteEdit && event->type() == QEvent::FocusOut) {
-        if (m_minuteEdit->text().isEmpty()) {
+        const QString minutesText = m_minuteEdit->text();
+        if (minutesText.isEmpty()) {
             m_minuteEdit->setText(QString::number(QTime::currentTime().minute()));
+        } else if (minutesText.count() == 1) {
+            m_minuteEdit->setText(QString("0%1").arg(minutesText));
         }
     }
 
