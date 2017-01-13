@@ -38,6 +38,7 @@ signals:
 
 private slots:
     void createPPPoEConnection();
+    void onConnectionListChanged();
     void onConnectionDetailClicked();
     void onConnectionSessionCreated(const QString &devicePath, const QString &sessionPath);
 

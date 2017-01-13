@@ -50,6 +50,21 @@ void PppoePage::setModel(NetworkModel *model)
     m_model = model;
 
     connect(model, &NetworkModel::unhandledConnectionSessionCreated, this, &PppoePage::onConnectionSessionCreated);
+    connect(model, &NetworkModel::connectionListChanged, this, &PppoePage::onConnectionListChanged);
+
+    onConnectionListChanged();
+}
+
+void PppoePage::createPPPoEConnection()
+{
+    emit requestCreateConnection("pppoe", "/");
+}
+
+void PppoePage::onConnectionListChanged()
+{
+    m_settingsGrp->clear();
+    qDeleteAll(m_connPath.keys());
+    m_connPath.clear();
 
     for (const auto &pppoe : m_model->pppoes())
     {
@@ -64,11 +79,6 @@ void PppoePage::setModel(NetworkModel *model)
         m_settingsGrp->appendItem(w);
         m_connPath[w] = path;
     }
-}
-
-void PppoePage::createPPPoEConnection()
-{
-    emit requestCreateConnection("pppoe", "/");
 }
 
 void PppoePage::onConnectionDetailClicked()
