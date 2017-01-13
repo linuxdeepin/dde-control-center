@@ -161,7 +161,11 @@ void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
     {
         const QString t = it.key()->title();
 
-        it.key()->setValue(activeVpns.contains(t) ? "✔" : QString());
+//        it.key()->setValue(activeVpns.contains(t) ? "✔" : QString());
+        if (activeVpns.contains(t))
+            it.key()->setIcon(QPixmap(":/network/themes/dark/icons/select.png"));
+        else
+            it.key()->clearValue();
     }
 }
 

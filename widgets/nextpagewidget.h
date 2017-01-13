@@ -21,6 +21,9 @@ public:
     inline QString title() const { return m_title->text(); }
     void setTitle(const QString &title);
     void setValue(const QString &value);
+    void setIcon(const QPixmap &icon);
+
+    void clearValue() { m_value->clear(); }
 //    void setDisplay(bool display);
 //    bool display() const;
 

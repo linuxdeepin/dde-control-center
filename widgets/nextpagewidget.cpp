@@ -44,6 +44,11 @@ void NextPageWidget::setValue(const QString &value)
     m_value->setText(value);
 }
 
+void NextPageWidget::setIcon(const QPixmap &icon)
+{
+    m_value->setPixmap(icon);
+}
+
 void NextPageWidget::mouseReleaseEvent(QMouseEvent *e)
 {
     e->accept();
