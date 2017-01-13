@@ -47,7 +47,7 @@ static void BlurWindowBackground(const WId windowId, const QRect &region)
 
 using namespace dcc::display;
 
-const QString Tips(QT_TR_NOOP("Left click to rotate and right click to exit"));
+const QString Tips(QT_TRANSLATE_NOOP("RotateDialog", "Left click to rotate and right click to exit"));
 
 RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     : QDialog(parent),
