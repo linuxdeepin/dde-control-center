@@ -12,6 +12,7 @@ LineEditWidget::LineEditWidget(QFrame *parent)
       m_edit(new QLineEdit)
 {
     m_title->setFixedWidth(140);
+    m_edit->setContextMenuPolicy(Qt::NoContextMenu);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->addSpacing(20);
