@@ -196,7 +196,9 @@ void BasicSettingsPage::onMuteChanged(const bool &mute)
         m_soundSlider->setValue(0);
         m_soundSlider->blockSignals(false);
     } else {
+        m_soundSlider->blockSignals(true);
         m_soundSlider->setValue(m_model->volume() * 100);
+        m_soundSlider->blockSignals(false);
     }
 }
 
