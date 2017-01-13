@@ -145,7 +145,7 @@ void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionP
 
 void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
 {
-    QList<QString> activeVpns;
+    QList<QString> activeVpnTitles;
 
     for (const auto &info : infos)
     {
@@ -154,15 +154,14 @@ void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
             continue;
 
         const QString name = info.value("ConnectionName").toString();
-        activeVpns << name;
+        activeVpnTitles << name;
     }
 
     for (auto it(m_vpns.cbegin()); it != m_vpns.cend(); ++it)
     {
         const QString t = it.key()->title();
 
-//        it.key()->setValue(activeVpns.contains(t) ? "✔" : QString());
-        if (activeVpns.contains(t))
+        if (activeVpnTitles.contains(t))
             it.key()->setIcon(QPixmap(":/network/themes/dark/icons/select.png"));
         else
             it.key()->clearValue();

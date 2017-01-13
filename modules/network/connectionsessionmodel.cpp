@@ -23,6 +23,16 @@ const QJsonObject ConnectionSessionModel::keysInfo(const QString &section, const
     return QJsonObject();
 }
 
+void ConnectionSessionModel::setConnPath(const QDBusObjectPath &connPath)
+{
+    if (m_connPath != connPath.path())
+    {
+        m_connPath = connPath.path();
+
+        emit connectionPathChanged(m_connPath);
+    }
+}
+
 void ConnectionSessionModel::setErrors(const NetworkErrors &errors)
 {
     m_errors = errors;
