@@ -1,10 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ko" version="2.1">
 <context>
     <name>NotifyManager</name>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="17"/>
         <source>No system notifications</source>
-        <translation type="unfinished"/>
+        <translation>시스템 알림 없음</translation>
     </message>
 </context>
 <context>
@@ -12,43 +12,43 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="18"/>
         <source>Monitor will suspend after</source>
-        <translation>Monitor wird in den Ruhezustand versetzt nach</translation>
+        <translation>다음 시간 이후 모니터 끄기</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="19"/>
         <source>Computer will suspend after</source>
-        <translation>Computer wird in den Ruhezustand versetzt nach</translation>
+        <translation>다음 시간 이후 컴퓨터 절전모드</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="29"/>
         <location filename="../modules/power/powerwidget.cpp" line="112"/>
         <source>Never</source>
-        <translation>Nie</translation>
+        <translation>절대로 하지 않음</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="48"/>
         <source>Password required to wake the monitor</source>
-        <translation>Passwort zum Aufwachen des Monitors erforderlich</translation>
+        <translation>모니터를 깨울 때 비밀번호 요구</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="51"/>
         <source>Password required to wake the computer</source>
-        <translation>Passwort zum Aufwachen des Computers erforderlich</translation>
+        <translation>컴퓨터를 깨울 때 비밀번호 요구</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="54"/>
         <source>Suspend on lid close</source>
-        <translation type="unfinished"/>
+        <translation>덮개를 닫을 때 절전</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="61"/>
         <source>Power Management</source>
-        <translation>Energieverwaltung</translation>
+        <translation>전원 관리</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="100"/>
         <source>1 Minute</source>
-        <translation>1 Minute</translation>
+        <translation>1 분</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="102"/>
@@ -57,12 +57,12 @@
         <location filename="../modules/power/powerwidget.cpp" line="108"/>
         <location filename="../modules/power/powerwidget.cpp" line="114"/>
         <source>%1 Minutes</source>
-        <translation>%1 Minuten</translation>
+        <translation>%1 분</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="110"/>
         <source>1 Hour</source>
-        <translation>1 Stunde</translation>
+        <translation>1 시간</translation>
     </message>
 </context>
 <context>
@@ -78,12 +78,12 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="51"/>
         <source>Reset all settings</source>
-        <translation>Alle Einstellungen zurücksetzen</translation>
+        <translation>모든 설정 초기화</translation>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="76"/>
         <source>All Settings</source>
-        <translation>Alle Einstellungen </translation>
+        <translation>모든 설정</translation>
     </message>
 </context>
 <context>
@@ -91,12 +91,12 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="124"/>
         <source>Sorry, unable to get weather!</source>
-        <translation type="unfinished"/>
+        <translation>죄송합니다, 날씨를 가져올 수 없습니다!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="128"/>
         <source>Loading weather...</source>
-        <translation>Wetter wird geladen...</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -104,22 +104,22 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="23"/>
         <source>Modify Avatar</source>
-        <translation>Avatar ändern</translation>
+        <translation>아바타 편집</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="26"/>
         <source>Modify Password</source>
-        <translation>Passwort ändern</translation>
+        <translation>비밀번호 변경</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="29"/>
         <source>Auto Login</source>
-        <translation>Automatische Anmeldung</translation>
+        <translation>자동 로그인</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="33"/>
         <source>Delete Account</source>
-        <translation>Konto löschen</translation>
+        <translation>계정 삭제</translation>
     </message>
 </context>
 <context>
@@ -127,12 +127,12 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="19"/>
         <source>Create Account</source>
-        <translation>Konto erstellen</translation>
+        <translation>계정 추가</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="26"/>
         <source>Accounts</source>
-        <translation>Konten</translation>
+        <translation>계정</translation>
     </message>
 </context>
 <context>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="209"/>
         <source>Password not match.</source>
-        <translation>Passwort stimmt nicht überein.</translation>
+        <translation>암호가 일치하지 않습니다.</translation>
     </message>
 </context>
 <context>
@@ -148,44 +148,44 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="30"/>
         <source>Create</source>
-        <translation>Erstellen</translation>
+        <translation>생성</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="31"/>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="36"/>
         <source>Username</source>
-        <translation>Benutzername</translation>
+        <translation>사용자 이름</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="37"/>
         <location filename="../modules/accounts/createpage.cpp" line="39"/>
         <location filename="../modules/accounts/createpage.cpp" line="42"/>
         <source>Required</source>
-        <translation>Erforderlich</translation>
+        <translation>필요</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="38"/>
         <source>Password</source>
-        <translation>Passwort</translation>
+        <translation>비밀번호</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="41"/>
         <source>Repeat password</source>
-        <translation>Passwort wiederholen</translation>
+        <translation>암호 재입력</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="67"/>
         <source>New Account</source>
-        <translation>Neues Konto</translation>
+        <translation>새로운 계정</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="122"/>
         <source>Password can&apos;t be empty.</source>
-        <translation>Passwort darf nicht leer sein.</translation>
+        <translation>비밀번호는 비워둘 수 없습니다</translation>
     </message>
 </context>
 <context>
@@ -193,27 +193,27 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="23"/>
         <source>New Password</source>
-        <translation>Neues Passwort</translation>
+        <translation>새로운 암호</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="25"/>
         <source>Repeat Password</source>
-        <translation>Passwort wiederholen</translation>
+        <translation>패스워드 반복</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="27"/>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="28"/>
         <source>Accept</source>
-        <translation>Annehmen</translation>
+        <translation>수락</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="50"/>
         <source>Password</source>
-        <translation>Passwort</translation>
+        <translation>비밀번호</translation>
     </message>
 </context>
 <context>
@@ -221,22 +221,22 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Are you sure to delete %1?</source>
-        <translation>Sind Sie sicher, dass Sie %1 löschen möchten?</translation>
+        <translation>정말로 %1 을 삭제하시겠습니까?</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
         <source>Delete account directory</source>
-        <translation>Kontoverzeichnis löschen</translation>
+        <translation>계정 폴더 삭제</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="53"/>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="53"/>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation>삭제</translation>
     </message>
 </context>
 <context>
@@ -244,17 +244,17 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="25"/>
         <source>My devices</source>
-        <translation>Meine Geräte</translation>
+        <translation>내 장치</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="26"/>
         <source>Other devices</source>
-        <translation>Andere Geräte</translation>
+        <translation>다른 장치</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="38"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>주변의 장치를 찾기 위해 블루투스 켜기(스피커, 키보드, 마우스)</translation>
     </message>
 </context>
 <context>
@@ -262,7 +262,7 @@
     <message>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="91"/>
         <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
+        <translation>블루투스</translation>
     </message>
 </context>
 <context>
@@ -270,12 +270,12 @@
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="26"/>
         <source>Ignore</source>
-        <translation>Ignorieren</translation>
+        <translation>무시</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="27"/>
         <source>Disconnect</source>
-        <translation>Trennen</translation>
+        <translation>연결 해제</translation>
     </message>
 </context>
 <context>
@@ -283,7 +283,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="94"/>
         <source>Connected</source>
-        <translation>Verbunden</translation>
+        <translation>연결됨</translation>
     </message>
 </context>
 <context>
@@ -291,17 +291,17 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="23"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation type="unfinished"/>
+        <translation>블루투스 장치와 연결하기 위한 PIN번호 :</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="31"/>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="33"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>확인</translation>
     </message>
 </context>
 <context>
@@ -309,22 +309,22 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="36"/>
         <source>Confirm</source>
-        <translation>Bestätigen</translation>
+        <translation>확인</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="41"/>
         <source>Change Time Settings</source>
-        <translation>Zeiteinstellungen ändern</translation>
+        <translation>시간 설정 변경</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="65"/>
         <source>Change System Timezone</source>
-        <translation>Systemzeitzone ändern</translation>
+        <translation>시스템 시간대 변경</translation>
     </message>
 </context>
 <context>
@@ -332,17 +332,17 @@
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="30"/>
         <source>Year</source>
-        <translation>Jahr</translation>
+        <translation>년</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="32"/>
         <source>Month</source>
-        <translation>Monat</translation>
+        <translation>월</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="34"/>
         <source>Day</source>
-        <translation>Tag</translation>
+        <translation>일</translation>
     </message>
 </context>
 <context>
@@ -350,27 +350,27 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="19"/>
         <source>Auto-Sync</source>
-        <translation>Automatische Synchronisierung</translation>
+        <translation>자동 동기화</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="23"/>
         <source>Add Timezone</source>
-        <translation>Zeitzone hinzufügen</translation>
+        <translation>시간대 추가</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="27"/>
         <source>Time and Date</source>
-        <translation>Zeit und Datum</translation>
+        <translation>시간과 날짜</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="35"/>
         <source>Time Settings</source>
-        <translation>Zeiteinstellungen</translation>
+        <translation>시간 설정</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="39"/>
         <source>Timezone List</source>
-        <translation>Zeitzonenliste</translation>
+        <translation>시간대 목록</translation>
     </message>
 </context>
 <context>
@@ -378,12 +378,12 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="36"/>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="37"/>
         <source>Confirm</source>
-        <translation>Bestätigen</translation>
+        <translation>확인</translation>
     </message>
 </context>
 <context>
@@ -391,27 +391,27 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="69"/>
         <source>Tomorrow</source>
-        <translation>Morgen</translation>
+        <translation>내일</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="71"/>
         <source>Yesterday</source>
-        <translation>Gestern</translation>
+        <translation>제</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="73"/>
         <source>Today</source>
-        <translation>Heute</translation>
+        <translation>오늘</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="78"/>
         <source>%1 hours earlier than local</source>
-        <translation>%1 Stunden früher als lokal</translation>
+        <translation>지역보다 %1 시간 빠름</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="80"/>
         <source>%1 hours late than local</source>
-        <translation>%1 Stunden später als lokal</translation>
+        <translation>지역보다 %1 시간 느림</translation>
     </message>
 </context>
 <context>
@@ -419,72 +419,72 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="16"/>
         <source>Default Applications</source>
-        <translation>Standardanwendungen</translation>
+        <translation>기본 응용프로그램</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="30"/>
         <source>Browser</source>
-        <translation>Browser</translation>
+        <translation>브라우저</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="31"/>
         <source>Mail</source>
-        <translation>Mail</translation>
+        <translation>메일</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="32"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation>텍스트</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="33"/>
         <source>Music</source>
-        <translation>Musik</translation>
+        <translation>음악</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="34"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>비디오</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="35"/>
         <source>Picture</source>
-        <translation>Bild</translation>
+        <translation>사진</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="36"/>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation>터미널</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="37"/>
         <source>CD Audio</source>
-        <translation>CD-Audio</translation>
+        <translation>CD 오디오</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="39"/>
         <source>DVD Video</source>
-        <translation>DVD-Video</translation>
+        <translation>DVD 비디오</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
         <source>Music Player</source>
-        <translation>Musikabspieler</translation>
+        <translation>음악 플레이어</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="43"/>
         <source>Camera</source>
-        <translation>Kamera</translation>
+        <translation>카메라</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="45"/>
         <source>Software</source>
-        <translation>Software</translation>
+        <translation>소프트웨어</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="50"/>
         <source>Autoplay</source>
-        <translation type="unfinished"/>
+        <translation>자동 재생</translation>
     </message>
 </context>
 <context>
@@ -492,17 +492,17 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="22"/>
         <source>Add</source>
-        <translation>Hinzufügen</translation>
+        <translation>추가</translation>
     </message>
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="68"/>
         <source>Open Desktop file</source>
-        <translation>Desktop-Datei öffnen</translation>
+        <translation>데스크톱 파일 열기</translation>
     </message>
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="69"/>
         <source>Desktop Files(*.desktop);; All Files(*)</source>
-        <translation>Desktop-Dateien(*.desktop);; Alle Dateien(*)</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -511,7 +511,7 @@
         <location filename="../modules/defapp/defappwidget.cpp" line="21"/>
         <location filename="../modules/defapp/defappwidget.cpp" line="25"/>
         <source>Default Applications</source>
-        <translation>Standardanwendungen</translation>
+        <translation>기본 응용프로그램</translation>
     </message>
 </context>
 <context>
@@ -519,27 +519,27 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="21"/>
         <source>Rotate</source>
-        <translation>Drehen</translation>
+        <translation>회전</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="22"/>
         <source>Custom</source>
-        <translation>Angepasst</translation>
+        <translation>사용자 정의</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="24"/>
         <source>Resolution</source>
-        <translation>Auflösung</translation>
+        <translation>해상도</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="25"/>
         <source>My Settings</source>
-        <translation type="unfinished"/>
+        <translation>사용자 설정</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="38"/>
         <source>Display</source>
-        <translation>Anzeige</translation>
+        <translation>디스플레이</translation>
     </message>
 </context>
 <context>
@@ -547,17 +547,17 @@
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="22"/>
         <source>Recognize</source>
-        <translation>Erkennen</translation>
+        <translation>인식</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="25"/>
         <source>Split</source>
-        <translation>Aufteilen</translation>
+        <translation>분리</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="28"/>
         <source>Merge</source>
-        <translation>Zusammenführen</translation>
+        <translation>합치기</translation>
     </message>
 </context>
 <context>
@@ -565,27 +565,27 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="54"/>
         <source>Resolution</source>
-        <translation>Auflösung</translation>
+        <translation>해상도</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="119"/>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="121"/>
         <source>Apply</source>
-        <translation>Übernehmen</translation>
+        <translation>적용</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="128"/>
         <source>Primary</source>
-        <translation>Primär</translation>
+        <translation>기본</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="292"/>
         <source> (Recommended)</source>
-        <translation> (Empfohlen)</translation>
+        <translation>(권장)</translation>
     </message>
 </context>
 <context>
@@ -593,12 +593,12 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="16"/>
         <source>Resolution</source>
-        <translation>Auflösung</translation>
+        <translation>해상도</translation>
     </message>
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="48"/>
         <source> (Recommended)</source>
-        <translation> (Empfohlen)</translation>
+        <translation>(권장)</translation>
     </message>
 </context>
 <context>
@@ -606,27 +606,27 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="18"/>
         <source>Shortcuts</source>
-        <translation>Tastenkürzel</translation>
+        <translation>단축키</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="25"/>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="28"/>
         <source>Command</source>
-        <translation>Befehl</translation>
+        <translation>명령</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="30"/>
         <source>Required</source>
-        <translation>Erforderlich</translation>
+        <translation>필요</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="34"/>
         <source>Shortcut</source>
-        <translation>Tastenkürzel</translation>
+        <translation>단축키</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="37"/>
@@ -636,12 +636,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="47"/>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="48"/>
         <source>Add</source>
-        <translation>Hinzufügen</translation>
+        <translation>추가</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="75"/>
@@ -651,7 +651,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="123"/>
         <source>null</source>
-        <translation>null</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -659,7 +659,7 @@
     <message>
         <location filename="../modules/keyboard/inputitem.cpp" line="72"/>
         <source>Choose File</source>
-        <translation>Datei auswählen</translation>
+        <translation>파일 선택</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/inputitem.cpp" line="72"/>
@@ -673,12 +673,12 @@
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="24"/>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="26"/>
         <source>Keyboard Layout</source>
-        <translation>Tastaturbelegung</translation>
+        <translation>키보드 레이아웃</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="32"/>
         <source>Add Keyboard Layout</source>
-        <translation>Tastaturbelegung hinzufügen</translation>
+        <translation>키보드 레이아웃 추가</translation>
     </message>
 </context>
 <context>
@@ -686,7 +686,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="21"/>
         <source>Add Keyboard Layout</source>
-        <translation>Tastaturbelegung hinzufügen</translation>
+        <translation>키보드 레이아웃 추가</translation>
     </message>
 </context>
 <context>
@@ -694,62 +694,62 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="21"/>
         <source>Keyboard and Language</source>
-        <translation>Tastatur und Sprache</translation>
+        <translation>키보드와 언어</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="28"/>
         <source>Repeat Delay</source>
-        <translation>Wiederholungsverzögerung</translation>
+        <translation>반복 지연</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="36"/>
         <source>Short</source>
-        <translation>Kurz</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="36"/>
         <source>Long</source>
-        <translation>Lang</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="40"/>
         <source>Repeat Rate</source>
-        <translation>Wiederholungsrate</translation>
+        <translation>반복 속도</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <source>Slow</source>
-        <translation>Langsam</translation>
+        <translation>느리게</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <source>Fast</source>
-        <translation>Schnell</translation>
+        <translation>빠르게</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="53"/>
         <source>Please Test Here</source>
-        <translation>Bitte hier testen</translation>
+        <translation>여기에서 테스트</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>Caps Lock 알림</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="66"/>
         <source>Keyboard Layout</source>
-        <translation>Tastaturbelegung</translation>
+        <translation>키보드 레이아웃</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
         <source>System Language</source>
-        <translation>Systemsprache</translation>
+        <translation>시스템 언어</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="77"/>
         <source>Shortcut</source>
-        <translation>Tastenkürzel</translation>
+        <translation>단축키</translation>
     </message>
 </context>
 <context>
@@ -758,7 +758,7 @@
         <location filename="../modules/keyboard/keyboardwork.cpp" line="130"/>
         <location filename="../modules/keyboard/keyboardwork.cpp" line="142"/>
         <source>None</source>
-        <translation>Keine</translation>
+        <translation>없음</translation>
     </message>
 </context>
 <context>
@@ -766,7 +766,7 @@
     <message>
         <location filename="../modules/keyboard/langwidget.cpp" line="21"/>
         <source>System Language</source>
-        <translation>Systemsprache</translation>
+        <translation>시스템 언어</translation>
     </message>
 </context>
 <context>
@@ -774,7 +774,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="24"/>
         <source>Maximized</source>
-        <translation>Maximiert</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="25"/>
@@ -784,12 +784,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="31"/>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="32"/>
         <source>Replace</source>
-        <translation>Ersetzen</translation>
+        <translation>바꾸기</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="58"/>
@@ -799,7 +799,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="88"/>
         <source>null</source>
-        <translation>null</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -808,7 +808,7 @@
         <location filename="../modules/keyboard/shortcutitem.cpp" line="149"/>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="180"/>
         <source>Conflict</source>
-        <translation>Konflikt</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -820,7 +820,7 @@
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="168"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="188"/>
         <source>None</source>
-        <translation>Keine</translation>
+        <translation>없음</translation>
     </message>
 </context>
 <context>
@@ -828,33 +828,33 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="26"/>
         <source>System</source>
-        <translation>System</translation>
+        <translation>시스템</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="27"/>
         <source>Window</source>
-        <translation>Fenster</translation>
+        <translation>윈도우</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="28"/>
         <source>WorkSpace</source>
-        <translation>ArbeitsFläche</translation>
+        <translation>워크 스페이스</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="42"/>
         <source>Add Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>사용자 단축키 추가</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="51"/>
         <source>Shortcuts</source>
-        <translation>Tastenkürzel</translation>
+        <translation>단축키</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="75"/>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="141"/>
         <source>Custom Shortcut</source>
-        <translation>Angepasstes Tastenkürzel</translation>
+        <translation>사용자 단축키</translation>
     </message>
 </context>
 <context>
@@ -862,32 +862,32 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="27"/>
         <source>Left Hand</source>
-        <translation>Linke Hand</translation>
+        <translation>왼쪽 손</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
         <source>Natural Scrolling</source>
-        <translation>Natürlicher Bildlauf</translation>
+        <translation>자연스러운 스크롤</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="29"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Touchpad beim Tippen deaktivieren</translation>
+        <translation>입력 중 터치패드 비활성화</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="41"/>
         <source>Slow</source>
-        <translation>Langsam</translation>
+        <translation>느리게</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="41"/>
         <source>Fast</source>
-        <translation>Schnell</translation>
+        <translation>빠르게</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="43"/>
         <source>Double-click Speed</source>
-        <translation>Doppelklickgeschwindigkeit</translation>
+        <translation>더블클릭 속도</translation>
     </message>
 </context>
 <context>
@@ -895,7 +895,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="19"/>
         <source>Double-click Test</source>
-        <translation>Doppelklicktest</translation>
+        <translation>더블클릭 시험</translation>
     </message>
 </context>
 <context>
@@ -903,17 +903,17 @@
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
         <source>Slow</source>
-        <translation>Langsam</translation>
+        <translation>느리게</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
         <source>Fast</source>
-        <translation>Schnell</translation>
+        <translation>빠르게</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="27"/>
         <source>Pointer Speed</source>
-        <translation>Zeigergeschwindigkeit</translation>
+        <translation>포인터 속도</translation>
     </message>
 </context>
 <context>
@@ -921,27 +921,27 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="25"/>
         <source>Mouse</source>
-        <translation>Maus</translation>
+        <translation>마우스</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="26"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Touchpad beim Anstecken der Maus deaktivieren</translation>
+        <translation>마우스를 사용할때 터치 패드 비활성화</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="30"/>
         <source>TouchPad</source>
-        <translation>TouchPad</translation>
+        <translation>터치패드</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="31"/>
         <source>Tap to Click</source>
-        <translation>Zum Klicken antippen</translation>
+        <translation>두드려서 클릭</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <source>Mouse and Touchpad</source>
-        <translation>Maus und Touchpad</translation>
+        <translation>마우스와 터치패드</translation>
     </message>
 </context>
 <context>
@@ -949,22 +949,22 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="21"/>
         <source>Thinkpad Track Point</source>
-        <translation>Thinkpad Track Point</translation>
+        <translation>Thinkpad 트랙포인트</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="24"/>
         <source>Pointer Speed</source>
-        <translation>Zeigergeschwindigkeit</translation>
+        <translation>포인터 속도</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="32"/>
         <source>Slow</source>
-        <translation>Langsam</translation>
+        <translation>느리게</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="32"/>
         <source>Fast</source>
-        <translation>Schnell</translation>
+        <translation>빠르게</translation>
     </message>
 </context>
 <context>
@@ -972,28 +972,28 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="53"/>
         <source>Disconnect</source>
-        <translation>Trennen</translation>
+        <translation>연결 해제</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="55"/>
         <source>Delete</source>
-        <translation>Löschen</translation>
+        <translation>삭제</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="57"/>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="58"/>
         <source>Save</source>
-        <translation>Speichern</translation>
+        <translation>저장</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="218"/>
         <location filename="../modules/network/connectioneditpage.cpp" line="320"/>
         <source>Required</source>
-        <translation>Erforderlich</translation>
+        <translation>필요</translation>
     </message>
 </context>
 <context>
@@ -1001,42 +1001,42 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="28"/>
         <source>Network Details</source>
-        <translation>Netzwerkdetails</translation>
+        <translation>네트워크 세부정보</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="69"/>
         <source>MAC</source>
-        <translation type="unfinished"/>
+        <translation>MAC</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="78"/>
         <source>IPv4 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv4 주소</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="83"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>게이트웨이</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="88"/>
         <source>Primary DNS</source>
-        <translation>Primärer DNS</translation>
+        <translation>기본 DNS</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="93"/>
         <source>Netmask</source>
-        <translation>Netzmaske</translation>
+        <translation>넷마스크</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="99"/>
         <source>Interface</source>
-        <translation>Schnittstelle</translation>
+        <translation>인터페이스</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="104"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>속도</translation>
     </message>
 </context>
 <context>
@@ -1044,32 +1044,32 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="55"/>
         <source>Disconnected</source>
-        <translation>Verbindung unterbrochen</translation>
+        <translation>연결 끊김</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="57"/>
         <source>Connecting</source>
-        <translation>Verbinden</translation>
+        <translation>연결 중</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authing</source>
-        <translation type="unfinished"/>
+        <translation>인증 중</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
         <source>Obtaining Address</source>
-        <translation type="unfinished"/>
+        <translation>주소 불러오는 중</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="61"/>
         <source>Connected</source>
-        <translation>Verbunden</translation>
+        <translation>연결됨</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="63"/>
         <source>Failed</source>
-        <translation>Fehlgeschlagen</translation>
+        <translation>실패</translation>
     </message>
 </context>
 <context>
@@ -1087,57 +1087,57 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="28"/>
         <source>Proxy</source>
-        <translation>Proxy</translation>
+        <translation>프록시</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="30"/>
         <source>Network Details</source>
-        <translation>Netzwerkdetails</translation>
+        <translation>네트워크 세부정보</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="47"/>
         <source>Network</source>
-        <translation>Netzwerk</translation>
+        <translation>네트워크</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="128"/>
         <source>Wired Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>유선 네트워크 카드 %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="133"/>
         <source>Wired Network Card</source>
-        <translation type="unfinished"/>
+        <translation>유선 네트워크 카드</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="134"/>
         <source>Wired Network</source>
-        <translation>Kabelnetzwerk</translation>
+        <translation>유선 네트워크</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="129"/>
         <source>Wired Network%1</source>
-        <translation>Kabelnetzwerk%1</translation>
+        <translation>유선 네트워크 %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="141"/>
         <source>Wireless Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>무선 네트워크 카드 %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="146"/>
         <source>Wireless Network Card</source>
-        <translation type="unfinished"/>
+        <translation>무선 네트워크 카드</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
         <source>Wireless Network</source>
-        <translation>Drahtlosnetzwerk</translation>
+        <translation>무선 네트워크</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="142"/>
         <source>Wireless Network%1</source>
-        <translation>Drahtlosnetzwerk%1</translation>
+        <translation>무선 네트워크 %1</translation>
     </message>
 </context>
 <context>
@@ -1145,7 +1145,7 @@
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="25"/>
         <source>Create PPPoE Connection</source>
-        <translation>PPPoE-Verbindung erstellen</translation>
+        <translation>PPPoE연결 추가</translation>
     </message>
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="37"/>
@@ -1158,12 +1158,12 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="27"/>
         <source>VPN Status</source>
-        <translation>VPN-Status</translation>
+        <translation>VPN 상태</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="30"/>
         <source>Create VPN</source>
-        <translation>VPN erstellen</translation>
+        <translation>VPN 생성</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="46"/>
@@ -1193,7 +1193,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="186"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="188"/>
@@ -1203,7 +1203,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="206"/>
         <source>New VPN</source>
-        <translation type="unfinished"/>
+        <translation>새로운 VPN</translation>
     </message>
 </context>
 <context>
@@ -1211,7 +1211,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="30"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>숨겨진 네트워크에 연결</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="47"/>
@@ -1224,7 +1224,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="57"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation>(지원하지 않는 폰트)</translation>
     </message>
 </context>
 <context>
@@ -1232,12 +1232,12 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="20"/>
         <source>Standard Font</source>
-        <translation>Standardschriftart</translation>
+        <translation>표준 폰트</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="21"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>고정 폭 글꼴</translation>
     </message>
 </context>
 <context>
@@ -1245,7 +1245,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsizewidget.cpp" line="16"/>
         <source>Size</source>
-        <translation>Größe</translation>
+        <translation>크기</translation>
     </message>
 </context>
 <context>
@@ -1253,7 +1253,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="25"/>
         <source>Font</source>
-        <translation>Schriftart</translation>
+        <translation>폰트</translation>
     </message>
 </context>
 <context>
@@ -1261,12 +1261,12 @@
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="86"/>
         <source>Standard Font</source>
-        <translation>Standardschriftart</translation>
+        <translation>표준 폰트</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="96"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>고정 폭 글꼴</translation>
     </message>
 </context>
 <context>
@@ -1274,17 +1274,17 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
         <source>Theme</source>
-        <translation>Thema</translation>
+        <translation>테마</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="29"/>
         <source>Font</source>
-        <translation>Schriftart</translation>
+        <translation>폰트</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="34"/>
         <source>Personalization</source>
-        <translation>Personalisierung</translation>
+        <translation>개인 설정</translation>
     </message>
 </context>
 <context>
@@ -1292,7 +1292,7 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/theme.cpp" line="57"/>
         <source> (Default)</source>
-        <translation>(Standard)</translation>
+        <translation>(기본)</translation>
     </message>
 </context>
 <context>
@@ -1300,22 +1300,22 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="15"/>
         <source>Window Theme</source>
-        <translation>Fensterthema</translation>
+        <translation>창 테마</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="16"/>
         <source>Icon Theme</source>
-        <translation>Symbolthema</translation>
+        <translation>아이콘 테마</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="17"/>
         <source>Cursor Theme</source>
-        <translation>Zeigerthema</translation>
+        <translation>커서 테마</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="27"/>
         <source>Theme</source>
-        <translation>Thema</translation>
+        <translation>테마</translation>
     </message>
 </context>
 <context>
@@ -1323,17 +1323,17 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="21"/>
         <source>Output</source>
-        <translation>Ausgabe</translation>
+        <translation>출력</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="22"/>
         <source>Input</source>
-        <translation>Eingabe</translation>
+        <translation>입력</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="24"/>
         <source>Advanced</source>
-        <translation>Erweitert</translation>
+        <translation>고급</translation>
     </message>
 </context>
 <context>
@@ -1341,47 +1341,47 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="25"/>
         <source>Output Volume</source>
-        <translation>Ausgabelautstärke</translation>
+        <translation>출력 볼륨</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="26"/>
         <source>Left/Right Balance</source>
-        <translation>Links/Rechts-Balance</translation>
+        <translation>왼쪽/오른쪽 균형</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="29"/>
         <source>Input Volume</source>
-        <translation>Eingabelautstärke</translation>
+        <translation>입력 볼륨</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="30"/>
         <source>Feedback Volume</source>
-        <translation>Rückmeldungslautstärke</translation>
+        <translation>피드백 음량</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="38"/>
         <source>Sound</source>
-        <translation>Ton</translation>
+        <translation>소리</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="40"/>
         <source>Speaker</source>
-        <translation>Lautsprecher</translation>
+        <translation>스피커</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="59"/>
         <source>Microphone</source>
-        <translation>Mikrofon</translation>
+        <translation>마이크</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="76"/>
         <source>Advanced</source>
-        <translation>Erweitert</translation>
+        <translation>고급</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="79"/>
         <source>Sound Effects</source>
-        <translation>Toneffekte</translation>
+        <translation>음향 효과</translation>
     </message>
 </context>
 <context>
@@ -1389,17 +1389,17 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="33"/>
         <source>Updating...</source>
-        <translation>Aktualisierung...</translation>
+        <translation>업데이트중...</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="44"/>
         <source>Startup Delay</source>
-        <translation>Startverzögerung</translation>
+        <translation>부팅 지연</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="47"/>
         <source>Theme</source>
-        <translation>Thema</translation>
+        <translation>테마</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="49"/>
@@ -1412,7 +1412,7 @@
     <message>
         <location filename="../modules/systeminfo/copyrightwidget.cpp" line="35"/>
         <source>License</source>
-        <translation>Lizenz</translation>
+        <translation>라이센스</translation>
     </message>
 </context>
 <context>
@@ -1420,7 +1420,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="19"/>
         <source>System Information</source>
-        <translation>Systeminformationen</translation>
+        <translation>시스템 정보</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="26"/>
@@ -1430,42 +1430,42 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="29"/>
         <source>Edition:</source>
-        <translation>Edition:</translation>
+        <translation>에디션:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="33"/>
         <source>Type:</source>
-        <translation>Typ:</translation>
+        <translation>종류:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="85"/>
         <source>%1Bit</source>
-        <translation>%1 Bit</translation>
+        <translation>%1비트</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="36"/>
         <source>Processor:</source>
-        <translation>Prozessor:</translation>
+        <translation>프로세서:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="40"/>
         <source>Memory:</source>
-        <translation>Speicher:</translation>
+        <translation>메모리:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="44"/>
         <source>Disk:</source>
-        <translation>Festplatte:</translation>
+        <translation>디스크:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="55"/>
         <source>License</source>
-        <translation>Lizenz</translation>
+        <translation>라이센스</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="58"/>
         <source>Startup Menu</source>
-        <translation>Startmenü</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1473,22 +1473,22 @@
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="53"/>
         <source>Timeout</source>
-        <translation>Zeitüberschreitung</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="55"/>
         <source>Slow</source>
-        <translation>Langsam</translation>
+        <translation>느리게</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="57"/>
         <source>Medium</source>
-        <translation>Mittel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="59"/>
         <source>Fast</source>
-        <translation>Schnell</translation>
+        <translation>빠르게</translation>
     </message>
 </context>
 <context>
@@ -1496,12 +1496,12 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="19"/>
         <source>Switch Mirror</source>
-        <translation>Spiegelserver wechseln</translation>
+        <translation>미러 변경</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="22"/>
         <source>Checking speed, please wait</source>
-        <translation>Geschwindigkeit wird überprüft, bitte warten</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1509,64 +1509,64 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="25"/>
         <source>Update</source>
-        <translation>Aktualisieren</translation>
+        <translation>업데이트</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="111"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Auf Aktualisierungen wird geprüft, bitte warten...</translation>
+        <translation>업데이트 확인중입니다, 기다려 주세요...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="117"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="168"/>
         <source>Download Updates</source>
-        <translation>Aktualisierungen herunterladen</translation>
+        <translation>업데이트 다운로드</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="125"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
         <source>%1 downloaded (Click to pause)</source>
-        <translation>%1 heruntergeladen (Zum Pausieren klicken)</translation>
+        <translation>%1 다운로드됨 (클릭해서 멈추기)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="131"/>
         <source>%1 downloaded (Click to continue)</source>
-        <translation>%1 heruntergeladen (Zum Fortsetzen klicken)</translation>
+        <translation>%1 다운로드됨 (클릭해서 재개)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="138"/>
         <source>Restart to install updates</source>
-        <translation>Zum Installieren der Aktualisierungen neu starten</translation>
+        <translation>업데이트 설치를 위해 재시작</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="139"/>
         <source>Download completed</source>
-        <translation>Herunterladen abgeschlossen</translation>
+        <translation>다운로드 완료</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="146"/>
         <source>Your system is up to date</source>
-        <translation>Ihr System ist auf dem neuesten Stand</translation>
+        <translation>귀하의 시스템은 최신 상태입니다</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="169"/>
         <source>New system edition and %1 application updates detected</source>
-        <translation>Neue Systemedition und %1 Anwendungsaktualisierungen erkannt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Update size: %1</source>
-        <translation>Aktualisierungsgröße: %1</translation>
+        <translation>업데이트 크기: %1</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation type="unfinished"/>
+        <translation>배터리 잔량이 50%이하입니다, 계속하기 위해 전원을 연결해주세요</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"/>
+        <translation>재시작을 위한 충분한 전력을 확보하고, 기기의 전원을 끄거나 전원 플러그를 뽑지 마십시오.</translation>
     </message>
 </context>
 <context>
@@ -1574,7 +1574,7 @@
     <message>
         <location filename="../modules/update/updateitem.cpp" line="40"/>
         <source>Details</source>
-        <translation>Details</translation>
+        <translation>세부정보</translation>
     </message>
 </context>
 <context>
@@ -1582,22 +1582,22 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="17"/>
         <source>Update Settings</source>
-        <translation>Einstellungen aktualisieren</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="29"/>
         <source>Auto-download Updates</source>
-        <translation>Aktualisierungen automatisch herunterladen</translation>
+        <translation>업데이트를 자동으로 받기</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="31"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation>Aktualisierungen werden automatisch im drahtlosen oder kabelgebundenen Netzwerk heruntergeladen</translation>
+        <translation>업데이트를 무선 또는 유선 네트워크상에서 자동으로 받을 것입니다.</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="35"/>
         <source>Switch Mirror</source>
-        <translation>Spiegelserver wechseln</translation>
+        <translation>미러 변경</translation>
     </message>
 </context>
 <context>
@@ -1606,12 +1606,12 @@
         <location filename="../modules/update/updateview.cpp" line="15"/>
         <location filename="../modules/update/updateview.cpp" line="27"/>
         <source>Update</source>
-        <translation>Aktualisieren</translation>
+        <translation>업데이트</translation>
     </message>
     <message>
         <location filename="../modules/update/updateview.cpp" line="20"/>
         <source>Update Settings</source>
-        <translation>Einstellungen aktualisieren</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1619,12 +1619,12 @@
     <message>
         <location filename="../modules/update/updatework.cpp" line="352"/>
         <source>Patches</source>
-        <translation>Korrekturen</translation>
+        <translation>패치</translation>
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="354"/>
         <source>System patches.</source>
-        <translation>Systemkorrekturen.</translation>
+        <translation>시스템 패치</translation>
     </message>
 </context>
 <context>
@@ -1632,17 +1632,17 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="19"/>
         <source>Pressure Sensitive</source>
-        <translation>Druckempfindlich</translation>
+        <translation>압력 민감도</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>
         <source>light</source>
-        <translation>leicht</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>
         <source>heavy</source>
-        <translation>schwer</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1650,7 +1650,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="28"/>
         <source>Wacom</source>
-        <translation>Wacom</translation>
+        <translation>와콤 </translation>
     </message>
 </context>
 <context>
@@ -1658,7 +1658,7 @@
     <message>
         <location filename="../widgets/searchinput.cpp" line="14"/>
         <source>Search</source>
-        <translation>Suche</translation>
+        <translation>찾기</translation>
     </message>
 </context>
 <context>
@@ -1666,12 +1666,12 @@
     <message>
         <location filename="../widgets/settingshead.cpp" line="20"/>
         <source>Edit</source>
-        <translation>Bearbeiten</translation>
+        <translation>수정</translation>
     </message>
     <message>
         <location filename="../widgets/settingshead.cpp" line="23"/>
         <source>Cancel</source>
-        <translation>Abbrechen</translation>
+        <translation>취소</translation>
     </message>
 </context>
 </TS>

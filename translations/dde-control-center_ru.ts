@@ -4,7 +4,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="17"/>
         <source>No system notifications</source>
-        <translation type="unfinished"/>
+        <translation>Нет системных уведомлений</translation>
     </message>
 </context>
 <context>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="50"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation type="unfinished"/>
+        <translation>Щелкните левой кнопкой мыши, чтобы повернуть и щелкните правой кнопкой мыши, чтобы выйти</translation>
     </message>
 </context>
 <context>
@@ -254,7 +254,7 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="38"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>Включите функцию Bluetooth, чтобы найти близлежащие устройства (встроенный динамик, клавиатура, мышь)</translation>
     </message>
 </context>
 <context>
@@ -417,6 +417,11 @@
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
+        <location filename="../modules/defapp/defappviewer.cpp" line="16"/>
+        <source>Default Applications</source>
+        <translation>Приложения по умолчанию</translation>
+    </message>
+    <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="30"/>
         <source>Browser</source>
         <translation>Браузер</translation>
@@ -479,7 +484,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="50"/>
         <source>Autoplay</source>
-        <translation type="unfinished"/>
+        <translation>Автовоспроизведение</translation>
     </message>
 </context>
 <context>
@@ -529,7 +534,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="25"/>
         <source>My Settings</source>
-        <translation type="unfinished"/>
+        <translation>Мои Настройки</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="38"/>
@@ -641,7 +646,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="75"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Это сочетание клавиш конфликтует с % 1, нажмите на Добавить, чтобы выбрать именно такое сочетание клавиш</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="123"/>
@@ -789,7 +794,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="58"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Это сочетание клавиш конфликтует с % 1, нажмите на Заменить, чтобы выбрать именно такое сочетание клавиш</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="88"/>
@@ -838,7 +843,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="42"/>
         <source>Add Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Добавить сочетание</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="51"/>
@@ -1001,12 +1006,12 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="69"/>
         <source>MAC</source>
-        <translation type="unfinished"/>
+        <translation>MAC</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="78"/>
         <source>IPv4 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv4 Адрес</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="83"/>
@@ -1031,7 +1036,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="104"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>Скорость</translation>
     </message>
 </context>
 <context>
@@ -1049,12 +1054,12 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authing</source>
-        <translation type="unfinished"/>
+        <translation>Authing</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
         <source>Obtaining Address</source>
-        <translation type="unfinished"/>
+        <translation>Получение Адреса</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="61"/>
@@ -1097,12 +1102,12 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="128"/>
         <source>Wired Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Сетевая Карта%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="133"/>
         <source>Wired Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Сетевая Карта</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="134"/>
@@ -1117,12 +1122,12 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="141"/>
         <source>Wireless Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Беспроводная Карта%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="146"/>
         <source>Wireless Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Беспроводная Карта</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
@@ -1166,39 +1171,39 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="179"/>
+        <location filename="../modules/network/vpnpage.cpp" line="178"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="181"/>
+        <location filename="../modules/network/vpnpage.cpp" line="180"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="183"/>
+        <location filename="../modules/network/vpnpage.cpp" line="182"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="185"/>
+        <location filename="../modules/network/vpnpage.cpp" line="184"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="187"/>
+        <location filename="../modules/network/vpnpage.cpp" line="186"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="189"/>
+        <location filename="../modules/network/vpnpage.cpp" line="188"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="207"/>
+        <location filename="../modules/network/vpnpage.cpp" line="206"/>
         <source>New VPN</source>
-        <translation type="unfinished"/>
+        <translation>Новый VPN</translation>
     </message>
 </context>
 <context>
@@ -1219,7 +1224,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="57"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation>(Не поддерживаемый шрифт)</translation>
     </message>
 </context>
 <context>
@@ -1327,8 +1332,8 @@
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="24"/>
-        <source>Sound-Advanced</source>
-        <translation>Звук-Дополнительно</translation>
+        <source>Advanced</source>
+        <translation>Дополнительно</translation>
     </message>
 </context>
 <context>

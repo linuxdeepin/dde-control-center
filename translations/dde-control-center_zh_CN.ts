@@ -38,7 +38,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="54"/>
         <source>Suspend on lid close</source>
-        <translation>关闭盖子时挂起</translation>
+        <translation>关闭盖子时待机</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="61"/>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="50"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation>单击鼠标左键旋转，单击鼠标右键退出</translation>
+        <translation>鼠标左键旋转，右键退出</translation>
     </message>
 </context>
 <context>
@@ -416,6 +416,11 @@
 </context>
 <context>
     <name>dcc::defapp::DefAppViewer</name>
+    <message>
+        <location filename="../modules/defapp/defappviewer.cpp" line="16"/>
+        <source>Default Applications</source>
+        <translation>默认程序</translation>
+    </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="30"/>
         <source>Browser</source>
@@ -1064,7 +1069,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="63"/>
         <source>Failed</source>
-        <translation>分享失败</translation>
+        <translation>失败</translation>
     </message>
 </context>
 <context>
@@ -1166,39 +1171,39 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="179"/>
+        <location filename="../modules/network/vpnpage.cpp" line="178"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="181"/>
+        <location filename="../modules/network/vpnpage.cpp" line="180"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="183"/>
+        <location filename="../modules/network/vpnpage.cpp" line="182"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="185"/>
+        <location filename="../modules/network/vpnpage.cpp" line="184"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="187"/>
+        <location filename="../modules/network/vpnpage.cpp" line="186"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="189"/>
+        <location filename="../modules/network/vpnpage.cpp" line="188"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="207"/>
+        <location filename="../modules/network/vpnpage.cpp" line="206"/>
         <source>New VPN</source>
-        <translation>新建</translation>
+        <translation>新建VPN</translation>
     </message>
 </context>
 <context>
@@ -1327,8 +1332,8 @@
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="24"/>
-        <source>Sound-Advanced</source>
-        <translation type="unfinished"/>
+        <source>Advanced</source>
+        <translation>高级设置</translation>
     </message>
 </context>
 <context>

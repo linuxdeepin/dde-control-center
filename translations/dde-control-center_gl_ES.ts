@@ -417,6 +417,11 @@
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
+        <location filename="../modules/defapp/defappviewer.cpp" line="16"/>
+        <source>Default Applications</source>
+        <translation>Aplicacións predefinidas</translation>
+    </message>
+    <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="30"/>
         <source>Browser</source>
         <translation>Navegador</translation>
@@ -1166,37 +1171,37 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="179"/>
+        <location filename="../modules/network/vpnpage.cpp" line="178"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="181"/>
+        <location filename="../modules/network/vpnpage.cpp" line="180"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="183"/>
+        <location filename="../modules/network/vpnpage.cpp" line="182"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="185"/>
+        <location filename="../modules/network/vpnpage.cpp" line="184"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="187"/>
+        <location filename="../modules/network/vpnpage.cpp" line="186"/>
         <source>StrongSwan</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="189"/>
+        <location filename="../modules/network/vpnpage.cpp" line="188"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="207"/>
+        <location filename="../modules/network/vpnpage.cpp" line="206"/>
         <source>New VPN</source>
         <translation type="unfinished"/>
     </message>
@@ -1327,8 +1332,8 @@
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="24"/>
-        <source>Sound-Advanced</source>
-        <translation type="unfinished"/>
+        <source>Advanced</source>
+        <translation>Avanzado</translation>
     </message>
 </context>
 <context>
