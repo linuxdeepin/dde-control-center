@@ -22,6 +22,8 @@ Frame::Frame(QWidget *parent)
     // set async
     m_displayInter->setSync(false);
 
+    // set init data
+    m_appearAnimation.setStartValue(QRect(1, 1, 1, 1));
     m_appearAnimation.setEasingCurve(QEasingCurve::OutCubic);
 
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
@@ -249,8 +251,8 @@ void Frame::hide()
 
 void Frame::toggle()
 {
-    if (m_appearAnimation.endValue().toRect().width() != 0)
-        hide();
-    else
+    if (m_appearAnimation.startValue().toRect().width() != 0)
         show();
+    else
+        hide();
 }
