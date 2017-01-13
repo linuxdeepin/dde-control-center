@@ -14,7 +14,7 @@ IndexView::IndexView(QWidget *parent)
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 //    setSelectionMode(QAbstractItemView::MultiSelection);
 //    setPalette(QPalette(QColor(19, 89, 177)));
-    setStyleSheet("border: 0px");
+    setStyleSheet("border: 0px; background: transparent");
     setFixedHeight(600);
 }
 

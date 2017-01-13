@@ -19,22 +19,21 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
       textLength(0)
 {
     setTitle(tr("Add Keyboard Layout"));
-    TranslucentFrame* widget = new TranslucentFrame();
+
+    TranslucentFrame *widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
+    layout->setSpacing(0);
 
-    SettingsGroup* group = new SettingsGroup();
-
-    SettingsItem* indexItem = new SettingsItem();
-//    indexItem->setPalette(QPalette(QColor(19, 89, 177)));
+    TranslucentFrame *indexItem = new TranslucentFrame;
 
     QHBoxLayout* hlayout = new QHBoxLayout();
     hlayout->setMargin(0);
     hlayout->setSpacing(0);
 
-    m_model = new IndexModel();
     m_searchModel = new IndexModel();
 
+    m_model = new IndexModel();
     m_view = new IndexView();
     m_delegate = new IndexDelegate();
 
@@ -44,15 +43,16 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     hlayout->addWidget(m_indexframe);
     indexItem->setLayout(hlayout);
 
-    connect(m_indexframe, SIGNAL(click(QString)), m_view, SLOT(onClick(QString)));
-    group->appendItem(indexItem);
     m_search = new SearchInput();
-    layout->addWidget(m_search);
-    layout->addWidget(group);
+    m_contentTopLayout->addWidget(m_search);
+    m_contentTopLayout->addSpacing(10);
+
+    layout->addWidget(indexItem);
     widget->setLayout(layout);
 
     setContent(widget);
 
+    connect(m_indexframe, SIGNAL(click(QString)), m_view, SLOT(onClick(QString)));
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
 }
 

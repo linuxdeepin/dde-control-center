@@ -31,36 +31,26 @@ QSize IndexDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIn
 void IndexDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QItemDelegate::paint(painter, option, index);
-    if (option.state & QStyle::State_Selected)
-        painter->fillRect(option.rect, option.palette.highlight());
 
     QVariant var = index.data();
     MetaData md = var.value<MetaData>();
 
-    if(md.section())
-    {
-        painter->save();
-        painter->setRenderHint(QPainter::Antialiasing);
-        QPen pen = painter->pen();
-        painter->setOpacity(0.5);
+    QPen pen = painter->pen();
+
+    painter->setRenderHints(painter->renderHints() | QPainter::Antialiasing);
+
+    painter->setOpacity(0.2);
+    if (option.state & QStyle::State_Selected)
+        painter->fillRect(option.rect, option.palette.highlight());
+    else {
         painter->setPen(Qt::NoPen);
-        painter->setBrush(QColor(222,222,222));
-        painter->drawRect(option.rect.adjusted(0,1,0,-1));
-        painter->setPen(pen);
-        painter->restore();
-        painter->drawText(option.rect.adjusted(20,0,0,0), Qt::AlignVCenter, md.text());
+        painter->setBrush(md.section() ? QColor(222, 222, 222) : QColor(238, 238, 238));
+        painter->drawRect(option.rect.adjusted(0, 0, 0, -1));
     }
-    else
-    {
-        painter->save();
-        painter->setOpacity(0.2);
-        painter->setRenderHint(QPainter::Antialiasing);
-        painter->setPen(Qt::NoPen);
-        painter->setBrush(QColor(238, 238, 238));
-        painter->drawRect(option.rect.adjusted(0,1,0,-1));
-        painter->restore();
-        painter->drawText(option.rect.adjusted(20,0,0,0), Qt::AlignVCenter, md.text());
-    }
+
+    painter->setOpacity(1);
+    painter->setPen(pen);
+    painter->drawText(option.rect.adjusted(20, 0, 0, 0), Qt::AlignVCenter, md.text());
 }
 }
 }

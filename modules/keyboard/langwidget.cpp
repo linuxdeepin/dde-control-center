@@ -19,34 +19,23 @@ LangWidget::LangWidget(QWidget *parent)
     :ContentWidget(parent)
 {
     setTitle(tr("System Language"));
+
     TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
+    layout->setSpacing(0);
 
-    SettingsGroup* group = new SettingsGroup();
-
-    SettingsItem* indexItem = new SettingsItem();
-//    indexItem->setPalette(QPalette(QColor(19, 89, 177)));
-
-    QHBoxLayout* hlayout = new QHBoxLayout();
-    hlayout->setMargin(0);
-    hlayout->setSpacing(0);
+    m_searchModel = new IndexModel();
 
     m_model = new IndexModel();
-    m_searchModel = new IndexModel();
     m_view = new IndexView();
-
     m_delegate = new IndexDelegate();
 
-    hlayout->addWidget(m_view);
-    indexItem->setLayout(hlayout);
-
-    group->appendItem(indexItem);
     m_search = new SearchInput();
-
     m_contentTopLayout->addWidget(m_search);
     m_contentTopLayout->addSpacing(10);
-    layout->addWidget(group);
+
+    layout->addWidget(m_view);
     widget->setLayout(layout);
 
     setContent(widget);

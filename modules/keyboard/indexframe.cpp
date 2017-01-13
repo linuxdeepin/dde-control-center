@@ -9,7 +9,7 @@ IndexFrame::IndexFrame(QFrame *parent):TranslucentFrame(parent)
 {
     setMouseTracking(true);
     setFrameShape(QFrame::NoFrame);
-    setStyleSheet("background-color: rgba(238,238,238,50%); border: 0px;");
+    setStyleSheet("background-color: rgba(238,238,238,20%); border: 0px;");
     m_letters.clear();
     QFontMetrics fm(font());
 
@@ -70,7 +70,7 @@ void IndexFrame::paintEvent(QPaintEvent *)
         QRect r(0,h*i,m_w,h);
         painter.drawText(r, Qt::AlignCenter, m_letters[i]);
     }
-    painter.setBrush(Qt::yellow);
+    painter.setBrush(Qt::white);
     painter.setOpacity(m_pressed ? 0.6 : 0.3);
     painter.drawRoundRect(m_rect);
 }
