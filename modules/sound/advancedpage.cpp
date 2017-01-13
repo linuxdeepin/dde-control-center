@@ -21,7 +21,7 @@ AdvancedPage::AdvancedPage(SoundModel *model)
       m_outputGroup(new SettingsGroup(tr("Output"))),
       m_inputGroup(new SettingsGroup(tr("Input")))
 {
-    setTitle(tr("Sound-Advanced"));
+    setTitle(tr("Advanced"));
     setModel(model);
 
     TranslucentFrame *frame = new TranslucentFrame;
