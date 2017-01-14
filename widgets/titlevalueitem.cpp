@@ -17,6 +17,8 @@ TitleValueItem::TitleValueItem(QFrame *parent)
     m_value->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     m_value->setWordWrap(true);
 
+    layout->setContentsMargins(20, 9, 10, 10);
+
     layout->addWidget(m_title);
     layout->addWidget(m_value);
 
