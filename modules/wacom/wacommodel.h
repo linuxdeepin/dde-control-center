@@ -17,8 +17,15 @@ public:
     ~WacomModel();
     WacomModelBase *getWacomModelBase();
 
+    bool getExist() const;
+    void setExist(bool exist);
+
+signals:
+    void existChanged(bool exist);
+
 private:
     WacomModelBase *m_wacomModelBase;
+    bool m_exist;
 };
 }
 }

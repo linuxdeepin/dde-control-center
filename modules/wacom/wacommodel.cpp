@@ -19,3 +19,16 @@ WacomModelBase *WacomModel::getWacomModelBase()
 {
     return m_wacomModelBase;
 }
+
+bool WacomModel::getExist() const
+{
+    return m_exist;
+}
+
+void WacomModel::setExist(bool exist)
+{
+    if (m_exist != exist) {
+        m_exist = exist;
+        emit existChanged(exist);
+    }
+}
