@@ -15,7 +15,7 @@ using namespace dcc::mouse;
 ThinkpadSettings::ThinkpadSettings(QWidget *parent)
     : TranslucentFrame(parent)
 {
-    m_mainGroup = new SettingsGroup;
+    m_mainGroup = new SettingsGroup(tr("TrackPoint"));
     m_mainLayout = new QVBoxLayout;
     m_title     = new SettingsHead;
     m_title->setTitle(tr("Thinkpad Track Point"));
