@@ -12,6 +12,7 @@ using DisplayInter = com::deepin::daemon::Display;
 #define CUSTOM_MODE     0
 #define MERGE_MODE      1
 #define EXTEND_MODE     2
+#define SINGLE_MODE     3
 
 namespace dcc {
 
@@ -32,7 +33,7 @@ public slots:
     void mergeScreens();
     void splitScreens();
     void switchCustom(const bool deleteConfig = true);
-    void switchMode(const int mode);
+    void switchMode(const int mode, const QString &name = QString());
     void setPrimary(const int index);
     void setMonitorEnable(Monitor *mon, const bool enabled);
     void setMonitorRotate(Monitor *mon, const quint16 rotate);

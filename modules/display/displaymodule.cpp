@@ -92,6 +92,7 @@ void DisplayModule::showCustomSettings()
 {
     // save last mode
     const int displayMode = m_displayModel->displayMode();
+    const QString primaryName = m_displayModel->primary();
 
     // switch to custom settings
     if (displayMode != CUSTOM_MODE)
@@ -113,18 +114,16 @@ void DisplayModule::showCustomSettings()
     connect(&dialog, &MonitorSettingDialog::requestMonitorRotate, this, &DisplayModule::showRotate);
 
     // discard or save
-    if (dialog.exec() == QDialog::Accepted)
-    {
-        m_displayWorker->saveChanges();
-    }
-    else
+    if (dialog.exec() != QDialog::Accepted)
     {
         m_displayWorker->discardChanges();
 
         // restore old mode
         if (displayMode != CUSTOM_MODE)
-            m_displayWorker->switchMode(displayMode);
+            m_displayWorker->switchMode(displayMode, displayMode == SINGLE_MODE ? primaryName : QString());
     }
+
+    m_displayWorker->saveChanges();
 }
 
 void DisplayModule::showRecognize()

@@ -106,9 +106,9 @@ void DisplayWorker::switchCustom(const bool deleteConfig)
     switchMode(CUSTOM_MODE);
 }
 
-void DisplayWorker::switchMode(const int mode)
+void DisplayWorker::switchMode(const int mode, const QString &name)
 {
-    m_displayInter.SwitchMode(mode, QString()).waitForFinished();
+    m_displayInter.SwitchMode(mode, name).waitForFinished();
 }
 
 void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
