@@ -210,23 +210,14 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
         return result;
     }
 
-    QDBusPendingReply<> reply1 = m_accountsInter->CreateUser(user->name(), user->name(), 1);
-    reply1.waitForFinished();
-    if (reply1.isError()) {
+    QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), user->name(), 1);
+    const QString userPath = path.path();
+    if (userPath.isEmpty() || userPath.isNull()) {
         result->setType(CreationResult::UnknownError);
-        result->setMessage(reply1.error().message());
+        result->setMessage("no method call result on CreateUser");
         return result;
     }
 
-    QDBusPendingReply<QString> reply2 = m_accountsInter->FindUserByName(user->name());
-    reply2.waitForFinished();
-    if (reply2.isError()) {
-        result->setType(CreationResult::UnknownError);
-        result->setMessage(reply2.error().message());
-        return result;
-    }
-
-    QString userPath = reply2.argumentAt(0).toString();
     AccountsUser *userDBus = new AccountsUser("com.deepin.daemon.Accounts", userPath, QDBusConnection::systemBus(), this);
     if (!userDBus->isValid()) {
         result->setType(CreationResult::UnknownError);

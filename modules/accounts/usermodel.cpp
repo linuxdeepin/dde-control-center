@@ -46,6 +46,7 @@ void UserModel::addUser(const QString &id, User *user)
 void UserModel::removeUser(const QString &id)
 {
     User * user = getUser(id);
+    m_userList.remove(id);
 
     if (user)
         emit userRemoved(user);
