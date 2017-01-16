@@ -71,7 +71,7 @@ bool DBusControlCenterService::showInRight() const
 
 const QRect DBusControlCenterService::rect() const
 {
-    return parent()->rect();
+    return parent()->geometry();
 }
 
 //int DBusControlCenterService::x() const
