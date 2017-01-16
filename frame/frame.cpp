@@ -198,6 +198,8 @@ void Frame::show()
     if (m_appearAnimation.state() == QPropertyAnimation::Running)
         return;
 
+    Q_ASSERT(m_mouseAreaKey.isEmpty());
+
     // animation
     QRect r = m_primaryRect;
     r.setLeft(m_primaryRect.x() + m_primaryRect.width());
@@ -223,6 +225,10 @@ void Frame::show()
 
 void Frame::hide()
 {
+    // pass if already hided
+    if (m_mouseAreaKey.isEmpty())
+        return;
+
     // reset auto-hide
     m_autoHide = true;
 
