@@ -117,10 +117,9 @@ void DefCategoryWidget::removeItem(const QJsonObject &item)
 void DefCategoryWidget::onDefaultAppSet(const QJsonObject &json)
 {
     const QString &id = json["Id"].toString();
-    const QString &exec = json["Exec"].toString();
 
     for (OptionWidget *item : m_valueMap.keys()) {
-        item->setChecked(item->id() ==id  && item->exec() == exec);
+        item->setChecked(item->id() ==id);
     }
 }
 
