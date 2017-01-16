@@ -176,16 +176,18 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
             QRect descRect(textRect.right(), textRect.top()+2, descWidth, rect.height());
             painter.drawText(descRect, Qt::AlignLeft | Qt::AlignVCenter, item.description());
 
-            font.setPointSize(curFont.pointSize());
+            font.setPointSize(curFont.pointSize() * 1.4);
             painter.setFont(font);
             fm=QFontMetrics(font);
             QString city = m_request->city();
             QRect cityArea(rect.width() - 50 - iconRect.left()-10,rect.y(),fm.width(city), rect.height()/2+6);
-            QRect statusArea(rect.width() - 50 - iconRect.left()-10,cityArea.bottom(),fm.width(city), rect.height()/2 -6);
             painter.drawText(cityArea, Qt::AlignBottom | Qt::AlignHCenter, city);
-            font.setPointSize(curFont.pointSize()*0.65);
+            font.setPointSize(curFont.pointSize() * 0.8);
+            fm=QFontMetrics(font);
+            QString updateTime = tr("Just updated");
+            QRect statusArea(rect.width() - 50 - iconRect.left()-10,cityArea.bottom(),fm.width(updateTime), rect.height()/2 -6);
             painter.setFont(font);
-            painter.drawText(statusArea, Qt::AlignTop|Qt::AlignHCenter, QString("刚刚更新"));
+            painter.drawText(statusArea, Qt::AlignTop|Qt::AlignHCenter, updateTime);
             painter.restore();
         }
         else

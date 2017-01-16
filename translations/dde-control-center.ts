@@ -100,6 +100,11 @@
         <source>Loading weather...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="188"/>
+        <source>Just updated</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dcc::accounts::AccountsDetailWidget</name>
@@ -497,12 +502,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="68"/>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="70"/>
         <source>Open Desktop file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="69"/>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="71"/>
         <source>Desktop Files(*.desktop);; All Files(*)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -877,17 +882,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="41"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="37"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="41"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="37"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="43"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="39"/>
         <source>Double-click Speed</source>
         <translation type="unfinished"></translation>
     </message>
