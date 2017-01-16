@@ -74,13 +74,22 @@ TimeZoneChooser::TimeZoneChooser()
     });
 
     connect(m_searchInput, &SearchInput::editingFinished, [this] {
-        m_map->setTimezone(m_searchInput->text());
+        QString timezone = m_searchInput->text();
+        timezone = m_completionCache.value(timezone, timezone);
+        m_map->setTimezone(timezone);
     });
 
     QTimer::singleShot(0, [this] {
         QStringList completions;
-        for (QByteArray arry : QTimeZone::availableTimeZoneIds()) {
-            completions << arry;
+        for (QString timezone : QTimeZone::availableTimeZoneIds()) {
+            completions << timezone; // whole timezone as completion candidate.
+
+            QStringList zoneParts = timezone.split("/");
+            if (zoneParts.length() == 2) {
+                QString cityName = zoneParts.at(1);
+                completions << cityName; // timezone city name as completion candidate.
+                m_completionCache[cityName] = timezone;
+            }
         }
 
         QCompleter *completer = new QCompleter(completions, m_searchInput);

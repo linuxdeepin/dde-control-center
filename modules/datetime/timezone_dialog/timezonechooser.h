@@ -12,6 +12,8 @@
 
 #include "blurredframe.h"
 
+#include <QMap>
+
 class QPushButton;
 class QComboBox;
 
@@ -46,6 +48,8 @@ private:
     void setupSize();
 
 private:
+    QMap<QString, QString> m_completionCache;
+
     installer::TimezoneMap *m_map;
     dcc::widgets::SearchInput *m_searchInput;
     QPushButton *m_cancelBtn;
