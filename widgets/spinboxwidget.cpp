@@ -16,6 +16,8 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
       m_title(new QLabel),
       m_spinBox(new DSpinBox)
 {
+    m_spinBox->setContextMenuPolicy(Qt::NoContextMenu);
+
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setContentsMargins(20, 0, 10, 0);
     mainLayout->setSpacing(0);
