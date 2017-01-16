@@ -99,7 +99,7 @@ void PppoePage::onConnectionSessionCreated(const QString &devicePath, const QStr
     ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
     ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
 
-    m_editPage->setModel(sessionModel);
+    m_editPage->setModel(m_model, sessionModel);
     connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
     connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
     connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);

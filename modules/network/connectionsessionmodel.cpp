@@ -23,13 +23,13 @@ const QJsonObject ConnectionSessionModel::keysInfo(const QString &section, const
     return QJsonObject();
 }
 
-void ConnectionSessionModel::setConnPath(const QDBusObjectPath &connPath)
+void ConnectionSessionModel::setConnUuid(const QString &connUuid)
 {
-    if (m_connPath != connPath.path())
+    if (m_connUuid != connUuid)
     {
-        m_connPath = connPath.path();
+        m_connUuid = connUuid;
 
-        emit connectionPathChanged(m_connPath);
+        emit connectionUuidChanged(m_connUuid);
     }
 }
 

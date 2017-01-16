@@ -208,7 +208,7 @@ void WirelessPage::showAPEditPage(const QString &session)
     ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_apEditPage);
     ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(session, sessionModel, m_apEditPage);
 
-    m_apEditPage->setModel(sessionModel);
+    m_apEditPage->setModel(m_model, sessionModel);
     connect(m_apEditPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
     connect(m_apEditPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
     connect(m_apEditPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);

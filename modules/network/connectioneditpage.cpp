@@ -9,6 +9,7 @@
 #include "comboboxwidget.h"
 #include "filechoosewidget.h"
 #include "spinboxwidget.h"
+#include "networkmodel.h"
 
 #include <dspinbox.h>
 
@@ -101,14 +102,19 @@ ConnectionEditPage::~ConnectionEditPage()
             w->deleteLater();
 }
 
-void ConnectionEditPage::setModel(ConnectionSessionModel *model)
+void ConnectionEditPage::setModel(NetworkModel *networkModel, ConnectionSessionModel *sessionModel)
 {
-    m_sessionModel = model;
+    m_networkModel = networkModel;
+    m_sessionModel = sessionModel;
 
+    connect(m_networkModel, &NetworkModel::activeConnectionsChanged, this, &ConnectionEditPage::onActiveStateChanged);
     connect(m_sessionModel, &ConnectionSessionModel::keysChanged, m_recreateUITimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_sessionModel, &ConnectionSessionModel::visibleItemsChanged, this, &ConnectionEditPage::refershUI);
     connect(m_sessionModel, &ConnectionSessionModel::errorsChanged, this, &ConnectionEditPage::onErrorsChanged);
     connect(m_sessionModel, &ConnectionSessionModel::saveFinished, this, &ConnectionEditPage::saveFinished);
+    connect(m_sessionModel, &ConnectionSessionModel::connectionUuidChanged, this, &ConnectionEditPage::onActiveStateChanged);
+
+    onActiveStateChanged();
 
     m_recreateUITimer->start();
 }
@@ -240,6 +246,15 @@ void ConnectionEditPage::onErrorsChanged(const NetworkErrors &errors)
             }
         }
     }
+}
+
+void ConnectionEditPage::onActiveStateChanged()
+{
+    const bool connected = m_networkModel->activeConnections().contains(m_sessionModel->connectionUuid());
+
+//    qDebug() << m_networkModel->activeConnections() << m_sessionModel->connectionUuid();
+
+    m_disconnectBtn->setVisible(connected);
 }
 
 SettingsItem *ConnectionEditPage::optionWidgets(const QString &section, const QJsonObject &keyObject)

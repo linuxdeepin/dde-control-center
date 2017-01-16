@@ -155,13 +155,13 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
 
 void NetworkModel::onActiveConnInfoChanged(const QString &conns)
 {
-    m_activeConnections.clear();
+    m_activeConnInfos.clear();
 
     QJsonArray activeConns = QJsonDocument::fromJson(conns.toUtf8()).array();
     for (const auto &info : activeConns)
     {
         const auto connInfo = info.toObject();
-        m_activeConnections.append(connInfo);
+        m_activeConnInfos.append(connInfo);
 //        const auto hwAddr = connInfo.value("HwAddress").toString();
 
 //        for (const auto *dev : m_devices)
@@ -173,7 +173,23 @@ void NetworkModel::onActiveConnInfoChanged(const QString &conns)
 //        }
     }
 
-    emit activeConnInfoChanged(m_activeConnections);
+    emit activeConnInfoChanged(m_activeConnInfos);
+}
+
+void NetworkModel::onActiveConnectionsChanged(const QString &conns)
+{
+    m_activeConnections.clear();
+
+    const QJsonObject activeConns = QJsonDocument::fromJson(conns.toUtf8()).object();
+    for (auto it(activeConns.constBegin()); it != activeConns.constEnd(); ++it)
+    {
+        const QJsonObject info = it.value().toObject();
+        const auto uuid = info.value("Uuid").toString();
+        if (!uuid.isEmpty())
+            m_activeConnections << uuid;
+    }
+
+    emit activeConnectionsChanged(m_activeConnections);
 }
 
 void NetworkModel::onConnectionSessionCreated(const QString &device, const QString &sessionPath)

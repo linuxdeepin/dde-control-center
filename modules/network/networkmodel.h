@@ -27,13 +27,15 @@ public:
     const QList<QJsonObject> vpns() const { return m_connections.value("vpn"); }
     const QList<QJsonObject> wireds() const { return m_connections.value("wired"); }
     const QList<QJsonObject> pppoes() const { return m_connections.value("pppoe"); }
-    const QList<QJsonObject> activeConnInfos() const { return m_activeConnections; }
+    const QList<QJsonObject> activeConnInfos() const { return m_activeConnInfos; }
+    const QSet<QString> activeConnections() const { return m_activeConnections; }
     const QString connectionUuidByPath(const QString &connPath) const;
     const QString connectionUuidBySsid(const QString &ssid) const;
 
 signals:
     void connectionListChanged() const;
     void requestDeviceStatus(const QString &devPath) const;
+    void activeConnectionsChanged(const QSet<QString> &conns) const;
     void activeConnInfoChanged(const QList<QJsonObject> &infos) const;
     void vpnEnabledChanged(const bool enabled) const;
     void deviceListChanged(const QList<NetworkDevice *> devices) const;
@@ -44,6 +46,7 @@ private slots:
     void onDeviceListChanged(const QString &devices);
     void onConnectionListChanged(const QString &conns);
     void onActiveConnInfoChanged(const QString &conns);
+    void onActiveConnectionsChanged(const QString &conns);
     void onConnectionSessionCreated(const QString &device, const QString &sessionPath);
     void onDeviceAPListChanged(const QString &device, const QString &apList);
     void onDeviceAPInfoChanged(const QString &device, const QString &apInfo);
@@ -58,7 +61,8 @@ private:
     bool m_vpnEnabled;
     QList<NetworkDevice *> m_devices;
     QMap<QString, QList<QJsonObject>> m_connections;
-    QList<QJsonObject> m_activeConnections;
+    QList<QJsonObject> m_activeConnInfos;
+    QSet<QString> m_activeConnections;
 };
 
 }   // namespace network

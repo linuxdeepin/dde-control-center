@@ -20,7 +20,7 @@ class ConnectionSessionModel : public QObject
 public:
     explicit ConnectionSessionModel(QObject *parent = 0);
 
-    const QString connectionPath() const { return m_connPath; }
+    const QString connectionUuid() const { return m_connUuid; }
     const NetworkErrors errors() const { return m_errors; }
     const QStringList sections() const { return m_sections; }
     const QList<QJsonObject> sectionKeys(const QString &section) const { return m_visibleItems[section]; }
@@ -31,7 +31,7 @@ public:
     const QJsonObject vkInfo(const QString &section, const QString &vKey) const { return m_vks[section][vKey]; }
 
 signals:
-    void connectionPathChanged(const QString &connPath) const;
+    void connectionUuidChanged(const QString &connPath) const;
     void connectionNameChanged(const QString &connName) const;
     void visibleItemsChanged(const QMap<QString, QList<QJsonObject>> &vkList) const;
     void keysChanged(const QMap<QString, QMap<QString, QJsonObject>> &vkList) const;
@@ -40,13 +40,13 @@ signals:
 
 private slots:
 //    void setVisibleKeys(const QMap<QString, QStringList> &keys);
-    void setConnPath(const QDBusObjectPath &connPath);
+    void setConnUuid(const QString &connUuid);
     void setErrors(const NetworkErrors &errors);
     void setAvailableItems(const QString &items);
     void setAllKeys(const QString &allKeys);
 
 private:
-    QString m_connPath;
+    QString m_connUuid;
     QList<QString> m_sections;
     NetworkErrors m_errors;
     QMap<QString, QString> m_sectionName;

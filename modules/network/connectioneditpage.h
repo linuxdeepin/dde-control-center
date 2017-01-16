@@ -22,6 +22,7 @@ class SettingsItem;
 
 namespace network {
 
+class NetworkModel;
 class ConnectionSessionModel;
 class ConnectionEditPage : public ContentWidget
 {
@@ -31,7 +32,7 @@ public:
     explicit ConnectionEditPage(QWidget *parent = 0);
     ~ConnectionEditPage();
 
-    void setModel(ConnectionSessionModel *model);
+    void setModel(NetworkModel *networkModel, ConnectionSessionModel *sessionModel);
 
 signals:
     void accept() const;
@@ -49,6 +50,7 @@ public slots:
 private slots:
     void recreateUI();
     void refershUI();
+    void onActiveStateChanged();
     void saveFinished(const bool ret);
     void initPlaceholderText(const NetworkErrors &errors);
     void onErrorsChanged(const NetworkErrors &errors);
@@ -63,6 +65,7 @@ private:
     void updateSpinBoxWidget(widgets::SettingsItem *item, const QJsonObject &infoObject);
 
 private:
+    NetworkModel *m_networkModel;
     ConnectionSessionModel *m_sessionModel;
 
     QPushButton *m_disconnectBtn;

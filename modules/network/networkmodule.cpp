@@ -163,7 +163,7 @@ void NetworkModule::showWiredConnectionEditPage(const QString &session)
     ConnectionSessionModel *sessionModel = new ConnectionSessionModel(p);
     ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(session, sessionModel, p);
 
-    p->setModel(sessionModel);
+    p->setModel(m_networkModel, sessionModel);
     connect(p, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
     connect(p, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
     connect(p, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
