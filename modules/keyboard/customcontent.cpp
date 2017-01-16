@@ -16,7 +16,8 @@ namespace keyboard
 
 CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
     : ContentWidget(parent),
-      m_work(work)
+      m_work(work),
+      m_conflict(nullptr)
 {
     setTitle(tr("Shortcuts"));
     TranslucentFrame *widget = new TranslucentFrame();
@@ -107,9 +108,9 @@ void CustomContent::onShortcut()
     if (m_conflict) {
         QString key = m_conflict->accels;
         m_work->modifyShortcut(m_conflict, tr("null"));
-        m_work->addCustonShortcut(m_name->value(), m_command->value(), key, result);
+        m_work->addCustomShortcut(m_name->value(), m_command->value(), key, result);
     } else {
-        m_work->addCustonShortcut(m_name->value(), m_command->value(), m_shortcut->value(), result);
+        m_work->addCustomShortcut(m_name->value(), m_command->value(), m_shortcut->value(), result);
     }
 
     sendBackSignal();

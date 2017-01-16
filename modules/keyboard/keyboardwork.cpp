@@ -176,11 +176,12 @@ void KeyboardWork::modifyShortcut(ShortcutInfo *info, const QString &key, bool c
     }
 }
 
-bool KeyboardWork::addCustonShortcut(const QString &name, const QString &command, const QString &accels, bool &result)
+void KeyboardWork::addCustomShortcut(const QString &name, const QString &command, const QString &accels, bool &result)
 {
-    m_keybindInter->Add(name, command, accels, result);
-
-    return !result;
+    if (accels.isEmpty())
+        m_keybindInter->Add(name, command, tr("None"), result);
+    else
+        m_keybindInter->Add(name, command, accels, result);
 }
 
 void KeyboardWork::grabScreen()
