@@ -68,7 +68,7 @@ void DefCategoryAddWidget::clicked()
         emit requestFrameAutoHide(false);
         QFileDialog dialog;
         dialog.setWindowTitle(tr("Open Desktop file"));
-        dialog.setNameFilter(tr("Desktop Files(*.desktop);; All Files(*)"));
+        dialog.setNameFilter(tr("All Files(*)"));
 
         if (dialog.exec() != QDialog::Accepted)
             break;
@@ -80,12 +80,11 @@ void DefCategoryAddWidget::clicked()
 
         QFileInfo info(path);
 
-        if (!info.exists() || !info.isExecutable())
-            break;
-
         if (info.suffix() == "desktop") {
             emit addUserItem(m_category, info.filePath());
-        } else if (createDesktopFile(info)) {
+        } else if (!info.exists() || !info.isExecutable())
+            break;
+        else if (createDesktopFile(info)) {
             emit addUserItem(m_category, info.filePath());
         }
     } while(false);
