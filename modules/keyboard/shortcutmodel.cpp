@@ -175,7 +175,11 @@ void ShortcutModel::onParseInfo(const QString &info)
             m_customInfos.append(info);
         }
     }
-    emit parseFinish();
+
+    emit listChanged(m_systemInfos, InfoType::System);
+    emit listChanged(m_windowInfos, InfoType::Window);
+    emit listChanged(m_workspaceInfos, InfoType::Workspace);
+    emit listChanged(m_customInfos, InfoType::Custom);
 }
 
 void ShortcutModel::onCustomInfo(const QString &json)

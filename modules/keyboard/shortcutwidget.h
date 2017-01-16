@@ -6,8 +6,9 @@
 #include "settingsgroup.h"
 #include "searchinput.h"
 #include "settingshead.h"
-
+#include <QList>
 #include <com_deepin_daemon_search.h>
+
 using namespace dcc::widgets;
 
 using SearchInter=com::deepin::daemon::Search;
@@ -15,23 +16,15 @@ class QLineEdit;
 
 namespace dcc {
 namespace keyboard{
-
+class ShortcutModel;
 class ShortcutWidget : public ContentWidget
 {
     Q_OBJECT
 
 public:
-    explicit ShortcutWidget(QWidget *parent = 0);
+    explicit ShortcutWidget(ShortcutModel *model, QWidget *parent = 0);
 
-    enum InfoType{
-        System,
-        Custom,
-        Media,
-        Window,
-        Workspace
-    };
-
-    void addShortcut(QList<ShortcutInfo*> list, ShortcutWidget::InfoType type);
+    void addShortcut(QList<ShortcutInfo*> list, ShortcutModel::InfoType type);
 
 protected:
     void modifyStatus(bool status);
@@ -69,6 +62,11 @@ private:
     SearchInter* m_searchInter;
     // 预留，如果用户太快，可以等带用户输入完成后才搜索
     QTimer* m_timer;
+    ShortcutModel *m_model;
+    QList<ShortcutItem *> m_systemList;
+    QList<ShortcutItem *> m_windowList;
+    QList<ShortcutItem *> m_workspaceList;
+    QList<ShortcutItem *> m_custonList;
 };
 
 }

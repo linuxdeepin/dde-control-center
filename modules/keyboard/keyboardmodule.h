@@ -45,20 +45,15 @@ public slots:
     void onPushCustonShortcut();
 
     void onKeyboardLayoutSelected();
-    void onParseFinish();
 
     void setCurrentLayout(const QString &value);
     void setCurrentLang();
-    void setUILayout(const QString& value);
-    void setUILang(const QString& value);
     void setCapsLock(bool value);
 
     void onSetLocale(const QModelIndex &index);
     void onShortcutChecked(bool valid, ShortcutInfo *info, const QString& shortcut);
     void onShortcutSet(const QString& shortcut);
     void onShortcutKeySet(const QString& shortcut);
-
-    void onAdded(const QString& in0, int in1);
     void onDelShortcut(ShortcutInfo* info);
 
     void onDelay(int value);

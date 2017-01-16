@@ -1,4 +1,5 @@
 #include "keyboardmodel.h"
+#include <QDebug>
 
 namespace dcc {
 namespace keyboard{
@@ -33,12 +34,15 @@ QString KeyboardModel::langByKey(const QString &key) const
 
 void KeyboardModel::setLayout(const QString &key)
 {
+    if (key.isEmpty())
+        return;
+
     QString value = m_layouts.value(key);
     if(m_layout == value)
         return ;
 
     m_layout = value;
-    emit requestCurLayout(m_layout);
+    emit curLayoutChanged(m_layout);
 }
 
 QString KeyboardModel::curLayout() const
@@ -48,11 +52,10 @@ QString KeyboardModel::curLayout() const
 
 void KeyboardModel::setLang(const QString &value)
 {
-    if(m_lang == value || value.isEmpty())
-        return;
-
-    m_lang = value;
-    emit requestCurLang(m_lang);
+    if (m_lang != value && !value.isEmpty()) {
+        m_lang = value;
+        emit curLangChanged(langByKey(m_lang));
+    }
 }
 
 void KeyboardModel::addUserLayout(const QString &value)
@@ -72,9 +75,36 @@ void KeyboardModel::setLocaleList(const QList<MetaData> &langs)
 
 void KeyboardModel::setCapsLock(bool value)
 {
-    m_capsLock = value;
+    if (m_capsLock != value) {
+        m_capsLock = value;
+        emit capsLockChanged(value);
+    }
+}
 
-    emit requestCapsLockChanged(value);
+uint KeyboardModel::repeatDelay() const
+{
+    return m_repeatDelay;
+}
+
+void KeyboardModel::setRepeatDelay(const uint &repeatDelay)
+{
+    if (m_repeatDelay != repeatDelay) {
+        m_repeatDelay = repeatDelay;
+        emit repeatDelayChanged(repeatDelay);
+    }
+}
+
+uint KeyboardModel::repeatInterval() const
+{
+    return m_repeatInterval;
+}
+
+void KeyboardModel::setRepeatInterval(const uint &repeatInterval)
+{
+    if (m_repeatInterval != repeatInterval) {
+        m_repeatInterval = repeatInterval;
+        emit repeatIntervalChanged(repeatInterval);
+    }
 }
 
 void KeyboardModel::setAllShortcut(const QMap<QStringList,int> &map)

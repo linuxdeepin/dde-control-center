@@ -6,6 +6,7 @@
 #include "indexview.h"
 #include "indexmodel.h"
 #include "translucentframe.h"
+#include "keyboardmodel.h"
 
 #include <QVBoxLayout>
 #include <QLineEdit>
@@ -15,8 +16,9 @@ using namespace dcc;
 
 namespace dcc {
 namespace keyboard{
-LangWidget::LangWidget(QWidget *parent)
-    :ContentWidget(parent)
+LangWidget::LangWidget(KeyboardModel *model, QWidget *parent)
+    :ContentWidget(parent),
+      m_keyboardModel(model)
 {
     setTitle(tr("System Language"));
 
@@ -42,6 +44,9 @@ LangWidget::LangWidget(QWidget *parent)
 
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
     connect(m_view, SIGNAL(clicked(QModelIndex)), this, SIGNAL(click(QModelIndex)));
+
+    setCurLang(m_keyboardModel->curLang());
+    setModelData(m_keyboardModel->langLists());
 }
 
 void LangWidget::setModelData(const QList<MetaData> &datas)

@@ -32,17 +32,59 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
     connect(m_langSelector, SIGNAL(CurrentLocaleChanged(QString)), m_model, SLOT(setLang(QString)));
     connect(m_keyboardInter, SIGNAL(CapslockToggleChanged(bool)), m_model, SLOT(setCapsLock(bool)));
     connect(m_keybindInter, &KeybingdingInter::KeyEvent, this, &KeyboardWork::KeyEvent);
+    connect(m_langSelector, &LangSelector::CurrentLocaleChanged, m_model, &KeyboardModel::setLang);
 
     getProperty();
     onValid();
 
     m_keyboardInter->setSync(false);
     m_keybindInter->setSync(false);
+    m_langSelector->setSync(false);
+}
 
-    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->List(), this);
-    connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
-            SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
+void KeyboardWork::getProperty()
+{
+    m_metaDatas.clear();
+    m_letters.clear();
 
+    KeyboardLayoutList tmp_map = layoutLists();
+    m_model->setLayoutLists(tmp_map);
+    m_model->setLayout(curLayout());
+
+    QDBusInterface dbus_pinyin("com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
+                               "com.deepin.api.Pinyin");
+
+    foreach(const QString & str, tmp_map.keys()) {
+        MetaData md;
+        QString title = tmp_map[str];
+        md.setText(title);
+        md.setKey(str);
+        QChar letterFirst = title[0];
+        QStringList letterFirstList;
+        if (letterFirst.isLower() || letterFirst.isUpper()) {
+            letterFirstList << QString(letterFirst);
+            md.setPinyin(title);
+        } else {
+            QDBusMessage message = dbus_pinyin.call("Query", title);
+            letterFirstList = message.arguments()[0].toStringList();
+            md.setPinyin(letterFirstList.at(0));
+        }
+
+        append(md);
+    }
+
+    QChar ch = '\0';
+    for (int i(0); i != m_metaDatas.size(); ++i)
+    {
+        const QChar flag = m_metaDatas[i].pinyin().at(0).toUpper();
+        if (flag == ch)
+            continue;
+        ch = flag;
+
+        m_letters.append(ch);
+        m_metaDatas.insert(i, MetaData(ch, true));
+    }
+    m_model->setUserLayout(userLayout());
 }
 
 void KeyboardWork::active()
@@ -51,10 +93,14 @@ void KeyboardWork::active()
     m_langSelector->blockSignals(false);
     m_keybindInter->blockSignals(false);
 
-    onValid();
-
     m_model->setCapsLock(m_keyboardInter->capslockToggle());
-    m_model->setLang(curLang());
+    m_model->setRepeatDelay(repeatDelay());
+    m_model->setRepeatInterval(repeatInterval());
+
+    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->List(), this);
+    connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
+            SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
+
 }
 
 void KeyboardWork::deactive()
@@ -89,59 +135,6 @@ bool KeyboardWork::keyOccupy(const QStringList &list)
     }
 
     return true;
-}
-
-void KeyboardWork::getProperty()
-{
-    m_metaDatas.clear();
-    m_letters.clear();
-
-    KeyboardLayoutList tmp_map = layoutLists();
-    QDBusInterface dbus_pinyin("com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
-                               "com.deepin.api.Pinyin");
-
-    foreach(const QString & str, tmp_map.keys()) {
-        MetaData md;
-        QString title = tmp_map[str];
-        md.setText(title);
-        md.setKey(str);
-        QChar letterFirst = title[0];
-        QStringList letterFirstList;
-        if (letterFirst.isLower() || letterFirst.isUpper()) {
-            letterFirstList << QString(letterFirst);
-            md.setPinyin(title);
-        } else {
-            QDBusMessage message = dbus_pinyin.call("Query", title);
-            letterFirstList = message.arguments()[0].toStringList();
-            md.setPinyin(letterFirstList.at(0));
-        }
-
-        append(md);
-    }
-
-    QChar ch = '\0';
-    for (int i(0); i != m_metaDatas.size(); ++i)
-    {
-        const QChar flag = m_metaDatas[i].pinyin().at(0).toUpper();
-        if (flag == ch)
-            continue;
-        ch = flag;
-
-        m_letters.append(ch);
-        m_metaDatas.insert(i, MetaData(ch, true));
-    }
-
-    m_model->setLayoutLists(layoutLists());
-    m_model->setLayout(curLayout());
-    m_model->setUserLayout(userLayout());
-}
-
-KeyboardLayoutList KeyboardWork::layoutLists() const
-{
-    QDBusPendingReply<KeyboardLayoutList> list = m_keyboardInter->LayoutList();
-    KeyboardLayoutList tmp_map = list.value();
-
-    return tmp_map;
 }
 
 void KeyboardWork::modifyShortcut(ShortcutInfo *info, const QString &key, bool clear)
@@ -194,13 +187,6 @@ bool KeyboardWork::checkAvaliable(const QString &key)
     return m_keybindInter->CheckAvaliable(key);
 }
 
-QString KeyboardWork::query(const QString &id, qint32 type)
-{
-    QDBusPendingReply<QString> reply = m_keybindInter->Query(id, type);
-    reply.waitForFinished();
-    return reply.value();
-}
-
 void KeyboardWork::delShortcut(ShortcutInfo* info)
 {
     m_keybindInter->Delete(info->id, info->type);
@@ -247,28 +233,9 @@ void KeyboardWork::delUserLayout(const QString &value)
 
 void KeyboardWork::onValid()
 {
-    if (!m_langSelector->isValid())
-        return;
-
     m_datas.clear();
-    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_langSelector->GetLocaleList(), this);
-    connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
-            SLOT(onLocaleListFinish(QDBusPendingCallWatcher*)));
-}
 
-void KeyboardWork::onLocaleListFinish(QDBusPendingCallWatcher *watch)
-{
-    QDBusPendingReply<LocaleList> reply = *watch;
-
-    if (reply.isError()) {
-        qDebug()<<Q_FUNC_INFO<<reply.error().message();
-        watch->deleteLater();
-        return;
-    }
-
-    QString key = m_langSelector->currentLocale();
-    m_model->setLang(key);
-    LocaleList list = reply.value();
+    LocaleList list = m_langSelector->GetLocaleList();
 
     for (int i = 0; i!=list.size(); ++i) {
         MetaData md;
@@ -280,8 +247,7 @@ void KeyboardWork::onLocaleListFinish(QDBusPendingCallWatcher *watch)
     qSort(m_datas.begin(), m_datas.end(), caseInsensitiveLessThan);
 
     m_model->setLocaleList(m_datas);
-    emit requestSetLangTitle(m_model->langByKey(key));
-    watch->deleteLater();
+    m_model->setLang(curLang());
 }
 
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2)
@@ -345,13 +311,22 @@ void KeyboardWork::onRequestShortcut(QDBusPendingCallWatcher *watch)
 
 void KeyboardWork::onAdded(const QString &in0, int in1)
 {
-    emit custonInfo(m_keybindInter->Query(in0, in1));
+    QDBusPendingReply<QString> reply = m_keybindInter->Query(in0, in1);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWork::onAddedFinished);
 }
 
 void KeyboardWork::onDisableShortcut(ShortcutInfo *info)
 {
     m_keybindInter->Disable(info->id, info->type);
     info->accels = tr("None");
+}
+
+void KeyboardWork::onAddedFinished(QDBusPendingCallWatcher *watch)
+{
+    QDBusPendingReply<QString> reply = *watch;
+    emit custonInfo(reply.value());
+    watch->deleteLater();
 }
 
 void KeyboardWork::append(const MetaData &md)
@@ -380,6 +355,14 @@ QStringList KeyboardWork::userLayout() const
     return m_keyboardInter->userLayoutList();
 }
 
+KeyboardLayoutList KeyboardWork::layoutLists() const
+{
+    QDBusPendingReply<KeyboardLayoutList> list = m_keyboardInter->LayoutList();
+    KeyboardLayoutList tmp_map = list.value();
+
+    return tmp_map;
+}
+
 void KeyboardWork::setLayout(const QString &value)
 {
     m_keyboardInter->setCurrentLayout(value);
@@ -388,9 +371,7 @@ void KeyboardWork::setLayout(const QString &value)
 
 QString KeyboardWork::curLayout() const
 {
-    QString str =m_keyboardInter->currentLayout();
-
-    return str;
+    return m_keyboardInter->currentLayout();
 }
 
 void KeyboardWork::setLang(const QString &value)

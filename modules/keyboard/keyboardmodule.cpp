@@ -25,11 +25,8 @@ void KeyboardModule::initialize()
     m_shortcutModel = new ShortcutModel();
     m_work = new KeyboardWork(m_model);
 
-    connect(m_work, &KeyboardWork::requestSetLangTitle, this, &KeyboardModule::setUILang);
-    connect(m_model, &KeyboardModel::requestCurLayout, this, &KeyboardModule::setUILayout);
     connect(m_work, SIGNAL(shortcutInfo(QString)), m_shortcutModel, SLOT(onParseInfo(QString)));
     connect(m_work, SIGNAL(custonInfo(QString)), m_shortcutModel, SLOT(onCustomInfo(QString)));
-    connect(m_shortcutModel, SIGNAL(parseFinish()), this, SLOT(onParseFinish()));
 
     m_model->moveToThread(qApp->thread());
     m_shortcutModel->moveToThread(qApp->thread());
@@ -55,20 +52,14 @@ ModuleWidget *KeyboardModule::moduleWidget()
 {
     if(!m_keyboardWidget)
     {
-        m_keyboardWidget = new KeyboardWidget();
-        m_keyboardWidget->setKBValue(m_model->curLayout());
-        m_keyboardWidget->setLangValue(m_model->curLang());
-        m_keyboardWidget->setDelayValue(m_work->repeatDelay());
-        m_keyboardWidget->setSpeedValue(m_work->repeatInterval());
-        m_keyboardWidget->setCapsLock(m_model->capsLock());
+        m_keyboardWidget = new KeyboardWidget(m_model);
 
         connect(m_keyboardWidget, SIGNAL(keyoard()), this, SLOT(onPushKBDetails()));
         connect(m_keyboardWidget, SIGNAL(language()), this, SLOT(onPushLanguage()));
         connect(m_keyboardWidget, SIGNAL(shortcut()), this, SLOT(onPushShortcut()));
-        connect(m_keyboardWidget, SIGNAL(delayChanged(int)), this, SLOT(onDelay(int)));
-        connect(m_keyboardWidget, SIGNAL(speedChanged(int)), this, SLOT(onSpeed(int)));
-        connect(m_keyboardWidget, SIGNAL(capsLockChanged(bool)), this, SLOT(setCapsLock(bool)));
-        connect(m_model, SIGNAL(requestCapsLockChanged(bool)), m_keyboardWidget, SLOT(setCapsLock(bool)));
+        connect(m_keyboardWidget, &KeyboardWidget::delayChanged, m_work, &KeyboardWork::setRepeatDelay);
+        connect(m_keyboardWidget, &KeyboardWidget::speedChanged, m_work, &KeyboardWork::setRepeatInterval);
+        connect(m_keyboardWidget, &KeyboardWidget::capsLockChanged, m_work, &KeyboardWork::setCapsLock);
     }
 
     return m_keyboardWidget;
@@ -238,14 +229,9 @@ void KeyboardModule::onPushKBDetails()
 
 void KeyboardModule::onPushLanguage()
 {
-    if(!m_model->langLists().count())
-        return;
-
     if(!m_langWidget)
     {
-        m_langWidget = new LangWidget();
-        m_langWidget->setCurLang(m_model->curLang());
-        m_langWidget->setModelData(m_model->langLists());
+        m_langWidget = new LangWidget(m_model);
         connect(m_langWidget, SIGNAL(click(QModelIndex)), this, SLOT(onSetLocale(QModelIndex)));
     }
 
@@ -254,25 +240,16 @@ void KeyboardModule::onPushLanguage()
 
 void KeyboardModule::onPushShortcut()
 {
-    if(!m_loaded)
-    {
-        return;
-    }
-
     if(!m_shortcutWidget)
     {
-        m_shortcutWidget = new ShortcutWidget();
+        m_shortcutWidget = new ShortcutWidget(m_shortcutModel);
         connect(m_shortcutWidget, SIGNAL(shortcutChanged(bool, ShortcutInfo* , QString)), this, SLOT(onShortcutChecked(bool, ShortcutInfo*, QString)));
         connect(m_shortcutWidget, SIGNAL(customShortcut()), this, SLOT(onPushCustonShortcut()));
-        connect(m_shortcutModel, SIGNAL(addCustonInfo(ShortcutInfo*)), m_shortcutWidget, SLOT(onCustomAdded(ShortcutInfo*)));
         connect(m_shortcutWidget, SIGNAL(delShortcutInfo(ShortcutInfo*)), this, SLOT(onDelShortcut(ShortcutInfo*)));
         connect(m_work, SIGNAL(searchChangd(ShortcutInfo*,QString)), m_shortcutWidget, SLOT(onSearchInfo(ShortcutInfo*,QString)));
         connect(m_shortcutWidget, &ShortcutWidget::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
 
-        m_shortcutWidget->addShortcut(m_shortcutModel->systemInfo(), ShortcutWidget::System);
-        m_shortcutWidget->addShortcut(m_shortcutModel->windowInfo(), ShortcutWidget::Window);
-        m_shortcutWidget->addShortcut(m_shortcutModel->workspaceInfo(), ShortcutWidget::Workspace);
-        m_shortcutWidget->addShortcut(m_shortcutModel->customInfo(), ShortcutWidget::Custom);
+
     }
     m_frameProxy->pushWidget(this, m_shortcutWidget);
 }
@@ -305,11 +282,6 @@ void KeyboardModule::onKeyboardLayoutSelected()
     }
 }
 
-void KeyboardModule::onParseFinish()
-{
-    m_loaded = true;
-}
-
 void KeyboardModule::setCurrentLayout(const QString& value)
 {
     m_work->setLayout(value);
@@ -320,29 +292,12 @@ void KeyboardModule::setCurrentLang()
 
 }
 
-void KeyboardModule::setUILayout(const QString &value)
-{
-    if(m_keyboardWidget)
-    {
-        m_keyboardWidget->setKBValue(value);
-    }
-}
-
-void KeyboardModule::setUILang(const QString &key)
-{
-    if(m_keyboardWidget)
-    {
-        m_keyboardWidget->setLangValue(key);
-    }
-}
-
 void KeyboardModule::onSetLocale(const QModelIndex &index)
 {
     QVariant var = index.data();
     MetaData md = var.value<MetaData>();
 
     m_work->setLang(md.key());
-    m_keyboardWidget->setLangValue(md.text());
 }
 
 void KeyboardModule::onShortcutChecked(bool valid, ShortcutInfo* info, const QString &shortcut)
@@ -465,11 +420,6 @@ void KeyboardModule::onShortcutKeySet(const QString &shortcut)
         m_scContent->setBottomTip(conflict);
         m_scContent->setConflictString(list);
     }
-}
-
-void KeyboardModule::onAdded(const QString &in0, int in1)
-{
-    qDebug()<<Q_FUNC_INFO<< m_work->query(in0,in1);
 }
 
 void KeyboardModule::onDelShortcut(ShortcutInfo *info)

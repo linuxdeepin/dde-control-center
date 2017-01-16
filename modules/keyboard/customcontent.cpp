@@ -123,7 +123,7 @@ void CustomContent::onKeyEvent(const bool state, const QString &keylist)
     in.replace(">", "-");
     in.replace("_L", "");
     QStringList value = in.split("-");
-    m_shortcut->setValue(in);
+    m_shortcut->setValue(keylist);
     QMap<QString, bool> list;
     for (QString key : ModelKeylist) {
         QStringList t;

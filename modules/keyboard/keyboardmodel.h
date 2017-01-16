@@ -1,4 +1,4 @@
-#ifndef KEYBOARDMODEL_H
+﻿#ifndef KEYBOARDMODEL_H
 #define KEYBOARDMODEL_H
 
 #include <QObject>
@@ -41,10 +41,18 @@ public:
     bool capsLock() const;
     QMap<QStringList,int> allShortcut() const;
 
+    uint repeatInterval() const;
+    void setRepeatInterval(const uint &repeatInterval);
+
+    uint repeatDelay() const;
+    void setRepeatDelay(const uint &repeatDelay);
+
 signals:
-    void requestCurLayout(const QString& layout);
-    void requestCurLang(const QString& lang);
-    void requestCapsLockChanged(bool value);
+    void curLayoutChanged(const QString& layout);
+    void curLangChanged(const QString& lang);
+    void capsLockChanged(bool value);
+    void repeatDelayChanged(const uint value);
+    void repeatIntervalChanged(const uint value);
 
 public slots:
     void setLayout(const QString& value);

@@ -30,11 +30,16 @@ typedef QList<ShortcutInfo> ShortcutInfoList;
 class ShortcutModel : public QObject
 {
     Q_OBJECT
-
-
 public:
     explicit ShortcutModel(QObject *parent = 0);
     ~ShortcutModel();
+    enum InfoType{
+        System,
+        Custom,
+        Media,
+        Window,
+        Workspace
+    };
 
     QList<ShortcutInfo*> systemInfo() const;
     QList<ShortcutInfo*> windowInfo() const;
@@ -45,7 +50,7 @@ public:
     void delInfo(ShortcutInfo* info);
 
 signals:
-    void parseFinish();
+    void listChanged(QList<ShortcutInfo *>, InfoType);
     void addCustonInfo(ShortcutInfo* info);
 
 public slots:

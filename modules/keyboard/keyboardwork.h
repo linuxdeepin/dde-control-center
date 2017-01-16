@@ -41,7 +41,6 @@ public:
 
     void grabScreen();
     bool checkAvaliable(const QString& key);
-    QString query(const QString& id, qint32 type);
     void delShortcut(ShortcutInfo *info);
 
     void setRepeatDelay(int value);
@@ -57,11 +56,8 @@ public:
 signals:
     void shortcutInfo(const QString& info);
     void custonInfo(const QString& info);
-    void searchChangd(ShortcutInfo* info, const QString& key);
-    void requestSetLangTitle(const QString &title);
-    void grabScreenResult(const QString &value);
     void KeyEvent(bool in0, const QString &in1);
-    void grabScreenModifiers(const QStringList &value);
+    void searchChangd(ShortcutInfo* info, const QString& key);
 
 public slots:
     void setLang(const QString& value);
@@ -69,10 +65,10 @@ public slots:
     void addUserLayout(const QString& value);
     void delUserLayout(const QString& value);
     void onValid();
-    void onLocaleListFinish(QDBusPendingCallWatcher* watch);
     void onRequestShortcut(QDBusPendingCallWatcher* watch);
     void onAdded(const QString&in0, int in1);
     void onDisableShortcut(ShortcutInfo* info);
+    void onAddedFinished(QDBusPendingCallWatcher *watch);
 
 private:
     void append(const MetaData& md);

@@ -12,13 +12,13 @@ using namespace dcc::widgets;
 namespace dcc {
 namespace keyboard{
 class QLineEdit;
-
+class KeyboardModel;
 class LangWidget : public ContentWidget
 {
     Q_OBJECT
 
 public:
-    explicit LangWidget(QWidget *parent = 0);
+    explicit LangWidget(KeyboardModel *model, QWidget *parent = 0);
     void setModelData(const QList<MetaData>& datas);
     void setCurLang(const QString& lang);
 
@@ -35,6 +35,7 @@ private:
     IndexView* m_view;
     IndexModel* m_model;
     IndexModel* m_searchModel;
+    KeyboardModel *m_keyboardModel;
 };
 }
 }
