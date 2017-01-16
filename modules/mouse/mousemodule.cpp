@@ -56,7 +56,7 @@ ModuleWidget *MouseModule::moduleWidget()
 
 const QString MouseModule::name() const
 {
-    return "Mouse and TouchPad";
+    return QStringLiteral("mouse");
 }
 
 MouseModule::~MouseModule()

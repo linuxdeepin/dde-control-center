@@ -60,7 +60,7 @@ ModuleWidget *DatetimeModule::moduleWidget()
 
 const QString DatetimeModule::name() const
 {
-    return "Datetime";
+    return QStringLiteral("datetime");
 }
 
 void DatetimeModule::contentPopped(ContentWidget * const w)

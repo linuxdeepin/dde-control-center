@@ -55,7 +55,7 @@ ModuleWidget *PersonalizationModule::moduleWidget()
 
 const QString PersonalizationModule::name() const
 {
-    return "Personalization";
+    return QStringLiteral("personalization");
 }
 
 void PersonalizationModule::showThemeWidget()

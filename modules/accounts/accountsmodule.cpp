@@ -62,7 +62,7 @@ ModuleWidget *AccountsModule::moduleWidget()
 
 const QString AccountsModule::name() const
 {
-    return "Accounts";
+    return QStringLiteral("account");
 }
 
 AccountsModule::~AccountsModule()

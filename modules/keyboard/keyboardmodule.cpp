@@ -75,7 +75,7 @@ ModuleWidget *KeyboardModule::moduleWidget()
 
 const QString KeyboardModule::name() const
 {
-    return "Keyboard";
+    return QStringLiteral("keyboard");
 }
 
 void KeyboardModule::contentPopped(ContentWidget * const w)

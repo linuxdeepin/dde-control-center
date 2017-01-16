@@ -49,7 +49,7 @@ ModuleWidget *WacomModule::moduleWidget()
 
 const QString WacomModule::name() const
 {
-    return "Wacom";
+    return QStringLiteral("wacom");
 }
 
 WacomModule::~WacomModule()
