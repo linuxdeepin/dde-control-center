@@ -60,12 +60,30 @@ void NetworkModuleWidget::setModel(NetworkModel *model)
 
 void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devices)
 {
+    bool recreate = false;
+    const auto devs = m_devices.values().toSet();
+
+    if (devs.size() != devices.size())
+    {
+        recreate = true;
+    } else {
+        for (auto *dev : devices)
+        {
+            if (!devs.contains(dev))
+                recreate = true;
+            break;
+        }
+    }
+    if (!recreate)
+        return;
+
     // remove old widgets
     while (QLayoutItem *item = m_devicesLayout->takeAt(0))
     {
         item->widget()->deleteLater();
         delete item;
     }
+    m_devices.clear();
 
     int wiredDevice = 0;
     int wirelessDevice = 0;
