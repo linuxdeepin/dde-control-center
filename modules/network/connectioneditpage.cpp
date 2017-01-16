@@ -109,11 +109,13 @@ void ConnectionEditPage::setModel(NetworkModel *networkModel, ConnectionSessionM
 
     connect(m_networkModel, &NetworkModel::activeConnectionsChanged, this, &ConnectionEditPage::onActiveStateChanged);
     connect(m_sessionModel, &ConnectionSessionModel::keysChanged, m_recreateUITimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_sessionModel, &ConnectionSessionModel::deletableChanged, m_removeBtn, &QPushButton::setVisible);
     connect(m_sessionModel, &ConnectionSessionModel::visibleItemsChanged, this, &ConnectionEditPage::refershUI);
     connect(m_sessionModel, &ConnectionSessionModel::errorsChanged, this, &ConnectionEditPage::onErrorsChanged);
     connect(m_sessionModel, &ConnectionSessionModel::saveFinished, this, &ConnectionEditPage::saveFinished);
     connect(m_sessionModel, &ConnectionSessionModel::connectionUuidChanged, this, &ConnectionEditPage::onActiveStateChanged);
 
+    m_removeBtn->setVisible(m_sessionModel->deletable());
     onActiveStateChanged();
 
     m_recreateUITimer->start();
@@ -125,16 +127,6 @@ void ConnectionEditPage::onDeviceRemoved()
         emit m_nextPage->back();
 
     emit back();
-}
-
-void ConnectionEditPage::setDisconnectVisible(const bool visible)
-{
-    m_disconnectBtn->setVisible(visible);
-}
-
-void ConnectionEditPage::setDeleteVisible(const bool visible)
-{
-    m_removeBtn->setVisible(visible);
 }
 
 void ConnectionEditPage::recreateUI()

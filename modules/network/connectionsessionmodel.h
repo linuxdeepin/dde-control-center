@@ -20,6 +20,7 @@ class ConnectionSessionModel : public QObject
 public:
     explicit ConnectionSessionModel(QObject *parent = 0);
 
+    bool deletable() const { return m_deletable; }
     const QString connectionUuid() const { return m_connUuid; }
     const NetworkErrors errors() const { return m_errors; }
     const QStringList sections() const { return m_sections; }
@@ -31,21 +32,24 @@ public:
     const QJsonObject vkInfo(const QString &section, const QString &vKey) const { return m_vks[section][vKey]; }
 
 signals:
+    void saveFinished(const bool ret) const;
+    void deletableChanged(const bool deletable) const;
     void connectionUuidChanged(const QString &connPath) const;
     void connectionNameChanged(const QString &connName) const;
     void visibleItemsChanged(const QMap<QString, QList<QJsonObject>> &vkList) const;
     void keysChanged(const QMap<QString, QMap<QString, QJsonObject>> &vkList) const;
     void errorsChanged(const NetworkErrors &errors) const;
-    void saveFinished(const bool ret) const;
 
 private slots:
 //    void setVisibleKeys(const QMap<QString, QStringList> &keys);
+    void setDeletable(const bool deletable);
     void setConnUuid(const QString &connUuid);
     void setErrors(const NetworkErrors &errors);
     void setAvailableItems(const QString &items);
     void setAllKeys(const QString &allKeys);
 
 private:
+    bool m_deletable;
     QString m_connUuid;
     QList<QString> m_sections;
     NetworkErrors m_errors;

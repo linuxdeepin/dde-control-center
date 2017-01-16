@@ -44,8 +44,6 @@ signals:
 
 public slots:
     void onDeviceRemoved();
-    void setDisconnectVisible(const bool visible);
-    void setDeleteVisible(const bool visible);
 
 private slots:
     void recreateUI();

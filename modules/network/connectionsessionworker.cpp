@@ -14,9 +14,11 @@ ConnectionSessionWorker::ConnectionSessionWorker(const QString &sessionPath, Con
     connect(&m_sessionInter, &ConnectionSessionInter::AvailableKeysChanged, this, &ConnectionSessionWorker::queryAvailableKeys);
     connect(&m_sessionInter, &ConnectionSessionInter::ErrorsChanged, m_connModel, &ConnectionSessionModel::setErrors);
     connect(&m_sessionInter, &ConnectionSessionInter::UuidChanged, m_connModel, &ConnectionSessionModel::setConnUuid);
+    connect(&m_sessionInter, &ConnectionSessionInter::AllowDeleteChanged, m_connModel, &ConnectionSessionModel::setDeletable);
 
     m_connModel->setErrors(m_sessionInter.errors());
     m_connModel->setConnUuid(m_sessionInter.uuid());
+    m_connModel->setDeletable(m_sessionInter.allowDelete());
 
     queryAllKeys();
     queryAvailableKeys();

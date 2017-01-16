@@ -23,6 +23,16 @@ const QJsonObject ConnectionSessionModel::keysInfo(const QString &section, const
     return QJsonObject();
 }
 
+void ConnectionSessionModel::setDeletable(const bool deletable)
+{
+    if (m_deletable != deletable)
+    {
+        m_deletable = deletable;
+
+        emit deletableChanged(m_deletable);
+    }
+}
+
 void ConnectionSessionModel::setConnUuid(const QString &connUuid)
 {
     if (m_connUuid != connUuid)
