@@ -27,5 +27,5 @@ dcc--widgets--SettingsItem[isTail=true] {
 }
 
 QLabel#SliderLeftIcon, QLabel#SliderRightIcon {
-    margin: 5px 0px 0px 0px;
+    margin: 12px 0px 0px 0px;
 }
