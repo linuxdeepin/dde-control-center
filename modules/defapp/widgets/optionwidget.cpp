@@ -58,10 +58,11 @@ OptionWidget::OptionWidget(const bool state, QWidget *parent)
 void OptionWidget::setItem(const QJsonObject &item)
 {
     m_CategoryItem = item;
-    if (item["DisplayName"].toString().isEmpty()) {
-        m_displayName->setText(item["Name"].toString());
-    } else {
+
+    if (item["Name"].toString().isEmpty()) {
         m_displayName->setText(item["DisplayName"].toString());
+    } else {
+        m_displayName->setText(item["Name"].toString());
     }
     const QIcon &icon = QIcon::fromTheme(item["Icon"].toString());
 
