@@ -14,6 +14,8 @@ using namespace dcc;
 
 namespace dcc {
 namespace keyboard{
+
+
 KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     :ContentWidget(parent),
       textLength(0)
@@ -54,6 +56,8 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
 
     connect(m_indexframe, SIGNAL(click(QString)), m_view, SLOT(onClick(QString)));
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
+
+    connect(m_view, &IndexView::clicked, this, &KeyboardLayoutWidget::onItemClicked);
 }
 
 KeyboardLayoutWidget::~KeyboardLayoutWidget()
@@ -115,5 +119,13 @@ void KeyboardLayoutWidget::onSearch(const QString &text)
         m_indexframe->hide();
     }
 }
+
+void KeyboardLayoutWidget::onItemClicked(const QModelIndex &)
+{
+    emit layoutSelected();
+    emit back();
+}
+
+
 }
 }

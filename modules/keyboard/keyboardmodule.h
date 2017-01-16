@@ -44,7 +44,7 @@ public slots:
     void onPushShortcut();
     void onPushCustonShortcut();
 
-    void onKeyboardBack();
+    void onKeyboardLayoutSelected();
     void onParseFinish();
 
     void setCurrentLayout(const QString &value);

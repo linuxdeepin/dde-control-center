@@ -204,7 +204,8 @@ void KeyboardModule::onPushKeyboard()
         m_kbLayoutWidget = new KeyboardLayoutWidget();
         m_kbLayoutWidget->setMetaData(m_work->getDatas());
         m_kbLayoutWidget->setLetters(m_work->getLetters());
-        connect(m_kbLayoutWidget, SIGNAL(back()), this, SLOT(onKeyboardBack()));
+
+        connect(m_kbLayoutWidget, SIGNAL(layoutSelected()), this, SLOT(onKeyboardLayoutSelected()));
     }
     m_frameProxy->pushWidget(this, m_kbLayoutWidget);
 }
@@ -287,7 +288,7 @@ void KeyboardModule::onPushCustonShortcut()
     m_frameProxy->pushWidget(this, m_customContent);
 }
 
-void KeyboardModule::onKeyboardBack()
+void KeyboardModule::onKeyboardLayoutSelected()
 {
     if(m_kbLayoutWidget)
     {

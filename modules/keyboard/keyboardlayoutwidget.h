@@ -26,8 +26,12 @@ public:
     void setLetters(QList<QString> letters);
     QList<MetaData> selectData() const;
 
+signals:
+    void layoutSelected();
+
 public slots:
     void onSearch(const QString& text);
+    void onItemClicked(const QModelIndex &index);
 
 private:
     int textLength;
