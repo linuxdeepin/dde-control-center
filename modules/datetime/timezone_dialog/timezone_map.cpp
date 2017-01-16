@@ -80,11 +80,10 @@ void TimezoneMap::mousePressEvent(QMouseEvent* event) {
     qDebug() << nearest_zones_;
     if (nearest_zones_.length() == 1) {
       current_zone_ = nearest_zones_.first();
-      this->remark();
-      emit this->timezoneUpdated(current_zone_.timezone);
-    } else {
-      this->popupZoneWindow(event->pos());
+      emit timezoneUpdated(current_zone_.timezone);
     }
+
+    popupZoneWindow(event->pos());
   } else {
     QWidget::mousePressEvent(event);
   }
