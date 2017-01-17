@@ -197,7 +197,7 @@ void ShortcutModel::onCustomInfo(const QString &json)
     info->id = obj["Id"].toString();
     m_infos.append(info);
     m_customInfos.append(info);
-    emit addCustonInfo(info);
+    emit addCustomInfo(info);
 }
 
 ShortcutInfo::ShortcutInfo()

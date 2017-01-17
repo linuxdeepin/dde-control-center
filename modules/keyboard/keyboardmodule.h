@@ -42,7 +42,7 @@ public slots:
     void onPushKBDetails();
     void onPushLanguage();
     void onPushShortcut();
-    void onPushCustonShortcut();
+    void onPushCustomShortcut();
 
     void onKeyboardLayoutSelected();
 

@@ -35,7 +35,6 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
     connect(m_langSelector, &LangSelector::CurrentLocaleChanged, m_model, &KeyboardModel::setLang);
 
     getProperty();
-    onValid();
 
     m_keyboardInter->setSync(false);
     m_keybindInter->setSync(false);
@@ -49,7 +48,7 @@ void KeyboardWork::getProperty()
 
     KeyboardLayoutList tmp_map = layoutLists();
     m_model->setLayoutLists(tmp_map);
-    m_model->setLayout(curLayout());
+    m_model->setLayout(m_keyboardInter->currentLayout());
 
     QDBusInterface dbus_pinyin("com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
                                "com.deepin.api.Pinyin");
@@ -84,7 +83,23 @@ void KeyboardWork::getProperty()
         m_letters.append(ch);
         m_metaDatas.insert(i, MetaData(ch, true));
     }
-    m_model->setUserLayout(userLayout());
+    m_model->setUserLayout(m_keyboardInter->userLayoutList());
+
+    m_datas.clear();
+
+    LocaleList list = m_langSelector->GetLocaleList();
+
+    for (int i = 0; i!=list.size(); ++i) {
+        MetaData md;
+        md.setKey(list.at(i).id);
+        md.setText(list.at(i).name);
+        m_datas.append(md);
+    }
+
+    qSort(m_datas.begin(), m_datas.end(), caseInsensitiveLessThan);
+
+    m_model->setLocaleList(m_datas);
+    m_model->setLang(m_langSelector->currentLocale());
 }
 
 void KeyboardWork::active()
@@ -231,25 +246,6 @@ void KeyboardWork::delUserLayout(const QString &value)
     m_model->delUserLayout(value);
 }
 
-void KeyboardWork::onValid()
-{
-    m_datas.clear();
-
-    LocaleList list = m_langSelector->GetLocaleList();
-
-    for (int i = 0; i!=list.size(); ++i) {
-        MetaData md;
-        md.setKey(list.at(i).id);
-        md.setText(list.at(i).name);
-        m_datas.append(md);
-    }
-
-    qSort(m_datas.begin(), m_datas.end(), caseInsensitiveLessThan);
-
-    m_model->setLocaleList(m_datas);
-    m_model->setLang(curLang());
-}
-
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2)
 {
     QCollator qc;
@@ -277,6 +273,10 @@ void KeyboardWork::onRequestShortcut(QDBusPendingCallWatcher *watch)
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
     foreach(QJsonValue value, array) {
         QJsonObject obj = value.toObject();
+        if (obj.isEmpty())
+            continue;
+        if (obj["Accels"].toArray().isEmpty())
+            continue;
         QString accels = obj["Accels"].toArray().at(0).toString();
         accels.replace("<", "");
         accels.replace(">", "-");
@@ -325,7 +325,7 @@ void KeyboardWork::onDisableShortcut(ShortcutInfo *info)
 void KeyboardWork::onAddedFinished(QDBusPendingCallWatcher *watch)
 {
     QDBusPendingReply<QString> reply = *watch;
-    emit custonInfo(reply.value());
+    emit customInfo(reply.value());
     watch->deleteLater();
 }
 
@@ -350,11 +350,6 @@ void KeyboardWork::append(const MetaData &md)
     m_metaDatas.append(md);
 }
 
-QStringList KeyboardWork::userLayout() const
-{
-    return m_keyboardInter->userLayoutList();
-}
-
 KeyboardLayoutList KeyboardWork::layoutLists() const
 {
     QDBusPendingReply<KeyboardLayoutList> list = m_keyboardInter->LayoutList();
@@ -369,19 +364,10 @@ void KeyboardWork::setLayout(const QString &value)
     m_model->setLayout(value);
 }
 
-QString KeyboardWork::curLayout() const
-{
-    return m_keyboardInter->currentLayout();
-}
-
 void KeyboardWork::setLang(const QString &value)
 {
     m_langSelector->SetLocale(value);
 }
 
-QString KeyboardWork::curLang() const
-{
-    return m_langSelector->currentLocale();
-}
 }
 }

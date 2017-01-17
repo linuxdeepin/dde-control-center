@@ -28,7 +28,7 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
     m_systemGroup = new SettingsGroup(tr("System"));
     m_windowGroup = new SettingsGroup(tr("Window"));
     m_workspaceGroup = new SettingsGroup(tr("WorkSpace"));
-    m_custonGroup = new SettingsGroup();
+    m_customGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
     m_search = new SearchInput();
 
@@ -39,7 +39,7 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
     m_layout->addWidget(m_systemGroup);
     m_layout->addWidget(m_windowGroup);
     m_layout->addWidget(m_workspaceGroup);
-    m_layout->addWidget(m_custonGroup);
+    m_layout->addWidget(m_customGroup);
 
     m_addCustom = new QPushButton(tr("Add Custom Shortcut"));
 
@@ -52,7 +52,7 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
     connect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
     setTitle(tr("Shortcuts"));
 
-    connect(m_model, SIGNAL(addCustonInfo(ShortcutInfo*)), this, SLOT(onCustomAdded(ShortcutInfo*)));
+    connect(m_model, SIGNAL(addCustomInfo(ShortcutInfo*)), this, SLOT(onCustomAdded(ShortcutInfo*)));
     connect(m_model, &ShortcutModel::listChanged, this, &ShortcutWidget::addShortcut);
 
     addShortcut(m_model->systemInfo(), ShortcutModel::System);
@@ -93,13 +93,13 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
     }
     else if(type == ShortcutModel::Custom)
     {
-        for (ShortcutItem *item : m_custonList) {
+        for (ShortcutItem *item : m_customList) {
             if (item) {
-                m_custonGroup->removeItem(item);
+                m_customGroup->removeItem(item);
                 item->deleteLater();
             }
         }
-        m_custonList.clear();
+        m_customList.clear();
     }
 
 
@@ -127,15 +127,15 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
         }
         else if(type == ShortcutModel::Custom)
         {
-            if (m_custonGroup->layout()->count() == 0) {
+            if (m_customGroup->layout()->count() == 0) {
                 m_head = new SettingsHead();
                 m_head->setEditEnable(true);
                 m_head->setTitle(tr("Custom Shortcut"));
-                m_custonGroup->insertItem(0, m_head);
+                m_customGroup->insertItem(0, m_head);
             }
             connect(m_head, SIGNAL(editChanged(bool)), item, SLOT(onEditMode(bool)));
-            m_custonGroup->appendItem(item);
-            m_custonList.append(item);
+            m_customGroup->appendItem(item);
+            m_customList.append(item);
             connect(item, SIGNAL(destroyed(QObject*)),this, SLOT(onDestroyItem(QObject*)));
         }
     }
@@ -146,13 +146,13 @@ void ShortcutWidget::modifyStatus(bool status)
     if(status)
     {
         m_addCustom->hide();
-        m_custonGroup->hide();
+        m_customGroup->hide();
         m_workspaceGroup->hide();
         m_windowGroup->hide();
         m_systemGroup->hide();
         m_searchGroup->show();
         m_layout->removeWidget(m_addCustom);
-        m_layout->removeWidget(m_custonGroup);
+        m_layout->removeWidget(m_customGroup);
         m_layout->removeWidget(m_workspaceGroup);
         m_layout->removeWidget(m_windowGroup);
         m_layout->removeWidget(m_systemGroup);
@@ -161,7 +161,7 @@ void ShortcutWidget::modifyStatus(bool status)
     else
     {
         m_addCustom->show();
-        m_custonGroup->show();
+        m_customGroup->show();
         m_workspaceGroup->show();
         m_windowGroup->show();
         m_systemGroup->show();
@@ -169,7 +169,7 @@ void ShortcutWidget::modifyStatus(bool status)
         m_layout->addWidget(m_systemGroup);
         m_layout->addWidget(m_windowGroup);
         m_layout->addWidget(m_workspaceGroup);
-        m_layout->addWidget(m_custonGroup);
+        m_layout->addWidget(m_customGroup);
         m_layout->addWidget(m_addCustom);
         m_layout->removeWidget(m_searchGroup);
     }
@@ -194,15 +194,15 @@ void ShortcutWidget::onCustomAdded(ShortcutInfo *info)
        ShortcutItem* item = new ShortcutItem();
        connect(item, SIGNAL(shortcutChangd(bool, ShortcutInfo*, QString)), this, SIGNAL(shortcutChanged(bool, ShortcutInfo*, QString)));
        item->setShortcutInfo(info);
-       if (m_custonGroup->layout()->count() == 0) {
+       if (m_customGroup->layout()->count() == 0) {
            m_head = new SettingsHead();
            m_head->setEditEnable(true);
            m_head->setTitle(tr("Custom Shortcut"));
-           m_custonGroup->insertItem(0, m_head);
+           m_customGroup->insertItem(0, m_head);
        }
        connect(m_head, SIGNAL(editChanged(bool)), item, SLOT(onEditMode(bool)));
-       m_custonGroup->appendItem(item);
-       m_custonList.append(item);
+       m_customGroup->appendItem(item);
+       m_customList.append(item);
        connect(item, SIGNAL(destroyed(QObject*)),this, SLOT(onDestroyItem(QObject*)));
    }
 }
@@ -214,10 +214,10 @@ void ShortcutWidget::onDestroyItem(QObject *obj)
     ShortcutItem* item = qobject_cast<ShortcutItem*>(sender());
     if(item)
     {
-        m_custonGroup->removeItem(item);
-        if(m_custonGroup->itemCount() == 1)
+        m_customGroup->removeItem(item);
+        if(m_customGroup->itemCount() == 1)
         {
-            m_custonGroup->removeItem(m_head);
+            m_customGroup->removeItem(m_head);
             m_head->deleteLater();
             m_head = nullptr;
         }

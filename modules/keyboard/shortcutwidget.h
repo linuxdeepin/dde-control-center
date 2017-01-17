@@ -56,7 +56,7 @@ private:
     SettingsGroup* m_systemGroup;
     SettingsGroup* m_windowGroup;
     SettingsGroup* m_workspaceGroup;
-    SettingsGroup* m_custonGroup;
+    SettingsGroup* m_customGroup;
     SettingsGroup* m_searchGroup;
     QMap<QString, ShortcutInfo*> m_searchInfos;
     SearchInter* m_searchInter;
@@ -66,7 +66,7 @@ private:
     QList<ShortcutItem *> m_systemList;
     QList<ShortcutItem *> m_windowList;
     QList<ShortcutItem *> m_workspaceList;
-    QList<ShortcutItem *> m_custonList;
+    QList<ShortcutItem *> m_customList;
 };
 
 }

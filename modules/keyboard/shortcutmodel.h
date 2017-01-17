@@ -51,7 +51,7 @@ public:
 
 signals:
     void listChanged(QList<ShortcutInfo *>, InfoType);
-    void addCustonInfo(ShortcutInfo* info);
+    void addCustomInfo(ShortcutInfo* info);
 
 public slots:
     void onParseInfo(const QString& info);

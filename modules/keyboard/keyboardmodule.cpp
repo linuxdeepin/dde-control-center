@@ -26,7 +26,7 @@ void KeyboardModule::initialize()
     m_work = new KeyboardWork(m_model);
 
     connect(m_work, SIGNAL(shortcutInfo(QString)), m_shortcutModel, SLOT(onParseInfo(QString)));
-    connect(m_work, SIGNAL(custonInfo(QString)), m_shortcutModel, SLOT(onCustomInfo(QString)));
+    connect(m_work, SIGNAL(customInfo(QString)), m_shortcutModel, SLOT(onCustomInfo(QString)));
 
     m_model->moveToThread(qApp->thread());
     m_shortcutModel->moveToThread(qApp->thread());
@@ -244,7 +244,7 @@ void KeyboardModule::onPushShortcut()
     {
         m_shortcutWidget = new ShortcutWidget(m_shortcutModel);
         connect(m_shortcutWidget, SIGNAL(shortcutChanged(bool, ShortcutInfo* , QString)), this, SLOT(onShortcutChecked(bool, ShortcutInfo*, QString)));
-        connect(m_shortcutWidget, SIGNAL(customShortcut()), this, SLOT(onPushCustonShortcut()));
+        connect(m_shortcutWidget, SIGNAL(customShortcut()), this, SLOT(onPushCustomShortcut()));
         connect(m_shortcutWidget, SIGNAL(delShortcutInfo(ShortcutInfo*)), this, SLOT(onDelShortcut(ShortcutInfo*)));
         connect(m_work, SIGNAL(searchChangd(ShortcutInfo*,QString)), m_shortcutWidget, SLOT(onSearchInfo(ShortcutInfo*,QString)));
         connect(m_shortcutWidget, &ShortcutWidget::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
@@ -254,7 +254,7 @@ void KeyboardModule::onPushShortcut()
     m_frameProxy->pushWidget(this, m_shortcutWidget);
 }
 
-void KeyboardModule::onPushCustonShortcut()
+void KeyboardModule::onPushCustomShortcut()
 {
     if(!m_customContent)
     {

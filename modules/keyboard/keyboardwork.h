@@ -55,7 +55,7 @@ public:
 
 signals:
     void shortcutInfo(const QString& info);
-    void custonInfo(const QString& info);
+    void customInfo(const QString& info);
     void KeyEvent(bool in0, const QString &in1);
     void searchChangd(ShortcutInfo* info, const QString& key);
 
@@ -64,7 +64,6 @@ public slots:
     void setLayout(const QString& value);
     void addUserLayout(const QString& value);
     void delUserLayout(const QString& value);
-    void onValid();
     void onRequestShortcut(QDBusPendingCallWatcher* watch);
     void onAdded(const QString&in0, int in1);
     void onDisableShortcut(ShortcutInfo* info);
