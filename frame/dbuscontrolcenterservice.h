@@ -68,7 +68,7 @@ public:
 
 public: // PROPERTIES
     Q_PROPERTY(bool ShowInRight READ showInRight)
-    Q_PROPERTY(QRect Rect READ rect)
+    Q_PROPERTY(QRect Rect READ rect NOTIFY rectChanged)
 
     bool showInRight() const;
 
@@ -86,6 +86,7 @@ public Q_SLOTS: // METHODS
     void ToggleInLeft();
     bool isNetworkCanShowPassword();
 Q_SIGNALS: // SIGNALS
+    void rectChanged(const QRect &rect);
 };
 
 #endif

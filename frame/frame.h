@@ -38,6 +38,9 @@ public slots:
     void popWidget();
     void showSettingsPage(const QString &moduleName, const QString &pageName);
 
+signals:
+    void rectChanged(const QRect &rect);
+
 private slots:
     void init();
     void setAutoHide(const bool autoHide);
@@ -50,6 +53,8 @@ private slots:
 
 private:
     void keyPressEvent(QKeyEvent *e);
+    void resizeEvent(QResizeEvent *e);
+    void moveEvent(QMoveEvent *e);
     void show();
     void hide();
     void toggle();

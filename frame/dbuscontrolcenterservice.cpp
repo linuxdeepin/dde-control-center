@@ -49,6 +49,8 @@ DBusControlCenterService::DBusControlCenterService(Frame *parent)
 //    });
 
 //    connect(parent, &Frame::hideInLeftChanged, parent, &Frame::xChanged);
+
+    connect(parent, &Frame::rectChanged, this, &DBusControlCenterService::rectChanged);
 }
 
 DBusControlCenterService::~DBusControlCenterService()

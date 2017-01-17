@@ -193,6 +193,20 @@ void Frame::keyPressEvent(QKeyEvent *e)
     }
 }
 
+void Frame::resizeEvent(QResizeEvent *e)
+{
+    BlurredFrame::resizeEvent(e);
+
+    emit rectChanged(geometry());
+}
+
+void Frame::moveEvent(QMoveEvent *e)
+{
+    BlurredFrame::moveEvent(e);
+
+    emit rectChanged(geometry());
+}
+
 void Frame::show()
 {
     if (m_appearAnimation.state() == QPropertyAnimation::Running)
