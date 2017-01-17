@@ -30,6 +30,7 @@ signals:
     void userTimeZoneAdded(const ZoneInfo &zone);
     void userTimeZoneRemoved(const ZoneInfo &zone);
     void systemTimeZoneIdChanged(const QString &zone);
+    void systemTimeChanged();
 
 private:
     bool m_ntp;

@@ -73,7 +73,13 @@ void DatetimeWork::setDatetime(const QDateTime &datetime)
             const QDate date = datetime.date();
             const QTime time = datetime.time();
 
-            m_timedateInter->SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), 0, 0);
+            QDBusPendingCall call1 = m_timedateInter->SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), 0, 0);
+            QDBusPendingCallWatcher *watcher1 = new QDBusPendingCallWatcher(call1, this);
+            connect(watcher1, &QDBusPendingCallWatcher::finished, [this, call1] {
+                if (!call1.isError()) {
+                    emit m_model->systemTimeChanged();
+                }
+            });
         } else {
             qWarning() << "disable ntp failed : " << call.error().message();
         }

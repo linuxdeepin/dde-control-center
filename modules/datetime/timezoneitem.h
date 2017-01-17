@@ -29,6 +29,8 @@ public:
     void toRemoveMode();
     void toNormalMode();
 
+    void updateInfo();
+
 signals:
     void removeClicked();
 

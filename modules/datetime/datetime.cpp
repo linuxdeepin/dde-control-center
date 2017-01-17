@@ -73,7 +73,15 @@ void Datetime::setModel(const DatetimeModel *model)
 
     connect(model, &DatetimeModel::userTimeZoneAdded, this, &Datetime::addTimezone);
     connect(model, &DatetimeModel::userTimeZoneRemoved, this, &Datetime::removeTimezone);
-    connect(model, &DatetimeModel::NTPChanged, m_ntpSwitch, &SwitchWidget::setChecked);
+
+    // we need to update all the timezone items after the system time has changed.
+    connect(model, &DatetimeModel::NTPChanged, [this] (const bool &ntp){
+        m_ntpSwitch->setChecked(ntp);
+        updateTimezoneItems();
+    });
+    connect(model, &DatetimeModel::systemTimeChanged, [this] {
+        updateTimezoneItems();
+    });
 
     addTimezones(model->userTimeZones());
     m_ntpSwitch->setChecked(model->nTP());
@@ -129,6 +137,14 @@ void Datetime::removeTimezone(const ZoneInfo &zone)
 //    m_headItem->blockSignals(false);
 
     m_headItem->setEditEnable(items.length() > 1);
+}
+
+void Datetime::updateTimezoneItems()
+{
+    QList<TimezoneItem*> items = findChildren<TimezoneItem*>();
+    for (TimezoneItem *item : items) {
+        item->updateInfo();
+    }
 }
 
 void Datetime::onEditClicked(const bool &edit)

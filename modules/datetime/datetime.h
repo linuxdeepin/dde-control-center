@@ -50,6 +50,7 @@ public slots:
     void addTimezone(const ZoneInfo &zone);
     void addTimezones(const QList<ZoneInfo> &zones);
     void removeTimezone(const ZoneInfo &zone);
+    void updateTimezoneItems();
 
 private slots:
     void onEditClicked(const bool &edit);

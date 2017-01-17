@@ -57,9 +57,26 @@ void TimezoneItem::setTimeZone(const ZoneInfo &info)
 {
     m_timezone = info;
 
+    updateInfo();
+}
+
+void TimezoneItem::toRemoveMode()
+{
+    m_clock->setVisible(false);
+    m_removeBtn->setVisible(true);
+}
+
+void TimezoneItem::toNormalMode()
+{
+    m_removeBtn->setVisible(false);;
+    m_clock->setVisible(true);
+}
+
+void TimezoneItem::updateInfo()
+{
     const QTimeZone localZone( QTimeZone::systemTimeZone() );
     const QDateTime localTime( QDateTime::currentDateTime() );
-    const QTimeZone zone(info.getZoneName().toLatin1());
+    const QTimeZone zone(m_timezone.getZoneName().toLatin1());
     const QDateTime utcTime( QDateTime::currentDateTimeUtc() );
 
     const int timeDelta = (zone.offsetFromUtc(utcTime) - localZone.offsetFromUtc(utcTime)) / 3600;
@@ -81,20 +98,8 @@ void TimezoneItem::setTimeZone(const ZoneInfo &info)
     }
 
     m_details->setText(QString("%1, %2").arg(dateLiteral).arg(compareLiteral));
-    m_city->setText(info.getZoneCity());
-    m_clock->setTimeZone(QTimeZone(info.getZoneName().toLatin1()));
-}
-
-void TimezoneItem::toRemoveMode()
-{
-    m_clock->setVisible(false);
-    m_removeBtn->setVisible(true);
-}
-
-void TimezoneItem::toNormalMode()
-{
-    m_removeBtn->setVisible(false);;
-    m_clock->setVisible(true);
+    m_city->setText(m_timezone.getZoneCity());
+    m_clock->setTimeZone(QTimeZone(m_timezone.getZoneName().toLatin1()));
 }
 
 }
