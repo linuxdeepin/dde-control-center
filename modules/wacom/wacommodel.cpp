@@ -5,7 +5,10 @@
 using namespace dcc;
 using namespace dcc::wacom;
 
-WacomModel::WacomModel(QObject *parent):QObject(parent)
+WacomModel::WacomModel(QObject *parent)
+    : QObject(parent),
+
+      m_exist(false)
 {
     m_wacomModelBase = new WacomModelBase;
 }
