@@ -17,5 +17,6 @@
         <file>themes/dark/icons/union_hover.png</file>
         <file>themes/dark/icons/union_normal.png</file>
         <file>themes/dark/icons/union_press.png</file>
+        <file>themes/common/icon/select.png</file>
     </qresource>
 </RCC>

@@ -12,7 +12,7 @@ SettingsOptionItem::SettingsOptionItem(QWidget *parent)
       m_title(new QLabel),
       m_icon(new QLabel)
 {
-    m_icon->setText("✔");
+    m_icon->setPixmap(QPixmap(":/display/themes/common/icon/select.png"));
     m_icon->setVisible(false);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
