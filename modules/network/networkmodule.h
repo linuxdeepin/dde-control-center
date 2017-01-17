@@ -30,6 +30,7 @@ private:
 private slots:
     void showVpnPage();
     void showPppPage();
+    void showProxyPage();
     void showDetailPage();
     void showDeviceDetailPage(NetworkDevice *dev);
     void showWiredConnectionEditPage(const QString &session);

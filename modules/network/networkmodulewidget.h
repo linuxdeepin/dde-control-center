@@ -25,6 +25,7 @@ public:
 signals:
     void requestShowVpnPage() const;
     void requestShowPppPage() const;
+    void requestShowProxyPage() const;
     void requestShowInfomation() const;
     void requestShowDeviceDetail(NetworkDevice *device) const;
     void requestDeviceEnable(const QString &devPath, const bool enable) const;

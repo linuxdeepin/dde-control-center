@@ -16,7 +16,8 @@ HEADERS += \
     $$PWD/vpnpage.h \
     $$PWD/connectioneditpage.h \
     $$PWD/pppoepage.h \
-    $$PWD/networkdetailpage.h
+    $$PWD/networkdetailpage.h \
+    $$PWD/proxypage.h
 
 SOURCES += \
     $$PWD/networkmodule.cpp \
@@ -33,7 +34,8 @@ SOURCES += \
     $$PWD/vpnpage.cpp \
     $$PWD/connectioneditpage.cpp \
     $$PWD/pppoepage.cpp \
-    $$PWD/networkdetailpage.cpp
+    $$PWD/networkdetailpage.cpp \
+    $$PWD/proxypage.cpp
 
 RESOURCES += \
     $$PWD/network.qrc

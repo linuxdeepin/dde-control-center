@@ -12,6 +12,7 @@
 #include "connectionsessionworker.h"
 #include "vpnpage.h"
 #include "pppoepage.h"
+#include "proxypage.h"
 #include "networkdetailpage.h"
 
 using namespace dcc;
@@ -79,6 +80,7 @@ ModuleWidget *NetworkModule::moduleWidget()
     connect(m_networkWidget, &NetworkModuleWidget::requestShowDeviceDetail, this, &NetworkModule::showDeviceDetailPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowVpnPage, this, &NetworkModule::showVpnPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowPppPage, this, &NetworkModule::showPppPage);
+    connect(m_networkWidget, &NetworkModuleWidget::requestShowProxyPage, this, &NetworkModule::showProxyPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowInfomation, this, &NetworkModule::showDetailPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestDeviceEnable, m_networkWorker, &NetworkWorker::setDeviceEnable);
 
@@ -141,6 +143,15 @@ void NetworkModule::showPppPage()
     connect(p, &PppoePage::requestCreateConnection, m_networkWorker, &NetworkWorker::createConnection);
     connect(p, &PppoePage::requestEditConnection, m_networkWorker, &NetworkWorker::queryConnectionSession);
     connect(p, &PppoePage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
+
+    p->setModel(m_networkModel);
+
+    m_frameProxy->pushWidget(this, p);
+}
+
+void NetworkModule::showProxyPage()
+{
+    ProxyPage *p = new ProxyPage;
 
     p->setModel(m_networkModel);
 

@@ -35,7 +35,9 @@ NetworkModuleWidget::NetworkModuleWidget()
     SettingsGroup *connGroup = new SettingsGroup;
     connGroup->appendItem(m_pppBtn);
     connGroup->appendItem(m_vpnBtn);
-//    connGroup->appendItem(m_proxyBtn);
+#ifdef QT_DEBUG
+    connGroup->appendItem(m_proxyBtn);
+#endif
 
     SettingsGroup *detailGroup = new SettingsGroup;
     detailGroup->appendItem(m_detailBtn);
@@ -49,6 +51,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     connect(m_detailBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowInfomation);
     connect(m_vpnBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowVpnPage);
     connect(m_pppBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowPppPage);
+    connect(m_proxyBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowProxyPage);
 }
 
 void NetworkModuleWidget::setModel(NetworkModel *model)
