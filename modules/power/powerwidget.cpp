@@ -45,10 +45,10 @@ PowerWidget::PowerWidget()
     m_sleepTimeoutSettings->appendItem(m_monitorSleep);
     m_sleepTimeoutSettings->appendItem(m_computerSleep);
 
-    m_displayNeedPassword->setTitle(tr("Password required to wake the monitor"));
+    m_displayNeedPassword->setTitle(tr("Password required to wake up the monitor"));
     m_passwordSettings->appendItem(m_displayNeedPassword);
 
-    m_wakeNeedPassword->setTitle(tr("Password required to wake the computer"));
+    m_wakeNeedPassword->setTitle(tr("Password required to wake up the computer"));
     m_passwordSettings->appendItem(m_wakeNeedPassword);
 
     m_sleepOnLidOff->setTitle(tr("Suspend on lid close"));
