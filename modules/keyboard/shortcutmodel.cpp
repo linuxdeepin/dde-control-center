@@ -83,7 +83,7 @@ void ShortcutModel::onParseInfo(const QString &info)
                  << "lock-screen" << "logout" << "switch-layout" << "wm-switcher";
 
     QStringList windowFilter;
-    windowFilter  << "maximize" << "unmaximize" << "begin-move" << "begin-resize" << "close";
+    windowFilter  << "maximize" << "unmaximize" << "minimize" << "begin-move" << "begin-resize" << "close";
 
     QStringList workspaceFilter;
     workspaceFilter << "switch-to-workspace-left" << "switch-to-workspace-right"
