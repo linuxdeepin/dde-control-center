@@ -69,6 +69,7 @@ void AdvancedPage::removePort(const QString &portId)
     for (PortItem *item : outputPortItems) {
         if (item->port()->id() == portId) {
             m_outputGroup->removeItem(item);
+            item->deleteLater();
             return;
         }
     }
@@ -77,6 +78,7 @@ void AdvancedPage::removePort(const QString &portId)
     for (PortItem *item : inputPortItems) {
         if (item->port()->id() == portId) {
             m_inputGroup->removeItem(item);
+            item->deleteLater();
             return;
         }
     }
