@@ -50,6 +50,7 @@ ClockItem::ClockItem(QWidget *parent) :
 
 void ClockItem::updateDateTime()
 {
+    m_clock->setTimeZone(QTimeZone::systemTimeZone());
     m_clock->update();
     m_label->setText(QDate::currentDate().toString(Qt::SystemLocaleLongDate));
 }

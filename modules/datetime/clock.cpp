@@ -25,7 +25,10 @@ Clock::~Clock()
 
 void Clock::paintEvent(QPaintEvent *)
 {
-    const QTime time( QTime::currentTime() );
+    QDateTime datetime( QDateTime::currentDateTimeUtc() );
+    datetime = datetime.addSecs(m_timeZone.offsetFromUtc(datetime));
+
+    const QTime time( datetime.time() );
     const QRect rct( rect() );
     const int rWidth = 30;
     const int rHeight = 30;
@@ -69,7 +72,7 @@ void Clock::paintEvent(QPaintEvent *)
     pen.setColor(QColor("#07c5fb"));
     pen.setWidth(3);
     painter.setPen(pen);
-    painter.drawLine(QPointF(0, 0), QPointF(0, -rct.width() / 2 * 0.55));
+    painter.drawLine(QPointF(0, 0), QPointF(0, -rct.width() / 2 * 0.5));
     painter.restore();
 
     // draw minute hand
