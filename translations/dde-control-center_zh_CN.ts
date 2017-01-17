@@ -27,13 +27,13 @@
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="48"/>
-        <source>Password required to wake the monitor</source>
-        <translation>显示器唤醒时需要密码</translation>
+        <source>Password required to wake up the monitor</source>
+        <translation>唤醒显示器时需要密码</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="51"/>
-        <source>Password required to wake the computer</source>
-        <translation>电脑唤醒时需要密码</translation>
+        <source>Password required to wake up the computer</source>
+        <translation>唤醒计算机时需要密码</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="54"/>
@@ -97,6 +97,11 @@
         <location filename="../plugins/weather/weatherwidget.cpp" line="128"/>
         <source>Loading weather...</source>
         <translation>天气加载中.....</translation>
+    </message>
+    <message>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="187"/>
+        <source>Just updated</source>
+        <translation>刚刚更新</translation>
     </message>
 </context>
 <context>
@@ -401,7 +406,7 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="73"/>
         <source>Today</source>
-        <translation>返回今天</translation>
+        <translation>今天</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="78"/>
@@ -439,12 +444,12 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="33"/>
         <source>Music</source>
-        <translation>音乐欣赏</translation>
+        <translation>音乐</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="34"/>
         <source>Video</source>
-        <translation>视频播放</translation>
+        <translation>视频</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="35"/>
@@ -495,14 +500,14 @@
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="68"/>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="70"/>
         <source>Open Desktop file</source>
         <translation>打开desktop文件</translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="69"/>
-        <source>Desktop Files(*.desktop);; All Files(*)</source>
-        <translation>Desktop 文件(*.desktop);; 所有文件(*)</translation>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="71"/>
+        <source>All Files(*)</source>
+        <translation>所有文件(*)</translation>
     </message>
 </context>
 <context>
@@ -604,52 +609,52 @@
 <context>
     <name>dcc::keyboard::CustomContent</name>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="18"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="22"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="25"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="29"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="28"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="32"/>
         <source>Command</source>
         <translation>命令</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="30"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="34"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="34"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="38"/>
         <source>Shortcut</source>
         <translation>快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="37"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="41"/>
         <source>Please Grab Shortcut Again</source>
         <translation>请重新获取快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="47"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="51"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="48"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="52"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="75"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="78"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="123"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="110"/>
         <source>null</source>
         <translation>空</translation>
     </message>
@@ -684,7 +689,7 @@
 <context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
-        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="21"/>
+        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="23"/>
         <source>Add Keyboard Layout</source>
         <translation>添加键盘布局</translation>
     </message>
@@ -692,62 +697,62 @@
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="21"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="24"/>
         <source>Keyboard and Language</source>
         <translation>键盘和语言</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="28"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="27"/>
         <source>Repeat Delay</source>
         <translation>重复延迟</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="36"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="35"/>
         <source>Short</source>
         <translation>短</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="36"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="35"/>
         <source>Long</source>
         <translation>长</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="40"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="39"/>
         <source>Repeat Rate</source>
         <translation>重复速度</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="48"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="48"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="53"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="52"/>
         <source>Please Test Here</source>
         <translation>请在此测试</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="60"/>
         <source>Caps Lock Prompt</source>
         <translation>大写锁定提示</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="66"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="65"/>
         <source>Keyboard Layout</source>
         <translation>键盘布局</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="71"/>
         <source>System Language</source>
         <translation>系统语言</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="77"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="76"/>
         <source>Shortcut</source>
         <translation>快捷键</translation>
     </message>
@@ -755,8 +760,10 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="130"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="142"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="162"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="174"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="190"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="322"/>
         <source>None</source>
         <translation>无</translation>
     </message>
@@ -764,7 +771,7 @@
 <context>
     <name>dcc::keyboard::LangWidget</name>
     <message>
-        <location filename="../modules/keyboard/langwidget.cpp" line="21"/>
+        <location filename="../modules/keyboard/langwidget.cpp" line="23"/>
         <source>System Language</source>
         <translation>系统语言</translation>
     </message>
@@ -792,12 +799,12 @@
         <translation>替换</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="58"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="59"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击替换使这个快捷键立即生效</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="88"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="96"/>
         <source>null</source>
         <translation>空</translation>
     </message>
@@ -805,8 +812,8 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="149"/>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="180"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="151"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="182"/>
         <source>Conflict</source>
         <translation>冲突</translation>
     </message>
@@ -818,7 +825,7 @@
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="125"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="147"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="168"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="188"/>
+        <location filename="../modules/keyboard/shortcutmodel.cpp" line="192"/>
         <source>None</source>
         <translation>无</translation>
     </message>
@@ -826,33 +833,33 @@
 <context>
     <name>dcc::keyboard::ShortcutWidget</name>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="26"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="28"/>
         <source>System</source>
-        <translation>系统管理</translation>
+        <translation>系统</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="27"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="29"/>
         <source>Window</source>
         <translation>窗口</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="28"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="30"/>
         <source>WorkSpace</source>
         <translation>工作区</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="42"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="44"/>
         <source>Add Custom Shortcut</source>
         <translation>添加自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="51"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="53"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="75"/>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="141"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="133"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="200"/>
         <source>Custom Shortcut</source>
         <translation>自定义快捷键</translation>
     </message>
@@ -947,6 +954,11 @@
 <context>
     <name>dcc::mouse::ThinkpadSettings</name>
     <message>
+        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="18"/>
+        <source>TrackPoint</source>
+        <translation>指点杆</translation>
+    </message>
+    <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="21"/>
         <source>Thinkpad Track Point</source>
         <translation>Thinkpad Track Point</translation>
@@ -970,28 +982,28 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="53"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="54"/>
         <source>Disconnect</source>
         <translation>断开</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="55"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="56"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="57"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="58"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="58"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="59"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="218"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="320"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="216"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="327"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
@@ -1044,7 +1056,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="55"/>
         <source>Disconnected</source>
-        <translation>断开</translation>
+        <translation>已断开</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="57"/>
@@ -1100,42 +1112,42 @@
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="128"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="146"/>
         <source>Wired Network Card%1</source>
         <translation>有线网卡%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="133"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="151"/>
         <source>Wired Network Card</source>
         <translation>有线网卡</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="134"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="152"/>
         <source>Wired Network</source>
         <translation>有线网络</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="129"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
         <source>Wired Network%1</source>
         <translation>有线网络%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="141"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="159"/>
         <source>Wireless Network Card%1</source>
         <translation>无线网卡%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="146"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="164"/>
         <source>Wireless Network Card</source>
         <translation>无线网卡</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="165"/>
         <source>Wireless Network</source>
         <translation>无线网络</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="142"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="160"/>
         <source>Wireless Network%1</source>
         <translation>无线网络%1</translation>
     </message>
@@ -1171,37 +1183,37 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="178"/>
+        <location filename="../modules/network/vpnpage.cpp" line="177"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="180"/>
+        <location filename="../modules/network/vpnpage.cpp" line="179"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="182"/>
+        <location filename="../modules/network/vpnpage.cpp" line="181"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="184"/>
+        <location filename="../modules/network/vpnpage.cpp" line="183"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="186"/>
+        <location filename="../modules/network/vpnpage.cpp" line="185"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="188"/>
+        <location filename="../modules/network/vpnpage.cpp" line="187"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="206"/>
+        <location filename="../modules/network/vpnpage.cpp" line="205"/>
         <source>New VPN</source>
         <translation>新建VPN</translation>
     </message>
@@ -1274,7 +1286,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
         <source>Theme</source>
-        <translation>主题背景</translation>
+        <translation>主题</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="29"/>
@@ -1315,7 +1327,7 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="27"/>
         <source>Theme</source>
-        <translation>主题背景</translation>
+        <translation>主题</translation>
     </message>
 </context>
 <context>
@@ -1323,7 +1335,7 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="21"/>
         <source>Output</source>
-        <translation>输出目录</translation>
+        <translation>输出</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="22"/>
@@ -1399,7 +1411,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="47"/>
         <source>Theme</source>
-        <translation>主题背景</translation>
+        <translation>主题</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="49"/>
@@ -1445,17 +1457,17 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="36"/>
         <source>Processor:</source>
-        <translation>处理器</translation>
+        <translation>处理器：</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="40"/>
         <source>Memory:</source>
-        <translation>内存</translation>
+        <translation>内存：</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="44"/>
         <source>Disk:</source>
-        <translation>磁盘</translation>
+        <translation>磁盘：</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="55"/>
