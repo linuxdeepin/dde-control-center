@@ -82,7 +82,14 @@ void DatetimeWork::setDatetime(const QDateTime &datetime)
 
 void DatetimeWork::setNTP(bool ntp)
 {
-    m_timedateInter->SetNTP(ntp);
+    QDBusPendingCall call = m_timedateInter->SetNTP(ntp);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        // If the call failed, revert the UI change.
+        if (call.isError()) {
+            emit m_model->NTPChanged(m_model->nTP());
+        }
+    });
 }
 
 void DatetimeWork::removeUserTimeZone(const ZoneInfo &info)
