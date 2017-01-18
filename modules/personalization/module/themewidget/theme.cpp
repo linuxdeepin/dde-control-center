@@ -38,7 +38,7 @@ void Theme::setList(const QList<QJsonObject> &list)
 {
     for (QJsonObject json : list) {
         OptionItem *theme = new OptionItem;
-        theme->setContentsMargins(10,0,10,10);
+        theme->setContentsMargins(20,0,10,10);
         ThemeItemPic *t = new ThemeItemPic(json["url"].toString());
         theme->setContentWidget(t);
         m_mainGroup->appendItem(theme);
