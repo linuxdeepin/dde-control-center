@@ -133,12 +133,13 @@ void RotateDialog::leaveEvent(QEvent *e)
 
 void RotateDialog::paintEvent(QPaintEvent *e)
 {
-    const QString Tips(tr("Left click to rotate and right click to exit"));
+    const char* NoopTips = QT_TRANSLATE_NOOP("RotateDialog", "Left click to rotate and right click to exit");
+    const QString tips = QApplication::translate("RotateDialog", NoopTips);
 
     QDialog::paintEvent(e);
 
     QFontMetrics fm(font());
-    const int tw = fm.width(Tips);
+    const int tw = fm.width(tips);
     const int w = width();
     const int h = height();
     const int margin = 100;
@@ -150,19 +151,19 @@ void RotateDialog::paintEvent(QPaintEvent *e)
     painter.drawPixmap(rect().center() - rotatePixmap.rect().center(), rotatePixmap);
 
     // bottom
-    painter.drawText((w - tw) / 2, h - margin, Tips);
+    painter.drawText((w - tw) / 2, h - margin, tips);
 
     // left
     painter.rotate(90);
-    painter.drawText((h - tw) / 2, -margin, Tips);
+    painter.drawText((h - tw) / 2, -margin, tips);
 
     // top
     painter.rotate(90);
-    painter.drawText((w + tw) / -2, -margin, Tips);
+    painter.drawText((w + tw) / -2, -margin, tips);
 
     // right
     painter.rotate(90);
-    painter.drawText((h + tw) / -2, w - margin, Tips);
+    painter.drawText((h + tw) / -2, w - margin, tips);
 }
 
 void RotateDialog::showEvent(QShowEvent *e)
