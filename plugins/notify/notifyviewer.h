@@ -12,7 +12,7 @@
 
 #include <QObject>
 #include <QWidget>
-#include <QGridLayout>
+#include <QHBoxLayout>
 #include <QLabel>
 #include <dimagebutton.h>
 #include <QPropertyAnimation>
@@ -45,8 +45,7 @@ private:
     QLabel *m_appName,*m_body,*m_time;
     DImageButton *m_close;
     QLabel      *m_appIcon;
-    QGridLayout *m_mainlayout;
-    QHBoxLayout *m_hboxlayout;
+    QHBoxLayout *m_mainlayout;
     QPropertyAnimation *m_anim1;
 };
 

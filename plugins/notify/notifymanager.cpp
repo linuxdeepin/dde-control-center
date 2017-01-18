@@ -10,6 +10,7 @@
 #include "notifymanager.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QDebug>
 
 NotifyManager::NotifyManager(QWidget *parent) : QWidget(parent) {
     m_dataSource = new NotifyData;
@@ -23,6 +24,7 @@ NotifyManager::NotifyManager(QWidget *parent) : QWidget(parent) {
     m_layout->setDirection(QVBoxLayout::BottomToTop);
     m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(1);
+    m_layout->setMargin(0);
     setLayout(m_layout);
 
     connect(m_dataSource, &NotifyData::dataReceived, this, &NotifyManager::setValue);
@@ -51,7 +53,11 @@ void NotifyManager::setValue(QByteArray s) {
                 QJsonValue name_value = obj.take("icon");
                 if(name_value.isString()) {
                     QString name = name_value.toString();
-                    m_viewer->setAppIcon(name);
+                    if (name.isEmpty()) {
+                        m_viewer->setAppIcon("application-default-icon");
+                    } else {
+                        m_viewer->setAppIcon(name);
+                    }
                 }
             }
             if(obj.contains("body")) {

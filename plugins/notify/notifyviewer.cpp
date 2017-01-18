@@ -15,7 +15,7 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_time(new QLabel),
     m_close(new DImageButton(":/images/close.png", ":/images/close.png", ":/images/close.png", nullptr)),
     m_appIcon(new QLabel),
-    m_mainlayout(new QGridLayout)
+    m_mainlayout(new QHBoxLayout)
 {
     m_appIcon->setMargin(0);
     m_close->setMargin(0);
@@ -24,6 +24,7 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_appIcon->setFixedSize(48,48);
     m_appName->setFixedWidth(165);
     m_close->setFixedSize(10,10);
+    m_time->setFixedHeight(10);
     m_body->setWordWrap(true);
 
     m_appName->setStyleSheet("font-family: SourceHanSansSC;"
@@ -51,15 +52,30 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_time->setAutoFillBackground(false);
 
     m_close->setVisible(false);
-    m_hboxlayout = new QHBoxLayout;
-    m_hboxlayout->setSpacing(0);
-    m_hboxlayout->addStretch();
-    m_hboxlayout->addWidget(m_time, 0,                   Qt::AlignLeft);
-    m_hboxlayout->addWidget(m_close, 0,                  Qt::AlignLeft);
-    m_mainlayout->addWidget(m_appIcon,    0, 0, 3, 3, Qt::AlignVCenter);
-    m_mainlayout->addWidget(m_appName,    0, 3,       Qt::AlignLeft);
-    m_mainlayout->addLayout(m_hboxlayout, 0, 4,       Qt::AlignRight);
-    m_mainlayout->addWidget(m_body,       1, 3, 1, 2, Qt::AlignLeft);
+    QHBoxLayout *hboxlayout = new QHBoxLayout;
+    hboxlayout->setMargin(0);
+    hboxlayout->setSpacing(0);
+    hboxlayout->addWidget(m_appName, 0, Qt::AlignLeft);
+    hboxlayout->addStretch();
+    hboxlayout->addWidget(m_time, 0, Qt::AlignRight);
+    hboxlayout->addWidget(m_close, 0, Qt::AlignRight);
+    hboxlayout->setContentsMargins(0, 5, 5, 0);
+
+    m_mainlayout->addWidget(m_appIcon, 0, Qt::AlignCenter);
+    m_mainlayout->addSpacing(1);
+
+    QVBoxLayout *rightLayout = new QVBoxLayout;
+    rightLayout->setMargin(0);
+    rightLayout->setSpacing(0);
+    rightLayout->addLayout(hboxlayout);
+    rightLayout->addSpacing(1);
+    rightLayout->addWidget(m_body, 0, Qt::AlignLeft);
+    rightLayout->addStretch();
+
+    m_mainlayout->addLayout(rightLayout);
+
+    m_mainlayout->setMargin(0);
+    m_mainlayout->setSpacing(0);
 
     this->setLayout(m_mainlayout);
     connect(m_close, &DImageButton::clicked, [=]{
