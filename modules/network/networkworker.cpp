@@ -80,6 +80,11 @@ void NetworkWorker::deleteConnection(const QString &uuid)
     m_networkInter.DeleteConnection(uuid);
 }
 
+void NetworkWorker::deactiveConnection(const QString &uuid)
+{
+    m_networkInter.DeactivateConnection(uuid);
+}
+
 void NetworkWorker::createApConfig(const QString &devPath, const QString &apPath)
 {
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.CreateConnectionForAccessPoint(QDBusObjectPath(apPath), QDBusObjectPath(devPath)));

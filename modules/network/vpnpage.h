@@ -31,7 +31,8 @@ public:
     ~VpnPage();
 
 signals:
-    void requestDeleteConnection(const QString &connPath) const;
+    void requestDeleteConnection(const QString &uuid) const;
+    void requestDeactiveConnection(const QString &uuid) const;
     void requestNextPage(ContentWidget * const w) const;
     void requestVpnEnabled(const bool enabled) const;
     void requestEditVpn(const QString &devPath, const QString &uuid) const;

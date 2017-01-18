@@ -26,7 +26,8 @@ public slots:
     void queryAccessPoints(const QString &devPath);
     void queryConnectionSession(const QString &devPath, const QString &uuid);
     void queryDeviceStatus(const QString &devPath);
-    void deleteConnection(const QString &connPath);
+    void deleteConnection(const QString &uuid);
+    void deactiveConnection(const QString &uuid);
     void createApConfig(const QString &devPath, const QString &apPath);
     void createConnection(const QString &type, const QString &devPath);
     void activateConnection(const QString &devPath, const QString &uuid);

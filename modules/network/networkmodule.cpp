@@ -100,6 +100,8 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         connect(p, &WirelessPage::requestCreateAp, m_networkWorker, &NetworkWorker::createConnection);
         connect(p, &WirelessPage::requestCreateApConfig, m_networkWorker, &NetworkWorker::createApConfig);
         connect(p, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
+        connect(p, &WirelessPage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
+        connect(p, &WirelessPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
         connect(p, &WirelessPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
 
         p->setModel(m_networkModel);
@@ -109,10 +111,10 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
     else if (dev->type() == NetworkDevice::Wired)
     {
         const QJsonObject connInfo = static_cast<WiredDevice *>(dev)->connection();
-        const QString connUuid = connInfo.value("Uuid").toString();
+        m_editingWiredUuid = connInfo.value("Uuid").toString();
         const QString devicePath = dev->path();
 
-        m_networkWorker->queryConnectionSession(devicePath, connUuid);
+        m_networkWorker->queryConnectionSession(devicePath, m_editingWiredUuid);
 
         connect(dev, &NetworkDevice::sessionCreated, this, &NetworkModule::showWiredConnectionEditPage, Qt::UniqueConnection);
     }
@@ -129,6 +131,7 @@ void NetworkModule::showVpnPage()
     connect(p, &VpnPage::requestCreateConnection, m_networkWorker, &NetworkWorker::createConnection);
     connect(p, &VpnPage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
     connect(p, &VpnPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
+    connect(p, &VpnPage::requestDeactiveConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
     connect(p, &VpnPage::requestEditVpn, m_networkWorker, &NetworkWorker::queryConnectionSession);
     connect(p, &VpnPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
 
@@ -143,6 +146,8 @@ void NetworkModule::showPppPage()
 
     connect(p, &PppoePage::requestCreateConnection, m_networkWorker, &NetworkWorker::createConnection);
     connect(p, &PppoePage::requestEditConnection, m_networkWorker, &NetworkWorker::queryConnectionSession);
+    connect(p, &PppoePage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
+    connect(p, &PppoePage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
     connect(p, &PppoePage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
 
     p->setModel(m_networkModel);
@@ -179,6 +184,8 @@ void NetworkModule::showWiredConnectionEditPage(const QString &session)
     connect(p, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
     connect(p, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
     connect(p, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
+    connect(p, &ConnectionEditPage::requestDisconnect, [=] {m_networkWorker->deactiveConnection(m_editingWiredUuid); });
+    connect(p, &ConnectionEditPage::requestRemove, [=] {m_networkWorker->deleteConnection(m_editingWiredUuid); });
     connect(p, &ConnectionEditPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
 
     m_frameProxy->pushWidget(this, p);

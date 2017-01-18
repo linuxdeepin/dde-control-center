@@ -39,6 +39,8 @@ private:
     NetworkModel *m_networkModel;
     NetworkWorker *m_networkWorker;
     NetworkModuleWidget *m_networkWidget;
+
+    QString m_editingWiredUuid;
 };
 
 } // namespace network

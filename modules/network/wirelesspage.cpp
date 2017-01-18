@@ -187,6 +187,7 @@ void WirelessPage::onApWidgetEditRequested(const QString &path, const QString &s
 
     if (!uuid.isEmpty())
     {
+        m_editingUuid = uuid;
         emit requestEditAP(m_device->path(), uuid);
         return;
     }
@@ -229,6 +230,8 @@ void WirelessPage::showAPEditPage(const QString &session)
     connect(m_apEditPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
     connect(m_apEditPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
+    connect(m_apEditPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(m_editingUuid); });
+    connect(m_apEditPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(m_editingUuid); });
 
     emit requestNextPage(m_apEditPage);
 }

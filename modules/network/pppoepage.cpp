@@ -86,7 +86,9 @@ void PppoePage::onConnectionDetailClicked()
     NextPageWidget *w = static_cast<NextPageWidget *>(sender());
     Q_ASSERT(w && m_connUuid.contains(w));
 
-    emit requestEditConnection("/", m_connUuid[w]);
+    m_editingUuid = m_connUuid[w];
+
+    emit requestEditConnection("/", m_editingUuid);
 }
 
 void PppoePage::onConnectionSessionCreated(const QString &devicePath, const QString &sessionPath)
@@ -104,6 +106,8 @@ void PppoePage::onConnectionSessionCreated(const QString &devicePath, const QStr
     connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
     connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
+    connect(m_editPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(m_editingUuid); });
+    connect(m_editPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(m_editingUuid); });
 
     emit requestNextPage(m_editPage);
 }

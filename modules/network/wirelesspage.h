@@ -42,6 +42,8 @@ signals:
     void requestConnectAp(const QString &devPath, const QString &apPath, const QString &uuid) const;
     void requestCreateApConfig(const QString &devPath, const QString &apPath) const;
     void requestCreateAp(const QString &type, const QString &devPath) const;
+    void requestDeleteConnection(const QString &uuid);
+    void requestDisconnectConnection(const QString &uuid);
     void requestNextPage(ContentWidget * const w) const;
     void requestDeviceAPList(const QString &devPath) const;
     void requestDeviceEnabled(const QString &devPath, const bool enabled) const;
@@ -68,6 +70,7 @@ private:
     QPointer<ConnectionEditPage> m_apEditPage;
 
     QString m_activeApName;
+    QString m_editingUuid;
     QTimer m_sortDelayTimer;
     QMap<QString, AccessPointWidget *> m_apItems;
 };
