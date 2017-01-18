@@ -57,25 +57,9 @@ void NetworkWorker::queryAccessPoints(const QString &devPath)
     connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryAccessPointsCB);
 }
 
-void NetworkWorker::queryConnectionSession(const QString &devPath, const QString &connPath)
+void NetworkWorker::queryConnectionSession(const QString &devPath, const QString &uuid)
 {
-    QDBusPendingReply<QDBusObjectPath> reply;
-
-    const QString uuid = m_networkModel->connectionUuidByPath(connPath);
-    if (!uuid.isEmpty())
-    {
-        reply = m_networkInter.EditConnection(uuid, QDBusObjectPath(devPath));
-    }
-    else
-    {
-        // only support ap connection
-        if (!connPath.contains("AccessPoint"))
-            qCritical() << Q_FUNC_INFO << devPath << connPath << uuid;
-
-        reply = m_networkInter.CreateConnectionForAccessPoint(QDBusObjectPath(connPath), QDBusObjectPath(devPath));
-    }
-
-    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(reply);
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.EditConnection(uuid, QDBusObjectPath(devPath)), this);
 
     w->setProperty("devPath", devPath);
 
@@ -91,11 +75,18 @@ void NetworkWorker::queryDeviceStatus(const QString &devPath)
     connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryDeviceStatusCB);
 }
 
-void NetworkWorker::deleteConnection(const QString &connPath)
+void NetworkWorker::deleteConnection(const QString &uuid)
 {
-    const QString uuid = m_networkModel->connectionUuidByPath(connPath);
-
     m_networkInter.DeleteConnection(uuid);
+}
+
+void NetworkWorker::createApConfig(const QString &devPath, const QString &apPath)
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.CreateConnectionForAccessPoint(QDBusObjectPath(apPath), QDBusObjectPath(devPath)));
+
+    w->setProperty("devPath", devPath);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryConnectionSessionCB);
 }
 
 void NetworkWorker::createConnection(const QString &type, const QString &devPath)
@@ -112,10 +103,8 @@ void NetworkWorker::activateConnection(const QString &devPath, const QString &uu
     m_networkInter.ActivateConnection(uuid, QDBusObjectPath(devPath));
 }
 
-void NetworkWorker::activateAccessPoint(const QString &devPath, const QString &apPath, const QString &ssid)
+void NetworkWorker::activateAccessPoint(const QString &devPath, const QString &apPath, const QString &uuid)
 {
-    const QString uuid = m_networkModel->connectionUuidBySsid(ssid);
-
     m_networkInter.ActivateAccessPoint(uuid, QDBusObjectPath(apPath), QDBusObjectPath(devPath));
 }
 

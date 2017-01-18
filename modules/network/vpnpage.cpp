@@ -99,9 +99,9 @@ void VpnPage::onVpnDetailClicked()
     NextPageWidget *w = static_cast<NextPageWidget *>(sender());
     Q_ASSERT(w && m_vpns.contains(w));
 
-    m_editingConnPath = m_vpns[w].value("Path").toString();
+    m_editingConnUuid = m_vpns[w].value("Uuid").toString();
 
-    emit requestEditVpn("/", m_editingConnPath);
+    emit requestEditVpn("/", m_editingConnUuid);
 }
 
 void VpnPage::onVpnSelected()
@@ -137,7 +137,7 @@ void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionP
     connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &VpnPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::back, this, &VpnPage::onSessionPageFinished, Qt::QueuedConnection);
-    connect(m_editPage, &ConnectionEditPage::requestRemove, [=] { emit requestDeleteConnection(m_editingConnPath); });
+    connect(m_editPage, &ConnectionEditPage::requestRemove, [=] { emit requestDeleteConnection(m_editingConnUuid); });
 
     emit requestNextPage(m_editPage);
 }

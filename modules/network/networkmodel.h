@@ -30,7 +30,7 @@ public:
     const QList<QJsonObject> activeConnInfos() const { return m_activeConnInfos; }
     const QSet<QString> activeConnections() const { return m_activeConnections; }
     const QString connectionUuidByPath(const QString &connPath) const;
-    const QString connectionUuidBySsid(const QString &ssid) const;
+    const QString connectionUuidByApInfo(const QString &hwAddr, const QString &ssid) const;
 
 signals:
     void connectionListChanged() const;

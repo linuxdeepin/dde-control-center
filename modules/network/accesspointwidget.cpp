@@ -50,7 +50,7 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
     setLayout(m_mainLayout);
     setObjectName("AccessPointWidget");
 
-    connect(m_detailBtn, &DImageButton::clicked, [=] { emit requestEdit(m_path); });
+    connect(m_detailBtn, &DImageButton::clicked, [=] { emit requestEdit(m_path, m_apName->text()); });
 }
 
 void AccessPointWidget::setEncyrpt(const bool encyrpt)

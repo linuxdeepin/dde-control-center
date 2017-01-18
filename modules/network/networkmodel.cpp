@@ -46,13 +46,13 @@ const QString NetworkModel::connectionUuidByPath(const QString &connPath) const
     return QString();
 }
 
-const QString NetworkModel::connectionUuidBySsid(const QString &ssid) const
+const QString NetworkModel::connectionUuidByApInfo(const QString &hwAddr, const QString &ssid) const
 {
     for (const auto &list : m_connections)
     {
         for (const auto &cfg : list)
         {
-            if (cfg.value("Ssid").toString() == ssid)
+            if (cfg.value("HwAddress").toString() == hwAddr && cfg.value("Ssid").toString() == ssid)
                 return cfg.value("Uuid").toString();
         }
     }

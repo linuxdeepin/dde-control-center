@@ -38,9 +38,10 @@ public slots:
     void onAPRemoved(const QString &ssid);
 
 signals:
-    void requestEditAP(const QString &devPath, const QString &apPath) const;
-    void requestConnectAp(const QString &devPath, const QString &apPath, const QString ssid) const;
-    void requestCreateConnection(const QString &type, const QString &devPath) const;
+    void requestEditAP(const QString &devPath, const QString &uuid) const;
+    void requestConnectAp(const QString &devPath, const QString &apPath, const QString &uuid) const;
+    void requestCreateApConfig(const QString &devPath, const QString &apPath) const;
+    void requestCreateAp(const QString &type, const QString &devPath) const;
     void requestNextPage(ContentWidget * const w) const;
     void requestDeviceAPList(const QString &devPath) const;
     void requestDeviceEnabled(const QString &devPath, const bool enabled) const;
@@ -49,6 +50,8 @@ private slots:
     void onDeviceRemoved();
     void sortAPList();
     void onActiveConnInfoChanged(const QList<QJsonObject> &activeConns);
+    void onApWidgetEditRequested(const QString &path, const QString &ssid);
+    void onApWidgetConnectRequested(const QString &path, const QString &ssid);
     void showConnectHidePage();
     void showAPEditPage(const QString &session);
 

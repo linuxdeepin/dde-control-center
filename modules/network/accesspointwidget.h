@@ -32,7 +32,7 @@ public:
     const QString path() const { return m_path; }
 
 signals:
-    void requestEdit(const QString &path) const;
+    void requestEdit(const QString &path, const QString &ssid) const;
     void requestConnect(const QString &path, const QString &ssid) const;
 
 public slots:

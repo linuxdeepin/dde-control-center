@@ -85,14 +85,10 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
     AccessPointWidget *w = new AccessPointWidget;
 
     w->setConnected(ssid == m_activeApName);
-#ifdef QT_DEBUG
-    w->setAPName(QString::number(apInfo.value("Strength").toInt()) + " " + ssid);
-#else
     w->setAPName(ssid);
-#endif
 
-    connect(w, &AccessPointWidget::requestEdit, [=](const QString &path) { emit requestEditAP(m_device->path(), path); });
-    connect(w, &AccessPointWidget::requestConnect, [=](const QString &path, const QString &ssid) { emit requestConnectAp(m_device->path(), path, ssid); });
+    connect(w, &AccessPointWidget::requestEdit, this, &WirelessPage::onApWidgetEditRequested);
+    connect(w, &AccessPointWidget::requestConnect, this, &WirelessPage::onApWidgetConnectRequested);
 
     m_apItems.insert(ssid, w);
     m_listGroup->appendItem(w);
@@ -185,6 +181,26 @@ void WirelessPage::onActiveConnInfoChanged(const QList<QJsonObject> &activeConns
     updateActiveAp();
 }
 
+void WirelessPage::onApWidgetEditRequested(const QString &path, const QString &ssid)
+{
+    const QString uuid = m_model->connectionUuidByApInfo(m_device->hwAddr(), ssid);
+
+    if (!uuid.isEmpty())
+    {
+        emit requestEditAP(m_device->path(), uuid);
+        return;
+    }
+
+    emit requestCreateApConfig(m_device->path(), path);
+}
+
+void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString &ssid)
+{
+    const QString uuid = m_model->connectionUuidByApInfo(m_device->hwAddr(), ssid);
+
+    emit requestConnectAp(m_device->path(), path, uuid);
+}
+
 void WirelessPage::showConnectHidePage()
 {
 //    if (m_connectHidePage.isNull())
@@ -195,7 +211,7 @@ void WirelessPage::showConnectHidePage()
 
 //    emit requestNextPage(m_connectHidePage);
 
-    emit requestCreateConnection("wireless", m_device->path());
+    emit requestCreateAp("wireless", m_device->path());
 }
 
 void WirelessPage::showAPEditPage(const QString &session)

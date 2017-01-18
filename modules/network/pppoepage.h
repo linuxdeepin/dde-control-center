@@ -34,7 +34,7 @@ public:
 signals:
     void requestNextPage(ContentWidget * const w) const;
     void requestCreateConnection(const QString &type, const QString &devicePath) const;
-    void requestEditConnection(const QString &devPath, const QString &connPath) const;
+    void requestEditConnection(const QString &devPath, const QString &uuid) const;
 
 private slots:
     void createPPPoEConnection();
@@ -47,7 +47,7 @@ private:
 
     widgets::SettingsGroup *m_settingsGrp;
     QPushButton *m_createBtn;
-    QMap<widgets::NextPageWidget *, QString> m_connPath;
+    QMap<widgets::NextPageWidget *, QString> m_connUuid;
     QPointer<ConnectionEditPage> m_editPage;
 };
 

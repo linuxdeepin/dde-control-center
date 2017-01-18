@@ -97,7 +97,8 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         connect(p, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
         connect(p, &WirelessPage::requestEditAP, m_networkWorker, &NetworkWorker::queryConnectionSession);
         connect(p, &WirelessPage::requestConnectAp, m_networkWorker, &NetworkWorker::activateAccessPoint);
-        connect(p, &WirelessPage::requestCreateConnection, m_networkWorker, &NetworkWorker::createConnection);
+        connect(p, &WirelessPage::requestCreateAp, m_networkWorker, &NetworkWorker::createConnection);
+        connect(p, &WirelessPage::requestCreateApConfig, m_networkWorker, &NetworkWorker::createApConfig);
         connect(p, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
         connect(p, &WirelessPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
 
@@ -108,10 +109,10 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
     else if (dev->type() == NetworkDevice::Wired)
     {
         const QJsonObject connInfo = static_cast<WiredDevice *>(dev)->connection();
-        const QString connPath = connInfo.value("Path").toString();
+        const QString connUuid = connInfo.value("Uuid").toString();
         const QString devicePath = dev->path();
 
-        m_networkWorker->queryConnectionSession(devicePath, connPath);
+        m_networkWorker->queryConnectionSession(devicePath, connUuid);
 
         connect(dev, &NetworkDevice::sessionCreated, this, &NetworkModule::showWiredConnectionEditPage, Qt::UniqueConnection);
     }

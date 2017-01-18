@@ -63,13 +63,13 @@ void PppoePage::createPPPoEConnection()
 void PppoePage::onConnectionListChanged()
 {
     m_settingsGrp->clear();
-    qDeleteAll(m_connPath.keys());
-    m_connPath.clear();
+    qDeleteAll(m_connUuid.keys());
+    m_connUuid.clear();
 
     for (const auto &pppoe : m_model->pppoes())
     {
         const auto name = pppoe.value("Id").toString();
-        const auto path = pppoe.value("Path").toString();
+        const auto uuid = pppoe.value("Uuid").toString();
 
         NextPageWidget *w = new NextPageWidget;
         w->setTitle(name);
@@ -77,16 +77,16 @@ void PppoePage::onConnectionListChanged()
         connect(w, &NextPageWidget::acceptNextPage,  this, &PppoePage::onConnectionDetailClicked);
 
         m_settingsGrp->appendItem(w);
-        m_connPath[w] = path;
+        m_connUuid[w] = uuid;
     }
 }
 
 void PppoePage::onConnectionDetailClicked()
 {
     NextPageWidget *w = static_cast<NextPageWidget *>(sender());
-    Q_ASSERT(w && m_connPath.contains(w));
+    Q_ASSERT(w && m_connUuid.contains(w));
 
-    emit requestEditConnection("/", m_connPath[w]);
+    emit requestEditConnection("/", m_connUuid[w]);
 }
 
 void PppoePage::onConnectionSessionCreated(const QString &devicePath, const QString &sessionPath)

@@ -34,7 +34,7 @@ signals:
     void requestDeleteConnection(const QString &connPath) const;
     void requestNextPage(ContentWidget * const w) const;
     void requestVpnEnabled(const bool enabled) const;
-    void requestEditVpn(const QString &devPath, const QString &connPath) const;
+    void requestEditVpn(const QString &devPath, const QString &uuid) const;
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;
     void requestCreateConnection(const QString &type, const QString &devicePath) const;
 
@@ -58,7 +58,7 @@ private:
     widgets::SettingsGroup *m_vpnGroup;
 
     QPointer<ConnectionEditPage> m_editPage;
-    QString m_editingConnPath;
+    QString m_editingConnUuid;
     ContentWidget *m_vpnTypePage;
 
     QMap<widgets::NextPageWidget *, QJsonObject> m_vpns;
