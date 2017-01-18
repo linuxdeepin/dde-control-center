@@ -26,11 +26,14 @@ void AccountsModule::initialize()
     m_accountsWorker->moveToThread(qApp->thread());
     m_userList->moveToThread(qApp->thread());
 
+    m_accountsWorker->active();
+
     connect(m_accountsWorker, &AccountsWorker::requestFrameAutoHide, this, &AccountsModule::setFrameAutoHide);
 }
 
 void AccountsModule::moduleActive()
 {
+    m_accountsWorker->active();
 }
 
 void AccountsModule::moduleDeactive()

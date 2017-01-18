@@ -102,33 +102,33 @@ SoundWidget::~SoundWidget()
 
 void SoundWidget::setModel(SoundModel *model)
 {
-    connect(model, &SoundModel::speakerOnChanged, [this] (bool on) {
+    connect(model, &SoundModel::speakerOnChanged, this, [this] (bool on) {
         m_speakerSwitch->setChecked(on);
         m_outputVolumeSliderItem->setVisible(on);
         m_outputBalanceSliderItem->setVisible(on);
     });
-    connect(model, &SoundModel::microphoneOnChanged, [this] (bool on) {
+    connect(model, &SoundModel::microphoneOnChanged, this, [this] (bool on) {
         m_microphoneSwitch->setChecked(on);
         m_inputVolumeSliderItem->setVisible(on);
         m_inputFeedbackSliderItem->setVisible(on);
     });
     connect(model, &SoundModel::soundEffectOnChanged, m_soundEffectSwitch, &SwitchWidget::setChecked);
-    connect(model, &SoundModel::speakerVolumeChanged, [this] (double value) {
+    connect(model, &SoundModel::speakerVolumeChanged, this, [this] (double value) {
         m_outputVolumeSlider->blockSignals(true);
         m_outputVolumeSlider->setValue(value * 100);
         m_outputVolumeSlider->blockSignals(false);
     });
-    connect(model, &SoundModel::speakerBalanceChanged, [this] (double value) {
+    connect(model, &SoundModel::speakerBalanceChanged, this, [this] (double value) {
         m_outputBalanceSlider->blockSignals(true);
         m_outputBalanceSlider->setValue(value * 100);
         m_outputBalanceSlider->blockSignals(false);
     });
-    connect(model, &SoundModel::microphoneVolumeChanged, [this] (double value) {
+    connect(model, &SoundModel::microphoneVolumeChanged, this, [this] (double value) {
         m_inputVolumeSlider->blockSignals(true);
         m_inputVolumeSlider->setValue(value * 100);
         m_inputVolumeSlider->blockSignals(false);
     });
-    connect(model, &SoundModel::microphoneFeedbackChanged, [this] (double value) {
+    connect(model, &SoundModel::microphoneFeedbackChanged, this, [this] (double value) {
         m_inputFeedbackSlider->setValue(value * 100);
     });
 

@@ -29,6 +29,8 @@ class AccountsWorker : public QObject
 public:
     explicit AccountsWorker(UserModel * userList, QObject *parent = 0);
 
+    void active();
+
 signals:
     void requestFrameAutoHide(const bool autoHide) const;
     void accountCreationFinished(CreationResult *result) const;

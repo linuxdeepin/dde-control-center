@@ -30,6 +30,17 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     updateUserOnlineStatus(m_dmInter->sessions());
 }
 
+void AccountsWorker::active()
+{
+    for (auto it(m_userInters.cbegin()); it != m_userInters.cend(); ++it)
+    {
+        it.key()->setName(it.value()->userName());
+        it.key()->setAutoLogin(it.value()->automaticLogin());
+        it.key()->setAvatars(it.value()->iconList());
+        it.key()->setCurrentAvatar(it.value()->iconFile());
+    }
+}
+
 void AccountsWorker::randomUserIcon(User *user)
 {
     QDBusPendingCall call = m_accountsInter->RandUserIcon();
@@ -132,9 +143,9 @@ void AccountsWorker::addUser(const QString &userPath)
     AccountsUser *userInter = new AccountsUser(AccountsService, userPath, QDBusConnection::systemBus(), this);
     userInter->setSync(false);
 
-    User * user = new User(m_userModel);
+    User *user = new User(this);
 
-    connect(userInter, &AccountsUser::UserNameChanged, user, [this, user] (const QString &name) {
+    connect(userInter, &AccountsUser::UserNameChanged, [=](const QString &name) {
         user->setName(name);
         user->setOnline(m_onlineUsers.contains(name));
     });
@@ -147,7 +158,6 @@ void AccountsWorker::addUser(const QString &userPath)
     user->setAutoLogin(userInter->automaticLogin());
     user->setAvatars(userInter->iconList());
     user->setCurrentAvatar(userInter->iconFile());
-    user->setOnline(m_onlineUsers.contains(user->name()));
 
     m_userInters[user] = userInter;
     m_userModel->addUser(userPath, user);

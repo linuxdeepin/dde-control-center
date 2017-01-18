@@ -14,9 +14,12 @@ const QString User::name() const
 
 void User::setName(const QString &name)
 {
-    m_name = name;
+    if (name != m_name)
+    {
+        m_name = name;
 
-    emit nameChanged(m_name);
+        emit nameChanged(m_name);
+    }
 }
 
 void User::setAutoLogin(const bool autoLogin)
@@ -35,9 +38,12 @@ void User::setAvatars(const QList<QString> &avatars)
 
 void User::setCurrentAvatar(const QString &avatar)
 {
-    m_currentAvatar = avatar;
+    if (m_currentAvatar != avatar)
+    {
+        m_currentAvatar = avatar;
 
-    emit currentAvatarChanged(m_currentAvatar);
+        emit currentAvatarChanged(m_currentAvatar);
+    }
 }
 
 void User::setPassword(const QString &password)

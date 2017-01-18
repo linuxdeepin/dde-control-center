@@ -123,12 +123,12 @@ void SettingsWidget::loadModule(ModuleInterface *const module)
     m_moduleWidgets.insert(module, QList<ContentWidget *>());
 
     ModuleInitThread *thrd = new ModuleInitThread(module, this);
-    connect(thrd, &ModuleInitThread::moduleInitFinished, this, &SettingsWidget::onModuleInitFinished);
+    connect(thrd, &ModuleInitThread::moduleInitFinished, this, &SettingsWidget::onModuleInitFinished, Qt::QueuedConnection);
     connect(thrd, &ModuleInitThread::finished, thrd, &ModuleInitThread::deleteLater);
-    QTimer::singleShot(m_moduleLoadDelay, [=] { thrd->start(QThread::LowPriority); });
+    QTimer::singleShot(m_moduleLoadDelay, thrd, [=] { thrd->start(QThread::LowestPriority); });
 
     m_moduleLoadDelay += 50;
-    m_moduleLoadDelay %= 400;
+    m_moduleLoadDelay %= 340;
 }
 
 void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
