@@ -28,8 +28,9 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     m_delaySlider = delayItem->slider();
     m_delaySlider->setType(DCCSlider::Vernier);
     m_delaySlider->setOrientation(Qt::Horizontal);
-    m_delaySlider->setRange(20, 600);
-    m_delaySlider->setTickInterval(580/6);
+    m_delaySlider->setRange(1, 7);
+    m_delaySlider->setTickInterval(1);
+    m_delaySlider->setPageStep(1);
     m_delaySlider->setTickPosition(QSlider::TicksBelow);
     QStringList delays;
     delays<<tr("Short")<<""<<""<<""<<""<<""<<tr("Long");
@@ -41,8 +42,9 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     m_speedSlider = speedItem->slider();
     m_speedSlider->setType(DCCSlider::Vernier);
     m_speedSlider->setOrientation(Qt::Horizontal);
-    m_speedSlider->setRange(200, 1000);
-    m_speedSlider->setTickInterval((1000-200)/6);
+    m_speedSlider->setRange(1, 7);
+    m_speedSlider->setTickInterval(1);
+    m_speedSlider->setPageStep(1);
     m_speedSlider->setTickPosition(QSlider::TicksBelow);
     QStringList speeds;
     speeds<<tr("Slow")<<""<<""<<""<<""<<""<<tr("Fast");
@@ -112,7 +114,7 @@ void KeyboardWidget::setDelayValue(uint value)
 void KeyboardWidget::setSpeedValue(uint value)
 {
     m_speedSlider->blockSignals(true);
-    m_speedSlider->setValue(1000 - (value * 10 - 200));
+    m_speedSlider->setValue(value);
     m_speedSlider->blockSignals(false);
 }
 

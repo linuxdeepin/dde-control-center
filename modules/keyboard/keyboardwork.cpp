@@ -33,6 +33,8 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
     connect(m_keyboardInter, SIGNAL(CapslockToggleChanged(bool)), m_model, SLOT(setCapsLock(bool)));
     connect(m_keybindInter, &KeybingdingInter::KeyEvent, this, &KeyboardWork::KeyEvent);
     connect(m_langSelector, &LangSelector::CurrentLocaleChanged, m_model, &KeyboardModel::setLang);
+    connect(m_keyboardInter, &KeyboardInter::RepeatDelayChanged, this, &KeyboardWork::setModelRepeatDelay);
+    connect(m_keyboardInter, &KeyboardInter::RepeatIntervalChanged, this, &KeyboardWork::setModelRepeatInterval);
 
     getProperty();
 
@@ -109,8 +111,9 @@ void KeyboardWork::active()
     m_keybindInter->blockSignals(false);
 
     m_model->setCapsLock(m_keyboardInter->capslockToggle());
-    m_model->setRepeatDelay(repeatDelay());
-    m_model->setRepeatInterval(repeatInterval());
+
+    setModelRepeatDelay(m_keyboardInter->repeatDelay());
+    setModelRepeatInterval(m_keyboardInter->repeatInterval());
 
     QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->List(), this);
     connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
@@ -209,22 +212,22 @@ void KeyboardWork::delShortcut(ShortcutInfo* info)
 
 void KeyboardWork::setRepeatDelay(int value)
 {
-    m_keyboardInter->setRepeatDelay(value);
-}
-
-uint KeyboardWork::repeatDelay() const
-{
-    return m_keyboardInter->repeatDelay();
+    m_keyboardInter->setRepeatDelay(converToDBusDelay(value));
 }
 
 void KeyboardWork::setRepeatInterval(int value)
 {
-    m_keyboardInter->setRepeatInterval(((1000 - value) + 200) / 10);
+    m_keyboardInter->setRepeatInterval(converToDBusInterval(value));
 }
 
-uint KeyboardWork::repeatInterval() const
+void KeyboardWork::setModelRepeatDelay(int value)
 {
-    return m_keyboardInter->repeatInterval();
+    m_model->setRepeatDelay(converToModelDelay(value));
+}
+
+void KeyboardWork::setModelRepeatInterval(int value)
+{
+    m_model->setRepeatInterval(converToModelInterval(value));
 }
 
 void KeyboardWork::setCapsLock(bool value)
@@ -348,6 +351,86 @@ void KeyboardWork::append(const MetaData &md)
     }
 
     m_metaDatas.append(md);
+}
+
+int KeyboardWork::converToDBusDelay(int value)
+{
+    switch (value) {
+    case 1:
+        return 20;
+    case 2:
+        return 80;
+    case 3:
+        return 150;
+    case 4:
+        return 250;
+    case 5:
+        return 360;
+    case 6:
+        return 480;
+    case 7:
+        return 600;
+    default:
+        return 4;
+    }
+}
+
+int KeyboardWork::converToModelDelay(int value)
+{
+    if (value <= 20)
+        return 1;
+    else if (value <= 80)
+        return 2;
+    else if (value <= 150)
+        return 3;
+    else if (value <= 250)
+        return 4;
+    else if (value <= 360)
+        return 5;
+    else if (value <= 480)
+        return 6;
+    else
+        return 7;
+}
+
+int KeyboardWork::converToDBusInterval(int value)
+{
+    switch (value) {
+    case 1:
+        return 100;
+    case 2:
+        return 80;
+    case 3:
+        return 65;
+    case 4:
+        return 50;
+    case 5:
+        return 35;
+    case 6:
+        return 25;
+    case 7:
+        return 20;
+    default:
+        return 4;
+    }
+}
+
+int KeyboardWork::converToModelInterval(int value)
+{
+    if (value <= 20)
+        return 7;
+    else if (value <= 25)
+        return 6;
+    else if (value <= 35)
+        return 5;
+    else if (value <= 50)
+        return 4;
+    else if (value <= 65)
+        return 3;
+    else if (value <= 80)
+        return 2;
+    else
+        return 1;
 }
 
 KeyboardLayoutList KeyboardWork::layoutLists() const

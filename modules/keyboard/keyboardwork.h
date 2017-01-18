@@ -44,9 +44,9 @@ public:
     void delShortcut(ShortcutInfo *info);
 
     void setRepeatDelay(int value);
-    uint repeatDelay() const;
     void setRepeatInterval(int value);
-    uint repeatInterval() const;
+    void setModelRepeatDelay(int value);
+    void setModelRepeatInterval(int value);
 
     void setCapsLock(bool value);
     void active();
@@ -71,6 +71,10 @@ public slots:
 
 private:
     void append(const MetaData& md);
+    int converToDBusDelay(int value);
+    int converToModelDelay(int value);
+    int converToDBusInterval(int value);
+    int converToModelInterval(int value);
 
 private:
     QList<MetaData> m_datas;
