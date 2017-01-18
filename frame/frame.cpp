@@ -26,7 +26,7 @@ Frame::Frame(QWidget *parent)
     m_appearAnimation.setStartValue(QRect(1, 1, 1, 1));
     m_appearAnimation.setEasingCurve(QEasingCurve::OutCubic);
 
-    setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
     setMaximumWidth(FRAME_WIDTH);
 
