@@ -144,7 +144,7 @@ void RotateDialog::paintEvent(QPaintEvent *e)
     const int margin = 100;
 
     QPainter painter(this);
-    painter.fillRect(rect(), QColor(127, 127, 127, 255 * .6));
+    painter.fillRect(rect(), QColor(0, 0, 0, 255 * .4));
 
     QPixmap rotatePixmap(":/display/themes/common/icon/rotate.png");
     painter.drawPixmap(rect().center() - rotatePixmap.rect().center(), rotatePixmap);
