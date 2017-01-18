@@ -175,16 +175,22 @@ void VpnPage::createVPNSession()
     if (!m_vpnTypePage)
     {
         OptionItem *l2tp = new OptionItem;
+        l2tp->setContentsMargins(20, 0, 10, 0);
         l2tp->setTitle(tr("L2TP"));
         OptionItem *pptp = new OptionItem;
+        pptp->setContentsMargins(20, 0, 10, 0);
         pptp->setTitle(tr("PPTP"));
         OptionItem *vpnc = new OptionItem;
+        vpnc->setContentsMargins(20, 0, 10, 0);
         vpnc->setTitle(tr("VPNC"));
         OptionItem *openvpn = new OptionItem;
+        openvpn->setContentsMargins(20, 0, 10, 0);
         openvpn->setTitle(tr("OpenVPN"));
         OptionItem *strongswan = new OptionItem;
+        strongswan->setContentsMargins(20, 0, 10, 0);
         strongswan->setTitle(tr("StrongSwan"));
         OptionItem *openconnect = new OptionItem;
+        openconnect->setContentsMargins(20, 0, 10, 0);
         openconnect->setTitle(tr("OpenConnect"));
 
         connect(l2tp, &OptionItem::selectedChanged, [=] { createVPN("vpn-l2tp"); });
