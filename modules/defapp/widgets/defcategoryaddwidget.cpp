@@ -59,6 +59,16 @@ bool DefCategoryAddWidget::createDesktopFile(const QFileInfo &info)
     return true;
 }
 
+void DefCategoryAddWidget::copyDesktopFile(const QFileInfo &info)
+{
+    struct passwd *user;
+    user = getpwuid(getuid());
+    QFile file(info.filePath());
+    QString newfile = QString(user->pw_dir) + "/.local/share/applications/deepin-custom-"+ info.fileName();
+    file.close();
+    emit addUserItem(m_category, newfile);
+}
+
 void DefCategoryAddWidget::clicked()
 {
     do {
@@ -81,7 +91,7 @@ void DefCategoryAddWidget::clicked()
         QFileInfo info(path);
 
         if (info.suffix() == "desktop") {
-            emit addUserItem(m_category, info.filePath());
+            copyDesktopFile(info);
         } else if (!info.exists() || !info.isExecutable())
             break;
         else if (createDesktopFile(info)) {

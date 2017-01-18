@@ -20,6 +20,7 @@ public:
     explicit DefCategoryAddWidget(QWidget *parent = 0);
     inline void setCategory(const QString &category){ m_category = category;}
     bool createDesktopFile(const QFileInfo &info);
+    void copyDesktopFile(const QFileInfo &info);
 
 signals:
     void addUserItem(const QString &category, const QString &name);

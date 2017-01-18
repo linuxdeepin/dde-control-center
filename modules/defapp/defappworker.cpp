@@ -115,10 +115,15 @@ void DefAppWorker::onAutoOpenChanged(const bool state)
 void DefAppWorker::onAddUserApp(const QString &mime, const QString &item)
 {
     QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
-    QFileInfo file(item);
-    m_dbusManager->AddUserApp(mimelist, file.baseName() + ".desktop");
     QJsonObject object;
-    object.insert("Id", file.baseName() + ".desktop");
+    QFileInfo file(item);
+    if (file.suffix() == "desktop") {
+        m_dbusManager->AddUserApp(mimelist, file.baseName() + ".desktop");
+        object.insert("Id", file.baseName() + ".desktop");
+    } else {
+        m_dbusManager->AddUserApp(mimelist, "deepin-custom-" + file.baseName() + ".desktop");
+        object.insert("Id", "deepin-custom-" + file.baseName() + ".desktop");
+    }
     object.insert("Nmae", file.baseName());
     object.insert("DisplayName", file.baseName());
     object.insert("Icon", "application-default-icon");
