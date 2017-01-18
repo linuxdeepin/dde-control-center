@@ -64,7 +64,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new bluetooth::BluetoothModule(this));
     loadModule(new sound::SoundModule(this));
     loadModule(new DatetimeModule(this));
-    loadModule(new PowerModule(this));
+    loadModule(new power::PowerModule(this));
     loadModule(new mouse::MouseModule(this));
     loadModule(new KeyboardModule(this));
     loadModule(new wacom::WacomModule(this));

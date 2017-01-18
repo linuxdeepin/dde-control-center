@@ -3,6 +3,9 @@
 
 #include <QObject>
 
+namespace dcc {
+namespace power {
+
 class PowerWorker;
 class PowerModel : public QObject
 {
@@ -47,5 +50,9 @@ private:
     int m_screenBlackDelay;
     int m_sleepDelay;
 };
+
+}
+}
+
 
 #endif // POWERMODEL_H

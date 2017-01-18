@@ -2,12 +2,14 @@
 #define POWERMODULE_H
 
 #include "moduleinterface.h"
-#include "powerwidget.h"
-#include "powerworker.h"
-#include "powermodel.h"
 
 #include <QObject>
 
+namespace dcc {
+namespace power {
+class PowerModel;
+class PowerWidget;
+class PowerWorker;
 class PowerModule : public QObject, public dcc::ModuleInterface
 {
     Q_OBJECT
@@ -32,5 +34,7 @@ private:
     PowerWidget *m_powerWidget;
     PowerWorker *m_powerWorker;
 };
+}
+}
 
 #endif // POWERMODULE_H

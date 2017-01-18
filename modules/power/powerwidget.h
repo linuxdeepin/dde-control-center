@@ -6,13 +6,15 @@
 #include "switchwidget.h"
 #include "powermodel.h"
 
+
+class QSlider;
+
 namespace dcc {
 namespace widgets {
 class TitledSliderItem;
 }
-}
 
-class QSlider;
+namespace power {
 class PowerWidget : public dcc::ModuleWidget
 {
     Q_OBJECT
@@ -37,16 +39,21 @@ private slots:
     void setSleepDelay(const int delay);
 
 private:
-    dcc::widgets::SettingsGroup *m_sleepTimeoutSettings;
-    dcc::widgets::TitledSliderItem *m_monitorSleep;
-    dcc::widgets::TitledSliderItem *m_computerSleep;
-    dcc::widgets::SettingsGroup *m_passwordSettings;
-    dcc::widgets::SwitchWidget *m_displayNeedPassword;
-    dcc::widgets::SwitchWidget *m_wakeNeedPassword;
-    dcc::widgets::SettingsGroup *m_notebookSettings;
-    dcc::widgets::SwitchWidget *m_sleepOnLidOff;
+    widgets::SettingsGroup *m_sleepTimeoutSettings;
+    widgets::TitledSliderItem *m_monitorSleep;
+    widgets::TitledSliderItem *m_computerSleep;
+    widgets::SettingsGroup *m_passwordSettings;
+    widgets::SwitchWidget *m_displayNeedPassword;
+    widgets::SwitchWidget *m_wakeNeedPassword;
+    widgets::SettingsGroup *m_notebookSettings;
+    widgets::SwitchWidget *m_sleepOnLidOff;
     QSlider *m_monitorSlider;
     QSlider *m_sleepSlider;
 };
+}
+
+}
+
+
 
 #endif // POWERWIDGET_H

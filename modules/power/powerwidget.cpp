@@ -10,6 +10,7 @@
 
 using namespace dcc;
 using namespace dcc::widgets;
+using namespace dcc::power;
 
 PowerWidget::PowerWidget()
     : ModuleWidget(),

@@ -1,10 +1,12 @@
 #include "powerworker.h"
+#include "powermodel.h"
+
+using namespace dcc;
+using namespace dcc::power;
 
 PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     : QObject(parent),
-
       m_powerModel(model),
-
       m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
 {
     m_powerInter->setSync(false);

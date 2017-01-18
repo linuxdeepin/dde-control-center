@@ -1,6 +1,10 @@
 #include "powermodule.h"
+#include "powerwidget.h"
+#include "powerworker.h"
+#include "powermodel.h"
 
 using namespace dcc;
+using namespace dcc::power;
 
 PowerModule::PowerModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),

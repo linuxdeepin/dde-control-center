@@ -2,6 +2,9 @@
 
 #include <QDebug>
 
+using namespace dcc;
+using namespace dcc::power;
+
 PowerModel::PowerModel(QObject *parent)
     : QObject(parent)
 {
