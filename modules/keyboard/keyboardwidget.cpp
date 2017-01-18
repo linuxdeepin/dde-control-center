@@ -56,6 +56,7 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     testArea->setStyleSheet("border: 0px");
     speedItem->layout()->addWidget(testArea);
     speedItem->layout()->setAlignment(testArea, Qt::AlignCenter);
+    speedItem->setContentsMargins(0, 0, 0, 10);
     keyTest->appendItem(speedItem);
 
     m_upper = new SwitchWidget();
