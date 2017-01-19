@@ -19,6 +19,7 @@ class SettingsGroup;
 namespace personalization
 {
 class ThemeModel;
+class ThemeItem;
 class Theme : public widgets::TranslucentFrame
 {
     Q_OBJECT
@@ -37,7 +38,7 @@ public slots:
 private:
     QVBoxLayout                             *m_mainLayout;
     widgets::SettingsGroup                  *m_mainGroup;
-    QMap<widgets::OptionItem *, QJsonObject> m_valueMap;
+    QMap<ThemeItem *, QJsonObject> m_valueMap;
     ThemeModel                              *m_model;
 };
 }

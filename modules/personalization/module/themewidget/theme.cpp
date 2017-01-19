@@ -5,6 +5,7 @@
 #include "../../model/thememodel.h"
 #include "optionitem.h"
 #include "personalization/personalizationmodel.h"
+#include "../../widget/themeitem.h"
 
 using namespace dcc;
 using namespace dcc::personalization;
@@ -37,21 +38,18 @@ void Theme::setModel(ThemeModel *const model)
 void Theme::setList(const QList<QJsonObject> &list)
 {
     for (QJsonObject json : list) {
-        OptionItem *theme = new OptionItem;
-        theme->setContentsMargins(20,0,10,10);
-        ThemeItemPic *t = new ThemeItemPic(json["url"].toString());
-        theme->setContentWidget(t);
+        ThemeItem *theme = new ThemeItem(json);
         m_mainGroup->appendItem(theme);
         m_valueMap.insert(theme, json);
-        connect(theme, &OptionItem::selectedChanged, this, &Theme::onItemClicked);
+        connect(theme, &ThemeItem::selectedChanged, this, &Theme::onItemClicked);
     }
 }
 
 void Theme::setDefault(const QString &name)
 {
-    QMap<OptionItem *, QJsonObject>::const_iterator i = m_valueMap.constBegin();
+    QMap<ThemeItem *, QJsonObject>::const_iterator i = m_valueMap.constBegin();
     while (i != m_valueMap.constEnd()) {
-        OptionItem *w = i.key();
+        ThemeItem *w = i.key();
         if (w) {
             if (i.value()["Id"].toString() == name) {
                 w->setTitle(name + tr(" (Default)"));
@@ -68,7 +66,7 @@ void Theme::setDefault(const QString &name)
 void Theme::onItemClicked(const bool selected)
 {
     if (selected) {
-        widgets::OptionItem *item = qobject_cast<widgets::OptionItem *>(sender());
+        ThemeItem *item = qobject_cast<ThemeItem *>(sender());
         Q_ASSERT(m_valueMap.contains(item));
         emit requestSetDefault(m_valueMap[item]);
     }
