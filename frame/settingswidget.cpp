@@ -68,7 +68,9 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new mouse::MouseModule(this));
     loadModule(new KeyboardModule(this));
     loadModule(new wacom::WacomModule(this));
+#ifndef DISABLE_SYS_UPDATE
     loadModule(new UpdateModule(this));
+#endif
     loadModule(new SystemInfoModule(this));
 
     m_settingsWidget->setLayout(m_settingsLayout);

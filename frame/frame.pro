@@ -57,3 +57,7 @@ SOURCES    += \
 
 RESOURCES += \
     frame.qrc
+
+isEqual(DISABLE_SYS_UPDATE, YES){
+    DEFINES += DISABLE_SYS_UPDATE
+}
