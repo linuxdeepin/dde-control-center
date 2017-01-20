@@ -22,7 +22,7 @@ NotifyData::NotifyData(QObject *parent)
     : QObject(parent)
 {
     QProcess *process = new QProcess(this);
-    process->setProgram("python2");
+    process->setProgram("python");
 #ifdef QT_DEBUG
     QDir appDir( QApplication::applicationDirPath() );
     appDir.cd("plugins/notify");

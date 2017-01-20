@@ -18,7 +18,7 @@ def notifications(bus, message):
         ret["summary"] = args[3]
         ret["body"] = args[4]
 
-        print json.dumps(ret)
+        print(json.dumps(ret))
 
         # FIXME(hualet): this is necessary while this script running as a
         # subprocess _and_ running with the gmainloop.
