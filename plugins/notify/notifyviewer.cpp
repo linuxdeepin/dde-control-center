@@ -26,6 +26,7 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_close->setFixedSize(10,10);
     m_time->setFixedHeight(10);
     m_body->setWordWrap(true);
+    m_body->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_appName->setStyleSheet("font-family: SourceHanSansSC;"
                              "font-size: 13px;"
