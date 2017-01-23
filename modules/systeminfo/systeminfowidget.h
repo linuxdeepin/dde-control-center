@@ -31,7 +31,7 @@ signals:
     void boot();
 
 public slots:
-    void setEditor(const QString& edition);
+    void setEdition(const QString& edition);
     void setType(const QString& type);
     void setProcessor(const QString& processor);
     void setMemory(const QString& memory);

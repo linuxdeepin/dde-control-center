@@ -66,7 +66,7 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
 
     connect(m_copyright, SIGNAL(clicked()), this, SIGNAL(copyright()));
     connect(m_boot, SIGNAL(clicked()), this, SIGNAL(boot()));
-    connect(m_model, SIGNAL(versionChanged(QString)), this, SLOT(setEditor(QString)));
+    connect(m_model, SIGNAL(versionChanged(QString)), this, SLOT(setEdition(QString)));
     connect(m_model, SIGNAL(typeChanged(QString)), this, SLOT(setType(QString)));
     connect(m_model, SIGNAL(processorChanged(QString)), this, SLOT(setProcessor(QString)));
     connect(m_model, SIGNAL(memoryChanged(QString)), this, SLOT(setMemory(QString)));
@@ -75,7 +75,7 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     setType(m_model->type());
 }
 
-void SystemInfoWidget::setEditor(const QString &edition)
+void SystemInfoWidget::setEdition(const QString &edition)
 {
     m_version->setValue(edition);
 }
