@@ -183,8 +183,8 @@ void Frame::keyPressEvent(QKeyEvent *e)
     switch (e->key()) {
 #ifdef QT_DEBUG
     case Qt::Key_Escape:        qApp->quit();                               break;
-    case Qt::Key_F1:            showSettingsPage("accounts", QString());    break;
 #endif
+    case Qt::Key_F1:            QProcess::startDetached("dman", QStringList("dde-control-center"));  break;
     default:;
     }
 }
