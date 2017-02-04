@@ -192,6 +192,7 @@ void ShortcutWidget::onCustomAdded(ShortcutInfo *info)
    if(info)
    {
        ShortcutItem* item = new ShortcutItem();
+       connect(item, &ShortcutItem::requestDisableShortcut, this, &ShortcutWidget::requestDisableShortcut);
        connect(item, SIGNAL(shortcutChangd(bool, ShortcutInfo*, QString)), this, SIGNAL(shortcutChanged(bool, ShortcutInfo*, QString)));
        item->setShortcutInfo(info);
        if (m_customGroup->layout()->count() == 0) {

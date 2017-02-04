@@ -208,6 +208,7 @@ void ShortcutItem::mousePressEvent(QMouseEvent *e)
         m_inter->GrabScreen();
         m_shortcutEdit->setFocus();
         m_shortcutEdit->show();
+        m_shortcutEdit->setPlaceholderText(tr("Please Re-configure Shortcut"));
         m_info->item = this;
     }
     else
