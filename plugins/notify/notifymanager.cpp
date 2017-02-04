@@ -69,7 +69,7 @@ void NotifyManager::setValue(QByteArray s) {
             }
         }
     }
-    QString m_time=QTime::currentTime().toString("AP hh:mm");
+    QString m_time=QTime::currentTime().toString("AP : hh:mm");
     m_viewer->setAppTime(m_time);
     m_viewer->setFixedHeight(80);
     m_viewer->setContentsMargins(0, 0, 0, 0);

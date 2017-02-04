@@ -28,15 +28,15 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_body->setWordWrap(true);
     m_body->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    m_appName->setStyleSheet("font-family: SourceHanSansSC;"
+    m_appName->setStyleSheet("font-family: Noto Sans Mono CJK SC"
                              "font-size: 13px;"
                              "font-style: normal;"
                              "color: #ffffff;");
-    m_body->setStyleSheet("font-family: SourceHanSansSC-Normal;"
+    m_body->setStyleSheet("font-family: Noto Sans Mono CJK SC"
                           "font-size: 12px;"
                           "font-style: normal;"
                           "color: #ffffff;");
-    m_time->setStyleSheet("font-family: SourceHanSansSC-Normal;"
+    m_time->setStyleSheet("font-family: Noto Sans Mono CJK SC"
                           "font-size: 11px;"
                           "font-style: normal;"
                           "color: #ffffff;");
@@ -69,8 +69,8 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     rightLayout->setMargin(0);
     rightLayout->setSpacing(0);
     rightLayout->addLayout(hboxlayout);
-    rightLayout->addSpacing(1);
-    rightLayout->addWidget(m_body, 0, Qt::AlignLeft);
+    rightLayout->addSpacing(2);
+    rightLayout->addWidget(m_body);
     rightLayout->addStretch();
 
     m_mainlayout->addLayout(rightLayout);
