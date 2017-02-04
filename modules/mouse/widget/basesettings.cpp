@@ -10,6 +10,7 @@
 
 #include <QWidget>
 #include <QSlider>
+#include <QApplication>
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -63,6 +64,9 @@ BaseSettings::BaseSettings(QWidget *parent)
 
     QSlider *slider = douSlider->slider();
     connect(slider, &QSlider::valueChanged, this, &BaseSettings::requestSetSliderValue);
+    connect(slider, &QSlider::valueChanged,this,[=](int value){
+            QApplication::setDoubleClickInterval(800 - value * 100);
+    });
 
     setObjectName("BaseSettings");
 
