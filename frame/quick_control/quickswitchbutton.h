@@ -16,12 +16,18 @@ public:
     QString themeName() const;
     void setThemeName(const QString &themeName);
 
+    bool checked() const { return m_checked; }
+
 signals:
     void hovered(const int index) const;
     void clicked(const int index) const;
 
+public slots:
+    void setChecked(const bool checked);
+
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
+    void enterEvent(QEvent *e);
 
 private:
     QPixmap normalPixmap() const;

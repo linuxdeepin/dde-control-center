@@ -1,5 +1,7 @@
 #include "quickswitchbutton.h"
 
+#include <QDebug>
+
 namespace dcc {
 
 #define SIZE 30
@@ -20,6 +22,13 @@ void QuickSwitchButton::mouseReleaseEvent(QMouseEvent *e)
     QLabel::mouseReleaseEvent(e);
 
     emit clicked(m_index);
+}
+
+void QuickSwitchButton::enterEvent(QEvent *e)
+{
+    QLabel::enterEvent(e);
+
+    emit hovered(m_index);
 }
 
 QPixmap QuickSwitchButton::normalPixmap() const
@@ -49,6 +58,11 @@ void QuickSwitchButton::setThemeName(const QString &themeName)
 {
     m_themeName = themeName;
     setPixmap(normalPixmap());
+}
+
+void QuickSwitchButton::setChecked(const bool checked)
+{
+    m_checked = checked;
 }
 
 }
