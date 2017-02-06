@@ -21,6 +21,7 @@ public:
 signals:
     void hovered(const int index) const;
     void clicked(const int index) const;
+    void checkedChanged(const bool checked) const;
 
 public slots:
     void setChecked(const bool checked);

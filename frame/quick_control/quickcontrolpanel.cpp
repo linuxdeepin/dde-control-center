@@ -72,6 +72,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(detailSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::requestDetailConfig);
 
     connect(m_networkModel, &NetworkModel::vpnEnabledChanged, vpnSwitch, &QuickSwitchButton::setChecked);
+    connect(vpnSwitch, &QuickSwitchButton::checkedChanged, m_networkWorker, &NetworkWorker::setVpnEnable);
 
     vpnSwitch->setChecked(m_networkModel->vpnEnabled());
 }

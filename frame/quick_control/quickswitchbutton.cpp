@@ -21,7 +21,10 @@ void QuickSwitchButton::mouseReleaseEvent(QMouseEvent *e)
 {
     QLabel::mouseReleaseEvent(e);
 
+    setChecked(!m_checked);
+
     emit clicked(m_index);
+    emit checkedChanged(m_checked);
 }
 
 void QuickSwitchButton::enterEvent(QEvent *e)

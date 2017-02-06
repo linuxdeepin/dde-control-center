@@ -1,19 +1,11 @@
 #ifndef VPNCONTROLPAGE_H
 #define VPNCONTROLPAGE_H
 
-#include <QFrame>
+#include "vpnlistmodel.h"
 
-namespace dcc {
+#include <QListView>
 
-namespace network {
-
-class NetworkModel;
-
-}
-
-}
-
-class VpnControlPage : public QFrame
+class VpnControlPage : public QListView
 {
     Q_OBJECT
 
@@ -21,7 +13,7 @@ public:
     explicit VpnControlPage(dcc::network::NetworkModel *model, QWidget *parent = 0);
 
 private:
-    dcc::network::NetworkModel *m_networkModel;
+    VpnListModel *m_listModel;
 };
 
 #endif // VPNCONTROLPAGE_H

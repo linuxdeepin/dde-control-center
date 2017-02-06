@@ -1,15 +1,14 @@
 #include "vpncontrolpage.h"
 
-#include "network/networkmodel.h"
-
 #include <QDebug>
 
 using dcc::network::NetworkModel;
 
 VpnControlPage::VpnControlPage(NetworkModel *model, QWidget *parent)
-    : QFrame(parent)
-{
-    setStyleSheet("background-color: red;");
+    : QListView(parent),
 
-    qDebug() << model->vpns();
+      m_listModel(new VpnListModel(model, this))
+{
+    setFrameStyle(QFrame::NoFrame);
+    setModel(m_listModel);
 }
