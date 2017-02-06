@@ -3,9 +3,9 @@
 
 #include "vpnlistmodel.h"
 
-#include <QListView>
+#include <QWidget>
 
-class VpnControlPage : public QListView
+class VpnControlPage : public QWidget
 {
     Q_OBJECT
 
