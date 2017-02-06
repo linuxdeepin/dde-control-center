@@ -45,7 +45,7 @@ private:
     void removeItem(const QJsonObject &item);
 
 private:
-    QVBoxLayout           *m_centeralLayout;
+    QVBoxLayout           *m_centralLayout;
     widgets::SettingsGroup    *m_userGroup;
     QWidget               *m_listWidget;
     QVBoxLayout           *m_listLayout;

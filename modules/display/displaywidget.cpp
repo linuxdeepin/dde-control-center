@@ -30,10 +30,10 @@ DisplayWidget::DisplayWidget()
     m_settingsGrp = new SettingsGroup;
     m_settingsGrp->appendItem(m_mySettings);
 
-    m_centeralLayout->addWidget(m_resolutionsGrp);
-    m_centeralLayout->addWidget(m_rotate);
-    m_centeralLayout->addWidget(m_settingsGrp);
-    m_centeralLayout->addWidget(m_custom);
+    m_centralLayout->addWidget(m_resolutionsGrp);
+    m_centralLayout->addWidget(m_rotate);
+    m_centralLayout->addWidget(m_settingsGrp);
+    m_centralLayout->addWidget(m_custom);
 
     setTitle(tr("Display"));
 

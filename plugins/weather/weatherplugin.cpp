@@ -14,7 +14,7 @@ void WeatherPlugin::initialize(FrameProxyInterface *proxy)
     m_weatherView = new WeatherWidget;
 }
 
-QWidget *WeatherPlugin::centeralWidget()
+QWidget *WeatherPlugin::centralWidget()
 {
     return m_weatherView;
 }

@@ -79,10 +79,10 @@ SoundWidget::SoundWidget(SoundModel *model) :
     m_soundEffectSwitch->setTitle(tr("Sound Effects"));
     m_soundEffectGroup->appendItem(m_soundEffectSwitch);
 
-    m_centeralLayout->addWidget(m_speakerGroup);
-    m_centeralLayout->addWidget(m_microphoneGroup);
-    m_centeralLayout->addWidget(m_advancedSettingsGroup);
-    m_centeralLayout->addWidget(m_soundEffectGroup);
+    m_centralLayout->addWidget(m_speakerGroup);
+    m_centralLayout->addWidget(m_microphoneGroup);
+    m_centralLayout->addWidget(m_advancedSettingsGroup);
+    m_centralLayout->addWidget(m_soundEffectGroup);
 
     setModel(model);
 

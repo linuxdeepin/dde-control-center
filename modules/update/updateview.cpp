@@ -21,8 +21,8 @@ UpdateView::UpdateView()
     m_settingsGroup = new SettingsGroup;
     m_settingsGroup->appendItem(m_settingsItem);
 
-    m_centeralLayout->addWidget(m_updateGroup);
-    m_centeralLayout->addWidget(m_settingsGroup);
+    m_centralLayout->addWidget(m_updateGroup);
+    m_centralLayout->addWidget(m_settingsGroup);
 
     setTitle(tr("Update"));
 

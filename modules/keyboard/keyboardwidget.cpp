@@ -79,10 +79,10 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     m_scItem->setTitle(tr("Shortcut"));
     scGroup->appendItem(m_scItem);
 
-    m_centeralLayout->addWidget(keyTest);
-    m_centeralLayout->addWidget(keyGroup);
-    m_centeralLayout->addWidget(langGroup);
-    m_centeralLayout->addWidget(scGroup);
+    m_centralLayout->addWidget(keyTest);
+    m_centralLayout->addWidget(keyGroup);
+    m_centralLayout->addWidget(langGroup);
+    m_centralLayout->addWidget(scGroup);
 
     connect(m_keyItem,SIGNAL(clicked()), this, SIGNAL(keyoard()));
     connect(m_langItem, SIGNAL(clicked()), this, SIGNAL(language()));

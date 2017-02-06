@@ -119,15 +119,15 @@ MainWidget::MainWidget(Frame *parent)
     frame->setObjectName("HomePluginsFrame");
     frame->setLayout(m_pluginsLayout);
 
-    QVBoxLayout *centeralLayout = static_cast<QVBoxLayout *>(layout());
-    centeralLayout->addWidget(headerFrame);
-    centeralLayout->addWidget(frame);
-    centeralLayout->addSpacing(20);
-    centeralLayout->addLayout(indicatorLayout);
-//    centeralLayout->addStretch();
-    centeralLayout->addWidget(m_quickSettingsPanel);
-    centeralLayout->setSpacing(0);
-    centeralLayout->setMargin(0);
+    QVBoxLayout *centralLayout = static_cast<QVBoxLayout *>(layout());
+    centralLayout->addWidget(headerFrame);
+    centralLayout->addWidget(frame);
+    centralLayout->addSpacing(20);
+    centralLayout->addLayout(indicatorLayout);
+//    centralLayout->addStretch();
+    centralLayout->addWidget(m_quickSettingsPanel);
+    centralLayout->setSpacing(0);
+    centralLayout->setMargin(0);
 
     connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded);
     connect(m_prevPluginBtn, &DImageButton::clicked, this, &MainWidget::showPrevPlugin);

@@ -39,10 +39,10 @@ Datetime::Datetime()
     m_headItem->setTitle(tr("Timezone List"));
 
     m_timezoneGroup->appendItem(m_headItem);
-    m_centeralLayout->addWidget(clockGroup);
-    m_centeralLayout->addWidget(m_timeSettingsGroup);
-    m_centeralLayout->addWidget(m_timezoneGroup);
-    m_centeralLayout->addWidget(m_addTimezoneButton);
+    m_centralLayout->addWidget(clockGroup);
+    m_centralLayout->addWidget(m_timeSettingsGroup);
+    m_centralLayout->addWidget(m_timezoneGroup);
+    m_centralLayout->addWidget(m_addTimezoneButton);
 
     connect(m_dialog, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
         emit requestAddUserTimeZone(timezone);

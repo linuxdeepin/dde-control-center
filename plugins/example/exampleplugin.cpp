@@ -20,7 +20,7 @@ void ExamplePlugin::initialize(FrameProxyInterface *proxy)
                                 "background-color:cyan;");
 }
 
-QWidget *ExamplePlugin::centeralWidget()
+QWidget *ExamplePlugin::centralWidget()
 {
     return m_exampleLbl;
 }

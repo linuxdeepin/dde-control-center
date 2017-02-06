@@ -29,7 +29,7 @@ private:
 protected:
     QLabel *m_moduleIcon;
     dcc::widgets::LargeLabel *m_moduleTitle;
-    QVBoxLayout *m_centeralLayout;
+    QVBoxLayout *m_centralLayout;
 };
 
 }

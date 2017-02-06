@@ -28,12 +28,12 @@ ModuleWidget::ModuleWidget()
     titleLayout->setAlignment(m_moduleIcon, Qt::AlignCenter);
     titleLayout->addWidget(m_moduleTitle);
 
-    m_centeralLayout = new QVBoxLayout;
-    m_centeralLayout->addLayout(titleLayout);
-    m_centeralLayout->setSpacing(10);
-    m_centeralLayout->setMargin(0);
+    m_centralLayout = new QVBoxLayout;
+    m_centralLayout->addLayout(titleLayout);
+    m_centralLayout->setSpacing(10);
+    m_centralLayout->setMargin(0);
 
-    setLayout(m_centeralLayout);
+    setLayout(m_centralLayout);
 
     connect(this, &ModuleWidget::objectNameChanged, [this] {
         m_moduleIcon->setObjectName(QString(ObjectNameTemplateIcon).arg(objectName()));
@@ -50,7 +50,7 @@ void ModuleWidget::setTitle(const QString &title)
 bool ModuleWidget::event(QEvent *event)
 {
     if (event->type() == QEvent::LayoutRequest)
-        setFixedHeight(m_centeralLayout->sizeHint().height());
+        setFixedHeight(m_centralLayout->sizeHint().height());
 
     return QWidget::event(event);
 }

@@ -60,9 +60,9 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     crGroup->appendItem(m_copyright);
     bootGroup->appendItem(m_boot);
 
-    m_centeralLayout->addWidget(infoGroup);
-    m_centeralLayout->addWidget(crGroup);
-    m_centeralLayout->addWidget(bootGroup);
+    m_centralLayout->addWidget(infoGroup);
+    m_centralLayout->addWidget(crGroup);
+    m_centralLayout->addWidget(bootGroup);
 
     connect(m_copyright, SIGNAL(clicked()), this, SIGNAL(copyright()));
     connect(m_boot, SIGNAL(clicked()), this, SIGNAL(boot()));

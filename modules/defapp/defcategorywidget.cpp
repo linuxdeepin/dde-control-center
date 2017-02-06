@@ -18,7 +18,7 @@ using namespace dcc::widgets;
 DefCategoryWidget::DefCategoryWidget(const QString &name, QWidget *parent)
     : TranslucentFrame(parent)
 {
-    m_centeralLayout = new QVBoxLayout;
+    m_centralLayout = new QVBoxLayout;
     m_userGroup = new SettingsGroup;
     m_addWidget  = new DefCategoryAddWidget(this);
     m_headWidget = new SettingsHead;
@@ -26,11 +26,11 @@ DefCategoryWidget::DefCategoryWidget(const QString &name, QWidget *parent)
     m_headWidget->setTitle(name);
     m_userGroup->insertItem(0, m_headWidget);
     m_userGroup->insertItem(1, m_addWidget);
-    m_centeralLayout->addWidget(m_userGroup);
+    m_centralLayout->addWidget(m_userGroup);
 
-    m_centeralLayout->setMargin(0);
+    m_centralLayout->setMargin(0);
 
-    setLayout(m_centeralLayout);
+    setLayout(m_centralLayout);
     setObjectName("DefCategoryWidget");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 

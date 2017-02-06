@@ -55,9 +55,9 @@ PowerWidget::PowerWidget()
     m_sleepOnLidOff->setTitle(tr("Suspend on lid close"));
     m_notebookSettings->appendItem(m_sleepOnLidOff);
 
-    m_centeralLayout->addWidget(m_sleepTimeoutSettings);
-    m_centeralLayout->addWidget(m_passwordSettings);
-    m_centeralLayout->addWidget(m_notebookSettings);
+    m_centralLayout->addWidget(m_sleepTimeoutSettings);
+    m_centralLayout->addWidget(m_passwordSettings);
+    m_centralLayout->addWidget(m_notebookSettings);
 
     setTitle(tr("Power Management"));
 

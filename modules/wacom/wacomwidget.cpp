@@ -21,9 +21,9 @@ WacomWidget::WacomWidget()
 {
     setObjectName("Wacom");
 
-    m_centeralLayout->addWidget(m_userGroup);
+    m_centralLayout->addWidget(m_userGroup);
     m_wacomSettings = new WacomSettings;
-    m_centeralLayout->addWidget(m_wacomSettings);
+    m_centralLayout->addWidget(m_wacomSettings);
 
     setTitle(tr("Wacom"));
     connect(m_wacomSettings, &WacomSettings::requestSetPressureValue, this, &WacomWidget::requestSetPressureValue);

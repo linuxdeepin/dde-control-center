@@ -15,7 +15,7 @@ public:
     explicit CalculatorPlugin(QObject *parent = 0);
 
     void initialize(FrameProxyInterface *proxy);
-    QWidget *centeralWidget();
+    QWidget *centralWidget();
 
 private:
     QLabel *m_exampleLbl;

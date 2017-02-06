@@ -18,7 +18,7 @@ public:
     explicit NotifyPlugin(QObject *parent = 0);
 
     void initialize(FrameProxyInterface *proxy);
-    QWidget *centeralWidget();
+    QWidget *centralWidget();
 
 private:
     NotifyManager *m_notifymanager;

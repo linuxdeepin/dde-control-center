@@ -46,7 +46,7 @@ public:
 //    virtual ModuleMetadata getMetadata();
 
     // 返回模块主Widget；
-    virtual QWidget *centeralWidget() = 0;
+    virtual QWidget *centralWidget() = 0;
 
     // widgetPoppedEvent通知Module子级控件被弹出，页面回到了第二级；
     // Module需要把控件销毁或者置为不活跃状态；

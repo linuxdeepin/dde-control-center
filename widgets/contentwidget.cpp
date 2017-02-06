@@ -48,19 +48,19 @@ ContentWidget::ContentWidget(QWidget *parent)
     titleLayout->addWidget(m_title);
     titleLayout->addSpacing(backBtn->width());
 
-    QVBoxLayout *centeralLayout = new QVBoxLayout;
-    centeralLayout->addLayout(titleLayout);
-    centeralLayout->addSpacing(15);
-    centeralLayout->addWidget(new dcc::widgets::HSeparator);
-    centeralLayout->addSpacing(15);
-    centeralLayout->addLayout(m_contentTopLayout);
-    centeralLayout->addWidget(m_contentArea);
-    centeralLayout->setContentsMargins(8, 8, 8, 0);
-    centeralLayout->setSpacing(0);
+    QVBoxLayout *centralLayout = new QVBoxLayout;
+    centralLayout->addLayout(titleLayout);
+    centralLayout->addSpacing(15);
+    centralLayout->addWidget(new dcc::widgets::HSeparator);
+    centralLayout->addSpacing(15);
+    centralLayout->addLayout(m_contentTopLayout);
+    centralLayout->addWidget(m_contentArea);
+    centralLayout->setContentsMargins(8, 8, 8, 0);
+    centralLayout->setSpacing(0);
 
     connect(backBtn, &dcc::widgets::BackButton::clicked, this, &ContentWidget::back);
 
-    setLayout(centeralLayout);
+    setLayout(centralLayout);
     setObjectName("ContentWidget");
 }
 

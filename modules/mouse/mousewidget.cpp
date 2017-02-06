@@ -20,20 +20,20 @@ MouseWidget::MouseWidget()
     setObjectName("Mouse");
 
     m_baseSettings = new BaseSettings;
-    m_centeralLayout->addWidget(m_baseSettings);
+    m_centralLayout->addWidget(m_baseSettings);
 
     m_mouseSettings = new MouseSettings(tr("Mouse"));
     m_mouseSettings->setSwitchTitle(QString(tr("Disable the touchpad when inserting the mouse")));
-    m_centeralLayout->addWidget(m_mouseSettings);
+    m_centralLayout->addWidget(m_mouseSettings);
 
 
     m_touchSettings = new MouseSettings(tr("TouchPad"));
     m_touchSettings->setSwitchTitle(QString(tr("Tap to Click")));
-    m_centeralLayout->addWidget(m_touchSettings);
+    m_centralLayout->addWidget(m_touchSettings);
 
 
     m_ThinkapdSettings = new ThinkpadSettings;
-    m_centeralLayout->addWidget(m_ThinkapdSettings);
+    m_centralLayout->addWidget(m_ThinkapdSettings);
 
     connect(m_baseSettings, &BaseSettings::requestSetLeftHand, this, &MouseWidget::requestSetLeftHand);
     connect(m_baseSettings, &BaseSettings::requestSetNaturalScroll, this, &MouseWidget::requestSetNaturalScroll);

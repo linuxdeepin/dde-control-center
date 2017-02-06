@@ -18,10 +18,10 @@ FrameWidget::FrameWidget(Frame *parent)
     m_slideAni->setEasingCurve(QEasingCurve::InOutQuint);
     m_slideAni->setDuration(200);
 
-    QVBoxLayout *centeralLayout = new QVBoxLayout;
-    centeralLayout->setSpacing(0);
-    centeralLayout->setMargin(0);
-    setLayout(centeralLayout);
+    QVBoxLayout *centralLayout = new QVBoxLayout;
+    centralLayout->setSpacing(0);
+    centralLayout->setMargin(0);
+    setLayout(centralLayout);
 
     parent->installEventFilter(this);
     setFixedHeight(parent->size().height());

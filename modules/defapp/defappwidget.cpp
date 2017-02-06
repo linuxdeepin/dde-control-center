@@ -15,12 +15,12 @@ DefaultAppsWidget::DefaultAppsWidget()
 {
     setObjectName("Defapp");
 
-    m_centeralLayout->addWidget(m_userGroup);
+    m_centralLayout->addWidget(m_userGroup);
 
     m_nextPage = new NextPageWidget;
     m_nextPage->setTitle(tr("Default Applications"));
     m_userGroup->appendItem(m_nextPage);
-    m_centeralLayout->addStretch(0);
+    m_centralLayout->addStretch(0);
 
     setTitle(tr("Default Applications"));
     connect(m_nextPage, &NextPageWidget::clicked, this, &DefaultAppsWidget::showDefaultAppsDetail);

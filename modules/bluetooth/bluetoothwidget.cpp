@@ -21,8 +21,8 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model) :
 {
     setObjectName("Bluetooth");
     setModel(model);
-    m_centeralLayout->setMargin(0);
-    m_centeralLayout->addWidget(m_mainGroup);
+    m_centralLayout->setMargin(0);
+    m_centralLayout->addWidget(m_mainGroup);
 }
 
 

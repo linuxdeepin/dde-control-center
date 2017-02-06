@@ -42,9 +42,9 @@ NetworkModuleWidget::NetworkModuleWidget()
     SettingsGroup *detailGroup = new SettingsGroup;
     detailGroup->appendItem(m_detailBtn);
 
-    m_centeralLayout->addLayout(m_devicesLayout);
-    m_centeralLayout->addWidget(connGroup);
-    m_centeralLayout->addWidget(detailGroup);
+    m_centralLayout->addLayout(m_devicesLayout);
+    m_centralLayout->addWidget(connGroup);
+    m_centralLayout->addWidget(detailGroup);
 
     setTitle(tr("Network"));
 

@@ -18,7 +18,7 @@ void CalculatorPlugin::initialize(FrameProxyInterface *proxy)
                                 "background-color:red;");
 }
 
-QWidget *CalculatorPlugin::centeralWidget()
+QWidget *CalculatorPlugin::centralWidget()
 {
     return m_exampleLbl;
 }

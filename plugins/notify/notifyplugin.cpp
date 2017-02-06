@@ -25,6 +25,6 @@ void NotifyPlugin::initialize(FrameProxyInterface *proxy) {
     m_scrollarea->setStyleSheet("background-color:transparent;");
 }
 
-QWidget *NotifyPlugin::centeralWidget() {
+QWidget *NotifyPlugin::centralWidget() {
     return m_scrollarea;
 }

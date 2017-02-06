@@ -44,7 +44,7 @@ void PluginsController::loadPlugins()
         }
 
         interface->initialize(this);
-        QWidget *w = interface->centeralWidget();
+        QWidget *w = interface->centralWidget();
         w->setVisible(false);
         emit pluginAdded(w);
     }

@@ -14,7 +14,7 @@ public:
     explicit WeatherPlugin(QObject* parent = 0);
 
     void initialize(FrameProxyInterface *proxy);
-    QWidget *centeralWidget();
+    QWidget *centralWidget();
 
 private:
     WeatherWidget *m_weatherView;
