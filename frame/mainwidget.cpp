@@ -124,7 +124,7 @@ MainWidget::MainWidget(Frame *parent)
     centeralLayout->addWidget(frame);
     centeralLayout->addSpacing(20);
     centeralLayout->addLayout(indicatorLayout);
-    centeralLayout->addStretch();
+//    centeralLayout->addStretch();
     centeralLayout->addWidget(m_quickSettingsPanel);
     centeralLayout->setSpacing(0);
     centeralLayout->setMargin(0);

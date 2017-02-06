@@ -1,6 +1,7 @@
 #include "quickcontrolpanel.h"
 #include "basicsettingspage.h"
 #include "quickswitchbutton.h"
+#include "vpn/vpncontrolpage.h"
 
 #include <QVBoxLayout>
 
@@ -12,12 +13,13 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
       m_itemStack(new QStackedLayout)
 {
     m_itemStack->addWidget(new BasicSettingsPage);
+    m_itemStack->addWidget(new VpnControlPage);
 
-    QuickSwitchButton *btSwitch = new QuickSwitchButton(0, "bluetooth");
-    QuickSwitchButton *vpnSwitch = new QuickSwitchButton(1, "VPN");
-    QuickSwitchButton *wifiSwitch = new QuickSwitchButton(2, "wifi");
-    QuickSwitchButton *displaySwitch = new QuickSwitchButton(3, "display");
-    QuickSwitchButton *detailSwitch = new QuickSwitchButton(4, "all_settings");
+    QuickSwitchButton *btSwitch = new QuickSwitchButton(1, "bluetooth");
+    QuickSwitchButton *vpnSwitch = new QuickSwitchButton(2, "VPN");
+    QuickSwitchButton *wifiSwitch = new QuickSwitchButton(3, "wifi");
+    QuickSwitchButton *displaySwitch = new QuickSwitchButton(4, "display");
+    QuickSwitchButton *detailSwitch = new QuickSwitchButton(100, "all_settings");
 
     btSwitch->setObjectName("QuickSwitchBluetooth");
     btSwitch->setAccessibleName("QuickSwitchBluetooth");
@@ -31,18 +33,35 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     detailSwitch->setAccessibleName("QuickSwitchAllSettings");
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
-//    btnsLayout->addWidget(btSwitch);
-//    btnsLayout->addWidget(vpnSwitch);
-//    btnsLayout->addWidget(wifiSwitch);
-//    btnsLayout->addWidget(displaySwitch);
+    btnsLayout->addWidget(btSwitch);
+    btnsLayout->addWidget(vpnSwitch);
+    btnsLayout->addWidget(wifiSwitch);
+    btnsLayout->addWidget(displaySwitch);
     btnsLayout->addWidget(detailSwitch);
+    btnsLayout->setContentsMargins(0, 15, 0, 15);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(m_itemStack);
     mainLayout->addLayout(btnsLayout);
+    mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
     setLayout(mainLayout);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
+    connect(btSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::pageSwitched);
+    connect(vpnSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::pageSwitched);
+    connect(wifiSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::pageSwitched);
+    connect(displaySwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::pageSwitched);
     connect(detailSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::requestDetailConfig);
+}
+
+void QuickControlPanel::pageSwitched(const int index)
+{
+    const int current = m_itemStack->currentIndex();
+    if (current == index)
+        return m_itemStack->setCurrentIndex(0);
+
+    Q_ASSERT(m_itemStack->count() > index);
+    m_itemStack->setCurrentIndex(index);
 }

@@ -15,6 +15,9 @@ public:
 signals:
     void requestDetailConfig() const;
 
+private slots:
+    void pageSwitched(const int index);
+
 private:
     QStackedLayout *m_itemStack;
 };

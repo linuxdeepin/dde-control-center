@@ -8,6 +8,7 @@ QuickSwitchButton::QuickSwitchButton(const int index, const QString &iconName, Q
     : QLabel(parent),
 
       m_index(index),
+      m_checked(false),
       m_iconName(iconName)
 {
     setFixedSize(SIZE, SIZE);

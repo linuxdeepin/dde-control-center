@@ -138,7 +138,6 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     QHBoxLayout *volumeLayout = new QHBoxLayout;
     volumeLayout->setMargin(0);
     volumeLayout->setSpacing(0);
-    volumeLayout->setContentsMargins(20, 0, 20, 0);
     volumeLayout->addWidget(m_volumeLow);
     volumeLayout->addSpacing(10);
     volumeLayout->addWidget(m_soundSlider);
@@ -148,7 +147,6 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     QHBoxLayout *brightnessLayout = new QHBoxLayout;
     brightnessLayout->setMargin(0);
     brightnessLayout->setSpacing(0);
-    brightnessLayout->setContentsMargins(20, 0, 20, 0);
     brightnessLayout->addWidget(m_brightnessLow);
     brightnessLayout->addSpacing(10);
     brightnessLayout->addWidget(m_lightSlider);
@@ -156,8 +154,11 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     brightnessLayout->addWidget(m_brightnessHigh);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addStretch();
     mainLayout->addLayout(volumeLayout);
+    mainLayout->addSpacing(20);
     mainLayout->addLayout(brightnessLayout);
+    mainLayout->addSpacing(40);
     setLayout(mainLayout);
 
     auto onVolumeChanged = [this] (const double &volume) {
