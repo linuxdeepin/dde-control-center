@@ -81,10 +81,10 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     this->setLayout(m_mainlayout);
     connect(m_close, &DImageButton::clicked, [=]{
         m_anim1=new QPropertyAnimation(this, "pos",this);
-        m_anim1->setDuration(600);
+        m_anim1->setDuration(300);
         m_anim1->setStartValue(QPoint(this->x(), this->y()));
         m_anim1->setEndValue(QPoint(this->width(), this->y()));
-        m_anim1->setEasingCurve(QEasingCurve::OutCirc);
+        m_anim1->setEasingCurve(QEasingCurve::InOutCubic);
         m_anim1->start();
 
         connect(m_anim1, &QPropertyAnimation::finished, [=]{
