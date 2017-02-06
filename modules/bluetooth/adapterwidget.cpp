@@ -45,8 +45,8 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     layout->addWidget(m_otherDevicesGroup);
     layout->addStretch();
 
-    connect(m_switch, &SwitchWidget::checkedChanegd, this, &AdapterWidget::toggleSwitch);
-    connect(m_switch, &SwitchWidget::checkedChanegd, [=](bool state) {
+    connect(m_switch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleSwitch);
+    connect(m_switch, &SwitchWidget::checkedChanged, [=](bool state) {
         m_tip->setVisible(!state);
     });
     connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, [=](const QString &alias) {

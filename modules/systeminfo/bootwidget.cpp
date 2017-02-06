@@ -63,8 +63,8 @@ BootWidget::BootWidget(QWidget *parent)
 
     setContent(widget);
 
-    connect(m_theme, SIGNAL(checkedChanegd(bool)), this, SIGNAL(enableTheme(bool)));
-    connect(m_boot, SIGNAL(checkedChanegd(bool)), this, SIGNAL(bootdelay(bool)));
+    connect(m_theme, SIGNAL(checkedChanged(bool)), this, SIGNAL(enableTheme(bool)));
+    connect(m_boot, SIGNAL(checkedChanged(bool)), this, SIGNAL(bootdelay(bool)));
     connect(m_bootList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),this, SLOT(onCurrentItem(QListWidgetItem*,QListWidgetItem*)));
 }
 

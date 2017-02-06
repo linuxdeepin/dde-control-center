@@ -22,7 +22,7 @@ public:
     bool checked() const;
 
 signals:
-    void checkedChanegd(const bool checked) const;
+    void checkedChanged(const bool checked) const;
 
 private:
     QWidget *m_leftWidget;

@@ -299,7 +299,7 @@ SettingsItem *ConnectionEditPage::createSwitchWidget(const QJsonObject &keyObjec
 
     const QString section = keyObject.value("Section").toString();
     const QString vKey = keyObject.value("Key").toString();
-    connect(w, &SwitchWidget::checkedChanegd, [=](const bool checked) {
+    connect(w, &SwitchWidget::checkedChanged, [=](const bool checked) {
         emit requestChangeSettings(section, vKey, checked ? "true" : "false");
     });
 

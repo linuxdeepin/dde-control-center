@@ -45,7 +45,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     connect(user, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
     connect(user, &User::onlineChanged, this, [this] (const bool online) { m_deleteAccount->setVisible(!online); });
     connect(m_deleteAccount, &QPushButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
-    connect(m_autoLogin, &SwitchWidget::checkedChanegd, [=] (const bool autoLogin) { emit requestSetAutoLogin(user, autoLogin); });
+    connect(m_autoLogin, &SwitchWidget::checkedChanged, [=] (const bool autoLogin) { emit requestSetAutoLogin(user, autoLogin); });
     connect(m_modifyPassword, &NextPageWidget::clicked, [=] { emit showPwdSettings(user); });
     connect(m_modifyAvatar, &NextPageWidget::clicked, [=] { emit showAvatarSettings(user); });
 

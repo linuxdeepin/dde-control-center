@@ -136,7 +136,7 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
     SwitchWidget *s = new SwitchWidget;
     NextPageWidget *w = new NextPageWidget;
 
-    connect(s, &SwitchWidget::checkedChanegd, [=](const bool checked) { emit requestDeviceEnable(dev->path(), checked); });
+    connect(s, &SwitchWidget::checkedChanged, [=](const bool checked) { emit requestDeviceEnable(dev->path(), checked); });
     connect(w, &NextPageWidget::clicked, this, &NetworkModuleWidget::onNextPageClicked);
     connect(dev, &NetworkDevice::enableChanged, s, &SwitchWidget::setChecked);
     connect(dev, &NetworkDevice::enableChanged, w, &NextPageWidget::setVisible);

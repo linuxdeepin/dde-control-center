@@ -57,9 +57,9 @@ BaseSettings::BaseSettings(QWidget *parent)
     m_mainLayout->addWidget(m_mainGroup);
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
-    connect(m_leftHand, &SwitchWidget::checkedChanegd, this, &BaseSettings::requestSetLeftHand);
-    connect(m_isTyping, &SwitchWidget::checkedChanegd, this, &BaseSettings::requestSetDisTyping);
-    connect(m_naturalScroll, &SwitchWidget::checkedChanegd, this, &BaseSettings::requestSetNaturalScroll);
+    connect(m_leftHand, &SwitchWidget::checkedChanged, this, &BaseSettings::requestSetLeftHand);
+    connect(m_isTyping, &SwitchWidget::checkedChanged, this, &BaseSettings::requestSetDisTyping);
+    connect(m_naturalScroll, &SwitchWidget::checkedChanged, this, &BaseSettings::requestSetNaturalScroll);
 
     QSlider *slider = douSlider->slider();
     connect(slider, &QSlider::valueChanged, this, &BaseSettings::requestSetSliderValue);

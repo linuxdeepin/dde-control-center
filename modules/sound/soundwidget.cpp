@@ -86,9 +86,9 @@ SoundWidget::SoundWidget(SoundModel *model) :
 
     setModel(model);
 
-    connect(m_speakerSwitch, &SwitchWidget::checkedChanegd, this, &SoundWidget::requestSwitchSpeaker);
-    connect(m_microphoneSwitch, &SwitchWidget::checkedChanegd, this, &SoundWidget::requestSiwtchMicrophone);
-    connect(m_soundEffectSwitch, &SwitchWidget::checkedChanegd, this, &SoundWidget::requestSwitchSoundEffect);
+    connect(m_speakerSwitch, &SwitchWidget::checkedChanged, this, &SoundWidget::requestSwitchSpeaker);
+    connect(m_microphoneSwitch, &SwitchWidget::checkedChanged, this, &SoundWidget::requestSiwtchMicrophone);
+    connect(m_soundEffectSwitch, &SwitchWidget::checkedChanged, this, &SoundWidget::requestSwitchSoundEffect);
     connect(m_outputBalanceSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetSpeakerBalance(value / 100.f); });
     connect(m_inputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetMicrophoneVolume(value / 100.f); });
     connect(m_outputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetSpeakerVolume(value / 100.f);} );

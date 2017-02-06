@@ -38,7 +38,7 @@ SwitchWidget::SwitchWidget(QWidget *widget, QFrame *parent):
     setFixedHeight(36);
     setLayout(mainLayout);
 
-    connect(m_switchBtn, &DSwitchButton::checkedChanged, this, &SwitchWidget::checkedChanegd);
+    connect(m_switchBtn, &DSwitchButton::checkedChanged, this, &SwitchWidget::checkedChanged);
 }
 
 void SwitchWidget::setChecked(const bool checked)

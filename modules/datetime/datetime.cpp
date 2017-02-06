@@ -52,7 +52,7 @@ Datetime::Datetime()
         emit requestUnhold();
     });
 
-    connect(m_ntpSwitch, &SwitchWidget::checkedChanegd, this, &Datetime::requestSetNtp);
+    connect(m_ntpSwitch, &SwitchWidget::checkedChanged, this, &Datetime::requestSetNtp);
     connect(m_timePageButton, &NextPageWidget::clicked, this, &Datetime::requestTimeSettings);
 
     connect(m_addTimezoneButton, &QPushButton::clicked, this, [this] {

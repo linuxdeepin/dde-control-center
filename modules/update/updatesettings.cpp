@@ -48,7 +48,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     setContent(widget);
 
     connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
-    connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanegd, this, &UpdateSettings::requestSetAutoUpdate);
+    connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoUpdate);
 
     setModel(model);
 }

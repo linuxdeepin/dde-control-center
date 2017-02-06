@@ -61,9 +61,9 @@ PowerWidget::PowerWidget()
 
     setTitle(tr("Power Management"));
 
-    connect(m_displayNeedPassword, &SwitchWidget::checkedChanegd, this, &PowerWidget::requestSetScreenBlackLock);
-    connect(m_wakeNeedPassword, &SwitchWidget::checkedChanegd, this, &PowerWidget::requestSetSleepLock);
-    connect(m_sleepOnLidOff, &SwitchWidget::checkedChanegd, this, &PowerWidget::requestSetSleepOnLidClosed);
+    connect(m_displayNeedPassword, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetScreenBlackLock);
+    connect(m_wakeNeedPassword, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetSleepLock);
+    connect(m_sleepOnLidOff, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetSleepOnLidClosed);
 
     m_monitorSlider = m_monitorSleep->slider();
     m_sleepSlider = m_computerSleep->slider();

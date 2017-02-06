@@ -42,7 +42,7 @@ MouseSettings::MouseSettings(const QString &title, QWidget *parent)
     m_mainLayout->addWidget(m_mainGroup);
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
-    connect(m_switchWidget, &SwitchWidget::checkedChanegd, this, &MouseSettings::requestSetSwitch);
+    connect(m_switchWidget, &SwitchWidget::checkedChanged, this, &MouseSettings::requestSetSwitch);
 
     QSlider *spSlider;
     spSlider = m_speedSlider->slider();

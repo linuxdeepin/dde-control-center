@@ -89,7 +89,7 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     connect(m_scItem, SIGNAL(clicked()), this, SIGNAL(shortcut()));
     connect(m_delaySlider, &DCCSlider::valueChanged, this, &KeyboardWidget::delayChanged);
     connect(m_speedSlider, &DCCSlider::valueChanged, this, &KeyboardWidget::speedChanged);
-    connect(m_upper, SIGNAL(checkedChanegd(bool)), this, SIGNAL(capsLockChanged(bool)));
+    connect(m_upper, SIGNAL(checkedChanged(bool)), this, SIGNAL(capsLockChanged(bool)));
 
 
     connect(m_model, &KeyboardModel::repeatDelayChanged, this, &KeyboardWidget::setDelayValue);

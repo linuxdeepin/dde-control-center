@@ -45,7 +45,7 @@ VpnPage::VpnPage(QWidget *parent)
     setContent(mainWidget);
     setTitle(tr("VPN"));
 
-    connect(m_vpnSwitch, &SwitchWidget::checkedChanegd, this, &VpnPage::requestVpnEnabled);
+    connect(m_vpnSwitch, &SwitchWidget::checkedChanged, this, &VpnPage::requestVpnEnabled);
     connect(createVpnBtn, &QPushButton::clicked, this, &VpnPage::createVPNSession);
 }
 
