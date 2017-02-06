@@ -1,76 +1,61 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.1">
 <context>
-    <name>NotifyManager</name>
+    <name>DisplayControlModel</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="17"/>
-        <source>No system notifications</source>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="55"/>
+        <source>Copy</source>
+        <translation>Kopírovať</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="57"/>
+        <source>Extend</source>
+        <translation>Rozšíriť</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="59"/>
+        <source>Only Displayed on %1</source>
+        <translation>Zobrazené iba na %1</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="61"/>
+        <source>My Settings</source>
+        <translation>Moje nastavenia</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="67"/>
+        <source>Copy the screen contents to one or more screens</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="69"/>
+        <source>Extend the screen contents to display different contents on different screens</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="71"/>
+        <source>Screen contents are only displayed on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="73"/>
+        <source>Please enter display mode to set if you want to change the custom settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>PowerWidget</name>
+    <name>NotifyManager</name>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="18"/>
-        <source>Monitor will suspend after</source>
-        <translation>Monitor sa vypne po</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerwidget.cpp" line="19"/>
-        <source>Computer will suspend after</source>
-        <translation>Počítač sa vypne po</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerwidget.cpp" line="29"/>
-        <location filename="../modules/power/powerwidget.cpp" line="112"/>
-        <source>Never</source>
-        <translation>Nikdy</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerwidget.cpp" line="48"/>
-        <source>Password required to wake up the monitor</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/power/powerwidget.cpp" line="51"/>
-        <source>Password required to wake up the computer</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/power/powerwidget.cpp" line="54"/>
-        <source>Suspend on lid close</source>
-        <translation>Pozastaviť pri zatvorení veka</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerwidget.cpp" line="61"/>
-        <source>Power Management</source>
-        <translation>Správa napájania</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerwidget.cpp" line="100"/>
-        <source>1 Minute</source>
-        <translation>1 minúta</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerwidget.cpp" line="102"/>
-        <location filename="../modules/power/powerwidget.cpp" line="104"/>
-        <location filename="../modules/power/powerwidget.cpp" line="106"/>
-        <location filename="../modules/power/powerwidget.cpp" line="108"/>
-        <location filename="../modules/power/powerwidget.cpp" line="114"/>
-        <source>%1 Minutes</source>
-        <translation>%1 minút</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerwidget.cpp" line="110"/>
-        <source>1 Hour</source>
-        <translation>1 hodina</translation>
+        <location filename="../plugins/notify/notifymanager.cpp" line="18"/>
+        <source>No system notifications</source>
+        <translation>Žiadne systémové upozornenia</translation>
     </message>
 </context>
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../modules/display/rotatedialog.cpp" line="50"/>
+        <location filename="../modules/display/rotatedialog.cpp" line="126"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation type="unfinished"/>
+        <translation>Ľavé kliknutie pre otočenie a pravé kliknutie pre opustenie</translation>
     </message>
 </context>
 <context>
@@ -81,7 +66,7 @@
         <translation>Resetovať všetky nastavenia</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="76"/>
+        <location filename="../frame/settingswidget.cpp" line="80"/>
         <source>All Settings</source>
         <translation>Všetky nastavenia</translation>
     </message>
@@ -89,18 +74,26 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="124"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="57"/>
         <source>Sorry, unable to get weather!</source>
         <translation>Bohužiaľ sa nepodarilo získať počasie!</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="128"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="61"/>
         <source>Loading weather...</source>
         <translation>Nahrávam počasie...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="187"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Just updated</source>
+        <translation>Práve aktualizovaný</translation>
+    </message>
+</context>
+<context>
+    <name>WifiListModel</name>
+    <message>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="126"/>
+        <source>Wireless Card %1</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -143,7 +136,7 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="209"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="227"/>
         <source>Password not match.</source>
         <translation>Heslo sa nezhoduje. </translation>
     </message>
@@ -183,12 +176,12 @@
         <translation>Zopakujte heslo</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="67"/>
+        <location filename="../modules/accounts/createpage.cpp" line="70"/>
         <source>New Account</source>
         <translation>Nový účet</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="122"/>
+        <location filename="../modules/accounts/createpage.cpp" line="125"/>
         <source>Password can&apos;t be empty.</source>
         <translation>Heslo nemôže byť prázdne.</translation>
     </message>
@@ -211,12 +204,12 @@
         <translation>Zrušiť</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="28"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="29"/>
         <source>Accept</source>
         <translation>Súhlasiť</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="50"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>Password</source>
         <translation>Heslo</translation>
     </message>
@@ -259,7 +252,7 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="38"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>Aktivovať bluetooth pre nájdenie okolitých zariadení (reproduktor, klávesnica, myš)</translation>
     </message>
 </context>
 <context>
@@ -327,7 +320,7 @@
         <translation>Zmeniť nastavenia času</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datesettings.cpp" line="65"/>
+        <location filename="../modules/datetime/datesettings.cpp" line="68"/>
         <source>Change System Timezone</source>
         <translation>Zmeniť časovú zónu systému</translation>
     </message>
@@ -340,12 +333,12 @@
         <translation>Rok</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetimewidget.cpp" line="32"/>
+        <location filename="../modules/datetime/datetimewidget.cpp" line="33"/>
         <source>Month</source>
         <translation>Mesiac</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetimewidget.cpp" line="34"/>
+        <location filename="../modules/datetime/datetimewidget.cpp" line="36"/>
         <source>Day</source>
         <translation>Deň</translation>
     </message>
@@ -394,27 +387,27 @@
 <context>
     <name>dcc::datetime::TimezoneItem</name>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="69"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="86"/>
         <source>Tomorrow</source>
         <translation>Zajtra</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="71"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="88"/>
         <source>Yesterday</source>
         <translation>Včera</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="73"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="90"/>
         <source>Today</source>
         <translation>Dnes</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="78"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="95"/>
         <source>%1 hours earlier than local</source>
         <translation>%1 hodiny skôr ako lokálne</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="80"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="97"/>
         <source>%1 hours late than local</source>
         <translation>%1 hodiny neskôr ako lokálne</translation>
     </message>
@@ -489,7 +482,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="50"/>
         <source>Autoplay</source>
-        <translation type="unfinished"/>
+        <translation>Automaticky prehrať</translation>
     </message>
 </context>
 <context>
@@ -500,14 +493,14 @@
         <translation>Pridať</translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="70"/>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="80"/>
         <source>Open Desktop file</source>
         <translation>Otvoriť súbor plochy</translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="71"/>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="81"/>
         <source>All Files(*)</source>
-        <translation type="unfinished"/>
+        <translation>Všetky súbory(*)</translation>
     </message>
 </context>
 <context>
@@ -539,7 +532,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="25"/>
         <source>My Settings</source>
-        <translation type="unfinished"/>
+        <translation>Moje nastavenia</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="38"/>
@@ -568,27 +561,27 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="54"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="76"/>
         <source>Resolution</source>
         <translation>Rozlíšenie</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="119"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="148"/>
         <source>Cancel</source>
         <translation>Zrušiť</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="121"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="150"/>
         <source>Apply</source>
         <translation>Použiť</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="128"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="157"/>
         <source>Primary</source>
         <translation>Primárny</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="292"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="323"/>
         <source> (Recommended)</source>
         <translation>(Odporúčané)</translation>
     </message>
@@ -651,7 +644,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="78"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Táto skratka je v konflikte s %1, kliknite na tlačidlo Pridať, aby ste ju aktivovali okamžite</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="110"/>
@@ -707,52 +700,57 @@
         <translation>Oneskorenie opakovania</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="35"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="36"/>
         <source>Short</source>
         <translation>Krátke</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="35"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="36"/>
         <source>Long</source>
         <translation>Dlhé</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="39"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="40"/>
         <source>Repeat Rate</source>
         <translation>Rýchlosť opakovania</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="48"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
         <source>Slow</source>
         <translation>Pomaly</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="48"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
         <source>Fast</source>
         <translation>Rýchlo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="52"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="54"/>
         <source>Please Test Here</source>
         <translation>Prosím tu otestovať</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="60"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
+        <source>Enable Numeric Keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
         <source>Caps Lock Prompt</source>
         <translation>Režim Caps Lock</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="65"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
         <source>Keyboard Layout</source>
         <translation>Rozloženie klávesnice</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="71"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="78"/>
         <source>System Language</source>
         <translation>Jazyk systému</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="76"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="83"/>
         <source>Shortcut</source>
         <translation>Odkaz</translation>
     </message>
@@ -760,10 +758,10 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="162"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="174"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="190"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="322"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="168"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="180"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="196"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="333"/>
         <source>None</source>
         <translation>Žiadne</translation>
     </message>
@@ -801,7 +799,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="59"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Táto skratka je v konflikte s %1, kliknite na tlačidlo Nahradiť, aby ste ju aktivovali okamžite</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="96"/>
@@ -816,6 +814,11 @@
         <location filename="../modules/keyboard/shortcutitem.cpp" line="182"/>
         <source>Conflict</source>
         <translation>Konflikt</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="211"/>
+        <source>Please enter a new shortcut</source>
+        <translation>Prosím, zadajte novú skratku</translation>
     </message>
 </context>
 <context>
@@ -850,7 +853,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="44"/>
         <source>Add Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Pridať vlastnú skratku</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="53"/>
@@ -859,7 +862,7 @@
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="133"/>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="200"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="201"/>
         <source>Custom Shortcut</source>
         <translation>Vlastný odkaz</translation>
     </message>
@@ -867,32 +870,32 @@
 <context>
     <name>dcc::mouse::BaseSettings</name>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="27"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
         <source>Left Hand</source>
         <translation>Ľavá ruka</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="29"/>
         <source>Natural Scrolling</source>
         <translation>Prirodzené skrolovanie</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="29"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="30"/>
         <source>Disable the touchpad while typing</source>
         <translation>Zablokovať touchpad pri písaní</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="41"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
         <source>Slow</source>
         <translation>Pomaly</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="41"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
         <source>Fast</source>
         <translation>Rýchlo</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="43"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="44"/>
         <source>Double-click Speed</source>
         <translation>Rýchlosť dvoj-kliku</translation>
     </message>
@@ -956,7 +959,7 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="18"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>TrackPoint</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="21"/>
@@ -1018,12 +1021,12 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="69"/>
         <source>MAC</source>
-        <translation type="unfinished"/>
+        <translation>MAC</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="78"/>
         <source>IPv4 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv4 adresa</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="83"/>
@@ -1048,7 +1051,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="104"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>Rýchlosť</translation>
     </message>
 </context>
 <context>
@@ -1066,12 +1069,12 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authing</source>
-        <translation type="unfinished"/>
+        <translation>Overovanie</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
         <source>Obtaining Address</source>
-        <translation type="unfinished"/>
+        <translation>Získavanie adresy</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="61"/>
@@ -1107,47 +1110,47 @@
         <translation>Detaily siete</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="47"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="49"/>
         <source>Network</source>
         <translation>Sieť</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="146"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="149"/>
         <source>Wired Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Káblová sieťová karta%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="151"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="154"/>
         <source>Wired Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Káblová sieťová karta</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="152"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="155"/>
         <source>Wired Network</source>
         <translation>Drôtová sieť</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="150"/>
         <source>Wired Network%1</source>
         <translation>Káblova sieť%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="159"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="162"/>
         <source>Wireless Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Bezdrôtová sieťová karta%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="164"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="167"/>
         <source>Wireless Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Bezdrôtová sieťová karta</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="165"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="168"/>
         <source>Wireless Network</source>
         <translation>Bezdrôtová sieť</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="160"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="163"/>
         <source>Wireless Network%1</source>
         <translation>Bezdrôtová sieť%1</translation>
     </message>
@@ -1163,6 +1166,67 @@
         <location filename="../modules/network/pppoepage.cpp" line="37"/>
         <source>PPP</source>
         <translation>PPP</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::ProxyPage</name>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="30"/>
+        <source>None</source>
+        <translation>Žiadne</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="31"/>
+        <source>Manual</source>
+        <translation>Ručné</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="32"/>
+        <source>Auto</source>
+        <translation>Automatické</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="35"/>
+        <source>Http Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="37"/>
+        <location filename="../modules/network/proxypage.cpp" line="42"/>
+        <location filename="../modules/network/proxypage.cpp" line="47"/>
+        <location filename="../modules/network/proxypage.cpp" line="52"/>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="40"/>
+        <source>Https Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="45"/>
+        <source>Ftp Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="50"/>
+        <source>Socks Proxy</source>
+        <translation>Proxy SOCKS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="59"/>
+        <source>Ignore the proxy configurations for the above hosts and domains</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="62"/>
+        <source>Configuration URL</source>
+        <translation>Konfigurácia URL</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="116"/>
+        <source>System Proxy</source>
+        <translation>System Proxy</translation>
     </message>
 </context>
 <context>
@@ -1183,39 +1247,39 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="177"/>
+        <location filename="../modules/network/vpnpage.cpp" line="180"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="179"/>
+        <location filename="../modules/network/vpnpage.cpp" line="183"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="181"/>
+        <location filename="../modules/network/vpnpage.cpp" line="186"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="183"/>
+        <location filename="../modules/network/vpnpage.cpp" line="189"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="185"/>
+        <location filename="../modules/network/vpnpage.cpp" line="192"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="187"/>
+        <location filename="../modules/network/vpnpage.cpp" line="195"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="205"/>
+        <location filename="../modules/network/vpnpage.cpp" line="213"/>
         <source>New VPN</source>
-        <translation type="unfinished"/>
+        <translation>Nová VPN</translation>
     </message>
 </context>
 <context>
@@ -1236,7 +1300,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="57"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation>(Nepodporované písmo)</translation>
     </message>
 </context>
 <context>
@@ -1302,7 +1366,7 @@
 <context>
     <name>dcc::personalization::Theme</name>
     <message>
-        <location filename="../modules/personalization/module/themewidget/theme.cpp" line="57"/>
+        <location filename="../modules/personalization/module/themewidget/theme.cpp" line="55"/>
         <source> (Default)</source>
         <translation>(Predvolené)</translation>
     </message>
@@ -1328,6 +1392,64 @@
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="27"/>
         <source>Theme</source>
         <translation>Téma</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::power::PowerWidget</name>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="19"/>
+        <source>Monitor will suspend after</source>
+        <translation>Monitor sa vypne po</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="20"/>
+        <source>Computer will suspend after</source>
+        <translation>Počítač sa vypne po</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="30"/>
+        <location filename="../modules/power/powerwidget.cpp" line="113"/>
+        <source>Never</source>
+        <translation>Nikdy</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="49"/>
+        <source>Password required to wake up the monitor</source>
+        <translation>Heslo potrebné na prebudenie monitora</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="52"/>
+        <source>Password required to wake up the computer</source>
+        <translation>Heslo potrebné na prebudenie počítača</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="55"/>
+        <source>Suspend on lid close</source>
+        <translation>Pozastaviť pri zatvorení veka</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="62"/>
+        <source>Power Management</source>
+        <translation>Správa napájania</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="101"/>
+        <source>1 Minute</source>
+        <translation>1 minúta</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="103"/>
+        <location filename="../modules/power/powerwidget.cpp" line="105"/>
+        <location filename="../modules/power/powerwidget.cpp" line="107"/>
+        <location filename="../modules/power/powerwidget.cpp" line="109"/>
+        <location filename="../modules/power/powerwidget.cpp" line="115"/>
+        <source>%1 Minutes</source>
+        <translation>%1 minút</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="111"/>
+        <source>1 Hour</source>
+        <translation>1 hodina</translation>
     </message>
 </context>
 <context>
@@ -1441,41 +1563,51 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="29"/>
+        <source>Distribution:</source>
+        <translation>Distribúcia:</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="33"/>
+        <source>Distribution Release:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="37"/>
         <source>Edition:</source>
         <translation>Vydanie:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="33"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="41"/>
         <source>Type:</source>
         <translation>Typ:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="85"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="116"/>
         <source>%1Bit</source>
         <translation>%1Bit</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="36"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="44"/>
         <source>Processor:</source>
         <translation>Procesor:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="40"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="48"/>
         <source>Memory:</source>
         <translation>Pamäť:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="44"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="52"/>
         <source>Disk:</source>
         <translation>Disk:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="55"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="65"/>
         <source>License</source>
         <translation>Licencia</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="58"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="68"/>
         <source>Startup Menu</source>
         <translation>Ponuka pri štarte</translation>
     </message>
