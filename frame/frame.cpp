@@ -220,6 +220,7 @@ void Frame::show()
 
     // show frame
     QFrame::show();
+    QFrame::activateWindow();
 
     // notify top widget appear
     if (m_frameWidgetStack.last() && m_frameWidgetStack.last()->content())
