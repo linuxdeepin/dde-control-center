@@ -3,6 +3,7 @@
 #include "quickswitchbutton.h"
 #include "vpn/vpncontrolpage.h"
 #include "display/displaycontrolpage.h"
+#include "wifi/wifipage.h"
 
 #include "network/networkmodel.h"
 #include "network/networkworker.h"
@@ -29,10 +30,12 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_displayModel = new DisplayModel(this);
     m_displayWorker = new DisplayWorker(m_displayModel, this);
 
+    WifiPage *wifiPage = new WifiPage(m_networkModel);
+
     m_itemStack->addWidget(new BasicSettingsPage);
     m_itemStack->addWidget(new QWidget);
     m_itemStack->addWidget(new VpnControlPage(m_networkModel));
-    m_itemStack->addWidget(new QWidget);
+    m_itemStack->addWidget(wifiPage);
     m_itemStack->addWidget(new DisplayControlPage(m_displayModel));
 
     QuickSwitchButton *btSwitch = new QuickSwitchButton(1, "bluetooth");
@@ -82,6 +85,8 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     connect(m_networkModel, &NetworkModel::vpnEnabledChanged, vpnSwitch, &QuickSwitchButton::setChecked);
     connect(vpnSwitch, &QuickSwitchButton::checkedChanged, m_networkWorker, &NetworkWorker::setVpnEnable);
+
+    connect(wifiPage, &WifiPage::requestDeviceApList, m_networkWorker, &NetworkWorker::queryAccessPoints);
 
     vpnSwitch->setChecked(m_networkModel->vpnEnabled());
 }
