@@ -25,6 +25,14 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     LogoItem* logo = new LogoItem;
     logo->setDescription(tr("Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd."));
 
+    m_distroid = new TitleValueItem();
+    m_distroid->setTitle(tr("Distribution:"));
+    m_distroid->setValue(m_model->distroid());
+
+    m_distrover = new TitleValueItem();
+    m_distrover->setTitle(tr("Distribution Release:"));
+    m_distrover->setValue(m_model->distrover());
+
     m_version = new TitleValueItem();
     m_version->setTitle(tr("Edition:"));
     m_version->setValue(m_model->version());
@@ -45,6 +53,8 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     m_disk->setValue(m_model->disk());
 
     infoGroup->appendItem(logo);
+    infoGroup->appendItem(m_distroid);
+    infoGroup->appendItem(m_distrover);
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
     infoGroup->appendItem(m_processor);
@@ -66,6 +76,8 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
 
     connect(m_copyright, SIGNAL(clicked()), this, SIGNAL(copyright()));
     connect(m_boot, SIGNAL(clicked()), this, SIGNAL(boot()));
+    connect(m_model, SIGNAL(distroidChanged(QString)), this, SLOT(setDistroID(QString)));
+    connect(m_model, SIGNAL(distroverChanged(QString)), this, SLOT(setDistroVer(QString)));
     connect(m_model, SIGNAL(versionChanged(QString)), this, SLOT(setEdition(QString)));
     connect(m_model, SIGNAL(typeChanged(QString)), this, SLOT(setType(QString)));
     connect(m_model, SIGNAL(processorChanged(QString)), this, SLOT(setProcessor(QString)));
@@ -73,6 +85,25 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     connect(m_model, SIGNAL(diskChanged(QString)), this, SLOT(setDisk(QString)));
 
     setType(m_model->type());
+}
+
+void SystemInfoWidget::setDistroID(const QString &distroid)
+{
+    m_distroid->setValue(distroid);
+
+    if (distroid == "Deepin") {
+        m_distroid->setVisible(false);
+        m_distrover->setVisible(false);
+    }
+    else {
+        m_distroid->setVisible(true);
+        m_distrover->setVisible(true);
+    }
+}
+
+void SystemInfoWidget::setDistroVer(const QString &distrover)
+{
+    m_distrover->setValue(distrover);
 }
 
 void SystemInfoWidget::setEdition(const QString &edition)

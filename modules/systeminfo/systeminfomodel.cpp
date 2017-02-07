@@ -72,6 +72,24 @@ void SystemInfoModel::setBootDelay(bool bootDelay)
     }
 }
 
+void SystemInfoModel::setDistroID(const QString &distroid)
+{
+    if(m_distroid == distroid)
+        return;
+
+    m_distroid = distroid;
+    emit distroidChanged(m_distroid);
+}
+
+void SystemInfoModel::setDistroVer(const QString &distrover)
+{
+    if(m_distrover == distrover)
+        return;
+
+    m_distrover = distrover;
+    emit distroverChanged(m_distrover);
+}
+
 void SystemInfoModel::setVersion(const QString &version)
 {
     if(m_version == version)

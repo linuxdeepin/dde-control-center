@@ -35,9 +35,13 @@ public slots:
     void setType(const QString& type);
     void setProcessor(const QString& processor);
     void setMemory(const QString& memory);
+    void setDistroID(const QString& distroid);
+    void setDistroVer(const QString& distrover);
     void setDisk(const QString& disk);
 
 private:
+    widgets::TitleValueItem* m_distroid;
+    widgets::TitleValueItem* m_distrover;
     widgets::TitleValueItem* m_version;
     widgets::TitleValueItem* m_type;
     widgets::TitleValueItem* m_processor;

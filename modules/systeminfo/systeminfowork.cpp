@@ -27,6 +27,8 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     });
     connect(m_dbusGrub, &__Grub2::UpdatingChanged, m_model, &SystemInfoModel::setUpdating);
 
+    connect(m_systemInfoInter, &__SystemInfo::DistroIDChanged, m_model, &SystemInfoModel::setDistroID);
+    connect(m_systemInfoInter, &__SystemInfo::DistroVerChanged, m_model, &SystemInfoModel::setDistroVer);
     connect(m_systemInfoInter, &__SystemInfo::VersionChanged, m_model, &SystemInfoModel::setVersion);
     connect(m_systemInfoInter, &__SystemInfo::SystemTypeChanged, m_model, &SystemInfoModel::setType);
     connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
@@ -36,6 +38,8 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
 void SystemInfoWork::activate()
 {
+    m_model->setDistroID(m_systemInfoInter->distroID());
+    m_model->setDistroVer(m_systemInfoInter->distroVer());
     m_model->setVersion(m_systemInfoInter->version());
     m_model->setType(m_systemInfoInter->systemType());
     m_model->setProcessor(m_systemInfoInter->processor());
