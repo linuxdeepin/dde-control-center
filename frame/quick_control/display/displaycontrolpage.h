@@ -11,11 +11,7 @@ class DisplayControlPage : public QWidget
     Q_OBJECT
 
 public:
-    explicit DisplayControlPage(QWidget *parent = 0);
-
-private:
-    dcc::display::DisplayModel *m_displayModel;
-    dcc::display::DisplayWorker *m_displayWorker;
+    explicit DisplayControlPage(dcc::display::DisplayModel *model, QWidget *parent = 0);
 };
 
 #endif // DISPLAYCONTROLPAGE_H

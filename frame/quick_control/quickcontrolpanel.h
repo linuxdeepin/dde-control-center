@@ -14,6 +14,13 @@ class NetworkWorker;
 
 }
 
+namespace display {
+
+class DisplayModel;
+class DisplayWorker;
+
+}
+
 }
 
 class QuickControlPanel : public QWidget
@@ -35,6 +42,8 @@ private:
 
     dcc::network::NetworkModel *m_networkModel;
     dcc::network::NetworkWorker *m_networkWorker;
+    dcc::display::DisplayModel *m_displayModel;
+    dcc::display::DisplayWorker *m_displayWorker;
 };
 
 #endif // QUICKCONTROLPANEL_H

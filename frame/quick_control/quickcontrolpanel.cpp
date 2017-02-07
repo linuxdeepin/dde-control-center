@@ -7,11 +7,16 @@
 #include "network/networkmodel.h"
 #include "network/networkworker.h"
 
+#include "display/displaymodel.h"
+#include "display/displayworker.h"
+
 #include <QVBoxLayout>
 
 using namespace dcc;
 using dcc::network::NetworkModel;
 using dcc::network::NetworkWorker;
+using dcc::display::DisplayModel;
+using dcc::display::DisplayWorker;
 
 QuickControlPanel::QuickControlPanel(QWidget *parent)
     : QWidget(parent),
@@ -21,11 +26,14 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_networkModel = new NetworkModel(this);
     m_networkWorker = new NetworkWorker(m_networkModel, this);
 
+    m_displayModel = new DisplayModel(this);
+    m_displayWorker = new DisplayWorker(m_displayModel, this);
+
     m_itemStack->addWidget(new BasicSettingsPage);
     m_itemStack->addWidget(new QWidget);
     m_itemStack->addWidget(new VpnControlPage(m_networkModel));
     m_itemStack->addWidget(new QWidget);
-    m_itemStack->addWidget(new DisplayControlPage);
+    m_itemStack->addWidget(new DisplayControlPage(m_displayModel));
 
     QuickSwitchButton *btSwitch = new QuickSwitchButton(1, "bluetooth");
     QuickSwitchButton *vpnSwitch = new QuickSwitchButton(2, "VPN");

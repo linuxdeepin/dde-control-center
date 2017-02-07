@@ -6,14 +6,11 @@
 
 using namespace dcc::display;
 
-DisplayControlPage::DisplayControlPage(QWidget *parent)
-    : QWidget(parent),
-
-      m_displayModel(new DisplayModel(this)),
-      m_displayWorker(new DisplayWorker(m_displayModel, this))
+DisplayControlPage::DisplayControlPage(DisplayModel *model, QWidget *parent)
+    : QWidget(parent)
 {
 
-    DisplayControlModel *listModel = new DisplayControlModel;
+    DisplayControlModel *listModel = new DisplayControlModel(model);
     BasicListView *listView = new BasicListView;
     listView->setModel(listModel);
 
