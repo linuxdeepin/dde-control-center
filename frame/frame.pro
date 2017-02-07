@@ -28,7 +28,8 @@ HEADERS    += \
     quick_control/vpn/vpncontrolpage.h \
     quick_control/vpn/vpnlistmodel.h \
     quick_control/basiclistview.h \
-    quick_control/display/displaycontrolpage.h
+    quick_control/display/displaycontrolpage.h \
+    quick_control/display/displaycontrolmodel.h
 
 SOURCES    += \
             main.cpp \
@@ -45,7 +46,8 @@ SOURCES    += \
     quick_control/vpn/vpncontrolpage.cpp \
     quick_control/vpn/vpnlistmodel.cpp \
     quick_control/basiclistview.cpp \
-    quick_control/display/displaycontrolpage.cpp
+    quick_control/display/displaycontrolpage.cpp \
+    quick_control/display/displaycontrolmodel.cpp
 
 #RESOURCES += \
 #    qss.qrc \
