@@ -2,6 +2,7 @@
 #include "basicsettingspage.h"
 #include "quickswitchbutton.h"
 #include "vpn/vpncontrolpage.h"
+#include "display/displaycontrolpage.h"
 
 #include "network/networkmodel.h"
 #include "network/networkworker.h"
@@ -24,7 +25,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_itemStack->addWidget(new QWidget);
     m_itemStack->addWidget(new VpnControlPage(m_networkModel));
     m_itemStack->addWidget(new QWidget);
-    m_itemStack->addWidget(new QWidget);
+    m_itemStack->addWidget(new DisplayControlPage);
 
     QuickSwitchButton *btSwitch = new QuickSwitchButton(1, "bluetooth");
     QuickSwitchButton *vpnSwitch = new QuickSwitchButton(2, "VPN");
