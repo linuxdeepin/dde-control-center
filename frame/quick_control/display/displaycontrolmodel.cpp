@@ -42,7 +42,19 @@ const QString DisplayControlModel::optionName(const int index) const
     else if (index == 1)
         return tr("Extend");
     else if (index < m_displayModel->monitorList().size() + 2)
-        return tr("Screen contents are only displayed on %1").arg(m_displayModel->monitorList()[index - 2]->name());
+        return tr("Only Displayed on %1").arg(m_displayModel->monitorList()[index - 2]->name());
 
     return tr("My Settings");
+}
+
+const QString DisplayControlModel::optionDescription(const int index) const
+{
+    if (index == 0)
+        return tr("Copy the screen contents to one or more screens");
+    else if (index == 1)
+        return tr("Extend the screen contents to display different contents on different screens");
+    else if (index < m_displayModel->monitorList().size() + 2)
+        return tr("Screen contents are only displayed on %1").arg(m_displayModel->monitorList()[index - 2]->name());
+
+    return tr("Please enter display mode to set if you want to change the custom settings");
 }

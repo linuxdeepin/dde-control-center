@@ -24,6 +24,7 @@ public:
 
 private:
     const QString optionName(const int index) const;
+    const QString optionDescription(const int index) const;
 
 private:
     dcc::display::DisplayModel *m_displayModel;
