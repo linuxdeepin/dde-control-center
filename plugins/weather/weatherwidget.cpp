@@ -80,7 +80,7 @@ WeatherWidget::WeatherWidget(QWidget *parent)
     m_view = new DPictureSequenceView(this);
     m_view->setFixedSize(50,50);
     QStringList lists;
-    for(int i = 0; i<100; i++)
+    for(int i = 99; i >= 0; i--)
     {
         QString arg = QString().setNum(i);
         if(arg.length() == 1)
