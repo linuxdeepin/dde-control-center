@@ -1,5 +1,5 @@
 #include "vpncontrolpage.h"
-#include "vpnlistview.h"
+#include "../basiclistview.h"
 
 #include <QDebug>
 #include <QListView>
@@ -12,7 +12,7 @@ VpnControlPage::VpnControlPage(NetworkModel *model, QWidget *parent)
 
       m_listModel(new VpnListModel(model, this))
 {
-    QListView *listView = new VpnListView;
+    BasicListView *listView = new BasicListView;
 
     listView->setModel(m_listModel);
 
@@ -22,9 +22,4 @@ VpnControlPage::VpnControlPage(NetworkModel *model, QWidget *parent)
     mainLayout->setMargin(0);
 
     setLayout(mainLayout);
-
-    auto updateViewHeight = [=] { listView->setMaximumHeight(m_listModel->rowCount(QModelIndex()) * listView->sizeHintForRow(0)); };
-    connect(m_listModel, &VpnListModel::layoutChanged, updateViewHeight);
-
-    updateViewHeight();
 }

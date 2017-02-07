@@ -13,13 +13,17 @@ VpnListModel::VpnListModel(NetworkModel *model, QObject *parent)
       m_networkModel(model)
 {
     connect(m_networkModel, &NetworkModel::connectionListChanged, [this] { emit layoutChanged(); });
+    connect(m_networkModel, &NetworkModel::vpnEnabledChanged, [this] { emit layoutChanged(); });
 }
 
 int VpnListModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
 
-    return m_networkModel->vpns().size();
+    if (m_networkModel->vpnEnabled())
+        return m_networkModel->vpns().size();
+    else
+        return 0;
 }
 
 QVariant VpnListModel::data(const QModelIndex &index, int role) const
