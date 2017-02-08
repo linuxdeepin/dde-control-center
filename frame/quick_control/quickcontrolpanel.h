@@ -21,6 +21,13 @@ class DisplayWorker;
 
 }
 
+namespace bluetooth {
+
+class BluetoothModel;
+class BluetoothWorker;
+
+}
+
 }
 
 class QuickControlPanel : public QWidget
@@ -44,6 +51,8 @@ private:
     dcc::network::NetworkWorker *m_networkWorker;
     dcc::display::DisplayModel *m_displayModel;
     dcc::display::DisplayWorker *m_displayWorker;
+    dcc::bluetooth::BluetoothModel *m_bluetoothModel;
+    dcc::bluetooth::BluetoothWorker *m_bluetoothWorker;
 };
 
 #endif // QUICKCONTROLPANEL_H

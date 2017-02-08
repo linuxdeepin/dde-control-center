@@ -4,12 +4,16 @@
 #include "vpn/vpncontrolpage.h"
 #include "display/displaycontrolpage.h"
 #include "wifi/wifipage.h"
+#include "bluetooth/bluetoothlist.h"
 
 #include "network/networkmodel.h"
 #include "network/networkworker.h"
 
 #include "display/displaymodel.h"
 #include "display/displayworker.h"
+
+#include "bluetooth/bluetoothmodel.h"
+#include "bluetooth/bluetoothworker.h"
 
 #include <QVBoxLayout>
 
@@ -18,6 +22,8 @@ using dcc::network::NetworkModel;
 using dcc::network::NetworkWorker;
 using dcc::display::DisplayModel;
 using dcc::display::DisplayWorker;
+using dcc::bluetooth::BluetoothModel;
+using dcc::bluetooth::BluetoothWorker;
 
 QuickControlPanel::QuickControlPanel(QWidget *parent)
     : QWidget(parent),
@@ -32,8 +38,14 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     WifiPage *wifiPage = new WifiPage(m_networkModel);
 
+    m_bluetoothModel = new BluetoothModel(this);
+    m_bluetoothWorker = new BluetoothWorker(m_bluetoothModel);
+    m_bluetoothWorker->activate();
+
+    BluetoothList *bluetoothList = new BluetoothList(m_bluetoothModel);
+
     m_itemStack->addWidget(new BasicSettingsPage);
-    m_itemStack->addWidget(new QWidget);
+    m_itemStack->addWidget(bluetoothList);
     m_itemStack->addWidget(new VpnControlPage(m_networkModel));
     m_itemStack->addWidget(wifiPage);
     m_itemStack->addWidget(new DisplayControlPage(m_displayModel));

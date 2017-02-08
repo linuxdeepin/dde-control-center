@@ -31,7 +31,9 @@ HEADERS    += \
     quick_control/display/displaycontrolpage.h \
     quick_control/display/displaycontrolmodel.h \
     quick_control/wifi/wifipage.h \
-    quick_control/wifi/wifilistmodel.h
+    quick_control/wifi/wifilistmodel.h \
+    quick_control/bluetooth/bluetoothlist.h \
+    quick_control/bluetooth/bluetoothlistmodel.h
 
 SOURCES    += \
             main.cpp \
@@ -51,7 +53,9 @@ SOURCES    += \
     quick_control/display/displaycontrolpage.cpp \
     quick_control/display/displaycontrolmodel.cpp \
     quick_control/wifi/wifipage.cpp \
-    quick_control/wifi/wifilistmodel.cpp
+    quick_control/wifi/wifilistmodel.cpp \
+    quick_control/bluetooth/bluetoothlist.cpp \
+    quick_control/bluetooth/bluetoothlistmodel.cpp
 
 #RESOURCES += \
 #    qss.qrc \
