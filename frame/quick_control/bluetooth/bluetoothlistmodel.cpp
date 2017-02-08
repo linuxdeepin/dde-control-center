@@ -74,7 +74,19 @@ void BluetoothListModel::onDeviceApAdded(const dcc::bluetooth::Device *device)
     json.insert("Alias", device->name());
     json.insert("Paired", device->paired());
 
+    int pos = 0;
+    for (const Adapter *d : m_bluetoothModel->adapters())
+    {
+        if (d == adapter)
+            break;
+
+        pos += 1;
+    }
+
+    beginInsertRows(QModelIndex(), pos, pos + 1);
     m_adapterList[adapter].append(json);
+    endInsertRows();
+
     emit layoutChanged();
 }
 
