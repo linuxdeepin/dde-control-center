@@ -70,6 +70,16 @@ void NetworkModel::onVPNEnabledChanged(const bool enabled)
     }
 }
 
+void NetworkModel::onProxyMethodChanged(const QString &proxyMethod)
+{
+    if (m_proxyMethod != proxyMethod)
+    {
+        m_proxyMethod = proxyMethod;
+
+        emit proxyMethodChanged(m_proxyMethod);
+    }
+}
+
 void NetworkModel::onDeviceListChanged(const QString &devices)
 {
     const QJsonObject data = QJsonDocument::fromJson(devices.toUtf8()).object();

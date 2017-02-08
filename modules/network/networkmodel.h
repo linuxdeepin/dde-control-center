@@ -23,6 +23,7 @@ public:
     ~NetworkModel();
 
     bool vpnEnabled() const { return m_vpnEnabled; }
+    const QString proxyMethod() const { return m_proxyMethod; }
     const QList<NetworkDevice *> devices() const { return m_devices; }
     const QList<QJsonObject> vpns() const { return m_connections.value("vpn"); }
     const QList<QJsonObject> wireds() const { return m_connections.value("wired"); }
@@ -34,6 +35,7 @@ public:
 
 signals:
     void connectionListChanged() const;
+    void proxyMethodChanged(const QString &proxyMethod) const;
     void requestDeviceStatus(const QString &devPath) const;
     void activeConnectionsChanged(const QSet<QString> &conns) const;
     void activeConnInfoChanged(const QList<QJsonObject> &infos) const;
@@ -43,6 +45,7 @@ signals:
 
 private slots:
     void onVPNEnabledChanged(const bool enabled);
+    void onProxyMethodChanged(const QString &proxyMethod);
     void onDeviceListChanged(const QString &devices);
     void onConnectionListChanged(const QString &conns);
     void onActiveConnInfoChanged(const QString &conns);
@@ -59,6 +62,7 @@ private:
 
 private:
     bool m_vpnEnabled;
+    QString m_proxyMethod;
     QList<NetworkDevice *> m_devices;
     QMap<QString, QList<QJsonObject>> m_connections;
     QList<QJsonObject> m_activeConnInfos;

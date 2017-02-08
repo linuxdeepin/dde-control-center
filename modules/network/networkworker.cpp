@@ -41,6 +41,22 @@ void NetworkWorker::setDeviceEnable(const QString &devPath, const bool enable)
     m_networkInter.EnableDevice(QDBusObjectPath(devPath), enable);
 }
 
+void NetworkWorker::setProxyMethod(const QString &proxyMethod)
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.SetProxyMethod(proxyMethod), this);
+
+    // requery result
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryProxyMethod);
+    connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
+}
+
+void NetworkWorker::queryProxyMethod()
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.GetProxyMethod(), this);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryProxyMethodCB);
+}
+
 void NetworkWorker::queryActiveConnInfo()
 {
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.GetActiveConnectionInfo(), this);
@@ -111,6 +127,15 @@ void NetworkWorker::activateConnection(const QString &devPath, const QString &uu
 void NetworkWorker::activateAccessPoint(const QString &devPath, const QString &apPath, const QString &uuid)
 {
     m_networkInter.ActivateAccessPoint(uuid, QDBusObjectPath(apPath), QDBusObjectPath(devPath));
+}
+
+void NetworkWorker::queryProxyMethodCB(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QString> reply = *w;
+
+    m_networkModel->onProxyMethodChanged(reply.value());
+
+    w->deleteLater();
 }
 
 void NetworkWorker::queryAccessPointsCB(QDBusPendingCallWatcher *w)

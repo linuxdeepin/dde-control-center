@@ -159,6 +159,9 @@ void NetworkModule::showProxyPage()
 {
     ProxyPage *p = new ProxyPage;
 
+    connect(p, &ProxyPage::requestQueryProxyMethod, m_networkWorker, &NetworkWorker::queryProxyMethod);
+    connect(p, &ProxyPage::requestSetProxyMethod, m_networkWorker, &NetworkWorker::setProxyMethod);
+
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);
