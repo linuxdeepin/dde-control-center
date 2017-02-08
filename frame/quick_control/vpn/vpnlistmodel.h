@@ -18,6 +18,13 @@ class VpnListModel : public QAbstractListModel
     Q_OBJECT
 
 public:
+    enum VpnItmeRole
+    {
+        VpnNameRole = Qt::DisplayRole,
+        UnusedRole = Qt::UserRole,
+        VpnConnectedRole,
+    };
+
     explicit VpnListModel(dcc::network::NetworkModel *model, QObject *parent = 0);
 
     int rowCount(const QModelIndex &parent) const;

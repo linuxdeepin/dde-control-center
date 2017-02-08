@@ -33,7 +33,8 @@ HEADERS    += \
     quick_control/wifi/wifipage.h \
     quick_control/wifi/wifilistmodel.h \
     quick_control/bluetooth/bluetoothlist.h \
-    quick_control/bluetooth/bluetoothlistmodel.h
+    quick_control/bluetooth/bluetoothlistmodel.h \
+    quick_control/vpn/vpnlistdelegate.h
 
 SOURCES    += \
             main.cpp \
@@ -55,7 +56,8 @@ SOURCES    += \
     quick_control/wifi/wifipage.cpp \
     quick_control/wifi/wifilistmodel.cpp \
     quick_control/bluetooth/bluetoothlist.cpp \
-    quick_control/bluetooth/bluetoothlistmodel.cpp
+    quick_control/bluetooth/bluetoothlistmodel.cpp \
+    quick_control/vpn/vpnlistdelegate.cpp
 
 #RESOURCES += \
 #    qss.qrc \

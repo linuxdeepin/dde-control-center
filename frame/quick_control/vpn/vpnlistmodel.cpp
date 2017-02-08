@@ -29,7 +29,8 @@ int VpnListModel::rowCount(const QModelIndex &parent) const
 QVariant VpnListModel::data(const QModelIndex &index, int role) const
 {
     switch (role) {
-    case Qt::DisplayRole:   return m_networkModel->vpns()[index.row()].value("Id").toString();
+    case VpnNameRole:       return m_networkModel->vpns()[index.row()].value("Id").toString();
+    case VpnConnectedRole:  return true;
     case Qt::SizeHintRole:  return QSize(0, 30);
     default:;
     }

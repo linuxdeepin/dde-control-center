@@ -1,4 +1,5 @@
 #include "vpncontrolpage.h"
+#include "vpnlistdelegate.h"
 #include "../basiclistview.h"
 
 #include <QDebug>
@@ -13,8 +14,10 @@ VpnControlPage::VpnControlPage(NetworkModel *model, QWidget *parent)
       m_listModel(new VpnListModel(model, this))
 {
     BasicListView *listView = new BasicListView;
+    VpnListDelegate *listDelegate = new VpnListDelegate;
 
     listView->setModel(m_listModel);
+    listView->setItemDelegate(listDelegate);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addStretch();
