@@ -20,7 +20,8 @@ HEADERS += \
     weatherrequest.h \
     weatherwidget.h \
     weatherplugin.h \
-    networkutil.h
+    networkutil.h \
+    types.h
 
 SOURCES += \
     weatheritem.cpp \

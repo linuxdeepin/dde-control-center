@@ -11,10 +11,12 @@
 WeatherRequest::WeatherRequest(QObject *parent) :
     QObject(parent)
 {
+    qRegisterMetaType<City>();
+
     m_loader = new LoaderCity(this);
     m_manager = new QNetworkAccessManager(this);
 
-    connect(m_loader, &LoaderCity::city, this, &WeatherRequest::setCity);
+    connect(m_loader, &LoaderCity::done, this, &WeatherRequest::setCity);
     connect(m_manager, &QNetworkAccessManager::finished, this, &WeatherRequest::replyFinished);
 
     m_loader->start();
@@ -25,17 +27,19 @@ WeatherRequest::~WeatherRequest()
 
 }
 
-void WeatherRequest::setCity(const QString &city)
+void WeatherRequest::setCity(const City &city)
 {
     m_city = city;
 
-    QString url = QString("http://hualet.org:9898/forecast/%1/%2/%3").arg("China").arg("Hubei").arg(city);
+    QString url = QString("http://hualet.org:9898/forecast/%1/%2/%3").arg(city.country) \
+                    .arg(city.region).arg(city.city);
+    qDebug() << url;
     m_manager->get(QNetworkRequest(url));
 }
 
 QString WeatherRequest::city() const
 {
-    return m_city;
+    return m_city.city;
 }
 
 int WeatherRequest::count() const
@@ -88,6 +92,12 @@ LoaderCity::LoaderCity(QObject *parent)
 
 void LoaderCity::run()
 {
-    NetworkUtil util;
-    emit city(util.city());
+    m_city = NetworkUtil::city();
+
+    emit done(m_city);
+}
+
+City LoaderCity::city() const
+{
+    return m_city;
 }

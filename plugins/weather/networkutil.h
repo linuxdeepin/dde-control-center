@@ -3,15 +3,15 @@
 
 #include <QString>
 
+#include "types.h"
+
 class NetworkUtil
 {
 public:
-    NetworkUtil();
-
     static const QString getHtml(const QString& url);
     static const QString getNetIP(QString code);
-    static const QString ip2city(const QString& ip);
-    static const QString city();
+    static const City ip2city(const QString& ip);
+    static const City city();
 };
 
 #endif // NETWORKUTIL_H

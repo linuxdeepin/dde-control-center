@@ -9,6 +9,8 @@
 #include <QMap>
 #include <QThread>
 
+#include "types.h"
+
 class QTimer;
 class WInterface;
 class LoaderCity;
@@ -33,11 +35,12 @@ signals:
 private slots:
     void replyFinished(QNetworkReply* reply);
     void slotTimeout();
-    void setCity(const QString& city);
+    void setCity(const City& city);
 
 private:
-    QString m_city;
+    City m_city;
     LoaderCity* m_loader;
+
     QList<WeatherItem> m_items;
     QNetworkAccessManager *m_manager;
 };
@@ -48,11 +51,16 @@ class LoaderCity : public QThread
 public:
     explicit LoaderCity(QObject* parent = 0);
 
+    City city() const;
+
 signals:
-    void city(const QString& city);
+    void done(const City &city);
 
 protected:
     void run();
+
+private:
+    City m_city;
 };
 
 #endif // WEATHERREQUEST_H

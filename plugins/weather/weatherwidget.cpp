@@ -1,7 +1,6 @@
 #include "weatherwidget.h"
 #include "weatheritem.h"
 #include <QPainter>
-#include <networkutil.h>
 #include <QGraphicsPathItem>
 #include <QGuiApplication>
 
@@ -158,7 +157,6 @@ void WeatherWidget::resizeEvent(QResizeEvent *e)
 
 QString WeatherWidget::icon(const WeatherItem &item)
 {
-    qDebug() << item.name();
     return QString(":/icon/%1.svg").arg(item.name());
 }
 
