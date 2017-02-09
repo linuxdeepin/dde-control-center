@@ -40,6 +40,8 @@ private:
     const QPixmap m_connectedPixmap;
     QModelIndex m_hoveredIndex;
 
+    QList<QString> m_activedVpns;
+
     dcc::network::NetworkModel *m_networkModel;
 };
 

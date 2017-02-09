@@ -33,6 +33,7 @@ QVariant VpnListModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case VpnNameRole:           return m_networkModel->vpns()[index.row()].value("Id").toString();
     case VpnShowIconRole:       return true;
+//    case VpnShowIconRole:       return m_activedVpns.contains(m_networkModel->vpns()[index.row()].value("Id").toString());
     case VpnIconRole:           return m_connectedPixmap;
     case VpnItemHoveredRole:    return m_hoveredIndex == index;
     case Qt::SizeHintRole:      return QSize(0, 30);
@@ -48,7 +49,6 @@ void VpnListModel::setHoveredIndex(const QModelIndex &index)
 
     m_hoveredIndex = index;
 
-    if (oldIndex.isValid())
-        emit dataChanged(oldIndex, oldIndex);
+    emit dataChanged(oldIndex, oldIndex);
     emit dataChanged(m_hoveredIndex, m_hoveredIndex);
 }

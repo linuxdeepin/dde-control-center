@@ -27,3 +27,10 @@ void BasicListView::setModel(QAbstractItemModel *model)
     setMaximumHeight(sizeHint().height());
     connect(model, &QAbstractItemModel::layoutChanged, this, [=] { setMaximumHeight(sizeHint().height()); }, Qt::UniqueConnection);
 }
+
+void BasicListView::leaveEvent(QEvent *e)
+{
+    QListView::leaveEvent(e);
+
+    emit entered(QModelIndex());
+}

@@ -15,6 +15,8 @@ public:
 
 public:
     void setModel(QAbstractItemModel *model);
+
+    void leaveEvent(QEvent *e);
 };
 
 #endif // VPNLISTVIEW_H
