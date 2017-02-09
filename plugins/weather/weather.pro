@@ -17,7 +17,6 @@ QMAKE_CFLAGS_ISYSTEM = ""
 
 HEADERS += \
     weatheritem.h \
-    weatherinterface.h \
     weatherrequest.h \
     weatherwidget.h \
     weatherplugin.h \
@@ -25,7 +24,6 @@ HEADERS += \
 
 SOURCES += \
     weatheritem.cpp \
-    weatherinterface.cpp \
     weatherrequest.cpp \
     weatherwidget.cpp \
     weatherplugin.cpp \

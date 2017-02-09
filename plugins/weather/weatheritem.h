@@ -1,77 +1,41 @@
 #ifndef WEATHERITEM_H
 #define WEATHERITEM_H
 
-#include <QSharedDataPointer>
-#include <QMap>
+#include <QObject>
+#include <QDate>
 
-class WeatherItemData;
-
-class WeatherItem
+class WeatherItem : public QObject
 {
+    Q_OBJECT
 public:
-    WeatherItem();
-    WeatherItem(const WeatherItem &);
-    WeatherItem &operator=(const WeatherItem &);
+    explicit WeatherItem(QObject *parent = 0);
+    WeatherItem(const WeatherItem &item);
     ~WeatherItem();
 
-    bool isValid() const;
+    QString name() const;
+    void setName(const QString &name);
 
-    //dt
-    void setDt(const double& dt);
-    double dt() const;
+    QPair<int, int> temperature() const;
+    void setTemperature(const int &min, const int &max);
+    void setTemperature(const QPair<int, int> &temperature);
 
-    // temperature
-    void setDay(const double& day);
-    double day() const;
-    void setMin(const double& min);
-    double min() const;
-    void setMax(const double& max);
-    double max() const;
-    void setNight(const double& night);
-    double night() const;
-    void setEve(const double& eve);
-    double eve() const;
-    void setMorn(const double& morn);
-    double morn() const;
+    QDate date() const;
+    void setDate(const QDate &date);
 
-    void setPressure(const double& pre);
-    double pressure() const;
+    QString dayName() const;
 
-    void setHumidity(const double& hum);
-    double humidity() const;
+    WeatherItem& operator=(const WeatherItem &rhs);
 
-    void setId(const double& id);
-    double id() const;
-
-    void setMain(const QString& main);
-    QString main() const;
-
-    void setDescription(const QString& descripe);
     QString description() const;
-
-    void setIcon(const QString& icon);
-    QString icon() const;
-
-    void setSpeed(const double& speed);
-    double speed() const;
-
-    void setDeg(const double& deg);
-    double deg() const;
-
-    void setClouds(const double& clouds);
-    double clouds() const;
-
-    void setRain(const double& rain);
-    double rain() const;
-
-    QString dayOfWeek() const;
+    void setDescription(const QString &description);
 
 private:
-    QSharedDataPointer<WeatherItemData> data;
-    friend QDebug& operator<<(QDebug dbg, const WeatherItem& item);
-
+    QString m_name;
+    QString m_description;
+    QDate m_date;
+    QPair<int,int> m_temperature;
 };
 
-QDebug& operator<<(QDebug dbg, const WeatherItem& item);
+
 
 #endif // WEATHERITEM_H

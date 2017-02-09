@@ -28,7 +28,6 @@ private:
     QTime m_time;
     QTimer* m_timer;
     WeatherRequest *m_request;
-    QMap<QString, QString> m_iconsDict;
     QList<QPixmap> m_pixmaps;
     DPictureSequenceView* m_view;
 };

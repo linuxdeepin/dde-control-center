@@ -103,36 +103,12 @@
         <file>icon/load_weather/weather_loading.png</file>
         <file>themes/dark/dark.qss</file>
         <file>themes/light/light.qss</file>
-        <file>icon/windy.svg</file>
-        <file>icon/violent storm.svg</file>
-        <file>icon/very heavy rain.svg</file>
-        <file>icon/tropical storm.svg</file>
-        <file>icon/tornado.svg</file>
         <file>icon/thunderstorm.svg</file>
-        <file>icon/storm.svg</file>
         <file>icon/snow.svg</file>
-        <file>icon/sleet.svg</file>
-        <file>icon/shower snow.svg</file>
-        <file>icon/shower snow night.svg</file>
-        <file>icon/shower rain.svg</file>
-        <file>icon/shower rain night.svg</file>
-        <file>icon/overcast clouds.svg</file>
-        <file>icon/overcast clouds night.svg</file>
-        <file>icon/moderate rain.svg</file>
-        <file>icon/light snow.svg</file>
-        <file>icon/hurricane.svg</file>
-        <file>icon/hot.svg</file>
-        <file>icon/heavy thunderstorm.svg</file>
-        <file>icon/heavy snow.svg</file>
-        <file>icon/heavy intensity rain.svg</file>
-        <file>icon/hail.svg</file>
-        <file>icon/gale.svg</file>
-        <file>icon/freezing rain.svg</file>
-        <file>icon/few clouds.svg</file>
-        <file>icon/extreme rain.svg</file>
+        <file>icon/rain.svg</file>
         <file>icon/drizzle.svg</file>
-        <file>icon/cold.svg</file>
-        <file>icon/clear sky.svg</file>
-        <file>icon/clear sky night.svg</file>
+        <file>icon/clouds.svg</file>
+        <file>icon/clear.svg</file>
+        <file>icon/atmosphere.svg</file>
     </qresource>
 </RCC>

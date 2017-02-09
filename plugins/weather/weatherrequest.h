@@ -21,7 +21,6 @@ public:
     explicit WeatherRequest(QObject *parent = 0);
     ~WeatherRequest();
 
-//    void setCity(const QString& city);
     QString city() const;
     int count() const;
     WeatherItem dayAt(int index);
@@ -31,20 +30,16 @@ public:
 signals:
     void refreshData(QList<WeatherItem> &items);
 
-public slots:
+private slots:
     void replyFinished(QNetworkReply* reply);
     void slotTimeout();
     void setCity(const QString& city);
 
 private:
-    QUrl m_url;
-    QUrl m_location;
-    QTimer *m_timer;
     QString m_city;
     LoaderCity* m_loader;
     QList<WeatherItem> m_items;
     QNetworkAccessManager *m_manager;
-    QMap<QString, WInterface*> m_maps;
 };
 
 class LoaderCity : public QThread

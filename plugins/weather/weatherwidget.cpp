@@ -11,72 +11,6 @@ WeatherWidget::WeatherWidget(QWidget *parent)
     :QWidget(parent),
       m_request(new WeatherRequest(this))
 {
-//    setFixedSize(300, 540);
-
-    m_iconsDict["thunderstorm with light rain"] = ":/icon/thunderstorm";
-    m_iconsDict["thunderstorm with rain"] = ":/icon/thunderstorm";
-    m_iconsDict["thunderstorm with heavy rain"] = ":/icon/heavy thunderstorm";
-    m_iconsDict["light thunderstorm"] = ":/icon/thunderstorm";
-    m_iconsDict["thunderstorm"] = ":/icon/thunderstorm";
-    m_iconsDict["heavy thunderstorm"] = ":/icon/heavy thunderstorm";
-    m_iconsDict["ragged thunderstorm"] = ":/icon/thunderstorm";
-    m_iconsDict["thunderstorm with light drizzle"] =":/icon/thunderstorm";
-    m_iconsDict["thunderstorm with drizzle"] = ":/icon/thunderstorm";
-    m_iconsDict["thunderstorm with heavy drizzle"] = ":/icon/thunderstorm";
-
-    m_iconsDict["light intensity drizzle"] = ":/icon/drizzle";
-    m_iconsDict["drizzle"] = ":/icon/drizzle";
-    m_iconsDict["heavy intensity drizzle"] = ":/icon/moderate rain";
-    m_iconsDict["light intensity drizzle rain"] = ":/icon/drizzle";
-    m_iconsDict["drizzle rain"] = ":/icon/drizzle";
-    m_iconsDict["heavy intensity drizzle rain"] = ":/icon/moderate rain";
-    m_iconsDict["shower rain and drizzle"] = ":/icon/shower rain";
-    m_iconsDict["heavy shower rain and drizzle"] = ":/icon/shower rain";
-    m_iconsDict["shower drizzle"] = ":/icon/shower rain";
-
-    m_iconsDict["light rain"] = ":/icon/drizzle";
-    m_iconsDict["moderate rain"] = ":/icon/moderate rain";
-    m_iconsDict["heavy intensity rain"] = ":/icon/heavy intensity rain";
-    m_iconsDict["very heavy rain"] = ":/icon/very heavy rain";
-    m_iconsDict["extreme rain"] = ":/icon/extreme rain";
-    m_iconsDict["freezing rain"] = ":/icon/freezing rain";
-    m_iconsDict["light intensity shower rain"] = ":/icon/shower rain";
-    m_iconsDict["shower rain"] = ":/icon/shower rain";
-    m_iconsDict["heavy intensity shower rain"] = ":/icon/shower rain";
-    m_iconsDict["ragged shower rain"] = ":/icon/shower rain";
-
-    m_iconsDict["light snow"] = ":/icon/light snow";
-    m_iconsDict["snow"] = ":/icon/snow";
-    m_iconsDict["heavy snow"] = ":/icon/heavy snow";
-    m_iconsDict["sleet"] = ":/icon/sleet";
-    m_iconsDict["shower sleet"] = ":/icon/sleet";
-    m_iconsDict["light rain and snow"] = ":/icon/sleet";
-    m_iconsDict["rain and snow"] = ":/icon/sleet";
-    m_iconsDict["light shower snow"] = ":/icon/shower snow";
-    m_iconsDict["shower snow"] = ":/icon/shower snow";
-    m_iconsDict["heavy shower snow"] = ":/icon/shower snow";
-
-    m_iconsDict["clear sky"] = ":/icon/clear sky";
-    m_iconsDict["few clouds"] = ":/icon/few clouds";
-    m_iconsDict["scattered clouds"] = ":/icon/few clouds";
-    m_iconsDict["broken clouds"] = ":/icon/few clouds";
-    m_iconsDict["overcast clouds"] = ":/icon/overcast clouds";
-
-    m_iconsDict["tornado"] = ":/icon/tornado";
-    m_iconsDict["tropical storm"] = ":/icon/tropical storm";
-    m_iconsDict["hurricane"] = ":/icon/hurricane";
-    m_iconsDict["cold"] = ":/icon/cold";
-    m_iconsDict["hot"] = ":/icon/hot";
-    m_iconsDict["windy"] = ":/icon/windy";
-    m_iconsDict["hail"] = ":/icon/hail";
-    m_iconsDict["fresh breeze"] = ":/icon/gale";
-    m_iconsDict["strong breeze"] = ":/icon/gale";
-    m_iconsDict["high wind, near gale"] = ":/icon/gale";
-    m_iconsDict["gale"] = ":/icon/gale";
-    m_iconsDict["severe gale"] = ":/icon/gale";
-    m_iconsDict["storm"] = ":/icon/storm";
-    m_iconsDict["violent storm"] = ":/icon/violent storm";
-
     m_view = new DPictureSequenceView(this);
     m_view->setFixedSize(50,50);
     QStringList lists;
@@ -165,7 +99,7 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
             painter.setPen(pen);
             painter.setFont(font);
 
-            text = QString("%1°C").arg(int(item.day()+0.5));
+            text = QString("%1°C").arg(int(item.temperature().first));
             QRect textRect(iconRect.right()+10,rect.y(),fm.width(text)+2, rect.height());
             painter.drawText(textRect,Qt::AlignLeft|Qt::AlignVCenter, text);
             font.setPointSize(curFont.pointSize()*0.65);
@@ -196,12 +130,12 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
             painter.setFont(curFont);
             painter.setRenderHint(QPainter::Antialiasing);
             QFontMetrics fm(curFont);
-            text = QString("%1-%2°C").arg((int)(item.min()+0.5)).arg((int)(item.max()+0.5));
+            text = QString("%1-%2°C").arg((int)(item.temperature().first)).arg((int)(item.temperature().second));
             QRect textRect(iconRect.right()+10,rect.y(),fm.width(text)+2, rect.height());
             painter.drawText(textRect,Qt::AlignLeft|Qt::AlignVCenter, text);
 
-            QRect weekArea(rect.width() - 50 - iconRect.left() -10,rect.y(),fm.width(item.dayOfWeek()), rect.height());
-            painter.drawText(weekArea, Qt::AlignCenter, item.dayOfWeek());
+            QRect weekArea(rect.width() - 50 - iconRect.left() -10,rect.y(),fm.width(item.dayName()), rect.height());
+            painter.drawText(weekArea, Qt::AlignCenter, item.dayName());
             painter.restore();
         }
         y+=rect.height();
@@ -224,25 +158,8 @@ void WeatherWidget::resizeEvent(QResizeEvent *e)
 
 QString WeatherWidget::icon(const WeatherItem &item)
 {
-    QStringList nights;
-    nights<<"clear sky"<<"overcast clouds"<<"shower snow"
-         <<"shower rain";
-    if(nights.contains(item.description()))
-    {
-        QTime time = QTime::currentTime();
-        if(time.hour() >= 18 || time.hour() <= 6)
-        {
-            return m_iconsDict[item.description()]+" night";
-        }
-        else
-        {
-            return m_iconsDict[item.description()];
-        }
-    }
-    else
-    {
-        return m_iconsDict[item.description()];
-    }
+    qDebug() << item.name();
+    return QString(":/icon/%1.svg").arg(item.name());
 }
 
 void WeatherWidget::refreshView(QList<WeatherItem> &items)
