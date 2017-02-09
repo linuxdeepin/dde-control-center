@@ -20,4 +20,21 @@ DisplayControlPage::DisplayControlPage(DisplayModel *model, QWidget *parent)
     mainLayout->setMargin(0);
 
     setLayout(mainLayout);
+
+    connect(listView, &BasicListView::clicked, this, &DisplayControlPage::onItemClicked);
+}
+
+void DisplayControlPage::onItemClicked(const QModelIndex &index) const
+{
+    const DisplayControlModel::ItemType type = index.data(DisplayControlModel::ItemTypeRole).value<DisplayControlModel::ItemType>();
+
+    switch (type)
+    {
+    case DisplayControlModel::Duplicate:    emit requestDuplicateMode();    return;
+    case DisplayControlModel::Extend:       emit requestExtendMode();       return;
+    case DisplayControlModel::Custom:       emit requestCustom();           return;
+    default:;
+    }
+
+    Q_ASSERT(type == DisplayControlModel::Specificed);
 }

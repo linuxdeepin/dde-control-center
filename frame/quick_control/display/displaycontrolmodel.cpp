@@ -25,8 +25,12 @@ QVariant DisplayControlModel::data(const QModelIndex &index, int role) const
 {
     switch (role)
     {
-    case TypeNameRole:
+    case ItemNameRole:
         return optionName(index.row());
+    case ItemDescriptionRole:
+        return optionDescription(index.row());
+    case ItemTypeRole:
+        return QVariant::fromValue(optionType(index.row()));
     case Qt::SizeHintRole:
         return QSize(0, 50);
     default:;
@@ -57,4 +61,16 @@ const QString DisplayControlModel::optionDescription(const int index) const
         return tr("Screen contents are only displayed on %1").arg(m_displayModel->monitorList()[index - 2]->name());
 
     return tr("Please enter display mode to set if you want to change the custom settings");
+}
+
+DisplayControlModel::ItemType DisplayControlModel::optionType(const int index) const
+{
+    if (index == 0)
+        return Duplicate;
+    else if (index == 1)
+        return Extend;
+    else if (index < m_displayModel->monitorList().size() + 2)
+        return Specificed;
+
+    return Custom;
 }

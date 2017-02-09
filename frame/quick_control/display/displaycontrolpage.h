@@ -5,6 +5,7 @@
 #include "display/displayworker.h"
 
 #include <QWidget>
+#include <QModelIndex>
 
 class DisplayControlPage : public QWidget
 {
@@ -12,6 +13,15 @@ class DisplayControlPage : public QWidget
 
 public:
     explicit DisplayControlPage(dcc::display::DisplayModel *model, QWidget *parent = 0);
+
+signals:
+    void requestDuplicateMode() const;
+    void requestExtendMode() const;
+    void requestOnlyMonitor(const QString &monName) const;
+    void requestCustom() const;
+
+private slots:
+    void onItemClicked(const QModelIndex &index) const;
 };
 
 #endif // DISPLAYCONTROLPAGE_H

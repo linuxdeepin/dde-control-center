@@ -14,20 +14,32 @@ public:
 
     enum DisplayRole
     {
-        TypeNameRole = Qt::DisplayRole,
+        ItemNameRole = Qt::DisplayRole,
         UnusedRole = Qt::UserRole,
-        TypeDescriptionRole,
+        ItemDescriptionRole,
+        ItemTypeRole,
+    };
+
+    enum ItemType
+    {
+        Duplicate,
+        Extend,
+        Specificed,
+        Custom,
     };
 
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
 
 private:
+    ItemType optionType(const int index) const;
     const QString optionName(const int index) const;
     const QString optionDescription(const int index) const;
 
 private:
     dcc::display::DisplayModel *m_displayModel;
 };
+
+Q_DECLARE_METATYPE(DisplayControlModel::ItemType)
 
 #endif // DISPLAYCONTROLMODEL_H
