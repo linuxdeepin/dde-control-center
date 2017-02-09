@@ -133,6 +133,7 @@ MainWidget::MainWidget(Frame *parent)
     connect(m_prevPluginBtn, &DImageButton::clicked, this, &MainWidget::showPrevPlugin);
     connect(m_nextPluginBtn, &DImageButton::clicked, this, &MainWidget::showNextPlugin);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestDetailConfig, this, &MainWidget::showAllSettings);
+    connect(m_quickSettingsPanel, &QuickControlPanel::requestPage, this, &MainWidget::showSettingPage);
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
 
     m_pluginsController->loadPlugins();

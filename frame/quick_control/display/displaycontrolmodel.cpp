@@ -25,12 +25,14 @@ QVariant DisplayControlModel::data(const QModelIndex &index, int role) const
 {
     switch (role)
     {
-    case ItemNameRole:
+    case ItemTitleRole:
         return optionName(index.row());
     case ItemDescriptionRole:
         return optionDescription(index.row());
     case ItemTypeRole:
         return QVariant::fromValue(optionType(index.row()));
+    case ItemNameRole:
+        return m_displayModel->monitorList()[index.row() - 2]->name();
     case Qt::SizeHintRole:
         return QSize(0, 50);
     default:;

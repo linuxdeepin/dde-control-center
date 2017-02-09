@@ -37,4 +37,6 @@ void DisplayControlPage::onItemClicked(const QModelIndex &index) const
     }
 
     Q_ASSERT(type == DisplayControlModel::Specificed);
+
+    emit requestOnlyMonitor(index.data(DisplayControlModel::ItemNameRole).toString());
 }

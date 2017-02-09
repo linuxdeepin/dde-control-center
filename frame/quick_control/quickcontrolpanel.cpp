@@ -44,11 +44,13 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     BluetoothList *bluetoothList = new BluetoothList(m_bluetoothModel);
 
+    DisplayControlPage *displayPage = new DisplayControlPage(m_displayModel);
+
     m_itemStack->addWidget(new BasicSettingsPage);
     m_itemStack->addWidget(bluetoothList);
     m_itemStack->addWidget(new VpnControlPage(m_networkModel));
     m_itemStack->addWidget(wifiPage);
-    m_itemStack->addWidget(new DisplayControlPage(m_displayModel));
+    m_itemStack->addWidget(displayPage);
 
     QuickSwitchButton *btSwitch = new QuickSwitchButton(1, "bluetooth");
     QuickSwitchButton *vpnSwitch = new QuickSwitchButton(2, "VPN");
@@ -99,6 +101,11 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(vpnSwitch, &QuickSwitchButton::checkedChanged, m_networkWorker, &NetworkWorker::setVpnEnable);
 
     connect(wifiPage, &WifiPage::requestDeviceApList, m_networkWorker, &NetworkWorker::queryAccessPoints);
+
+    connect(displayPage, &DisplayControlPage::requestOnlyMonitor, [=](const QString &name) { m_displayWorker->switchMode(SINGLE_MODE, name); m_displayWorker->saveChanges(); });
+    connect(displayPage, &DisplayControlPage::requestDuplicateMode, [=] { m_displayWorker->switchMode(MERGE_MODE); m_displayWorker->saveChanges(); });
+    connect(displayPage, &DisplayControlPage::requestExtendMode, [=] { m_displayWorker->switchMode(EXTEND_MODE); m_displayWorker->saveChanges(); });
+    connect(displayPage, &DisplayControlPage::requestCustom, [=] { emit requestPage("display", QString()); });
 
     vpnSwitch->setChecked(m_networkModel->vpnEnabled());
 }

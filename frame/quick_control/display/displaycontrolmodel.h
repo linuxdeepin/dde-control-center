@@ -14,10 +14,11 @@ public:
 
     enum DisplayRole
     {
-        ItemNameRole = Qt::DisplayRole,
+        ItemTitleRole = Qt::DisplayRole,
         UnusedRole = Qt::UserRole,
         ItemDescriptionRole,
         ItemTypeRole,
+        ItemNameRole,
     };
 
     enum ItemType

@@ -39,6 +39,7 @@ public:
 
 signals:
     void requestDetailConfig() const;
+    void requestPage(const QString &module, const QString &page) const;
 
 private slots:
     void pageSwitched(const int index);
