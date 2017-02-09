@@ -45,6 +45,9 @@ CreatePage::CreatePage(QWidget *parent) :
     m_errorTip->setWindowFlags(Qt::ToolTip);
     m_errorTip->hide();
 
+    m_cancelBtn->setAccessibleName("New_Account_Cancel");
+    m_confirmBtn->setAccessibleName("New_Account_Create");
+
     m_group->appendItem(m_username);
     m_group->appendItem(m_password);
     m_group->appendItem(m_repeatpass);
@@ -163,6 +166,7 @@ ErrorTip::ErrorTip() :
     DArrowRectangle(DArrowRectangle::ArrowTop),
     m_label(new QLabel)
 {
+    m_label->setObjectName("New_Account_errorTip");
     m_label->setStyleSheet("padding: 5px 10px; color: #f9704f");
     setContent(m_label);
 }
@@ -170,6 +174,7 @@ ErrorTip::ErrorTip() :
 void ErrorTip::setText(QString text)
 {
     m_label->setText(text);
+    m_label->setAccessibleDescription(text);
     m_label->adjustSize();
     resizeWithContent();
 }

@@ -25,7 +25,9 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     m_pwdEditRepeat->setTitle(tr("Repeat Password"));
 
     m_cancel->setText(tr("Cancel"));
+    m_cancel->setAccessibleName("Modify_Cancel");
     m_accept->setText(tr("Accept"));
+    m_accept->setAccessibleName("Modify_Accept");
 
     SettingsGroup *pwdGroup = new SettingsGroup;
     pwdGroup->appendItem(m_pwdEdit);
