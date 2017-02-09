@@ -25,4 +25,6 @@ VpnControlPage::VpnControlPage(NetworkModel *model, QWidget *parent)
     mainLayout->setMargin(0);
 
     setLayout(mainLayout);
+
+    connect(listView, &BasicListView::entered, m_listModel, &VpnListModel::setHoveredIndex);
 }

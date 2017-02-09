@@ -15,16 +15,21 @@ void VpnListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     painter->setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform);
     painter->setPen(Qt::white);
     painter->setBrush(Qt::red);
-    painter->drawText(option.rect, index.data(Qt::DisplayRole).toString(), Qt::AlignLeft | Qt::AlignVCenter);
 
-    if (index.data(VpnListModel::VpnConnectedRole).toBool())
+    if (index.data(VpnListModel::VpnItemHoveredRole).toBool())
+        painter->fillRect(option.rect, QColor(0, 0, 0, .6 * 255));
+
+    painter->drawText(option.rect.marginsRemoved(QMargins(10, 0, 0, 0)), index.data(Qt::DisplayRole).toString(), Qt::AlignLeft | Qt::AlignVCenter);
+
+    if (index.data(VpnListModel::VpnShowIconRole).toBool())
     {
-        QRect r = option.rect;
-        r.setLeft(r.right() - 20 - 10);
-        r.setRight(r.right() - 10);
-        r.setHeight(20);
-        r.moveTop(option.rect.top() + (option.rect.height() - 20) / 2);
-        painter->fillRect(r, Qt::red);
+        const QPixmap pixmap = index.data(VpnListModel::VpnIconRole).value<QPixmap>();
+
+        const int l = 16;
+        const int x = option.rect.right() - l - 10;
+        const int y = option.rect.top() + (option.rect.height() - l) / 2;
+
+        painter->drawPixmap(x, y, pixmap);
     }
 }
 

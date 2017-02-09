@@ -2,6 +2,7 @@
 #define VPNLISTMODEL_H
 
 #include <QAbstractListModel>
+#include <QPixmap>
 
 namespace dcc {
 
@@ -22,7 +23,9 @@ public:
     {
         VpnNameRole = Qt::DisplayRole,
         UnusedRole = Qt::UserRole,
-        VpnConnectedRole,
+        VpnShowIconRole,
+        VpnIconRole,
+        VpnItemHoveredRole,
     };
 
     explicit VpnListModel(dcc::network::NetworkModel *model, QObject *parent = 0);
@@ -30,7 +33,13 @@ public:
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
 
+public slots:
+    void setHoveredIndex(const QModelIndex &index);
+
 private:
+    const QPixmap m_connectedPixmap;
+    QModelIndex m_hoveredIndex;
+
     dcc::network::NetworkModel *m_networkModel;
 };
 

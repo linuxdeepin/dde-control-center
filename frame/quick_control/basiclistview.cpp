@@ -7,6 +7,7 @@ BasicListView::BasicListView(QWidget *parent)
 {
 //    setStyleSheet("background-color: red;");
     setFrameStyle(QFrame::NoFrame);
+    setMouseTracking(true);
 }
 
 QSize BasicListView::sizeHint() const
