@@ -75,7 +75,8 @@ void WeatherRequest::replyFinished(QNetworkReply *reply)
         WeatherItem item;
         item.setName(obj["name"].toString().toLower());
         item.setDescription(obj["description"].toString());
-        item.setDate(QDate::fromString(obj["date"].toString(), "yyyy-MM-dd"));
+        QDateTime dt; dt.setTime_t(obj["date"].toInt());
+        item.setDate(dt.date());
         item.setTemperature(obj["temperatureMin"].toInt(), obj["temperatureMax"].toInt());
 
         m_items << item;
