@@ -27,4 +27,10 @@ VpnControlPage::VpnControlPage(NetworkModel *model, QWidget *parent)
     setLayout(mainLayout);
 
     connect(listView, &BasicListView::entered, m_listModel, &VpnListModel::setHoveredIndex);
+    connect(listView, &BasicListView::clicked, this, &VpnControlPage::onItemClicked);
+}
+
+void VpnControlPage::onItemClicked(const QModelIndex &index) const
+{
+    emit requestActivateConnection("/", index.data(VpnListModel::VpnUuidRole).toString());
 }

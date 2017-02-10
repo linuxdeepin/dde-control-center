@@ -46,9 +46,11 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     DisplayControlPage *displayPage = new DisplayControlPage(m_displayModel);
 
+    VpnControlPage *vpnPage = new VpnControlPage(m_networkModel);
+
     m_itemStack->addWidget(new BasicSettingsPage);
     m_itemStack->addWidget(bluetoothList);
-    m_itemStack->addWidget(new VpnControlPage(m_networkModel));
+    m_itemStack->addWidget(vpnPage);
     m_itemStack->addWidget(wifiPage);
     m_itemStack->addWidget(displayPage);
 
@@ -99,6 +101,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     connect(m_networkModel, &NetworkModel::vpnEnabledChanged, vpnSwitch, &QuickSwitchButton::setChecked);
     connect(vpnSwitch, &QuickSwitchButton::checkedChanged, m_networkWorker, &NetworkWorker::setVpnEnable);
+    connect(vpnPage, &VpnControlPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
 
     connect(wifiPage, &WifiPage::requestDeviceApList, m_networkWorker, &NetworkWorker::queryAccessPoints);
 

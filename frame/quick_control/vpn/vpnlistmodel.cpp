@@ -32,6 +32,7 @@ QVariant VpnListModel::data(const QModelIndex &index, int role) const
 {
     switch (role) {
     case VpnNameRole:           return m_networkModel->vpns()[index.row()].value("Id").toString();
+    case VpnUuidRole:           return m_networkModel->vpns()[index.row()].value("Uuid").toString();
     case VpnShowIconRole:       return true;
 //    case VpnShowIconRole:       return m_activedVpns.contains(m_networkModel->vpns()[index.row()].value("Id").toString());
     case VpnIconRole:           return m_connectedPixmap;

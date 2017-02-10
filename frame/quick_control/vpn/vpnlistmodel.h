@@ -26,6 +26,7 @@ public:
         VpnShowIconRole,
         VpnIconRole,
         VpnItemHoveredRole,
+        VpnUuidRole,
     };
 
     explicit VpnListModel(dcc::network::NetworkModel *model, QObject *parent = 0);

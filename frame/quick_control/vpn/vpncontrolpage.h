@@ -12,6 +12,12 @@ class VpnControlPage : public QWidget
 public:
     explicit VpnControlPage(dcc::network::NetworkModel *model, QWidget *parent = 0);
 
+signals:
+    void requestActivateConnection(const QString &devPath, const QString &uuid) const;
+
+private slots:
+    void onItemClicked(const QModelIndex &index) const;
+
 private:
     VpnListModel *m_listModel;
 };
