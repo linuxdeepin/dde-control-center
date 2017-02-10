@@ -49,7 +49,7 @@ private slots:
     void contentDetached(QWidget * const c);
 
     void onScreenRectChanged(const QRect &primaryRect);
-    void onMouseButtonPressed(const int button, const int x, const int y, const QString &key);
+    void onMouseButtonReleased(const int button, const int x, const int y, const QString &key);
 
 private:
     void keyPressEvent(QKeyEvent *e);
