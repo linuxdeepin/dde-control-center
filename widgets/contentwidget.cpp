@@ -8,18 +8,30 @@
 #include <QScroller>
 #include <QScrollBar>
 #include <QScrollArea>
+#include <QApplication>
+#include <QWheelEvent>
+#include <QPropertyAnimation>
 
 #include "separator.h"
 #include "backbutton.h"
 
 DWIDGET_USE_NAMESPACE
 
+namespace {
+
+const int DEFAULT_SPEED_TIME = 1;
+const double MAX_SPEED_TIME = 14;
+const int ANIMATION_DUARTION = 1400;
+
+}  // namespace
+
 namespace dcc {
 
 ContentWidget::ContentWidget(QWidget *parent)
     : QWidget(parent),
 
-      m_content(nullptr)
+      m_content(nullptr),
+      m_speedTime(DEFAULT_SPEED_TIME)
 {
     dcc::widgets::BackButton *backBtn = new dcc::widgets::BackButton;
     backBtn->setAccessibleName("Back");
@@ -62,6 +74,15 @@ ContentWidget::ContentWidget(QWidget *parent)
 
     setLayout(centralLayout);
     setObjectName("ContentWidget");
+
+    m_animation = new QPropertyAnimation(m_contentArea->verticalScrollBar(), "value");
+    m_animation->setEasingCurve(QEasingCurve::OutQuint);
+    m_animation->setDuration(ANIMATION_DUARTION);
+    connect(m_animation, &QPropertyAnimation::finished, this, [=] {
+        m_animation->setEasingCurve(QEasingCurve::OutQuint);
+        m_animation->setDuration(ANIMATION_DUARTION);
+    });
+
 }
 
 void ContentWidget::setTitle(const QString &title)
@@ -116,14 +137,11 @@ bool ContentWidget::eventFilter(QObject *watched, QEvent *event)
     if (m_content && watched == m_contentArea->viewport() && event->type() == QEvent::Wheel) {
         const QWheelEvent *wheel = static_cast<QWheelEvent*>(event);
 
-        QScroller *scroller = QScroller::scroller(m_contentArea);
-        QScrollBar *vBar = m_contentArea->verticalScrollBar();
-
-        const float curPos = vBar->value();
-        const float delta = -wheel->delta();
-        const float finalPos = qMax(0, qMin(m_content->height(), int(curPos + delta * 2)));
-
-        scroller->scrollTo(QPointF(0, finalPos));
+        // redirect all wheel events to this object so it can process the scroll animation, see
+        // wheelEvent.
+        QWheelEvent *newEvent =  new QWheelEvent(wheel->pos(), wheel->delta(), wheel->buttons(),
+                                                 wheel->modifiers(), wheel->orientation());
+        qApp->postEvent(this, newEvent);
 
         return true;
     }
@@ -137,6 +155,45 @@ bool ContentWidget::eventFilter(QObject *watched, QEvent *event)
     }
 
     return false;
+}
+
+void ContentWidget::stopScroll()
+{
+    m_speedTime = DEFAULT_SPEED_TIME;
+    m_animation->stop();
+}
+
+void ContentWidget::wheelEvent(QWheelEvent *e)
+{
+    // Active by touchpad
+    if (e->pixelDelta().y() != 0) {
+        QWheelEvent ve(e->pos(), e->globalPos(), e->pixelDelta()
+                       , e->angleDelta(), e->delta() * 4/*speed up*/
+                       , Qt::Vertical, e->buttons(), e->modifiers());
+        QWidget::wheelEvent(&ve);
+    }
+    // Active by mouse
+    else {
+        int offset = - e->delta();
+        if (m_animation->state() == QPropertyAnimation::Running) {
+            m_speedTime += 0.2;
+        }
+        else {
+            m_speedTime = DEFAULT_SPEED_TIME;
+        }
+        m_animation->stop();
+        m_animation->setStartValue(m_contentArea->verticalScrollBar()->value());
+        m_animation->setEndValue(m_contentArea->verticalScrollBar()->value() + offset * qMin(m_speedTime, MAX_SPEED_TIME));
+
+        m_animation->start();
+    }
+}
+
+void ContentWidget::mousePressEvent(QMouseEvent *e)
+{
+    stopScroll();
+
+    QWidget::mousePressEvent(e);
 }
 
 }

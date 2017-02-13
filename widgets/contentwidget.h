@@ -6,7 +6,7 @@
 
 class QVBoxLayout;
 class QScrollArea;
-
+class QPropertyAnimation;
 namespace dcc {
 
 class ContentWidget : public QWidget
@@ -19,6 +19,7 @@ public:
     void setTitle(const QString &title);
     void sendBackSignal();
     QWidget *setContent(QWidget * const w);
+    void stopScroll();
 
 signals:
     void back() const;
@@ -32,11 +33,18 @@ private:
     bool eventFilter(QObject *watched, QEvent *event);
 
 protected:
+    void wheelEvent(QWheelEvent *e);
+    void mousePressEvent(QMouseEvent *e);
+
+protected:
     QLabel *m_title;
     QVBoxLayout *m_contentTopLayout;
     QScrollArea *m_contentArea;
 
     QWidget *m_content;
+
+    QPropertyAnimation *m_animation;
+    double m_speedTime;
 };
 
 }

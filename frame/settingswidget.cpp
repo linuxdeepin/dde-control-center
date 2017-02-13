@@ -75,6 +75,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     m_settingsWidget->setLayout(m_settingsLayout);
 
+
     setContent(m_settingsWidget);
     setTitle(tr("All Settings"));
 
@@ -198,6 +199,8 @@ void SettingsWidget::showModulePage(const QString &moduleName, const QString &pa
 
 void SettingsWidget::refershModuleActivable()
 {
+    stopScroll();
+
     QScroller *scroller = QScroller::scroller(m_contentArea);
     if (scroller->state() != QScroller::Inactive) {
         m_refershModuleActivableTimer->start();
