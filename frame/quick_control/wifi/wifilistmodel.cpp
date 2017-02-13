@@ -51,6 +51,11 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
             return QSize(0, 20);
         else
             return QSize(0, 30);
+    case ItemInfoRole:
+    {
+        Q_ASSERT(info.info);
+        return *info.info;
+    }
     case ItemHoveredRole:
         return index == m_currentIndex;
     case ItemIsHeaderRole:

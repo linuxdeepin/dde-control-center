@@ -23,6 +23,7 @@ public:
         UnusedRole = Qt::UserRole,
         ItemHoveredRole,
         ItemIsHeaderRole,
+        ItemInfoRole,
     };
 
     explicit WifiListModel(dcc::network::NetworkModel *model, QObject *parent = 0);
