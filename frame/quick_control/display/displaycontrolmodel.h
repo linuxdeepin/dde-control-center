@@ -20,6 +20,7 @@ public:
         ItemTypeRole,
         ItemNameRole,
         ItemIsLastRole,
+        ItemSelectedRole,
     };
 
     enum ItemType
@@ -38,7 +39,12 @@ private:
     const QString optionName(const int index) const;
     const QString optionDescription(const int index) const;
 
+private slots:
+    void onDisplayModeChanged(const int mode);
+
 private:
+    QModelIndex m_selectedIndex;
+
     dcc::display::DisplayModel *m_displayModel;
 };
 
