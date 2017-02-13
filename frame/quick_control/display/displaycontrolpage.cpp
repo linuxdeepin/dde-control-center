@@ -1,5 +1,6 @@
 #include "displaycontrolpage.h"
 #include "displaycontrolmodel.h"
+#include "displayitemdelegate.h"
 #include "../basiclistview.h"
 
 #include <QVBoxLayout>
@@ -11,8 +12,10 @@ DisplayControlPage::DisplayControlPage(DisplayModel *model, QWidget *parent)
 {
 
     DisplayControlModel *listModel = new DisplayControlModel(model);
+    DisplayItemDelegate *delegate = new DisplayItemDelegate;
     BasicListView *listView = new BasicListView;
     listView->setModel(listModel);
+    listView->setItemDelegate(delegate);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addStretch();

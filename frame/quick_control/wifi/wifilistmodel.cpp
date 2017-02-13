@@ -164,7 +164,7 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
             break;
     }
 
-    beginInsertRows(QModelIndex(), pos, pos + 1);
+    beginInsertRows(QModelIndex(), pos, pos);
     m_apInfoList[dev].append(info);
     endInsertRows();
 

@@ -33,8 +33,10 @@ QVariant DisplayControlModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(optionType(index.row()));
     case ItemNameRole:
         return m_displayModel->monitorList()[index.row() - 2]->name();
+    case ItemIsLastRole:
+        return index.row() == 2 + m_displayModel->monitorList().size() + m_displayModel->hasConfig() - 1;
     case Qt::SizeHintRole:
-        return QSize(0, 50);
+        return QSize(0, 70);
     default:;
     }
 

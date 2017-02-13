@@ -19,6 +19,7 @@ public:
         ItemDescriptionRole,
         ItemTypeRole,
         ItemNameRole,
+        ItemIsLastRole,
     };
 
     enum ItemType
