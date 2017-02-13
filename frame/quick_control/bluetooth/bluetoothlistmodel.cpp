@@ -8,6 +8,7 @@
  **/
 
 #include "bluetoothlistmodel.h"
+#include "bluetooth/device.h"
 #include <QSize>
 
 BluetoothListModel::BluetoothListModel(BluetoothModel *model, QObject *parent)
@@ -31,22 +32,49 @@ int BluetoothListModel::rowCount(const QModelIndex &parent) const
 
 QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
 {
+    if (!index.isValid())
+        return QVariant();
+
+    const ItemInfo info = indexInfo(index.row());
+
     switch (role) {
     case Qt::DisplayRole:
     {
-        const ItemInfo info = indexInfo(index.row());
-
         if (!info.info)
             return info.device->id();
         else
             return info.info->value("Alias");
     }
     case Qt::SizeHintRole:
-        return QSize(0, 30);
+    {
+        if (!info.info)
+            return QSize(0, 20);
+        else
+            return QSize(0, 30);
+    }
+    case ItemInfoRole:
+    {
+        Q_ASSERT(info.info);
+        return *info.info;
+    }
+    case  ItemHoveredRole:
+        return index == m_currentIndex;
+    case ItemIsHeaderRole:
+        return info.info == nullptr;
     default:;
     }
 
     return QVariant();
+}
+
+void BluetoothListModel::setCurrentHovered(const QModelIndex &index)
+{
+    const QModelIndex oldIndex = m_currentIndex;
+
+    m_currentIndex = index;
+
+    emit dataChanged(oldIndex, oldIndex);
+    emit dataChanged(m_currentIndex, m_currentIndex);
 }
 
 void BluetoothListModel::onAdapterAdded(const dcc::bluetooth::Adapter *adapter)
@@ -57,6 +85,7 @@ void BluetoothListModel::onAdapterAdded(const dcc::bluetooth::Adapter *adapter)
     m_adapterList.insert(adapter, QList<QJsonObject>());
 
     connect(adapter, &Adapter::deviceAdded, this, &BluetoothListModel::onDeviceApAdded);
+
 }
 
 void BluetoothListModel::onDeviceApAdded(const dcc::bluetooth::Device *device)
@@ -73,6 +102,7 @@ void BluetoothListModel::onDeviceApAdded(const dcc::bluetooth::Device *device)
     json.insert("Path", device->id());
     json.insert("Alias", device->name());
     json.insert("Paired", device->paired());
+    json.insert("State", device->state());
 
     int pos = 0;
     for (const Adapter *d : m_bluetoothModel->adapters())
@@ -83,7 +113,7 @@ void BluetoothListModel::onDeviceApAdded(const dcc::bluetooth::Device *device)
         pos += 1;
     }
 
-    beginInsertRows(QModelIndex(), pos, pos + 1);
+    beginInsertRows(QModelIndex(), pos, pos);
     m_adapterList[adapter].append(json);
     endInsertRows();
 
@@ -101,6 +131,7 @@ const ItemInfo BluetoothListModel::indexInfo(const int index) const
             continue;
 
         info.device = adapter;
+
 
         if (!r)
             return info;

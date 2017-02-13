@@ -9,6 +9,7 @@
 
 #include "../basiclistview.h"
 #include "bluetoothlist.h"
+#include "bluetoothdelegate.h"
 #include <QVBoxLayout>
 
 BluetoothList::BluetoothList(BluetoothModel *model, QWidget *parent)
@@ -18,10 +19,21 @@ BluetoothList::BluetoothList(BluetoothModel *model, QWidget *parent)
     BasicListView *listView = new BasicListView;
     listView->setModel(m_model);
 
+    BluetoothDelegate *delegate = new BluetoothDelegate;
+    listView->setItemDelegate(delegate);
+
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addStretch();
     centralLayout->addWidget(listView);
     centralLayout->setMargin(0);
 
     setLayout(centralLayout);
+
+    connect(listView, &BasicListView::entered, m_model, &BluetoothListModel::setCurrentHovered);
+    connect(listView, &BasicListView::clicked, this, &BluetoothList::onItemClicked);
+}
+
+void BluetoothList::onItemClicked(const QModelIndex &index) const
+{
+    Q_UNUSED(index);
 }

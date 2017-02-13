@@ -22,6 +22,9 @@ class BluetoothList : public QWidget
 public:
     explicit BluetoothList(BluetoothModel *model, QWidget *parent = 0);
 
+private slots:
+    void onItemClicked(const QModelIndex &index) const;
+
 private:
     BluetoothListModel *m_model;
 };

@@ -33,9 +33,20 @@ class BluetoothListModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+
+    enum BluetoothListRole {
+        UnusedRole = Qt::UserRole,
+        ItemHoveredRole,
+        ItemIsHeaderRole,
+        ItemInfoRole,
+    };
+
     explicit BluetoothListModel(BluetoothModel *model, QObject *parent = 0);
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
+
+public slots:
+    void setCurrentHovered(const QModelIndex &index);
 
 private slots:
     void onAdapterAdded(const Adapter *adapter);
@@ -47,6 +58,7 @@ private:
 private:
     BluetoothModel *m_bluetoothModel;
     QMap<const Adapter*, QList<QJsonObject>> m_adapterList;
+    QModelIndex m_currentIndex;
 };
 
 #endif // BLUETOOTHLISTMODEL_H

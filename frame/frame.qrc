@@ -29,5 +29,6 @@
         <file>quick_control/wifi/wireless/wireless-6-symbolic.svg</file>
         <file>quick_control/wifi/wireless/wireless-8-symbolic.svg</file>
         <file>quick_control/wifi/wireless/wireless-10-symbolic.svg</file>
+        <file>quick_control/bluetooth/bluetooth/icons/select.png</file>
     </qresource>
 </RCC>
