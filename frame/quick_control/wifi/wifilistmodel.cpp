@@ -33,21 +33,39 @@ int WifiListModel::rowCount(const QModelIndex &parent) const
 
 QVariant WifiListModel::data(const QModelIndex &index, int role) const
 {
+    const ItemInfo info = indexInfo(index.row());
+
     switch (role) {
     case Qt::DisplayRole:
     {
-        const ItemInfo info = indexInfo(index.row());
         if (!info.info)
-            return info.device->path();
+            return deviceName(info.device);
         else
             return info.info->value("Ssid");
     }
     case Qt::SizeHintRole:
-        return QSize(0, 30);
+        if (!info.info)
+            return QSize(0, 20);
+        else
+            return QSize(0, 30);
+    case ItemHoveredRole:
+        return index == m_currentIndex;
+    case ItemIsHeaderRole:
+        return info.info == nullptr;
     default:;
     }
 
     return QVariant();
+}
+
+void WifiListModel::setCurrentHovered(const QModelIndex &index)
+{
+    const QModelIndex oldIndex = m_currentIndex;
+
+    m_currentIndex = index;
+
+    emit dataChanged(oldIndex, oldIndex);
+    emit dataChanged(m_currentIndex, m_currentIndex);
 }
 
 const ItemInfo WifiListModel::indexInfo(const int index) const
@@ -85,7 +103,22 @@ const ItemInfo WifiListModel::indexInfo(const int index) const
     return info;
 }
 
-void WifiListModel::onDeviceListChanged(const QList<dcc::network::NetworkDevice *> &devices)
+const QString WifiListModel::deviceName(const NetworkDevice *wirelessDevice) const
+{
+    int index = 1;
+    for (const auto *dev : m_networkModel->devices())
+    {
+        if (dev == wirelessDevice)
+            break;
+
+        if (dev->type() == NetworkDevice::Wireless)
+            ++index;
+    }
+
+    return tr("Wireless Card %1").arg(index);
+}
+
+void WifiListModel::onDeviceListChanged(const QList<NetworkDevice *> &devices)
 {
     for (auto *dev : devices)
     {

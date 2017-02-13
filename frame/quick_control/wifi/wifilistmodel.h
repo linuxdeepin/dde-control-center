@@ -21,6 +21,8 @@ public:
     enum WifiListRole
     {
         UnusedRole = Qt::UserRole,
+        ItemHoveredRole,
+        ItemIsHeaderRole,
     };
 
     explicit WifiListModel(dcc::network::NetworkModel *model, QObject *parent = 0);
@@ -28,17 +30,23 @@ public:
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
 
+public slots:
+    void setCurrentHovered(const QModelIndex &index);
+
 signals:
     void requestDeviceApList(const QString &devPath) const;
 
 private:
     const ItemInfo indexInfo(const int index) const;
+    const QString deviceName(const dcc::network::NetworkDevice *wirelessDevice) const;
 
     void onDeviceListChanged(const QList<dcc::network::NetworkDevice *> &devices);
     void onDeviceApAdded(const QJsonObject &info);
 
 private:
     dcc::network::NetworkModel *m_networkModel;
+
+    QModelIndex m_currentIndex;
 
     QMap<dcc::network::WirelessDevice *, QList<QJsonObject>> m_apInfoList;
 };

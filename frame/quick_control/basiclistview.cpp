@@ -8,6 +8,9 @@ BasicListView::BasicListView(QWidget *parent)
 //    setStyleSheet("background-color: red;");
     setFrameStyle(QFrame::NoFrame);
     setMouseTracking(true);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setContentsMargins(0, 0, 0, 0);
 }
 
 QSize BasicListView::sizeHint() const
