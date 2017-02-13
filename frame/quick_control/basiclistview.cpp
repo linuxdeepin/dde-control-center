@@ -10,7 +10,10 @@ BasicListView::BasicListView(QWidget *parent)
     setMouseTracking(true);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollMode(ScrollPerPixel);
     setContentsMargins(0, 0, 0, 0);
+    setSpacing(0);
+    setSelectionMode(NoSelection);
 }
 
 QSize BasicListView::sizeHint() const
