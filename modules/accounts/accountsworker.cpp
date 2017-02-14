@@ -57,11 +57,13 @@ void AccountsWorker::randomUserIcon(User *user)
 void AccountsWorker::createAccount(const User *user)
 {
     qDebug() << "create account " << user;
+    emit requestFrameAutoHide(false);
 
     QFutureWatcher<CreationResult*> *watcher = new QFutureWatcher<CreationResult*>(this);
     connect(watcher, &QFutureWatcher<CreationResult*>::finished, [this, watcher] {
         CreationResult *result = watcher->result();
         emit accountCreationFinished(result);
+        emit requestFrameAutoHide(true);
     });
 
     QFuture<CreationResult*> future = QtConcurrent::run(this, &AccountsWorker::createAccountInternal, user);
