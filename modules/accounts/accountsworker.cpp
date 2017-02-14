@@ -3,6 +3,7 @@
 #include <QFileDialog>
 #include <QtConcurrent>
 #include <QFutureWatcher>
+#include <QStandardPaths>
 
 #include "user.h"
 
@@ -74,6 +75,11 @@ void AccountsWorker::addNewAvatar(User *user)
 
     emit requestFrameAutoHide(false);
     QFileDialog fd;
+
+    QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
+    if (!directory.isEmpty())
+        fd.setDirectory(directory.first());
+
     do {
         if (fd.exec() != QFileDialog::Accepted)
             break;
