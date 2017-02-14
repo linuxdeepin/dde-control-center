@@ -213,6 +213,9 @@ void SettingsWidget::refershModuleActivable()
 
     for (ModuleInterface *module : m_moduleInterfaces)
     {
+        if (!m_moduleActivable.contains(module))
+            continue;
+
         const QWidget *w = module->moduleWidget();
         const QRect wRect(w->mapTo(m_contentArea, QPoint()), w->size());
         const bool activable = containerRect.intersects(wRect);

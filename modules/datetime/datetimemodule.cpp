@@ -13,6 +13,10 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frame, QObject *parent)
 
 void DatetimeModule::initialize()
 {
+    // NOTE: sbw: delay
+    // see: https://tower.im/projects/1c0cd0c59ef941298c6e6b2ba6833b91/todos/8968883fa139470183517581fada79ee/
+    QThread::currentThread()->msleep(500);
+
     m_model = new DatetimeModel;
     m_work = new DatetimeWork(m_model);
 
