@@ -336,13 +336,13 @@ SettingsItem *ConnectionEditPage::createComboWidget(const QJsonObject &keyObject
     for (const auto &v : infoObject.value("Values").toArray())
     {
         const auto vObject = v.toObject();
-        const auto value = vObject.value("Value").toString();
+        const auto value = vObject.value("Value").toVariant();
         w->appendOption(vObject.value("Text").toString(), value);
     }
 
     w->setEditable(editable);
     w->setTitle(keyObject.value("Name").toString());
-    w->setCurrent(infoObject.value("Value").toString());
+    w->setCurrent(infoObject.value("Value"));
 
     const QString section = keyObject.value("Section").toString();
     const QString vKey = keyObject.value("Key").toString();

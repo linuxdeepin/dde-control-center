@@ -47,7 +47,7 @@ void ConnectionSessionWorker::saveSettings()
 
 void ConnectionSessionWorker::changeSettings(const QString &section, const QString &vKey, const QString &data)
 {
-//    qDebug() << section << vKey << data;
+    qDebug() << section << vKey << data;
 
     m_sessionInter.SetKey(section, vKey, data);
 }
