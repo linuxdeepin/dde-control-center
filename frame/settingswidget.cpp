@@ -105,6 +105,8 @@ void SettingsWidget::setFrameAutoHide(ModuleInterface *const inter, const bool a
 {
     Q_ASSERT(m_moduleInterfaces.contains(inter));
 
+    qDebug() << "setFrameAutoHide: " << inter << inter->name() << autoHide;
+
     emit requestAutohide(autoHide);
 }
 

@@ -166,15 +166,21 @@ void Frame::onMouseButtonReleased(const int button, const int x, const int y, co
     }
 
     if (!m_autoHide) {
+        qDebug() << "forbid hide by m_autoHide";
+
         return;
     }
 
     if (key != m_mouseAreaKey) {
+        qWarning() << "forbid hide by m_mouseAreaKey";
+
         return;
     }
 
     const QPoint p(pos());
     if (rect().contains(x - p.x(), y - p.y())) {
+        qDebug() << "forbid hide by rect";
+
         return;
     }
 
