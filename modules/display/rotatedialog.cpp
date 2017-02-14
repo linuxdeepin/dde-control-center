@@ -10,40 +10,13 @@
 #include <QFontMetrics>
 #include <QApplication>
 #include <QWindow>
-#include <QX11Info>
 #include <QPainter>
 #include <QPaintEvent>
+#include <QVBoxLayout>
 
-#include <xcb/xproto.h>
+#include <DBlurEffectWidget>
 
-static void BlurWindowBackground(const WId windowId, const QRect &region)
-{
-    xcb_connection_t *connection = QX11Info::connection();
-    const char *name = "_NET_WM_DEEPIN_BLUR_REGION";
-    xcb_intern_atom_cookie_t cookie = xcb_intern_atom(connection,
-                                      0,
-                                      strlen(name),
-                                      name);
-
-    xcb_intern_atom_reply_t *reply = xcb_intern_atom_reply(connection,
-                                     cookie,
-                                     NULL);
-    if (reply) {
-        const int data[] = {region.x(), region.y(), region.width(), region.height()};
-
-        xcb_change_property_checked(connection,
-                                    XCB_PROP_MODE_REPLACE,
-                                    windowId,
-                                    reply->atom,
-                                    XCB_ATOM_CARDINAL,
-                                    32,
-                                    4,
-                                    data);
-        xcb_flush(connection);
-
-        free(reply);
-    }
-}
+DWIDGET_USE_NAMESPACE
 
 using namespace dcc::display;
 
@@ -53,11 +26,25 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
       m_mon(mon),
       m_model(nullptr)
 {
+
+    DBlurEffectWidget *blurWidget = new DBlurEffectWidget;
+    blurWidget->setFixedSize(80, 80);
+    blurWidget->setBlurRectXRadius(10);
+    blurWidget->setBlurRectYRadius(10);
+    blurWidget->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
+
+    QVBoxLayout *centralLayout = new QVBoxLayout;
+    centralLayout->addWidget(blurWidget);
+    centralLayout->setAlignment(blurWidget, Qt::AlignCenter);
+    centralLayout->setMargin(0);
+    centralLayout->setSpacing(0);
+
     connect(m_mon, &Monitor::wChanged, this, &RotateDialog::setFixedWidth);
     connect(m_mon, &Monitor::hChanged, this, &RotateDialog::setFixedHeight);
     connect(m_mon, &Monitor::xChanged, this, [=] (const int x) { move(x, y()); });
     connect(m_mon, &Monitor::yChanged, this, [=] (const int y) { move(x(), y); });
 
+    setLayout(centralLayout);
     setFixedWidth(m_mon->w());
     setFixedHeight(m_mon->h());
     move(m_mon->x(), m_mon->y());
@@ -112,16 +99,6 @@ void RotateDialog::mouseMoveEvent(QMouseEvent *e)
     QDialog::mouseMoveEvent(e);
 
     QCursor::setPos(rect().center() + pos());
-}
-
-void RotateDialog::resizeEvent(QResizeEvent *e)
-{
-    const int l = 100;
-    const QRect r((width() - l) / 2, (height() - l) / 2, l, l);
-
-    BlurWindowBackground(winId(), r);
-
-    QDialog::resizeEvent(e);
 }
 
 void RotateDialog::leaveEvent(QEvent *e)
