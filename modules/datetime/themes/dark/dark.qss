@@ -23,3 +23,7 @@ Dtk--Widget--DImageButton#DCC-Datetime-TimezoneItem-Remove{
 dcc--datetime--Clock[display=false] {
     background-color:transparent;
 }
+
+QLineEdit#DCC-Datetime-QLineEdit {
+    border:0px;
+}
