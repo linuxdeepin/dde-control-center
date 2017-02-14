@@ -34,6 +34,7 @@ void DisplayModule::showResolutionDetailPage()
 
     page->setModel(m_displayModel);
     connect(page, &ResolutionDetailPage::requestSetResolution, m_displayWorker, &DisplayWorker::setMonitorResolution);
+    connect(page, &ResolutionDetailPage::requestSetResolution, m_displayWorker, &DisplayWorker::saveChanges, Qt::QueuedConnection);
 
     m_frameProxy->pushWidget(this, page);
 }
