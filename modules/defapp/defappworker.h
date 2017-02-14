@@ -43,8 +43,7 @@ private:
     Media       *m_dbusMedia;
 
     enum DefaultAppsCategory {
-        Browser, Mail, Text, Music, Video, Picture, Terminal,
-        CD_Audio, DVD_Video, MusicPlayer, Camera, Software,
+        Browser, Mail, Text, Music, Video, Picture, Terminal
     };
 
     QMap<QString, DefaultAppsCategory> m_stringToCategory;
@@ -53,7 +52,6 @@ private:
 private:
     const QString getTypeByCategory(const DefAppWorker::DefaultAppsCategory &category);
     const QStringList getTypeListByCategory(const DefAppWorker::DefaultAppsCategory &category);
-    bool isMediaApps(const DefaultAppsCategory &category) const;
     Category* getCategory(const QString &mime) const;
 };
 }

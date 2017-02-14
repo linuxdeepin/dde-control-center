@@ -36,9 +36,6 @@ signals:
     void requestFrameAutoHide(const bool autoHide) const;
     void requestCreateFile(const QString &category, const QFileInfo &info);
 
-private slots:
-    void setAutoChanged(const bool visible);
-
 private:
 
     DefCategoryWidget *m_modBrowser = nullptr;
@@ -48,15 +45,6 @@ private:
     DefCategoryWidget *m_modVideo = nullptr;
     DefCategoryWidget *m_modPicture = nullptr;
     DefCategoryWidget *m_modTerminal = nullptr;
-
-    DefCategoryWidget *m_modCDAudio = nullptr;
-    DefCategoryWidget *m_modDVDVideo = nullptr;
-    DefCategoryWidget *m_modMusicPlayer = nullptr;
-    DefCategoryWidget *m_modCamera = nullptr;
-    DefCategoryWidget *m_modSoftware = nullptr;
-
-    widgets::SwitchWidget *m_switchWidget = nullptr;
-
 };
 }
 }

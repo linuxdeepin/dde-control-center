@@ -25,11 +25,6 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     m_stringToCategory.insert("Video",       Video);
     m_stringToCategory.insert("Picture",     Picture);
     m_stringToCategory.insert("Terminal",    Terminal);
-    m_stringToCategory.insert("CD_Audio",    CD_Audio);
-    m_stringToCategory.insert("DVD_Video",   DVD_Video);
-    m_stringToCategory.insert("MusicPlayer", MusicPlayer);
-    m_stringToCategory.insert("Camera",      Camera);
-    m_stringToCategory.insert("Software",    Software);
 
     connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetDefaultApp);
     connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetListApps);
@@ -65,13 +60,7 @@ void DefAppWorker::onGetDefaultApp()
 {
     //得到默认程序
     for (QMap<QString, DefAppWorker::DefaultAppsCategory>::const_iterator mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
-        QDBusPendingReply<QString> rep;
-        if (isMediaApps(mimelist.value())) {
-            rep = m_dbusMedia->GetDefaultApp(getTypeByCategory(mimelist.value()));
-        } else {
-            rep = m_dbusManager->GetDefaultApp(getTypeByCategory(mimelist.value()));
-        }
-
+        QDBusPendingReply<QString> rep = m_dbusManager->GetDefaultApp(getTypeByCategory(mimelist.value()));
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(rep, this);
         watcher->setProperty("mime", mimelist.key());
         connect(watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getDefaultAppFinished);
@@ -83,12 +72,7 @@ void DefAppWorker::onGetListApps()
 {
     //遍历QMap去获取dbus数据
     for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
-        QDBusPendingReply<QString> rep;
-        if (isMediaApps(mimelist.value())) {
-            rep = m_dbusMedia->ListApps(getTypeByCategory(mimelist.value()));
-        } else {
-            rep = m_dbusManager->ListApps(getTypeByCategory(mimelist.value()));
-        }
+        QDBusPendingReply<QString> rep = m_dbusManager->ListApps(getTypeByCategory(mimelist.value()));
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(rep, this);
         watcher->setProperty("mime", mimelist.key());
         connect(watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getListAppFinished);
@@ -268,43 +252,9 @@ Category *DefAppWorker::getCategory(const QString &mime) const
         return m_defAppModel->getModPicture();
     case Terminal:
         return m_defAppModel->getModTerminal();
-    case CD_Audio:
-        return m_defAppModel->getModCDAudio();
-    case DVD_Video:
-        return m_defAppModel->getModDVDVideo();
-    case MusicPlayer:
-        return m_defAppModel->getModMusicPlayer();
-    case Camera:
-        return m_defAppModel->getModCamera();
-    case Software:
-        return m_defAppModel->getModSoftware();
     }
     return nullptr;
 }
-
-bool DefAppWorker::isMediaApps(const DefaultAppsCategory &category) const
-{
-    switch (category) {
-    case DefAppWorker::DefaultAppsCategory::Browser:
-    case DefAppWorker::DefaultAppsCategory::Mail:
-    case DefAppWorker::DefaultAppsCategory::Text:
-    case DefAppWorker::DefaultAppsCategory::Music:
-    case DefAppWorker::DefaultAppsCategory::Video:
-    case DefAppWorker::DefaultAppsCategory::Picture:
-    case DefAppWorker::DefaultAppsCategory::Terminal:      return false;
-    case DefAppWorker::DefaultAppsCategory::CD_Audio:
-    case DefAppWorker::DefaultAppsCategory::DVD_Video:
-    case DefAppWorker::DefaultAppsCategory::MusicPlayer:
-    case DefAppWorker::DefaultAppsCategory::Camera:
-    case DefAppWorker::DefaultAppsCategory::Software:      return true;
-    default:;
-    }
-
-    // for remove complier warnings.
-    return true;
-}
-
-
 
 const QString DefAppWorker::getTypeByCategory(const DefaultAppsCategory &category)
 {
@@ -335,11 +285,6 @@ const QStringList DefAppWorker::getTypeListByCategory(const DefaultAppsCategory 
                                    << "image/x-png" << "image/tiff" << "image/svg+xml" << "image/x-xbitmap" << "image/gif"
                                    << "image/x-xpixmap";
     case Terminal:      return QStringList() << "application/x-terminal";
-    case CD_Audio:      return QStringList() << "x-content/audio-cdda";
-    case DVD_Video:     return QStringList() << "x-content/video-dvd";
-    case MusicPlayer:   return QStringList() << "x-content/audio-player";
-    case Camera:        return QStringList() << "x-content/image-dcf";
-    case Software:      return QStringList() << "x-content/unix-software";
     }
     return QStringList();
 }
