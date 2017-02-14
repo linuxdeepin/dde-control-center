@@ -112,6 +112,19 @@ void KeyboardModel::setAllShortcut(const QMap<QStringList,int> &map)
     m_shortcutMap = map;
 }
 
+bool KeyboardModel::numLock() const
+{
+    return m_numLock;
+}
+
+void KeyboardModel::setNumLock(bool numLock)
+{
+    if (m_numLock != numLock) {
+        m_numLock = numLock;
+        emit numLockChanged(m_numLock);
+    }
+}
+
 QString KeyboardModel::curLang() const
 {
     return langByKey(m_lang);

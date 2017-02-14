@@ -47,10 +47,14 @@ public:
     uint repeatDelay() const;
     void setRepeatDelay(const uint &repeatDelay);
 
+    bool numLock() const;
+    void setNumLock(bool numLock);
+
 signals:
     void curLayoutChanged(const QString& layout);
     void curLangChanged(const QString& lang);
     void capsLockChanged(bool value);
+    void numLockChanged(bool value);
     void repeatDelayChanged(const uint value);
     void repeatIntervalChanged(const uint value);
 
@@ -66,6 +70,7 @@ public slots:
 
 private:
     bool m_capsLock;
+    bool m_numLock;
     uint m_repeatInterval;
     uint m_repeatDelay;
     QString m_layout;

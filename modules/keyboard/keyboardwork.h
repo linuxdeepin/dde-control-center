@@ -48,6 +48,7 @@ public:
     void setModelRepeatDelay(int value);
     void setModelRepeatInterval(int value);
 
+    void setNumLock(bool value);
     void setCapsLock(bool value);
     void active();
     void deactive();

@@ -28,6 +28,7 @@ signals:
     void delayChanged(int value);
     void speedChanged(int value);
     void capsLockChanged(bool value);
+    void numLockChanged(bool value);
 
 public slots:
     void setDelayValue(uint value);
@@ -41,6 +42,7 @@ private:
     NextPageWidget* m_langItem;
     NextPageWidget* m_scItem;
     SwitchWidget* m_upper;
+    SwitchWidget* m_numLock;
     KeyboardModel *m_model;
 };
 }

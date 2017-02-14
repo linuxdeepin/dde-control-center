@@ -59,6 +59,7 @@ ModuleWidget *KeyboardModule::moduleWidget()
         connect(m_keyboardWidget, SIGNAL(shortcut()), this, SLOT(onPushShortcut()));
         connect(m_keyboardWidget, &KeyboardWidget::delayChanged, m_work, &KeyboardWork::setRepeatDelay);
         connect(m_keyboardWidget, &KeyboardWidget::speedChanged, m_work, &KeyboardWork::setRepeatInterval);
+        connect(m_keyboardWidget, &KeyboardWidget::numLockChanged, m_work, &KeyboardWork::setNumLock);
         connect(m_keyboardWidget, &KeyboardWidget::capsLockChanged, m_work, &KeyboardWork::setCapsLock);
     }
 

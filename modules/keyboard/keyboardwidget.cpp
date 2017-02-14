@@ -59,6 +59,10 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     speedItem->setContentsMargins(0, 0, 0, 10);
     keyTest->appendItem(speedItem);
 
+    m_numLock = new SwitchWidget;
+    m_numLock->setTitle(tr("Enable Numeric Keyboard"));
+    keyTest->appendItem(m_numLock);
+
     m_upper = new SwitchWidget();
     m_upper->setTitle(tr("Caps Lock Prompt"));
     keyTest->appendItem(m_upper);
@@ -89,18 +93,21 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     connect(m_scItem, SIGNAL(clicked()), this, SIGNAL(shortcut()));
     connect(m_delaySlider, &DCCSlider::valueChanged, this, &KeyboardWidget::delayChanged);
     connect(m_speedSlider, &DCCSlider::valueChanged, this, &KeyboardWidget::speedChanged);
+    connect(m_numLock, &SwitchWidget::checkedChanged, this, &KeyboardWidget::numLockChanged);
     connect(m_upper, SIGNAL(checkedChanged(bool)), this, SIGNAL(capsLockChanged(bool)));
 
 
     connect(m_model, &KeyboardModel::repeatDelayChanged, this, &KeyboardWidget::setDelayValue);
     connect(m_model, &KeyboardModel::repeatIntervalChanged, this, &KeyboardWidget::setSpeedValue);
     connect(m_model, &KeyboardModel::capsLockChanged,m_upper, &SwitchWidget::setChecked);
+    connect(m_model, &KeyboardModel::numLockChanged, m_numLock, &SwitchWidget::setChecked);
     connect(m_model, &KeyboardModel::curLayoutChanged, m_keyItem, &NextPageWidget::setValue);
     connect(m_model, &KeyboardModel::curLangChanged, m_langItem, &NextPageWidget::setValue);
 
     setDelayValue(m_model->repeatDelay());
     setSpeedValue(m_model->repeatInterval());
     m_upper->setChecked(m_model->capsLock());
+    m_numLock->setChecked(m_model->numLock());
     m_keyItem->setValue(m_model->curLayout());
     m_langItem->setValue(m_model->curLang());
 }
