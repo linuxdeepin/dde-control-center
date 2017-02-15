@@ -74,8 +74,9 @@ void VpnPage::setModel(NetworkModel *model)
 
 void VpnPage::refershVpnList(const QList<QJsonObject> &vpnList)
 {
-    if (vpnList.size() == m_vpnGroup->itemCount())
-        return;
+    // NOTE: vpn name changed
+//    if (vpnList.size() == m_vpnGroup->itemCount())
+//        return;
 
     m_vpnGroup->clear();
     qDeleteAll(m_vpns.keys());
