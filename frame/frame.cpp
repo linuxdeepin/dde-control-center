@@ -32,8 +32,6 @@ Frame::Frame(QWidget *parent)
 
     resize(0, height());
 
-    connect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased);
-
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
     connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hide);
 
@@ -246,6 +244,9 @@ void Frame::show()
 
     // register global mouse area
     m_mouseAreaKey = m_mouseAreaInter->RegisterFullScreen();
+
+    // connect signal
+    connect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased);
 }
 
 void Frame::hide()
@@ -278,6 +279,9 @@ void Frame::hide()
     if (!m_mouseAreaKey.isEmpty())
         m_mouseAreaInter->UnregisterArea(m_mouseAreaKey);
     m_mouseAreaKey.clear();
+
+    // disconnect signal
+    disconnect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased);
 }
 
 void Frame::toggle()

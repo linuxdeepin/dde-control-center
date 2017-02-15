@@ -50,11 +50,69 @@ void NetworkWorker::setProxyMethod(const QString &proxyMethod)
     connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
 }
 
+void NetworkWorker::setProxyIgnoreHosts(const QString &hosts)
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.SetProxyIgnoreHosts(hosts), this);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryProxyIgnoreHosts);
+    connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
+}
+
+void NetworkWorker::setAutoProxy(const QString &proxy)
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.SetAutoProxy(proxy), this);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryAutoProxy);
+    connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
+}
+
+void NetworkWorker::setProxy(const QString &type, const QString &addr, const QString &port)
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.SetProxy(type, addr, port), this);
+
+    connect(w, &QDBusPendingCallWatcher::finished, [=] { queryProxy(type); });
+    connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
+}
+
+void NetworkWorker::queryProxy(const QString &type)
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.asyncCall(QStringLiteral("GetProxy"), type), this);
+
+    w->setProperty("proxyType", type);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryProxyCB);
+}
+
+void NetworkWorker::queryAutoProxy()
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.GetAutoProxy(), this);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryAutoProxyCB);
+}
+
+void NetworkWorker::queryProxyData()
+{
+    queryProxy("http");
+    queryProxy("https");
+    queryProxy("ftp");
+    queryProxy("socks");
+    queryAutoProxy();
+    queryProxyMethod();
+    queryProxyIgnoreHosts();
+}
+
 void NetworkWorker::queryProxyMethod()
 {
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.GetProxyMethod(), this);
 
     connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryProxyMethodCB);
+}
+
+void NetworkWorker::queryProxyIgnoreHosts()
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.GetProxyIgnoreHosts(), this);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryProxyIgnoreHostsCB);
 }
 
 void NetworkWorker::queryActiveConnInfo()
@@ -129,11 +187,42 @@ void NetworkWorker::activateAccessPoint(const QString &devPath, const QString &a
     m_networkInter.ActivateAccessPoint(uuid, QDBusObjectPath(apPath), QDBusObjectPath(devPath));
 }
 
+void NetworkWorker::queryAutoProxyCB(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QString> reply = *w;
+
+    m_networkModel->onAutoProxyChanged(reply.value());
+
+    w->deleteLater();
+}
+
+void NetworkWorker::queryProxyCB(QDBusPendingCallWatcher *w)
+{
+    QDBusMessage reply = w->reply();
+
+    const QString type = w->property("proxyType").toString();
+    const QString addr = reply.arguments()[0].toString();
+    const QString port = reply.arguments()[1].toString();
+
+    m_networkModel->onProxiesChanged(type, addr, port);
+
+    w->deleteLater();
+}
+
 void NetworkWorker::queryProxyMethodCB(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = *w;
 
     m_networkModel->onProxyMethodChanged(reply.value());
+
+    w->deleteLater();
+}
+
+void NetworkWorker::queryProxyIgnoreHostsCB(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QString> reply = *w;
+
+    m_networkModel->onProxyIgnoreHostsChanged(reply.value());
 
     w->deleteLater();
 }

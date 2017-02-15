@@ -32,7 +32,8 @@ HEADERS += \
     $$PWD/blurredframe.h \
     $$PWD/labels/tipslabel.h \
     $$PWD/spinboxwidget.h \
-    $$PWD/titlevalueitem.h
+    $$PWD/titlevalueitem.h \
+    $$PWD/plantextitem.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -63,7 +64,8 @@ SOURCES += \
     $$PWD/blurredframe.cpp \
     $$PWD/labels/tipslabel.cpp \
     $$PWD/spinboxwidget.cpp \
-    $$PWD/titlevalueitem.cpp
+    $$PWD/titlevalueitem.cpp \
+    $$PWD/plantextitem.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

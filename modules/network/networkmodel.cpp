@@ -70,6 +70,29 @@ void NetworkModel::onVPNEnabledChanged(const bool enabled)
     }
 }
 
+void NetworkModel::onProxiesChanged(const QString &type, const QString &url, const QString &port)
+{
+    const ProxyConfig config = { url, port };
+    const ProxyConfig old = m_proxies[type];
+
+    if (old.url != config.url || old.port != config.port)
+    {
+        m_proxies[type] = config;
+
+        emit proxyChanged(type, config);
+    }
+}
+
+void NetworkModel::onAutoProxyChanged(const QString &proxy)
+{
+    if (m_autoProxy != proxy)
+    {
+        m_autoProxy = proxy;
+
+        emit autoProxyChanged(m_autoProxy);
+    }
+}
+
 void NetworkModel::onProxyMethodChanged(const QString &proxyMethod)
 {
     if (m_proxyMethod != proxyMethod)
@@ -77,6 +100,16 @@ void NetworkModel::onProxyMethodChanged(const QString &proxyMethod)
         m_proxyMethod = proxyMethod;
 
         emit proxyMethodChanged(m_proxyMethod);
+    }
+}
+
+void NetworkModel::onProxyIgnoreHostsChanged(const QString &hosts)
+{
+    if (hosts != m_proxyIgnoreHosts)
+    {
+        m_proxyIgnoreHosts = hosts;
+
+        emit proxyIgnoreHostsChanged(m_proxyIgnoreHosts);
     }
 }
 

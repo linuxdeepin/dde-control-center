@@ -10,6 +10,12 @@ namespace dcc {
 
 namespace network {
 
+struct ProxyConfig
+{
+    QString url;
+    QString port;
+};
+
 class NetworkDevice;
 class NetworkWorker;
 class NetworkModel : public QObject
@@ -23,7 +29,10 @@ public:
     ~NetworkModel();
 
     bool vpnEnabled() const { return m_vpnEnabled; }
+    const ProxyConfig proxy(const QString &type) const { return m_proxies[type]; }
+    const QString autoProxy() const { return m_autoProxy; }
     const QString proxyMethod() const { return m_proxyMethod; }
+    const QString ignoreHosts() const { return m_proxyIgnoreHosts; }
     const QList<NetworkDevice *> devices() const { return m_devices; }
     const QList<QJsonObject> vpns() const { return m_connections.value("vpn"); }
     const QList<QJsonObject> wireds() const { return m_connections.value("wired"); }
@@ -35,7 +44,10 @@ public:
 
 signals:
     void connectionListChanged() const;
+    void autoProxyChanged(const QString &proxy) const;
+    void proxyChanged(const QString &type, const ProxyConfig &config) const;
     void proxyMethodChanged(const QString &proxyMethod) const;
+    void proxyIgnoreHostsChanged(const QString &hosts) const;
     void requestDeviceStatus(const QString &devPath) const;
     void activeConnectionsChanged(const QSet<QString> &conns) const;
     void activeConnInfoChanged(const QList<QJsonObject> &infos) const;
@@ -45,7 +57,10 @@ signals:
 
 private slots:
     void onVPNEnabledChanged(const bool enabled);
+    void onProxiesChanged(const QString &type, const QString &url, const QString &port);
+    void onAutoProxyChanged(const QString &proxy);
     void onProxyMethodChanged(const QString &proxyMethod);
+    void onProxyIgnoreHostsChanged(const QString &hosts);
     void onDeviceListChanged(const QString &devices);
     void onConnectionListChanged(const QString &conns);
     void onActiveConnInfoChanged(const QString &conns);
@@ -63,6 +78,9 @@ private:
 private:
     bool m_vpnEnabled;
     QString m_proxyMethod;
+    QString m_proxyIgnoreHosts;
+    QString m_autoProxy;
+    QMap<QString, ProxyConfig> m_proxies;
     QList<NetworkDevice *> m_devices;
     QMap<QString, QList<QJsonObject>> m_connections;
     QList<QJsonObject> m_activeConnInfos;

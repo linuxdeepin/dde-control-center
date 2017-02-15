@@ -4,6 +4,7 @@
 #include "settingsgroup.h"
 #include "settingsheaderitem.h"
 #include "lineeditwidget.h"
+#include "plantextitem.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -50,6 +51,13 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_socksPort = new LineEditWidget;
     m_socksPort->setTitle(tr("Port"));
 
+    m_ignoreList = new PlainTextItem;
+    QLabel *ignoreTips = new QLabel;
+    ignoreTips->setWordWrap(true);
+    ignoreTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    ignoreTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    ignoreTips->setText(tr("Ignore the proxy configurations for the above hosts and domains"));
+
     m_autoUrl = new LineEditWidget;
     m_autoUrl->setTitle(tr("Configuration URL"));
 
@@ -72,11 +80,16 @@ ProxyPage::ProxyPage(QWidget *parent)
     SettingsGroup *autoGroup = new SettingsGroup;
     autoGroup->appendItem(m_autoUrl);
 
+    SettingsGroup *ignoreGroup = new SettingsGroup;
+    ignoreGroup->appendItem(m_ignoreList);
+
     QVBoxLayout *manualLayout = new QVBoxLayout;
     manualLayout->addWidget(httpGroup);
     manualLayout->addWidget(httpsGroup);
     manualLayout->addWidget(ftpGroup);
     manualLayout->addWidget(socksGroup);
+    manualLayout->addWidget(ignoreGroup);
+    manualLayout->addWidget(ignoreTips);
     manualLayout->setMargin(0);
     manualLayout->setSpacing(10);
 
@@ -90,6 +103,7 @@ ProxyPage::ProxyPage(QWidget *parent)
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_proxyType);
+    mainLayout->addSpacing(10);
     mainLayout->setAlignment(m_proxyType, Qt::AlignCenter);
     mainLayout->addWidget(m_manualWidget);
     mainLayout->addWidget(m_autoWidget);
@@ -103,8 +117,18 @@ ProxyPage::ProxyPage(QWidget *parent)
     setContent(mainWidget);
 
     connect(m_proxyType, &DSegmentedControl::currentChanged, [=](const int index) { emit requestSetProxyMethod(ProxyMethodList[index]); });
+    connect(m_ignoreList->plainEdit(), &QPlainTextEdit::textChanged, [=] { emit requestSetIgnoreHosts(m_ignoreList->plainEdit()->toPlainText()); });
+    connect(m_httpAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
+    connect(m_httpPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
+    connect(m_httpsAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("https"); });
+    connect(m_httpsPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("https"); });
+    connect(m_ftpAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("ftp"); });
+    connect(m_ftpPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("ftp"); });
+    connect(m_socksAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("socks"); });
+    connect(m_socksPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("socks"); });
+    connect(m_autoUrl->textEdit(), &QLineEdit::editingFinished, [=] { emit requestSetAutoProxy(m_autoUrl->text()); });
 
-    QTimer::singleShot(1, this, [=] { emit requestQueryProxyMethod(); });
+    QTimer::singleShot(1, this, [=] { emit requestQueryProxyData(); });
 }
 
 void ProxyPage::setModel(NetworkModel *model)
@@ -112,6 +136,17 @@ void ProxyPage::setModel(NetworkModel *model)
     m_model = model;
 
     connect(model, &NetworkModel::proxyMethodChanged, this, &ProxyPage::onProxyMethodChanged);
+    connect(model, &NetworkModel::proxyIgnoreHostsChanged, this, &ProxyPage::onIgnoreHostsChanged);
+    connect(model, &NetworkModel::proxyChanged, this, &ProxyPage::onProxyChanged);
+    connect(model, &NetworkModel::autoProxyChanged, m_autoUrl, &LineEditWidget::setText);
+
+    onProxyChanged("http", model->proxy("http"));
+    onProxyChanged("https", model->proxy("https"));
+    onProxyChanged("ftp", model->proxy("ftp"));
+    onProxyChanged("socks", model->proxy("socks"));
+    onProxyMethodChanged(model->proxyMethod());
+    onIgnoreHostsChanged(model->ignoreHosts());
+    m_autoUrl->setText(model->autoProxy());
 }
 
 void ProxyPage::onProxyMethodChanged(const QString &proxyMethod)
@@ -120,7 +155,53 @@ void ProxyPage::onProxyMethodChanged(const QString &proxyMethod)
     if (index == -1)
         return;
 
+    m_proxyType->blockSignals(true);
     m_proxyType->setCurrentIndex(index);
+    m_proxyType->blockSignals(false);
+
+    // refersh ui
+    m_manualWidget->setVisible(index == 1);
+    m_autoWidget->setVisible(index == 2);
+}
+
+void ProxyPage::onIgnoreHostsChanged(const QString &hosts)
+{
+    const QTextCursor cursor = m_ignoreList->plainEdit()->textCursor();
+
+    m_ignoreList->plainEdit()->blockSignals(true);
+    m_ignoreList->plainEdit()->setPlainText(hosts);
+    m_ignoreList->plainEdit()->setTextCursor(cursor);
+    m_ignoreList->plainEdit()->blockSignals(false);
+}
+
+void ProxyPage::applyProxy(const QString &type)
+{
+    if (type == "http")
+        emit requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
+    else if (type == "https")
+        emit requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
+    else if (type == "ftp")
+        emit requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
+    else if (type == "socks")
+        emit requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
+}
+
+void ProxyPage::onProxyChanged(const QString &type, const ProxyConfig &config)
+{
+    if (type == "http")
+    {
+        m_httpAddr->setText(config.url);
+        m_httpPort->setText(config.port);
+    } else if (type == "https") {
+        m_httpsAddr->setText(config.url);
+        m_httpsPort->setText(config.port);
+    } else if (type == "ftp") {
+        m_ftpAddr->setText(config.url);
+        m_ftpPort->setText(config.port);
+    } else if (type == "socks") {
+        m_socksAddr->setText(config.url);
+        m_socksPort->setText(config.port);
+    }
 }
 
 }

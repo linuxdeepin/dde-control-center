@@ -159,8 +159,11 @@ void NetworkModule::showProxyPage()
 {
     ProxyPage *p = new ProxyPage;
 
-    connect(p, &ProxyPage::requestQueryProxyMethod, m_networkWorker, &NetworkWorker::queryProxyMethod);
+    connect(p, &ProxyPage::requestQueryProxyData, m_networkWorker, &NetworkWorker::queryProxyData);
     connect(p, &ProxyPage::requestSetProxyMethod, m_networkWorker, &NetworkWorker::setProxyMethod);
+    connect(p, &ProxyPage::requestSetIgnoreHosts, m_networkWorker, &NetworkWorker::setProxyIgnoreHosts);
+    connect(p, &ProxyPage::requestSetProxy, m_networkWorker, &NetworkWorker::setProxy);
+    connect(p, &ProxyPage::requestSetAutoProxy, m_networkWorker, &NetworkWorker::setAutoProxy);
 
     p->setModel(m_networkModel);
 
