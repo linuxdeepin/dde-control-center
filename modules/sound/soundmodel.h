@@ -67,6 +67,7 @@ class SoundModel : public QObject
     Q_OBJECT
 public:
     explicit SoundModel(QObject *parent = 0);
+    ~SoundModel();
 
     inline bool speakerOn() const { return m_speakerOn; }
     void setSpeakerOn(bool speakerOn);
@@ -104,7 +105,7 @@ signals:
     void microphoneVolumeChanged(double microphoneVolume) const;
     void microphoneFeedbackChanged(double microphoneFeedback) const;
     void portAdded(const Port *port);
-    void portRemoved(const QString & portId);
+    void portRemoved(const QString & portId, const uint &cardId);
 
 private:
     bool m_speakerOn;

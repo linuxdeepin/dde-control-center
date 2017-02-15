@@ -18,7 +18,7 @@ namespace sound {
 PortItem::PortItem(const Port *port) :
     OptionItem(),
     m_port(port),
-    m_frame(new dcc::widgets::TranslucentFrame),
+    m_frame(new dcc::widgets::TranslucentFrame(this)),
     m_portLabel(new NormalLabel),
     m_cardLabel(new NormalLabel)
 {
@@ -57,6 +57,11 @@ void PortItem::setPortItemSelected(bool state)
     blockSignals(true);
     setSelected(state);
     blockSignals(false);
+}
+
+Port::Direction PortItem::direction()
+{
+    return m_port->direction();
 }
 
 } // namespace sound

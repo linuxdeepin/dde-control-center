@@ -24,6 +24,14 @@ SoundModel::SoundModel(QObject *parent)
 
 }
 
+SoundModel::~SoundModel()
+{
+    for (Port *port : m_ports) {
+        if (port)
+            port->deleteLater();
+    }
+}
+
 void SoundModel::setSpeakerOn(bool speakerOn)
 {
     if (speakerOn != m_speakerOn) {
@@ -94,7 +102,7 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
     if (port) {
         m_ports.removeOne(port);
         port->deleteLater();
-        emit portRemoved(portId);
+        emit portRemoved(portId, cardId);
     }
 }
 

@@ -23,7 +23,7 @@ class AdvancedPage : public ContentWidget
     Q_OBJECT
 public:
     explicit AdvancedPage(SoundModel *model);
-    ~AdvancedPage() {}
+    ~AdvancedPage();
 
     void setModel(SoundModel *model);
 
@@ -32,12 +32,13 @@ signals:
 
 private slots:
     void addPort(const Port *port);
-    void removePort(const QString &portId);
+    void removePort(const QString &portId, const uint &cardId);
 
 private:
     SoundModel *m_model;
     SettingsGroup *m_outputGroup;
     SettingsGroup *m_inputGroup;
+    QList<PortItem *> m_portItemList;
 };
 
 } // namespace sound

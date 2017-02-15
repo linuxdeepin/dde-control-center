@@ -34,6 +34,14 @@ AdvancedPage::AdvancedPage(SoundModel *model)
     setContent(frame);
 }
 
+AdvancedPage::~AdvancedPage()
+{
+    for (PortItem *p :m_portItemList) {
+        if(p)
+            p->deleteLater();
+    }
+}
+
 void AdvancedPage::setModel(SoundModel *model)
 {
     m_model = model;
@@ -61,25 +69,21 @@ void AdvancedPage::addPort(const Port *port)
     } else {
         m_inputGroup->appendItem(item);
     }
+    m_portItemList.append(item);
 }
 
-void AdvancedPage::removePort(const QString &portId)
+void AdvancedPage::removePort(const QString &portId, const uint &cardId)
 {
-    QList<PortItem *> outputPortItems = m_outputGroup->findChildren<PortItem*>();
-    for (PortItem *item : outputPortItems) {
-        if (item->port()->id() == portId) {
-            m_outputGroup->removeItem(item);
-            item->deleteLater();
-            return;
-        }
-    }
+    for (PortItem *item : m_portItemList) {
+        if (item->port()->id() == portId && item->port()->cardId() == cardId) {
 
-    QList<PortItem *> inputPortItems = m_inputGroup->findChildren<PortItem*>();
-    for (PortItem *item : inputPortItems) {
-        if (item->port()->id() == portId) {
-            m_inputGroup->removeItem(item);
+            if (item->direction() == Port::Out)
+                m_outputGroup->removeItem(item);
+            else
+                m_inputGroup->removeItem(item);
+
+            m_portItemList.removeOne(item);
             item->deleteLater();
-            return;
         }
     }
 }

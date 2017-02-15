@@ -11,6 +11,7 @@
 #define DCC_SOUND_PORTITEM_H
 
 #include "optionitem.h"
+#include "soundmodel.h"
 
 using namespace dcc::widgets;
 
@@ -26,6 +27,8 @@ public:
 
     void setPort(const Port *port);
     inline const Port *port() const { return m_port; }
+
+    Port::Direction direction();
 
 private slots:
     void setPortItemSelected(bool state);

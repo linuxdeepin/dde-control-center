@@ -206,7 +206,7 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 
 void SoundWorker::cardsChanged(const QString &cards)
 {
-    QStringList tmpPorts;
+    QMap<uint, QStringList> tmpCardIds;
 
     QJsonDocument doc = QJsonDocument::fromJson(cards.toUtf8());
     QJsonArray jCards = doc.array();
@@ -215,6 +215,8 @@ void SoundWorker::cardsChanged(const QString &cards)
         const uint cardId = jCard["Id"].toInt();
         const QString cardName = jCard["Name"].toString();
         QJsonArray jPorts = jCard["Ports"].toArray();
+
+        QStringList tmpPorts;
 
         for (QJsonValue pV : jPorts) {
             QJsonObject jPort = pV.toObject();
@@ -239,12 +241,13 @@ void SoundWorker::cardsChanged(const QString &cards)
             tmpPorts << portId;
             // }
         }
+        tmpCardIds.insert(cardId, tmpPorts);
     }
 
     for (Port *port : m_model->ports()) {
-        const QString id = port->id();
-        if (!tmpPorts.contains(id)) {
-            m_model->removePort(id, port->cardId());
+        //if the card is not in the list
+        if (!tmpCardIds.contains(port->cardId())) {
+            m_model->removePort(port->id(), port->cardId());
         }
     }
 }
