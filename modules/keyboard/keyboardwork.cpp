@@ -112,6 +112,8 @@ void KeyboardWork::active()
     m_keybindInter->blockSignals(false);
 
     m_model->setCapsLock(m_keyboardInter->capslockToggle());
+    m_model->setNumLock(m_keybindInter->numLockState());
+
 
     setModelRepeatDelay(m_keyboardInter->repeatDelay());
     setModelRepeatInterval(m_keyboardInter->repeatInterval());
