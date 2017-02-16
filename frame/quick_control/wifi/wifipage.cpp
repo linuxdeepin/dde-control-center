@@ -1,11 +1,12 @@
 #include "wifipage.h"
 #include "wifilistmodel.h"
 #include "wifilistdelegate.h"
-#include "../basiclistview.h"
+#include "basiclistview.h"
 
 #include <QVBoxLayout>
 
 using dcc::network::NetworkModel;
+using dcc::widgets::BasicListView;
 
 WifiPage::WifiPage(NetworkModel *model, QWidget *parent)
     : QWidget(parent),

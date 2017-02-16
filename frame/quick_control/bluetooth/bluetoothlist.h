@@ -12,9 +12,11 @@
 
 #include "bluetooth/bluetoothmodel.h"
 #include "bluetoothlistmodel.h"
+#include "basiclistview.h"
 #include <QWidget>
 
 using dcc::bluetooth::BluetoothModel;
+using dcc::widgets::BasicListView;
 
 class BluetoothList : public QWidget
 {

@@ -1,11 +1,12 @@
 #include "vpncontrolpage.h"
 #include "vpnlistdelegate.h"
-#include "../basiclistview.h"
+#include "basiclistview.h"
 
 #include <QDebug>
 #include <QListView>
 #include <QVBoxLayout>
 
+using dcc::widgets::BasicListView;
 using dcc::network::NetworkModel;
 
 VpnControlPage::VpnControlPage(NetworkModel *model, QWidget *parent)

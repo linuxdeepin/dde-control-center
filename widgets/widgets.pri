@@ -33,7 +33,8 @@ HEADERS += \
     $$PWD/labels/tipslabel.h \
     $$PWD/spinboxwidget.h \
     $$PWD/titlevalueitem.h \
-    $$PWD/plantextitem.h
+    $$PWD/plantextitem.h \
+    $$PWD/basiclistview.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -65,7 +66,8 @@ SOURCES += \
     $$PWD/labels/tipslabel.cpp \
     $$PWD/spinboxwidget.cpp \
     $$PWD/titlevalueitem.cpp \
-    $$PWD/plantextitem.cpp
+    $$PWD/plantextitem.cpp \
+    $$PWD/basiclistview.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

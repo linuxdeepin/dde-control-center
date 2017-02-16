@@ -2,6 +2,10 @@
 
 #include <QDebug>
 
+namespace dcc {
+
+namespace widgets {
+
 BasicListView::BasicListView(QWidget *parent)
     : QListView(parent)
 {
@@ -39,4 +43,8 @@ void BasicListView::leaveEvent(QEvent *e)
     QListView::leaveEvent(e);
 
     emit entered(QModelIndex());
+}
+
+}
+
 }

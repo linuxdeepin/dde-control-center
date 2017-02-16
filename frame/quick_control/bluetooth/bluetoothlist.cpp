@@ -7,7 +7,6 @@
  * (at your option) any later version.
  **/
 
-#include "../basiclistview.h"
 #include "bluetoothlist.h"
 #include "bluetoothdelegate.h"
 #include <QVBoxLayout>

@@ -1,6 +1,7 @@
 #ifndef WIFIPAGE_H
 #define WIFIPAGE_H
 
+#include "wifipage.h"
 #include "network/networkmodel.h"
 
 #include <QWidget>

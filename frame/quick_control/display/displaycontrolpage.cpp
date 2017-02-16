@@ -1,10 +1,11 @@
 #include "displaycontrolpage.h"
 #include "displaycontrolmodel.h"
 #include "displayitemdelegate.h"
-#include "../basiclistview.h"
+#include "basiclistview.h"
 
 #include <QVBoxLayout>
 
+using dcc::widgets::BasicListView;
 using namespace dcc::display;
 
 DisplayControlPage::DisplayControlPage(DisplayModel *model, QWidget *parent)

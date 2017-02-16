@@ -4,6 +4,10 @@
 #include <QListView>
 #include <QAbstractItemModel>
 
+namespace dcc {
+
+namespace widgets {
+
 class BasicListView : public QListView
 {
     Q_OBJECT
@@ -18,5 +22,9 @@ public:
 
     void leaveEvent(QEvent *e);
 };
+
+}
+
+}
 
 #endif // VPNLISTVIEW_H
