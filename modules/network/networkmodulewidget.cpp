@@ -140,7 +140,7 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
     connect(w, &NextPageWidget::clicked, this, &NetworkModuleWidget::onNextPageClicked);
     connect(dev, &NetworkDevice::enableChanged, s, &SwitchWidget::setChecked);
     connect(dev, &NetworkDevice::enableChanged, w, &NextPageWidget::setVisible);
-    connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), w, &NextPageWidget::setValue);
+    connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), w, &NextPageWidget::setValue, Qt::QueuedConnection);
 
     if (dev->type() == NetworkDevice::Wired)
     {
