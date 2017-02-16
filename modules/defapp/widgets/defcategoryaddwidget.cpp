@@ -8,9 +8,11 @@
 #include <QTimer>
 #include <QFile>
 #include <QMessageBox>
+#include <QStandardPaths>
 #include <sys/types.h>    // defines special types
 #include <pwd.h>    // defines the passwd structure
 #include <unistd.h>//header for getuid system call
+
 using namespace dcc;
 using namespace dcc::defapp;
 DefCategoryAddWidget::DefCategoryAddWidget(QWidget *parent)
@@ -79,6 +81,10 @@ void DefCategoryAddWidget::clicked()
         QFileDialog dialog;
         dialog.setWindowTitle(tr("Open Desktop file"));
         dialog.setNameFilter(tr("All Files(*)"));
+
+        QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
+        if (!directory.isEmpty())
+            dialog.setDirectory(directory.first());
 
         if (dialog.exec() != QDialog::Accepted)
             break;
