@@ -7,7 +7,9 @@ namespace dcc {
 namespace widgets {
 
 BasicListView::BasicListView(QWidget *parent)
-    : QListView(parent)
+    : QListView(parent),
+
+      m_autoFitHeight(true)
 {
 //    setStyleSheet("background-color: red;");
     setFrameStyle(QFrame::NoFrame);
@@ -34,8 +36,14 @@ void BasicListView::setModel(QAbstractItemModel *model)
 {
     QListView::setModel(model);
 
-    setMaximumHeight(sizeHint().height());
-    connect(model, &QAbstractItemModel::layoutChanged, this, [=] { setMaximumHeight(sizeHint().height()); }, Qt::UniqueConnection);
+    connect(model, &QAbstractItemModel::layoutChanged, this, &BasicListView::onContentHeightChanged, Qt::QueuedConnection);
+    onContentHeightChanged();
+}
+
+void BasicListView::onContentHeightChanged()
+{
+    if (m_autoFitHeight)
+        setMaximumHeight(sizeHint().height());
 }
 
 void BasicListView::leaveEvent(QEvent *e)
@@ -43,6 +51,14 @@ void BasicListView::leaveEvent(QEvent *e)
     QListView::leaveEvent(e);
 
     emit entered(QModelIndex());
+}
+
+void BasicListView::setAutoFitHeight(const bool fit)
+{
+    m_autoFitHeight = fit;
+
+    if (fit)
+        onContentHeightChanged();
 }
 
 }

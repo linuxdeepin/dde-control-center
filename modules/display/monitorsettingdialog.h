@@ -44,6 +44,8 @@ signals:
     void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
 
 private:
+    void resizeEvent(QResizeEvent *e);
+
     void init();
     void initPrimary();
 

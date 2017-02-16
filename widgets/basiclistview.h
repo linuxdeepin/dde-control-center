@@ -19,8 +19,15 @@ public:
 
 public:
     void setModel(QAbstractItemModel *model);
+    void onContentHeightChanged();
 
     void leaveEvent(QEvent *e);
+
+public slots:
+    void setAutoFitHeight(const bool fit);
+
+private:
+    bool m_autoFitHeight;
 };
 
 }

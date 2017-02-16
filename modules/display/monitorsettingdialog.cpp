@@ -51,6 +51,13 @@ MonitorSettingDialog::~MonitorSettingDialog()
     qDeleteAll(m_otherDialogs);
 }
 
+void MonitorSettingDialog::resizeEvent(QResizeEvent *e)
+{
+    QDialog::resizeEvent(e);
+
+    QTimer::singleShot(1, this, &MonitorSettingDialog::onMonitorRectChanged);
+}
+
 void MonitorSettingDialog::init()
 {
     m_resolutionsModel = new BasicListModel;
@@ -58,7 +65,11 @@ void MonitorSettingDialog::init()
     BasicListView *resolutionView = new BasicListView;
     resolutionView->setModel(m_resolutionsModel);
     resolutionView->setItemDelegate(new BasicListDelegate);
-    resolutionView->setFixedHeight(50);
+    if (m_primary)
+    {
+        resolutionView->setAutoFitHeight(false);
+        resolutionView->setFixedHeight(80);
+    }
     resolutionView->setStyleSheet("border: 1px solid #ccc;");
 
     QLabel *resoLabel = new QLabel;
