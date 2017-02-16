@@ -4,5 +4,9 @@ export QT_SELECT = qt5
 %:
 	dh $@ --parallel
 
-override_dh_strip:
-	dh_strip --dbg-package=dde-control-center-dbg
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/tmp
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod a+x debian/tmp/usr/lib/dde-control-center/plugins/bin/notify-monitor

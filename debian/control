@@ -8,7 +8,6 @@ Build-Depends: debhelper (>= 9),
  libx11-dev,
  qt5-qmake,
  qt5-default,
- clang [linux-any],
  qtdeclarative5-dev,
  deepin-gettext-tools,
  dde-dock-dev,
@@ -39,14 +38,7 @@ Depends: ${shlibs:Depends},
  tzdata-l10n,
  netselect,
  geoip-database-extra,
- python,
  python-prctl,
  python-dbus
-Description: New control center for linux deepin
- New control center for linux deepin
-
-Package: dde-control-center-dbg
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, dde-control-center-dbg(= ${binary:Version})
-Description: New control center for linux deepin dbg
- New control center for linux deepin dbg
+Description: New control center for Deepin Desktop Environment
+ DDE Control Center is the control panel of Deepin Desktop Environment.
