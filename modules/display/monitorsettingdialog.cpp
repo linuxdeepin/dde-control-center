@@ -2,6 +2,9 @@
 #include "monitorcontrolwidget.h"
 #include "displaymodel.h"
 #include "settingslistwidget.h"
+#include "basiclistmodel.h"
+#include "basiclistview.h"
+#include "basiclistdelegate.h"
 
 #include <QVBoxLayout>
 #include <QTimer>
@@ -50,8 +53,22 @@ MonitorSettingDialog::~MonitorSettingDialog()
 
 void MonitorSettingDialog::init()
 {
-    m_resolutionsWidget = new SettingsListWidget;
-    m_resolutionsWidget->setTitle(tr("Resolution"));
+    m_resolutionsModel = new BasicListModel;
+
+    BasicListView *resolutionView = new BasicListView;
+    resolutionView->setModel(m_resolutionsModel);
+    resolutionView->setItemDelegate(new BasicListDelegate);
+    resolutionView->setFixedHeight(50);
+    resolutionView->setStyleSheet("border: 1px solid #ccc;");
+
+    QLabel *resoLabel = new QLabel;
+    resoLabel->setText(tr("Resolution"));
+
+    QVBoxLayout *resoLayout = new QVBoxLayout;
+    resoLayout->addWidget(resoLabel);
+    resoLayout->addWidget(resolutionView);
+    resoLayout->setSpacing(5);
+    resoLayout->setContentsMargins(10, 0, 10, 0);
 
     m_rotateBtn = new DImageButton;
     m_rotateBtn->setNormalPic(":/display/themes/dark/icons/rotate_normal.png");
@@ -90,7 +107,8 @@ void MonitorSettingDialog::init()
 
     m_mainLayout = new QVBoxLayout;
     m_mainLayout->addWidget(m_monitorName);
-    m_mainLayout->addWidget(m_resolutionsWidget);
+    m_mainLayout->addLayout(resoLayout);
+    m_mainLayout->addSpacing(10);
     m_mainLayout->addLayout(lightLayout);
     m_mainLayout->addSpacing(10);
     m_mainLayout->addLayout(m_btnsLayout);
@@ -102,7 +120,7 @@ void MonitorSettingDialog::init()
     m_smallDelayTimer->setSingleShot(true);
     m_smallDelayTimer->setInterval(1000);
 
-    connect(m_resolutionsWidget, &SettingsListWidget::clicked, this, &MonitorSettingDialog::onMonitorModeSelected);
+    connect(resolutionView, &BasicListView::clicked, [=](const QModelIndex &index) { onMonitorModeSelected(index.row()); });
     connect(m_lightSlider, &DCCSlider::valueChanged, this, &MonitorSettingDialog::onBrightnessSliderChanged);
     connect(m_rotateBtn, &DImageButton::clicked, this, &MonitorSettingDialog::onRotateBtnClicked);
     connect(m_smallDelayTimer, &QTimer::timeout, this, &MonitorSettingDialog::onMonitorRectChanged);
@@ -253,7 +271,9 @@ void MonitorSettingDialog::onMonitorModeChanged()
         updateModeList(m_monitor->modeList());
 
     if (!intersect)
-        m_resolutionsWidget->setSelectedIndex(m_monitor->modeList().indexOf(m_monitor->currentMode()));
+    {
+        m_resolutionsModel->setSelectedIndex(m_resolutionsModel->index(m_monitor->modeList().indexOf(m_monitor->currentMode())));
+    }
     else
     {
         const int w = m_model->screenWidth();
@@ -263,7 +283,7 @@ void MonitorSettingDialog::onMonitorModeChanged()
         {
             if (list[i].width() == w && list[i].height() == h)
             {
-                m_resolutionsWidget->setSelectedIndex(i);
+                m_resolutionsModel->setSelectedIndex(m_resolutionsModel->index(i));
                 break;
             }
         }
@@ -279,7 +299,7 @@ void MonitorSettingDialog::onMonitorBrightnessChanegd(const double brightness)
 
 void MonitorSettingDialog::updateModeList(const QList<Resolution> &modeList)
 {
-    m_resolutionsWidget->clear();
+    m_resolutionsModel->clear();
 
     bool first = true;
     for (auto r : modeList)
@@ -289,11 +309,13 @@ void MonitorSettingDialog::updateModeList(const QList<Resolution> &modeList)
         if (first)
         {
             first = false;
-            m_resolutionsWidget->appendOption(option + tr(" (Recommended)"));
+            m_resolutionsModel->appendOption(option + tr(" (Recommended)"));
         } else {
-            m_resolutionsWidget->appendOption(option);
+            m_resolutionsModel->appendOption(option);
         }
     }
+
+    emit m_resolutionsModel->layoutChanged();
 }
 
 void MonitorSettingDialog::onMonitorModeSelected(const int index)

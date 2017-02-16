@@ -34,7 +34,9 @@ HEADERS += \
     $$PWD/spinboxwidget.h \
     $$PWD/titlevalueitem.h \
     $$PWD/plantextitem.h \
-    $$PWD/basiclistview.h
+    $$PWD/basiclistview.h \
+    $$PWD/basiclistmodel.h \
+    $$PWD/basiclistdelegate.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -67,7 +69,9 @@ SOURCES += \
     $$PWD/spinboxwidget.cpp \
     $$PWD/titlevalueitem.cpp \
     $$PWD/plantextitem.cpp \
-    $$PWD/basiclistview.cpp
+    $$PWD/basiclistview.cpp \
+    $$PWD/basiclistmodel.cpp \
+    $$PWD/basiclistdelegate.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

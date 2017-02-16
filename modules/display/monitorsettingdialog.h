@@ -12,6 +12,13 @@
 
 namespace dcc {
 
+namespace widgets {
+
+class BasicListView;
+class BasicListModel;
+
+}
+
 namespace display {
 
 class DisplayModel;
@@ -62,10 +69,12 @@ private:
     DisplayModel *m_model;
     Monitor *m_monitor;
 
+    widgets::BasicListModel *m_resolutionsModel;
+
     QLabel *m_monitorName;
     Dtk::Widget::DImageButton *m_rotateBtn;
     dcc::widgets::DCCSlider *m_lightSlider;
-    SettingsListWidget *m_resolutionsWidget;
+//    SettingsListWidget *m_resolutionsWidget;
     SettingsListWidget *m_primarySettingsWidget;
     MonitorControlWidget *m_ctrlWidget;
     QHBoxLayout *m_btnsLayout;
