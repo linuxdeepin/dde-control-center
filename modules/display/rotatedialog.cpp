@@ -13,6 +13,7 @@
 #include <QPainter>
 #include <QPaintEvent>
 #include <QVBoxLayout>
+#include <QLabel>
 
 #include <DBlurEffectWidget>
 
@@ -28,10 +29,22 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
 {
 
     DBlurEffectWidget *blurWidget = new DBlurEffectWidget;
-    blurWidget->setFixedSize(80, 80);
+    blurWidget->setFixedSize(140, 140);
     blurWidget->setBlurRectXRadius(10);
     blurWidget->setBlurRectYRadius(10);
+    blurWidget->setMaskColor(Qt::white);
     blurWidget->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
+
+    QPixmap rotatePixmap(":/display/themes/common/icon/rotate.png");
+    QLabel *osd = new QLabel;
+    osd->setPixmap(rotatePixmap);
+    osd->setFixedSize(rotatePixmap.size());
+
+    QVBoxLayout *l = new QVBoxLayout(blurWidget);
+    l->setMargin(0);
+    l->setSpacing(0);
+    l->addWidget(osd, Qt::AlignHCenter);
+    l->setAlignment(osd, Qt::AlignCenter);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addWidget(blurWidget);
@@ -123,9 +136,6 @@ void RotateDialog::paintEvent(QPaintEvent *e)
 
     QPainter painter(this);
     painter.fillRect(rect(), QColor(0, 0, 0, 255 * .4));
-
-    QPixmap rotatePixmap(":/display/themes/common/icon/rotate.png");
-    painter.drawPixmap(rect().center() - rotatePixmap.rect().center(), rotatePixmap);
 
     // bottom
     painter.drawText((w - tw) / 2, h - margin, tips);
