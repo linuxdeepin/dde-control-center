@@ -25,6 +25,7 @@ signals:
 
 public slots:
     void setChecked(const bool checked);
+    void setCheckable(const bool checkable);
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
@@ -39,6 +40,7 @@ private:
     const int m_index;
 
     bool m_checked;
+    bool m_checkable;
     QString m_themeName;
     const QString m_iconName;
 };

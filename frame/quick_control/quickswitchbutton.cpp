@@ -11,6 +11,7 @@ QuickSwitchButton::QuickSwitchButton(const int index, const QString &iconName, Q
 
       m_index(index),
       m_checked(false),
+      m_checkable(true),
       m_iconName(iconName)
 {
     setFixedSize(SIZE, SIZE);
@@ -21,10 +22,13 @@ void QuickSwitchButton::mouseReleaseEvent(QMouseEvent *e)
 {
     QLabel::mouseReleaseEvent(e);
 
-    setChecked(!m_checked);
-
     emit clicked(m_index);
-    emit checkedChanged(m_checked);
+
+    if (m_checkable)
+    {
+        setChecked(!m_checked);
+        emit checkedChanged(m_checked);
+    }
 }
 
 void QuickSwitchButton::enterEvent(QEvent *e)
@@ -66,6 +70,12 @@ void QuickSwitchButton::setThemeName(const QString &themeName)
 void QuickSwitchButton::setChecked(const bool checked)
 {
     m_checked = checked;
+    setPixmap(normalPixmap());
+}
+
+void QuickSwitchButton::setCheckable(const bool checkable)
+{
+    m_checkable = checkable;
 }
 
 }

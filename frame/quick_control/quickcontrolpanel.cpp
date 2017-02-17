@@ -68,6 +68,8 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     wifiSwitch->setAccessibleName("QuickSwitchWiFi");
     displaySwitch->setObjectName("QuickSwitchDisplay");
     displaySwitch->setAccessibleName("QuickSwitchDisplay");
+    displaySwitch->setCheckable(false);
+    displaySwitch->setChecked(true);
     detailSwitch->setObjectName("QuickSwitchAllSettings");
     detailSwitch->setAccessibleName("QuickSwitchAllSettings");
 
