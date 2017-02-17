@@ -24,22 +24,22 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="67"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>Kopiuj zawartość okna do jednego lub więcej ekranów</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="69"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Rozwiń zawartość ekranu, aby wyświetlać różną zawartość na różnych ekranach.</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="71"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Zawartość ekranu wyświetlana jest tylko na %1</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="73"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Prosimy wprowadzić do ustawień tryb wyświetlania, jeśli chcesz zmienić niestandardowe ustawienia</translation>
     </message>
 </context>
 <context>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="126"/>
         <source>Wireless Card %1</source>
-        <translation type="unfinished"/>
+        <translation>Karta bezprzewodowa %1</translation>
     </message>
 </context>
 <context>
@@ -732,7 +732,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
         <source>Enable Numeric Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Włącz klawiaturę numeryczną</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
@@ -1188,7 +1188,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="35"/>
         <source>Http Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Serwer pośredniczący HTTP</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="37"/>
@@ -1201,12 +1201,12 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="40"/>
         <source>Https Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Serwer pośredniczący HTTPS</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="45"/>
         <source>Ftp Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Serwer pośredniczący FTP</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="50"/>
@@ -1216,7 +1216,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="59"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>Ignoruj konfiguracje pośrednika sieciowego dla powyższych hostów i domen</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="62"/>
@@ -1569,7 +1569,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="33"/>
         <source>Distribution Release:</source>
-        <translation type="unfinished"/>
+        <translation>Wydanie dystrybucji:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="37"/>
