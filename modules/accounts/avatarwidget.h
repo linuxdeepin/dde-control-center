@@ -4,13 +4,14 @@
 #include "avatardel.h"
 #include <QWidget>
 #include <QPushButton>
+#include <QLabel>
 
 #define PIX_SIZE    60
 
 namespace dcc {
 namespace accounts {
 
-class AvatarWidget : public QWidget
+class AvatarWidget : public QLabel
 {
     Q_OBJECT
 

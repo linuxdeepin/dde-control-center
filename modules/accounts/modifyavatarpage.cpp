@@ -77,6 +77,7 @@ void ModifyAvatarPage::updateAvatarList()
     }
 
     DImageButton *btn = new DImageButton;
+    btn->setAccessibleName("add_avatar");
     btn->setNormalPic(":/accounts/themes/common/icons/add_avatar_normal.png");
     btn->setHoverPic(":/accounts/themes/common/icons/add_avatar_hover.png");
     btn->setPressPic(":/accounts/themes/common/icons/add_avatar_press.png");

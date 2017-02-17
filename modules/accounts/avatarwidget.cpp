@@ -11,7 +11,7 @@
 using namespace dcc::accounts;
 
 AvatarWidget::AvatarWidget(QWidget *parent)
-    : QWidget(parent),
+    : QLabel(parent),
 
     m_hover(false),
     m_deleable(false),
@@ -57,6 +57,8 @@ void AvatarWidget::setAvatarPath(const QString &avatar)
     QUrl url(avatar);
     m_avatarPath = avatar;
     m_avatar = QPixmap(url.toLocalFile()).scaled(size().width(), size().height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    setAccessibleName(m_avatarPath);
 
     update();
 }

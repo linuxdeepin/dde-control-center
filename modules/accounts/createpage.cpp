@@ -167,6 +167,7 @@ ErrorTip::ErrorTip() :
     m_label(new QLabel)
 {
     m_label->setObjectName("New_Account_errorTip");
+    m_label->setAccessibleName(m_label->objectName());
     m_label->setStyleSheet("padding: 5px 10px; color: #f9704f");
     setContent(m_label);
 }
