@@ -67,6 +67,11 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
+QMap<const dcc::bluetooth::Adapter *, QList<QJsonObject> > BluetoothListModel::adapterList()
+{
+    return m_adapterList;
+}
+
 void BluetoothListModel::setCurrentHovered(const QModelIndex &index)
 {
     const QModelIndex oldIndex = m_currentIndex;

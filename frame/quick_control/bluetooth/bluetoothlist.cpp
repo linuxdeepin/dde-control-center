@@ -9,6 +9,7 @@
 
 #include "bluetoothlist.h"
 #include "bluetoothdelegate.h"
+#include "bluetooth/bluetoothmodel.h"
 #include <QVBoxLayout>
 
 BluetoothList::BluetoothList(BluetoothModel *model, QWidget *parent)
@@ -34,5 +35,17 @@ BluetoothList::BluetoothList(BluetoothModel *model, QWidget *parent)
 
 void BluetoothList::onItemClicked(const QModelIndex &index) const
 {
-    Q_UNUSED(index);
+    QJsonObject json = index.data(BluetoothListModel::ItemInfoRole).toJsonObject();
+
+    QMap<const Adapter *, QList<QJsonObject> > list = m_model->adapterList();
+    QMap<const Adapter *, QList<QJsonObject> >::iterator map = list.begin();
+    while (map != list.end()) {
+        for (const Device *device : map.key()->devices()) {
+            if (device->id() == json["Path"].toString()) {
+                emit requestConnect(device);
+                return;
+            }
+        }
+        ++map;
+    }
 }

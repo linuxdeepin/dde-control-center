@@ -44,6 +44,7 @@ public:
     explicit BluetoothListModel(BluetoothModel *model, QObject *parent = 0);
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
+    QMap<const Adapter*, QList<QJsonObject>> adapterList();
 
 public slots:
     void setCurrentHovered(const QModelIndex &index);

@@ -41,9 +41,10 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         // connecting , connected, no connect
         if (info["State"] == Device::StateConnected) {
             // draw connected icon
-            const int x = 40;
+            const int x = option.rect.right() - 24;
             const int y = option.rect.top() + (option.rect.height() - 16) / 2;
-            painter->drawPixmap(x, y, QPixmap(QString(":/frame/quick_control/bluetooth/icons/select.png")));
+            painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
+
         }
     }
 }
