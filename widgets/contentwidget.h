@@ -48,6 +48,7 @@ protected:
 
     QPropertyAnimation *m_animation;
     double m_speedTime;
+    int m_speed;
 };
 
 }

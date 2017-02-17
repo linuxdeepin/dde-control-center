@@ -189,6 +189,11 @@ void ContentWidget::wheelEvent(QWheelEvent *e)
         int offset = - e->delta();
         if (m_animation->state() == QPropertyAnimation::Running) {
             m_speedTime += 0.2;
+            // if the roll is kept constant, it will be faster and faster
+            if (m_speed != offset) {
+                m_speed = offset;
+                m_speedTime = DEFAULT_SPEED_TIME;
+            }
         }
         else {
             m_speedTime = DEFAULT_SPEED_TIME;
