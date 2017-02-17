@@ -24,18 +24,25 @@ public:
     ~WeatherRequest();
 
     QString city() const;
+    QString localizedCityName() const;
+
     int count() const;
     WeatherItem dayAt(int index);
 
     void sendRefreshSignal();
 
 signals:
+    void fetchLocalizedCityNameDone(const QString &name);
     void refreshData(QList<WeatherItem> &items);
 
 private slots:
     void replyFinished(QNetworkReply* reply);
     void slotTimeout();
     void setCity(const City& city);
+
+    void processWeatherServiceReply();
+    void processGeoNameIdReply();
+    void processGeoNameInfoReply();
 
 private:
     City m_city;

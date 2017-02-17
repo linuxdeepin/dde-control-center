@@ -3,7 +3,7 @@ include(../../interfaces/interfaces.pri)
 
 PLUGIN_NAME 	= weather
 
-QT              += widgets svg network
+QT              += widgets svg network xml
 TEMPLATE         = lib
 CONFIG          += plugin c++11 link_pkgconfig
 PKGCONFIG       += dtkbase dtkwidget gtk+-2.0 geoip

@@ -15,7 +15,8 @@
 struct City {
     QString country;
     QString region;
-    QString city;
+    QString name;
+    QString localizedName;
     float latitude;
     float longitude;
 };

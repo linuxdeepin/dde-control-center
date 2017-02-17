@@ -25,6 +25,8 @@ WeatherWidget::WeatherWidget(QWidget *parent)
 
     connect(m_request, SIGNAL(refreshData(QList<WeatherItem>&)),
             this, SLOT(refreshView(QList<WeatherItem>&)));
+    connect(m_request, SIGNAL(fetchLocalizedCityNameDone(QString)), this, SLOT(update()));
+
     m_request->sendRefreshSignal();
 }
 void WeatherWidget::paintEvent(QPaintEvent *e)
@@ -112,7 +114,7 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
             font.setPointSize(curFont.pointSize() * 1.4);
             painter.setFont(font);
             fm=QFontMetrics(font);
-            QString city = m_request->city();
+            QString city = m_request->localizedCityName();
             QRect cityArea(rect.width() - 50 - iconRect.left()-10,rect.y(),fm.width(city), rect.height()/2+6);
             painter.drawText(cityArea, Qt::AlignBottom | Qt::AlignHCenter, city);
             font.setPointSize(curFont.pointSize() * 0.8);
