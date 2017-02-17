@@ -72,6 +72,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     displaySwitch->setChecked(true);
     detailSwitch->setObjectName("QuickSwitchAllSettings");
     detailSwitch->setAccessibleName("QuickSwitchAllSettings");
+    detailSwitch->setCheckable(false);
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addWidget(btSwitch);
@@ -104,6 +105,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(m_networkModel, &NetworkModel::vpnEnabledChanged, vpnSwitch, &QuickSwitchButton::setChecked);
     connect(vpnSwitch, &QuickSwitchButton::checkedChanged, m_networkWorker, &NetworkWorker::setVpnEnable);
     connect(vpnPage, &VpnControlPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
+    connect(vpnPage, &VpnControlPage::requestDisconnect, m_networkWorker, &NetworkWorker::deactiveConnection);
 
     connect(wifiPage, &WifiPage::requestDeviceApList, m_networkWorker, &NetworkWorker::queryAccessPoints);
 

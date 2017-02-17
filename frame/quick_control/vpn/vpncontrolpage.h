@@ -14,6 +14,7 @@ public:
 
 signals:
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;
+    void requestDisconnect(const QString &uuid) const;
 
 private slots:
     void onItemClicked(const QModelIndex &index) const;

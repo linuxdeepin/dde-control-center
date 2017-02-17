@@ -36,6 +36,7 @@ public:
 
 public slots:
     void setHoveredIndex(const QModelIndex &index);
+    void onActivedListChanged(const QSet<QString> &activeConnections);
 
 private:
     const QPixmap m_connectedPixmap;
