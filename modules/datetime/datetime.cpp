@@ -37,6 +37,7 @@ Datetime::Datetime()
     m_timeSettingsGroup->appendItem(m_timePageButton);
 
     m_headItem->setTitle(tr("Timezone List"));
+    m_headItem->setVisible(false);
 
     m_timezoneGroup->appendItem(m_headItem);
     m_centralLayout->addWidget(clockGroup);
@@ -105,6 +106,7 @@ void Datetime::addTimezone(const ZoneInfo &zone)
 
     m_timezoneGroup->appendItem(item);
 
+    m_headItem->setVisible(true);
     m_headItem->setEditEnable(true);
 }
 
@@ -131,6 +133,9 @@ void Datetime::removeTimezone(const ZoneInfo &zone)
             item->toNormalMode();
         }
     }
+
+    if (items.length() == 1)
+        m_headItem->setVisible(false);
 
 //    m_headItem->blockSignals(true);
 //    m_headItem->initStatus();
