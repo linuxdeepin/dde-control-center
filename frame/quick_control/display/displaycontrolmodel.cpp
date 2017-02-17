@@ -75,6 +75,8 @@ const QString DisplayControlModel::optionDescription(const int index) const
 
 void DisplayControlModel::onDisplayModeChanged(const int mode)
 {
+    const QModelIndex oldIndex = m_selectedIndex;
+
     if (mode == MERGE_MODE)
         m_selectedIndex = index(0);
     else if (mode == EXTEND_MODE)
@@ -95,6 +97,9 @@ void DisplayControlModel::onDisplayModeChanged(const int mode)
 
         m_selectedIndex = index(idx);
     }
+
+    emit dataChanged(oldIndex, oldIndex);
+    emit dataChanged(m_selectedIndex, m_selectedIndex);
 }
 
 DisplayControlModel::ItemType DisplayControlModel::optionType(const int index) const
