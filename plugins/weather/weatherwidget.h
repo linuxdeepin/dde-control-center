@@ -16,6 +16,7 @@ public:
     explicit WeatherWidget(QWidget* parent = 0);
 
 protected:
+    void showEvent(QShowEvent *event);
     void paintEvent(QPaintEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void resizeEvent(QResizeEvent* e);

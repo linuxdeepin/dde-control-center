@@ -36,16 +36,7 @@ WeatherRequest::~WeatherRequest()
 void WeatherRequest::setCity(const City &city)
 {
     m_city = city;
-
-    QString weatherUrl = QString("%1/forecast/%2/%3/%4").arg(WeatherServiceHost).arg(city.country) \
-                    .arg(city.region).arg(city.name);
-    QNetworkReply *reply = m_manager->get(QNetworkRequest(weatherUrl));
-    connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processWeatherServiceReply);
-
-    QString geoNameIDUrl = QString("%1/extendedFindNearby?lat=%2&lng=%3&username=%4").arg(GeoNameServiceHost) \
-            .arg(city.latitude).arg(city.longitude).arg(GeoNameKey);
-    reply = m_manager->get(QNetworkRequest(geoNameIDUrl));
-    connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processGeoNameIdReply);
+    refreshData();
 }
 
 void WeatherRequest::processWeatherServiceReply()
@@ -69,7 +60,7 @@ void WeatherRequest::processWeatherServiceReply()
         m_items << item;
     }
 
-    emit refreshData(m_items);
+    emit dataRefreshed(m_items);
 }
 
 void WeatherRequest::processGeoNameIdReply()
@@ -151,9 +142,28 @@ WeatherItem WeatherRequest::dayAt(int index)
     return WeatherItem();
 }
 
+void WeatherRequest::refreshData()
+{
+    const int elapsed = m_lastRefreshTimestamp.elapsed();
+    if ((elapsed >= 1000 * 60 * 15 || elapsed == 0) && !m_city.name.isEmpty()) {
+        m_lastRefreshTimestamp.restart();
+
+        City city = m_city;
+        QString weatherUrl = QString("%1/forecast/%2/%3/%4").arg(WeatherServiceHost).arg(city.country) \
+                        .arg(city.region).arg(city.name);
+        QNetworkReply *reply = m_manager->get(QNetworkRequest(weatherUrl));
+        connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processWeatherServiceReply);
+
+        QString geoNameIDUrl = QString("%1/extendedFindNearby?lat=%2&lng=%3&username=%4").arg(GeoNameServiceHost) \
+                .arg(city.latitude).arg(city.longitude).arg(GeoNameKey);
+        reply = m_manager->get(QNetworkRequest(geoNameIDUrl));
+        connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processGeoNameIdReply);
+    }
+}
+
 void WeatherRequest::sendRefreshSignal()
 {
-    emit refreshData(m_items);
+    emit dataRefreshed(m_items);
 }
 
 LoaderCity::LoaderCity(QObject *parent)

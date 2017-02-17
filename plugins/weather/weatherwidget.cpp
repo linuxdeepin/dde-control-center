@@ -23,12 +23,20 @@ WeatherWidget::WeatherWidget(QWidget *parent)
     }
     m_view->setPictureSequence(lists);
 
-    connect(m_request, SIGNAL(refreshData(QList<WeatherItem>&)),
+    connect(m_request, SIGNAL(dataRefreshed(QList<WeatherItem>&)),
             this, SLOT(refreshView(QList<WeatherItem>&)));
     connect(m_request, SIGNAL(fetchLocalizedCityNameDone(QString)), this, SLOT(update()));
 
     m_request->sendRefreshSignal();
 }
+
+void WeatherWidget::showEvent(QShowEvent *event)
+{
+    QWidget::showEvent(event);
+
+    m_request->refreshData();
+}
+
 void WeatherWidget::paintEvent(QPaintEvent *e)
 {
     QWidget::paintEvent(e);

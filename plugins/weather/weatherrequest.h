@@ -29,11 +29,12 @@ public:
     int count() const;
     WeatherItem dayAt(int index);
 
+    void refreshData();
     void sendRefreshSignal();
 
 signals:
     void fetchLocalizedCityNameDone(const QString &name);
-    void refreshData(QList<WeatherItem> &items);
+    void dataRefreshed(QList<WeatherItem> &items);
 
 private slots:
     void replyFinished(QNetworkReply* reply);
@@ -50,6 +51,8 @@ private:
 
     QList<WeatherItem> m_items;
     QNetworkAccessManager *m_manager;
+
+    QTime m_lastRefreshTimestamp;
 };
 
 class LoaderCity : public QThread
