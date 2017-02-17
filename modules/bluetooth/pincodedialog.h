@@ -26,13 +26,17 @@ class PinCodeDialog : public DDialog
 {
     Q_OBJECT
 public:
-    explicit PinCodeDialog(const QString &pinCode, const bool &cancelable = true);
+    static PinCodeDialog* instance(const QString &pinCode, const bool &cancelable = true);
 
     QString pinCode() const;
     void setPinCode(const QString &pinCode);
 
 private:
     dcc::widgets::LargeLabel *m_pinCodeLabel;
+
+    explicit PinCodeDialog();
+    explicit PinCodeDialog(const QString &pinCode, const bool &cancelable = true);
+    ~PinCodeDialog();
 };
 
 } // namespace bluetooth

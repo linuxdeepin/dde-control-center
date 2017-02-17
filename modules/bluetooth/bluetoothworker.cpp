@@ -30,37 +30,42 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
     connect(m_bluetoothInter, &DBusBluetooth::DeviceRemoved, this, &BluetoothWorker::removeDevice);
     connect(m_bluetoothInter, &DBusBluetooth::DevicePropertiesChanged, this, &BluetoothWorker::onDevicePropertiesChanged);
 
-    connect(m_bluetoothInter, &DBusBluetooth::RequestAuthorization, [] (const QDBusObjectPath &in0) {
+    connect(m_bluetoothInter, &DBusBluetooth::RequestAuthorization, this, [] (const QDBusObjectPath &in0) {
         qDebug() << "request authorization: " << in0.path();
     });
 
-    connect(m_bluetoothInter, &DBusBluetooth::RequestConfirmation, [this] (const QDBusObjectPath &in0, const QString &in1) {
+    connect(m_bluetoothInter, &DBusBluetooth::RequestConfirmation, this, [this] (const QDBusObjectPath &in0, const QString &in1) {
         qDebug() << "request confirmation: " << in0.path() << in1;
 
-        PinCodeDialog dialog(in1);
-        int ret = dialog.exec();
+        PinCodeDialog *dialog = PinCodeDialog::instance(in1);
+        if (!dialog->isVisible()) {
+            int ret = dialog->exec();
+            QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
 
-
-        m_bluetoothInter->Confirm(in0, bool(ret));
+            m_bluetoothInter->Confirm(in0, bool(ret));
+        }
     });
 
-    connect(m_bluetoothInter, &DBusBluetooth::RequestPasskey, [] (const QDBusObjectPath &in0) {
+    connect(m_bluetoothInter, &DBusBluetooth::RequestPasskey, this, [] (const QDBusObjectPath &in0) {
         qDebug() << "request passkey: " << in0.path();
     });
 
-    connect(m_bluetoothInter, &DBusBluetooth::RequestPinCode, [] (const QDBusObjectPath &in0) {
+    connect(m_bluetoothInter, &DBusBluetooth::RequestPinCode, this, [] (const QDBusObjectPath &in0) {
         qDebug() << "request pincode: " << in0.path();
     });
 
-    connect(m_bluetoothInter, &DBusBluetooth::DisplayPasskey, [] (const QDBusObjectPath &in0, uint in1, uint in2) {
+    connect(m_bluetoothInter, &DBusBluetooth::DisplayPasskey, this, [] (const QDBusObjectPath &in0, uint in1, uint in2) {
         qDebug() << "request display passkey: " << in0.path() << in1 << in2;
     });
 
-    connect(m_bluetoothInter, &DBusBluetooth::DisplayPinCode, [] (const QDBusObjectPath &in0, const QString &in1) {
+    connect(m_bluetoothInter, &DBusBluetooth::DisplayPinCode, this, [] (const QDBusObjectPath &in0, const QString &in1) {
         qDebug() << "request display pincode: " << in0.path() << in1;
 
-        PinCodeDialog dialog(in1, false);
-        dialog.exec();
+        PinCodeDialog *dialog = PinCodeDialog::instance(in1, false);
+        if (!dialog->isVisible()) {
+            dialog->exec();
+            QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
+        }
     });
 
 }
