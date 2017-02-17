@@ -141,6 +141,7 @@ void WifiListModel::onDeviceListChanged(const QList<NetworkDevice *> &devices)
         m_apInfoList.insert(d, QList<QJsonObject>());
 
         connect(d, &WirelessDevice::apAdded, this, &WifiListModel::onDeviceApAdded);
+        connect(d, &WirelessDevice::apRemoved, d, [=](const QString &ssid) { onDeviceApRemoved(d, ssid); });
 
         emit requestDeviceApList(d->path());
     }
@@ -169,4 +170,10 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
     endInsertRows();
 
     emit layoutChanged();
+}
+
+void WifiListModel::onDeviceApRemoved(dcc::network::WirelessDevice *dev, const QString &ssid)
+{
+    // XXX
+    qDebug() << dev << ssid;
 }

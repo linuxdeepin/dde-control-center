@@ -43,6 +43,7 @@ private:
 
     void onDeviceListChanged(const QList<dcc::network::NetworkDevice *> &devices);
     void onDeviceApAdded(const QJsonObject &info);
+    void onDeviceApRemoved(dcc::network::WirelessDevice *dev, const QString &ssid);
 
 private:
     dcc::network::NetworkModel *m_networkModel;
