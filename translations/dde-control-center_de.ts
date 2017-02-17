@@ -24,22 +24,22 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="67"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirminhalt auf einen oder mehrere Bildschirme kopieren</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="69"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirminhalte erweiteren, um verschiedene Inhalte auf verschiedenen Bildschirmen anzuzeigen</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="71"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirminhalte werden nur auf %1 angezeigt</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="73"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Bitte geben Sie den Anzeigemodus ein, um festzulegen, ob Sie die benutzerdefinierten Einstellungen ändern möchten</translation>
     </message>
 </context>
 <context>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="126"/>
         <source>Wireless Card %1</source>
-        <translation type="unfinished"/>
+        <translation>Drahtloskarte %1</translation>
     </message>
 </context>
 <context>
@@ -732,7 +732,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
         <source>Enable Numeric Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Numerische Tastatur aktivieren</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
@@ -1569,7 +1569,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="33"/>
         <source>Distribution Release:</source>
-        <translation type="unfinished"/>
+        <translation>Distribution Release:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="37"/>

@@ -163,7 +163,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="39"/>
         <location filename="../modules/accounts/createpage.cpp" line="42"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>必要</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="38"/>
@@ -619,7 +619,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="34"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>必要</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="38"/>
@@ -732,7 +732,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
         <source>Enable Numeric Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>啟用數字鍵</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
@@ -1008,7 +1008,7 @@
         <location filename="../modules/network/connectioneditpage.cpp" line="216"/>
         <location filename="../modules/network/connectioneditpage.cpp" line="327"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>必要</translation>
     </message>
 </context>
 <context>

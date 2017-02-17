@@ -24,22 +24,22 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="67"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>Scherminhoud dupliceren op één of meerdere schermen</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="69"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Scherm uitbreiden om verschillende inhoud op verschillende schermen te tonen</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="71"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Scherminhoud wordt enkel getoond op %1</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="73"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik de weergave-instellingen om de standaard instellingen te wijzigen</translation>
     </message>
 </context>
 <context>
@@ -47,7 +47,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="18"/>
         <source>No system notifications</source>
-        <translation>Geen systeem meldingen</translation>
+        <translation>Geen systeemmeldingen</translation>
     </message>
 </context>
 <context>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="57"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Sorry, niet in staat om het weer te krijgen!</translation>
+        <translation>Sorry, niet in staat om weerinfo te krijgen!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="61"/>
@@ -94,7 +94,7 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="126"/>
         <source>Wireless Card %1</source>
-        <translation type="unfinished"/>
+        <translation>Draadloze Kaart %1</translation>
     </message>
 </context>
 <context>
@@ -130,7 +130,7 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="26"/>
         <source>Accounts</source>
-        <translation>Gebruikersaccounts</translation>
+        <translation>Accounts</translation>
     </message>
 </context>
 <context>
@@ -163,7 +163,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="39"/>
         <location filename="../modules/accounts/createpage.cpp" line="42"/>
         <source>Required</source>
-        <translation>Verplicht</translation>
+        <translation>Vereist</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="38"/>
@@ -289,7 +289,7 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="23"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>De PIN-code voor het aansluiten van het Bluetooth-apparaat is:</translation>
+        <translation>De PIN-code voor het aansluiten van het Bluetoothapparaat is:</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="31"/>
@@ -322,7 +322,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="68"/>
         <source>Change System Timezone</source>
-        <translation>Systeemtijdszone wijzigen</translation>
+        <translation>Tijdzone Systeem wijzigen</translation>
     </message>
 </context>
 <context>
@@ -368,7 +368,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="39"/>
         <source>Timezone List</source>
-        <translation>Tijdszone lijst</translation>
+        <translation>Tijdzone lijst</translation>
     </message>
 </context>
 <context>
@@ -404,7 +404,7 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="95"/>
         <source>%1 hours earlier than local</source>
-        <translation>%1 uur eerder dan lokaal</translation>
+        <translation>%1 uur vroeger dan lokaal</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="97"/>
@@ -417,7 +417,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="16"/>
         <source>Default Applications</source>
-        <translation>Standaardapplicaties</translation>
+        <translation>Standaardtoepassingen</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="30"/>
@@ -495,7 +495,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="80"/>
         <source>Open Desktop file</source>
-        <translation>Open een bureaublad bestand</translation>
+        <translation>Open bureaublad bestand</translation>
     </message>
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="81"/>
@@ -509,7 +509,7 @@
         <location filename="../modules/defapp/defappwidget.cpp" line="21"/>
         <location filename="../modules/defapp/defappwidget.cpp" line="25"/>
         <source>Default Applications</source>
-        <translation>Standaardapplicaties</translation>
+        <translation>Standaardtoepassingen</translation>
     </message>
 </context>
 <context>
@@ -619,7 +619,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="34"/>
         <source>Required</source>
-        <translation>Verplicht</translation>
+        <translation>Vereist</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="38"/>
@@ -629,7 +629,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="41"/>
         <source>Please Grab Shortcut Again</source>
-        <translation>Pak een snelkoppeling opnieuw</translation>
+        <translation>Pak snelkoppeling opnieuw a.u.b.</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="51"/>
@@ -644,7 +644,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="78"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Deze sneltoets conflicteert met 1%, klik op Toevoegen om deze snelkoppeling onmiddellijk actief te maken</translation>
+        <translation>Deze sneltoets conflicteert met 1%, klik op &apos;Toevoegen&apos; om deze snelkoppeling onmiddellijk actief te maken</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="110"/>
@@ -657,7 +657,7 @@
     <message>
         <location filename="../modules/keyboard/inputitem.cpp" line="72"/>
         <source>Choose File</source>
-        <translation>Kies betsand</translation>
+        <translation>Kies bestand</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/inputitem.cpp" line="72"/>
@@ -684,7 +684,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="23"/>
         <source>Add Keyboard Layout</source>
-        <translation>Voeg Lay-out van Toetsenbord Toe</translation>
+        <translation>Voeg Toetsenbord Lay-out toe</translation>
     </message>
 </context>
 <context>
@@ -722,7 +722,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
         <source>Fast</source>
-        <translation>Snelst</translation>
+        <translation>Snel</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="54"/>
@@ -732,7 +732,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
         <source>Enable Numeric Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Schakel Numeriek Toetsenbord in</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
@@ -784,7 +784,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="25"/>
         <source>Please Grab Shortcut Again</source>
-        <translation>Pak een snelkoppeling opnieuw</translation>
+        <translation>Pak snelkoppeling opnieuw</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="31"/>
@@ -799,7 +799,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="59"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Deze sneltoets conflicteert met 1%, klik op Vervangen om deze snelkoppeling onmiddellijk actief te maken</translation>
+        <translation>Deze sneltoets conflicteert met 1%, klik op &apos;Vervangen&apos; om deze snelkoppeling onmiddellijk actief te maken</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="96"/>
@@ -892,7 +892,7 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
         <source>Fast</source>
-        <translation>Snelst</translation>
+        <translation>Snel</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="44"/>
@@ -918,7 +918,7 @@
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
         <source>Fast</source>
-        <translation>Snelst</translation>
+        <translation>Snel</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="27"/>
@@ -936,7 +936,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="26"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Touchpad uitschakelen wanneer de muis ingekoppeld wordt</translation>
+        <translation>Touchpad uitschakelen wanneer muis aangekoppeld wordt</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="30"/>
@@ -979,7 +979,7 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="32"/>
         <source>Fast</source>
-        <translation>Snelst</translation>
+        <translation>Snel</translation>
     </message>
 </context>
 <context>
@@ -1074,7 +1074,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
         <source>Obtaining Address</source>
-        <translation>Adres Ophalen</translation>
+        <translation>Adres Verkrijgen</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="61"/>
@@ -1117,12 +1117,12 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="149"/>
         <source>Wired Network Card%1</source>
-        <translation>Bekabeld Netwerkkaart%1</translation>
+        <translation>Bekabeld Netwerk Kaart%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="154"/>
         <source>Wired Network Card</source>
-        <translation>Bekabeld Netwerkkaart</translation>
+        <translation>Bekabeld Netwerk Kaart</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="155"/>
@@ -1137,12 +1137,12 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="162"/>
         <source>Wireless Network Card%1</source>
-        <translation>Draadloos Netwerkkaart%1</translation>
+        <translation>Draadloos Netwerk Kaart%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="167"/>
         <source>Wireless Network Card</source>
-        <translation>Draadloos Netwerkkaart</translation>
+        <translation>Draadloos Netwerk Kaart</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="168"/>
@@ -1188,7 +1188,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="35"/>
         <source>Http Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Http Proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="37"/>
@@ -1201,12 +1201,12 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="40"/>
         <source>Https Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Https Proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="45"/>
         <source>Ftp Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Ftp Proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="50"/>
@@ -1216,7 +1216,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="59"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>Negeer de proxyconfiguraties voor bovenstaande hosts en domeinen</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="62"/>
@@ -1308,7 +1308,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="20"/>
         <source>Standard Font</source>
-        <translation>Standaard lettertype</translation>
+        <translation>Standaard Lettertype</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="21"/>
@@ -1337,7 +1337,7 @@
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="86"/>
         <source>Standard Font</source>
-        <translation>Standaard lettertype</translation>
+        <translation>Standaard Lettertype</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="96"/>
@@ -1425,7 +1425,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="55"/>
         <source>Suspend on lid close</source>
-        <translation>Scherm onderbreken als die wordt dichtgeklapt</translation>
+        <translation>Scherm onderbreken als het wordt dichtgeklapt</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="62"/>
@@ -1538,7 +1538,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="49"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation>De boot-image kan vervangen worden door er een andere heen te slepen, de opstart volgorde kan worden gewijzigd door de accentuering te slepen</translation>
+        <translation>De boot-image kan vervangen worden door er een andere heen te slepen, de opstartvolgorde kan worden gewijzigd door de accentuering te slepen</translation>
     </message>
 </context>
 <context>
@@ -1569,7 +1569,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="33"/>
         <source>Distribution Release:</source>
-        <translation type="unfinished"/>
+        <translation>Distributie Release:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="37"/>
@@ -1627,12 +1627,12 @@
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="57"/>
         <source>Medium</source>
-        <translation>Sneller</translation>
+        <translation>Medium</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="59"/>
         <source>Fast</source>
-        <translation>Snelst</translation>
+        <translation>Snel</translation>
     </message>
 </context>
 <context>
@@ -1705,7 +1705,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>Uw batterij is lager dan 50%, sluit een stekker aan om door te gaan</translation>
+        <translation>Uw batterij is lager dan 50%, sluit aan op het stroomnet om door te gaan</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>

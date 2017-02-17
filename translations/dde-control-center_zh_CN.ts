@@ -14,7 +14,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="59"/>
         <source>Only Displayed on %1</source>
-        <translation>仅在%1上显示</translation>
+        <translation>只在%1显示</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="61"/>
