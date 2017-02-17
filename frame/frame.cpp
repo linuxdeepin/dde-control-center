@@ -6,7 +6,7 @@
 #include <QScreen>
 
 Frame::Frame(QWidget *parent)
-    : BlurredFrame(parent),
+    : DBlurEffectWidget(parent),
 
       m_allSettingsPage(nullptr),
 
@@ -29,6 +29,7 @@ Frame::Frame(QWidget *parent)
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
     setMaximumWidth(FRAME_WIDTH);
+    setMaskColor(Qt::black);
 
     resize(0, height());
 
@@ -156,7 +157,7 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
     m_primaryRect = primaryRect;
 
     setFixedHeight(m_primaryRect.height());
-    QFrame::move(m_primaryRect.right() - width() + 1, m_primaryRect.y());
+    DBlurEffectWidget::move(m_primaryRect.right() - width() + 1, m_primaryRect.y());
 }
 
 void Frame::onMouseButtonReleased(const int button, const int x, const int y, const QString &key)
@@ -190,7 +191,7 @@ void Frame::onMouseButtonReleased(const int button, const int x, const int y, co
 
 void Frame::keyPressEvent(QKeyEvent *e)
 {
-    QFrame::keyPressEvent(e);
+    DBlurEffectWidget::keyPressEvent(e);
 
     switch (e->key()) {
 #ifdef QT_DEBUG
@@ -203,14 +204,14 @@ void Frame::keyPressEvent(QKeyEvent *e)
 
 void Frame::resizeEvent(QResizeEvent *e)
 {
-    BlurredFrame::resizeEvent(e);
+    DBlurEffectWidget::resizeEvent(e);
 
     emit rectChanged(geometry());
 }
 
 void Frame::moveEvent(QMoveEvent *e)
 {
-    BlurredFrame::moveEvent(e);
+    DBlurEffectWidget::moveEvent(e);
 
     emit rectChanged(geometry());
 }
@@ -231,8 +232,8 @@ void Frame::show()
     m_appearAnimation.start();
 
     // show frame
-    QFrame::show();
-    QFrame::activateWindow();
+    DBlurEffectWidget::show();
+    DBlurEffectWidget::activateWindow();
 
     // notify top widget appear
     if (m_frameWidgetStack.last() && m_frameWidgetStack.last()->content())
@@ -268,7 +269,7 @@ void Frame::hide()
 //    QTimer::singleShot(m_appearAnimation.duration(), this, &QFrame::hide);
     QTimer::singleShot(m_appearAnimation.duration(), [=] {
         if (m_appearAnimation.state() != QPropertyAnimation::Running)
-            QFrame::hide();
+            DBlurEffectWidget::hide();
     });
 
     // notify top widget disappear

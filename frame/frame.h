@@ -15,6 +15,8 @@
 
 #include "blurredframe.h"
 
+#include <DBlurEffectWidget>
+
 #define BUTTON_LEFT 1
 #define FRAME_WIDTH 360
 
@@ -22,7 +24,9 @@ using XMouseArea = com::deepin::api::XMouseArea;
 using DBusDisplay = com::deepin::daemon::Display;
 using LauncherInter = com::deepin::dde::Launcher;
 
-class Frame : public BlurredFrame
+DWIDGET_USE_NAMESPACE
+
+class Frame : public DBlurEffectWidget
 {
     Q_OBJECT
 
