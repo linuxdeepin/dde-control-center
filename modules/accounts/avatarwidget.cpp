@@ -43,6 +43,7 @@ AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
 void AvatarWidget::setSelected(const bool selected)
 {
     m_selected = selected;
+    setAccessibleDescription("selectedIcon");
     update();
 }
 
@@ -82,14 +83,14 @@ void AvatarWidget::paintEvent(QPaintEvent *e)
 
     painter.drawPixmap(e->rect(), m_avatar, e->rect());
 
-    QPen pen(Qt::transparent);
-    pen.setWidth(4);
-    if (m_selected)
+    if (m_selected) {
+        QPen pen(Qt::transparent);
+        pen.setWidth(4);
         pen.setColor(Qt::white);
-
-    painter.setPen(pen);
-    painter.setBrush(Qt::transparent);
-    painter.drawEllipse(rect());
+        painter.setPen(pen);
+        painter.setBrush(Qt::transparent);
+        painter.drawEllipse(rect());
+    };
 
     QWidget::paintEvent(e);
 }
