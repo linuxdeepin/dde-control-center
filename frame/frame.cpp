@@ -287,6 +287,9 @@ void Frame::hide()
 
 void Frame::toggle()
 {
+    if (m_appearAnimation.state() == QPropertyAnimation::Running)
+        return;
+
     if (m_appearAnimation.startValue().toRect().width() != 0)
         show();
     else
