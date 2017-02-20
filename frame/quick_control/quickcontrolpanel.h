@@ -50,6 +50,9 @@ private slots:
     void onNetworkDeviceEnableChanged();
     void onNetworkDeviceListChanged();
     void onWirelessButtonClicked();
+    void onBluetoothDeviceEnableChanged();
+    void onBluetoothButtonClicked(const bool checked);
+    void onBluetoothDeviceListChanged();
 
 private:
     QStackedLayout *m_itemStack;
@@ -61,7 +64,9 @@ private:
     dcc::bluetooth::BluetoothModel *m_bluetoothModel;
     dcc::bluetooth::BluetoothWorker *m_bluetoothWorker;
 
+
     dcc::QuickSwitchButton *m_wifiSwitch;
+    dcc::QuickSwitchButton *m_btSwitch;
 };
 
 #endif // QUICKCONTROLPANEL_H

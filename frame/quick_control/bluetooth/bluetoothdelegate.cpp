@@ -25,10 +25,9 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     if (isHeader)
         painter->fillRect(option.rect, QColor(255, 255, 255, .3 * 255));
 
-    if (isHeader)
-        painter->setPen(Qt::red);
-    else
-        painter->setPen(Qt::white);
+    QFont f(painter->font());
+    f.setBold(isHeader);
+    painter->setFont(f);
 
     if (isHeader)
         painter->drawText(option.rect.marginsRemoved(QMargins(10, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
@@ -38,6 +37,7 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     if (!isHeader)
     {
         const QJsonObject info = index.data(BluetoothListModel::ItemInfoRole).value<QJsonObject>();
+
         // connecting , connected, no connect
         if (info["State"] == Device::StateConnected) {
             // draw connected icon

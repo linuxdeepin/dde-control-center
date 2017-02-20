@@ -155,6 +155,9 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
     adapter->setName(alias);
     adapter->setPowered(powered);
 
+    if (powered)
+        emit deviceEnableChanged();
+
     QPointer<Adapter> adapterPointer(adapter);
 
     QDBusObjectPath dPath(path);

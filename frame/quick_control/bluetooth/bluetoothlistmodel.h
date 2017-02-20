@@ -52,6 +52,8 @@ public slots:
 private slots:
     void onAdapterAdded(const Adapter *adapter);
     void onDeviceApAdded(const Device *device);
+    void onDeviceAdded(const Adapter *adapter, const Device *device);
+    void onDeviceRemove(const Adapter *adapter, const Device *device);
 
 private:
     const ItemInfo indexInfo(const int index) const;

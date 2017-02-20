@@ -31,6 +31,9 @@ public:
     void activate() Q_DECL_OVERRIDE;
     void deactivate() Q_DECL_OVERRIDE;
 
+signals:
+    void deviceEnableChanged();
+
 public slots:
     void setAdapterPowered(const Adapter *adapter, const bool &powered);
     void connectDevice(const Device *device);

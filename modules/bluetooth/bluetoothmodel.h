@@ -33,6 +33,7 @@ public slots:
 signals:
     void adapterAdded(const Adapter *adapter) const;
     void adapterRemoved(const Adapter *adapter) const;
+    void adpaterListChanged();
 
 private:
     QList<const Adapter *> m_adapters;
