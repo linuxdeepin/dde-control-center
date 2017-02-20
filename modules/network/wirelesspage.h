@@ -51,7 +51,6 @@ signals:
 private slots:
     void onDeviceRemoved();
     void sortAPList();
-    void onActiveConnInfoChanged(const QList<QJsonObject> &activeConns);
     void onApWidgetEditRequested(const QString &path, const QString &ssid);
     void onApWidgetConnectRequested(const QString &path, const QString &ssid);
     void showConnectHidePage();
@@ -69,7 +68,6 @@ private:
 
     QPointer<ConnectionEditPage> m_apEditPage;
 
-    QString m_activeApName;
     QString m_editingUuid;
     QTimer m_sortDelayTimer;
     QMap<QString, AccessPointWidget *> m_apItems;

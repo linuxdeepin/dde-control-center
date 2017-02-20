@@ -24,6 +24,7 @@ public:
         ItemHoveredRole,
         ItemIsHeaderRole,
         ItemInfoRole,
+        ItemIsActiveRole,
     };
 
     explicit WifiListModel(dcc::network::NetworkModel *model, QObject *parent = 0);
@@ -38,6 +39,7 @@ signals:
     void requestDeviceApList(const QString &devPath) const;
 
 private:
+    int indexOf(dcc::network::WirelessDevice * const dev) const;
     const ItemInfo indexInfo(const int index) const;
     const QString deviceName(const dcc::network::NetworkDevice *wirelessDevice) const;
 

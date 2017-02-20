@@ -54,6 +54,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(dev, &WirelessDevice::apRemoved, this, &WirelessPage::onAPRemoved);
     connect(dev, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
     connect(dev, &WirelessDevice::sessionCreated, this, &WirelessPage::showAPEditPage);
+    connect(dev, &WirelessDevice::activeApChanged, this, &WirelessPage::updateActiveAp);
 
     // init data
     QTimer::singleShot(0, this, [=] {
@@ -73,9 +74,9 @@ void WirelessPage::setModel(NetworkModel *model)
 {
     m_model = model;
 
-    connect(m_model, &NetworkModel::activeConnInfoChanged, this, &WirelessPage::onActiveConnInfoChanged);
+//    connect(m_model, &NetworkModel::activeConnInfoChanged, this, &WirelessPage::onActiveConnInfoChanged);
 
-    onActiveConnInfoChanged(m_model->activeConnInfos());
+//    onActiveConnInfoChanged(m_model->activeConnInfos());
 }
 
 void WirelessPage::onAPAdded(const QJsonObject &apInfo)
@@ -84,7 +85,7 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 
     AccessPointWidget *w = new AccessPointWidget;
 
-    w->setConnected(ssid == m_activeApName);
+    w->setConnected(ssid == m_device->activeApName());
     w->setAPName(ssid);
 
     connect(w, &AccessPointWidget::requestEdit, this, &WirelessPage::onApWidgetEditRequested);
@@ -165,22 +166,6 @@ void WirelessPage::sortAPList()
         m_listGroup->moveItem(sortedList[i], i);
 }
 
-void WirelessPage::onActiveConnInfoChanged(const QList<QJsonObject> &activeConns)
-{
-    const QString hwAddr = m_device->hwAddr();
-    for (const auto &info : activeConns)
-    {
-        if (hwAddr == info.value("HwAddress").toString())
-        {
-            m_activeApName = info.value("ConnectionName").toString();
-            return updateActiveAp();
-        }
-    }
-
-    m_activeApName.clear();
-    updateActiveAp();
-}
-
 void WirelessPage::onApWidgetEditRequested(const QString &path, const QString &ssid)
 {
     const QString uuid = m_model->connectionUuidByApInfo(m_device->hwAddr(), ssid);
@@ -239,7 +224,7 @@ void WirelessPage::showAPEditPage(const QString &session)
 void WirelessPage::updateActiveAp()
 {
     for (auto it(m_apItems.cbegin()); it != m_apItems.cend(); ++it)
-        it.value()->setConnected(it.key() == m_activeApName);
+        it.value()->setConnected(it.key() == m_device->activeApName());
 
     sortAPList();
 }

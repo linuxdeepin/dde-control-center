@@ -21,6 +21,7 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
 
     const bool isHeader = index.data(WifiListModel::ItemIsHeaderRole).toBool();
     const bool isHovered = index.data(WifiListModel::ItemHoveredRole).toBool();
+//    const bool isActived = index.data(WifiListModel::ItemIsActiveRole).toBool();
 
     if (isHovered && !isHeader)
         painter->fillRect(option.rect, QColor(0, 0, 0, .6 * 255));

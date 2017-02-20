@@ -200,20 +200,26 @@ void NetworkModel::onActiveConnInfoChanged(const QString &conns)
 {
     m_activeConnInfos.clear();
 
+    QMap<QString, QString> activeConnInfo;
+
     QJsonArray activeConns = QJsonDocument::fromJson(conns.toUtf8()).array();
     for (const auto &info : activeConns)
     {
         const auto connInfo = info.toObject();
-        m_activeConnInfos.append(connInfo);
-//        const auto hwAddr = connInfo.value("HwAddress").toString();
 
-//        for (const auto *dev : m_devices)
-//        {
-//            if (dev->hwAddr() == hwAddr)
-//            {
-//                qDebug() << dev->path() << hwAddr;
-//            }
-//        }
+        activeConnInfo[connInfo.value("HwAddress").toString()] = connInfo.value("ConnectionName").toString();
+
+        m_activeConnInfos.append(connInfo);
+    }
+
+    // update wireless device active ap name
+    for (auto *dev : m_devices)
+    {
+        if (dev->type() != NetworkDevice::Wireless)
+            continue;
+
+        WirelessDevice *d = static_cast<WirelessDevice *>(dev);
+        d->setActiveApName(activeConnInfo[d->hwAddr()]);
     }
 
     emit activeConnInfoChanged(m_activeConnInfos);

@@ -60,6 +60,8 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
         return index == m_currentIndex;
     case ItemIsHeaderRole:
         return info.info == nullptr;
+    case ItemIsActiveRole:
+        return info.info && static_cast<const WirelessDevice *>(info.device)->activeApName() == info.info->value("Ssid").toString();
     default:;
     }
 
@@ -74,6 +76,23 @@ void WifiListModel::setCurrentHovered(const QModelIndex &index)
 
     emit dataChanged(oldIndex, oldIndex);
     emit dataChanged(m_currentIndex, m_currentIndex);
+}
+
+int WifiListModel::indexOf(dcc::network::WirelessDevice * const dev) const
+{
+    int pos = 0;
+    for (auto *d : m_networkModel->devices())
+    {
+        if (d->type() != NetworkDevice::Wireless)
+            continue;
+
+        pos += m_apInfoList[static_cast<WirelessDevice *>(d)].size() + 1;
+
+        if (d == dev)
+            break;
+    }
+
+    return pos;
 }
 
 const ItemInfo WifiListModel::indexInfo(const int index) const
@@ -153,19 +172,9 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
     Q_ASSERT(dev);
     Q_ASSERT(m_apInfoList.contains(dev));
 
-    int pos = 0;
-    for (auto *d : m_networkModel->devices())
-    {
-        if (d->type() != NetworkDevice::Wireless)
-            continue;
+    const int row = indexOf(static_cast<WirelessDevice *>(dev));
 
-        pos += m_apInfoList[static_cast<WirelessDevice *>(d)].size() + 1;
-
-        if (d == dev)
-            break;
-    }
-
-    beginInsertRows(QModelIndex(), pos, pos);
+    beginInsertRows(QModelIndex(), row, row);
     m_apInfoList[dev].append(info);
     endInsertRows();
 
@@ -174,6 +183,21 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
 
 void WifiListModel::onDeviceApRemoved(dcc::network::WirelessDevice *dev, const QString &ssid)
 {
-    // XXX
-    qDebug() << dev << ssid;
+    // XXX: fix if ssid is in used by multiple AP
+    int row = indexOf(dev);
+
+    const auto list = m_apInfoList[dev];
+    for (int i(0); i != list.size(); ++i)
+    {
+        if (list[i].value("Ssid").toString() == ssid)
+        {
+            beginRemoveRows(QModelIndex(), row, row);
+            m_apInfoList[dev].removeAt(i);
+            endRemoveRows();
+
+            emit layoutChanged();
+
+            return;
+        }
+    }
 }
