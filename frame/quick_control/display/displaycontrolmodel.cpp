@@ -11,6 +11,7 @@ DisplayControlModel::DisplayControlModel(DisplayModel *model, QObject *parent)
       m_displayModel(model)
 {
     connect(m_displayModel, &DisplayModel::displayModeChanged, this, &DisplayControlModel::onDisplayModeChanged);
+    connect(m_displayModel, &DisplayModel::primaryScreenChanged, [this] { onDisplayModeChanged(m_displayModel->displayMode()); });
     connect(m_displayModel, &DisplayModel::monitorListChanged, [=] { emit layoutChanged(); });
 
     onDisplayModeChanged(m_displayModel->displayMode());
