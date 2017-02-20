@@ -121,6 +121,13 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     vpnSwitch->setChecked(m_networkModel->vpnEnabled());
 }
 
+void QuickControlPanel::leaveEvent(QEvent *e)
+{
+    QWidget::leaveEvent(e);
+
+    m_itemStack->setCurrentIndex(0);
+}
+
 void QuickControlPanel::pageSwitched(const int index)
 {
 //    const int current = m_itemStack->currentIndex();

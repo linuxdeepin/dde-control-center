@@ -41,6 +41,9 @@ signals:
     void requestDetailConfig() const;
     void requestPage(const QString &module, const QString &page) const;
 
+protected:
+    void leaveEvent(QEvent *e);
+
 private slots:
     void pageSwitched(const int index);
     void switchToggled(const int index);
