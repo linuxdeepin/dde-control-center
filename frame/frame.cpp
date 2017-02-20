@@ -197,7 +197,7 @@ void Frame::keyPressEvent(QKeyEvent *e)
 #ifdef QT_DEBUG
     case Qt::Key_Escape:        qApp->quit();                               break;
 #endif
-    case Qt::Key_F1:            QProcess::startDetached("dman", QStringList("dde-control-center"));  break;
+    case Qt::Key_F1:            QProcess::startDetached("dman", QStringList("dde"));  break;
     default:;
     }
 }
