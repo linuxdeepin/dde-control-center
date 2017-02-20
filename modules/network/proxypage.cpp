@@ -30,6 +30,25 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_proxyType->addSegmented(tr("None"));
     m_proxyType->addSegmented(tr("Manual"));
     m_proxyType->addSegmented(tr("Auto"));
+    m_proxyType->setStyleSheet("Dtk--Widget--DSegmentedControl {"
+                               "background: transparent;"
+                               "}"
+                               ""
+                               "Dtk--Widget--DSegmentedControl  Dtk--Widget--DSegmentedHighlight#Highlight {"
+                               "background: transparent;"
+                               "}"
+                               ""
+                               "Dtk--Widget--DSegmentedControl QToolButton#Segmented {"
+                               "background: transparent;"
+                               "}"
+                               ""
+                               "Dtk--Widget--DSegmentedControl QToolButton#Segmented:enabled {"
+                               "color: white;"
+                               "}"
+                               ""
+                               "Dtk--Widget--DSegmentedControl QToolButton#Segmented {"
+                               "color: #19a9f9;"
+                               "}");
 
     m_httpAddr = new LineEditWidget;
     m_httpAddr->setTitle(tr("Http Proxy"));
