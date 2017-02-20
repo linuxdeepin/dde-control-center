@@ -7,6 +7,8 @@
 
 namespace dcc {
 
+class QuickSwitchButton;
+
 namespace network {
 
 class NetworkModel;
@@ -45,8 +47,8 @@ protected:
     void leaveEvent(QEvent *e);
 
 private slots:
-    void pageSwitched(const int index);
-    void switchToggled(const int index);
+    void onNetworkDeviceEnableChanged();
+    void onWirelessButtonClicked();
 
 private:
     QStackedLayout *m_itemStack;
@@ -57,6 +59,8 @@ private:
     dcc::display::DisplayWorker *m_displayWorker;
     dcc::bluetooth::BluetoothModel *m_bluetoothModel;
     dcc::bluetooth::BluetoothWorker *m_bluetoothWorker;
+
+    dcc::QuickSwitchButton *m_wifiSwitch;
 };
 
 #endif // QUICKCONTROLPANEL_H

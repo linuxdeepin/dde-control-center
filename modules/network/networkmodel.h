@@ -44,6 +44,7 @@ public:
 
 signals:
     void connectionListChanged() const;
+    void deviceEnableChanged(const QString &device, const bool enabled) const;
     void autoProxyChanged(const QString &proxy) const;
     void proxyChanged(const QString &type, const ProxyConfig &config) const;
     void proxyMethodChanged(const QString &proxyMethod) const;

@@ -20,6 +20,7 @@
 using namespace dcc;
 using dcc::network::NetworkModel;
 using dcc::network::NetworkWorker;
+using dcc::network::NetworkDevice;
 using dcc::display::DisplayModel;
 using dcc::display::DisplayWorker;
 using dcc::bluetooth::BluetoothModel;
@@ -56,7 +57,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     QuickSwitchButton *btSwitch = new QuickSwitchButton(1, "bluetooth");
     QuickSwitchButton *vpnSwitch = new QuickSwitchButton(2, "VPN");
-    QuickSwitchButton *wifiSwitch = new QuickSwitchButton(3, "wifi");
+    m_wifiSwitch = new QuickSwitchButton(3, "wifi");
     QuickSwitchButton *displaySwitch = new QuickSwitchButton(4, "display");
     QuickSwitchButton *detailSwitch = new QuickSwitchButton(0, "all_settings");
 
@@ -64,8 +65,8 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     btSwitch->setAccessibleName("QuickSwitchBluetooth");
     vpnSwitch->setObjectName("QuickSwitchVPN");
     vpnSwitch->setAccessibleName("QuickSwitchVPN");
-    wifiSwitch->setObjectName("QuickSwitchWiFi");
-    wifiSwitch->setAccessibleName("QuickSwitchWiFi");
+    m_wifiSwitch->setObjectName("QuickSwitchWiFi");
+    m_wifiSwitch->setAccessibleName("QuickSwitchWiFi");
     displaySwitch->setObjectName("QuickSwitchDisplay");
     displaySwitch->setAccessibleName("QuickSwitchDisplay");
     displaySwitch->setCheckable(false);
@@ -77,7 +78,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addWidget(btSwitch);
     btnsLayout->addWidget(vpnSwitch);
-    btnsLayout->addWidget(wifiSwitch);
+    btnsLayout->addWidget(m_wifiSwitch);
     btnsLayout->addWidget(displaySwitch);
     btnsLayout->addWidget(detailSwitch);
     btnsLayout->setContentsMargins(0, 15, 0, 15);
@@ -91,15 +92,11 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     setLayout(mainLayout);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    connect(btSwitch, &QuickSwitchButton::hovered, this, &QuickControlPanel::pageSwitched);
-    connect(btSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::switchToggled);
-    connect(vpnSwitch, &QuickSwitchButton::hovered, this, &QuickControlPanel::pageSwitched);
-    connect(vpnSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::switchToggled);
-    connect(wifiSwitch, &QuickSwitchButton::hovered, this, &QuickControlPanel::pageSwitched);
-    connect(wifiSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::switchToggled);
-    connect(displaySwitch, &QuickSwitchButton::hovered, this, &QuickControlPanel::pageSwitched);
-    connect(displaySwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::switchToggled);
-    connect(detailSwitch, &QuickSwitchButton::hovered, this, &QuickControlPanel::pageSwitched);
+    connect(btSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
+    connect(vpnSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
+    connect(m_wifiSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
+    connect(displaySwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
+    connect(detailSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(detailSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::requestDetailConfig);
 
     connect(m_networkModel, &NetworkModel::vpnEnabledChanged, vpnSwitch, &QuickSwitchButton::setChecked);
@@ -107,6 +104,8 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(vpnPage, &VpnControlPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     connect(vpnPage, &VpnControlPage::requestDisconnect, m_networkWorker, &NetworkWorker::deactiveConnection);
 
+    connect(m_networkModel, &NetworkModel::deviceEnableChanged, this, &QuickControlPanel::onNetworkDeviceEnableChanged);
+    connect(m_wifiSwitch, &QuickSwitchButton::checkedChanged, this, &QuickControlPanel::onWirelessButtonClicked);
     connect(wifiPage, &WifiPage::requestDeviceApList, m_networkWorker, &NetworkWorker::queryAccessPoints);
     connect(wifiPage, &WifiPage::requestActivateAccessPoint, m_networkWorker, &NetworkWorker::activateAccessPoint);
     connect(wifiPage, &WifiPage::requestDeactivateConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
@@ -119,6 +118,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(bluetoothList, &BluetoothList::requestConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::connectDevice);
 
     vpnSwitch->setChecked(m_networkModel->vpnEnabled());
+    onNetworkDeviceEnableChanged();
 }
 
 void QuickControlPanel::leaveEvent(QEvent *e)
@@ -128,20 +128,27 @@ void QuickControlPanel::leaveEvent(QEvent *e)
     m_itemStack->setCurrentIndex(0);
 }
 
-void QuickControlPanel::pageSwitched(const int index)
+void QuickControlPanel::onNetworkDeviceEnableChanged()
 {
-//    const int current = m_itemStack->currentIndex();
-//    if (current == index)
-//        return m_itemStack->setCurrentIndex(0);
+    for (auto *dev : m_networkModel->devices())
+    {
+        if (dev->type() == NetworkDevice::Wireless && dev->enabled())
+        {
+            m_wifiSwitch->setChecked(true);
+            return;
+        }
+    }
 
-    Q_ASSERT(m_itemStack->count() > index);
-    m_itemStack->setCurrentIndex(index);
+    m_wifiSwitch->setChecked(false);
 }
 
-void QuickControlPanel::switchToggled(const int index)
+void QuickControlPanel::onWirelessButtonClicked()
 {
-    QuickSwitchButton *btn = static_cast<QuickSwitchButton *>(sender());
-    Q_ASSERT(btn);
+    const bool enable = m_wifiSwitch->checked();
 
-    qDebug() << btn << btn->checked() << index;
+    for (auto *dev : m_networkModel->devices())
+    {
+        if (dev->type() == NetworkDevice::Wireless)
+            m_networkWorker->setDeviceEnable(dev->path(), enable);
+    }
 }

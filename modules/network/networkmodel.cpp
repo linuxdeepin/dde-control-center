@@ -297,8 +297,12 @@ void NetworkModel::onDeviceEnableChanged(const QString &device, const bool enabl
         }
     }
 
-    if (dev)
-        dev->setEnabled(enabled);
+    if (!dev)
+        return;
+
+    dev->setEnabled(enabled);
+
+    emit deviceEnableChanged(device, enabled);
 }
 
 bool NetworkModel::containsDevice(const QString &devPath) const
