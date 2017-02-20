@@ -44,6 +44,8 @@ MainWidget::MainWidget(Frame *parent)
         if (inter->uid().toInt() == uid)
         {
             m_userAvatarBtn = new AvatarWidget(inter->iconFile());
+            m_userAvatarBtn->setAccessibleName(inter->iconFile());
+            m_userAvatarBtn->setAccessibleDescription("iconMainWidget");
 
             connect(inter, &UserInter::IconFileChanged, m_userAvatarBtn, &AvatarWidget::setAvatarPath);
             connect(m_userAvatarBtn, &AvatarWidget::clicked, this, &MainWidget::showAccountsModule);
