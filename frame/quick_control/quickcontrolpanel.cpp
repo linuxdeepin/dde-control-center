@@ -105,11 +105,13 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(vpnPage, &VpnControlPage::requestDisconnect, m_networkWorker, &NetworkWorker::deactiveConnection);
 
     connect(m_networkModel, &NetworkModel::deviceEnableChanged, this, &QuickControlPanel::onNetworkDeviceEnableChanged);
+    connect(m_networkModel, &NetworkModel::deviceListChanged, this, &QuickControlPanel::onNetworkDeviceListChanged);
     connect(m_wifiSwitch, &QuickSwitchButton::checkedChanged, this, &QuickControlPanel::onWirelessButtonClicked);
     connect(wifiPage, &WifiPage::requestDeviceApList, m_networkWorker, &NetworkWorker::queryAccessPoints);
     connect(wifiPage, &WifiPage::requestActivateAccessPoint, m_networkWorker, &NetworkWorker::activateAccessPoint);
     connect(wifiPage, &WifiPage::requestDeactivateConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
 
+    connect(m_displayModel, &DisplayModel::monitorListChanged, [=] { displaySwitch->setVisible(m_displayModel->monitorList().size() > 1); });
     connect(displayPage, &DisplayControlPage::requestOnlyMonitor, [=](const QString &name) { m_displayWorker->switchMode(SINGLE_MODE, name); m_displayWorker->saveChanges(); });
     connect(displayPage, &DisplayControlPage::requestDuplicateMode, [=] { m_displayWorker->switchMode(MERGE_MODE); m_displayWorker->saveChanges(); });
     connect(displayPage, &DisplayControlPage::requestExtendMode, [=] { m_displayWorker->switchMode(EXTEND_MODE); m_displayWorker->saveChanges(); });
@@ -117,8 +119,10 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     connect(bluetoothList, &BluetoothList::requestConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::connectDevice);
 
+    displaySwitch->setVisible(m_displayModel->monitorList().size() > 1);
     vpnSwitch->setChecked(m_networkModel->vpnEnabled());
     onNetworkDeviceEnableChanged();
+    onNetworkDeviceListChanged();
 }
 
 void QuickControlPanel::leaveEvent(QEvent *e)
@@ -140,6 +144,20 @@ void QuickControlPanel::onNetworkDeviceEnableChanged()
     }
 
     m_wifiSwitch->setChecked(false);
+}
+
+void QuickControlPanel::onNetworkDeviceListChanged()
+{
+    for (auto *dev : m_networkModel->devices())
+    {
+        if (dev->type() == NetworkDevice::Wireless)
+        {
+            m_wifiSwitch->setVisible(true);
+            return;
+        }
+    }
+
+    m_wifiSwitch->setVisible(false);
 }
 
 void QuickControlPanel::onWirelessButtonClicked()

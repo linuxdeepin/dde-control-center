@@ -48,6 +48,7 @@ protected:
 
 private slots:
     void onNetworkDeviceEnableChanged();
+    void onNetworkDeviceListChanged();
     void onWirelessButtonClicked();
 
 private:
