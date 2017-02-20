@@ -41,7 +41,7 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
     {
         if (!info.info)
-            return info.device->id();
+            return info.device->name();
         else
             return info.info->value("Alias");
     }
