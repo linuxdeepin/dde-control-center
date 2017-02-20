@@ -31,6 +31,8 @@ public slots:
 
 private slots:
     void FontSizeChanged(const double value) const;
+    void onStandardFontFinished(QDBusPendingCallWatcher *w);
+    void onMonoFontFinished(QDBusPendingCallWatcher *w);
 
 private:
     int sizeToSliderValue(const int value) const;

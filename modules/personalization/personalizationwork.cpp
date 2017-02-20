@@ -30,10 +30,16 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     setList("gtk", m_dbus->List("gtk"));
     setList("icon", m_dbus->List("icon"));
     setList("cursor", m_dbus->List("cursor"));
-    setList("standardfont", m_dbus->List("standardfont"));
-    setList("monospacefont", m_dbus->List("monospacefont"));
 
     m_dbus->setSync(false);
+
+    QDBusPendingReply<QString> standardFont = m_dbus->List("standardfont");
+    QDBusPendingCallWatcher *standardFontWatcher = new QDBusPendingCallWatcher(standardFont, this);
+    connect(standardFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onStandardFontFinished);
+
+    QDBusPendingReply<QString> monoFont = m_dbus->List("monospacefont");
+    QDBusPendingCallWatcher *monoFontWatcher = new QDBusPendingCallWatcher(monoFont, this);
+    connect(monoFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onMonoFontFinished);
 }
 
 void PersonalizationWork::active()
@@ -113,25 +119,32 @@ void PersonalizationWork::setList(const QString &type, const QString &key)
 
         cursorTheme->setJson(converToList(type, array));
     }
-
-    if (type == "standardfont") {
-        FontModel *fontStand = m_model->getStandFontModel();
-        QJsonArray array = QJsonDocument::fromJson(key.toLocal8Bit().data()).array();
-
-        fontStand->setFontList(converToList(type, array));
-    }
-
-    if (type == "monospacefont") {
-        FontModel *fontMono = m_model->getMonoFontModel();
-        QJsonArray array = QJsonDocument::fromJson(key.toLocal8Bit().data()).array();
-        fontMono->setFontList(converToList(type, array));
-    }
 }
 
 void PersonalizationWork::FontSizeChanged(const double value) const
 {
     FontSizeModel *fontSizeModel = m_model->getFontSizeModel();
     fontSizeModel->setFontSize(sizeToSliderValue(value));
+}
+
+void PersonalizationWork::onStandardFontFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QString> reply = *w;
+    FontModel *fontStand = m_model->getStandFontModel();
+    QJsonArray array = QJsonDocument::fromJson(reply.value().toLocal8Bit().data()).array();
+    fontStand->setFontList(converToList("standardfont", array));
+
+    w->deleteLater();
+}
+
+void PersonalizationWork::onMonoFontFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QString> reply = *w;
+    FontModel *fontMono = m_model->getMonoFontModel();
+    QJsonArray array = QJsonDocument::fromJson(reply.value().toLocal8Bit().data()).array();
+    fontMono->setFontList(converToList("monospacefont", array));
+
+    w->deleteLater();
 }
 
 
