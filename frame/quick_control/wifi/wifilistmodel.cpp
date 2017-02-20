@@ -171,7 +171,7 @@ void WifiListModel::onDeviceListChanged(const QList<NetworkDevice *> &devices)
 {
     for (auto *dev : devices)
     {
-        if (dev->type() != NetworkDevice::Wireless)
+        if (dev->type() != NetworkDevice::Wireless || !dev->enabled())
             continue;
 
         WirelessDevice *d = static_cast<WirelessDevice *>(dev);
