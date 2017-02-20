@@ -108,6 +108,8 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(vpnPage, &VpnControlPage::requestDisconnect, m_networkWorker, &NetworkWorker::deactiveConnection);
 
     connect(wifiPage, &WifiPage::requestDeviceApList, m_networkWorker, &NetworkWorker::queryAccessPoints);
+    connect(wifiPage, &WifiPage::requestActivateAccessPoint, m_networkWorker, &NetworkWorker::activateAccessPoint);
+    connect(wifiPage, &WifiPage::requestDeactivateConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
 
     connect(displayPage, &DisplayControlPage::requestOnlyMonitor, [=](const QString &name) { m_displayWorker->switchMode(SINGLE_MODE, name); m_displayWorker->saveChanges(); });
     connect(displayPage, &DisplayControlPage::requestDuplicateMode, [=] { m_displayWorker->switchMode(MERGE_MODE); m_displayWorker->saveChanges(); });

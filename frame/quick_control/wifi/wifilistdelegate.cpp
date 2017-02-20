@@ -21,7 +21,6 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
 
     const bool isHeader = index.data(WifiListModel::ItemIsHeaderRole).toBool();
     const bool isHovered = index.data(WifiListModel::ItemHoveredRole).toBool();
-//    const bool isActived = index.data(WifiListModel::ItemIsActiveRole).toBool();
 
     if (isHovered && !isHeader)
         painter->fillRect(option.rect, QColor(0, 0, 0, .6 * 255));
@@ -29,11 +28,9 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     if (isHeader)
         painter->fillRect(option.rect, QColor(255, 255, 255, .3 * 255));
 
-    if (isHeader)
-        painter->setPen(Qt::red);
-    else
-        painter->setPen(Qt::white);
-
+    QFont f(painter->font());
+    f.setBold(isHeader);
+    painter->setFont(f);
     if (isHeader)
         painter->drawText(option.rect.marginsRemoved(QMargins(10, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
     else
@@ -57,6 +54,18 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
             const int x = 20;
 
             painter->drawPixmap(x, y, m_securityPixmap);
+        }
+
+        // draw actived icon
+        const bool isActived = index.data(WifiListModel::ItemIsActiveRole).toBool();
+        if (isActived)
+        {
+            const int x = option.rect.right() - 16 - 10;
+
+            if (isHovered)
+                painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/remove.png"));
+            else
+                painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
         }
     }
 }

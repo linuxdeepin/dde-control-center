@@ -62,6 +62,12 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
         return info.info == nullptr;
     case ItemIsActiveRole:
         return info.info && static_cast<const WirelessDevice *>(info.device)->activeApName() == info.info->value("Ssid").toString();
+    case ItemDevicePathRole:
+        return info.device->path();
+    case ItemApPathRole:
+        return info.info->value("Path");
+    case ItemUuidRole:
+        return m_networkModel->connectionUuidByApInfo(info.device->hwAddr(), info.info->value("Ssid").toString());
     default:;
     }
 

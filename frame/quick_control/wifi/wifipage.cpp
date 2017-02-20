@@ -4,6 +4,7 @@
 #include "basiclistview.h"
 
 #include <QVBoxLayout>
+#include <QDebug>
 
 using dcc::network::NetworkModel;
 using dcc::widgets::BasicListView;
@@ -29,4 +30,22 @@ WifiPage::WifiPage(NetworkModel *model, QWidget *parent)
 
     connect(listModel, &WifiListModel::requestDeviceApList, this, &WifiPage::requestDeviceApList);
     connect(listView, &BasicListView::entered, listModel, &WifiListModel::setCurrentHovered);
+    connect(listView, &BasicListView::clicked, this, &WifiPage::onItemClicked);
+}
+
+void WifiPage::onItemClicked(const QModelIndex &index)
+{
+    if (index.data(WifiListModel::ItemIsHeaderRole).toBool())
+        return;
+
+    const QString uuid = index.data(WifiListModel::ItemUuidRole).toString();
+    if (index.data(WifiListModel::ItemIsActiveRole).toBool())
+    {
+        emit requestDeactivateConnection(uuid);
+    } else {
+        const QString devPath = index.data(WifiListModel::ItemDevicePathRole).toString();
+        const QString apPath = index.data(WifiListModel::ItemApPathRole).toString();
+
+        emit requestActivateAccessPoint(devPath, apPath, uuid);
+    }
 }

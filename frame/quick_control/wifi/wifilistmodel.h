@@ -25,6 +25,9 @@ public:
         ItemIsHeaderRole,
         ItemInfoRole,
         ItemIsActiveRole,
+        ItemApPathRole,
+        ItemDevicePathRole,
+        ItemUuidRole,
     };
 
     explicit WifiListModel(dcc::network::NetworkModel *model, QObject *parent = 0);

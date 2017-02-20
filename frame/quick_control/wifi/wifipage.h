@@ -15,6 +15,11 @@ public:
 
 signals:
     void requestDeviceApList(const QString &devPath) const;
+    void requestDeactivateConnection(const QString &uuid) const;
+    void requestActivateAccessPoint(const QString &devPath, const QString &apPath, const QString &uuid) const;
+
+private slots:
+    void onItemClicked(const QModelIndex &index);
 
 private:
     dcc::network::NetworkModel *m_networkModel;
