@@ -21,6 +21,7 @@ public:
         ItemNameRole,
         ItemIsLastRole,
         ItemSelectedRole,
+        ItemIconRole,
     };
 
     enum ItemType
@@ -36,6 +37,7 @@ public:
 
 private:
     ItemType optionType(const int index) const;
+    const QPixmap optionIcon(const int index) const;
     const QString optionName(const int index) const;
     const QString optionDescription(const int index) const;
 

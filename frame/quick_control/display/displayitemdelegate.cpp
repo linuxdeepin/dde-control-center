@@ -20,9 +20,9 @@ void DisplayItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (!index.data(DisplayControlModel::ItemIsLastRole).toBool())
         painter->drawLine(QPoint(60, option.rect.bottom()), QPoint(option.rect.right() - 30, option.rect.bottom()));
 
-    const int icon_x = 20;
-    const int icon_y = option.rect.top() + (option.rect.height() - 30) / 2;
-    painter->fillRect(icon_x, icon_y, 30, 30, Qt::red);
+    const int icon_x = 15;
+    const int icon_y = option.rect.top() + (option.rect.height() - 36) / 2;
+    painter->drawPixmap(icon_x, icon_y, index.data(DisplayControlModel::ItemIconRole).value<QPixmap>());
 
     if (index.data(DisplayControlModel::ItemSelectedRole).toBool())
     {

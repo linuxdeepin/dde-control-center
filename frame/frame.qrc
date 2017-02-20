@@ -30,5 +30,10 @@
         <file>quick_control/wifi/wireless/wireless-8-symbolic.svg</file>
         <file>quick_control/wifi/wireless/wireless-10-symbolic.svg</file>
         <file>themes/dark/icons/remove.png</file>
+        <file>themes/dark/icons/copy_mode.png</file>
+        <file>themes/dark/icons/extend_mode.png</file>
+        <file>themes/dark/icons/only1.png</file>
+        <file>themes/dark/icons/only2.png</file>
+        <file>themes/dark/icons/custom.png</file>
     </qresource>
 </RCC>

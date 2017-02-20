@@ -2,6 +2,7 @@
 #include "display/displayworker.h"
 
 #include <QSize>
+#include <QPixmap>
 
 using dcc::display::DisplayModel;
 
@@ -42,6 +43,8 @@ QVariant DisplayControlModel::data(const QModelIndex &index, int role) const
         return m_displayModel->monitorList()[index.row() - 2]->name();
     case ItemIsLastRole:
         return index.row() == 2 + m_displayModel->monitorList().size() + m_displayModel->hasConfig() - 1;
+    case ItemIconRole:
+        return optionIcon(index.row());
     case Qt::SizeHintRole:
         return QSize(0, 70);
     default:;
@@ -113,4 +116,22 @@ DisplayControlModel::ItemType DisplayControlModel::optionType(const int index) c
         return Specificed;
 
     return Custom;
+}
+
+const QPixmap DisplayControlModel::optionIcon(const int index) const
+{
+    const ItemType type = optionType(index);
+
+    switch (type)
+    {
+    case Duplicate:     return QPixmap(":/frame/themes/dark/icons/copy_mode.png");
+    case Extend:        return QPixmap(":/frame/themes/dark/icons/extend_mode.png");
+    case Custom:        return QPixmap(":/frame/themes/dark/icons/custom.png");
+    case Specificed:    return QPixmap(index > 2 ? ":/frame/themes/dark/icons/only2.png" : ":/frame/themes/dark/icons/only1.png");
+    default:;
+    }
+
+    Q_UNREACHABLE();
+
+    return QPixmap();
 }
