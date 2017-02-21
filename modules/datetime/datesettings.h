@@ -35,26 +35,16 @@ class DateSettings : public ContentWidget
 public:
     explicit DateSettings(QWidget *parent = 0);
 
-    void setModel(DatetimeModel *model);
-
 signals:
     void requestSetTime(const QDateTime &time);
-    void requestSetTimeZone(const QString &zone);
-
-    void requestHold();
-    void requestUnhold();
 
 private slots:
     void onCancelButtonClicked();
     void onConfirmButtonClicked();
 
-    void setTimeZone(const QString &zone);
-
     void updateDayRange();
 
 private:
-    DatetimeModel *m_model;
-
     SettingsGroup *m_datetimeGroup;
 
     ClockItem *m_clock;
@@ -64,12 +54,8 @@ private:
     DateWidget *m_dayWidget;
     QPushButton *m_cancelButton;
     QPushButton *m_confirmButton;
-
-    SettingsGroup *m_timezoneGroup;
-    NextPageWidget *m_timezoneItem;
-
-    TimeZoneChooser *m_dialog;
 };
+
 }
 }
 #endif // DATESETTINGS_H

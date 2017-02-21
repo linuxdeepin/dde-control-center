@@ -33,10 +33,7 @@ DateSettings::DateSettings(QWidget *parent)
       m_monthWidget(new DateWidget(DateWidget::Month, 1, 12)),
       m_dayWidget(new DateWidget(DateWidget::Day, 1, 31)),
       m_cancelButton(new QPushButton(tr("Cancel"))),
-      m_confirmButton(new QPushButton(tr("Confirm"))),
-      m_timezoneGroup(new SettingsGroup),
-      m_timezoneItem(new NextPageWidget),
-      m_dialog(new TimeZoneChooser)
+      m_confirmButton(new QPushButton(tr("Confirm")))
 {
     setTitle(tr("Change Time Settings"));
 
@@ -65,43 +62,16 @@ DateSettings::DateSettings(QWidget *parent)
     buttonLayout->addWidget(m_cancelButton);
     buttonLayout->addWidget(m_confirmButton);
 
-    m_timezoneItem->setTitle(tr("Change System Timezone"));
-    m_timezoneGroup->appendItem(m_timezoneItem);
-
     layout->addWidget(m_datetimeGroup);
     layout->addSpacing(10);
     layout->addLayout(buttonLayout);
-    layout->addSpacing(10);
-    layout->addWidget(m_timezoneGroup);
 
     setContent(widget);
 
     connect(m_cancelButton, &QPushButton::clicked, this, &DateSettings::onCancelButtonClicked);
     connect(m_confirmButton, &QPushButton::clicked, this, &DateSettings::onConfirmButtonClicked);
 
-    connect(m_timezoneItem, &NextPageWidget::clicked, this, [this] {
-        emit requestHold();
-        m_dialog->show();
-    });
-    connect(m_dialog, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
-        emit requestSetTimeZone(timezone);
-        back();
-        emit requestUnhold();
-    });
-    connect(m_dialog, &TimeZoneChooser::cancelled, this, [this] {
-        emit requestUnhold();
-    });
-
     connect(m_monthWidget, &DateWidget::editingFinished, this, &DateSettings::updateDayRange);
-}
-
-void DateSettings::setModel(DatetimeModel *model)
-{
-    m_model = model;
-
-    connect(model, &DatetimeModel::systemTimeZoneIdChanged, this, &DateSettings::setTimeZone);
-
-    setTimeZone(model->systemTimeZoneId());
 }
 
 void DateSettings::onCancelButtonClicked()
@@ -118,12 +88,6 @@ void DateSettings::onConfirmButtonClicked()
     emit requestSetTime(datetime);
 
     back();
-}
-
-void DateSettings::setTimeZone(const QString &zone)
-{
-    qDebug() << "sett time zone " << zone;
-    m_timezoneItem->setValue(zone);
 }
 
 void DateSettings::updateDayRange()

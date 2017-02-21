@@ -21,6 +21,8 @@ Datetime::Datetime()
       m_timezoneGroup(new SettingsGroup),
       m_headItem(new SettingsHead),
       m_addTimezoneButton(new QPushButton(tr("Add Timezone"))),
+      m_timezoneItem(new NextPageWidget),
+      m_addTimeZone(false),
       m_dialog(new TimeZoneChooser)
 {
     setObjectName("Datetime");
@@ -28,9 +30,12 @@ Datetime::Datetime()
 
     this->installEventFilter(parent());
 
+    m_timezoneItem->setTitle(tr("Change System Timezone"));
+
     SettingsGroup *clockGroup = new SettingsGroup;
     ClockItem *clock = new ClockItem;
     clockGroup->appendItem(clock);
+    clockGroup->appendItem(m_timezoneItem);
 
     m_timePageButton->setTitle(tr("Time Settings"));
     m_timeSettingsGroup->appendItem(m_ntpSwitch);
@@ -46,7 +51,12 @@ Datetime::Datetime()
     m_centralLayout->addWidget(m_addTimezoneButton);
 
     connect(m_dialog, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
-        emit requestAddUserTimeZone(timezone);
+        if (m_addTimeZone) {
+            emit requestAddUserTimeZone(timezone);
+        } else {
+            emit requestSetTimeZone(timezone);
+        }
+
         emit requestUnhold();
     });
     connect(m_dialog, &TimeZoneChooser::cancelled, this, [this] {
@@ -57,6 +67,15 @@ Datetime::Datetime()
     connect(m_timePageButton, &NextPageWidget::clicked, this, &Datetime::requestTimeSettings);
 
     connect(m_addTimezoneButton, &QPushButton::clicked, this, [this] {
+        m_addTimeZone = true;
+
+        emit requestHold();
+        m_dialog->show();
+    });
+
+    connect(m_timezoneItem, &NextPageWidget::clicked, this, [this] {
+        m_addTimeZone = false;
+
         emit requestHold();
         m_dialog->show();
     });
@@ -84,8 +103,11 @@ void Datetime::setModel(const DatetimeModel *model)
         updateTimezoneItems();
     });
 
+    connect(model, &DatetimeModel::systemTimeZoneIdChanged, m_timezoneItem, &NextPageWidget::setValue);
+
     addTimezones(model->userTimeZones());
     m_ntpSwitch->setChecked(model->nTP());
+    m_timezoneItem->setValue(model->systemTimeZoneId());
 }
 
 void Datetime::addTimezone(const ZoneInfo &zone)

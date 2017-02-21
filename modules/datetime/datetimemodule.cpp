@@ -50,6 +50,7 @@ ModuleWidget *DatetimeModule::moduleWidget()
         connect(m_datetimeWidget, &Datetime::requestTimeSettings, this, &DatetimeModule::showTimeSettingsPage);
         connect(m_datetimeWidget, &Datetime::requestRemoveUserTimeZone, m_work, &DatetimeWork::removeUserTimeZone);
         connect(m_datetimeWidget, &Datetime::requestAddUserTimeZone, m_work, &DatetimeWork::addUserTimeZone);
+        connect(m_datetimeWidget, &Datetime::requestSetTimeZone, m_work, &DatetimeWork::setTimezone);
 
         connect(m_datetimeWidget, &Datetime::requestHold, this, [this] {
             m_frameProxy->setFrameAutoHide(this, false);
@@ -79,17 +80,8 @@ void DatetimeModule::showTimeSettingsPage()
 {
     if (!m_dateSettings) {
         m_dateSettings = new DateSettings;
-        m_dateSettings->setModel(m_model);
 
         connect(m_dateSettings, &DateSettings::requestSetTime, m_work, &DatetimeWork::setDatetime);
-        connect(m_dateSettings, &DateSettings::requestSetTimeZone, m_work, &DatetimeWork::setTimezone);
-
-        connect(m_dateSettings, &DateSettings::requestHold, this, [this] {
-            m_frameProxy->setFrameAutoHide(this, false);
-        });
-        connect(m_dateSettings, &DateSettings::requestUnhold, this, [this] {
-            m_frameProxy->setFrameAutoHide(this, true);
-        });
     }
 
     m_frameProxy->pushWidget(this, m_dateSettings);

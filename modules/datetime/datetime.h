@@ -42,6 +42,7 @@ signals:
     void requestTimeSettings();
     void requestAddUserTimeZone(const QString &zone);
     void requestRemoveUserTimeZone(const ZoneInfo &zone);
+    void requestSetTimeZone(const QString &zone);
 
     void requestHold();
     void requestUnhold();
@@ -66,6 +67,9 @@ private:
     SettingsHead *m_headItem;
     QPushButton *m_addTimezoneButton;
 
+    NextPageWidget *m_timezoneItem;
+
+    bool m_addTimeZone;
     TimeZoneChooser *m_dialog;
 };
 }
