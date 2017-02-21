@@ -152,6 +152,7 @@ void MainWidget::showPlugin(QWidget * const w)
 
 void MainWidget::pluginAdded(QWidget * const w)
 {
+    w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     w->setFixedHeight(PLUGINS_HEIGHT);
     m_pluginsLayout->addWidget(w);
     showPlugin(w);
