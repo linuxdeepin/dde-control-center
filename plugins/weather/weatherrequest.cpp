@@ -15,7 +15,8 @@ static const QString GeoNameServiceHost = "http://api.geonames.org";
 static const QString GeoNameKey=  "wangyaohua";
 
 WeatherRequest::WeatherRequest(QObject *parent) :
-    QObject(parent)
+    QObject(parent),
+    m_retryTimer(new QTimer(this))
 {
     qRegisterMetaType<City>();
 
@@ -26,6 +27,10 @@ WeatherRequest::WeatherRequest(QObject *parent) :
     connect(m_manager, &QNetworkAccessManager::finished, this, [](QNetworkReply *reply) { reply->deleteLater(); });
 
     m_loader->start();
+
+    m_retryTimer->setSingleShot(true);
+    m_retryTimer->setInterval(5000);
+    connect(m_retryTimer, &QTimer::timeout, this, [this] { m_loader->start(); });
 }
 
 WeatherRequest::~WeatherRequest()
@@ -60,7 +65,11 @@ void WeatherRequest::processWeatherServiceReply()
         m_items << item;
     }
 
-    emit dataRefreshed(m_items);
+    if (m_items.length()) {
+        emit dataRefreshed(m_items);
+        m_retryTimer->stop();
+        m_lastRefreshTimestamp.restart();
+    }
 }
 
 void WeatherRequest::processGeoNameIdReply()
@@ -146,7 +155,7 @@ void WeatherRequest::refreshData()
 {
     const int elapsed = m_lastRefreshTimestamp.elapsed();
     if ((elapsed >= 1000 * 60 * 15 || elapsed == 0) && !m_city.name.isEmpty()) {
-        m_lastRefreshTimestamp.restart();
+        m_retryTimer->start();
 
         City city = m_city;
         QString weatherUrl = QString("%1/forecast/%2/%3/%4").arg(WeatherServiceHost).arg(city.country) \

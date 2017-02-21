@@ -53,6 +53,7 @@ private:
     QNetworkAccessManager *m_manager;
 
     QTime m_lastRefreshTimestamp;
+    QTimer *m_retryTimer;
 };
 
 class LoaderCity : public QThread
