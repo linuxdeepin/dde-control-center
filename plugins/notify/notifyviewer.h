@@ -10,6 +10,8 @@
 #ifndef VIEWER_H
 #define VIEWER_H
 
+#define ICON_SIZE 48
+
 #include <QObject>
 #include <QWidget>
 #include <QHBoxLayout>

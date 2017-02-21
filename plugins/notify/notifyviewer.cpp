@@ -21,7 +21,7 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_close->setMargin(0);
     m_appName->setMargin(0);
     m_body->setMargin(0);
-    m_appIcon->setFixedSize(48,48);
+    m_appIcon->setFixedSize(ICON_SIZE,ICON_SIZE);
     m_appName->setFixedWidth(165);
     m_close->setFixedSize(10,10);
     m_time->setFixedHeight(10);
@@ -98,10 +98,10 @@ void Viewer::setAppName(const QString &s) {
 }
 
 void Viewer::setAppIcon(const QString &s) {
-    const QIcon &icon = QIcon::fromTheme(s);
+    const QIcon &icon = QIcon::fromTheme(s, QIcon::fromTheme("application-x-desktop"));
 
     if (!icon.isNull()) {
-        m_appIcon->setPixmap(icon.pixmap(m_appIcon->size()));
+        m_appIcon->setPixmap(icon.pixmap(ICON_SIZE,ICON_SIZE));
     }
 }
 
