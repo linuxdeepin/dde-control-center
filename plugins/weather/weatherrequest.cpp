@@ -7,6 +7,7 @@
 #include <QFile>
 #include <QTimer>
 #include <QProcess>
+#include <QLocale>
 
 #include <QDomDocument>
 
@@ -84,6 +85,7 @@ void WeatherRequest::processGeoNameIdReply()
         qWarning() << "read xml content error! " << errorMsg;
     }
 
+    const QString lang = QLocale::system().name().split("_").at(0);
     QDomElement root = domDocument.documentElement();
     QDomElement geoname = root.firstChildElement("geoname");
     while (!geoname.isNull()) {
@@ -91,8 +93,8 @@ void WeatherRequest::processGeoNameIdReply()
         if (name.toLower() == m_city.name.toLower()) {
             QString geonameId = geoname.firstChildElement("geonameId").text();
 
-            QString geoNameInfoUrl = QString("%1/get?geonameId=%2&username=%3").arg(GeoNameServiceHost) \
-                    .arg(geonameId).arg(GeoNameKey);
+            QString geoNameInfoUrl = QString("%1/get?geonameId=%2&username=%3&lang=%4").arg(GeoNameServiceHost) \
+                    .arg(geonameId).arg(GeoNameKey).arg(lang);
             reply = m_manager->get(QNetworkRequest(geoNameInfoUrl));
             connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processGeoNameInfoReply);
             break;
@@ -115,13 +117,9 @@ void WeatherRequest::processGeoNameInfoReply()
 
     m_city.localizedName = m_city.name;
     QDomElement root = domDocument.documentElement();
-    QDomElement alternateName = root.firstChildElement("alternateName");
-    while (!alternateName.isNull()) {
-        if (alternateName.hasAttribute("isPreferredName")) {
-            m_city.localizedName = alternateName.text();
-            break;
-        }
-        alternateName = alternateName.nextSiblingElement("alternateName");
+    QDomElement name = root.firstChildElement("name");
+    if (!name.text().isEmpty()) {
+        m_city.localizedName = name.text();
     }
 
     emit fetchLocalizedCityNameDone(m_city.localizedName);
