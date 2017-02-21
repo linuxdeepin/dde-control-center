@@ -7,6 +7,7 @@
 class QVBoxLayout;
 class QScrollArea;
 class QPropertyAnimation;
+class QPushButton;
 namespace dcc {
 
 class ContentWidget : public QWidget
@@ -18,6 +19,7 @@ public:
 
     void setTitle(const QString &title);
     void sendBackSignal();
+    QWidget *content() const { return m_content; }
     QWidget *setContent(QWidget * const w);
     void stopScroll();
 
@@ -37,6 +39,7 @@ protected:
     void mousePressEvent(QMouseEvent *e);
 
 protected:
+    QPushButton *m_navgationBtn;
     QLabel *m_title;
     QVBoxLayout *m_contentTopLayout;
     QScrollArea *m_contentArea;

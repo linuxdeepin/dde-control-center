@@ -449,9 +449,6 @@ KeyboardModule::~KeyboardModule()
     m_work->deleteLater();
     m_model->deleteLater();
     m_shortcutModel->deleteLater();
-
-    if(m_keyboardWidget)
-        m_keyboardWidget->deleteLater();
 }
 
 }

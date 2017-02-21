@@ -99,9 +99,6 @@ DatetimeModule::~DatetimeModule()
 {
     m_work->deleteLater();
     m_model->deleteLater();
-
-    if (m_datetimeWidget)
-        m_datetimeWidget->deleteLater();
 }
 
 }

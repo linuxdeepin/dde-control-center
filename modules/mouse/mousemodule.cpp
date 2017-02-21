@@ -63,10 +63,6 @@ MouseModule::~MouseModule()
 {
     m_model->deleteLater();
     m_worker->deleteLater();
-
-    if (m_mouseWidget) {
-        m_mouseWidget->deleteLater();
-    }
 }
 
 void MouseModule::contentPopped(ContentWidget *const w)

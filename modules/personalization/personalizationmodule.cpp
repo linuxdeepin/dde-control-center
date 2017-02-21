@@ -102,10 +102,6 @@ PersonalizationModule::~PersonalizationModule()
 {
     m_model->deleteLater();
     m_work->deleteLater();
-
-    if (m_personalizationWidget) {
-        m_personalizationWidget->deleteLater();
-    }
 }
 
 void PersonalizationModule::contentPopped(ContentWidget *const w)

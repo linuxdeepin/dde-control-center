@@ -72,9 +72,6 @@ AccountsModule::~AccountsModule()
 {
     m_userList->deleteLater();
     m_accountsWorker->deleteLater();
-
-    if (m_accountsWidget)
-        m_accountsWidget->deleteLater();
 }
 
 void AccountsModule::showAvatarPage(User *account)

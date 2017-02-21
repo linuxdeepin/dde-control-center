@@ -46,9 +46,6 @@ BluetoothModule::~BluetoothModule()
 {
     m_bluetoothModel->deleteLater();
     m_bluetoothWorker->deleteLater();
-
-    if (m_bluetoothView)
-        m_bluetoothView->deleteLater();
 }
 
 void BluetoothModule::initialize()

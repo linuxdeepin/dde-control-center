@@ -26,9 +26,6 @@ SoundModule::~SoundModule()
 {
     m_soundWorker->deleteLater();
     m_soundModel->deleteLater();
-
-    if (m_soundWidget)
-        m_soundWidget->deleteLater();
 }
 
 void SoundModule::initialize()

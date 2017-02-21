@@ -36,6 +36,10 @@ ContentWidget::ContentWidget(QWidget *parent)
     dcc::widgets::BackButton *backBtn = new dcc::widgets::BackButton;
     backBtn->setAccessibleName("Back");
 
+    m_navgationBtn = new QPushButton;
+    m_navgationBtn->setFixedWidth(backBtn->width());
+    m_navgationBtn->setVisible(false);
+
     m_title = new QLabel;
     m_title->setAlignment(Qt::AlignCenter);
     m_title->setStyleSheet("color: white;");
@@ -55,10 +59,18 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_contentArea->viewport()->installEventFilter(this);
     QScroller::grabGesture(m_contentArea, QScroller::LeftMouseButtonGesture);
 
+    QHBoxLayout *navLayout = new QHBoxLayout;
+    navLayout->addWidget(m_navgationBtn);
+    navLayout->setMargin(0);
+
+    QWidget *navWidget = new QWidget;
+    navWidget->setLayout(navLayout);
+    navWidget->setFixedWidth(backBtn->width());
+
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->addWidget(backBtn);
     titleLayout->addWidget(m_title);
-    titleLayout->addSpacing(backBtn->width());
+    titleLayout->addWidget(navWidget);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addLayout(titleLayout);
@@ -101,13 +113,13 @@ QWidget *ContentWidget::setContent(QWidget * const w)
 {
     QWidget *lastWidget = m_content;
 
+    if (lastWidget)
+        lastWidget->removeEventFilter(this);
+
     m_content = w;
     m_content->installEventFilter(this);
     m_content->setFixedWidth(m_contentArea->width());
     m_contentArea->setWidget(m_content);
-
-    if (lastWidget)
-        lastWidget->removeEventFilter(this);
 
     return lastWidget;
 }

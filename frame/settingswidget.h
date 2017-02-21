@@ -34,6 +34,7 @@ private slots:
     void loadModule(ModuleInterface * const module);
     void onModuleInitFinished(ModuleInterface * const inter);
     void ensureModuleVisible(const QString &moduleName);
+    void toggleView();
     void refershModuleActivable();
     void resetAllSettings();
 
@@ -45,7 +46,9 @@ private:
 
     QPushButton *m_resetBtn;
     QVBoxLayout *m_settingsLayout;
+    QGridLayout *m_navgationLayout;
     TranslucentFrame *m_settingsWidget;
+    TranslucentFrame *m_navgationWidget;
 
     QList<ModuleInterface *> m_moduleInterfaces;
     QMap<ModuleInterface *, bool> m_moduleActivable;

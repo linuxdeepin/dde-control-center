@@ -33,7 +33,6 @@ NetworkModule::~NetworkModule()
 {
     m_networkModel->deleteLater();
     m_networkWorker->deleteLater();
-    m_networkWidget->deleteLater();
 }
 
 void NetworkModule::initialize()

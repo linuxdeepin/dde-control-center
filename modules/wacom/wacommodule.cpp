@@ -60,10 +60,6 @@ WacomModule::~WacomModule()
 {
     m_model->deleteLater();
     m_worker->deleteLater();
-
-    if (m_wacomWidget) {
-        m_wacomWidget->deleteLater();
-    }
 }
 
 void WacomModule::contentPopped(ContentWidget *const w)

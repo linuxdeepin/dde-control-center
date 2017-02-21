@@ -19,9 +19,6 @@ PowerModule::~PowerModule()
 {
     m_powerModel->deleteLater();
     m_powerWorker->deleteLater();
-
-    if (m_powerWidget)
-        m_powerWidget->deleteLater();
 }
 
 void PowerModule::initialize()

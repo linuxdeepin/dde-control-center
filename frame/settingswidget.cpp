@@ -49,6 +49,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     delete layout()->takeAt(3);
 
     m_resetBtn->setText(tr("Reset all settings"));
+    m_navgationBtn->setVisible(true);
 
     m_settingsLayout->setSpacing(30);
     m_settingsLayout->setMargin(0);
@@ -75,13 +76,25 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     m_settingsWidget->setLayout(m_settingsLayout);
 
+    QVBoxLayout *wrapLayout = new QVBoxLayout;
+    wrapLayout->addWidget(m_settingsWidget);
+    wrapLayout->setMargin(0);
 
-    setContent(m_settingsWidget);
+    QWidget *wrapWidget = new TranslucentFrame;
+    wrapWidget->setLayout(wrapLayout);
+
+    m_navgationLayout = new QGridLayout;
+    m_navgationWidget = new TranslucentFrame;
+    m_navgationWidget->setLayout(m_navgationLayout);
+    m_navgationWidget->setParent(wrapWidget);
+
+    setContent(wrapWidget);
     setTitle(tr("All Settings"));
 
     m_refershModuleActivableTimer->setSingleShot(true);
     m_refershModuleActivableTimer->setInterval(500);
 
+    connect(m_navgationBtn, &QPushButton::clicked, this, &SettingsWidget::toggleView);
     connect(m_resetBtn, &QPushButton::clicked, this, &SettingsWidget::resetAllSettings);
     connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, m_refershModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_refershModuleActivableTimer, &QTimer::timeout, this, &SettingsWidget::refershModuleActivable);
@@ -123,14 +136,12 @@ void SettingsWidget::loadModule(ModuleInterface *const module)
     Q_ASSERT(!m_moduleInterfaces.contains(module));
     Q_ASSERT(!m_moduleWidgets.contains(module));
 
-//    qDebug() << "load module: " << module->name();
-
     m_moduleInterfaces.append(module);
     m_moduleWidgets.insert(module, QList<ContentWidget *>());
 
     ModuleInitThread *thrd = new ModuleInitThread(module, this);
     connect(thrd, &ModuleInitThread::moduleInitFinished, this, &SettingsWidget::onModuleInitFinished, Qt::QueuedConnection);
-    connect(thrd, &ModuleInitThread::finished, thrd, &ModuleInitThread::deleteLater);
+    connect(thrd, &ModuleInitThread::finished, [=] { thrd->exit(); thrd->deleteLater(); });
     QTimer::singleShot(m_moduleLoadDelay, thrd, [=] { thrd->start(QThread::LowestPriority); });
 
     m_moduleLoadDelay += 50;
@@ -140,8 +151,6 @@ void SettingsWidget::loadModule(ModuleInterface *const module)
 void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
 {
     Q_ASSERT(m_moduleInterfaces.contains(module));
-
-//    qDebug() << "module initialize: " << module->name();
 
     // get right position to insert
     int index = 0;
@@ -156,8 +165,6 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
 
     m_moduleActivable[module] = false;
     m_settingsLayout->insertWidget(index + 1, module->moduleWidget());
-
-//    qDebug() << "load module finished: " << module->name();
 
     // load all modules finished
     if (m_moduleActivable.size() == m_moduleInterfaces.size())
@@ -185,6 +192,12 @@ void SettingsWidget::ensureModuleVisible(const QString &moduleName)
 
     if (inter)
         scrollToWidget(inter->moduleWidget());
+}
+
+void SettingsWidget::toggleView()
+{
+    m_settingsWidget->setVisible(!m_settingsWidget->isVisible());
+    m_navgationWidget->setVisible(!m_navgationWidget->isVisible());
 }
 
 void SettingsWidget::showModulePage(const QString &moduleName, const QString &pageName)
@@ -217,6 +230,7 @@ void SettingsWidget::refershModuleActivable()
             continue;
 
         const QWidget *w = module->moduleWidget();
+        Q_ASSERT(w);
         const QRect wRect(w->mapTo(m_contentArea, QPoint()), w->size());
         const bool activable = containerRect.intersects(wRect);
 
@@ -242,4 +256,7 @@ SettingsWidget::~SettingsWidget()
     for (auto v : m_moduleWidgets)
         qDeleteAll(v);
     qDeleteAll(m_moduleInterfaces);
+
+    m_settingsWidget->deleteLater();
+    m_navgationWidget->deleteLater();
 }

@@ -40,6 +40,8 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
         return QVariant();
+    if (rowCount(QModelIndex()) <= index.row())
+        return QVariant();
 
     const ItemInfo info = indexInfo(index.row());
 

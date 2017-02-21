@@ -21,9 +21,6 @@ UpdateModule::~UpdateModule()
 {
     m_work->deleteLater();
     m_model->deleteLater();
-
-    if (m_updateView)
-        m_updateView->deleteLater();
 }
 
 void UpdateModule::initialize()
