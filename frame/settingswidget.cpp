@@ -2,6 +2,7 @@
 #include "frame.h"
 #include "moduleinitthread.h"
 #include "modulewidget.h"
+#include "navgationdelegate.h"
 
 #include "accounts/accountsmodule.h"
 #include "bluetooth/bluetoothmodule.h"
@@ -76,19 +77,17 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     m_settingsWidget->setLayout(m_settingsLayout);
 
-    QVBoxLayout *wrapLayout = new QVBoxLayout;
-    wrapLayout->addWidget(m_settingsWidget);
-    wrapLayout->setMargin(0);
+    m_navModel = new NavgationModel;
 
-    QWidget *wrapWidget = new TranslucentFrame;
-    wrapWidget->setLayout(wrapLayout);
+    m_navView = new NavgationView;
+    m_navView->setItemDelegate(new NavgationDelegate);
+    m_navView->setModel(m_navModel);
+    m_navView->setParent(this);
+    m_navView->move(0, 40);
+    m_navView->setFixedSize(FRAME_WIDTH, 600);
+    m_navView->setVisible(false);
 
-    m_navgationLayout = new QGridLayout;
-    m_navgationWidget = new TranslucentFrame;
-    m_navgationWidget->setLayout(m_navgationLayout);
-    m_navgationWidget->setParent(wrapWidget);
-
-    setContent(wrapWidget);
+    setContent(m_settingsWidget);
     setTitle(tr("All Settings"));
 
     m_refershModuleActivableTimer->setSingleShot(true);
@@ -165,6 +164,7 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
 
     m_moduleActivable[module] = false;
     m_settingsLayout->insertWidget(index + 1, module->moduleWidget());
+    m_navModel->insertItem(index + 1, module->name());
 
     // load all modules finished
     if (m_moduleActivable.size() == m_moduleInterfaces.size())
@@ -196,8 +196,14 @@ void SettingsWidget::ensureModuleVisible(const QString &moduleName)
 
 void SettingsWidget::toggleView()
 {
-    m_settingsWidget->setVisible(!m_settingsWidget->isVisible());
-    m_navgationWidget->setVisible(!m_navgationWidget->isVisible());
+    if (m_settingsWidget->isVisible())
+    {
+        m_navView->setVisible(true);
+        m_settingsWidget->setVisible(false);
+    } else {
+        m_navView->setVisible(false);
+        m_settingsWidget->setVisible(true);
+    }
 }
 
 void SettingsWidget::showModulePage(const QString &moduleName, const QString &pageName)
@@ -256,7 +262,4 @@ SettingsWidget::~SettingsWidget()
     for (auto v : m_moduleWidgets)
         qDeleteAll(v);
     qDeleteAll(m_moduleInterfaces);
-
-    m_settingsWidget->deleteLater();
-    m_navgationWidget->deleteLater();
 }

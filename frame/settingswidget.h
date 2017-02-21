@@ -4,6 +4,8 @@
 #include "contentwidget.h"
 #include "moduleinterface.h"
 #include "translucentframe.h"
+#include "navgationview.h"
+#include "navgationmodel.h"
 
 #include <QMap>
 #include <QVBoxLayout>
@@ -46,9 +48,9 @@ private:
 
     QPushButton *m_resetBtn;
     QVBoxLayout *m_settingsLayout;
-    QGridLayout *m_navgationLayout;
     TranslucentFrame *m_settingsWidget;
-    TranslucentFrame *m_navgationWidget;
+    NavgationView *m_navView;
+    NavgationModel *m_navModel;
 
     QList<ModuleInterface *> m_moduleInterfaces;
     QMap<ModuleInterface *, bool> m_moduleActivable;
