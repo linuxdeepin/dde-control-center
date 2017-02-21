@@ -11,11 +11,8 @@ DisplayItemDelegate::DisplayItemDelegate(QObject *parent)
 
 void DisplayItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    painter->setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform);
-
-    QPen p(Qt::white);
-    p.setWidth(1);
-    painter->setPen(p);
+    painter->setRenderHints(QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform);
+    painter->setPen(Qt::white);
 
     if (!index.data(DisplayControlModel::ItemIsLastRole).toBool())
         painter->drawLine(QPoint(60, option.rect.bottom()), QPoint(option.rect.right() - 30, option.rect.bottom()));
