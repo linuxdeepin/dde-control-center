@@ -40,8 +40,6 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
         return QVariant();
-    if (rowCount(QModelIndex()) <= index.row())
-        return QVariant();
 
     const ItemInfo info = indexInfo(index.row());
 
@@ -59,10 +57,7 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
         else
             return QSize(0, 30);
     case ItemInfoRole:
-    {
-        Q_ASSERT(info.info);
-        return *info.info;
-    }
+        return info.info ? *info.info : QVariant();
     case ItemHoveredRole:
         return index == m_currentIndex;
     case ItemIsHeaderRole:
@@ -72,9 +67,9 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
     case ItemDevicePathRole:
         return info.device->path();
     case ItemApPathRole:
-        return info.info->value("Path");
+        return info.info ? info.info->value("Path") : QVariant();
     case ItemUuidRole:
-        return m_networkModel->connectionUuidByApInfo(info.device->hwAddr(), info.info->value("Ssid").toString());
+        return info.info ? m_networkModel->connectionUuidByApInfo(info.device->hwAddr(), info.info->value("Ssid").toString()) : QVariant();
     default:;
     }
 
@@ -137,16 +132,6 @@ const ItemInfo WifiListModel::indexInfo(const int index) const
             r -= s;
         }
     }
-
-    qDebug() << index;
-    qDebug() << rowCount(QModelIndex());
-    for (auto it(m_apInfoList.cbegin()); it != m_apInfoList.cend(); ++it)
-    {
-        qDebug() << it.key()->path();
-        qDebug() << it.value().size();
-    }
-
-    Q_UNREACHABLE();
 
     return info;
 }
