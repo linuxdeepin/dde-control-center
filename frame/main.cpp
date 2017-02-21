@@ -124,6 +124,7 @@ int main(int argc, char *argv[])
     app.loadTranslator();
 
     DLogManager::registerConsoleAppender();
+    DLogManager::registerFileAppender();
 
     qApp->setQuitOnLastWindowClosed(false);
 
