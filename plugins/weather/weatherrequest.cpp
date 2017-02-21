@@ -27,11 +27,12 @@ WeatherRequest::WeatherRequest(QObject *parent) :
     connect(m_loader, &LoaderCity::done, this, &WeatherRequest::setCity);
     connect(m_manager, &QNetworkAccessManager::finished, this, [](QNetworkReply *reply) { reply->deleteLater(); });
 
-    m_loader->start();
-
-    m_retryTimer->setSingleShot(true);
+    m_retryTimer->setSingleShot(false);
     m_retryTimer->setInterval(5000);
     connect(m_retryTimer, &QTimer::timeout, this, [this] { m_loader->start(); });
+
+    m_loader->start();
+    m_retryTimer->start();
 }
 
 WeatherRequest::~WeatherRequest()
