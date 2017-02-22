@@ -16,9 +16,11 @@ include(network/network.pri)
 
 HEADERS += \
     $$PWD/modulewidget.h \
-    $$PWD/moduleworker.h
+    $$PWD/moduleworker.h \
+    $$PWD/modulewidgetheader.h
 
 SOURCES += \
-    $$PWD/modulewidget.cpp
+    $$PWD/modulewidget.cpp \
+    $$PWD/modulewidgetheader.cpp
 
 INCLUDEPATH += $$PWD

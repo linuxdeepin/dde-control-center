@@ -83,7 +83,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     m_navView->setItemDelegate(new NavgationDelegate);
     m_navView->setModel(m_navModel);
     m_navView->setParent(this);
-    m_navView->move(0, 40);
+    m_navView->move(0, 0);
     m_navView->setFixedSize(FRAME_WIDTH, 600);
     m_navView->setVisible(false);
 
@@ -164,9 +164,12 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
             ++index;
     }
 
+    ModuleWidget *moduleWidget = module->moduleWidget();
     m_moduleActivable[module] = false;
-    m_settingsLayout->insertWidget(index + 1, module->moduleWidget());
+    m_settingsLayout->insertWidget(index + 1, moduleWidget);
     m_navModel->insertItem(index + 1, module->name());
+
+    connect(moduleWidget, &ModuleWidget::headerClicked, this, &SettingsWidget::toggleView);
 
     // load all modules finished
     if (m_moduleActivable.size() == m_moduleInterfaces.size())
@@ -198,6 +201,11 @@ void SettingsWidget::ensureModuleVisible(const QString &moduleName)
 
 void SettingsWidget::toggleView()
 {
+    if (sender() == m_navgationBtn)
+        m_navView->move(m_navView->x(), 40);
+    else
+        m_navView->move(m_navView->x(), QCursor::pos().y());
+
     if (m_settingsWidget->isVisible())
     {
         m_navView->setVisible(true);

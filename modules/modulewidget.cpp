@@ -1,4 +1,5 @@
 #include "modulewidget.h"
+#include "modulewidgetheader.h"
 
 #include <QEvent>
 #include <QDebug>
@@ -28,13 +29,17 @@ ModuleWidget::ModuleWidget()
     titleLayout->setAlignment(m_moduleIcon, Qt::AlignCenter);
     titleLayout->addWidget(m_moduleTitle);
 
+    ModuleWidgetHeader *headerWidget = new ModuleWidgetHeader;
+    headerWidget->setLayout(titleLayout);
+
     m_centralLayout = new QVBoxLayout;
-    m_centralLayout->addLayout(titleLayout);
+    m_centralLayout->addWidget(headerWidget);
     m_centralLayout->setSpacing(10);
     m_centralLayout->setMargin(0);
 
     setLayout(m_centralLayout);
 
+    connect(headerWidget, &ModuleWidgetHeader::clicked, this, &ModuleWidget::headerClicked);
     connect(this, &ModuleWidget::objectNameChanged, [this] {
         m_moduleIcon->setObjectName(QString(ObjectNameTemplateIcon).arg(objectName()));
     });

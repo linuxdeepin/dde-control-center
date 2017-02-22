@@ -23,6 +23,9 @@ public:
     explicit ModuleWidget();
     void setTitle(const QString &title);
 
+signals:
+    void headerClicked() const;
+
 private:
     bool event(QEvent *event);
 
