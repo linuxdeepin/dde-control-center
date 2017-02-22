@@ -40,6 +40,7 @@ private slots:
     void toggleView();
     void refershModuleActivable();
     void resetAllSettings();
+    void onNavItemClicked(const QModelIndex &index);
 
 private:
     ~SettingsWidget();

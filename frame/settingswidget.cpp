@@ -93,6 +93,8 @@ SettingsWidget::SettingsWidget(Frame *frame)
     m_refershModuleActivableTimer->setSingleShot(true);
     m_refershModuleActivableTimer->setInterval(500);
 
+    connect(m_navView, &NavgationView::clicked, this, &SettingsWidget::toggleView);
+    connect(m_navView, &NavgationView::clicked, this, &SettingsWidget::onNavItemClicked, Qt::QueuedConnection);
     connect(m_navgationBtn, &QPushButton::clicked, this, &SettingsWidget::toggleView);
     connect(m_resetBtn, &QPushButton::clicked, this, &SettingsWidget::resetAllSettings);
     connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, m_refershModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
@@ -270,6 +272,11 @@ void SettingsWidget::resetAllSettings()
 {
     for (auto *inter : m_moduleInterfaces)
         inter->reset();
+}
+
+void SettingsWidget::onNavItemClicked(const QModelIndex &index)
+{
+    showModulePage(index.data().toString(), QString());
 }
 
 SettingsWidget::~SettingsWidget()
