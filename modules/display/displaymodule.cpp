@@ -145,4 +145,7 @@ void DisplayModule::showRotate(Monitor *mon)
 
     dialog->exec();
     dialog->deleteLater();
+
+    if (m_displayModel->monitorList().size() > 1)
+        m_displayWorker->saveChanges();
 }
