@@ -331,7 +331,7 @@ SettingsItem *ConnectionEditPage::createComboWidget(const QJsonObject &keyObject
     const QString vKey = keyObject.value("Key").toString();
     connect(w, &ComboBoxWidget::requestPage, this, &ConnectionEditPage::requestNextPage);
     connect(w, &ComboBoxWidget::dataChanged, [=](const QVariant &data) {
-        emit requestChangeSettings(section, vKey, JsonEncoding(data.toString()));
+        emit requestChangeSettings(section, vKey, data.toString());
     });
 
     return w;
