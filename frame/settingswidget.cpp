@@ -204,7 +204,10 @@ void SettingsWidget::toggleView()
     if (sender() == m_navgationBtn)
         m_navView->move(m_navView->x(), 40);
     else
-        m_navView->move(m_navView->x(), QCursor::pos().y());
+    {
+        const int y = mapFromGlobal(QCursor::pos()).y();
+        m_navView->move(m_navView->x(), std::min(std::max(40, y), height() - 500));
+    }
 
     if (m_settingsWidget->isVisible())
     {

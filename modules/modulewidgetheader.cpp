@@ -9,6 +9,7 @@ namespace widgets {
 ModuleWidgetHeader::ModuleWidgetHeader(QWidget *parent)
     : QFrame(parent)
 {
+    setCursor(Qt::PointingHandCursor);
     setStyleSheet("QFrame:hover {"
                   "background-color: red;"
                   "}");
