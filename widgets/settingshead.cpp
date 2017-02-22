@@ -2,18 +2,22 @@
 #include <QHBoxLayout>
 #include <QMouseEvent>
 
+#include "labels/normallabel.h"
+
 namespace dcc {
 namespace widgets {
 
 SettingsHead::SettingsHead(QFrame *parent)
     : SettingsItem(parent),
 
-      m_title(new QLabel),
+      m_title(new NormalLabel),
       m_edit(new QPushButton),
       m_cancel(new QPushButton),
 
       m_state(Cancel)
 {
+    m_title->setObjectName("SettingsHeadTitle");
+
     m_edit->setFlat(true);
     m_cancel->setFlat(true);
 

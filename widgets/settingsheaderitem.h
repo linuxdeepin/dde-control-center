@@ -9,7 +9,6 @@
 namespace dcc {
 namespace widgets {
 
-
 class SettingsHeaderItem : public SettingsItem
 {
     Q_OBJECT

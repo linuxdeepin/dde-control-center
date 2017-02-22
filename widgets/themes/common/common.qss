@@ -29,3 +29,11 @@ dcc--widgets--SettingsItem[isTail=true] {
 QLabel#SliderLeftIcon, QLabel#SliderRightIcon {
     margin: 12px 0px 0px 0px;
 }
+
+dcc--widgets--NormalLabel#SettingsHeaderItemTitle {
+    font-weight: 550;
+}
+
+dcc--widgets--NormalLabel#SettingsHeadTitle {
+    font-weight: 550;
+}

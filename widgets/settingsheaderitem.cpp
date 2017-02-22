@@ -1,13 +1,17 @@
 #include "settingsheaderitem.h"
 
+#include "labels/normallabel.h"
+
 namespace dcc {
 namespace widgets {
 
 SettingsHeaderItem::SettingsHeaderItem(QWidget *parent)
     : SettingsItem(parent),
       m_mainLayout(new QHBoxLayout),
-      m_headerText(new QLabel)
+      m_headerText(new NormalLabel)
 {
+    m_headerText->setObjectName("SettingsHeaderItemTitle");
+
     m_mainLayout->addSpacing(20);
     m_mainLayout->addWidget(m_headerText);
     m_mainLayout->addStretch();

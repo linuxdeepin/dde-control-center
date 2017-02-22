@@ -3,11 +3,11 @@
 
 #include "settingsitem.h"
 #include <QPushButton>
-#include <QLabel>
 
 namespace dcc {
 namespace widgets {
 
+class NormalLabel;
 class SettingsHead : public SettingsItem
 {
     Q_OBJECT
@@ -36,7 +36,7 @@ private slots:
     void refershButton();
 
 private:
-    QLabel *m_title;
+    NormalLabel *m_title;
     QPushButton *m_edit;
     QPushButton *m_cancel;
 
