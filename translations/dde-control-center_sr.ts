@@ -2,42 +2,42 @@
 <context>
     <name>DisplayControlModel</name>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="55"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="59"/>
         <source>Copy</source>
         <translation>Копирај</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="57"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="61"/>
         <source>Extend</source>
         <translation>Прошири</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="59"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="63"/>
         <source>Only Displayed on %1</source>
         <translation>само приказано на %1</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="61"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="65"/>
         <source>My Settings</source>
         <translation>Моја Подешавања</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="67"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="71"/>
         <source>Copy the screen contents to one or more screens</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="69"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="73"/>
         <source>Extend the screen contents to display different contents on different screens</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="71"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="75"/>
         <source>Screen contents are only displayed on %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="73"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
         <translation type="unfinished"/>
     </message>
@@ -61,12 +61,12 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="51"/>
+        <location filename="../frame/settingswidget.cpp" line="52"/>
         <source>Reset all settings</source>
         <translation>Врати на првобитна подешавања</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="80"/>
+        <location filename="../frame/settingswidget.cpp" line="91"/>
         <source>All Settings</source>
         <translation>Сва Подешавања</translation>
     </message>
@@ -74,17 +74,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="57"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="67"/>
         <source>Sorry, unable to get weather!</source>
         <translation>Извините, нисмо успели да преузмемо временску прогнозу!</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="61"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="71"/>
         <source>Loading weather...</source>
         <translation>Учитавање временске прогнозе...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="120"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="130"/>
         <source>Just updated</source>
         <translation>Управо ажурирано</translation>
     </message>
@@ -92,7 +92,7 @@
 <context>
     <name>WifiListModel</name>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="126"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="154"/>
         <source>Wireless Card %1</source>
         <translation type="unfinished"/>
     </message>
@@ -287,17 +287,17 @@
 <context>
     <name>dcc::bluetooth::PinCodeDialog</name>
     <message>
-        <location filename="../modules/bluetooth/pincodedialog.cpp" line="23"/>
+        <location filename="../modules/bluetooth/pincodedialog.cpp" line="25"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
         <translation>PIN за повезиванје са Bluetooth уређајем је:</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/pincodedialog.cpp" line="31"/>
+        <location filename="../modules/bluetooth/pincodedialog.cpp" line="33"/>
         <source>Cancel</source>
         <translation>Откажи</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/pincodedialog.cpp" line="33"/>
+        <location filename="../modules/bluetooth/pincodedialog.cpp" line="35"/>
         <source>OK</source>
         <translation>У реду</translation>
     </message>
@@ -315,14 +315,9 @@
         <translation>Потврди</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datesettings.cpp" line="41"/>
+        <location filename="../modules/datetime/datesettings.cpp" line="38"/>
         <source>Change Time Settings</source>
         <translation>Промени Подешавања Времена</translation>
-    </message>
-    <message>
-        <location filename="../modules/datetime/datesettings.cpp" line="68"/>
-        <source>Change System Timezone</source>
-        <translation>Промени Временску Зону Система</translation>
     </message>
 </context>
 <context>
@@ -356,17 +351,22 @@
         <translation>Додај Временску Зону</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="27"/>
+        <location filename="../modules/datetime/datetime.cpp" line="29"/>
         <source>Time and Date</source>
         <translation>Датум и Време</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="35"/>
+        <location filename="../modules/datetime/datetime.cpp" line="33"/>
+        <source>Change System Timezone</source>
+        <translation>Промени Временску Зону Система</translation>
+    </message>
+    <message>
+        <location filename="../modules/datetime/datetime.cpp" line="40"/>
         <source>Time Settings</source>
         <translation>Подешавање Времена</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="39"/>
+        <location filename="../modules/datetime/datetime.cpp" line="44"/>
         <source>Timezone List</source>
         <translation>Листа Временских Зона</translation>
     </message>
@@ -488,17 +488,17 @@
 <context>
     <name>dcc::defapp::DefCategoryAddWidget</name>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="22"/>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="24"/>
         <source>Add</source>
         <translation>Додај</translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="80"/>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="82"/>
         <source>Open Desktop file</source>
         <translation>Отвори датотеку са радне површине</translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="81"/>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="83"/>
         <source>All Files(*)</source>
         <translation>Све Датотеке(*)</translation>
     </message>
@@ -1110,47 +1110,47 @@
         <translation>Детаљи Мреже</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="49"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="47"/>
         <source>Network</source>
         <translation>Мрежа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="149"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
         <source>Wired Network Card%1</source>
         <translation>Жичана Мрежна Карта%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="154"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="152"/>
         <source>Wired Network Card</source>
         <translation>Жичана Мрежна Карта</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="155"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="153"/>
         <source>Wired Network</source>
         <translation>Жична Мрежа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="150"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="148"/>
         <source>Wired Network%1</source>
         <translation>Жична Мрежа%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="162"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="160"/>
         <source>Wireless Network Card%1</source>
         <translation>Бежична Мрежна Карта%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="167"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="165"/>
         <source>Wireless Network Card</source>
         <translation>Бежична Мрежна Карта</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="168"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="166"/>
         <source>Wireless Network</source>
         <translation>Бежична Мрежа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="163"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="161"/>
         <source>Wireless Network%1</source>
         <translation>Бежична Мрежа%1</translation>
     </message>
@@ -1186,45 +1186,45 @@
         <translation>Аутоматски</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="35"/>
+        <location filename="../modules/network/proxypage.cpp" line="54"/>
         <source>Http Proxy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="37"/>
-        <location filename="../modules/network/proxypage.cpp" line="42"/>
-        <location filename="../modules/network/proxypage.cpp" line="47"/>
-        <location filename="../modules/network/proxypage.cpp" line="52"/>
+        <location filename="../modules/network/proxypage.cpp" line="56"/>
+        <location filename="../modules/network/proxypage.cpp" line="61"/>
+        <location filename="../modules/network/proxypage.cpp" line="66"/>
+        <location filename="../modules/network/proxypage.cpp" line="71"/>
         <source>Port</source>
         <translation>Порт</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="40"/>
+        <location filename="../modules/network/proxypage.cpp" line="59"/>
         <source>Https Proxy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="45"/>
+        <location filename="../modules/network/proxypage.cpp" line="64"/>
         <source>Ftp Proxy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="50"/>
+        <location filename="../modules/network/proxypage.cpp" line="69"/>
         <source>Socks Proxy</source>
         <translation>Socks Представитељ</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="59"/>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="62"/>
+        <location filename="../modules/network/proxypage.cpp" line="81"/>
         <source>Configuration URL</source>
         <translation>Прилагоди Веб-адресу</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="116"/>
+        <location filename="../modules/network/proxypage.cpp" line="135"/>
         <source>System Proxy</source>
         <translation>Пореџађки Представитељ</translation>
     </message>
@@ -1335,12 +1335,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="86"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="85"/>
         <source>Standard Font</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="96"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="94"/>
         <source>Monospaced Font</source>
         <translation type="unfinished"/>
     </message>
