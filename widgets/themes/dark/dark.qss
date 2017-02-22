@@ -72,3 +72,9 @@ dcc--widgets--TipsLabel {
 dcc--widgets--SearchInput {
     qproperty-pixmap: url(:/widgets/themes/dark/icons/search_dark.png);
 }
+
+QLabel#ContentTitle {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}

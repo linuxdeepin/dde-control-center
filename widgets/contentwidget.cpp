@@ -43,8 +43,8 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_navgationBtn->setVisible(false);
 
     m_title = new QLabel;
+    m_title->setObjectName("ContentTitle");
     m_title->setAlignment(Qt::AlignCenter);
-    m_title->setStyleSheet("color: white;");
 
     m_contentTopLayout = new QVBoxLayout;
     m_contentTopLayout->setMargin(0);
