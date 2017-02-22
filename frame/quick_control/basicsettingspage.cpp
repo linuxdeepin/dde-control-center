@@ -8,6 +8,8 @@ using namespace dcc::widgets;
 
 namespace dcc {
 
+static const int LeftRightMargin = 40;
+
 BasicSettingsModel::BasicSettingsModel(QObject *parent) :
     QObject(parent),
     m_mute(false),
@@ -138,25 +140,29 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     QHBoxLayout *volumeLayout = new QHBoxLayout;
     volumeLayout->setMargin(0);
     volumeLayout->setSpacing(0);
+    volumeLayout->addSpacing(LeftRightMargin);
     volumeLayout->addWidget(m_volumeLow);
     volumeLayout->addSpacing(10);
     volumeLayout->addWidget(m_soundSlider);
     volumeLayout->addSpacing(10);
     volumeLayout->addWidget(m_volumeHigh);
+    volumeLayout->addSpacing(LeftRightMargin);
 
     QHBoxLayout *brightnessLayout = new QHBoxLayout;
     brightnessLayout->setMargin(0);
     brightnessLayout->setSpacing(0);
+    brightnessLayout->addSpacing(LeftRightMargin);
     brightnessLayout->addWidget(m_brightnessLow);
     brightnessLayout->addSpacing(10);
     brightnessLayout->addWidget(m_lightSlider);
     brightnessLayout->addSpacing(10);
     brightnessLayout->addWidget(m_brightnessHigh);
+    brightnessLayout->addSpacing(LeftRightMargin);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addStretch();
     mainLayout->addLayout(volumeLayout);
-    mainLayout->addSpacing(20);
+    mainLayout->addSpacing(30);
     mainLayout->addLayout(brightnessLayout);
     mainLayout->addSpacing(40);
     setLayout(mainLayout);
