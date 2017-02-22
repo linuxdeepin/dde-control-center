@@ -4,6 +4,12 @@
 #include "settingsitem.h"
 #include <QLabel>
 
+namespace dcc {
+namespace widgets {
+class TipsLabel;
+}
+}
+
 using namespace dcc::widgets;
 
 namespace dcc{
@@ -23,7 +29,7 @@ public:
 
 private:
     QLabel* m_logo;
-    QLabel* m_description;
+    TipsLabel* m_description;
 };
 
 }

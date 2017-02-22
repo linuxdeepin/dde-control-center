@@ -1,14 +1,16 @@
 #include "logoitem.h"
 #include <QHBoxLayout>
 
+#include "labels/tipslabel.h"
+
 namespace dcc{
 namespace systeminfo {
 
 LogoItem::LogoItem(QFrame *parent)
     :SettingsItem(parent)
 {
-    m_logo = new QLabel();
-    m_description = new QLabel();
+    m_logo = new QLabel;
+    m_description = new TipsLabel;
     m_description->setWordWrap(true);
     m_description->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
 

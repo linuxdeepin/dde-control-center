@@ -3,6 +3,14 @@
 
 #include "contentwidget.h"
 
+namespace dcc {
+namespace widgets {
+class TipsLabel;
+}
+}
+
+using namespace dcc::widgets;
+
 namespace dcc{
 namespace systeminfo{
 
@@ -19,8 +27,8 @@ private:
     QString getLicense(const QString& filePath, const QString& type) const;
 
 private:
-    QLabel* m_title;
-    QLabel* m_body;
+    TipsLabel* m_title;
+    TipsLabel* m_body;
 };
 
 }

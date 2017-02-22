@@ -7,7 +7,7 @@
 #include <dboxwidget.h>
 #include <QLocale>
 
-using namespace dcc::widgets;
+#include "labels/tipslabel.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -19,10 +19,10 @@ CopyrightWidget::CopyrightWidget(QWidget *parent)
 {
     TranslucentFrame* widget = new TranslucentFrame;
     QVBoxLayout *layout =new QVBoxLayout();
-    m_title = new QLabel();
+    m_title = new TipsLabel;
     m_title->setText(getLicense(":/systeminfo/gpl/gpl-3.0-%1-%2.txt", "title"));
 
-    m_body = new QLabel();
+    m_body = new TipsLabel;
     m_body->setWordWrap(true);
     m_body->setText(getLicense(":/systeminfo/gpl/gpl-3.0-%1-%2.txt", "body"));
 

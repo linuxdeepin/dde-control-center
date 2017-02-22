@@ -57,11 +57,12 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
     for (const auto &info : infos)
     {
 //        qDebug() << info;
-        const QString name = info.value("ConnectionName").toString();
 
         SettingsGroup *grp = new SettingsGroup;
-        grp->setHeaderVisible(true);
-        grp->headerItem()->setTitle(name);
+
+        const QString name = info.value("ConnectionName").toString();
+        if (!name.isEmpty())
+            appendInfo(grp, name, "");
 
         // mac info
         const QString mac = info.value("HwAddress").toString();

@@ -1,6 +1,8 @@
 #include "titlevalueitem.h"
 #include <QHBoxLayout>
 
+#include "labels/tipslabel.h"
+
 namespace dcc
 {
 
@@ -8,12 +10,12 @@ namespace widgets
 {
 
 TitleValueItem::TitleValueItem(QFrame *parent)
-    :SettingsItem(parent)
+    : SettingsItem(parent),
+      m_title(new TipsLabel),
+      m_value(new TipsLabel)
 {
     QHBoxLayout* layout = new QHBoxLayout;
 
-    m_title = new QLabel;
-    m_value = new QLabel;
     m_value->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     m_value->setWordWrap(true);
 

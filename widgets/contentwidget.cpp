@@ -12,6 +12,8 @@
 #include <QWheelEvent>
 #include <QPropertyAnimation>
 
+#include "labels/tipslabel.h"
+
 #include "separator.h"
 #include "backbutton.h"
 

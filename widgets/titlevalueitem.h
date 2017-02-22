@@ -10,6 +10,7 @@ namespace dcc
 namespace widgets
 {
 
+class TipsLabel;
 class TitleValueItem : public SettingsItem
 {
     Q_OBJECT
@@ -20,8 +21,8 @@ public:
     void setValue(const QString& value);
 
 private:
-    QLabel* m_title;
-    QLabel* m_value;
+    TipsLabel* m_title;
+    TipsLabel* m_value;
 };
 
 }
