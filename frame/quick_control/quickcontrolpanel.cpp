@@ -123,6 +123,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(displayPage, &DisplayControlPage::requestCustom, [=] { emit requestPage("display", QString()); });
 
     connect(bluetoothList, &BluetoothList::requestConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::connectDevice);
+    connect(bluetoothList, &BluetoothList::requestDisConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::disconnectDevice);
 
     displaySwitch->setVisible(m_displayModel->monitorList().size() > 1);
     vpnSwitch->setChecked(m_networkModel->vpnEnabled());

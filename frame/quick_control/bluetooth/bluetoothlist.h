@@ -26,12 +26,14 @@ public:
 
 signals:
     void requestConnect(const Device *device) const;
+    void requestDisConnect(const Device *device) const;
 
 private slots:
     void onItemClicked(const QModelIndex &index) const;
 
 private:
     BluetoothListModel *m_model;
+    BluetoothModel     *m_btModel;
 };
 
 #endif // BLUETOOTHLIST_H

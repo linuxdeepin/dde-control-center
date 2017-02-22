@@ -17,19 +17,14 @@ BluetoothListModel::BluetoothListModel(BluetoothModel *model, QObject *parent)
       m_bluetoothModel(model)
 {
     connect(m_bluetoothModel, &BluetoothModel::adapterAdded, this, &BluetoothListModel::onAdapterAdded);
-    connect(m_bluetoothModel, &BluetoothModel::adapterRemoved,this,[=](const Adapter *adapter){
-        m_adapterList.remove(adapter);
-        emit layoutChanged();
-    });
-    connect(m_bluetoothModel, &BluetoothModel::adpaterListChanged, this,[=]{
-        emit layoutChanged();
-    });
-
+    connect(m_bluetoothModel, &BluetoothModel::adapterRemoved,this, &BluetoothListModel::onAdapterRemove);
     QTimer::singleShot(1, this, [=] {
         for (const Adapter *adapter : m_bluetoothModel->adapters()) {
             onAdapterAdded(adapter);
         }
     });
+
+    qRegisterMetaType<ItemInfo>("ItemInfo");
 }
 
 int BluetoothListModel::rowCount(const QModelIndex &parent) const
@@ -40,8 +35,6 @@ int BluetoothListModel::rowCount(const QModelIndex &parent) const
     int count = 0;
     for (auto it(m_adapterList.cbegin()); it != m_adapterList.cend(); ++it)
     {
-        if (!it.key()->powered())
-            continue;
         count += it.value().size() + 1;
     }
 
@@ -61,46 +54,40 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
     {
-        if (!info.info)
-            return info.device->name();
+        if (!info.device)
+            return info.adapter->name();
         else
-            return info.info->value("Alias");
+            return info.device->name();
     }
     case Qt::SizeHintRole:
     {
-        if (!info.info)
+        if (!info.device)
             return QSize(0, 20);
         else
             return QSize(0, 30);
     }
-    case ItemInfoRole:
+    case ItemConnectedRole:
     {
-        Q_ASSERT(info.info);
-        return *info.info;
+        Q_ASSERT(info.device);
+        return info.device->state() == Device::StateConnected;
     }
     case  ItemHoveredRole:
         return index == m_currentIndex;
     case ItemIsHeaderRole:
-        return info.info == nullptr;
+        return info.device == nullptr;
+    case ItemAdapterRole:
+        return info.device->id();
+    case ItemDeviceRole:
+        return QVariant::fromValue(info);
     default:;
     }
 
     return QVariant();
 }
 
-QMap<const dcc::bluetooth::Adapter *, QList<QJsonObject> > BluetoothListModel::adapterList()
-{
-    return m_adapterList;
-}
-
 void BluetoothListModel::setCurrentHovered(const QModelIndex &index)
 {
-    const QModelIndex oldIndex = m_currentIndex;
-
     m_currentIndex = index;
-
-    emit dataChanged(oldIndex, oldIndex);
-    emit dataChanged(m_currentIndex, m_currentIndex);
 }
 
 void BluetoothListModel::onAdapterAdded(const dcc::bluetooth::Adapter *adapter)
@@ -108,89 +95,87 @@ void BluetoothListModel::onAdapterAdded(const dcc::bluetooth::Adapter *adapter)
     if (m_adapterList.contains(adapter))
         return;
 
-    m_adapterList.insert(adapter, QList<QJsonObject>());
+    m_adapterList.insert(adapter, QList<const Device *>());
 
-    connect(adapter, &Adapter::deviceAdded, this, &BluetoothListModel::onDeviceApAdded);
-    connect(adapter, &Adapter::poweredChanged, this,[=]{emit layoutChanged();});
-    connect(adapter, &Adapter::nameChanged, this,[=]{emit layoutChanged();});
-    connect(adapter, &Adapter::deviceRemoved, this,[=]{emit layoutChanged();});
-
+    connect(adapter, &Adapter::deviceAdded, this, &BluetoothListModel::onDeviceAdded);
+    connect(adapter, &Adapter::nameChanged, this, &BluetoothListModel::onAdapterChanged);
+    connect(adapter, &Adapter::deviceRemoved, this, &BluetoothListModel::onDeviceRemove);
     for (const Device *device : adapter->devices()) {
-        onDeviceApAdded(device);
+        onDeviceAdded(device);
     }
 }
 
-void BluetoothListModel::onDeviceApAdded(const dcc::bluetooth::Device *device)
+void BluetoothListModel::onAdapterRemove(const dcc::bluetooth::Adapter *adapter)
 {
-    Adapter *adapter = static_cast<Adapter *>(sender());
+    const int pos = indexof(adapter);
 
-    Q_ASSERT(adapter);
-    Q_ASSERT(m_adapterList.contains(adapter));
+    beginRemoveRows(QModelIndex(), pos, pos + m_adapterList[adapter].length());
+    m_adapterList.remove(adapter);
+    endRemoveRows();
+}
 
-    connect(device, &Device::stateChanged,this,[=](const Device::State state){
-        if (state == Device::StateConnected) {
-            onDeviceAdded(adapter, device);
-        } else {
-            onDeviceRemove(adapter, device);
-        }
-    });
+void BluetoothListModel::onDeviceAdded(const dcc::bluetooth::Device *device)
+{
+    Adapter *adapter = static_cast<Adapter*>(sender());
+
+    connect(device, &Device::stateChanged, this, [=]{onDeviceChanged(adapter, device);}, Qt::UniqueConnection);
+    connect(device, &Device::pairedChanged, this, &BluetoothListModel::onDevicePairedChanged, Qt::UniqueConnection);
+    connect(device, &Device::nameChanged, this, [=]{onDeviceChanged(adapter, device);}, Qt::UniqueConnection);
 
     if (!device->paired())
         return;
 
-    onDeviceAdded(adapter, device);
-}
-
-void BluetoothListModel::onDeviceAdded(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device)
-{
-    QJsonObject json;
-    json.insert("Path", device->id());
-    json.insert("Alias", device->name());
-    json.insert("Paired", device->paired());
-    json.insert("State", device->state());
-
-    int pos = 0;
-    for (const Adapter *d : m_bluetoothModel->adapters())
-    {
-        if (d == adapter)
-            break;
-
-        pos += 1;
-    }
+    const int pos = indexof(adapter) + m_adapterList[adapter].count();
 
     beginInsertRows(QModelIndex(), pos, pos);
-    m_adapterList[adapter].append(json);
+    m_adapterList[adapter].append(device);
     endInsertRows();
 
-    connect(device, &Device::nameChanged,this,[=]{
-        emit layoutChanged();
-    });
-
-    connect(device, &Device::pairedChanged,this,[=]{
-        emit layoutChanged();
-    });
-
-    connect(device, &Device::trustedChanged,this,[=]{
-        emit layoutChanged();
-    });
-
-    connect(device, &Device::connectingChanged,this,[=]{
-        emit layoutChanged();
-    });
-
-    emit layoutChanged();
 }
 
-void BluetoothListModel::onDeviceRemove(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device)
+void BluetoothListModel::onDeviceRemove(const QString &deviceId)
 {
-    for (const QJsonObject json : m_adapterList[adapter]) {
-        if (json["Path"].toString() == device->id()) {
-            m_adapterList[adapter].removeOne(json);
-            emit layoutChanged();
-            return;
-        }
+    Adapter *adapter = static_cast<Adapter*>(sender());
+
+    const int pos = indexof(adapter) + 1;
+    int i;
+    for (i = 0; i != m_adapterList[adapter].length(); ++i) {
+        if (m_adapterList[adapter][i]->id() == deviceId)
+            break;
     }
+    beginRemoveRows(QModelIndex(), pos + i, pos + i);
+    m_adapterList[adapter].removeAt(i);
+    endRemoveRows();
 }
+
+void BluetoothListModel::onDeviceChanged(const dcc::bluetooth::Adapter * const adapter, const dcc::bluetooth::Device * const device)
+{
+    if (!m_adapterList[adapter].contains(device))
+        return;
+
+    const int pos = indexof(adapter) + m_adapterList[adapter].indexOf(device) + 1;
+    const QModelIndex i = index(pos);
+    emit dataChanged(i, i);
+}
+
+void BluetoothListModel::onDevicePairedChanged()
+{
+    const Device *device = static_cast<Device *>(sender());
+    if (!device->paired())
+        onDeviceRemove(device->id());
+    else
+        onDeviceAdded(device);
+}
+
+void BluetoothListModel::onAdapterChanged()
+{
+    Adapter *adapter = static_cast<Adapter *>(sender());
+    const int pos = indexof(adapter);
+    const QModelIndex i = index(pos);
+
+    emit dataChanged(i, i);
+}
+
 
 const ItemInfo BluetoothListModel::indexInfo(const int index) const
 {
@@ -202,7 +187,7 @@ const ItemInfo BluetoothListModel::indexInfo(const int index) const
         if (!m_adapterList.contains(adapter))
             continue;
 
-        info.device = adapter;
+        info.adapter = adapter;
 
 
         if (!r)
@@ -213,7 +198,7 @@ const ItemInfo BluetoothListModel::indexInfo(const int index) const
         const int s = m_adapterList[adapter].size();
         if (r < s)
         {
-            info.info = &m_adapterList[adapter][r];
+            info.device = m_adapterList[adapter][r];
             return info;
         } else {
             r -= s;
@@ -228,4 +213,15 @@ const ItemInfo BluetoothListModel::indexInfo(const int index) const
     Q_UNREACHABLE();
 
     return info;
+}
+
+int BluetoothListModel::indexof(const dcc::bluetooth::Adapter * const adapter) const
+{
+    int pos = 0;
+    for (const Adapter *ad : m_bluetoothModel->adapters()) {
+        if (ad == adapter)
+            break;
+        pos += m_adapterList[adapter].count();
+    }
+    return pos;
 }

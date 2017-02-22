@@ -31,7 +31,7 @@ public:
     void setId(const QString &id);
 
     QList<const Device *> devices() const;
-    const Device *deviceById(const QString &id);
+    const Device *deviceById(const QString &id) const;
 
     inline bool powered() const { return m_powered; }
     void setPowered(bool powered);

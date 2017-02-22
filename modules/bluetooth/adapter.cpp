@@ -68,7 +68,7 @@ QList<const Device *> Adapter::devices() const
     return m_devices;
 }
 
-const Device *Adapter::deviceById(const QString &id)
+const Device *Adapter::deviceById(const QString &id) const
 {
     for (const Device *device: m_devices) {
         if (device->id() == id) {

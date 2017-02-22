@@ -10,11 +10,14 @@
 #include "bluetoothlist.h"
 #include "bluetoothdelegate.h"
 #include "bluetooth/bluetoothmodel.h"
+#include "bluetooth/device.h"
+#include "bluetooth/adapter.h"
 #include <QVBoxLayout>
 
 BluetoothList::BluetoothList(BluetoothModel *model, QWidget *parent)
     : QWidget(parent),
-      m_model(new BluetoothListModel(model))
+      m_model(new BluetoothListModel(model)),
+      m_btModel(model)
 {
     BasicListView *listView = new BasicListView;
     listView->setModel(m_model);
@@ -35,17 +38,14 @@ BluetoothList::BluetoothList(BluetoothModel *model, QWidget *parent)
 
 void BluetoothList::onItemClicked(const QModelIndex &index) const
 {
-    QJsonObject json = index.data(BluetoothListModel::ItemInfoRole).toJsonObject();
+    if (index.data(BluetoothListModel::ItemIsHeaderRole).toBool())
+        return;
 
-    QMap<const Adapter *, QList<QJsonObject> > list = m_model->adapterList();
-    QMap<const Adapter *, QList<QJsonObject> >::iterator map = list.begin();
-    while (map != list.end()) {
-        for (const Device *device : map.key()->devices()) {
-            if (device->id() == json["Path"].toString()) {
-                emit requestConnect(device);
-                return;
-            }
-        }
-        ++map;
-    }
+    const bool connected = index.data(BluetoothListModel::ItemConnectedRole).toBool();
+    const ItemInfo info = index.data(BluetoothListModel::ItemDeviceRole).value<ItemInfo>();
+
+    if (connected)
+        emit requestDisConnect(info.device);
+    else
+        emit requestConnect(info.device);
 }

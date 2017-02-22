@@ -20,10 +20,10 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     const bool isHovered = index.data(BluetoothListModel::ItemHoveredRole).toBool();
 
     if (isHovered && !isHeader)
-        painter->fillRect(option.rect, QColor(0, 0, 0, .6 * 255));
+        painter->fillRect(option.rect, QColor(255, 255, 255, 0.1 * 255));
 
     if (isHeader)
-        painter->fillRect(option.rect, QColor(255, 255, 255, .3 * 255));
+        painter->fillRect(option.rect, QColor(255, 255, 255, 0.1 * 255));
 
     QFont f(painter->font());
     f.setBold(isHeader);
@@ -36,16 +36,22 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     if (!isHeader)
     {
-        const QJsonObject info = index.data(BluetoothListModel::ItemInfoRole).value<QJsonObject>();
+        const bool state = index.data(BluetoothListModel::ItemConnectedRole).toBool();
 
         // connecting , connected, no connect
-        if (info["State"] == Device::StateConnected) {
+        if (state) {
             // draw connected icon
             const int x = option.rect.right() - 24;
             const int y = option.rect.top() + (option.rect.height() - 16) / 2;
-            painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
+
+            if (isHovered)
+                painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/remove.png"));
+            else
+                painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
 
         }
+
+        painter->fillRect(option.rect, QColor(255, 255, 255, 0.05 * 255));
     }
 }
 

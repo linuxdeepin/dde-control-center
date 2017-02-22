@@ -25,8 +25,8 @@ using dcc::bluetooth::Device;
 
 struct ItemInfo
 {
-    const dcc::bluetooth::Adapter *device = nullptr;
-    const QJsonObject *info = nullptr;
+    const dcc::bluetooth::Adapter *adapter = nullptr;
+    const Device *device = nullptr;
 };
 
 class BluetoothListModel : public QAbstractListModel
@@ -38,30 +38,38 @@ public:
         UnusedRole = Qt::UserRole,
         ItemHoveredRole,
         ItemIsHeaderRole,
-        ItemInfoRole,
+        ItemConnectedRole,
+        ItemAdapterRole,
+        ItemDeviceRole
     };
 
     explicit BluetoothListModel(BluetoothModel *model, QObject *parent = 0);
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
-    QMap<const Adapter*, QList<QJsonObject>> adapterList();
 
 public slots:
     void setCurrentHovered(const QModelIndex &index);
 
 private slots:
     void onAdapterAdded(const Adapter *adapter);
-    void onDeviceApAdded(const Device *device);
-    void onDeviceAdded(const Adapter *adapter, const Device *device);
-    void onDeviceRemove(const Adapter *adapter, const Device *device);
+    void onAdapterRemove(const dcc::bluetooth::Adapter *adapter);
+    void onAdapterChanged();
+    void onDeviceAdded(const dcc::bluetooth::Device *device);
+    void onDeviceRemove(const QString &deviceId);
+    void onDeviceChanged(const dcc::bluetooth::Adapter * const adapter, const dcc::bluetooth::Device * const device);
+    void onDevicePairedChanged();
+
 
 private:
     const ItemInfo indexInfo(const int index) const;
+    int indexof(const dcc::bluetooth::Adapter * const adapter) const;
 
 private:
     BluetoothModel *m_bluetoothModel;
-    QMap<const Adapter*, QList<QJsonObject>> m_adapterList;
+    QMap<const Adapter*, QList<const Device*>> m_adapterList;
     QModelIndex m_currentIndex;
 };
+
+Q_DECLARE_METATYPE(ItemInfo)
 
 #endif // BLUETOOTHLISTMODEL_H
