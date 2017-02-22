@@ -4,6 +4,10 @@
 #include <QWidget>
 #include <QLabel>
 
+#include <dimagebutton.h>
+
+DWIDGET_USE_NAMESPACE
+
 class QVBoxLayout;
 class QScrollArea;
 class QPropertyAnimation;
@@ -39,7 +43,7 @@ protected:
     void mousePressEvent(QMouseEvent *e);
 
 protected:
-    QPushButton *m_navgationBtn;
+    DImageButton *m_navgationBtn;
     QLabel *m_title;
     QVBoxLayout *m_contentTopLayout;
     QScrollArea *m_contentArea;

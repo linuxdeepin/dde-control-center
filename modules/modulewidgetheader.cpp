@@ -11,7 +11,7 @@ ModuleWidgetHeader::ModuleWidgetHeader(QWidget *parent)
 {
     setCursor(Qt::PointingHandCursor);
     setStyleSheet("QFrame:hover {"
-                  "background-color: red;"
+//                  "background-color: rgba(255, 255, 255, 0.2);"
                   "}");
 }
 

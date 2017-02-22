@@ -67,7 +67,7 @@ ModuleWidget *DefaultAppsModule::moduleWidget()
 
 const QString DefaultAppsModule::name() const
 {
-    return QStringLiteral("defaultapps");
+    return QStringLiteral("defapp");
 }
 
 //show下级菜单

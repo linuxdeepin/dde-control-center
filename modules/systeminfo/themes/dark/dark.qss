@@ -1,5 +1,5 @@
 QLabel#ModuleHeaderIconSysInfo {
-    background-image: url(:/systeminfo/themes/dark/icons/nav_info.png);
+    background-image: url(:/systeminfo/themes/dark/icons/nav_systeminfo.png);
 }
 
 dcc--systeminfo--LogoItem {

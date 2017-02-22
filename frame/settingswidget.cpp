@@ -95,7 +95,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     connect(m_navView, &NavgationView::clicked, this, &SettingsWidget::toggleView);
     connect(m_navView, &NavgationView::clicked, this, &SettingsWidget::onNavItemClicked, Qt::QueuedConnection);
-    connect(m_navgationBtn, &QPushButton::clicked, this, &SettingsWidget::toggleView);
+    connect(m_navgationBtn, &DImageButton::clicked, this, &SettingsWidget::toggleView);
     connect(m_resetBtn, &QPushButton::clicked, this, &SettingsWidget::resetAllSettings);
     connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, m_refershModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_refershModuleActivableTimer, &QTimer::timeout, this, &SettingsWidget::refershModuleActivable);

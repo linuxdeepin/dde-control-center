@@ -35,5 +35,8 @@
         <file>themes/dark/icons/only1.png</file>
         <file>themes/dark/icons/only2.png</file>
         <file>themes/dark/icons/custom.png</file>
+        <file>themes/dark/icons/nav_icon_hover.png</file>
+        <file>themes/dark/icons/nav_icon_normal.png</file>
+        <file>themes/dark/icons/nav_icon_pressed.png</file>
     </qresource>
 </RCC>

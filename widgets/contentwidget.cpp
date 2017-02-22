@@ -38,9 +38,10 @@ ContentWidget::ContentWidget(QWidget *parent)
     dcc::widgets::BackButton *backBtn = new dcc::widgets::BackButton;
     backBtn->setAccessibleName("Back");
 
-    m_navgationBtn = new QPushButton;
-    m_navgationBtn->setFixedWidth(backBtn->width());
-    m_navgationBtn->setVisible(false);
+    m_navgationBtn = new DImageButton;
+    m_navgationBtn->setNormalPic(":/frame/themes/dark/icons/nav_icon_normal.png");
+    m_navgationBtn->setHoverPic(":/frame/themes/dark/icons/nav_icon_hover.png");
+    m_navgationBtn->setPressPic(":/frame/themes/dark/icons/nav_icon_pressed.png");
 
     m_title = new QLabel;
     m_title->setObjectName("ContentTitle");

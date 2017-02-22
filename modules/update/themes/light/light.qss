@@ -1,5 +1,5 @@
 QLabel#ModuleHeaderIconUpdate {
-    background-image: url(:/update/themes/light/icons/nav_upgrade.png);
+    background-image: url(:/update/themes/light/icons/nav_update.png);
 }
 
 

@@ -62,7 +62,7 @@ ModuleWidget *SystemInfoModule::moduleWidget()
 
 const QString SystemInfoModule::name() const
 {
-    return QStringLiteral("system_info");
+    return QStringLiteral("systeminfo");
 }
 
 void SystemInfoModule::contentPopped(ContentWidget * const w)

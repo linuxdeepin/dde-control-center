@@ -1,5 +1,5 @@
 QLabel#ModuleHeaderIconSysInfo {
-    background-image: url(:/systeminfo/themes/light/icons/nav_info.png);
+    background-image: url(:/systeminfo/themes/light/icons/nav_systeminfo.png);
 }
 
 
