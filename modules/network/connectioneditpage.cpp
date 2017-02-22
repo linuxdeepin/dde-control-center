@@ -131,26 +131,17 @@ void ConnectionEditPage::onDeviceRemoved()
 
 void ConnectionEditPage::recreateUI()
 {
-    // delete all widgets
-    for (const auto &v : m_optionWidgets)
-        qDeleteAll(v.values());
-    qDeleteAll(m_sectionWidgets.values());
-    m_optionWidgets.clear();
-    m_sectionWidgets.clear();
-
     // construct new widgets
     const auto keys = m_sessionModel->vkList();
     for (auto it(keys.cbegin()); it != keys.cend(); ++it)
     {
-        SettingsGroup *grp = new SettingsGroup;
+        if (!m_sectionWidgets.contains(it.key()))
+            m_sectionWidgets[it.key()] = new SettingsGroup;
+
+        SettingsGroup *grp = m_sectionWidgets[it.key()];
+        grp->setVisible(false);
         grp->setHeaderVisible(true);
         grp->headerItem()->setTitle(m_sessionModel->sectionName(it.key()));
-
-        m_sectionWidgets[it.key()] = grp;
-
-//        const auto keys = it.value();
-//        for (auto its(keys.cbegin()); its != keys.cend(); ++its)
-//            createOptionWidgets(it.key(), its.value());
     }
 
     refershUI();
@@ -163,16 +154,8 @@ void ConnectionEditPage::refershUI()
     setTitle(name);
 
     // hide all widgets
-    while (QLayoutItem *item = m_sectionsLayout->takeAt(0))
-    {
-        SettingsGroup *grp = qobject_cast<SettingsGroup *>(item->widget());
-        Q_ASSERT(grp);
-
-        grp->hide();
+    for (auto *grp : m_sectionWidgets)
         grp->clear();
-
-        delete item;
-    }
 
     for (const auto section : m_sessionModel->sections())
     {
