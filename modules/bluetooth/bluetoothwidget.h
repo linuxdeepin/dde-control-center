@@ -21,21 +21,26 @@ namespace bluetooth {
 class BluetoothWidget : public ModuleWidget
 {
     Q_OBJECT
+
 public:
     explicit BluetoothWidget(BluetoothModel *model);
     void setModel(BluetoothModel *model);
-    AdapterWidget *widgetByAdapterId(const QString &adapterId);
+//    AdapterWidget *widgetByAdapterId(const QString &adapterId);
 
 signals:
     void showBluetoothDetail(const Adapter *adapter) const;
+    void requestModuleVisible(const bool visible) const;
+
 public slots:
     void addAdapter(const Adapter *adapter);
     void removeAdapter(const Adapter *adapter);
+
 private:
     void setVisibleState();
+
 private:
     BluetoothModel *m_model;
-    QList<AdapterWidget *> m_widgets;
+//    QList<AdapterWidget *> m_widgets;
     QMap<const Adapter*, NextPageWidget*> m_valueMap;
     SettingsGroup *m_mainGroup;
 };

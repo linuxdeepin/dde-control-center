@@ -29,6 +29,7 @@ public slots:
     void contentPopuped(ContentWidget * const w);
     void showModulePage(const QString &moduleName, const QString &pageName);
 
+    void setModuleVisible(ModuleInterface * const inter, const bool visible);
     void setFrameAutoHide(ModuleInterface * const inter, const bool autoHide);
     void pushWidget(ModuleInterface * const inter, ContentWidget * const w);
 

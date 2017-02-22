@@ -14,6 +14,7 @@ public:
 
 public slots:
     void insertItem(const int idx, const QString &item);
+    void removeItem(const QString &item);
 
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;

@@ -4,7 +4,6 @@
 
 HEADERS += \
     $$PWD/bluetoothmodule.h \
-    $$PWD/bluetoothwidget.h \
     $$PWD/device.h \
     $$PWD/bluetoothmodel.h \
     $$PWD/bluetoothworker.h \
@@ -13,7 +12,8 @@ HEADERS += \
     $$PWD/devicesettingsitem.h \
     $$PWD/detailpage.h \
     $$PWD/pincodedialog.h \
-    $$PWD/TitleEdit.h
+    $$PWD/TitleEdit.h \
+    $$PWD/bluetoothwidget.h
 
 SOURCES += \
     $$PWD/bluetoothmodule.cpp \

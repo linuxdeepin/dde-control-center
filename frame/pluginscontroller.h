@@ -23,6 +23,7 @@ public slots:
 private:
     void pushWidget(ModuleInterface * const, ContentWidget * const) {}
     void setFrameAutoHide(ModuleInterface * const, const bool) {}
+    void setModuleVisible(ModuleInterface * const, const bool) {}
 };
 
 #endif // PLUGINSCONTROLLER_H

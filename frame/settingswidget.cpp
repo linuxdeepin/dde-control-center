@@ -218,6 +218,21 @@ void SettingsWidget::showModulePage(const QString &moduleName, const QString &pa
         ensureModuleVisible(moduleName);
 }
 
+void SettingsWidget::setModuleVisible(ModuleInterface * const inter, const bool visible)
+{
+    const QString name = inter->name();
+    const int idx = m_moduleInterfaces.indexOf(inter);
+
+    QWidget *moduleWidget = inter->moduleWidget();
+    Q_ASSERT(moduleWidget);
+    moduleWidget->setVisible(visible);
+
+    if (visible)
+        m_navModel->insertItem(idx, name);
+    else
+        m_navModel->removeItem(name);
+}
+
 void SettingsWidget::refershModuleActivable()
 {
     stopScroll();

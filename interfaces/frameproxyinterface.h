@@ -24,6 +24,8 @@ public:
     virtual void pushWidget(ModuleInterface * const inter, ContentWidget * const w) = 0;
 
     virtual void setFrameAutoHide(ModuleInterface * const inter, const bool autoHide) = 0;
+
+    virtual void setModuleVisible(ModuleInterface * const inter, const bool visible) = 0;
 };
 
 }

@@ -23,6 +23,8 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model) :
     setModel(model);
     m_centralLayout->setMargin(0);
     m_centralLayout->addWidget(m_mainGroup);
+
+    QTimer::singleShot(1, this, &BluetoothWidget::setVisibleState);
 }
 
 
@@ -34,8 +36,6 @@ void BluetoothWidget::setModel(BluetoothModel *model)
 
     for (const Adapter *adapter : model->adapters())
         addAdapter(adapter);
-
-    setVisibleState();
 }
 
 void BluetoothWidget::addAdapter(const Adapter *adapter)
@@ -71,8 +71,5 @@ void BluetoothWidget::removeAdapter(const Adapter *adapter)
 
 void BluetoothWidget::setVisibleState()
 {
-    if(m_valueMap.size() != 0)
-        setVisible(true);
-    else
-        setVisible(false);
+    emit requestModuleVisible(m_valueMap.size());
 }
