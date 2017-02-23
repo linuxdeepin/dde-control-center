@@ -83,7 +83,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     m_navView->setItemDelegate(new NavgationDelegate);
     m_navView->setModel(m_navModel);
     m_navView->setParent(this);
-    m_navView->move(0, 0);
+    m_navView->move(28, 0);
     m_navView->setFixedSize(FRAME_WIDTH, 600);
     m_navView->setVisible(false);
 
@@ -202,11 +202,11 @@ void SettingsWidget::ensureModuleVisible(const QString &moduleName)
 void SettingsWidget::toggleView()
 {
     if (sender() == m_navgationBtn)
-        m_navView->move(m_navView->x(), 40);
+        m_navView->move(m_navView->x(), 50);
     else
     {
-        const int y = mapFromGlobal(QCursor::pos()).y();
-        m_navView->move(m_navView->x(), std::min(std::max(40, y), height() - 500));
+        const int y = mapFromGlobal(QCursor::pos()).y() - 256;
+        m_navView->move(m_navView->x(), std::min(std::max(50, y), height() - 500));
     }
 
     if (m_settingsWidget->isVisible())

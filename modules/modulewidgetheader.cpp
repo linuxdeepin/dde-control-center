@@ -10,8 +10,8 @@ ModuleWidgetHeader::ModuleWidgetHeader(QWidget *parent)
     : QFrame(parent)
 {
     setCursor(Qt::PointingHandCursor);
-    setStyleSheet("QFrame:hover {"
-//                  "background-color: rgba(255, 255, 255, 0.2);"
+    setStyleSheet("dcc--widgets--ModuleWidgetHeader:hover {"
+                  "background-color: rgba(255, 255, 255, 0.1);"
                   "}");
 }
 

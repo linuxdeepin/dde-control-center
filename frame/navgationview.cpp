@@ -8,7 +8,6 @@ NavgationView::NavgationView(QWidget *parent)
     setViewMode(QListView::IconMode);
     setFrameStyle(QFrame::NoFrame);
     setSpacing(1);
-//    setStyleSheet("margin: 0 0 0 13px; background: transparent;");
 }
 
 }
