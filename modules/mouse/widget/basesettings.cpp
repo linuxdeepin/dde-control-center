@@ -72,6 +72,11 @@ BaseSettings::BaseSettings(QWidget *parent)
 
 }
 
+void BaseSettings::setIsTypingVisible(const bool visible)
+{
+    m_isTyping->setVisible(visible);
+}
+
 void BaseSettings::setModel(MouseModelBaseSettings *const baseSettings)
 {
     m_baseSettings = baseSettings;

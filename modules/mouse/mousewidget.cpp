@@ -7,6 +7,7 @@
 #include  "widget/mousesettings.h"
 #include "widget/thinkpadsettings.h"
 #include "mousemodel.h"
+#include "mouse/model/mousemodelmousesettings.h"
 
 #include <QPushButton>
 #include <QDebug>
@@ -55,4 +56,15 @@ void MouseWidget::setModel(MouseModel *const model)
     m_mouseSettings->setModel(model->getMouseSettings());
     m_touchSettings->setModel(model->getTouchSettings());
     m_ThinkapdSettings->setModel(model->getTrackSettings());
+
+    MouseModelMouseSettings *baseSettings = model->getTouchSettings();
+    connect(baseSettings, &MouseModelMouseSettings::existChanged, this, &MouseWidget::onTouchpadVisibleChanged);
+
+    onTouchpadVisibleChanged(baseSettings->getExist());
+}
+
+void MouseWidget::onTouchpadVisibleChanged(const bool visible)
+{
+    m_baseSettings->setIsTypingVisible(visible);
+    m_mouseSettings->setSwitchVisible(visible);
 }

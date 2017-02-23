@@ -26,6 +26,7 @@ class MouseSettings : public widgets::TranslucentFrame
 public:
     explicit MouseSettings(const QString &title, QWidget *parent = 0);
     void setModel(MouseModelMouseSettings *const baseSettings);
+    void setSwitchVisible(const bool visible);
 
 signals:
     void setDefault();

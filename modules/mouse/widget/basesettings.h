@@ -21,6 +21,7 @@ class BaseSettings : public widgets::TranslucentFrame
     Q_OBJECT
 public:
     explicit BaseSettings(QWidget *parent = 0);
+    void setIsTypingVisible(const bool visible);
 
 signals:
     void Reset();

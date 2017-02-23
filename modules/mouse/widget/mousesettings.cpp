@@ -63,6 +63,11 @@ void MouseSettings::setModel(MouseModelMouseSettings *const baseSettings)
     setVisible(baseSettings->getExist());
 }
 
+void MouseSettings::setSwitchVisible(const bool visible)
+{
+    m_switchWidget->setVisible(visible);
+}
+
 void MouseSettings::setSwitchTitle(const QString &title)
 {
     m_switchWidget->setTitle(title);

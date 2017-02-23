@@ -37,6 +37,9 @@ signals:
     void requestSetTouchpadMotionAcceleration(const int &value);
     void requestSetTrackPointMotionAcceleration(const int &value);
 
+private slots:
+    void onTouchpadVisibleChanged(const bool visible);
+
 private:
     QPushButton *m_nextPage;
     BaseSettings *m_baseSettings;
