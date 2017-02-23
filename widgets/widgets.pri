@@ -36,7 +36,8 @@ HEADERS += \
     $$PWD/plantextitem.h \
     $$PWD/basiclistview.h \
     $$PWD/basiclistmodel.h \
-    $$PWD/basiclistdelegate.h
+    $$PWD/basiclistdelegate.h \
+    $$PWD/buttontuple.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -71,7 +72,8 @@ SOURCES += \
     $$PWD/plantextitem.cpp \
     $$PWD/basiclistview.cpp \
     $$PWD/basiclistmodel.cpp \
-    $$PWD/basiclistdelegate.cpp
+    $$PWD/basiclistdelegate.cpp \
+    $$PWD/buttontuple.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

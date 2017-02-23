@@ -4,6 +4,7 @@
 
 #include <QVBoxLayout>
 #include <QDebug>
+#include <QPushButton>
 
 using namespace dcc::widgets;
 using namespace dcc::accounts;
@@ -16,32 +17,27 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
       m_pwdEdit(new LineEditWidget),
       m_pwdEditRepeat(new LineEditWidget),
 
-      m_cancel(new QPushButton),
-      m_accept(new QPushButton)
+      m_buttonTuple(new ButtonTuple)
 {
     m_pwdEdit->textEdit()->setEchoMode(QLineEdit::Password);
     m_pwdEdit->setTitle(tr("New Password"));
     m_pwdEditRepeat->textEdit()->setEchoMode(QLineEdit::Password);
     m_pwdEditRepeat->setTitle(tr("Repeat Password"));
 
-    m_cancel->setText(tr("Cancel"));
-    m_cancel->setAccessibleName("Modify_Cancel");
-    m_accept->setText(tr("Accept"));
-    m_accept->setAccessibleName("Modify_Accept");
+    QPushButton *cancel = m_buttonTuple->leftButton();
+    QPushButton *accept = m_buttonTuple->rightButton();
+    cancel->setText(tr("Cancel"));
+    cancel->setAccessibleName("Modify_Cancel");
+    accept->setText(tr("Accept"));
+    accept->setAccessibleName("Modify_Accept");
 
     SettingsGroup *pwdGroup = new SettingsGroup;
     pwdGroup->appendItem(m_pwdEdit);
     pwdGroup->appendItem(m_pwdEditRepeat);
 
-    QHBoxLayout *buttonsLayout = new QHBoxLayout;
-    buttonsLayout->addWidget(m_cancel);
-    buttonsLayout->addWidget(m_accept);
-    buttonsLayout->setSpacing(1);
-    buttonsLayout->setMargin(0);
-
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(pwdGroup);
-    mainLayout->addLayout(buttonsLayout);
+    mainLayout->addWidget(m_buttonTuple);
     mainLayout->setSpacing(10);
     mainLayout->setMargin(0);
 
@@ -51,8 +47,8 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     setContent(mainWidget);
     setTitle(tr("Password") + " - " + user->name());
 
-    connect(m_accept, &QPushButton::clicked, this, &ModifyPasswordPage::passwordSubmit);
-    connect(m_cancel, &QPushButton::clicked, this, &ModifyPasswordPage::back);
+    connect(accept, &QPushButton::clicked, this, &ModifyPasswordPage::passwordSubmit);
+    connect(cancel, &QPushButton::clicked, this, &ModifyPasswordPage::back);
     connect(m_pwdEdit->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::checkPwd);
     connect(m_pwdEditRepeat->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::checkPwd);
 }

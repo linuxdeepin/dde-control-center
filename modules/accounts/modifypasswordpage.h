@@ -5,7 +5,7 @@
 #include "user.h"
 #include "lineeditwidget.h"
 
-#include <QPushButton>
+#include "buttontuple.h"
 
 namespace dcc {
 namespace accounts {
@@ -29,8 +29,7 @@ private:
 
     dcc::widgets::LineEditWidget *m_pwdEdit;
     dcc::widgets::LineEditWidget *m_pwdEditRepeat;
-    QPushButton *m_cancel;
-    QPushButton *m_accept;
+    dcc::widgets::ButtonTuple *m_buttonTuple;
 };
 
 } // namespace accounts
