@@ -47,7 +47,7 @@ public:
 public slots:
     void setMute(const bool &mute);
     void setVolume(const double &volume);
-    void setBrightness(const double &brightness);
+    void setBrightness(const double brightness);
 
 private slots:
     void onDefaultSinkChanged(const QDBusObjectPath & value);

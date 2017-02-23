@@ -95,6 +95,7 @@ void MonitorSettingDialog::init()
     m_lightSlider->setMinimum(0);
     m_lightSlider->setMaximum(1000);
     m_lightSlider->setMinimumWidth(430);
+    m_lightSlider->setTracking(true);
 
     QLabel *minLight = new QLabel;
     minLight->setPixmap(QPixmap(":/display/themes/dark/icons/brightness_low.png"));

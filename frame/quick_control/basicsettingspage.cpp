@@ -72,10 +72,10 @@ void BasicSettingsWorker::setVolume(const double &volume)
         m_sinkInter->SetVolume(volume / 100.0, true);
 }
 
-void BasicSettingsWorker::setBrightness(const double &brightness)
+void BasicSettingsWorker::setBrightness(const double brightness)
 {
     for (QString monitor : m_monitors) {
-        m_displayInter->SetBrightness(monitor, brightness / 100.0).waitForFinished();
+        m_displayInter->SetBrightness(monitor, std::max(brightness / 100.0, 0.05)).waitForFinished();
     }
     m_displayInter->SaveBrightness().waitForFinished();
 }
@@ -136,6 +136,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     m_lightSlider->setOrientation(Qt::Horizontal);
     m_lightSlider->setRange(0, 100);
     m_lightSlider->setAccessibleName("LightSlider");
+    m_lightSlider->setTracking(true);
 
     QHBoxLayout *volumeLayout = new QHBoxLayout;
     volumeLayout->setMargin(0);
