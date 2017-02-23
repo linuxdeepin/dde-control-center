@@ -44,7 +44,11 @@ void BasicListView::setModel(QAbstractItemModel *model)
 
 void BasicListView::onContentHeightChanged()
 {
-    if (m_autoFitHeight)
+    if (!m_autoFitHeight)
+        return;
+
+    const int h = sizeHint().height();
+    if (height() != h)
         setMaximumHeight(sizeHint().height());
 }
 

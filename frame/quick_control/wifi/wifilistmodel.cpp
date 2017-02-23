@@ -85,12 +85,7 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
 
 void WifiListModel::setCurrentHovered(const QModelIndex &index)
 {
-    const QModelIndex oldIndex = m_currentIndex;
-
     m_currentIndex = index;
-
-    emit dataChanged(oldIndex, oldIndex);
-    emit dataChanged(m_currentIndex, m_currentIndex);
 }
 
 void WifiListModel::setCurrentActivating(const QModelIndex &index)
@@ -100,7 +95,6 @@ void WifiListModel::setCurrentActivating(const QModelIndex &index)
     m_activatingIndex = index;
 
     emit dataChanged(oldIndex, oldIndex);
-    emit dataChanged(m_activatingIndex, m_activatingIndex);
 }
 
 int WifiListModel::indexOf(dcc::network::WirelessDevice * const dev) const
