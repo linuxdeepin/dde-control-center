@@ -21,6 +21,8 @@
 #include <QJsonArray>
 #include <QComboBox>
 
+#include <cstring>
+
 using namespace dcc::widgets;
 using namespace dcc::network;
 
@@ -331,7 +333,10 @@ SettingsItem *ConnectionEditPage::createComboWidget(const QJsonObject &keyObject
     const QString vKey = keyObject.value("Key").toString();
     connect(w, &ComboBoxWidget::requestPage, this, &ConnectionEditPage::requestNextPage);
     connect(w, &ComboBoxWidget::dataChanged, [=](const QVariant &data) {
-        emit requestChangeSettings(section, vKey, data.toString());
+        if (!std::strcmp(data.typeName(), "double"))
+            emit requestChangeSettings(section, vKey, data.toString());
+        else
+            emit requestChangeSettings(section, vKey, JsonEncoding(data.toString()));
     });
 
     return w;
