@@ -51,5 +51,6 @@ MainWidget > #NextBtn
 }
 
 MainWidget > #DPIndicator {
-    qproperty-pointColor: rgba(255,255,255);
+    qproperty-pointColor: rgba(255,255,255,204);
+    qproperty-secondaryPointColor: rgba(255,255,255,76);
 }
