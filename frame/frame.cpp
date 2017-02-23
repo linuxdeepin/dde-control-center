@@ -252,6 +252,9 @@ void Frame::show()
 
 void Frame::hide()
 {
+    if (m_appearAnimation.state() == QPropertyAnimation::Running)
+        return;
+
     // pass if already hided
     if (m_mouseAreaKey.isEmpty())
         return;
