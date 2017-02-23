@@ -17,6 +17,7 @@
 #include "translucentframe.h"
 #include "clockitem.h"
 #include "timezone_dialog/timezonechooser.h"
+#include "buttontuple.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -32,13 +33,18 @@ DateSettings::DateSettings(QWidget *parent)
       m_yearWidget(new DateWidget(DateWidget::Year, 1970, 9999)),
       m_monthWidget(new DateWidget(DateWidget::Month, 1, 12)),
       m_dayWidget(new DateWidget(DateWidget::Day, 1, 31)),
-      m_cancelButton(new QPushButton(tr("Cancel"))),
-      m_confirmButton(new QPushButton(tr("Confirm")))
+      m_buttonTuple(new ButtonTuple)
 {
     setTitle(tr("Change Time Settings"));
 
-    m_cancelButton->setAccessibleName("TimeCancel");
-    m_confirmButton->setAccessibleName("TimeConfirm");
+    QPushButton *cancelButton = m_buttonTuple->leftButton();
+    QPushButton *confirmButton = m_buttonTuple->rightButton();
+
+    cancelButton->setText(tr("Cancel"));
+    confirmButton->setText(tr("Confirm"));
+
+    cancelButton->setAccessibleName("TimeCancel");
+    confirmButton->setAccessibleName("TimeConfirm");
 
     QDate date ( QDate::currentDate() );
     m_yearWidget->setValue(date.year());
@@ -56,20 +62,14 @@ DateSettings::DateSettings(QWidget *parent)
     m_datetimeGroup->appendItem(m_monthWidget);
     m_datetimeGroup->appendItem(m_dayWidget);
 
-    QHBoxLayout *buttonLayout = new QHBoxLayout;
-    buttonLayout->setMargin(0);
-    buttonLayout->setSpacing(1);
-    buttonLayout->addWidget(m_cancelButton);
-    buttonLayout->addWidget(m_confirmButton);
-
     layout->addWidget(m_datetimeGroup);
     layout->addSpacing(10);
-    layout->addLayout(buttonLayout);
+    layout->addWidget(m_buttonTuple);
 
     setContent(widget);
 
-    connect(m_cancelButton, &QPushButton::clicked, this, &DateSettings::onCancelButtonClicked);
-    connect(m_confirmButton, &QPushButton::clicked, this, &DateSettings::onConfirmButtonClicked);
+    connect(cancelButton, &QPushButton::clicked, this, &DateSettings::onCancelButtonClicked);
+    connect(confirmButton, &QPushButton::clicked, this, &DateSettings::onConfirmButtonClicked);
 
     connect(m_monthWidget, &DateWidget::editingFinished, this, &DateSettings::updateDayRange);
 }

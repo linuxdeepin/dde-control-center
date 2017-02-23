@@ -27,8 +27,7 @@ CreatePage::CreatePage(QWidget *parent) :
     m_username(new LineEditWidget),
     m_password(new LineEditWidget),
     m_repeatpass(new LineEditWidget),
-    m_confirmBtn(new QPushButton(tr("Create"))),
-    m_cancelBtn(new QPushButton(tr("Cancel"))),
+    m_buttonTuple(new ButtonTuple),
     m_errorTip(new ErrorTip)
 {
     m_avatar->setFixedSize(90, 90);
@@ -45,32 +44,31 @@ CreatePage::CreatePage(QWidget *parent) :
     m_errorTip->setWindowFlags(Qt::ToolTip);
     m_errorTip->hide();
 
-    m_cancelBtn->setAccessibleName("New_Account_Cancel");
-    m_confirmBtn->setAccessibleName("New_Account_Create");
+    QPushButton *cancelBtn = m_buttonTuple->leftButton();
+    QPushButton *confirmBtn = m_buttonTuple->rightButton();
+    cancelBtn->setText(tr("Cancel"));
+    confirmBtn->setText(tr("Create"));
+
+    cancelBtn->setAccessibleName("New_Account_Cancel");
+    confirmBtn->setAccessibleName("New_Account_Create");
 
     m_group->appendItem(m_username);
     m_group->appendItem(m_password);
     m_group->appendItem(m_repeatpass);
-
-    QHBoxLayout *buttonLayout = new QHBoxLayout;
-    buttonLayout->addWidget(m_cancelBtn);
-    buttonLayout->addWidget(m_confirmBtn);
-    buttonLayout->setSpacing(1);
-    buttonLayout->setMargin(0);
 
     TranslucentFrame *container = new TranslucentFrame;
 
     QVBoxLayout *layout = new QVBoxLayout(container);
     layout->addWidget(m_avatar, 0, Qt::AlignHCenter);
     layout->addWidget(m_group);
-    layout->addLayout(buttonLayout);
+    layout->addWidget(m_buttonTuple);
     layout->setSpacing(10);
 
     setContent(container);
     setTitle(tr("New Account"));
 
-    connect(m_confirmBtn, &QPushButton::clicked, this, &CreatePage::createUser);
-    connect(m_cancelBtn, &QPushButton::clicked, this, &CreatePage::cancelCreation);
+    connect(confirmBtn, &QPushButton::clicked, this, &CreatePage::createUser);
+    connect(cancelBtn, &QPushButton::clicked, this, &CreatePage::cancelCreation);
 
     connect(this, &CreatePage::back, m_errorTip, &ErrorTip::hide);
     connect(this, &CreatePage::disappear, m_errorTip, &ErrorTip::hide);

@@ -17,6 +17,7 @@ namespace widgets {
 
 class SettingsGroup;
 class SettingsItem;
+class ButtonTuple;
 
 }
 
@@ -68,8 +69,7 @@ private:
 
     QPushButton *m_disconnectBtn;
     QPushButton *m_removeBtn;
-    QPushButton *m_cancelBtn;
-    QPushButton *m_acceptBtn;
+    dcc::widgets::ButtonTuple *m_buttonTuple;
     QVBoxLayout *m_sectionsLayout;
 
     QMap<QString, widgets::SettingsGroup *> m_sectionWidgets;

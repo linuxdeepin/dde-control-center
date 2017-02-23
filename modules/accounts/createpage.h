@@ -16,6 +16,7 @@
 #include "avatarwidget.h"
 #include "lineeditwidget.h"
 #include "settingsgroup.h"
+#include "buttontuple.h"
 
 #include "user.h"
 #include "creationresult.h"
@@ -70,8 +71,7 @@ private:
     dcc::widgets::LineEditWidget *m_username;
     dcc::widgets::LineEditWidget *m_password;
     dcc::widgets::LineEditWidget *m_repeatpass;
-    QPushButton *m_confirmBtn;
-    QPushButton *m_cancelBtn;
+    dcc::widgets::ButtonTuple *m_buttonTuple;
 
     ErrorTip *m_errorTip;
 

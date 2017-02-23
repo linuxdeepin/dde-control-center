@@ -13,6 +13,7 @@ namespace dcc {
 namespace widgets {
 class SettingsGroup;
 class NextPageWidget;
+class ButtonTuple;
 }
 }
 
@@ -52,8 +53,8 @@ private:
     DateWidget *m_yearWidget;
     DateWidget *m_monthWidget;
     DateWidget *m_dayWidget;
-    QPushButton *m_cancelButton;
-    QPushButton *m_confirmButton;
+
+    dcc::widgets::ButtonTuple *m_buttonTuple;
 };
 
 }

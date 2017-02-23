@@ -7,6 +7,8 @@
 #include "inputitem.h"
 #include <QPushButton>
 
+#include "buttontuple.h"
+
 using namespace dcc;
 
 namespace dcc {
@@ -35,12 +37,12 @@ public slots:
 
 private:
     KeyboardWork* m_work;
-    QPushButton* m_ok;
-    QPushButton* m_cancel;
     QLabel* m_bottomTip;
     KeyboardControl* m_control;
     ShortcutInfo* m_conflict;
     ShortcutInfo* m_curInfo;
+
+    dcc::widgets::ButtonTuple *m_buttonTuple;
 };
 }
 }

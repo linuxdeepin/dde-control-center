@@ -13,7 +13,8 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
     :ContentWidget(parent),
       m_work(work),
       m_conflict(NULL),
-      m_curInfo(NULL)
+      m_curInfo(NULL),
+      m_buttonTuple(new ButtonTuple)
 {
     TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
@@ -28,24 +29,24 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
     group->appendItem(m_control);
     layout->addWidget(group);
 
-    m_cancel = new QPushButton(tr("Cancel"));
-    m_ok = new QPushButton(tr("Replace"));
+    QPushButton *cancel = m_buttonTuple->leftButton();
+    QPushButton *ok = m_buttonTuple->rightButton();
 
-    QHBoxLayout* hlayout = new QHBoxLayout();
-    hlayout->addWidget(m_cancel);
-    hlayout->addWidget(m_ok);
-
-    layout->addLayout(hlayout);
+    cancel->setText(tr("Cancel"));
+    ok->setText(tr("Replace"));
 
     m_bottomTip = new QLabel();
     m_bottomTip->setWordWrap(true);
+
+    layout->addWidget(m_buttonTuple);
     layout->addWidget(m_bottomTip);
     layout->addStretch();
     widget->setLayout(layout);
+
     setContent(widget);
 
-    connect(m_ok, SIGNAL(clicked()), this, SLOT(onReplace()));
-    connect(m_cancel, SIGNAL(clicked()), this, SIGNAL(back()));
+    connect(ok, SIGNAL(clicked()), this, SLOT(onReplace()));
+    connect(cancel, SIGNAL(clicked()), this, SIGNAL(back()));
     connect(item,SIGNAL(click()), this, SLOT(onClick()));
 
     connect(m_work, &KeyboardWork::KeyEvent, this, &ShortcutContent::onKeyEvent);

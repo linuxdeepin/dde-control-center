@@ -6,6 +6,8 @@
 #include "keyboardcontrol.h"
 #include <QPushButton>
 
+#include "buttontuple.h"
+
 using namespace dcc;
 
 namespace dcc {
@@ -36,14 +38,14 @@ public slots:
 private:
     KeyboardWork* m_work;
     SettingsGroup *m_commandGroup;
-    QPushButton* m_ok;
-    QPushButton* m_cancel;
     InputItem* m_name;
     InputItem* m_command;
     InputItem* m_shortcut;
     KeyboardControl* m_control;
     QLabel* m_bottomTip;
     ShortcutInfo* m_conflict;
+
+    dcc::widgets::ButtonTuple *m_buttonTuple;
 };
 }
 }

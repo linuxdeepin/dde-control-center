@@ -10,6 +10,7 @@
 #include "filechoosewidget.h"
 #include "spinboxwidget.h"
 #include "networkmodel.h"
+#include "buttontuple.h"
 
 #include <dspinbox.h>
 
@@ -45,8 +46,7 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
 
       m_disconnectBtn(new QPushButton),
       m_removeBtn(new QPushButton),
-      m_cancelBtn(new QPushButton),
-      m_acceptBtn(new QPushButton),
+      m_buttonTuple(new ButtonTuple),
       m_sectionsLayout(new QVBoxLayout),
 
       m_recreateUITimer(new QTimer(this))
@@ -57,23 +57,20 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     m_disconnectBtn->setVisible(false);
     m_removeBtn->setText(tr("Delete"));
     m_removeBtn->setVisible(false);
-    m_cancelBtn->setText(tr("Cancel"));
-    m_acceptBtn->setText(tr("Save"));
 
     m_recreateUITimer->setSingleShot(true);
     m_recreateUITimer->setInterval(100);
 
-    QHBoxLayout *btnsLayout = new QHBoxLayout;
-    btnsLayout->addWidget(m_cancelBtn);
-    btnsLayout->addWidget(m_acceptBtn);
-    btnsLayout->setSpacing(1);
-    btnsLayout->setContentsMargins(0, 0, 0, 0);
+    QPushButton *cancelBtn = m_buttonTuple->leftButton();
+    QPushButton *acceptBtn = m_buttonTuple->rightButton();
+    cancelBtn->setText(tr("Cancel"));
+    acceptBtn->setText(tr("Save"));
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_disconnectBtn);
     mainLayout->addWidget(m_removeBtn);
     mainLayout->addLayout(m_sectionsLayout);
-    mainLayout->addLayout(btnsLayout);
+    mainLayout->addWidget(m_buttonTuple);
     mainLayout->setSpacing(10);
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -83,8 +80,8 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     setContent(mainWidget);
 
     connect(m_recreateUITimer, &QTimer::timeout, this, &ConnectionEditPage::recreateUI);
-    connect(m_cancelBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
-    connect(m_acceptBtn, &QPushButton::clicked, this, &ConnectionEditPage::accept);
+    connect(cancelBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
+    connect(acceptBtn, &QPushButton::clicked, this, &ConnectionEditPage::accept);
     connect(m_disconnectBtn, &QPushButton::clicked, this, &ConnectionEditPage::requestDisconnect);
     connect(m_removeBtn, &QPushButton::clicked, this, &ConnectionEditPage::requestRemove);
     connect(m_removeBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);

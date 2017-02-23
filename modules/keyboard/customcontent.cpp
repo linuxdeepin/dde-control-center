@@ -17,7 +17,8 @@ namespace keyboard
 CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
     : ContentWidget(parent),
       m_work(work),
-      m_conflict(nullptr)
+      m_conflict(nullptr),
+      m_buttonTuple(new ButtonTuple)
 {
     setTitle(tr("Shortcuts"));
     TranslucentFrame *widget = new TranslucentFrame();
@@ -48,27 +49,26 @@ CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
     m_control = new KeyboardControl();
     layout->addWidget(m_control);
 
-    m_cancel = new QPushButton(tr("Cancel"));
-    m_ok = new QPushButton(tr("Add"));
-
-    QHBoxLayout *hlayout = new QHBoxLayout();
-    hlayout->addWidget(m_cancel);
-    hlayout->addWidget(m_ok);
-    layout->addLayout(hlayout);
+    QPushButton *cancel = m_buttonTuple->leftButton();
+    cancel->setText(tr("Cancel"));
+    QPushButton *ok = m_buttonTuple->rightButton();
+    ok->setText(tr("Add"));
 
     m_bottomTip = new QLabel();
     m_bottomTip->setWordWrap(true);
+    m_bottomTip->hide();
+
+    layout->addWidget(m_buttonTuple);
     layout->addWidget(m_bottomTip);
     layout->addStretch();
-    m_bottomTip->hide();
 
     widget->setLayout(layout);
     setContent(widget);
 
-    connect(m_cancel, SIGNAL(clicked()), this, SIGNAL(back()));
+    connect(cancel, SIGNAL(clicked()), this, SIGNAL(back()));
+    connect(ok, SIGNAL(clicked()), this, SLOT(onShortcut()));
     connect(m_shortcut, SIGNAL(click()), this, SLOT(onClick()));
     connect(m_work, &KeyboardWork::KeyEvent, this, &CustomContent::onKeyEvent);
-    connect(m_ok, SIGNAL(clicked()), this, SLOT(onShortcut()));
 }
 
 void CustomContent::setBottomTip(ShortcutInfo *conflict)
