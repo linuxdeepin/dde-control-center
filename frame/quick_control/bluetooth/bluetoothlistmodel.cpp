@@ -221,7 +221,7 @@ int BluetoothListModel::indexof(const dcc::bluetooth::Adapter * const adapter) c
     for (const Adapter *ad : m_bluetoothModel->adapters()) {
         if (ad == adapter)
             break;
-        pos += m_adapterList[adapter].count();
+        pos += m_adapterList[adapter].count() + 1;
     }
     return pos;
 }
