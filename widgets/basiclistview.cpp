@@ -37,6 +37,8 @@ void BasicListView::setModel(QAbstractItemModel *model)
     QListView::setModel(model);
 
     connect(model, &QAbstractItemModel::layoutChanged, this, &BasicListView::onContentHeightChanged, Qt::QueuedConnection);
+    connect(model, &QAbstractItemModel::rowsInserted, this, &BasicListView::onContentHeightChanged, Qt::QueuedConnection);
+    connect(model, &QAbstractItemModel::rowsRemoved, this, &BasicListView::onContentHeightChanged, Qt::QueuedConnection);
     onContentHeightChanged();
 }
 
