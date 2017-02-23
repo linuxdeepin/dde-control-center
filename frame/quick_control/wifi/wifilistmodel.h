@@ -6,6 +6,7 @@
 #include "network/wirelessdevice.h"
 
 #include <QAbstractListModel>
+#include <QTimer>
 
 struct ItemInfo
 {
@@ -25,6 +26,7 @@ public:
         ItemIsHeaderRole,
         ItemInfoRole,
         ItemIsActiveRole,
+        ItemIsActivatingRole,
         ItemApPathRole,
         ItemDevicePathRole,
         ItemUuidRole,
@@ -37,6 +39,7 @@ public:
 
 public slots:
     void setCurrentHovered(const QModelIndex &index);
+    void setCurrentActivating(const QModelIndex &index);
 
 signals:
     void requestDeviceApList(const QString &devPath) const;
@@ -49,11 +52,17 @@ private:
     void onDeviceListChanged(const QList<dcc::network::NetworkDevice *> &devices);
     void onDeviceApAdded(const QJsonObject &info);
     void onDeviceApRemoved(dcc::network::WirelessDevice *dev, const QString &ssid);
+    void onDeviceStateChanged(const dcc::network::NetworkDevice::DeviceStatus &stat);
+
+    void refershActivatingIndex();
 
 private:
     dcc::network::NetworkModel *m_networkModel;
 
     QModelIndex m_currentIndex;
+    QModelIndex m_activatingIndex;
+
+    QTimer *m_refershTimer;
 
     QMap<dcc::network::WirelessDevice *, QList<QJsonObject>> m_apInfoList;
 };

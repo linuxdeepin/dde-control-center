@@ -4,6 +4,7 @@
 #include <QPainter>
 #include <QDebug>
 #include <QJsonObject>
+#include <QDateTime>
 
 WifiListDelegate::WifiListDelegate(QObject *parent)
     : QAbstractItemDelegate(parent),
@@ -56,16 +57,23 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
             painter->drawPixmap(x, y, m_securityPixmap);
         }
 
-        // draw actived icon
-        const bool isActived = index.data(WifiListModel::ItemIsActiveRole).toBool();
-        if (isActived)
+        const int icon_x = option.rect.right() - 16 - 10;
+        const bool isActivating = index.data(WifiListModel::ItemIsActivatingRole).toBool();
+        if (isActivating)
         {
-            const int x = option.rect.right() - 16 - 10;
-
-            if (isHovered)
-                painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/remove.png"));
-            else
-                painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
+            const quint64 index = QDateTime::currentMSecsSinceEpoch() / 20;
+            const QString pix = QString(":/frame/themes/dark/icons/spinner14/Spinner%1.png").arg((index % 91) + 1, 2, 10, QChar('0'));
+            painter->drawPixmap(icon_x, y + 1, QPixmap(pix));
+        } else {
+            // draw actived icon
+            const bool isActived = index.data(WifiListModel::ItemIsActiveRole).toBool();
+            if (isActived)
+            {
+                if (isHovered)
+                    painter->drawPixmap(icon_x, y, QPixmap(":/frame/themes/dark/icons/remove.png"));
+                else
+                    painter->drawPixmap(icon_x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
+            }
         }
     }
 }

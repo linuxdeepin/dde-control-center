@@ -12,8 +12,13 @@ using dcc::network::WirelessDevice;
 WifiListModel::WifiListModel(NetworkModel *model, QObject *parent)
     : QAbstractListModel(parent),
 
-      m_networkModel(model)
+      m_networkModel(model),
+      m_refershTimer(new QTimer(this))
 {
+    m_refershTimer->setSingleShot(false);
+    m_refershTimer->setInterval(1000 / 60);
+
+    connect(m_refershTimer, &QTimer::timeout, this, &WifiListModel::refershActivatingIndex);
     connect(m_networkModel, &NetworkModel::connectionListChanged, [this] { emit layoutChanged(); });
     connect(m_networkModel, &NetworkModel::deviceEnableChanged, [this] { emit layoutChanged(); });
     connect(m_networkModel, &NetworkModel::deviceListChanged, this, &WifiListModel::onDeviceListChanged);
@@ -64,6 +69,8 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
         return info.info == nullptr;
     case ItemIsActiveRole:
         return info.info && static_cast<const WirelessDevice *>(info.device)->activeApName() == info.info->value("Ssid").toString();
+    case ItemIsActivatingRole:
+        return m_refershTimer->isActive() && index == m_activatingIndex;
     case ItemDevicePathRole:
         return info.device->path();
     case ItemApPathRole:
@@ -84,6 +91,16 @@ void WifiListModel::setCurrentHovered(const QModelIndex &index)
 
     emit dataChanged(oldIndex, oldIndex);
     emit dataChanged(m_currentIndex, m_currentIndex);
+}
+
+void WifiListModel::setCurrentActivating(const QModelIndex &index)
+{
+    const QModelIndex oldIndex = m_activatingIndex;
+
+    m_activatingIndex = index;
+
+    emit dataChanged(oldIndex, oldIndex);
+    emit dataChanged(m_activatingIndex, m_activatingIndex);
 }
 
 int WifiListModel::indexOf(dcc::network::WirelessDevice * const dev) const
@@ -168,7 +185,9 @@ void WifiListModel::onDeviceListChanged(const QList<NetworkDevice *> &devices)
 
         m_apInfoList.insert(d, QList<QJsonObject>());
 
+        connect(d, &WirelessDevice::activeApChanged, this, &WifiListModel::refershActivatingIndex);
         connect(d, &WirelessDevice::apAdded, this, &WifiListModel::onDeviceApAdded);
+        connect(d, static_cast<void (WirelessDevice::*)(const NetworkDevice::DeviceStatus) const>(&WirelessDevice::statusChanged), this, &WifiListModel::onDeviceStateChanged);
         connect(d, &WirelessDevice::apRemoved, d, [=](const QString &ssid) { onDeviceApRemoved(d, ssid); });
 
         emit requestDeviceApList(d->path());
@@ -215,4 +234,18 @@ void WifiListModel::onDeviceApRemoved(dcc::network::WirelessDevice *dev, const Q
             return;
         }
     }
+}
+
+void WifiListModel::onDeviceStateChanged(const NetworkDevice::DeviceStatus &stat)
+{
+//    WirelessDevice *dev = static_cast<WirelessDevice *>(sender());
+    if (stat >= NetworkDevice::Prepare && stat < NetworkDevice::Activated)
+        m_refershTimer->start();
+    else
+        m_refershTimer->stop();
+}
+
+void WifiListModel::refershActivatingIndex()
+{
+    emit dataChanged(m_activatingIndex, m_activatingIndex);
 }
