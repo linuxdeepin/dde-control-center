@@ -12,7 +12,7 @@ DisplayItemDelegate::DisplayItemDelegate(QObject *parent)
 void DisplayItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->setRenderHints(QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform);
-    painter->setPen(Qt::white);
+    painter->setPen(QColor::fromRgbF(1, 1, 1, 0.1));
 
     if (!index.data(DisplayControlModel::ItemIsLastRole).toBool())
         painter->drawLine(QPoint(60, option.rect.bottom()), QPoint(option.rect.right() - 30, option.rect.bottom()));
@@ -31,6 +31,7 @@ void DisplayItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     const int name_x = 65;
     const int name_y = option.rect.top() + 20;
+    painter->setPen(Qt::white);
     painter->drawText(name_x, name_y, index.data(DisplayControlModel::ItemTitleRole).toString());
 
     QRect descRect = option.rect;
