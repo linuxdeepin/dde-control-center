@@ -41,11 +41,11 @@ ModuleWidget *WacomModule::moduleWidget()
     {
         m_wacomWidget = new WacomWidget;
 
-        connect(m_model, &WacomModel::existChanged, m_wacomWidget, &WacomWidget::setVisible);
         connect(m_wacomWidget, &WacomWidget::requestSetPressureValue, m_worker, &WacomWorker::onPressureSensitiveChanged);
+        connect(m_model, &WacomModel::existChanged, [this](const bool exist) { m_frameProxy->setModuleVisible(this, exist); });
 
         m_wacomWidget->setModel(m_model);
-        m_wacomWidget->setVisible(m_model->getExist());
+        m_frameProxy->setModuleVisible(this, m_model->exist());
     }
 
     return m_wacomWidget;

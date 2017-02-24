@@ -17,7 +17,7 @@ public:
     ~WacomModel();
     WacomModelBase *getWacomModelBase();
 
-    bool getExist() const;
+    bool exist() const;
     void setExist(bool exist);
 
 signals:

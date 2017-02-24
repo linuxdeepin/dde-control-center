@@ -1,6 +1,7 @@
 #include "navgationmodel.h"
 
 #include <QSize>
+#include <QDebug>
 
 namespace dcc {
 
@@ -10,7 +11,7 @@ NavgationModel::NavgationModel(QObject *parent)
 
 }
 
-void NavgationModel::insertItem(const int idx, const QString &item)
+void NavgationModel::insertItem(const QString &item)
 {
 //    if (idx < m_items.size() && m_items[idx] == item)
 //        return;
@@ -19,6 +20,15 @@ void NavgationModel::insertItem(const int idx, const QString &item)
 
     if (m_items.contains(item))
         return;
+
+    int idx = 0;
+    for (const auto it : m_allItems)
+    {
+        if (it == item)
+            break;
+        if (m_items.contains(it))
+            ++idx;
+    }
 
     beginInsertRows(QModelIndex(), idx, idx);
     m_items.insert(idx, item);
@@ -35,6 +45,11 @@ void NavgationModel::removeItem(const QString &item)
     beginRemoveRows(QModelIndex(), idx, idx);
     m_items.removeAt(idx);
     endRemoveRows();
+}
+
+void NavgationModel::appendAvailableItem(const QString &item)
+{
+    m_allItems.append(item);
 }
 
 int NavgationModel::rowCount(const QModelIndex &parent) const

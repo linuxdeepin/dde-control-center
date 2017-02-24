@@ -58,6 +58,8 @@ SettingsWidget::SettingsWidget(Frame *frame)
 //    m_settingsLayout->addWidget(m_resetBtn);
     m_settingsLayout->addSpacing(20);
 
+    m_navModel = new NavgationModel;
+
     loadModule(new accounts::AccountsModule(this));
     loadModule(new display::DisplayModule(this));
     loadModule(new defapp::DefaultAppsModule(this));
@@ -76,8 +78,6 @@ SettingsWidget::SettingsWidget(Frame *frame)
     loadModule(new SystemInfoModule(this));
 
     m_settingsWidget->setLayout(m_settingsLayout);
-
-    m_navModel = new NavgationModel;
 
     m_navView = new NavgationView;
     m_navView->setItemDelegate(new NavgationDelegate);
@@ -139,6 +139,8 @@ void SettingsWidget::loadModule(ModuleInterface *const module)
 
     m_moduleInterfaces.append(module);
     m_moduleWidgets.insert(module, QList<ContentWidget *>());
+    m_navModel->appendAvailableItem(module->name());
+    m_navModel->insertItem(module->name());
 
     ModuleInitThread *thrd = new ModuleInitThread(module, this);
     connect(thrd, &ModuleInitThread::moduleInitFinished, this, &SettingsWidget::onModuleInitFinished, Qt::QueuedConnection);
@@ -167,7 +169,6 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
     ModuleWidget *moduleWidget = module->moduleWidget();
     m_moduleActivable[module] = false;
     m_settingsLayout->insertWidget(index + 1, moduleWidget);
-    m_navModel->insertItem(index + 1, module->name());
 
     connect(moduleWidget, &ModuleWidget::headerClicked, this, &SettingsWidget::toggleView);
 
@@ -233,15 +234,15 @@ void SettingsWidget::showModulePage(const QString &moduleName, const QString &pa
 
 void SettingsWidget::setModuleVisible(ModuleInterface * const inter, const bool visible)
 {
+    // get right position to insert
     const QString name = inter->name();
-    const int idx = m_moduleInterfaces.indexOf(inter);
 
     QWidget *moduleWidget = inter->moduleWidget();
     Q_ASSERT(moduleWidget);
     moduleWidget->setVisible(visible);
 
     if (visible)
-        m_navModel->insertItem(idx, name);
+        m_navModel->insertItem(name);
     else
         m_navModel->removeItem(name);
 }

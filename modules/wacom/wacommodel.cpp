@@ -23,7 +23,7 @@ WacomModelBase *WacomModel::getWacomModelBase()
     return m_wacomModelBase;
 }
 
-bool WacomModel::getExist() const
+bool WacomModel::exist() const
 {
     return m_exist;
 }
