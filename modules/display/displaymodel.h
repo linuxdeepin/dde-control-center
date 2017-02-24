@@ -23,7 +23,7 @@ public:
     int screenWidth() const { return m_screenWidth; }
     int displayMode() const { return m_mode; }
     bool hasConfig() const { return m_hasConfig; }
-    const QString primary() const { return m_primary; }
+    const QString primary() const { Q_ASSERT(!m_primary.isEmpty()); return m_primary; }
     const QList<Monitor *> monitorList() const { return m_monitors; }
     const QList<Resolution> monitorsSameModeList() const;
     Monitor *primaryMonitor() const;

@@ -29,7 +29,7 @@ public:
     inline quint16 rotate() const { return m_rotate; }
     inline double brightness() const { return m_brightness; }
     inline const QRect rect() const { return QRect(m_x, m_y, m_w, m_h); }
-    inline const QString name() const { return m_name; }
+    inline const QString name() const { Q_ASSERT(!m_name.isEmpty()); return m_name; }
     inline const QString path() const { return m_path; }
     inline const Resolution currentMode() const { return m_currentMode; }
     inline const QList<quint16> rotateList() const { return m_rotateList; }

@@ -231,10 +231,13 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::RotationsChanged, mon, &Monitor::setRotateList);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), mon, &Monitor::setPrimary);
 
+    // NOTE: DO NOT using async dbus call. because we need to have a unique name to distinguish each monitor
+    Q_ASSERT(inter->isValid());
+    mon->setName(inter->name());
+
     inter->setSync(false);
 
     mon->setPath(path);
-    mon->setName(inter->name());
     mon->setX(inter->x());
     mon->setY(inter->y());
     mon->setW(inter->width());
