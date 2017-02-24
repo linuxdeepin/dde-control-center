@@ -25,6 +25,11 @@ const int kTriangleHeight = 6;
 
 TooltipPin::TooltipPin(QWidget* parent) : QLabel(parent) {
   this->setObjectName("tooltip_pin");
+
+  this->setAlignment(Qt::AlignHCenter);
+
+  // Add 15px margin horizontally.
+  this->setStyleSheet("margin: 0 15px;");
 }
 
 void TooltipPin::popup(const QPoint& point) {

@@ -48,8 +48,8 @@ QStringList PopupMenu::stringList() const {
 
 void PopupMenu::popup(const QPoint& pos) {
   const QSize size = menu_view_->size();
-//  this->resize(size.width(), size.height() + kTriangleHeight);
   this->move(pos.x() - size.width() / 2, pos.y() - size.height());
+  //this->resize(size.width(), size.height() + kTriangleHeight);
   this->show();
 
   // Grab global keyboard events when menu window is popup.
@@ -72,10 +72,9 @@ void PopupMenu::setStringList(const QStringList& strings) {
   const int height = kMenuItemHeight * strings.length() +
                      kMenuViewVerticalMargin * 2 + kMenuViewBottomPadding;
 
+  this->resize(width, height + kTriangleHeight);
   menu_view_->adjustSize();
   menu_view_->resize(width, height);
-
-  this->resize(width, height + kTriangleHeight);
 }
 
 bool PopupMenu::eventFilter(QObject* obj, QEvent* event) {
@@ -108,6 +107,7 @@ void PopupMenu::keyPressEvent(QKeyEvent* event) {
 }
 
 void PopupMenu::paintEvent(QPaintEvent* event) {
+  qDebug() << "paintEvent()";
   Q_UNUSED(event);
 
   QPainter painter(this);

@@ -23,6 +23,24 @@ QDir ConcateDir(const QDir& parent_dir, const QString& folder_name) {
   return QDir(parent_dir.filePath(folder_name));
 }
 
+bool CopyFile(const QString& src_file,
+              const QString& dest_file,
+              bool overwrite) {
+  QFile dest(dest_file);
+  if (dest.exists()) {
+    if (overwrite) {
+      if (!dest.remove()) {
+        qCritical() << "Failed to remove:" << dest_file;
+        return false;
+      }
+    } else {
+      qCritical() << dest_file << "exists but is not overwritten";
+      return false;
+    }
+  }
+  return QFile::copy(src_file, dest_file);
+}
+
 bool CopyFolder(const QString src_dir, const QString& dest_dir,
                 bool recursive) {
   QDirIterator::IteratorFlag iter_flag;
@@ -93,19 +111,13 @@ bool CreateParentDirs(const QString& filepath) {
 }
 
 QString GetFileBasename(const QString& filepath) {
-  const int slash_index = filepath.lastIndexOf(QDir::separator());
-  QString tmp_filepath;
-  if (slash_index > -1) {
-    tmp_filepath = filepath.mid(slash_index + 1);
-  } else {
-    tmp_filepath = filepath;
-  }
-
-  const int dot_index = tmp_filepath.lastIndexOf(QChar('.'));
+  const QString filename = GetFileName(filepath);
+  const int dot_index = filename.lastIndexOf(QChar('.'));
   if (dot_index > 0) {
-    return tmp_filepath.left(dot_index);
+    return filename.left(dot_index);
   } else {
-    return tmp_filepath;
+    // Filename does not contain extension name.
+    return filename;
   }
 }
 
@@ -117,6 +129,16 @@ QString GetFileExtname(const QString& filepath) {
   }
 
   return "";
+}
+
+QString GetFileName(const QString& filepath) {
+  const int slash_index = filepath.lastIndexOf(QDir::separator());
+  if (slash_index > -1) {
+    return filepath.mid(slash_index + 1);
+  } else {
+    // filepath is the filename.
+    return filepath;
+  }
 }
 
 qint64 GetFileSize(const QString& filepath) {
@@ -149,8 +171,7 @@ QString ReadGBKFile(const QString& path) {
   QFile file(path);
   if (file.exists()) {
     if (!file.open(QIODevice::ReadOnly)) {
-      qWarning() << "[file_util].ReadGBKFile() failed to open"
-                 << path;
+      qWarning() << "ReadGBKFile() failed to open" << path;
       return "";
     }
     const QByteArray file_data = file.readAll();
@@ -158,24 +179,35 @@ QString ReadGBKFile(const QString& path) {
     file.close();
     return codec->toUnicode(file_data);
   } else {
-    qWarning() << "[file_util].ReadGBKFile() file not found:"
-    << path;
+    qWarning() << "ReadGBKFile() file not found:" << path;
     return "";
   }
+}
+
+bool ReadRawFile(const QString& path, QByteArray& content) {
+  QFile file(path);
+  if (file.exists()) {
+    if (file.open(QIODevice::ReadOnly)) {
+      content = file.readAll();
+      return true;
+    }
+  }
+  qWarning() << "ReadRawFile() failed!" << path;
+  return false;
 }
 
 bool ReadTextFile(const QString& path, QString& content) {
   QFile file(path);
   if (file.exists()) {
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
-    QTextStream text_stream(&file);
-    content = text_stream.readAll();
-    file.close();
-    return true;
-  } else {
-    qWarning() << "ReadTextFile() failed!" << ", path: " << path;
-    return false;
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+      QTextStream text_stream(&file);
+      content = text_stream.readAll();
+      file.close();
+      return true;
+    }
   }
+  qWarning() << "ReadTextFile() failed!" << path;
+  return false;
 }
 
 bool WriteTextFile(const QString& path, const QString& content) {

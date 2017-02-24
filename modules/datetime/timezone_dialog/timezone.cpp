@@ -4,10 +4,16 @@
 
 #include "timezone.h"
 
+#ifndef _GNU_SOURCE
+#define _GNU_SOURCE  /* For tm_gmtoff and tm_zone */
+#endif
 #include <cmath>
 #include <libintl.h>
+#include <locale.h>
+#include <time.h>
 #include <QDebug>
 
+#include "consts.h"
 #include "file_util.h"
 
 namespace installer {
@@ -16,6 +22,9 @@ namespace {
 
 // Absolute path to zone.tab file.
 const char kZoneTabFile[] = "/usr/share/zoneinfo/zone.tab";
+
+// Absolute path to backward timezone file.
+const char kTimezoneAliasFile[] = "/timezone_alias";
 
 // Domain name for timezones.
 const char kTimezoneDomain[] = "deepin-installer-timezones";
@@ -111,16 +120,42 @@ QString GetCurrentTimezone() {
 }
 
 QString GetTimezoneName(const QString& timezone) {
-//  const int index = timezone.lastIndexOf('/');
-//  return (index > -1) ? timezone.mid(index + 1) : timezone;
-  return GetLocalTimezoneName(timezone);
+  const int index = timezone.lastIndexOf('/');
+  return (index > -1) ? timezone.mid(index + 1) : timezone;
 }
 
-QString GetLocalTimezoneName(const QString& timezone) {
-  setlocale(LC_ALL, "");
-  const QString local_name(dgettext(kTimezoneDomain, timezone.toStdString().c_str()));
-  const int index = local_name.lastIndexOf('/');
+QString GetLocalTimezoneName(const QString& timezone, const QString& locale) {
+  // Set locale first.
+  (void) setlocale(LC_ALL, locale.toStdString().c_str());
+  const QString local_name(dgettext(kTimezoneDomain,
+                                    timezone.toStdString().c_str()));
+  int index = local_name.lastIndexOf('/');
+  if (index == -1) {
+    // Some translations of locale name contains non-standard char.
+    index = local_name.lastIndexOf("∕");
+  }
+
+  // Reset locale.
+  (void) setlocale(LC_ALL, kDefaultLocale);
+
   return (index > -1) ? local_name.mid(index + 1) : local_name;
+}
+
+TimezoneAliasMap GetTimezoneAliasMap() {
+  TimezoneAliasMap map;
+
+  const QString content = ReadFile(kTimezoneAliasFile);
+  for (const QString& line : content.split('\n')) {
+    if (!line.isEmpty()) {
+      const QStringList parts = line.split(':');
+      Q_ASSERT(parts.length() == 2);
+      if (parts.length() == 2) {
+        map.insert(parts.at(0), parts.at(1));
+      }
+    }
+  }
+
+  return map;
 }
 
 bool IsValidTimezone(const QString& timezone) {
@@ -129,8 +164,31 @@ bool IsValidTimezone(const QString& timezone) {
     return false;
   }
 
-  const ZoneInfoList list = GetZoneInfoList();
-  return (GetZoneInfoByZone(list, timezone) > -1);
+  // If |filepath| is a file or a symbolic link to file, it is a valid timezone.
+  const QString filepath(QString("/usr/share/zoneinfo/") + timezone);
+  return QFile::exists(filepath);
+}
+
+TimezoneOffset GetTimezoneOffset(const QString& timezone) {
+  const char* kTzEnv = "TZ";
+  const char* old_tz = getenv(kTzEnv);
+  setenv(kTzEnv, timezone.toStdString().c_str(), 1);
+  struct tm tm;
+  const time_t curr_time = time(NULL);
+
+  // Call tzset() before localtime_r(). Set tzset(3).
+  tzset();
+  (void) localtime_r(&curr_time, &tm);
+
+  // Reset timezone.
+  if (old_tz) {
+    setenv(kTzEnv, old_tz, 1);
+  } else {
+    unsetenv(kTzEnv);
+  }
+
+  const TimezoneOffset offset = {tm.tm_zone, tm.tm_gmtoff};
+  return offset;
 }
 
 }  // namespace installer

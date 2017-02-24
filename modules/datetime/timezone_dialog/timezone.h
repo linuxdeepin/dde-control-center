@@ -41,15 +41,24 @@ QString GetCurrentTimezone();
 QString GetTimezoneName(const QString& timezone);
 
 // Returns local name of timezone, excluding continent name.
-QString GetLocalTimezoneName(const QString& timezone);
+// |locale| is desired locale name.
+QString GetLocalTimezoneName(const QString& timezone, const QString& locale);
 
 // A map between old name of timezone and current name.
-typedef QHash<QString, QString> BackwardTzMap;
-BackwardTzMap GetBackwardTzMap();
+// e.g. Asia/Chongqing -> Asia/Shanghai
+typedef QHash<QString, QString> TimezoneAliasMap;
+TimezoneAliasMap GetTimezoneAliasMap();
 
 // Validate |timezone|.
-// TODO(xushaohua): Optimize
 bool IsValidTimezone(const QString& timezone);
+
+struct TimezoneOffset {
+  QString name;  // Offset name, like CST.
+  long seconds;  // Offset seconds.
+};
+
+// Get |timezone| GMT offset.
+TimezoneOffset GetTimezoneOffset(const QString& timezone);
 
 }  // namespace installer
 

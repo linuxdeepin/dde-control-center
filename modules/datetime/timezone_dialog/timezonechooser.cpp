@@ -17,6 +17,7 @@
 #include <QTimer>
 #include <QCompleter>
 #include <QKeyEvent>
+#include <QDebug>
 
 #include <QApplication>
 #include <QDesktopWidget>
@@ -32,7 +33,7 @@ namespace datetime {
 
 TimeZoneChooser::TimeZoneChooser()
     : BlurredFrame(),
-      m_map(new installer::TimezoneMap),
+      m_map(new installer::TimezoneMap(this)),
       m_searchInput(new SearchInput),
       m_title(new QLabel(tr("Change Timezone"))),
       m_cancelBtn(new QPushButton(tr("Cancel"))),
@@ -114,16 +115,16 @@ QSize TimeZoneChooser::getFitSize() const
 
     double width = primaryRect.width() - 360/* dcc */ - 20 * 2;
     double height = primaryRect.height() - 70/* dock */ - 20 * 2;
-    width = qMin(width, primaryRect.width() * 0.8);
-    height = qMin(height, primaryRect.height() * 0.8);
 
     return QSize(width, height);
 }
 
 void TimeZoneChooser::setupSize()
 {
-    static const double MapPixWidth = 760.0;
-    static const double MapPixHeight = 557.0;
+    static const double MapPixWidth = 978.0;
+    static const double MapPixHeight = 500.0;
+    static const double MapPictureWidth = 978.0;
+    static const double MapPictureHeight = 500.0;
 
     QFont font = m_title->font();
     font.setPointSizeF(16.0);
@@ -135,12 +136,12 @@ void TimeZoneChooser::setupSize()
     setFixedSize(fitSize.width(), fitSize.height());
 
     const float mapWidth = qMin(MapPixWidth, fitSize.width() - 20 * 2.0);
-    const float mapHeight = qMin(MapPixHeight, fitSize.height() - 20 * 2/*paddings*/ - 36 * 2/*buttons*/ - 10/*button spacing*/ - 40 * 3.0 /*spacings*/ - 30/*title*/);
-    const double widthScale = 760.0 / mapWidth;
-    const double heightScale = 557.0 / mapHeight;
+    const float mapHeight = qMin(MapPixHeight, fitSize.height() - 20 * 2/*paddings*/ - 36 * 2/*buttons*/ - 10/*button spacing*/ - 40 * 3.0 /*spacings*/ - 30/*title*/ -  20 * 2/*top bottom margin*/);
+    const double widthScale = MapPictureWidth / mapWidth;
+    const double heightScale = MapPictureHeight / mapHeight;
     const double scale = qMax(widthScale, heightScale);
 
-    m_map->setFixedSize(760.0 / scale, 557.0 / scale);
+    m_map->setFixedSize(MapPictureWidth / scale, MapPictureHeight / scale);
 
     m_searchInput->setFixedWidth(250);
     m_cancelBtn->setFixedWidth(250);

@@ -14,6 +14,11 @@ namespace installer {
 // returns a QDir object referencing to its absolute path.
 QDir ConcateDir(const QDir& parent_dir, const QString& folder_name);
 
+// Copy file from |src_file| to |dest_file|.
+// If |dest_file| exists, overwrite its content if |overwrite| is true, or
+// returns false if not overwrite.
+bool CopyFile(const QString& src_file, const QString& dest_file, bool overwrite);
+
 // Folder content in |src_dir| into |dest_dir|.
 // This method only copy normal files, folders and symbolic link file.
 // Other type of files and character device, FIFO and device file are ignored.
@@ -31,11 +36,14 @@ bool CreateDirs(const QString& dirpath);
 // Create parent folders.
 bool CreateParentDirs(const QString& filepath);
 
-// Returns final component of |filepath|.
+// Returns basename of |filepath|.
 QString GetFileBasename(const QString& filepath);
 
 // Returns lower cased extension name of |filepath|, might be empty.
 QString GetFileExtname(const QString& filepath);
+
+// Returns filename of |filepath|.
+QString GetFileName(const QString& filepath);
 
 // Get size of file. If file not found or has no access, returns 0.
 qint64 GetFileSize(const QString& filepath);
@@ -47,7 +55,11 @@ QString ReadFile(const QString& path);
 // Read text file encoded in GB18030.
 QString ReadGBKFile(const QString& path);
 
-// Read contents of file, returns true if succeeded, or false otherwise.
+// Read content of file at |path|, and save its content into |content|.
+// Returns true if succeeded, or false otherwise.
+bool ReadRawFile(const QString& path, QByteArray& content);
+
+// Read contents of text file, returns true if succeeded, or false otherwise.
 // |content| holds the content of that file.
 bool ReadTextFile(const QString& path, QString& content);
 

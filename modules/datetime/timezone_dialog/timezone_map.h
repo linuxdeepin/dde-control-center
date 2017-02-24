@@ -61,9 +61,6 @@ class TimezoneMap : public QFrame {
   // A list of zone info which are near enough to current cursor position.
   ZoneInfoList nearest_zones_;
 
-  // To render the world map.
-  QLabel* background_label_ = nullptr;
-
   // A round dot to indicate position on the map.
   QLabel* dot_ = nullptr;
 
