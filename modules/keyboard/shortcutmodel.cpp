@@ -77,7 +77,7 @@ void ShortcutModel::onParseInfo(const QString &info)
     m_customInfos.clear();
 
     QStringList systemFilter;
-    systemFilter << "terminal" << "terminal-quake" << "screenshot" << "screenshot-delayed" << "screenshot-window"
+    systemFilter << "terminal" << "terminal-quake" << "screenshot" << "screenshot-delayed" << "screenshot-window" << "deepin-screen-recorder"
                  << "switch-group" << "switch-group-backward" << "preview-workspace" << "expose-windows" << "expose-all-windows"
                  << "launcher" << "switch-applications" << "switch-applications-backward" << "show-desktop" << "file-manager"
                  << "lock-screen" << "logout" << "switch-layout" << "wm-switcher";
