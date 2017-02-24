@@ -18,6 +18,7 @@
 #include <QJsonObject>
 #include <QMap>
 #include <QList>
+#include <QTimer>
 
 using dcc::bluetooth::BluetoothModel;
 using dcc::bluetooth::Adapter;
@@ -40,7 +41,8 @@ public:
         ItemIsHeaderRole,
         ItemConnectedRole,
         ItemAdapterRole,
-        ItemDeviceRole
+        ItemDeviceRole,
+        ItemConnectingRole
     };
 
     explicit BluetoothListModel(BluetoothModel *model, QObject *parent = 0);
@@ -58,16 +60,20 @@ private slots:
     void onDeviceRemove(const QString &deviceId);
     void onDeviceChanged(const dcc::bluetooth::Adapter * const adapter, const dcc::bluetooth::Device * const device);
     void onDevicePairedChanged();
-
+    void refershConnectAnimation();
 
 private:
     const ItemInfo indexInfo(const int index) const;
     int indexof(const dcc::bluetooth::Adapter * const adapter) const;
+    const Adapter * adapterById(const QString &id);
+    const Adapter * findAdapter(const QString &id);
 
 private:
     BluetoothModel *m_bluetoothModel;
     QMap<const Adapter*, QList<const Device*>> m_adapterList;
     QModelIndex m_currentIndex;
+    QTimer *m_connectTimer;
+    QModelIndex m_activeIndex;
 };
 
 Q_DECLARE_METATYPE(ItemInfo)
