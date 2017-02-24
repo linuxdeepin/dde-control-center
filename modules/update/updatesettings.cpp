@@ -28,8 +28,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_autoDownloadSwitch = new SwitchWidget;
     m_autoDownloadSwitch->setTitle(tr("Auto-download Updates"));
 
-    SmallLabel* label = new SmallLabel(tr("Updates will be auto-downloaded in wireless or wired network"));
+    TipsLabel* label = new TipsLabel(tr("Updates will be auto-downloaded in wireless or wired network"));
     label->setWordWrap(true);
+    label->setContentsMargins(10, 0, 10, 0);
 
     m_updateMirrors = new NextPageWidget;
     m_updateMirrors->setTitle(tr("Switch Mirror"));
@@ -38,8 +39,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     mg->appendItem(m_updateMirrors);
 
     layout->addWidget(ug);
+    layout->addSpacing(5);
     layout->addWidget(label);
-    layout->addSpacing(10);
+    layout->addSpacing(15);
     layout->addWidget(mg);
     layout->addStretch();
 
