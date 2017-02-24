@@ -2,6 +2,7 @@
 #define PROXYPAGE_H
 
 #include "contentwidget.h"
+#include "buttontuple.h"
 
 #include <dsegmentedcontrol.h>
 
@@ -38,6 +39,8 @@ private slots:
     void onProxyMethodChanged(const QString &proxyMethod);
     void onIgnoreHostsChanged(const QString &hosts);
     void onProxyChanged(const QString &type, const ProxyConfig &config);
+    void onProxyToggled(const int index);
+    void applySettings() const;
 
 private:
     void applyProxy(const QString &type);
@@ -47,6 +50,7 @@ private:
 
     QWidget *m_manualWidget;
     QWidget *m_autoWidget;
+    widgets::ButtonTuple *m_buttonTuple;
 
     widgets::LineEditWidget *m_httpAddr;
     widgets::LineEditWidget *m_httpPort;

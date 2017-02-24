@@ -24,9 +24,13 @@ ProxyPage::ProxyPage(QWidget *parent)
 
       m_manualWidget(new TranslucentFrame),
       m_autoWidget(new TranslucentFrame),
+      m_buttonTuple(new ButtonTuple),
 
       m_proxyType(new DSegmentedControl)
 {
+    m_buttonTuple->leftButton()->setText(tr("Cancel"));
+    m_buttonTuple->rightButton()->setText(tr("Confirm"));
+
     m_proxyType->addSegmented(tr("None"));
     m_proxyType->addSegmented(tr("Manual"));
     m_proxyType->addSegmented(tr("Auto"));
@@ -126,6 +130,9 @@ ProxyPage::ProxyPage(QWidget *parent)
     mainLayout->setAlignment(m_proxyType, Qt::AlignCenter);
     mainLayout->addWidget(m_manualWidget);
     mainLayout->addWidget(m_autoWidget);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(m_buttonTuple);
+    mainLayout->addStretch();
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 
@@ -135,17 +142,21 @@ ProxyPage::ProxyPage(QWidget *parent)
     setTitle(tr("System Proxy"));
     setContent(mainWidget);
 
-    connect(m_proxyType, &DSegmentedControl::currentChanged, [=](const int index) { emit requestSetProxyMethod(ProxyMethodList[index]); });
-    connect(m_ignoreList->plainEdit(), &QPlainTextEdit::textChanged, [=] { emit requestSetIgnoreHosts(m_ignoreList->plainEdit()->toPlainText()); });
-    connect(m_httpAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
-    connect(m_httpPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
-    connect(m_httpsAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("https"); });
-    connect(m_httpsPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("https"); });
-    connect(m_ftpAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("ftp"); });
-    connect(m_ftpPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("ftp"); });
-    connect(m_socksAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("socks"); });
-    connect(m_socksPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("socks"); });
-    connect(m_autoUrl->textEdit(), &QLineEdit::editingFinished, [=] { emit requestSetAutoProxy(m_autoUrl->text()); });
+    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &ProxyPage::back);
+    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::back, Qt::QueuedConnection);
+    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
+    connect(m_proxyType, &DSegmentedControl::currentChanged, this, &ProxyPage::onProxyToggled);
+//    connect(m_proxyType, &DSegmentedControl::currentChanged, [=](const int index) { emit requestSetProxyMethod(ProxyMethodList[index]); });
+//    connect(m_ignoreList->plainEdit(), &QPlainTextEdit::textChanged, [=] { emit requestSetIgnoreHosts(m_ignoreList->plainEdit()->toPlainText()); });
+//    connect(m_httpAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
+//    connect(m_httpPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
+//    connect(m_httpsAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("https"); });
+//    connect(m_httpsPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("https"); });
+//    connect(m_ftpAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("ftp"); });
+//    connect(m_ftpPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("ftp"); });
+//    connect(m_socksAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("socks"); });
+//    connect(m_socksPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("socks"); });
+//    connect(m_autoUrl->textEdit(), &QLineEdit::editingFinished, [=] { emit requestSetAutoProxy(m_autoUrl->text()); });
 
     QTimer::singleShot(1, this, [=] { emit requestQueryProxyData(); });
 }
@@ -174,13 +185,29 @@ void ProxyPage::onProxyMethodChanged(const QString &proxyMethod)
     if (index == -1)
         return;
 
-    m_proxyType->blockSignals(true);
     m_proxyType->setCurrentIndex(index);
-    m_proxyType->blockSignals(false);
+    onProxyToggled(index);
+}
 
+void ProxyPage::onProxyToggled(const int index)
+{
     // refersh ui
     m_manualWidget->setVisible(index == 1);
     m_autoWidget->setVisible(index == 2);
+}
+
+void ProxyPage::applySettings() const
+{
+    emit requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
+    emit requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
+    emit requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
+    emit requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
+
+    emit requestSetIgnoreHosts(m_ignoreList->plainEdit()->toPlainText());
+
+    emit requestSetAutoProxy(m_autoUrl->text());
+
+    emit requestSetProxyMethod(ProxyMethodList[m_proxyType->currentIndex()]);
 }
 
 void ProxyPage::onIgnoreHostsChanged(const QString &hosts)
