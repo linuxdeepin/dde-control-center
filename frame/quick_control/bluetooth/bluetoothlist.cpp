@@ -41,6 +41,11 @@ void BluetoothList::onItemClicked(const QModelIndex &index) const
     if (index.data(BluetoothListModel::ItemIsHeaderRole).toBool())
         return;
 
+    if (index.data(BluetoothListModel::ItemIsSettingRole).toBool()) {
+        emit requestConnectOther();
+        return;
+    }
+
     const bool connected = index.data(BluetoothListModel::ItemConnectedRole).toBool();
     const ItemInfo info = index.data(BluetoothListModel::ItemDeviceRole).value<ItemInfo>();
 

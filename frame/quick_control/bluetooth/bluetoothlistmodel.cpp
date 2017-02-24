@@ -40,7 +40,7 @@ int BluetoothListModel::rowCount(const QModelIndex &parent) const
         count += it.value().size() + 1;
     }
 
-    return count;
+    return count + 1;
 }
 
 QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
@@ -56,8 +56,10 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
     {
-        if (!info.device)
+        if (!info.device && info.adapter)
             return info.adapter->name();
+        else if (!info.adapter)
+            return tr("Connect to other devices");
         else
             return info.device->name();
     }
@@ -69,21 +71,21 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
             return QSize(0, 30);
     }
     case ItemConnectedRole:
-    {
         Q_ASSERT(info.device);
         return info.device->state() == Device::StateConnected;
-    }
-    case ItemConnectingRole :
+    case ItemConnectingRole:
         Q_ASSERT(info.device);
         return info.device->state() == Device::StateAvailable;
     case  ItemHoveredRole:
         return index == m_currentIndex;
     case ItemIsHeaderRole:
-        return info.device == nullptr;
+        return info.device == nullptr && info.adapter != nullptr;
     case ItemAdapterRole:
         return info.device->id();
     case ItemDeviceRole:
         return QVariant::fromValue(info);
+    case ItemIsSettingRole:
+        return !info.adapter && !info.device;
     default:;
     }
 
@@ -224,11 +226,7 @@ const ItemInfo BluetoothListModel::indexInfo(const int index) const
 
     }
 
-    qDebug() << index;
-    qDebug() << rowCount(QModelIndex());
-    qDebug() << m_adapterList.count();
-
-    Q_UNREACHABLE();
+    info.adapter = nullptr;
 
     return info;
 }

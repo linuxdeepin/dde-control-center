@@ -17,6 +17,7 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     painter->setPen(Qt::white);
     painter->setBrush(Qt::red);
 
+    const bool isSetting = index.data(BluetoothListModel::ItemIsSettingRole).toBool();
     const bool isHeader = index.data(BluetoothListModel::ItemIsHeaderRole).toBool();
     const bool isHovered = index.data(BluetoothListModel::ItemHoveredRole).toBool();
 
@@ -30,34 +31,39 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     f.setBold(isHeader);
     painter->setFont(f);
 
-    if (isHeader)
+    if (isSetting) {
         painter->drawText(option.rect.marginsRemoved(QMargins(10, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
-    else
-        painter->drawText(option.rect.marginsRemoved(QMargins(70, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
+    } else {
+        if (isHeader)
+            painter->drawText(option.rect.marginsRemoved(QMargins(10, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
+        else
+            painter->drawText(option.rect.marginsRemoved(QMargins(70, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
 
-    if (!isHeader)
-    {
-        const bool connecting = index.data(BluetoothListModel::ItemConnectingRole).toBool();
 
-        const int x = option.rect.right() - 24;
-        const int y = option.rect.top() + (option.rect.height() - 16) / 2;
+        if (!isHeader)
+        {
+            const bool connecting = index.data(BluetoothListModel::ItemConnectingRole).toBool();
 
-        // connecting , connected, no connect
-        if (connecting) {
-            const quint64 index = QDateTime::currentMSecsSinceEpoch() / 20;
-            const QString pix = QString(":/frame/themes/dark/icons/spinner14/Spinner%1.png").arg((index % 91) + 1, 2, 10, QChar('0'));
-            painter->drawPixmap(x, y, QPixmap(pix));
-        } else {
-            const bool state = index.data(BluetoothListModel::ItemConnectedRole).toBool();
-            if (state) {
-                // draw connected icon
-                if (isHovered)
-                    painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/remove.png"));
-                else
-                    painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
+            const int x = option.rect.right() - 24;
+            const int y = option.rect.top() + (option.rect.height() - 16) / 2;
+
+            // connecting , connected, no connect
+            if (connecting) {
+                const quint64 index = QDateTime::currentMSecsSinceEpoch() / 20;
+                const QString pix = QString(":/frame/themes/dark/icons/spinner14/Spinner%1.png").arg((index % 91) + 1, 2, 10, QChar('0'));
+                painter->drawPixmap(x, y, QPixmap(pix));
+            } else {
+                const bool state = index.data(BluetoothListModel::ItemConnectedRole).toBool();
+                if (state) {
+                    // draw connected icon
+                    if (isHovered)
+                        painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/remove.png"));
+                    else
+                        painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
+                }
             }
+            painter->fillRect(option.rect, QColor(255, 255, 255, 0.05 * 255));
         }
-        painter->fillRect(option.rect, QColor(255, 255, 255, 0.05 * 255));
     }
 }
 
