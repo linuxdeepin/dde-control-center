@@ -26,7 +26,7 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
     item->setValue(tr("Please Grab Shortcut Again"));
     group->appendItem(item);
     m_control = new KeyboardControl();
-    group->appendItem(m_control);
+//    group->appendItem(m_control);
     layout->addWidget(group);
 
     QPushButton *cancel = m_buttonTuple->leftButton();

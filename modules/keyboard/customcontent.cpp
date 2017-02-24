@@ -47,7 +47,7 @@ CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
 
     layout->addWidget(m_commandGroup);
     m_control = new KeyboardControl();
-    layout->addWidget(m_control);
+//    layout->addWidget(m_control);
 
     QPushButton *cancel = m_buttonTuple->leftButton();
     cancel->setText(tr("Cancel"));
