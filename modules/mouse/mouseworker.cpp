@@ -15,6 +15,7 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
     connect(m_dbusTouchPad, &TouchPad::NaturalScrollChanged, this, &MouseWorker::setNaturalScrollState);
     connect(m_dbusTouchPad, &TouchPad::DisableIfTypingChanged, this, &MouseWorker::setDisTyping);
     connect(m_dbusMouse, &Mouse::DoubleClickChanged, this, &MouseWorker::setDouClick);
+    connect(m_dbusTouchPad, &TouchPad::DoubleClickChanged, this, &MouseWorker::setDouClick);
     connect(m_dbusMouse, &Mouse::MotionAccelerationChanged, this, &MouseWorker::setMouseMotionAcceleration);
     connect(m_dbusMouse, &Mouse::DisableTpadChanged, this, &MouseWorker::setDisTouchPad);
     connect(m_dbusTouchPad, &TouchPad::MotionAccelerationChanged, this, &MouseWorker::setTouchpadMotionAcceleration);
@@ -34,7 +35,6 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
     m_dbusTouchPad->setSync(false);
     m_dbusTouchPad->setSync(false);
 
-    init();
 }
 
 void MouseWorker::active()
@@ -56,18 +56,12 @@ void MouseWorker::deactive()
 void MouseWorker::init()
 {
     MouseModelBaseSettings *modelBase = m_model->getBaseSettings();
-    modelBase->setSliderValue(converToDoubleModel(m_dbusMouse->doubleClick()));
-
-    MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
-    modelMouse->setSliderValue(converToModelMotionAcceleration(m_dbusMouse->motionAcceleration()));
     modelBase->setExist(m_dbusMouse->exist());
 
     MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
-    modelTouch->setSliderValue(converToModelMotionAcceleration(m_dbusTouchPad->motionAcceleration()));
     modelTouch->setExist(m_dbusTouchPad->exist());
 
     MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
-    modelTrack->setSliderValue(converToModelMotionAcceleration(m_dbusTrackPoint->motionAcceleration()));
     modelTrack->setExist(m_dbusTrackPoint->exist());
 
     setLeftHandState(m_dbusMouse->leftHanded());
@@ -75,7 +69,7 @@ void MouseWorker::init()
     setDisTyping(m_dbusTouchPad->disableIfTyping());
     setDisTouchPad(m_dbusMouse->disableTpad());
     setTapClick(m_dbusTouchPad->tapClick());
-    setDouClick(m_dbusTouchPad->doubleClick());
+    setDouClick(m_dbusMouse->doubleClick());
     setMouseMotionAcceleration(m_dbusMouse->motionAcceleration());
     setTouchpadMotionAcceleration(m_dbusTouchPad->motionAcceleration());
     setTrackPointMotionAcceleration(m_dbusTrackPoint->motionAcceleration());
@@ -173,6 +167,7 @@ void MouseWorker::onTapClick(const bool state)
 
 void MouseWorker::onDouClickChanged(const int &value)
 {
+    m_dbusMouse->setDoubleClick(converToDouble(value));
     m_dbusTouchPad->setDoubleClick(converToDouble(value));
 }
 
