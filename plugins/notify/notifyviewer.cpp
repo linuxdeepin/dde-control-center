@@ -28,15 +28,15 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_body->setWordWrap(true);
     m_body->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    m_appName->setStyleSheet("font-family: Noto Sans Mono CJK SC"
+    m_appName->setStyleSheet("font-family: 'Noto Sans Mono CJK SC';"
                              "font-size: 13px;"
                              "font-style: normal;"
                              "color: #ffffff;");
-    m_body->setStyleSheet("font-family: Noto Sans Mono CJK SC"
+    m_body->setStyleSheet("font-family: 'Noto Sans Mono CJK SC';"
                           "font-size: 12px;"
                           "font-style: normal;"
                           "color: #ffffff;");
-    m_time->setStyleSheet("font-family: Noto Sans Mono CJK SC"
+    m_time->setStyleSheet("font-family: 'Noto Sans Mono CJK SC';"
                           "font-size: 11px;"
                           "font-style: normal;"
                           "color: #ffffff;");
