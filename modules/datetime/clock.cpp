@@ -64,7 +64,7 @@ void Clock::paintEvent(QPaintEvent *)
     QPen pen( painter.pen() );
 
     // draw hour hand
-    const int hourAngle = time.hour() * 30;
+    const qreal hourAngle = qreal(time.hour()) * 30 + time.minute() * 30 / 60;
     painter.save();
     painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
     painter.translate(rct.width() / 2.0, rct.height() / 2.0);
