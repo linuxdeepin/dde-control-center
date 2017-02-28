@@ -79,7 +79,7 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
 
     QPainter painter(this);
     QColor col = QColor(qrand()%255, qrand()%255, qrand()%255, 100);
-    QPen pen1(Qt::white);
+    QColor pen1(Qt::white);
     painter.setPen(pen1);
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setBrush(col);
@@ -129,6 +129,8 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
             fm=QFontMetrics(font);
             QString updateTime = tr("Just updated");
             QRect statusArea(rect.width() - 50 - iconRect.left()-10,cityArea.bottom(),fm.width(updateTime), rect.height()/2 -6);
+            pen1.setAlphaF(0.5);
+            painter.setPen(pen1);
             painter.setFont(font);
             painter.drawText(statusArea, Qt::AlignTop|Qt::AlignHCenter, updateTime);
             painter.restore();
