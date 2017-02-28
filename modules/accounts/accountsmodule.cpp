@@ -45,6 +45,17 @@ void AccountsModule::reset()
 
 }
 
+void AccountsModule::showPage(const QString &pageName)
+{
+    Q_ASSERT(m_accountsWidget);
+
+    for (auto *u : m_userList->userList())
+        if (u->name() == pageName)
+            return showAccountsDetail(u);
+
+    Q_UNREACHABLE();
+}
+
 ModuleWidget *AccountsModule::moduleWidget()
 {
     if (!m_accountsWidget)

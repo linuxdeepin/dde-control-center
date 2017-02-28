@@ -37,7 +37,6 @@ private slots:
     void showNextPlugin();
     void showPrevPlugin();
     void refershTimedate();
-    void showAccountsModule();
 
 private:
     PluginsController *m_pluginsController;

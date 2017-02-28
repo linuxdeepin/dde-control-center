@@ -61,7 +61,6 @@ private:
     QTimer *m_refershModuleActivableTimer;
 
     int m_moduleLoadDelay;
-    bool m_loadFinished;
 
     QString m_ensureVisibleModule;
     QString m_ensureVisiblePage;

@@ -64,6 +64,14 @@ public:
     // 获取Module的Metadata;
 //    virtual ModuleMetadata getMetadata();
 
+    ///
+    /// \brief showPage
+    /// show specificed module page
+    /// \param pageName
+    /// the page name
+    ///
+    virtual void showPage(const QString &pageName) { Q_UNUSED(pageName); }
+
     // 返回模块主Widget；
     virtual ModuleWidget *moduleWidget() = 0;
 

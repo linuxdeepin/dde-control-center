@@ -41,8 +41,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
       m_refershModuleActivableTimer(new QTimer(this)),
 
-      m_moduleLoadDelay(0),
-      m_loadFinished(false)
+      m_moduleLoadDelay(0)
 {
     // NOTE: 由于控件的统一风格，ContentWidget 这里有个 spacing item，
     // 但是首页又有神奇的需求不加个这 spacing，所以在这里去掉它
@@ -175,13 +174,16 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
     // load all modules finished
     if (m_moduleActivable.size() == m_moduleInterfaces.size())
     {
-        m_loadFinished = true;
         m_refershModuleActivableTimer->start();
 
         // scroll to dest widget
-        if (!m_ensureVisibleModule.isEmpty())
+        if (m_ensureVisiblePage.isEmpty())
             QTimer::singleShot(10, this, [=] { showModulePage(m_ensureVisibleModule, m_ensureVisiblePage); });
     }
+
+    // show page
+    if (m_ensureVisibleModule == module->name() && !m_ensureVisiblePage.isEmpty())
+        QTimer::singleShot(10, this, [=] { showModulePage(m_ensureVisibleModule, m_ensureVisiblePage); });
 }
 
 void SettingsWidget::ensureModuleVisible(const QString &moduleName)
@@ -222,14 +224,29 @@ void SettingsWidget::toggleView()
 
 void SettingsWidget::showModulePage(const QString &moduleName, const QString &pageName)
 {
-    m_ensureVisibleModule = moduleName;
-    m_ensureVisiblePage = pageName;
-
-    if (!m_loadFinished)
+    // test module is loaded
+    bool founded = false;
+    for (auto *module : m_moduleActivable.keys())
+    {
+        if (module->name() == moduleName)
+        {
+            founded = true;
+            break;
+        }
+    }
+    if (!founded)
+    {
+        m_ensureVisibleModule = moduleName;
+        m_ensureVisiblePage = pageName;
         return;
+    }
 
     if (pageName.isEmpty())
-        ensureModuleVisible(moduleName);
+        return ensureModuleVisible(moduleName);
+
+    for (auto *inter : m_moduleInterfaces)
+        if (inter->name() == moduleName)
+            inter->showPage(pageName);
 }
 
 void SettingsWidget::setModuleVisible(ModuleInterface * const inter, const bool visible)

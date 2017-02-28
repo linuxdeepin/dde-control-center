@@ -23,6 +23,7 @@ public:
     void moduleActive();
     void moduleDeactive();
     void reset();
+    void showPage(const QString &pageName);
 
     ModuleWidget *moduleWidget();
 
