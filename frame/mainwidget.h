@@ -3,6 +3,7 @@
 
 #include "pluginscontroller.h"
 #include "framewidget.h"
+#include "indicatorwidget.h"
 #include "quick_control/quickcontrolpanel.h"
 
 #include <QVBoxLayout>
@@ -53,9 +54,7 @@ private:
     QLabel *m_currentDateLbl;
     QHBoxLayout *m_pluginsLayout;
     QWidget *m_pluginWidget;
-    Dtk::Widget::DPageIndicator *m_pluginsIndicator;
-    Dtk::Widget::DImageButton *m_nextPluginBtn;
-    Dtk::Widget::DImageButton *m_prevPluginBtn;
+    IndicatorWidget *m_indicatorWidget;
     QuickControlPanel *m_quickSettingsPanel;
 };
 

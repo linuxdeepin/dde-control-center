@@ -39,7 +39,8 @@ HEADERS    += \
     quick_control/bluetooth/bluetoothdelegate.h \
     navgationview.h \
     navgationmodel.h \
-    navgationdelegate.h
+    navgationdelegate.h \
+    indicatorwidget.h
 
 SOURCES    += \
             main.cpp \
@@ -67,7 +68,8 @@ SOURCES    += \
     quick_control/bluetooth/bluetoothdelegate.cpp \
     navgationview.cpp \
     navgationmodel.cpp \
-    navgationdelegate.cpp
+    navgationdelegate.cpp \
+    indicatorwidget.cpp
 
 #RESOURCES += \
 #    qss.qrc \

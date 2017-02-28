@@ -30,9 +30,7 @@ MainWidget::MainWidget(Frame *parent)
       m_currentTimeLbl(new QLabel),
       m_currentDateLbl(new QLabel),
       m_pluginsLayout(new QHBoxLayout),
-      m_pluginsIndicator(new DPageIndicator),
-      m_nextPluginBtn(new Dtk::Widget::DImageButton),
-      m_prevPluginBtn(new Dtk::Widget::DImageButton),
+      m_indicatorWidget(new IndicatorWidget),
       m_quickSettingsPanel(new QuickControlPanel)
 {
     // TODO: get dbus data
@@ -60,12 +58,6 @@ MainWidget::MainWidget(Frame *parent)
     m_timeRefersh->setSingleShot(false);
     m_timeRefersh->start();
 
-    m_prevPluginBtn->setObjectName("PrevBtn");
-    m_prevPluginBtn->setAccessibleName("PrevBtn");
-    m_nextPluginBtn->setObjectName("NextBtn");
-    m_nextPluginBtn->setAccessibleName("NextBtn");
-    m_pluginsIndicator->setObjectName("DPIndicator");
-
     QFont font = m_currentTimeLbl->font();
     font.setPixelSize(46);
     font.setWeight(QFont::Light);
@@ -74,16 +66,21 @@ MainWidget::MainWidget(Frame *parent)
     m_currentTimeLbl->setFont(font);
     m_currentDateLbl->setObjectName("CurrentDateLabel");
 
-    m_pluginsIndicator->setFixedHeight(20);
-    m_pluginsIndicator->setPageCount(2);
-    m_pluginsIndicator->setCurrentPage(0);
-    m_pluginsIndicator->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+//    m_pluginsIndicator->setFixedHeight(20);
+//    m_pluginsIndicator->setPageCount(2);
+//    m_pluginsIndicator->setCurrentPage(0);
+//    m_pluginsIndicator->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+//    m_pluginsIndicator->setVisible(false);
 
-    QHBoxLayout *indicatorLayout = new QHBoxLayout;
-    indicatorLayout->addWidget(m_prevPluginBtn);
-    indicatorLayout->addWidget(m_pluginsIndicator);
-    indicatorLayout->addWidget(m_nextPluginBtn);
-    indicatorLayout->setContentsMargins(10, 0, 10, 0);
+//    QHBoxLayout *indicatorLayout = new QHBoxLayout;
+//    indicatorLayout->addStretch();
+//    indicatorLayout->addWidget(m_prevPluginBtn);
+//    indicatorLayout->addSpacing(15);
+//    indicatorLayout->addWidget(m_pluginsIndicator);
+//    indicatorLayout->addSpacing(15);
+//    indicatorLayout->addWidget(m_nextPluginBtn);
+//    indicatorLayout->addStretch();
+//    indicatorLayout->setContentsMargins(10, 0, 10, 0);
 
     // Header
     TranslucentFrame *headerFrame = new TranslucentFrame;
@@ -123,8 +120,8 @@ MainWidget::MainWidget(Frame *parent)
 
     QVBoxLayout *pluginWidgetLayout = new QVBoxLayout;
     pluginWidgetLayout->addWidget(pluginWrapper);
-    pluginWidgetLayout->addSpacing(20);
-    pluginWidgetLayout->addLayout(indicatorLayout);
+    pluginWidgetLayout->addSpacing(10);
+    pluginWidgetLayout->addWidget(m_indicatorWidget);
     pluginWidgetLayout->setSpacing(0);
     pluginWidgetLayout->setMargin(0);
 
@@ -134,14 +131,16 @@ MainWidget::MainWidget(Frame *parent)
     QVBoxLayout *centralLayout = static_cast<QVBoxLayout *>(layout());
     centralLayout->addWidget(headerFrame);
     centralLayout->addWidget(m_pluginWidget);
-    centralLayout->addSpacing(10);
+    centralLayout->addSpacing(20);
     centralLayout->addWidget(m_quickSettingsPanel);
     centralLayout->setSpacing(0);
     centralLayout->setMargin(0);
 
     connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded);
-    connect(m_prevPluginBtn, &DImageButton::clicked, this, &MainWidget::showPrevPlugin);
-    connect(m_nextPluginBtn, &DImageButton::clicked, this, &MainWidget::showNextPlugin);
+    connect(m_indicatorWidget, &IndicatorWidget::requestNext, this, &MainWidget::showNextPlugin);
+    connect(m_indicatorWidget, &IndicatorWidget::requestPrevious, this, &MainWidget::showPrevPlugin);
+//    connect(m_prevPluginBtn, &DImageButton::clicked, this, &MainWidget::showPrevPlugin);
+//    connect(m_nextPluginBtn, &DImageButton::clicked, this, &MainWidget::showNextPlugin);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestDetailConfig, this, &MainWidget::showAllSettings);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestPage, this, &MainWidget::showSettingPage);
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
@@ -176,7 +175,7 @@ void MainWidget::pluginAdded(QWidget * const w)
 
 void MainWidget::showNextPlugin()
 {
-    m_pluginsIndicator->nextPage();
+//    m_pluginsIndicator->nextPage();
 
     const int index = m_pluginsLayout->indexOf(m_lastPluginWidget);
     QLayoutItem *item = m_pluginsLayout->itemAt(index + 1);
@@ -188,7 +187,7 @@ void MainWidget::showNextPlugin()
 
 void MainWidget::showPrevPlugin()
 {
-    m_pluginsIndicator->previousPage();
+//    m_pluginsIndicator->previousPage();
 
     const int index = m_pluginsLayout->indexOf(m_lastPluginWidget);
     const int count = m_pluginsLayout->count();
