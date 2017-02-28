@@ -62,6 +62,7 @@ private slots:
     void onDeviceChanged(const dcc::bluetooth::Adapter * const adapter, const dcc::bluetooth::Device * const device);
     void onDevicePairedChanged();
     void refershConnectAnimation();
+    void onAdapterPowerChanged(const bool powered);
 
 private:
     const ItemInfo indexInfo(const int index) const;

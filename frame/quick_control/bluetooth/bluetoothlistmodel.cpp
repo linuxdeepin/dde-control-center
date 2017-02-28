@@ -20,6 +20,7 @@ BluetoothListModel::BluetoothListModel(BluetoothModel *model, QObject *parent)
     connect(m_connectTimer, &QTimer::timeout, this, &BluetoothListModel::refershConnectAnimation);
     connect(m_bluetoothModel, &BluetoothModel::adapterAdded, this, &BluetoothListModel::onAdapterAdded);
     connect(m_bluetoothModel, &BluetoothModel::adapterRemoved,this, &BluetoothListModel::onAdapterRemove);
+
     QTimer::singleShot(1, this, [=] {
         for (const Adapter *adapter : m_bluetoothModel->adapters()) {
             onAdapterAdded(adapter);
@@ -100,6 +101,11 @@ void BluetoothListModel::setCurrentHovered(const QModelIndex &index)
 void BluetoothListModel::onAdapterAdded(const dcc::bluetooth::Adapter *adapter)
 {
     if (m_adapterList.contains(adapter))
+        return;
+
+    connect(adapter, &Adapter::poweredChanged, this, &BluetoothListModel::onAdapterPowerChanged, Qt::UniqueConnection);
+
+    if (!adapter->powered())
         return;
 
     m_adapterList.insert(adapter, QList<const Device *>());
@@ -185,6 +191,16 @@ void BluetoothListModel::onDevicePairedChanged()
 void BluetoothListModel::refershConnectAnimation()
 {
     emit dataChanged(m_activeIndex, m_activeIndex);
+}
+
+void BluetoothListModel::onAdapterPowerChanged(const bool powered)
+{
+    Adapter *adapter = static_cast<Adapter *>(sender());
+    if (powered) {
+        onAdapterAdded(adapter);
+    } else {
+        onAdapterRemove(adapter);
+    }
 }
 
 void BluetoothListModel::onAdapterChanged()
