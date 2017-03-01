@@ -76,13 +76,19 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     detailSwitch->setAccessibleName("QuickSwitchAllSettings");
     detailSwitch->setCheckable(false);
 
+    m_switchs.append(detailSwitch);
+    m_switchs.append(m_btSwitch);
+    m_switchs.append(vpnSwitch);
+    m_switchs.append(m_wifiSwitch);
+    m_switchs.append(displaySwitch);
+
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addWidget(m_btSwitch);
     btnsLayout->addWidget(vpnSwitch);
     btnsLayout->addWidget(m_wifiSwitch);
     btnsLayout->addWidget(displaySwitch);
     btnsLayout->addWidget(detailSwitch);
-    btnsLayout->setContentsMargins(0, 15, 0, 15);
+    btnsLayout->setContentsMargins(0, 0, 0, 0);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(m_itemStack);
@@ -105,7 +111,6 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(vpnPage, &VpnControlPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     connect(vpnPage, &VpnControlPage::requestDisconnect, m_networkWorker, &NetworkWorker::deactiveConnection);
 
-
     connect(m_btSwitch, &QuickSwitchButton::checkedChanged, this, &QuickControlPanel::onBluetoothButtonClicked);
     connect(m_bluetoothWorker, &BluetoothWorker::deviceEnableChanged, this, &QuickControlPanel::onBluetoothDeviceEnableChanged);
     connect(m_bluetoothModel, &BluetoothModel::adpaterListChanged, this, &QuickControlPanel::onBluetoothDeviceListChanged);
@@ -125,6 +130,8 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(bluetoothList, &BluetoothList::requestConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::connectDevice);
     connect(bluetoothList, &BluetoothList::requestDisConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::disconnectDevice);
     connect(bluetoothList, &BluetoothList::requestConnectOther,  [=] { emit requestPage("bluetooth", QString()); });
+
+    connect(m_itemStack, &QStackedLayout::currentChanged, this, &QuickControlPanel::onIndexChanged);
 
     displaySwitch->setVisible(m_displayModel->monitorList().size() > 1);
     vpnSwitch->setChecked(m_networkModel->vpnEnabled());
@@ -210,4 +217,10 @@ void QuickControlPanel::onBluetoothDeviceListChanged()
     }
 
     m_btSwitch->setVisible(false);
+}
+
+void QuickControlPanel::onIndexChanged(const int index)
+{
+    for (int i(0); i != m_switchs.size(); ++i)
+        m_switchs[i]->setSelected(i == index);
 }

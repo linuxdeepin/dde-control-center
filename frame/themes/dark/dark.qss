@@ -54,3 +54,11 @@ MainWidget > #DPIndicator {
     qproperty-pointColor: rgba(255,255,255,204);
     qproperty-secondaryPointColor: rgba(255,255,255,76);
 }
+
+QuickControlPanel dcc--widgets--BasicListView {
+    background-color: rgba(255, 255, 255, .2);
+}
+
+dcc--BasicSettingsPage {
+    background-color: rgba(255, 255, 255, .2);
+}

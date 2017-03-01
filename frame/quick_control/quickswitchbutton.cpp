@@ -1,21 +1,26 @@
 #include "quickswitchbutton.h"
 
 #include <QDebug>
+#include <QPainter>
 
 namespace dcc {
 
-#define SIZE 30
+#define WIDTH 70
+#define HEIGHT 60
 
 QuickSwitchButton::QuickSwitchButton(const int index, const QString &iconName, QWidget *parent)
     : QLabel(parent),
 
       m_index(index),
+      m_selected(false),
       m_checked(false),
       m_checkable(true),
       m_iconName(iconName)
 {
-    setFixedSize(SIZE, SIZE);
+    setFixedSize(WIDTH, HEIGHT);
     setPixmap(normalPixmap());
+    setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
+    setContentsMargins(0, 0, 0, 20);
 }
 
 void QuickSwitchButton::mouseReleaseEvent(QMouseEvent *e)
@@ -36,6 +41,36 @@ void QuickSwitchButton::enterEvent(QEvent *e)
     QLabel::enterEvent(e);
 
     emit hovered(m_index);
+}
+
+void QuickSwitchButton::paintEvent(QPaintEvent *e)
+{
+    if (m_selected)
+    {
+        const QRect r = rect();
+
+        const int radius = 6;
+        const int margin_bottom = 5;
+
+        QPainterPath path;
+        path.moveTo(0, 0);
+        path.arcTo(QRectF(QPointF(-radius, 0), QPointF(radius, radius * 2)), 90, -90);
+        path.lineTo(radius, r.bottom() - margin_bottom - radius * 2);
+        path.arcTo(QRectF(QPointF(radius, r.bottom() - margin_bottom - radius * 2), QPointF(radius * 3, r.bottom() - margin_bottom)), 180, 90);
+        path.lineTo(r.right() - radius * 2, r.bottom() - margin_bottom);
+        path.arcTo(QRectF(QPointF(r.right() - radius * 3, r.bottom() - margin_bottom - radius * 2), QPointF(r.right() - radius, r.bottom() - margin_bottom)), 270, 90);
+        path.lineTo(r.right() - radius, radius);
+        path.arcTo(QRectF(QPointF(r.right() - radius, 0), QPointF(r.right() + radius, radius * 2)), 180, -90);
+        path.closeSubpath();
+
+        QPainter painter(this);
+        painter.setPen(Qt::transparent);
+        painter.setBrush(QColor(255, 255, 255, 255 * .2));
+        painter.setRenderHint(QPainter::Antialiasing);
+        painter.drawPath(path);
+    }
+
+    QLabel::paintEvent(e);
 }
 
 QPixmap QuickSwitchButton::normalPixmap() const
@@ -76,6 +111,13 @@ void QuickSwitchButton::setChecked(const bool checked)
 void QuickSwitchButton::setCheckable(const bool checkable)
 {
     m_checkable = checkable;
+}
+
+void QuickSwitchButton::setSelected(const bool selected)
+{
+    m_selected = selected;
+
+    update();
 }
 
 }

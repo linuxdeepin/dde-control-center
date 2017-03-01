@@ -110,7 +110,7 @@ void BasicSettingsWorker::onBrightnessChanged(const BrightnessMap value)
 }
 
 BasicSettingsPage::BasicSettingsPage(QWidget *parent)
-    : QWidget(parent),
+    : QFrame(parent),
 
       m_volumeLow(new QLabel),
       m_volumeHigh(new QLabel),

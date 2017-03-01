@@ -3,7 +3,7 @@
 
 #include "dccslider.h"
 
-#include <QWidget>
+#include <QFrame>
 #include <QDBusObjectPath>
 
 #include <com_deepin_daemon_audio.h>
@@ -61,7 +61,7 @@ private:
     com::deepin::daemon::Display *m_displayInter;
 };
 
-class BasicSettingsPage : public QWidget
+class BasicSettingsPage : public QFrame
 {
     Q_OBJECT
 public:

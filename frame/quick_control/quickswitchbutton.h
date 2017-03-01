@@ -26,10 +26,12 @@ signals:
 public slots:
     void setChecked(const bool checked);
     void setCheckable(const bool checkable);
+    void setSelected(const bool selected);
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
     void enterEvent(QEvent *e);
+    void paintEvent(QPaintEvent *e);
 
 private:
     QPixmap normalPixmap() const;
@@ -39,6 +41,7 @@ private:
 private:
     const int m_index;
 
+    bool m_selected;
     bool m_checked;
     bool m_checkable;
     QString m_themeName;
@@ -47,4 +50,4 @@ private:
 
 }
 
-#endif // QUICKSWITCHBUTTON_H
+#endif //

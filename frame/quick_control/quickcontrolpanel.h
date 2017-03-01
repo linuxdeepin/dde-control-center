@@ -53,6 +53,7 @@ private slots:
     void onBluetoothDeviceEnableChanged();
     void onBluetoothButtonClicked(const bool checked);
     void onBluetoothDeviceListChanged();
+    void onIndexChanged(const int index);
 
 private:
     QStackedLayout *m_itemStack;
@@ -67,6 +68,7 @@ private:
 
     dcc::QuickSwitchButton *m_wifiSwitch;
     dcc::QuickSwitchButton *m_btSwitch;
+    QList<dcc::QuickSwitchButton *> m_switchs;
 };
 
 #endif // QUICKCONTROLPANEL_H
