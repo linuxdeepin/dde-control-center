@@ -16,6 +16,7 @@
 
 class QPushButton;
 class QComboBox;
+class QLabel;
 
 namespace installer {
 class TimezoneMap;
@@ -52,6 +53,7 @@ private:
 
     installer::TimezoneMap *m_map;
     dcc::widgets::SearchInput *m_searchInput;
+    QLabel *m_title;
     QPushButton *m_cancelBtn;
     QPushButton *m_confirmBtn;
 };
