@@ -58,9 +58,9 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
     }
     case Qt::SizeHintRole:
         if (!info.info)
-            return QSize(0, 20);
+            return QSize(0, 24);
         else
-            return QSize(0, 30);
+            return QSize(0, 36);
     case ItemInfoRole:
         return info.info ? *info.info : QVariant();
     case ItemHoveredRole:
