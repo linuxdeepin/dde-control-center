@@ -35,8 +35,8 @@ public:
     void setAppBody(const QString &s);
     void setAppTime(const QString &s);
 
-signals:
-    void close();
+public slots:
+    void onClose();
 
 protected:
     virtual void enterEvent(QEvent *event);

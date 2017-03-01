@@ -16,6 +16,8 @@
 #include "notifyviewer.h"
 #include <QVBoxLayout>
 #include <QTime>
+#include <dimagebutton.h>
+#include <QList>
 
 class NotifyManager : public QWidget
 {
@@ -26,13 +28,19 @@ public:
 
 public slots:
     void setValue(QByteArray s);
-    void checkNotify();
+
+protected:
+    void paintEvent(QPaintEvent *e);
+
+private:
+    void onCloseAllItem();
 
 private:
     NotifyData *m_dataSource;
     Viewer *m_viewer;
-    QVBoxLayout *m_layout;
-    QLabel *m_emptyNotify;
+    QVBoxLayout *m_mainLayout;
+    DImageButton *m_clearButton;
+    QList<Viewer*> m_viewerList;
 };
 
 #endif // NOTIFYMANAGER_H

@@ -15,19 +15,22 @@
 NotifyManager::NotifyManager(QWidget *parent) : QWidget(parent) {
     m_dataSource = new NotifyData;
 
-    m_emptyNotify  = new QLabel(tr("No system notifications"));
+    m_mainLayout = new QVBoxLayout;
+    m_mainLayout->setMargin(0);
+    m_mainLayout->setSpacing(1);
 
-    m_layout = new QVBoxLayout;
-    m_layout->addStretch();
-    m_layout->addWidget(m_emptyNotify, 0, Qt::AlignCenter);
-    m_layout->addStretch();
-    m_layout->setDirection(QVBoxLayout::BottomToTop);
-    m_layout->setContentsMargins(0, 0, 0, 0);
-    m_layout->setSpacing(1);
-    m_layout->setMargin(0);
-    setLayout(m_layout);
+    m_clearButton = new DImageButton;
+    m_clearButton->setText(tr("Clear all"));
+
+    m_mainLayout->insertWidget(0, m_clearButton, 0, Qt::AlignHCenter);
+    m_mainLayout->addStretch();
+
+    setLayout(m_mainLayout);
+
+    m_clearButton->setVisible(false);
 
     connect(m_dataSource, &NotifyData::dataReceived, this, &NotifyManager::setValue);
+    connect(m_clearButton, &DImageButton::clicked, this, &NotifyManager::onCloseAllItem);
 }
 
 NotifyManager::~NotifyManager() {
@@ -35,7 +38,7 @@ NotifyManager::~NotifyManager() {
 }
 
 void NotifyManager::setValue(QByteArray s) {
-    m_emptyNotify->setVisible(false);
+    m_clearButton->setVisible(true);
     m_viewer = new Viewer(this);
     QJsonParseError json_error;
     QJsonDocument parse_doucment = QJsonDocument::fromJson(s, &json_error);
@@ -75,13 +78,30 @@ void NotifyManager::setValue(QByteArray s) {
     m_viewer->setContentsMargins(0, 0, 0, 0);
     m_viewer->setStyleSheet("Viewer {background-color: rgba(255, 255, 255, 0.03);}"
                             "Viewer:hover {background-color: rgba(254, 254, 254, 0.13);}");
-    m_layout->addWidget(m_viewer);
-    connect(m_viewer, &Viewer::destroyed, this, &NotifyManager::checkNotify);
+    m_mainLayout->insertWidget(1, m_viewer);
+    m_viewerList.append(m_viewer);
+    update();
 }
 
-void NotifyManager::checkNotify()
+void NotifyManager::paintEvent(QPaintEvent *e)
 {
-    if (m_layout->count() == 4) {
-        m_emptyNotify->setVisible(true);
+    if (m_viewerList.isEmpty()) {
+        QPainter painter(this);
+        QString s(tr("No system notifications"));
+        painter.drawText(rect(), Qt::AlignCenter, s);
+        m_clearButton->setVisible(false);
     }
+
+    QWidget::paintEvent(e);
+}
+
+void NotifyManager::onCloseAllItem()
+{
+    for (Viewer *viewer : m_viewerList) {
+        m_mainLayout->removeWidget(viewer);
+        viewer->onClose();
+        m_viewerList.removeOne(viewer);
+    }
+
+    update();
 }

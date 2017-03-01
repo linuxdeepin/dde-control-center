@@ -113,6 +113,11 @@ void Viewer::setAppTime(const QString &s) {
     m_time->setText(s);
 }
 
+void Viewer::onClose()
+{
+    m_close->clicked();
+}
+
 void Viewer::enterEvent(QEvent *) {
     m_close->setVisible(true);
     m_time->setVisible(false);
