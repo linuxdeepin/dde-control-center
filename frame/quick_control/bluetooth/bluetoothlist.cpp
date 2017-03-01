@@ -38,8 +38,11 @@ BluetoothList::BluetoothList(BluetoothModel *model, QWidget *parent)
 
 void BluetoothList::onItemClicked(const QModelIndex &index) const
 {
-    if (index.data(BluetoothListModel::ItemIsHeaderRole).toBool() || index.data(BluetoothListModel::ItemIsPowerOffRole).toBool())
+    if (index.data(BluetoothListModel::ItemIsHeaderRole).toBool() || index.data(BluetoothListModel::ItemIsPowerOffRole).toBool()) {
+        m_model->refreshData();
+        emit requestAdapterDiscoverable(index.data(BluetoothListModel::ItemAdapterRole).toString());
         return;
+    }
 
     if (index.data(BluetoothListModel::ItemIsSettingRole).toBool()) {
         emit requestConnectOther();

@@ -15,8 +15,12 @@
 BluetoothListModel::BluetoothListModel(BluetoothModel *model, QObject *parent)
     : QAbstractListModel(parent),
       m_bluetoothModel(model),
-      m_connectTimer(new QTimer)
+      m_connectTimer(new QTimer),
+      m_refreshTimer(new QTimer)
 {
+    m_refreshTimer->setSingleShot(false);
+    connect(m_refreshTimer, &QTimer::timeout, this, &BluetoothListModel::refershConnectAnimation);
+
     connect(m_connectTimer, &QTimer::timeout, this, &BluetoothListModel::refershConnectAnimation);
     connect(m_bluetoothModel, &BluetoothModel::adapterAdded, this, &BluetoothListModel::onAdapterAdded);
     connect(m_bluetoothModel, &BluetoothModel::adapterRemoved,this, &BluetoothListModel::onAdapterRemove);
@@ -85,7 +89,7 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
     case ItemIsHeaderRole:
         return info.device == nullptr && info.adapter != nullptr;
     case ItemAdapterRole:
-        return info.device->id();
+        return info.adapter->id();
     case ItemDeviceRole:
         return QVariant::fromValue(info);
     case ItemIsSettingRole:
@@ -96,6 +100,10 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
         return rowCount(QModelIndex()) == 1;
     case ItemTipsRole:
         return tr("Click icon to enable bluetooth");
+    case ItemLastRole:
+        return rowCount(QModelIndex()) - 2 == index.row();
+    case ItemRefreshRole:
+        return m_refreshTimer->isActive() && info.device == nullptr && info.adapter != nullptr;;
     default:;
     }
 
@@ -216,6 +224,13 @@ void BluetoothListModel::onAdapterPowerChanged(const bool powered)
     } else {
         onAdapterRemove(adapter);
     }
+}
+
+void BluetoothListModel::refreshData()
+{
+    m_refreshTimer->start();
+
+    QTimer::singleShot(5000, m_refreshTimer, &QTimer::stop);
 }
 
 void BluetoothListModel::onAdapterChanged()

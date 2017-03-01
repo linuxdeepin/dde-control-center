@@ -52,12 +52,27 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     else
         painter->drawText(option.rect.marginsRemoved(QMargins(34, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
 
+
+    const int x = option.rect.right() - 24;
+    const int y = option.rect.top() + (option.rect.height() - 16) / 2;
+
+    if (isHeader && !isSetting) {
+        const bool isRefresh = index.data(BluetoothListModel::ItemRefreshRole).toBool();
+
+        if (!isRefresh) {
+            QPen pen(QColor("#01bdff"));
+            painter->setPen(pen);
+            painter->drawText(QRect(option.rect.left(), option.rect.top(), option.rect.width() - 10, option.rect.height()), Qt::AlignVCenter | Qt::AlignRight, tr("Refresh"));
+        } else {
+            const quint64 index = QDateTime::currentMSecsSinceEpoch() / 20;
+            const QString pix = QString(":/frame/themes/dark/icons/dark_loading/loading_0%1.png").arg((index % 90), 2, 10, QChar('0'));
+            painter->drawPixmap(x, y, QPixmap(pix));
+        }
+    }
+
     if (!isHeader && !isSetting)
     {
         const bool connecting = index.data(BluetoothListModel::ItemConnectingRole).toBool();
-
-        const int x = option.rect.right() - 24;
-        const int y = option.rect.top() + (option.rect.height() - 16) / 2;
 
         // connecting , connected, no connect
         if (connecting) {

@@ -40,6 +40,7 @@ public slots:
     void disconnectDevice(const Device *device);
     void ignoreDevice(const Adapter *adapter, const Device *device);
     void setAlias(const Adapter *adapter, const QString &alias);
+    void setAdapterDiscoverable(const QString &path);
 
 private:
     void inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj);
@@ -54,9 +55,6 @@ private slots:
 
     void addDevice(const QString &json);
     void removeDevice(const QString &json);
-
-private:
-    void setAdapterDiscoverable(const QString &path);
 
 private:
     DBusBluetooth *m_bluetoothInter;

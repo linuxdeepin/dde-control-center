@@ -147,6 +147,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(bluetoothList, &BluetoothList::requestConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::connectDevice);
     connect(bluetoothList, &BluetoothList::requestDisConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::disconnectDevice);
     connect(bluetoothList, &BluetoothList::requestConnectOther,  [=] { emit requestPage("bluetooth", QString()); });
+    connect(bluetoothList, &BluetoothList::requestAdapterDiscoverable, m_bluetoothWorker, &bluetooth::BluetoothWorker::setAdapterDiscoverable);
 
     connect(m_itemStack, &QStackedLayout::currentChanged, this, &QuickControlPanel::onIndexChanged);
 

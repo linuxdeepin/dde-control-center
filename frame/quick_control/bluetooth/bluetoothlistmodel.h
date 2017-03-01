@@ -46,12 +46,15 @@ public:
         ItemIsSettingRole,
         ItemNextRole,
         ItemIsPowerOffRole,
-        ItemTipsRole
+        ItemTipsRole,
+        ItemLastRole,
+        ItemRefreshRole,
     };
 
     explicit BluetoothListModel(BluetoothModel *model, QObject *parent = 0);
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
+    void refreshData();
 
 public slots:
     void setCurrentHovered(const QModelIndex &index);
@@ -79,6 +82,7 @@ private:
     QModelIndex m_currentIndex;
     QTimer *m_connectTimer;
     QModelIndex m_activeIndex;
+    QTimer *m_refreshTimer;
 };
 
 Q_DECLARE_METATYPE(ItemInfo)

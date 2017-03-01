@@ -28,6 +28,7 @@ signals:
     void requestConnect(const Device *device) const;
     void requestDisConnect(const Device *device) const;
     void requestConnectOther() const;
+    void requestAdapterDiscoverable(const QString &id) const;
 
 private slots:
     void onItemClicked(const QModelIndex &index) const;
