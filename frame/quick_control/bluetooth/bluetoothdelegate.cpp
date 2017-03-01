@@ -50,7 +50,7 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
             // connecting , connected, no connect
             if (connecting) {
                 const quint64 index = QDateTime::currentMSecsSinceEpoch() / 20;
-                const QString pix = QString(":/frame/themes/dark/icons/spinner14/Spinner%1.png").arg((index % 91) + 1, 2, 10, QChar('0'));
+                const QString pix = QString(":/frame/themes/dark/icons/dark_loading/loading_0%1.png").arg((index % 90), 2, 10, QChar('0'));
                 painter->drawPixmap(x, y, QPixmap(pix));
             } else {
                 const bool state = index.data(BluetoothListModel::ItemConnectedRole).toBool();
