@@ -4,7 +4,7 @@
 #include "contentwidget.h"
 #include "settingsgroup.h"
 
-#include "inputitem.h"
+#include "titlebuttonItem.h"
 #include <QPushButton>
 
 #include "buttontuple.h"

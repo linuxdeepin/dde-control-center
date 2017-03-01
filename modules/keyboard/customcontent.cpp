@@ -2,12 +2,15 @@
 #include "keyboardcontrol.h"
 #include "keyboardwork.h"
 #include "shortcutmodel.h"
-#include "inputitem.h"
 #include "translucentframe.h"
 #include "keyboardmodel.h"
+#include "dimagebutton.h"
 #include <QMap>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QFileDialog>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc
 {
@@ -24,22 +27,33 @@ CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
     TranslucentFrame *widget = new TranslucentFrame();
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
+    layout->setSpacing(10);
 
     m_commandGroup = new SettingsGroup();
-    m_name = new InputItem();
+    m_name = new LineEditWidget();
     m_name->setTitle(tr("Name"));
 
-    m_command = new InputItem();
+    m_command = new LineEditWidget();
     m_command->setTitle(tr("Command"));
-    m_command->setChooseVisible(true);
     m_command->setPlaceholderText(tr("Required"));
-    connect(m_command, SIGNAL(click()), m_command, SLOT(onClick()));
+    QPushButton *pushbutton = new QPushButton("...");
+    pushbutton->setFixedWidth(50);
+    m_command->addRightWidget(pushbutton);
 
-    m_shortcut = new InputItem();
+    m_shortcut = new LineEditWidget();
     m_shortcut->setTitle(tr("Shortcut"));
-    m_shortcut->setChooseVisible(true);
     m_shortcut->setReadOnly(true);
-    m_shortcut->setRightText(tr("Please Grab Shortcut Again"));
+
+    QWidget *labelwidget = new QWidget;
+    QHBoxLayout *hlayout = new QHBoxLayout(labelwidget);
+    hlayout->setSpacing(0);
+    hlayout->setMargin(0);
+    DImageButton *label = new DImageButton;
+    label->setText(tr("Please Grab Shortcut Again"));
+    hlayout->addWidget(label);
+    hlayout->addSpacing(20);
+
+    m_shortcut->addRightWidget(labelwidget);
 
     m_commandGroup->appendItem(m_name);
     m_commandGroup->appendItem(m_command);
@@ -67,7 +81,8 @@ CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
 
     connect(cancel, SIGNAL(clicked()), this, SIGNAL(back()));
     connect(ok, SIGNAL(clicked()), this, SLOT(onShortcut()));
-    connect(m_shortcut, SIGNAL(click()), this, SLOT(onClick()));
+    connect(pushbutton, &QPushButton::clicked, this, &CustomContent::onOpenFile);
+    connect(label, &DImageButton::clicked, this, &CustomContent::onClick);
     connect(m_work, &KeyboardWork::KeyEvent, this, &CustomContent::onKeyEvent);
 }
 
@@ -108,9 +123,9 @@ void CustomContent::onShortcut()
     if (m_conflict) {
         QString key = m_conflict->accels;
         m_work->modifyShortcut(m_conflict, tr("null"));
-        m_work->addCustomShortcut(m_name->value(), m_command->value(), key, result);
+        m_work->addCustomShortcut(m_name->text(), m_command->text(), key, result);
     } else {
-        m_work->addCustomShortcut(m_name->value(), m_command->value(), m_shortcut->value(), result);
+        m_work->addCustomShortcut(m_name->text(), m_command->text(), m_shortcut->text(), result);
     }
 
     sendBackSignal();
@@ -123,7 +138,7 @@ void CustomContent::onKeyEvent(const bool state, const QString &keylist)
     in.replace(">", "-");
     in.replace("_L", "");
     QStringList value = in.split("-");
-    m_shortcut->setValue(keylist);
+    m_shortcut->setText(keylist);
     QMap<QString, bool> list;
     for (QString key : ModelKeylist) {
         QStringList t;
@@ -140,6 +155,12 @@ void CustomContent::onKeyEvent(const bool state, const QString &keylist)
     if (!state && !keylist.isEmpty()){
         emit shortcut(keylist);
     }
+}
+
+void CustomContent::onOpenFile()
+{
+    QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), tr("/usr/bin"));
+    m_command->setText(file);
 }
 
 }

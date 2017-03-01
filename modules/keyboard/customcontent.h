@@ -7,6 +7,7 @@
 #include <QPushButton>
 
 #include "buttontuple.h"
+#include "lineeditwidget.h"
 
 using namespace dcc;
 
@@ -35,12 +36,15 @@ public slots:
     void onShortcut();
     void onKeyEvent(const bool state, const QString &keylist);
 
+private slots:
+    void onOpenFile();
+
 private:
     KeyboardWork* m_work;
     SettingsGroup *m_commandGroup;
-    InputItem* m_name;
-    InputItem* m_command;
-    InputItem* m_shortcut;
+    LineEditWidget* m_name;
+    LineEditWidget* m_command;
+    LineEditWidget* m_shortcut;
     KeyboardControl* m_control;
     QLabel* m_bottomTip;
     ShortcutInfo* m_conflict;

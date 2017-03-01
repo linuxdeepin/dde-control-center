@@ -14,16 +14,26 @@ LineEditWidget::LineEditWidget(QFrame *parent)
     m_title->setFixedWidth(140);
     m_edit->setContextMenuPolicy(Qt::NoContextMenu);
 
-    QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->addSpacing(20);
-    mainLayout->addWidget(m_title);
-    mainLayout->addWidget(m_edit);
-    mainLayout->setSpacing(0);
-    mainLayout->setMargin(0);
+    m_mainLayout = new QHBoxLayout;
+    m_mainLayout->addSpacing(20);
+    m_mainLayout->addWidget(m_title);
+    m_mainLayout->addWidget(m_edit);
+    m_mainLayout->setSpacing(0);
+    m_mainLayout->setMargin(0);
 
-    setLayout(mainLayout);
+    setLayout(m_mainLayout);
     setObjectName("LineEditWidget");
     setFixedHeight(36);
+}
+
+void LineEditWidget::addRightWidget(QWidget *widget)
+{
+    m_mainLayout->addWidget(widget);
+}
+
+void LineEditWidget::setReadOnly(const bool state)
+{
+    m_edit->setReadOnly(state);
 }
 
 void LineEditWidget::setTitle(const QString &title)

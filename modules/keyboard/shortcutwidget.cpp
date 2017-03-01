@@ -3,6 +3,7 @@
 #include "settingshead.h"
 #include "shortcutmodel.h"
 #include "translucentframe.h"
+#include "settingsheaderitem.h"
 #include <QVBoxLayout>
 #include <QLineEdit>
 #include <QPushButton>
@@ -32,6 +33,7 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
     m_searchGroup = new SettingsGroup();
     m_search = new SearchInput();
 
+
     m_layout = new QVBoxLayout();
     m_layout->setMargin(0);
     m_layout->setSpacing(10);
@@ -44,6 +46,7 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
     m_addCustom = new QPushButton(tr("Add Custom Shortcut"));
 
     m_layout->addWidget(m_addCustom);
+    m_layout->addSpacing(20);
     m_widget->setLayout(m_layout);
 
     setContent(m_widget);

@@ -5,6 +5,7 @@
 
 #include <QLabel>
 #include <QLineEdit>
+#include <QHBoxLayout>
 
 namespace dcc {
 namespace widgets {
@@ -19,6 +20,8 @@ public:
     inline QLineEdit *textEdit() const { return m_edit; }
     inline QString text() const { return m_edit->text(); }
     void setTitleVisible(const bool visible) { m_title->setVisible(visible); }
+    void addRightWidget(QWidget *widget);
+    void setReadOnly(const bool state);
 
 public slots:
     void setTitle(const QString &title);
@@ -28,6 +31,7 @@ public slots:
 private:
     QLabel *m_title;
     QLineEdit *m_edit;
+    QHBoxLayout *m_mainLayout;
 };
 
 }
