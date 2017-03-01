@@ -16,7 +16,7 @@ SettingsHeaderItem::SettingsHeaderItem(QWidget *parent)
     m_mainLayout->addWidget(m_headerText);
     m_mainLayout->addStretch();
 
-    setFixedHeight(36);
+    setFixedHeight(24);
     m_mainLayout->setSpacing(0);
     m_mainLayout->setMargin(0);
 
