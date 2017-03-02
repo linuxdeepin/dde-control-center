@@ -29,6 +29,13 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     layout->addWidget(m_title);
     layout->setAlignment(m_title, Qt::AlignLeft);
 
+    m_editBtn = new DImageButton;
+    m_editBtn->setNormalPic(":/keyboard/themes/common/icons/edit_normal.png");
+    m_editBtn->setPressPic(":/keyboard/themes/common/icons/edit_press.png");
+    m_editBtn->setHoverPic(":/keyboard/themes/common/icons/edit_hover.png");
+    m_editBtn->hide();
+    layout->addWidget(m_editBtn, 1, Qt::AlignLeft);
+
     m_shortcutEdit = new QLineEdit(this);
     m_shortcutEdit->setReadOnly(true);
     m_shortcutEdit->hide();
@@ -53,6 +60,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     connect(m_inter, &KeybingdingInter::KeyEvent, this, &ShortcutItem::onKeyEvent);
     connect(m_checkBtn, SIGNAL(clicked()), this, SLOT(onChecked()));
     connect(qApp, SIGNAL(focusChanged(QWidget*,QWidget*)), this, SLOT(onFocusChanged(QWidget*,QWidget*)));
+    connect(m_editBtn, &DImageButton::clicked, this, &ShortcutItem::onShortcutEdit);
 }
 
 void ShortcutItem::setShortcutInfo(ShortcutInfo *info)
@@ -115,10 +123,12 @@ void ShortcutItem::onEditMode(bool value)
     if(value)
     {
         m_checkBtn->show();
+        m_editBtn->show();
     }
     else
     {
         m_checkBtn->hide();
+        m_editBtn->hide();
     }
     update();
 }
@@ -126,6 +136,11 @@ void ShortcutItem::onEditMode(bool value)
 void ShortcutItem::onChecked()
 {
     emit destroyed();
+}
+
+void ShortcutItem::onShortcutEdit()
+{
+    emit shortcutEditChanged(m_info);
 }
 
 void ShortcutItem::paintEvent(QPaintEvent *e)

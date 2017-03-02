@@ -33,12 +33,16 @@ public:
 signals:
     void shortcutChangd(bool valid, ShortcutInfo* info, const QString& shortcut);
     void requestDisableShortcut(ShortcutInfo* info);
+    void shortcutEditChanged(ShortcutInfo* info);
 
 public slots:
     void onFocusChanged(QWidget* old, QWidget *now);
     void onKeyEvent(bool press, QString shortcut);
     void onEditMode(bool value);
     void onChecked();
+
+private:
+    void onShortcutEdit();
 
 protected:
     void paintEvent(QPaintEvent *);
@@ -56,6 +60,7 @@ private:
     ShortcutInfo* m_info;
     KeybingdingInter* m_inter;
     DImageButton* m_checkBtn;
+    DImageButton* m_editBtn;
 };
 }
 }

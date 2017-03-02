@@ -14,5 +14,8 @@
         <file>themes/light/icons/select.png</file>
         <file>themes/common/icons/power.png</file>
         <file>themes/common/icons/super_key.png</file>
+        <file>themes/common/icons/edit_hover.png</file>
+        <file>themes/common/icons/edit_normal.png</file>
+        <file>themes/common/icons/edit_press.png</file>
     </qresource>
 </RCC>
