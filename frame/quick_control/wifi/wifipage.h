@@ -14,6 +14,7 @@ public:
     explicit WifiPage(dcc::network::NetworkModel *model, QWidget *parent = 0);
 
 signals:
+    void requestConnectHidden() const;
     void requestDeviceApList(const QString &devPath) const;
     void requestDeactivateConnection(const QString &uuid) const;
     void requestActivateAccessPoint(const QString &devPath, const QString &apPath, const QString &uuid) const;

@@ -38,7 +38,8 @@ int WifiListModel::rowCount(const QModelIndex &parent) const
         count += it.value().size() + 1;
     }
 
-    return count;
+    // +1 for "connect to hidden network"
+    return count + 1;
 }
 
 QVariant WifiListModel::data(const QModelIndex &index, int role) const
@@ -66,7 +67,7 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
     case ItemHoveredRole:
         return index == m_currentIndex;
     case ItemIsHeaderRole:
-        return info.info == nullptr;
+        return !info.info && info.device;
     case ItemIsActiveRole:
         return info.info && static_cast<const WirelessDevice *>(info.device)->activeApName() == info.info->value("Ssid").toString();
     case ItemIsActivatingRole:
@@ -77,6 +78,10 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
         return info.info ? info.info->value("Path") : QVariant();
     case ItemUuidRole:
         return info.info ? m_networkModel->connectionUuidByApInfo(info.device->hwAddr(), info.info->value("Ssid").toString()) : QVariant();
+    case ItemIsHiddenTipsRole:
+        return !info.info && !info.device;
+    case ItemHiddenTipsRole:
+        return tr("Connect to hidden network");
     default:;
     }
 
@@ -143,6 +148,8 @@ const ItemInfo WifiListModel::indexInfo(const int index) const
             r -= s;
         }
     }
+
+    info.device = nullptr;
 
     return info;
 }

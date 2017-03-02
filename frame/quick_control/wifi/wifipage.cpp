@@ -39,6 +39,12 @@ void WifiPage::onItemClicked(const QModelIndex &index)
     if (index.data(WifiListModel::ItemIsHeaderRole).toBool())
         return;
 
+    if (index.data(WifiListModel::ItemIsHiddenTipsRole).toBool())
+    {
+        emit requestConnectHidden();
+        return;
+    }
+
     const QString uuid = index.data(WifiListModel::ItemUuidRole).toString();
     if (index.data(WifiListModel::ItemIsActiveRole).toBool())
     {

@@ -22,6 +22,7 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
 
     const bool isHeader = index.data(WifiListModel::ItemIsHeaderRole).toBool();
     const bool isHovered = index.data(WifiListModel::ItemHoveredRole).toBool();
+    const bool isTips = index.data(WifiListModel::ItemIsHiddenTipsRole).toBool();
 
     if (isHovered && !isHeader)
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.1 * 255));
@@ -32,12 +33,14 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     QFont f(painter->font());
     f.setBold(isHeader);
     painter->setFont(f);
-    if (isHeader)
+    if (isTips)
+        painter->drawText(option.rect.marginsRemoved(QMargins(70, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(WifiListModel::ItemHiddenTipsRole).toString());
+    else if (isHeader)
         painter->drawText(option.rect.marginsRemoved(QMargins(10, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
     else
         painter->drawText(option.rect.marginsRemoved(QMargins(70, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
 
-    if (!isHeader)
+    if (!isHeader && !isTips)
     {
         const QJsonObject info = index.data(WifiListModel::ItemInfoRole).value<QJsonObject>();
         const bool isSecured = info.value("Secured").toBool();
