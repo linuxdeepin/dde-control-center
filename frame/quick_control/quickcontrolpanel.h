@@ -49,6 +49,7 @@ protected:
 private slots:
     void onNetworkDeviceEnableChanged();
     void onNetworkDeviceListChanged();
+    void onNetworkConnectionListChanged();
     void onWirelessButtonClicked();
     void onBluetoothDeviceEnableChanged();
     void onBluetoothButtonClicked(const bool checked);
@@ -65,9 +66,9 @@ private:
     dcc::bluetooth::BluetoothModel *m_bluetoothModel;
     dcc::bluetooth::BluetoothWorker *m_bluetoothWorker;
 
-
     dcc::QuickSwitchButton *m_wifiSwitch;
     dcc::QuickSwitchButton *m_btSwitch;
+    dcc::QuickSwitchButton *m_vpnSwitch;
     QList<dcc::QuickSwitchButton *> m_switchs;
 };
 

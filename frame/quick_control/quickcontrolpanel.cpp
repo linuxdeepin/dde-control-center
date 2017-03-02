@@ -57,15 +57,15 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_itemStack->addWidget(displayPage);
 
     m_btSwitch = new QuickSwitchButton(1, "bluetooth");
-    QuickSwitchButton *vpnSwitch = new QuickSwitchButton(2, "VPN");
+    m_vpnSwitch = new QuickSwitchButton(2, "VPN");
     m_wifiSwitch = new QuickSwitchButton(3, "wifi");
     QuickSwitchButton *displaySwitch = new QuickSwitchButton(4, "display");
     QuickSwitchButton *detailSwitch = new QuickSwitchButton(0, "all_settings");
 
     m_btSwitch->setObjectName("QuickSwitchBluetooth");
     m_btSwitch->setAccessibleName("QuickSwitchBluetooth");
-    vpnSwitch->setObjectName("QuickSwitchVPN");
-    vpnSwitch->setAccessibleName("QuickSwitchVPN");
+    m_vpnSwitch->setObjectName("QuickSwitchVPN");
+    m_vpnSwitch->setAccessibleName("QuickSwitchVPN");
     m_wifiSwitch->setObjectName("QuickSwitchWiFi");
     m_wifiSwitch->setAccessibleName("QuickSwitchWiFi");
     displaySwitch->setObjectName("QuickSwitchDisplay");
@@ -78,13 +78,13 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     m_switchs.append(detailSwitch);
     m_switchs.append(m_btSwitch);
-    m_switchs.append(vpnSwitch);
+    m_switchs.append(m_vpnSwitch);
     m_switchs.append(m_wifiSwitch);
     m_switchs.append(displaySwitch);
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addWidget(m_btSwitch);
-    btnsLayout->addWidget(vpnSwitch);
+    btnsLayout->addWidget(m_vpnSwitch);
     btnsLayout->addWidget(m_wifiSwitch);
     btnsLayout->addWidget(displaySwitch);
     btnsLayout->addWidget(detailSwitch);
@@ -100,14 +100,15 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     connect(m_btSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
-    connect(vpnSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
+    connect(m_vpnSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(m_wifiSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(displaySwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(detailSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(detailSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::requestDetailConfig);
 
-    connect(m_networkModel, &NetworkModel::vpnEnabledChanged, vpnSwitch, &QuickSwitchButton::setChecked);
-    connect(vpnSwitch, &QuickSwitchButton::checkedChanged, m_networkWorker, &NetworkWorker::setVpnEnable);
+    connect(m_networkModel, &NetworkModel::vpnEnabledChanged, m_vpnSwitch, &QuickSwitchButton::setChecked);
+    connect(m_networkModel, &NetworkModel::connectionListChanged, this, &QuickControlPanel::onNetworkConnectionListChanged);
+    connect(m_vpnSwitch, &QuickSwitchButton::checkedChanged, m_networkWorker, &NetworkWorker::setVpnEnable);
     connect(vpnPage, &VpnControlPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     connect(vpnPage, &VpnControlPage::requestDisconnect, m_networkWorker, &NetworkWorker::deactiveConnection);
 
@@ -135,9 +136,10 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(m_itemStack, &QStackedLayout::currentChanged, this, &QuickControlPanel::onIndexChanged);
 
     displaySwitch->setVisible(m_displayModel->monitorList().size() > 1);
-    vpnSwitch->setChecked(m_networkModel->vpnEnabled());
+    m_vpnSwitch->setChecked(m_networkModel->vpnEnabled());
     onNetworkDeviceEnableChanged();
     onNetworkDeviceListChanged();
+    onNetworkConnectionListChanged();
     onBluetoothDeviceEnableChanged();
     onBluetoothDeviceListChanged();
 }
@@ -175,6 +177,11 @@ void QuickControlPanel::onNetworkDeviceListChanged()
     }
 
     m_wifiSwitch->setVisible(false);
+}
+
+void QuickControlPanel::onNetworkConnectionListChanged()
+{
+    m_vpnSwitch->setVisible(m_networkModel->vpns().size());
 }
 
 void QuickControlPanel::onWirelessButtonClicked()
