@@ -73,7 +73,7 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
             if (isActived)
             {
                 if (isHovered)
-                    painter->drawPixmap(icon_x, y, QPixmap(":/frame/themes/dark/icons/remove.png"));
+                    painter->drawPixmap(icon_x, y, QPixmap(":/frame/themes/dark/icons/disconnect.png"));
                 else
                     painter->drawPixmap(icon_x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
             }

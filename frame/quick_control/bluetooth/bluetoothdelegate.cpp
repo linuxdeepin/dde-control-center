@@ -57,7 +57,7 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
                 if (state) {
                     // draw connected icon
                     if (isHovered)
-                        painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/remove.png"));
+                        painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/disconnect.png"));
                     else
                         painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
                 }
