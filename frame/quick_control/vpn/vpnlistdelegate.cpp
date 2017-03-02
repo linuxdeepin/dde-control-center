@@ -16,17 +16,11 @@ void VpnListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     painter->setBrush(Qt::red);
 
     if (index.data(VpnListModel::VpnItemHoveredRole).toBool())
-        painter->fillRect(option.rect, QColor(0, 0, 0, .6 * 255));
+        painter->fillRect(option.rect, QColor(255, 255, 255, 0.1 * 255));
 
     if (index.row())
     {
-        painter->setPen(QColor(255, 255, 255, 255 * .3));
-        painter->drawLine(QPoint(10, option.rect.top()), QPoint(option.rect.right() - 10, option.rect.top()));
-    }
-    else
-    {
-        painter->setPen(Qt::white);
-        painter->drawLine(QPoint(0, option.rect.top()), QPoint(option.rect.right(), option.rect.top()));
+        painter->fillRect(option.rect, QColor(255, 255, 255, 0.05 * 255));
     }
 
     painter->setPen(Qt::white);
