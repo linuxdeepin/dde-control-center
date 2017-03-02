@@ -12,12 +12,15 @@
 
 #include <QWidget>
 #include <QPaintEvent>
-class AvatarDel : public QWidget
+#include <DBlurEffectWidget>
+
+DWIDGET_USE_NAMESPACE
+
+class AvatarDel : public DBlurEffectWidget
 {
     Q_OBJECT
 public:
     explicit AvatarDel(QWidget *parent = 0);
-    void paintEvent(QPaintEvent *e);
 
 signals:
     void click();

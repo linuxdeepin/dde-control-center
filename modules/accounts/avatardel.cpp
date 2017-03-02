@@ -15,31 +15,28 @@
 
 DWIDGET_USE_NAMESPACE
 
-AvatarDel::AvatarDel(QWidget *parent) : QWidget(parent)
+AvatarDel::AvatarDel(QWidget *parent) : DBlurEffectWidget(parent)
 {
     setFixedSize(PIX_SIZE, PIX_SIZE);
     DImageButton *close = new DImageButton;
-    close->setText("X");
-    close->setStyleSheet("QLabel {color : black; }");
+    close->setNormalPic(":/accounts/themes/common/icons/avator_delete_normal.png");
+    close->setHoverPic(":/accounts/themes/common/icons/avator_delete_hover.png");
+    close->setPressPic(":/accounts/themes/common/icons/avator_delete_press.png");
+
     QVBoxLayout *mainlayout = new QVBoxLayout;
     mainlayout->setMargin(0);
     mainlayout->setSpacing(0);
-    mainlayout->addWidget(close, 0, Qt::AlignHCenter);
+    mainlayout->addWidget(close, 0, Qt::AlignCenter);
+    mainlayout->addSpacing(5);
     mainlayout->setAlignment(Qt::AlignBottom);
     setLayout(mainlayout);
     connect(close, &DImageButton::clicked, this, &AvatarDel::click);
-}
 
-void AvatarDel::paintEvent(QPaintEvent *e)
-{
+    setMaskColor(Qt::white);
+
     QPainterPath painterPath;
-    painterPath.addEllipse(rect());
+    painterPath.moveTo(width() /2, height()/1.5);
+    painterPath.arcTo(rect(),200, 140);
 
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
-    painter.setClipPath(painterPath);
-
-    painter.fillRect(0, height() / 1.5, width(), height(), Qt::white);
-
-    QWidget::paintEvent(e);
+    setMaskPath(painterPath);
 }
