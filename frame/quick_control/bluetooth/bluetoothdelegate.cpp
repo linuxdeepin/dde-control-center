@@ -64,7 +64,9 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
             }
             painter->fillRect(option.rect, QColor(255, 255, 255, 0.05 * 255));
 
-            if (!isHovered) {
+            const bool last = index.data(BluetoothListModel::ItemLastRole).toBool();
+
+            if (!isHovered && !last) {
                 QPen pen(QColor(255, 255, 255, 0.1 * 255));
                 QLineF line;
                 line.setP1(QPoint(option.rect.bottomLeft().x() + 10, option.rect.bottomLeft().y()));

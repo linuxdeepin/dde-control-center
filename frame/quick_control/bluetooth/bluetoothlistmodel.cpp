@@ -87,6 +87,8 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(info);
     case ItemIsSettingRole:
         return !info.adapter && !info.device;
+    case ItemLastRole:
+        return rowCount(QModelIndex()) - 2 == index.row();
     default:;
     }
 
