@@ -6,6 +6,8 @@
 #include <QFrame>
 #include <QDBusObjectPath>
 
+#include <dmpriscontrol.h>
+
 #include <com_deepin_daemon_audio.h>
 #include <com_deepin_daemon_audio_sink.h>
 #include <com_deepin_daemon_display.h>
@@ -80,6 +82,8 @@ private:
 
     BasicSettingsModel *m_model;
     BasicSettingsWorker *m_worker;
+
+    Dtk::Widget::DMPRISControl *m_mprisWidget;
 };
 
 }

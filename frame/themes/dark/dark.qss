@@ -62,3 +62,27 @@ QuickControlPanel dcc--widgets--BasicListView {
 dcc--BasicSettingsPage {
     background-color: rgba(255, 255, 255, .2);
 }
+
+Dtk--Widget--DMPRISControl #PrevBtn {
+    qproperty-normalPic: url(:/frame/themes/dark/icons/play_previous_normal.png);
+    qproperty-hoverPic: url(:/frame/themes/dark/icons/play_previous_hover.png);
+    qproperty-pressPic: url(:/frame/themes/dark/icons/play_previous_press.png);
+}
+
+Dtk--Widget--DMPRISControl #PauseBtn {
+    qproperty-normalPic: url(:/frame/themes/dark/icons/play_pause_normal.png);
+    qproperty-hoverPic: url(:/frame/themes/dark/icons/play_pause_hover.png);
+    qproperty-pressPic: url(:/frame/themes/dark/icons/play_pause_press.png);
+}
+
+Dtk--Widget--DMPRISControl #PlayBtn {
+    qproperty-normalPic: url(:/frame/themes/dark/icons/play__start_normal.png);
+    qproperty-hoverPic: url(:/frame/themes/dark/icons/play__start_hover.png);
+    qproperty-pressPic: url(:/frame/themes/dark/icons/play__start_press.png);
+}
+
+Dtk--Widget--DMPRISControl #NextBtn {
+    qproperty-normalPic: url(:/frame/themes/dark/icons/play_next_normal.png);
+    qproperty-hoverPic: url(:/frame/themes/dark/icons/play_next_hover.png);
+    qproperty-pressPic: url(:/frame/themes/dark/icons/play_next_press.png);
+}

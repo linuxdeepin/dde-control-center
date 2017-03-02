@@ -10,6 +10,8 @@ namespace dcc {
 
 static const int LeftRightMargin = 40;
 
+DWIDGET_USE_NAMESPACE
+
 BasicSettingsModel::BasicSettingsModel(QObject *parent) :
     QObject(parent),
     m_mute(false),
@@ -138,34 +140,34 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     m_lightSlider->setAccessibleName("LightSlider");
     m_lightSlider->setTracking(true);
 
+    m_mprisWidget = new DMPRISControl;
+
     QHBoxLayout *volumeLayout = new QHBoxLayout;
     volumeLayout->setMargin(0);
     volumeLayout->setSpacing(0);
-    volumeLayout->addSpacing(LeftRightMargin);
     volumeLayout->addWidget(m_volumeLow);
     volumeLayout->addSpacing(10);
     volumeLayout->addWidget(m_soundSlider);
     volumeLayout->addSpacing(10);
     volumeLayout->addWidget(m_volumeHigh);
-    volumeLayout->addSpacing(LeftRightMargin);
 
     QHBoxLayout *brightnessLayout = new QHBoxLayout;
     brightnessLayout->setMargin(0);
     brightnessLayout->setSpacing(0);
-    brightnessLayout->addSpacing(LeftRightMargin);
     brightnessLayout->addWidget(m_brightnessLow);
     brightnessLayout->addSpacing(10);
     brightnessLayout->addWidget(m_lightSlider);
     brightnessLayout->addSpacing(10);
     brightnessLayout->addWidget(m_brightnessHigh);
-    brightnessLayout->addSpacing(LeftRightMargin);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addStretch();
+    mainLayout->addWidget(m_mprisWidget);
     mainLayout->addLayout(volumeLayout);
     mainLayout->addSpacing(30);
     mainLayout->addLayout(brightnessLayout);
     mainLayout->addSpacing(40);
+    mainLayout->setContentsMargins(LeftRightMargin, 0, LeftRightMargin, 0);
     setLayout(mainLayout);
 
     auto onVolumeChanged = [this] (const double &volume) {
@@ -185,7 +187,10 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     connect(m_model, &BasicSettingsModel::muteChanged, this, &BasicSettingsPage::onMuteChanged);
     connect(m_model, &BasicSettingsModel::volumeChanged, this, onVolumeChanged);
     connect(m_model, &BasicSettingsModel::brightnessChanged, this, onBrightnessChanged);
+    connect(m_mprisWidget, &DMPRISControl::mprisAcquired, [=] { m_mprisWidget->setVisible(m_mprisWidget->isWorking()); });
+    connect(m_mprisWidget, &DMPRISControl::mprisLosted, [=] { m_mprisWidget->setVisible(m_mprisWidget->isWorking()); });
 
+    m_mprisWidget->setVisible(m_mprisWidget->isWorking());
     onVolumeChanged(m_model->volume());
     onBrightnessChanged(m_model->brightness());
     onMuteChanged(m_model->mute());
