@@ -12,6 +12,7 @@ DisplayWidget::DisplayWidget()
 
       m_resolution(new NextPageWidget),
       m_mySettings(new NextPageWidget),
+      m_brightnessSettings(new NextPageWidget),
       m_settingsGrp(new SettingsGroup),
       m_rotate(new QPushButton),
       m_custom(new QPushButton)
@@ -22,6 +23,7 @@ DisplayWidget::DisplayWidget()
     m_custom->setText(tr("Custom"));
 
     m_resolution->setTitle(tr("Resolution"));
+    m_brightnessSettings->setTitle(tr("Brightness"));
     m_mySettings->setTitle(tr("My Settings"));
 
     m_resolutionsGrp = new SettingsGroup;
@@ -30,13 +32,18 @@ DisplayWidget::DisplayWidget()
     m_settingsGrp = new SettingsGroup;
     m_settingsGrp->appendItem(m_mySettings);
 
+    SettingsGroup *brightnessGrp = new SettingsGroup;
+    brightnessGrp->appendItem(m_brightnessSettings);
+
     m_centralLayout->addWidget(m_resolutionsGrp);
     m_centralLayout->addWidget(m_rotate);
     m_centralLayout->addWidget(m_settingsGrp);
+    m_centralLayout->addWidget(brightnessGrp);
     m_centralLayout->addWidget(m_custom);
 
     setTitle(tr("Display"));
 
+    connect(m_brightnessSettings, &NextPageWidget::clicked, this, &DisplayWidget::showBrightnessPage);
     connect(m_resolution, &NextPageWidget::clicked, this, &DisplayWidget::showResolutionPage);
     connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
     connect(m_custom, &QPushButton::clicked, this, &DisplayWidget::requestCustom);

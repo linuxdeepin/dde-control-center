@@ -12,7 +12,9 @@ HEADERS += \
     $$PWD/monitorcontrolwidget.h \
     $$PWD/recognizedialog.h \
     $$PWD/monitorsground.h \
-    $$PWD/monitorproxywidget.h
+    $$PWD/monitorproxywidget.h \
+    $$PWD/brightnesspage.h \
+    $$PWD/brightnessitem.h
 
 SOURCES += \
     $$PWD/displaymodule.cpp \
@@ -28,7 +30,9 @@ SOURCES += \
     $$PWD/monitorcontrolwidget.cpp \
     $$PWD/recognizedialog.cpp \
     $$PWD/monitorsground.cpp \
-    $$PWD/monitorproxywidget.cpp
+    $$PWD/monitorproxywidget.cpp \
+    $$PWD/brightnesspage.cpp \
+    $$PWD/brightnessitem.cpp
 
 #INCLUDEPATH += $$PWD/..
 

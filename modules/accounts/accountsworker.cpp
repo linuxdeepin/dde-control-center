@@ -213,6 +213,7 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     if (reply.isError()) {
         result->setType(CreationResult::UserNameError);
         result->setMessage(reply.error().message());
+
         return result;
     }
     bool validation = reply.argumentAt(0).toBool();

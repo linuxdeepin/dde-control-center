@@ -7,6 +7,7 @@
 #include "recognizedialog.h"
 #include "displaymodel.h"
 #include "displayworker.h"
+#include "brightnesspage.h"
 
 using namespace dcc;
 using namespace dcc::display;
@@ -26,6 +27,16 @@ DisplayModule::~DisplayModule()
 {
     m_displayModel->deleteLater();
     m_displayWorker->deleteLater();
+}
+
+void DisplayModule::showBrightnessPage()
+{
+    BrightnessPage *page = new BrightnessPage;
+
+    page->setModel(m_displayModel);
+    connect(page, &BrightnessPage::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
+
+    m_frameProxy->pushWidget(this, page);
 }
 
 void DisplayModule::showResolutionDetailPage()
@@ -83,6 +94,7 @@ ModuleWidget *DisplayModule::moduleWidget()
     m_displayWidget = new DisplayWidget;
     m_displayWidget->setModel(m_displayModel);
     connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
+    connect(m_displayWidget, &DisplayWidget::showBrightnessPage, this, &DisplayModule::showBrightnessPage);
     connect(m_displayWidget, &DisplayWidget::requestRotate, [=] { showRotate(m_displayModel->primaryMonitor()); });
     connect(m_displayWidget, &DisplayWidget::requestCustom, this, &DisplayModule::showCustomSettings);
 
@@ -109,7 +121,7 @@ void DisplayModule::showCustomSettings()
     connect(&dialog, &MonitorSettingDialog::requestSplit, m_displayWorker, &DisplayWorker::splitScreens);
     connect(&dialog, &MonitorSettingDialog::requestSetPrimary, m_displayWorker, &DisplayWorker::setPrimary);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorMode, m_displayWorker, &DisplayWorker::setMonitorResolution);
-    connect(&dialog, &MonitorSettingDialog::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
+//    connect(&dialog, &MonitorSettingDialog::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorPosition, m_displayWorker, &DisplayWorker::setMonitorPosition);
     connect(&dialog, &MonitorSettingDialog::requestRecognize, this, &DisplayModule::showRecognize);
     connect(&dialog, &MonitorSettingDialog::requestMonitorRotate, this, &DisplayModule::showRotate);

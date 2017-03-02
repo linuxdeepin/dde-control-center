@@ -40,7 +40,7 @@ signals:
     void requestSetPrimary(const int index) const;
     void requestMonitorRotate(Monitor *mon) const;
     void requestSetMonitorMode(Monitor *mon, const int mode) const;
-    void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
+//    void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
     void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
 
 private:
@@ -59,11 +59,11 @@ private slots:
     void onPrimaryChanged();
     void onMonitorRectChanged();
     void onMonitorModeChanged();
-    void onMonitorBrightnessChanegd(const double brightness);
+//    void onMonitorBrightnessChanegd(const double brightness);
     void onMonitorModeSelected(const int index);
     void onRotateBtnClicked();
 
-    void onBrightnessSliderChanged(const int value);
+//    void onBrightnessSliderChanged(const int value);
 
 private:
     bool m_primary;
@@ -75,7 +75,7 @@ private:
 
     QLabel *m_monitorName;
     Dtk::Widget::DImageButton *m_rotateBtn;
-    dcc::widgets::DCCSlider *m_lightSlider;
+//    dcc::widgets::DCCSlider *m_lightSlider;
 //    SettingsListWidget *m_resolutionsWidget;
     SettingsListWidget *m_primarySettingsWidget;
     MonitorControlWidget *m_ctrlWidget;

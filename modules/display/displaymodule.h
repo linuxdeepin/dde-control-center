@@ -21,6 +21,7 @@ public:
     ~DisplayModule();
 
 private slots:
+    void showBrightnessPage();
     void showResolutionDetailPage();
     void showCustomSettings();
     void showRecognize();
