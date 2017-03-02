@@ -1,11 +1,12 @@
 #include "accountsworker.h"
+#include "user.h"
 
 #include <QFileDialog>
 #include <QtConcurrent>
 #include <QFutureWatcher>
 #include <QStandardPaths>
 
-#include "user.h"
+#include <libintl.h>
 
 using namespace dcc::accounts;
 
@@ -219,7 +220,7 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     bool validation = reply.argumentAt(0).toBool();
     if (!validation) {
         result->setType(CreationResult::UserNameError);
-        result->setMessage(reply.argumentAt(1).toString());
+        result->setMessage(dgettext("dde-daemon", reply.argumentAt(1).toString().toUtf8().data()));
         return result;
     }
 
