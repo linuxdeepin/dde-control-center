@@ -27,6 +27,7 @@ public:
     void setShortcutInfo(ShortcutInfo* info);
     void displayConflict(bool display = false);
     ShortcutInfo* curInfo();
+    void setShortcutEditMode(const bool state);
 
     void setChecked(bool checked);
 
@@ -57,6 +58,7 @@ private:
     bool m_contain;
     bool m_display;
     bool m_checked;
+    bool m_editState = true;
     ShortcutInfo* m_info;
     KeybingdingInter* m_inter;
     DImageButton* m_checkBtn;

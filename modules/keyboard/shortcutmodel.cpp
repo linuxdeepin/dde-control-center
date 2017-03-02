@@ -171,6 +171,7 @@ void ShortcutModel::onParseInfo(const QString &info)
 
             info->name = obj["Name"].toString();
             info->id = obj["Id"].toString();
+            info->command = obj["Exec"].toString();
             m_infos.append(info);
             m_customInfos.append(info);
         }
@@ -195,6 +196,7 @@ void ShortcutModel::onCustomInfo(const QString &json)
 
     info->name = obj["Name"].toString();
     info->id = obj["Id"].toString();
+    info->command = obj["Exec"].toString();
     m_infos.append(info);
     m_customInfos.append(info);
     emit addCustomInfo(info);

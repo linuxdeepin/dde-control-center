@@ -16,6 +16,7 @@ struct ShortcutInfo
     QString accels;
     QString id;
     QString name;
+    QString command;
     quint32 type;
     ShortcutItem* item;
 

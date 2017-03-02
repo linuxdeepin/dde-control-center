@@ -190,6 +190,13 @@ void KeyboardWork::modifyShortcut(ShortcutInfo *info, const QString &key, bool c
     }
 }
 
+void KeyboardWork::modifyShortcutEdit(ShortcutInfo *info)
+{
+    if (!info)
+        return;
+    m_keybindInter->ModifyCustomShortcut(info->id, info->name, info->command, info->accels);
+}
+
 void KeyboardWork::addCustomShortcut(const QString &name, const QString &command, const QString &accels, bool &result)
 {
     if (accels.isEmpty())

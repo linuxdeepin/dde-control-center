@@ -80,6 +80,11 @@ ShortcutInfo *ShortcutItem::curInfo()
     return m_info;
 }
 
+void ShortcutItem::setShortcutEditMode(const bool state)
+{
+    m_editState = state;
+}
+
 void ShortcutItem::onFocusChanged(QWidget *old, QWidget *now)
 {
     if(!old && now != m_shortcutEdit)
@@ -213,6 +218,9 @@ void ShortcutItem::paintEvent(QPaintEvent *e)
 void ShortcutItem::mousePressEvent(QMouseEvent *e)
 {
     Q_UNUSED(e);
+
+    if (!m_editState)
+        return;
 
     if(!m_shortcutEdit->isVisible() && m_rect.contains(e->pos()))
     {

@@ -1,6 +1,7 @@
 #include "keyboardmodule.h"
 #include "keyitem.h"
 #include "keyboardmodel.h"
+#include "customedit.h"
 
 namespace dcc {
 namespace keyboard{
@@ -249,7 +250,7 @@ void KeyboardModule::onPushShortcut()
         connect(m_shortcutWidget, SIGNAL(delShortcutInfo(ShortcutInfo*)), this, SLOT(onDelShortcut(ShortcutInfo*)));
         connect(m_work, SIGNAL(searchChangd(ShortcutInfo*,QString)), m_shortcutWidget, SLOT(onSearchInfo(ShortcutInfo*,QString)));
         connect(m_shortcutWidget, &ShortcutWidget::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
-
+        connect(m_shortcutWidget, &ShortcutWidget::shortcutEditChanged, this, &KeyboardModule::onShortcutEdit);
 
     }
     m_frameProxy->pushWidget(this, m_shortcutWidget);
@@ -437,6 +438,14 @@ void KeyboardModule::onDelay(int value)
 void KeyboardModule::onSpeed(int value)
 {
     m_work->setRepeatInterval(value);
+}
+
+void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
+{
+    CustomEdit *w = new CustomEdit(m_work);
+    w->setShortcut(info);
+
+    m_frameProxy->pushWidget(this, w);
 }
 
 void KeyboardModule::setCapsLock(bool value)

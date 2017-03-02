@@ -34,6 +34,7 @@ signals:
     void customShortcut();
     void delShortcutInfo(ShortcutInfo* info);
     void requestDisableShortcut(ShortcutInfo* info);
+    void shortcutEditChanged(ShortcutInfo* info);
 
 public slots:
     void onSearch(const QString &text);

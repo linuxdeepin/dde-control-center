@@ -37,6 +37,7 @@ public:
     QStringList userLayout() const;
     KeyboardLayoutList layoutLists() const;
     void modifyShortcut(ShortcutInfo* info, const QString& key, bool clear = false);
+    void modifyShortcutEdit(ShortcutInfo* info);
     void addCustomShortcut(const QString& name, const QString& command, const QString& accels, bool &result);
 
     void grabScreen();

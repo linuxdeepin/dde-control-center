@@ -59,6 +59,8 @@ public slots:
     void onDelay(int value);
     void onSpeed(int value);
 
+    void onShortcutEdit(ShortcutInfo* info);
+
 private:
     ~KeyboardModule();
 

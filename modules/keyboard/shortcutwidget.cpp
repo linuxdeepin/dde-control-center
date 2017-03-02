@@ -140,6 +140,7 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
             m_customGroup->appendItem(item);
             m_customList.append(item);
             connect(item, SIGNAL(destroyed(QObject*)),this, SLOT(onDestroyItem(QObject*)));
+            connect(item, &ShortcutItem::shortcutEditChanged, this, &ShortcutWidget::shortcutEditChanged);
         }
     }
 }
@@ -208,6 +209,7 @@ void ShortcutWidget::onCustomAdded(ShortcutInfo *info)
        m_customGroup->appendItem(item);
        m_customList.append(item);
        connect(item, SIGNAL(destroyed(QObject*)),this, SLOT(onDestroyItem(QObject*)));
+       connect(item, &ShortcutItem::shortcutEditChanged, this, &ShortcutWidget::shortcutEditChanged);
    }
 }
 

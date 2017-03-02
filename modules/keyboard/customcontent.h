@@ -16,7 +16,6 @@ namespace keyboard{
 
 class KeyboardWork;
 struct ShortcutInfo;
-class InputItem;
 
 class CustomContent  : public ContentWidget
 {
