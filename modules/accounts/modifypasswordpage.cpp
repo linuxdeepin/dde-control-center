@@ -24,6 +24,9 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     m_pwdEditRepeat->textEdit()->setEchoMode(QLineEdit::Password);
     m_pwdEditRepeat->setTitle(tr("Repeat Password"));
 
+    m_pwdEdit->setPlaceholderText(tr("Rquired"));
+    m_pwdEditRepeat->setPlaceholderText(tr("Rquired"));
+
     QPushButton *cancel = m_buttonTuple->leftButton();
     QPushButton *accept = m_buttonTuple->rightButton();
     cancel->setText(tr("Cancel"));
