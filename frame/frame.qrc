@@ -230,5 +230,6 @@
         <file>themes/dark/icons/play_previous_hover.png</file>
         <file>themes/dark/icons/play_previous_normal.png</file>
         <file>themes/dark/icons/play_previous_press.png</file>
+        <file>themes/dark/icons/disconnect.png</file>
     </qresource>
 </RCC>
