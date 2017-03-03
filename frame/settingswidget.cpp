@@ -228,11 +228,11 @@ void SettingsWidget::ensureModuleVisible(const QString &moduleName)
 void SettingsWidget::toggleView()
 {
     if (sender() == m_navgationBtn)
-        m_navWidget->move(m_navWidget->x(), 50);
+        m_navWidget->move(m_navWidget->x(), 60);
     else
     {
         const int y = mapFromGlobal(QCursor::pos()).y() - 256;
-        m_navWidget->move(m_navWidget->x(), std::min(std::max(50, y), height() - 500));
+        m_navWidget->move(m_navWidget->x(), std::min(std::max(60, y), height() - 500));
     }
 
     if (m_settingsWidget->isVisible())
