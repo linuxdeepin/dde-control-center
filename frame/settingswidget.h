@@ -41,6 +41,7 @@ private slots:
     void refershModuleActivable();
     void resetAllSettings();
     void onNavItemClicked(const QModelIndex &index);
+    void onNavItemEntered(const QModelIndex &index);
 
 private:
     ~SettingsWidget();
@@ -53,6 +54,8 @@ private:
     TranslucentFrame *m_settingsWidget;
     NavgationView *m_navView;
     NavgationModel *m_navModel;
+    QLabel *m_navTips;
+    QWidget *m_navWidget;
 
     QList<ModuleInterface *> m_moduleInterfaces;
     QMap<ModuleInterface *, bool> m_moduleActivable;

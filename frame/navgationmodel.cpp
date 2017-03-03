@@ -67,7 +67,7 @@ QVariant NavgationModel::data(const QModelIndex &index, int role) const
     switch (role)
     {
     case Qt::DisplayRole:   return m_items[index.row()];
-    case Qt::SizeHintRole:  return QSize(100, 90);
+    case Qt::SizeHintRole:  return QSize(110, 90);
     default:;
     }
 

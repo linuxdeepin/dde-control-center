@@ -45,6 +45,11 @@ ModuleWidget::ModuleWidget()
     });
 }
 
+const QString ModuleWidget::title() const
+{
+    return m_moduleTitle->text();
+}
+
 void ModuleWidget::setTitle(const QString &title)
 {
     m_moduleTitle->setText(title);

@@ -78,13 +78,35 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     m_settingsWidget->setLayout(m_settingsLayout);
 
+    m_navTips = new NormalLabel;
+    m_navTips->setAlignment(Qt::AlignCenter);
+    // view item width
+    m_navTips->setFixedWidth(110 * 3 + 2);
+#ifdef QT_DEBUG
+    m_navTips->setText("Nav Title");
+    m_navTips->setStyleSheet("background-color: red;");
+#endif
+
     m_navView = new NavgationView;
     m_navView->setItemDelegate(new NavgationDelegate);
     m_navView->setModel(m_navModel);
-    m_navView->setParent(this);
-    m_navView->move(28, 0);
-    m_navView->setFixedSize(FRAME_WIDTH, 600);
-    m_navView->setVisible(false);
+//    m_navView->setParent(this);
+//    m_navView->move(14, 0);
+//    m_navView->setFixedSize(FRAME_WIDTH, 600);
+//    m_navView->setVisible(false);
+
+    QVBoxLayout *navLayout = new QVBoxLayout;
+    navLayout->addWidget(m_navTips);
+    navLayout->addSpacing(10);
+    navLayout->addWidget(m_navView);
+    navLayout->setSpacing(0);
+    navLayout->setMargin(0);
+
+    m_navWidget = new TranslucentFrame(this);
+    m_navWidget->setLayout(navLayout);
+    m_navWidget->setFixedSize(FRAME_WIDTH, 600);
+    m_navWidget->move(14, 0);
+    m_navWidget->setVisible(false);
 
     setContent(m_settingsWidget);
     setTitle(tr("All Settings"));
@@ -93,6 +115,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     m_refershModuleActivableTimer->setInterval(500);
 
     connect(m_navView, &NavgationView::clicked, this, &SettingsWidget::toggleView);
+    connect(m_navView, &NavgationView::entered, this, &SettingsWidget::onNavItemEntered);
     connect(m_navView, &NavgationView::clicked, this, &SettingsWidget::onNavItemClicked, Qt::QueuedConnection);
     connect(m_navgationBtn, &DImageButton::clicked, this, &SettingsWidget::toggleView);
     connect(m_resetBtn, &QPushButton::clicked, this, &SettingsWidget::resetAllSettings);
@@ -205,19 +228,19 @@ void SettingsWidget::ensureModuleVisible(const QString &moduleName)
 void SettingsWidget::toggleView()
 {
     if (sender() == m_navgationBtn)
-        m_navView->move(m_navView->x(), 50);
+        m_navWidget->move(m_navWidget->x(), 50);
     else
     {
         const int y = mapFromGlobal(QCursor::pos()).y() - 256;
-        m_navView->move(m_navView->x(), std::min(std::max(50, y), height() - 500));
+        m_navWidget->move(m_navWidget->x(), std::min(std::max(50, y), height() - 500));
     }
 
     if (m_settingsWidget->isVisible())
     {
-        m_navView->setVisible(true);
+        m_navWidget->setVisible(true);
         m_settingsWidget->setVisible(false);
     } else {
-        m_navView->setVisible(false);
+        m_navWidget->setVisible(false);
         m_settingsWidget->setVisible(true);
     }
 }
@@ -306,6 +329,26 @@ void SettingsWidget::resetAllSettings()
 void SettingsWidget::onNavItemClicked(const QModelIndex &index)
 {
     showModulePage(index.data().toString(), QString());
+}
+
+// TODO:
+void SettingsWidget::onNavItemEntered(const QModelIndex &index)
+{
+    const QString name = index.data().toString();
+    ModuleInterface *inter = nullptr;
+
+    for (auto *it : m_moduleInterfaces)
+    {
+        if (it->name() == name)
+        {
+            inter = it;
+            break;
+        }
+    }
+
+    Q_ASSERT(inter);
+
+    m_navTips->setText(inter->moduleWidget()->title());
 }
 
 SettingsWidget::~SettingsWidget()

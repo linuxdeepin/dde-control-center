@@ -21,6 +21,7 @@ class ModuleWidget : public QWidget
 
 public:
     explicit ModuleWidget();
+    const QString title() const;
     void setTitle(const QString &title);
 
 signals:
