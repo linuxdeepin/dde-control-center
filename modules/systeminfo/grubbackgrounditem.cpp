@@ -3,6 +3,7 @@
 #include <QPainter>
 #include <QDragEnterEvent>
 #include <QDragLeaveEvent>
+#include <QRect>
 
 namespace dcc{
 namespace systeminfo{
@@ -24,10 +25,25 @@ GrubBackgroundItem::GrubBackgroundItem(QFrame *parent)
 void GrubBackgroundItem::paintEvent(QPaintEvent *e)
 {
     if(!m_background.isNull()){
-        QPainter pa(this);
-        pa.drawPixmap(rect(), m_background);
+        QPainter painter(this);
+        painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
+        int arcR = 5;
+        QRect rect = this->rect();
+        QPainterPath path;
+        path.moveTo(arcR, 0);
+        path.arcTo(0, 0, arcR * 2, arcR * 2, 90.0f, 90.0f);
+        path.lineTo(0, rect.height());
+        path.lineTo(rect.width(), rect.height());
+        path.lineTo(rect.width(), arcR);
+        path.arcTo(rect.width() - arcR * 2, 0, arcR * 2, arcR * 2, 0.0f, 90.0f);
+        path.lineTo(arcR, 0);
+        painter.save();
+        painter.setClipPath(path);
+        painter.drawPixmap(this->rect(), m_background);
+        painter.restore();
+        painter.end();
         if(m_isDrop){
-            pa.fillRect(rect(), QColor(0, 0, 0, 100));
+            painter.fillRect(this->rect(), QColor(0, 0, 0, 100));
         }
     }
 

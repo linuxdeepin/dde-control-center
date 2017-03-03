@@ -33,7 +33,7 @@ BootWidget::BootWidget(QWidget *parent)
     m_updatingLabel = new TipsLabel(tr("Updating..."));
     m_updatingLabel->setVisible(false);
 
-    listLayout->addSpacing(20);
+    listLayout->addSpacing(10);
     listLayout->addWidget(m_bootList, 0, Qt::AlignHCenter);
     listLayout->addStretch();
     listLayout->addWidget(m_updatingLabel, 0, Qt::AlignHCenter);
@@ -49,13 +49,13 @@ BootWidget::BootWidget(QWidget *parent)
     TipsLabel *label = new TipsLabel(tr("The boot image can be replaced by dragging one to it, "
                                         "and the boot order can be changed by dragging the highlight"));
     label->setWordWrap(true);
-    label->setMargin(10);
 
     group->appendItem(background);
     group->appendItem(m_boot);
     group->appendItem(m_theme);
 
     layout->addWidget(group);
+    layout->addSpacing(8);
     layout->addWidget(label);
     layout->addStretch();
 
