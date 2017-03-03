@@ -3,7 +3,7 @@
 #include <QVBoxLayout>
 
 #include "labels/normallabel.h"
-#include "labels/smalllabel.h"
+#include "labels/tipslabel.h"
 
 using namespace dcc::widgets;
 
@@ -13,9 +13,11 @@ namespace update {
 SummaryItem::SummaryItem(QFrame *parent)
     :SettingsItem(parent),
       m_title(new NormalLabel),
-      m_details(new SmallLabel)
+      m_details(new TipsLabel)
 {
     setFixedHeight(36 * 3);
+
+    m_title->setObjectName("UpdateSummary");
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setMargin(0);

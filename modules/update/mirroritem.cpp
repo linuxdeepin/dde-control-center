@@ -7,7 +7,7 @@ namespace dcc{
 namespace update{
 MirrorItem::MirrorItem(QFrame *parent)
     :SettingsItem(parent),
-      m_selectedBtn(new DImageButton),
+      m_selectedBtn(new DImageButton(this)),
       m_mirrorName(new SmallLabel),
       m_mirrorSpeed(new SmallLabel)
 {
@@ -16,6 +16,7 @@ MirrorItem::MirrorItem(QFrame *parent)
     m_mirrorName->setWordWrap(true);
 
     m_selectedBtn->setObjectName("DCC-Update-MirrorItem-SelectedBtn");
+    m_selectedBtn->setFixedSize(16, 16);
     m_selectedBtn->setVisible(false);
 
     m_layout = new QHBoxLayout;
@@ -24,7 +25,6 @@ MirrorItem::MirrorItem(QFrame *parent)
     m_layout->setContentsMargins(20, 10, 20, 10);
     m_layout->addWidget(m_mirrorName);
     m_layout->addStretch();
-    m_layout->addWidget(m_selectedBtn);
     m_layout->addWidget(m_mirrorSpeed);
 
     setLayout(m_layout);
@@ -72,6 +72,9 @@ void MirrorItem::resizeEvent(QResizeEvent *event)
     // 30 left for spacing and the checked icon.
     m_mirrorName->setFixedWidth(event->size().width() - margins.left() - margins.right() - fm.width(m_mirrorSpeed->text()) - 30);
 
+    m_selectedBtn->move(event->size().width() - margins.right() - calcSpeedTextWidth() - m_selectedBtn->width() - 10,
+                        (event->size().height() - m_selectedBtn->height()) / 2);
+
     QFrame::resizeEvent(event);
 }
 
@@ -80,6 +83,12 @@ void MirrorItem::mouseReleaseEvent(QMouseEvent *e)
     emit clicked(this);
 
     QFrame::mouseReleaseEvent(e);
+}
+
+int MirrorItem::calcSpeedTextWidth() const
+{
+    QFontMetrics fm = m_mirrorSpeed->fontMetrics();
+    return qMax(fm.width(tr("Timeout")), qMax(fm.width(tr("Slow")), qMax(fm.width(tr("Medium")), fm.width(tr("Fast")))));
 }
 
 }

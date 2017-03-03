@@ -36,7 +36,7 @@ UpdateItem::UpdateItem(QFrame *parent)
     m_appChangelog->setAlignment(Qt::AlignTop);
 
     m_details = new QPushButton;
-    m_details->setObjectName("DCC-Update-UpdateItem-Details");
+    m_details->setFlat(true);
     m_details->setText(tr("Details"));
 
     QHBoxLayout* logLayout = new QHBoxLayout;

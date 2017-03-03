@@ -6,3 +6,13 @@ QLabel#ModuleHeaderIconUpdate {
 Dtk--Widget--DImageButton#DCC-Update-MirrorItem-SelectedBtn{
     qproperty-normalPic: url(:/update/themes/light/icons/select.png);
 }
+
+dcc--update--DownloadProgressBar {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+dcc--widgets--NormalLabel#UpdateSummary {
+    font-weight: 500;
+}

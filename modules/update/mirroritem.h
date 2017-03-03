@@ -54,6 +54,8 @@ private:
     SmallLabel *m_mirrorSpeed;
 
     QHBoxLayout *m_layout;
+
+    int calcSpeedTextWidth() const;
 };
 
 }

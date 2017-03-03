@@ -6,7 +6,7 @@
 namespace dcc {
 namespace widgets {
 class NormalLabel;
-class SmallLabel;
+class TipsLabel;
 }
 }
 
@@ -25,7 +25,7 @@ public:
 
 private:
     dcc::widgets::NormalLabel *m_title;
-    dcc::widgets::SmallLabel *m_details;
+    dcc::widgets::TipsLabel *m_details;
 };
 
 }

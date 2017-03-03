@@ -6,9 +6,12 @@ Dtk--Widget--DImageButton#DCC-Update-MirrorItem-SelectedBtn{
     qproperty-normalPic: url(:/update/themes/dark/icons/select.png);
 }
 
-QPushButton#DCC-Update-UpdateItem-Details{
-    color:blue;
-    border:none;
-    border-width:4px 8px 4px 8px;
-    background-color:transparent;
+dcc--update--DownloadProgressBar {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+dcc--widgets--NormalLabel#UpdateSummary {
+    font-weight: 500;
 }

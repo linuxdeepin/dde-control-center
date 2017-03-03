@@ -43,6 +43,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
 
     layout->addWidget(m_checkGroup);
     layout->addWidget(m_progress);
+    layout->addSpacing(10);
     layout->addWidget(m_summaryGroup);
     layout->addWidget(m_powerTip);
     layout->addStretch();
