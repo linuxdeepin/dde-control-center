@@ -47,6 +47,7 @@ RemoveUserDialog::RemoveUserDialog(const User *user, QWidget *parent) :
 
     QCheckBox *box = new QCheckBox(tr("Delete account directory"));
     box->setChecked(true);
+    box->setAccessibleName("Delete_Account_Checkbox");
     addContent(box, Qt::AlignTop);
 
     QStringList buttons;

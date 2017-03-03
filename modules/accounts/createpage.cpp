@@ -119,6 +119,9 @@ void CreatePage::setCreationResult(CreationResult *result)
 
 void CreatePage::createUser()
 {
+    if (m_username->text().isEmpty())
+        return showUsernameErrorTip(tr("Username can't be empty."));
+
     if (m_password->text().isEmpty())
         return showPasswordEmptyErrorTip(tr("Password can't be empty."));
 
