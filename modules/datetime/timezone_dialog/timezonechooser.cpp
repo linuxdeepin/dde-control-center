@@ -23,6 +23,8 @@
 #include <QDesktopWidget>
 #include <QLabel>
 
+#include <dplatformwindowhandle.h>
+
 #include "timezone_map.h"
 #include "searchinput.h"
 
@@ -32,7 +34,8 @@ namespace dcc {
 namespace datetime {
 
 TimeZoneChooser::TimeZoneChooser()
-    : BlurredFrame(),
+    : QFrame(),
+      m_blurEffect(new DBlurEffectWidget(this)),
       m_map(new installer::TimezoneMap(this)),
       m_searchInput(new SearchInput),
       m_title(new QLabel(tr("Change Timezone"))),
@@ -42,6 +45,12 @@ TimeZoneChooser::TimeZoneChooser()
     setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
+
+    DPlatformWindowHandle handle(this);
+    handle.setWindowRadius(4);
+
+    m_blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
+    m_blurEffect->setMaskColor(Qt::black);
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -100,6 +109,14 @@ TimeZoneChooser::TimeZoneChooser()
     });
 }
 
+void TimeZoneChooser::resizeEvent(QResizeEvent *event)
+{
+    QFrame::resizeEvent(event);
+
+    m_blurEffect->resize(event->size());
+    m_blurEffect->lower();
+}
+
 void TimeZoneChooser::keyReleaseEvent(QKeyEvent *event)
 {
     if (event->matches(QKeySequence::Cancel)) {
@@ -129,8 +146,6 @@ void TimeZoneChooser::setupSize()
     QFont font = m_title->font();
     font.setPointSizeF(16.0);
     m_title->setFont(font);
-
-    setRadius(4);
 
     const QSize fitSize = getFitSize();
     setFixedSize(fitSize.width(), fitSize.height());

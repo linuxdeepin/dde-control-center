@@ -10,9 +10,12 @@
 #ifndef TIMEZONECHOOSER_H
 #define TIMEZONECHOOSER_H
 
-#include "blurredframe.h"
-
+#include <QFrame>
 #include <QMap>
+
+#include <DBlurEffectWidget>
+
+DWIDGET_USE_NAMESPACE
 
 class QPushButton;
 class QComboBox;
@@ -31,7 +34,7 @@ class SearchInput;
 namespace dcc {
 namespace datetime {
 
-class TimeZoneChooser : public dcc::widgets::BlurredFrame
+class TimeZoneChooser : public QFrame
 {
     Q_OBJECT
 public:
@@ -42,6 +45,7 @@ signals:
     void cancelled();
 
 protected:
+    void resizeEvent(QResizeEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
 
 private:
@@ -50,6 +54,8 @@ private:
 
 private:
     QMap<QString, QString> m_completionCache;
+
+    DBlurEffectWidget *m_blurEffect;
 
     installer::TimezoneMap *m_map;
     dcc::widgets::SearchInput *m_searchInput;

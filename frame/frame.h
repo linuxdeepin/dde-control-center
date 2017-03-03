@@ -13,8 +13,6 @@
 #include <QStack>
 #include <QPropertyAnimation>
 
-#include "blurredframe.h"
-
 #include <DBlurEffectWidget>
 
 #define BUTTON_LEFT 1

@@ -29,7 +29,6 @@ HEADERS += \
     $$PWD/comboboxwidget.h \
     $$PWD/filechoosewidget.h \
     $$PWD/separator.h \
-    $$PWD/blurredframe.h \
     $$PWD/labels/tipslabel.h \
     $$PWD/spinboxwidget.h \
     $$PWD/titlevalueitem.h \
@@ -65,7 +64,6 @@ SOURCES += \
     $$PWD/comboboxwidget.cpp \
     $$PWD/filechoosewidget.cpp \
     $$PWD/separator.cpp \
-    $$PWD/blurredframe.cpp \
     $$PWD/labels/tipslabel.cpp \
     $$PWD/spinboxwidget.cpp \
     $$PWD/titlevalueitem.cpp \
