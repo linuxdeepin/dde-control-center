@@ -15,12 +15,23 @@ void VpnListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     painter->setRenderHints(QPainter::TextAntialiasing | QPainter::SmoothPixmapTransform);
     painter->setBrush(Qt::red);
 
-    if (index.data(VpnListModel::VpnItemHoveredRole).toBool())
+    const bool isHover = index.data(VpnListModel::VpnItemHoveredRole).toBool();
+    const bool isNext = index.data(VpnListModel::VpnNextRole).toBool();
+
+    if (isHover)
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.1 * 255));
 
     if (index.row())
     {
-        painter->fillRect(option.rect, QColor(255, 255, 255, 0.05 * 255));
+        if (!isNext && !isHover) {
+            painter->setPen(QColor(255, 255, 255, 255 * 0.05));
+            painter->drawLine(QPoint(10, option.rect.top()), QPoint(option.rect.right() - 10, option.rect.top()));
+        }
+    }
+    else
+    {
+        painter->setPen(QColor(255, 255, 255, 255 * 0.1));
+        painter->drawLine(QPoint(0, option.rect.top()), QPoint(option.rect.right(), option.rect.top()));
     }
 
     painter->setPen(Qt::white);

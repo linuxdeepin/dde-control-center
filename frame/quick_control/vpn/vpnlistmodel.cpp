@@ -42,6 +42,7 @@ QVariant VpnListModel::data(const QModelIndex &index, int role) const
     case VpnItemHoveredRole:    return m_hoveredIndex == index;
     case Qt::SizeHintRole:      return QSize(0, 35);
     case VpnIsFirstLineRole:    return !index.row();
+    case VpnNextRole:           return index.row() == m_hoveredIndex.row() + 1;
     default:;
     }
 
