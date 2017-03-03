@@ -17,3 +17,9 @@ QListWidget::item:selected
     color: white;
     background: rgba(255, 255, 255, 0.2);
 }
+
+dcc--systeminfo--CopyrightWidget QFrame#copyrightWidget {
+    border: none;
+    background-color: rgba(238, 238, 238, .2);
+    border-radius: 5px;
+}
