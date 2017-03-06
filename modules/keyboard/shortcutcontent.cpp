@@ -21,10 +21,9 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
     layout->setMargin(0);
 
     SettingsGroup* group = new SettingsGroup();
-    TitleButtonItem* item = new TitleButtonItem();
-    item->setTitle(tr("Maximized"));
-    item->setValue(tr("Please Grab Shortcut Again"));
-    group->appendItem(item);
+    m_item = new TitleButtonItem();
+    m_item->setValue(tr("Please Grab Shortcut Again"));
+    group->appendItem(m_item);
     m_control = new KeyboardControl();
 //    group->appendItem(m_control);
     layout->addWidget(group);
@@ -47,7 +46,7 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
 
     connect(ok, SIGNAL(clicked()), this, SLOT(onReplace()));
     connect(cancel, SIGNAL(clicked()), this, SIGNAL(back()));
-    connect(item,SIGNAL(click()), this, SLOT(onClick()));
+    connect(m_item,SIGNAL(click()), this, SLOT(onClick()));
 
     connect(m_work, &KeyboardWork::KeyEvent, this, &ShortcutContent::onKeyEvent);
 }
@@ -71,6 +70,7 @@ void ShortcutContent::setBottomTip(ShortcutInfo* conflict)
 void ShortcutContent::setCurInfo(ShortcutInfo *info)
 {
     m_curInfo = info;
+    m_item->setTitle(info->name);
 }
 
 void ShortcutContent::setConflictString(const QStringList &list)

@@ -43,6 +43,7 @@ private:
     ShortcutInfo* m_curInfo;
 
     dcc::widgets::ButtonTuple *m_buttonTuple;
+    TitleButtonItem* m_item;
 };
 }
 }
