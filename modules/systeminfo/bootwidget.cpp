@@ -54,6 +54,9 @@ BootWidget::BootWidget(QWidget *parent)
     group->appendItem(m_boot);
     group->appendItem(m_theme);
 
+    layout->setMargin(0);
+    layout->setSpacing(0);
+
     layout->addWidget(group);
     layout->addSpacing(8);
     layout->addWidget(label);
