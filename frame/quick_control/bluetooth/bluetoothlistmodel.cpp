@@ -87,8 +87,8 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(info);
     case ItemIsSettingRole:
         return !info.adapter && !info.device;
-    case ItemLastRole:
-        return rowCount(QModelIndex()) - 2 == index.row();
+    case ItemNextRole:
+        return m_currentIndex.row() + 1 == index.row();
     default:;
     }
 
@@ -98,6 +98,8 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
 void BluetoothListModel::setCurrentHovered(const QModelIndex &index)
 {
     m_currentIndex = index;
+
+    emit dataChanged(m_currentIndex, m_currentIndex);
 }
 
 void BluetoothListModel::onAdapterAdded(const dcc::bluetooth::Adapter *adapter)

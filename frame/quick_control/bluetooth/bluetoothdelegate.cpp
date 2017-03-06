@@ -20,6 +20,7 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     const bool isSetting = index.data(BluetoothListModel::ItemIsSettingRole).toBool();
     const bool isHeader = index.data(BluetoothListModel::ItemIsHeaderRole).toBool();
     const bool isHovered = index.data(BluetoothListModel::ItemHoveredRole).toBool();
+    const bool isNext = index.data(BluetoothListModel::ItemNextRole).toBool();
 
     if (isHovered && !isHeader)
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.1 * 255));
@@ -27,9 +28,19 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     if (isHeader)
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.15 * 255));
 
+    if (index.row())
+    {
+        if (!isNext && !isHovered) {
+            painter->setPen(QColor(255, 255, 255, 255 * 0.05));
+            painter->drawLine(QPoint(10, option.rect.top()), QPoint(option.rect.right() - 10, option.rect.top()));
+        }
+    }
+
     QFont f(painter->font());
     f.setBold(isHeader);
     painter->setFont(f);
+
+    painter->setPen(Qt::white);
 
     if (isSetting) {
         painter->drawText(option.rect.marginsRemoved(QMargins(34, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
@@ -38,7 +49,6 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
             painter->drawText(option.rect.marginsRemoved(QMargins(24, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
         else
             painter->drawText(option.rect.marginsRemoved(QMargins(34, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
-
 
         if (!isHeader)
         {
@@ -61,18 +71,6 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
                     else
                         painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
                 }
-            }
-            painter->fillRect(option.rect, QColor(255, 255, 255, 0.05 * 255));
-
-            const bool last = index.data(BluetoothListModel::ItemLastRole).toBool();
-
-            if (!isHovered && !last) {
-                QPen pen(QColor(255, 255, 255, 0.1 * 255));
-                QLineF line;
-                line.setP1(QPoint(option.rect.bottomLeft().x() + 10, option.rect.bottomLeft().y()));
-                line.setP2(QPoint(option.rect.bottomRight().x() - 10, option.rect.bottomRight().y()));
-                painter->setPen(pen);
-                painter->drawLine(line);
             }
         }
     }
