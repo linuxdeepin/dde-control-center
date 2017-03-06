@@ -36,14 +36,13 @@ keyboard::CustomEdit::CustomEdit(keyboard::KeyboardWork *work, QWidget *parent):
     pushbutton->setFixedWidth(50);
     m_command->addRightWidget(pushbutton);
 
-    m_short->setShortcutEditMode(false);
-
     m_commandGroup->appendItem(m_name);
     m_commandGroup->appendItem(m_command);
     m_commandGroup->appendItem(m_short);
 
     QPushButton *cancelButton = new QPushButton(tr("Cancel"));
-    QPushButton *okButton = new QPushButton(tr("Edit"));
+    QPushButton *okButton = new QPushButton(tr("Save"));
+
 
     buttonlayout->addWidget(cancelButton);
     buttonlayout->addWidget(okButton);
@@ -59,18 +58,20 @@ keyboard::CustomEdit::CustomEdit(keyboard::KeyboardWork *work, QWidget *parent):
     connect(cancelButton, &QPushButton::clicked, this, &CustomEdit::back);
     connect(okButton, &QPushButton::clicked, this, &CustomEdit::onClick);
     connect(pushbutton, &QPushButton::clicked, this, &CustomEdit::onOpenFile);
+    connect(m_short, &ShortcutItem::shortcutChangd, this, &CustomEdit::shortcutChangd);
+    connect(m_short, &ShortcutItem::requestDisableShortcut, this, &CustomEdit::requestDisableShortcut);
 }
 
 void keyboard::CustomEdit::setShortcut(keyboard::ShortcutInfo *info)
 {
-        m_info = info;
-        m_short->setShortcutInfo(info);
+    m_info = info;
+    m_short->setShortcutInfo(info);
 
-        m_name->setTitle(tr("Name"));
-        m_command->setTitle(tr("Command"));
+    m_name->setTitle(tr("Name"));
+    m_command->setTitle(tr("Command"));
 
-        m_name->setText(m_info->name);
-        m_command->setText(m_info->command);
+    m_name->setText(m_info->name);
+    m_command->setText(m_info->command);
 }
 
 void keyboard::CustomEdit::onClick()

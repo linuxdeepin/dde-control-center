@@ -32,6 +32,10 @@ public:
     explicit CustomEdit(KeyboardWork* work, QWidget *parent = 0);
     void setShortcut(ShortcutInfo* info);
 
+signals:
+    void shortcutChangd(bool valid, ShortcutInfo* info, const QString& shortcut);
+    void requestDisableShortcut(ShortcutInfo* info);
+
 public slots:
     void onClick();
 

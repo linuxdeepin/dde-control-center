@@ -445,6 +445,9 @@ void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
     CustomEdit *w = new CustomEdit(m_work);
     w->setShortcut(info);
 
+    connect(w, &CustomEdit::shortcutChangd, this, &KeyboardModule::onShortcutChecked);
+    connect(w, &CustomEdit::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
+
     m_frameProxy->pushWidget(this, w);
 }
 
