@@ -108,6 +108,11 @@ void DBusControlCenterService::ShowImmediately()
     parent()->show();
 }
 
+void DBusControlCenterService::ShowHome()
+{
+    parent()->backToHome();
+}
+
 void DBusControlCenterService::ShowModule(const QString &name)
 {
     // handle method call com.deepin.dde.ControlCenter.ShowModule

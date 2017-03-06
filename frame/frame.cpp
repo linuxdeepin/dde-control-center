@@ -133,6 +133,12 @@ void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
         show();
 }
 
+void Frame::backToHome()
+{
+    while (m_frameWidgetStack.size() > 1)
+        popWidget();
+}
+
 void Frame::contentDetached(QWidget *const c)
 {
     ContentWidget *cw = qobject_cast<ContentWidget *>(c);

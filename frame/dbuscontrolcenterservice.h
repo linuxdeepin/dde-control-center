@@ -81,6 +81,7 @@ public Q_SLOTS: // METHODS
     void HideImmediately();
     void Show();
     void ShowImmediately();
+    void ShowHome();
     void ShowModule(const QString &name);
     void Toggle();
     void ToggleInLeft();

@@ -35,6 +35,8 @@ class Frame : public DBlurEffectWidget
 public:
     explicit Frame(QWidget *parent = 0);
 
+    void backToHome();
+
 public slots:
     void startup();
 
