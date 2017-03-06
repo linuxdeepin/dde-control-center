@@ -66,8 +66,6 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 void ShortcutItem::setShortcutInfo(ShortcutInfo *info)
 {
     m_info = info;
-    m_info->item = this;
-    m_title->setText(info->name);
 }
 
 void ShortcutItem::displayConflict(bool display)
@@ -78,6 +76,11 @@ void ShortcutItem::displayConflict(bool display)
 ShortcutInfo *ShortcutItem::curInfo()
 {
     return m_info;
+}
+
+void ShortcutItem::setTitle(const QString &title)
+{
+    m_title->setText(title);
 }
 
 void ShortcutItem::onFocusChanged(QWidget *old, QWidget *now)

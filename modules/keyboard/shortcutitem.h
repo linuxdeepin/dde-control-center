@@ -29,6 +29,7 @@ public:
     ShortcutInfo* curInfo();
 
     void setChecked(bool checked);
+    void setTitle(const QString &title);
 
 signals:
     void shortcutChangd(bool valid, ShortcutInfo* info, const QString& shortcut);

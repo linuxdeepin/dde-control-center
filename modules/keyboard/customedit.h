@@ -35,6 +35,7 @@ public:
 signals:
     void shortcutChangd(bool valid, ShortcutInfo* info, const QString& shortcut);
     void requestDisableShortcut(ShortcutInfo* info);
+    void requestEditFinished();
 
 public slots:
     void onClick();

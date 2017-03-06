@@ -194,6 +194,7 @@ void KeyboardWork::modifyShortcutEdit(ShortcutInfo *info)
 {
     if (!info)
         return;
+
     m_keybindInter->ModifyCustomShortcut(info->id, info->name, info->command, info->accels);
 }
 

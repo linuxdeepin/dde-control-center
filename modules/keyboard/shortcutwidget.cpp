@@ -114,6 +114,8 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
         connect(item, SIGNAL(shortcutChangd(bool, ShortcutInfo*, QString)), this, SIGNAL(shortcutChanged(bool, ShortcutInfo*, QString)));
         connect(item, &ShortcutItem::requestDisableShortcut, this, &ShortcutWidget::requestDisableShortcut);
         item->setShortcutInfo((*it));
+        item->setTitle((*it)->name);
+        (*it)->item = item;
         m_searchInfos[(*it)->name+(*it)->accels] = (*it);
 
         if(type == ShortcutModel::System) {
@@ -143,6 +145,11 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
             connect(item, &ShortcutItem::shortcutEditChanged, this, &ShortcutWidget::shortcutEditChanged);
         }
     }
+}
+
+SettingsHead *ShortcutWidget::getHead()
+{
+    return m_head;
 }
 
 void ShortcutWidget::modifyStatus(bool status)
@@ -199,6 +206,8 @@ void ShortcutWidget::onCustomAdded(ShortcutInfo *info)
        connect(item, &ShortcutItem::requestDisableShortcut, this, &ShortcutWidget::requestDisableShortcut);
        connect(item, SIGNAL(shortcutChangd(bool, ShortcutInfo*, QString)), this, SIGNAL(shortcutChanged(bool, ShortcutInfo*, QString)));
        item->setShortcutInfo(info);
+       item->setTitle(info->name);
+       info->item = item;
        if (m_customGroup->layout()->count() == 0) {
            m_head = new SettingsHead();
            m_head->setEditEnable(true);
@@ -296,5 +305,6 @@ void ShortcutWidget::onTimeout()
     connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
             SLOT(getKeyFinish(QDBusPendingCallWatcher*)));
 }
+
 }
 }

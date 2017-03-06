@@ -445,6 +445,10 @@ void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
     CustomEdit *w = new CustomEdit(m_work);
     w->setShortcut(info);
 
+    ShortcutWidget *shortcutWidget = static_cast<ShortcutWidget*>(sender());
+    SettingsHead *head = shortcutWidget->getHead();
+
+    connect(w, &CustomEdit::requestEditFinished, head, &SettingsHead::toCancel);
     connect(w, &CustomEdit::shortcutChangd, this, &KeyboardModule::onShortcutChecked);
     connect(w, &CustomEdit::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
 

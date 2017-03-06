@@ -26,6 +26,8 @@ public:
 
     void addShortcut(QList<ShortcutInfo*> list, ShortcutModel::InfoType type);
 
+    SettingsHead* getHead();
+
 protected:
     void modifyStatus(bool status);
 
