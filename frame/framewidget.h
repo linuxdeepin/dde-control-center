@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QPropertyAnimation>
+#include <QGraphicsOpacityEffect>
 
 #include "translucentframe.h"
 
@@ -47,7 +48,8 @@ private slots:
     void destorySelf();
 
 private:
-    QPropertyAnimation *m_slideAni;
+    QGraphicsOpacityEffect *m_opacityEffect;
+    QPropertyAnimation *m_slidePosAni;
 
     dcc::ContentWidget *m_content;
 };
