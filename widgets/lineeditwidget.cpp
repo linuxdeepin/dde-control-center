@@ -41,6 +41,7 @@ void LineEditWidget::setTitle(const QString &title)
     m_title->setText(title);
 
     setAccessibleName(title);
+    m_edit->setAccessibleName(title);
 }
 
 void LineEditWidget::setText(const QString &text)
