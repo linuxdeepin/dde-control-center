@@ -15,6 +15,7 @@ QuickSwitchButton::QuickSwitchButton(const int index, const QString &iconName, Q
       m_selected(false),
       m_checked(false),
       m_checkable(true),
+      m_showBackground(true),
       m_iconName(iconName)
 {
     setFixedSize(WIDTH, HEIGHT);
@@ -45,7 +46,7 @@ void QuickSwitchButton::enterEvent(QEvent *e)
 
 void QuickSwitchButton::paintEvent(QPaintEvent *e)
 {
-    if (m_selected)
+    if (m_selected && m_showBackground)
     {
         const QRect r = rect();
 
@@ -116,6 +117,13 @@ void QuickSwitchButton::setCheckable(const bool checkable)
 void QuickSwitchButton::setSelected(const bool selected)
 {
     m_selected = selected;
+
+    update();
+}
+
+void QuickSwitchButton::setBackgroundVisible(const bool visible)
+{
+    m_showBackground = visible;
 
     update();
 }

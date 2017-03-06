@@ -59,10 +59,6 @@ QuickControlPanel dcc--widgets--BasicListView {
     background-color: rgba(255, 255, 255, .2);
 }
 
-dcc--BasicSettingsPage {
-    background-color: rgba(255, 255, 255, .2);
-}
-
 Dtk--Widget--DMPRISControl #PrevBtn {
     qproperty-normalPic: url(:/frame/themes/dark/icons/play_previous_normal.png);
     qproperty-hoverPic: url(:/frame/themes/dark/icons/play_previous_hover.png);

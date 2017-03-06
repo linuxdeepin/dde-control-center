@@ -75,6 +75,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     detailSwitch->setObjectName("QuickSwitchAllSettings");
     detailSwitch->setAccessibleName("QuickSwitchAllSettings");
     detailSwitch->setCheckable(false);
+    detailSwitch->setBackgroundVisible(false);
 
     m_switchs.append(detailSwitch);
     m_switchs.append(m_btSwitch);

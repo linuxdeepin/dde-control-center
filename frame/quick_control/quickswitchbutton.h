@@ -27,6 +27,7 @@ public slots:
     void setChecked(const bool checked);
     void setCheckable(const bool checkable);
     void setSelected(const bool selected);
+    void setBackgroundVisible(const bool visible);
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
@@ -44,6 +45,7 @@ private:
     bool m_selected;
     bool m_checked;
     bool m_checkable;
+    bool m_showBackground;
     QString m_themeName;
     const QString m_iconName;
 };
