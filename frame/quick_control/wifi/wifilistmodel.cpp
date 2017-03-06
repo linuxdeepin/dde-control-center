@@ -82,6 +82,8 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
         return !info.info && !info.device;
     case ItemHiddenTipsRole:
         return tr("Connect to hidden network");
+    case ItemNextRole:
+        return m_currentIndex.row() + 1 == index.row();
     default:;
     }
 
@@ -91,6 +93,8 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
 void WifiListModel::setCurrentHovered(const QModelIndex &index)
 {
     m_currentIndex = index;
+
+    emit dataChanged(m_currentIndex, m_currentIndex);
 }
 
 void WifiListModel::setCurrentActivating(const QModelIndex &index)

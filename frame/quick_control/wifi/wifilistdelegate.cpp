@@ -23,6 +23,7 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     const bool isHeader = index.data(WifiListModel::ItemIsHeaderRole).toBool();
     const bool isHovered = index.data(WifiListModel::ItemHoveredRole).toBool();
     const bool isTips = index.data(WifiListModel::ItemIsHiddenTipsRole).toBool();
+    const bool isNext = index.data(WifiListModel::ItemNextRole).toBool();
 
     if (isHovered && !isHeader)
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.1 * 255));
@@ -30,9 +31,20 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     if (isHeader)
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.15 * 255));
 
+    if (index.row())
+    {
+        if (!isNext && !isHovered) {
+            painter->setPen(QColor(255, 255, 255, 255 * 0.05));
+            painter->drawLine(QPoint(10, option.rect.top()), QPoint(option.rect.right() - 10, option.rect.top()));
+        }
+    }
+
     QFont f(painter->font());
     f.setBold(isHeader);
     painter->setFont(f);
+
+    painter->setPen(Qt::white);
+
     if (isTips)
         painter->drawText(option.rect.marginsRemoved(QMargins(70, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(WifiListModel::ItemHiddenTipsRole).toString());
     else if (isHeader)
@@ -79,15 +91,6 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
             }
         }
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.05 * 255));
-
-        if (!isHovered) {
-            QPen pen(QColor(255, 255, 255, 0.1 * 255));
-            QLineF line;
-            line.setP1(QPoint(option.rect.bottomLeft().x() + 10, option.rect.bottomLeft().y()));
-            line.setP2(QPoint(option.rect.bottomRight().x() - 10, option.rect.bottomRight().y()));
-            painter->setPen(pen);
-            painter->drawLine(line);
-        }
     }
 }
 
