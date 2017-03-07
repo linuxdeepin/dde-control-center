@@ -35,6 +35,9 @@ private slots:
     void onMonoFontFinished(QDBusPendingCallWatcher *w);
 
 private:
+    void onGetList();
+
+private:
     int sizeToSliderValue(const int value) const;
     float sliderValueToSize(const int value) const;
     bool isFont(const QString &type);

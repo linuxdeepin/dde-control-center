@@ -33,30 +33,22 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
 
     m_dbus->setSync(false);
 
-    QDBusPendingReply<QString> standardFont = m_dbus->List("standardfont");
-    QDBusPendingCallWatcher *standardFontWatcher = new QDBusPendingCallWatcher(standardFont, this);
-    connect(standardFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onStandardFontFinished);
-
-    QDBusPendingReply<QString> monoFont = m_dbus->List("monospacefont");
-    QDBusPendingCallWatcher *monoFontWatcher = new QDBusPendingCallWatcher(monoFont, this);
-    connect(monoFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onMonoFontFinished);
+    onGetList();
 }
 
 void PersonalizationWork::active()
 {
     m_dbus->blockSignals(false);
 
+    onGetList();
+
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();
     ThemeModel *iconTheme        = m_model->getIconModel();
-    FontModel *fontMono          = m_model->getMonoFontModel();
-    FontModel *fontStand         = m_model->getStandFontModel();
 
     windowTheme->setDefault(m_dbus->gtkTheme());
     iconTheme->setDefault(m_dbus->iconTheme());
     cursorTheme->setDefault(m_dbus->cursorTheme());
-    fontMono->setFontName(m_dbus->monospaceFont());
-    fontStand->setFontName(m_dbus->standardFont());
     FontSizeChanged(m_dbus->fontSize());
 }
 
@@ -133,7 +125,7 @@ void PersonalizationWork::onStandardFontFinished(QDBusPendingCallWatcher *w)
     FontModel *fontStand = m_model->getStandFontModel();
     QJsonArray array = QJsonDocument::fromJson(reply.value().toLocal8Bit().data()).array();
     fontStand->setFontList(converToList("standardfont", array));
-
+    fontStand->setFontName(m_dbus->standardFont());
     w->deleteLater();
 }
 
@@ -143,8 +135,19 @@ void PersonalizationWork::onMonoFontFinished(QDBusPendingCallWatcher *w)
     FontModel *fontMono = m_model->getMonoFontModel();
     QJsonArray array = QJsonDocument::fromJson(reply.value().toLocal8Bit().data()).array();
     fontMono->setFontList(converToList("monospacefont", array));
-
+    fontMono->setFontName(m_dbus->monospaceFont());
     w->deleteLater();
+}
+
+void PersonalizationWork::onGetList()
+{
+    QDBusPendingReply<QString> standardFont = m_dbus->List("standardfont");
+    QDBusPendingCallWatcher *standardFontWatcher = new QDBusPendingCallWatcher(standardFont, this);
+    connect(standardFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onStandardFontFinished);
+
+    QDBusPendingReply<QString> monoFont = m_dbus->List("monospacefont");
+    QDBusPendingCallWatcher *monoFontWatcher = new QDBusPendingCallWatcher(monoFont, this);
+    connect(monoFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onMonoFontFinished);
 }
 
 
