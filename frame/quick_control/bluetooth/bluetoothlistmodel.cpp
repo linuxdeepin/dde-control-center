@@ -38,6 +38,9 @@ int BluetoothListModel::rowCount(const QModelIndex &parent) const
     int count = 0;
     for (auto it(m_adapterList.cbegin()); it != m_adapterList.cend(); ++it)
     {
+        if (!it.key()->powered())
+            continue;
+
         count += it.value().size() + 1;
     }
 
@@ -112,7 +115,11 @@ void BluetoothListModel::onAdapterAdded(const dcc::bluetooth::Adapter *adapter)
     if (!adapter->powered())
         return;
 
+    int pos = rowCount(QModelIndex());
+
+    beginInsertRows(QModelIndex(), pos, pos);
     m_adapterList.insert(adapter, QList<const Device *>());
+    endInsertRows();
 
     connect(adapter, &Adapter::deviceAdded, this, &BluetoothListModel::onDeviceAdded);
     connect(adapter, &Adapter::nameChanged, this, &BluetoothListModel::onAdapterChanged);
@@ -224,6 +231,9 @@ const ItemInfo BluetoothListModel::indexInfo(const int index) const
 
     for (const Adapter *adapter : m_bluetoothModel->adapters())
     {
+        if (!adapter->powered())
+            continue;
+
         if (!m_adapterList.contains(adapter))
             continue;
 
