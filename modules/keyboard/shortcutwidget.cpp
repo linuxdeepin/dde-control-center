@@ -33,6 +33,11 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
     m_searchGroup = new SettingsGroup();
     m_search = new SearchInput();
 
+    m_head = new SettingsHead();
+    m_head->setEditEnable(true);
+    m_head->setVisible(false);
+    m_head->setTitle(tr("Custom Shortcut"));
+    m_customGroup->insertItem(0, m_head);
 
     m_layout = new QVBoxLayout();
     m_layout->setMargin(0);
@@ -132,15 +137,13 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
         }
         else if(type == ShortcutModel::Custom)
         {
-            if (m_customGroup->layout()->count() == 0) {
-                m_head = new SettingsHead();
-                m_head->setEditEnable(true);
-                m_head->setTitle(tr("Custom Shortcut"));
-                m_customGroup->insertItem(0, m_head);
-            }
-            connect(m_head, SIGNAL(editChanged(bool)), item, SLOT(onEditMode(bool)));
+           connect(m_head, SIGNAL(editChanged(bool)), item, SLOT(onEditMode(bool)));
             m_customGroup->appendItem(item);
             m_customList.append(item);
+
+            if(m_customGroup->itemCount() > 1)
+                m_head->setVisible(true);
+
             connect(item, SIGNAL(destroyed(QObject*)),this, SLOT(onDestroyItem(QObject*)));
             connect(item, &ShortcutItem::shortcutEditChanged, this, &ShortcutWidget::shortcutEditChanged);
         }
@@ -208,15 +211,12 @@ void ShortcutWidget::onCustomAdded(ShortcutInfo *info)
        item->setShortcutInfo(info);
        item->setTitle(info->name);
        info->item = item;
-       if (m_customGroup->layout()->count() == 0) {
-           m_head = new SettingsHead();
-           m_head->setEditEnable(true);
-           m_head->setTitle(tr("Custom Shortcut"));
-           m_customGroup->insertItem(0, m_head);
-       }
+
+       m_head->setVisible(true);
        connect(m_head, SIGNAL(editChanged(bool)), item, SLOT(onEditMode(bool)));
        m_customGroup->appendItem(item);
        m_customList.append(item);
+
        connect(item, SIGNAL(destroyed(QObject*)),this, SLOT(onDestroyItem(QObject*)));
        connect(item, &ShortcutItem::shortcutEditChanged, this, &ShortcutWidget::shortcutEditChanged);
    }
@@ -226,17 +226,17 @@ void ShortcutWidget::onDestroyItem(QObject *obj)
 {
     Q_UNUSED(obj);
 
+    m_head->toCancel();
+
     ShortcutItem* item = qobject_cast<ShortcutItem*>(sender());
     if(item)
     {
         m_customGroup->removeItem(item);
         if(m_customGroup->itemCount() == 1)
-        {
-            m_customGroup->removeItem(m_head);
-            m_head->deleteLater();
-            m_head = nullptr;
-        }
+            m_head->setVisible(false);
+
         m_searchInfos.remove(item->curInfo()->name + item->curInfo()->accels);
+        m_customList.removeOne(item);
         emit delShortcutInfo(item->curInfo());
         item->deleteLater();
     }
