@@ -23,7 +23,8 @@ public:
 private slots:
     void showBrightnessPage();
     void showResolutionDetailPage();
-    void showCustomSettings();
+    void showCustomSettings(const QString &config);
+    void showConfigPage(const QString &config);
     void showRecognize();
     void showRotate(Monitor *mon = nullptr);
 

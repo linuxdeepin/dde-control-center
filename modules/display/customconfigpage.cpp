@@ -1,0 +1,64 @@
+#include "customconfigpage.h"
+#include "translucentframe.h"
+
+#include <QVBoxLayout>
+
+using namespace dcc::widgets;
+
+namespace dcc {
+
+namespace display {
+
+CustomConfigPage::CustomConfigPage(const QString &config, QWidget *parent)
+    : ContentWidget(parent),
+
+      m_configName(config)
+{
+    m_modifyBtn = new QPushButton;
+    m_modifyBtn->setText(tr("Modify"));
+    m_deleteBtn = new QPushButton;
+    m_deleteBtn->setText(tr("Delete"));
+    m_modifyTips = new QLabel;
+    m_modifyTips->setText(tr("Modify Tips"));
+    m_deleteTips = new QLabel;
+    m_deleteTips->setText(tr("Delete Tips"));
+
+    QVBoxLayout *centralLayout = new QVBoxLayout;
+    centralLayout->addWidget(m_modifyBtn);
+    centralLayout->addWidget(m_modifyTips);
+    centralLayout->addWidget(m_deleteBtn);
+    centralLayout->addWidget(m_deleteTips);
+
+    QWidget *centralWidget = new TranslucentFrame;
+    centralWidget->setLayout(centralLayout);
+
+    setContent(centralWidget);
+    setTitle(config);
+
+    connect(m_modifyBtn, &QPushButton::clicked, this, &CustomConfigPage::onModifyBtnClicked);
+    connect(m_deleteBtn, &QPushButton::clicked, this, &CustomConfigPage::onDeleteBtnClicked);
+}
+
+void CustomConfigPage::onCurrentConfigChanged(const QString config)
+{
+    const bool current = config == m_configName;
+
+    m_modifyBtn->setEnabled(current);
+    m_modifyTips->setVisible(!current);
+    m_deleteBtn->setEnabled(!current);
+    m_deleteTips->setVisible(current);
+}
+
+void CustomConfigPage::onDeleteBtnClicked()
+{
+    emit requestDeleteConfig(m_configName);
+}
+
+void CustomConfigPage::onModifyBtnClicked()
+{
+    emit requestModifyConfig(m_configName);
+}
+
+}
+
+}

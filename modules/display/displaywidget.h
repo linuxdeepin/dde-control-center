@@ -28,21 +28,24 @@ signals:
     void showResolutionPage() const;
     void showBrightnessPage() const;
     void requestRotate() const;
-    void requestCustom() const;
+    void requestNewConfig() const;
+    void requestConfigPage(const QString &config) const;
+    void requestSwitchConfig(const QString &config) const;
 
 private slots:
     void onScreenListChanged() const;
     void onScreenSizeChanged() const;
+    void onConfigListChanged();
 
 private:
     DisplayModel *m_model;
     widgets::NextPageWidget *m_resolution;
-    widgets::NextPageWidget *m_mySettings;
     widgets::NextPageWidget *m_brightnessSettings;
-    widgets::SettingsGroup *m_settingsGrp;
+    QList<widgets::NextPageWidget *> m_customSettings;
+    widgets::SettingsGroup *m_customSettingsGrp;
     widgets::SettingsGroup *m_resolutionsGrp;
     QPushButton *m_rotate;
-    QPushButton *m_custom;
+    QPushButton *m_createConfig;
 };
 
 } // namespace display

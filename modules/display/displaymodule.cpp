@@ -8,6 +8,7 @@
 #include "displaymodel.h"
 #include "displayworker.h"
 #include "brightnesspage.h"
+#include "customconfigpage.h"
 
 using namespace dcc;
 using namespace dcc::display;
@@ -46,6 +47,16 @@ void DisplayModule::showResolutionDetailPage()
     page->setModel(m_displayModel);
     connect(page, &ResolutionDetailPage::requestSetResolution, m_displayWorker, &DisplayWorker::setMonitorResolution);
     connect(page, &ResolutionDetailPage::requestSetResolution, m_displayWorker, &DisplayWorker::saveChanges, Qt::QueuedConnection);
+
+    m_frameProxy->pushWidget(this, page);
+}
+
+void DisplayModule::showConfigPage(const QString &config)
+{
+    CustomConfigPage *page = new CustomConfigPage(config);
+
+    page->onCurrentConfigChanged(m_displayModel->config());
+    connect(page, &CustomConfigPage::requestModifyConfig, this, &DisplayModule::showCustomSettings);
 
     m_frameProxy->pushWidget(this, page);
 }
@@ -93,23 +104,27 @@ ModuleWidget *DisplayModule::moduleWidget()
 
     m_displayWidget = new DisplayWidget;
     m_displayWidget->setModel(m_displayModel);
+    connect(m_displayWidget, &DisplayWidget::requestNewConfig, m_displayWorker, &DisplayWorker::createConfig);
+    connect(m_displayWidget, &DisplayWidget::requestSwitchConfig, m_displayWorker, &DisplayWorker::switchConfig);
     connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
     connect(m_displayWidget, &DisplayWidget::showBrightnessPage, this, &DisplayModule::showBrightnessPage);
+    connect(m_displayWidget, &DisplayWidget::requestConfigPage, this, &DisplayModule::showConfigPage);
     connect(m_displayWidget, &DisplayWidget::requestRotate, [=] { showRotate(m_displayModel->primaryMonitor()); });
-    connect(m_displayWidget, &DisplayWidget::requestCustom, this, &DisplayModule::showCustomSettings);
 
     return m_displayWidget;
 }
 
-void DisplayModule::showCustomSettings()
+void DisplayModule::showCustomSettings(const QString &config)
 {
     // save last mode
     const int displayMode = m_displayModel->displayMode();
-    const QString primaryName = m_displayModel->primary();
+//    const QString primaryName = m_displayModel->primary();
 
-    // switch to custom settings
-    if (displayMode != CUSTOM_MODE)
-        m_displayWorker->switchCustom();
+    // only allow modify current used config
+    Q_ASSERT(displayMode == CUSTOM_MODE);
+    Q_ASSERT(m_displayModel->config() == config);
+//    if (displayMode != CUSTOM_MODE)
+//        m_displayWorker->switchMode(CUSTOM_MODE, config);
 
     // open all monitors
     for (auto mon : m_displayModel->monitorList())
@@ -132,8 +147,8 @@ void DisplayModule::showCustomSettings()
         m_displayWorker->discardChanges();
 
         // restore old mode
-        if (displayMode != CUSTOM_MODE)
-            m_displayWorker->switchMode(displayMode, displayMode == SINGLE_MODE ? primaryName : QString());
+//        if (displayMode != CUSTOM_MODE)
+//            m_displayWorker->switchMode(displayMode, displayMode == SINGLE_MODE ? primaryName : QString());
     }
 
     m_displayWorker->saveChanges();

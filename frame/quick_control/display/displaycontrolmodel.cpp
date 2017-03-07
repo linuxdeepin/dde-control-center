@@ -24,7 +24,7 @@ int DisplayControlModel::rowCount(const QModelIndex &parent) const
 
     const int configCount = 2 + m_displayModel->monitorList().size();
 
-    return configCount + m_displayModel->hasConfig();
+    return configCount + m_displayModel->configList().size();
 }
 
 QVariant DisplayControlModel::data(const QModelIndex &index, int role) const
@@ -42,7 +42,7 @@ QVariant DisplayControlModel::data(const QModelIndex &index, int role) const
     case ItemNameRole:
         return m_displayModel->monitorList()[index.row() - 2]->name();
     case ItemIsLastRole:
-        return index.row() == 2 + m_displayModel->monitorList().size() + m_displayModel->hasConfig() - 1;
+        return index.row() == 2 + m_displayModel->monitorList().size() + m_displayModel->configList().size() - 1;
     case ItemIconRole:
         return optionIcon(index.row());
     case Qt::SizeHintRole:

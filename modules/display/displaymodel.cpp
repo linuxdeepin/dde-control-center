@@ -84,21 +84,30 @@ void DisplayModel::setDisplayMode(const int mode)
     }
 }
 
-void DisplayModel::setHasConfig(const bool config)
-{
-    if (m_hasConfig != config)
-    {
-        m_hasConfig = config;
-        emit hasConfigChanged(m_hasConfig);
-    }
-}
-
 void DisplayModel::setPrimary(const QString &primary)
 {
     if (m_primary != primary)
     {
         m_primary = primary;
         emit primaryScreenChanged(m_primary);
+    }
+}
+
+void DisplayModel::setCurrentConfig(const QString &config)
+{
+    if (m_currentConfig != config)
+    {
+        m_currentConfig = config;
+        emit currentConfigChanged(m_currentConfig);
+    }
+}
+
+void DisplayModel::setConfigList(const QStringList &configList)
+{
+    if (m_configList != configList)
+    {
+        m_configList = configList;
+        emit configListChanged(m_configList);
     }
 }
 

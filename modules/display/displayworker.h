@@ -32,7 +32,10 @@ public slots:
     void discardChanges();
     void mergeScreens();
     void splitScreens();
-    void switchCustom(const bool deleteConfig = true);
+//    void switchCustom(const bool deleteConfig = true);
+    void createConfig();
+    void switchConfig(const QString &config);
+    void deleteConfig(const QString &config);
     void switchMode(const int mode, const QString &name = QString());
     void setPrimary(const int index);
     void setMonitorEnable(Monitor *mon, const bool enabled);

@@ -14,7 +14,8 @@ HEADERS += \
     $$PWD/monitorsground.h \
     $$PWD/monitorproxywidget.h \
     $$PWD/brightnesspage.h \
-    $$PWD/brightnessitem.h
+    $$PWD/brightnessitem.h \
+    $$PWD/customconfigpage.h
 
 SOURCES += \
     $$PWD/displaymodule.cpp \
@@ -32,7 +33,8 @@ SOURCES += \
     $$PWD/monitorsground.cpp \
     $$PWD/monitorproxywidget.cpp \
     $$PWD/brightnesspage.cpp \
-    $$PWD/brightnessitem.cpp
+    $$PWD/brightnessitem.cpp \
+    $$PWD/customconfigpage.cpp
 
 #INCLUDEPATH += $$PWD/..
 
