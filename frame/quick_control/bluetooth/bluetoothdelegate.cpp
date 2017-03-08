@@ -21,7 +21,7 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     const bool isHeader = index.data(BluetoothListModel::ItemIsHeaderRole).toBool();
     const bool isHovered = index.data(BluetoothListModel::ItemHoveredRole).toBool();
     const bool isNext = index.data(BluetoothListModel::ItemNextRole).toBool();
-    const bool isDown = index.data(BluetoothListModel::ItemIsPowerOffRole).toBool();
+    const bool isPowerOff = index.data(BluetoothListModel::ItemIsPowerOffRole).toBool();
 
     if (isHovered && !isHeader)
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.1 * 255));
@@ -43,7 +43,7 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     painter->setPen(Qt::white);
 
-    if (isDown)
+    if (isPowerOff)
         painter->drawText(option.rect.marginsRemoved(QMargins(34, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(BluetoothListModel::ItemTipsRole).toString());
     else if (isSetting)
         painter->drawText(option.rect.marginsRemoved(QMargins(34, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
