@@ -17,7 +17,8 @@ Frame::Frame(QWidget *parent)
       m_primaryRect(m_displayInter->primaryRect()),
       m_appearAnimation(this, "geometry"),
 
-      m_autoHide(true)
+      m_autoHide(true),
+      m_debugAutoHide(true)
 {
     // set async
     m_displayInter->setSync(false);
@@ -139,6 +140,11 @@ void Frame::backToHome()
         popWidget();
 }
 
+void Frame::setDebugAutoHide(const bool autoHide)
+{
+    m_debugAutoHide = autoHide;
+}
+
 void Frame::contentDetached(QWidget *const c)
 {
     ContentWidget *cw = qobject_cast<ContentWidget *>(c);
@@ -172,7 +178,7 @@ void Frame::onMouseButtonReleased(const int button, const int x, const int y, co
         return;
     }
 
-    if (!m_autoHide) {
+    if (!m_autoHide || !m_debugAutoHide) {
         qDebug() << "forbid hide by m_autoHide";
 
         return;
@@ -186,8 +192,6 @@ void Frame::onMouseButtonReleased(const int button, const int x, const int y, co
 
     const QPoint p(pos());
     if (rect().contains(x - p.x(), y - p.y())) {
-        qDebug() << "forbid hide by rect";
-
         return;
     }
 

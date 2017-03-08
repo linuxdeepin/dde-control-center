@@ -83,6 +83,7 @@ public Q_SLOTS: // METHODS
     void ShowImmediately();
     void ShowHome();
     void ShowModule(const QString &name);
+    void SetAutoHide(const bool autoHide);
     void Toggle();
     void ToggleInLeft();
     bool isNetworkCanShowPassword();

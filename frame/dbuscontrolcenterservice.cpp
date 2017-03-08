@@ -121,6 +121,11 @@ void DBusControlCenterService::ShowModule(const QString &name)
     parent()->showSettingsPage(name, QString());
 }
 
+void DBusControlCenterService::SetAutoHide(const bool autoHide)
+{
+    parent()->setDebugAutoHide(autoHide);
+}
+
 void DBusControlCenterService::Toggle()
 {
     // handle method call com.deepin.dde.ControlCenter.Toggle

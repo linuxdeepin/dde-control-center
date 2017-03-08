@@ -36,6 +36,7 @@ public:
     explicit Frame(QWidget *parent = 0);
 
     void backToHome();
+    void setDebugAutoHide(const bool autoHide);
 
 public slots:
     void startup();
@@ -79,6 +80,7 @@ private:
     QPropertyAnimation m_appearAnimation;
 
     bool m_autoHide;
+    bool m_debugAutoHide;
 };
 
 #endif // FRAME_H
