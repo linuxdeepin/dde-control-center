@@ -38,7 +38,7 @@ BluetoothList::BluetoothList(BluetoothModel *model, QWidget *parent)
 
 void BluetoothList::onItemClicked(const QModelIndex &index) const
 {
-    if (index.data(BluetoothListModel::ItemIsHeaderRole).toBool())
+    if (index.data(BluetoothListModel::ItemIsHeaderRole).toBool() || index.data(BluetoothListModel::ItemIsPowerOffRole).toBool())
         return;
 
     if (index.data(BluetoothListModel::ItemIsSettingRole).toBool()) {

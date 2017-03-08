@@ -44,7 +44,9 @@ public:
         ItemDeviceRole,
         ItemConnectingRole,
         ItemIsSettingRole,
-        ItemNextRole
+        ItemNextRole,
+        ItemIsPowerOffRole,
+        ItemTipsRole
     };
 
     explicit BluetoothListModel(BluetoothModel *model, QObject *parent = 0);

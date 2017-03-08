@@ -92,6 +92,10 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
         return !info.adapter && !info.device;
     case ItemNextRole:
         return m_currentIndex.row() + 1 == index.row();
+    case ItemIsPowerOffRole:
+        return rowCount(QModelIndex()) == 1;
+    case ItemTipsRole:
+        return tr("Click to enable bluetooth");
     default:;
     }
 
