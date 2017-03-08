@@ -29,6 +29,9 @@ signals:
     void showAllSettings() const;
     void showSettingPage(const QString &module, const QString &page);
 
+protected:
+    void resizeEvent(QResizeEvent *e);
+
 private:
     void showPlugin(QWidget * const w);
 
@@ -49,6 +52,7 @@ private:
     QLabel *m_currentTimeLbl;
     QLabel *m_currentDateLbl;
     QHBoxLayout *m_pluginsLayout;
+    QWidget *m_pluginWidget;
     Dtk::Widget::DPageIndicator *m_pluginsIndicator;
     Dtk::Widget::DImageButton *m_nextPluginBtn;
     Dtk::Widget::DImageButton *m_prevPluginBtn;

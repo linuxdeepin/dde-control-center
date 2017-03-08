@@ -117,15 +117,23 @@ MainWidget::MainWidget(Frame *parent)
     headerFrame->setLayout(headerLayout);
 
     // Plugins
-    QFrame *frame = new QFrame;
-    frame->setObjectName("HomePluginsFrame");
-    frame->setLayout(m_pluginsLayout);
+    QWidget *pluginWrapper = new TranslucentFrame;
+    pluginWrapper->setLayout(m_pluginsLayout);
+    pluginWrapper->setObjectName("HomePluginsFrame");
+
+    QVBoxLayout *pluginWidgetLayout = new QVBoxLayout;
+    pluginWidgetLayout->addWidget(pluginWrapper);
+    pluginWidgetLayout->addSpacing(20);
+    pluginWidgetLayout->addLayout(indicatorLayout);
+    pluginWidgetLayout->setSpacing(0);
+    pluginWidgetLayout->setMargin(0);
+
+    m_pluginWidget = new TranslucentFrame;
+    m_pluginWidget->setLayout(pluginWidgetLayout);
 
     QVBoxLayout *centralLayout = static_cast<QVBoxLayout *>(layout());
     centralLayout->addWidget(headerFrame);
-    centralLayout->addWidget(frame);
-    centralLayout->addSpacing(20);
-    centralLayout->addLayout(indicatorLayout);
+    centralLayout->addWidget(m_pluginWidget);
     centralLayout->addSpacing(10);
     centralLayout->addWidget(m_quickSettingsPanel);
     centralLayout->setSpacing(0);
@@ -140,6 +148,14 @@ MainWidget::MainWidget(Frame *parent)
 
     m_pluginsController->loadPlugins();
     refershTimedate();
+}
+
+void MainWidget::resizeEvent(QResizeEvent *e)
+{
+    FrameWidget::resizeEvent(e);
+
+    // hide plugins area if panel too low
+    m_pluginWidget->setVisible(e->size().height() > 800);
 }
 
 void MainWidget::showPlugin(QWidget * const w)

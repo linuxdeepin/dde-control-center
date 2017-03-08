@@ -36,21 +36,21 @@ dcc--QuickSwitchButton#QuickSwitchBluetooth, dcc--QuickSwitchButton#QuickSwitchV
 }
 
 /* previous button & next button */
-MainWidget > #PrevBtn
+MainWidget #PrevBtn
 {
     qproperty-normalPic: url(:/frame/themes/dark/icons/back_normal.png);
     qproperty-hoverPic: url(:/frame/themes/dark/icons/back_hover.png);
     qproperty-pressPic: url(:/frame/themes/dark/icons/back_press.png);
 }
 
-MainWidget > #NextBtn
+MainWidget #NextBtn
 {
     qproperty-normalPic: url(:/frame/themes/dark/icons/next_normal.png);
     qproperty-hoverPic: url(:/frame/themes/dark/icons/next_hover.png);
     qproperty-pressPic: url(:/frame/themes/dark/icons/next_press.png);
 }
 
-MainWidget > #DPIndicator {
+MainWidget #DPIndicator {
     qproperty-pointColor: rgba(255,255,255,204);
     qproperty-secondaryPointColor: rgba(255,255,255,76);
 }
