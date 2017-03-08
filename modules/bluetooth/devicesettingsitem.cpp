@@ -90,11 +90,22 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state)
 {
     qDebug() << "device state changed: " << m_device;
 
-    const bool connected = state == Device::StateConnected;
-    const QString tip = connected ? tr("Connected") : "";
-    m_tipLabel->setText(tip);
+    QString tip;
 
-    if (connected) setLoading(false);
+    switch(state) {
+    case Device::StateConnected:
+    {
+        tip = tr("Connected");
+        setLoading(false);
+        break;
+    }
+    case Device::StateUnavailable:
+        tip = tr("Not connected");
+        break;
+    default:;
+    }
+
+    m_tipLabel->setText(tip);
 }
 
 void DeviceSettingsItem::onDevicePairedChanged(const bool &paired)
