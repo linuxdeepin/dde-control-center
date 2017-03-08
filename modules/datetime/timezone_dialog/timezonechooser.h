@@ -20,6 +20,7 @@ DWIDGET_USE_NAMESPACE
 class QPushButton;
 class QComboBox;
 class QLabel;
+class QAbstractItemView;
 
 namespace installer {
 class TimezoneMap;
@@ -47,6 +48,7 @@ signals:
 protected:
     void resizeEvent(QResizeEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
+    bool eventFilter(QObject *watched, QEvent *event);
 
 private:
     QSize getFitSize() const;
@@ -56,6 +58,8 @@ private:
     QMap<QString, QString> m_completionCache;
 
     DBlurEffectWidget *m_blurEffect;
+
+    QAbstractItemView *m_popup;
 
     installer::TimezoneMap *m_map;
     dcc::widgets::SearchInput *m_searchInput;

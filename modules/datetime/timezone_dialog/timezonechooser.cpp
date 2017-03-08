@@ -22,11 +22,16 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QLabel>
+#include <QStyleFactory>
+#include <QAbstractItemView>
 
 #include <dplatformwindowhandle.h>
+#include <dwindowclosebutton.h>
 
 #include "timezone_map.h"
 #include "searchinput.h"
+
+DWIDGET_USE_NAMESPACE
 
 using namespace dcc::widgets;
 
@@ -52,10 +57,19 @@ TimeZoneChooser::TimeZoneChooser()
     m_blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
     m_blurEffect->setMaskColor(Qt::black);
 
+    DWindowCloseButton *closeButton = new DWindowCloseButton;
+
+    QHBoxLayout *wbLayout = new QHBoxLayout;
+    wbLayout->setMargin(6);
+    wbLayout->setSpacing(0);
+    wbLayout->addStretch();
+    wbLayout->addWidget(closeButton);
+
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->setSpacing(0);
 
+    layout->addLayout(wbLayout);
     layout->addStretch();
     layout->addWidget(m_title, 0, Qt::AlignHCenter);
     layout->addSpacing(40);
@@ -77,6 +91,11 @@ TimeZoneChooser::TimeZoneChooser()
         hide();
     });
 
+    connect(closeButton, &DWindowCloseButton::clicked, this, [this] {
+        hide();
+        emit cancelled();
+    });
+
     connect(m_cancelBtn, &QPushButton::clicked, this, [this] {
         hide();
         emit cancelled();
@@ -86,6 +105,11 @@ TimeZoneChooser::TimeZoneChooser()
         QString timezone = m_searchInput->text();
         timezone = m_completionCache.value(timezone, timezone);
         m_map->setTimezone(timezone);
+    });
+
+    connect(m_map, &installer::TimezoneMap::timezoneUpdated, this, [this] {
+        m_searchInput->setText("");
+        m_searchInput->clearFocus();
     });
 
     QTimer::singleShot(0, [this] {
@@ -106,6 +130,25 @@ TimeZoneChooser::TimeZoneChooser()
         completer->setCaseSensitivity(Qt::CaseInsensitive);
 
         m_searchInput->setCompleter(completer);
+
+        m_popup = completer->popup();
+        m_popup->setObjectName("TimezoneCompleter");
+        m_popup->setAttribute(Qt::WA_TranslucentBackground);
+        m_popup->installEventFilter(this);
+
+        DBlurEffectWidget *blurEffect = new DBlurEffectWidget(m_popup);
+        blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
+        blurEffect->setMaskColor(Qt::white);
+        blurEffect->setBlurRectXRadius(4);
+        blurEffect->setBlurRectYRadius(4);
+
+        QHBoxLayout *layout = new QHBoxLayout;
+        layout->setSpacing(0);
+        layout->setMargin(0);
+        layout->addWidget(blurEffect);
+        m_popup->setLayout(layout);
+
+        blurEffect->lower();
     });
 }
 
@@ -123,6 +166,23 @@ void TimeZoneChooser::keyReleaseEvent(QKeyEvent *event)
         hide();
         emit cancelled();
     }
+}
+
+bool TimeZoneChooser::eventFilter(QObject *watched, QEvent *event)
+{
+    // Qt make popups' position 2px higher than the bottom of its associated widget,
+    // and the 2px's hard coded, so I need to move the popup to a proper position so
+    // it won't overlap with the SearchInput.
+    if (watched == m_popup && event->type() == QEvent::Move) {
+        const QMoveEvent *move = static_cast<QMoveEvent*>(event);
+        const QPoint destPos = m_searchInput->mapToGlobal(QPoint(0, m_searchInput->height() + 1));
+        // Don't panic, it won't cause dead loop.
+        if (move->pos() != destPos) {
+            m_popup->move(destPos);
+        }
+    }
+
+    return false;
 }
 
 QSize TimeZoneChooser::getFitSize() const

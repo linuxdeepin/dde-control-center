@@ -27,3 +27,12 @@ dcc--datetime--Clock[display=false] {
 QLineEdit#DCC-Datetime-QLineEdit {
     border:0px;
 }
+
+QListView#TimezoneCompleter {
+    background: transparent;
+    border: none;
+}
+
+QListView::item {
+    min-height: 36px;
+}
