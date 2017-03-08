@@ -11,6 +11,7 @@
 
 #include <QHBoxLayout>
 #include <QMouseEvent>
+#include <QTimer>
 
 #include "loadingindicator.h"
 #include "labels/normallabel.h"
@@ -83,12 +84,20 @@ void DeviceSettingsItem::mouseReleaseEvent(QMouseEvent *event)
         emit requestConnectDevice(m_device);
     }
 
+    if (m_device->state() == Device::StateConnected) {
+        setLoading(true);
+        QTimer::singleShot(1000, this, &DeviceSettingsItem::onStopLoadingAnimation);
+    }
+
     SettingsItem::mouseReleaseEvent(event);
 }
 
 void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state)
 {
     qDebug() << "device state changed: " << m_device;
+
+    if (state == Device::StateAvailable)
+        setLoading(true);
 
     QString tip;
 
@@ -117,6 +126,11 @@ void DeviceSettingsItem::onDevicePairedChanged(const bool &paired)
         m_nextButton->hide();
         m_tipLabel->hide();
     }
+}
+
+void DeviceSettingsItem::onStopLoadingAnimation()
+{
+    setLoading(false);
 }
 
 const Device *DeviceSettingsItem::device() const

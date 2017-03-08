@@ -43,6 +43,7 @@ protected:
 private slots:
     void onDeviceStateChanged(const Device::State &state);
     void onDevicePairedChanged(const bool &paired);
+    void onStopLoadingAnimation();
 
 private:
     const Device *m_device;
