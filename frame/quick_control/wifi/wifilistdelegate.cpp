@@ -24,6 +24,7 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     const bool isHovered = index.data(WifiListModel::ItemHoveredRole).toBool();
     const bool isTips = index.data(WifiListModel::ItemIsHiddenTipsRole).toBool();
     const bool isNext = index.data(WifiListModel::ItemNextRole).toBool();
+    const bool isPowerOff = index.data(WifiListModel::ItemIsPowerOffRole).toBool();
 
     if (isHovered && !isHeader)
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.1 * 255));
@@ -45,7 +46,9 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
 
     painter->setPen(Qt::white);
 
-    if (isTips)
+    if (isPowerOff)
+        painter->drawText(option.rect.marginsRemoved(QMargins(70, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(WifiListModel::ItemPowerOffTipsRole).toString());
+    else if (isTips)
         painter->drawText(option.rect.marginsRemoved(QMargins(70, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(WifiListModel::ItemHiddenTipsRole).toString());
     else if (isHeader)
         painter->drawText(option.rect.marginsRemoved(QMargins(24, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());

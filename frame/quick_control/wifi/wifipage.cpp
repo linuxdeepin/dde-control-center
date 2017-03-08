@@ -36,7 +36,7 @@ WifiPage::WifiPage(NetworkModel *model, QWidget *parent)
 
 void WifiPage::onItemClicked(const QModelIndex &index)
 {
-    if (index.data(WifiListModel::ItemIsHeaderRole).toBool())
+    if (index.data(WifiListModel::ItemIsHeaderRole).toBool() || index.data(WifiListModel::ItemIsPowerOffRole).toBool())
         return;
 
     if (index.data(WifiListModel::ItemIsHiddenTipsRole).toBool())

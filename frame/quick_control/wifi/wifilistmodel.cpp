@@ -84,6 +84,10 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
         return tr("Connect to hidden network");
     case ItemNextRole:
         return m_currentIndex.row() + 1 == index.row();
+    case ItemIsPowerOffRole:
+        return rowCount(QModelIndex()) == 1;
+    case ItemPowerOffTipsRole:
+        return tr("Click to enable WIFI");
     default:;
     }
 
