@@ -11,6 +11,9 @@ class NavgationView : public QListView
 
 public:
     explicit NavgationView(QWidget *parent = nullptr);
+
+protected:
+    void leaveEvent(QEvent *e);
 };
 
 }

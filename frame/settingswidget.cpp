@@ -104,7 +104,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     m_navWidget = new TranslucentFrame(this);
     m_navWidget->setLayout(navLayout);
-    m_navWidget->setFixedSize(FRAME_WIDTH, 600);
+    m_navWidget->setFixedSize(110 * 3 + 5, 600);
     m_navWidget->move(14, 0);
     m_navWidget->setVisible(false);
 
@@ -116,6 +116,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     connect(m_navView, &NavgationView::clicked, this, &SettingsWidget::toggleView);
     connect(m_navView, &NavgationView::entered, this, &SettingsWidget::onNavItemEntered);
+    connect(m_navView, &NavgationView::entered, m_navModel, &NavgationModel::setCurrentItem);
     connect(m_navView, &NavgationView::clicked, this, &SettingsWidget::onNavItemClicked, Qt::QueuedConnection);
     connect(m_navgationBtn, &DImageButton::clicked, this, &SettingsWidget::toggleView);
     connect(m_resetBtn, &QPushButton::clicked, this, &SettingsWidget::resetAllSettings);
@@ -334,6 +335,9 @@ void SettingsWidget::onNavItemClicked(const QModelIndex &index)
 // TODO:
 void SettingsWidget::onNavItemEntered(const QModelIndex &index)
 {
+    if (!index.isValid())
+        return;
+
     const QString name = index.data().toString();
     ModuleInterface *inter = nullptr;
 

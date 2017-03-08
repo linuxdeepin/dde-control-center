@@ -52,6 +52,16 @@ void NavgationModel::appendAvailableItem(const QString &item)
     m_allItems.append(item);
 }
 
+void NavgationModel::setCurrentItem(const QModelIndex &index)
+{
+    const QModelIndex oldIndex = m_currentIndex;
+
+    m_currentIndex = index;
+
+    emit dataChanged(oldIndex, oldIndex);
+    emit dataChanged(m_currentIndex, m_currentIndex);
+}
+
 int NavgationModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
@@ -68,6 +78,7 @@ QVariant NavgationModel::data(const QModelIndex &index, int role) const
     {
     case Qt::DisplayRole:   return m_items[index.row()];
     case Qt::SizeHintRole:  return QSize(110, 90);
+    case ItemHoveredRole:   return index == m_currentIndex;
     default:;
     }
 

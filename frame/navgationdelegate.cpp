@@ -1,4 +1,5 @@
 #include "navgationdelegate.h"
+#include "navgationmodel.h"
 
 #include <QPainter>
 
@@ -14,7 +15,10 @@ void NavgationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 {
     painter->setRenderHints(QPainter::Antialiasing);
 
-    painter->fillRect(option.rect, QColor::fromRgbF(1, 1, 1, 0.2));
+    if (index.data(NavgationModel::ItemHoveredRole).toBool())
+        painter->fillRect(option.rect, QColor::fromRgbF(1, 1, 1, 0.3));
+    else
+        painter->fillRect(option.rect, QColor::fromRgbF(1, 1, 1, 0.2));
 
     const QString module = index.data().toString();
     const QString picFile = QString(":/%1/themes/dark/icons/nav_%2.png").arg(module).arg(module);

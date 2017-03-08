@@ -11,7 +11,16 @@ NavgationView::NavgationView(QWidget *parent)
     setFrameStyle(QFrame::NoFrame);
     setSpacing(1);
     setMouseTracking(true);
-//    setStyleSheet("background-color: red;");
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    //    setStyleSheet("background-color: red; border-radius: 5px;");
+}
+
+void NavgationView::leaveEvent(QEvent *e)
+{
+    QListView::leaveEvent(e);
+
+    emit entered(QModelIndex());
 }
 
 }
