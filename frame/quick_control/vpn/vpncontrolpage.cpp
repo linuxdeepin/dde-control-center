@@ -33,6 +33,9 @@ VpnControlPage::VpnControlPage(NetworkModel *model, QWidget *parent)
 
 void VpnControlPage::onItemClicked(const QModelIndex &index) const
 {
+    if (index.data(VpnListModel::VpnDisableRole).toBool())
+        return;
+
     if (!index.data(VpnListModel::VpnShowIconRole).toBool())
         emit requestActivateConnection("/", index.data(VpnListModel::VpnUuidRole).toString());
     else

@@ -17,9 +17,17 @@ void VpnListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
 
     const bool isHover = index.data(VpnListModel::VpnItemHoveredRole).toBool();
     const bool isNext = index.data(VpnListModel::VpnNextRole).toBool();
+    const bool isDisable = index.data(VpnListModel::VpnDisableRole).toBool();
 
     if (isHover)
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.1 * 255));
+
+    painter->setPen(Qt::white);
+
+    if (isDisable)
+        painter->drawText(option.rect.marginsRemoved(QMargins(30, 0, 0, 0)), Qt::AlignLeft | Qt::AlignVCenter, index.data(VpnListModel::VpnDisableTipRole).toString());
+    else
+        painter->drawText(option.rect.marginsRemoved(QMargins(30, 0, 0, 0)), index.data(Qt::DisplayRole).toString(), Qt::AlignLeft | Qt::AlignVCenter);
 
     if (index.row())
     {
@@ -33,9 +41,6 @@ void VpnListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         painter->setPen(QColor(255, 255, 255, 255 * 0.1));
         painter->drawLine(QPoint(0, option.rect.top()), QPoint(option.rect.right(), option.rect.top()));
     }
-
-    painter->setPen(Qt::white);
-    painter->drawText(option.rect.marginsRemoved(QMargins(30, 0, 0, 0)), index.data(Qt::DisplayRole).toString(), Qt::AlignLeft | Qt::AlignVCenter);
 
     if (index.data(VpnListModel::VpnShowIconRole).toBool())
     {

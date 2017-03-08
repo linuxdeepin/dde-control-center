@@ -29,7 +29,7 @@ int VpnListModel::rowCount(const QModelIndex &parent) const
     if (m_networkModel->vpnEnabled())
         return m_networkModel->vpns().size();
     else
-        return 0;
+        return 1;
 }
 
 QVariant VpnListModel::data(const QModelIndex &index, int role) const
@@ -43,6 +43,8 @@ QVariant VpnListModel::data(const QModelIndex &index, int role) const
     case Qt::SizeHintRole:      return QSize(0, 35);
     case VpnIsFirstLineRole:    return !index.row();
     case VpnNextRole:           return index.row() == m_hoveredIndex.row() + 1;
+    case VpnDisableRole:        return rowCount(QModelIndex()) == 1;
+    case VpnDisableTipRole:     return tr("Click to enable VPN");
     default:;
     }
 
