@@ -16,6 +16,7 @@
 
 namespace dcc {
 namespace keyboard{
+class CustomEdit;
 class KeyboardModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -76,6 +77,7 @@ private:
     LangWidget* m_langWidget;
     ShortcutContent* m_scContent;
     CustomContent* m_customContent;
+    CustomEdit    *m_customEdit;
 };
 }
 }

@@ -195,7 +195,10 @@ void KeyboardWork::modifyShortcutEdit(ShortcutInfo *info)
     if (!info)
         return;
 
-    m_keybindInter->ModifyCustomShortcut(info->id, info->name, info->command, info->accels);
+    if (info->accels != tr("None"))
+        m_keybindInter->ModifyCustomShortcut(info->id, info->name, info->command, info->accels);
+    else
+        m_keybindInter->ModifyCustomShortcut(info->id, info->name, info->command, QString());
 }
 
 void KeyboardWork::addCustomShortcut(const QString &name, const QString &command, const QString &accels, bool &result)

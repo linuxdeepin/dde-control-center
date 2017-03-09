@@ -24,7 +24,7 @@ using namespace dcc::widgets;
 namespace dcc {
 namespace keyboard{
 struct ShortcutInfo;
-
+class CustomEditItem;
 class CustomEdit : public ContentWidget
 {
     Q_OBJECT
@@ -33,23 +33,26 @@ public:
     void setShortcut(ShortcutInfo* info);
 
 signals:
-    void shortcutChangd(bool valid, ShortcutInfo* info, const QString& shortcut);
-    void requestDisableShortcut(ShortcutInfo* info);
     void requestEditFinished();
+    void requestShortcutList(const QString &shortcut);
 
 public slots:
     void onClick();
+    void setBottomTip(ShortcutInfo *conflict);
 
 private slots:
     void onOpenFile();
+    void onSaveAccels();
 
 private:
     KeyboardWork   *m_work;
     SettingsGroup  *m_commandGroup;
     LineEditWidget *m_name;
     LineEditWidget *m_command;
-    ShortcutItem   *m_short;
+    CustomEditItem   *m_short;
     ShortcutInfo   *m_info;
+    QLabel         *m_tip;
+    ShortcutInfo *m_conflict;
 };
 }
 }

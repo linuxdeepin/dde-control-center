@@ -410,6 +410,9 @@ void KeyboardModule::onShortcutSet(const QString &shortcut)
         m_customContent->setBottomTip(conflict);
         m_customContent->setConflictString(list);
     }
+
+    if(m_customEdit)
+        m_customEdit->setBottomTip(conflict);
 }
 
 void KeyboardModule::onShortcutKeySet(const QString &shortcut)
@@ -442,17 +445,16 @@ void KeyboardModule::onSpeed(int value)
 
 void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
 {
-    CustomEdit *w = new CustomEdit(m_work);
-    w->setShortcut(info);
+    m_customEdit = new CustomEdit(m_work);
+    m_customEdit->setShortcut(info);
 
     ShortcutWidget *shortcutWidget = static_cast<ShortcutWidget*>(sender());
     SettingsHead *head = shortcutWidget->getHead();
 
-    connect(w, &CustomEdit::requestEditFinished, head, &SettingsHead::toCancel);
-    connect(w, &CustomEdit::shortcutChangd, this, &KeyboardModule::onShortcutChecked);
-    connect(w, &CustomEdit::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
+    connect(m_customEdit, &CustomEdit::requestEditFinished, head, &SettingsHead::toCancel);
+    connect(m_customEdit, &CustomEdit::requestShortcutList, this, &KeyboardModule::onShortcutSet);
 
-    m_frameProxy->pushWidget(this, w);
+    m_frameProxy->pushWidget(this, m_customEdit);
 }
 
 void KeyboardModule::setCapsLock(bool value)

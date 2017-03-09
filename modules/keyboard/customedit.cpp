@@ -9,6 +9,7 @@
 
 #include "customedit.h"
 #include "translucentframe.h"
+#include "customedititem.h"
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -20,8 +21,11 @@ keyboard::CustomEdit::CustomEdit(keyboard::KeyboardWork *work, QWidget *parent):
     m_commandGroup(new SettingsGroup),
     m_name(new LineEditWidget),
     m_command(new LineEditWidget),
-    m_short(new ShortcutItem)
+    m_short(new CustomEditItem(this)),
+    m_tip(new QLabel)
 {
+    m_tip->setWordWrap(true);
+
     setTitle(tr("Shortcuts"));
     TranslucentFrame *widget = new TranslucentFrame;
     QVBoxLayout *mainlayout = new QVBoxLayout;
@@ -49,6 +53,7 @@ keyboard::CustomEdit::CustomEdit(keyboard::KeyboardWork *work, QWidget *parent):
     buttonlayout->addWidget(okButton);
 
     mainlayout->addWidget(m_commandGroup);
+    mainlayout->addWidget(m_tip);
     mainlayout->addSpacing(10);
     mainlayout->addLayout(buttonlayout);
 
@@ -61,15 +66,17 @@ keyboard::CustomEdit::CustomEdit(keyboard::KeyboardWork *work, QWidget *parent):
     connect(okButton, &QPushButton::clicked, this, &CustomEdit::onClick);
     connect(okButton, &QPushButton::clicked, this, &CustomEdit::requestEditFinished);
     connect(pushbutton, &QPushButton::clicked, this, &CustomEdit::onOpenFile);
-    connect(m_short, &ShortcutItem::shortcutChangd, this, &CustomEdit::shortcutChangd);
-    connect(m_short, &ShortcutItem::requestDisableShortcut, this, &CustomEdit::requestDisableShortcut);
+    connect(m_short, &CustomEditItem::requestShortcutList, this, &CustomEdit::requestShortcutList);
+    connect(okButton, &QPushButton::clicked, this, &CustomEdit::onSaveAccels);
 }
 
 void keyboard::CustomEdit::setShortcut(keyboard::ShortcutInfo *info)
 {
     m_info = info;
-    m_short->setShortcutInfo(info);
+
     m_short->setTitle(tr("Shortcuts"));
+    m_short->setAccels(info->accels);
+    m_short->setId(info->id);
 
     m_name->setTitle(tr("Name"));
     m_command->setTitle(tr("Command"));
@@ -89,8 +96,29 @@ void keyboard::CustomEdit::onClick()
     sendBackSignal();
 }
 
+void keyboard::CustomEdit::setBottomTip(keyboard::ShortcutInfo *conflict)
+{
+    m_conflict = conflict;
+    if (conflict) {
+        QString str = tr("This shortcut conflicts with %1, click on Add to make this shortcut effective immediately").arg(conflict->name);
+        m_tip->setText(str);
+        m_tip->setVisible(true);
+    } else {
+        m_tip->setVisible(false);
+    }
+}
+
 void keyboard::CustomEdit::onOpenFile()
 {
     QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), tr("/usr/bin"));
     m_command->setText(file);
+}
+
+void keyboard::CustomEdit::onSaveAccels()
+{
+    if (m_tip->isVisible()) {
+        m_work->modifyShortcut(m_conflict, tr("null"));
+    }
+    m_info->accels = m_short->getAccles();
+    m_work->modifyShortcutEdit(m_info);
 }
