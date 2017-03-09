@@ -29,21 +29,29 @@ public:
     int count() const;
     WeatherItem dayAt(int index);
 
-    void refreshData();
+    void refreshData(bool force = false);
     void sendRefreshSignal();
+
+    void setCity(const City& city);
+    void searchCity(const QString &input);
 
 signals:
     void fetchLocalizedCityNameDone(const QString &name);
     void dataRefreshed(QList<WeatherItem> &items);
 
+    void searchCityDone(QList<City> &cities);
+
 private slots:
     void replyFinished(QNetworkReply* reply);
     void slotTimeout();
-    void setCity(const City& city);
+
+    void requestWeatherForecast(const QString &geonameId);
 
     void processWeatherServiceReply();
     void processGeoNameIdReply();
     void processGeoNameInfoReply();
+
+    void processSearchCityReply();
 
 private:
     City m_city;

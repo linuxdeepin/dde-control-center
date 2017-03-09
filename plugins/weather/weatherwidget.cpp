@@ -4,12 +4,12 @@
 #include <QGraphicsPathItem>
 #include <QGuiApplication>
 
-DWIDGET_USE_NAMESPACE
-
-WeatherWidget::WeatherWidget(QWidget *parent)
+WeatherWidget::WeatherWidget(WeatherRequest *request, QWidget *parent)
     :QWidget(parent),
-      m_request(new WeatherRequest(this))
+      m_request(request)
 {
+    setMouseTracking(true);
+
     m_view = new DPictureSequenceView(this);
     m_view->setFixedSize(50,50);
     QStringList lists;
@@ -22,6 +22,17 @@ WeatherWidget::WeatherWidget(QWidget *parent)
         lists<<path;
     }
     m_view->setPictureSequence(lists);
+
+
+    m_locationBtn = new DImageButton(this);
+    m_locationBtn->setNormalPic(":/icon/location_normal.png");
+    m_locationBtn->setHoverPic(":/icon/location_hover.png");
+    m_locationBtn->setPressPic(":/icon/location_press.png");
+
+    m_locationBtn->move(260, 30);
+    m_locationBtn->setVisible(false);
+
+    connect(m_locationBtn, &DImageButton::clicked, this, &WeatherWidget::locationButtonClicked);
 
     connect(m_request, SIGNAL(dataRefreshed(QList<WeatherItem>&)),
             this, SLOT(refreshView(QList<WeatherItem>&)));
@@ -119,20 +130,23 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
             QRect descRect(textRect.right(), textRect.top()+2, descWidth, rect.height());
             painter.drawText(descRect, Qt::AlignLeft | Qt::AlignVCenter, item.description());
 
-            font.setPointSize(curFont.pointSize() * 1.4);
-            painter.setFont(font);
-            fm=QFontMetrics(font);
-            QString city = m_request->localizedCityName();
-            QRect cityArea(rect.width() - 50 - iconRect.left()-10,rect.y(),fm.width(city), rect.height()/2+6);
-            painter.drawText(cityArea, Qt::AlignBottom | Qt::AlignHCenter, city);
-            font.setPointSize(curFont.pointSize() * 0.8);
-            fm=QFontMetrics(font);
-            QString updateTime = tr("Just updated");
-            QRect statusArea(rect.width() - 50 - iconRect.left()-10,cityArea.bottom(),fm.width(updateTime), rect.height()/2 -6);
-            pen1.setAlphaF(0.5);
-            painter.setPen(pen1);
-            painter.setFont(font);
-            painter.drawText(statusArea, Qt::AlignTop|Qt::AlignHCenter, updateTime);
+            if (!m_locationBtn->isVisible()) {
+                font.setPointSize(curFont.pointSize() * 1.4);
+                painter.setFont(font);
+                fm=QFontMetrics(font);
+                QString city = m_request->localizedCityName();
+                QRect cityArea(rect.width() - 50 - iconRect.left()-10,rect.y(),fm.width(city), rect.height()/2+6);
+                painter.drawText(cityArea, Qt::AlignBottom | Qt::AlignHCenter, city);
+                font.setPointSize(curFont.pointSize() * 0.8);
+                fm=QFontMetrics(font);
+                QString updateTime = tr("Just updated");
+                QRect statusArea(rect.width() - 50 - iconRect.left()-10,cityArea.bottom(),fm.width(updateTime), rect.height()/2 -6);
+                pen1.setAlphaF(0.5);
+                painter.setPen(pen1);
+                painter.setFont(font);
+                painter.drawText(statusArea, Qt::AlignTop|Qt::AlignHCenter, updateTime);
+            }
+
             painter.restore();
         }
         else
@@ -153,9 +167,12 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
     }
 }
 
-void WeatherWidget::mousePressEvent(QMouseEvent *)
+void WeatherWidget::mouseMoveEvent(QMouseEvent *event)
 {
+    QWidget::mouseMoveEvent(event);
     update();
+
+    m_locationBtn->setVisible(event->y() < 20 * 3 && event->y() > 10);
 }
 
 void WeatherWidget::resizeEvent(QResizeEvent *e)

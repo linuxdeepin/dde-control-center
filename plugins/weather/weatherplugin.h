@@ -2,8 +2,8 @@
 #define WEATHERPLUGIN_H
 
 #include "plugininterface.h"
-#include "weatherwidget.h"
 
+class WeatherRequest;
 class WeatherPlugin : public QObject, public PluginInterface
 {
     Q_OBJECT
@@ -17,7 +17,8 @@ public:
     QWidget *centralWidget();
 
 private:
-    WeatherWidget *m_weatherView;
+    QWidget *m_view;
+    WeatherRequest *m_requestManager;
 };
 
 #endif // WEATHERPLUGIN_H

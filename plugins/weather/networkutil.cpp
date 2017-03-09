@@ -60,7 +60,7 @@ const QString NetworkUtil::getNetIP(QString code)
 
     if (gir) {
         const char *region = GeoIP_region_name_by_code(gir->country_code, gir->region);
-        return City { gir->country_name, region, gir->city, gir->city, gir->latitude, gir->longitude };
+        return City { "", gir->country_name, region, gir->city, gir->city, gir->latitude, gir->longitude };
     }
 
     return City{};

@@ -6,6 +6,8 @@
 #include <QTimer>
 #include <QResizeEvent>
 #include <dpicturesequenceview.h>
+#include <dimagebutton.h>
+
 DWIDGET_USE_NAMESPACE
 
 class WeatherWidget : public QWidget
@@ -13,12 +15,15 @@ class WeatherWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit WeatherWidget(QWidget* parent = 0);
+    explicit WeatherWidget(WeatherRequest *request, QWidget* parent = 0);
+
+signals:
+    void locationButtonClicked();
 
 protected:
     void showEvent(QShowEvent *event);
     void paintEvent(QPaintEvent *event);
-    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
     void resizeEvent(QResizeEvent* e);
     QString icon(const WeatherItem& item);
 
@@ -31,6 +36,7 @@ private:
     WeatherRequest *m_request;
     QList<QPixmap> m_pixmaps;
     DPictureSequenceView* m_view;
+    DImageButton *m_locationBtn;
 };
 
 #endif // WEATHERWIDGET_H

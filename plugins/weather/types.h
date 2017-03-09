@@ -13,6 +13,7 @@
 #include <QObject>
 
 struct City {
+    QString geonameId;
     QString country;
     QString region;
     QString name;

@@ -11,9 +11,9 @@
 
 #include <QDomDocument>
 
-static const QString WeatherServiceHost = "http://w.api.deepin.com";
+static const QString WeatherServiceHost = "http://hualet.org:9898";
 static const QString GeoNameServiceHost = "http://api.geonames.org";
-static const QString GeoNameKey=  "wangyaohua";
+static const QString GeoNameKey=  "change";
 
 WeatherRequest::WeatherRequest(QObject *parent) :
     QObject(parent),
@@ -29,7 +29,12 @@ WeatherRequest::WeatherRequest(QObject *parent) :
 
     m_retryTimer->setSingleShot(false);
     m_retryTimer->setInterval(5000);
-    connect(m_retryTimer, &QTimer::timeout, this, [this] { m_loader->start(); });
+
+    connect(m_retryTimer, &QTimer::timeout, this, [this] {
+        if (m_city.geonameId.isEmpty()) {
+            m_loader->start();
+        }
+    });
 
     m_loader->start();
     m_retryTimer->start();
@@ -43,7 +48,7 @@ WeatherRequest::~WeatherRequest()
 void WeatherRequest::setCity(const City &city)
 {
     m_city = city;
-    refreshData();
+    refreshData(true);
 }
 
 void WeatherRequest::processWeatherServiceReply()
@@ -94,6 +99,10 @@ void WeatherRequest::processGeoNameIdReply()
         if (name.toLower() == m_city.name.toLower()) {
             QString geonameId = geoname.firstChildElement("geonameId").text();
 
+            qDebug() << "got geoname id " << geonameId;
+
+            requestWeatherForecast(geonameId);
+
             QString geoNameInfoUrl = QString("%1/get?geonameId=%2&username=%3&lang=%4").arg(GeoNameServiceHost) \
                     .arg(geonameId).arg(GeoNameKey).arg(lang);
             reply = m_manager->get(QNetworkRequest(geoNameInfoUrl));
@@ -121,9 +130,40 @@ void WeatherRequest::processGeoNameInfoReply()
     QDomElement name = root.firstChildElement("name");
     if (!name.text().isEmpty()) {
         m_city.localizedName = name.text();
+        qDebug() << "got localized city name" << m_city.localizedName;
     }
 
     emit fetchLocalizedCityNameDone(m_city.localizedName);
+}
+
+void WeatherRequest::processSearchCityReply()
+{
+    QList<City> cities;
+
+    QNetworkReply *reply = qobject_cast<QNetworkReply*>(sender());
+    QByteArray ba = reply->readAll();
+
+    QDomDocument domDocument;
+    QString errorMsg;
+    if (!domDocument.setContent(ba, false, &errorMsg)) {
+        qDebug() << ba;
+        qWarning() << "read xml content error! " << errorMsg;
+    }
+
+    m_city.localizedName = m_city.name;
+    QDomElement root = domDocument.documentElement();
+    QDomElement geoname = root.firstChildElement("geoname");
+    while (!geoname.isNull()) {
+        QString name = geoname.firstChildElement("name").text();
+        QString geonameId = geoname.firstChildElement("geonameId").text();
+        QString countryName = geoname.firstChildElement("countryName").text();
+
+        cities.append(City{geonameId, countryName, "", name, name, 0, 0});
+
+        geoname = geoname.nextSiblingElement("geoname");
+    }
+
+    emit searchCityDone(cities);
 }
 
 QString WeatherRequest::city() const
@@ -150,28 +190,46 @@ WeatherItem WeatherRequest::dayAt(int index)
     return WeatherItem();
 }
 
-void WeatherRequest::refreshData()
+void WeatherRequest::refreshData(bool force)
 {
     const int elapsed = m_lastRefreshTimestamp.elapsed();
-    if ((elapsed >= 1000 * 60 * 15 || elapsed == 0) && !m_city.name.isEmpty()) {
+    if ((elapsed >= 1000 * 60 * 15 || elapsed == 0 || force) && !m_city.name.isEmpty()) {
         m_retryTimer->start();
 
         City city = m_city;
-        QString weatherUrl = QString("%1/forecast/%2/%3/%4").arg(WeatherServiceHost).arg(city.country) \
-                        .arg(city.region).arg(city.name);
-        QNetworkReply *reply = m_manager->get(QNetworkRequest(weatherUrl));
-        connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processWeatherServiceReply);
 
-        QString geoNameIDUrl = QString("%1/extendedFindNearby?lat=%2&lng=%3&username=%4").arg(GeoNameServiceHost) \
-                .arg(city.latitude).arg(city.longitude).arg(GeoNameKey);
-        reply = m_manager->get(QNetworkRequest(geoNameIDUrl));
-        connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processGeoNameIdReply);
+        if (city.geonameId.isEmpty()) {
+            QString geoNameIDUrl = QString("%1/extendedFindNearby?lat=%2&lng=%3&username=%4").arg(GeoNameServiceHost) \
+                    .arg(city.latitude).arg(city.longitude).arg(GeoNameKey);
+            QNetworkReply *reply = m_manager->get(QNetworkRequest(geoNameIDUrl));
+            connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processGeoNameIdReply);
+        } else {
+            requestWeatherForecast(city.geonameId);
+        }
     }
 }
 
 void WeatherRequest::sendRefreshSignal()
 {
     emit dataRefreshed(m_items);
+}
+
+void WeatherRequest::searchCity(const QString &input)
+{
+    qDebug() << "search city with input " << input;
+    const QString lang = QLocale::system().name().split("_").at(0);
+    QString searchCityUrl = QString("%1/search?q=%2&maxRows=10&username=%3&lang=%4").arg(GeoNameServiceHost) \
+            .arg(input).arg(GeoNameKey).arg(lang);
+    QNetworkReply *reply = m_manager->get(QNetworkRequest(searchCityUrl));
+    connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processSearchCityReply);
+}
+
+void WeatherRequest::requestWeatherForecast(const QString &geonameId)
+{
+    qDebug() << "request weather forecast " << geonameId;
+    QString weatherUrl = QString("%1/forecast/%2").arg(WeatherServiceHost).arg(geonameId);
+    QNetworkReply *reply = m_manager->get(QNetworkRequest(weatherUrl));
+    connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processWeatherServiceReply);
 }
 
 LoaderCity::LoaderCity(QObject *parent)

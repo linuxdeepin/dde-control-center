@@ -1,5 +1,6 @@
 
 include(../../interfaces/interfaces.pri)
+include(../../widgets/widgets.pri)
 
 PLUGIN_NAME 	= weather
 
@@ -21,14 +22,16 @@ HEADERS += \
     weatherwidget.h \
     weatherplugin.h \
     networkutil.h \
-    types.h
+    types.h \
+    setlocationpage.h
 
 SOURCES += \
     weatheritem.cpp \
     weatherrequest.cpp \
     weatherwidget.cpp \
     weatherplugin.cpp \
-    networkutil.cpp
+    networkutil.cpp \
+    setlocationpage.cpp
 
 RESOURCES += \
     weather.qrc
