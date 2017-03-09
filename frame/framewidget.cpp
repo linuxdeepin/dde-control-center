@@ -31,7 +31,7 @@ FrameWidget::FrameWidget(Frame *parent)
     setGraphicsEffect(m_opacityEffect);
 
     // change widget opacity
-    connect(m_slidePosAni, &QPropertyAnimation::valueChanged, [this](const QVariant &value) {
+    connect(m_slidePosAni, &QPropertyAnimation::valueChanged, this, [this](const QVariant &value) {
         m_opacityEffect->setOpacity(1.0 - std::abs(double(value.toPoint().x())) / FRAME_WIDTH);
     });
 }
