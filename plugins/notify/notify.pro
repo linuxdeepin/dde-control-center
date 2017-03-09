@@ -6,22 +6,20 @@ PLUGIN_NAME 	= notify
 QT              += widgets dbus
 TEMPLATE         = lib
 CONFIG          += plugin c++11 link_pkgconfig
-PKGCONFIG += dtkbase dtkwidget
+PKGCONFIG += dtkbase dtkwidget dframeworkdbus
 TARGET          = $$qtLibraryTarget($$PLUGIN_NAME)
 DESTDIR          = $$_PRO_FILE_PWD_/../
-DISTFILES       += $$PLUGIN_NAME.json notify-monitor
+DISTFILES       += $$PLUGIN_NAME.json
 
 HEADERS += \
     notifyplugin.h \
     notifymanager.h \
-    notifyviewer.h \
-    notifydata.h
+    notifyviewer.h
 
 SOURCES += \
     notifyplugin.cpp \
     notifymanager.cpp \
-    notifyviewer.cpp \
-    notifydata.cpp
+    notifyviewer.cpp
 
 target.path = $${PREFIX}/lib/dde-control-center/plugins/
 

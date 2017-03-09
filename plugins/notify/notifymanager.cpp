@@ -12,9 +12,11 @@
 #include <QJsonObject>
 #include <QDebug>
 
-NotifyManager::NotifyManager(QWidget *parent) : QWidget(parent) {
-    m_dataSource = new NotifyData;
 
+NotifyManager::NotifyManager(QWidget *parent) :
+    QWidget(parent),
+    m_dbus(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
+{
     m_mainLayout = new QVBoxLayout;
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(1);
@@ -29,49 +31,37 @@ NotifyManager::NotifyManager(QWidget *parent) : QWidget(parent) {
 
     m_clearButton->setVisible(false);
 
-    connect(m_dataSource, &NotifyData::dataReceived, this, &NotifyManager::setValue);
     connect(m_clearButton, &DImageButton::clicked, this, &NotifyManager::onCloseAllItem);
+
+    connect(m_dbus, &Notifications::RecordAdded, this, &NotifyManager::onNotifyAdded);
+
+    m_dbus->setSync(false);
+
+    QDBusPendingReply<QString> notify = m_dbus->GetAllRecords();
+    QDBusPendingCallWatcher *notifyWatcher = new QDBusPendingCallWatcher(notify, this);
+    connect(notifyWatcher, &QDBusPendingCallWatcher::finished, this, &NotifyManager::onNotifyGetAllFinished);
 }
 
 NotifyManager::~NotifyManager() {
-    m_dataSource->deleteLater();
+
 }
 
-void NotifyManager::setValue(QByteArray s) {
+void NotifyManager::onNotifyAdded(const QString &value)
+{
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(value.toLocal8Bit().data());
+    onNotifyAdd(jsonDocument.object());
+}
+
+void NotifyManager::onNotifyAdd(const QJsonObject &value) {
+
     m_clearButton->setVisible(true);
     m_viewer = new Viewer(this);
-    QJsonParseError json_error;
-    QJsonDocument parse_doucment = QJsonDocument::fromJson(s, &json_error);
-    if(json_error.error == QJsonParseError::NoError) {
-        if(parse_doucment.isObject()) {
-            QJsonObject obj = parse_doucment.object();
-            if(obj.contains("summary")) {
-                QJsonValue name_value = obj.take("summary");
-                if(name_value.isString()) {
-                    QString name = name_value.toString();
-                    m_viewer->setAppName(name);
-                }
-            }
-            if(obj.contains("icon")) {
-                QJsonValue name_value = obj.take("icon");
-                if(name_value.isString()) {
-                    QString name = name_value.toString();
-                    if (name.isEmpty()) {
-                        m_viewer->setAppIcon("application-default-icon");
-                    } else {
-                        m_viewer->setAppIcon(name);
-                    }
-                }
-            }
-            if(obj.contains("body")) {
-                QJsonValue name_value = obj.take("body");
-                if(name_value.isString()) {
-                    QString name = name_value.toString();
-                    m_viewer->setAppBody(name);
-                }
-            }
-        }
-    }
+
+    m_viewer->setAppName(value["name"].toString());
+    m_viewer->setAppBody(value["body"].toString());
+    m_viewer->setAppIcon(value["icon"].toString());
+    m_viewer->setAppId(value["id"].toString());
+
     QString m_time=QTime::currentTime().toString("AP hh:mm");
     m_viewer->setAppTime(m_time);
     m_viewer->setFixedHeight(80);
@@ -79,8 +69,22 @@ void NotifyManager::setValue(QByteArray s) {
     m_viewer->setStyleSheet("Viewer {background-color: rgba(255, 255, 255, 0.03);}"
                             "Viewer:hover {background-color: rgba(254, 254, 254, 0.13);}");
     m_mainLayout->insertWidget(1, m_viewer);
-    m_viewerList.append(m_viewer);
+    m_viewerList.insert(m_viewer, value);
+    connect(m_viewer, &Viewer::requestClose, this, &NotifyManager::onNotifyRemove);
     update();
+}
+
+void NotifyManager::onNotifyRemove(const QString &id)
+{
+    QMap<Viewer*, QJsonObject>::iterator list = m_viewerList.begin();
+    while (list!= m_viewerList.end()) {
+        if (id == list.value()["id"].toString()) {
+            m_viewerList.remove(list.key());
+            m_dbus->RemoveRecord(id);
+            return;
+        }
+        ++list;
+    }
 }
 
 void NotifyManager::paintEvent(QPaintEvent *e)
@@ -95,13 +99,31 @@ void NotifyManager::paintEvent(QPaintEvent *e)
     QWidget::paintEvent(e);
 }
 
+void NotifyManager::onNotifyGetAllFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QString> reply = *w;
+
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(reply.value().toLocal8Bit().data());
+
+    QJsonArray jsonArray = jsonDocument.array();
+
+    for (const QJsonValue &value : jsonArray) {
+        onNotifyAdd(value.toObject());
+    }
+
+    w->deleteLater();
+}
+
+
 void NotifyManager::onCloseAllItem()
 {
-    for (Viewer *viewer : m_viewerList) {
+    for (Viewer *viewer : m_viewerList.keys()) {
         m_mainLayout->removeWidget(viewer);
         viewer->onClose();
-        m_viewerList.removeOne(viewer);
+        m_viewerList.remove(viewer);
     }
+
+    m_dbus->ClearRecords();
 
     update();
 }

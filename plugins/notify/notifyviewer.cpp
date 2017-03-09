@@ -88,6 +88,7 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
         m_anim1->start();
 
         connect(m_anim1, &QPropertyAnimation::finished, [=]{
+            emit requestClose(m_id);
             this->deleteLater();
         });
     });
@@ -111,6 +112,11 @@ void Viewer::setAppBody(const QString &s) {
 
 void Viewer::setAppTime(const QString &s) {
     m_time->setText(s);
+}
+
+void Viewer::setAppId(const QString &id)
+{
+    m_id = id;
 }
 
 void Viewer::onClose()

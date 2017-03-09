@@ -31,9 +31,12 @@ public:
     explicit Viewer(QWidget *parent = 0);
     void setAppName(const QString &s);
     void setAppIcon(const QString &s);
-    void setAppSummary(const QString &s);
     void setAppBody(const QString &s);
     void setAppTime(const QString &s);
+    void setAppId(const QString &id);
+
+signals:
+    void requestClose(const QString &id);
 
 public slots:
     void onClose();
@@ -49,6 +52,7 @@ private:
     QLabel      *m_appIcon;
     QHBoxLayout *m_mainlayout;
     QPropertyAnimation *m_anim1;
+    QString m_id;
 };
 
 #endif // VIEWER_H

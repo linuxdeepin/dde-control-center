@@ -12,12 +12,15 @@
 
 #include <QObject>
 #include <QWidget>
-#include "notifydata.h"
 #include "notifyviewer.h"
 #include <QVBoxLayout>
 #include <QTime>
+#include <org_freedesktop_notifications.h>
 #include <dimagebutton.h>
 #include <QList>
+#include <QJsonObject>
+
+using org::freedesktop::Notifications;
 
 class NotifyManager : public QWidget
 {
@@ -27,7 +30,13 @@ public:
     ~NotifyManager();
 
 public slots:
-    void setValue(QByteArray s);
+    void checkNotify();
+    void onNotifyAdded(const QString &value);
+
+private slots:
+    void onNotifyGetAllFinished(QDBusPendingCallWatcher *w);
+    void onNotifyAdd(const QJsonObject &value);
+    void onNotifyRemove(const QString &id);
 
 protected:
     void paintEvent(QPaintEvent *e);
@@ -36,11 +45,11 @@ private:
     void onCloseAllItem();
 
 private:
-    NotifyData *m_dataSource;
     Viewer *m_viewer;
     QVBoxLayout *m_mainLayout;
     DImageButton *m_clearButton;
-    QList<Viewer*> m_viewerList;
+    QMap<Viewer*, QJsonObject> m_viewerList;
+    Notifications *m_dbus;
 };
 
 #endif // NOTIFYMANAGER_H
