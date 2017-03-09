@@ -30,9 +30,12 @@ void NavgationModel::insertItem(const QString &item)
             ++idx;
     }
 
-    beginInsertRows(QModelIndex(), idx, idx);
+//    beginInsertRows(QModelIndex(), idx, idx);
     m_items.insert(idx, item);
-    endInsertRows();
+//    endInsertRows();
+
+    // TODO: optimize
+    emit layoutChanged();
 }
 
 void NavgationModel::removeItem(const QString &item)
@@ -42,9 +45,12 @@ void NavgationModel::removeItem(const QString &item)
     if (idx == -1)
         return;
 
-    beginRemoveRows(QModelIndex(), idx, idx);
+//    beginRemoveRows(QModelIndex(), idx, idx);
     m_items.removeAt(idx);
-    endRemoveRows();
+//    endRemoveRows();
+
+    // TODO: optimize
+    emit layoutChanged();
 }
 
 void NavgationModel::appendAvailableItem(const QString &item)
@@ -66,23 +72,50 @@ int NavgationModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
 
-    return m_items.size();
+    const int s = m_items.size();
+    const int r = s % 3;
+
+    return s + (r ? 3 - r : r);
 }
 
 QVariant NavgationModel::data(const QModelIndex &index, int role) const
 {
-    if (m_items.size() <= index.row())
-        return QVariant();
-
     switch (role)
     {
-    case Qt::DisplayRole:   return m_items[index.row()];
+    case Qt::DisplayRole:
+    {
+        const int idx = index.row();
+        if (m_items.size() > idx)
+            return m_items[idx];
+        else
+            return QVariant();
+    }
     case Qt::SizeHintRole:  return QSize(110, 90);
     case ItemHoveredRole:   return index == m_currentIndex;
+    case ItemEdgeRole:      return QVariant::fromValue(indexEdgeFlag(index));
     default:;
     }
 
     return QVariant();
+}
+
+NavgationModel::EdgeFlags NavgationModel::indexEdgeFlag(const QModelIndex &index) const
+{
+    const int idx = index.row();
+    const int r = idx % 3;
+    const int h = m_items.size() / 3;
+    EdgeFlags flag = 0;
+
+    if (idx < 3)
+        flag |= Top;
+    if (idx / 3 == h)
+        flag |= Bottom;
+    if (r == 0)
+        flag |= Left;
+    if (r == 2)
+        flag |= Right;
+
+    return flag;
 }
 
 }

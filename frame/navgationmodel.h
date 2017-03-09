@@ -2,6 +2,7 @@
 #define NAVGATIONMODEL_H
 
 #include <QAbstractListModel>
+#include <QFlags>
 
 namespace dcc {
 
@@ -16,7 +17,17 @@ public:
     {
         ItemReservedRole = Qt::UserRole,
         ItemHoveredRole,
+        ItemEdgeRole,
     };
+
+    enum EdgeFlag
+    {
+        Top     =   1 << 0,
+        Left    =   1 << 1,
+        Bottom  =   1 << 2,
+        Right   =   1 << 3,
+    };
+    Q_DECLARE_FLAGS(EdgeFlags, EdgeFlag)
 
 public slots:
     void insertItem(const QString &item);
@@ -29,6 +40,9 @@ public slots:
     QVariant data(const QModelIndex &index, int role) const;
 
 private:
+    NavgationModel::EdgeFlags indexEdgeFlag(const QModelIndex &index) const;
+
+private:
     QStringList m_items;
     QStringList m_allItems;
 
@@ -36,5 +50,8 @@ private:
 };
 
 }
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(dcc::NavgationModel::EdgeFlags)
+Q_DECLARE_METATYPE(dcc::NavgationModel::EdgeFlags)
 
 #endif // NAVGATIONMODEL_H

@@ -350,9 +350,8 @@ void SettingsWidget::onNavItemEntered(const QModelIndex &index)
         }
     }
 
-    Q_ASSERT(inter);
-
-    m_navTips->setText(inter->moduleWidget()->title());
+    if (inter)
+        m_navTips->setText(inter->moduleWidget()->title());
 }
 
 SettingsWidget::~SettingsWidget()

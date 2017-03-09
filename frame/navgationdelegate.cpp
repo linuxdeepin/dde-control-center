@@ -21,6 +21,9 @@ void NavgationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         painter->fillRect(option.rect, QColor::fromRgbF(1, 1, 1, 0.2));
 
     const QString module = index.data().toString();
+    if (module.isEmpty())
+        return;
+
     const QString picFile = QString(":/%1/themes/dark/icons/nav_%2.png").arg(module).arg(module);
     QPixmap pix = QPixmap(picFile);
 
