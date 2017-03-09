@@ -30,8 +30,6 @@ QSize IndexDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIn
 
 void IndexDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    QItemDelegate::paint(painter, option, index);
-
     QVariant var = index.data();
     MetaData md = var.value<MetaData>();
 
@@ -40,12 +38,16 @@ void IndexDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
     painter->setRenderHints(painter->renderHints() | QPainter::Antialiasing);
 
     painter->setOpacity(0.2);
-    if (option.state & QStyle::State_Selected)
-        painter->fillRect(option.rect, option.palette.highlight());
-    else {
-        painter->setPen(Qt::NoPen);
-        painter->setBrush(md.section() ? QColor(222, 222, 222) : QColor(238, 238, 238));
-        painter->drawRect(option.rect.adjusted(0, 0, 0, -1));
+
+    painter->setPen(Qt::NoPen);
+    painter->setBrush(md.section() ? QColor(222, 222, 222) : QColor(238, 238, 238));
+    painter->drawRect(option.rect.adjusted(0, 0, 0, -1));
+
+    if (option.state & QStyle::State_Selected) {
+        painter->setOpacity(1);
+        const int x = option.rect.right() - 24;
+        const int y = option.rect.top() + (option.rect.height() - 16) / 2;
+        painter->drawPixmap(x, y, QPixmap(":/keyboard/themes/dark/icons/select.png"));
     }
 
     painter->setOpacity(1);
