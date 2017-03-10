@@ -30,10 +30,7 @@ WeatherWidget::WeatherWidget(WeatherRequest *request, QWidget *parent)
     m_locationBtn->setPressPic(":/icon/location_press.png");
     m_locationBtn->setVisible(false);
 
-    connect(m_locationBtn, &DImageButton::clicked, this, [this] {
-        m_locationBtn->hide();
-        emit locationButtonClicked();
-    });
+    connect(m_locationBtn, &DImageButton::clicked, this, &WeatherWidget::locationButtonClicked);
 
     connect(m_request, SIGNAL(dataRefreshed(QList<WeatherItem>&)),
             this, SLOT(refreshView(QList<WeatherItem>&)));
@@ -214,5 +211,6 @@ void WeatherWidget::refreshView(QList<WeatherItem> &items)
             m_time = QTime();
     }
 
+    m_locationBtn->setVisible(false);
     update();
 }
