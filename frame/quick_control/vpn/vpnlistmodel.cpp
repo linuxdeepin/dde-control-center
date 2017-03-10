@@ -44,7 +44,7 @@ QVariant VpnListModel::data(const QModelIndex &index, int role) const
     case VpnIsFirstLineRole:    return !index.row();
     case VpnNextRole:           return index.row() == m_hoveredIndex.row() + 1;
     case VpnDisableRole:        return rowCount(QModelIndex()) == 1;
-    case VpnDisableTipRole:     return tr("Click to enable VPN");
+    case VpnDisableTipRole:     return tr("Click icon to enable VPN");
     default:;
     }
 
