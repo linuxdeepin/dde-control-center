@@ -295,7 +295,7 @@ AppUpdateInfo UpdateWork::getInfo(const QString &packageName, const QString &cur
         QJsonObject object = doc.object();
 
         info.m_name = object["name"].toString();
-        info.m_changelog == fetchVersionedChangelog(object["changelog"].toObject(), info.m_currentVersion);
+        info.m_changelog = fetchVersionedChangelog(object["changelog"].toObject(), info.m_currentVersion);
 
         QJsonObject locales = object["locales"].toObject();
         QJsonObject locale = locales[QLocale::system().name()].toObject();
