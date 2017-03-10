@@ -15,7 +15,7 @@ using UserInter = com::deepin::daemon::accounts::User;
 
 DWIDGET_USE_NAMESPACE
 
-const int PLUGINS_HEIGHT = 400;
+const int PLUGINS_HEIGHT = 380;
 
 MainWidget::MainWidget(Frame *parent)
     : FrameWidget(parent),
@@ -155,7 +155,7 @@ void MainWidget::resizeEvent(QResizeEvent *e)
     FrameWidget::resizeEvent(e);
 
     // hide plugins area if panel too low
-    m_pluginWidget->setVisible(e->size().height() > 800);
+    m_pluginWidget->setVisible(e->size().height() > 600);
 }
 
 void MainWidget::showPlugin(QWidget * const w)
