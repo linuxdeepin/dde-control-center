@@ -170,7 +170,7 @@ void ShortcutWidget::modifyStatus(bool status)
         m_layout->removeWidget(m_workspaceGroup);
         m_layout->removeWidget(m_windowGroup);
         m_layout->removeWidget(m_systemGroup);
-        m_layout->addWidget(m_searchGroup);
+        m_layout->insertWidget(1, m_searchGroup);
     }
     else
     {
@@ -180,10 +180,10 @@ void ShortcutWidget::modifyStatus(bool status)
         m_windowGroup->show();
         m_systemGroup->show();
         m_searchGroup->hide();
-        m_layout->addWidget(m_systemGroup);
-        m_layout->addWidget(m_windowGroup);
-        m_layout->addWidget(m_workspaceGroup);
-        m_layout->addWidget(m_customGroup);
+        m_layout->insertWidget(1, m_customGroup);
+        m_layout->insertWidget(1, m_workspaceGroup);
+        m_layout->insertWidget(1, m_windowGroup);
+        m_layout->insertWidget(1, m_systemGroup);
         m_layout->addWidget(m_addCustom);
         m_layout->removeWidget(m_searchGroup);
     }
@@ -293,6 +293,7 @@ void ShortcutWidget::onSearchFinish(QDBusPendingCallWatcher *watch)
         ShortcutItem* item = new ShortcutItem();
         connect(item, SIGNAL(shortcutChangd(bool, ShortcutInfo*, QString)), this, SIGNAL(shortcutChanged(bool, ShortcutInfo*, QString)));
         item->setShortcutInfo((info));
+        item->setTitle(info->name);
         m_searchGroup->appendItem(item);
     }
 
