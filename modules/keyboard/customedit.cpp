@@ -24,6 +24,7 @@ keyboard::CustomEdit::CustomEdit(keyboard::KeyboardWork *work, QWidget *parent):
     m_short(new CustomEditItem(this)),
     m_tip(new QLabel)
 {
+    m_tip->setVisible(false);
     m_tip->setWordWrap(true);
 
     setTitle(tr("Shortcuts"));
@@ -92,7 +93,6 @@ void keyboard::CustomEdit::onClick()
 
     m_info->item->setTitle(m_name->text());
 
-    m_work->modifyShortcutEdit(m_info);
     sendBackSignal();
 }
 
