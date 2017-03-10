@@ -24,12 +24,18 @@ WeatherPlugin::WeatherPlugin(QObject *parent)
     m_view->setLayout(layout);
 
     connect(weatherWidget, &WeatherWidget::locationButtonClicked, this, [this, layout, locationPage] {
+        locationPage->setCurrentCity(m_requestManager->city());
         layout->setCurrentWidget(locationPage);
     });
 
     connect(locationPage, &SetLocationPage::citySet, this, [this, layout, weatherWidget] (const City &city) {
         qDebug() << "set city to " << city.localizedName;
         m_requestManager->setCity(city);
+        layout->setCurrentWidget(weatherWidget);
+    });
+
+    connect(locationPage, &SetLocationPage::cancelled, this, [this, layout, weatherWidget] {
+        qDebug() << "cancelled setting city" ;
         layout->setCurrentWidget(weatherWidget);
     });
 }

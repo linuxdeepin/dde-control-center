@@ -35,6 +35,7 @@ WeatherRequest::WeatherRequest(QObject *parent) :
     m_retryTimer->setInterval(5000);
 
     auto func = [this] {
+        qDebug() << "retry timer timeout";
         if (m_city.geonameId.isEmpty()) {
             m_loader->start();
         } else {
@@ -50,6 +51,11 @@ WeatherRequest::WeatherRequest(QObject *parent) :
 WeatherRequest::~WeatherRequest()
 {
 
+}
+
+const City &WeatherRequest::city() const
+{
+    return m_city;
 }
 
 void WeatherRequest::setCity(const City &city)
@@ -186,11 +192,6 @@ QString WeatherRequest::restoreGeoNameID() const
     return ret;
 }
 
-QString WeatherRequest::city() const
-{
-    return m_city.name;
-}
-
 QString WeatherRequest::localizedCityName() const
 {
     return m_city.localizedName;
@@ -212,6 +213,7 @@ WeatherItem WeatherRequest::dayAt(int index)
 
 void WeatherRequest::refreshData(bool force)
 {
+    qDebug() << "refresh data";
     const int elapsed = m_lastRefreshTimestamp.elapsed();
     if ((elapsed >= 1000 * 60 * 15 || elapsed == 0 || force)) {
         m_retryTimer->start();

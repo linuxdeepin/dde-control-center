@@ -25,7 +25,7 @@ public:
     explicit WeatherRequest(QObject *parent = 0);
     ~WeatherRequest();
 
-    QString city() const;
+    const City &city() const;
     QString localizedCityName() const;
 
     int count() const;

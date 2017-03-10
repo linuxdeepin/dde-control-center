@@ -29,7 +29,7 @@ WeatherWidget::WeatherWidget(WeatherRequest *request, QWidget *parent)
     m_locationBtn->setHoverPic(":/icon/location_hover.png");
     m_locationBtn->setPressPic(":/icon/location_press.png");
 
-    m_locationBtn->move(260, 30);
+    m_locationBtn->move(250, 30);
     m_locationBtn->setVisible(false);
 
     connect(m_locationBtn, &DImageButton::clicked, this, &WeatherWidget::locationButtonClicked);
@@ -135,12 +135,13 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
                 painter.setFont(font);
                 fm=QFontMetrics(font);
                 QString city = m_request->localizedCityName();
-                QRect cityArea(rect.width() - 50 - iconRect.left()-10,rect.y(),fm.width(city), rect.height()/2+6);
-                painter.drawText(cityArea, Qt::AlignBottom | Qt::AlignHCenter, city);
+                QRect cityArea(descRect.right() + 50, rect.y(), rect.width() - descRect.right() - 50, rect.height()/2+6);
+//                painter.fillRect(cityArea, Qt::red);
+                painter.drawText(cityArea, Qt::AlignBottom | Qt::AlignHCenter, fm.elidedText(city, Qt::ElideRight, cityArea.width()));
                 font.setPointSize(curFont.pointSize() * 0.8);
                 fm=QFontMetrics(font);
                 QString updateTime = tr("Just updated");
-                QRect statusArea(rect.width() - 50 - iconRect.left()-10,cityArea.bottom(),fm.width(updateTime), rect.height()/2 -6);
+                QRect statusArea(descRect.right() + 50, cityArea.bottom(), rect.width() - descRect.right() - 50, rect.height()/2 -6);
                 pen1.setAlphaF(0.5);
                 painter.setPen(pen1);
                 painter.setFont(font);
@@ -170,9 +171,9 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
 void WeatherWidget::mouseMoveEvent(QMouseEvent *event)
 {
     QWidget::mouseMoveEvent(event);
-    update();
 
-    m_locationBtn->setVisible(event->y() < 20 * 3 && event->y() > 10);
+    m_locationBtn->setVisible(event->y() < 20 * 3 && event->y() > 10 && m_request->count() != 0);
+    update();
 }
 
 void WeatherWidget::resizeEvent(QResizeEvent *e)

@@ -12,10 +12,11 @@
 #include <QVBoxLayout>
 #include <QPainter>
 #include <QListView>
+#include <QTimer>
 
 #include "weatherrequest.h"
 
-static const int ItemSpacing = 2;
+static const int ItemSpacing = 1;
 
 SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent)
     : QWidget(parent),
@@ -24,8 +25,11 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
       m_searchInput(new SearchInput),
       m_resultView(new SearchResultView),
       m_resultDelegate(new SearchDelegate),
-      m_resultModel(new SearchModel)
+      m_resultModel(new SearchModel),
+      m_searchTimer(new QTimer)
 {
+    m_searchInput->setFixedHeight(36);
+
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->setSpacing(0);
@@ -40,27 +44,30 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
 
     setLayout(layout);
 
-    // TODO(hualet):
-    setCurrentCity(City{});
-
     m_resultView->setItemDelegate(m_resultDelegate);
     m_resultView->setModel(m_resultModel);
+    m_resultView->hide();
 
-    connect(m_searchInput, &SearchInput::textChanged, this, [this] {
-        static QTime time;
-        if (time.elapsed() == 0 || time.elapsed() > 500 ) {
-            time.start(); // reset the timer.
+    m_searchTimer->setSingleShot(true);
+    m_searchTimer->setInterval(1000);
 
-            const QString input = m_searchInput->text();
-            if (input.isEmpty()) {
-                m_resultModel->setCities(QList<City>());
-            } else {
-                m_requestManager->searchCity(input);
-            }
-        }
+    connect(m_searchTimer, &QTimer::timeout, this, [this] {
+        const QString input = m_searchInput->text().trimmed();
+        m_requestManager->searchCity(input);
     });
 
-    connect(m_requestManager, &WeatherRequest::searchCityDone, m_resultModel, &SearchModel::setCities);
+    connect(m_searchInput, &SearchInput::textChanged, this, [this] {
+        m_resultView->hide();
+        m_resultModel->setCities(QList<City>());
+        m_searchTimer->start();
+    });
+
+    connect(m_requestManager, &WeatherRequest::searchCityDone, this, [this] (const QList<City> &cities) {
+        if (!m_searchInput->text().trimmed().isEmpty()) {
+            m_resultModel->setCities(cities);
+            m_resultView->show();
+        }
+    });
 
     connect(m_resultView, &SearchResultView::clicked, this, [this](const QModelIndex &index) {
         QVariant data = index.data(Qt::UserRole);
@@ -86,6 +93,13 @@ void SetLocationPage::setCurrentCity(const City &currentCity)
     m_currentCityLabel->setText(tr("Current City: %1").arg(m_currentCity.localizedName));
 }
 
+void SetLocationPage::mouseReleaseEvent(QMouseEvent *event)
+{
+    QWidget::mouseReleaseEvent(event);
+
+    emit cancelled();
+}
+
 SearchModel::SearchModel(QObject *parent) :
     QAbstractListModel(parent)
 {
@@ -103,6 +117,10 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
 
     if (role == Qt::UserRole) {
         return city.geonameId;
+    }
+
+    if (role == Qt::ToolTipRole) {
+        return "";
     }
 
     return QString("%1, %2").arg(city.localizedName).arg(city.country);
@@ -135,8 +153,9 @@ void SearchDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     painter->fillRect(rect, QColor::fromRgbF(1, 1, 1, 0.15));
 
     QTextOption opt;
-    opt.setAlignment(Qt::AlignCenter);
+    opt.setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     painter->setPen(Qt::white);
+    rect = rect.adjusted(20, 0, 20, 0);
     painter->drawText(rect, cityName, opt);
 }
 

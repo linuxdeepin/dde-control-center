@@ -71,6 +71,10 @@ public:
 
 signals:
     void citySet(const City &city);
+    void cancelled();
+
+private:
+    void mouseReleaseEvent(QMouseEvent *event);
 
 private:
     City m_currentCity;
@@ -81,6 +85,8 @@ private:
     SearchResultView *m_resultView;
     SearchDelegate *m_resultDelegate;
     SearchModel *m_resultModel;
+
+    QTimer *m_searchTimer;
 };
 
 #endif // SETLOCATIONPAGE_H
