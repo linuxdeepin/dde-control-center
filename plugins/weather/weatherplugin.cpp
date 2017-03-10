@@ -30,6 +30,8 @@ WeatherPlugin::WeatherPlugin(QObject *parent)
 
     connect(locationPage, &SetLocationPage::citySet, this, [this, layout, weatherWidget] (const City &city) {
         qDebug() << "set city to " << city.localizedName;
+        QList<WeatherItem> empty;
+        weatherWidget->refreshView(empty);
         m_requestManager->setCity(city);
         layout->setCurrentWidget(weatherWidget);
     });

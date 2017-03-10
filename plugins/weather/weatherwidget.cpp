@@ -28,11 +28,12 @@ WeatherWidget::WeatherWidget(WeatherRequest *request, QWidget *parent)
     m_locationBtn->setNormalPic(":/icon/location_normal.png");
     m_locationBtn->setHoverPic(":/icon/location_hover.png");
     m_locationBtn->setPressPic(":/icon/location_press.png");
-
-    m_locationBtn->move(250, 30);
     m_locationBtn->setVisible(false);
 
-    connect(m_locationBtn, &DImageButton::clicked, this, &WeatherWidget::locationButtonClicked);
+    connect(m_locationBtn, &DImageButton::clicked, this, [this] {
+        m_locationBtn->hide();
+        emit locationButtonClicked();
+    });
 
     connect(m_request, SIGNAL(dataRefreshed(QList<WeatherItem>&)),
             this, SLOT(refreshView(QList<WeatherItem>&)));
@@ -76,6 +77,9 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
         if(m_time.secsTo(time) > 10)
         {
             painter.drawText(rect, Qt::AlignCenter, tr("Sorry, unable to get weather!"));
+            m_locationBtn->move(rect.x() + (rect.width() - m_locationBtn->width()) / 2, rect.bottom());
+            m_locationBtn->show();
+            update();
         }
         else
         {
@@ -172,7 +176,10 @@ void WeatherWidget::mouseMoveEvent(QMouseEvent *event)
 {
     QWidget::mouseMoveEvent(event);
 
-    m_locationBtn->setVisible(event->y() < 20 * 3 && event->y() > 10 && m_request->count() != 0);
+    const bool showButton = event->y() < 20 * 3 && event->y() > 10 && m_request->count() != 0;
+    if (showButton) { m_locationBtn->move(250, 30); }
+    m_locationBtn->setVisible(showButton);
+
     update();
 }
 
