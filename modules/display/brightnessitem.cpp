@@ -20,8 +20,8 @@ BrightnessItem::BrightnessItem(QWidget *parent)
       m_rightIcon(new DImageButton),
       m_brightnessSlider(new DCCSlider(DCCSlider::Normal))
 {
-    m_leftIcon->setNormalPic(":/display/themes/dark/icons/brightness_low.png");
-    m_rightIcon->setNormalPic(":/display/themes/dark/icons/brightness_high.png");
+    m_leftIcon->setNormalPic(":/display/themes/dark/icons/light_low.png");
+    m_rightIcon->setNormalPic(":/display/themes/dark/icons/light_high.png");
     m_brightnessSlider->setOrientation(Qt::Horizontal);
     m_brightnessSlider->setMaximum(BRIGHTNESS_MUL);
     m_brightnessSlider->setMinimum(0);
