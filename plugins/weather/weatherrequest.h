@@ -15,6 +15,8 @@ class QTimer;
 class WInterface;
 class LoaderCity;
 
+class QSettings;
+
 class WeatherRequest : public QObject
 {
     Q_OBJECT
@@ -46,6 +48,7 @@ private slots:
     void slotTimeout();
 
     void requestWeatherForecast(const QString &geonameId);
+    void requestGeoNameInfo(const QString &geonameId);
 
     void processWeatherServiceReply();
     void processGeoNameIdReply();
@@ -56,12 +59,16 @@ private slots:
 private:
     City m_city;
     LoaderCity* m_loader;
+    QSettings *m_settings;
 
     QList<WeatherItem> m_items;
     QNetworkAccessManager *m_manager;
 
     QTime m_lastRefreshTimestamp;
     QTimer *m_retryTimer;
+
+    void saveGeoNameID(const QString &geonameId);
+    QString restoreGeoNameID() const;
 };
 
 class LoaderCity : public QThread

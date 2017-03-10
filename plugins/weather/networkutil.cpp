@@ -51,9 +51,6 @@ const QString NetworkUtil::getNetIP(QString code)
 
     const City NetworkUtil::ip2city(const QString &ip)
     {
-    // TODO(hualet): support city settings
-    QSettings settings("dde-control-center", "weather");
-
     GeoIP * gi = GeoIP_open_type(GEOIP_CITY_EDITION_REV1, GEOIP_STANDARD | GEOIP_SILENCE);
     uint32_t ipnum = _GeoIP_lookupaddress(ip.toStdString().c_str());
     GeoIPRecord *gir = GeoIP_record_by_ipnum(gi, ipnum);

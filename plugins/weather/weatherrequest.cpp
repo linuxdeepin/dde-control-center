@@ -8,6 +8,7 @@
 #include <QTimer>
 #include <QProcess>
 #include <QLocale>
+#include <QSettings>
 
 #include <QDomDocument>
 
@@ -21,6 +22,9 @@ WeatherRequest::WeatherRequest(QObject *parent) :
 {
     qRegisterMetaType<City>();
 
+    m_settings = new QSettings("deepin", "dcc-weather-plugin");
+    m_city.geonameId = restoreGeoNameID();
+
     m_loader = new LoaderCity(this);
     m_manager = new QNetworkAccessManager(this);
 
@@ -30,13 +34,16 @@ WeatherRequest::WeatherRequest(QObject *parent) :
     m_retryTimer->setSingleShot(false);
     m_retryTimer->setInterval(5000);
 
-    connect(m_retryTimer, &QTimer::timeout, this, [this] {
+    auto func = [this] {
         if (m_city.geonameId.isEmpty()) {
             m_loader->start();
+        } else {
+            refreshData();
         }
-    });
+    };
+    connect(m_retryTimer, &QTimer::timeout, this, func);
 
-    m_loader->start();
+    func();
     m_retryTimer->start();
 }
 
@@ -48,6 +55,7 @@ WeatherRequest::~WeatherRequest()
 void WeatherRequest::setCity(const City &city)
 {
     m_city = city;
+    saveGeoNameID(m_city.geonameId);
     refreshData(true);
 }
 
@@ -91,22 +99,16 @@ void WeatherRequest::processGeoNameIdReply()
         qWarning() << "read xml content error! " << errorMsg;
     }
 
-    const QString lang = QLocale::system().name().split("_").at(0);
     QDomElement root = domDocument.documentElement();
     QDomElement geoname = root.firstChildElement("geoname");
     while (!geoname.isNull()) {
         QString name = geoname.firstChildElement("name").text();
         if (name.toLower() == m_city.name.toLower()) {
             QString geonameId = geoname.firstChildElement("geonameId").text();
-
             qDebug() << "got geoname id " << geonameId;
-
+            saveGeoNameID(geonameId);
             requestWeatherForecast(geonameId);
-
-            QString geoNameInfoUrl = QString("%1/get?geonameId=%2&username=%3&lang=%4").arg(GeoNameServiceHost) \
-                    .arg(geonameId).arg(GeoNameKey).arg(lang);
-            reply = m_manager->get(QNetworkRequest(geoNameInfoUrl));
-            connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processGeoNameInfoReply);
+            requestGeoNameInfo(geonameId);
             break;
         }
         geoname = geoname.nextSiblingElement("geoname");
@@ -166,6 +168,24 @@ void WeatherRequest::processSearchCityReply()
     emit searchCityDone(cities);
 }
 
+void WeatherRequest::saveGeoNameID(const QString &geonameId)
+{
+    m_settings->beginGroup("Location");
+    m_settings->setValue("GeoNameID", geonameId);
+    m_settings->endGroup();
+}
+
+QString WeatherRequest::restoreGeoNameID() const
+{
+    QString ret;
+
+    m_settings->beginGroup("Location");
+    ret = m_settings->value("GeoNameID", "").toString();
+    m_settings->endGroup();
+
+    return ret;
+}
+
 QString WeatherRequest::city() const
 {
     return m_city.name;
@@ -193,7 +213,7 @@ WeatherItem WeatherRequest::dayAt(int index)
 void WeatherRequest::refreshData(bool force)
 {
     const int elapsed = m_lastRefreshTimestamp.elapsed();
-    if ((elapsed >= 1000 * 60 * 15 || elapsed == 0 || force) && !m_city.name.isEmpty()) {
+    if ((elapsed >= 1000 * 60 * 15 || elapsed == 0 || force)) {
         m_retryTimer->start();
 
         City city = m_city;
@@ -205,6 +225,7 @@ void WeatherRequest::refreshData(bool force)
             connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processGeoNameIdReply);
         } else {
             requestWeatherForecast(city.geonameId);
+            requestGeoNameInfo(city.geonameId);
         }
     }
 }
@@ -230,6 +251,16 @@ void WeatherRequest::requestWeatherForecast(const QString &geonameId)
     QString weatherUrl = QString("%1/forecast/%2").arg(WeatherServiceHost).arg(geonameId);
     QNetworkReply *reply = m_manager->get(QNetworkRequest(weatherUrl));
     connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processWeatherServiceReply);
+}
+
+void WeatherRequest::requestGeoNameInfo(const QString &geonameId)
+{
+    qDebug() << "request geoname city info " << geonameId;
+    const QString lang = QLocale::system().name().split("_").at(0);
+    QString geoNameInfoUrl = QString("%1/get?geonameId=%2&username=%3&lang=%4").arg(GeoNameServiceHost) \
+            .arg(geonameId).arg(GeoNameKey).arg(lang);
+    QNetworkReply *reply = m_manager->get(QNetworkRequest(geoNameInfoUrl));
+    connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processGeoNameInfoReply);
 }
 
 LoaderCity::LoaderCity(QObject *parent)
