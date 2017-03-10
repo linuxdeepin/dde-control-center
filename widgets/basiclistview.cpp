@@ -1,6 +1,7 @@
 #include "basiclistview.h"
 
 #include <QDebug>
+#include <QTimer>
 
 namespace dcc {
 
@@ -39,7 +40,8 @@ void BasicListView::setModel(QAbstractItemModel *model)
     connect(model, &QAbstractItemModel::layoutChanged, this, &BasicListView::onContentHeightChanged, Qt::QueuedConnection);
     connect(model, &QAbstractItemModel::rowsInserted, this, &BasicListView::onContentHeightChanged, Qt::QueuedConnection);
     connect(model, &QAbstractItemModel::rowsRemoved, this, &BasicListView::onContentHeightChanged, Qt::QueuedConnection);
-    onContentHeightChanged();
+
+    QTimer::singleShot(1, this, &BasicListView::onContentHeightChanged);
 }
 
 void BasicListView::onContentHeightChanged()
@@ -48,8 +50,7 @@ void BasicListView::onContentHeightChanged()
         return;
 
     const int h = sizeHint().height();
-    if (height() != h)
-        setMaximumHeight(sizeHint().height());
+    setMaximumHeight(h);
 }
 
 void BasicListView::leaveEvent(QEvent *e)

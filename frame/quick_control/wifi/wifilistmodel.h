@@ -62,6 +62,9 @@ private:
     void refershActivatingIndex();
 
 private:
+    void onDeviceEnableChanged(const bool enable);
+
+private:
     dcc::network::NetworkModel *m_networkModel;
 
     QModelIndex m_currentIndex;

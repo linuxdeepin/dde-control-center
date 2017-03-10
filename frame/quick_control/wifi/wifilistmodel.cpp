@@ -192,12 +192,11 @@ void WifiListModel::onDeviceListChanged(const QList<NetworkDevice *> &devices)
         if (m_apInfoList.contains(d))
             continue;
 
-        m_apInfoList.insert(d, QList<QJsonObject>());
-
-        connect(d, &WirelessDevice::activeApChanged, this, &WifiListModel::refershActivatingIndex);
-        connect(d, &WirelessDevice::apAdded, this, &WifiListModel::onDeviceApAdded);
-        connect(d, static_cast<void (WirelessDevice::*)(const NetworkDevice::DeviceStatus) const>(&WirelessDevice::statusChanged), this, &WifiListModel::onDeviceStateChanged);
-        connect(d, &WirelessDevice::apRemoved, d, [=](const QString &ssid) { onDeviceApRemoved(d, ssid); });
+        connect(d, &WirelessDevice::enableChanged, this, &WifiListModel::onDeviceEnableChanged, Qt::UniqueConnection);
+        connect(d, &WirelessDevice::activeApChanged, this, &WifiListModel::refershActivatingIndex, Qt::UniqueConnection);
+        connect(d, &WirelessDevice::apAdded, this, &WifiListModel::onDeviceApAdded, Qt::UniqueConnection);
+        connect(d, static_cast<void (WirelessDevice::*)(const NetworkDevice::DeviceStatus) const>(&WirelessDevice::statusChanged), this, &WifiListModel::onDeviceStateChanged, Qt::UniqueConnection);
+        connect(d, &WirelessDevice::apRemoved, d, [=](const QString &ssid) { onDeviceApRemoved(d, ssid); }, Qt::UniqueConnection);
 
         emit requestDeviceApList(d->path());
     }
@@ -217,7 +216,9 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
 {
     WirelessDevice *dev = static_cast<WirelessDevice *>(sender());
     Q_ASSERT(dev);
-    Q_ASSERT(m_apInfoList.contains(dev));
+
+    if (!dev->enabled())
+        return;
 
     const int row = indexOf(static_cast<WirelessDevice *>(dev));
 
@@ -257,4 +258,24 @@ void WifiListModel::onDeviceStateChanged(const NetworkDevice::DeviceStatus &stat
 void WifiListModel::refershActivatingIndex()
 {
     emit dataChanged(m_activatingIndex, m_activatingIndex);
+}
+
+void WifiListModel::onDeviceEnableChanged(const bool enable)
+{
+    WirelessDevice *d = static_cast<WirelessDevice*>(sender());
+    Q_ASSERT(d);
+
+    if (enable) {
+        const int pos = rowCount(QModelIndex());
+        beginInsertRows(QModelIndex(), pos, pos);
+        m_apInfoList.insert(d, QList<QJsonObject>());
+        endInsertRows();
+
+        emit requestDeviceApList(d->path());
+    } else {
+        const int pos = indexOf(d);
+        beginRemoveRows(QModelIndex(), pos, pos + m_apInfoList[d].length());
+        m_apInfoList.remove(d);
+        endRemoveRows();
+    }
 }

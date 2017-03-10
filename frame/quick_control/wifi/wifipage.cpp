@@ -28,7 +28,7 @@ WifiPage::WifiPage(NetworkModel *model, QWidget *parent)
 
     setLayout(centralLayout);
 
-    connect(listModel, &WifiListModel::requestDeviceApList, this, &WifiPage::requestDeviceApList);
+    connect(listModel, &WifiListModel::requestDeviceApList, this, &WifiPage::requestDeviceApList, Qt::QueuedConnection);
     connect(listView, &BasicListView::entered, listModel, &WifiListModel::setCurrentHovered);
     connect(listView, &BasicListView::clicked, listModel, &WifiListModel::setCurrentActivating);
     connect(listView, &BasicListView::clicked, this, &WifiPage::onItemClicked);
