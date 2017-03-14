@@ -61,6 +61,11 @@ void ModifyPasswordPage::passwordSubmit()
     const QString pwd0 = m_pwdEdit->textEdit()->text();
     const QString pwd1 = m_pwdEditRepeat->textEdit()->text();
 
+    checkPwd();
+
+    if (m_pwdEdit->text().isEmpty() || m_pwdEditRepeat->text().isEmpty())
+        return;
+
     if (pwd0 != pwd1)
         return;
 
