@@ -53,7 +53,7 @@ DateSettings::DateSettings(QWidget *parent)
 
     TranslucentFrame *widget = new TranslucentFrame;
     QVBoxLayout* layout = new QVBoxLayout(widget);
-    layout->setSpacing(1);
+    layout->setSpacing(0);
     layout->setMargin(0);
 
     m_datetimeGroup->appendItem(m_clock);
