@@ -14,7 +14,9 @@ DisplayWidget::DisplayWidget()
       m_brightnessSettings(new NextPageWidget),
       m_customSettingsGrp(new SettingsGroup),
       m_rotate(new QPushButton),
-      m_createConfig(new QPushButton)
+      m_createConfig(new QPushButton),
+
+      m_configListRefershTimer(new QTimer(this))
 {
     setObjectName("Display");
 
@@ -38,12 +40,16 @@ DisplayWidget::DisplayWidget()
     m_centralLayout->addWidget(m_customSettingsGrp);
     m_centralLayout->addWidget(m_createConfig);
 
+    m_configListRefershTimer->setSingleShot(true);
+    m_configListRefershTimer->setInterval(100);
+
     setTitle(tr("Display"));
 
     connect(m_brightnessSettings, &NextPageWidget::clicked, this, &DisplayWidget::showBrightnessPage);
     connect(m_resolution, &NextPageWidget::clicked, this, &DisplayWidget::showResolutionPage);
     connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
     connect(m_createConfig, &QPushButton::clicked, this, &DisplayWidget::requestNewConfig);
+    connect(m_configListRefershTimer, &QTimer::timeout, this, &DisplayWidget::onConfigListChanged);
 }
 
 void DisplayWidget::setModel(DisplayModel *model)
@@ -52,14 +58,14 @@ void DisplayWidget::setModel(DisplayModel *model)
 
     connect(m_model, &DisplayModel::monitorListChanged, this, &DisplayWidget::onScreenListChanged);
     connect(m_model, &DisplayModel::configListChanged, this, &DisplayWidget::onScreenListChanged);
-    connect(m_model, &DisplayModel::configListChanged, this, &DisplayWidget::onConfigListChanged);
-    connect(m_model, &DisplayModel::currentConfigChanged, this, &DisplayWidget::onConfigListChanged);
+    connect(m_model, &DisplayModel::configListChanged, m_configListRefershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_model, &DisplayModel::currentConfigChanged, m_configListRefershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_model, &DisplayModel::screenHeightChanged, this, &DisplayWidget::onScreenSizeChanged);
     connect(m_model, &DisplayModel::screenWidthChanged, this, &DisplayWidget::onScreenSizeChanged);
 
     onScreenListChanged();
     onScreenSizeChanged();
-    onConfigListChanged();
+    m_configListRefershTimer->start();
 }
 
 void DisplayWidget::onScreenListChanged() const
@@ -93,7 +99,8 @@ void DisplayWidget::onScreenSizeChanged() const
 void DisplayWidget::onConfigListChanged()
 {
     m_customSettingsGrp->clear();
-    qDeleteAll(m_customSettings);
+    for (auto *w : m_customSettings)
+        w->deleteLater();
     m_customSettings.clear();
 
     for (const auto config : m_model->configList())

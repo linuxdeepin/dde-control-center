@@ -37,6 +37,7 @@ CustomConfigPage::CustomConfigPage(const QString &config, QWidget *parent)
 
     connect(m_modifyBtn, &QPushButton::clicked, this, &CustomConfigPage::onModifyBtnClicked);
     connect(m_deleteBtn, &QPushButton::clicked, this, &CustomConfigPage::onDeleteBtnClicked);
+    connect(m_deleteBtn, &QPushButton::clicked, this, &CustomConfigPage::back);
 }
 
 void CustomConfigPage::onCurrentConfigChanged(const QString config)

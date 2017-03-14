@@ -46,6 +46,8 @@ private:
     widgets::SettingsGroup *m_resolutionsGrp;
     QPushButton *m_rotate;
     QPushButton *m_createConfig;
+
+    QTimer *m_configListRefershTimer;
 };
 
 } // namespace display
