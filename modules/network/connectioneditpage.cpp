@@ -192,11 +192,7 @@ void ConnectionEditPage::initPlaceholderText(const NetworkErrors &errors)
         for (auto its(eItems.begin()); its != eItems.end(); ++its)
         {
             if (m_optionWidgets[section].contains(its.key()))
-            {
-                LineEditWidget *edit = qobject_cast<LineEditWidget *>(m_optionWidgets[section][its.key()]);
-                if (edit)
-                    edit->textEdit()->setPlaceholderText(tr("Required"));
-            }
+                setItemRequired(m_optionWidgets[section][its.key()]);
         }
     }
 }
@@ -216,7 +212,9 @@ void ConnectionEditPage::onErrorsChanged(const NetworkErrors &errors)
         {
             if (m_optionWidgets[section].contains(its.key()))
             {
-                m_optionWidgets[section][its.key()]->setIsErr();
+                SettingsItem *item = m_optionWidgets[section][its.key()];
+                setItemRequired(item);
+                item->setIsErr();
             }
         }
     }
@@ -379,4 +377,11 @@ void ConnectionEditPage::updateSpinBoxWidget(SettingsItem *item, const QJsonObje
     SpinBoxWidget *w = static_cast<SpinBoxWidget *>(item);
 
     w->spinBox()->setValue(infoObject.value("Value").toInt());
+}
+
+void ConnectionEditPage::setItemRequired(SettingsItem *item)
+{
+    LineEditWidget *edit = qobject_cast<LineEditWidget *>(item);
+    if (edit && edit->text().isEmpty())
+        edit->textEdit()->setPlaceholderText(tr("Required"));
 }

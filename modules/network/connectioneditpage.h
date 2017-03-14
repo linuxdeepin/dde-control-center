@@ -62,6 +62,7 @@ private:
     widgets::SettingsItem *createFileChooserWidget(const QJsonObject &keyObject, const QJsonObject &infoObject);
     widgets::SettingsItem *createSpinBoxWidget(const QJsonObject &keyObject, const QJsonObject &infoObject);
     void updateSpinBoxWidget(widgets::SettingsItem *item, const QJsonObject &infoObject);
+    void setItemRequired(widgets::SettingsItem *item);
 
 private:
     NetworkModel *m_networkModel;
