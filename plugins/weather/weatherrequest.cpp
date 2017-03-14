@@ -12,9 +12,13 @@
 
 #include <QDomDocument>
 
-static const QString WeatherServiceHost = "http://hualet.org:9898";
+static const QString WeatherServiceHost = "http://w.api.deepin.com";
 static const QString GeoNameServiceHost = "http://api.geonames.org";
-static const QString GeoNameKey=  "change";
+static const QString GeoNameKey=  "wangyaohua";
+
+static const QString GroupLocation = "Location";
+static const QString KeyGeoNameID = "GeoNameID";
+static const QString KeyLocalizedName = "LocalizedName";
 
 WeatherRequest::WeatherRequest(QObject *parent) :
     QObject(parent),
@@ -23,7 +27,7 @@ WeatherRequest::WeatherRequest(QObject *parent) :
     qRegisterMetaType<City>();
 
     m_settings = new QSettings("deepin", "dcc-weather-plugin");
-    m_city.geonameId = restoreGeoNameID();
+    restoreCityInfo();
 
     m_loader = new LoaderCity(this);
     m_manager = new QNetworkAccessManager(this);
@@ -61,7 +65,7 @@ const City &WeatherRequest::city() const
 void WeatherRequest::setCity(const City &city)
 {
     m_city = city;
-    saveGeoNameID(m_city.geonameId);
+    saveCityInfo();
     refreshData(true);
 }
 
@@ -112,7 +116,9 @@ void WeatherRequest::processGeoNameIdReply()
         if (name.toLower() == m_city.name.toLower()) {
             QString geonameId = geoname.firstChildElement("geonameId").text();
             qDebug() << "got geoname id " << geonameId;
-            saveGeoNameID(geonameId);
+            m_city.geonameId = geonameId;
+            saveCityInfo();
+
             requestWeatherForecast(geonameId);
             requestGeoNameInfo(geonameId);
             break;
@@ -141,6 +147,7 @@ void WeatherRequest::processGeoNameInfoReply()
         qDebug() << "got localized city name" << m_city.localizedName;
     }
 
+    saveCityInfo();
     emit fetchLocalizedCityNameDone(m_city.localizedName);
 }
 
@@ -158,7 +165,6 @@ void WeatherRequest::processSearchCityReply()
         qWarning() << "read xml content error! " << errorMsg;
     }
 
-    m_city.localizedName = m_city.name;
     QDomElement root = domDocument.documentElement();
     QDomElement geoname = root.firstChildElement("geoname");
     while (!geoname.isNull()) {
@@ -174,22 +180,20 @@ void WeatherRequest::processSearchCityReply()
     emit searchCityDone(cities);
 }
 
-void WeatherRequest::saveGeoNameID(const QString &geonameId)
+void WeatherRequest::saveCityInfo()
 {
-    m_settings->beginGroup("Location");
-    m_settings->setValue("GeoNameID", geonameId);
+    m_settings->beginGroup(GroupLocation);
+    m_settings->setValue(KeyGeoNameID, m_city.geonameId);
+    m_settings->setValue(KeyLocalizedName, m_city.localizedName);
     m_settings->endGroup();
 }
 
-QString WeatherRequest::restoreGeoNameID() const
+void WeatherRequest::restoreCityInfo()
 {
-    QString ret;
-
-    m_settings->beginGroup("Location");
-    ret = m_settings->value("GeoNameID", "").toString();
+    m_settings->beginGroup(GroupLocation);
+    m_city.geonameId = m_settings->value(KeyGeoNameID, "").toString();
+    m_city.localizedName = m_settings->value(KeyLocalizedName, "").toString();
     m_settings->endGroup();
-
-    return ret;
 }
 
 QString WeatherRequest::localizedCityName() const

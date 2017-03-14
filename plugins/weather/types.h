@@ -22,6 +22,10 @@ struct City {
     float longitude;
 };
 
+inline bool operator ==(const City &city, const City &that) {
+    return city.geonameId == that.geonameId || (city.country == that.country && city.name == that.name);
+}
+
 Q_DECLARE_METATYPE(City)
 
 #endif // TYPES_H

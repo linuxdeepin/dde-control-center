@@ -69,6 +69,8 @@ public:
     City currentCity() const;
     void setCurrentCity(const City &currentCity);
 
+    void reset() const;
+
 signals:
     void citySet(const City &city);
     void cancelled();
@@ -85,6 +87,7 @@ private:
     SearchResultView *m_resultView;
     SearchDelegate *m_resultDelegate;
     SearchModel *m_resultModel;
+    LargeLabel *m_noResult;
 
     QTimer *m_searchTimer;
 };

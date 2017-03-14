@@ -24,6 +24,7 @@ WeatherPlugin::WeatherPlugin(QObject *parent)
     m_view->setLayout(layout);
 
     connect(weatherWidget, &WeatherWidget::locationButtonClicked, this, [this, layout, locationPage] {
+        locationPage->reset();
         locationPage->setCurrentCity(m_requestManager->city());
         layout->setCurrentWidget(locationPage);
     });

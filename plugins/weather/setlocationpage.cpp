@@ -26,9 +26,11 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
       m_resultView(new SearchResultView),
       m_resultDelegate(new SearchDelegate),
       m_resultModel(new SearchModel),
+      m_noResult(new LargeLabel(tr("No search results"))),
       m_searchTimer(new QTimer)
 {
     m_searchInput->setFixedHeight(36);
+    m_noResult->setStyleSheet("color: rgba(255, 255, 255, 0.3);");
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -43,6 +45,16 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
     layout->addStretch();
 
     setLayout(layout);
+
+    QHBoxLayout *resultLayout = new QHBoxLayout;
+    resultLayout->setSpacing(0);
+    resultLayout->setMargin(0);
+
+    resultLayout->addStretch();
+    resultLayout->addWidget(m_noResult);
+    resultLayout->addStretch();
+
+    m_resultView->setLayout(resultLayout);
 
     m_resultView->setItemDelegate(m_resultDelegate);
     m_resultView->setModel(m_resultModel);
@@ -64,7 +76,15 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
 
     connect(m_requestManager, &WeatherRequest::searchCityDone, this, [this] (const QList<City> &cities) {
         if (!m_searchInput->text().trimmed().isEmpty()) {
-            m_resultModel->setCities(cities);
+            QList<City> buffer;
+            for (const City city : cities) {
+                if (buffer.indexOf(city) == -1) {
+                    buffer << city;
+                }
+            }
+
+            m_noResult->setVisible(buffer.length() == 0);
+            m_resultModel->setCities(buffer);
             m_resultView->show();
         }
     });
@@ -90,7 +110,18 @@ City SetLocationPage::currentCity() const
 void SetLocationPage::setCurrentCity(const City &currentCity)
 {
     m_currentCity = currentCity;
-    m_currentCityLabel->setText(tr("Current City: %1").arg(m_currentCity.localizedName));
+    const QString text  =  tr("Current City: %1").arg(m_currentCity.localizedName);
+
+    QFontMetrics fm = m_currentCityLabel->fontMetrics();
+    const QString elidedText = fm.elidedText(text, Qt::ElideRight, 320);
+
+    m_currentCityLabel->setText(elidedText);
+}
+
+void SetLocationPage::reset() const
+{
+    m_searchInput->setText("");
+    m_searchInput->clearFocus();
 }
 
 void SetLocationPage::mouseReleaseEvent(QMouseEvent *event)

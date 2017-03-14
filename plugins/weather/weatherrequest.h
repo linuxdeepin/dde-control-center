@@ -67,8 +67,8 @@ private:
     QTime m_lastRefreshTimestamp;
     QTimer *m_retryTimer;
 
-    void saveGeoNameID(const QString &geonameId);
-    QString restoreGeoNameID() const;
+    void saveCityInfo();
+    void restoreCityInfo();
 };
 
 class LoaderCity : public QThread
