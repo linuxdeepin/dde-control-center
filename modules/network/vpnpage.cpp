@@ -140,7 +140,7 @@ void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionP
     connect(m_editPage, &ConnectionEditPage::back, this, &VpnPage::onSessionPageFinished, Qt::QueuedConnection);
     connect(m_editPage, &ConnectionEditPage::requestRemove, [=] { emit requestDeleteConnection(m_editingConnUuid); });
     connect(m_editPage, &ConnectionEditPage::requestDisconnect, [=] { emit requestDeactiveConnection(m_editingConnUuid); });
-
+    connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
     emit requestNextPage(m_editPage);
 }
 

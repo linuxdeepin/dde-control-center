@@ -47,6 +47,7 @@ signals:
     void requestNextPage(ContentWidget * const w) const;
     void requestDeviceAPList(const QString &devPath) const;
     void requestDeviceEnabled(const QString &devPath, const bool enabled) const;
+    void requestFrameKeepAutoHide(const bool autoHide) const;
 
 private slots:
     void onDeviceRemoved();

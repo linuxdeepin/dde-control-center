@@ -102,7 +102,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         connect(p, &WirelessPage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
         connect(p, &WirelessPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
         connect(p, &WirelessPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
-
+        connect(p, &WirelessPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
         p->setModel(m_networkModel);
 
         c = p;
@@ -133,6 +133,7 @@ void NetworkModule::showVpnPage()
     connect(p, &VpnPage::requestDeactiveConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
     connect(p, &VpnPage::requestEditVpn, m_networkWorker, &NetworkWorker::queryConnectionSession);
     connect(p, &VpnPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
+    connect(p, &VpnPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
 
     p->setModel(m_networkModel);
 
@@ -148,7 +149,7 @@ void NetworkModule::showPppPage()
     connect(p, &PppoePage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
     connect(p, &PppoePage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
     connect(p, &PppoePage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
-
+    connect(p, &PppoePage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);
@@ -163,7 +164,6 @@ void NetworkModule::showProxyPage()
     connect(p, &ProxyPage::requestSetIgnoreHosts, m_networkWorker, &NetworkWorker::setProxyIgnoreHosts);
     connect(p, &ProxyPage::requestSetProxy, m_networkWorker, &NetworkWorker::setProxy);
     connect(p, &ProxyPage::requestSetAutoProxy, m_networkWorker, &NetworkWorker::setAutoProxy);
-
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);
@@ -192,6 +192,11 @@ void NetworkModule::showWiredConnectionEditPage(const QString &session)
     connect(p, &ConnectionEditPage::requestDisconnect, [=] {m_networkWorker->deactiveConnection(m_editingWiredUuid); });
     connect(p, &ConnectionEditPage::requestRemove, [=] {m_networkWorker->deleteConnection(m_editingWiredUuid); });
     connect(p, &ConnectionEditPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
-
+    connect(p, &ConnectionEditPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
     m_frameProxy->pushWidget(this, p);
+}
+
+void NetworkModule::onSetFrameAutoHide(const bool autoHide)
+{
+    m_frameProxy->setFrameAutoHide(this, autoHide);
 }

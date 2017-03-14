@@ -108,6 +108,6 @@ void PppoePage::onConnectionSessionCreated(const QString &devicePath, const QStr
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(m_editingUuid); });
     connect(m_editPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(m_editingUuid); });
-
+    connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
     emit requestNextPage(m_editPage);
 }

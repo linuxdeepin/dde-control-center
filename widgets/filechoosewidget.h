@@ -22,6 +22,9 @@ public:
     QLineEdit *edit() const { return m_edit; }
     void setTitle(const QString &title);
 
+signals:
+    void requestFrameKeepAutoHide(const bool autoHide) const;
+
 private slots:
     void chooseFile();
 

@@ -37,6 +37,7 @@ signals:
     void requestEditConnection(const QString &devPath, const QString &uuid) const;
     void requestDeleteConnection(const QString &uuid) const;
     void requestDisconnectConnection(const QString &uuid) const;
+    void requestFrameKeepAutoHide(const bool autoHide) const;
 
 private slots:
     void createPPPoEConnection();

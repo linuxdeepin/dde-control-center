@@ -343,6 +343,8 @@ SettingsItem *ConnectionEditPage::createFileChooserWidget(const QJsonObject &key
 
     FileChooseWidget *w = new FileChooseWidget;
 
+    connect(w, &FileChooseWidget::requestFrameKeepAutoHide, this, &ConnectionEditPage::requestFrameKeepAutoHide);
+
     w->setTitle(keyObject.value("Name").toString());
 
     const QString section = keyObject.value("Section").toString();

@@ -42,6 +42,7 @@ signals:
     void requestCancelSession() const;
     void requestChangeSettings(const QString &section, const QString &vKey, const QString &data) const;
     void requestNextPage(ContentWidget * const page) const;
+    void requestFrameKeepAutoHide(const bool autoHide) const;
 
 public slots:
     void onDeviceRemoved();

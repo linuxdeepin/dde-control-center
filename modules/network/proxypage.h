@@ -34,6 +34,7 @@ signals:
     void requestSetProxyMethod(const QString &pm) const;
     void requestSetAutoProxy(const QString &proxy) const;
     void requestSetIgnoreHosts(const QString &list) const;
+    void requestFrameKeepAutoHide(const bool autoHide) const;
 
 private slots:
     void onProxyMethodChanged(const QString &proxyMethod);

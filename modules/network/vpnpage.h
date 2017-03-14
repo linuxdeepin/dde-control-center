@@ -38,6 +38,7 @@ signals:
     void requestEditVpn(const QString &devPath, const QString &uuid) const;
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;
     void requestCreateConnection(const QString &type, const QString &devicePath) const;
+    void requestFrameKeepAutoHide(const bool autoHide) const;
 
 public slots:
     void setModel(NetworkModel *model);

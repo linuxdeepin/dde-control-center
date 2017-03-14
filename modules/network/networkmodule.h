@@ -34,6 +34,7 @@ private slots:
     void showDetailPage();
     void showDeviceDetailPage(NetworkDevice *dev);
     void showWiredConnectionEditPage(const QString &session);
+    void onSetFrameAutoHide(const bool autoHide);
 
 private:
     NetworkModel *m_networkModel;
