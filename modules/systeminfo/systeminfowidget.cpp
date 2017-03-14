@@ -28,10 +28,12 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     m_distroid = new TitleValueItem();
     m_distroid->setTitle(tr("Distribution:"));
     m_distroid->setValue(m_model->distroid());
+    m_distroid->setVisible(false);
 
     m_distrover = new TitleValueItem();
     m_distrover->setTitle(tr("Distribution Release:"));
     m_distrover->setValue(m_model->distrover());
+    m_distrover->setVisible(false);
 
     m_version = new TitleValueItem();
     m_version->setTitle(tr("Edition:"));
