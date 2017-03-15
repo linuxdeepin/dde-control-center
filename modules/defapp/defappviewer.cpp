@@ -81,20 +81,6 @@ QWidget *DefAppViewer::defappDetail()
     connect(m_modCamera, &DefCategoryWidget::requestSetDefaultApp,      this, &DefAppViewer::requestSetDefaultApp);
     connect(m_modSoftware, &DefCategoryWidget::requestSetDefaultApp,    this, &DefAppViewer::requestSetDefaultApp);
 
-    connect(m_modBrowser,  &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
-    connect(m_modMail,     &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
-    connect(m_modText,     &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
-    connect(m_modMusic,    &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
-    connect(m_modVideo,    &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
-    connect(m_modPicture,  &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
-    connect(m_modTerminal, &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
-
-    connect(m_modCDAudio, &DefCategoryWidget::requestAddUserApp,     this, &DefAppViewer::requestAddUserApp);
-    connect(m_modDVDVideo, &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
-    connect(m_modMusicPlayer, &DefCategoryWidget::requestAddUserApp, this, &DefAppViewer::requestAddUserApp);
-    connect(m_modCamera, &DefCategoryWidget::requestAddUserApp,      this, &DefAppViewer::requestAddUserApp);
-    connect(m_modSoftware, &DefCategoryWidget::requestAddUserApp,    this, &DefAppViewer::requestAddUserApp);
-
     connect(m_modBrowser,  &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
     connect(m_modMail,     &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
     connect(m_modText,     &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
@@ -108,7 +94,6 @@ QWidget *DefAppViewer::defappDetail()
     connect(m_modMusicPlayer, &DefCategoryWidget::requestDelUserApp, this, &DefAppViewer::requestDelUserApp);
     connect(m_modCamera, &DefCategoryWidget::requestDelUserApp,      this, &DefAppViewer::requestDelUserApp);
     connect(m_modSoftware, &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
-
 
     connect(m_modBrowser,  &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
     connect(m_modMail,     &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
@@ -124,6 +109,13 @@ QWidget *DefAppViewer::defappDetail()
     connect(m_modCamera, &DefCategoryWidget::requestFrameAutoHide,      this, &DefAppViewer::requestFrameAutoHide);
     connect(m_modSoftware, &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
 
+    connect(m_modBrowser,  &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
+    connect(m_modMail,     &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
+    connect(m_modText,     &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
+    connect(m_modMusic,    &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
+    connect(m_modVideo,    &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
+    connect(m_modPicture,  &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
+    connect(m_modTerminal, &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
 
     return mainwidget;
 }

@@ -7,6 +7,7 @@
 #include <QVBoxLayout>
 #include <QMap>
 #include <QJsonObject>
+#include <QFileInfo>
 
 namespace dcc
 {
@@ -28,9 +29,9 @@ public:
 
 signals:
     void requestSetDefaultApp(const QString &category, const QJsonObject &item);
-    void requestAddUserApp(const QString &category, const QString &item);
     void requestDelUserApp(const QString &name, const QJsonObject &item);
     void requestFrameAutoHide(const bool autoHide) const;
+    void requestCreateFile(const QString &category, const QFileInfo &info);
 
 public slots:
     void setDefault();

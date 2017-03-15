@@ -6,12 +6,7 @@
 #include <QFileDialog>
 #include <QDebug>
 #include <QTimer>
-#include <QFile>
-#include <QMessageBox>
 #include <QStandardPaths>
-#include <sys/types.h>    // defines special types
-#include <pwd.h>    // defines the passwd structure
-#include <unistd.h>//header for getuid system call
 
 using namespace dcc;
 using namespace dcc::defapp;
@@ -32,43 +27,6 @@ DefCategoryAddWidget::DefCategoryAddWidget(QWidget *parent)
     setLayout(mainLayout);
     connect(m_add, &FuncButton::clicked, this, &DefCategoryAddWidget::clicked);
     setObjectName("DefCategoryAddWidget");
-}
-
-bool DefCategoryAddWidget::createDesktopFile(const QFileInfo &info)
-{
-    struct passwd *user;
-    user = getpwuid(getuid());
-    //create desktop file in ~/.local/share/applications/
-    QFile file(QString(user->pw_dir) + "/.local/share/applications/deepin-custom-" + info.baseName() + ".desktop");
-    //方式：Append为追加，WriteOnly，ReadOnly
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        return false;
-    }
-    qDebug() << file.fileName();
-    QTextStream out(&file);
-    out << "[Desktop Entry]\n"
-        "Type=Application\n"
-        "Version=1.0\n"
-        "Name=" + info.baseName() + "\n"
-        "Path=" + info.path() + "\n"
-        "Exec=" +  info.filePath() + "\n"
-        "Icon=application-default-icon\n"
-        "Terminal=false\n"
-        "Categories=" + m_category + ";"
-        << endl;
-    out.flush();
-    file.close();
-    return true;
-}
-
-void DefCategoryAddWidget::copyDesktopFile(const QFileInfo &info)
-{
-    struct passwd *user;
-    user = getpwuid(getuid());
-    QFile file(info.filePath());
-    QString newfile = QString(user->pw_dir) + "/.local/share/applications/deepin-custom-"+ info.fileName();
-    file.close();
-    emit addUserItem(m_category, newfile);
 }
 
 void DefCategoryAddWidget::clicked()
@@ -95,14 +53,7 @@ void DefCategoryAddWidget::clicked()
             break;
 
         QFileInfo info(path);
-
-        if (info.suffix() == "desktop") {
-            copyDesktopFile(info);
-        } else if (!info.exists() || !info.isExecutable())
-            break;
-        else if (createDesktopFile(info)) {
-            emit addUserItem(m_category, info.filePath());
-        }
+        emit requestCreateFile(m_category, info);
     } while(false);
 
     QTimer::singleShot(500, this, [ = ] { emit requestFrameAutoHide(true); });

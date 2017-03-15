@@ -34,9 +34,9 @@ DefCategoryWidget::DefCategoryWidget(const QString &name, QWidget *parent)
     setObjectName("DefCategoryWidget");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    connect(m_addWidget,  &DefCategoryAddWidget::addUserItem,  this, &DefCategoryWidget::requestAddUserApp);
     connect(m_headWidget, &SettingsHead::editChanged, this, &DefCategoryWidget::slotEditMode);
     connect(m_addWidget, &DefCategoryAddWidget::requestFrameAutoHide, this, &DefCategoryWidget::requestFrameAutoHide);
+    connect(m_addWidget, &DefCategoryAddWidget::requestCreateFile, this, &DefCategoryWidget::requestCreateFile);
 }
 
 void DefCategoryWidget::setCategory(Category *const category)

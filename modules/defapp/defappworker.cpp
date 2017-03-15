@@ -34,6 +34,8 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetDefaultApp);
     connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetListApps);
     connect(m_dbusMedia, &Media::AutoOpenChanged, m_defAppModel, static_cast<void (DefAppModel::*)(const bool)>(&DefAppModel::setAutoOpen));
+
+    m_userLocalPath = QDir::homePath()+ "/.local/share/applications/";
 }
 
 void DefAppWorker::active()
@@ -112,31 +114,72 @@ void DefAppWorker::onAutoOpenChanged(const bool state)
     m_dbusMedia->EnableAutoOpen(state);
 }
 
-void DefAppWorker::onAddUserApp(const QString &mime, const QString &item)
-{
-    QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
-    QJsonObject object;
-    QFileInfo file(item);
-    if (file.suffix() == "desktop") {
-        m_dbusManager->AddUserApp(mimelist, file.baseName() + ".desktop");
-        object.insert("Id", file.baseName() + ".desktop");
-    } else {
-        m_dbusManager->AddUserApp(mimelist, "deepin-custom-" + file.baseName() + ".desktop");
-        object.insert("Id", "deepin-custom-" + file.baseName() + ".desktop");
-    }
-    object.insert("Nmae", file.baseName());
-    object.insert("DisplayName", file.baseName());
-    object.insert("Icon", "application-default-icon");
-    object.insert("Exec", item);
-    Category *category = getCategory(mime);
-    category->addUserItem(object);
-}
-
 void DefAppWorker::onDelUserApp(const QString &mime, const QJsonObject &item)
 {
     Category *category = getCategory(mime);
     category->delUserItem(item);
     m_dbusManager->DeleteUserApp(item["Id"].toString());
+
+    //remove file
+    QFile file(m_userLocalPath + item["Id"].toString());
+    file.remove();
+}
+
+void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
+{
+    const bool isDesktop = info.suffix() == "desktop";
+
+    if (isDesktop) {
+        QFile file(info.filePath());
+        QString newfile = m_userLocalPath + "deepin-custom-"+ info.fileName();
+        file.copy(newfile);
+        file.close();
+
+        QStringList mimelist = getTypeListByCategory(m_stringToCategory[info.path()]);
+        QJsonObject object;
+        QFileInfo fileInfo(info.filePath());
+        m_dbusManager->AddUserApp(mimelist, fileInfo.baseName() + ".desktop");
+        object.insert("Id", "deepin-custom-" + fileInfo.baseName() + ".desktop");
+        object.insert("Nmae", fileInfo.baseName());
+        object.insert("DisplayName", fileInfo.baseName());
+        object.insert("Icon", "application-default-icon");
+        object.insert("Exec", info.filePath());
+        Category *category = getCategory(mime);
+        category->addUserItem(object);
+
+    } else {
+        QFile file(m_userLocalPath +"deepin-custom-" + info.baseName() + ".desktop");
+
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            return;
+        }
+
+        QTextStream out(&file);
+        out << "[Desktop Entry]\n"
+            "Type=Application\n"
+            "Version=1.0\n"
+            "Name=" + info.baseName() + "\n"
+            "Path=" + info.path() + "\n"
+            "Exec=" +  info.filePath() + "\n"
+            "Icon=application-default-icon\n"
+            "Terminal=false\n"
+            "Categories=" + mime + ";"
+            << endl;
+        out.flush();
+        file.close();
+
+        QStringList mimelist = getTypeListByCategory(m_stringToCategory[info.path()]);
+        QJsonObject object;
+        QFileInfo fileInfo(info.filePath());
+        m_dbusManager->AddUserApp(mimelist, "deepin-custom-" + fileInfo.baseName() + ".desktop");
+        object.insert("Id", "deepin-custom-" + fileInfo.baseName() + ".desktop");
+        object.insert("Nmae", fileInfo.baseName());
+        object.insert("DisplayName", fileInfo.baseName());
+        object.insert("Icon", "application-default-icon");
+        object.insert("Exec", info.filePath());
+        Category *category = getCategory(mime);
+        category->addUserItem(object);
+    }
 }
 
 void DefAppWorker::getListAppFinished(QDBusPendingCallWatcher *w)

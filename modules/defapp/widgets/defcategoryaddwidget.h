@@ -19,12 +19,10 @@ class DefCategoryAddWidget : public widgets::SettingsItem
 public:
     explicit DefCategoryAddWidget(QWidget *parent = 0);
     inline void setCategory(const QString &category){ m_category = category;}
-    bool createDesktopFile(const QFileInfo &info);
-    void copyDesktopFile(const QFileInfo &info);
 
 signals:
-    void addUserItem(const QString &category, const QString &name);
     void requestFrameAutoHide(const bool autoHide) const;
+    void requestCreateFile(const QString &category, const QFileInfo &info);
 
 public slots:
     void clicked();

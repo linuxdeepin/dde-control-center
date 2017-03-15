@@ -26,8 +26,8 @@ public slots:
     void onGetListApps();
     void onResetTriggered();
     void onAutoOpenChanged(const bool state);
-    void onAddUserApp(const QString &category, const QString &item);
     void onDelUserApp(const QString &mine, const QJsonObject &item);
+    void onCreateFile(const QString &mime, const QFileInfo &info);
 
 private slots:
     void getListAppFinished(QDBusPendingCallWatcher *w);
@@ -48,6 +48,7 @@ private:
     };
 
     QMap<QString, DefaultAppsCategory> m_stringToCategory;
+    QString m_userLocalPath;
 
 private:
     const QString getTypeByCategory(const DefAppWorker::DefaultAppsCategory &category);
