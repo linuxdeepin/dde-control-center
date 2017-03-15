@@ -63,3 +63,7 @@ dcc--display--MonitorControlWidget #Split {
 dcc--display--MonitorControlWidget #Merge {
     qproperty-icon: url(":/display/themes/dark/icons/union_normal.png");
 }
+
+dcc--display--CustomConfigPage #DeleteBtn {
+    color: red;
+}

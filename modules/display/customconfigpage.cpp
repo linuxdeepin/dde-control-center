@@ -18,6 +18,7 @@ CustomConfigPage::CustomConfigPage(const QString &config, QWidget *parent)
     m_modifyBtn->setText(tr("Modify"));
     m_deleteBtn = new QPushButton;
     m_deleteBtn->setText(tr("Delete"));
+    m_deleteBtn->setObjectName("DeleteBtn");
     m_modifyTips = new QLabel;
     m_modifyTips->setText(tr("Please switch to current mode before modifying the settings"));
     m_deleteTips = new QLabel;
