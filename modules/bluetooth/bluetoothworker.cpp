@@ -68,13 +68,6 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
         }
     });
 
-}
-
-void BluetoothWorker::activate()
-{
-    m_model->blockSignals(false);
-    m_bluetoothInter->ClearUnpairedDevice();
-
     QDBusPendingCall call = m_bluetoothInter->GetAdapters();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
@@ -93,11 +86,16 @@ void BluetoothWorker::activate()
             qWarning() << call.error().message();
         }
     });
+
+}
+
+void BluetoothWorker::activate()
+{
+    m_bluetoothInter->ClearUnpairedDevice();
 }
 
 void BluetoothWorker::deactivate()
 {
-    m_model->blockSignals(true);
 }
 
 void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powered)
