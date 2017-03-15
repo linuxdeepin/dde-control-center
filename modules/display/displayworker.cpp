@@ -138,6 +138,8 @@ void DisplayWorker::deleteConfig(const QString &config)
 
 void DisplayWorker::switchMode(const int mode, const QString &name)
 {
+    qDebug() << Q_FUNC_INFO << mode << name;
+
     m_displayInter.SwitchMode(mode, name).waitForFinished();
 }
 

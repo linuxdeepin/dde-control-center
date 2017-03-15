@@ -22,7 +22,7 @@ signals:
     void requestDeleteConfig(const QString &config) const;
 
 public slots:
-    void onCurrentConfigChanged(const QString config);
+    void onCurrentConfigChanged(const bool custom, const QString config);
 
 private slots:
     void onDeleteBtnClicked();

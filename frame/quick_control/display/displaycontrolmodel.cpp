@@ -12,10 +12,11 @@ DisplayControlModel::DisplayControlModel(DisplayModel *model, QObject *parent)
       m_displayModel(model)
 {
     connect(m_displayModel, &DisplayModel::displayModeChanged, this, &DisplayControlModel::onDisplayModeChanged, Qt::QueuedConnection);
+    connect(m_displayModel, &DisplayModel::monitorListChanged, this, [=] { emit layoutChanged(); }, Qt::QueuedConnection);
+    connect(m_displayModel, &DisplayModel::configListChanged, this, [=] { emit layoutChanged(); }, Qt::QueuedConnection);
     connect(m_displayModel, &DisplayModel::primaryScreenChanged, this, [=] { onDisplayModeChanged(m_displayModel->displayMode()); }, Qt::QueuedConnection);
     connect(m_displayModel, &DisplayModel::currentConfigChanged, this, [=] { onDisplayModeChanged(m_displayModel->displayMode()); }, Qt::QueuedConnection);
-    connect(m_displayModel, &DisplayModel::monitorListChanged, [=] { emit layoutChanged(); });
-    connect(m_displayModel, &DisplayModel::configListChanged, [=] { emit layoutChanged(); });
+    connect(this, &DisplayControlModel::layoutChanged, this, [=] { onDisplayModeChanged(m_displayModel->displayMode()); }, Qt::QueuedConnection);
 
     onDisplayModeChanged(m_displayModel->displayMode());
 }

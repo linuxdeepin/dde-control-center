@@ -42,7 +42,7 @@ DisplayWidget::DisplayWidget()
     m_centralLayout->addWidget(m_createConfig);
 
     m_configListRefershTimer->setSingleShot(true);
-    m_configListRefershTimer->setInterval(100);
+    m_configListRefershTimer->setInterval(200);
 
     setTitle(tr("Display"));
 
@@ -61,6 +61,7 @@ void DisplayWidget::setModel(DisplayModel *model)
     connect(m_model, &DisplayModel::configListChanged, this, &DisplayWidget::onScreenListChanged);
     connect(m_model, &DisplayModel::configListChanged, m_configListRefershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_model, &DisplayModel::currentConfigChanged, m_configListRefershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_model, &DisplayModel::displayModeChanged, m_configListRefershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_model, &DisplayModel::screenHeightChanged, this, &DisplayWidget::onScreenSizeChanged);
     connect(m_model, &DisplayModel::screenWidthChanged, this, &DisplayWidget::onScreenSizeChanged);
 

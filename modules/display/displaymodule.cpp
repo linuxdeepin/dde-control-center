@@ -55,7 +55,7 @@ void DisplayModule::showConfigPage(const QString &config)
 {
     CustomConfigPage *page = new CustomConfigPage(config);
 
-    page->onCurrentConfigChanged(m_displayModel->config());
+    page->onCurrentConfigChanged(m_displayModel->displayMode() == CUSTOM_MODE, m_displayModel->config());
     connect(page, &CustomConfigPage::requestDeleteConfig, m_displayWorker, &DisplayWorker::deleteConfig);
     connect(page, &CustomConfigPage::requestModifyConfig, this, &DisplayModule::showCustomSettings);
 

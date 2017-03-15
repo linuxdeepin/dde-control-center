@@ -42,14 +42,14 @@ CustomConfigPage::CustomConfigPage(const QString &config, QWidget *parent)
     connect(m_deleteBtn, &QPushButton::clicked, this, &CustomConfigPage::back);
 }
 
-void CustomConfigPage::onCurrentConfigChanged(const QString config)
+void CustomConfigPage::onCurrentConfigChanged(const bool custom, const QString config)
 {
     const bool current = config == m_configName;
 
-    m_modifyBtn->setEnabled(current);
-    m_modifyTips->setVisible(!current);
-    m_deleteBtn->setEnabled(!current);
-    m_deleteTips->setVisible(current);
+    m_modifyBtn->setEnabled(current && custom);
+    m_modifyTips->setVisible(!m_modifyBtn->isEnabled());
+    m_deleteBtn->setEnabled(!current || !custom);
+    m_deleteTips->setVisible(!m_deleteBtn->isEnabled());
 }
 
 void CustomConfigPage::onDeleteBtnClicked()
