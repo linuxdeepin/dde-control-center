@@ -16,6 +16,8 @@
 #include "bluetooth/bluetoothworker.h"
 #include "bluetooth/adapter.h"
 
+#include "miracast/miracastcontrolpage.h"
+
 #include <QVBoxLayout>
 
 using namespace dcc;
@@ -50,15 +52,19 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     VpnControlPage *vpnPage = new VpnControlPage(m_networkModel);
 
+    MiracastControlPage *miracastPage = new MiracastControlPage;
+
     m_itemStack->addWidget(new BasicSettingsPage);
     m_itemStack->addWidget(bluetoothList);
     m_itemStack->addWidget(vpnPage);
     m_itemStack->addWidget(wifiPage);
     m_itemStack->addWidget(displayPage);
+    m_itemStack->addWidget(miracastPage);
 
     m_btSwitch = new QuickSwitchButton(1, "bluetooth");
     m_vpnSwitch = new QuickSwitchButton(2, "VPN");
     m_wifiSwitch = new QuickSwitchButton(3, "wifi");
+    m_miracastSwitch = new QuickSwitchButton(5, "display");
     QuickSwitchButton *displaySwitch = new QuickSwitchButton(4, "display");
     QuickSwitchButton *detailSwitch = new QuickSwitchButton(0, "all_settings");
 
@@ -68,6 +74,8 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_vpnSwitch->setAccessibleName("QuickSwitchVPN");
     m_wifiSwitch->setObjectName("QuickSwitchWiFi");
     m_wifiSwitch->setAccessibleName("QuickSwitchWiFi");
+    m_miracastSwitch->setObjectName("QuickSwitchDisplay");
+    m_miracastSwitch->setAccessibleName("QuickSwitchDisplay");
     displaySwitch->setObjectName("QuickSwitchDisplay");
     displaySwitch->setAccessibleName("QuickSwitchDisplay");
     displaySwitch->setCheckable(false);
@@ -82,12 +90,14 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_switchs.append(m_vpnSwitch);
     m_switchs.append(m_wifiSwitch);
     m_switchs.append(displaySwitch);
+    m_switchs.append(m_miracastSwitch);
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addWidget(m_btSwitch);
     btnsLayout->addWidget(m_vpnSwitch);
     btnsLayout->addWidget(m_wifiSwitch);
     btnsLayout->addWidget(displaySwitch);
+    btnsLayout->addWidget(m_miracastSwitch);
     btnsLayout->addWidget(detailSwitch);
     btnsLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -103,6 +113,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(m_btSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(m_vpnSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(m_wifiSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
+    connect(m_miracastSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(displaySwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(detailSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(detailSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::requestDetailConfig);

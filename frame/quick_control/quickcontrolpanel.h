@@ -69,6 +69,7 @@ private:
     dcc::QuickSwitchButton *m_wifiSwitch;
     dcc::QuickSwitchButton *m_btSwitch;
     dcc::QuickSwitchButton *m_vpnSwitch;
+    dcc::QuickSwitchButton *m_miracastSwitch;
     QList<dcc::QuickSwitchButton *> m_switchs;
 };
 
