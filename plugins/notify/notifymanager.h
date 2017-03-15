@@ -46,10 +46,10 @@ private:
 
 private:
     Viewer *m_viewer;
-    QVBoxLayout *m_mainLayout;
     DImageButton *m_clearButton;
     QMap<Viewer*, QJsonObject> m_viewerList;
     Notifications *m_dbus;
+    QVBoxLayout *m_connectLayout;
 };
 
 #endif // NOTIFYMANAGER_H

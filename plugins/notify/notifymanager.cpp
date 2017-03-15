@@ -11,28 +11,48 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QDebug>
+#include <QScrollArea>
 
 
 NotifyManager::NotifyManager(QWidget *parent) :
     QWidget(parent),
     m_dbus(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
 {
-    m_mainLayout = new QVBoxLayout;
-    m_mainLayout->setMargin(0);
-    m_mainLayout->setSpacing(1);
+
+    QWidget *widget = new QWidget;
+
+    m_connectLayout = new QVBoxLayout(widget);
+    m_connectLayout->setMargin(0);
+    m_connectLayout->setSpacing(1);
+    m_connectLayout->addStretch();
+
+    QScrollArea *scrollarea = new QScrollArea;
+    scrollarea->setWidget(widget);
+    scrollarea->setObjectName("scrollarea");
+    scrollarea->setWidgetResizable(true);
+    scrollarea->setFocusPolicy(Qt::NoFocus);
+    scrollarea->setFrameStyle(QFrame::NoFrame);
+    scrollarea->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    scrollarea->setContentsMargins(0, 0, 0, 0);
+    scrollarea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollarea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollarea->setStyleSheet("background-color:transparent;");
+
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(0);
 
     m_clearButton = new DImageButton;
     m_clearButton->setText(tr("Clear all"));
 
-    m_mainLayout->insertWidget(0, m_clearButton, 0, Qt::AlignHCenter);
-    m_mainLayout->addStretch();
+    mainLayout->addWidget(m_clearButton, 0, Qt::AlignHCenter);
+    mainLayout->addWidget(scrollarea);
 
-    setLayout(m_mainLayout);
+    setLayout(mainLayout);
 
     m_clearButton->setVisible(false);
 
     connect(m_clearButton, &DImageButton::clicked, this, &NotifyManager::onCloseAllItem);
-
     connect(m_dbus, &Notifications::RecordAdded, this, &NotifyManager::onNotifyAdded);
 
     m_dbus->setSync(false);
@@ -68,7 +88,7 @@ void NotifyManager::onNotifyAdd(const QJsonObject &value) {
     m_viewer->setContentsMargins(0, 0, 0, 0);
     m_viewer->setStyleSheet("Viewer {background-color: rgba(255, 255, 255, 0.03);}"
                             "Viewer:hover {background-color: rgba(254, 254, 254, 0.13);}");
-    m_mainLayout->insertWidget(1, m_viewer);
+    m_connectLayout->insertWidget(0, m_viewer);
     m_viewerList.insert(m_viewer, value);
     connect(m_viewer, &Viewer::requestClose, this, &NotifyManager::onNotifyRemove);
     update();
@@ -79,6 +99,7 @@ void NotifyManager::onNotifyRemove(const QString &id)
     QMap<Viewer*, QJsonObject>::iterator list = m_viewerList.begin();
     while (list != m_viewerList.end()) {
         if (id == list.value()["id"].toString()) {
+            m_connectLayout->removeWidget(list.key());
             m_viewerList.remove(list.key());
             m_dbus->RemoveRecord(id);
             break;
@@ -120,12 +141,6 @@ void NotifyManager::onNotifyGetAllFinished(QDBusPendingCallWatcher *w)
 void NotifyManager::onCloseAllItem()
 {
     for (Viewer *viewer : m_viewerList.keys()) {
-        m_mainLayout->removeWidget(viewer);
         viewer->onClose();
-        m_viewerList.remove(viewer);
     }
-
-    m_dbus->ClearRecords();
-
-    update();
 }
