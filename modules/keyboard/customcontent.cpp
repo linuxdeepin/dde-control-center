@@ -159,8 +159,12 @@ void CustomContent::onKeyEvent(const bool state, const QString &keylist)
 
 void CustomContent::onOpenFile()
 {
+    emit requestFrameAutoHide(false);
+
     QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), tr("/usr/bin"));
     m_command->setText(file);
+
+    emit requestFrameAutoHide(true);
 }
 
 }

@@ -62,6 +62,9 @@ public slots:
 
     void onShortcutEdit(ShortcutInfo* info);
 
+private slots:
+    void onSetFrameAutoHide(const bool autoHide);
+
 private:
     ~KeyboardModule();
 

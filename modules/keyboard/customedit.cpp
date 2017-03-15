@@ -110,8 +110,12 @@ void keyboard::CustomEdit::setBottomTip(keyboard::ShortcutInfo *conflict)
 
 void keyboard::CustomEdit::onOpenFile()
 {
+    emit requestFrameAutoHide(false);
+
     QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), tr("/usr/bin"));
     m_command->setText(file);
+
+    emit requestFrameAutoHide(true);
 }
 
 void keyboard::CustomEdit::onSaveAccels()

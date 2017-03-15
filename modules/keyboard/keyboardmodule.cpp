@@ -263,6 +263,7 @@ void KeyboardModule::onPushCustomShortcut()
     {
         m_customContent = new CustomContent(m_work);
         connect(m_customContent, SIGNAL(shortcut(QString)), this, SLOT(onShortcutSet(QString)));
+        connect(m_customContent, &CustomContent::requestFrameAutoHide, this, &KeyboardModule::onSetFrameAutoHide);
     }
 
     m_frameProxy->pushWidget(this, m_customContent);
@@ -454,8 +455,14 @@ void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
 
     connect(m_customEdit, &CustomEdit::requestEditFinished, head, &SettingsHead::toCancel);
     connect(m_customEdit, &CustomEdit::requestShortcutList, this, &KeyboardModule::onShortcutSet);
+    connect(m_customEdit, &CustomEdit::requestFrameAutoHide, this, &KeyboardModule::onSetFrameAutoHide);
 
     m_frameProxy->pushWidget(this, m_customEdit);
+}
+
+void KeyboardModule::onSetFrameAutoHide(const bool autoHide)
+{
+    m_frameProxy->setFrameAutoHide(this, autoHide);
 }
 
 void KeyboardModule::setCapsLock(bool value)

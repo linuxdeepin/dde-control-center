@@ -35,6 +35,7 @@ public:
 signals:
     void requestEditFinished();
     void requestShortcutList(const QString &shortcut);
+    void requestFrameAutoHide(const bool autoHide) const;
 
 public slots:
     void onClick();
