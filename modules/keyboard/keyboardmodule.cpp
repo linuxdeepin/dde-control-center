@@ -16,7 +16,8 @@ KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
       m_shortcutWidget(nullptr),
       m_langWidget(nullptr),
       m_scContent(nullptr),
-      m_customContent(nullptr)
+      m_customContent(nullptr),
+      m_customEdit(nullptr)
 {
 }
 
