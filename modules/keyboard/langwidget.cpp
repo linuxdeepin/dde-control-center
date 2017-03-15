@@ -5,12 +5,12 @@
 #include "indexframe.h"
 #include "indexview.h"
 #include "indexmodel.h"
-#include "translucentframe.h"
 #include "keyboardmodel.h"
 
 #include <QVBoxLayout>
 #include <QLineEdit>
 #include <QDebug>
+#include <QEvent>
 
 using namespace dcc;
 
@@ -22,7 +22,7 @@ LangWidget::LangWidget(KeyboardModel *model, QWidget *parent)
 {
     setTitle(tr("System Language"));
 
-    TranslucentFrame* widget = new TranslucentFrame();
+    m_contentWidget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(0);
@@ -38,9 +38,16 @@ LangWidget::LangWidget(KeyboardModel *model, QWidget *parent)
     m_contentTopLayout->addSpacing(10);
 
     layout->addWidget(m_view);
-    widget->setLayout(layout);
+    m_contentWidget->setLayout(layout);
 
-    setContent(widget);
+    // 矩形圆角
+    m_clipEffectWidget = new DGraphicsClipEffect(m_contentWidget);
+    m_contentWidget->installEventFilter(this);
+    m_contentWidget->setGraphicsEffect(m_clipEffectWidget);
+
+    setContent(m_contentWidget);
+    m_contentWidget->setAttribute(Qt::WA_TranslucentBackground);
+    m_contentWidget->setFixedWidth(344);
 
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
     connect(m_view, SIGNAL(clicked(QModelIndex)), this, SIGNAL(click(QModelIndex)));
@@ -94,6 +101,25 @@ void LangWidget::onSearch(const QString &text)
         m_searchModel->setMetaData(sdatas);
         m_view->setModel(m_searchModel);
     }
+}
+
+bool LangWidget::eventFilter(QObject *watched, QEvent *event)
+{
+    Q_UNUSED(watched)
+
+    if (event->type() != QEvent::Move && event->type() != QEvent::Resize)
+        return false;
+
+    QRect rect = m_contentWidget->rect();
+
+    rect.moveTopLeft(-m_contentWidget->pos());
+    rect.setHeight(m_contentWidget->window()->height() - m_contentWidget->mapTo(window(), rect.topLeft()).y());
+
+    QPainterPath path;
+    path.addRoundedRect(rect, 5, 5);
+    m_clipEffectWidget->setClipPath(path);
+
+    return false;
 }
 }
 }

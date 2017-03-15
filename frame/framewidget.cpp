@@ -32,7 +32,10 @@ FrameWidget::FrameWidget(Frame *parent)
 
     // change widget opacity
     connect(m_slidePosAni, &QPropertyAnimation::valueChanged, this, [=](const QVariant &value) {
-        m_opacityEffect->setOpacity(1.0 - std::abs(double(value.toPoint().x())) / FRAME_WIDTH);
+        qreal opacity = qBound(qreal(0.0), 1.0 - qAbs(qreal(value.toPoint().x())) / FRAME_WIDTH, qreal(1.0));
+
+        m_opacityEffect->setEnabled(!qFuzzyCompare(opacity, 1.0));
+        m_opacityEffect->setOpacity(opacity);
     });
 }
 

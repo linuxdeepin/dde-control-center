@@ -12,10 +12,10 @@ IndexView::IndexView(QWidget *parent)
 {
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollMode(ScrollPerPixel);
 //    setSelectionMode(QAbstractItemView::MultiSelection);
 //    setPalette(QPalette(QColor(19, 89, 177)));
     setStyleSheet("border: 0px; background: transparent");
-    setFixedHeight(600);
 }
 
 void IndexView::onClick(const QString &ch)
