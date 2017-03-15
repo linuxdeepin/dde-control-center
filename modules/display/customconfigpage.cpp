@@ -19,15 +19,16 @@ CustomConfigPage::CustomConfigPage(const QString &config, QWidget *parent)
     m_deleteBtn = new QPushButton;
     m_deleteBtn->setText(tr("Delete"));
     m_modifyTips = new QLabel;
-    m_modifyTips->setText(tr("Modify Tips"));
+    m_modifyTips->setText(tr("Please switch to current mode before modifying the settings"));
     m_deleteTips = new QLabel;
-    m_deleteTips->setText(tr("Delete Tips"));
+    m_deleteTips->setText(tr("Please switch to another mode before deleting the settings"));
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addWidget(m_modifyBtn);
     centralLayout->addWidget(m_modifyTips);
     centralLayout->addWidget(m_deleteBtn);
     centralLayout->addWidget(m_deleteTips);
+    centralLayout->setMargin(0);
 
     QWidget *centralWidget = new TranslucentFrame;
     centralWidget->setLayout(centralLayout);

@@ -3,6 +3,7 @@
 #include "nextpagewidget.h"
 #include "settingsgroup.h"
 #include "displaymodel.h"
+#include "displayworker.h"
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -103,11 +104,13 @@ void DisplayWidget::onConfigListChanged()
         w->deleteLater();
     m_customSettings.clear();
 
+    const auto mode = m_model->displayMode();
+
     for (const auto config : m_model->configList())
     {
         NextPageWidget *w = new NextPageWidget;
         w->setTitle(config);
-        if (config == m_model->config())
+        if (mode == CUSTOM_MODE && config == m_model->config())
             w->setIcon(QPixmap(":/widgets/themes/dark/icons/select.png"));
 
         connect(w, &NextPageWidget::acceptNextPage, this, [=] { emit requestConfigPage(config); });
