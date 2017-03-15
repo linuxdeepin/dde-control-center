@@ -128,6 +128,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(displayPage, &DisplayControlPage::requestOnlyMonitor, [=](const QString &name) { m_displayWorker->switchMode(SINGLE_MODE, name); m_displayWorker->saveChanges(); });
     connect(displayPage, &DisplayControlPage::requestDuplicateMode, [=] { m_displayWorker->switchMode(MERGE_MODE); m_displayWorker->saveChanges(); });
     connect(displayPage, &DisplayControlPage::requestExtendMode, [=] { m_displayWorker->switchMode(EXTEND_MODE); m_displayWorker->saveChanges(); });
+    connect(displayPage, &DisplayControlPage::requestConfig, m_displayWorker, &DisplayWorker::switchConfig);
     connect(displayPage, &DisplayControlPage::requestCustom, [=] { emit requestPage("display", QString()); });
 
     connect(bluetoothList, &BluetoothList::requestConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::connectDevice);

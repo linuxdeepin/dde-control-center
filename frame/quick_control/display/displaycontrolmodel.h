@@ -22,6 +22,7 @@ public:
         ItemIsLastRole,
         ItemSelectedRole,
         ItemIconRole,
+        ItemConfigNameRole,
     };
 
     enum ItemType

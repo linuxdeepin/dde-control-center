@@ -12,8 +12,10 @@ DisplayControlModel::DisplayControlModel(DisplayModel *model, QObject *parent)
       m_displayModel(model)
 {
     connect(m_displayModel, &DisplayModel::displayModeChanged, this, &DisplayControlModel::onDisplayModeChanged, Qt::QueuedConnection);
-    connect(m_displayModel, &DisplayModel::primaryScreenChanged, this, [this] { onDisplayModeChanged(m_displayModel->displayMode()); }, Qt::QueuedConnection);
+    connect(m_displayModel, &DisplayModel::primaryScreenChanged, this, [=] { onDisplayModeChanged(m_displayModel->displayMode()); }, Qt::QueuedConnection);
+    connect(m_displayModel, &DisplayModel::currentConfigChanged, this, [=] { onDisplayModeChanged(m_displayModel->displayMode()); }, Qt::QueuedConnection);
     connect(m_displayModel, &DisplayModel::monitorListChanged, [=] { emit layoutChanged(); });
+    connect(m_displayModel, &DisplayModel::configListChanged, [=] { emit layoutChanged(); });
 
     onDisplayModeChanged(m_displayModel->displayMode());
 }
@@ -45,6 +47,8 @@ QVariant DisplayControlModel::data(const QModelIndex &index, int role) const
         return index.row() == 2 + m_displayModel->monitorList().size() + m_displayModel->configList().size() - 1;
     case ItemIconRole:
         return optionIcon(index.row());
+    case ItemConfigNameRole:
+        return m_displayModel->configList()[index.row() - 2 - m_displayModel->monitorList().size()];
     case Qt::SizeHintRole:
         return QSize(0, 70);
     default:;
@@ -62,7 +66,8 @@ const QString DisplayControlModel::optionName(const int index) const
     else if (index < m_displayModel->monitorList().size() + 2)
         return tr("Only Displayed on %1").arg(m_displayModel->monitorList()[index - 2]->name());
 
-    return tr("My Settings");
+    return m_displayModel->configList()[index - 2 - m_displayModel->monitorList().size()];
+//    return tr("My Settings");
 }
 
 const QString DisplayControlModel::optionDescription(const int index) const
@@ -86,7 +91,7 @@ void DisplayControlModel::onDisplayModeChanged(const int mode)
     else if (mode == EXTEND_MODE)
         m_selectedIndex = index(1);
     else if (mode == CUSTOM_MODE)
-        m_selectedIndex = index(rowCount(QModelIndex()) - 1); // TODO: support multi config file
+        m_selectedIndex = index(2 + m_displayModel->monitorList().size() + m_displayModel->configList().indexOf(m_displayModel->config()));
     else
     {
         int idx = 2;
