@@ -97,7 +97,9 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     btnsLayout->addWidget(m_vpnSwitch);
     btnsLayout->addWidget(m_wifiSwitch);
     btnsLayout->addWidget(displaySwitch);
+#ifdef QT_DEBUG
     btnsLayout->addWidget(m_miracastSwitch);
+#endif
     btnsLayout->addWidget(detailSwitch);
     btnsLayout->setContentsMargins(0, 0, 0, 0);
 
