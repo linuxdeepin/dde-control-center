@@ -47,7 +47,8 @@ ThemeItem::ThemeItem(const QJsonObject &json):
 
 void ThemeItem::setTitle(const QString &title)
 {
-    m_title->setText(title);
+    QString t = title == "deepin" ? "deepin ("+tr("Default") + ")" : title;
+    m_title->setText(t);
 }
 
 void ThemeItem::setSelected(bool selected)

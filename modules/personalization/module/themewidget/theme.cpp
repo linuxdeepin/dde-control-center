@@ -52,7 +52,7 @@ void Theme::setDefault(const QString &name)
         ThemeItem *w = i.key();
         if (w) {
             if (i.value()["Id"].toString() == name) {
-                w->setTitle(name + tr(" (Default)"));
+                w->setTitle(name);
                 w->setSelected(true);
             } else {
                 w->setTitle(i.value()["Id"].toString());
