@@ -47,6 +47,7 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device) :
     layout->addStretch();
     layout->addWidget(m_tipLabel);
     layout->addWidget(m_loadingIndicator);
+    layout->addSpacing(4);
     layout->addWidget(m_nextButton);
     layout->addSpacing(10);
     setLayout(layout);
