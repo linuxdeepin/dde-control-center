@@ -103,7 +103,7 @@ NavgationModel::EdgeFlags NavgationModel::indexEdgeFlag(const QModelIndex &index
 {
     const int idx = index.row();
     const int r = idx % 3;
-    const int h = m_items.size() / 3 - 1;
+    const int h = m_items.size() / 3 - !(m_items.size() % 3);
     EdgeFlags flag = 0;
 
     if (idx < 3)
