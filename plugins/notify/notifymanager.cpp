@@ -86,8 +86,8 @@ void NotifyManager::onNotifyAdd(const QJsonObject &value) {
     m_viewer->setAppTime(m_time);
     m_viewer->setFixedHeight(80);
     m_viewer->setContentsMargins(0, 0, 0, 0);
-    m_viewer->setStyleSheet("Viewer {background-color: rgba(255, 255, 255, 0.03);}"
-                            "Viewer:hover {background-color: rgba(254, 254, 254, 0.13);}");
+    m_viewer->setStyleSheet("Viewer {background: transparent;}"
+                            "Viewer:hover {background-color: rgba(254, 254, 254, 0.13);border-radius: 4;}");
     m_connectLayout->insertWidget(0, m_viewer);
     m_viewerList.insert(m_viewer, value);
     connect(m_viewer, &Viewer::requestClose, this, &NotifyManager::onNotifyRemove);

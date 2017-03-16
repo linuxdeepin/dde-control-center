@@ -10,8 +10,6 @@ NotifyPlugin::NotifyPlugin(QObject *parent)
 
 void NotifyPlugin::initialize(FrameProxyInterface *proxy) {
     m_proxyInter    = proxy;
-    m_notifymanager->setContentsMargins(0, 0, 0, 0);
-    m_notifymanager->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
 QWidget *NotifyPlugin::centralWidget() {

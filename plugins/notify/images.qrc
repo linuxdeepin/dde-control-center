@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/close.png</file>
         <file>images/default.png</file>
         <file>images/locate_hover.png</file>
         <file>images/locate_normal.png</file>
@@ -12,5 +11,8 @@
         <file>images/upgrade_normal.png</file>
         <file>images/upgrade_press.png</file>
         <file>notify.json</file>
+        <file>images/notify_close_hover.png</file>
+        <file>images/notify_close_normal.png</file>
+        <file>images/notify_close_press.png</file>
     </qresource>
 </RCC>

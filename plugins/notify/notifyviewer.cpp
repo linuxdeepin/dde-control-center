@@ -13,7 +13,7 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_appName(new QLabel),
     m_body(new QLabel),
     m_time(new QLabel),
-    m_close(new DImageButton(":/images/close.png", ":/images/close.png", ":/images/close.png", nullptr)),
+    m_close(new DImageButton(":/images/notify_close_normal.png", ":/images/notify_close_hover.png", ":/images/notify_close_press.png", this)),
     m_appIcon(new QLabel),
     m_mainlayout(new QHBoxLayout)
 {
@@ -23,23 +23,23 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_body->setMargin(0);
     m_appIcon->setFixedSize(ICON_SIZE,ICON_SIZE);
     m_appName->setFixedWidth(165);
-    m_close->setFixedSize(10,10);
+    m_close->setFixedSize(14,14);
     m_time->setFixedHeight(10);
     m_body->setWordWrap(true);
     m_body->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    m_appName->setStyleSheet("font-family: 'Noto Sans Mono CJK SC';"
-                             "font-size: 13px;"
+    m_appName->setStyleSheet("font-family: 'Noto Sans CJK SC';"
+                             "font-size: 11px;"
                              "font-style: normal;"
                              "color: #ffffff;");
-    m_body->setStyleSheet("font-family: 'Noto Sans Mono CJK SC';"
+    m_body->setStyleSheet("font-family: 'Noto Sans CJK SC';"
                           "font-size: 12px;"
                           "font-style: normal;"
                           "color: #ffffff;");
-    m_time->setStyleSheet("font-family: 'Noto Sans Mono CJK SC';"
-                          "font-size: 11px;"
+    m_time->setStyleSheet("font-family: 'Noto Sans CJK SC';"
+                          "font-size: 10px;"
                           "font-style: normal;"
-                          "color: #ffffff;");
+                          "color: rgba(255, 255, 255, 0.6);");
 
     m_appName->setAttribute(Qt::WA_TranslucentBackground, true);
     m_appName->setAutoFillBackground(false);
@@ -53,6 +53,7 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     m_time->setAutoFillBackground(false);
 
     m_close->setVisible(false);
+
     QHBoxLayout *hboxlayout = new QHBoxLayout;
     hboxlayout->setMargin(0);
     hboxlayout->setSpacing(0);
@@ -60,25 +61,30 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
     hboxlayout->addStretch();
     hboxlayout->addWidget(m_time, 0, Qt::AlignRight);
     hboxlayout->addWidget(m_close, 0, Qt::AlignRight);
+    hboxlayout->addSpacing(4);
     hboxlayout->setContentsMargins(0, 5, 5, 0);
 
+    m_mainlayout->addSpacing(15);
     m_mainlayout->addWidget(m_appIcon, 0, Qt::AlignCenter);
     m_mainlayout->addSpacing(1);
 
     QVBoxLayout *rightLayout = new QVBoxLayout;
     rightLayout->setMargin(0);
     rightLayout->setSpacing(0);
+    rightLayout->addSpacing(4);
     rightLayout->addLayout(hboxlayout);
-    rightLayout->addSpacing(2);
+    rightLayout->addSpacing(1);
     rightLayout->addWidget(m_body);
     rightLayout->addStretch();
 
+    m_mainlayout->addSpacing(20);
     m_mainlayout->addLayout(rightLayout);
 
     m_mainlayout->setMargin(0);
     m_mainlayout->setSpacing(0);
 
     this->setLayout(m_mainlayout);
+
     connect(m_close, &DImageButton::clicked, [=]{
         m_anim1=new QPropertyAnimation(this, "pos",this);
         m_anim1->setDuration(300);
