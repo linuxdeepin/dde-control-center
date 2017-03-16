@@ -165,6 +165,10 @@ void ShortcutItem::paintEvent(QPaintEvent *e)
     accels = accels.replace(">", "-");
     accels = accels.replace("Above_Tab", "`");
     accels = accels.replace("Super_L", "Super");
+    accels = accels.replace("Up", "↑");
+    accels = accels.replace("Down", "↓");
+    accels = accels.replace("Left", "←");
+    accels = accels.replace("Right", "→");
 
     QString conflict(tr("Conflict"));
     QStringList splits = accels.split("-");
