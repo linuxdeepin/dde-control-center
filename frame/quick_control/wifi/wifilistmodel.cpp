@@ -58,6 +58,8 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
             return info.info->value("Ssid");
     }
     case Qt::SizeHintRole:
+        if (rowCount(QModelIndex()) == 1)
+            return QSize(0, 36);
         if (!info.info)
             return QSize(0, 24);
         else

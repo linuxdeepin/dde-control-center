@@ -40,7 +40,7 @@ QVariant VpnListModel::data(const QModelIndex &index, int role) const
     case VpnShowIconRole:       return m_activedVpns.contains(m_networkModel->vpns()[index.row()].value("Uuid").toString());
     case VpnIconRole:           return m_connectedPixmap;
     case VpnItemHoveredRole:    return m_hoveredIndex == index;
-    case Qt::SizeHintRole:      return QSize(0, 35);
+    case Qt::SizeHintRole:      return QSize(0, 36);
     case VpnIsFirstLineRole:    return !index.row();
     case VpnNextRole:           return index.row() == m_hoveredIndex.row() + 1;
     case VpnDisableRole:        return  m_networkModel->vpnEnabled() ? false : true;

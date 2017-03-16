@@ -39,6 +39,11 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
             painter->drawLine(QPoint(10, option.rect.top()), QPoint(option.rect.right() - 10, option.rect.top()));
         }
     }
+    else
+    {
+        painter->setPen(QColor(255, 255, 255, 255 * 0.1));
+        painter->drawLine(QPoint(0, option.rect.top()), QPoint(option.rect.right(), option.rect.top()));
+    }
 
     QFont f(painter->font());
     f.setBold(isHeader);
@@ -47,7 +52,7 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     painter->setPen(Qt::white);
 
     if (isPowerOff)
-        painter->drawText(option.rect.marginsRemoved(QMargins(70, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(WifiListModel::ItemPowerOffTipsRole).toString());
+        painter->drawText(option.rect, Qt::AlignVCenter | Qt::AlignHCenter, index.data(WifiListModel::ItemPowerOffTipsRole).toString());
     else if (isTips)
         painter->drawText(option.rect.marginsRemoved(QMargins(70, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(WifiListModel::ItemHiddenTipsRole).toString());
     else if (isHeader)

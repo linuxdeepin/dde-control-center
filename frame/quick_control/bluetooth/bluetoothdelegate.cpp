@@ -36,6 +36,11 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
             painter->drawLine(QPoint(10, option.rect.top()), QPoint(option.rect.right() - 10, option.rect.top()));
         }
     }
+    else
+    {
+        painter->setPen(QColor(255, 255, 255, 255 * 0.1));
+        painter->drawLine(QPoint(0, option.rect.top()), QPoint(option.rect.right(), option.rect.top()));
+    }
 
     QFont f(painter->font());
     f.setBold(isHeader);
@@ -44,7 +49,7 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     painter->setPen(Qt::white);
 
     if (isPowerOff)
-        painter->drawText(option.rect.marginsRemoved(QMargins(34, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(BluetoothListModel::ItemTipsRole).toString());
+        painter->drawText(option.rect, Qt::AlignVCenter | Qt::AlignHCenter, index.data(BluetoothListModel::ItemTipsRole).toString());
     else if (isSetting)
         painter->drawText(option.rect.marginsRemoved(QMargins(34, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
     else  if (isHeader)

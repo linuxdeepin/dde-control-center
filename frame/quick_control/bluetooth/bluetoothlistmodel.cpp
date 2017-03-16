@@ -73,6 +73,8 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
     }
     case Qt::SizeHintRole:
     {
+        if (rowCount(QModelIndex()) == 1)
+            return QSize(0, 36);
         if (!info.device)
             return QSize(0, 24);
         else

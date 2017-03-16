@@ -25,7 +25,7 @@ void VpnListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     painter->setPen(Qt::white);
 
     if (isDisable)
-        painter->drawText(option.rect.marginsRemoved(QMargins(30, 0, 0, 0)), Qt::AlignLeft | Qt::AlignVCenter, index.data(VpnListModel::VpnDisableTipRole).toString());
+        painter->drawText(option.rect, Qt::AlignHCenter | Qt::AlignVCenter, index.data(VpnListModel::VpnDisableTipRole).toString());
     else
         painter->drawText(option.rect.marginsRemoved(QMargins(30, 0, 0, 0)), index.data(Qt::DisplayRole).toString(), Qt::AlignLeft | Qt::AlignVCenter);
 
