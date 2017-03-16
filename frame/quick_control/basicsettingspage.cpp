@@ -160,9 +160,13 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     brightnessLayout->addSpacing(10);
     brightnessLayout->addWidget(m_brightnessHigh);
 
+    QHBoxLayout *mprisLayout = new QHBoxLayout;
+    mprisLayout->addWidget(m_mprisWidget);
+    mprisLayout->setContentsMargins(5, 0, 5, 0);
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addStretch();
-    mainLayout->addWidget(m_mprisWidget);
+    mainLayout->addLayout(mprisLayout);
     mainLayout->addLayout(volumeLayout);
     mainLayout->addSpacing(30);
     mainLayout->addLayout(brightnessLayout);
