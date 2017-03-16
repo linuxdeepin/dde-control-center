@@ -33,6 +33,9 @@ MainWidget::MainWidget(Frame *parent)
       m_indicatorWidget(new IndicatorWidget),
       m_quickSettingsPanel(new QuickControlPanel)
 {
+    m_pluginsLayout->setMargin(0);
+    m_pluginsLayout->setSpacing(0);
+
     // TODO: get dbus data
     const int uid = getuid();
     AccountsInter accountsInter("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this);
