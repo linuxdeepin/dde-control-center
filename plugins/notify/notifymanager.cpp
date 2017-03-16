@@ -96,15 +96,13 @@ void NotifyManager::onNotifyAdd(const QJsonObject &value) {
 
 void NotifyManager::onNotifyRemove(const QString &id)
 {
-    QMap<Viewer*, QJsonObject>::iterator list = m_viewerList.begin();
-    while (list != m_viewerList.end()) {
-        if (id == list.value()["id"].toString()) {
-            m_connectLayout->removeWidget(list.key());
-            m_viewerList.remove(list.key());
+    for (auto it(m_viewerList.begin()); it != m_viewerList.end(); ++it) {
+        if (id == it.value()["id"].toString()) {
+            m_connectLayout->removeWidget(it.key());
+            m_viewerList.remove(it.key());
             m_dbus->RemoveRecord(id);
             break;
         }
-        ++list;
     }
 
     update();
