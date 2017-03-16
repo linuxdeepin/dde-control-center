@@ -15,7 +15,8 @@ class ThemeItemPic : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ThemeItemPic(const QString &path, QWidget *parent = 0);
+    explicit ThemeItemPic(QWidget *parent = 0);
+    void setPicPath(const QString &path);
 
     void paintEvent(QPaintEvent *event);
 

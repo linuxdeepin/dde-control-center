@@ -21,7 +21,7 @@ using namespace dcc::widgets;
 
 namespace dcc {
 namespace personalization {
-
+class ThemeItemPic;
 class ThemeItem : public widgets::SettingsItem
 {
     Q_OBJECT
@@ -30,6 +30,8 @@ public:
 
     void setTitle(const QString &title);
     void setSelected(bool selected);
+    void setPic(const QString &picPath);
+    const QString id() const;
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
@@ -42,6 +44,8 @@ private:
     NormalLabel *m_title;
     QLabel *m_selectLabel;
     bool m_state;
+    ThemeItemPic *m_itemPic;
+    QString m_id;
 
 };
 }

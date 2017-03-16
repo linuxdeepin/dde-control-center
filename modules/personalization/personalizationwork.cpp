@@ -27,13 +27,7 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     connect(m_dbus, &Appearance::StandardFontChanged,  fontStand,     &FontModel::setFontName);
     connect(m_dbus, &Appearance::FontSizeChanged, this, &PersonalizationWork::FontSizeChanged);
 
-    setList("gtk", m_dbus->List("gtk"));
-    setList("icon", m_dbus->List("icon"));
-    setList("cursor", m_dbus->List("cursor"));
-
     m_dbus->setSync(false);
-
-    onGetList();
 }
 
 void PersonalizationWork::active()
@@ -41,15 +35,6 @@ void PersonalizationWork::active()
     m_dbus->blockSignals(false);
 
     onGetList();
-
-    ThemeModel *cursorTheme      = m_model->getMouseModel();
-    ThemeModel *windowTheme      = m_model->getWindowModel();
-    ThemeModel *iconTheme        = m_model->getIconModel();
-
-    windowTheme->setDefault(m_dbus->gtkTheme());
-    iconTheme->setDefault(m_dbus->iconTheme());
-    cursorTheme->setDefault(m_dbus->cursorTheme());
-    FontSizeChanged(m_dbus->fontSize());
 }
 
 void PersonalizationWork::deactive()
@@ -57,59 +42,37 @@ void PersonalizationWork::deactive()
     m_dbus->blockSignals(true);
 }
 
-bool PersonalizationWork::isFont(const QString &type)
-{
-    if (type == "gtk" || type == "icon" || type == "cursor" || type == "fontsize") {
-        return false;
-    }
-
-    if (type == "standardfont" || type == "monospacefont") {
-        return true;
-    }
-    return false;
-}
-
-QString PersonalizationWork::getThumbnail(const QString &Type, const QString &key)
-{
-    //返回图片位置
-    return  m_dbus->Thumbnail(Type, key);
-}
-
 QList<QJsonObject> PersonalizationWork::converToList(const QString &type, QJsonArray &array)
 {
     QList<QJsonObject> list;
     for (int i = 0; i != array.size(); i++) {
         QJsonObject object = array.at(i).toObject();
-        if (!isFont(type)) {
-            object.insert("url", QJsonValue(getThumbnail(type, object["Id"].toString())));
-        }
         object.insert("type", QJsonValue(type));
         list.append(object);
     }
     return list;
 }
 
-void PersonalizationWork::setList(const QString &type, const QString &key)
+void PersonalizationWork::addList(ThemeModel *model, const QString &type, QJsonArray &array)
 {
-    if (type == "gtk") {
-        ThemeModel *windowTheme = m_model->getWindowModel();
-        QJsonArray array = QJsonDocument::fromJson(key.toLocal8Bit().data()).array();
+    QList<QString> list;
+    for (int i = 0; i != array.size(); i++) {
+        QJsonObject object = array.at(i).toObject();
+        object.insert("type", QJsonValue(type));
+        model->addItem(object["Id"].toString(), object);
+        list.append(object["Id"].toString());
 
-        windowTheme->setJson(converToList(type, array));
+        QDBusPendingReply<QString> pic = m_dbus->Thumbnail(type, object["Id"].toString());
+        QDBusPendingCallWatcher *picWatcher = new QDBusPendingCallWatcher(pic, this);
+        picWatcher->setProperty("category", type);
+        picWatcher->setProperty("id", object["Id"].toString());
+        connect(picWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetPicFinished);
     }
 
-    if (type == "icon") {
-        ThemeModel *iconTheme = m_model->getIconModel();
-        QJsonArray array = QJsonDocument::fromJson(key.toLocal8Bit().data()).array();
-
-        iconTheme->setJson(converToList(type, array));
-    }
-
-    if (type == "cursor") {
-        ThemeModel *cursorTheme = m_model->getMouseModel();
-        QJsonArray array = QJsonDocument::fromJson(key.toLocal8Bit().data()).array();
-
-        cursorTheme->setJson(converToList(type, array));
+    for (const QString &id : model->getList().keys()) {
+        if (!list.contains(id)) {
+            model->removeItem(id);
+        }
     }
 }
 
@@ -139,6 +102,49 @@ void PersonalizationWork::onMonoFontFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
+void PersonalizationWork::onGetThemeFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QString> reply = *w;
+
+    const QString category = w->property("category").toString();
+
+    QJsonArray array = QJsonDocument::fromJson(reply.value().toUtf8()).array();
+
+    if (category == "gtk") {
+        ThemeModel *windowTheme = m_model->getWindowModel();
+        addList(windowTheme, "gtk", array);
+    } else if (category == "icon") {
+        ThemeModel *iconTheme = m_model->getIconModel();
+        addList(iconTheme, "icon", array);
+    } else {
+        ThemeModel *cursorTheme = m_model->getMouseModel();
+        addList(cursorTheme, "cursor", array);
+    }
+
+    w->deleteLater();
+}
+
+void PersonalizationWork::onGetPicFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QString> reply = *w;
+
+    const QString category = w->property("category").toString();
+    const QString id = w->property("id").toString();
+
+    if (category == "gtk") {
+        ThemeModel *windowTheme = m_model->getWindowModel();
+        windowTheme->addPic(id, reply.value());
+    } else if (category == "icon") {
+        ThemeModel *iconTheme = m_model->getIconModel();
+        iconTheme->addPic(id, reply.value());
+    } else {
+        ThemeModel *cursorTheme = m_model->getMouseModel();
+        cursorTheme->addPic(id, reply.value());
+    }
+
+    w->deleteLater();
+}
+
 void PersonalizationWork::onGetList()
 {
     QDBusPendingReply<QString> standardFont = m_dbus->List("standardfont");
@@ -148,6 +154,30 @@ void PersonalizationWork::onGetList()
     QDBusPendingReply<QString> monoFont = m_dbus->List("monospacefont");
     QDBusPendingCallWatcher *monoFontWatcher = new QDBusPendingCallWatcher(monoFont, this);
     connect(monoFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onMonoFontFinished);
+
+    QDBusPendingReply<QString> gtk = m_dbus->List("gtk");
+    QDBusPendingCallWatcher *gtkWatcher = new QDBusPendingCallWatcher(gtk, this);
+    gtkWatcher->setProperty("category", "gtk");
+    connect(gtkWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
+
+    QDBusPendingReply<QString> icon = m_dbus->List("icon");
+    QDBusPendingCallWatcher *iconWatcher = new QDBusPendingCallWatcher(icon, this);
+    iconWatcher->setProperty("category", "icon");
+    connect(iconWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
+
+    QDBusPendingReply<QString> cursor = m_dbus->List("cursor");
+    QDBusPendingCallWatcher *cursorWatcher = new QDBusPendingCallWatcher(cursor, this);
+    cursorWatcher->setProperty("category", "cursor");
+    connect(cursorWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
+
+    ThemeModel *cursorTheme      = m_model->getMouseModel();
+    ThemeModel *windowTheme      = m_model->getWindowModel();
+    ThemeModel *iconTheme        = m_model->getIconModel();
+
+    windowTheme->setDefault(m_dbus->gtkTheme());
+    iconTheme->setDefault(m_dbus->iconTheme());
+    cursorTheme->setDefault(m_dbus->cursorTheme());
+    FontSizeChanged(m_dbus->fontSize());
 }
 
 

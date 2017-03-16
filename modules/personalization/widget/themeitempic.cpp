@@ -7,11 +7,16 @@ using namespace dcc;
 using namespace dcc::personalization;
 using namespace dcc::widgets;
 
-ThemeItemPic::ThemeItemPic(const QString &path, QWidget *parent)
-    :QWidget(parent),
-      m_picPath(path)
+ThemeItemPic::ThemeItemPic(QWidget *parent)
+    :QWidget(parent)
 {
     setFixedSize(320, 70);
+}
+
+void ThemeItemPic::setPicPath(const QString &path)
+{
+    m_picPath = path;
+    update();
 }
 
 void ThemeItemPic::paintEvent(QPaintEvent *)

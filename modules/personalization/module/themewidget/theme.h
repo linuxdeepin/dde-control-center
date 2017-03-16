@@ -31,9 +31,11 @@ signals:
     void requestSetDefault(const QJsonObject &value);
 
 public slots:
-    void setList(const QList<QJsonObject> &list);
     void setDefault(const QString &name);
     void onItemClicked(const bool selected);
+    void onSetPic(const QString &id, const QString &picPath);
+    void onAddItem(const QJsonObject &json);
+    void onRemoveItem(const QString &id);
 
 private:
     QVBoxLayout                             *m_mainLayout;

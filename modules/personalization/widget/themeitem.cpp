@@ -22,7 +22,7 @@ ThemeItem::ThemeItem(const QJsonObject &json):
     m_title(new NormalLabel),
     m_selectLabel(new QLabel)
 {
-    ThemeItemPic *t = new ThemeItemPic(json["url"].toString());
+    m_itemPic = new ThemeItemPic;
 
     m_mainLayout->setMargin(10);
     m_title->setFixedHeight(20);
@@ -39,14 +39,18 @@ ThemeItem::ThemeItem(const QJsonObject &json):
     titleLayout->addWidget(m_selectLabel, 0, Qt::AlignRight);
 
     m_mainLayout->addLayout(titleLayout);
-    m_mainLayout->addWidget(t, 0, Qt::AlignHCenter);
+
+    m_mainLayout->addWidget(m_itemPic, 0, Qt::AlignHCenter);
 
     setLayout(m_mainLayout);
     setAccessibleName(json["Id"].toString());
+
+    setTitle(json["Id"].toString());
 }
 
 void ThemeItem::setTitle(const QString &title)
 {
+    m_id = title;
     QString t = title == "deepin" ? "deepin ("+tr("Default") + ")" : title;
     m_title->setText(t);
 }
@@ -55,6 +59,16 @@ void ThemeItem::setSelected(bool selected)
 {
     m_selectLabel->setVisible(selected);
     m_state = selected;
+}
+
+void ThemeItem::setPic(const QString &picPath)
+{
+    m_itemPic->setPicPath(picPath);
+}
+
+const QString ThemeItem::id() const
+{
+    return m_id;
 }
 
 void ThemeItem::mouseReleaseEvent(QMouseEvent *e)

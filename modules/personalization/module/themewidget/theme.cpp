@@ -29,37 +29,39 @@ void Theme::setModel(ThemeModel *const model)
 {
     m_model = model;
     connect(m_model, &ThemeModel::defaultChanged, this, &Theme::setDefault);
-    connect(m_model, &ThemeModel::listChanged,    this, &Theme::setList);
+    connect(m_model, &ThemeModel::itemAdded,    this, &Theme::onAddItem);
+    connect(m_model, &ThemeModel::picAdded, this, &Theme::onSetPic);
+    connect(m_model, &ThemeModel::itemRemoved, this, &Theme::onRemoveItem);
 
-    setList(m_model->getJson());
+    QMap<QString, QJsonObject> itemList = m_model->getList();
+
+    for (auto it(itemList.begin()); it != itemList.end(); ++it) {
+        onAddItem(it.value());
+    }
+
     setDefault(m_model->getDefault());
+
+    QMap<QString, QString> picList = m_model->getPicList();
+
+    for (auto it(picList.begin()); it != picList.end(); ++it) {
+        onSetPic(it.key(), it.value());
+    }
 }
 
-void Theme::setList(const QList<QJsonObject> &list)
+void Theme::onAddItem(const QJsonObject &json)
 {
-    for (QJsonObject json : list) {
-        ThemeItem *theme = new ThemeItem(json);
-        m_mainGroup->appendItem(theme);
-        m_valueMap.insert(theme, json);
-        connect(theme, &ThemeItem::selectedChanged, this, &Theme::onItemClicked);
-    }
+    if (m_valueMap.values().contains(json))
+        return;
+    ThemeItem *theme = new ThemeItem(json);
+    m_mainGroup->appendItem(theme);
+    m_valueMap.insert(theme, json);
+    connect(theme, &ThemeItem::selectedChanged, this, &Theme::onItemClicked);
 }
 
 void Theme::setDefault(const QString &name)
 {
-    QMap<ThemeItem *, QJsonObject>::const_iterator i = m_valueMap.constBegin();
-    while (i != m_valueMap.constEnd()) {
-        ThemeItem *w = i.key();
-        if (w) {
-            if (i.value()["Id"].toString() == name) {
-                w->setTitle(name);
-                w->setSelected(true);
-            } else {
-                w->setTitle(i.value()["Id"].toString());
-                w->setSelected(false);
-            }
-        }
-        ++i;
+    for (ThemeItem *item : m_valueMap.keys()) {
+        item->setSelected(item->id() == name);
     }
 }
 
@@ -69,5 +71,28 @@ void Theme::onItemClicked(const bool selected)
         ThemeItem *item = qobject_cast<ThemeItem *>(sender());
         Q_ASSERT(m_valueMap.contains(item));
         emit requestSetDefault(m_valueMap[item]);
+    }
+}
+
+void Theme::onSetPic(const QString &id, const QString &picPath)
+{
+    for (ThemeItem *item : m_valueMap.keys()) {
+        if (item->id() == id) {
+            item->setPic(picPath);
+            return;
+        }
+    }
+}
+
+void Theme::onRemoveItem(const QString &id)
+{
+    for (int i = 0; i != m_valueMap.count(); i++) {
+        ThemeItem *item = m_valueMap.keys().at(i);
+        if (item->id() == id) {
+            m_mainGroup->removeItem(item);
+            m_valueMap.remove(item);
+            delete item;
+            return;
+        }
     }
 }

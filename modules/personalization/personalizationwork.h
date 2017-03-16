@@ -23,26 +23,24 @@ public:
     PersonalizationWork(PersonalizationModel *model, QObject *parent = 0);
     void active();
     void deactive();
+    void onGetList();
 
 public slots:
     void setDefault(const QJsonObject &value);
     void setFontSize(const int value);
-    void setList(const QString &type, const QString &key);
 
 private slots:
     void FontSizeChanged(const double value) const;
     void onStandardFontFinished(QDBusPendingCallWatcher *w);
     void onMonoFontFinished(QDBusPendingCallWatcher *w);
-
-private:
-    void onGetList();
+    void onGetThemeFinished(QDBusPendingCallWatcher *w);
+    void onGetPicFinished(QDBusPendingCallWatcher *w);
 
 private:
     int sizeToSliderValue(const int value) const;
     float sliderValueToSize(const int value) const;
-    bool isFont(const QString &type);
-    QString getThumbnail(const QString &Type, const QString &key);
     QList<QJsonObject> converToList(const QString &type, QJsonArray &array);
+    void addList(ThemeModel *model, const QString &type, QJsonArray &array);
 
 private:
     PersonalizationModel *m_model;

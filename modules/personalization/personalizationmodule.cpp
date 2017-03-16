@@ -63,6 +63,7 @@ const QString PersonalizationModule::name() const
 void PersonalizationModule::showThemeWidget()
 {
     ThemeWidget *themeWidget = new ThemeWidget;
+
     themeWidget->setModel(m_model);
     connect(themeWidget, &ThemeWidget::requestSetDefault, m_work, &PersonalizationWork::setDefault);
 
