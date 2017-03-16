@@ -42,7 +42,7 @@ DisplayWidget::DisplayWidget()
     m_centralLayout->addWidget(m_createConfig);
 
     m_configListRefershTimer->setSingleShot(true);
-    m_configListRefershTimer->setInterval(200);
+    m_configListRefershTimer->setInterval(100);
 
     setTitle(tr("Display"));
 
@@ -102,16 +102,18 @@ void DisplayWidget::onConfigListChanged()
 {
     m_customSettingsGrp->clear();
     for (auto *w : m_customSettings)
-        w->deleteLater();
+        QTimer::singleShot(1, w, &NextPageWidget::deleteLater);
     m_customSettings.clear();
 
     const auto mode = m_model->displayMode();
+    const auto current = m_model->config();
+    const auto configList = m_model->configList();
 
-    for (const auto config : m_model->configList())
+    for (const auto &config : configList)
     {
         NextPageWidget *w = new NextPageWidget;
         w->setTitle(config);
-        if (mode == CUSTOM_MODE && config == m_model->config())
+        if (mode == CUSTOM_MODE && config == current)
             w->setIcon(QPixmap(":/widgets/themes/dark/icons/select.png"));
 
         connect(w, &NextPageWidget::acceptNextPage, this, [=] { emit requestConfigPage(config); });

@@ -16,7 +16,13 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
 
       m_displayInter(DisplayInterface, "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)
 {
+    // TODO:
+    model->setPrimary(m_displayInter.primary());
+
+    m_displayInter.setSync(false);
+
     connect(&m_displayInter, &DisplayInter::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
+    connect(&m_displayInter, &DisplayInter::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
     connect(&m_displayInter, &DisplayInter::ScreenHeightChanged, model, &DisplayModel::setScreenHeight);
     connect(&m_displayInter, &DisplayInter::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
     connect(&m_displayInter, &DisplayInter::DisplayModeChanged, model, &DisplayModel::setDisplayMode);
@@ -24,7 +30,6 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     connect(&m_displayInter, &DisplayInter::CustomIdListChanged, model, &DisplayModel::setConfigList);
 //    connect(&m_displayInter, &DisplayInter::HasCustomConfigChanged, model, &DisplayModel::setHasConfig);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), model, &DisplayModel::setPrimary);
-    connect(&m_displayInter, &DisplayInter::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
 
     onMonitorListChanged(m_displayInter.monitors());
     onMonitorsBrightnessChanged(m_displayInter.brightness());
@@ -34,9 +39,6 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     model->setCurrentConfig(m_displayInter.currentCustomId());
 //    model->setHasConfig(m_displayInter.hasCustomConfig());
     model->setDisplayMode(m_displayInter.displayMode());
-    model->setPrimary(m_displayInter.primary());
-
-    m_displayInter.setSync(false);
 }
 
 DisplayWorker::~DisplayWorker()
