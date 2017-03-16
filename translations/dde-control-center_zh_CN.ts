@@ -2,14 +2,22 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN">
 <context>
+    <name>BluetoothDelegate</name>
+    <message>
+        <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="65"/>
+        <source>Refresh</source>
+        <translation>刷新</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothListModel</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="66"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="70"/>
         <source>Connect to other devices</source>
         <translation>连接其他设备</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="98"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="102"/>
         <source>Click icon to enable bluetooth</source>
         <translation>点击图标开启蓝牙</translation>
     </message>
@@ -17,37 +25,37 @@
 <context>
     <name>DisplayControlModel</name>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="63"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="64"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="65"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="66"/>
         <source>Extend</source>
         <translation>扩展</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="67"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="68"/>
         <source>Only Displayed on %1</source>
         <translation>只在%1显示</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="76"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
         <source>Copy the screen contents to one or more screens</source>
         <translation>将屏幕内容复制到一个或者多个屏幕</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="78"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="79"/>
         <source>Extend the screen contents to display different contents on different screens</source>
         <translation>扩展屏幕并在不同屏幕显示不同内容</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="80"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
         <source>Screen contents are only displayed on %1</source>
         <translation>仅在%1上显示屏幕内容</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="82"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
         <translation>要更改自定义设置，请输入设置的显示模式</translation>
     </message>
@@ -646,7 +654,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="111"/>
+        <location filename="../modules/display/displayworker.cpp" line="113"/>
         <source>My Settings %1</source>
         <translation>我的设置 %1</translation>
     </message>
