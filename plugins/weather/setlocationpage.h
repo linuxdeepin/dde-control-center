@@ -78,6 +78,8 @@ signals:
 private:
     void mouseReleaseEvent(QMouseEvent *event);
 
+    void loadSupportedCities();
+
 private:
     City m_currentCity;
     WeatherRequest *m_requestManager;
@@ -88,6 +90,7 @@ private:
     SearchDelegate *m_resultDelegate;
     SearchModel *m_resultModel;
     LargeLabel *m_noResult;
+    QStringList m_supportedCities;
 
     QTimer *m_searchTimer;
 };

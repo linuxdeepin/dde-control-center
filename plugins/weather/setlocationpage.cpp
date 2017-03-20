@@ -13,6 +13,8 @@
 #include <QPainter>
 #include <QListView>
 #include <QTimer>
+#include <QFile>
+#include <QStringList>
 
 #include "weatherrequest.h"
 
@@ -76,9 +78,11 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
 
     connect(m_requestManager, &WeatherRequest::searchCityDone, this, [this] (const QList<City> &cities) {
         if (!m_searchInput->text().trimmed().isEmpty()) {
+            loadSupportedCities();
+
             QList<City> buffer;
             for (const City city : cities) {
-                if (buffer.indexOf(city) == -1) {
+                if (buffer.indexOf(city) == -1 && m_supportedCities.contains(city.geonameId)) {
                     buffer << city;
                 }
             }
@@ -129,6 +133,20 @@ void SetLocationPage::mouseReleaseEvent(QMouseEvent *event)
     QWidget::mouseReleaseEvent(event);
 
     emit cancelled();
+}
+
+void SetLocationPage::loadSupportedCities()
+{
+    if (m_supportedCities.isEmpty()) {
+        QFile file(":/supported_cities.txt");
+        if (file.open(QFile::ReadOnly | QFile::Text)) {
+            QString content = file.readAll();
+            m_supportedCities = content.split(",");
+            qDebug() << m_supportedCities.length();
+            file.close();
+        }
+
+    }
 }
 
 SearchModel::SearchModel(QObject *parent) :
