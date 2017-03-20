@@ -36,8 +36,8 @@ DisplayWidget::DisplayWidget()
     brightnessGrp->appendItem(m_brightnessSettings);
 
     m_centralLayout->addWidget(m_resolutionsGrp);
-    m_centralLayout->addWidget(m_rotate);
     m_centralLayout->addWidget(brightnessGrp);
+    m_centralLayout->addWidget(m_rotate);
     m_centralLayout->addWidget(m_customSettingsGrp);
     m_centralLayout->addWidget(m_createConfig);
 
