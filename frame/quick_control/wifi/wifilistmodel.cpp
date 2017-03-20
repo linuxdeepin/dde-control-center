@@ -197,6 +197,7 @@ void WifiListModel::onDeviceListChanged(const QList<NetworkDevice *> &devices)
         connect(d, &WirelessDevice::enableChanged, this, &WifiListModel::onDeviceEnableChanged, Qt::UniqueConnection);
         connect(d, &WirelessDevice::activeApChanged, this, &WifiListModel::refershActivatingIndex, Qt::UniqueConnection);
         connect(d, &WirelessDevice::apAdded, this, &WifiListModel::onDeviceApAdded, Qt::UniqueConnection);
+        connect(d, &WirelessDevice::activeApChanged, this, &WifiListModel::onDeviceActiveApChanged, Qt::UniqueConnection);
         connect(d, static_cast<void (WirelessDevice::*)(const NetworkDevice::DeviceStatus) const>(&WirelessDevice::statusChanged), this, &WifiListModel::onDeviceStateChanged, Qt::UniqueConnection);
         connect(d, &WirelessDevice::apRemoved, d, [=](const QString &ssid) { onDeviceApRemoved(d, ssid); }, Qt::UniqueConnection);
 
@@ -225,7 +226,10 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
     const int row = indexOf(static_cast<WirelessDevice *>(dev));
 
     beginInsertRows(QModelIndex(), row, row);
-    m_apInfoList[dev].append(info);
+    if (info.value("Ssid").toString() == dev->activeApName())
+        m_apInfoList[dev].insert(0, info);
+    else
+        m_apInfoList[dev].append(info);
     endInsertRows();
 }
 
@@ -255,6 +259,28 @@ void WifiListModel::onDeviceStateChanged(const NetworkDevice::DeviceStatus &stat
         m_refershTimer->start();
     else
         m_refershTimer->stop();
+}
+
+void WifiListModel::onDeviceActiveApChanged(const QString &oldName, const QString &newName)
+{
+    Q_UNUSED(oldName);
+
+    WirelessDevice *dev = static_cast<WirelessDevice *>(sender());
+    Q_ASSERT(dev);
+
+    const auto list = m_apInfoList[dev];
+    for (int i(0); i != list.size(); ++i)
+    {
+        if (list[i].value("Ssid").toString() == newName)
+        {
+            const auto info = m_apInfoList[dev][i];
+            beginMoveRows(QModelIndex(), i, i, QModelIndex(), 0);
+            m_apInfoList[dev].removeOne(info);
+            m_apInfoList[dev].insert(0, info);
+            endMoveRows();
+            return;
+        }
+    }
 }
 
 void WifiListModel::refershActivatingIndex()
