@@ -57,6 +57,9 @@ private slots:
     void processSearchCityReply();
 
 private:
+    QString randomGeoNameKey() const;
+
+private:
     City m_city;
     LoaderCity* m_loader;
     QSettings *m_settings;

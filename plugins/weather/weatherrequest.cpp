@@ -14,7 +14,7 @@
 
 static const QString WeatherServiceHost = "http://w.api.deepin.com";
 static const QString GeoNameServiceHost = "http://api.geonames.org";
-static const QString GeoNameKey=  "wangyaohua";
+static const QStringList GeoNameKeys =  {"wangyaohua", "change", "position", "apple", "free"};
 
 static const QString GroupLocation = "Location";
 static const QString KeyGeoNameID = "GeoNameID";
@@ -180,6 +180,13 @@ void WeatherRequest::processSearchCityReply()
     emit searchCityDone(cities);
 }
 
+QString WeatherRequest::randomGeoNameKey() const
+{
+    const QString key = GeoNameKeys.at(qrand() % GeoNameKeys.length());
+    qDebug() << "using random geoname key" << key;
+    return key;
+}
+
 void WeatherRequest::saveCityInfo()
 {
     m_settings->beginGroup(GroupLocation);
@@ -226,7 +233,7 @@ void WeatherRequest::refreshData(bool force)
 
         if (city.geonameId.isEmpty()) {
             QString geoNameIDUrl = QString("%1/extendedFindNearby?lat=%2&lng=%3&username=%4").arg(GeoNameServiceHost) \
-                    .arg(city.latitude).arg(city.longitude).arg(GeoNameKey);
+                    .arg(city.latitude).arg(city.longitude).arg(randomGeoNameKey());
             QNetworkReply *reply = m_manager->get(QNetworkRequest(geoNameIDUrl));
             connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processGeoNameIdReply);
         } else {
@@ -246,7 +253,7 @@ void WeatherRequest::searchCity(const QString &input)
     qDebug() << "search city with input " << input;
     const QString lang = QLocale::system().name().split("_").at(0);
     QString searchCityUrl = QString("%1/search?q=%2&maxRows=10&username=%3&lang=%4").arg(GeoNameServiceHost) \
-            .arg(input).arg(GeoNameKey).arg(lang);
+            .arg(input).arg(randomGeoNameKey()).arg(lang);
     QNetworkReply *reply = m_manager->get(QNetworkRequest(searchCityUrl));
     connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processSearchCityReply);
 }
@@ -264,7 +271,7 @@ void WeatherRequest::requestGeoNameInfo(const QString &geonameId)
     qDebug() << "request geoname city info " << geonameId;
     const QString lang = QLocale::system().name().split("_").at(0);
     QString geoNameInfoUrl = QString("%1/get?geonameId=%2&username=%3&lang=%4").arg(GeoNameServiceHost) \
-            .arg(geonameId).arg(GeoNameKey).arg(lang);
+            .arg(geonameId).arg(randomGeoNameKey()).arg(lang);
     QNetworkReply *reply = m_manager->get(QNetworkRequest(geoNameInfoUrl));
     connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processGeoNameInfoReply);
 }
