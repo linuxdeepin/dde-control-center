@@ -9,6 +9,7 @@
 
 #include <QHBoxLayout>
 #include <QLineEdit>
+#include <QEvent>
 
 using namespace dcc;
 
@@ -22,12 +23,10 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
 {
     setTitle(tr("Add Keyboard Layout"));
 
-    TranslucentFrame *widget = new TranslucentFrame();
+    m_mainWidget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(0);
-
-    TranslucentFrame *indexItem = new TranslucentFrame;
 
     QHBoxLayout* hlayout = new QHBoxLayout();
     hlayout->setMargin(0);
@@ -43,17 +42,23 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
 
     hlayout->addWidget(m_view);
     hlayout->addWidget(m_indexframe);
-    indexItem->setLayout(hlayout);
 
     m_search = new SearchInput();
     m_contentTopLayout->addSpacing(10);
     m_contentTopLayout->addWidget(m_search);
     m_contentTopLayout->addSpacing(10);
 
-    layout->addWidget(indexItem);
-    widget->setLayout(layout);
+    m_mainWidget->setLayout(hlayout);
 
-    setContent(widget);
+
+    m_clipEffectWidget = new DGraphicsClipEffect(m_mainWidget);
+    m_mainWidget->installEventFilter(this);
+    m_mainWidget->setGraphicsEffect(m_clipEffectWidget);
+
+    setContent(m_mainWidget);
+
+    m_mainWidget->setAttribute(Qt::WA_TranslucentBackground);
+    m_mainWidget->setFixedWidth(344);
 
     connect(m_indexframe, SIGNAL(click(QString)), m_view, SLOT(onClick(QString)));
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
@@ -127,6 +132,24 @@ void KeyboardLayoutWidget::onItemClicked(const QModelIndex &)
     emit back();
 }
 
+bool KeyboardLayoutWidget::eventFilter(QObject *watched, QEvent *event)
+{
+    Q_UNUSED(watched)
+
+    if (event->type() != QEvent::Move && event->type() != QEvent::Resize)
+        return false;
+
+    QRect rect = m_mainWidget->rect();
+
+    rect.moveTopLeft(-m_mainWidget->pos());
+    rect.setHeight(m_mainWidget->window()->height() - m_mainWidget->mapTo(window(), rect.topLeft()).y());
+
+    QPainterPath path;
+    path.addRoundedRect(rect, 5, 5);
+    m_clipEffectWidget->setClipPath(path);
+
+    return false;
+}
 
 }
 }

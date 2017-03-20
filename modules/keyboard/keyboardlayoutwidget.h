@@ -8,6 +8,10 @@
 #include "indexdelegate.h"
 #include "searchinput.h"
 
+#include <DGraphicsClipEffect>
+
+DWIDGET_USE_NAMESPACE
+
 using namespace dcc::widgets;
 
 namespace dcc {
@@ -26,6 +30,9 @@ public:
     void setLetters(QList<QString> letters);
     QList<MetaData> selectData() const;
 
+protected:
+    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
+
 signals:
     void layoutSelected();
 
@@ -41,6 +48,8 @@ private:
     IndexModel* m_model;
     IndexModel* m_searchModel;
     IndexFrame* m_indexframe;
+    TranslucentFrame *m_mainWidget;
+    DGraphicsClipEffect *m_clipEffectWidget;
 };
 }
 }
