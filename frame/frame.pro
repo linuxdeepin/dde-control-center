@@ -41,7 +41,10 @@ HEADERS    += \
     navgationmodel.h \
     navgationdelegate.h \
     indicatorwidget.h \
-    quick_control/miracast/miracastcontrolpage.h
+    quick_control/miracast/miracastcontrolpage.h \
+    quick_control/miracast/miracastworker.h \
+    quick_control/miracast/miracastmodel.h \
+    quick_control/miracast/miracastcontrolmodel.h
 
 SOURCES    += \
             main.cpp \
@@ -71,7 +74,10 @@ SOURCES    += \
     navgationmodel.cpp \
     navgationdelegate.cpp \
     indicatorwidget.cpp \
-    quick_control/miracast/miracastcontrolpage.cpp
+    quick_control/miracast/miracastcontrolpage.cpp \
+    quick_control/miracast/miracastworker.cpp \
+    quick_control/miracast/miracastmodel.cpp \
+    quick_control/miracast/miracastcontrolmodel.cpp
 
 #RESOURCES += \
 #    qss.qrc \
