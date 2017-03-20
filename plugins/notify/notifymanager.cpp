@@ -77,7 +77,7 @@ void NotifyManager::onNotifyAdd(const QJsonObject &value) {
     m_clearButton->setVisible(true);
     m_viewer = new Viewer(this);
 
-    m_viewer->setAppName(value["name"].toString());
+    m_viewer->setAppName(value["summary"].toString());
     m_viewer->setAppBody(value["body"].toString());
     m_viewer->setAppIcon(value["icon"].toString());
     m_viewer->setAppId(value["id"].toString());
