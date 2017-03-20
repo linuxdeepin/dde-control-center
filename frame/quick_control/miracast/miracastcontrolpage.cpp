@@ -28,6 +28,7 @@ MiracastControlPage::MiracastControlPage(QWidget *parent)
     setLayout(centralLayout);
 
     connect(view, &BasicListView::clicked, this, &MiracastControlPage::onItemClicked);
+    connect(m_miracastModel, &MiracastModel::requestLinkScanning, m_miracastWorker, &MiracastWorker::setLinkScannning);
 }
 
 MiracastControlPage::~MiracastControlPage()
@@ -40,11 +41,12 @@ void MiracastControlPage::onItemClicked(const QModelIndex &index)
 {
     const ItemInfo info = index.data(MiracastControlModel::MiracastItemInfoRole).value<ItemInfo>();
 
-    if (info.m_link)
+    if (!info.m_peer)
     {
         qDebug() << *info.m_link;
         m_miracastWorker->setLinkEnable(info.m_link->m_dbusPath, !info.m_link->m_managed);
     } else {
         qDebug() << *info.m_peer;
+        m_miracastWorker->connectPeer(info.m_peer->m_peerPath, QRect(0, 0, 1920, 1080));
     }
 }

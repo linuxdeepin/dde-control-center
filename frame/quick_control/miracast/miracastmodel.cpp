@@ -35,7 +35,7 @@ void MiracastModel::onPathAdded(const QDBusObjectPath &path, const QString &info
     if (objectPath.startsWith("/org/freedesktop/miracle/wifi/link/"))
         return addLink(LinkInfo::fromJson(infoObject));
     else if (objectPath.startsWith("/org/freedesktop/miracle/wifi/peer/"))
-        return peerAdded(PeerInfo::fromJson(infoObject));
+        return addPeer(PeerInfo::fromJson(infoObject));
 
     qDebug() << path.path() << info;
 }
@@ -48,4 +48,25 @@ void MiracastModel::onPathRemoved(const QDBusObjectPath &path)
 void MiracastModel::onMiracastEvent(const uchar type, const QDBusObjectPath &path)
 {
     qDebug() << type << path.path();
+
+    switch (type)
+    {
+    case LinkManaged:
+        linkByPath(path).m_managed = true;
+        emit requestLinkScanning(path, true);
+        break;
+    case LinkUnmanaged:
+        linkByPath(path).m_managed = false;
+        break;
+    default:;
+    }
+}
+
+LinkInfo &MiracastModel::linkByPath(const QDBusObjectPath &path)
+{
+    for (auto it(m_links.begin()); it != m_links.end(); ++it)
+        if (it->m_dbusPath == path)
+            return *it;
+
+    Q_UNREACHABLE();
 }

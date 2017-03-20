@@ -28,6 +28,13 @@ void MiracastWorker::queryLinks()
     connect(w, &QDBusPendingCallWatcher::finished, this, &MiracastWorker::queryLinks_CB);
 }
 
+void MiracastWorker::connectPeer(const QDBusObjectPath &peer, const QRect area)
+{
+    qDebug() << Q_FUNC_INFO << peer.path() << area;
+
+    m_miracastInter->Connect(peer, area.x(), area.y(), area.width(), area.height());
+}
+
 void MiracastWorker::setLinkEnable(const QDBusObjectPath &path, const bool enable)
 {
     qDebug() << Q_FUNC_INFO << path.path() << enable;

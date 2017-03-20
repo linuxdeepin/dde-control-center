@@ -26,6 +26,7 @@ public:
 signals:
     void linkAdded(const LinkInfo &link) const;
     void peerAdded(const PeerInfo &peer) const;
+    void requestLinkScanning(const QDBusObjectPath &path, const bool scanning) const;
 
 private:
     void addPeer(const PeerInfo &peer);
@@ -34,6 +35,8 @@ private:
     void onPathAdded(const QDBusObjectPath &path, const QString &info);
     void onPathRemoved(const QDBusObjectPath &path);
     void onMiracastEvent(const uchar type, const QDBusObjectPath &path);
+
+    LinkInfo &linkByPath(const QDBusObjectPath &path);
 
 private:
     QList<LinkInfo> m_links;
