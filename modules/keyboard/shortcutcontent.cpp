@@ -22,7 +22,7 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
 
     SettingsGroup* group = new SettingsGroup();
     m_item = new TitleButtonItem();
-    m_item->setValue(tr("Please Grab Shortcut Again"));
+    m_item->setValue(tr("Please Reset Shortcut"));
     group->appendItem(m_item);
     m_control = new KeyboardControl();
 //    group->appendItem(m_control);
