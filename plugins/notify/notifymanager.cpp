@@ -71,8 +71,65 @@ void NotifyManager::onNotifyAdded(const QString &value)
 
 void NotifyManager::onNotifyAdd(const QJsonObject &value) {
     m_clearButton->setVisible(true);
+
     m_viewer = new Viewer(value, this);
+
+    m_viewer->setAppName(value["summary"].toString());
+    m_viewer->setAppBody(value["body"].toString());
+    m_viewer->setAppIcon(value["icon"].toString());
+    m_viewer->setAppId(value["id"].toString());
+
+    const QDateTime date = QDateTime::fromMSecsSinceEpoch(value["id"].toString().toLongLong());
+
+    if (QDateTime::currentMSecsSinceEpoch() > value["id"].toString().toLongLong()) {
+
+        const QString hour = date.toString("hh:mm");
+
+        const uint year = date.date().year();
+        uint now = QDateTime::currentDateTime().date().year();
+
+        if (now > year)
+            m_viewer->setAppTime(date.toString("yyyy/MM/dd hh:mm"));
+        else {
+            const uint notify_day = date.date().day();
+            now = QDateTime::currentDateTime().date().day();
+
+            const uint month = date.date().month();
+            const uint now_month = QDateTime::currentDateTime().date().month();
+
+            if (now_month == month) {
+
+                //contrast day
+                const uint time = now - notify_day;
+
+                switch (time) {
+                case 0:
+                    m_viewer->setAppTime(hour);
+                    break;
+                case 1:
+                    m_viewer->setAppTime(tr("yesterday") + " " + hour);
+                    break;
+                case 2:
+                    m_viewer->setAppTime(tr("The day before yesterday") + " " + hour);
+                    break;
+                default:
+                    if (time > 7) {
+                        m_viewer->setAppTime(date.toString("MM/dd hh:mm"));
+                    } else {
+                        m_viewer->setAppTime(tr("%1 days ago").arg(time) + " " + hour);
+                    }
+                    break;
+                }
+            } else {
+                m_viewer->setAppTime(date.toString("MM/dd hh:mm"));
+            }
+        }
+    } else {
+        m_viewer->setAppTime(date.toString("yyyy/MM/dd hh:mm"));
+    }
+
     m_viewer->setFixedHeight(80);
+    m_viewer->setFixedWidth(360);
     m_viewer->setContentsMargins(0, 0, 0, 0);
     m_viewer->setStyleSheet("Viewer {background: transparent;}"
                             "Viewer:hover {background-color: rgba(254, 254, 254, 0.13);border-radius: 4;}");

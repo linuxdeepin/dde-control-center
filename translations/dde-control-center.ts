@@ -94,7 +94,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="106"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="111"/>
+        <source>yesterday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifymanager.cpp" line="114"/>
+        <source>The day before yesterday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifymanager.cpp" line="120"/>
+        <source>%1 days ago</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifymanager.cpp" line="164"/>
         <source>No system notifications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -128,7 +143,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="107"/>
+        <location filename="../frame/settingswidget.cpp" line="90"/>
         <source>All Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -462,28 +477,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="25"/>
+        <location filename="../modules/datetime/datetime.cpp" line="26"/>
         <source>Add Timezone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="102"/>
-        <location filename="../modules/datetime/datetime.cpp" line="31"/>
+        <location filename="../modules/datetime/datetime.cpp" line="33"/>
         <source>Time and Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="35"/>
+        <location filename="../modules/datetime/datetime.cpp" line="37"/>
         <source>Change System Timezone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="42"/>
+        <location filename="../modules/datetime/datetime.cpp" line="45"/>
         <source>Time Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="46"/>
+        <location filename="../modules/datetime/datetime.cpp" line="50"/>
         <source>Timezone List</source>
         <translation type="unfinished"></translation>
     </message>
@@ -877,13 +892,13 @@
 <context>
     <name>dcc::keyboard::KeyboardDetails</name>
     <message>
-        <location filename="../modules/keyboard/keyboarddetails.cpp" line="24"/>
-        <location filename="../modules/keyboard/keyboarddetails.cpp" line="26"/>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="23"/>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="25"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboarddetails.cpp" line="33"/>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="32"/>
         <source>Add Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -950,17 +965,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="73"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="78"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="80"/>
         <source>System Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="83"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="85"/>
         <source>Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
@@ -968,11 +983,11 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="169"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="181"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="199"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="208"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="345"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="122"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="134"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="152"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="161"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="294"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1764,7 +1779,7 @@
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
-        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="37"/>
+        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="61"/>
         <source>License</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1803,12 +1818,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="71"/>
         <source>Boot Menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="118"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
         <source>%1Bit</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1974,7 +1989,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="37"/>
+        <location filename="../modules/update/updatesettings.cpp" line="38"/>
         <source>Switch Mirror</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1996,12 +2011,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="352"/>
+        <location filename="../modules/update/updatework.cpp" line="355"/>
         <source>Patches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="354"/>
+        <location filename="../modules/update/updatework.cpp" line="357"/>
         <source>System patches.</source>
         <translation type="unfinished"></translation>
     </message>
