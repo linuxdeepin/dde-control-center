@@ -69,6 +69,7 @@ private:
 
     QTime m_lastRefreshTimestamp;
     QTimer *m_retryTimer;
+    uint m_retryCount;
 
     void saveCityInfo();
     void restoreCityInfo();

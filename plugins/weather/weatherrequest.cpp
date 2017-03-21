@@ -34,16 +34,20 @@ WeatherRequest::WeatherRequest(QObject *parent) :
 
     connect(m_loader, &LoaderCity::done, this, &WeatherRequest::setCity);
     connect(m_manager, &QNetworkAccessManager::finished, this, [](QNetworkReply *reply) { reply->deleteLater(); });
+    connect(m_manager, &QNetworkAccessManager::networkAccessibleChanged, this, [this] { m_retryCount = 0; });
 
     m_retryTimer->setSingleShot(false);
     m_retryTimer->setInterval(5000);
 
     auto func = [this] {
+        if (m_retryCount >= 10) return;
+
         qDebug() << "retry timer timeout";
+        m_retryCount++;
         if (m_city.geonameId.isEmpty()) {
             m_loader->start();
         } else {
-            refreshData();
+            refreshData(true);
         }
     };
     connect(m_retryTimer, &QTimer::timeout, this, func);
@@ -139,7 +143,9 @@ void WeatherRequest::processGeoNameInfoReply()
         qWarning() << "read xml content error! " << errorMsg;
     }
 
-    m_city.localizedName = m_city.name;
+    if (!m_city.name.isEmpty())
+        m_city.localizedName = m_city.name;
+
     QDomElement root = domDocument.documentElement();
     QDomElement name = root.firstChildElement("name");
     if (!name.text().isEmpty()) {
@@ -224,9 +230,9 @@ WeatherItem WeatherRequest::dayAt(int index)
 
 void WeatherRequest::refreshData(bool force)
 {
-    qDebug() << "refresh data";
     const int elapsed = m_lastRefreshTimestamp.elapsed();
-    if ((elapsed >= 1000 * 60 * 15 || elapsed == 0 || force)) {
+    if ((elapsed >= 1000 * 60 * 15 || force)) {
+        qDebug() << "refreshing data";
         m_retryTimer->start();
 
         City city = m_city;
@@ -268,6 +274,8 @@ void WeatherRequest::requestWeatherForecast(const QString &geonameId)
 
 void WeatherRequest::requestGeoNameInfo(const QString &geonameId)
 {
+    if (!m_city.localizedName.isEmpty()) return;
+
     qDebug() << "request geoname city info " << geonameId;
     const QString lang = QLocale::system().name().split("_").at(0);
     QString geoNameInfoUrl = QString("%1/get?geonameId=%2&username=%3&lang=%4").arg(GeoNameServiceHost) \
