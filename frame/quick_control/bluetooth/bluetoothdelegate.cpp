@@ -43,7 +43,7 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     }
 
     QFont f(painter->font());
-    f.setBold(isHeader);
+    f.setWeight(isHeader ? 500 : 300);
     painter->setFont(f);
 
     painter->setPen(Qt::white);

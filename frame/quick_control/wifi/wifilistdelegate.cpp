@@ -46,7 +46,7 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     }
 
     QFont f(painter->font());
-    f.setBold(isHeader);
+    f.setWeight(isHeader ? 500 : 300);
     painter->setFont(f);
 
     painter->setPen(Qt::white);
