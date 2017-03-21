@@ -36,7 +36,7 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     m_distrover->setVisible(false);
 
     m_version = new TitleValueItem();
-    m_version->setTitle(tr("Edition License"));
+    m_version->setTitle(tr("Edition License:"));
     m_version->setValue(m_model->version());
 
     m_type = new TitleValueItem();
