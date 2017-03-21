@@ -28,6 +28,7 @@ CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(10);
+    layout->addSpacing(10);
 
     m_commandGroup = new SettingsGroup();
     m_name = new LineEditWidget();

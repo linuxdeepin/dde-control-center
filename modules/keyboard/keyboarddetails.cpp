@@ -27,6 +27,7 @@ KeyboardDetails::KeyboardDetails(QWidget *parent)
 
     m_group->appendItem(m_head);
 
+    layout->addSpacing(10);
     layout->addWidget(m_group);
 
     QPushButton* addBtn = new QPushButton(tr("Add Keyboard Layout"));

@@ -18,6 +18,7 @@ BrightnessPage::BrightnessPage(QWidget *parent)
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
+    m_centralLayout->addSpacing(10);
 
     QWidget *w = new TranslucentFrame;
     w->setLayout(m_centralLayout);

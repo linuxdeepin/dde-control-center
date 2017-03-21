@@ -53,6 +53,7 @@ keyboard::CustomEdit::CustomEdit(keyboard::KeyboardWork *work, QWidget *parent):
     buttonlayout->addWidget(cancelButton);
     buttonlayout->addWidget(okButton);
 
+    mainlayout->addSpacing(10);
     mainlayout->addWidget(m_commandGroup);
     mainlayout->addWidget(m_tip);
     mainlayout->addSpacing(10);

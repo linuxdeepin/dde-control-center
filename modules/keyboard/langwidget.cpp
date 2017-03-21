@@ -34,6 +34,7 @@ LangWidget::LangWidget(KeyboardModel *model, QWidget *parent)
     m_delegate = new IndexDelegate();
 
     m_search = new SearchInput();
+    m_contentTopLayout->addSpacing(10);
     m_contentTopLayout->addWidget(m_search);
     m_contentTopLayout->addSpacing(10);
 

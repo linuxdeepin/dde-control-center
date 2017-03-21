@@ -33,11 +33,13 @@ VpnPage::VpnPage(QWidget *parent)
     switchGrp->appendItem(m_vpnSwitch);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addSpacing(10);
     mainLayout->addWidget(switchGrp);
     mainLayout->addWidget(m_vpnGroup);
     mainLayout->addWidget(createVpnBtn);
     mainLayout->setSpacing(10);
     mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->addSpacing(10);
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(mainLayout);
@@ -201,6 +203,10 @@ void VpnPage::createVPNSession()
         connect(strongswan, &OptionItem::selectedChanged, [=] { createVPN("vpn-strongswan"); });
         connect(openconnect, &OptionItem::selectedChanged, [=] { createVPN("vpn-openconnect"); });
 
+        TranslucentFrame *widget = new TranslucentFrame;
+        QVBoxLayout *mainLayout = new QVBoxLayout(widget);
+        mainLayout->setMargin(0);
+
         SettingsGroup *grp = new SettingsGroup;
         grp->appendItem(l2tp);
         grp->appendItem(pptp);
@@ -209,9 +215,12 @@ void VpnPage::createVPNSession()
         grp->appendItem(strongswan);
         grp->appendItem(openconnect);
 
+        mainLayout->addSpacing(10);
+        mainLayout->addWidget(grp);
+
         m_vpnTypePage = new ContentWidget;
         m_vpnTypePage->setTitle(tr("New VPN"));
-        m_vpnTypePage->setContent(grp);
+        m_vpnTypePage->setContent(widget);
 
         connect(m_vpnTypePage, &ContentWidget::back, [=] { m_vpnTypePage = nullptr; });
     }

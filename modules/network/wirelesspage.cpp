@@ -36,6 +36,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     mainLayout->addWidget(m_listGroup);
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->addSpacing(10);
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(mainLayout);

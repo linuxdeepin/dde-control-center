@@ -14,7 +14,14 @@ ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
       m_currentItem(nullptr)
 {
     setTitle(tr("Resolution"));
-    setContent(m_resolutions);
+
+    TranslucentFrame *widget = new TranslucentFrame;
+    QVBoxLayout *mainLayout = new QVBoxLayout(widget);
+    mainLayout->setMargin(0);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(m_resolutions);
+
+    setContent(widget);
 }
 
 void ResolutionDetailPage::setModel(DisplayModel *model)

@@ -59,6 +59,7 @@ CreatePage::CreatePage(QWidget *parent) :
     TranslucentFrame *container = new TranslucentFrame;
 
     QVBoxLayout *layout = new QVBoxLayout(container);
+    layout->addSpacing(10);
     layout->addWidget(m_avatar, 0, Qt::AlignHCenter);
     layout->addWidget(m_group);
     layout->addWidget(m_buttonTuple);

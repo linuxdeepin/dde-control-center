@@ -16,6 +16,8 @@ FontsWidget::FontsWidget(QWidget *parent)
     m_widget             = new TranslucentFrame;
     m_fontSizeWidget     = new FontSizeWidget;
     m_fontSettingsWidget = new FontSettingsWidget;
+
+    m_mainlayout->addSpacing(10);
     m_mainlayout->addWidget(m_fontSizeWidget);
     m_mainlayout->addWidget(m_fontSettingsWidget);
     m_mainlayout->setMargin(0);

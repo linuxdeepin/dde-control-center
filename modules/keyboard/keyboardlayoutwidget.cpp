@@ -46,6 +46,7 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     indexItem->setLayout(hlayout);
 
     m_search = new SearchInput();
+    m_contentTopLayout->addSpacing(10);
     m_contentTopLayout->addWidget(m_search);
     m_contentTopLayout->addSpacing(10);
 

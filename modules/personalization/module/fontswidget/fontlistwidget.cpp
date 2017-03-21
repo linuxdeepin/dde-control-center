@@ -16,6 +16,7 @@ FontListWidget::FontListWidget(const QString &title, QWidget *parent)
     m_mainGroup  = new SettingsGroup;
     m_widget     = new TranslucentFrame;
 
+    m_mainLayout->addSpacing(10);
     m_mainLayout->addWidget(m_mainGroup);
     m_mainLayout->setMargin(0);
     m_widget->setLayout(m_mainLayout);

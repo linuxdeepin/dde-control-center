@@ -19,6 +19,7 @@ QListWidget::item:selected
 }
 
 dcc--systeminfo--CopyrightWidget QFrame#copyrightWidget {
+    margin-top: 10px;
     border: none;
     background-color: rgba(238, 238, 238, .2);
     border-radius: 5px;

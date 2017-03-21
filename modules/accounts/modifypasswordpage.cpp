@@ -39,6 +39,7 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     pwdGroup->appendItem(m_pwdEditRepeat);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addSpacing(10);
     mainLayout->addWidget(pwdGroup);
     mainLayout->addWidget(m_buttonTuple);
     mainLayout->setSpacing(10);

@@ -35,6 +35,7 @@ QWidget *DefAppViewer::defappDetail()
     m_modPicture = new DefCategoryWidget(tr("Picture"), this);
     m_modTerminal = new DefCategoryWidget(tr("Terminal"), this);
 
+    mainlayout->addSpacing(10);
     mainlayout->addWidget(m_modBrowser);
     mainlayout->addWidget(m_modMail);
     mainlayout->addWidget(m_modText);

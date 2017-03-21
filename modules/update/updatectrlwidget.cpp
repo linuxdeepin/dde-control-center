@@ -41,6 +41,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_powerTip->setAlignment(Qt::AlignHCenter);
     m_powerTip->setVisible(false);
 
+    layout->addSpacing(10);
     layout->addWidget(m_checkGroup);
     layout->addWidget(m_progress);
     layout->addSpacing(10);

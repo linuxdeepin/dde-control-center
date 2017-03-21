@@ -25,6 +25,7 @@ CustomConfigPage::CustomConfigPage(const QString &config, QWidget *parent)
     m_deleteTips->setText(tr("Please switch to another mode before deleting the settings"));
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
+    centralLayout->addSpacing(10);
     centralLayout->addWidget(m_modifyBtn);
     centralLayout->addWidget(m_modifyTips);
     centralLayout->addWidget(m_deleteBtn);

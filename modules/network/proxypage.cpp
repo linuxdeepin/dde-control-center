@@ -125,6 +125,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_autoWidget->setLayout(autoLayout);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addSpacing(10);
     mainLayout->addWidget(m_proxyType);
     mainLayout->addSpacing(10);
     mainLayout->setAlignment(m_proxyType, Qt::AlignCenter);

@@ -19,6 +19,7 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
     TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
+    layout->addSpacing(10);
 
     SettingsGroup* group = new SettingsGroup();
     m_item = new TitleButtonItem();

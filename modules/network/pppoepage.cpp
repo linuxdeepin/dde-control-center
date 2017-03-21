@@ -29,6 +29,7 @@ PppoePage::PppoePage(QWidget *parent)
     mainLayout->addWidget(m_createBtn);
     mainLayout->setSpacing(10);
     mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->addSpacing(10);
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(mainLayout);

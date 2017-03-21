@@ -62,6 +62,7 @@ DateSettings::DateSettings(QWidget *parent)
     m_datetimeGroup->appendItem(m_monthWidget);
     m_datetimeGroup->appendItem(m_dayWidget);
 
+    layout->addSpacing(10);
     layout->addWidget(m_datetimeGroup);
     layout->addSpacing(10);
     layout->addWidget(m_buttonTuple);

@@ -66,7 +66,14 @@ void ComboBoxWidget::onNextPageClicked()
 
     m_contentPage = new ContentWidget;
 
-    m_contentPage->setContent(m_optionsGroup);
+    TranslucentFrame *mainWidget = new TranslucentFrame;
+    QVBoxLayout *layout = new QVBoxLayout(mainWidget);
+    layout->setMargin(0);
+    layout->setSpacing(0);
+    layout->addSpacing(10);
+    layout->addWidget(m_optionsGroup);
+
+    m_contentPage->setContent(mainWidget);
     m_optionsGroup->setVisible(true);
 
     connect(m_contentPage, &ContentWidget::destroyed, this, &ComboBoxWidget::onContentDesktory);

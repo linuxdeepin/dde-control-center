@@ -24,12 +24,19 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
 
     TranslucentFrame* widget = new TranslucentFrame();
 
+    QVBoxLayout *mainlayout = new QVBoxLayout;
+    mainlayout->setMargin(0);
+    mainlayout->setSpacing(0);
+    mainlayout->addSpacing(10);
+
     m_layout->setMargin(0);
     m_layout->setSpacing(0);
     m_layout->addWidget(m_loadingGroup);
     m_layout->addWidget(m_mirrorListGroup);
 
-    widget->setLayout(m_layout);
+    mainlayout->addLayout(m_layout);
+
+    widget->setLayout(mainlayout);
     setContent(widget);
 
     setModel(model);

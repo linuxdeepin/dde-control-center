@@ -19,7 +19,7 @@ NetworkDetailPage::NetworkDetailPage(QWidget *parent)
     : ContentWidget(parent)
 {
     m_groupsLayout = new QVBoxLayout;
-    m_groupsLayout->setSpacing(10);
+    m_groupsLayout->setSpacing(0);
     m_groupsLayout->setMargin(0);
 
     QWidget *mainWidget = new TranslucentFrame;
@@ -53,6 +53,8 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         item->widget()->deleteLater();
         delete item;
     }
+
+    m_groupsLayout->addSpacing(10);
 
     for (const auto &info : infos)
     {

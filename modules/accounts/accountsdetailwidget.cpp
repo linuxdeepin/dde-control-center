@@ -34,6 +34,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     m_deleteAccount->setObjectName("DeleteAccountButton");
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addSpacing(10);
     mainLayout->addWidget(m_accountSettings);
     mainLayout->addWidget(m_deleteAccount);
     mainLayout->setMargin(0);

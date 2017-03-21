@@ -16,6 +16,8 @@ ThemeWidget::ThemeWidget(QWidget *parent)
     m_iconTheme = new Theme(tr("Icon Theme"));
     m_mouseTheme = new Theme(tr("Cursor Theme"));
 
+    m_mainlayout->addSpacing(10);
+
     m_mainlayout->addWidget(m_windowTheme);
     m_mainlayout->addWidget(m_iconTheme);
     m_mainlayout->addWidget(m_mouseTheme);

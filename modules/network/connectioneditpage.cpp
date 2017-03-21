@@ -67,6 +67,7 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     acceptBtn->setText(tr("Save"));
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addSpacing(10);
     mainLayout->addWidget(m_disconnectBtn);
     mainLayout->addWidget(m_removeBtn);
     mainLayout->addLayout(m_sectionsLayout);

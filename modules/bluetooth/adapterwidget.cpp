@@ -39,6 +39,7 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     m_tip->setVisible(!m_switch->checked());
     m_tip->setWordWrap(true);
 
+    layout->addSpacing(10);
     layout->addWidget(m_titleGroup);
     layout->addWidget(m_tip, 0, Qt::AlignTop);
     layout->addWidget(m_myDevicesGroup);

@@ -28,6 +28,7 @@ AdvancedPage::AdvancedPage(SoundModel *model)
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setSpacing(10);
     layout->setMargin(0);
+    layout->addSpacing(10);
     layout->addWidget(m_outputGroup);
     layout->addWidget(m_inputGroup);
 

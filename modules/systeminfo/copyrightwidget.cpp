@@ -20,6 +20,7 @@ CopyrightWidget::CopyrightWidget(QWidget *parent)
     TranslucentFrame* widget = new TranslucentFrame;
     widget->setObjectName("copyrightWidget");
     QVBoxLayout *layout =new QVBoxLayout();
+
     m_title = new TipsLabel;
     m_title->setText(getLicense(":/systeminfo/gpl/gpl-3.0-%1-%2.txt", "title"));
 

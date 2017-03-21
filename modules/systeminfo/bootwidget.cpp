@@ -56,7 +56,7 @@ BootWidget::BootWidget(QWidget *parent)
 
     layout->setMargin(0);
     layout->setSpacing(0);
-
+    layout->addSpacing(10);
     layout->addWidget(group);
     layout->addSpacing(8);
     layout->addWidget(label);

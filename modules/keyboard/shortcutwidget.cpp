@@ -42,6 +42,7 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
     m_layout = new QVBoxLayout();
     m_layout->setMargin(0);
     m_layout->setSpacing(10);
+    m_layout->addSpacing(10);
     m_layout->addWidget(m_search);
     m_layout->addWidget(m_systemGroup);
     m_layout->addWidget(m_windowGroup);
@@ -170,7 +171,7 @@ void ShortcutWidget::modifyStatus(bool status)
         m_layout->removeWidget(m_workspaceGroup);
         m_layout->removeWidget(m_windowGroup);
         m_layout->removeWidget(m_systemGroup);
-        m_layout->insertWidget(1, m_searchGroup);
+        m_layout->insertWidget(2, m_searchGroup);
     }
     else
     {
@@ -180,11 +181,11 @@ void ShortcutWidget::modifyStatus(bool status)
         m_windowGroup->show();
         m_systemGroup->show();
         m_searchGroup->hide();
-        m_layout->insertWidget(1, m_customGroup);
-        m_layout->insertWidget(1, m_workspaceGroup);
-        m_layout->insertWidget(1, m_windowGroup);
-        m_layout->insertWidget(1, m_systemGroup);
-        m_layout->addWidget(m_addCustom);
+        m_layout->insertWidget(2, m_addCustom);
+        m_layout->insertWidget(2, m_customGroup);
+        m_layout->insertWidget(2, m_workspaceGroup);
+        m_layout->insertWidget(2, m_windowGroup);
+        m_layout->insertWidget(2, m_systemGroup);
         m_layout->removeWidget(m_searchGroup);
     }
 }

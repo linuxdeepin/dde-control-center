@@ -20,7 +20,7 @@ ModifyAvatarPage::ModifyAvatarPage(User *user, QWidget *parent)
 {
     m_avatarsLayout->setSpacing(0);
     m_avatarsLayout->setVerticalSpacing(15);
-    m_avatarsLayout->setContentsMargins(0, 0, 0, 0);
+    m_avatarsLayout->setContentsMargins(0, 10, 0, 0);
 
     TranslucentFrame *avatarsWidget = new TranslucentFrame;
     avatarsWidget->setLayout(m_avatarsLayout);
