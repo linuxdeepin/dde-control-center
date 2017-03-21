@@ -55,7 +55,7 @@ const QString NetworkDevice::statusString() const
     case Disconnected:  return tr("Disconnected");
     case Prepare:
     case Config:        return tr("Connecting");
-    case NeedAuth:      return tr("Authing");
+    case NeedAuth:      return tr("Authenticating");
     case IpConfig:
     case IpCheck:       return tr("Obtaining Address");
     case Activated:     return tr("Connected");
