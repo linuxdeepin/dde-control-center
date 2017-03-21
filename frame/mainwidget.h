@@ -19,6 +19,7 @@ namespace accounts {
 }
 }
 
+class UpdateNotifier;
 class MainWidget : public FrameWidget
 {
     Q_OBJECT
@@ -55,6 +56,7 @@ private:
     QHBoxLayout *m_pluginsLayout;
     QWidget *m_pluginWidget;
     IndicatorWidget *m_indicatorWidget;
+    UpdateNotifier *m_updateNotifier;
     QuickControlPanel *m_quickSettingsPanel;
 };
 

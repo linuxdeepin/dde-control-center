@@ -108,6 +108,19 @@
     </message>
 </context>
 <context>
+    <name>UpdateNotifier</name>
+    <message>
+        <location filename="../frame/updatenotifier.cpp" line="12"/>
+        <source>Updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/updatenotifier.cpp" line="13"/>
+        <source>Updates detected, click to view</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>VpnListModel</name>
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="47"/>

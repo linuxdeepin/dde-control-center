@@ -1,6 +1,7 @@
 #include "mainwidget.h"
 
 #include "accounts/avatarwidget.h"
+#include "updatenotifier.h"
 
 #include <dimagebutton.h>
 
@@ -31,6 +32,7 @@ MainWidget::MainWidget(Frame *parent)
       m_currentDateLbl(new QLabel),
       m_pluginsLayout(new QHBoxLayout),
       m_indicatorWidget(new IndicatorWidget),
+      m_updateNotifier(new UpdateNotifier),
       m_quickSettingsPanel(new QuickControlPanel)
 {
     m_pluginsLayout->setMargin(0);
@@ -131,8 +133,13 @@ MainWidget::MainWidget(Frame *parent)
     m_pluginWidget = new TranslucentFrame;
     m_pluginWidget->setLayout(pluginWidgetLayout);
 
+    m_updateNotifier->setObjectName("UpdateNotifier");
+    m_updateNotifier->setVisible(false);
+
     QVBoxLayout *centralLayout = static_cast<QVBoxLayout *>(layout());
     centralLayout->addWidget(headerFrame);
+    centralLayout->addWidget(m_updateNotifier);
+    centralLayout->addSpacing(1);
     centralLayout->addWidget(m_pluginWidget);
     centralLayout->addSpacing(20);
     centralLayout->addWidget(m_quickSettingsPanel);

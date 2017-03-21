@@ -82,3 +82,17 @@ Dtk--Widget--DMPRISControl #NextBtn {
     qproperty-hoverPic: url(:/frame/themes/dark/icons/play_next_hover.png);
     qproperty-pressPic: url(:/frame/themes/dark/icons/play_next_press.png);
 }
+
+QFrame#UpdateNotifier {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+QFrame#UpdateNotifier:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+Dtk--Widget--DImageButton#NotifyCloseButton{
+    qproperty-normalPic: url(:/frame/themes/dark/icons/notify_close_normal.png);
+    qproperty-hoverPic: url(:/frame/themes/dark/icons/notify_close_hover.png);
+    qproperty-pressPic: url(:/frame/themes/dark/icons/notify_close_press.png);
+}

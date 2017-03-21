@@ -231,5 +231,8 @@
         <file>themes/dark/icons/play_previous_normal.png</file>
         <file>themes/dark/icons/play_previous_press.png</file>
         <file>themes/dark/icons/disconnect.png</file>
+        <file>themes/dark/icons/notify_close_hover.png</file>
+        <file>themes/dark/icons/notify_close_normal.png</file>
+        <file>themes/dark/icons/notify_close_press.png</file>
     </qresource>
 </RCC>
