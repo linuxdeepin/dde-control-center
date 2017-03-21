@@ -32,8 +32,6 @@ class QStringList;
 class QVariant;
 QT_END_NAMESPACE
 
-#include "frame.h"
-
 /*
  * Adaptor class for interface com.deepin.dde.ControlCenter
  */

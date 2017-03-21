@@ -1,5 +1,7 @@
 #include "frame.h"
 #include "settingswidget.h"
+#include "framewidget.h"
+#include "mainwidget.h"
 
 #include <QApplication>
 #include <QKeyEvent>

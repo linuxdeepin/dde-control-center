@@ -1,11 +1,6 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include "mainwidget.h"
-#include "contentwidget.h"
-#include "settingswidget.h"
-#include "frameproxyinterface.h"
-
 #include <com_deepin_daemon_display.h>
 #include <com_deepin_api_xmousearea.h>
 #include <com_deepin_dde_launcher.h>
@@ -23,6 +18,18 @@ using DBusDisplay = com::deepin::daemon::Display;
 using LauncherInter = com::deepin::dde::Launcher;
 
 DWIDGET_USE_NAMESPACE
+
+class FrameWidget;
+class SettingsWidget;
+
+namespace dcc
+{
+
+class ContentWidget;
+
+}
+
+using dcc::ContentWidget;
 
 class Frame : public DBlurEffectWidget
 {

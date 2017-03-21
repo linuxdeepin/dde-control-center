@@ -18,6 +18,7 @@
  */
 
 #include "dbuscontrolcenterservice.h"
+#include "frame.h"
 
 #include <QtCore/QMetaObject>
 #include <QtCore/QByteArray>
