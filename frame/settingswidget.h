@@ -33,6 +33,9 @@ public slots:
     void setFrameAutoHide(ModuleInterface * const inter, const bool autoHide);
     void pushWidget(ModuleInterface * const inter, ContentWidget * const w);
 
+protected:
+    void mouseReleaseEvent(QMouseEvent *e);
+
 private slots:
     void loadModule(ModuleInterface * const module);
     void onModuleInitFinished(ModuleInterface * const inter);

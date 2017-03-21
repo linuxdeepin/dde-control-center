@@ -1,6 +1,7 @@
 #include "modulewidgetheader.h"
 
 #include <QPainter>
+#include <QMouseEvent>
 
 namespace dcc {
 
@@ -22,6 +23,8 @@ ModuleWidgetHeader::ModuleWidgetHeader(QWidget *parent)
 void ModuleWidgetHeader::mouseReleaseEvent(QMouseEvent *e)
 {
     QFrame::mouseReleaseEvent(e);
+
+    e->accept();
 
     emit clicked();
 }

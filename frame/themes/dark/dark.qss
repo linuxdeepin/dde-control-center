@@ -82,8 +82,3 @@ Dtk--Widget--DMPRISControl #NextBtn {
     qproperty-hoverPic: url(:/frame/themes/dark/icons/play_next_hover.png);
     qproperty-pressPic: url(:/frame/themes/dark/icons/play_next_press.png);
 }
-
-dcc--NavgationView {
-    border: none;
-    border-radius: 6px;
-}

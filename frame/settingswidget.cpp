@@ -99,7 +99,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     m_navWidget = new TranslucentFrame(this);
     m_navWidget->setLayout(navLayout);
-    m_navWidget->setFixedSize(110 * 3 + 5, 600);
+    m_navWidget->setFixedSize(110 * 3 + 5, 500);
     m_navWidget->move(14, 0);
     m_navWidget->setVisible(false);
 
@@ -148,6 +148,16 @@ void SettingsWidget::pushWidget(ModuleInterface *const inter, ContentWidget *con
 
     m_moduleWidgets[inter].append(w);
     m_frame->pushWidget(w);
+}
+
+void SettingsWidget::mouseReleaseEvent(QMouseEvent *e)
+{
+    ContentWidget::mouseReleaseEvent(e);
+
+    e->accept();
+
+    if (m_navView->isVisible())
+        toggleView();
 }
 
 void SettingsWidget::loadModule(ModuleInterface *const module)
