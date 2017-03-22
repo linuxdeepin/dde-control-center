@@ -155,6 +155,10 @@ MainWidget::MainWidget(Frame *parent)
     connect(m_quickSettingsPanel, &QuickControlPanel::requestPage, this, &MainWidget::showSettingPage);
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
 
+    connect(m_updateNotifier, &UpdateNotifier::clicked, this, [this] {
+        showSettingPage("update", "available-updates");
+    });
+
     m_pluginsController->loadPlugins();
     refershTimedate();
 }

@@ -80,6 +80,13 @@ const QString UpdateModule::name() const
     return QStringLiteral("update");
 }
 
+void UpdateModule::showPage(const QString &pageName)
+{
+    if (pageName == "available-updates") {
+        onPushUpdate();
+    }
+}
+
 void UpdateModule::onPushUpdate()
 {
     if (!m_updatePage) {

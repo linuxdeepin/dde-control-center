@@ -31,6 +31,7 @@ private:
     void contentPopped(ContentWidget * const w);
     ModuleWidget* moduleWidget();
     const QString name() const;
+    void showPage(const QString &pageName);
 
 private slots:
     void onPushUpdate();
