@@ -41,6 +41,7 @@ private:
 protected:
     void wheelEvent(QWheelEvent *e);
     void mousePressEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
 
 protected:
     DImageButton *m_navgationBtn;

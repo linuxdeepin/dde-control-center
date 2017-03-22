@@ -152,12 +152,14 @@ void SettingsWidget::pushWidget(ModuleInterface *const inter, ContentWidget *con
 
 void SettingsWidget::mouseReleaseEvent(QMouseEvent *e)
 {
-    ContentWidget::mouseReleaseEvent(e);
+    QWidget::mouseReleaseEvent(e);
 
     e->accept();
 
     if (m_navView->isVisible())
         toggleView();
+    else if (e->button() == Qt::BackButton)
+        emit back();
 }
 
 void SettingsWidget::loadModule(ModuleInterface *const module)

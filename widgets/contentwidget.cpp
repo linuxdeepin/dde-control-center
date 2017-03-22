@@ -141,7 +141,15 @@ void ContentWidget::scrollToWidget(QWidget * const w)
 
 //    m_contentArea->verticalScrollBar()->setValue(1900);
 //    m_contentArea->ensureWidgetVisible(w, 0, 0);
-//    m_contentArea->verticalScrollBar()->setValue();
+    //    m_contentArea->verticalScrollBar()->setValue();
+}
+
+void ContentWidget::mouseReleaseEvent(QMouseEvent *e)
+{
+    QWidget::mouseReleaseEvent(e);
+
+    if (e->button() == Qt::BackButton)
+        emit back();
 }
 
 bool ContentWidget::eventFilter(QObject *watched, QEvent *event)

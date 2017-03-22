@@ -24,6 +24,9 @@ void ModuleWidgetHeader::mouseReleaseEvent(QMouseEvent *e)
 {
     QFrame::mouseReleaseEvent(e);
 
+    if (e->button() != Qt::LeftButton)
+        return;
+
     e->accept();
 
     emit clicked();
