@@ -22,7 +22,7 @@ signals:
     void requestRotate(Monitor *mon, const quint16 rotate) const;
 
 protected:
-    void mousePressEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
     void mouseMoveEvent(QMouseEvent *e);
     void leaveEvent(QEvent *e);
     void paintEvent(QPaintEvent *e);

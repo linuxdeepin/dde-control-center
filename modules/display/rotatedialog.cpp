@@ -95,9 +95,9 @@ RotateDialog::~RotateDialog()
     qApp->restoreOverrideCursor();
 }
 
-void RotateDialog::mousePressEvent(QMouseEvent *e)
+void RotateDialog::mouseReleaseEvent(QMouseEvent *e)
 {
-    QDialog::mousePressEvent(e);
+    e->accept();
 
     switch (e->button())
     {

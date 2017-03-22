@@ -67,8 +67,8 @@ void DisplayModule::initialize()
     m_displayModel = new DisplayModel;
     m_displayWorker = new DisplayWorker(m_displayModel);
 
-    m_displayWorker->moveToThread(qApp->thread());
     m_displayModel->moveToThread(qApp->thread());
+    m_displayWorker->moveToThread(qApp->thread());
 }
 
 void DisplayModule::reset()

@@ -12,7 +12,8 @@ ModuleInitThread::ModuleInitThread(dcc::ModuleInterface *inter, QObject *parent)
 void ModuleInitThread::run()
 {
     m_module->initialize();
-    m_module->moduleDeactive();
+
+    qApp->processEvents();
 
     emit moduleInitFinished(m_module);
 }

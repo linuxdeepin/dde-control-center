@@ -174,7 +174,7 @@ void SettingsWidget::loadModule(ModuleInterface *const module)
 
     ModuleInitThread *thrd = new ModuleInitThread(module, this);
     connect(thrd, &ModuleInitThread::moduleInitFinished, this, &SettingsWidget::onModuleInitFinished, Qt::QueuedConnection);
-    connect(thrd, &ModuleInitThread::finished, [=] { thrd->exit(); thrd->deleteLater(); });
+    connect(thrd, &ModuleInitThread::finished, thrd, &ModuleInitThread::deleteLater, Qt::QueuedConnection);
     QTimer::singleShot(m_moduleLoadDelay, thrd, [=] { thrd->start(QThread::LowestPriority); });
 
     m_moduleLoadDelay += 50;

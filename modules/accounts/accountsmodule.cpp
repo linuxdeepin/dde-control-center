@@ -21,8 +21,6 @@ void AccountsModule::initialize()
     m_userList = new UserModel;
     m_accountsWorker = new AccountsWorker(m_userList);
 
-    qApp->processEvents();
-
     m_accountsWorker->moveToThread(qApp->thread());
     m_userList->moveToThread(qApp->thread());
 
