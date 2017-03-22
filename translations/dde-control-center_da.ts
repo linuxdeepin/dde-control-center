@@ -1,10 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="da" version="2.1">
 <context>
     <name>BluetoothDelegate</name>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="70"/>
         <source>Refresh</source>
-        <translation>Оновити</translation>
+        <translation>Genopfrisk</translation>
     </message>
 </context>
 <context>
@@ -12,12 +12,12 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="70"/>
         <source>Connect to other devices</source>
-        <translation type="unfinished"/>
+        <translation>Opret forbindelse til andre enheder</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="104"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Klik på ikon for at aktivere bluetooth</translation>
     </message>
 </context>
 <context>
@@ -25,37 +25,37 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="64"/>
         <source>Copy</source>
-        <translation>Копіювати</translation>
+        <translation>Kopiér</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="66"/>
         <source>Extend</source>
-        <translation>Розширити</translation>
+        <translation>Udvid</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="68"/>
         <source>Only Displayed on %1</source>
-        <translation>Відображається лише на %1</translation>
+        <translation>Vises kun på %1</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>Kopiér skærmens indhold til en eller flere skærme</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="79"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Udvid skærmens indhold til at vise forskelligt indhold på forskellige skærme</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation>Вміст екрану зображується лише на %1</translation>
+        <translation>Skærmindhold vises kun på %1</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Skift venligst til skærmtilstanden som skal sættes, hvis du vil ændre de brugerdefinerede indstillinger</translation>
     </message>
 </context>
 <context>
@@ -63,12 +63,12 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="46"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>Ryd alle</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="115"/>
         <source>No system notifications</source>
-        <translation>Системні сповіщення відсутні</translation>
+        <translation>Ingen systemnotifikationer</translation>
     </message>
 </context>
 <context>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="126"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation>Лівий клік для повороту і правий клік для виходу</translation>
+        <translation>Ventreklik for at dreje og højreklik for at forlade</translation>
     </message>
 </context>
 <context>
@@ -84,12 +84,12 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="31"/>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>Ingen søgeresultater</translation>
     </message>
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="117"/>
         <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>Aktuelle by: %1</translation>
     </message>
 </context>
 <context>
@@ -97,12 +97,12 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="46"/>
         <source>Reset all settings</source>
-        <translation type="unfinished"/>
+        <translation>Nulstil alle indstillinger</translation>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="107"/>
         <source>All Settings</source>
-        <translation>Усі налаштування</translation>
+        <translation>Alle indstillinger</translation>
     </message>
 </context>
 <context>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="47"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>Klik på ikon for at aktivere VPN</translation>
     </message>
 </context>
 <context>
@@ -131,17 +131,17 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="76"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Вибачте, неможливо отримати дані про погоду!</translation>
+        <translation>Beklager - kan ikke hente vejret!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="83"/>
         <source>Loading weather...</source>
-        <translation>Завантаження погоди...</translation>
+        <translation>Indlæser vejret...</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="144"/>
         <source>Just updated</source>
-        <translation>Щойно оновлено</translation>
+        <translation>Netop opdateret</translation>
     </message>
 </context>
 <context>
@@ -149,17 +149,17 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
         <source>Connect to hidden network</source>
-        <translation>Підключитися до прихованої мережі</translation>
+        <translation>Opret forbindelse til skjult netværk</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="92"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>Klik på ikon for at aktivere WIFI</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="182"/>
         <source>Wireless Card %1</source>
-        <translation>Бездротова карта %1</translation>
+        <translation>Trådløstkort %1</translation>
     </message>
 </context>
 <context>
@@ -167,22 +167,22 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="23"/>
         <source>Modify Avatar</source>
-        <translation>Редагувати аватар</translation>
+        <translation>Rediger avatar</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="26"/>
         <source>Modify Password</source>
-        <translation>Редагувати пароль</translation>
+        <translation>Rediger adgangskode</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="29"/>
         <source>Auto Login</source>
-        <translation>Автоматичний вхід</translation>
+        <translation>Automatisk login</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="33"/>
         <source>Delete Account</source>
-        <translation>Видалити Обліковий запис</translation>
+        <translation>Slet konto</translation>
     </message>
 </context>
 <context>
@@ -190,12 +190,12 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="19"/>
         <source>Create Account</source>
-        <translation>Створити Обліковий запис</translation>
+        <translation>Opret konto</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="26"/>
         <source>Accounts</source>
-        <translation>Облікові записи</translation>
+        <translation>Konti</translation>
     </message>
 </context>
 <context>
@@ -203,12 +203,12 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="81"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Billeder</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="230"/>
         <source>Password not match.</source>
-        <translation>Пароль не збігається</translation>
+        <translation>Adgangskode passer ikke.</translation>
     </message>
 </context>
 <context>
@@ -216,49 +216,49 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="50"/>
         <source>Create</source>
-        <translation>Створити</translation>
+        <translation>Opret</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>Скасувати</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="35"/>
         <source>Username</source>
-        <translation>Ім&apos;я користувача</translation>
+        <translation>Brugernavn</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="36"/>
         <location filename="../modules/accounts/createpage.cpp" line="38"/>
         <location filename="../modules/accounts/createpage.cpp" line="41"/>
         <source>Required</source>
-        <translation>Вимагається</translation>
+        <translation>Påkrævet</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="37"/>
         <source>Password</source>
-        <translation>Пароль</translation>
+        <translation>Adgangskode</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="40"/>
         <source>Repeat password</source>
-        <translation>Повторіть Пароль</translation>
+        <translation>Gentag adgangskode</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="69"/>
         <source>New Account</source>
-        <translation>Новий Обліковий запис</translation>
+        <translation>Ny konto</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="124"/>
         <source>Username can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Brugernavn må ikke være tomt.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="127"/>
         <source>Password can&apos;t be empty.</source>
-        <translation>Пароль не може бути порожнім.</translation>
+        <translation>Adgangskode må ikke være tomt.</translation>
     </message>
 </context>
 <context>
@@ -266,33 +266,33 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="23"/>
         <source>New Password</source>
-        <translation>Новий Пароль</translation>
+        <translation>Ny adgangskode</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="25"/>
         <source>Repeat Password</source>
-        <translation>Повторіть Пароль</translation>
+        <translation>Gentag adgangskode</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="27"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="28"/>
         <source>Required</source>
-        <translation>Вимагається</translation>
+        <translation>Påkrævet</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="32"/>
         <source>Cancel</source>
-        <translation>Скасувати</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="34"/>
         <source>Accept</source>
-        <translation>Прийняти </translation>
+        <translation>Acceptér</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>Password</source>
-        <translation>Пароль</translation>
+        <translation>Adgangskode</translation>
     </message>
 </context>
 <context>
@@ -305,17 +305,17 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
         <source>Delete account directory</source>
-        <translation>Видалити директорію Облікового запису</translation>
+        <translation>Slet kontomappe</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="54"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="54"/>
         <source>Delete</source>
-        <translation>Видалити</translation>
+        <translation>Slet</translation>
     </message>
 </context>
 <context>
@@ -323,17 +323,17 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="25"/>
         <source>My devices</source>
-        <translation>Мої пристрої</translation>
+        <translation>Mine enheder</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="26"/>
         <source>Other devices</source>
-        <translation>Інші пристрої</translation>
+        <translation>Andre enheder</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="38"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Увімкніть bluetooth , щоб знайти пристрої поблизу (гучномовець, клавіатура, мишка)</translation>
+        <translation>Aktivér bluetooth for at finde enheder i nærheden (højttaler, tastatur, mus)</translation>
     </message>
 </context>
 <context>
@@ -349,12 +349,12 @@
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="26"/>
         <source>Ignore</source>
-        <translation>Ігнорувати</translation>
+        <translation>Ignorer</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="27"/>
         <source>Disconnect</source>
-        <translation>Вимкнути</translation>
+        <translation>Afbryd</translation>
     </message>
 </context>
 <context>
@@ -362,12 +362,12 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="108"/>
         <source>Connected</source>
-        <translation>Підключено</translation>
+        <translation>Tilsluttet</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="113"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Ikke tilsluttet</translation>
     </message>
 </context>
 <context>
@@ -375,17 +375,17 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="25"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>ПІН-код для підключення Bluetooth пристроїв: </translation>
+        <translation>PIN&apos;et til at oprette forbindelse til Bluetooth-enheden er:</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="33"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="35"/>
         <source>OK</source>
-        <translation>ОК</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -393,17 +393,17 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="43"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="44"/>
         <source>Confirm</source>
-        <translation>Підтвердити</translation>
+        <translation>Bekræft</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="38"/>
         <source>Change Time Settings</source>
-        <translation>Змінити налаштування часу</translation>
+        <translation>Skift tidsindstillinger</translation>
     </message>
 </context>
 <context>
@@ -411,17 +411,17 @@
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="30"/>
         <source>Year</source>
-        <translation>Рік</translation>
+        <translation>År</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="33"/>
         <source>Month</source>
-        <translation>Місяць</translation>
+        <translation>Måned</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="36"/>
         <source>Day</source>
-        <translation>День</translation>
+        <translation>Dag</translation>
     </message>
 </context>
 <context>
@@ -429,32 +429,32 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="19"/>
         <source>Auto-Sync</source>
-        <translation>Авто-синхронізація</translation>
+        <translation>Automatisk synkronisering</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="23"/>
         <source>Add Timezone</source>
-        <translation>Додати часовий пояс</translation>
+        <translation>Tilføj tidszone</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="29"/>
         <source>Time and Date</source>
-        <translation>Час і Дата</translation>
+        <translation>Klokkeslæt og dato</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="33"/>
         <source>Change System Timezone</source>
-        <translation>Виберіть часовий пояс</translation>
+        <translation>Skift systemets tidszone</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="40"/>
         <source>Time Settings</source>
-        <translation>Налаштування Часу</translation>
+        <translation>Tidsindstillinger</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="44"/>
         <source>Timezone List</source>
-        <translation>Список часових поясів</translation>
+        <translation>Tidszoneliste</translation>
     </message>
 </context>
 <context>
@@ -462,17 +462,17 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="46"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Skift tidszone</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="47"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="48"/>
         <source>Confirm</source>
-        <translation>Підтвердити</translation>
+        <translation>Bekræft</translation>
     </message>
 </context>
 <context>
@@ -480,27 +480,27 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="86"/>
         <source>Tomorrow</source>
-        <translation>Завтра</translation>
+        <translation>I morgen</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="88"/>
         <source>Yesterday</source>
-        <translation>Вчора</translation>
+        <translation>I går</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="90"/>
         <source>Today</source>
-        <translation>Сьогодні</translation>
+        <translation>I dag</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="95"/>
         <source>%1 hours earlier than local</source>
-        <translation>%1 годин раніше за локальний</translation>
+        <translation>%1 timer tidligere end lokalt</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="97"/>
         <source>%1 hours late than local</source>
-        <translation>%1 години пізніше за локальний</translation>
+        <translation>%1 timer senere end lokalt</translation>
     </message>
 </context>
 <context>
@@ -508,42 +508,42 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="16"/>
         <source>Default Applications</source>
-        <translation>Програми за замовчуванням</translation>
+        <translation>Standardprogrammer</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="30"/>
         <source>Browser</source>
-        <translation>Веб-переглядач</translation>
+        <translation>Browser</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="31"/>
         <source>Mail</source>
-        <translation>Пошта</translation>
+        <translation>E-mail</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="32"/>
         <source>Text</source>
-        <translation>Текст</translation>
+        <translation>Tekst</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="33"/>
         <source>Music</source>
-        <translation>Музика</translation>
+        <translation>Musik</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="34"/>
         <source>Video</source>
-        <translation>Відео</translation>
+        <translation>Video</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="35"/>
         <source>Picture</source>
-        <translation>Зображення</translation>
+        <translation>Billede</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="36"/>
         <source>Terminal</source>
-        <translation>Термінал</translation>
+        <translation>Terminal</translation>
     </message>
 </context>
 <context>
@@ -551,12 +551,12 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="19"/>
         <source>Add</source>
-        <translation>Додати</translation>
+        <translation>Tilføj</translation>
     </message>
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="40"/>
         <source>Open Desktop file</source>
-        <translation>Відкрити файл робочого столу</translation>
+        <translation>Åbn skrivebordsfil</translation>
     </message>
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
@@ -570,7 +570,7 @@
         <location filename="../modules/defapp/defappwidget.cpp" line="21"/>
         <location filename="../modules/defapp/defappwidget.cpp" line="25"/>
         <source>Default Applications</source>
-        <translation>Програми за замовчуванням</translation>
+        <translation>Standardprogrammer</translation>
     </message>
 </context>
 <context>
@@ -578,7 +578,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="26"/>
         <source>Brightness</source>
-        <translation>Яскравість</translation>
+        <translation>Lysstyrke</translation>
     </message>
 </context>
 <context>
@@ -586,22 +586,22 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="18"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Rediger</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="20"/>
         <source>Delete</source>
-        <translation>Видалити</translation>
+        <translation>Slet</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="23"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>Skift venligst til den aktuelle tilstand inden indstillingerne ændres</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="25"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>Skift venligst til en anden tilstand inden indstillingerne slettes</translation>
     </message>
 </context>
 <context>
@@ -609,27 +609,27 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="24"/>
         <source>Rotate</source>
-        <translation>Повернути</translation>
+        <translation>Drej</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="25"/>
         <source>New custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Nye brugerdefinerede indstillinger</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="27"/>
         <source>Resolution</source>
-        <translation>Роздільна здатність</translation>
+        <translation>Opløsning</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="28"/>
         <source>Brightness</source>
-        <translation>Яскравість</translation>
+        <translation>Lysstyrke</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="47"/>
         <source>Display</source>
-        <translation>Дисплей</translation>
+        <translation>Skærm</translation>
     </message>
 </context>
 <context>
@@ -637,7 +637,7 @@
     <message>
         <location filename="../modules/display/displayworker.cpp" line="113"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>Mine indstillinger %1</translation>
     </message>
 </context>
 <context>
@@ -645,17 +645,17 @@
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="22"/>
         <source>Recognize</source>
-        <translation>Розпізнати</translation>
+        <translation>Genkend</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="25"/>
         <source>Split</source>
-        <translation>Розділити</translation>
+        <translation>Opdel</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="28"/>
         <source>Merge</source>
-        <translation>Об&apos;єднати</translation>
+        <translation>Forén</translation>
     </message>
 </context>
 <context>
@@ -663,27 +663,27 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="77"/>
         <source>Resolution</source>
-        <translation>Роздільна здатність</translation>
+        <translation>Opløsning</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="150"/>
         <source>Cancel</source>
-        <translation>Скасувати</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="152"/>
         <source>Apply</source>
-        <translation>Застосувати</translation>
+        <translation>Anvend</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="159"/>
         <source>Primary</source>
-        <translation>Основний</translation>
+        <translation>Primær</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="325"/>
         <source> (Recommended)</source>
-        <translation>(Рекомендовано)</translation>
+        <translation> (anbefalet)</translation>
     </message>
 </context>
 <context>
@@ -691,12 +691,12 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="16"/>
         <source>Resolution</source>
-        <translation>Роздільна здатність</translation>
+        <translation>Opløsning</translation>
     </message>
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="55"/>
         <source> (Recommended)</source>
-        <translation>(Рекомендовано)</translation>
+        <translation> (anbefalet)</translation>
     </message>
 </context>
 <context>
@@ -704,62 +704,62 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="26"/>
         <source>Shortcuts</source>
-        <translation>Ярлики</translation>
+        <translation>Genveje</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="35"/>
         <source>Name</source>
-        <translation>Назва</translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="38"/>
         <source>Command</source>
-        <translation>Команда</translation>
+        <translation>Kommando</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="39"/>
         <source>Required</source>
-        <translation>Вимагається</translation>
+        <translation>Påkrævet</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="45"/>
         <source>Shortcut</source>
-        <translation>Ярлик</translation>
+        <translation>Genvej</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="53"/>
         <source>Please Grab Shortcut Again</source>
-        <translation>Будь ласка візьміть ярлик знову</translation>
+        <translation>Tag venligst fat i genvej igen</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="68"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="70"/>
         <source>Add</source>
-        <translation>Додати</translation>
+        <translation>Tilføj</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="94"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Denne genvej er i konflikt med %1. Klik på Tilføj, for at bruge denne genvej med det samme</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="126"/>
         <source>null</source>
-        <translation>Пусто</translation>
+        <translation>null</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
         <source>Choose File</source>
-        <translation>Виберіть файл</translation>
+        <translation>Vælg fil</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
         <source>/usr/bin</source>
-        <translation type="unfinished"/>
+        <translation>/usr/bin</translation>
     </message>
 </context>
 <context>
@@ -768,52 +768,52 @@
         <location filename="../modules/keyboard/customedit.cpp" line="30"/>
         <location filename="../modules/keyboard/customedit.cpp" line="79"/>
         <source>Shortcuts</source>
-        <translation>Ярлики</translation>
+        <translation>Genveje</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="40"/>
         <source>Required</source>
-        <translation>Вимагається</translation>
+        <translation>Påkrævet</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="50"/>
         <source>Save</source>
-        <translation>Зберегти</translation>
+        <translation>Gem</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="83"/>
         <source>Name</source>
-        <translation>Назва</translation>
+        <translation>Navn</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="84"/>
         <source>Command</source>
-        <translation>Команда</translation>
+        <translation>Kommando</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="104"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Denne genvej er i konflikt med %1. Klik på Tilføj, for at bruge denne genvej med det samme</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="116"/>
         <source>Choose File</source>
-        <translation>Виберіть файл</translation>
+        <translation>Vælg fil</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="116"/>
         <source>/usr/bin</source>
-        <translation type="unfinished"/>
+        <translation>/usr/bin</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="125"/>
         <source>null</source>
-        <translation>Пусто</translation>
+        <translation>null</translation>
     </message>
 </context>
 <context>
@@ -821,18 +821,18 @@
     <message>
         <location filename="../modules/keyboard/customedititem.cpp" line="78"/>
         <source>None</source>
-        <translation>Нічого</translation>
+        <translation>Ingen</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedititem.cpp" line="120"/>
         <location filename="../modules/keyboard/customedititem.cpp" line="151"/>
         <source>Conflict</source>
-        <translation>Конфлік</translation>
+        <translation>Konflikt</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedititem.cpp" line="180"/>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Indtast venligst en ny genvej</translation>
     </message>
 </context>
 <context>
@@ -841,12 +841,12 @@
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="24"/>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="26"/>
         <source>Keyboard Layout</source>
-        <translation>Розкладка клавіатури</translation>
+        <translation>Tastaturlayout</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="33"/>
         <source>Add Keyboard Layout</source>
-        <translation>Додати Розкладку Клавіатури</translation>
+        <translation>Tilføj tastaturlayout</translation>
     </message>
 </context>
 <context>
@@ -854,7 +854,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="24"/>
         <source>Add Keyboard Layout</source>
-        <translation>Додати Розкладку Клавіатури</translation>
+        <translation>Tilføj tastaturlayout</translation>
     </message>
 </context>
 <context>
@@ -862,67 +862,67 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="24"/>
         <source>Keyboard and Language</source>
-        <translation>Клавіатура і мова</translation>
+        <translation>Tastatur og sprog</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="27"/>
         <source>Repeat Delay</source>
-        <translation>Повторити затримку</translation>
+        <translation>Gentagelsesforsinkelse</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="36"/>
         <source>Short</source>
-        <translation>Короткий</translation>
+        <translation>Kort</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="36"/>
         <source>Long</source>
-        <translation>Довгий</translation>
+        <translation>Lang</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="40"/>
         <source>Repeat Rate</source>
-        <translation>Повторити оцінювання</translation>
+        <translation>Gentagelseshastighed</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
         <source>Slow</source>
-        <translation>Повільно</translation>
+        <translation>Langsom</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
         <source>Fast</source>
-        <translation>Швидко</translation>
+        <translation>Hurtig</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="54"/>
         <source>Please Test Here</source>
-        <translation>Будь ласка, перевірте ось тут </translation>
+        <translation>Test venligst her</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
         <source>Enable Numeric Keyboard</source>
-        <translation>Увімкнути Цифрову Клавіатуру</translation>
+        <translation>Aktivér numerisk tastatur</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
         <source>Caps Lock Prompt</source>
-        <translation>Підказка Caps Lock</translation>
+        <translation>Caps Lock-prompt</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
         <source>Keyboard Layout</source>
-        <translation>Розкладка клавіатури</translation>
+        <translation>Tastaturlayout</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="78"/>
         <source>System Language</source>
-        <translation>Мова Системи</translation>
+        <translation>Systemets sprog</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="83"/>
         <source>Shortcut</source>
-        <translation>Ярлик</translation>
+        <translation>Genvej</translation>
     </message>
 </context>
 <context>
@@ -934,7 +934,7 @@
         <location filename="../modules/keyboard/keyboardwork.cpp" line="207"/>
         <location filename="../modules/keyboard/keyboardwork.cpp" line="344"/>
         <source>None</source>
-        <translation>Нічого</translation>
+        <translation>Ingen</translation>
     </message>
 </context>
 <context>
@@ -942,7 +942,7 @@
     <message>
         <location filename="../modules/keyboard/langwidget.cpp" line="23"/>
         <source>System Language</source>
-        <translation>Мова Системи</translation>
+        <translation>Systemets sprog</translation>
     </message>
 </context>
 <context>
@@ -955,22 +955,22 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="36"/>
         <source>Replace</source>
-        <translation>Замінити</translation>
+        <translation>Erstat</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Denne genvej er i konflikt med %1. Klik på Erstat, for at bruge denne genvej med det samme</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="98"/>
         <source>null</source>
-        <translation>Пусто</translation>
+        <translation>null</translation>
     </message>
 </context>
 <context>
@@ -979,12 +979,12 @@
         <location filename="../modules/keyboard/shortcutitem.cpp" line="173"/>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="204"/>
         <source>Conflict</source>
-        <translation>Конфлік</translation>
+        <translation>Konflikt</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="233"/>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Indtast venligst en ny genvej</translation>
     </message>
 </context>
 <context>
@@ -996,7 +996,7 @@
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="168"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="193"/>
         <source>None</source>
-        <translation>Нічого</translation>
+        <translation>Ingen</translation>
     </message>
 </context>
 <context>
@@ -1004,32 +1004,32 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="29"/>
         <source>System</source>
-        <translation>Система</translation>
+        <translation>System</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="30"/>
         <source>Window</source>
-        <translation>Вікно</translation>
+        <translation>Vindue</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="31"/>
         <source>WorkSpace</source>
-        <translation>Робочий простір</translation>
+        <translation>Arbejdsområde</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="52"/>
         <source>Add Custom Shortcut</source>
-        <translation>Додати швидку клавішу</translation>
+        <translation>Tilføj brugerdefineret genvej</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="62"/>
         <source>Shortcuts</source>
-        <translation>Ярлики</translation>
+        <translation>Genveje</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="39"/>
         <source>Custom Shortcut</source>
-        <translation>Користувацькі Ярлики</translation>
+        <translation>Brugerdefineret genvej</translation>
     </message>
 </context>
 <context>
@@ -1037,32 +1037,32 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
         <source>Left Hand</source>
-        <translation>Ліворуч</translation>
+        <translation>Venstrehåndet</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="29"/>
         <source>Natural Scrolling</source>
-        <translation>Природне прокручування</translation>
+        <translation>Naturlig rulning</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="30"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Вимикати сенсорну панель при наборі</translation>
+        <translation>Deaktivér touchpad&apos;en mens der skrives</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
         <source>Slow</source>
-        <translation>Повільно</translation>
+        <translation>Langsom</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
         <source>Fast</source>
-        <translation>Швидко</translation>
+        <translation>Hurtig</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="44"/>
         <source>Double-click Speed</source>
-        <translation>Швидкість подвійного кліку</translation>
+        <translation>Hastighed for dobbeltklik</translation>
     </message>
 </context>
 <context>
@@ -1070,7 +1070,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="19"/>
         <source>Double-click Test</source>
-        <translation>Перевірка подвійного кліку</translation>
+        <translation>Test af dobbeltklik</translation>
     </message>
 </context>
 <context>
@@ -1078,17 +1078,17 @@
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
         <source>Slow</source>
-        <translation>Повільно</translation>
+        <translation>Langsom</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
         <source>Fast</source>
-        <translation>Швидко</translation>
+        <translation>Hurtig</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="27"/>
         <source>Pointer Speed</source>
-        <translation>Покажчик швидкості</translation>
+        <translation>Markørhastighed</translation>
     </message>
 </context>
 <context>
@@ -1096,27 +1096,27 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="26"/>
         <source>Mouse</source>
-        <translation>Мишка</translation>
+        <translation>Mus</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="27"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Відключати сенсорну панель при вставці миші</translation>
+        <translation>Deaktivér touchpad, når musen tilkobles</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="31"/>
         <source>TouchPad</source>
-        <translation>Сенсорна панель</translation>
+        <translation>Touchpad</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="32"/>
         <source>Tap to Click</source>
-        <translation>Торкніться для Кліку</translation>
+        <translation>Tryk for at klikke</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>Mouse and Touchpad</source>
-        <translation>Миша та сенсорна панель</translation>
+        <translation>Mus og touchpad</translation>
     </message>
 </context>
 <context>
@@ -1124,27 +1124,27 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="18"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>Trackpoint</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="21"/>
         <source>Thinkpad Track Point</source>
-        <translation type="unfinished"/>
+        <translation>Thinkpad-trackpoint</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="24"/>
         <source>Pointer Speed</source>
-        <translation>Покажчик швидкості</translation>
+        <translation>Markørhastighed</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="32"/>
         <source>Slow</source>
-        <translation>Повільно</translation>
+        <translation>Langsom</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="32"/>
         <source>Fast</source>
-        <translation>Швидко</translation>
+        <translation>Hurtig</translation>
     </message>
 </context>
 <context>
@@ -1152,28 +1152,28 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="56"/>
         <source>Disconnect</source>
-        <translation>Відключитись</translation>
+        <translation>Afbryd</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="58"/>
         <source>Delete</source>
-        <translation>Видалити</translation>
+        <translation>Slet</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="66"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="67"/>
         <source>Save</source>
-        <translation>Зберегти</translation>
+        <translation>Gem</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="308"/>
         <location filename="../modules/network/connectioneditpage.cpp" line="389"/>
         <source>Required</source>
-        <translation>Вимагається</translation>
+        <translation>Påkrævet</translation>
     </message>
 </context>
 <context>
@@ -1181,42 +1181,42 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="28"/>
         <source>Network Details</source>
-        <translation>Деталі Мережі</translation>
+        <translation>Netværksdetaljer</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="72"/>
         <source>MAC</source>
-        <translation>МАС</translation>
+        <translation>MAC</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="81"/>
         <source>IPv4 Address</source>
-        <translation>IPv4 адреса</translation>
+        <translation>IPv4-adresse</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="86"/>
         <source>Gateway</source>
-        <translation>Шлюз</translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="91"/>
         <source>Primary DNS</source>
-        <translation>ОсновнийDNS</translation>
+        <translation>Primær DNS</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="96"/>
         <source>Netmask</source>
-        <translation>Маска мережі</translation>
+        <translation>Netmaske</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="102"/>
         <source>Interface</source>
-        <translation>Інтерфейс</translation>
+        <translation>Grænseflade</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="107"/>
         <source>Speed</source>
-        <translation>Швидкість</translation>
+        <translation>Hastighed</translation>
     </message>
 </context>
 <context>
@@ -1224,12 +1224,12 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="55"/>
         <source>Disconnected</source>
-        <translation>Відключено</translation>
+        <translation>Afbrudt</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="57"/>
         <source>Connecting</source>
-        <translation>Підключення</translation>
+        <translation>Opretter forbindelse</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
@@ -1239,17 +1239,17 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
         <source>Obtaining Address</source>
-        <translation>Отримання Адреси</translation>
+        <translation>Henter adresse</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="61"/>
         <source>Connected</source>
-        <translation>Підключено</translation>
+        <translation>Tilsluttet</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="63"/>
         <source>Failed</source>
-        <translation>Збій</translation>
+        <translation>Mislykkedet</translation>
     </message>
 </context>
 <context>
@@ -1267,57 +1267,57 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="28"/>
         <source>Proxy</source>
-        <translation>Проксі</translation>
+        <translation>Proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="30"/>
         <source>Network Details</source>
-        <translation>Деталі Мережі</translation>
+        <translation>Netværksdetaljer</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="47"/>
         <source>Network</source>
-        <translation>Мережа</translation>
+        <translation>Netværk</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
         <source>Wired Network Card%1</source>
-        <translation>Бездротова Мережева карта %1</translation>
+        <translation>Kablet netværkskort %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="152"/>
         <source>Wired Network Card</source>
-        <translation>Дротова Мережева Карта</translation>
+        <translation>Kablet netværkskort</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="153"/>
         <source>Wired Network</source>
-        <translation>Провідна мережа</translation>
+        <translation>Kablet netværk</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="148"/>
         <source>Wired Network%1</source>
-        <translation>Провідна мережа%1</translation>
+        <translation>Kablet netværk %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="160"/>
         <source>Wireless Network Card%1</source>
-        <translation>Бездротова Мережева карта %1</translation>
+        <translation>Trådløst netværkskort %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="165"/>
         <source>Wireless Network Card</source>
-        <translation>Бездротова Мережева Карта</translation>
+        <translation>Trådløst netværkskort</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="166"/>
         <source>Wireless Network</source>
-        <translation>Бездротова мережа</translation>
+        <translation>Trådløst netværk</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="161"/>
         <source>Wireless Network%1</source>
-        <translation>Бездротова мережа%1</translation>
+        <translation>Trådløst netværk %1</translation>
     </message>
 </context>
 <context>
@@ -1325,12 +1325,12 @@
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="25"/>
         <source>Create PPPoE Connection</source>
-        <translation>Створити PPPoE з&apos;єднання</translation>
+        <translation>Opret PPPoE-forbindelse</translation>
     </message>
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="38"/>
         <source>PPP</source>
-        <translation>Протокол PPP</translation>
+        <translation>PPP</translation>
     </message>
 </context>
 <context>
@@ -1338,32 +1338,32 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="31"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Annuller</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="32"/>
         <source>Confirm</source>
-        <translation>Підтвердити</translation>
+        <translation>Bekræft</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="34"/>
         <source>None</source>
-        <translation>Нічого</translation>
+        <translation>Ingen</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="35"/>
         <source>Manual</source>
-        <translation>Інструкція</translation>
+        <translation>Manuel</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="36"/>
         <source>Auto</source>
-        <translation>Автоматично</translation>
+        <translation>Automatisk</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="58"/>
         <source>Http Proxy</source>
-        <translation>HTTP-проксі</translation>
+        <translation>HTTP-proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="60"/>
@@ -1371,37 +1371,37 @@
         <location filename="../modules/network/proxypage.cpp" line="70"/>
         <location filename="../modules/network/proxypage.cpp" line="75"/>
         <source>Port</source>
-        <translation>Порт</translation>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="63"/>
         <source>Https Proxy</source>
-        <translation>HTTPS-проксі</translation>
+        <translation>HTTPS-proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
         <source>Ftp Proxy</source>
-        <translation>Проксі-сервер FTP</translation>
+        <translation>FTP-proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="73"/>
         <source>Socks Proxy</source>
-        <translation>Socks Proxy</translation>
+        <translation>Socks-proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="82"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>Ignorer proxy-konfigurationerne for værterne og domænerne ovenfor</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="85"/>
         <source>Configuration URL</source>
-        <translation>Конфігурація URL</translation>
+        <translation>Konfigurations-URL</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="143"/>
         <source>System Proxy</source>
-        <translation>Системний проксі-сервер</translation>
+        <translation>Systemproxy</translation>
     </message>
 </context>
 <context>
@@ -1409,12 +1409,12 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="27"/>
         <source>VPN Status</source>
-        <translation>Статус VPN</translation>
+        <translation>VPN-status</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="30"/>
         <source>Create VPN</source>
-        <translation>Створити VPN</translation>
+        <translation>Opret VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="48"/>
@@ -1444,7 +1444,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="194"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="197"/>
@@ -1454,7 +1454,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="222"/>
         <source>New VPN</source>
-        <translation>Новий VPN</translation>
+        <translation>Ny VPN</translation>
     </message>
 </context>
 <context>
@@ -1462,7 +1462,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="30"/>
         <source>Connect to hidden network</source>
-        <translation>Підключитися до прихованої мережі</translation>
+        <translation>Opret forbindelse til skjult netværk</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="48"/>
@@ -1475,7 +1475,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="58"/>
         <source> (Unsupported font)</source>
-        <translation>(Непідтримуваний шрифт)</translation>
+        <translation> (ikke-understøttet skrifttype)</translation>
     </message>
 </context>
 <context>
@@ -1483,12 +1483,12 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="20"/>
         <source>Standard Font</source>
-        <translation>Стандартний шрифт</translation>
+        <translation>Standardskrifttype</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="21"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Skifttype med fast bredde</translation>
     </message>
 </context>
 <context>
@@ -1496,7 +1496,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsizewidget.cpp" line="16"/>
         <source>Size</source>
-        <translation>Розмір</translation>
+        <translation>Størrelse</translation>
     </message>
 </context>
 <context>
@@ -1504,7 +1504,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="27"/>
         <source>Font</source>
-        <translation>Шрифт</translation>
+        <translation>Skrifttype</translation>
     </message>
 </context>
 <context>
@@ -1512,12 +1512,12 @@
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="85"/>
         <source>Standard Font</source>
-        <translation>Стандартний шрифт</translation>
+        <translation>Standardskrifttype</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="94"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Skifttype med fast bredde</translation>
     </message>
 </context>
 <context>
@@ -1525,17 +1525,17 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
         <source>Theme</source>
-        <translation>Тема</translation>
+        <translation>Tema</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="29"/>
         <source>Font</source>
-        <translation>Шрифт</translation>
+        <translation>Skrifttype</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="34"/>
         <source>Personalization</source>
-        <translation>Персоналізація</translation>
+        <translation>Personlig tilpasning</translation>
     </message>
 </context>
 <context>
@@ -1543,7 +1543,7 @@
     <message>
         <location filename="../modules/personalization/widget/themeitem.cpp" line="50"/>
         <source>Default</source>
-        <translation>Типово</translation>
+        <translation>Standard</translation>
     </message>
 </context>
 <context>
@@ -1551,22 +1551,22 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="15"/>
         <source>Window Theme</source>
-        <translation>Тема Вікна</translation>
+        <translation>Vinduestema</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="16"/>
         <source>Icon Theme</source>
-        <translation>Тема Значка</translation>
+        <translation>Ikontema</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="17"/>
         <source>Cursor Theme</source>
-        <translation>Тема Курсора</translation>
+        <translation>Markørtema</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="29"/>
         <source>Theme</source>
-        <translation>Тема</translation>
+        <translation>Tema</translation>
     </message>
 </context>
 <context>
@@ -1574,43 +1574,43 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="19"/>
         <source>Monitor will suspend after</source>
-        <translation>Монітор вимкнеться після</translation>
+        <translation>Skærmen vil gå i hvile om</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="20"/>
         <source>Computer will suspend after</source>
-        <translation>Комп&apos;ютер вимкнеться після</translation>
+        <translation>Computeren vil gå i hvile om</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="30"/>
         <location filename="../modules/power/powerwidget.cpp" line="113"/>
         <source>Never</source>
-        <translation>Ніколи</translation>
+        <translation>Aldrig</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="49"/>
         <source>Password required to wake up the monitor</source>
-        <translation>Щоб увімкнути монітор, необхідно ввести пароль</translation>
+        <translation>Der kræves adgangskode for at vække skærmen</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="52"/>
         <source>Password required to wake up the computer</source>
-        <translation>Щоб увімкнути комп&apos;ютер, необхідно ввести пароль</translation>
+        <translation>Der kræves adgangskode for at vække computeren</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="55"/>
         <source>Suspend on lid close</source>
-        <translation type="unfinished"/>
+        <translation>Gå i hvile når låget lukkes</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="62"/>
         <source>Power Management</source>
-        <translation>Керування живленням</translation>
+        <translation>Strømstyring</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="101"/>
         <source>1 Minute</source>
-        <translation>1 Хвилина</translation>
+        <translation>1 minut</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="103"/>
@@ -1619,12 +1619,12 @@
         <location filename="../modules/power/powerwidget.cpp" line="109"/>
         <location filename="../modules/power/powerwidget.cpp" line="115"/>
         <source>%1 Minutes</source>
-        <translation>%1 хвилин</translation>
+        <translation>%1 minutter</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="111"/>
         <source>1 Hour</source>
-        <translation>1 Година</translation>
+        <translation>1 time</translation>
     </message>
 </context>
 <context>
@@ -1632,17 +1632,17 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="21"/>
         <source>Output</source>
-        <translation>Вивід</translation>
+        <translation>Output</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="22"/>
         <source>Input</source>
-        <translation>Ввід</translation>
+        <translation>Input</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="24"/>
         <source>Advanced</source>
-        <translation>Додатково</translation>
+        <translation>Avanceret</translation>
     </message>
 </context>
 <context>
@@ -1650,47 +1650,47 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="25"/>
         <source>Output Volume</source>
-        <translation>Вихідна гучність</translation>
+        <translation>Lydstyrke (output)</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="26"/>
         <source>Left/Right Balance</source>
-        <translation>Баланс ліво/право</translation>
+        <translation>Venstre/højre-balance</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="29"/>
         <source>Input Volume</source>
-        <translation>Вхідна гучність</translation>
+        <translation>Lydstyrke (input)</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="30"/>
         <source>Feedback Volume</source>
-        <translation>Звук відгуку</translation>
+        <translation>Lydstyrke (feedback)</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="38"/>
         <source>Sound</source>
-        <translation>Звук</translation>
+        <translation>Lyd</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="40"/>
         <source>Speaker</source>
-        <translation>Динамік</translation>
+        <translation>Højttaler</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="59"/>
         <source>Microphone</source>
-        <translation>Мікрофон</translation>
+        <translation>Mikrofon</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="76"/>
         <source>Advanced</source>
-        <translation>Додаткове</translation>
+        <translation>Avanceret</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="79"/>
         <source>Sound Effects</source>
-        <translation>Звукові ефекти</translation>
+        <translation>Lydeffekter</translation>
     </message>
 </context>
 <context>
@@ -1698,22 +1698,22 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="33"/>
         <source>Updating...</source>
-        <translation>Оновлення...</translation>
+        <translation>Opdaterer...</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="44"/>
         <source>Startup Delay</source>
-        <translation>Затримка Запуску</translation>
+        <translation>Opstartsforsinkelse</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="47"/>
         <source>Theme</source>
-        <translation>Тема</translation>
+        <translation>Tema</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="49"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation type="unfinished"/>
+        <translation>Boot-aftrykket kan erstattes ved at trække et hen på det, og boot-rækkefølgen kan ændres ved at trække den fremhævede</translation>
     </message>
 </context>
 <context>
@@ -1721,7 +1721,7 @@
     <message>
         <location filename="../modules/systeminfo/copyrightwidget.cpp" line="37"/>
         <source>License</source>
-        <translation>Ліцензія</translation>
+        <translation>Licens</translation>
     </message>
 </context>
 <context>
@@ -1729,22 +1729,22 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="19"/>
         <source>System Information</source>
-        <translation>Інформація про систему</translation>
+        <translation>Systeminformation</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="26"/>
         <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Ophavsret © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="29"/>
         <source>Distribution:</source>
-        <translation>Розповсюдження:</translation>
+        <translation>Distribution:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="34"/>
         <source>Distribution Release:</source>
-        <translation>Розповсюдження Релізу: </translation>
+        <translation>Distributionsudgivelse:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
@@ -1754,37 +1754,37 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Type:</source>
-        <translation>Тип:</translation>
+        <translation>Type:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="118"/>
         <source>%1Bit</source>
-        <translation>%1Біт</translation>
+        <translation>%1Bit</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="46"/>
         <source>Processor:</source>
-        <translation>Процесор:</translation>
+        <translation>Processor:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="50"/>
         <source>Memory:</source>
-        <translation>Пам’ять:</translation>
+        <translation>Hukommelse:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="54"/>
         <source>Disk:</source>
-        <translation>Диск:</translation>
+        <translation>Disk:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
         <source>License</source>
-        <translation>Ліцензія</translation>
+        <translation>Licens</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Startup Menu</source>
-        <translation>Початкове Меню</translation>
+        <translation>Opstartsmenu</translation>
     </message>
 </context>
 <context>
@@ -1793,25 +1793,25 @@
         <location filename="../modules/update/mirroritem.cpp" line="53"/>
         <location filename="../modules/update/mirroritem.cpp" line="91"/>
         <source>Timeout</source>
-        <translation>Час вийшов</translation>
+        <translation>Timeout</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="55"/>
         <location filename="../modules/update/mirroritem.cpp" line="91"/>
         <source>Slow</source>
-        <translation>Повільно</translation>
+        <translation>Langsom</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="57"/>
         <location filename="../modules/update/mirroritem.cpp" line="91"/>
         <source>Medium</source>
-        <translation>Помірно</translation>
+        <translation>Medium</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="59"/>
         <location filename="../modules/update/mirroritem.cpp" line="91"/>
         <source>Fast</source>
-        <translation>Швидко</translation>
+        <translation>Hurtig</translation>
     </message>
 </context>
 <context>
@@ -1819,12 +1819,12 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="19"/>
         <source>Switch Mirror</source>
-        <translation>Змінити Монітор</translation>
+        <translation>Skift spejlserver</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="22"/>
         <source>Checking speed, please wait</source>
-        <translation>Перевірка швидкості, будь ласка зачекайте</translation>
+        <translation>Tjekker hastighed, vent venligst</translation>
     </message>
 </context>
 <context>
@@ -1832,64 +1832,64 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="25"/>
         <source>Update</source>
-        <translation>Оновити</translation>
+        <translation>Opdatering</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="113"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Перевірка оновлень, будь ласка зачекайте...</translation>
+        <translation>Søger efter opdateringer, vent venligst...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="119"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download Updates</source>
-        <translation>Завантажити Оновлення</translation>
+        <translation>Download opdateringer</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>%1 downloaded (Click to pause)</source>
-        <translation>%1 завантажено(Клік для паузи)</translation>
+        <translation>%1 downloadet (klik for pause)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="133"/>
         <source>%1 downloaded (Click to continue)</source>
-        <translation>%1 завантажено(Клік для продовження)</translation>
+        <translation>%1 downloadet (klik for at fortsætte)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="140"/>
         <source>Restart to install updates</source>
-        <translation>Перезавантажте для встановлення оновлень</translation>
+        <translation>Genstart for at installere opdateringer</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="141"/>
         <source>Download completed</source>
-        <translation>Завантаження завершено</translation>
+        <translation>Download fuldført</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="148"/>
         <source>Your system is up to date</source>
-        <translation>Ваша система оновлена</translation>
+        <translation>Dit system er up-to-date</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
         <source>New system edition and %1 application updates detected</source>
-        <translation>Нова версія системи і %1 додатків оновлень знайдено</translation>
+        <translation>Ny systemudgave og %1 programopdateringer registreret</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
         <source>Update size: %1</source>
-        <translation>Розмір оновлення: %1</translation>
+        <translation>Opdateringsstørrelse: %1</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>Рівень заряду менше 50%, будь ласка підключіть зарядний пристрій для продовження</translation>
+        <translation>Dit batteri er under 50%, sæt venligst strømstikket i for at fortsætte</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"/>
+        <translation>Sørg venligst for tilstrækkeligt med strøm til genstart, og sluk ikke eller tag ikke strømstikket ud af din maskine</translation>
     </message>
 </context>
 <context>
@@ -1897,7 +1897,7 @@
     <message>
         <location filename="../modules/update/updateitem.cpp" line="40"/>
         <source>Details</source>
-        <translation>Деталі</translation>
+        <translation>Detaljer</translation>
     </message>
 </context>
 <context>
@@ -1905,22 +1905,22 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="17"/>
         <source>Update Settings</source>
-        <translation>Налаштування Оновлення</translation>
+        <translation>Opdateringsindstillinger</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="30"/>
         <source>Auto-download Updates</source>
-        <translation>Авто-завантаження Оновлень</translation>
+        <translation>Automatisk download af opdateringer</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="32"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation>Оновлення будуть автоматично завантаженні при підключенні до бездротової або провідної мережі</translation>
+        <translation>Opdateringer vil automatisk blive downloadet i trådløst og kablet netværk</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="37"/>
         <source>Switch Mirror</source>
-        <translation>Змінити Монітор</translation>
+        <translation>Skift spejlserver</translation>
     </message>
 </context>
 <context>
@@ -1929,12 +1929,12 @@
         <location filename="../modules/update/updateview.cpp" line="15"/>
         <location filename="../modules/update/updateview.cpp" line="27"/>
         <source>Update</source>
-        <translation>Оновити</translation>
+        <translation>Opdatering</translation>
     </message>
     <message>
         <location filename="../modules/update/updateview.cpp" line="20"/>
         <source>Update Settings</source>
-        <translation>Налаштування Оновлення</translation>
+        <translation>Opdateringsindstillinger</translation>
     </message>
 </context>
 <context>
@@ -1942,12 +1942,12 @@
     <message>
         <location filename="../modules/update/updatework.cpp" line="352"/>
         <source>Patches</source>
-        <translation>Виправлення</translation>
+        <translation>Rettelser</translation>
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="354"/>
         <source>System patches.</source>
-        <translation>Системні Виправлення</translation>
+        <translation>Systemrettelser.</translation>
     </message>
 </context>
 <context>
@@ -1955,17 +1955,17 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="19"/>
         <source>Pressure Sensitive</source>
-        <translation type="unfinished"/>
+        <translation>Trykfølsom</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>
         <source>light</source>
-        <translation>Світло</translation>
+        <translation>let</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>
         <source>heavy</source>
-        <translation type="unfinished"/>
+        <translation>tung</translation>
     </message>
 </context>
 <context>
@@ -1981,7 +1981,7 @@
     <message>
         <location filename="../widgets/searchinput.cpp" line="14"/>
         <source>Search</source>
-        <translation>Пошук</translation>
+        <translation>Søg</translation>
     </message>
 </context>
 <context>
@@ -1989,12 +1989,12 @@
     <message>
         <location filename="../widgets/settingshead.cpp" line="24"/>
         <source>Edit</source>
-        <translation>Редагувати</translation>
+        <translation>Rediger</translation>
     </message>
     <message>
         <location filename="../widgets/settingshead.cpp" line="27"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Annuller</translation>
     </message>
 </context>
 </TS>

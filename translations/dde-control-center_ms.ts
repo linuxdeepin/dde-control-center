@@ -1,13 +1,21 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="ms" version="2.1">
 <context>
+    <name>BluetoothDelegate</name>
+    <message>
+        <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="70"/>
+        <source>Refresh</source>
+        <translation>Segar Semula</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothListModel</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="66"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="70"/>
         <source>Connect to other devices</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="98"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="104"/>
         <source>Click icon to enable bluetooth</source>
         <translation type="unfinished"/>
     </message>
@@ -15,42 +23,37 @@
 <context>
     <name>DisplayControlModel</name>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="59"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="64"/>
         <source>Copy</source>
         <translation>Salin</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="61"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="66"/>
         <source>Extend</source>
         <translation>Lanjut</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="63"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="68"/>
         <source>Only Displayed on %1</source>
         <translation>Hanya Dipapar pada %1</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="65"/>
-        <source>My Settings</source>
-        <translation>Tetapan Saya</translation>
-    </message>
-    <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="71"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
         <source>Copy the screen contents to one or more screens</source>
         <translation>Salin kandungan skrin ke satu atau lebih skrin</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="73"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="79"/>
         <source>Extend the screen contents to display different contents on different screens</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="75"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
         <source>Screen contents are only displayed on %1</source>
         <translation>Kandungan skrin hanya dipapar pada %1</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
         <translation type="unfinished"/>
     </message>
@@ -58,12 +61,12 @@
 <context>
     <name>NotifyManager</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="23"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="46"/>
         <source>Clear all</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="90"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="115"/>
         <source>No system notifications</source>
         <translation>Tiada pemberitahuan sistem</translation>
     </message>
@@ -79,7 +82,12 @@
 <context>
     <name>SetLocationPage</name>
     <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="86"/>
+        <location filename="../plugins/weather/setlocationpage.cpp" line="31"/>
+        <source>No search results</source>
+        <translation>Tiada keputusan gelintar</translation>
+    </message>
+    <message>
+        <location filename="../plugins/weather/setlocationpage.cpp" line="117"/>
         <source>Current City: %1</source>
         <translation type="unfinished"/>
     </message>
@@ -87,14 +95,27 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="51"/>
+        <location filename="../frame/settingswidget.cpp" line="46"/>
         <source>Reset all settings</source>
         <translation>Tetap semula semua tetapan</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="112"/>
+        <location filename="../frame/settingswidget.cpp" line="107"/>
         <source>All Settings</source>
         <translation>Semua Tetapan</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateNotifier</name>
+    <message>
+        <location filename="../frame/updatenotifier.cpp" line="12"/>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../frame/updatenotifier.cpp" line="13"/>
+        <source>Updates detected, click to view</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -108,17 +129,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="78"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="76"/>
         <source>Sorry, unable to get weather!</source>
         <translation>Maaf, gagal mendapatkan maklumat cuaca!</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="82"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="83"/>
         <source>Loading weather...</source>
         <translation>Memuatkan cuaca...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="142"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="144"/>
         <source>Just updated</source>
         <translation>Baru dikemaskini</translation>
     </message>
@@ -126,17 +147,17 @@
 <context>
     <name>WifiListModel</name>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
         <source>Connect to hidden network</source>
         <translation>Sambung ke rangkaian tersembunyi</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="90"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="92"/>
         <source>Click icon to enable WIFI</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="180"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="182"/>
         <source>Wireless Card %1</source>
         <translation>Kad Tanpa Wayar %1</translation>
     </message>
@@ -225,17 +246,17 @@
         <translation>Ulang kata laluan</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="68"/>
+        <location filename="../modules/accounts/createpage.cpp" line="69"/>
         <source>New Account</source>
         <translation>Akaun Baharu</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="123"/>
+        <location filename="../modules/accounts/createpage.cpp" line="124"/>
         <source>Username can&apos;t be empty.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="126"/>
+        <location filename="../modules/accounts/createpage.cpp" line="127"/>
         <source>Password can&apos;t be empty.</source>
         <translation>Kata laluan tidak boleh kosong.</translation>
     </message>
@@ -255,8 +276,8 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="27"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="28"/>
-        <source>Rquired</source>
-        <translation type="unfinished"/>
+        <source>Required</source>
+        <translation>Diperlukan</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="32"/>
@@ -269,7 +290,7 @@
         <translation>Terima</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>Password</source>
         <translation>Kata Laluan</translation>
     </message>
@@ -278,8 +299,8 @@
     <name>dcc::accounts::RemoveUserDialog</name>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
-        <source>Are you sure to delete %1?</source>
-        <translation>Anda pasti mahu memadam %1?</translation>
+        <source>Administrator permission required to delete account</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
@@ -339,12 +360,12 @@
 <context>
     <name>dcc::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="107"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="108"/>
         <source>Connected</source>
         <translation>Bersambung</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="112"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="113"/>
         <source>Not connected</source>
         <translation type="unfinished"/>
     </message>
@@ -524,53 +545,23 @@
         <source>Terminal</source>
         <translation>Terminal</translation>
     </message>
-    <message>
-        <location filename="../modules/defapp/defappviewer.cpp" line="37"/>
-        <source>CD Audio</source>
-        <translation>Audio CD</translation>
-    </message>
-    <message>
-        <location filename="../modules/defapp/defappviewer.cpp" line="39"/>
-        <source>DVD Video</source>
-        <translation>Video DVD</translation>
-    </message>
-    <message>
-        <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <source>Music Player</source>
-        <translation>Pemain Muzik</translation>
-    </message>
-    <message>
-        <location filename="../modules/defapp/defappviewer.cpp" line="43"/>
-        <source>Camera</source>
-        <translation>Kamera</translation>
-    </message>
-    <message>
-        <location filename="../modules/defapp/defappviewer.cpp" line="45"/>
-        <source>Software</source>
-        <translation>Perisian</translation>
-    </message>
-    <message>
-        <location filename="../modules/defapp/defappviewer.cpp" line="50"/>
-        <source>Autoplay</source>
-        <translation>Automain</translation>
-    </message>
 </context>
 <context>
     <name>dcc::defapp::DefCategoryAddWidget</name>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="24"/>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="19"/>
         <source>Add</source>
         <translation>Tambah</translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="82"/>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="40"/>
         <source>Open Desktop file</source>
         <translation>Buka fail Desktop</translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="83"/>
-        <source>All Files(*)</source>
-        <translation>Semua Fail(*)</translation>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
+        <source>All Files (*)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -585,42 +576,68 @@
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="25"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="26"/>
         <source>Brightness</source>
         <translation>Kecerahan</translation>
     </message>
 </context>
 <context>
+    <name>dcc::display::CustomConfigPage</name>
+    <message>
+        <location filename="../modules/display/customconfigpage.cpp" line="18"/>
+        <source>Modify</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/display/customconfigpage.cpp" line="20"/>
+        <source>Delete</source>
+        <translation>Padam</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/customconfigpage.cpp" line="23"/>
+        <source>Please switch to current mode before modifying the settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/display/customconfigpage.cpp" line="25"/>
+        <source>Please switch to another mode before deleting the settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="22"/>
+        <location filename="../modules/display/displaywidget.cpp" line="24"/>
         <source>Rotate</source>
         <translation>Putar</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="23"/>
-        <source>Custom</source>
-        <translation>Suai</translation>
+        <location filename="../modules/display/displaywidget.cpp" line="25"/>
+        <source>New custom settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="25"/>
+        <location filename="../modules/display/displaywidget.cpp" line="27"/>
         <source>Resolution</source>
         <translation>Resolusi</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="26"/>
+        <location filename="../modules/display/displaywidget.cpp" line="28"/>
         <source>Brightness</source>
         <translation>Kecerahan</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="27"/>
-        <source>My Settings</source>
-        <translation>Tetapan Saya</translation>
-    </message>
-    <message>
-        <location filename="../modules/display/displaywidget.cpp" line="44"/>
+        <location filename="../modules/display/displaywidget.cpp" line="47"/>
         <source>Display</source>
         <translation>Paparan</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::display::DisplayWorker</name>
+    <message>
+        <location filename="../modules/display/displayworker.cpp" line="113"/>
+        <source>My Settings %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -677,7 +694,7 @@
         <translation>Resolusi</translation>
     </message>
     <message>
-        <location filename="../modules/display/resolutiondetailpage.cpp" line="48"/>
+        <location filename="../modules/display/resolutiondetailpage.cpp" line="55"/>
         <source> (Recommended)</source>
         <translation>(Disarankan)</translation>
     </message>
@@ -690,57 +707,57 @@
         <translation>Pintasan</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="34"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="35"/>
         <source>Name</source>
         <translation>Nama</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="37"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="38"/>
         <source>Command</source>
         <translation>Perintah</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="38"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="39"/>
         <source>Required</source>
         <translation>Diperlukan</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="44"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="45"/>
         <source>Shortcut</source>
         <translation>Pintasan</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="52"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="53"/>
         <source>Please Grab Shortcut Again</source>
         <translation>Sila Dapatkan Pintasan Sekali Lagi</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="67"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="68"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="69"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="70"/>
         <source>Add</source>
         <translation>Tambah</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="93"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="94"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Pintasan ini berkonflik dengan %1, klik untuk Tambah supaya pintasan ini berkesan serta-merta</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="125"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="126"/>
         <source>null</source>
         <translation>nol</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="162"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
         <source>Choose File</source>
         <translation>Pilih Fail</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="162"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
         <source>/usr/bin</source>
         <translation>/usr/bin</translation>
     </message>
@@ -748,45 +765,74 @@
 <context>
     <name>dcc::keyboard::CustomEdit</name>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="25"/>
-        <location filename="../modules/keyboard/customedit.cpp" line="72"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="30"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="79"/>
         <source>Shortcuts</source>
         <translation>Pintasan</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="35"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="40"/>
         <source>Required</source>
         <translation>Diperlukan</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="44"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="49"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="45"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="50"/>
         <source>Save</source>
         <translation>Simpan</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="74"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="83"/>
         <source>Name</source>
         <translation>Nama</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="75"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="84"/>
         <source>Command</source>
         <translation>Perintah</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="94"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="104"/>
+        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
+        <translation>Pintasan ini berkonflik dengan %1, klik untuk Tambah supaya pintasan ini berkesan serta-merta</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customedit.cpp" line="116"/>
         <source>Choose File</source>
         <translation>Pilih Fail</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="94"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="116"/>
         <source>/usr/bin</source>
         <translation>/usr/bin</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customedit.cpp" line="125"/>
+        <source>null</source>
+        <translation>nol</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::keyboard::CustomEditItem</name>
+    <message>
+        <location filename="../modules/keyboard/customedititem.cpp" line="78"/>
+        <source>None</source>
+        <translation>Tiada</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customedititem.cpp" line="120"/>
+        <location filename="../modules/keyboard/customedititem.cpp" line="151"/>
+        <source>Conflict</source>
+        <translation>Berkonflik</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customedititem.cpp" line="180"/>
+        <source>Please enter a new shortcut</source>
+        <translation>Sila masukkan pintasan baharu</translation>
     </message>
 </context>
 <context>
@@ -798,7 +844,7 @@
         <translation>Bentangan Papan Kekunci</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboarddetails.cpp" line="32"/>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="33"/>
         <source>Add Keyboard Layout</source>
         <translation>Tambah Bentangan Papan Kekunci</translation>
     </message>
@@ -806,7 +852,7 @@
 <context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
-        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="23"/>
+        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="24"/>
         <source>Add Keyboard Layout</source>
         <translation>Tambah Bentangan Papan Kekunci</translation>
     </message>
@@ -884,8 +930,9 @@
     <message>
         <location filename="../modules/keyboard/keyboardwork.cpp" line="168"/>
         <location filename="../modules/keyboard/keyboardwork.cpp" line="180"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="204"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="341"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="198"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="207"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="344"/>
         <source>None</source>
         <translation>Tiada</translation>
     </message>
@@ -901,27 +948,27 @@
 <context>
     <name>dcc::keyboard::ShortcutContent</name>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="25"/>
-        <source>Please Grab Shortcut Again</source>
-        <translation>Sila Dapatkan Pintasan Sekali Lagi</translation>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
+        <source>Please Reset Shortcut</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="34"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="36"/>
         <source>Replace</source>
         <translation>Ganti</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="59"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
         <translation>Pintasan ini berkonflik dengan %1, klik untuk Ganti supaya pintasan ini berkesan serta-merta</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="97"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="98"/>
         <source>null</source>
         <translation>nol</translation>
     </message>
@@ -929,13 +976,13 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="169"/>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="200"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="173"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="204"/>
         <source>Conflict</source>
         <translation>Berkonflik</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="229"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="233"/>
         <source>Please enter a new shortcut</source>
         <translation>Sila masukkan pintasan baharu</translation>
     </message>
@@ -970,12 +1017,12 @@
         <translation>Ruang Kerja</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="51"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="52"/>
         <source>Add Custom Shortcut</source>
         <translation>Tambah Pintasan Suai</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="61"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="62"/>
         <source>Shortcuts</source>
         <translation>Pintasan</translation>
     </message>
@@ -1123,8 +1170,8 @@
         <translation>Simpan</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="198"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="309"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="308"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="389"/>
         <source>Required</source>
         <translation>Diperlukan</translation>
     </message>
@@ -1137,37 +1184,37 @@
         <translation>Perincian Rangkaian</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="70"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="72"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="79"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="81"/>
         <source>IPv4 Address</source>
         <translation>Alamat IPv4</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="84"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="86"/>
         <source>Gateway</source>
         <translation>Get Laluan</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="89"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="91"/>
         <source>Primary DNS</source>
         <translation>DNS Utama</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="94"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="96"/>
         <source>Netmask</source>
         <translation>Topeng Rangkaian</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="102"/>
         <source>Interface</source>
         <translation>Antaramuka</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="105"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="107"/>
         <source>Speed</source>
         <translation>Kelajuan</translation>
     </message>
@@ -1186,8 +1233,8 @@
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
-        <source>Authing</source>
-        <translation>Disahihkan</translation>
+        <source>Authenticating</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1281,7 +1328,7 @@
         <translation>Cipta Sambungan PPPoE</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="37"/>
+        <location filename="../modules/network/pppoepage.cpp" line="38"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1352,7 +1399,7 @@
         <translation>Konfigurasi URL</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="142"/>
+        <location filename="../modules/network/proxypage.cpp" line="143"/>
         <source>System Proxy</source>
         <translation>Proksi Sistem</translation>
     </message>
@@ -1370,42 +1417,42 @@
         <translation>Cipta VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="46"/>
+        <location filename="../modules/network/vpnpage.cpp" line="48"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="180"/>
+        <location filename="../modules/network/vpnpage.cpp" line="182"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="183"/>
+        <location filename="../modules/network/vpnpage.cpp" line="185"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="186"/>
+        <location filename="../modules/network/vpnpage.cpp" line="188"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="189"/>
+        <location filename="../modules/network/vpnpage.cpp" line="191"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="192"/>
+        <location filename="../modules/network/vpnpage.cpp" line="194"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="195"/>
+        <location filename="../modules/network/vpnpage.cpp" line="197"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="213"/>
+        <location filename="../modules/network/vpnpage.cpp" line="222"/>
         <source>New VPN</source>
         <translation>VPN baharu</translation>
     </message>
@@ -1418,7 +1465,7 @@
         <translation>Sambung ke rangkaian tersembunyi</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="47"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="48"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -1426,7 +1473,7 @@
 <context>
     <name>dcc::personalization::FontListWidget</name>
     <message>
-        <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="57"/>
+        <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="58"/>
         <source> (Unsupported font)</source>
         <translation>(Fon tidak disokong)</translation>
     </message>
@@ -1455,7 +1502,7 @@
 <context>
     <name>dcc::personalization::FontsWidget</name>
     <message>
-        <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="25"/>
+        <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="27"/>
         <source>Font</source>
         <translation>Fon</translation>
     </message>
@@ -1492,11 +1539,11 @@
     </message>
 </context>
 <context>
-    <name>dcc::personalization::Theme</name>
+    <name>dcc::personalization::ThemeItem</name>
     <message>
-        <location filename="../modules/personalization/module/themewidget/theme.cpp" line="55"/>
-        <source> (Default)</source>
-        <translation>(Lalai)</translation>
+        <location filename="../modules/personalization/widget/themeitem.cpp" line="50"/>
+        <source>Default</source>
+        <translation>Lalai</translation>
     </message>
 </context>
 <context>
@@ -1517,7 +1564,7 @@
         <translation>Tema Kursor</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="27"/>
+        <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="29"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
@@ -1672,7 +1719,7 @@
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
-        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="36"/>
+        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="37"/>
         <source>License</source>
         <translation>Lesen</translation>
     </message>
@@ -1695,47 +1742,47 @@
         <translation>Distribusi:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="33"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="34"/>
         <source>Distribution Release:</source>
         <translation>Keluaran Distribusi:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="37"/>
-        <source>Edition:</source>
-        <translation>Edisi:</translation>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
+        <source>Edition License:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="41"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Type:</source>
         <translation>Jenis:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="116"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="118"/>
         <source>%1Bit</source>
         <translation>%1Bit</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="44"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="46"/>
         <source>Processor:</source>
         <translation>Pemproses:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="48"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="50"/>
         <source>Memory:</source>
         <translation>Ingatan:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="52"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="54"/>
         <source>Disk:</source>
         <translation>Cakera:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="65"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
         <source>License</source>
         <translation>Lesen</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="68"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Startup Menu</source>
         <translation>Menu Permulaan</translation>
     </message>
@@ -1788,59 +1835,59 @@
         <translation>Kemaskini</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="112"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="113"/>
         <source>Checking for updates, please wait...</source>
         <translation>Memeriksa kemaskini, tunggu sebentar...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="118"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="169"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="119"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download Updates</source>
         <translation>Muat Turun Kemaskini</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="126"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="177"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 dikemaskinikan (Klik untuk dijeda)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="132"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="133"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>%1 dikemaskinikan (Klik untuk teruskan)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="139"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="140"/>
         <source>Restart to install updates</source>
         <translation>Mula semula untuk memasang kemaskini</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="140"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="141"/>
         <source>Download completed</source>
         <translation>Muat turun selesai</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="147"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="148"/>
         <source>Your system is up to date</source>
         <translation>Sistem anda sudah dikemaskinikan</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
         <source>New system edition and %1 application updates detected</source>
         <translation>Edisi sistem baharu dan %1 kemaskini aplikasi dikesan</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
         <source>Update size: %1</source>
         <translation>Saiz kemaskini: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="185"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Kuasa bateri anda lebih rendah dari 50%, sila palamkan untuk diteruskan</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="187"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Sila pastikan kuasa mencukupi untuk memulakan semula, dan matikan atau tanggalkan pemalam kuasa komputer anda.</translation>
     </message>
@@ -1861,17 +1908,17 @@
         <translation>Tetapan Kemaskini</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="29"/>
+        <location filename="../modules/update/updatesettings.cpp" line="30"/>
         <source>Auto-download Updates</source>
         <translation>Auto-muat turun Kemaskini</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="31"/>
+        <location filename="../modules/update/updatesettings.cpp" line="32"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>Kemaskini akan diauto-muat turun dengan rangkaian tanpa wayar atau berwayar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="36"/>
+        <location filename="../modules/update/updatesettings.cpp" line="37"/>
         <source>Switch Mirror</source>
         <translation>Tukar Cermin</translation>
     </message>

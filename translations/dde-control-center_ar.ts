@@ -1,56 +1,59 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="ar" version="2.1">
 <context>
+    <name>BluetoothDelegate</name>
+    <message>
+        <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="70"/>
+        <source>Refresh</source>
+        <translation>تحديث</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothListModel</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="66"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="70"/>
         <source>Connect to other devices</source>
-        <translation type="unfinished"/>
+        <translation>الإتصال بالأجهزة الأخرى</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="98"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="104"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>انقر الأيقونة لتمكين بلوتوث</translation>
     </message>
 </context>
 <context>
     <name>DisplayControlModel</name>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="59"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="64"/>
         <source>Copy</source>
         <translation>نسخ</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="61"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="66"/>
         <source>Extend</source>
         <translation>تمديد</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="63"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="68"/>
         <source>Only Displayed on %1</source>
         <translation>تعرض فقط على %1 </translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="65"/>
-        <source>My Settings</source>
-        <translation>إعداداتي</translation>
-    </message>
-    <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="71"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
         <source>Copy the screen contents to one or more screens</source>
         <translation>نسخ محتويات الشاشة إلى شاشة واحدة أو أكثر</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="73"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="79"/>
         <source>Extend the screen contents to display different contents on different screens</source>
         <translation>تمديد محتويات الشاشة لعرض محتويات مختلفة على شاشات مختلفة</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="75"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
         <source>Screen contents are only displayed on %1</source>
         <translation>يتم عرض محتويات الشاشة فقط على %1</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
         <translation>الرجاء الدخول إلى وضع العرض لتحديد ما إذا كنت ترغب في تغيير الإعدادات المخصصة</translation>
     </message>
@@ -58,12 +61,12 @@
 <context>
     <name>NotifyManager</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="23"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="46"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>امسح الكل</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="90"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="115"/>
         <source>No system notifications</source>
         <translation>لا يوجد نظام تنبيه</translation>
     </message>
@@ -79,22 +82,40 @@
 <context>
     <name>SetLocationPage</name>
     <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="86"/>
+        <location filename="../plugins/weather/setlocationpage.cpp" line="31"/>
+        <source>No search results</source>
+        <translation>لا توجد نتائج للبحث</translation>
+    </message>
+    <message>
+        <location filename="../plugins/weather/setlocationpage.cpp" line="117"/>
         <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>المدينة الحالية: %1</translation>
     </message>
 </context>
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="51"/>
+        <location filename="../frame/settingswidget.cpp" line="46"/>
         <source>Reset all settings</source>
         <translation>إعادة ضبط كل الإعدادات</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="112"/>
+        <location filename="../frame/settingswidget.cpp" line="107"/>
         <source>All Settings</source>
         <translation>كل الإعدادات</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateNotifier</name>
+    <message>
+        <location filename="../frame/updatenotifier.cpp" line="12"/>
+        <source>Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../frame/updatenotifier.cpp" line="13"/>
+        <source>Updates detected, click to view</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -102,23 +123,23 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="47"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>انقر الأيقونة لتمكين VPN</translation>
     </message>
 </context>
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="78"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="76"/>
         <source>Sorry, unable to get weather!</source>
         <translation>عذرا، غير قادر على الحصول على الطقس!</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="82"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="83"/>
         <source>Loading weather...</source>
         <translation>تحميل الطقس...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="142"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="144"/>
         <source>Just updated</source>
         <translation>حدثت للتو</translation>
     </message>
@@ -126,17 +147,17 @@
 <context>
     <name>WifiListModel</name>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
         <source>Connect to hidden network</source>
         <translation>الإتصال بشبكة مخفية</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="90"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="92"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>انقر الأيقونة لتمكين الواي فاي</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="180"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="182"/>
         <source>Wireless Card %1</source>
         <translation>البطاقة اللاسلكية %1</translation>
     </message>
@@ -182,7 +203,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="81"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>صور</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="230"/>
@@ -225,17 +246,17 @@
         <translation>كرر كلمة المرور</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="68"/>
+        <location filename="../modules/accounts/createpage.cpp" line="69"/>
         <source>New Account</source>
         <translation>حساب جديد</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="123"/>
+        <location filename="../modules/accounts/createpage.cpp" line="124"/>
         <source>Username can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>اسم المستخدم لا يمكن أن يكون فارغا.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="126"/>
+        <location filename="../modules/accounts/createpage.cpp" line="127"/>
         <source>Password can&apos;t be empty.</source>
         <translation>كلمة المرور لا يمكن أن تكون فارغة.</translation>
     </message>
@@ -255,8 +276,8 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="27"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="28"/>
-        <source>Rquired</source>
-        <translation type="unfinished"/>
+        <source>Required</source>
+        <translation>مطلوب</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="32"/>
@@ -269,7 +290,7 @@
         <translation>قبول</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>Password</source>
         <translation>كلمة المرور</translation>
     </message>
@@ -278,8 +299,8 @@
     <name>dcc::accounts::RemoveUserDialog</name>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
-        <source>Are you sure to delete %1?</source>
-        <translation>هل أنت متأكد من حذف %1 ؟</translation>
+        <source>Administrator permission required to delete account</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
@@ -320,7 +341,7 @@
     <message>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="91"/>
         <source>Bluetooth</source>
-        <translation>البلوتوث</translation>
+        <translation>بلوتوث</translation>
     </message>
 </context>
 <context>
@@ -339,14 +360,14 @@
 <context>
     <name>dcc::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="107"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="108"/>
         <source>Connected</source>
         <translation>متصل</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="112"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="113"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>غير متصل</translation>
     </message>
 </context>
 <context>
@@ -413,7 +434,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="23"/>
         <source>Add Timezone</source>
-        <translation>إضافة توقيت منطقة</translation>
+        <translation>إضافة المنطقة الزمنية</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="29"/>
@@ -441,7 +462,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="46"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>تغيير المنطقة الزمنية</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="47"/>
@@ -487,12 +508,12 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="16"/>
         <source>Default Applications</source>
-        <translation>تطبيقات افتراضية</translation>
+        <translation>التطبيقات الافتراضية</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="30"/>
         <source>Browser</source>
-        <translation>المتصفح</translation>
+        <translation>متصفح</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="31"/>
@@ -502,12 +523,12 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="32"/>
         <source>Text</source>
-        <translation>نصوص</translation>
+        <translation>نص</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="33"/>
         <source>Music</source>
-        <translation>الصوتيات</translation>
+        <translation>موسيقى</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="34"/>
@@ -517,60 +538,30 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="35"/>
         <source>Picture</source>
-        <translation>صور</translation>
+        <translation>صورة</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="36"/>
         <source>Terminal</source>
         <translation>الطرفية</translation>
     </message>
-    <message>
-        <location filename="../modules/defapp/defappviewer.cpp" line="37"/>
-        <source>CD Audio</source>
-        <translation>قرص صوتي</translation>
-    </message>
-    <message>
-        <location filename="../modules/defapp/defappviewer.cpp" line="39"/>
-        <source>DVD Video</source>
-        <translation>قرص فيديو</translation>
-    </message>
-    <message>
-        <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <source>Music Player</source>
-        <translation>مشغل الصوتيات</translation>
-    </message>
-    <message>
-        <location filename="../modules/defapp/defappviewer.cpp" line="43"/>
-        <source>Camera</source>
-        <translation>كاميرا</translation>
-    </message>
-    <message>
-        <location filename="../modules/defapp/defappviewer.cpp" line="45"/>
-        <source>Software</source>
-        <translation>برمجيات</translation>
-    </message>
-    <message>
-        <location filename="../modules/defapp/defappviewer.cpp" line="50"/>
-        <source>Autoplay</source>
-        <translation>تشغيل تلقائي</translation>
-    </message>
 </context>
 <context>
     <name>dcc::defapp::DefCategoryAddWidget</name>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="24"/>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="19"/>
         <source>Add</source>
         <translation>إضافة</translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="82"/>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="40"/>
         <source>Open Desktop file</source>
         <translation>فتح ملف سطح المكتب</translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="83"/>
-        <source>All Files(*)</source>
-        <translation>كل الملفات(*)</translation>
+        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
+        <source>All Files (*)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -585,42 +576,68 @@
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="25"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="26"/>
         <source>Brightness</source>
         <translation>السطوع</translation>
     </message>
 </context>
 <context>
+    <name>dcc::display::CustomConfigPage</name>
+    <message>
+        <location filename="../modules/display/customconfigpage.cpp" line="18"/>
+        <source>Modify</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/display/customconfigpage.cpp" line="20"/>
+        <source>Delete</source>
+        <translation>حذف</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/customconfigpage.cpp" line="23"/>
+        <source>Please switch to current mode before modifying the settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/display/customconfigpage.cpp" line="25"/>
+        <source>Please switch to another mode before deleting the settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="22"/>
+        <location filename="../modules/display/displaywidget.cpp" line="24"/>
         <source>Rotate</source>
         <translation>أدر</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="23"/>
-        <source>Custom</source>
-        <translation>مخصص</translation>
+        <location filename="../modules/display/displaywidget.cpp" line="25"/>
+        <source>New custom settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="25"/>
+        <location filename="../modules/display/displaywidget.cpp" line="27"/>
         <source>Resolution</source>
         <translation>الدقة</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="26"/>
+        <location filename="../modules/display/displaywidget.cpp" line="28"/>
         <source>Brightness</source>
         <translation>السطوع</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="27"/>
-        <source>My Settings</source>
-        <translation>إعداداتي</translation>
-    </message>
-    <message>
-        <location filename="../modules/display/displaywidget.cpp" line="44"/>
+        <location filename="../modules/display/displaywidget.cpp" line="47"/>
         <source>Display</source>
         <translation>عرض</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::display::DisplayWorker</name>
+    <message>
+        <location filename="../modules/display/displayworker.cpp" line="113"/>
+        <source>My Settings %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -677,7 +694,7 @@
         <translation>الدقة</translation>
     </message>
     <message>
-        <location filename="../modules/display/resolutiondetailpage.cpp" line="48"/>
+        <location filename="../modules/display/resolutiondetailpage.cpp" line="55"/>
         <source> (Recommended)</source>
         <translation>(مستحسن)</translation>
     </message>
@@ -690,57 +707,57 @@
         <translation>الإختصارات</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="34"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="35"/>
         <source>Name</source>
         <translation>الاسم</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="37"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="38"/>
         <source>Command</source>
         <translation>الأمر</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="38"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="39"/>
         <source>Required</source>
         <translation>مطلوب</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="44"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="45"/>
         <source>Shortcut</source>
         <translation>إختصار</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="52"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="53"/>
         <source>Please Grab Shortcut Again</source>
         <translation>يرجى مسك الإختصار مرة أخرى</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="67"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="68"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="69"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="70"/>
         <source>Add</source>
         <translation>إضافة</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="93"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="94"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>هذا الإختصار يتعارض مع %1، انقر على إضافة لجعل هذا الإختصار فعال على الفور</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="125"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="126"/>
         <source>null</source>
         <translation>باطل</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="162"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
         <source>Choose File</source>
         <translation>اختر ملف</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="162"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
         <source>/usr/bin</source>
         <translation>/usr/bin</translation>
     </message>
@@ -748,45 +765,74 @@
 <context>
     <name>dcc::keyboard::CustomEdit</name>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="25"/>
-        <location filename="../modules/keyboard/customedit.cpp" line="72"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="30"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="79"/>
         <source>Shortcuts</source>
         <translation>الإختصارات</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="35"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="40"/>
         <source>Required</source>
         <translation>مطلوب</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="44"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="49"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="45"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="50"/>
         <source>Save</source>
         <translation>حفظ</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="74"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="83"/>
         <source>Name</source>
         <translation>الاسم</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="75"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="84"/>
         <source>Command</source>
         <translation>أمر</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="94"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="104"/>
+        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
+        <translation>هذا الإختصار يتعارض مع %1، انقر على إضافة لجعل هذا الإختصار فعال على الفور</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customedit.cpp" line="116"/>
         <source>Choose File</source>
         <translation>اختر ملف</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="94"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="116"/>
         <source>/usr/bin</source>
         <translation>/usr/bin</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customedit.cpp" line="125"/>
+        <source>null</source>
+        <translation>باطل</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::keyboard::CustomEditItem</name>
+    <message>
+        <location filename="../modules/keyboard/customedititem.cpp" line="78"/>
+        <source>None</source>
+        <translation>لا شيء</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customedititem.cpp" line="120"/>
+        <location filename="../modules/keyboard/customedititem.cpp" line="151"/>
+        <source>Conflict</source>
+        <translation>تعارض</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customedititem.cpp" line="180"/>
+        <source>Please enter a new shortcut</source>
+        <translation>يرجى إدخال اختصار جديد</translation>
     </message>
 </context>
 <context>
@@ -798,7 +844,7 @@
         <translation>تخطيط لوحة المفاتيح</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboarddetails.cpp" line="32"/>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="33"/>
         <source>Add Keyboard Layout</source>
         <translation>إضافة لغة كتابة</translation>
     </message>
@@ -806,7 +852,7 @@
 <context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
-        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="23"/>
+        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="24"/>
         <source>Add Keyboard Layout</source>
         <translation>إضافة لغة كتابة</translation>
     </message>
@@ -884,8 +930,9 @@
     <message>
         <location filename="../modules/keyboard/keyboardwork.cpp" line="168"/>
         <location filename="../modules/keyboard/keyboardwork.cpp" line="180"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="204"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="341"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="198"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="207"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="344"/>
         <source>None</source>
         <translation>لا شيء</translation>
     </message>
@@ -901,27 +948,27 @@
 <context>
     <name>dcc::keyboard::ShortcutContent</name>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="25"/>
-        <source>Please Grab Shortcut Again</source>
-        <translation>يرجى مسك الإختصار مرة أخرى</translation>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
+        <source>Please Reset Shortcut</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="34"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="36"/>
         <source>Replace</source>
         <translation>استبدال</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="59"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
         <translation>هذا الإختصار يتعارض مع %1، انقر على إضافة لجعل هذا الإختصار فعال على الفور</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="97"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="98"/>
         <source>null</source>
         <translation>باطل</translation>
     </message>
@@ -929,13 +976,13 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="169"/>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="200"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="173"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="204"/>
         <source>Conflict</source>
         <translation>تعارض</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="229"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="233"/>
         <source>Please enter a new shortcut</source>
         <translation>يرجى إدخال اختصار جديد</translation>
     </message>
@@ -970,12 +1017,12 @@
         <translation>مساحة العمل</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="51"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="52"/>
         <source>Add Custom Shortcut</source>
         <translation>إضافة اختصار مخصص</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="61"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="62"/>
         <source>Shortcuts</source>
         <translation>الإختصارات</translation>
     </message>
@@ -1123,8 +1170,8 @@
         <translation>حفظ</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="198"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="309"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="308"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="389"/>
         <source>Required</source>
         <translation>مطلوب</translation>
     </message>
@@ -1137,37 +1184,37 @@
         <translation>تفاصيل الشبكة</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="70"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="72"/>
         <source>MAC</source>
         <translation>ماك</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="79"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="81"/>
         <source>IPv4 Address</source>
         <translation>عنوان IPv4</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="84"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="86"/>
         <source>Gateway</source>
         <translation>البوابة</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="89"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="91"/>
         <source>Primary DNS</source>
         <translation>DNS رئيسي</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="94"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="96"/>
         <source>Netmask</source>
         <translation>قناع الشبكة</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="102"/>
         <source>Interface</source>
         <translation>الواجهة</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="105"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="107"/>
         <source>Speed</source>
         <translation>السرعة</translation>
     </message>
@@ -1186,8 +1233,8 @@
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
-        <source>Authing</source>
-        <translation>جار المصادقة</translation>
+        <source>Authenticating</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1281,7 +1328,7 @@
         <translation>إنشاء اتصال PPPoE</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="37"/>
+        <location filename="../modules/network/pppoepage.cpp" line="38"/>
         <source>PPP</source>
         <translation>البروتوكول التناظري</translation>
     </message>
@@ -1352,7 +1399,7 @@
         <translation>إعداد الرابط</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="142"/>
+        <location filename="../modules/network/proxypage.cpp" line="143"/>
         <source>System Proxy</source>
         <translation>وكيل النظام</translation>
     </message>
@@ -1370,42 +1417,42 @@
         <translation>إنشاء VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="46"/>
+        <location filename="../modules/network/vpnpage.cpp" line="48"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="180"/>
+        <location filename="../modules/network/vpnpage.cpp" line="182"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="183"/>
+        <location filename="../modules/network/vpnpage.cpp" line="185"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="186"/>
+        <location filename="../modules/network/vpnpage.cpp" line="188"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="189"/>
+        <location filename="../modules/network/vpnpage.cpp" line="191"/>
         <source>OpenVPN</source>
         <translation>OpenVPN </translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="192"/>
+        <location filename="../modules/network/vpnpage.cpp" line="194"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="195"/>
+        <location filename="../modules/network/vpnpage.cpp" line="197"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="213"/>
+        <location filename="../modules/network/vpnpage.cpp" line="222"/>
         <source>New VPN</source>
         <translation>VPN جديد</translation>
     </message>
@@ -1418,7 +1465,7 @@
         <translation>الإتصال بشبكة مخفية</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="47"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="48"/>
         <source>WLAN</source>
         <translation>الشبكة المحلية اللاسلكية</translation>
     </message>
@@ -1426,7 +1473,7 @@
 <context>
     <name>dcc::personalization::FontListWidget</name>
     <message>
-        <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="57"/>
+        <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="58"/>
         <source> (Unsupported font)</source>
         <translation>(الخط غير مدعوم)</translation>
     </message>
@@ -1455,7 +1502,7 @@
 <context>
     <name>dcc::personalization::FontsWidget</name>
     <message>
-        <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="25"/>
+        <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="27"/>
         <source>Font</source>
         <translation>الخط</translation>
     </message>
@@ -1492,11 +1539,11 @@
     </message>
 </context>
 <context>
-    <name>dcc::personalization::Theme</name>
+    <name>dcc::personalization::ThemeItem</name>
     <message>
-        <location filename="../modules/personalization/module/themewidget/theme.cpp" line="55"/>
-        <source> (Default)</source>
-        <translation>(افتراضي)</translation>
+        <location filename="../modules/personalization/widget/themeitem.cpp" line="50"/>
+        <source>Default</source>
+        <translation>افتراضي</translation>
     </message>
 </context>
 <context>
@@ -1517,7 +1564,7 @@
         <translation>مظهر المؤشر</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="27"/>
+        <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="29"/>
         <source>Theme</source>
         <translation>السمة</translation>
     </message>
@@ -1672,7 +1719,7 @@
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
-        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="36"/>
+        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="37"/>
         <source>License</source>
         <translation>رخصة</translation>
     </message>
@@ -1695,47 +1742,47 @@
         <translation>التوزيعة :</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="33"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="34"/>
         <source>Distribution Release:</source>
         <translation>إصدار التوزيعة:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="37"/>
-        <source>Edition:</source>
-        <translation>إصدار:</translation>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
+        <source>Edition License:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="41"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Type:</source>
         <translation>النوع</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="116"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="118"/>
         <source>%1Bit</source>
         <translation>%1 بت</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="44"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="46"/>
         <source>Processor:</source>
         <translation>المعالج :</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="48"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="50"/>
         <source>Memory:</source>
         <translation>الذاكرة :</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="52"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="54"/>
         <source>Disk:</source>
         <translation>القرص :</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="65"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
         <source>License</source>
         <translation>رخصة</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="68"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Startup Menu</source>
         <translation>قائمة بدء التشغيل</translation>
     </message>
@@ -1788,59 +1835,59 @@
         <translation>تحديث</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="112"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="113"/>
         <source>Checking for updates, please wait...</source>
         <translation>التحقق من وجود تحديثات، يرجى الانتظار ...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="118"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="169"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="119"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download Updates</source>
         <translation>تحميل التحديثات</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="126"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="177"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>تم تحميل %1 (انقر للتوقف)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="132"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="133"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>تم تحميل %1 (انقر للمتابعة)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="139"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="140"/>
         <source>Restart to install updates</source>
         <translation>أعد التشغيل لتثبيت التحديثات</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="140"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="141"/>
         <source>Download completed</source>
         <translation>انتهى التحميل</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="147"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="148"/>
         <source>Your system is up to date</source>
         <translation>حالة نظامك حتى اﻵن</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
         <source>New system edition and %1 application updates detected</source>
         <translation>إصدار جديد للنظام و %1 تحديثات للتطبيقات كشف عنها</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
         <source>Update size: %1</source>
         <translation>حجم التحديث: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="185"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>البطارية أقل من 50٪، يرجى التوصيل للمتابعة</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="187"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>الرجاء التأكد من أن الطاقة كافية لإعادة التشغيل، وعدم فصل الجهاز من الطاقة</translation>
     </message>
@@ -1861,17 +1908,17 @@
         <translation>تحديث الإعدادات</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="29"/>
+        <location filename="../modules/update/updatesettings.cpp" line="30"/>
         <source>Auto-download Updates</source>
         <translation>تحميل التحديثات تلقائيا</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="31"/>
+        <location filename="../modules/update/updatesettings.cpp" line="32"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>سيتم تحميل التحديثات تلقائيا في الشبكات السلكية و الاسلكية</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="36"/>
+        <location filename="../modules/update/updatesettings.cpp" line="37"/>
         <source>Switch Mirror</source>
         <translation>تبديل المرآة</translation>
     </message>
