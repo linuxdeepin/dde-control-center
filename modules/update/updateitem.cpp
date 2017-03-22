@@ -72,13 +72,15 @@ UpdateItem::UpdateItem(QFrame *parent)
     setLayout(layout);
 
     connect(m_details, &QPushButton::clicked, [this] {
+        QFontMetrics fm = m_appChangelog->fontMetrics();
+
         const int lines = changelogLines();
-        const int expandHeight = (lines - 2) * 20;
+        const int expandHeight = (lines - 2) *  fm.height();
 
         m_appChangelog->setText(m_info.m_changelog);
         m_appChangelog->setFixedHeight(m_appChangelog->height() + expandHeight);
 
-        setFixedHeight(height() + expandHeight + 5);
+        setFixedHeight(height() + expandHeight);
 
         m_details->hide();
      });
@@ -139,7 +141,9 @@ int UpdateItem::changelogLines() const
     const QFontMetrics fm(m_appChangelog->font());
     const int changelogLineHeight = fm.height();
 
-    QRect rect(0, 0, 240, changelogLineHeight * 2);
+    // FIXME(hualet): 280 is a elaberate value which is tested for several times
+    // to ensure that there won't be much space left after showing detail changelogs.
+    QRect rect(0, 0, 280, changelogLineHeight);
     const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
 
     while (true)
