@@ -162,7 +162,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
 
     QHBoxLayout *mprisLayout = new QHBoxLayout;
     mprisLayout->addWidget(m_mprisWidget);
-    mprisLayout->setContentsMargins(5, 0, 5, 0);
+    mprisLayout->setContentsMargins(5, 0, 5, 20);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addStretch();
