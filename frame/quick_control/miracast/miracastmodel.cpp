@@ -1,5 +1,8 @@
 #include "miracastmodel.h"
 
+#define LINK_PREFIX "/org/freedesktop/miracle/wifi/link/"
+#define PEER_PREFIX "/org/freedesktop/miracle/wifi/peer/"
+
 MiracastModel::MiracastModel(QObject *parent)
     : QObject(parent)
 {
@@ -21,6 +24,20 @@ void MiracastModel::addLink(const LinkInfo &link)
     emit linkAdded(link);
 }
 
+void MiracastModel::removeLink(const QDBusObjectPath &path)
+{
+    for (int i = 0; i != m_links.size(); ++i)
+    {
+        if (m_links[i].m_dbusPath == path)
+        {
+            m_links.removeAt(i);
+            emit linkRemoved(path);
+
+            return;
+        }
+    }
+}
+
 void MiracastModel::setLinks(const QList<LinkInfo> &links)
 {
     for (const auto &link : links)
@@ -32,9 +49,9 @@ void MiracastModel::onPathAdded(const QDBusObjectPath &path, const QString &info
     const QJsonObject infoObject = QJsonDocument::fromJson(info.toUtf8()).object();
     const QString objectPath = path.path();
 
-    if (objectPath.startsWith("/org/freedesktop/miracle/wifi/link/"))
+    if (objectPath.startsWith(LINK_PREFIX))
         return addLink(LinkInfo::fromJson(infoObject));
-    else if (objectPath.startsWith("/org/freedesktop/miracle/wifi/peer/"))
+    else if (objectPath.startsWith(PEER_PREFIX))
         return addPeer(PeerInfo::fromJson(infoObject));
 
     qDebug() << path.path() << info;
@@ -43,6 +60,10 @@ void MiracastModel::onPathAdded(const QDBusObjectPath &path, const QString &info
 void MiracastModel::onPathRemoved(const QDBusObjectPath &path)
 {
     qDebug() << path.path();
+
+    const QString objectPath = path.path();
+    if (objectPath.startsWith(LINK_PREFIX))
+        return removeLink(path);
 }
 
 void MiracastModel::onMiracastEvent(const uchar type, const QDBusObjectPath &path)

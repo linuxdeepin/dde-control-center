@@ -30,6 +30,7 @@ public:
 
 private slots:
     void onLinkAdded(const LinkInfo &link);
+    void onLinkRemoved(const QDBusObjectPath &path);
     void onPeerAdded(const PeerInfo &peer);
 
 private:

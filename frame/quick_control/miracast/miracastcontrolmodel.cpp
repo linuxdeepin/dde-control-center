@@ -6,6 +6,7 @@ MiracastControlModel::MiracastControlModel(MiracastModel *model, QObject *parent
       m_miracastModel(model)
 {
     connect(m_miracastModel, &MiracastModel::linkAdded, this, &MiracastControlModel::onLinkAdded);
+    connect(m_miracastModel, &MiracastModel::linkRemoved, this, &MiracastControlModel::onLinkRemoved);
     connect(m_miracastModel, &MiracastModel::peerAdded, this, &MiracastControlModel::onPeerAdded);
 
     qRegisterMetaType<ItemInfo>("ItemInfo");
@@ -30,9 +31,9 @@ QVariant MiracastControlModel::data(const QModelIndex &index, int role) const
     {
     case MiracastDisplayRole:
         if (info.m_peer)
-            return info.m_peer->m_name;
+            return info.m_peer->m_name + " " + (info.m_peer->m_connected ? "true" : "false");
         else
-            return info.m_link->m_name;
+            return info.m_link->m_name + " " + (info.m_link->m_managed ? "true" : "false");
     case MiracastItemInfoRole:
         return QVariant::fromValue(info);
     }
@@ -45,6 +46,15 @@ void MiracastControlModel::onLinkAdded(const LinkInfo &link)
     qDebug() << Q_FUNC_INFO << link;
 
     m_datas.insert(link.m_dbusPath.path(), QList<PeerInfo>());
+
+    emit layoutChanged();
+}
+
+void MiracastControlModel::onLinkRemoved(const QDBusObjectPath &path)
+{
+    qDebug() << Q_FUNC_INFO << path.path();
+
+    m_datas.remove(path.path());
 
     emit layoutChanged();
 }
