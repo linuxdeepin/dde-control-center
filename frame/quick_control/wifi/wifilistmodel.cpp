@@ -273,11 +273,17 @@ void WifiListModel::onDeviceActiveApChanged(const QString &oldName, const QStrin
     {
         if (list[i].value("Ssid").toString() == newName)
         {
-            const auto info = m_apInfoList[dev][i];
-            beginMoveRows(QModelIndex(), i, i, QModelIndex(), 0);
-            m_apInfoList[dev].removeOne(info);
-            m_apInfoList[dev].insert(0, info);
-            endMoveRows();
+            // pass if already first line
+            if (i)
+            {
+                const auto info = m_apInfoList[dev][i];
+//                beginMoveRows(QModelIndex(), i, i, QModelIndex(), 0);
+                m_apInfoList[dev].removeOne(info);
+                m_apInfoList[dev].insert(0, info);
+//                endMoveRows();
+            }
+
+            emit layoutChanged();
             return;
         }
     }
