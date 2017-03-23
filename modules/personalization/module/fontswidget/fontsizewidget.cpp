@@ -16,9 +16,10 @@ FontSizeWidget::FontSizeWidget(QWidget *parent)
     m_sizeWidget = new TitledSliderItem(tr("Size"));
 
     m_sizeWidget->slider()->setType(DCCSlider::Vernier);
-    m_sizeWidget->slider()->setRange(-1, 1);
+    m_sizeWidget->slider()->setRange(-2, 2);
     m_sizeWidget->slider()->setTickPosition(QSlider::TicksBelow);
     m_sizeWidget->slider()->setTickInterval(1);
+    m_sizeWidget->slider()->setPageStep(1);
     m_sizeWidget->setObjectName("FontSizeWidget");
     m_mainWidget->appendItem(m_sizeWidget);
     m_mainlayout->addWidget(m_mainWidget);
@@ -55,11 +56,15 @@ void FontSizeWidget::setFontSizeTip(int size)
 QString FontSizeWidget::delayToLiteralString(const int delay) const
 {
     switch (delay) {
+    case -2:
+        return "11px";
     case -1:
-        return "10px";
-    case 0:
         return "12px";
+    case 0:
+        return "13px";
     case 1:
+        return "15px";
+    case 2:
         return "16px";
     default:
         return "12px";

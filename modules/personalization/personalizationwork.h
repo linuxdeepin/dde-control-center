@@ -38,7 +38,7 @@ private slots:
     void onRefreshedChanged(const QString &type);
 
 private:
-    int sizeToSliderValue(const int value) const;
+    int sizeToSliderValue(const double value) const;
     float sliderValueToSize(const int value) const;
     QList<QJsonObject> converToList(const QString &type, QJsonArray &array);
     void addList(ThemeModel *model, const QString &type, QJsonArray &array);

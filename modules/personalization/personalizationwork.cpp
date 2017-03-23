@@ -206,25 +206,35 @@ void PersonalizationWork::onGetList()
 }
 
 
-int PersonalizationWork::sizeToSliderValue(const int value) const
+int PersonalizationWork::sizeToSliderValue(const double value) const
 {
-    if (value <= 7.5) {
+    if (value <= 8.2) {
+        return -2;
+    } else if (value <= 9) {
         return -1;
-    } else if (value >= 12) {
-        return 1;
-    } else {
+    } else if (value <= 9.7) {
         return 0;
+    } else if (value <= 11.2) {
+        return 1;
+    } else if (value >= 12) {
+        return 2;
+    } else {
+        return -1;
     }
 }
 
 float PersonalizationWork::sliderValueToSize(const int value) const
 {
     switch (value) {
+    case -2:
+        return 8.2;
     case -1:
-        return 7.5;
-    case 0:
         return 9;
+    case 0:
+        return 9.7;
     case 1:
+        return 11.2;
+    case 2:
         return 12;
     default:
         return 9;
