@@ -161,6 +161,8 @@ MainWidget::MainWidget(Frame *parent)
 
     m_pluginsController->loadPlugins();
     refershTimedate();
+
+    QTimer::singleShot(1, this, static_cast<void (MainWidget::*)()>(&MainWidget::setFocus));
 }
 
 void MainWidget::resizeEvent(QResizeEvent *e)
