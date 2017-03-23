@@ -32,6 +32,8 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
       m_searchTimer(new QTimer)
 {
     m_searchInput->setFixedHeight(36);
+    m_searchInput->setFixedWidth(340);
+    m_resultView->setFixedWidth(340);
     m_noResult->setStyleSheet("color: rgba(255, 255, 255, 0.3);");
 
     QVBoxLayout *layout = new QVBoxLayout;
@@ -41,9 +43,9 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
     layout->addSpacing(20);
     layout->addWidget(m_currentCityLabel, 0, Qt::AlignHCenter);
     layout->addSpacing(20);
-    layout->addWidget(m_searchInput);
+    layout->addWidget(m_searchInput, 0, Qt::AlignHCenter);
     layout->addSpacing(10);
-    layout->addWidget(m_resultView, 1);
+    layout->addWidget(m_resultView, 1, Qt::AlignHCenter);
     layout->addStretch();
 
     setLayout(layout);

@@ -4,6 +4,8 @@
 #include <QGraphicsPathItem>
 #include <QGuiApplication>
 
+static const int ItemRightMargin = 30;
+
 WeatherWidget::WeatherWidget(WeatherRequest *request, QWidget *parent)
     :QWidget(parent),
       m_request(request)
@@ -136,17 +138,17 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
                 painter.setFont(font);
                 fm=QFontMetrics(font);
                 QString city = m_request->localizedCityName();
-                QRect cityArea(descRect.right() + 50, rect.y(), rect.width() - descRect.right() - 50, rect.height()/2+6);
+                QRect cityArea(descRect.right(), rect.y(), rect.width() - descRect.right() - ItemRightMargin, rect.height()/2+6);
 //                painter.fillRect(cityArea, Qt::red);
-                painter.drawText(cityArea, Qt::AlignBottom | Qt::AlignHCenter, fm.elidedText(city, Qt::ElideRight, cityArea.width()));
+                painter.drawText(cityArea, Qt::AlignBottom | Qt::AlignRight, fm.elidedText(city, Qt::ElideRight, cityArea.width()));
                 font.setPointSize(curFont.pointSize() * 0.8);
                 fm=QFontMetrics(font);
                 QString updateTime = tr("Just updated");
-                QRect statusArea(descRect.right() + 50, cityArea.bottom(), rect.width() - descRect.right() - 50, rect.height()/2 -6);
+                QRect statusArea(descRect.right(), cityArea.bottom(), rect.width() - descRect.right() - ItemRightMargin, rect.height()/2 -6);
                 pen1.setAlphaF(0.5);
                 painter.setPen(pen1);
                 painter.setFont(font);
-                painter.drawText(statusArea, Qt::AlignTop|Qt::AlignHCenter, updateTime);
+                painter.drawText(statusArea, Qt::AlignTop|Qt::AlignRight, updateTime);
             }
 
             painter.restore();
@@ -159,10 +161,10 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
             QFontMetrics fm(curFont);
             text = QString("%1-%2°C").arg((int)(item.temperature().first)).arg((int)(item.temperature().second));
             QRect textRect(iconRect.right()+10,rect.y(),fm.width(text)+2, rect.height());
-            painter.drawText(textRect,Qt::AlignLeft|Qt::AlignVCenter, text);
+            painter.drawText(textRect,Qt::AlignLeft | Qt::AlignVCenter, text);
 
-            QRect weekArea(rect.width() - 50 - iconRect.left() -10,rect.y(),fm.width(item.dayName()), rect.height());
-            painter.drawText(weekArea, Qt::AlignCenter, item.dayName());
+            QRect weekArea(textRect.right(), rect.y(), rect.width() - textRect.right() - ItemRightMargin, rect.height());
+            painter.drawText(weekArea, Qt::AlignVCenter | Qt::AlignRight, item.dayName());
             painter.restore();
         }
         y+=rect.height();
@@ -174,7 +176,7 @@ void WeatherWidget::mouseMoveEvent(QMouseEvent *event)
     QWidget::mouseMoveEvent(event);
 
     const bool showButton = event->y() < 20 * 3 && event->y() > 10 && m_request->count() != 0;
-    if (showButton) { m_locationBtn->move(250, 30); }
+    if (showButton) { m_locationBtn->move(304, 30); }
     m_locationBtn->setVisible(showButton);
 
     update();
