@@ -68,7 +68,9 @@ void FrameWidget::hide()
     m_slidePosAni->setEndValue(QPoint(-width(), 0));
     m_slidePosAni->start();
 
-    QTimer::singleShot(m_slidePosAni->duration(), this, &QWidget::hide);
+    // ignore mouse events
+    setAttribute(Qt::WA_TransparentForMouseEvents);
+    QTimer::singleShot(m_slidePosAni->duration(), [=] { setAttribute(Qt::WA_TransparentForMouseEvents, false); QWidget::hide(); });
 }
 
 void FrameWidget::showBack()
