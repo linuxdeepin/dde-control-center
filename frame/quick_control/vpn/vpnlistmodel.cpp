@@ -35,7 +35,12 @@ int VpnListModel::rowCount(const QModelIndex &parent) const
 QVariant VpnListModel::data(const QModelIndex &index, int role) const
 {
     switch (role) {
-    case VpnNameRole:           return m_networkModel->vpns()[index.row()].value("Id").toString();
+    case VpnNameRole: {
+        if (!m_networkModel->vpnEnabled())
+            return tr("Click icon to enable VPN");
+
+        return m_networkModel->vpns()[index.row()].value("Id").toString();
+    }
     case VpnUuidRole:           return m_networkModel->vpns()[index.row()].value("Uuid").toString();
     case VpnShowIconRole:       return m_activedVpns.contains(m_networkModel->vpns()[index.row()].value("Uuid").toString());
     case VpnIconRole:           return m_connectedPixmap;
@@ -44,7 +49,6 @@ QVariant VpnListModel::data(const QModelIndex &index, int role) const
     case VpnIsFirstLineRole:    return !index.row();
     case VpnNextRole:           return index.row() == m_hoveredIndex.row() + 1;
     case VpnDisableRole:        return  m_networkModel->vpnEnabled() ? false : true;
-    case VpnDisableTipRole:     return tr("Click icon to enable VPN");
     default:;
     }
 

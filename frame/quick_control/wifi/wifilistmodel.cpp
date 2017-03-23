@@ -52,8 +52,13 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
     {
-        if (!info.info)
+        if (rowCount(QModelIndex()) == 1)
+            return tr("Click icon to enable WIFI");
+
+        if (!info.info && info.device)
             return deviceName(info.device);
+        else if (!info.device)
+            return tr("Connect to hidden network");
         else
             return info.info->value("Ssid");
     }
@@ -82,14 +87,10 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
         return info.info ? m_networkModel->connectionUuidByApInfo(info.device->hwAddr(), info.info->value("Ssid").toString()) : QVariant();
     case ItemIsHiddenTipsRole:
         return !info.info && !info.device;
-    case ItemHiddenTipsRole:
-        return tr("Connect to hidden network");
     case ItemNextRole:
         return m_currentIndex.row() + 1 == index.row();
     case ItemIsPowerOffRole:
         return rowCount(QModelIndex()) == 1;
-    case ItemPowerOffTipsRole:
-        return tr("Click icon to enable WIFI");
     default:;
     }
 

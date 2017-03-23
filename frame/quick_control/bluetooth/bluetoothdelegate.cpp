@@ -49,7 +49,7 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     painter->setPen(Qt::white);
 
     if (isPowerOff)
-        painter->drawText(option.rect, Qt::AlignVCenter | Qt::AlignHCenter, index.data(BluetoothListModel::ItemTipsRole).toString());
+        painter->drawText(option.rect, Qt::AlignCenter, index.data(Qt::DisplayRole).toString());
     else if (isSetting)
         painter->drawText(option.rect.marginsRemoved(QMargins(34, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
     else  if (isHeader)

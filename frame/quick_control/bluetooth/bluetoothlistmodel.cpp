@@ -64,6 +64,9 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
     {
+        if (rowCount(QModelIndex()) == 1)
+            return tr("Click icon to enable bluetooth");
+
         if (!info.device && info.adapter)
             return info.adapter->name();
         else if (!info.adapter)
@@ -100,8 +103,6 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
         return m_currentIndex.row() + 1 == index.row();
     case ItemIsPowerOffRole:
         return rowCount(QModelIndex()) == 1;
-    case ItemTipsRole:
-        return tr("Click icon to enable bluetooth");
     case ItemLastRole:
         return rowCount(QModelIndex()) - 2 == index.row();
     case ItemRefreshRole:

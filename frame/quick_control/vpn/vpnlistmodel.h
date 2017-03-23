@@ -30,7 +30,6 @@ public:
         VpnIsFirstLineRole,
         VpnNextRole,
         VpnDisableRole,
-        VpnDisableTipRole
     };
 
     explicit VpnListModel(dcc::network::NetworkModel *model, QObject *parent = 0);

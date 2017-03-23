@@ -31,10 +31,8 @@ public:
         ItemDevicePathRole,
         ItemUuidRole,
         ItemIsHiddenTipsRole,
-        ItemHiddenTipsRole,
         ItemNextRole,
         ItemIsPowerOffRole,
-        ItemPowerOffTipsRole
     };
 
     explicit WifiListModel(dcc::network::NetworkModel *model, QObject *parent = 0);
