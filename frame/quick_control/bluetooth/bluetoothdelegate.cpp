@@ -43,20 +43,15 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     }
 
     QFont f(painter->font());
-    f.setWeight(isHeader ? 500 : 300);
+    f.setWeight(isHeader ? 440 : 300);
     painter->setFont(f);
 
     painter->setPen(Qt::white);
 
     if (isPowerOff)
         painter->drawText(option.rect, Qt::AlignCenter, index.data(Qt::DisplayRole).toString());
-    else if (isSetting)
-        painter->drawText(option.rect.marginsRemoved(QMargins(34, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
-    else  if (isHeader)
-        painter->drawText(option.rect.marginsRemoved(QMargins(24, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
     else
-        painter->drawText(option.rect.marginsRemoved(QMargins(34, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
-
+        painter->drawText(option.rect.marginsRemoved(QMargins(24, 0, 0, 0)), Qt::AlignVCenter | Qt::AlignLeft, index.data(Qt::DisplayRole).toString());
 
     const int x = option.rect.right() - 24;
     const int y = option.rect.top() + (option.rect.height() - 16) / 2;
@@ -67,7 +62,15 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         if (!isRefresh) {
             QPen pen(QColor("#01bdff"));
             painter->setPen(pen);
+
+            QFont font(painter->font());
+            font.setWeight(400);
+            font.setPixelSize(13);
+            painter->setFont(font);
+
             painter->drawText(QRect(option.rect.left(), option.rect.top(), option.rect.width() - 10, option.rect.height()), Qt::AlignVCenter | Qt::AlignRight, tr("Refresh"));
+
+            painter->setFont(f);
         } else {
             const quint64 index = QDateTime::currentMSecsSinceEpoch() / 20;
             const QString pix = QString(":/frame/themes/dark/icons/dark_loading/loading_0%1.png").arg((index % 90), 2, 10, QChar('0'));
