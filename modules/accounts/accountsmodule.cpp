@@ -51,7 +51,7 @@ void AccountsModule::showPage(const QString &pageName)
         if (u->name() == pageName)
             return showAccountsDetail(u);
 
-    Q_UNREACHABLE();
+    qWarning() << "user not found" << pageName;
 }
 
 ModuleWidget *AccountsModule::moduleWidget()
