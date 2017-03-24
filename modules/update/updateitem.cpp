@@ -3,6 +3,8 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QIcon>
+#include <QFile>
 
 #include "labels/smalllabel.h"
 #include "translucentframe.h"
@@ -78,9 +80,9 @@ UpdateItem::UpdateItem(QFrame *parent)
         const int expandHeight = (lines - 2) *  fm.height();
 
         m_appChangelog->setText(m_info.m_changelog);
-        m_appChangelog->setFixedHeight(m_appChangelog->height() + expandHeight);
+        m_appChangelog->setFixedHeight(m_appChangelog->height() + std::max(expandHeight, 0));
 
-        setFixedHeight(height() + expandHeight);
+        setFixedHeight(height() + std::max(expandHeight, 0));
 
         m_details->hide();
      });
@@ -90,7 +92,15 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 {
     m_info = info;
 
-    QPixmap pix = QPixmap(m_info.m_icon).scaled(m_appIcon->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    QFile file(m_info.m_icon);
+    QPixmap pix;
+
+    if (file.exists())
+        pix = QPixmap(m_info.m_icon).scaled(m_appIcon->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    else {
+        pix = QIcon::fromTheme(m_info.m_packageId, QIcon::fromTheme("application-x-desktop")).pixmap(m_appIcon->size());
+    }
+
     m_appIcon->setPixmap(pix);
 
     m_appName->setText(info.m_name.trimmed());
