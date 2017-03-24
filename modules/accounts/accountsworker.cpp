@@ -78,7 +78,7 @@ void AccountsWorker::addNewAvatar(User *user)
 
     emit requestFrameAutoHide(false);
     QFileDialog fd;
-    fd.setNameFilter(tr("Images") + "(*.png *.bmp *.jpg)");
+    fd.setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
 
     QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
     if (!directory.isEmpty())
