@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/weather/caiyun">
+        <file>cityidloc.csv</file>
+    </qresource>
+</RCC>

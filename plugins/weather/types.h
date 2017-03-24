@@ -13,17 +13,17 @@
 #include <QObject>
 
 struct City {
-    QString geonameId;
+    QString id;
     QString country;
     QString region;
     QString name;
     QString localizedName;
-    float latitude;
-    float longitude;
+    double latitude;
+    double longitude;
 };
 
 inline bool operator ==(const City &city, const City &that) {
-    return city.geonameId == that.geonameId || (city.country == that.country && city.name == that.name);
+    return city.id == that.id || (city.country == that.country && city.name == that.name);
 }
 
 Q_DECLARE_METATYPE(City)

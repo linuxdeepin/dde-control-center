@@ -47,12 +47,13 @@ private slots:
     void replyFinished(QNetworkReply* reply);
     void slotTimeout();
 
-    void requestWeatherForecast(const QString &geonameId);
+    void requestWeatherForecast(double latitude, double longitude);
     void requestGeoNameInfo(const QString &geonameId);
+    void requestGeoNameID(double latitude, double longitude);
 
     void processWeatherServiceReply();
-    void processGeoNameIdReply();
     void processGeoNameInfoReply();
+    void processGeoNameIdReply();
 
     void processSearchCityReply();
 

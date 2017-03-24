@@ -18,6 +18,8 @@
 
 #include "weatherrequest.h"
 
+#include "caiyun/caiyunlocationprovider.h"
+
 static const int ItemSpacing = 1;
 
 SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent)
@@ -67,9 +69,27 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
     m_searchTimer->setSingleShot(true);
     m_searchTimer->setInterval(1000);
 
+    m_locationProviders << new CaiyunLocationProvider;
+    for (LocationProvider * provider : m_locationProviders) {
+        provider->loadData();
+    }
+
     connect(m_searchTimer, &QTimer::timeout, this, [this] {
         const QString input = m_searchInput->text().trimmed();
-        m_requestManager->searchCity(input);
+
+        // try local location provider first.
+        QList<City> result;
+        for (LocationProvider *provider : m_locationProviders) {
+            result = provider->match(input);
+            if (!result.isEmpty()) {
+                setSearchResult(result);
+                break;
+            }
+        }
+
+        if (result.isEmpty()) {
+            m_requestManager->searchCity(input);
+        }
     });
 
     connect(m_searchInput, &SearchInput::textChanged, this, [this] {
@@ -78,29 +98,14 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
         m_searchTimer->start();
     });
 
-    connect(m_requestManager, &WeatherRequest::searchCityDone, this, [this] (const QList<City> &cities) {
-        if (!m_searchInput->text().trimmed().isEmpty()) {
-            loadSupportedCities();
-
-            QList<City> buffer;
-            for (const City city : cities) {
-                if (buffer.indexOf(city) == -1 && m_supportedCities.contains(city.geonameId)) {
-                    buffer << city;
-                }
-            }
-
-            m_noResult->setVisible(buffer.length() == 0);
-            m_resultModel->setCities(buffer);
-            m_resultView->show();
-        }
-    });
+    connect(m_requestManager, &WeatherRequest::searchCityDone, this, &SetLocationPage::setSearchResult);
 
     connect(m_resultView, &SearchResultView::clicked, this, [this](const QModelIndex &index) {
         QVariant data = index.data(Qt::UserRole);
         QString geonameId = data.value<QString>();
 
         for (const City &city : m_resultModel->cities()) {
-            if (city.geonameId == geonameId) {
+            if (city.id == geonameId) {
                 emit citySet(city);
                 break;
             }
@@ -151,6 +156,23 @@ void SetLocationPage::loadSupportedCities()
     }
 }
 
+void SetLocationPage::setSearchResult(const QList<City> data)
+{
+    if (!m_searchInput->text().trimmed().isEmpty()) {
+
+        QList<City> buffer;
+        for (const City &city : data) {
+            if (buffer.indexOf(city) == -1) {
+                buffer << city;
+            }
+        }
+
+        m_noResult->setVisible(buffer.length() == 0);
+        m_resultModel->setCities(buffer);
+        m_resultView->show();
+    }
+}
+
 SearchModel::SearchModel(QObject *parent) :
     QAbstractListModel(parent)
 {
@@ -167,7 +189,7 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
     const City city = m_cities.at(index.row());
 
     if (role == Qt::UserRole) {
-        return city.geonameId;
+        return city.id;
     }
 
     if (role == Qt::ToolTipRole) {

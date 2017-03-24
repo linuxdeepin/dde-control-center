@@ -1,6 +1,7 @@
 
 include(../../interfaces/interfaces.pri)
 include(../../widgets/widgets.pri)
+include(./caiyun/caiyun.pri)
 
 PLUGIN_NAME 	= weather
 
@@ -23,7 +24,8 @@ HEADERS += \
     weatherplugin.h \
     networkutil.h \
     types.h \
-    setlocationpage.h
+    setlocationpage.h \
+    locationprovider.h
 
 SOURCES += \
     weatheritem.cpp \

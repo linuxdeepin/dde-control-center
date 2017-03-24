@@ -60,6 +60,7 @@ private:
 
 
 class WeatherRequest;
+class LocationProvider;
 class SetLocationPage : public QWidget
 {
     Q_OBJECT
@@ -79,10 +80,13 @@ private:
     void mouseReleaseEvent(QMouseEvent *event);
 
     void loadSupportedCities();
+    void setSearchResult(const QList<City> data);
 
 private:
     City m_currentCity;
     WeatherRequest *m_requestManager;
+
+    QList<LocationProvider*> m_locationProviders;
 
     LargeLabel *m_currentCityLabel;
     SearchInput *m_searchInput;
