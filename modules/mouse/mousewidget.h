@@ -39,6 +39,7 @@ signals:
 
 private slots:
     void onTouchpadVisibleChanged(const bool visible);
+    void onTouchpadHideChanged(const bool visiable);
 
 private:
     QPushButton *m_nextPage;

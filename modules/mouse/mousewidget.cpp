@@ -61,10 +61,20 @@ void MouseWidget::setModel(MouseModel *const model)
     connect(baseSettings, &MouseModelMouseSettings::existChanged, this, &MouseWidget::onTouchpadVisibleChanged);
 
     onTouchpadVisibleChanged(baseSettings->getExist());
+
+    MouseModelMouseSettings *mouseModel = model->getMouseSettings();
+    connect(mouseModel, &MouseModelMouseSettings::switchChanged, this, &MouseWidget::onTouchpadHideChanged);
+
+    onTouchpadHideChanged(mouseModel->getSwitchState());
 }
 
 void MouseWidget::onTouchpadVisibleChanged(const bool visible)
 {
     m_baseSettings->setIsTypingVisible(visible);
     m_mouseSettings->setSwitchVisible(visible);
+}
+
+void MouseWidget::onTouchpadHideChanged(const bool visiable)
+{
+    m_touchSettings->setVisible(!visiable);
 }
