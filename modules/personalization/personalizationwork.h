@@ -35,6 +35,7 @@ private slots:
     void onMonoFontFinished(QDBusPendingCallWatcher *w);
     void onGetThemeFinished(QDBusPendingCallWatcher *w);
     void onGetPicFinished(QDBusPendingCallWatcher *w);
+    void onRefreshedChanged(const QString &type);
 
 private:
     int sizeToSliderValue(const int value) const;

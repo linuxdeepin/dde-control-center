@@ -26,6 +26,7 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     connect(m_dbus, &Appearance::MonospaceFontChanged, fontMono,      &FontModel::setFontName);
     connect(m_dbus, &Appearance::StandardFontChanged,  fontStand,     &FontModel::setFontName);
     connect(m_dbus, &Appearance::FontSizeChanged, this, &PersonalizationWork::FontSizeChanged);
+    connect(m_dbus, &Appearance::Refreshed, this, &PersonalizationWork::onRefreshedChanged);
 
     m_dbus->setSync(false);
 }
@@ -143,6 +144,30 @@ void PersonalizationWork::onGetPicFinished(QDBusPendingCallWatcher *w)
     }
 
     w->deleteLater();
+}
+
+void PersonalizationWork::onRefreshedChanged(const QString &type)
+{
+    if (type == "gtk") {
+        QDBusPendingReply<QString> gtk = m_dbus->List("gtk");
+        QDBusPendingCallWatcher *gtkWatcher = new QDBusPendingCallWatcher(gtk, this);
+        gtkWatcher->setProperty("category", "gtk");
+        connect(gtkWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
+    }
+
+    if (type == "icon") {
+        QDBusPendingReply<QString> icon = m_dbus->List("icon");
+        QDBusPendingCallWatcher *iconWatcher = new QDBusPendingCallWatcher(icon, this);
+        iconWatcher->setProperty("category", "icon");
+        connect(iconWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
+    }
+
+    if (type == "cursor") {
+        QDBusPendingReply<QString> cursor = m_dbus->List("cursor");
+        QDBusPendingCallWatcher *cursorWatcher = new QDBusPendingCallWatcher(cursor, this);
+        cursorWatcher->setProperty("category", "cursor");
+        connect(cursorWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
+    }
 }
 
 void PersonalizationWork::onGetList()
