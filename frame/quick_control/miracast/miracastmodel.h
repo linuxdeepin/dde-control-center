@@ -17,6 +17,7 @@ public:
         LinkManaged = 1,
         LinkUnmanaged,
         PeerConnected,
+        PeerConnectFailed,
     };
 
     explicit MiracastModel(QObject *parent = 0);
@@ -27,15 +28,17 @@ signals:
     void linkAdded(const LinkInfo &link) const;
     void linkRemoved(const QDBusObjectPath &path) const;
     void peerAdded(const PeerInfo &peer) const;
+    void peerRemoved(const PeerInfo &peer) const;
     void requestLinkScanning(const QDBusObjectPath &path, const bool scanning) const;
 
 private:
     void addPeer(const PeerInfo &peer);
     void addLink(const LinkInfo &link);
     void removeLink(const QDBusObjectPath &path);
+    void removePeer(const QString &peerInfo);
     void setLinks(const QList<LinkInfo> &links);
     void onPathAdded(const QDBusObjectPath &path, const QString &info);
-    void onPathRemoved(const QDBusObjectPath &path);
+    void onPathRemoved(const QDBusObjectPath &path, const QString &info);
     void onMiracastEvent(const uchar type, const QDBusObjectPath &path);
 
     LinkInfo &linkByPath(const QDBusObjectPath &path);

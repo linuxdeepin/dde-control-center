@@ -8,6 +8,7 @@ MiracastControlModel::MiracastControlModel(MiracastModel *model, QObject *parent
     connect(m_miracastModel, &MiracastModel::linkAdded, this, &MiracastControlModel::onLinkAdded);
     connect(m_miracastModel, &MiracastModel::linkRemoved, this, &MiracastControlModel::onLinkRemoved);
     connect(m_miracastModel, &MiracastModel::peerAdded, this, &MiracastControlModel::onPeerAdded);
+    connect(m_miracastModel, &MiracastModel::peerRemoved, this, &MiracastControlModel::onPeerRemoved);
 
     qRegisterMetaType<ItemInfo>("ItemInfo");
 }
@@ -68,6 +69,16 @@ void MiracastControlModel::onPeerAdded(const PeerInfo &peer)
     Q_ASSERT(!m_datas[link].contains(peer));
 
     m_datas[link].append(peer);
+
+    emit layoutChanged();
+}
+
+void MiracastControlModel::onPeerRemoved(const PeerInfo &peer)
+{
+    const QString link = peer.m_linkPath.path();
+    Q_ASSERT(m_datas.contains(link));
+
+    m_datas[link].removeAll(peer);
 
     emit layoutChanged();
 }

@@ -38,6 +38,13 @@ void MiracastModel::removeLink(const QDBusObjectPath &path)
     }
 }
 
+void MiracastModel::removePeer(const QString &peerInfo)
+{
+    const QJsonObject infoObject = QJsonDocument::fromJson(peerInfo.toUtf8()).object();
+
+    emit peerRemoved(PeerInfo::fromJson(infoObject));
+}
+
 void MiracastModel::setLinks(const QList<LinkInfo> &links)
 {
     for (const auto &link : links)
@@ -57,13 +64,15 @@ void MiracastModel::onPathAdded(const QDBusObjectPath &path, const QString &info
     qDebug() << path.path() << info;
 }
 
-void MiracastModel::onPathRemoved(const QDBusObjectPath &path)
+void MiracastModel::onPathRemoved(const QDBusObjectPath &path, const QString &info)
 {
-    qDebug() << path.path();
-
     const QString objectPath = path.path();
     if (objectPath.startsWith(LINK_PREFIX))
         return removeLink(path);
+    else if (objectPath.startsWith(PEER_PREFIX))
+        return removePeer(info);
+
+    qDebug() << path.path() << info;
 }
 
 void MiracastModel::onMiracastEvent(const uchar type, const QDBusObjectPath &path)
