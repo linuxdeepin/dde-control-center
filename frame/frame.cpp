@@ -256,10 +256,11 @@ void Frame::show()
     }
 
     // register global mouse area
-    m_mouseAreaKey = m_mouseAreaInter->RegisterFullScreen();
+    if (m_mouseAreaKey.isEmpty())
+        m_mouseAreaKey = m_mouseAreaInter->RegisterFullScreen();
 
     // connect signal
-    connect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased);
+    connect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased, Qt::UniqueConnection);
 }
 
 void Frame::hide()
