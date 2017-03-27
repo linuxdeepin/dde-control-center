@@ -9,14 +9,21 @@
 
 #include "nextbutton.h"
 
+#include <QVBoxLayout>
+
 namespace dcc {
 namespace widgets {
 
 NextButton::NextButton(QWidget *parent) :
     TranslucentFrame(parent)
 {
-    setFixedSize(12, 12);
-    DImageButton * btn = new DImageButton(this);
+    DImageButton *btn = new DImageButton(this);
+
+    QVBoxLayout *centralLayout = new QVBoxLayout;
+    centralLayout->addWidget(btn);
+    centralLayout->setMargin(0);
+
+    setLayout(centralLayout);
 
     connect(btn, &DImageButton::clicked, this, &NextButton::clicked);
 }

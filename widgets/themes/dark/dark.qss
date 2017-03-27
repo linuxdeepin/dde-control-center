@@ -1,5 +1,7 @@
 dcc--widgets--NextButton Dtk--Widget--DImageButton {
-    qproperty-normalPic: url(:/widgets/themes/dark/icons/expand_arrow.png);
+    qproperty-normalPic: url(:/widgets/themes/dark/icons/enter_details_normal.png);
+    qproperty-hoverPic: url(:/widgets/themes/dark/icons/enter_details_hover.png);
+    qproperty-pressPic: url(:/widgets/themes/dark/icons/enter_details_press.png);
 }
 
 dcc--widgets--BackButton Dtk--Widget--DImageButton {

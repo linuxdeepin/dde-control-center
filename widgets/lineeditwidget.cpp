@@ -54,5 +54,12 @@ void LineEditWidget::setPlaceholderText(const QString &text)
     m_edit->setPlaceholderText(text);
 }
 
+void LineEditWidget::mousePressEvent(QMouseEvent *e)
+{
+    SettingsItem::mousePressEvent(e);
+
+    m_edit->setFocus();
+}
+
 }
 }

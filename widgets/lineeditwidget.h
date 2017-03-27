@@ -28,6 +28,9 @@ public slots:
     void setText(const QString &text);
     void setPlaceholderText(const QString &text);
 
+protected:
+    void mousePressEvent(QMouseEvent *e);
+
 private:
     QLabel *m_title;
     QLineEdit *m_edit;
