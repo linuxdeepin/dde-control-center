@@ -37,6 +37,7 @@ signals:
     void displayModeChanged(const int mode) const;
     void primaryScreenChanged(const QString &primary) const;
     void currentConfigChanged(const QString &config) const;
+    void firstConfigCreated(const QString &config) const;
     void configListChanged(const QStringList &configs) const;
     void monitorListChanged() const;
 

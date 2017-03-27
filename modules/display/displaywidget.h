@@ -31,11 +31,13 @@ signals:
     void requestNewConfig() const;
     void requestConfigPage(const QString &config) const;
     void requestSwitchConfig(const QString &config) const;
+    void requestModifyConfig(const QString &config) const;
 
 private slots:
     void onScreenListChanged() const;
     void onScreenSizeChanged() const;
     void onConfigListChanged();
+    void onFirstConfigCreated(const QString &config);
 
 private:
     DisplayModel *m_model;

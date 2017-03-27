@@ -64,6 +64,7 @@ void DisplayWidget::setModel(DisplayModel *model)
     connect(m_model, &DisplayModel::displayModeChanged, m_configListRefershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_model, &DisplayModel::screenHeightChanged, this, &DisplayWidget::onScreenSizeChanged, Qt::QueuedConnection);
     connect(m_model, &DisplayModel::screenWidthChanged, this, &DisplayWidget::onScreenSizeChanged, Qt::QueuedConnection);
+    connect(m_model, &DisplayModel::firstConfigCreated, this, &DisplayWidget::onFirstConfigCreated, Qt::QueuedConnection);
 
     onScreenListChanged();
     onScreenSizeChanged();
@@ -121,4 +122,10 @@ void DisplayWidget::onConfigListChanged()
 
         m_customSettingsGrp->appendItem(w);
     }
+}
+
+void DisplayWidget::onFirstConfigCreated(const QString &config)
+{
+    emit requestConfigPage(config);
+    emit requestModifyConfig(config);
 }

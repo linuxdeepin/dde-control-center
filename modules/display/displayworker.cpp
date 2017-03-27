@@ -116,7 +116,14 @@ void DisplayWorker::createConfig()
             break;
     } while (true);
 
-    switchConfig(configName);
+    if (m_model->displayMode() == CUSTOM_MODE)
+        return switchConfig(configName);
+
+    const auto reply = m_displayInter.SwitchMode(CUSTOM_MODE, configName);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply);
+    watcher->setProperty("Name", configName);
+
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::createConfigFinshed);
 }
 
 void DisplayWorker::switchConfig(const QString &config)
@@ -169,6 +176,15 @@ void DisplayWorker::onMonitorsBrightnessChanged(const BrightnessMap &brightness)
 {
     for (auto it(brightness.cbegin()); it != brightness.cend(); ++it)
         updateMonitorBrightness(it.key(), it.value());
+}
+
+void DisplayWorker::createConfigFinshed(QDBusPendingCallWatcher *w)
+{
+    const QString name = w->property("Name").toString();
+
+    emit m_model->firstConfigCreated(name);
+
+    w->deleteLater();
 }
 
 void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
