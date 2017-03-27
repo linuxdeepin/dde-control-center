@@ -38,7 +38,6 @@ void DefCategoryAddWidget::clicked()
         emit requestFrameAutoHide(false);
         QFileDialog dialog;
         dialog.setWindowTitle(tr("Open Desktop file"));
-        dialog.setNameFilter(tr("All Files (*)"));
 
         QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
         if (!directory.isEmpty())
