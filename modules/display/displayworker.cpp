@@ -200,7 +200,7 @@ void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
     Q_ASSERT(inter);
 
     inter->SetMode(mode).waitForFinished();
-    m_displayInter.ApplyChanges();
+    m_displayInter.ApplyChanges().waitForFinished();
 }
 
 void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
