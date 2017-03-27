@@ -77,7 +77,7 @@ void BasicSettingsWorker::setVolume(const double &volume)
 void BasicSettingsWorker::setBrightness(const double brightness)
 {
     for (QString monitor : m_monitors) {
-        m_displayInter->SetBrightness(monitor, std::max(brightness / 100.0, 0.05)).waitForFinished();
+        m_displayInter->SetBrightness(monitor, std::max(brightness / 100.0, 0.2)).waitForFinished();
     }
     m_displayInter->SaveBrightness().waitForFinished();
 }

@@ -205,7 +205,7 @@ void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 
 void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
 {
-    m_displayInter.SetBrightness(mon->name(), std::max(brightness, 0.05)).waitForFinished();
+    m_displayInter.SetBrightness(mon->name(), std::max(brightness, 0.2)).waitForFinished();
 }
 
 void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
