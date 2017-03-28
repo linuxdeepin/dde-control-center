@@ -90,8 +90,10 @@ void UpdateNotifier::ignoreUpdates()
 
 void UpdateNotifier::updatablePkgsChanged(const QStringList &value)
 {
-    if (value.length() == 0) return ;
-
+    if (value.length() == 0) {
+        setVisible(false);
+        return;
+    }
     m_updatablePkgs = value;
 
     QStringList pkgs = m_settings->value(IgnoredPkgsKey).toStringList();
