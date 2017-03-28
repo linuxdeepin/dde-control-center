@@ -22,7 +22,7 @@ Build-Depends: debhelper (>= 9),
  libgeoip-dev,
  libdframeworkdbus-dev,
 Standards-Version: 3.9.5
-Homepage: http://gitcafe.com/Deepin/dde-control-center.git
+Homepage: https://github.com/linuxdeepin/dde-control-center
 
 Package: dde-control-center
 Architecture: any
