@@ -31,6 +31,7 @@ public:
         Extend,
         Specificed,
         Custom,
+        NewConfig,
     };
 
     int rowCount(const QModelIndex &parent) const;

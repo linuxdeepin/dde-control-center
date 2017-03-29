@@ -34,9 +34,18 @@ void DisplayControlPage::onItemClicked(const QModelIndex &index) const
 
     switch (type)
     {
-    case DisplayControlModel::Duplicate:    emit requestDuplicateMode();    return;
-    case DisplayControlModel::Extend:       emit requestExtendMode();       return;
-    case DisplayControlModel::Custom:       emit requestConfig(index.data(DisplayControlModel::ItemConfigNameRole).toString());           return;
+    case DisplayControlModel::Duplicate:
+        emit requestDuplicateMode();
+        return;
+    case DisplayControlModel::Extend:
+        emit requestExtendMode();
+        return;
+    case DisplayControlModel::Custom:
+        emit requestConfig(index.data(DisplayControlModel::ItemConfigNameRole).toString());
+        return;
+    case DisplayControlModel::NewConfig:
+        emit requestCustom();
+        return;
     default:;
     }
 

@@ -27,7 +27,7 @@ int DisplayControlModel::rowCount(const QModelIndex &parent) const
 
     const int configCount = 2 + m_displayModel->monitorList().size();
 
-    return configCount + m_displayModel->configList().size();
+    return configCount + m_displayModel->configList().size() + 1;
 }
 
 QVariant DisplayControlModel::data(const QModelIndex &index, int role) const
@@ -45,7 +45,7 @@ QVariant DisplayControlModel::data(const QModelIndex &index, int role) const
     case ItemNameRole:
         return m_displayModel->monitorList()[index.row() - 2]->name();
     case ItemIsLastRole:
-        return index.row() == 2 + m_displayModel->monitorList().size() + m_displayModel->configList().size() - 1;
+        return index.row() == rowCount(QModelIndex()) - 1;
     case ItemIconRole:
         return optionIcon(index.row());
     case ItemConfigNameRole:
@@ -67,8 +67,12 @@ const QString DisplayControlModel::optionName(const int index) const
     else if (index < m_displayModel->monitorList().size() + 2)
         return tr("Only Displayed on %1").arg(m_displayModel->monitorList()[index - 2]->name());
 
-    return m_displayModel->configList()[index - 2 - m_displayModel->monitorList().size()];
-//    return tr("My Settings");
+    const int configIndex = index - 2 - m_displayModel->monitorList().size();
+
+    if (m_displayModel->configList().size() > configIndex)
+        return m_displayModel->configList()[configIndex];
+    else
+        return tr("New Custom Settings");
 }
 
 const QString DisplayControlModel::optionDescription(const int index) const
@@ -120,8 +124,10 @@ DisplayControlModel::ItemType DisplayControlModel::optionType(const int index) c
         return Extend;
     else if (index < m_displayModel->monitorList().size() + 2)
         return Specificed;
+    else if (index != rowCount(QModelIndex()) - 1)
+        return Custom;
 
-    return Custom;
+    return NewConfig;
 }
 
 const QPixmap DisplayControlModel::optionIcon(const int index) const
@@ -132,6 +138,7 @@ const QPixmap DisplayControlModel::optionIcon(const int index) const
     {
     case Duplicate:     return QPixmap(":/frame/themes/dark/icons/copy_mode.png");
     case Extend:        return QPixmap(":/frame/themes/dark/icons/extend_mode.png");
+    case NewConfig:
     case Custom:        return QPixmap(":/frame/themes/dark/icons/custom.png");
     case Specificed:    return QPixmap(index > 2 ? ":/frame/themes/dark/icons/only2.png" : ":/frame/themes/dark/icons/only1.png");
     default:;
