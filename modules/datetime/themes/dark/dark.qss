@@ -32,7 +32,3 @@ QListView#TimezoneCompleter {
     background: transparent;
     border: none;
 }
-
-QListView::item {
-    min-height: 36px;
-}
