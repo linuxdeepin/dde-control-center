@@ -176,8 +176,7 @@ void PopupMenu::initUI() {
   this->setAttribute(Qt::WA_TranslucentBackground, true);
   this->setFocusPolicy(Qt::StrongFocus);
 
-  this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint |
-                       Qt::WindowStaysOnTopHint | Qt::ToolTip);
+  this->setWindowFlags(Qt::Popup);
 }
 
 void PopupMenu::onMenuViewActivated(const QModelIndex& index) {
