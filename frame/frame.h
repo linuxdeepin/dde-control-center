@@ -9,6 +9,8 @@
 #include <QPropertyAnimation>
 
 #include <DBlurEffectWidget>
+#include <DPlatformWindowHandle>
+#include <DWindowManagerHelper>
 
 #define BUTTON_LEFT 1
 #define FRAME_WIDTH 360
@@ -55,6 +57,7 @@ signals:
 
 private slots:
     void init();
+    void adjustShadowMask();
     void setAutoHide(const bool autoHide);
 
     void initAllSettings();
@@ -84,6 +87,9 @@ private:
 
     QRect m_primaryRect;
     QPropertyAnimation m_appearAnimation;
+
+    DPlatformWindowHandle m_platformWindowHandle;
+    DWindowManagerHelper *m_wmHelper;
 
     bool m_autoHide;
     bool m_debugAutoHide;

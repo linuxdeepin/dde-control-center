@@ -19,6 +19,9 @@ Frame::Frame(QWidget *parent)
       m_primaryRect(m_displayInter->primaryRect()),
       m_appearAnimation(this, "geometry"),
 
+      m_platformWindowHandle(this),
+      m_wmHelper(DWindowManagerHelper::instance()),
+
       m_autoHide(true),
       m_debugAutoHide(true)
 {
@@ -29,6 +32,14 @@ Frame::Frame(QWidget *parent)
     m_appearAnimation.setStartValue(QRect(1, 1, 1, 1));
     m_appearAnimation.setEasingCurve(QEasingCurve::OutCubic);
 
+    m_platformWindowHandle.setEnableBlurWindow(false);
+    m_platformWindowHandle.setTranslucentBackground(true);
+    m_platformWindowHandle.setWindowRadius(0);
+    m_platformWindowHandle.setBorderWidth(0);
+    m_platformWindowHandle.setShadowOffset(QPoint(0, 0));
+    m_platformWindowHandle.setShadowColor(QColor(0, 0, 0, 255 * 0.5));
+//    m_platformWindowHandle.setShadowColor(Qt::red);
+
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
     setMaximumWidth(FRAME_WIDTH);
@@ -38,6 +49,9 @@ Frame::Frame(QWidget *parent)
 
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
     connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hide);
+    connect(m_wmHelper, &DWindowManagerHelper::hasCompositeChanged, this, &Frame::adjustShadowMask);
+    connect(&m_appearAnimation, &QPropertyAnimation::start, this, &Frame::adjustShadowMask);
+    connect(&m_appearAnimation, &QPropertyAnimation::finished, this, &Frame::adjustShadowMask, Qt::QueuedConnection);
 
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
 
@@ -92,9 +106,30 @@ void Frame::init()
     // frame position adjust
     onScreenRectChanged(m_primaryRect);
 
+    QTimer::singleShot(1, this, &Frame::adjustShadowMask);
+
 #ifdef QT_DEBUG
 //    showSettingsPage("network", QString());
 #endif
+}
+
+void Frame::adjustShadowMask()
+{
+    if (!m_wmHelper->hasComposite() ||
+        m_appearAnimation.endValue().toRect().width() == 0 ||
+        m_appearAnimation.state() == QPropertyAnimation::Running)
+    {
+        m_platformWindowHandle.setShadowRadius(0);
+        m_platformWindowHandle.setFrameMask(QRegion());
+        return;
+    }
+
+    const int radius = 20;
+    const QSize s = size();
+    const QRect r(0, radius, s.width() + radius, s.height());
+
+    m_platformWindowHandle.setShadowRadius(radius);
+    m_platformWindowHandle.setFrameMask(r);
 }
 
 void Frame::setAutoHide(const bool autoHide)
