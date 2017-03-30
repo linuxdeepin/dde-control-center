@@ -1,6 +1,7 @@
 #include "displaywidget.h"
 #include "translucentframe.h"
 #include "nextpagewidget.h"
+#include "editablenextpagewidget.h"
 #include "settingsgroup.h"
 #include "displaymodel.h"
 #include "displayworker.h"
@@ -112,13 +113,14 @@ void DisplayWidget::onConfigListChanged()
 
     for (const auto &config : configList)
     {
-        NextPageWidget *w = new NextPageWidget;
+        EditableNextPageWidget *w = new EditableNextPageWidget;
         w->setTitle(config);
         if (mode == CUSTOM_MODE && config == current)
             w->setIcon(QPixmap(":/widgets/themes/dark/icons/select.png"));
 
-        connect(w, &NextPageWidget::acceptNextPage, this, [=] { emit requestConfigPage(config); });
-        connect(w, &NextPageWidget::selected, this, [=] { emit requestSwitchConfig(config); });
+        connect(w, &EditableNextPageWidget::textChanged, this, &DisplayWidget::requestModifyConfigName);
+        connect(w, &EditableNextPageWidget::acceptNextPage, this, [=] { emit requestConfigPage(config); });
+        connect(w, &EditableNextPageWidget::selected, this, [=] { emit requestSwitchConfig(config); });
 
         m_customSettingsGrp->appendItem(w);
     }

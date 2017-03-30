@@ -36,7 +36,8 @@ HEADERS += \
     $$PWD/basiclistview.h \
     $$PWD/basiclistmodel.h \
     $$PWD/basiclistdelegate.h \
-    $$PWD/buttontuple.h
+    $$PWD/buttontuple.h \
+    $$PWD/editablenextpagewidget.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -71,7 +72,8 @@ SOURCES += \
     $$PWD/basiclistview.cpp \
     $$PWD/basiclistmodel.cpp \
     $$PWD/basiclistdelegate.cpp \
-    $$PWD/buttontuple.cpp
+    $$PWD/buttontuple.cpp \
+    $$PWD/editablenextpagewidget.cpp
 
 RESOURCES += \
     $$PWD/resources.qrc

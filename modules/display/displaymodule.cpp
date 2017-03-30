@@ -105,6 +105,7 @@ ModuleWidget *DisplayModule::moduleWidget()
     m_displayWidget->setModel(m_displayModel);
     connect(m_displayWidget, &DisplayWidget::requestNewConfig, m_displayWorker, &DisplayWorker::createConfig);
     connect(m_displayWidget, &DisplayWidget::requestSwitchConfig, m_displayWorker, &DisplayWorker::switchConfig);
+    connect(m_displayWidget, &DisplayWidget::requestModifyConfigName, m_displayWorker, &DisplayWorker::modifyConfigName);
     connect(m_displayWidget, &DisplayWidget::requestModifyConfig, this, &DisplayModule::showCustomSettings);
     connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
     connect(m_displayWidget, &DisplayWidget::showBrightnessPage, this, &DisplayModule::showBrightnessPage);

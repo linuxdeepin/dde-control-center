@@ -32,6 +32,7 @@ signals:
     void requestConfigPage(const QString &config) const;
     void requestSwitchConfig(const QString &config) const;
     void requestModifyConfig(const QString &config) const;
+    void requestModifyConfigName(const QString &oldName, const QString &newName) const;
 
 private slots:
     void onScreenListChanged() const;

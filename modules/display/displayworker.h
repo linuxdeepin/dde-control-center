@@ -36,6 +36,7 @@ public slots:
     void createConfig();
     void switchConfig(const QString &config);
     void deleteConfig(const QString &config);
+    void modifyConfigName(const QString &oldName, const QString &newName);
     void switchMode(const int mode, const QString &name = QString());
     void setPrimary(const int index);
     void setMonitorEnable(Monitor *mon, const bool enabled);
@@ -47,6 +48,7 @@ public slots:
 private slots:
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
+    void onModifyConfigNameFinished(QDBusPendingCallWatcher *w);
 
 private:
 //    void loadRotations(Monitor * const mon);

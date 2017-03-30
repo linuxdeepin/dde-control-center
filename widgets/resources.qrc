@@ -103,5 +103,8 @@
         <file>themes/dark/icons/enter_details_hover.png</file>
         <file>themes/dark/icons/enter_details_normal.png</file>
         <file>themes/dark/icons/enter_details_press.png</file>
+        <file>themes/dark/icons/edit_hover.png</file>
+        <file>themes/dark/icons/edit_normal.png</file>
+        <file>themes/dark/icons/edit_press.png</file>
     </qresource>
 </RCC>

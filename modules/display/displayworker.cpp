@@ -136,6 +136,13 @@ void DisplayWorker::deleteConfig(const QString &config)
     m_displayInter.DeleteCustomMode(config);
 }
 
+void DisplayWorker::modifyConfigName(const QString &oldName, const QString &newName)
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_displayInter.ModifyConfigName(oldName, newName));
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onModifyConfigNameFinished);
+}
+
 //void DisplayWorker::switchCustom(const bool deleteConfig)
 //{
     // delete old config file
@@ -176,6 +183,11 @@ void DisplayWorker::onMonitorsBrightnessChanged(const BrightnessMap &brightness)
 {
     for (auto it(brightness.cbegin()); it != brightness.cend(); ++it)
         updateMonitorBrightness(it.key(), it.value());
+}
+
+void DisplayWorker::onModifyConfigNameFinished(QDBusPendingCallWatcher *w)
+{
+    w->deleteLater();
 }
 
 void DisplayWorker::createConfigFinshed(QDBusPendingCallWatcher *w)
