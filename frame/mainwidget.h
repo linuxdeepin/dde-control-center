@@ -56,7 +56,9 @@ private:
     QHBoxLayout *m_pluginsLayout;
     QWidget *m_pluginWidget;
     IndicatorWidget *m_indicatorWidget;
+#ifndef DISABLE_SYS_UPDATE
     UpdateNotifier *m_updateNotifier;
+#endif
     QuickControlPanel *m_quickSettingsPanel;
 };
 

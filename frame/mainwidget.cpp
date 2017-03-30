@@ -32,7 +32,9 @@ MainWidget::MainWidget(Frame *parent)
       m_currentDateLbl(new QLabel),
       m_pluginsLayout(new QHBoxLayout),
       m_indicatorWidget(new IndicatorWidget),
+#ifndef DISABLE_SYS_UPDATE
       m_updateNotifier(new UpdateNotifier),
+#endif
       m_quickSettingsPanel(new QuickControlPanel)
 {
     m_pluginsLayout->setMargin(0);
@@ -133,13 +135,17 @@ MainWidget::MainWidget(Frame *parent)
     m_pluginWidget = new TranslucentFrame;
     m_pluginWidget->setLayout(pluginWidgetLayout);
 
+#ifndef DISABLE_SYS_UPDATE
     m_updateNotifier->setObjectName("UpdateNotifier");
     m_updateNotifier->setVisible(false);
+#endif
 
     QVBoxLayout *centralLayout = static_cast<QVBoxLayout *>(layout());
     centralLayout->addWidget(headerFrame);
+#ifndef DISABLE_SYS_UPDATE
     centralLayout->addWidget(m_updateNotifier);
     centralLayout->addSpacing(1);
+#endif
     centralLayout->addWidget(m_pluginWidget);
     centralLayout->addSpacing(20);
     centralLayout->addWidget(m_quickSettingsPanel);
@@ -155,9 +161,11 @@ MainWidget::MainWidget(Frame *parent)
     connect(m_quickSettingsPanel, &QuickControlPanel::requestPage, this, &MainWidget::showSettingPage);
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
 
+#ifndef DISABLE_SYS_UPDATE
     connect(m_updateNotifier, &UpdateNotifier::clicked, this, [this] {
         showSettingPage("update", "available-updates");
     });
+#endif
 
     m_pluginsController->loadPlugins();
     refershTimedate();
