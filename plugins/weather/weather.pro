@@ -2,6 +2,7 @@
 include(../../interfaces/interfaces.pri)
 include(../../widgets/widgets.pri)
 include(./caiyun/caiyun.pri)
+include(./deepin/deepin.pri)
 
 PLUGIN_NAME 	= weather
 

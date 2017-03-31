@@ -19,6 +19,7 @@
 #include "weatherrequest.h"
 
 #include "caiyun/caiyunlocationprovider.h"
+#include "deepin/deepinlocationprovider.h"
 
 static const int ItemSpacing = 1;
 
@@ -69,7 +70,7 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
     m_searchTimer->setSingleShot(true);
     m_searchTimer->setInterval(1000);
 
-    m_locationProviders << new CaiyunLocationProvider;
+    m_locationProviders << new CaiyunLocationProvider << new DeepinLocationProvider;
     for (LocationProvider * provider : m_locationProviders) {
         provider->loadData();
     }
