@@ -37,6 +37,8 @@ public:
     void setCity(const City& city);
     void searchCity(const QString &input);
 
+    void setPreferredWeatherService(const QString &preferredWeatherService);
+
 signals:
     void fetchLocalizedCityNameDone(const QString &name);
     void dataRefreshed(QList<WeatherItem> &items);
@@ -62,6 +64,7 @@ private:
 
 private:
     City m_city;
+    QString m_preferredWeatherService;
     LoaderCity* m_loader;
     QSettings *m_settings;
 
@@ -74,6 +77,9 @@ private:
 
     void saveCityInfo();
     void restoreCityInfo();
+
+    void saveExtraInfo();
+    void restoreExtraInfo();
 };
 
 class LoaderCity : public QThread

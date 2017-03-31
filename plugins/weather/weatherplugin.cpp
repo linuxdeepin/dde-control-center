@@ -29,10 +29,11 @@ WeatherPlugin::WeatherPlugin(QObject *parent)
         layout->setCurrentWidget(locationPage);
     });
 
-    connect(locationPage, &SetLocationPage::citySet, this, [this, layout, weatherWidget] (const City &city) {
+    connect(locationPage, &SetLocationPage::citySet, this, [this, layout, weatherWidget] (const QString &preferredService, const City &city) {
         qDebug() << "set city to " << city.localizedName;
         QList<WeatherItem> empty;
         weatherWidget->refreshView(empty);
+        m_requestManager->setPreferredWeatherService(preferredService);
         m_requestManager->setCity(city);
         layout->setCurrentWidget(weatherWidget);
     });

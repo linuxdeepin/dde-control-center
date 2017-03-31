@@ -30,6 +30,11 @@ QList<City> CaiyunLocationProvider::match(const QString &input) const
     return ret;
 }
 
+QString CaiyunLocationProvider::preferredWeatherService() const
+{
+    return "moji";
+}
+
 LoadDataThread::LoadDataThread(CaiyunLocationProvider *parent) :
     QThread(parent)
 {

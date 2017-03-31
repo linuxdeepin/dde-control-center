@@ -14,6 +14,7 @@ public:
 
     void loadData() Q_DECL_OVERRIDE;
     QList<City> match(const QString &input) const Q_DECL_OVERRIDE;
+    QString preferredWeatherService() const Q_DECL_OVERRIDE;
 
 private:
     QNetworkAccessManager *m_networkManager;

@@ -7,7 +7,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-static const QString DeepinLocationServiceUrl = "http://localhost:9898/location/";
+static const QString DeepinLocationServiceUrl = "http://w.api.deepin.com/v1/location/";
 
 DeepinLocationProvider::DeepinLocationProvider(QObject *parent)
     : QObject(parent),
@@ -43,11 +43,16 @@ QList<City> DeepinLocationProvider::match(const QString &input) const
         const QString region = "";
         const QString name = obj.value("name").toString();
         const QString localizedName = obj.value("name").toString();
-        const double latitude = obj.value("latitude").toDouble();
-        const double longitude = obj.value("longitude").toDouble();
+        const double latitude = obj.value("latitude").toString().toDouble();
+        const double longitude = obj.value("longitude").toString().toDouble();
 
         ret << City{id, country, region, name, localizedName, latitude, longitude};
     }
 
     return ret;
+}
+
+QString DeepinLocationProvider::preferredWeatherService() const
+{
+    return "owm";
 }

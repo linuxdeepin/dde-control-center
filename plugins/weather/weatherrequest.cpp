@@ -12,7 +12,7 @@
 
 #include <QDomDocument>
 
-static const QString WeatherServiceHost = "http://hualet.org:9898";
+static const QString WeatherServiceHost = "http://w.api.deepin.com/v1";
 static const QString GeoNameServiceHost = "http://api.geonames.org";
 static const QStringList GeoNameKeys =  {"wangyaohua", "change", "position", "apple", "free"};
 
@@ -20,6 +20,7 @@ static const QString GroupLocation = "Location";
 static const QString KeyLatitude = "Latitude";
 static const QString KeyLongitude = "Longitude";
 static const QString KeyLocalizedName = "LocalizedName";
+static const QString KeyPreferredService = "PreferredService";
 
 WeatherRequest::WeatherRequest(QObject *parent) :
     QObject(parent),
@@ -30,6 +31,7 @@ WeatherRequest::WeatherRequest(QObject *parent) :
 
     m_settings = new QSettings("deepin", "dcc-weather-plugin");
     restoreCityInfo();
+    restoreExtraInfo();
 
     m_loader = new LoaderCity(this);
     m_manager = new QNetworkAccessManager(this);
@@ -194,6 +196,12 @@ QString WeatherRequest::randomGeoNameKey() const
     return key;
 }
 
+void WeatherRequest::setPreferredWeatherService(const QString &preferredWeatherService)
+{
+    m_preferredWeatherService = preferredWeatherService;
+    saveExtraInfo();
+}
+
 void WeatherRequest::saveCityInfo()
 {
     m_settings->beginGroup(GroupLocation);
@@ -209,6 +217,20 @@ void WeatherRequest::restoreCityInfo()
     m_city.latitude = m_settings->value(KeyLatitude, "0").toDouble();
     m_city.longitude = m_settings->value(KeyLongitude, "0").toDouble();
     m_city.localizedName = m_settings->value(KeyLocalizedName, "").toString();
+    m_settings->endGroup();
+}
+
+void WeatherRequest::saveExtraInfo()
+{
+    m_settings->beginGroup(GroupLocation);
+    m_settings->setValue(KeyPreferredService, m_preferredWeatherService);
+    m_settings->endGroup();
+}
+
+void WeatherRequest::restoreExtraInfo()
+{
+    m_settings->beginGroup(GroupLocation);
+    m_preferredWeatherService = m_settings->value(KeyPreferredService).toString();
     m_settings->endGroup();
 }
 
@@ -268,7 +290,9 @@ void WeatherRequest::searchCity(const QString &input)
 void WeatherRequest::requestWeatherForecast(double latitude, double longitude)
 {
     qDebug() << "request weather forecast " << latitude << longitude;
-    QString weatherUrl = QString("%1/forecast/%2/%3").arg(WeatherServiceHost).arg(latitude).arg(longitude);
+    const QString service = m_preferredWeatherService.isEmpty() ? "" : m_preferredWeatherService + "/";
+    QString weatherUrl = QString("%1/forecast/%2%3/%4").arg(WeatherServiceHost).arg(service) \
+            .arg(latitude).arg(longitude);
     QNetworkReply *reply = m_manager->get(QNetworkRequest(weatherUrl));
     connect(reply, &QNetworkReply::finished, this, &WeatherRequest::processWeatherServiceReply);
 }

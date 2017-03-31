@@ -73,7 +73,7 @@ public:
     void reset() const;
 
 signals:
-    void citySet(const City &city);
+    void citySet(const QString &prferredService, const City &city);
     void cancelled();
 
 private:
@@ -84,6 +84,7 @@ private:
 
 private:
     City m_currentCity;
+    QString m_preferredWeatherService;
     WeatherRequest *m_requestManager;
 
     QList<LocationProvider*> m_locationProviders;

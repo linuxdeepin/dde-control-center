@@ -83,6 +83,7 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
         for (LocationProvider *provider : m_locationProviders) {
             result = provider->match(input);
             if (!result.isEmpty()) {
+                m_preferredWeatherService = provider->preferredWeatherService();
                 setSearchResult(result);
                 break;
             }
@@ -107,7 +108,7 @@ SetLocationPage::SetLocationPage(WeatherRequest *requestManager, QWidget *parent
 
         for (const City &city : m_resultModel->cities()) {
             if (city.id == geonameId) {
-                emit citySet(city);
+                emit citySet(m_preferredWeatherService, city);
                 break;
             }
         }
