@@ -47,6 +47,10 @@ void MiracastControlPage::onItemClicked(const QModelIndex &index)
         m_miracastWorker->setLinkEnable(info.m_link->m_dbusPath, !info.m_link->m_managed);
     } else {
         qDebug() << *info.m_sink;
-        m_miracastWorker->connectPeer(info.m_sink->m_sinkPath, QRect(0, 0, 1920, 1080));
+
+        if (info.m_sink->m_connected)
+            m_miracastWorker->disconnectSink(info.m_sink->m_sinkPath);
+        else
+            m_miracastWorker->connectSink(info.m_sink->m_sinkPath, QRect(0, 0, 1920, 1080));
     }
 }

@@ -33,6 +33,7 @@ private slots:
     void onLinkRemoved(const QDBusObjectPath &path);
     void onSinkAdded(const SinkInfo &sink);
     void onSinkRemoved(const SinkInfo &sink);
+    void onSinkConnectedChanged(const QDBusObjectPath &path, const bool connected);
 
 private:
     ItemInfo itemInfo(const int row) const;

@@ -35,7 +35,14 @@ void MiracastWorker::querySinks()
     connect(w, &QDBusPendingCallWatcher::finished, this, &MiracastWorker::querySinks_CB);
 }
 
-void MiracastWorker::connectPeer(const QDBusObjectPath &peer, const QRect area)
+void MiracastWorker::disconnectSink(const QDBusObjectPath &sink)
+{
+    qDebug() << Q_FUNC_INFO << sink.path();
+
+    m_miracastInter->Disconnect(sink);
+}
+
+void MiracastWorker::connectSink(const QDBusObjectPath &peer, const QRect area)
 {
     qDebug() << Q_FUNC_INFO << peer.path() << area;
 

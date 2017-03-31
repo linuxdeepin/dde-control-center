@@ -20,7 +20,8 @@ public:
     void querySinks();
 
 public slots:
-    void connectPeer(const QDBusObjectPath &peer, const QRect area);
+    void disconnectSink(const QDBusObjectPath &sink);
+    void connectSink(const QDBusObjectPath &peer, const QRect area);
     void setLinkEnable(const QDBusObjectPath &path, const bool enable);
     void setLinkScannning(const QDBusObjectPath &path, const bool scanning);
 

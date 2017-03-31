@@ -9,6 +9,7 @@ MiracastControlModel::MiracastControlModel(MiracastModel *model, QObject *parent
     connect(m_miracastModel, &MiracastModel::linkRemoved, this, &MiracastControlModel::onLinkRemoved);
     connect(m_miracastModel, &MiracastModel::peerAdded, this, &MiracastControlModel::onSinkAdded);
     connect(m_miracastModel, &MiracastModel::peerRemoved, this, &MiracastControlModel::onSinkRemoved);
+    connect(m_miracastModel, &MiracastModel::sinkConnectedChanged, this, &MiracastControlModel::onSinkConnectedChanged);
 
     qRegisterMetaType<ItemInfo>("ItemInfo");
 }
@@ -81,6 +82,27 @@ void MiracastControlModel::onSinkRemoved(const SinkInfo &sink)
     m_datas[link].removeAll(sink);
 
     emit layoutChanged();
+}
+
+void MiracastControlModel::onSinkConnectedChanged(const QDBusObjectPath &path, const bool connected)
+{
+    qDebug() << Q_FUNC_INFO << path.path() << connected;
+
+    for (auto i(m_datas.begin()); i != m_datas.end(); ++i)
+    {
+        for (auto &sink : i.value())
+        {
+            if (sink.m_sinkPath == path)
+            {
+                qDebug() << sink;
+
+                sink.m_connected = connected;
+
+                emit dataChanged(QModelIndex(), QModelIndex());
+                return;
+            }
+        }
+    }
 }
 
 ItemInfo MiracastControlModel::itemInfo(const int row) const
