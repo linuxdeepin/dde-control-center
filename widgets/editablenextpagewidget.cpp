@@ -36,8 +36,8 @@ EditableNextPageWidget::EditableNextPageWidget(QWidget *parent)
     centralLayout->setContentsMargins(15, 8, 15, 8);
 
     connect(m_nextButton, &DImageButton::clicked, this, &EditableNextPageWidget::acceptNextPage);
-    connect(m_editButton, &DImageButton::clicked, this, &EditableNextPageWidget::toEditMode);
-    connect(m_edit, &QLineEdit::editingFinished, this, &EditableNextPageWidget::toEchoMode);
+    connect(m_editButton, &DImageButton::clicked, this, &EditableNextPageWidget::toEditMode, Qt::QueuedConnection);
+    connect(m_edit, &QLineEdit::editingFinished, this, &EditableNextPageWidget::toEchoMode, Qt::QueuedConnection);
 
     setLayout(centralLayout);
 }
@@ -52,15 +52,15 @@ void EditableNextPageWidget::setIcon(const QPixmap &icon)
     m_selectIcon->setPixmap(icon);
 }
 
-void EditableNextPageWidget::mouseReleaseEvent(QMouseEvent *e)
+void EditableNextPageWidget::mousePressEvent(QMouseEvent *e)
 {
     e->accept();
 
-    qDebug() << e;
+    SettingsItem::mousePressEvent(e);
 
-    SettingsItem::mouseReleaseEvent(e);
-
-    emit selected();
+    // ensure is echo mode
+    if (m_name->isVisible())
+        emit selected();
 }
 
 void EditableNextPageWidget::keyPressEvent(QKeyEvent *e)

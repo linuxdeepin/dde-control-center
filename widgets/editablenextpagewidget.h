@@ -31,7 +31,7 @@ signals:
     void textChanged(const QString &oldText, const QString &newText) const;
 
 private:
-    void mouseReleaseEvent(QMouseEvent *e);
+    void mousePressEvent(QMouseEvent *e);
     void keyPressEvent(QKeyEvent *e);
 
 private slots:

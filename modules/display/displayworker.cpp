@@ -116,8 +116,8 @@ void DisplayWorker::createConfig()
             break;
     } while (true);
 
-    if (m_model->displayMode() == CUSTOM_MODE)
-        return switchConfig(configName);
+//    if (m_model->displayMode() == CUSTOM_MODE)
+//        return switchConfig(configName);
 
     const auto reply = m_displayInter.SwitchMode(CUSTOM_MODE, configName);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply);
