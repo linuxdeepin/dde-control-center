@@ -41,12 +41,12 @@ void MiracastControlPage::onItemClicked(const QModelIndex &index)
 {
     const ItemInfo info = index.data(MiracastControlModel::MiracastItemInfoRole).value<ItemInfo>();
 
-    if (!info.m_peer)
+    if (!info.m_sink)
     {
         qDebug() << *info.m_link;
         m_miracastWorker->setLinkEnable(info.m_link->m_dbusPath, !info.m_link->m_managed);
     } else {
-        qDebug() << *info.m_peer;
-        m_miracastWorker->connectPeer(info.m_peer->m_peerPath, QRect(0, 0, 1920, 1080));
+        qDebug() << *info.m_sink;
+        m_miracastWorker->connectPeer(info.m_sink->m_sinkPath, QRect(0, 0, 1920, 1080));
     }
 }

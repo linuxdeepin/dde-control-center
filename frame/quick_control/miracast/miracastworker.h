@@ -17,6 +17,7 @@ public:
 
     void fetchData();
     void queryLinks();
+    void querySinks();
 
 public slots:
     void connectPeer(const QDBusObjectPath &peer, const QRect area);
@@ -25,6 +26,7 @@ public slots:
 
 private slots:
     void queryLinks_CB(QDBusPendingCallWatcher *w);
+    void querySinks_CB(QDBusPendingCallWatcher *w);
 
 private:
     MiracastModel *m_miracastModel;

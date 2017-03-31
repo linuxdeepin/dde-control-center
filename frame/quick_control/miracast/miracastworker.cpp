@@ -28,6 +28,13 @@ void MiracastWorker::queryLinks()
     connect(w, &QDBusPendingCallWatcher::finished, this, &MiracastWorker::queryLinks_CB);
 }
 
+void MiracastWorker::querySinks()
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_miracastInter->ListSinks());
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &MiracastWorker::querySinks_CB);
+}
+
 void MiracastWorker::connectPeer(const QDBusObjectPath &peer, const QRect area)
 {
     qDebug() << Q_FUNC_INFO << peer.path() << area;
@@ -54,6 +61,18 @@ void MiracastWorker::queryLinks_CB(QDBusPendingCallWatcher *w)
     QDBusPendingReply<LinkInfoList> reply = *w;
 
     m_miracastModel->setLinks(reply.value());
+
+    w->deleteLater();
+
+    // query sinks when we get all links.
+    querySinks();
+}
+
+void MiracastWorker::querySinks_CB(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<SinkInfoList> reply = *w;
+
+    m_miracastModel->setSinks(reply.value());
 
     w->deleteLater();
 }

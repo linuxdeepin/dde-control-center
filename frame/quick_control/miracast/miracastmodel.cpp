@@ -1,7 +1,7 @@
 #include "miracastmodel.h"
 
 #define LINK_PREFIX "/org/freedesktop/miracle/wifi/link/"
-#define PEER_PREFIX "/org/freedesktop/miracle/wifi/peer/"
+#define SINK_PREFIX "/org/freedesktop/miracle/wfd/sink/"
 
 MiracastModel::MiracastModel(QObject *parent)
     : QObject(parent)
@@ -9,7 +9,7 @@ MiracastModel::MiracastModel(QObject *parent)
 
 }
 
-void MiracastModel::addPeer(const PeerInfo &peer)
+void MiracastModel::addSink(const SinkInfo &peer)
 {
     emit peerAdded(peer);
 }
@@ -38,17 +38,25 @@ void MiracastModel::removeLink(const QDBusObjectPath &path)
     }
 }
 
-void MiracastModel::removePeer(const QString &peerInfo)
+void MiracastModel::removeSink(const QString &sinkInfo)
 {
-    const QJsonObject infoObject = QJsonDocument::fromJson(peerInfo.toUtf8()).object();
+    qDebug() << "remove Sink" << sinkInfo;
 
-    emit peerRemoved(PeerInfo::fromJson(infoObject));
+    const QJsonObject infoObject = QJsonDocument::fromJson(sinkInfo.toUtf8()).object();
+
+    emit peerRemoved(SinkInfo::fromJson(infoObject));
 }
 
 void MiracastModel::setLinks(const QList<LinkInfo> &links)
 {
     for (const auto &link : links)
         addLink(link);
+}
+
+void MiracastModel::setSinks(const QList<SinkInfo> &sinks)
+{
+    for (const auto &sink : sinks)
+        addSink(sink);
 }
 
 void MiracastModel::onPathAdded(const QDBusObjectPath &path, const QString &info)
@@ -58,8 +66,8 @@ void MiracastModel::onPathAdded(const QDBusObjectPath &path, const QString &info
 
     if (objectPath.startsWith(LINK_PREFIX))
         return addLink(LinkInfo::fromJson(infoObject));
-    else if (objectPath.startsWith(PEER_PREFIX))
-        return addPeer(PeerInfo::fromJson(infoObject));
+    else if (objectPath.startsWith(SINK_PREFIX))
+        return addSink(SinkInfo::fromJson(infoObject));
 
     qDebug() << path.path() << info;
 }
@@ -69,8 +77,8 @@ void MiracastModel::onPathRemoved(const QDBusObjectPath &path, const QString &in
     const QString objectPath = path.path();
     if (objectPath.startsWith(LINK_PREFIX))
         return removeLink(path);
-    else if (objectPath.startsWith(PEER_PREFIX))
-        return removePeer(info);
+    else if (objectPath.startsWith(SINK_PREFIX))
+        return removeSink(info);
 
     qDebug() << path.path() << info;
 }

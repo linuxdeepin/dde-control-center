@@ -8,7 +8,7 @@
 struct ItemInfo
 {
     const LinkInfo *m_link;
-    const PeerInfo *m_peer;
+    const SinkInfo *m_sink;
 };
 
 class MiracastControlModel : public QAbstractListModel
@@ -31,8 +31,8 @@ public:
 private slots:
     void onLinkAdded(const LinkInfo &link);
     void onLinkRemoved(const QDBusObjectPath &path);
-    void onPeerAdded(const PeerInfo &peer);
-    void onPeerRemoved(const PeerInfo &peer);
+    void onSinkAdded(const SinkInfo &sink);
+    void onSinkRemoved(const SinkInfo &sink);
 
 private:
     ItemInfo itemInfo(const int row) const;
@@ -40,7 +40,7 @@ private:
 private:
     MiracastModel *m_miracastModel;
 
-    QMap<QString, QList<PeerInfo>> m_datas;
+    QMap<QString, QList<SinkInfo>> m_datas;
 };
 
 Q_DECLARE_METATYPE(ItemInfo)

@@ -7,8 +7,8 @@ MiracastControlModel::MiracastControlModel(MiracastModel *model, QObject *parent
 {
     connect(m_miracastModel, &MiracastModel::linkAdded, this, &MiracastControlModel::onLinkAdded);
     connect(m_miracastModel, &MiracastModel::linkRemoved, this, &MiracastControlModel::onLinkRemoved);
-    connect(m_miracastModel, &MiracastModel::peerAdded, this, &MiracastControlModel::onPeerAdded);
-    connect(m_miracastModel, &MiracastModel::peerRemoved, this, &MiracastControlModel::onPeerRemoved);
+    connect(m_miracastModel, &MiracastModel::peerAdded, this, &MiracastControlModel::onSinkAdded);
+    connect(m_miracastModel, &MiracastModel::peerRemoved, this, &MiracastControlModel::onSinkRemoved);
 
     qRegisterMetaType<ItemInfo>("ItemInfo");
 }
@@ -31,8 +31,8 @@ QVariant MiracastControlModel::data(const QModelIndex &index, int role) const
     switch (role)
     {
     case MiracastDisplayRole:
-        if (info.m_peer)
-            return info.m_peer->m_name + " " + (info.m_peer->m_connected ? "true" : "false");
+        if (info.m_sink)
+            return info.m_sink->m_name + " " + (info.m_sink->m_connected ? "true" : "false");
         else
             return info.m_link->m_name + " " + (info.m_link->m_managed ? "true" : "false");
     case MiracastItemInfoRole:
@@ -46,7 +46,7 @@ void MiracastControlModel::onLinkAdded(const LinkInfo &link)
 {
     qDebug() << Q_FUNC_INFO << link;
 
-    m_datas.insert(link.m_dbusPath.path(), QList<PeerInfo>());
+    m_datas.insert(link.m_dbusPath.path(), QList<SinkInfo>());
 
     emit layoutChanged();
 }
@@ -60,25 +60,25 @@ void MiracastControlModel::onLinkRemoved(const QDBusObjectPath &path)
     emit layoutChanged();
 }
 
-void MiracastControlModel::onPeerAdded(const PeerInfo &peer)
+void MiracastControlModel::onSinkAdded(const SinkInfo &sink)
 {
-    qDebug() << Q_FUNC_INFO << peer;
+    qDebug() << Q_FUNC_INFO << sink;
 
-    const QString link = peer.m_linkPath.path();
+    const QString link = sink.m_linkPath.path();
     Q_ASSERT(m_datas.contains(link));
-    Q_ASSERT(!m_datas[link].contains(peer));
+    Q_ASSERT(!m_datas[link].contains(sink));
 
-    m_datas[link].append(peer);
+    m_datas[link].append(sink);
 
     emit layoutChanged();
 }
 
-void MiracastControlModel::onPeerRemoved(const PeerInfo &peer)
+void MiracastControlModel::onSinkRemoved(const SinkInfo &sink)
 {
-    const QString link = peer.m_linkPath.path();
+    const QString link = sink.m_linkPath.path();
     Q_ASSERT(m_datas.contains(link));
 
-    m_datas[link].removeAll(peer);
+    m_datas[link].removeAll(sink);
 
     emit layoutChanged();
 }
@@ -102,7 +102,7 @@ ItemInfo MiracastControlModel::itemInfo(const int row) const
         const int s = m_datas[linkPath].size();
         if (r < s)
         {
-            info.m_peer = &m_datas[linkPath][r];
+            info.m_sink = &m_datas[linkPath][r];
             return info;
         } else {
             r -= s;
