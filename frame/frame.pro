@@ -45,7 +45,8 @@ HEADERS    += \
     quick_control/miracast/miracastworker.h \
     quick_control/miracast/miracastmodel.h \
     quick_control/miracast/miracastcontrolmodel.h \
-    updatenotifier.h
+    updatenotifier.h \
+    quick_control/miracast/miracastcontroldelegate.h
 
 SOURCES    += \
             main.cpp \
@@ -79,7 +80,8 @@ SOURCES    += \
     quick_control/miracast/miracastworker.cpp \
     quick_control/miracast/miracastmodel.cpp \
     quick_control/miracast/miracastcontrolmodel.cpp \
-    updatenotifier.cpp
+    updatenotifier.cpp \
+    quick_control/miracast/miracastcontroldelegate.cpp
 
 #RESOURCES += \
 #    qss.qrc \

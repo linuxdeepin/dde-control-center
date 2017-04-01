@@ -2,6 +2,7 @@
 #include "miracastworker.h"
 #include "basiclistview.h"
 #include "miracastcontrolmodel.h"
+#include "miracastcontroldelegate.h"
 
 #include <com_deepin_daemon_miracast.h>
 
@@ -16,9 +17,11 @@ MiracastControlPage::MiracastControlPage(QWidget *parent)
     m_miracastWorker = new MiracastWorker(m_miracastModel);
 
     MiracastControlModel *ctrlModel = new MiracastControlModel(m_miracastModel);
+    miracastControlDelegate *ctrlDelegate = new miracastControlDelegate;
 
     BasicListView *view = new BasicListView;
     view->setModel(ctrlModel);
+    view->setItemDelegate(ctrlDelegate);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addStretch();

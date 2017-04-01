@@ -18,8 +18,10 @@ class MiracastControlModel : public QAbstractListModel
 public:
     enum MiracastItemRole
     {
+        MiracastItemSizeHintRole = Qt::SizeHintRole,
         MiracastDisplayRole = Qt::DisplayRole,
         MiracastReservedRole = Qt::UserRole,
+        MiracastActiveRole,
         MiracastItemInfoRole,
     };
 

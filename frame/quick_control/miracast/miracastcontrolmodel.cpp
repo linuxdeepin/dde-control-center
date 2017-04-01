@@ -33,11 +33,21 @@ QVariant MiracastControlModel::data(const QModelIndex &index, int role) const
     {
     case MiracastDisplayRole:
         if (info.m_sink)
-            return info.m_sink->m_name + " " + (info.m_sink->m_connected ? "true" : "false");
+            return info.m_sink->m_name;
         else
-            return info.m_link->m_name + " " + (info.m_link->m_managed ? "true" : "false");
+            return info.m_link->m_name;
+    case MiracastActiveRole:
+        if (info.m_sink)
+            return info.m_sink->m_connected;
+        else
+            return info.m_link->m_managed;
     case MiracastItemInfoRole:
         return QVariant::fromValue(info);
+    case MiracastItemSizeHintRole:
+        if (info.m_sink && !info.m_link)
+            return QSize(0, 40);
+        else
+            return QSize(0, 30);
     }
 
     return QVariant();
