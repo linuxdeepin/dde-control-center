@@ -234,5 +234,7 @@
         <file>themes/dark/icons/notify_close_hover.png</file>
         <file>themes/dark/icons/notify_close_normal.png</file>
         <file>themes/dark/icons/notify_close_press.png</file>
+        <file>themes/dark/icons/miracast_on.png</file>
+        <file>themes/dark/icons/miracast_off.png</file>
     </qresource>
 </RCC>

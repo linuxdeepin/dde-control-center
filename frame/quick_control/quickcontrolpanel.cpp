@@ -64,7 +64,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_btSwitch = new QuickSwitchButton(1, "bluetooth");
     m_vpnSwitch = new QuickSwitchButton(2, "VPN");
     m_wifiSwitch = new QuickSwitchButton(3, "wifi");
-    m_miracastSwitch = new QuickSwitchButton(5, "display");
+    m_miracastSwitch = new QuickSwitchButton(5, "miracast");
     QuickSwitchButton *displaySwitch = new QuickSwitchButton(4, "display");
     QuickSwitchButton *detailSwitch = new QuickSwitchButton(0, "all_settings");
 
@@ -74,8 +74,10 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_vpnSwitch->setAccessibleName("QuickSwitchVPN");
     m_wifiSwitch->setObjectName("QuickSwitchWiFi");
     m_wifiSwitch->setAccessibleName("QuickSwitchWiFi");
-    m_miracastSwitch->setObjectName("QuickSwitchDisplay");
-    m_miracastSwitch->setAccessibleName("QuickSwitchDisplay");
+    m_miracastSwitch->setObjectName("QuickSwitchMiracast");
+    m_miracastSwitch->setAccessibleName("QuickSwitchMiracast");
+    m_miracastSwitch->setCheckable(false);
+    m_miracastSwitch->setChecked(true);
     displaySwitch->setObjectName("QuickSwitchDisplay");
     displaySwitch->setAccessibleName("QuickSwitchDisplay");
     displaySwitch->setCheckable(false);

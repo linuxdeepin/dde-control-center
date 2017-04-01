@@ -25,7 +25,7 @@ void miracastControlDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     if (info.m_sink)
         painter->drawText(option.rect, Qt::AlignRight | Qt::AlignVCenter, info.m_sink->m_connected ? tr("Connected") : tr("Disconnect"));
     else
-        painter->drawText(option.rect, Qt::AlignRight | Qt::AlignVCenter, info.m_link->m_managed ? tr("Active") : tr("Disactive"));
+        painter->drawText(option.rect, Qt::AlignRight | Qt::AlignVCenter, info.m_link->m_managed ? tr("Active") : tr("Inactive"));
 }
 
 QSize miracastControlDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
