@@ -11,7 +11,7 @@ MiracastControlModel::MiracastControlModel(MiracastModel *model, QObject *parent
     connect(m_miracastModel, &MiracastModel::peerRemoved, this, &MiracastControlModel::onSinkRemoved);
     connect(m_miracastModel, &MiracastModel::sinkConnectedChanged, this, &MiracastControlModel::onSinkConnectedChanged);
 
-    qRegisterMetaType<ItemInfo>("ItemInfo");
+    qRegisterMetaType<MiracastInfo>("MiracastInfo");
 }
 
 int MiracastControlModel::rowCount(const QModelIndex &parent) const
@@ -27,7 +27,7 @@ int MiracastControlModel::rowCount(const QModelIndex &parent) const
 
 QVariant MiracastControlModel::data(const QModelIndex &index, int role) const
 {
-    const ItemInfo info = itemInfo(index.row());
+    const MiracastInfo info = itemInfo(index.row());
 
     switch (role)
     {
@@ -115,9 +115,9 @@ void MiracastControlModel::onSinkConnectedChanged(const QDBusObjectPath &path, c
     }
 }
 
-ItemInfo MiracastControlModel::itemInfo(const int row) const
+MiracastInfo MiracastControlModel::itemInfo(const int row) const
 {
-    ItemInfo info = { nullptr, nullptr };
+    MiracastInfo info = { nullptr, nullptr };
 
     int r = row;
     for (auto &link : m_miracastModel->links())

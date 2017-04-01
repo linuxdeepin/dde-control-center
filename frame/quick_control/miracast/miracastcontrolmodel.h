@@ -5,7 +5,7 @@
 
 #include <QAbstractListModel>
 
-struct ItemInfo
+struct MiracastInfo
 {
     const LinkInfo *m_link;
     const SinkInfo *m_sink;
@@ -38,7 +38,7 @@ private slots:
     void onSinkConnectedChanged(const QDBusObjectPath &path, const bool connected);
 
 private:
-    ItemInfo itemInfo(const int row) const;
+    MiracastInfo itemInfo(const int row) const;
 
 private:
     MiracastModel *m_miracastModel;
@@ -46,6 +46,6 @@ private:
     QMap<QString, QList<SinkInfo>> m_datas;
 };
 
-Q_DECLARE_METATYPE(ItemInfo)
+Q_DECLARE_METATYPE(MiracastInfo)
 
 #endif // MIRACASTCONTROLMODEL_H

@@ -10,10 +10,11 @@
 
 using namespace dcc::widgets;
 
-MiracastControlPage::MiracastControlPage(QWidget *parent)
-    : QWidget(parent)
+MiracastControlPage::MiracastControlPage(MiracastModel *model, QWidget *parent)
+    : QWidget(parent),
+
+      m_miracastModel(model)
 {
-    m_miracastModel = new MiracastModel;
     m_miracastWorker = new MiracastWorker(m_miracastModel);
 
     MiracastControlModel *ctrlModel = new MiracastControlModel(m_miracastModel);
@@ -42,7 +43,7 @@ MiracastControlPage::~MiracastControlPage()
 
 void MiracastControlPage::onItemClicked(const QModelIndex &index)
 {
-    const ItemInfo info = index.data(MiracastControlModel::MiracastItemInfoRole).value<ItemInfo>();
+    const MiracastInfo info = index.data(MiracastControlModel::MiracastItemInfoRole).value<MiracastInfo>();
 
     if (!info.m_sink)
     {

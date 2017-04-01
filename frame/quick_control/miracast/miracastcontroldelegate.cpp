@@ -11,7 +11,7 @@ miracastControlDelegate::miracastControlDelegate(QObject *parent)
 
 void miracastControlDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    const ItemInfo info = index.data(MiracastControlModel::MiracastItemInfoRole).value<ItemInfo>();
+    const MiracastInfo info = index.data(MiracastControlModel::MiracastItemInfoRole).value<MiracastInfo>();
 
     painter->setRenderHints(QPainter::Antialiasing);
 

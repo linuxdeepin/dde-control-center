@@ -5,6 +5,8 @@
 #include <QStackedLayout>
 #include <QPushButton>
 
+class MiracastModel;
+
 namespace dcc {
 
 class QuickSwitchButton;
@@ -55,9 +57,12 @@ private slots:
     void onBluetoothButtonClicked(const bool checked);
     void onBluetoothDeviceListChanged();
     void onIndexChanged(const int index);
+    void onMiracastLinkListChanged();
 
 private:
     QStackedLayout *m_itemStack;
+
+    MiracastModel *m_miracastModel;
 
     dcc::network::NetworkModel *m_networkModel;
     dcc::network::NetworkWorker *m_networkWorker;

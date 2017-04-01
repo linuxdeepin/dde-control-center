@@ -17,6 +17,7 @@
 #include "bluetooth/adapter.h"
 
 #include "miracast/miracastcontrolpage.h"
+#include "miracast/miracastmodel.h"
 
 #include <QVBoxLayout>
 
@@ -52,7 +53,8 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     VpnControlPage *vpnPage = new VpnControlPage(m_networkModel);
 
-    MiracastControlPage *miracastPage = new MiracastControlPage;
+    m_miracastModel = new MiracastModel;
+    MiracastControlPage *miracastPage = new MiracastControlPage(m_miracastModel);
 
     m_itemStack->addWidget(new BasicSettingsPage);
     m_itemStack->addWidget(bluetoothList);
@@ -148,6 +150,9 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(bluetoothList, &BluetoothList::requestDisConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::disconnectDevice);
     connect(bluetoothList, &BluetoothList::requestConnectOther,  [=] { emit requestPage("bluetooth", QString()); });
     connect(bluetoothList, &BluetoothList::requestAdapterDiscoverable, m_bluetoothWorker, &bluetooth::BluetoothWorker::setAdapterDiscoverable);
+
+    connect(m_miracastModel, &MiracastModel::linkAdded, this, &QuickControlPanel::onMiracastLinkListChanged, Qt::QueuedConnection);
+    connect(m_miracastModel, &MiracastModel::linkRemoved, this, &QuickControlPanel::onMiracastLinkListChanged, Qt::QueuedConnection);
 
     connect(m_itemStack, &QStackedLayout::currentChanged, this, &QuickControlPanel::onIndexChanged);
 
@@ -247,4 +252,9 @@ void QuickControlPanel::onIndexChanged(const int index)
 {
     for (int i(0); i != m_switchs.size(); ++i)
         m_switchs[i]->setSelected(i == index);
+}
+
+void QuickControlPanel::onMiracastLinkListChanged()
+{
+    m_miracastSwitch->setVisible(!m_miracastModel->links().isEmpty());
 }

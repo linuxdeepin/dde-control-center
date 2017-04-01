@@ -12,7 +12,7 @@ class MiracastControlPage : public QWidget
     Q_OBJECT
 
 public:
-    explicit MiracastControlPage(QWidget *parent = 0);
+    explicit MiracastControlPage(MiracastModel *model, QWidget *parent = 0);
     ~MiracastControlPage();
 
 private slots:
