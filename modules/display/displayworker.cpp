@@ -84,7 +84,9 @@ void DisplayWorker::splitScreens()
     const auto mList = m_model->monitorList();
     Q_ASSERT(mList.size() == 2);
 
-    const auto *primary = m_model->primaryMonitor();
+    auto *primary = m_model->primaryMonitor();
+    Q_ASSERT(m_monitors.contains(primary));
+    m_monitors[primary]->SetPosition(0, 0).waitForFinished();
 
     int xOffset = primary->w();
     for (auto *mon : mList)
@@ -93,8 +95,8 @@ void DisplayWorker::splitScreens()
         if (mon == primary)
             continue;
 
+        Q_ASSERT(m_monitors.contains(mon));
         auto *mInter = m_monitors[mon];
-        Q_ASSERT(mInter);
 
         mInter->SetPosition(xOffset, 0).waitForFinished();
         xOffset += mon->w();
