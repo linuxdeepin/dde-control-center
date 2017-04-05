@@ -21,11 +21,13 @@ void miracastControlDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     else
         painter->setPen(Qt::yellow);
 
-    painter->drawText(option.rect, Qt::AlignLeft | Qt::AlignVCenter, index.data(MiracastControlModel::MiracastDisplayRole).toString());
+    const QRect r = option.rect.marginsRemoved(QMargins(10, 2, 10, 2));
+
+    painter->drawText(r, Qt::AlignLeft | Qt::AlignVCenter, index.data(MiracastControlModel::MiracastDisplayRole).toString());
     if (info.m_sink)
-        painter->drawText(option.rect, Qt::AlignRight | Qt::AlignVCenter, info.m_sink->m_connected ? tr("Connected") : tr("Disconnect"));
+        painter->drawText(r, Qt::AlignRight | Qt::AlignVCenter, info.m_sink->m_connected ? tr("Connected") : tr("Disconnect"));
     else
-        painter->drawText(option.rect, Qt::AlignRight | Qt::AlignVCenter, info.m_link->m_managed ? tr("Active") : tr("Inactive"));
+        painter->drawText(r, Qt::AlignRight | Qt::AlignVCenter, info.m_link->m_managed ? tr("Active") : tr("Inactive"));
 }
 
 QSize miracastControlDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
