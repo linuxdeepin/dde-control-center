@@ -21,7 +21,6 @@ protected:
 //    void wheelEvent(QWheelEvent *e);
     void showEvent(QShowEvent* e);
     void scrollContentsBy(int dx, int dy);
-    void resizeEvent(QResizeEvent *e);
 
 private:
     QString m_section;

@@ -67,10 +67,5 @@ void IndexView::scrollContentsBy(int dx, int dy)
     QListView::scrollContentsBy(dx,dy);
 }
 
-void IndexView::resizeEvent(QResizeEvent *e)
-{
-    QListView::resizeEvent(e);
-}
-
 }
 }
