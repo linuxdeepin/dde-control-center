@@ -110,12 +110,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="12"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Updates</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="13"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Er zijn updates beschikbaar, klik om ze te bekijken</translation>
     </message>
 </context>
 <context>
@@ -300,7 +300,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Beheerdersrechten vereist om account te verwijderen</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
@@ -561,7 +561,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Alle bestanden (*)</translation>
     </message>
 </context>
 <context>
@@ -586,7 +586,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="18"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Aanpassen</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="20"/>
@@ -596,12 +596,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="23"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>Verwissel naar huidige modus alvorens de instellingen aan te passen</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="25"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>Verwissel naar een andere modus alvorens de instellingen te wissen</translation>
     </message>
 </context>
 <context>
@@ -614,7 +614,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="25"/>
         <source>New custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Nieuwe aangepaste instellingen</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="27"/>
@@ -637,7 +637,7 @@
     <message>
         <location filename="../modules/display/displayworker.cpp" line="113"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>Mijn instellingen %1</translation>
     </message>
 </context>
 <context>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Stel sneltoets opnieuw in</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
@@ -1234,7 +1234,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Aan het authenticeren</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1749,7 +1749,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
         <source>Edition License:</source>
-        <translation type="unfinished"/>
+        <translation>Editielicentie:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>

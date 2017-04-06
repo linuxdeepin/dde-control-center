@@ -76,7 +76,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="126"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation>Click izquierdo para girar y haga clic derecho para salir</translation>
+        <translation>Clic izquierdo para girar y haga clic derecho para salir</translation>
     </message>
 </context>
 <context>
@@ -110,12 +110,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="12"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Actualizaciones</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="13"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Actualizaciones detectadas, haz clic para ver</translation>
     </message>
 </context>
 <context>
@@ -159,7 +159,7 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="182"/>
         <source>Wireless Card %1</source>
-        <translation>Cartón de Inalámbrico %1</translation>
+        <translation>Tarjeta de red inalámbrica %1</translation>
     </message>
 </context>
 <context>
@@ -203,7 +203,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="81"/>
         <source>Images</source>
-        <translation>Imagenes</translation>
+        <translation>Imágenes</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="230"/>
@@ -300,12 +300,12 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Permiso de administrador requerido para borrar cuenta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
         <source>Delete account directory</source>
-        <translation>Borrar directorio cuenta</translation>
+        <translation>Borrar directorio de cuenta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="54"/>
@@ -434,7 +434,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="23"/>
         <source>Add Timezone</source>
-        <translation>Añadir la zona horaria</translation>
+        <translation>Añadir zona horaria</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="29"/>
@@ -533,7 +533,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="34"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>Vídeo</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="35"/>
@@ -556,12 +556,12 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="40"/>
         <source>Open Desktop file</source>
-        <translation>Abrir el escritorio</translation>
+        <translation>Abrir un archivo del escritorio</translation>
     </message>
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Todos los archivos (*)</translation>
     </message>
 </context>
 <context>
@@ -678,7 +678,7 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="159"/>
         <source>Primary</source>
-        <translation>Primaria</translation>
+        <translation>Primario</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="325"/>
@@ -704,7 +704,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="26"/>
         <source>Shortcuts</source>
-        <translation>Atajos de teclado</translation>
+        <translation>Atajos</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="35"/>
@@ -724,7 +724,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="45"/>
         <source>Shortcut</source>
-        <translation>Atajo de teclado</translation>
+        <translation>Atajo</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="53"/>
@@ -754,7 +754,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
         <source>Choose File</source>
-        <translation>Cambiar Archivo</translation>
+        <translation>Elegir Archivo</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
@@ -803,7 +803,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="116"/>
         <source>Choose File</source>
-        <translation>Cambiar Archivo</translation>
+        <translation>Elegir Archivo</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="116"/>
@@ -902,7 +902,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
         <source>Enable Numeric Keyboard</source>
-        <translation>Activar Teclado Numerico</translation>
+        <translation>Activar Teclado Numérico</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Por favor reinicia los atajos</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
@@ -1234,7 +1234,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Autenticando</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1749,7 +1749,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
         <source>Edition License:</source>
-        <translation type="unfinished"/>
+        <translation>Licencia de edición:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
@@ -1960,7 +1960,7 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>
         <source>light</source>
-        <translation>luz</translation>
+        <translation>Claro</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>

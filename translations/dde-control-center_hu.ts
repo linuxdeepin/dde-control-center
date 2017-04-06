@@ -17,7 +17,7 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="104"/>
         <source>Click icon to enable bluetooth</source>
-        <translation>Kattints az ikonra hogy a bluetooth-t engedélyezd </translation>
+        <translation>A bluetooth engedélyezéséhez kattintsunk az ikonra</translation>
     </message>
 </context>
 <context>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
-        <translation>Kérem adja meg a megjelenítés módját hogy módosítsa a saját beállításokat</translation>
+        <translation>Adjuk meg a megjelenítési  módot a saját beállítások módosításához</translation>
     </message>
 </context>
 <context>
@@ -63,7 +63,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="46"/>
         <source>Clear all</source>
-        <translation>Töröl mindet</translation>
+        <translation>Összes törlése</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="115"/>
@@ -110,12 +110,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="12"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Frissítés</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="13"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Frissítések elérhetők, kattintsunk a megjelenítéshez</translation>
     </message>
 </context>
 <context>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="47"/>
         <source>Click icon to enable VPN</source>
-        <translation>Kattints az ikonra hogy a VPN-t engedélyezd</translation>
+        <translation>A VPN engedélyezéséhez kattintsunk az ikonra.</translation>
     </message>
 </context>
 <context>
@@ -131,12 +131,12 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="76"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Sajnálom, az időjárási adatok nem elérhetőek</translation>
+        <translation>Sajnáljuk, az időjárási adatok nem elérhetőek</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="83"/>
         <source>Loading weather...</source>
-        <translation>Töltöm az időjárási adatokat...</translation>
+        <translation>Időjárás adatok betöltése...</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="144"/>
@@ -154,12 +154,12 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="92"/>
         <source>Click icon to enable WIFI</source>
-        <translation>Kattints az ikonra hogy a WIFI-t engedélyezd</translation>
+        <translation>A Wifi engedélyezéséhez kattintsunk az ikonra</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="182"/>
         <source>Wireless Card %1</source>
-        <translation>WiFi kártya %1</translation>
+        <translation>%1 Wifi kártya</translation>
     </message>
 </context>
 <context>
@@ -287,7 +287,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="34"/>
         <source>Accept</source>
-        <translation>Elfogad</translation>
+        <translation>Elfogadás</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
@@ -300,7 +300,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>A fiók törléséhez rendszer-adminisztrátori engedély szükséges</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
@@ -328,7 +328,7 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="26"/>
         <source>Other devices</source>
-        <translation>Más eszközök</translation>
+        <translation>Egyéb eszközök</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="38"/>
@@ -375,7 +375,7 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="25"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>A PIN-kód megadásával csatlakozhat a bluetooth eszközhöz:</translation>
+        <translation>A PIN-kód megadásával csatlakozhatunk a bluetooth eszközhöz:</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="33"/>
@@ -462,7 +462,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="46"/>
         <source>Change Timezone</source>
-        <translation>Időzóna cseréje</translation>
+        <translation>Időzóna módosítás</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="47"/>
@@ -551,7 +551,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="19"/>
         <source>Add</source>
-        <translation>Hozzáad</translation>
+        <translation>Hozzáadás</translation>
     </message>
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="40"/>
@@ -561,7 +561,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Összes fájl (*)</translation>
     </message>
 </context>
 <context>
@@ -586,7 +586,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="18"/>
         <source>Modify</source>
-        <translation>Módosít</translation>
+        <translation>Módosítás</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="20"/>
@@ -596,12 +596,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="23"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation>Kérem, váltson arra a beállítási  módra, amelyen módosítani szeretne.</translation>
+        <translation>Válasszuk ki azt a módot amelyet szeretnénk módosítani a beállításokban.</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="25"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation>Kérem, váltson át egy másik beállítás módba, mielőtt törölné ezt a beállítást.</translation>
+        <translation>Váltsunk át egy másik beállítási módra, mielőtt töröljük ezt a beállítást.</translation>
     </message>
 </context>
 <context>
@@ -683,7 +683,7 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="325"/>
         <source> (Recommended)</source>
-        <translation>(Ajánlatok)</translation>
+        <translation>(Ajánlottak)</translation>
     </message>
 </context>
 <context>
@@ -729,7 +729,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="53"/>
         <source>Please Grab Shortcut Again</source>
-        <translation>Kérem adja meg a gyorsbillentyűt megint</translation>
+        <translation>Adjuk meg újra a gyorsbillentyűt</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="68"/>
@@ -739,17 +739,17 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="70"/>
         <source>Add</source>
-        <translation>Hozzáad</translation>
+        <translation>Hozzáadás</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="94"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ez a parancsikon ütközik ezzel: %1. Hozzon létre egy másik parancsikont.</translation>
+        <translation>A parancsikon ütközik ezzel: %1. Hozzunk létre egy másik parancsikont.</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="126"/>
         <source>null</source>
-        <translation>Üres</translation>
+        <translation>üres</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
@@ -798,7 +798,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="104"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ez a parancsikon ütközik ezzel: %1. Hozzon létre egy másik parancsikont.</translation>
+        <translation>A parancsikon ütközik ezzel: %1. Hozzunk létre egy másik parancsikont.</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="116"/>
@@ -897,17 +897,17 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="54"/>
         <source>Please Test Here</source>
-        <translation>Beillesztés ide</translation>
+        <translation>Ellenőrzés itt</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
         <source>Enable Numeric Keyboard</source>
-        <translation>Numerikus Billentyűzet Engedélyezése</translation>
+        <translation>Numerikus billentyűzet engedélyezése</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
         <source>Caps Lock Prompt</source>
-        <translation>Caps Lock figyelmeztető </translation>
+        <translation>Caps lock figyelmeztető </translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
@@ -917,7 +917,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="78"/>
         <source>System Language</source>
-        <translation>Rendszer nyelve</translation>
+        <translation>Rendszer nyelv</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="83"/>
@@ -942,7 +942,7 @@
     <message>
         <location filename="../modules/keyboard/langwidget.cpp" line="23"/>
         <source>System Language</source>
-        <translation>Rendszer nyelve</translation>
+        <translation>Rendszer nyelv</translation>
     </message>
 </context>
 <context>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Állítsuk vissza a gyorsbillentyűt</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
@@ -960,17 +960,17 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="36"/>
         <source>Replace</source>
-        <translation>Cserél</translation>
+        <translation>Csere</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Ez a parancsikon konfliktusban van ezzel: %1,  cseréljen parancsikont.</translation>
+        <translation>A parancsikon ütközik ezzel: %1. Hozzunk létre egy másik parancsikont.</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="98"/>
         <source>null</source>
-        <translation>Üres</translation>
+        <translation>üres</translation>
     </message>
 </context>
 <context>
@@ -1062,7 +1062,7 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="44"/>
         <source>Double-click Speed</source>
-        <translation>Dupla-klikk sebesség</translation>
+        <translation>Dupla-kattintás sebesség</translation>
     </message>
 </context>
 <context>
@@ -1070,7 +1070,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="19"/>
         <source>Double-click Test</source>
-        <translation>Dupla kattintás teszt</translation>
+        <translation>Dupla-kattintás teszt</translation>
     </message>
 </context>
 <context>
@@ -1088,7 +1088,7 @@
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="27"/>
         <source>Pointer Speed</source>
-        <translation>Mutató sebesség</translation>
+        <translation>Mutató sebessége</translation>
     </message>
 </context>
 <context>
@@ -1111,12 +1111,12 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="32"/>
         <source>Tap to Click</source>
-        <translation>Érintésre kattint </translation>
+        <translation>Érintésre kattintás</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>Mouse and Touchpad</source>
-        <translation>Egér és touchpad</translation>
+        <translation>Egér és érintőtábla</translation>
     </message>
 </context>
 <context>
@@ -1234,7 +1234,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Hitelesítés</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1282,7 +1282,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
         <source>Wired Network Card%1</source>
-        <translation>Vezetékes hálózati kártya%1</translation>
+        <translation>%1 vezetékes hálózati kártya</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="152"/>
@@ -1297,12 +1297,12 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="148"/>
         <source>Wired Network%1</source>
-        <translation>Vezetékes hálózat%1</translation>
+        <translation>%1 vezetékes hálózat</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="160"/>
         <source>Wireless Network Card%1</source>
-        <translation>Vezeték nélküli hálózati kártya%1</translation>
+        <translation>%1 vezeték nélküli hálózati kártya</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="165"/>
@@ -1317,7 +1317,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="161"/>
         <source>Wireless Network%1</source>
-        <translation>Vezeték nélküli hálózat%1</translation>
+        <translation>%1 vezeték nélküli hálózat</translation>
     </message>
 </context>
 <context>
@@ -1353,7 +1353,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="35"/>
         <source>Manual</source>
-        <translation>Manuális</translation>
+        <translation>Kézi</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="36"/>
@@ -1525,7 +1525,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
         <source>Theme</source>
-        <translation>Téma</translation>
+        <translation>Sablon</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="29"/>
@@ -1535,7 +1535,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="34"/>
         <source>Personalization</source>
-        <translation>Megjelenés</translation>
+        <translation>Személyreszabás</translation>
     </message>
 </context>
 <context>
@@ -1551,22 +1551,22 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="15"/>
         <source>Window Theme</source>
-        <translation>Ablak téma</translation>
+        <translation>Ablak sablon</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="16"/>
         <source>Icon Theme</source>
-        <translation>Ikon téma</translation>
+        <translation>Ikontéma</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="17"/>
         <source>Cursor Theme</source>
-        <translation>Kurzor téma</translation>
+        <translation>Kurzorsablon</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="29"/>
         <source>Theme</source>
-        <translation>Téma</translation>
+        <translation>Sablon</translation>
     </message>
 </context>
 <context>
@@ -1610,7 +1610,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="101"/>
         <source>1 Minute</source>
-        <translation>1 Perc</translation>
+        <translation>1 perc</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="103"/>
@@ -1624,7 +1624,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="111"/>
         <source>1 Hour</source>
-        <translation>1 Óra</translation>
+        <translation>1 óra</translation>
     </message>
 </context>
 <context>
@@ -1637,12 +1637,12 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="22"/>
         <source>Input</source>
-        <translation>Input</translation>
+        <translation>Bemenet</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="24"/>
         <source>Advanced</source>
-        <translation>Kibővített</translation>
+        <translation>Részletes</translation>
     </message>
 </context>
 <context>
@@ -1708,12 +1708,12 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="47"/>
         <source>Theme</source>
-        <translation>Téma</translation>
+        <translation>Sablon</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="49"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation>Lecserélheti a boot image-t, és megváltoztathatja a boot sorrendet a kijelöléssel</translation>
+        <translation>Le cserélhetjük a rendszerbetöltő képet és megváltoztathatjuk a rendszerbetöltő sorrendet a kijelöléssel</translation>
     </message>
 </context>
 <context>
@@ -1721,7 +1721,7 @@
     <message>
         <location filename="../modules/systeminfo/copyrightwidget.cpp" line="37"/>
         <source>License</source>
-        <translation>Licensz</translation>
+        <translation>Licenc</translation>
     </message>
 </context>
 <context>
@@ -1739,17 +1739,17 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="29"/>
         <source>Distribution:</source>
-        <translation>Disztribúció:</translation>
+        <translation>Terjesztés:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="34"/>
         <source>Distribution Release:</source>
-        <translation>Disztribúció Kiadás:</translation>
+        <translation>Terjesztés kiadása:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
         <source>Edition License:</source>
-        <translation type="unfinished"/>
+        <translation>Kiadási licenc:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
@@ -1779,7 +1779,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
         <source>License</source>
-        <translation>Licensz</translation>
+        <translation>Licenc</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
@@ -1793,7 +1793,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="53"/>
         <location filename="../modules/update/mirroritem.cpp" line="91"/>
         <source>Timeout</source>
-        <translation>Idő lejárt</translation>
+        <translation>Időtullépés</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="55"/>
@@ -1819,12 +1819,12 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="19"/>
         <source>Switch Mirror</source>
-        <translation>Tükrözés kapcsolása</translation>
+        <translation>Tükrök kiválasztása</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="22"/>
         <source>Checking speed, please wait</source>
-        <translation>Mérem a sebességet, kérem várjon</translation>
+        <translation>Sebesség mérés, várjunk</translation>
     </message>
 </context>
 <context>
@@ -1837,13 +1837,13 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="113"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Keresem a frissítést, kérem várjon...</translation>
+        <translation>Frissítések keresése, várjunk...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="119"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download Updates</source>
-        <translation>Frissítés letöltése</translation>
+        <translation>Frissítések letöltése</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
@@ -1869,12 +1869,12 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="148"/>
         <source>Your system is up to date</source>
-        <translation>A rendszere frissítve van</translation>
+        <translation>A rendszer frissítésre került</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
         <source>New system edition and %1 application updates detected</source>
-        <translation>Új verzió és %1 program frissítése elérhető</translation>
+        <translation>Új verzió és %1 alkalmazás frissítése elérhető</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
@@ -1884,12 +1884,12 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>A telep töltöttsége 50% alatt van, kérem dugja hálózatra a készüléket.</translation>
+        <translation>Az akkumulátor töltöttsége 50% alatt van, dugjuk hálózatra a készüléket.</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Legyen feltöltve a telep és ne kapcsolja ki, ne húzza ki a hálózatból a készüléket.</translation>
+        <translation>Ellenőrizzük az akummulátor töltöttségét és ne húzzuk ki a hálózatból a dugót.</translation>
     </message>
 </context>
 <context>
@@ -1910,7 +1910,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="30"/>
         <source>Auto-download Updates</source>
-        <translation>Automatikus frissítés letöltés</translation>
+        <translation>Frissítések automatikus letöltése</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="32"/>
@@ -1920,7 +1920,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="37"/>
         <source>Switch Mirror</source>
-        <translation>Tükrözés kapcsolása</translation>
+        <translation>Tükör kiválasztása</translation>
     </message>
 </context>
 <context>
@@ -1942,7 +1942,7 @@
     <message>
         <location filename="../modules/update/updatework.cpp" line="352"/>
         <source>Patches</source>
-        <translation>Javítóprogram</translation>
+        <translation>Javítások</translation>
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="354"/>
@@ -1955,7 +1955,7 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="19"/>
         <source>Pressure Sensitive</source>
-        <translation>Nyomásérzékeny</translation>
+        <translation>Nyomásérzékenység</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>

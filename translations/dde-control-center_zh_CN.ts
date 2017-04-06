@@ -154,7 +154,7 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="92"/>
         <source>Click icon to enable WIFI</source>
-        <translation>点击图标开启无线WIFI </translation>
+        <translation>点击图标开启WIFI </translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="182"/>
@@ -449,7 +449,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="40"/>
         <source>Time Settings</source>
-        <translation>设置时间</translation>
+        <translation>时间设置</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="44"/>

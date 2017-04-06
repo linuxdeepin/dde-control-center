@@ -110,12 +110,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="12"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="13"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações encontradas, clique para visualizar</translation>
     </message>
 </context>
 <context>
@@ -300,12 +300,12 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Necessária autorização de Administrador para excluir a conta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
         <source>Delete account directory</source>
-        <translation>Apagar pasta da conta</translation>
+        <translation>Excluir pasta da conta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="54"/>
@@ -561,7 +561,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Todos os arquivos (*)</translation>
     </message>
 </context>
 <context>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, redefina o atalho</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
@@ -1234,7 +1234,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Autenticando</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1749,7 +1749,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
         <source>Edition License:</source>
-        <translation type="unfinished"/>
+        <translation>Licença de edição</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>

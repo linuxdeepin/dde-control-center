@@ -110,12 +110,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="12"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Aktualisierungen</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="13"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Aktualisierungen gefunden, klicken Sie hier für Details</translation>
     </message>
 </context>
 <context>
@@ -300,7 +300,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Administratorrecht erforderlich, um das Benutzerkonto zu löschen</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
@@ -561,7 +561,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Alle Dateien (*)</translation>
     </message>
 </context>
 <context>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Bitte setzen Sie das Tastenkürzel zurück</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
@@ -1234,7 +1234,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Authentifizierungsvorgang</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1749,7 +1749,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
         <source>Edition License:</source>
-        <translation type="unfinished"/>
+        <translation>Editionslizenz</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
@@ -1889,7 +1889,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Bitte stellen Sie sicher, dass dem Gerät genug Energie für den Neustart zur Verfügung steht und schalten Sie das gerät nicht aus oder ziehen Sie den Netzstecker!</translation>
+        <translation>Bitte stellen Sie sicher, dass dem Gerät genug Energie für den Neustart zur Verfügung steht und schalten Sie das Gerät nicht aus oder ziehen Sie den Netzstecker!</translation>
     </message>
 </context>
 <context>

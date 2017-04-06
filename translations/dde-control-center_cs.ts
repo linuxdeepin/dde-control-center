@@ -12,12 +12,12 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="70"/>
         <source>Connect to other devices</source>
-        <translation type="unfinished"/>
+        <translation>Spojit se s dalšími zařízeními</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="104"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Klepnout na ikonu pro povolení Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -63,7 +63,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="46"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>Vyprázdnit vše</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="115"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="117"/>
         <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nynější město: %1</translation>
     </message>
 </context>
 <context>
@@ -110,12 +110,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="12"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizace</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="13"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Zjištěny aktualizace. Klepněte pro zobrazení</translation>
     </message>
 </context>
 <context>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="47"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>Klepnout na ikonu pro povolení VPN</translation>
     </message>
 </context>
 <context>
@@ -154,7 +154,7 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="92"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>Klepnout na ikonu pro povolení WIFI</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="182"/>
@@ -203,7 +203,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="81"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Obrázky</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="230"/>
@@ -253,7 +253,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="124"/>
         <source>Username can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Uživatelské jméno nesmí být prázdné</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="127"/>
@@ -300,7 +300,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Pro smazání účtu vyžadováno oprávnění správce</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
@@ -367,7 +367,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="113"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Nepřipojeno</translation>
     </message>
 </context>
 <context>
@@ -462,7 +462,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="46"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Změnit časové pásmo</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="47"/>
@@ -561,7 +561,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Všechny soubory (*)</translation>
     </message>
 </context>
 <context>
@@ -586,7 +586,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="18"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Změnit</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="20"/>
@@ -596,12 +596,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="23"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>Přepněte, prosím, před měněním nastavení do nynějšího režimu</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="25"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>Přepněte, prosím, před měněním nastavení do jiného režimu</translation>
     </message>
 </context>
 <context>
@@ -614,7 +614,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="25"/>
         <source>New custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Nová vlastní nastavení</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="27"/>
@@ -637,7 +637,7 @@
     <message>
         <location filename="../modules/display/displayworker.cpp" line="113"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>Moje nastavení %1</translation>
     </message>
 </context>
 <context>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Nastavte, prosím, klávesovou zkratku znovu</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
@@ -1234,7 +1234,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Ověřování</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1749,7 +1749,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
         <source>Edition License:</source>
-        <translation type="unfinished"/>
+        <translation>Licence vydání:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>

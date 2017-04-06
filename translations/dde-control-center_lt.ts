@@ -55,7 +55,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Norėdami keisti tinkintus nustatymus, įjunkite ekrano veikseną, kurią norite nustatyti</translation>
     </message>
 </context>
 <context>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="117"/>
         <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>Dabartinis miestas: %1</translation>
     </message>
 </context>
 <context>
@@ -110,12 +110,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="12"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Atnaujinimai</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="13"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Aptikti atnaujinimai, spustelėkite, norėdami peržiūrėti</translation>
     </message>
 </context>
 <context>
@@ -300,7 +300,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Norint ištrinti paskyrą, reikalingas administratoriaus leidimas</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
@@ -367,7 +367,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="113"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Neprijungta</translation>
     </message>
 </context>
 <context>
@@ -462,7 +462,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="46"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Pakeisti laiko juostą</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="47"/>
@@ -556,12 +556,12 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="40"/>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>Atverti Desktop failą</translation>
     </message>
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Visi failai (*)</translation>
     </message>
 </context>
 <context>
@@ -586,7 +586,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="18"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Keisti</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="20"/>
@@ -596,12 +596,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="23"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>Prieš keičiant nustatymus, prašome perjungti į esamą veikseną</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="25"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>Prieš ištrinant nustatymus, prašome perjungti į kitą veikseną</translation>
     </message>
 </context>
 <context>
@@ -614,7 +614,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="25"/>
         <source>New custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Nauji tinkinti nustatymai</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="27"/>
@@ -637,7 +637,7 @@
     <message>
         <location filename="../modules/display/displayworker.cpp" line="113"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>Mano nustatymai %1</translation>
     </message>
 </context>
 <context>
@@ -704,7 +704,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="26"/>
         <source>Shortcuts</source>
-        <translation>Nuorodos</translation>
+        <translation>Trumpiniai</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="35"/>
@@ -724,12 +724,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="45"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Trumpinys</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="53"/>
         <source>Please Grab Shortcut Again</source>
-        <translation type="unfinished"/>
+        <translation>Paspauskite trumpinį dar kartą</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="68"/>
@@ -744,17 +744,17 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="94"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Šis trumpinys konfliktuoja su trumpiniu %1, spustelėkite Pridėti, norėdami, kad šis trumpinys nedelsiant įsigaliotų</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="126"/>
         <source>null</source>
-        <translation type="unfinished"/>
+        <translation>nulis</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Pasirinkti failą</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
@@ -768,7 +768,7 @@
         <location filename="../modules/keyboard/customedit.cpp" line="30"/>
         <location filename="../modules/keyboard/customedit.cpp" line="79"/>
         <source>Shortcuts</source>
-        <translation>Nuorodos</translation>
+        <translation>Trumpiniai</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="40"/>
@@ -798,12 +798,12 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="104"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Šis trumpinys konfliktuoja su trumpiniu %1, spustelėkite Pridėti, norėdami, kad šis trumpinys nedelsiant įsigaliotų</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="116"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Pasirinkti failą</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="116"/>
@@ -813,7 +813,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="125"/>
         <source>null</source>
-        <translation type="unfinished"/>
+        <translation>nulis</translation>
     </message>
 </context>
 <context>
@@ -827,12 +827,12 @@
         <location filename="../modules/keyboard/customedititem.cpp" line="120"/>
         <location filename="../modules/keyboard/customedititem.cpp" line="151"/>
         <source>Conflict</source>
-        <translation type="unfinished"/>
+        <translation>Konfliktuoja</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedititem.cpp" line="180"/>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Įveskite naują trumpinį</translation>
     </message>
 </context>
 <context>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Atstatykite trumpinį</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
@@ -965,12 +965,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Šis trumpinys konfliktuoja su trumpiniu %1, spustelėkite Pakeisti, norėdami, kad šis trumpinys nedelsiant įsigaliotų</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="98"/>
         <source>null</source>
-        <translation type="unfinished"/>
+        <translation>nulis</translation>
     </message>
 </context>
 <context>
@@ -979,12 +979,12 @@
         <location filename="../modules/keyboard/shortcutitem.cpp" line="173"/>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="204"/>
         <source>Conflict</source>
-        <translation type="unfinished"/>
+        <translation>Konfliktuoja</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="233"/>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Įveskite naują trumpinį</translation>
     </message>
 </context>
 <context>
@@ -1019,17 +1019,17 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="52"/>
         <source>Add Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Pridėti tinkintą trumpinį</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="62"/>
         <source>Shortcuts</source>
-        <translation>Nuorodos</translation>
+        <translation>Trumpiniai</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="39"/>
         <source>Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Tinkintas trumpinys</translation>
     </message>
 </context>
 <context>
@@ -1124,12 +1124,12 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="18"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>TrackPoint</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="21"/>
         <source>Thinkpad Track Point</source>
-        <translation type="unfinished"/>
+        <translation>Thinkpad Track Point</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="24"/>
@@ -1234,7 +1234,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Nustatoma tapatybė</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1282,7 +1282,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
         <source>Wired Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Laidinio tinklo plokštė %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="152"/>
@@ -1297,12 +1297,12 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="148"/>
         <source>Wired Network%1</source>
-        <translation type="unfinished"/>
+        <translation>Laidinis tinklas %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="160"/>
         <source>Wireless Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Belaidžio tinklo plokštė %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="165"/>
@@ -1317,7 +1317,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="161"/>
         <source>Wireless Network%1</source>
-        <translation type="unfinished"/>
+        <translation>Belaidis tinklas %1</translation>
     </message>
 </context>
 <context>
@@ -1391,7 +1391,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="82"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>Nepaisyti įgaliotojo serverio konfigūracijų aukščiau esantiems serveriams ir sritims</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="85"/>
@@ -1444,7 +1444,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="194"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="197"/>
@@ -1574,7 +1574,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="19"/>
         <source>Monitor will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Monitorius išsijungs po</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="20"/>
@@ -1590,12 +1590,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="49"/>
         <source>Password required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Išsijungus monitoriui reikalauti slaptažodžio</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="52"/>
         <source>Password required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Po kompiuterio pristabdymo reikalauti slaptažodžio</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="55"/>
@@ -1749,7 +1749,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
         <source>Edition License:</source>
-        <translation type="unfinished"/>
+        <translation>Laidos licencija:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
@@ -1889,7 +1889,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"/>
+        <translation>Prašome užtikrinti, kad pakaks energijos kompiuterio paleidimui iš naujo bei neišjungti kompiuterio ir neištraukti kištuko</translation>
     </message>
 </context>
 <context>
@@ -1955,17 +1955,17 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="19"/>
         <source>Pressure Sensitive</source>
-        <translation type="unfinished"/>
+        <translation>Spaudimo jautrumas</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>
         <source>light</source>
-        <translation type="unfinished"/>
+        <translation>silpnas</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>
         <source>heavy</source>
-        <translation type="unfinished"/>
+        <translation>stiprus</translation>
     </message>
 </context>
 <context>

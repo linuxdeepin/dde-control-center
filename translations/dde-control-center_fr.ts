@@ -12,12 +12,12 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="70"/>
         <source>Connect to other devices</source>
-        <translation type="unfinished"/>
+        <translation>Connexion à d&apos;autres périphériques </translation>
     </message>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="104"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Cliquez sur l&apos;icône pour activer le bluetooth</translation>
     </message>
 </context>
 <context>
@@ -40,22 +40,22 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>Copier l&apos;affichage de l&apos;écran aux autres écrans</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="79"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Étendre l&apos;affichage de votre bureau sur d&apos;autres écrans.</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;affichage est uniquement sur %1 </translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez entrer dans le mode d&apos;affichage si vous souhaitez modifier les paramètres personnalisés</translation>
     </message>
 </context>
 <context>
@@ -63,7 +63,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="46"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>Tout effacer</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="115"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="117"/>
         <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ville actuelle : %1</translation>
     </message>
 </context>
 <context>
@@ -110,12 +110,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="12"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Mises à jour</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="13"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Mises à jour disponibles, cliquez pour afficher</translation>
     </message>
 </context>
 <context>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="47"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>Cliquez sur l&apos;icône pour activer le VPN</translation>
     </message>
 </context>
 <context>
@@ -131,12 +131,12 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="76"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Désolé, incapable d&apos;obtenir la météo!</translation>
+        <translation>Désolé, impossible d&apos;obtenir la météo!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="83"/>
         <source>Loading weather...</source>
-        <translation>Météo en cours...</translation>
+        <translation>Actualisation de la météo...</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="144"/>
@@ -154,12 +154,12 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="92"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>Cliquez sur l&apos;icône pour activer le WIFI</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="182"/>
         <source>Wireless Card %1</source>
-        <translation type="unfinished"/>
+        <translation>Carte réseau sans-fil %1</translation>
     </message>
 </context>
 <context>
@@ -203,7 +203,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="81"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Images </translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="230"/>
@@ -253,7 +253,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="124"/>
         <source>Username can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Le nom d&apos;utilisateur ne peut être vide.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="127"/>
@@ -300,7 +300,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Droits d&apos;administrateur requis pour supprimer ce compte</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
@@ -367,7 +367,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="113"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Non connecté</translation>
     </message>
 </context>
 <context>
@@ -462,7 +462,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="46"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Modifier fuseau horaire</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="47"/>
@@ -561,7 +561,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Tous les fichiers (*)</translation>
     </message>
 </context>
 <context>
@@ -586,7 +586,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="18"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Modifier</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="20"/>
@@ -596,12 +596,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="23"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez passer en mode actuel avant de modifier les paramètres</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="25"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez passer à un autre mode avant de supprimer les paramètres</translation>
     </message>
 </context>
 <context>
@@ -614,7 +614,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="25"/>
         <source>New custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Nouveaux paramètres personnels</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="27"/>
@@ -637,7 +637,7 @@
     <message>
         <location filename="../modules/display/displayworker.cpp" line="113"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>Mes paramètres %1</translation>
     </message>
 </context>
 <context>
@@ -902,7 +902,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
         <source>Enable Numeric Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Activer le pavé numérique</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Réinitialiser les raccourcis</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
@@ -1234,7 +1234,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Authentification</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1363,7 +1363,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="58"/>
         <source>Http Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy http</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="60"/>
@@ -1376,12 +1376,12 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="63"/>
         <source>Https Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy https</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
         <source>Ftp Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy ftp</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="73"/>
@@ -1391,7 +1391,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="82"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>Ignorer la configuration de proxy pour les hôtes et les domaines</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="85"/>
@@ -1744,12 +1744,12 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="34"/>
         <source>Distribution Release:</source>
-        <translation type="unfinished"/>
+        <translation>Distribution :</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
         <source>Edition License:</source>
-        <translation type="unfinished"/>
+        <translation>Licence d&apos;édition:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>

@@ -1,10 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ms" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="id" version="2.1">
 <context>
     <name>BluetoothDelegate</name>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="70"/>
         <source>Refresh</source>
-        <translation>Segar Semula</translation>
+        <translation>Segarkan</translation>
     </message>
 </context>
 <context>
@@ -12,12 +12,12 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="70"/>
         <source>Connect to other devices</source>
-        <translation>Sambung ke peranti lain</translation>
+        <translation>Sambungkan peralatan lainnya</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="104"/>
         <source>Click icon to enable bluetooth</source>
-        <translation>Klik ikon untuk benarkan bluetooth</translation>
+        <translation>Klik icon untuk mengaktifkan bluetooth</translation>
     </message>
 </context>
 <context>
@@ -30,32 +30,32 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="66"/>
         <source>Extend</source>
-        <translation>Lanjut</translation>
+        <translation>Membeberkan</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="68"/>
         <source>Only Displayed on %1</source>
-        <translation>Hanya Dipapar pada %1</translation>
+        <translation>Hanya Tampilkan pada %1</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation>Salin kandungan skrin ke satu atau lebih skrin</translation>
+        <translation>Salin konten layar pada satu atau lebih layar</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="79"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation>Lanjutkan kandungan skrin untuk paparkan kandungan berlainan pada skrin lain</translation>
+        <translation>Perluas konten layar untuk menampilkan konten yang berbeda dilayar yang lain</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation>Kandungan skrin hanya dipapar pada %1</translation>
+        <translation>Konten layar hanya ditampilkan pada %1</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
-        <translation>Sila masukkan mod paparan untuk ditetapkan jika anda mahu ubah tetapan suai</translation>
+        <translation>Silahkan masukkan mode tampilan untuk mengatur jika anda ingin merubah pengaturan buatan</translation>
     </message>
 </context>
 <context>
@@ -63,12 +63,12 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="46"/>
         <source>Clear all</source>
-        <translation>Kosongkan semua</translation>
+        <translation>Bersihkan semua</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="115"/>
         <source>No system notifications</source>
-        <translation>Tiada pemberitahuan sistem</translation>
+        <translation>Tidak ada notifikasi sistem</translation>
     </message>
 </context>
 <context>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="126"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation>Klik kiri untuk putar dan klik kanan untuk keluar</translation>
+        <translation>Klik kiri untuk memutar dan klik kanan untuk keluar</translation>
     </message>
 </context>
 <context>
@@ -84,12 +84,12 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="31"/>
         <source>No search results</source>
-        <translation>Tiada keputusan gelintar</translation>
+        <translation>Tidak ada hasil pencarian</translation>
     </message>
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="117"/>
         <source>Current City: %1</source>
-        <translation>Bandar Semasa: %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -97,12 +97,12 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="46"/>
         <source>Reset all settings</source>
-        <translation>Tetap semula semua tetapan</translation>
+        <translation>Set ulang semua pengaturan</translation>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="107"/>
         <source>All Settings</source>
-        <translation>Semua Tetapan</translation>
+        <translation>Semua pengaturan</translation>
     </message>
 </context>
 <context>
@@ -110,12 +110,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="12"/>
         <source>Updates</source>
-        <translation>Kemaskini</translation>
+        <translation>Perbaharui</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="13"/>
         <source>Updates detected, click to view</source>
-        <translation>Kemaskini dikesan, klik untuk lihat</translation>
+        <translation>Pembaharuan ditemukan, klik untuk melihat</translation>
     </message>
 </context>
 <context>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="47"/>
         <source>Click icon to enable VPN</source>
-        <translation>Klik ikon untuk benarkan VPN</translation>
+        <translation>Klik icon untuk mengaktifkan VPN</translation>
     </message>
 </context>
 <context>
@@ -131,17 +131,17 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="76"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Maaf, gagal mendapatkan maklumat cuaca!</translation>
+        <translation>Maaf, cuaca tidak dapat diakses!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="83"/>
         <source>Loading weather...</source>
-        <translation>Memuatkan cuaca...</translation>
+        <translation>Memuat cuaca...</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="144"/>
         <source>Just updated</source>
-        <translation>Baru dikemaskini</translation>
+        <translation>Baru saja diperbarui</translation>
     </message>
 </context>
 <context>
@@ -149,17 +149,17 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
         <source>Connect to hidden network</source>
-        <translation>Sambung ke rangkaian tersembunyi</translation>
+        <translation>Hubungkan ke jaringan tersembunyi</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="92"/>
         <source>Click icon to enable WIFI</source>
-        <translation>Klik ikon untuk benarkan WIFI</translation>
+        <translation>Klik icon untuk mengaktifkan WIFI</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="182"/>
         <source>Wireless Card %1</source>
-        <translation>Kad Tanpa Wayar %1</translation>
+        <translation>Kartu Nirkabel %1</translation>
     </message>
 </context>
 <context>
@@ -167,22 +167,22 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="23"/>
         <source>Modify Avatar</source>
-        <translation>Ubahsuai Avatar</translation>
+        <translation>Ubah Avatar</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="26"/>
         <source>Modify Password</source>
-        <translation>Ubahsuai Kata Laluan</translation>
+        <translation>Ubah Kata Sandi</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="29"/>
         <source>Auto Login</source>
-        <translation>Auto Daftar Masuk</translation>
+        <translation>Masuk Otomatis</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="33"/>
         <source>Delete Account</source>
-        <translation>Padam Akaun</translation>
+        <translation>Hapus Akun</translation>
     </message>
 </context>
 <context>
@@ -190,12 +190,12 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="19"/>
         <source>Create Account</source>
-        <translation>Cipta Akaun</translation>
+        <translation>Buat Akun</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="26"/>
         <source>Accounts</source>
-        <translation>Akaun</translation>
+        <translation>Akun</translation>
     </message>
 </context>
 <context>
@@ -203,12 +203,12 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="81"/>
         <source>Images</source>
-        <translation>Imej</translation>
+        <translation>Gambar</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="230"/>
         <source>Password not match.</source>
-        <translation>Kata laluan tidak sepadan.</translation>
+        <translation>Kata sandi tidak cocok.</translation>
     </message>
 </context>
 <context>
@@ -216,17 +216,17 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="50"/>
         <source>Create</source>
-        <translation>Cipta</translation>
+        <translation>Buat</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="35"/>
         <source>Username</source>
-        <translation>Nama Pengguna</translation>
+        <translation>Nama pengguna</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="36"/>
@@ -238,27 +238,27 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="37"/>
         <source>Password</source>
-        <translation>Kata Laluan</translation>
+        <translation>Kata sandi</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="40"/>
         <source>Repeat password</source>
-        <translation>Ulang kata laluan</translation>
+        <translation>Ulangi kata sandi</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="69"/>
         <source>New Account</source>
-        <translation>Akaun Baharu</translation>
+        <translation>Akun Baru</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="124"/>
         <source>Username can&apos;t be empty.</source>
-        <translation>Nama pengguna tidak boleh kosong.</translation>
+        <translation>Nama akun tidak boleh kosong.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="127"/>
         <source>Password can&apos;t be empty.</source>
-        <translation>Kata laluan tidak boleh kosong.</translation>
+        <translation>Kata sandi tidak boleh kosong.</translation>
     </message>
 </context>
 <context>
@@ -266,33 +266,33 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="23"/>
         <source>New Password</source>
-        <translation>Kata Laluan Baharu</translation>
+        <translation>Sandi Baru</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="25"/>
         <source>Repeat Password</source>
-        <translation>Ulang Kata Laluan</translation>
+        <translation>Ulang Kata sandi</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="27"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="28"/>
         <source>Required</source>
-        <translation>Diperlukan</translation>
+        <translation>Dibutuhkan</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="32"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="34"/>
         <source>Accept</source>
-        <translation>Terima</translation>
+        <translation>Setuju</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>Password</source>
-        <translation>Kata Laluan</translation>
+        <translation>Kata sandi</translation>
     </message>
 </context>
 <context>
@@ -300,22 +300,22 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Administrator permission required to delete account</source>
-        <translation>Keizinan pentadbir diperlukan untuk memadam akaun</translation>
+        <translation>Persetujuan administrator diperlukan untuk menghapus akun</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
         <source>Delete account directory</source>
-        <translation>Padam direktori akaun</translation>
+        <translation>Hapus direktori akun</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="54"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="54"/>
         <source>Delete</source>
-        <translation>Padam</translation>
+        <translation>Hapus</translation>
     </message>
 </context>
 <context>
@@ -323,17 +323,17 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="25"/>
         <source>My devices</source>
-        <translation>Peranti saya</translation>
+        <translation>Perangkat saya</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="26"/>
         <source>Other devices</source>
-        <translation>Peranti lain</translation>
+        <translation>Perangkat lainnya</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="38"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Benarkan bluetooth untuk mencari peranti berhampiran (pembesar suara, papan kekunci, tetikus)</translation>
+        <translation>Aktifkan bluetooth untuk menemukan perangkat terdekat (loudspeaker, keyboard, mouse)</translation>
     </message>
 </context>
 <context>
@@ -349,12 +349,12 @@
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="26"/>
         <source>Ignore</source>
-        <translation>Abai</translation>
+        <translation>Abaikan</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="27"/>
         <source>Disconnect</source>
-        <translation>Putuskan</translation>
+        <translation>Putus</translation>
     </message>
 </context>
 <context>
@@ -362,12 +362,12 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="108"/>
         <source>Connected</source>
-        <translation>Bersambung</translation>
+        <translation>Tersambung</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="113"/>
         <source>Not connected</source>
-        <translation>Tidak bersambung</translation>
+        <translation>Tidak terhubung</translation>
     </message>
 </context>
 <context>
@@ -375,12 +375,12 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="25"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>PIN untuk menyambung dengan peranti Bluetooth ialah:</translation>
+        <translation>PIN untuk menghubungkan ke peralatan Bluetooth adalah:</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="33"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="35"/>
@@ -393,17 +393,17 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="43"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="44"/>
         <source>Confirm</source>
-        <translation>Sahkan</translation>
+        <translation>Konfirmasikan</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="38"/>
         <source>Change Time Settings</source>
-        <translation>Ubah Tetapan Waktu</translation>
+        <translation>Rubah Pengaturan Waktu</translation>
     </message>
 </context>
 <context>
@@ -429,32 +429,32 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="19"/>
         <source>Auto-Sync</source>
-        <translation>Auto-Segerak</translation>
+        <translation>Sinkronisasi Otomatis</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="23"/>
         <source>Add Timezone</source>
-        <translation>Tambah Zon Waktu</translation>
+        <translation>Tambahkan Zona Waktu</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="29"/>
         <source>Time and Date</source>
-        <translation>Waktu dan Tarikh</translation>
+        <translation>Waktu dan Tanggal</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="33"/>
         <source>Change System Timezone</source>
-        <translation>Ubah Zon Waktu Sistem</translation>
+        <translation>Ubah Zona Waktu Sistem</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="40"/>
         <source>Time Settings</source>
-        <translation>Tetapan Waktu</translation>
+        <translation>Pengaturan Waktu</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="44"/>
         <source>Timezone List</source>
-        <translation>Senarai Zon Waktu</translation>
+        <translation>Daftar Zona Waktu</translation>
     </message>
 </context>
 <context>
@@ -462,17 +462,17 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="46"/>
         <source>Change Timezone</source>
-        <translation>Ubah Zon Waktu</translation>
+        <translation>Ubah Zona Waktu</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="47"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="48"/>
         <source>Confirm</source>
-        <translation>Sahkan</translation>
+        <translation>Konfirmasikan</translation>
     </message>
 </context>
 <context>
@@ -480,12 +480,12 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="86"/>
         <source>Tomorrow</source>
-        <translation>Esok</translation>
+        <translation>Besok</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="88"/>
         <source>Yesterday</source>
-        <translation>Semalam</translation>
+        <translation>Kemarin</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="90"/>
@@ -495,12 +495,12 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="95"/>
         <source>%1 hours earlier than local</source>
-        <translation>%1 jam lebih awal dari setempat</translation>
+        <translation>%1 jam lebih cepat daripada waktu lokal</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="97"/>
         <source>%1 hours late than local</source>
-        <translation>%1 jam lebih lambat dari setempat</translation>
+        <translation>terlambat %1 jam daripada waktu lokal</translation>
     </message>
 </context>
 <context>
@@ -508,17 +508,17 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="16"/>
         <source>Default Applications</source>
-        <translation>Aplikasi Lalai</translation>
+        <translation>Aplikasi Default</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="30"/>
         <source>Browser</source>
-        <translation>Pelayar</translation>
+        <translation>Peramban</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="31"/>
         <source>Mail</source>
-        <translation>Mel</translation>
+        <translation>Surat</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="32"/>
@@ -528,7 +528,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="33"/>
         <source>Music</source>
-        <translation>Muzik</translation>
+        <translation>Musik</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="34"/>
@@ -556,12 +556,12 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="40"/>
         <source>Open Desktop file</source>
-        <translation>Buka fail Desktop</translation>
+        <translation>Buka berkas Desktop</translation>
     </message>
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
         <source>All Files (*)</source>
-        <translation>Semua Fail (*)</translation>
+        <translation>Semua Berkas (*)</translation>
     </message>
 </context>
 <context>
@@ -570,7 +570,7 @@
         <location filename="../modules/defapp/defappwidget.cpp" line="21"/>
         <location filename="../modules/defapp/defappwidget.cpp" line="25"/>
         <source>Default Applications</source>
-        <translation>Aplikasi Lalai</translation>
+        <translation>Aplikasi Default</translation>
     </message>
 </context>
 <context>
@@ -586,22 +586,22 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="18"/>
         <source>Modify</source>
-        <translation>Ubahsuai</translation>
+        <translation>Ubah</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="20"/>
         <source>Delete</source>
-        <translation>Padam</translation>
+        <translation>Hapus</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="23"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation>Sila beralih ke mod semasa sebelum mengubahsuai tetapan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="25"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation>Sila beralih ke mod lain sebelum memadam tetapan</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -614,7 +614,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="25"/>
         <source>New custom settings</source>
-        <translation>Tetapan suai baharu</translation>
+        <translation>Pengaturan ubahan baru</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="27"/>
@@ -629,7 +629,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="47"/>
         <source>Display</source>
-        <translation>Paparan</translation>
+        <translation>Tampilan</translation>
     </message>
 </context>
 <context>
@@ -637,7 +637,7 @@
     <message>
         <location filename="../modules/display/displayworker.cpp" line="113"/>
         <source>My Settings %1</source>
-        <translation>Tetapan Saya %1</translation>
+        <translation>Pengaturan Saya %1</translation>
     </message>
 </context>
 <context>
@@ -645,17 +645,17 @@
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="22"/>
         <source>Recognize</source>
-        <translation>Kenalpasti</translation>
+        <translation>Kenali</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="25"/>
         <source>Split</source>
-        <translation>Pisah</translation>
+        <translation>Membagi</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="28"/>
         <source>Merge</source>
-        <translation>Gabung</translation>
+        <translation>Gabungkan</translation>
     </message>
 </context>
 <context>
@@ -668,22 +668,22 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="150"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="152"/>
         <source>Apply</source>
-        <translation>Laksana</translation>
+        <translation>Terapkan</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="159"/>
         <source>Primary</source>
-        <translation>Utama</translation>
+        <translation>Primary</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="325"/>
         <source> (Recommended)</source>
-        <translation>(Disarankan)</translation>
+        <translation>(Direkomendasikan)</translation>
     </message>
 </context>
 <context>
@@ -696,7 +696,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="55"/>
         <source> (Recommended)</source>
-        <translation>(Disarankan)</translation>
+        <translation>(Direkomendasikan)</translation>
     </message>
 </context>
 <context>
@@ -704,7 +704,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="26"/>
         <source>Shortcuts</source>
-        <translation>Pintasan</translation>
+        <translation>Jalan pintas</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="35"/>
@@ -729,12 +729,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="53"/>
         <source>Please Grab Shortcut Again</source>
-        <translation>Sila Dapatkan Pintasan Sekali Lagi</translation>
+        <translation>Silahkan Ambil Pintasan Lagi</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="68"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="70"/>
@@ -744,17 +744,17 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="94"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Pintasan ini berkonflik dengan %1, klik untuk Tambah supaya pintasan ini berkesan serta-merta</translation>
+        <translation>Pintasan ini bermasalah dengan  %1, klik &quot;Tambahkan&quot; untuk membuat pintasan ini efektif secara langsung</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="126"/>
         <source>null</source>
-        <translation>nol</translation>
+        <translation>tidak ada</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
         <source>Choose File</source>
-        <translation>Pilih Fail</translation>
+        <translation>Pilih Berkas</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
@@ -768,7 +768,7 @@
         <location filename="../modules/keyboard/customedit.cpp" line="30"/>
         <location filename="../modules/keyboard/customedit.cpp" line="79"/>
         <source>Shortcuts</source>
-        <translation>Pintasan</translation>
+        <translation>Jalan pintas</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="40"/>
@@ -778,7 +778,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="50"/>
@@ -798,12 +798,12 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="104"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Pintasan ini berkonflik dengan %1, klik untuk Tambah supaya pintasan ini berkesan serta-merta</translation>
+        <translation>Pintasan ini bermasalah dengan  %1, klik &quot;Tambahkan&quot; untuk membuat pintasan ini efektif secara langsung</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="116"/>
         <source>Choose File</source>
-        <translation>Pilih Fail</translation>
+        <translation>Pilih Berkas</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="116"/>
@@ -813,7 +813,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="125"/>
         <source>null</source>
-        <translation>nol</translation>
+        <translation>tidak ada</translation>
     </message>
 </context>
 <context>
@@ -821,18 +821,18 @@
     <message>
         <location filename="../modules/keyboard/customedititem.cpp" line="78"/>
         <source>None</source>
-        <translation>Tiada</translation>
+        <translation>TIdak ada</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedititem.cpp" line="120"/>
         <location filename="../modules/keyboard/customedititem.cpp" line="151"/>
         <source>Conflict</source>
-        <translation>Berkonflik</translation>
+        <translation>Konflik</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedititem.cpp" line="180"/>
         <source>Please enter a new shortcut</source>
-        <translation>Sila masukkan pintasan baharu</translation>
+        <translation>Silahkan masukkan sebuah pintasan baru</translation>
     </message>
 </context>
 <context>
@@ -841,12 +841,12 @@
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="24"/>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="26"/>
         <source>Keyboard Layout</source>
-        <translation>Bentangan Papan Kekunci</translation>
+        <translation>Tata letak Papan Ketik</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="33"/>
         <source>Add Keyboard Layout</source>
-        <translation>Tambah Bentangan Papan Kekunci</translation>
+        <translation>Tambahkan Tata Letak Keyboard</translation>
     </message>
 </context>
 <context>
@@ -854,7 +854,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="24"/>
         <source>Add Keyboard Layout</source>
-        <translation>Tambah Bentangan Papan Kekunci</translation>
+        <translation>Tambahkan Tata Letak Keyboard</translation>
     </message>
 </context>
 <context>
@@ -862,12 +862,12 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="24"/>
         <source>Keyboard and Language</source>
-        <translation>Papan Kekunci dan Bahasa</translation>
+        <translation>Papan ketik dan Bahasa</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="27"/>
         <source>Repeat Delay</source>
-        <translation>Lengah Ulang</translation>
+        <translation>Ulangi Delay</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="36"/>
@@ -882,37 +882,37 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="40"/>
         <source>Repeat Rate</source>
-        <translation>Kadar Ulang</translation>
+        <translation>Tingkat Pengulangan</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
         <source>Slow</source>
-        <translation>Perlahan</translation>
+        <translation>Lambat</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
         <source>Fast</source>
-        <translation>Pantas</translation>
+        <translation>Cepat</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="54"/>
         <source>Please Test Here</source>
-        <translation>Sila Uji Di Sini</translation>
+        <translation>Silahkan Coba Disini</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
         <source>Enable Numeric Keyboard</source>
-        <translation>Benarkan Papan Kekunci Numerik</translation>
+        <translation>Aktifkan Keyboard Numerik</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
         <source>Caps Lock Prompt</source>
-        <translation>Makluman Caps Lock</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
         <source>Keyboard Layout</source>
-        <translation>Bentangan Papan Kekunci</translation>
+        <translation>Tata letak Papan Ketik</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="78"/>
@@ -934,7 +934,7 @@
         <location filename="../modules/keyboard/keyboardwork.cpp" line="207"/>
         <location filename="../modules/keyboard/keyboardwork.cpp" line="344"/>
         <source>None</source>
-        <translation>Tiada</translation>
+        <translation>TIdak ada</translation>
     </message>
 </context>
 <context>
@@ -950,12 +950,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation>Sila Tetapkan Semula Pintasan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="36"/>
@@ -965,12 +965,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Pintasan ini berkonflik dengan %1, klik untuk Ganti supaya pintasan ini berkesan serta-merta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="98"/>
         <source>null</source>
-        <translation>nol</translation>
+        <translation>tidak ada</translation>
     </message>
 </context>
 <context>
@@ -979,12 +979,12 @@
         <location filename="../modules/keyboard/shortcutitem.cpp" line="173"/>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="204"/>
         <source>Conflict</source>
-        <translation>Berkonflik</translation>
+        <translation>Konflik</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="233"/>
         <source>Please enter a new shortcut</source>
-        <translation>Sila masukkan pintasan baharu</translation>
+        <translation>Silahkan masukkan sebuah pintasan baru</translation>
     </message>
 </context>
 <context>
@@ -996,7 +996,7 @@
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="168"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="193"/>
         <source>None</source>
-        <translation>Tiada</translation>
+        <translation>TIdak ada</translation>
     </message>
 </context>
 <context>
@@ -1009,27 +1009,27 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="30"/>
         <source>Window</source>
-        <translation>Tetingkap</translation>
+        <translation>Jendela</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="31"/>
         <source>WorkSpace</source>
-        <translation>Ruang Kerja</translation>
+        <translation>Bidang Kerja</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="52"/>
         <source>Add Custom Shortcut</source>
-        <translation>Tambah Pintasan Suai</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="62"/>
         <source>Shortcuts</source>
-        <translation>Pintasan</translation>
+        <translation>Jalan pintas</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="39"/>
         <source>Custom Shortcut</source>
-        <translation>Pintasan Suai</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1042,27 +1042,27 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="29"/>
         <source>Natural Scrolling</source>
-        <translation>Penatalan Tabii</translation>
+        <translation>Menggulung Alami</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="30"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Lumpuhkan pad sentuh ketika menaip</translation>
+        <translation>Nonaktifkan touchpad ketika mengetik</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
         <source>Slow</source>
-        <translation>Perlahan</translation>
+        <translation>Lambat</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
         <source>Fast</source>
-        <translation>Pantas</translation>
+        <translation>Cepat</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="44"/>
         <source>Double-click Speed</source>
-        <translation>Kelajuan Dwi-klik</translation>
+        <translation>Kecepatan Klik-ganda</translation>
     </message>
 </context>
 <context>
@@ -1070,7 +1070,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="19"/>
         <source>Double-click Test</source>
-        <translation>Ujian Dwi-klik</translation>
+        <translation>Coba Klik-ganda</translation>
     </message>
 </context>
 <context>
@@ -1078,17 +1078,17 @@
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
         <source>Slow</source>
-        <translation>Perlahan</translation>
+        <translation>Lambat</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
         <source>Fast</source>
-        <translation>Pantas</translation>
+        <translation>Cepat</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="27"/>
         <source>Pointer Speed</source>
-        <translation>Kelajuan Penuding</translation>
+        <translation>Kecepatan Pointer</translation>
     </message>
 </context>
 <context>
@@ -1096,27 +1096,27 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="26"/>
         <source>Mouse</source>
-        <translation>Tetikus</translation>
+        <translation>Mouse</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="27"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Lumpuhkan pad sentuh ketika menyisip tetikus</translation>
+        <translation>Non-aktifkan touchpad ketika tetikus terpasang</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="31"/>
         <source>TouchPad</source>
-        <translation>Pad Sentuh</translation>
+        <translation>Touchpad</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="32"/>
         <source>Tap to Click</source>
-        <translation>Ketik untuk Klik</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>Mouse and Touchpad</source>
-        <translation>Tetikus dan Pad Sentuh</translation>
+        <translation>Tetikus dan Touchpad</translation>
     </message>
 </context>
 <context>
@@ -1124,27 +1124,27 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="18"/>
         <source>TrackPoint</source>
-        <translation>Titik Jejak</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="21"/>
         <source>Thinkpad Track Point</source>
-        <translation>Titik Jejak Thinkpad</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="24"/>
         <source>Pointer Speed</source>
-        <translation>Kelajuan Penuding</translation>
+        <translation>Kecepatan Pointer</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="32"/>
         <source>Slow</source>
-        <translation>Perlahan</translation>
+        <translation>Lambat</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="32"/>
         <source>Fast</source>
-        <translation>Pantas</translation>
+        <translation>Cepat</translation>
     </message>
 </context>
 <context>
@@ -1152,17 +1152,17 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="56"/>
         <source>Disconnect</source>
-        <translation>Putuskan</translation>
+        <translation>Putus</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="58"/>
         <source>Delete</source>
-        <translation>Padam</translation>
+        <translation>Hapus</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="66"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="67"/>
@@ -1181,7 +1181,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="28"/>
         <source>Network Details</source>
-        <translation>Perincian Rangkaian</translation>
+        <translation>Detail Jaringan</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="72"/>
@@ -1196,27 +1196,27 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="86"/>
         <source>Gateway</source>
-        <translation>Get Laluan</translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="91"/>
         <source>Primary DNS</source>
-        <translation>DNS Utama</translation>
+        <translation>DNS Primer</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="96"/>
         <source>Netmask</source>
-        <translation>Topeng Rangkaian</translation>
+        <translation>Netmask</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="102"/>
         <source>Interface</source>
-        <translation>Antaramuka</translation>
+        <translation>Antarmuka</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="107"/>
         <source>Speed</source>
-        <translation>Kelajuan</translation>
+        <translation>Kecepatan</translation>
     </message>
 </context>
 <context>
@@ -1234,7 +1234,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authenticating</source>
-        <translation>Mengesahihkan</translation>
+        <translation>Otentikasi</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1244,7 +1244,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="61"/>
         <source>Connected</source>
-        <translation>Bersambung</translation>
+        <translation>Tersambung</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="63"/>
@@ -1267,57 +1267,57 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="28"/>
         <source>Proxy</source>
-        <translation>Proksi</translation>
+        <translation>Proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="30"/>
         <source>Network Details</source>
-        <translation>Perincian Rangkaian</translation>
+        <translation>Detail Jaringan</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="47"/>
         <source>Network</source>
-        <translation>Rangkaian</translation>
+        <translation>Jaringan</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
         <source>Wired Network Card%1</source>
-        <translation>Kad Rangkaian Berwayar%1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="152"/>
         <source>Wired Network Card</source>
-        <translation>Kad Rangkaian Berwayar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="153"/>
         <source>Wired Network</source>
-        <translation>Rangkaian Berwayar</translation>
+        <translation>Koneksi Kabel</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="148"/>
         <source>Wired Network%1</source>
-        <translation>Rangkaian Berwayar%1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="160"/>
         <source>Wireless Network Card%1</source>
-        <translation>Kad Rangkaian Tanpa Wayar%1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="165"/>
         <source>Wireless Network Card</source>
-        <translation>Kad Rangkaian Tanpa Wayar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="166"/>
         <source>Wireless Network</source>
-        <translation>Rangkaian Tanpa Wayar</translation>
+        <translation>Koneksi Nirkabel</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="161"/>
         <source>Wireless Network%1</source>
-        <translation>Rangkaian Tanpa Wayar%1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1325,7 +1325,7 @@
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="25"/>
         <source>Create PPPoE Connection</source>
-        <translation>Cipta Sambungan PPPoE</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="38"/>
@@ -1338,17 +1338,17 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="31"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="32"/>
         <source>Confirm</source>
-        <translation>Sahkan</translation>
+        <translation>Konfirmasikan</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="34"/>
         <source>None</source>
-        <translation>Tiada</translation>
+        <translation>TIdak ada</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="35"/>
@@ -1358,12 +1358,12 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="36"/>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation>Otomatis</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="58"/>
         <source>Http Proxy</source>
-        <translation>Proksi Http</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="60"/>
@@ -1376,22 +1376,22 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="63"/>
         <source>Https Proxy</source>
-        <translation>Proksi Https</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
         <source>Ftp Proxy</source>
-        <translation>Proksi Ftp</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="73"/>
         <source>Socks Proxy</source>
-        <translation>Proksi Socks</translation>
+        <translation>Socks Proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="82"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Abai konfigurasi proksi untuk hos dan domain di atas</translation>
+        <translation>Abaikan pengaturan proxy untuk host dan domain di atas</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="85"/>
@@ -1401,7 +1401,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="143"/>
         <source>System Proxy</source>
-        <translation>Proksi Sistem</translation>
+        <translation>Proxy Sistem</translation>
     </message>
 </context>
 <context>
@@ -1414,7 +1414,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="30"/>
         <source>Create VPN</source>
-        <translation>Cipta VPN</translation>
+        <translation>Buat VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="48"/>
@@ -1444,7 +1444,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="194"/>
         <source>StrongSwan</source>
-        <translation>StrongSwan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="197"/>
@@ -1454,7 +1454,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="222"/>
         <source>New VPN</source>
-        <translation>VPN baharu</translation>
+        <translation>VPN Baru</translation>
     </message>
 </context>
 <context>
@@ -1462,7 +1462,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="30"/>
         <source>Connect to hidden network</source>
-        <translation>Sambung ke rangkaian tersembunyi</translation>
+        <translation>Hubungkan ke jaringan tersembunyi</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="48"/>
@@ -1475,7 +1475,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="58"/>
         <source> (Unsupported font)</source>
-        <translation>(Fon tidak disokong)</translation>
+        <translation>(Huruf tidak didukung)</translation>
     </message>
 </context>
 <context>
@@ -1483,12 +1483,12 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="20"/>
         <source>Standard Font</source>
-        <translation>Fon Piawai</translation>
+        <translation>Huruf Standar</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="21"/>
         <source>Monospaced Font</source>
-        <translation>Fon Bermonospace</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1496,7 +1496,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsizewidget.cpp" line="16"/>
         <source>Size</source>
-        <translation>Saiz</translation>
+        <translation>Ukuran</translation>
     </message>
 </context>
 <context>
@@ -1504,7 +1504,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="27"/>
         <source>Font</source>
-        <translation>Fon</translation>
+        <translation>Fonta</translation>
     </message>
 </context>
 <context>
@@ -1512,12 +1512,12 @@
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="85"/>
         <source>Standard Font</source>
-        <translation>Fon Piawai</translation>
+        <translation>Huruf Standar</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="94"/>
         <source>Monospaced Font</source>
-        <translation>Fon Bermonospace</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1530,12 +1530,12 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="29"/>
         <source>Font</source>
-        <translation>Fon</translation>
+        <translation>Fonta</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="34"/>
         <source>Personalization</source>
-        <translation>Penampilan</translation>
+        <translation>Personalisasi</translation>
     </message>
 </context>
 <context>
@@ -1543,7 +1543,7 @@
     <message>
         <location filename="../modules/personalization/widget/themeitem.cpp" line="50"/>
         <source>Default</source>
-        <translation>Lalai</translation>
+        <translation>Baku</translation>
     </message>
 </context>
 <context>
@@ -1551,17 +1551,17 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="15"/>
         <source>Window Theme</source>
-        <translation>Tema Tetingkap</translation>
+        <translation>Tema Jendela</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="16"/>
         <source>Icon Theme</source>
-        <translation>Tema Ikon</translation>
+        <translation>Tema Icon</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="17"/>
         <source>Cursor Theme</source>
-        <translation>Tema Kursor</translation>
+        <translation>Tema Penunjuk</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="29"/>
@@ -1574,43 +1574,43 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="19"/>
         <source>Monitor will suspend after</source>
-        <translation>Monitor akan ditangguh selepas</translation>
+        <translation>Monitor akan dihentikan setelah</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="20"/>
         <source>Computer will suspend after</source>
-        <translation>Komputer akan ditangguh selepas</translation>
+        <translation>Komputer akan dihentikan setelah</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="30"/>
         <location filename="../modules/power/powerwidget.cpp" line="113"/>
         <source>Never</source>
-        <translation>Tidak sesekali</translation>
+        <translation>Tidak pernah</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="49"/>
         <source>Password required to wake up the monitor</source>
-        <translation>Kata laluan diperlukan untuk bangunkan monitor</translation>
+        <translation>Kata sandi diperlukan untuk menyalakan monitor</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="52"/>
         <source>Password required to wake up the computer</source>
-        <translation>Kata laluan diperlukan untuk bangunkan komputer</translation>
+        <translation>Kata sandi diperlukan untuk menyalakan komputer</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="55"/>
         <source>Suspend on lid close</source>
-        <translation>Ditangguh ketika penutup ditutup</translation>
+        <translation>Hentikan ketika layar ditutup</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="62"/>
         <source>Power Management</source>
-        <translation>Pengurusan Kuasa</translation>
+        <translation>Manajemen Daya</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="101"/>
         <source>1 Minute</source>
-        <translation>1 Minit</translation>
+        <translation>1 menit</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="103"/>
@@ -1619,12 +1619,12 @@
         <location filename="../modules/power/powerwidget.cpp" line="109"/>
         <location filename="../modules/power/powerwidget.cpp" line="115"/>
         <source>%1 Minutes</source>
-        <translation>%1 Minit</translation>
+        <translation>%1 menit</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="111"/>
         <source>1 Hour</source>
-        <translation>1 Jam</translation>
+        <translation>1 jam</translation>
     </message>
 </context>
 <context>
@@ -1632,12 +1632,12 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="21"/>
         <source>Output</source>
-        <translation>Output</translation>
+        <translation>Keluaran</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="22"/>
         <source>Input</source>
-        <translation>Input</translation>
+        <translation>Masukan</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="24"/>
@@ -1650,37 +1650,37 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="25"/>
         <source>Output Volume</source>
-        <translation>Volum Output</translation>
+        <translation>Volume Keluaran</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="26"/>
         <source>Left/Right Balance</source>
-        <translation>Imbangan Kiri/Kanan</translation>
+        <translation>Keseimbangan Kiri/Kanan</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="29"/>
         <source>Input Volume</source>
-        <translation>Volum Input</translation>
+        <translation>Volume Masukan</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="30"/>
         <source>Feedback Volume</source>
-        <translation>Volum Maklumbalas</translation>
+        <translation>Volume Feedback</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="38"/>
         <source>Sound</source>
-        <translation>Bunyi</translation>
+        <translation>Suara</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="40"/>
         <source>Speaker</source>
-        <translation>Pembesar Suara</translation>
+        <translation>Speaker</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="59"/>
         <source>Microphone</source>
-        <translation>Mikrofon</translation>
+        <translation>Mikropon</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="76"/>
@@ -1690,7 +1690,7 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="79"/>
         <source>Sound Effects</source>
-        <translation>Kesan Bunyi</translation>
+        <translation>Efek Suara</translation>
     </message>
 </context>
 <context>
@@ -1698,12 +1698,12 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="33"/>
         <source>Updating...</source>
-        <translation>Mengemaskini...</translation>
+        <translation>memutakhirkan ...</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="44"/>
         <source>Startup Delay</source>
-        <translation>Lengah Permulaan</translation>
+        <translation>Jeda Pemulaian</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="47"/>
@@ -1713,7 +1713,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="49"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation>Imej but boleh digantikan dengan menyeret kepadanya, dan tertib but boleh diubah dengan menyeret yang disorot.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1721,7 +1721,7 @@
     <message>
         <location filename="../modules/systeminfo/copyrightwidget.cpp" line="37"/>
         <source>License</source>
-        <translation>Lesen</translation>
+        <translation>Lisensi</translation>
     </message>
 </context>
 <context>
@@ -1729,12 +1729,12 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="19"/>
         <source>System Information</source>
-        <translation>Maklumat Sistem</translation>
+        <translation>Informasi Sistem</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="26"/>
         <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Hakcipta © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
+        <translation>Hak cipta © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="29"/>
@@ -1744,17 +1744,17 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="34"/>
         <source>Distribution Release:</source>
-        <translation>Keluaran Distribusi:</translation>
+        <translation>Rilis Distribusi:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
         <source>Edition License:</source>
-        <translation>Lesen Edisi:</translation>
+        <translation>Edisi Lisensi:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Type:</source>
-        <translation>Jenis:</translation>
+        <translation>Tipe:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="118"/>
@@ -1764,27 +1764,27 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="46"/>
         <source>Processor:</source>
-        <translation>Pemproses:</translation>
+        <translation>Prosesor:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="50"/>
         <source>Memory:</source>
-        <translation>Ingatan:</translation>
+        <translation>Memori:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="54"/>
         <source>Disk:</source>
-        <translation>Cakera:</translation>
+        <translation>Disk:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
         <source>License</source>
-        <translation>Lesen</translation>
+        <translation>Lisensi</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Startup Menu</source>
-        <translation>Menu Permulaan</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1793,25 +1793,25 @@
         <location filename="../modules/update/mirroritem.cpp" line="53"/>
         <location filename="../modules/update/mirroritem.cpp" line="91"/>
         <source>Timeout</source>
-        <translation>Had masa tamat</translation>
+        <translation>Waktu habis</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="55"/>
         <location filename="../modules/update/mirroritem.cpp" line="91"/>
         <source>Slow</source>
-        <translation>Perlahan</translation>
+        <translation>Lambat</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="57"/>
         <location filename="../modules/update/mirroritem.cpp" line="91"/>
         <source>Medium</source>
-        <translation>Sederhana</translation>
+        <translation>Sedang</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="59"/>
         <location filename="../modules/update/mirroritem.cpp" line="91"/>
         <source>Fast</source>
-        <translation>Pantas</translation>
+        <translation>Cepat</translation>
     </message>
 </context>
 <context>
@@ -1819,12 +1819,12 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="19"/>
         <source>Switch Mirror</source>
-        <translation>Tukar Cermin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="22"/>
         <source>Checking speed, please wait</source>
-        <translation>Memeriksa kelajuan, tunggu sebentar</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1832,64 +1832,64 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="25"/>
         <source>Update</source>
-        <translation>Kemaskini</translation>
+        <translation>Pembaruan</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="113"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Memeriksa kemaskini, tunggu sebentar...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="119"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download Updates</source>
-        <translation>Muat Turun Kemaskini</translation>
+        <translation>Unduh Pemutakhiran</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>%1 downloaded (Click to pause)</source>
-        <translation>%1 dikemaskinikan (Klik untuk dijeda)</translation>
+        <translation>%1 terunduh (Klik untuk menjeda)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="133"/>
         <source>%1 downloaded (Click to continue)</source>
-        <translation>%1 dikemaskinikan (Klik untuk teruskan)</translation>
+        <translation>%1 terunduh (Klik untuk melanjutkan)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="140"/>
         <source>Restart to install updates</source>
-        <translation>Mula semula untuk memasang kemaskini</translation>
+        <translation>Mulai ulang untuk memasang pemutakhiran</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="141"/>
         <source>Download completed</source>
-        <translation>Muat turun selesai</translation>
+        <translation>Unduhan selesai</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="148"/>
         <source>Your system is up to date</source>
-        <translation>Sistem anda sudah dikemaskinikan</translation>
+        <translation>Sistem Anda sudah diperbarui</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
         <source>New system edition and %1 application updates detected</source>
-        <translation>Edisi sistem baharu dan %1 kemaskini aplikasi dikesan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
         <source>Update size: %1</source>
-        <translation>Saiz kemaskini: %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>Kuasa bateri anda lebih rendah dari 50%, sila palamkan untuk diteruskan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Sila pastikan kuasa mencukupi untuk memulakan semula, dan matikan atau tanggalkan pemalam kuasa komputer anda.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1897,7 +1897,7 @@
     <message>
         <location filename="../modules/update/updateitem.cpp" line="40"/>
         <source>Details</source>
-        <translation>Perincian</translation>
+        <translation>Detail</translation>
     </message>
 </context>
 <context>
@@ -1905,22 +1905,22 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="17"/>
         <source>Update Settings</source>
-        <translation>Tetapan Kemaskini</translation>
+        <translation>Pengaturan Pemutakhiran</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="30"/>
         <source>Auto-download Updates</source>
-        <translation>Auto-muat turun Kemaskini</translation>
+        <translation>Unduh Pemutakhiran Otomatis</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="32"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation>Kemaskini akan diauto-muat turun dengan rangkaian tanpa wayar atau berwayar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="37"/>
         <source>Switch Mirror</source>
-        <translation>Tukar Cermin</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1929,12 +1929,12 @@
         <location filename="../modules/update/updateview.cpp" line="15"/>
         <location filename="../modules/update/updateview.cpp" line="27"/>
         <source>Update</source>
-        <translation>Kemaskini</translation>
+        <translation>Pembaruan</translation>
     </message>
     <message>
         <location filename="../modules/update/updateview.cpp" line="20"/>
         <source>Update Settings</source>
-        <translation>Tetapan Kemaskini</translation>
+        <translation>Pengaturan Pemutakhiran</translation>
     </message>
 </context>
 <context>
@@ -1942,12 +1942,12 @@
     <message>
         <location filename="../modules/update/updatework.cpp" line="352"/>
         <source>Patches</source>
-        <translation>Tampalan</translation>
+        <translation>Tambalan</translation>
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="354"/>
         <source>System patches.</source>
-        <translation>Tampakan sistem.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1955,17 +1955,17 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="19"/>
         <source>Pressure Sensitive</source>
-        <translation>Kepekaan Tekanan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>
         <source>light</source>
-        <translation>ringan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>
         <source>heavy</source>
-        <translation>berat</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1981,7 +1981,7 @@
     <message>
         <location filename="../widgets/searchinput.cpp" line="14"/>
         <source>Search</source>
-        <translation>Gelintar</translation>
+        <translation>Cari</translation>
     </message>
 </context>
 <context>
@@ -1994,7 +1994,7 @@
     <message>
         <location filename="../widgets/settingshead.cpp" line="27"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation>Batalkan</translation>
     </message>
 </context>
 </TS>

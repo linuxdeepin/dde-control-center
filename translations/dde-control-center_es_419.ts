@@ -110,12 +110,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="12"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Actualizaciones</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="13"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Actualizaciones detectadas, haga clic para ver</translation>
     </message>
 </context>
 <context>
@@ -300,7 +300,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Se requiere permiso de administrador para eliminar la cuenta.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
@@ -449,7 +449,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="40"/>
         <source>Time Settings</source>
-        <translation>Configuraciones de tiempo</translation>
+        <translation>Ajustes de tiempo</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="44"/>
@@ -561,7 +561,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
         <source>All Files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Todos los Archivos (*)</translation>
     </message>
 </context>
 <context>
@@ -942,7 +942,7 @@
     <message>
         <location filename="../modules/keyboard/langwidget.cpp" line="23"/>
         <source>System Language</source>
-        <translation>Idioma </translation>
+        <translation>Idioma del sistema</translation>
     </message>
 </context>
 <context>
@@ -950,7 +950,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Restablecer acceso directo</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
@@ -1234,7 +1234,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Autenticando</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1483,7 +1483,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="20"/>
         <source>Standard Font</source>
-        <translation>Fuente Standard</translation>
+        <translation>Fuente estándar</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="21"/>
@@ -1512,7 +1512,7 @@
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="85"/>
         <source>Standard Font</source>
-        <translation>Fuente Standard</translation>
+        <translation>Fuente estándar</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="94"/>
@@ -1551,22 +1551,22 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="15"/>
         <source>Window Theme</source>
-        <translation>Tema de ventanas</translation>
+        <translation>Estilo de ventanas</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="16"/>
         <source>Icon Theme</source>
-        <translation>Tema de iconos</translation>
+        <translation>Estilo de iconos</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="17"/>
         <source>Cursor Theme</source>
-        <translation>Tema de cursor</translation>
+        <translation>Estilo de cursor</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="29"/>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>Tema/ Estilo</translation>
     </message>
 </context>
 <context>
@@ -1595,7 +1595,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="52"/>
         <source>Password required to wake up the computer</source>
-        <translation>Requerir contraseña al reactivar la computadora</translation>
+        <translation>Contraseña necesaria para reactivar la computadora</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="55"/>
@@ -1708,7 +1708,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="47"/>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>Tema o estilo</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="49"/>
@@ -1744,12 +1744,12 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="34"/>
         <source>Distribution Release:</source>
-        <translation>Distribution Release:</translation>
+        <translation>Distribución lanzada:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
         <source>Edition License:</source>
-        <translation type="unfinished"/>
+        <translation>Edición Licencia:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
@@ -1864,7 +1864,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="141"/>
         <source>Download completed</source>
-        <translation>Descarga Completa</translation>
+        <translation>Descarga completa</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="148"/>
@@ -1889,7 +1889,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Asegúrese de que haya suficiente energía para reiniciar y no apague ni desconecte la máquina</translation>
+        <translation>Asegúrese de tener suficiente energía para reiniciar y no apague ni desconecte la máquina</translation>
     </message>
 </context>
 <context>
