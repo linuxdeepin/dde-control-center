@@ -27,6 +27,7 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
                                           QDBusConnection::sessionBus(), this))
 {
     connect(m_keybindInter, SIGNAL(Added(QString,int)), this,SLOT(onAdded(QString,int)));
+    connect(m_keybindInter, &KeybingdingInter::Deleted, this, &KeyboardWork::removed);
     connect(m_keyboardInter, SIGNAL(UserLayoutListChanged(QStringList)), m_model, SLOT(setUserLayout(QStringList)));
     connect(m_keyboardInter, SIGNAL(CurrentLayoutChanged(QString)), m_model, SLOT(setLayout(QString)));
     connect(m_langSelector, SIGNAL(CurrentLocaleChanged(QString)), m_model, SLOT(setLang(QString)));

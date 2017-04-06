@@ -308,5 +308,22 @@ void ShortcutWidget::onTimeout()
             SLOT(getKeyFinish(QDBusPendingCallWatcher*)));
 }
 
+void ShortcutWidget::onRemoveItem(const QString &id, int type)
+{
+    Q_UNUSED(type)
+
+    for (auto item(m_customList.begin()); item != m_customList.end(); ++item) {
+        ShortcutItem *it = *item;
+        Q_ASSERT(it);
+        if (it->curInfo()->id == id) {
+            m_customGroup->removeItem(it);
+            m_customList.removeOne(it);
+            emit delShortcutInfo(it->curInfo());
+            it->deleteLater();
+            return;
+        }
+    }
+}
+
 }
 }

@@ -46,6 +46,7 @@ public slots:
     void getKeyFinish(QDBusPendingCallWatcher* watch);
     void onSearchFinish(QDBusPendingCallWatcher* watch);
     void onTimeout();
+    void onRemoveItem(const QString &id, int type);
 
 private:
     QWidget* m_searchWidget;

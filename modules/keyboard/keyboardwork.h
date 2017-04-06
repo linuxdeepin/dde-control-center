@@ -60,6 +60,7 @@ signals:
     void customInfo(const QString& info);
     void KeyEvent(bool in0, const QString &in1);
     void searchChangd(ShortcutInfo* info, const QString& key);
+    void removed(const QString &id, int type);
 
 public slots:
     void setLang(const QString& value);

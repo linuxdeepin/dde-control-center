@@ -252,7 +252,7 @@ void KeyboardModule::onPushShortcut()
         connect(m_work, SIGNAL(searchChangd(ShortcutInfo*,QString)), m_shortcutWidget, SLOT(onSearchInfo(ShortcutInfo*,QString)));
         connect(m_shortcutWidget, &ShortcutWidget::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
         connect(m_shortcutWidget, &ShortcutWidget::shortcutEditChanged, this, &KeyboardModule::onShortcutEdit);
-
+        connect(m_work, &KeyboardWork::removed, m_shortcutWidget, &ShortcutWidget::onRemoveItem);
     }
     m_frameProxy->pushWidget(this, m_shortcutWidget);
 }
