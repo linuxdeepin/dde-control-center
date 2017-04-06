@@ -12,6 +12,7 @@
 
 #include <QVBoxLayout>
 #include <QDebug>
+#include <QEvent>
 
 using namespace dcc;
 
@@ -68,6 +69,7 @@ SoundWidget::SoundWidget(SoundModel *model) :
     m_inputFeedbackSlider->setType(DCCSlider::Progress);
     m_inputFeedbackSlider->setOrientation(Qt::Horizontal);
     m_inputFeedbackSlider->setRange(0, 100);
+    m_inputFeedbackSlider->installEventFilter(this);
 
     m_microphoneGroup->appendItem(m_microphoneSwitch);
     m_microphoneGroup->appendItem(m_inputVolumeSliderItem);
@@ -141,6 +143,22 @@ void SoundWidget::setModel(SoundModel *model)
     m_inputVolumeSlider->setValue(model->microphoneVolume());
     m_inputFeedbackSlider->setValue(model->microphoneFeedback());
     blockSignals(false);
+}
+
+bool SoundWidget::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == m_inputFeedbackSlider) {
+        switch (event->type()) {
+        case QEvent::MouseButtonDblClick:
+        case QEvent::MouseButtonPress:
+        case QEvent::MouseButtonRelease:
+            return true;
+        default:
+            return false;
+        }
+    }
+
+    return false;
 }
 
 }

@@ -33,6 +33,9 @@ public:
 
     void setModel(SoundModel *model);
 
+protected:
+    virtual bool eventFilter(QObject *watched, QEvent *event);
+
 signals:
     void requestSwitchSpeaker(bool on) const;
     void requestSiwtchMicrophone(bool on) const;
