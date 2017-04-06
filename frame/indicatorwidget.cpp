@@ -31,7 +31,7 @@ IndicatorWidget::IndicatorWidget(QWidget *parent)
     m_nextPluginBtn->setVisible(false);
 
     m_pluginsIndicator->setFixedHeight(20);
-    m_pluginsIndicator->setPageCount(3);
+    m_pluginsIndicator->setPageCount(2);
     m_pluginsIndicator->setCurrentPage(0);
     m_pluginsIndicator->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 

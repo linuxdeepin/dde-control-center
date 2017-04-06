@@ -3,5 +3,5 @@ SUBDIRS = \
         #example \
         #calculator \
         notify \
-        navgation \
+        #navgation \
         weather
