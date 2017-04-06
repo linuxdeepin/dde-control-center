@@ -43,6 +43,7 @@ public slots:
 
 private:
     const QPixmap m_connectedPixmap;
+    const QPixmap m_cancelPixmap;
     QModelIndex m_hoveredIndex;
 
     QList<QString> m_activedVpns;

@@ -45,7 +45,6 @@ void VpnListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     if (index.data(VpnListModel::VpnShowIconRole).toBool())
     {
         const QPixmap pixmap = index.data(VpnListModel::VpnIconRole).value<QPixmap>();
-
         const int l = 16;
         const int x = option.rect.right() - l - 25;
         const int y = option.rect.top() + (option.rect.height() - l) / 2;
