@@ -1,8 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>BluetoothDelegate</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="70"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="71"/>
         <source>Refresh</source>
         <translation>刷新</translation>
     </message>
@@ -10,12 +12,12 @@
 <context>
     <name>BluetoothListModel</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="70"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="73"/>
         <source>Connect to other devices</source>
         <translation>连接其他设备</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="104"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="68"/>
         <source>Click icon to enable bluetooth</source>
         <translation>点击图标开启蓝牙</translation>
     </message>
@@ -38,24 +40,34 @@
         <translation>只在%1显示</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="75"/>
+        <source>New Custom Settings</source>
+        <translation>新建自定义配置</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
         <source>Copy the screen contents to one or more screens</source>
         <translation>将屏幕内容复制到一个或者多个屏幕</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="79"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
         <source>Extend the screen contents to display different contents on different screens</source>
         <translation>扩展屏幕并在不同屏幕显示不同内容</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="85"/>
         <source>Screen contents are only displayed on %1</source>
         <translation>仅在%1上显示屏幕内容</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="90"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
         <translation>要更改自定义设置，请输入设置的显示模式</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="92"/>
+        <source>Click to enter Display Module</source>
+        <translation>点击跳转到显示模块</translation>
     </message>
 </context>
 <context>
@@ -82,12 +94,12 @@
 <context>
     <name>SetLocationPage</name>
     <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="31"/>
+        <location filename="../plugins/weather/setlocationpage.cpp" line="34"/>
         <source>No search results</source>
         <translation>无搜索结果</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="117"/>
+        <location filename="../plugins/weather/setlocationpage.cpp" line="126"/>
         <source>Current City: %1</source>
         <translation>当前城市：%1</translation>
     </message>
@@ -121,7 +133,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="47"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="40"/>
         <source>Click icon to enable VPN</source>
         <translation>点击图标开启VPN</translation>
     </message>
@@ -129,17 +141,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="76"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="78"/>
         <source>Sorry, unable to get weather!</source>
         <translation>抱歉，获取天气失败！</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="83"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="85"/>
         <source>Loading weather...</source>
         <translation>天气加载中.....</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="144"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="146"/>
         <source>Just updated</source>
         <translation>刚刚更新</translation>
     </message>
@@ -147,17 +159,17 @@
 <context>
     <name>WifiListModel</name>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="61"/>
         <source>Connect to hidden network</source>
         <translation>连接到隐藏网络</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="92"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="56"/>
         <source>Click icon to enable WIFI</source>
         <translation>点击图标开启WIFI </translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="182"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="183"/>
         <source>Wireless Card %1</source>
         <translation>无线网卡 %1</translation>
     </message>
@@ -559,9 +571,8 @@
         <translation>打开desktop文件</translation>
     </message>
     <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
         <source>All Files (*)</source>
-        <translation>所有文件（*）</translation>
+        <translation type="vanished">所有文件（*）</translation>
     </message>
 </context>
 <context>
@@ -607,27 +618,27 @@
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="24"/>
+        <location filename="../modules/display/displaywidget.cpp" line="25"/>
         <source>Rotate</source>
         <translation>旋转</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="25"/>
+        <location filename="../modules/display/displaywidget.cpp" line="26"/>
         <source>New custom settings</source>
         <translation>新建自定义设置</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="27"/>
+        <location filename="../modules/display/displaywidget.cpp" line="28"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="28"/>
+        <location filename="../modules/display/displaywidget.cpp" line="29"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="47"/>
+        <location filename="../modules/display/displaywidget.cpp" line="48"/>
         <source>Display</source>
         <translation>显示</translation>
     </message>
@@ -635,7 +646,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="113"/>
+        <location filename="../modules/display/displayworker.cpp" line="115"/>
         <source>My Settings %1</source>
         <translation>我的设置%1</translation>
     </message>
@@ -1510,12 +1521,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="85"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="86"/>
         <source>Standard Font</source>
         <translation>标准字体</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="94"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="95"/>
         <source>Monospaced Font</source>
         <translation>等宽字体</translation>
     </message>
@@ -1541,7 +1552,7 @@
 <context>
     <name>dcc::personalization::ThemeItem</name>
     <message>
-        <location filename="../modules/personalization/widget/themeitem.cpp" line="50"/>
+        <location filename="../modules/personalization/widget/themeitem.cpp" line="54"/>
         <source>Default</source>
         <translation>默认</translation>
     </message>
@@ -1895,7 +1906,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="40"/>
+        <location filename="../modules/update/updateitem.cpp" line="42"/>
         <source>Details</source>
         <translation>详情</translation>
     </message>
@@ -1995,6 +2006,33 @@
         <location filename="../widgets/settingshead.cpp" line="27"/>
         <source>Cancel</source>
         <translation>取消</translation>
+    </message>
+</context>
+<context>
+    <name>miracastControlDelegate</name>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="28"/>
+        <source>Connected</source>
+        <translation>已连接</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="28"/>
+        <source>Unconnected</source>
+        <translation>未连接</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="30"/>
+        <source>Actived</source>
+        <translation>已激活</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="obsolete">断开</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="30"/>
+        <source>Inactive</source>
+        <translation>未激活</translation>
     </message>
 </context>
 </TS>
