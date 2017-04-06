@@ -163,6 +163,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     onNetworkConnectionListChanged();
     onBluetoothDeviceEnableChanged();
     onBluetoothDeviceListChanged();
+    onMiracastLinkListChanged();
 }
 
 void QuickControlPanel::leaveEvent(QEvent *e)
