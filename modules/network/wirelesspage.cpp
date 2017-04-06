@@ -142,7 +142,7 @@ void WirelessPage::onDeviceRemoved()
     if (!m_apEditPage.isNull())
         m_apEditPage->onDeviceRemoved();
 
-    // destory self page
+    // destroy self page
     emit back();
 }
 

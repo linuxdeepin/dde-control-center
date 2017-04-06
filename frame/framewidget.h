@@ -34,7 +34,7 @@ public:
     void hide();
     void showBack();
     void hideBack();
-    void destory();
+    void destroy();
 
     int animationDuration() const;
 
@@ -45,7 +45,7 @@ protected:
     bool eventFilter(QObject *watched, QEvent *event);
 
 private slots:
-    void destorySelf();
+    void destroySelf();
 
 private:
     QGraphicsOpacityEffect *m_opacityEffect;

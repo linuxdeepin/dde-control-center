@@ -91,13 +91,13 @@ void FrameWidget::hideBack()
     QTimer::singleShot(m_slidePosAni->duration(), this, &QWidget::hide);
 }
 
-void FrameWidget::destory()
+void FrameWidget::destroy()
 {
     m_slidePosAni->setStartValue(QPoint());
     m_slidePosAni->setEndValue(QPoint(width(), 0));
     m_slidePosAni->start();
 
-    QTimer::singleShot(m_slidePosAni->duration(), this, &FrameWidget::destorySelf);
+    QTimer::singleShot(m_slidePosAni->duration(), this, &FrameWidget::destroySelf);
 }
 
 int FrameWidget::animationDuration() const
@@ -113,7 +113,7 @@ bool FrameWidget::eventFilter(QObject *watched, QEvent *event)
     return false;
 }
 
-void FrameWidget::destorySelf()
+void FrameWidget::destroySelf()
 {
     if (m_content)
     {
