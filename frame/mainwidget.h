@@ -37,6 +37,9 @@ protected:
 private:
     void showPlugin(QWidget * const w);
 
+    int getPluginsHeight();
+    void updatePluginsHeight();
+
 private slots:
     void pluginAdded(QWidget * const w);
     void showNextPlugin();
@@ -54,6 +57,7 @@ private:
     QLabel *m_currentTimeLbl;
     QLabel *m_currentDateLbl;
     QHBoxLayout *m_pluginsLayout;
+    QWidget *m_pluginWrapper;
     QWidget *m_pluginWidget;
     IndicatorWidget *m_indicatorWidget;
 #ifndef DISABLE_SYS_UPDATE

@@ -16,7 +16,8 @@ using UserInter = com::deepin::daemon::accounts::User;
 
 DWIDGET_USE_NAMESPACE
 
-const int PLUGINS_HEIGHT = 380;
+static const int PluginsHeightMax = 380;
+static const int PluginsHeightMin = 260;
 
 MainWidget::MainWidget(Frame *parent)
     : FrameWidget(parent),
@@ -78,7 +79,6 @@ MainWidget::MainWidget(Frame *parent)
 //    m_pluginsIndicator->setCurrentPage(0);
 //    m_pluginsIndicator->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 //    m_pluginsIndicator->setVisible(false);
-
 //    QHBoxLayout *indicatorLayout = new QHBoxLayout;
 //    indicatorLayout->addStretch();
 //    indicatorLayout->addWidget(m_prevPluginBtn);
@@ -121,12 +121,12 @@ MainWidget::MainWidget(Frame *parent)
     headerFrame->setLayout(headerLayout);
 
     // Plugins
-    QWidget *pluginWrapper = new TranslucentFrame;
-    pluginWrapper->setLayout(m_pluginsLayout);
-    pluginWrapper->setObjectName("HomePluginsFrame");
+    m_pluginWrapper = new TranslucentFrame;
+    m_pluginWrapper->setLayout(m_pluginsLayout);
+    m_pluginWrapper->setObjectName("HomePluginsFrame");
 
     QVBoxLayout *pluginWidgetLayout = new QVBoxLayout;
-    pluginWidgetLayout->addWidget(pluginWrapper);
+    pluginWidgetLayout->addWidget(m_pluginWrapper);
     pluginWidgetLayout->addSpacing(10);
     pluginWidgetLayout->addWidget(m_indicatorWidget);
     pluginWidgetLayout->setSpacing(0);
@@ -178,8 +178,7 @@ void MainWidget::resizeEvent(QResizeEvent *e)
 {
     FrameWidget::resizeEvent(e);
 
-    // hide plugins area if panel too low
-    m_pluginWidget->setVisible(e->size().height() > 600);
+    updatePluginsHeight();
 }
 
 void MainWidget::showPlugin(QWidget * const w)
@@ -190,10 +189,26 @@ void MainWidget::showPlugin(QWidget * const w)
     m_lastPluginWidget->setVisible(true);
 }
 
+int MainWidget::getPluginsHeight()
+{
+    return height() > 800 ? PluginsHeightMax : PluginsHeightMin;
+}
+
+void MainWidget::updatePluginsHeight()
+{
+    m_pluginWidget->setVisible(height() > 600);
+
+    const int h = getPluginsHeight();
+    for (int i = 0; i < m_pluginsLayout->count(); i++) {
+        QLayoutItem *item = m_pluginsLayout->itemAt(i);
+        item->widget()->setFixedHeight(h);
+    }
+}
+
 void MainWidget::pluginAdded(QWidget * const w)
 {
     w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    w->setFixedHeight(PLUGINS_HEIGHT);
+    w->setFixedHeight(getPluginsHeight());
     m_pluginsLayout->addWidget(w);
     showPlugin(w);
 }

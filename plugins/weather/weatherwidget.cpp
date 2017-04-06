@@ -6,6 +6,11 @@
 
 static const int ItemRightMargin = 30;
 
+static const int CurrentItemHeight = 80;
+static const int ForecastItemHeight = 60;
+
+static const int LoadingBaselineOffset = -30;
+
 WeatherWidget::WeatherWidget(WeatherRequest *request, QWidget *parent)
     :QWidget(parent),
       m_request(request)
@@ -56,7 +61,9 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
     {
         QPainter painter(this);
         QPixmap pix(":/icon/load_weather/weather_loading.png");
-        painter.drawPixmap(rect().center() + QPoint(-pix.width()/2, -pix.height()/2), pix);
+        QRect loadingRect(rect().center() + QPoint(-pix.width()/2, -pix.height()/2 + LoadingBaselineOffset),
+                          pix.size());
+        painter.drawPixmap(loadingRect, pix);
         /*
         QString arg = QString().setNum(i);
         if(arg.length() == 1)
@@ -69,7 +76,7 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
         */
         QTime time = QTime::currentTime();
         QRect rect(0,0,width(), 50);
-        rect.moveTop(this->rect().center().y()+pix.height()/2+25);
+        rect.moveTop(loadingRect.bottom()+10);
 
         QPen pen(Qt::white);
         painter.setPen(pen);
@@ -87,8 +94,8 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
         return;
     }
 
-    int h = (height() - 20)/count;
-    int fh = h + 20;
+    int h = ForecastItemHeight;
+    int fh = CurrentItemHeight;
     int y = 0;
 
     QPainter painter(this);
@@ -175,7 +182,7 @@ void WeatherWidget::mouseMoveEvent(QMouseEvent *event)
 {
     QWidget::mouseMoveEvent(event);
 
-    const bool showButton = event->y() < 20 * 3 && event->y() > 10 && m_request->count() != 0;
+    const bool showButton = event->y() < CurrentItemHeight && event->y() > 10 && m_request->count() != 0;
     if (showButton) { m_locationBtn->move(304, 30); }
     m_locationBtn->setVisible(showButton);
 
@@ -187,7 +194,7 @@ void WeatherWidget::resizeEvent(QResizeEvent *e)
     Q_UNUSED(e);
 
     QRect rect(0,0,50,50);
-    rect.moveCenter(this->rect().center());
+    rect.moveCenter(this->rect().center() + QPoint(0, LoadingBaselineOffset));
     m_view->setGeometry(rect);
 }
 
