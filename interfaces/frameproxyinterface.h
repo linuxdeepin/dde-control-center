@@ -10,6 +10,8 @@
 #ifndef FRAMEPROXYINTERFACE_H
 #define FRAMEPROXYINTERFACE_H
 
+#include <QString>
+
 namespace dcc {
 class ContentWidget;
 class ModuleInterface;
@@ -26,6 +28,8 @@ public:
     virtual void setFrameAutoHide(ModuleInterface * const inter, const bool autoHide) = 0;
 
     virtual void setModuleVisible(ModuleInterface * const inter, const bool visible) = 0;
+
+    virtual void showModulePage(const QString &module, const QString &page) = 0;
 };
 
 }

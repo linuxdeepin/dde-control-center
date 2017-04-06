@@ -49,3 +49,8 @@ void PluginsController::loadPlugins()
         emit pluginAdded(w);
     }
 }
+
+void PluginsController::showModulePage(const QString &module, const QString &page)
+{
+    emit requestModulePage(module, page);
+}

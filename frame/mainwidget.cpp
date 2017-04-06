@@ -153,6 +153,7 @@ MainWidget::MainWidget(Frame *parent)
     centralLayout->setMargin(0);
 
     connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded);
+    connect(m_pluginsController, &PluginsController::requestModulePage, this, &MainWidget::showSettingPage);
     connect(m_indicatorWidget, &IndicatorWidget::requestNext, this, &MainWidget::showNextPlugin);
     connect(m_indicatorWidget, &IndicatorWidget::requestPrevious, this, &MainWidget::showPrevPlugin);
 //    connect(m_prevPluginBtn, &DImageButton::clicked, this, &MainWidget::showPrevPlugin);
