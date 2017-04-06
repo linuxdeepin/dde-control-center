@@ -4,7 +4,7 @@
 <context>
     <name>BluetoothDelegate</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="70"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="71"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12,12 +12,12 @@
 <context>
     <name>BluetoothListModel</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="70"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="73"/>
         <source>Connect to other devices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="104"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="68"/>
         <source>Click icon to enable bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
@@ -40,23 +40,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
-        <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="79"/>
-        <source>Extend the screen contents to display different contents on different screens</source>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="75"/>
+        <source>New Custom Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
-        <source>Screen contents are only displayed on %1</source>
+        <source>Copy the screen contents to one or more screens</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
+        <source>Extend the screen contents to display different contents on different screens</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="85"/>
+        <source>Screen contents are only displayed on %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="90"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="92"/>
+        <source>Click to enter Display Module</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -84,12 +94,12 @@
 <context>
     <name>SetLocationPage</name>
     <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="31"/>
+        <location filename="../plugins/weather/setlocationpage.cpp" line="34"/>
         <source>No search results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="117"/>
+        <location filename="../plugins/weather/setlocationpage.cpp" line="126"/>
         <source>Current City: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -123,7 +133,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="47"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="40"/>
         <source>Click icon to enable VPN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -131,17 +141,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="76"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="78"/>
         <source>Sorry, unable to get weather!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="83"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="85"/>
         <source>Loading weather...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="144"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="146"/>
         <source>Just updated</source>
         <translation type="unfinished"></translation>
     </message>
@@ -149,17 +159,17 @@
 <context>
     <name>WifiListModel</name>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="61"/>
         <source>Connect to hidden network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="92"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="56"/>
         <source>Click icon to enable WIFI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="182"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="183"/>
         <source>Wireless Card %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -560,11 +570,6 @@
         <source>Open Desktop file</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
-        <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>dcc::defapp::DefaultAppsWidget</name>
@@ -609,27 +614,27 @@
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="24"/>
+        <location filename="../modules/display/displaywidget.cpp" line="25"/>
         <source>Rotate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="25"/>
+        <location filename="../modules/display/displaywidget.cpp" line="26"/>
         <source>New custom settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="27"/>
+        <location filename="../modules/display/displaywidget.cpp" line="28"/>
         <source>Resolution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="28"/>
+        <location filename="../modules/display/displaywidget.cpp" line="29"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="47"/>
+        <location filename="../modules/display/displaywidget.cpp" line="48"/>
         <source>Display</source>
         <translation type="unfinished"></translation>
     </message>
@@ -637,7 +642,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="113"/>
+        <location filename="../modules/display/displayworker.cpp" line="115"/>
         <source>My Settings %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1512,12 +1517,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="85"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="86"/>
         <source>Standard Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="94"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="95"/>
         <source>Monospaced Font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1543,7 +1548,7 @@
 <context>
     <name>dcc::personalization::ThemeItem</name>
     <message>
-        <location filename="../modules/personalization/widget/themeitem.cpp" line="50"/>
+        <location filename="../modules/personalization/widget/themeitem.cpp" line="54"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1897,7 +1902,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="40"/>
+        <location filename="../modules/update/updateitem.cpp" line="42"/>
         <source>Details</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1996,6 +2001,29 @@
     <message>
         <location filename="../widgets/settingshead.cpp" line="27"/>
         <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>miracastControlDelegate</name>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="28"/>
+        <source>Connected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="28"/>
+        <source>Disconnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="30"/>
+        <source>Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="30"/>
+        <source>Inactive</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

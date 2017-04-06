@@ -84,7 +84,12 @@ const QString DisplayControlModel::optionDescription(const int index) const
     else if (index < m_displayModel->monitorList().size() + 2)
         return tr("Screen contents are only displayed on %1").arg(m_displayModel->monitorList()[index - 2]->name());
 
-    return tr("Please enter display mode to set if you want to change the custom settings");
+    const int configIndex = index - 2 - m_displayModel->monitorList().size();
+
+    if (m_displayModel->configList().size() > configIndex)
+        return tr("Please enter display mode to set if you want to change the custom settings");
+    else
+        return tr("Click to enter Display Module");
 }
 
 void DisplayControlModel::onDisplayModeChanged(const int mode)
