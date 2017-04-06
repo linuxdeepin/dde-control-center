@@ -50,7 +50,8 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
     // clear old infos
     while (QLayoutItem *item = m_groupsLayout->takeAt(0))
     {
-        item->widget()->deleteLater();
+        if (item->widget())
+            item->widget()->deleteLater();
         delete item;
     }
 
@@ -107,6 +108,7 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             appendInfo(grp, tr("Speed"), speed);
 
         m_groupsLayout->addWidget(grp);
+        m_groupsLayout->addSpacing(10);
     }
 
     m_groupsLayout->addStretch();
