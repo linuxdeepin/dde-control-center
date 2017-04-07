@@ -5,6 +5,7 @@
 
 #include <QObject>
 #include <QMap>
+#include <QTimer>
 
 namespace dcc {
 
@@ -75,6 +76,7 @@ private slots:
 private:
     bool containsDevice(const QString &devPath) const;
     NetworkDevice *device(const QString &devPath) const;
+    void updateWiredConnInfo();
 
 private:
     bool m_vpnEnabled;
@@ -86,6 +88,8 @@ private:
     QMap<QString, QList<QJsonObject>> m_connections;
     QList<QJsonObject> m_activeConnInfos;
     QSet<QString> m_activeConnections;
+
+    QTimer *m_updateWiredInfoDelay;
 };
 
 }   // namespace network

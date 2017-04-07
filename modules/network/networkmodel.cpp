@@ -23,8 +23,14 @@ NetworkDevice::DeviceType parseDeviceType(const QString &type)
 }
 
 NetworkModel::NetworkModel(QObject *parent)
-    : QObject(parent)
+    : QObject(parent),
+
+      m_updateWiredInfoDelay(new QTimer(this))
 {
+    m_updateWiredInfoDelay->setSingleShot(true);
+    m_updateWiredInfoDelay->setInterval(100);
+
+    connect(m_updateWiredInfoDelay, &QTimer::timeout, this, &NetworkModel::updateWiredConnInfo);
 }
 
 NetworkModel::~NetworkModel()
@@ -118,6 +124,7 @@ void NetworkModel::onDeviceListChanged(const QString &devices)
     const QJsonObject data = QJsonDocument::fromJson(devices.toUtf8()).object();
 
     QSet<QString> devSet;
+    bool hasNewDevices = false;
 
     for (auto it(data.constBegin()); it != data.constEnd(); ++it) {
         const auto type = parseDeviceType(it.key());
@@ -143,6 +150,7 @@ void NetworkModel::onDeviceListChanged(const QString &devices)
                 default:;
                 }
                 m_devices.append(d);
+                hasNewDevices = true;
 
                 // init device enabled status
                 emit requestDeviceStatus(d->path());
@@ -165,6 +173,9 @@ void NetworkModel::onDeviceListChanged(const QString &devices)
     qDeleteAll(removeList);
 
     emit deviceListChanged(m_devices);
+
+    if (hasNewDevices)
+        m_updateWiredInfoDelay->start();
 }
 
 void NetworkModel::onConnectionListChanged(const QString &conns)
@@ -179,14 +190,7 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
             m_connections[it.key()].append(connObject.toObject());
     }
 
-    // update wired connection info
-    for (const auto &wired : m_connections["wired"])
-    {
-        const QString hwAddr = wired.value("HwAddress").toString();
-        for (auto *dev : m_devices)
-            if (dev->type() == NetworkDevice::Wired && dev->hwAddr() == hwAddr)
-                static_cast<WiredDevice *>(dev)->onConnectionInfoChanged(wired);
-    }
+    m_updateWiredInfoDelay->start();
 
     // update ppp connection info
 //    for (auto *dev : m_devices)
@@ -317,4 +321,17 @@ NetworkDevice *NetworkModel::device(const QString &devPath) const
             return d;
 
     return nullptr;
+}
+
+void NetworkModel::updateWiredConnInfo()
+{
+    Q_ASSERT(sender() == m_updateWiredInfoDelay);
+
+    for (const auto &wired : m_connections["wired"])
+    {
+        const QString hwAddr = wired.value("HwAddress").toString();
+        for (auto *dev : m_devices)
+            if (dev->type() == NetworkDevice::Wired && dev->hwAddr() == hwAddr)
+                static_cast<WiredDevice *>(dev)->onConnectionInfoChanged(wired);
+    }
 }

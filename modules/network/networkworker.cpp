@@ -133,6 +133,8 @@ void NetworkWorker::queryAccessPoints(const QString &devPath)
 
 void NetworkWorker::queryConnectionSession(const QString &devPath, const QString &uuid)
 {
+    Q_ASSERT_X(!uuid.isEmpty(), Q_FUNC_INFO, "uuid is empty");
+
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.EditConnection(uuid, QDBusObjectPath(devPath)), this);
 
     w->setProperty("devPath", devPath);
