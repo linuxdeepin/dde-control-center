@@ -17,6 +17,7 @@ class BaseSettings;
 class MouseSettings;
 class ThinkpadSettings;
 class MouseModel;
+class MouseModelMouseSettings;
 class MouseWidget : public ModuleWidget
 {
     Q_OBJECT
@@ -47,6 +48,7 @@ private:
     MouseSettings *m_mouseSettings;
     MouseSettings *m_touchSettings;
     ThinkpadSettings *m_ThinkapdSettings;
+    MouseModelMouseSettings *m_touchpadModel;
 };
 }
 }
