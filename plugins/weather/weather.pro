@@ -15,7 +15,7 @@ TARGET          = $$qtLibraryTarget($$PLUGIN_NAME)
 DESTDIR          = $$_PRO_FILE_PWD_/../
 DISTFILES       += $$PLUGIN_NAME.json
 
-# fix complier error at gcc6
+# fix compiler error at gcc6
 QMAKE_CFLAGS_ISYSTEM = ""
 
 HEADERS += \
