@@ -18,7 +18,6 @@ DDE Control Center is the control panel of Deepin Desktop Environment.
 * [dde-api](https://github.com/linuxdeepin/dde-api)
 * [dde-daemon](https://github.com/linuxdeepin/dde-daemon)
 * [deepin-artwork-themes](https://github.com/linuxdeepin/deepin-artwork-themes)
-* gtk+-2.0
 * Qt5 (>= 5.3)
   * Qt5-DBus
   * Qt5-Multimedia
