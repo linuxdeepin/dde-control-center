@@ -36,6 +36,7 @@ Depends: ${shlibs:Depends},
  xkb-data,
  tzdata-l10n,
  netselect,
- geoip-database-extra
+ geoip-database-extra,
+ deepin-installer-timezones
 Description: New control center for Deepin Desktop Environment
  DDE Control Center is the control panel of Deepin Desktop Environment.

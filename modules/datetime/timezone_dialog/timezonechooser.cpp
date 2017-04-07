@@ -115,14 +115,14 @@ TimeZoneChooser::TimeZoneChooser()
     QTimer::singleShot(0, [this] {
         QStringList completions;
         for (QString timezone : QTimeZone::availableTimeZoneIds()) {
-            completions << timezone; // whole timezone as completion candidate.
+            completions << timezone; // timezone as completion candidate.
 
-            QStringList zoneParts = timezone.split("/");
-            if (zoneParts.length() == 2) {
-                QString cityName = zoneParts.at(1);
-                completions << cityName; // timezone city name as completion candidate.
-                m_completionCache[cityName] = timezone;
-            }
+            // localized timezone as completion candidate.
+            const QString locale = QLocale::system().name();
+            QString localizedTimezone = installer::GetLocalTimezoneName(timezone, locale);
+            completions << localizedTimezone;
+
+            m_completionCache[localizedTimezone] = timezone;
         }
 
         QCompleter *completer = new QCompleter(completions, m_searchInput);

@@ -7,6 +7,8 @@
 #include "datetimemodel.h"
 #include "clockitem.h"
 #include "timezoneitem.h"
+
+#include "timezone_dialog/timezone.h"
 #include "timezone_dialog/timezonechooser.h"
 
 namespace dcc {
@@ -103,11 +105,12 @@ void Datetime::setModel(const DatetimeModel *model)
         updateTimezoneItems();
     });
 
-    connect(model, &DatetimeModel::systemTimeZoneIdChanged, m_timezoneItem, &NextPageWidget::setValue);
+    connect(model, &DatetimeModel::systemTimeZoneIdChanged,
+            this, &Datetime::updateSystemTimezone);
 
     addTimezones(model->userTimeZones());
     m_ntpSwitch->setChecked(model->nTP());
-    m_timezoneItem->setValue(model->systemTimeZoneId());
+    updateSystemTimezone(model->systemTimeZoneId());
 }
 
 void Datetime::addTimezone(const ZoneInfo &zone)
@@ -172,6 +175,15 @@ void Datetime::updateTimezoneItems()
     for (TimezoneItem *item : items) {
         item->updateInfo();
     }
+}
+
+void Datetime::updateSystemTimezone(const QString &timezone)
+{
+    if (timezone.isEmpty()) return;
+
+    const QString locale = QLocale::system().name();
+    const QString name = installer::GetLocalTimezoneName(timezone, locale);
+    m_timezoneItem->setValue(name);
 }
 
 void Datetime::onEditClicked(const bool &edit)
