@@ -31,6 +31,7 @@ private:
     void contentPopped(ContentWidget * const w);
     const QString name() const;
     ModuleWidget *moduleWidget();
+    void showPage(const QString &pageName);
 
 private:
     BluetoothWidget *m_bluetoothView;

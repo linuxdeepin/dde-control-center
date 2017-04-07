@@ -27,7 +27,7 @@ public:
 signals:
     void requestConnect(const Device *device) const;
     void requestDisConnect(const Device *device) const;
-    void requestConnectOther() const;
+    void requestConnectOther(const QString &module, const QString &page) const;
     void requestAdapterDiscoverable(const QString &id) const;
 
 private slots:

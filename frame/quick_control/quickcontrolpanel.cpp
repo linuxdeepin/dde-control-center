@@ -137,7 +137,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(wifiPage, &WifiPage::requestDeviceApList, m_networkWorker, &NetworkWorker::queryAccessPoints);
     connect(wifiPage, &WifiPage::requestActivateAccessPoint, m_networkWorker, &NetworkWorker::activateAccessPoint);
     connect(wifiPage, &WifiPage::requestDeactivateConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
-    connect(wifiPage, &WifiPage::requestConnectHidden, [this] { emit requestPage("network", QString()); });
+    connect(wifiPage, &WifiPage::requestConnectHidden, this, &QuickControlPanel::requestPage);
 
     connect(m_displayModel, &DisplayModel::monitorListChanged, [=] { displaySwitch->setVisible(m_displayModel->monitorList().size() > 1); });
     connect(displayPage, &DisplayControlPage::requestOnlyMonitor, [=](const QString &name) { m_displayWorker->switchMode(SINGLE_MODE, name); m_displayWorker->saveChanges(); });
@@ -148,7 +148,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     connect(bluetoothList, &BluetoothList::requestConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::connectDevice);
     connect(bluetoothList, &BluetoothList::requestDisConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::disconnectDevice);
-    connect(bluetoothList, &BluetoothList::requestConnectOther,  [=] { emit requestPage("bluetooth", QString()); });
+    connect(bluetoothList, &BluetoothList::requestConnectOther, this, &QuickControlPanel::requestPage);
     connect(bluetoothList, &BluetoothList::requestAdapterDiscoverable, m_bluetoothWorker, &bluetooth::BluetoothWorker::setAdapterDiscoverable);
 
     connect(m_miracastModel, &MiracastModel::linkAdded, this, &QuickControlPanel::onMiracastLinkListChanged, Qt::QueuedConnection);

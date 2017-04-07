@@ -20,6 +20,16 @@ BluetoothModule::BluetoothModule(FrameProxyInterface *frame, QObject *parent)
 
 }
 
+void BluetoothModule::showPage(const QString &pageName)
+{
+    Q_UNUSED(pageName)
+
+    if (m_bluetoothModel->adapters().count() != 1)
+        return;
+
+    showBluetoothDetail(m_bluetoothModel->adapters().first());
+}
+
 void BluetoothModule::showDetail(const Adapter *adapter, const Device *device)
 {
     DetailPage *page = new DetailPage(adapter, device);

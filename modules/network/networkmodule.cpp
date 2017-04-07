@@ -35,6 +35,27 @@ NetworkModule::~NetworkModule()
     m_networkWorker->deleteLater();
 }
 
+void NetworkModule::showPage(const QString &pageName)
+{
+    Q_UNUSED(pageName)
+
+    NetworkDevice *wireless = nullptr;
+
+    for (NetworkDevice *dev : m_networkModel->devices()) {
+        if (dev->type() == NetworkDevice::Wireless) {
+            if (wireless)
+                return;
+
+            wireless = dev;
+        }
+    }
+
+    if (!wireless)
+        return;
+
+    showDeviceDetailPage(wireless);
+}
+
 void NetworkModule::initialize()
 {
     m_networkModel = new NetworkModel;

@@ -41,7 +41,7 @@ void WifiPage::onItemClicked(const QModelIndex &index)
 
     if (index.data(WifiListModel::ItemIsHiddenTipsRole).toBool())
     {
-        emit requestConnectHidden();
+        emit requestConnectHidden("network", "network");
         return;
     }
 

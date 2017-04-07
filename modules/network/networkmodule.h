@@ -17,6 +17,7 @@ class NetworkModule : public QObject, public ModuleInterface
 public:
     explicit NetworkModule(FrameProxyInterface *frame, QObject *parent = 0);
     ~NetworkModule();
+    void showPage(const QString &pageName);
 
 private:
     void initialize();
