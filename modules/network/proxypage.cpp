@@ -34,16 +34,24 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_proxyType->addSegmented(tr("None"));
     m_proxyType->addSegmented(tr("Manual"));
     m_proxyType->addSegmented(tr("Auto"));
+    m_proxyType->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     m_proxyType->setStyleSheet("Dtk--Widget--DSegmentedControl {"
                                "background: transparent;"
+                               "border: 1px solid #28a9f7;"
+                               "border-radius: 3px;"
                                "}"
                                ""
                                "Dtk--Widget--DSegmentedControl  Dtk--Widget--DSegmentedHighlight#Highlight {"
-                               "background: transparent;"
+                               "background-color: #28a9f7;"
+                               "border: none;"
+                               "padding: 5px 3px;"
+                               "margin: 1px 0 0 0;"
                                "}"
                                ""
-                               "Dtk--Widget--DSegmentedControl QToolButton#Segmented {"
-                               "background: transparent;"
+                               "Dtk--Widget--DSegmentedControl QToolButton {"
+                               "background: none;"
+                               "border: none;"
+                               "padding: 5px 3px;"
                                "}"
                                ""
                                "Dtk--Widget--DSegmentedControl QToolButton#Segmented:enabled {"
@@ -51,7 +59,6 @@ ProxyPage::ProxyPage(QWidget *parent)
                                "}"
                                ""
                                "Dtk--Widget--DSegmentedControl QToolButton#Segmented {"
-                               "color: #19a9f9;"
                                "}");
 
     m_httpAddr = new LineEditWidget;
@@ -128,7 +135,6 @@ ProxyPage::ProxyPage(QWidget *parent)
     mainLayout->addSpacing(10);
     mainLayout->addWidget(m_proxyType);
     mainLayout->addSpacing(10);
-    mainLayout->setAlignment(m_proxyType, Qt::AlignCenter);
     mainLayout->addWidget(m_manualWidget);
     mainLayout->addWidget(m_autoWidget);
     mainLayout->addSpacing(10);
