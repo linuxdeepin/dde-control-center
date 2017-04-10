@@ -7,8 +7,7 @@ NavItemWidget::NavItemWidget(const QString &id, QWidget *parent)
 
       m_id(id)
 {
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    setFixedHeight(80);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
 void NavItemWidget::paintEvent(QPaintEvent *e)
@@ -16,8 +15,10 @@ void NavItemWidget::paintEvent(QPaintEvent *e)
     QWidget::paintEvent(e);
 
     QPainter painter(this);
+
+    const QPixmap pixmap = QPixmap(QString(":/icons/nav_%1.png").arg(m_id));
     painter.fillRect(rect(), QColor(255, 255, 255, 255 * .2));
-    painter.drawText(rect(), Qt::AlignCenter, m_id);
+    painter.drawPixmap(rect().center() - pixmap.rect().center(), pixmap);
 }
 
 void NavItemWidget::mouseReleaseEvent(QMouseEvent *e)

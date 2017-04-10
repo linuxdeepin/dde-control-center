@@ -4,6 +4,12 @@
 #include <QWidget>
 #include <QGridLayout>
 
+#include <com_deepin_daemon_bluetooth.h>
+#include <com_deepin_daemon_inputdevice_wacom.h>
+
+using BluetoothInter = com::deepin::daemon::Bluetooth;
+using WacomInter = com::deepin::daemon::inputdevice::Wacom;
+
 class NavWidget : public QWidget
 {
     Q_OBJECT
@@ -15,10 +21,15 @@ signals:
     void requestModule(const QString &module) const;
 
 private:
+    void onDevicesChanged();
     void refershGridLayout();
 
 private:
     QGridLayout *m_gridLayout;
+    QTimer *m_deviceRefreshDelay;
+
+    BluetoothInter *m_bluetoothInter;
+    WacomInter *m_wacomInter;
 
     QStringList m_moduleList;
 };

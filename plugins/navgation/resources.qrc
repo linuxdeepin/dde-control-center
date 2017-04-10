@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/nav_accounts.png</file>
+        <file>icons/nav_bluetooth.png</file>
+        <file>icons/nav_datetime.png</file>
+        <file>icons/nav_defapp.png</file>
+        <file>icons/nav_display.png</file>
+        <file>icons/nav_keyboard.png</file>
+        <file>icons/nav_mouse.png</file>
+        <file>icons/nav_network.png</file>
+        <file>icons/nav_personalization.png</file>
+        <file>icons/nav_power.png</file>
+        <file>icons/nav_sound.png</file>
+        <file>icons/nav_systeminfo.png</file>
+        <file>icons/nav_update.png</file>
+        <file>icons/nav_wacom.png</file>
+    </qresource>
+</RCC>
