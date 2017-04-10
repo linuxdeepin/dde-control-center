@@ -20,6 +20,7 @@ public:
     QHBoxLayout *layout() const { return m_mainLayout; }
 
     void setTitle(const QString &title);
+    void setRightWidget(QWidget *widget);
 
 private:
     QHBoxLayout *m_mainLayout;

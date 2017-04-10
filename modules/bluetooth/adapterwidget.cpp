@@ -13,6 +13,8 @@
 
 #include "devicesettingsitem.h"
 #include "translucentframe.h"
+#include "settingsheaderitem.h"
+#include "loadingindicator.h"
 
 namespace dcc {
 namespace bluetooth {
@@ -34,6 +36,11 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     m_titleGroup->appendItem(m_switch);
     m_myDevicesGroup->setHeaderVisible(true);
     m_otherDevicesGroup->setHeaderVisible(true);
+
+    LoadingIndicator *load = new LoadingIndicator;
+    load->setTheme("bluetooth");
+    m_otherDevicesGroup->headerItem()->setRightWidget(load);
+    load->play();
 
     m_tip = new QLabel(tr("Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)"));
     m_tip->setVisible(!m_switch->checked());

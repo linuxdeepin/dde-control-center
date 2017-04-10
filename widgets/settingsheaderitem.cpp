@@ -28,5 +28,12 @@ void SettingsHeaderItem::setTitle(const QString &title)
     m_headerText->setText(title);
 }
 
+void SettingsHeaderItem::setRightWidget(QWidget *widget)
+{
+    Q_ASSERT(widget);
+
+    m_mainLayout->addWidget(widget, 0, Qt::AlignRight);
+}
+
 }
 }
