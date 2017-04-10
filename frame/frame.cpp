@@ -106,15 +106,20 @@ void Frame::setAutoHide(const bool autoHide)
     }
 }
 
-void Frame::showAllSettings()
+void Frame::initAllSettings()
 {
-    Q_ASSERT(m_frameWidgetStack.size() == 1);
-
     if (!m_allSettingsPage) {
         m_allSettingsPage = new SettingsWidget(this);
 
         connect(m_allSettingsPage, &SettingsWidget::requestAutohide, this, &Frame::setAutoHide);
     }
+}
+
+void Frame::showAllSettings()
+{
+    Q_ASSERT(m_frameWidgetStack.size() == 1);
+
+    initAllSettings();
 
     pushWidget(m_allSettingsPage);
 }
@@ -127,6 +132,9 @@ void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
 
     // current is main page
     if (m_frameWidgetStack.size() == 1)
+        initAllSettings();
+
+    if (pageName.isEmpty())
         showAllSettings();
 
     // show specificed page

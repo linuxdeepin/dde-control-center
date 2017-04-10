@@ -57,6 +57,7 @@ private slots:
     void init();
     void setAutoHide(const bool autoHide);
 
+    void initAllSettings();
     void showAllSettings();
     void contentDetached(QWidget * const c);
 
