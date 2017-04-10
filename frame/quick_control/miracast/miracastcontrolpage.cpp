@@ -31,6 +31,7 @@ MiracastControlPage::MiracastControlPage(MiracastModel *model, QWidget *parent)
 
     setLayout(centralLayout);
 
+    connect(view, &BasicListView::entered, ctrlModel, &MiracastControlModel::setCurrentHovered);
     connect(view, &BasicListView::clicked, this, &MiracastControlPage::onItemClicked);
     connect(m_miracastModel, &MiracastModel::requestLinkScanning, m_miracastWorker, &MiracastWorker::setLinkScannning);
 }

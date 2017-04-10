@@ -23,12 +23,16 @@ public:
         MiracastReservedRole = Qt::UserRole,
         MiracastActiveRole,
         MiracastItemInfoRole,
+        MiracastItemConnectRole,
+        MiracastItemHoverRole,
+        MiracastItemNextRole,
     };
 
     explicit MiracastControlModel(MiracastModel *model, QObject *parent = 0);
 
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
+    void setCurrentHovered(const QModelIndex &index);
 
 private slots:
     void onLinkAdded(const LinkInfo &link);
@@ -44,6 +48,7 @@ private:
     MiracastModel *m_miracastModel;
 
     QMap<QString, QList<SinkInfo>> m_datas;
+    QModelIndex m_currentIndex;
 };
 
 Q_DECLARE_METATYPE(MiracastInfo)

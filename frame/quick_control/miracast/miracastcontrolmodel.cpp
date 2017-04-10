@@ -25,6 +25,13 @@ int MiracastControlModel::rowCount(const QModelIndex &parent) const
     return count;
 }
 
+void MiracastControlModel::setCurrentHovered(const QModelIndex &index)
+{
+    m_currentIndex = index;
+
+    emit dataChanged(m_currentIndex, m_currentIndex);
+}
+
 QVariant MiracastControlModel::data(const QModelIndex &index, int role) const
 {
     const MiracastInfo info = itemInfo(index.row());
@@ -48,6 +55,12 @@ QVariant MiracastControlModel::data(const QModelIndex &index, int role) const
             return QSize(0, 40);
         else
             return QSize(0, 30);
+    case MiracastItemConnectRole:
+        return info.m_sink->m_connected;
+    case MiracastItemHoverRole:
+        return index.row() == m_currentIndex.row();
+    case MiracastItemNextRole:
+        return m_currentIndex.row() + 1 == index.row();
     }
 
     return QVariant();
