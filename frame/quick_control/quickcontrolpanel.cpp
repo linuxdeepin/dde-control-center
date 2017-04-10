@@ -90,7 +90,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     detailSwitch->setBackgroundVisible(false);
     detailSwitch->setVisible(false);
 
-//    m_switchs.append(detailSwitch);
+    m_switchs.append(detailSwitch);
     m_switchs.append(m_btSwitch);
     m_switchs.append(m_vpnSwitch);
     m_switchs.append(m_wifiSwitch);
