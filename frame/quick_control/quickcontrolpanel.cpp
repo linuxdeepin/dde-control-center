@@ -200,11 +200,16 @@ void QuickControlPanel::onNetworkDeviceListChanged()
     }
 
     m_wifiSwitch->setVisible(false);
+    m_itemStack->setCurrentIndex(0);
 }
 
 void QuickControlPanel::onNetworkConnectionListChanged()
 {
-    m_vpnSwitch->setVisible(m_networkModel->vpns().size());
+    const bool state = m_networkModel->vpns().size();
+    m_vpnSwitch->setVisible(state);
+
+    if (!state)
+        m_itemStack->setCurrentIndex(0);
 }
 
 void QuickControlPanel::onWirelessButtonClicked()
@@ -248,6 +253,7 @@ void QuickControlPanel::onBluetoothDeviceListChanged()
     }
 
     m_btSwitch->setVisible(false);
+    m_itemStack->setCurrentIndex(0);
 }
 
 void QuickControlPanel::onIndexChanged(const int index)
@@ -258,5 +264,9 @@ void QuickControlPanel::onIndexChanged(const int index)
 
 void QuickControlPanel::onMiracastLinkListChanged()
 {
-    m_miracastSwitch->setVisible(!m_miracastModel->links().isEmpty());
+    const bool state = m_miracastModel->links().isEmpty();
+    m_miracastSwitch->setVisible(!state);
+
+    if (state)
+        m_itemStack->setCurrentIndex(0);
 }
