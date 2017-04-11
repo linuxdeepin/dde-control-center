@@ -8,8 +8,12 @@
  **/
 
 #include "notifyviewer.h"
+#include "notifymanager.h"
+#include <QJsonObject>
+#include <QStandardPaths>
+#include <QTime>
 
-Viewer::Viewer(QWidget *parent) : QWidget(parent),
+Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QWidget(parent),
     m_appName(new QLabel),
     m_body(new QLabel),
     m_time(new QLabel),
@@ -98,6 +102,17 @@ Viewer::Viewer(QWidget *parent) : QWidget(parent),
             this->deleteLater();
         });
     });
+
+    setAppName(value["summary"].toString());
+    setAppBody(value["body"].toString());
+    setAppId(value["id"].toString());
+
+    if (value["icon"].toString().isEmpty()) {
+        setAppIcon(CacheFolder + value["id"].toString() + ".png");
+    } else
+        setAppIcon(value["icon"].toString());
+
+    m_time->setText(QTime::currentTime().toString("AP hh:mm"));
 }
 
 void Viewer::setAppName(const QString &s) {

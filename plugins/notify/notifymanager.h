@@ -14,13 +14,14 @@
 #include <QWidget>
 #include "notifyviewer.h"
 #include <QVBoxLayout>
-#include <QTime>
 #include <org_freedesktop_notifications.h>
 #include <dimagebutton.h>
 #include <QList>
-#include <QJsonObject>
 
 using org::freedesktop::Notifications;
+
+static const QStringList Directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
+static const QString CacheFolder = Directory.first() + "/.cache/deepin/deepin-notifications/";
 
 class NotifyManager : public QWidget
 {

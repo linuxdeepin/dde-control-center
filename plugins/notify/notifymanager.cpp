@@ -8,17 +8,13 @@
  **/
 
 #include "notifymanager.h"
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QDebug>
 #include <QScrollArea>
-
 
 NotifyManager::NotifyManager(QWidget *parent) :
     QWidget(parent),
     m_dbus(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
 {
-
     QWidget *widget = new QWidget;
 
     m_connectLayout = new QVBoxLayout(widget);
@@ -73,17 +69,8 @@ void NotifyManager::onNotifyAdded(const QString &value)
 }
 
 void NotifyManager::onNotifyAdd(const QJsonObject &value) {
-
     m_clearButton->setVisible(true);
-    m_viewer = new Viewer(this);
-
-    m_viewer->setAppName(value["summary"].toString());
-    m_viewer->setAppBody(value["body"].toString());
-    m_viewer->setAppIcon(value["icon"].toString());
-    m_viewer->setAppId(value["id"].toString());
-
-    QString m_time=QTime::currentTime().toString("AP hh:mm");
-    m_viewer->setAppTime(m_time);
+    m_viewer = new Viewer(value, this);
     m_viewer->setFixedHeight(80);
     m_viewer->setContentsMargins(0, 0, 0, 0);
     m_viewer->setStyleSheet("Viewer {background: transparent;}"

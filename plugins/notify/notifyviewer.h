@@ -28,7 +28,7 @@ class Viewer : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Viewer(QWidget *parent = 0);
+    explicit Viewer(const QJsonObject &value, QWidget *parent = 0);
     void setAppName(const QString &s);
     void setAppIcon(const QString &s);
     void setAppBody(const QString &s);
