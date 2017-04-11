@@ -27,3 +27,10 @@ void NavItemWidget::mouseReleaseEvent(QMouseEvent *e)
 
     emit itemClicked(m_id);
 }
+
+void NavItemWidget::enterEvent(QEvent *e)
+{
+    QWidget::enterEvent(e);
+
+    emit itemEntered(m_id);
+}

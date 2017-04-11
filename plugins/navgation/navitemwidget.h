@@ -12,10 +12,12 @@ public:
 
 signals:
     void itemClicked(const QString &id) const;
+    void itemEntered(const QString &id) const;
 
 protected:
     void paintEvent(QPaintEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
+    void enterEvent(QEvent *e);
 
 private:
     const QString m_id;

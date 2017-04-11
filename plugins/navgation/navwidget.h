@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QGridLayout>
+#include <QLabel>
 
 #include <com_deepin_daemon_bluetooth.h>
 #include <com_deepin_daemon_inputdevice_wacom.h>
@@ -23,8 +24,10 @@ signals:
 private:
     void onDevicesChanged();
     void refershGridLayout();
+    void setTipsText(const QString &text);
 
 private:
+    QLabel *m_tipsLabel;
     QGridLayout *m_gridLayout;
     QTimer *m_deviceRefreshDelay;
 
