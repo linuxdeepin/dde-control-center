@@ -8,6 +8,7 @@
 
 #include "buttontuple.h"
 #include "lineeditwidget.h"
+#include "customitem.h"
 
 using namespace dcc;
 
@@ -32,9 +33,7 @@ signals:
     void requestFrameAutoHide(const bool autoHide) const;
 
 public slots:
-    void onClick();
     void onShortcut();
-    void onKeyEvent(const bool state, const QString &keylist);
 
 private slots:
     void onOpenFile();
@@ -44,7 +43,8 @@ private:
     SettingsGroup *m_commandGroup;
     LineEditWidget* m_name;
     LineEditWidget* m_command;
-    LineEditWidget* m_shortcut;
+//    LineEditWidget* m_shortcut;
+    CustomItem *m_shortcut;
     KeyboardControl* m_control;
     QLabel* m_bottomTip;
     ShortcutInfo* m_conflict;

@@ -41,20 +41,7 @@ CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
     pushbutton->setFixedWidth(50);
     m_command->addRightWidget(pushbutton);
 
-    m_shortcut = new LineEditWidget();
-    m_shortcut->setTitle(tr("Shortcut"));
-    m_shortcut->setReadOnly(true);
-
-    QWidget *labelwidget = new QWidget;
-    QHBoxLayout *hlayout = new QHBoxLayout(labelwidget);
-    hlayout->setSpacing(0);
-    hlayout->setMargin(0);
-    DImageButton *label = new DImageButton;
-    label->setText(tr("Please Grab Shortcut Again"));
-    hlayout->addWidget(label);
-    hlayout->addSpacing(20);
-
-    m_shortcut->addRightWidget(labelwidget);
+    m_shortcut = new CustomItem(work);
 
     m_commandGroup->appendItem(m_name);
     m_commandGroup->appendItem(m_command);
@@ -83,14 +70,14 @@ CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
     connect(cancel, SIGNAL(clicked()), this, SIGNAL(back()));
     connect(ok, SIGNAL(clicked()), this, SLOT(onShortcut()));
     connect(pushbutton, &QPushButton::clicked, this, &CustomContent::onOpenFile);
-    connect(label, &DImageButton::clicked, this, &CustomContent::onClick);
-    connect(m_work, &KeyboardWork::KeyEvent, this, &CustomContent::onKeyEvent);
+    connect(m_shortcut, &CustomItem::shortcut, this, &CustomContent::shortcut);
 }
 
 void CustomContent::setBottomTip(ShortcutInfo *conflict)
 {
     m_conflict = conflict;
     if (conflict) {
+        m_shortcut->setInfo(conflict);
         QString str = tr("This shortcut conflicts with %1, click on Add to make this shortcut effective immediately").arg(conflict->name);
         m_bottomTip->setText(str);
         m_bottomTip->show();
@@ -105,19 +92,6 @@ void CustomContent::setConflictString(const QStringList &list)
     m_control->setConflictString(list);
 }
 
-void CustomContent::onClick()
-{
-    m_work->grabScreen();
-    m_control->setFocus();
-
-    m_bottomTip->clear();
-    m_bottomTip->hide();
-
-    for (int i = 0; i < ModelKeylist.size(); ++i) {
-        m_control->setConflicts(ModelKeylist.at(i), false);
-    }
-}
-
 void CustomContent::onShortcut()
 {
     bool result = true;
@@ -130,32 +104,6 @@ void CustomContent::onShortcut()
     }
 
     sendBackSignal();
-}
-
-void CustomContent::onKeyEvent(const bool state, const QString &keylist)
-{
-    QString in = keylist;
-    in.replace("<", "");
-    in.replace(">", "-");
-    in.replace("_L", "");
-    QStringList value = in.split("-");
-    m_shortcut->setText(keylist);
-    QMap<QString, bool> list;
-    for (QString key : ModelKeylist) {
-        QStringList t;
-        t << value << key;
-        list.insert(key, m_work->keyOccupy(t));
-    }
-
-    for (int i = 0; i < ModelKeylist.size(); ++i)
-        m_control->setPress(ModelKeylist.at(i), false);
-
-    for (int i = 0; i < ModelKeylist.size(); ++i) {
-        m_control->setPress(ModelKeylist.at(i), list[ModelKeylist.at(i)]);
-    }
-    if (!state && !keylist.isEmpty()){
-        emit shortcut(keylist);
-    }
 }
 
 void CustomContent::onOpenFile()
