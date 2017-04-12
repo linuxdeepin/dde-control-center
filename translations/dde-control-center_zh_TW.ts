@@ -35,7 +35,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="68"/>
         <source>Only Displayed on %1</source>
-        <translation>僅於 %1 顯示</translation>
+        <translation>僅在 %1 顯示</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
@@ -50,7 +50,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation>畫面只在 %1 顯示</translation>
+        <translation>畫面僅在 %1 顯示</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="117"/>
         <source>Current City: %1</source>
-        <translation>目前位置：%1</translation>
+        <translation>目前城市：%1</translation>
     </message>
 </context>
 <context>
@@ -323,12 +323,12 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="25"/>
         <source>My devices</source>
-        <translation>配對裝置</translation>
+        <translation>已配對的裝置</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="26"/>
         <source>Other devices</source>
-        <translation>掃描裝置</translation>
+        <translation>偵測到的裝置</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="38"/>
@@ -1467,7 +1467,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="48"/>
         <source>WLAN</source>
-        <translation>WLAN</translation>
+        <translation>無線網路</translation>
     </message>
 </context>
 <context>
@@ -1504,7 +1504,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="27"/>
         <source>Font</source>
-        <translation>文字設定</translation>
+        <translation>字型設定</translation>
     </message>
 </context>
 <context>
@@ -1530,7 +1530,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="29"/>
         <source>Font</source>
-        <translation>文字設定</translation>
+        <translation>字型設定</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="34"/>
