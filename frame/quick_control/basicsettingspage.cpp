@@ -134,10 +134,12 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     m_soundSlider->setOrientation(Qt::Horizontal);
     m_soundSlider->setRange(0, 150);
     m_soundSlider->setAccessibleName("SoundSlider");
+    m_soundSlider->setFocusProxy(this);
     m_lightSlider->setOrientation(Qt::Horizontal);
     m_lightSlider->setRange(0, 100);
     m_lightSlider->setAccessibleName("LightSlider");
     m_lightSlider->setTracking(true);
+    m_lightSlider->setFocusProxy(this);
 
     m_mprisWidget = new DMPRISControl;
 
