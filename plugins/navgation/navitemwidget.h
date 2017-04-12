@@ -18,9 +18,11 @@ protected:
     void paintEvent(QPaintEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
     void enterEvent(QEvent *e);
+    void leaveEvent(QEvent *e);
 
 private:
     const QString m_id;
+    bool m_hover;
 };
 
 #endif // NAVITEMWIDGET_H

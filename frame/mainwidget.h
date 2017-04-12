@@ -35,8 +35,6 @@ protected:
     void resizeEvent(QResizeEvent *e);
 
 private:
-    void showPlugin(QWidget * const w);
-
     int getPluginsHeight();
     void updatePluginsHeight();
 
@@ -49,14 +47,15 @@ private slots:
 private:
     PluginsController *m_pluginsController;
 
-    QWidget *m_lastPluginWidget;
+//    QWidget *m_lastPluginWidget;
     QTimer *m_timeRefersh;
 
     // ui widgets
     dcc::accounts::AvatarWidget *m_userAvatarBtn;
     QLabel *m_currentTimeLbl;
     QLabel *m_currentDateLbl;
-    QHBoxLayout *m_pluginsLayout;
+//    QHBoxLayout *m_pluginsLayout;
+    QStackedLayout *m_pluginsLayout;
     QWidget *m_pluginWrapper;
     QWidget *m_pluginWidget;
     IndicatorWidget *m_indicatorWidget;

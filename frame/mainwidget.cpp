@@ -24,14 +24,14 @@ MainWidget::MainWidget(Frame *parent)
 
       m_pluginsController(new PluginsController(this)),
 
-      m_lastPluginWidget(nullptr),
+//      m_lastPluginWidget(nullptr),
 
       m_timeRefersh(new QTimer(this)),
 
       m_userAvatarBtn(nullptr),
       m_currentTimeLbl(new QLabel),
       m_currentDateLbl(new QLabel),
-      m_pluginsLayout(new QHBoxLayout),
+      m_pluginsLayout(new QStackedLayout),
       m_indicatorWidget(new IndicatorWidget),
 #ifndef DISABLE_SYS_UPDATE
       m_updateNotifier(new UpdateNotifier),
@@ -152,12 +152,10 @@ MainWidget::MainWidget(Frame *parent)
     centralLayout->setSpacing(0);
     centralLayout->setMargin(0);
 
-    connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded);
+    connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded, Qt::QueuedConnection);
     connect(m_pluginsController, &PluginsController::requestModulePage, this, &MainWidget::showSettingPage);
-    connect(m_indicatorWidget, &IndicatorWidget::requestNext, this, &MainWidget::showNextPlugin);
-    connect(m_indicatorWidget, &IndicatorWidget::requestPrevious, this, &MainWidget::showPrevPlugin);
-//    connect(m_prevPluginBtn, &DImageButton::clicked, this, &MainWidget::showPrevPlugin);
-//    connect(m_nextPluginBtn, &DImageButton::clicked, this, &MainWidget::showNextPlugin);
+    connect(m_indicatorWidget, &IndicatorWidget::requestNext, this, &MainWidget::showPrevPlugin);
+    connect(m_indicatorWidget, &IndicatorWidget::requestPrevious, this, &MainWidget::showNextPlugin);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestDetailConfig, this, &MainWidget::showAllSettings);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestPage, this, &MainWidget::showSettingPage);
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
@@ -181,14 +179,6 @@ void MainWidget::resizeEvent(QResizeEvent *e)
     updatePluginsHeight();
 }
 
-void MainWidget::showPlugin(QWidget * const w)
-{
-    if (m_lastPluginWidget)
-        m_lastPluginWidget->setVisible(false);
-    m_lastPluginWidget = w;
-    m_lastPluginWidget->setVisible(true);
-}
-
 int MainWidget::getPluginsHeight()
 {
     return height() > 800 ? PluginsHeightMax : PluginsHeightMin;
@@ -199,43 +189,35 @@ void MainWidget::updatePluginsHeight()
     m_pluginWidget->setVisible(height() > 600);
 
     const int h = getPluginsHeight();
-    for (int i = 0; i < m_pluginsLayout->count(); i++) {
-        QLayoutItem *item = m_pluginsLayout->itemAt(i);
-        item->widget()->setFixedHeight(h);
-    }
+    m_pluginWrapper->setFixedHeight(h);
 }
 
 void MainWidget::pluginAdded(QWidget * const w)
 {
     w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     w->setFixedHeight(getPluginsHeight());
-    m_pluginsLayout->addWidget(w);
-    showPlugin(w);
+    const int idx = m_pluginsLayout->addWidget(w);
+    m_pluginsLayout->setCurrentIndex(idx);
 }
 
 void MainWidget::showNextPlugin()
 {
 //    m_pluginsIndicator->nextPage();
 
-    const int index = m_pluginsLayout->indexOf(m_lastPluginWidget);
-    QLayoutItem *item = m_pluginsLayout->itemAt(index + 1);
-    if (item && item->widget())
-        showPlugin(item->widget());
-    else
-        showPlugin(m_pluginsLayout->itemAt(0)->widget());
+    const int index = m_pluginsLayout->currentIndex();
+    const int count = m_pluginsLayout->count();
+
+    m_pluginsLayout->setCurrentIndex((index + 1) % count);
 }
 
 void MainWidget::showPrevPlugin()
 {
 //    m_pluginsIndicator->previousPage();
 
-    const int index = m_pluginsLayout->indexOf(m_lastPluginWidget);
+    const int index = m_pluginsLayout->currentIndex();
     const int count = m_pluginsLayout->count();
 
-    if (index == 0)
-        showPlugin(m_pluginsLayout->itemAt(count - 1)->widget());
-    else
-        showPlugin(m_pluginsLayout->itemAt(index - 1)->widget());
+    m_pluginsLayout->setCurrentIndex((index + count - 1) % count);
 }
 
 void MainWidget::refershTimedate()

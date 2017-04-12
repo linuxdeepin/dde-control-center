@@ -30,7 +30,7 @@ void PluginsController::loadPlugins()
 
         // load library
         QPluginLoader *pluginLoader = new QPluginLoader(pluginsDir.absoluteFilePath(file), this);
-//        qDebug() << "load plugin: " << pluginLoader->metaData();
+        qDebug() << "load plugin: " << pluginLoader->metaData();
 
         PluginInterface *interface = qobject_cast<PluginInterface *>(pluginLoader->instance());
         if (!interface)
@@ -40,7 +40,7 @@ void PluginsController::loadPlugins()
             pluginLoader->deleteLater();
             return;
         } else {
-//            qDebug() << "get plugin interface: " << interface;
+            qDebug() << "get plugin interface: " << interface;
         }
 
         interface->initialize(this);

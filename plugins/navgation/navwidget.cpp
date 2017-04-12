@@ -15,10 +15,10 @@ NavWidget::NavWidget(QWidget *parent)
     m_tipsLabel = new QLabel;
     m_tipsLabel->setStyleSheet("QLabel {"
                                "color: white;"
-                               "background-color: rgba(255, 255, 255, .2);"
+                               "background-color: rgba(255, 255, 255, .15);"
+                               "padding: 4px 0;"
                                "}");
     m_tipsLabel->setAlignment(Qt::AlignCenter);
-    m_tipsLabel->setVisible(false);
     m_gridLayout = new QGridLayout;
     m_gridLayout->setSpacing(1);
     m_gridLayout->setMargin(0);
@@ -38,6 +38,7 @@ NavWidget::NavWidget(QWidget *parent)
     connect(m_wacomInter, &WacomInter::ExistChanged, m_deviceRefreshDelay, static_cast<void (QTimer::*)()>(&QTimer::start));
 
     m_deviceRefreshDelay->start();
+    setTipsText(QString());
 }
 
 void NavWidget::onDevicesChanged()
@@ -71,6 +72,7 @@ void NavWidget::refershGridLayout()
         NavItemWidget *item = new NavItemWidget(m_moduleList[i]);
 
         connect(item, &NavItemWidget::itemClicked, this, &NavWidget::requestModule);
+        connect(item, &NavItemWidget::itemEntered, this, &NavWidget::setTipsText);
 
         m_gridLayout->addWidget(item, index / 3, index % 3);
     }
@@ -80,11 +82,36 @@ void NavWidget::refershGridLayout()
     for (int i = 0; i != a; ++i, ++index)
     {
         NavItemWidget *item = new NavItemWidget(QString());
+
+        connect(item, &NavItemWidget::itemEntered, this, &NavWidget::setTipsText);
+
         m_gridLayout->addWidget(item, index / 3, index % 3);
     }
 }
 
 void NavWidget::setTipsText(const QString &text)
 {
-    m_tipsLabel->setText(text);
+    static const QStringList modules_trans = {
+        QT_TR_NOOP("Accounts"),
+        QT_TR_NOOP("Display"),
+        QT_TR_NOOP("Default Applications"),
+        QT_TR_NOOP("Personalization"),
+        QT_TR_NOOP("Network"),
+        QT_TR_NOOP("Bluetooth"),
+        QT_TR_NOOP("Sound"),
+        QT_TR_NOOP("Datetime"),
+        QT_TR_NOOP("Power"),
+        QT_TR_NOOP("Mouse"),
+        QT_TR_NOOP("Keyboard"),
+        QT_TR_NOOP("Wacom"),
+        QT_TR_NOOP("Update"),
+        QT_TR_NOOP("System Infomation"),
+    };
+
+    const int idx = text.isEmpty() ? -1 : MODULES.indexOf(text);
+
+    if (idx == -1)
+        m_tipsLabel->setText(tr("Navgation"));
+    else
+        m_tipsLabel->setText(modules_trans[idx]);
 }
