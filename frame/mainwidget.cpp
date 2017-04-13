@@ -184,7 +184,9 @@ int MainWidget::getPluginsHeight()
 
 void MainWidget::updatePluginsHeight()
 {
-    m_pluginWidget->setVisible(height() > 600);
+    const bool b = height() > 600;
+    m_pluginWidget->setVisible(b);
+    m_quickSettingsPanel->setAllSettingsVisible(!b);
 
     const int h = getPluginsHeight();
     m_pluginWrapper->setFixedHeight(h);

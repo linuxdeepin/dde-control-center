@@ -67,8 +67,8 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_vpnSwitch = new QuickSwitchButton(2, "VPN");
     m_wifiSwitch = new QuickSwitchButton(3, "wifi");
     m_miracastSwitch = new QuickSwitchButton(5, "miracast");
+    m_detailSwitch = new QuickSwitchButton(0, "all_settings");
     QuickSwitchButton *displaySwitch = new QuickSwitchButton(4, "display");
-    QuickSwitchButton *detailSwitch = new QuickSwitchButton(0, "all_settings");
 
     m_btSwitch->setObjectName("QuickSwitchBluetooth");
     m_btSwitch->setAccessibleName("QuickSwitchBluetooth");
@@ -84,13 +84,13 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     displaySwitch->setAccessibleName("QuickSwitchDisplay");
     displaySwitch->setCheckable(false);
     displaySwitch->setChecked(true);
-    detailSwitch->setObjectName("QuickSwitchAllSettings");
-    detailSwitch->setAccessibleName("QuickSwitchAllSettings");
-    detailSwitch->setCheckable(false);
-    detailSwitch->setBackgroundVisible(false);
-    detailSwitch->setVisible(false);
+    m_detailSwitch->setObjectName("QuickSwitchAllSettings");
+    m_detailSwitch->setAccessibleName("QuickSwitchAllSettings");
+    m_detailSwitch->setCheckable(false);
+    m_detailSwitch->setBackgroundVisible(false);
+    m_detailSwitch->setVisible(false);
 
-    m_switchs.append(detailSwitch);
+    m_switchs.append(m_detailSwitch);
     m_switchs.append(m_btSwitch);
     m_switchs.append(m_vpnSwitch);
     m_switchs.append(m_wifiSwitch);
@@ -103,7 +103,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     btnsLayout->addWidget(m_wifiSwitch);
     btnsLayout->addWidget(displaySwitch);
     btnsLayout->addWidget(m_miracastSwitch);
-    btnsLayout->addWidget(detailSwitch);
+    btnsLayout->addWidget(m_detailSwitch);
     btnsLayout->setContentsMargins(0, 0, 0, 0);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -120,8 +120,8 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(m_wifiSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(m_miracastSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(displaySwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
-    connect(detailSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
-    connect(detailSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::requestDetailConfig);
+    connect(m_detailSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
+    connect(m_detailSwitch, &QuickSwitchButton::clicked, this, &QuickControlPanel::requestDetailConfig);
 
     connect(m_networkModel, &NetworkModel::vpnEnabledChanged, m_vpnSwitch, &QuickSwitchButton::setChecked);
     connect(m_networkModel, &NetworkModel::connectionListChanged, this, &QuickControlPanel::onNetworkConnectionListChanged);
@@ -165,6 +165,11 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     onBluetoothDeviceEnableChanged();
     onBluetoothDeviceListChanged();
     onMiracastLinkListChanged();
+}
+
+void QuickControlPanel::setAllSettingsVisible(const bool visible)
+{
+    m_detailSwitch->setVisible(visible);
 }
 
 void QuickControlPanel::leaveEvent(QEvent *e)

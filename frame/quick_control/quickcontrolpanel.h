@@ -41,6 +41,8 @@ class QuickControlPanel : public QWidget
 public:
     explicit QuickControlPanel(QWidget *parent = 0);
 
+    void setAllSettingsVisible(const bool visible);
+
 signals:
     void requestDetailConfig() const;
     void requestPage(const QString &module, const QString &page) const;
@@ -75,6 +77,7 @@ private:
     dcc::QuickSwitchButton *m_btSwitch;
     dcc::QuickSwitchButton *m_vpnSwitch;
     dcc::QuickSwitchButton *m_miracastSwitch;
+    dcc::QuickSwitchButton *m_detailSwitch;
     QList<dcc::QuickSwitchButton *> m_switchs;
 };
 
