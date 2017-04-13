@@ -65,6 +65,8 @@ void UpdateNotifier::mouseReleaseEvent(QMouseEvent *event)
 {
     QFrame::mouseReleaseEvent(event);
 
+    ignoreUpdates();
+
     emit clicked();
 }
 
