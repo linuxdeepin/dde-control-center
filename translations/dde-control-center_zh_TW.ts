@@ -2,7 +2,7 @@
 <context>
     <name>BluetoothDelegate</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="70"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="71"/>
         <source>Refresh</source>
         <translation>重新整理</translation>
     </message>
@@ -10,12 +10,12 @@
 <context>
     <name>BluetoothListModel</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="70"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="73"/>
         <source>Connect to other devices</source>
         <translation>連線到其他裝置</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="104"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="68"/>
         <source>Click icon to enable bluetooth</source>
         <translation>點擊圖示開啟藍牙</translation>
     </message>
@@ -35,38 +35,56 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="68"/>
         <source>Only Displayed on %1</source>
-        <translation>僅於 %1 顯示</translation>
+        <translation>僅在 %1 顯示</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="77"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="75"/>
+        <source>New Custom Settings</source>
+        <translation>新增設定值</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
         <source>Copy the screen contents to one or more screens</source>
         <translation>同步畫面到其他螢幕</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="79"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
         <source>Extend the screen contents to display different contents on different screens</source>
         <translation>延伸畫面到其他螢幕</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="85"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation>畫面只在 %1 顯示</translation>
+        <translation>畫面僅在 %1 顯示</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="90"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
         <translation>請進入顯示設定更改設定值</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="92"/>
+        <source>Click to enter Display Module</source>
+        <translation>點擊進入顯示設定</translation>
+    </message>
+</context>
+<context>
+    <name>NavWidget</name>
+    <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="131"/>
+        <source>Navigation</source>
+        <translation>設定總覽</translation>
     </message>
 </context>
 <context>
     <name>NotifyManager</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="46"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="42"/>
         <source>Clear all</source>
         <translation>全部清除</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="115"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="106"/>
         <source>No system notifications</source>
         <translation>沒有系統通知</translation>
     </message>
@@ -82,14 +100,14 @@
 <context>
     <name>SetLocationPage</name>
     <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="31"/>
+        <location filename="../plugins/weather/setlocationpage.cpp" line="34"/>
         <source>No search results</source>
         <translation>找不到結果</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="117"/>
+        <location filename="../plugins/weather/setlocationpage.cpp" line="126"/>
         <source>Current City: %1</source>
-        <translation>目前位置：%1</translation>
+        <translation>目前城市：%1</translation>
     </message>
 </context>
 <context>
@@ -121,7 +139,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="47"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="39"/>
         <source>Click icon to enable VPN</source>
         <translation>點擊圖示開啟 VPN</translation>
     </message>
@@ -129,17 +147,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="76"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="85"/>
         <source>Sorry, unable to get weather!</source>
         <translation>抱歉，無法取得天氣！</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="83"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="92"/>
         <source>Loading weather...</source>
         <translation>正在載入天氣…</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="144"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="153"/>
         <source>Just updated</source>
         <translation>剛剛更新</translation>
     </message>
@@ -147,17 +165,17 @@
 <context>
     <name>WifiListModel</name>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="61"/>
         <source>Connect to hidden network</source>
         <translation>連線到隱藏網路</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="92"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="56"/>
         <source>Click icon to enable WIFI</source>
         <translation>點擊圖示開啟 Wi-Fi</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="182"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="183"/>
         <source>Wireless Card %1</source>
         <translation>無線網路 %1</translation>
     </message>
@@ -193,6 +211,7 @@
         <translation>建立帳戶</translation>
     </message>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="95"/>
         <location filename="../modules/accounts/accountswidget.cpp" line="26"/>
         <source>Accounts</source>
         <translation>帳戶</translation>
@@ -321,17 +340,17 @@
 <context>
     <name>dcc::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="25"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="27"/>
         <source>My devices</source>
-        <translation>配對裝置</translation>
+        <translation>已配對的裝置</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="26"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="28"/>
         <source>Other devices</source>
-        <translation>掃描裝置</translation>
+        <translation>偵測到的裝置</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="38"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="45"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
         <translation>開啟藍牙尋找附近的裝置（音響、鍵盤、滑鼠等）</translation>
     </message>
@@ -339,7 +358,8 @@
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="91"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="100"/>
+        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="101"/>
         <source>Bluetooth</source>
         <translation>藍牙</translation>
     </message>
@@ -427,32 +447,33 @@
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="19"/>
+        <location filename="../modules/datetime/datetime.cpp" line="21"/>
         <source>Auto-Sync</source>
         <translation>自動同步時間</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="23"/>
+        <location filename="../modules/datetime/datetime.cpp" line="25"/>
         <source>Add Timezone</source>
         <translation>新增其他時區</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="29"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="102"/>
+        <location filename="../modules/datetime/datetime.cpp" line="31"/>
         <source>Time and Date</source>
         <translation>日期與時間</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="33"/>
+        <location filename="../modules/datetime/datetime.cpp" line="35"/>
         <source>Change System Timezone</source>
         <translation>更改系統時區</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="40"/>
+        <location filename="../modules/datetime/datetime.cpp" line="42"/>
         <source>Time Settings</source>
         <translation>更改時間設定</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="44"/>
+        <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Timezone List</source>
         <translation>時區列表</translation>
     </message>
@@ -506,6 +527,7 @@
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="97"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="16"/>
         <source>Default Applications</source>
         <translation>預設程式</translation>
@@ -558,11 +580,6 @@
         <source>Open Desktop file</source>
         <translation>開啟 Desktop 檔案</translation>
     </message>
-    <message>
-        <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="41"/>
-        <source>All Files (*)</source>
-        <translation>所有檔案（*）</translation>
-    </message>
 </context>
 <context>
     <name>dcc::defapp::DefaultAppsWidget</name>
@@ -607,27 +624,28 @@
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="24"/>
+        <location filename="../modules/display/displaywidget.cpp" line="25"/>
         <source>Rotate</source>
         <translation>旋轉方向</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="25"/>
+        <location filename="../modules/display/displaywidget.cpp" line="26"/>
         <source>New custom settings</source>
         <translation>新增設定值</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="27"/>
+        <location filename="../modules/display/displaywidget.cpp" line="28"/>
         <source>Resolution</source>
         <translation>解析度</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="28"/>
+        <location filename="../modules/display/displaywidget.cpp" line="29"/>
         <source>Brightness</source>
         <translation>螢幕亮度</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="47"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="96"/>
+        <location filename="../modules/display/displaywidget.cpp" line="48"/>
         <source>Display</source>
         <translation>螢幕</translation>
     </message>
@@ -635,7 +653,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="113"/>
+        <location filename="../modules/display/displayworker.cpp" line="115"/>
         <source>My Settings %1</source>
         <translation>我的設定值 %1</translation>
     </message>
@@ -722,42 +740,32 @@
         <translation>必須輸入</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="45"/>
-        <source>Shortcut</source>
-        <translation>快速鍵</translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="53"/>
-        <source>Please Grab Shortcut Again</source>
-        <translation>請輸入快速鍵</translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="68"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="55"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="70"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="57"/>
         <source>Add</source>
         <translation>加入</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="94"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="81"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>這組快速鍵與 %1 衝突，點擊加入取代前者</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="126"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="100"/>
         <source>null</source>
         <translation>無</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="113"/>
         <source>Choose File</source>
         <translation>選擇檔案</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="113"/>
         <source>/usr/bin</source>
         <translation>/usr/bin</translation>
     </message>
@@ -836,6 +844,27 @@
     </message>
 </context>
 <context>
+    <name>dcc::keyboard::CustomItem</name>
+    <message>
+        <location filename="../modules/keyboard/customitem.cpp" line="25"/>
+        <source>Shortcut</source>
+        <translation>快速鍵</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customitem.cpp" line="111"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="136"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="141"/>
+        <source>Please enter a shortcut</source>
+        <translation>請輸入快速鍵</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customitem.cpp" line="166"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="197"/>
+        <source>Conflict</source>
+        <translation>衝突</translation>
+    </message>
+</context>
+<context>
     <name>dcc::keyboard::KeyboardDetails</name>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="24"/>
@@ -860,6 +889,7 @@
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="105"/>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="24"/>
         <source>Keyboard and Language</source>
         <translation>鍵盤與語言</translation>
@@ -928,11 +958,11 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="168"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="180"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="198"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="207"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="344"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="169"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="181"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="199"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="208"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="345"/>
         <source>None</source>
         <translation>無</translation>
     </message>
@@ -1094,6 +1124,7 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="104"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="26"/>
         <source>Mouse</source>
         <translation>滑鼠</translation>
@@ -1184,37 +1215,37 @@
         <translation>網路詳細資訊</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="72"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="73"/>
         <source>MAC</source>
         <translation>MAC 位址</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="81"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="82"/>
         <source>IPv4 Address</source>
         <translation>IPv4 位址</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="86"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="87"/>
         <source>Gateway</source>
         <translation>閘道器</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="91"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Primary DNS</source>
         <translation>主要 DNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="96"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="97"/>
         <source>Netmask</source>
         <translation>子網路遮罩</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="102"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="103"/>
         <source>Interface</source>
         <translation>介面</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="107"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="108"/>
         <source>Speed</source>
         <translation>速度</translation>
     </message>
@@ -1275,6 +1306,7 @@
         <translation>網路詳細資訊</translation>
     </message>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="99"/>
         <location filename="../modules/network/networkmodulewidget.cpp" line="47"/>
         <source>Network</source>
         <translation>網路</translation>
@@ -1361,45 +1393,45 @@
         <translation>自動</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="58"/>
+        <location filename="../modules/network/proxypage.cpp" line="65"/>
         <source>Http Proxy</source>
         <translation>Http Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="60"/>
-        <location filename="../modules/network/proxypage.cpp" line="65"/>
-        <location filename="../modules/network/proxypage.cpp" line="70"/>
-        <location filename="../modules/network/proxypage.cpp" line="75"/>
+        <location filename="../modules/network/proxypage.cpp" line="67"/>
+        <location filename="../modules/network/proxypage.cpp" line="72"/>
+        <location filename="../modules/network/proxypage.cpp" line="77"/>
+        <location filename="../modules/network/proxypage.cpp" line="82"/>
         <source>Port</source>
         <translation>通訊埠</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="63"/>
+        <location filename="../modules/network/proxypage.cpp" line="70"/>
         <source>Https Proxy</source>
         <translation>Https Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="68"/>
+        <location filename="../modules/network/proxypage.cpp" line="75"/>
         <source>Ftp Proxy</source>
         <translation>Ftp Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="73"/>
+        <location filename="../modules/network/proxypage.cpp" line="80"/>
         <source>Socks Proxy</source>
         <translation>Socks Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="82"/>
+        <location filename="../modules/network/proxypage.cpp" line="89"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>為主機和網域忽略 proxy 設定</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="85"/>
+        <location filename="../modules/network/proxypage.cpp" line="92"/>
         <source>Configuration URL</source>
         <translation>設定 URL</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="143"/>
+        <location filename="../modules/network/proxypage.cpp" line="149"/>
         <source>System Proxy</source>
         <translation>系統 Proxy</translation>
     </message>
@@ -1467,7 +1499,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="48"/>
         <source>WLAN</source>
-        <translation>WLAN</translation>
+        <translation>無線網路</translation>
     </message>
 </context>
 <context>
@@ -1504,18 +1536,18 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="27"/>
         <source>Font</source>
-        <translation>文字設定</translation>
+        <translation>字型設定</translation>
     </message>
 </context>
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="85"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="86"/>
         <source>Standard Font</source>
         <translation>標準字型</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="94"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="95"/>
         <source>Monospaced Font</source>
         <translation>等寬字型</translation>
     </message>
@@ -1530,9 +1562,10 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="29"/>
         <source>Font</source>
-        <translation>文字設定</translation>
+        <translation>字型設定</translation>
     </message>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="98"/>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="34"/>
         <source>Personalization</source>
         <translation>個人化</translation>
@@ -1541,7 +1574,7 @@
 <context>
     <name>dcc::personalization::ThemeItem</name>
     <message>
-        <location filename="../modules/personalization/widget/themeitem.cpp" line="50"/>
+        <location filename="../modules/personalization/widget/themeitem.cpp" line="54"/>
         <source>Default</source>
         <translation>預設</translation>
     </message>
@@ -1603,6 +1636,7 @@
         <translation>筆電闔上後待機</translation>
     </message>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="103"/>
         <location filename="../modules/power/powerwidget.cpp" line="62"/>
         <source>Power Management</source>
         <translation>電源管理</translation>
@@ -1648,47 +1682,48 @@
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="25"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="26"/>
         <source>Output Volume</source>
         <translation>輸出音量</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="26"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="27"/>
         <source>Left/Right Balance</source>
         <translation>左／右平衡</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="29"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="30"/>
         <source>Input Volume</source>
         <translation>輸入音量</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="30"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="31"/>
         <source>Feedback Volume</source>
         <translation>接收的聲音</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="38"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="101"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="39"/>
         <source>Sound</source>
         <translation>聲音</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="40"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="41"/>
         <source>Speaker</source>
         <translation>喇叭</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="59"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="60"/>
         <source>Microphone</source>
         <translation>麥克風</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="76"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="78"/>
         <source>Advanced</source>
         <translation>進階設定</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="79"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="81"/>
         <source>Sound Effects</source>
         <translation>系統音效</translation>
     </message>
@@ -1727,6 +1762,7 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="108"/>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="19"/>
         <source>System Information</source>
         <translation>系統資訊</translation>
@@ -1830,6 +1866,7 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="107"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="25"/>
         <source>Update</source>
         <translation>更新</translation>
@@ -1895,7 +1932,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="40"/>
+        <location filename="../modules/update/updateitem.cpp" line="42"/>
         <source>Details</source>
         <translation>詳細資訊</translation>
     </message>
@@ -1971,6 +2008,7 @@
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="106"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="28"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
@@ -1995,6 +2033,19 @@
         <location filename="../widgets/settingshead.cpp" line="27"/>
         <source>Cancel</source>
         <translation>完成</translation>
+    </message>
+</context>
+<context>
+    <name>miracastControlDelegate</name>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
+        <source>Inactive</source>
+        <translation>關閉</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
+        <source>Active</source>
+        <translation>開啟</translation>
     </message>
 </context>
 </TS>
