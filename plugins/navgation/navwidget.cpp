@@ -15,7 +15,7 @@ NavWidget::NavWidget(QWidget *parent)
     m_tipsLabel = new QLabel;
     m_tipsLabel->setStyleSheet("QLabel {"
                                "color: white;"
-                               "background-color: rgba(255, 255, 255, .15);"
+                               "background-color: rgba(255, 255, 255, .03);"
                                "padding: 4px 0;"
                                "}");
     m_tipsLabel->setAlignment(Qt::AlignCenter);

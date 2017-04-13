@@ -8,7 +8,7 @@
 
 WeatherPlugin::WeatherPlugin(QObject *parent)
     : QObject(parent),
-      m_view(new QWidget),
+      m_view(new QFrame),
       m_requestManager(new WeatherRequest(this))
 {
     WeatherWidget *weatherWidget = new WeatherWidget(m_requestManager);
@@ -22,6 +22,7 @@ WeatherPlugin::WeatherPlugin(QObject *parent)
     layout->addWidget(locationPage);
 
     m_view->setLayout(layout);
+    m_view->setStyleSheet("background-color: rgba(255, 255, 255, .03);");
 
     connect(weatherWidget, &WeatherWidget::locationButtonClicked, this, [this, layout, locationPage] {
         locationPage->reset();

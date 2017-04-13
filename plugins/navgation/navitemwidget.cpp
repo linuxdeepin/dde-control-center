@@ -17,7 +17,7 @@ void NavItemWidget::paintEvent(QPaintEvent *e)
 
     QPainter painter(this);
 
-    painter.fillRect(rect(), QColor(255, 255, 255, 255 * (m_hover ? 0.2 : 0.15)));
+    painter.fillRect(rect(), QColor(255, 255, 255, 255 * (m_hover ? 0.1 : 0.03)));
     const QPixmap pixmap = QPixmap(QString(":/icons/nav_%1.png").arg(m_id));
     painter.drawPixmap(rect().center() - pixmap.rect().center(), pixmap);
 }

@@ -97,8 +97,11 @@ void NotifyManager::onNotifyRemove(const QString &id)
 
 void NotifyManager::paintEvent(QPaintEvent *e)
 {
+    QPainter painter(this);
+
+    painter.fillRect(rect(), QColor(255, 255, 255, 255 * 0.03));
+
     if (m_viewerList.isEmpty()) {
-        QPainter painter(this);
         QString s(tr("No system notifications"));
         painter.drawText(rect(), Qt::AlignCenter, s);
         m_clearButton->setVisible(false);
