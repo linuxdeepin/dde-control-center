@@ -18,7 +18,6 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                               this);
 
     m_systemInfoInter->setSync(false);
-    m_dbusGrub->setSync(false);
 
     connect(m_dbusGrub, &GrubDbus::DefaultEntryChanged, m_model, &SystemInfoModel::setDefaultEntry);
     connect(m_dbusGrub, &GrubDbus::EnableThemeChanged, m_model, &SystemInfoModel::setThemeEnabled);
@@ -45,6 +44,19 @@ void SystemInfoWork::activate()
     m_model->setProcessor(m_systemInfoInter->processor());
     m_model->setMemory(m_systemInfoInter->memoryCap());
     m_model->setDisk(m_systemInfoInter->diskCap());
+}
+
+void SystemInfoWork::deactivate()
+{
+
+}
+
+void SystemInfoWork::loadGrubSettings()
+{
+    // NOTE(hualet): DO NOT move below lines to the constructor, it will start
+    // the service process which will check authentication on very single request,
+    // the popups are really annoying sometime.
+    m_dbusGrub->setSync(false);
 
     m_model->setBootDelay(m_dbusGrub->timeout() > 1);
     m_model->setThemeEnabled(m_dbusGrub->enableTheme());
@@ -62,11 +74,6 @@ void SystemInfoWork::activate()
             qWarning() << "get grub entry list failed : " << call.error().message();
         }
     });
-}
-
-void SystemInfoWork::deactivate()
-{
-
 }
 
 void SystemInfoWork::setBootDelay(bool value)

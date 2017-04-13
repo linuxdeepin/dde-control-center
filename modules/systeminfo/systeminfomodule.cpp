@@ -87,6 +87,8 @@ void SystemInfoModule::onPushCopyright()
 
 void SystemInfoModule::onPushBoot()
 {
+    m_work->loadGrubSettings();
+
     if(!m_bootWidget)
     {
         m_bootWidget = new BootWidget;

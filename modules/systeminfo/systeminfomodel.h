@@ -38,6 +38,7 @@ signals:
     void processorChanged(const QString& processor);
     void memoryChanged(const QString& memory);
     void diskChanged(const QString& disk);
+    void entryListsChanged(const QStringList &list);
     void defaultEntryChanged(const QString& entry);
     void updatingChanged(const bool &updating);
 

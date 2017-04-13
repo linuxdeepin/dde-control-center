@@ -23,6 +23,8 @@ public:
     void activate();
     void deactivate();
 
+    void loadGrubSettings();
+
 public slots:
     void setBootDelay(bool value);
     void setEnableTheme(bool value);

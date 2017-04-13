@@ -30,7 +30,11 @@ SystemInfoModel::SystemInfoModel(QObject *parent)
 
 void SystemInfoModel::setEntryLists(const QStringList &list)
 {
-    m_entryLists = list;
+    if (list != m_entryLists) {
+        m_entryLists = list;
+
+        emit entryListsChanged(list);
+    }
 }
 
 void SystemInfoModel::setThemeEnabled(const bool enabled)

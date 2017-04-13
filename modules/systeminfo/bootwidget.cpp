@@ -91,6 +91,7 @@ void BootWidget::setModel(SystemInfoModel *model)
     connect(model, &SystemInfoModel::themeEnabledChanged, m_theme, &SwitchWidget::setChecked);
     connect(model, &SystemInfoModel::defaultEntryChanged, this, &BootWidget::setDefaultEntry);
     connect(model, &SystemInfoModel::updatingChanged, m_updatingLabel, &SmallLabel::setVisible);
+    connect(model, &SystemInfoModel::entryListsChanged, this, &BootWidget::setEntryList);
 
     m_boot->setChecked(model->bootDelay());
     m_theme->setChecked(model->themeEnabled());
