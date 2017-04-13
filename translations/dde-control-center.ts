@@ -71,14 +71,22 @@
     </message>
 </context>
 <context>
+    <name>NavWidget</name>
+    <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="131"/>
+        <source>Navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NotifyManager</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="46"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="42"/>
         <source>Clear all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="115"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="106"/>
         <source>No system notifications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -133,7 +141,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="40"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="39"/>
         <source>Click icon to enable VPN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -141,17 +149,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="78"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="85"/>
         <source>Sorry, unable to get weather!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="85"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="92"/>
         <source>Loading weather...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="146"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="153"/>
         <source>Just updated</source>
         <translation type="unfinished"></translation>
     </message>
@@ -205,6 +213,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="95"/>
         <location filename="../modules/accounts/accountswidget.cpp" line="26"/>
         <source>Accounts</source>
         <translation type="unfinished"></translation>
@@ -333,17 +342,17 @@
 <context>
     <name>dcc::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="25"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="27"/>
         <source>My devices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="26"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="28"/>
         <source>Other devices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="38"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="45"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -351,7 +360,8 @@
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="91"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="100"/>
+        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="101"/>
         <source>Bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
@@ -439,32 +449,33 @@
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="19"/>
+        <location filename="../modules/datetime/datetime.cpp" line="21"/>
         <source>Auto-Sync</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="23"/>
+        <location filename="../modules/datetime/datetime.cpp" line="25"/>
         <source>Add Timezone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="29"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="102"/>
+        <location filename="../modules/datetime/datetime.cpp" line="31"/>
         <source>Time and Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="33"/>
+        <location filename="../modules/datetime/datetime.cpp" line="35"/>
         <source>Change System Timezone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="40"/>
+        <location filename="../modules/datetime/datetime.cpp" line="42"/>
         <source>Time Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="44"/>
+        <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Timezone List</source>
         <translation type="unfinished"></translation>
     </message>
@@ -518,6 +529,7 @@
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="97"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="16"/>
         <source>Default Applications</source>
         <translation type="unfinished"></translation>
@@ -634,6 +646,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="96"/>
         <location filename="../modules/display/displaywidget.cpp" line="48"/>
         <source>Display</source>
         <translation type="unfinished"></translation>
@@ -867,6 +880,7 @@
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="105"/>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="24"/>
         <source>Keyboard and Language</source>
         <translation type="unfinished"></translation>
@@ -935,11 +949,11 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="168"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="180"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="198"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="207"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="344"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="169"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="181"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="199"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="208"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="345"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1101,6 +1115,7 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="104"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="26"/>
         <source>Mouse</source>
         <translation type="unfinished"></translation>
@@ -1191,37 +1206,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="72"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="73"/>
         <source>MAC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="81"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="82"/>
         <source>IPv4 Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="86"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="87"/>
         <source>Gateway</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="91"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Primary DNS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="96"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="97"/>
         <source>Netmask</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="102"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="103"/>
         <source>Interface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="107"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="108"/>
         <source>Speed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1282,6 +1297,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="99"/>
         <location filename="../modules/network/networkmodulewidget.cpp" line="47"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
@@ -1368,45 +1384,45 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="58"/>
+        <location filename="../modules/network/proxypage.cpp" line="65"/>
         <source>Http Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="60"/>
-        <location filename="../modules/network/proxypage.cpp" line="65"/>
-        <location filename="../modules/network/proxypage.cpp" line="70"/>
-        <location filename="../modules/network/proxypage.cpp" line="75"/>
+        <location filename="../modules/network/proxypage.cpp" line="67"/>
+        <location filename="../modules/network/proxypage.cpp" line="72"/>
+        <location filename="../modules/network/proxypage.cpp" line="77"/>
+        <location filename="../modules/network/proxypage.cpp" line="82"/>
         <source>Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="63"/>
+        <location filename="../modules/network/proxypage.cpp" line="70"/>
         <source>Https Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="68"/>
+        <location filename="../modules/network/proxypage.cpp" line="75"/>
         <source>Ftp Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="73"/>
+        <location filename="../modules/network/proxypage.cpp" line="80"/>
         <source>Socks Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="82"/>
+        <location filename="../modules/network/proxypage.cpp" line="89"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="85"/>
+        <location filename="../modules/network/proxypage.cpp" line="92"/>
         <source>Configuration URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="143"/>
+        <location filename="../modules/network/proxypage.cpp" line="149"/>
         <source>System Proxy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1540,6 +1556,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="98"/>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="34"/>
         <source>Personalization</source>
         <translation type="unfinished"></translation>
@@ -1610,6 +1627,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="103"/>
         <location filename="../modules/power/powerwidget.cpp" line="62"/>
         <source>Power Management</source>
         <translation type="unfinished"></translation>
@@ -1655,47 +1673,48 @@
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="25"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="26"/>
         <source>Output Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="26"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="27"/>
         <source>Left/Right Balance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="29"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="30"/>
         <source>Input Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="30"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="31"/>
         <source>Feedback Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="38"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="101"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="39"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="40"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="41"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="59"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="60"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="76"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="78"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="79"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="81"/>
         <source>Sound Effects</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1734,6 +1753,7 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="108"/>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="19"/>
         <source>System Information</source>
         <translation type="unfinished"></translation>
@@ -1837,6 +1857,7 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="107"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="25"/>
         <source>Update</source>
         <translation type="unfinished"></translation>
@@ -1978,6 +1999,7 @@
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
+        <location filename="../plugins/navgation/navwidget.cpp" line="106"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="28"/>
         <source>Wacom</source>
         <translation type="unfinished"></translation>
@@ -2007,23 +2029,13 @@
 <context>
     <name>miracastControlDelegate</name>
     <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="28"/>
-        <source>Connected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="28"/>
-        <source>Disconnect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="30"/>
-        <source>Active</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="30"/>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
         <source>Inactive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
+        <source>Actived</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
