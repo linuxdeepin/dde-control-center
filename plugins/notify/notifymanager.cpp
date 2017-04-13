@@ -40,6 +40,7 @@ NotifyManager::NotifyManager(QWidget *parent) :
 
     m_clearButton = new DImageButton;
     m_clearButton->setText(tr("Clear all"));
+    m_clearButton->setStyleSheet("padding: 4px 0;");
 
     mainLayout->addWidget(m_clearButton, 0, Qt::AlignHCenter);
     mainLayout->addWidget(scrollarea);
