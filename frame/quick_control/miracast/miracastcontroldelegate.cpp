@@ -58,7 +58,7 @@ void miracastControlDelegate::paint(QPainter *painter, const QStyleOptionViewIte
                 painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
         }
     } else
-        painter->drawText(QRect(option.rect.left(), option.rect.top(), option.rect.width() - 10, option.rect.height()), Qt::AlignVCenter | Qt::AlignRight, info.m_link->m_managed ? tr("Actived") : tr("Inactive"));
+        painter->drawText(QRect(option.rect.left(), option.rect.top(), option.rect.width() - 10, option.rect.height()), Qt::AlignVCenter | Qt::AlignRight, info.m_link->m_managed ? tr("Active") : tr("Inactive"));
 }
 
 QSize miracastControlDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

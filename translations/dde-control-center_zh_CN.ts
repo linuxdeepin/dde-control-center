@@ -742,42 +742,32 @@
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="45"/>
-        <source>Shortcut</source>
-        <translation>快捷键</translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="53"/>
-        <source>Please Grab Shortcut Again</source>
-        <translation>请重新获取快捷键</translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="68"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="55"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="70"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="57"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="94"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="81"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="126"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="100"/>
         <source>null</source>
         <translation>空</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="113"/>
         <source>Choose File</source>
         <translation>选择文件</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="113"/>
         <source>/usr/bin</source>
         <translation>/usr/bin</translation>
     </message>
@@ -853,6 +843,27 @@
         <location filename="../modules/keyboard/customedititem.cpp" line="180"/>
         <source>Please enter a new shortcut</source>
         <translation>请输入新的快捷键</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::keyboard::CustomItem</name>
+    <message>
+        <location filename="../modules/keyboard/customitem.cpp" line="25"/>
+        <source>Shortcut</source>
+        <translation>快捷键</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customitem.cpp" line="111"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="136"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="141"/>
+        <source>Please enter a shortcut</source>
+        <translation>请输入快捷键</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customitem.cpp" line="166"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="197"/>
+        <source>Conflict</source>
+        <translation>冲突</translation>
     </message>
 </context>
 <context>
@@ -2030,13 +2041,13 @@
     <name>miracastControlDelegate</name>
     <message>
         <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
-        <source>Actived</source>
-        <translation>已激活</translation>
+        <source>Inactive</source>
+        <translation>未激活</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
-        <source>Inactive</source>
-        <translation>未激活</translation>
+        <source>Active</source>
+        <translation>已激活</translation>
     </message>
 </context>
 </TS>

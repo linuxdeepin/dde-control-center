@@ -742,42 +742,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="45"/>
-        <source>Shortcut</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="53"/>
-        <source>Please Grab Shortcut Again</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="68"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="55"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="70"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="57"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="94"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="81"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="126"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="100"/>
         <source>null</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="113"/>
         <source>Choose File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="165"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="113"/>
         <source>/usr/bin</source>
         <translation type="unfinished"></translation>
     </message>
@@ -852,6 +842,27 @@
     <message>
         <location filename="../modules/keyboard/customedititem.cpp" line="180"/>
         <source>Please enter a new shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dcc::keyboard::CustomItem</name>
+    <message>
+        <location filename="../modules/keyboard/customitem.cpp" line="25"/>
+        <source>Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customitem.cpp" line="111"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="136"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="141"/>
+        <source>Please enter a shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customitem.cpp" line="166"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="197"/>
+        <source>Conflict</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2035,7 +2046,7 @@
     </message>
     <message>
         <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
-        <source>Actived</source>
+        <source>Active</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

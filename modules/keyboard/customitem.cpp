@@ -108,7 +108,7 @@ void CustomItem::mousePressEvent(QMouseEvent *e)
         m_work->grabScreen();
         m_shortcutEdit->setFocus();
         m_shortcutEdit->show();
-        m_shortcutEdit->setPlaceholderText(tr("Please Grab Shortcut Again"));
+        m_shortcutEdit->setPlaceholderText(tr("Please enter a shortcut"));
     }
     else
     {
@@ -133,12 +133,12 @@ void CustomItem::paintEvent(QPaintEvent *e)
         QFontMetrics fm(font);
 
         int right = this->rect().right() - 10;
-        int w = fm.width(tr("Please Grab Shortcut Again"));
+        int w = fm.width(tr("Please enter a shortcut"));
         int h = (height() - fm.height()-6)/2;
         QRect r(0,0,w+8,height());
         r.moveRight(right);
 
-        painter.drawText(r, Qt::AlignCenter, tr("Please Grab Shortcut Again"));
+        painter.drawText(r, Qt::AlignCenter, tr("Please enter a shortcut"));
 
         m_rect = QRect(r.topLeft(),this->rect().bottomRight());
         m_rect = m_rect.adjusted(0,h,0,-h);
