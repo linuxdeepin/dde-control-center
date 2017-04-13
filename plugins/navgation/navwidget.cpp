@@ -92,26 +92,43 @@ void NavWidget::refershGridLayout()
 void NavWidget::setTipsText(const QString &text)
 {
     static const QStringList modules_trans = {
-        QT_TR_NOOP("Accounts"),
-        QT_TR_NOOP("Display"),
-        QT_TR_NOOP("Default Applications"),
-        QT_TR_NOOP("Personalization"),
-        QT_TR_NOOP("Network"),
-        QT_TR_NOOP("Bluetooth"),
-        QT_TR_NOOP("Sound"),
-        QT_TR_NOOP("Datetime"),
-        QT_TR_NOOP("Power"),
-        QT_TR_NOOP("Mouse"),
-        QT_TR_NOOP("Keyboard"),
-        QT_TR_NOOP("Wacom"),
-        QT_TR_NOOP("Update"),
-        QT_TR_NOOP("System Infomation"),
+        QT_TRANSLATE_NOOP("dcc::accounts::AccountsWidget", "Accounts"),
+        QT_TRANSLATE_NOOP("dcc::display::DisplayWidget", "Display"),
+        QT_TRANSLATE_NOOP("dcc::defapp::DefAppViewer", "Default Applications"),
+        QT_TRANSLATE_NOOP("dcc::personalization::PersonalizationWidget", "Personalization"),
+        QT_TRANSLATE_NOOP("dcc::network::NetworkModuleWidget", "Network"),
+        QT_TRANSLATE_NOOP("dcc::bluetooth::BluetoothModule", "Bluetooth"),
+        QT_TRANSLATE_NOOP("dcc::sound::SoundWidget", "Sound"),
+        QT_TRANSLATE_NOOP("dcc::datetime::Datetime", "Time and Date"),
+        QT_TRANSLATE_NOOP("dcc::power::PowerWidget", "Power Management"),
+        QT_TRANSLATE_NOOP("dcc::mouse::MouseWidget", "Mouse"),
+        QT_TRANSLATE_NOOP("dcc::keyboard::KeyboardWidget", "Keyboard and Language"),
+        QT_TRANSLATE_NOOP("dcc::wacom::WacomWidget", "Wacom"),
+        QT_TRANSLATE_NOOP("dcc::update::UpdateCtrlWidget", "Update"),
+        QT_TRANSLATE_NOOP("dcc::systeminfo::SystemInfoWidget", "System Information"),
+    };
+
+    static const QStringList modules_scope = {
+        "dcc::accounts::AccountsWidget",
+        "dcc::display::DisplayWidget",
+        "dcc::defapp::DefAppViewer",
+        "dcc::personalization::PersonalizationWidget",
+        "dcc::network::NetworkModuleWidget",
+        "dcc::bluetooth::BluetoothModule",
+        "dcc::sound::SoundWidget",
+        "dcc::datetime::Datetime",
+        "dcc::power::PowerWidget",
+        "dcc::mouse::MouseWidget",
+        "dcc::keyboard::KeyboardWidget",
+        "dcc::wacom::WacomWidget",
+        "dcc::update::UpdateCtrlWidget",
+        "dcc::systeminfo::SystemInfoWidget",
     };
 
     const int idx = text.isEmpty() ? -1 : MODULES.indexOf(text);
 
     if (idx == -1)
-        m_tipsLabel->setText(tr("Navgation"));
+        m_tipsLabel->setText(tr("Navigation"));
     else
-        m_tipsLabel->setText(modules_trans[idx]);
+        m_tipsLabel->setText(QCoreApplication::translate(modules_scope[idx].toStdString().c_str(), modules_trans[idx].toStdString().c_str()));
 }
