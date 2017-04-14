@@ -174,7 +174,7 @@ void MainWidget::resizeEvent(QResizeEvent *e)
 {
     FrameWidget::resizeEvent(e);
 
-    updatePluginsHeight();
+    QTimer::singleShot(1, this, &MainWidget::updatePluginsHeight);
 }
 
 int MainWidget::getPluginsHeight()
@@ -194,8 +194,7 @@ void MainWidget::updatePluginsHeight()
 
 void MainWidget::pluginAdded(QWidget * const w)
 {
-    w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    w->setFixedHeight(getPluginsHeight());
+    w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     const int idx = m_pluginsLayout->addWidget(w);
     m_pluginsLayout->setCurrentIndex(idx);
 }

@@ -44,7 +44,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
       m_moduleLoadDelay(0)
 {
     m_resetBtn->setText(tr("Reset all settings"));
-//    m_navgationBtn->setVisible(true);
+    m_navgationBtn->setVisible(true);
 
     m_settingsLayout->setSpacing(30);
     m_settingsLayout->setMargin(0);

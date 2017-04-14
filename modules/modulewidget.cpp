@@ -39,7 +39,7 @@ ModuleWidget::ModuleWidget()
 
     setLayout(m_centralLayout);
 
-//    connect(headerWidget, &ModuleWidgetHeader::clicked, this, &ModuleWidget::headerClicked);
+    connect(headerWidget, &ModuleWidgetHeader::clicked, this, &ModuleWidget::headerClicked);
     connect(this, &ModuleWidget::objectNameChanged, [this] {
         m_moduleIcon->setObjectName(QString(ObjectNameTemplateIcon).arg(objectName()));
     });
