@@ -127,14 +127,14 @@ void Frame::showAllSettings()
 void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
 {
     // ensure current is main page or all settings page
-    while (m_frameWidgetStack.size() > 2)
+    while (m_frameWidgetStack.size() > 1 && m_frameWidgetStack.last()->content() != m_allSettingsPage)
         popWidget();
 
     // current is main page
     if (m_frameWidgetStack.size() == 1)
         initAllSettings();
 
-    if (pageName.isEmpty())
+    if (pageName.isEmpty() && m_frameWidgetStack.size() == 1)
         showAllSettings();
 
     // show specificed page
