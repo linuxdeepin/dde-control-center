@@ -135,7 +135,10 @@ void BootWidget::onCurrentItem(QListWidgetItem *cur, QListWidgetItem *pre)
         QPixmap pix(":/systeminfo/themes/common/icons/select.png");
         cur->setIcon(pix);
 
-        emit defaultEntry(cur->text());
+        // m_defaultEntry is empty means the data is being initialized.
+        if (!m_defaultEntry.isEmpty()) {
+            emit defaultEntry(cur->text());
+        }
     }
 }
 
