@@ -26,6 +26,8 @@ private:
     void refershGridLayout();
     void setTipsText(const QString &text);
 
+    void leaveEvent(QEvent *e);
+
 private:
     QLabel *m_tipsLabel;
     QGridLayout *m_gridLayout;

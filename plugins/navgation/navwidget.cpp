@@ -132,3 +132,10 @@ void NavWidget::setTipsText(const QString &text)
     else
         m_tipsLabel->setText(QCoreApplication::translate(modules_scope[idx].toStdString().c_str(), modules_trans[idx].toStdString().c_str()));
 }
+
+void NavWidget::leaveEvent(QEvent *e)
+{
+    QWidget::leaveEvent(e);
+
+    setTipsText(QString());
+}
