@@ -136,7 +136,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     m_soundSlider->setAccessibleName("SoundSlider");
     m_soundSlider->setFocusProxy(this);
     m_lightSlider->setOrientation(Qt::Horizontal);
-    m_lightSlider->setRange(0, 100);
+    m_lightSlider->setRange(0.2 * 100, 100);
     m_lightSlider->setAccessibleName("LightSlider");
     m_lightSlider->setTracking(true);
     m_lightSlider->setFocusProxy(this);
