@@ -91,6 +91,8 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
         return m_currentIndex.row() + 1 == index.row();
     case ItemIsPowerOffRole:
         return rowCount(QModelIndex()) == 1;
+    case ItemCountRole:
+        return m_apInfoList.keys().count();
     default:;
     }
 

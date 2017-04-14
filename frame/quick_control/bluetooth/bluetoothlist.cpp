@@ -48,7 +48,10 @@ void BluetoothList::onItemClicked(const QModelIndex &index) const
     }
 
     if (index.data(BluetoothListModel::ItemIsSettingRole).toBool()) {
-        emit requestConnectOther("bluetooth", "bluetooth");
+        if (index.data(BluetoothListModel::ItemCountRole).toInt() != 1)
+            emit requestConnectOther("bluetooth", "");
+        else
+            emit requestConnectOther("bluetooth", "bluetooth");
         return;
     }
 

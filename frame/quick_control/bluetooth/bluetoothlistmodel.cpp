@@ -106,7 +106,9 @@ QVariant BluetoothListModel::data(const QModelIndex &index, int role) const
     case ItemLastRole:
         return rowCount(QModelIndex()) - 2 == index.row();
     case ItemRefreshRole:
-        return m_refreshTimer->isActive() && info.device == nullptr && info.adapter != nullptr;;
+        return m_refreshTimer->isActive() && info.device == nullptr && info.adapter != nullptr;
+    case ItemCountRole:
+        return m_adapterList.keys().count();
     default:;
     }
 
