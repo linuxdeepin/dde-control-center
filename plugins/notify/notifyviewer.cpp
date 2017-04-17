@@ -12,11 +12,14 @@
 #include <QJsonObject>
 #include <QStandardPaths>
 #include <QTime>
+#include <QEvent>
+#include <QPainter>
+#include <QTextDocument>
 
 Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QWidget(parent),
     m_appName(new QLabel),
-    m_body(new QLabel),
     m_time(new QLabel),
+    m_body(new NotifyBody),
     m_close(new DImageButton(":/images/notify_close_normal.png", ":/images/notify_close_hover.png", ":/images/notify_close_press.png", this)),
     m_appIcon(new QLabel),
     m_mainlayout(new QHBoxLayout)
@@ -24,22 +27,16 @@ Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QWidget(parent),
     m_appIcon->setMargin(0);
     m_close->setMargin(0);
     m_appName->setMargin(0);
-    m_body->setMargin(0);
     m_appIcon->setFixedSize(ICON_SIZE,ICON_SIZE);
     m_appName->setFixedWidth(165);
     m_close->setFixedSize(14,14);
     m_time->setFixedHeight(10);
-    m_body->setWordWrap(true);
-    m_body->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+//    m_body->setFixedSize(272, 50);
 
     m_appName->setStyleSheet("font-family: 'Noto Sans CJK SC';"
                              "font-size: 11px;"
                              "font-style: normal;"
                              "color: #ffffff;");
-    m_body->setStyleSheet("font-family: 'Noto Sans CJK SC';"
-                          "font-size: 12px;"
-                          "font-style: normal;"
-                          "color: #ffffff;");
     m_time->setStyleSheet("font-family: 'Noto Sans CJK SC';"
                           "font-size: 10px;"
                           "font-style: normal;"
@@ -83,6 +80,7 @@ Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QWidget(parent),
 
     m_mainlayout->addSpacing(20);
     m_mainlayout->addLayout(rightLayout);
+    m_mainlayout->addSpacing(10);
 
     m_mainlayout->setMargin(0);
     m_mainlayout->setSpacing(0);

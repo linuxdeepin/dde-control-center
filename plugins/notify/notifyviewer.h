@@ -12,6 +12,8 @@
 
 #define ICON_SIZE 48
 
+#include "notifybody.h"
+
 #include <QObject>
 #include <QWidget>
 #include <QHBoxLayout>
@@ -47,7 +49,8 @@ protected:
     virtual void paintEvent(QPaintEvent *event);
 
 private:
-    QLabel *m_appName,*m_body,*m_time;
+    QLabel *m_appName, *m_time;
+    NotifyBody *m_body;
     DImageButton *m_close;
     QLabel      *m_appIcon;
     QHBoxLayout *m_mainlayout;
