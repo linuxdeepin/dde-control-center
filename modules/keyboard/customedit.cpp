@@ -49,7 +49,6 @@ keyboard::CustomEdit::CustomEdit(keyboard::KeyboardWork *work, QWidget *parent):
     QPushButton *cancelButton = new QPushButton(tr("Cancel"));
     QPushButton *okButton = new QPushButton(tr("Save"));
 
-
     buttonlayout->addWidget(cancelButton);
     buttonlayout->addWidget(okButton);
 

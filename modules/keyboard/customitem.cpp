@@ -38,15 +38,7 @@ CustomItem::CustomItem(KeyboardWork *work, QWidget *parent)
     setFixedHeight(36);
 
     connect(m_work, &KeyboardWork::KeyEvent, this, &CustomItem::onKeyEvent);
-    connect(qApp, SIGNAL(focusChanged(QWidget*,QWidget*)), this, SLOT(onFocusChanged(QWidget*,QWidget*)));
 }
-
-void CustomItem::onFocusChanged(QWidget *old, QWidget *now)
-{
-    if(!old && now != m_shortcutEdit)
-        m_shortcutEdit->hide();
-}
-
 
 void CustomItem::setInfo(ShortcutInfo *info)
 {

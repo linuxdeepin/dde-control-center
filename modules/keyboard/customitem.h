@@ -23,7 +23,6 @@ public:
 
 public slots:
     void onKeyEvent(bool press, const QString &keylist);
-    void onFocusChanged(QWidget *old, QWidget *now);
 
 signals:
     void shortcut(const QString& shortcut);

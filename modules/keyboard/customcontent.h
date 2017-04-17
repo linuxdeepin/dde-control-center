@@ -43,7 +43,6 @@ private:
     SettingsGroup *m_commandGroup;
     LineEditWidget* m_name;
     LineEditWidget* m_command;
-//    LineEditWidget* m_shortcut;
     CustomItem *m_shortcut;
     KeyboardControl* m_control;
     QLabel* m_bottomTip;
