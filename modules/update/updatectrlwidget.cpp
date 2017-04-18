@@ -168,7 +168,15 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
     }
 
     m_progress->setMessage(tr("Download Updates"));
-    m_summary->setTitle(tr("New system edition and %1 application updates detected").arg(appCount));
+    m_summary->setTitle(tr("%n application update(s) detected", "", appCount));
+
+    for (const AppUpdateInfo &info : apps) {
+        if (info.m_packageId == "dde") {
+            m_summary->setTitle(tr("New system edition and %n application update(s) detected", "", appCount));
+            break;
+        }
+    }
+
     m_summary->setDetails(QString(tr("Update size: %1").arg(formatCap(downloadSize))));
 
     loadAppList(apps);

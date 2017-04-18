@@ -1886,7 +1886,7 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1910,23 +1910,32 @@
         <source>Your system is up to date</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
-        <source>New system edition and %1 application updates detected</source>
-        <translation type="unfinished"></translation>
+        <source>%n application update(s) detected</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="175"/>
+        <source>New system edition and %n application update(s) detected</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="180"/>
         <source>Update size: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="194"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation type="unfinished"></translation>
     </message>
