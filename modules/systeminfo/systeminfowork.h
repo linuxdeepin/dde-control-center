@@ -31,6 +31,9 @@ public slots:
     void setDefaultEntry(const QString& entry);
 
 private:
+    void getEntryTitles();
+
+private:
     SystemInfoModel* m_model;
     SystemInfoInter* m_systemInfoInter;
     GrubDbus* m_dbusGrub;

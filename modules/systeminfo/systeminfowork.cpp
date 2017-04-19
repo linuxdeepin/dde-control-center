@@ -14,7 +14,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
     m_dbusGrub = new GrubDbus("com.deepin.daemon.Grub2",
                               "/com/deepin/daemon/Grub2",
-                              QDBusConnection::sessionBus(),
+                              QDBusConnection::systemBus(),
                               this);
 
     m_systemInfoInter->setSync(false);
@@ -62,6 +62,31 @@ void SystemInfoWork::loadGrubSettings()
     m_model->setThemeEnabled(m_dbusGrub->enableTheme());
     m_model->setUpdating(m_dbusGrub->updating());;
 
+    getEntryTitles();
+}
+
+void SystemInfoWork::setBootDelay(bool value)
+{
+    m_dbusGrub->SetTimeout(value ? 5 : 1).waitForFinished();
+    m_model->setBootDelay(m_dbusGrub->timeout() > 1);
+}
+
+void SystemInfoWork::setEnableTheme(bool value)
+{
+    m_dbusGrub->SetEnableTheme(value).waitForFinished();
+    m_model->setThemeEnabled(m_dbusGrub->enableTheme());
+}
+
+void SystemInfoWork::setDefaultEntry(const QString &entry)
+{
+    m_dbusGrub->SetDefaultEntry(entry).waitForFinished();
+
+    if (m_dbusGrub->defaultEntry() != entry)
+        getEntryTitles();
+}
+
+void SystemInfoWork::getEntryTitles()
+{
     QDBusPendingCall call = m_dbusGrub->GetSimpleEntryTitles();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
@@ -74,21 +99,6 @@ void SystemInfoWork::loadGrubSettings()
             qWarning() << "get grub entry list failed : " << call.error().message();
         }
     });
-}
-
-void SystemInfoWork::setBootDelay(bool value)
-{
-    m_dbusGrub->setTimeout(value ? 5 : 1);
-}
-
-void SystemInfoWork::setEnableTheme(bool value)
-{
-    m_dbusGrub->setEnableTheme(value);
-}
-
-void SystemInfoWork::setDefaultEntry(const QString &entry)
-{
-    m_dbusGrub->setDefaultEntry(entry);
 }
 
 }

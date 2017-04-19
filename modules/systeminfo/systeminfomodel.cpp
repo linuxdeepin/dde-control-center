@@ -39,10 +39,8 @@ void SystemInfoModel::setEntryLists(const QStringList &list)
 
 void SystemInfoModel::setThemeEnabled(const bool enabled)
 {
-    if (m_themeEnabled != enabled)
-    {
+    if (m_themeEnabled != enabled) {
         m_themeEnabled = enabled;
-
         emit themeEnabledChanged(m_themeEnabled);
     }
 }
@@ -51,8 +49,8 @@ void SystemInfoModel::setDefaultEntry(const QString &entry)
 {
     if (m_defaultEntry != entry) {
         m_defaultEntry = entry;
-        emit defaultEntryChanged(entry);
     }
+    emit defaultEntryChanged(entry);
 }
 
 void SystemInfoModel::setUpdating(bool updating)
@@ -72,8 +70,8 @@ void SystemInfoModel::setBootDelay(bool bootDelay)
 {
     if (m_bootDelay != bootDelay) {
         m_bootDelay = bootDelay;
-        emit bootDelayChanged(bootDelay);
     }
+    emit bootDelayChanged(bootDelay);
 }
 
 void SystemInfoModel::setDistroID(const QString &distroid)

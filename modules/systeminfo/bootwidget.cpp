@@ -29,6 +29,7 @@ BootWidget::BootWidget(QWidget *parent)
     m_bootList->setDefaultDropAction(Qt::MoveAction);
     m_bootList->setPalette(Qt::transparent);
     m_bootList->setWordWrap(true);
+    m_bootList->setDragEnabled(false);
 
     m_updatingLabel = new TipsLabel(tr("Updating..."));
     m_updatingLabel->setVisible(false);

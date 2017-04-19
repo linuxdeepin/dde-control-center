@@ -13,7 +13,7 @@ GrubBackgroundItem::GrubBackgroundItem(QFrame *parent)
 {
     m_themeDbus = new GrubThemeDbus("com.deepin.daemon.Grub2",
                                     "/com/deepin/daemon/Grub2/Theme",
-                                    QDBusConnection::sessionBus(), this);
+                                    QDBusConnection::systemBus(), this);
 
     updateBackground(m_themeDbus->background());
 //    connect(m_themeDbus, &GrubThemeDbus::BackgroundChanged, this, &GrubBackgroundItem::updateBackground);
