@@ -67,7 +67,7 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     m_copyright->setTitle(tr("License"));
 
     m_boot = new NextPageWidget();
-    m_boot->setTitle(tr("Startup Menu"));
+    m_boot->setTitle(tr("Boot Menu"));
 
     crGroup->appendItem(m_copyright);
     bootGroup->appendItem(m_boot);

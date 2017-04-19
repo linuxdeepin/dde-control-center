@@ -177,7 +177,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="183"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="185"/>
         <source>Wireless Card %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -361,7 +361,7 @@
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="100"/>
-        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="101"/>
+        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="98"/>
         <source>Bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
@@ -776,7 +776,7 @@
     <name>dcc::keyboard::CustomEdit</name>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="30"/>
-        <location filename="../modules/keyboard/customedit.cpp" line="79"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="78"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -796,32 +796,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="83"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="82"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="84"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="83"/>
         <source>Command</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="104"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="103"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="116"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="115"/>
         <source>Choose File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="116"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="115"/>
         <source>/usr/bin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="125"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="124"/>
         <source>null</source>
         <translation type="unfinished"></translation>
     </message>
@@ -853,15 +853,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="111"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="136"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="141"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="103"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="128"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="133"/>
         <source>Please enter a shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="166"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="197"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="158"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="189"/>
         <source>Conflict</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1204,7 +1204,7 @@
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="308"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="389"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="390"/>
         <source>Required</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1795,6 +1795,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <source>Boot Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="118"/>
         <source>%1Bit</source>
         <translation type="unfinished"></translation>
@@ -1817,11 +1822,6 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <source>Startup Menu</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
