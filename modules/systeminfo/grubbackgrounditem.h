@@ -17,6 +17,12 @@ class GrubBackgroundItem : public SettingsItem
 public:
     explicit GrubBackgroundItem(QFrame* parent = 0);
 
+signals:
+    void requestEnableTheme(const bool state);
+
+public slots:
+    void setThemeEnable(const bool state);
+
 protected:
     void paintEvent(QPaintEvent *e);
     void dragEnterEvent(QDragEnterEvent *e);
@@ -27,7 +33,7 @@ private:
     QPixmap m_background;
     GrubThemeDbus *m_themeDbus;
     bool m_isDrop;
-
+    bool m_themeEnable;
     Q_SLOT bool updateBackground(const QString &filename);
     Q_SLOT void onProperty(const QString& property, const QVariant&  variant);
 };

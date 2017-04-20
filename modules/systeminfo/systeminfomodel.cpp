@@ -33,7 +33,6 @@ void SystemInfoModel::setEntryLists(const QStringList &list)
 {
     if (list != m_entryLists) {
         m_entryLists = list;
-
         emit entryListsChanged(list);
     }
 }
@@ -50,8 +49,8 @@ void SystemInfoModel::setDefaultEntry(const QString &entry)
 {
     if (m_defaultEntry != entry) {
         m_defaultEntry = entry;
+        emit defaultEntryChanged(entry);
     }
-    emit defaultEntryChanged(entry);
 }
 
 void SystemInfoModel::setUpdating(bool updating)
@@ -71,8 +70,8 @@ void SystemInfoModel::setBootDelay(bool bootDelay)
 {
     if (m_bootDelay != bootDelay) {
         m_bootDelay = bootDelay;
+        emit bootDelayChanged(bootDelay);
     }
-    emit bootDelayChanged(bootDelay);
 }
 #endif
 

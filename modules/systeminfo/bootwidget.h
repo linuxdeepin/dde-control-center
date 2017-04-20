@@ -13,6 +13,7 @@ namespace dcc{
 namespace systeminfo{
 
 class SystemInfoModel;
+class GrubBackgroundItem;
 class BootWidget : public ContentWidget
 {
     Q_OBJECT
@@ -38,6 +39,7 @@ private:
     SwitchWidget* m_theme;
     QListWidget* m_bootList;
     TipsLabel *m_updatingLabel;
+    GrubBackgroundItem *m_background;
 };
 
 }

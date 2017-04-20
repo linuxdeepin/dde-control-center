@@ -18,7 +18,7 @@ BootWidget::BootWidget(QWidget *parent)
     QVBoxLayout* layout = new QVBoxLayout;
     SettingsGroup *group = new SettingsGroup;
 
-    GrubBackgroundItem* background = new GrubBackgroundItem;
+    m_background = new GrubBackgroundItem;
 
     QVBoxLayout *listLayout = new QVBoxLayout;
     listLayout->setSpacing(0);
@@ -39,7 +39,7 @@ BootWidget::BootWidget(QWidget *parent)
     listLayout->addStretch();
     listLayout->addWidget(m_updatingLabel, 0, Qt::AlignHCenter);
     listLayout->addSpacing(10);
-    background->setLayout(listLayout);
+    m_background->setLayout(listLayout);
 
     m_boot = new SwitchWidget();
     m_boot->setTitle(tr("Startup Delay"));
@@ -51,7 +51,7 @@ BootWidget::BootWidget(QWidget *parent)
                                         "and the boot order can be changed by dragging the highlight"));
     label->setWordWrap(true);
 
-    group->appendItem(background);
+    group->appendItem(m_background);
     group->appendItem(m_boot);
     group->appendItem(m_theme);
 
@@ -70,6 +70,7 @@ BootWidget::BootWidget(QWidget *parent)
     connect(m_theme, SIGNAL(checkedChanged(bool)), this, SIGNAL(enableTheme(bool)));
     connect(m_boot, SIGNAL(checkedChanged(bool)), this, SIGNAL(bootdelay(bool)));
     connect(m_bootList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),this, SLOT(onCurrentItem(QListWidgetItem*,QListWidgetItem*)));
+    connect(m_background, &GrubBackgroundItem::requestEnableTheme, this, &BootWidget::enableTheme);
 }
 
 void BootWidget::setDefaultEntry(const QString &value)
@@ -94,10 +95,12 @@ void BootWidget::setModel(SystemInfoModel *model)
     connect(model, &SystemInfoModel::defaultEntryChanged, this, &BootWidget::setDefaultEntry);
     connect(model, &SystemInfoModel::updatingChanged, m_updatingLabel, &SmallLabel::setVisible);
     connect(model, &SystemInfoModel::entryListsChanged, this, &BootWidget::setEntryList);
+    connect(model, &SystemInfoModel::themeEnabledChanged, m_background, &GrubBackgroundItem::setThemeEnable);
 
     m_boot->setChecked(model->bootDelay());
     m_theme->setChecked(model->themeEnabled());
     m_updatingLabel->setVisible(model->updating());
+    m_background->setThemeEnable(model->themeEnabled());
 
     setEntryList(model->entryLists());
     setDefaultEntry(model->defaultEntry());

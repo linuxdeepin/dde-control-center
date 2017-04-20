@@ -25,6 +25,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
         m_model->setBootDelay(value > 1);
     });
     connect(m_dbusGrub, &__Grub2::UpdatingChanged, m_model, &SystemInfoModel::setUpdating);
+    connect(m_dbusGrub, &GrubDbus::serviceStartFinished, this, &SystemInfoWork::grubServerFinished);
 #endif
 
     connect(m_systemInfoInter, &__SystemInfo::DistroIDChanged, m_model, &SystemInfoModel::setDistroID);
@@ -60,23 +61,18 @@ void SystemInfoWork::loadGrubSettings()
     // the popups are really annoying sometime.
     m_dbusGrub->setSync(false);
 
-    m_model->setBootDelay(m_dbusGrub->timeout() > 1);
-    m_model->setThemeEnabled(m_dbusGrub->enableTheme());
-    m_model->setUpdating(m_dbusGrub->updating());;
-
-    getEntryTitles();
+    if (m_dbusGrub->isValid())
+        grubServerFinished();
 }
 
 void SystemInfoWork::setBootDelay(bool value)
 {
     m_dbusGrub->SetTimeout(value ? 5 : 1).waitForFinished();
-    m_model->setBootDelay(m_dbusGrub->timeout() > 1);
 }
 
 void SystemInfoWork::setEnableTheme(bool value)
 {
     m_dbusGrub->SetEnableTheme(value).waitForFinished();
-    m_model->setThemeEnabled(m_dbusGrub->enableTheme());
 }
 
 void SystemInfoWork::setDefaultEntry(const QString &entry)
@@ -85,6 +81,14 @@ void SystemInfoWork::setDefaultEntry(const QString &entry)
 
     if (m_dbusGrub->defaultEntry() != entry)
         getEntryTitles();
+}
+
+void SystemInfoWork::grubServerFinished()
+{
+    m_model->setBootDelay(m_dbusGrub->timeout() > 1);
+    m_model->setThemeEnabled(m_dbusGrub->enableTheme());
+    m_model->setUpdating(m_dbusGrub->updating());;
+    getEntryTitles();
 }
 
 void SystemInfoWork::getEntryTitles()

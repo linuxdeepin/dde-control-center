@@ -16,10 +16,16 @@ GrubBackgroundItem::GrubBackgroundItem(QFrame *parent)
                                     QDBusConnection::systemBus(), this);
 
     updateBackground(m_themeDbus->background());
-//    connect(m_themeDbus, &GrubThemeDbus::BackgroundChanged, this, &GrubBackgroundItem::updateBackground);
+    connect(m_themeDbus, &GrubThemeDbus::BackgroundChanged, this, &GrubBackgroundItem::updateBackground);
     connect(m_themeDbus, SIGNAL(propertyChanged(QString,QVariant)), this, SLOT(onProperty(QString,QVariant)));
 
     setAcceptDrops(true);
+}
+
+void GrubBackgroundItem::setThemeEnable(const bool state)
+{
+    m_themeEnable = state;
+    update();
 }
 
 void GrubBackgroundItem::paintEvent(QPaintEvent *e)
@@ -39,7 +45,12 @@ void GrubBackgroundItem::paintEvent(QPaintEvent *e)
         path.lineTo(arcR, 0);
         painter.save();
         painter.setClipPath(path);
-        painter.drawPixmap(this->rect(), m_background);
+
+        if (m_themeEnable)
+            painter.drawPixmap(this->rect(), m_background);
+        else
+            painter.fillRect(this->rect(), Qt::black);
+
         painter.restore();
         painter.end();
         if(m_isDrop){
@@ -82,12 +93,16 @@ void GrubBackgroundItem::dropEvent(QDropEvent *e)
     if(e->mimeData()->urls().isEmpty())
         return;
 
-    QString path = e->mimeData()->urls()[0].toLocalFile();
-    if(path!=""){
-        m_themeDbus->SetBackgroundSourceFile(path);
-        e->acceptProposedAction();
-        m_isDrop = false;
-        update();
+    QList<QUrl> urls = e->mimeData()->urls();
+    if (!urls.isEmpty()) {
+        QString path = urls[0].toLocalFile();
+        if(!path.isEmpty()){
+            m_themeDbus->SetBackgroundSourceFile(path);
+            e->acceptProposedAction();
+            m_isDrop = false;
+            update();
+            emit requestEnableTheme(true);
+        }
     }
 }
 

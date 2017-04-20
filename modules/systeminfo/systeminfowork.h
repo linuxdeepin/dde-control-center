@@ -33,6 +33,7 @@ public slots:
     void setBootDelay(bool value);
     void setEnableTheme(bool value);
     void setDefaultEntry(const QString& entry);
+    void grubServerFinished();
 
 private:
     void getEntryTitles();
