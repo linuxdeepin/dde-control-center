@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=Application;System;Settings
+Comment=Deepin Desktop Environment Control Center
+Encoding=UTF-8
+Exec=/usr/bin/dde-control-center
+Icon=preferences-system
+Name=Control Center
+OnlyShowIn=Deepin
+StartupNotify=false
+Terminal=false
+Type=Application

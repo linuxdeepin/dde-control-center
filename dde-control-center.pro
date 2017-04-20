@@ -16,6 +16,13 @@ isEmpty(PREFIX) {
     PREFIX = /usr
 }
 
+# check sunway
+isEqual(DCC_ENABLE_AUTOSTART, YES){
+    autostart.path = /etc/xdg/autostart
+    autostart.files = dde-control-center-autostart.desktop
+    INSTALLS += autostart
+}
+
 # add install files
 widgets.depends = helper
 #frame.depends = widgets
@@ -44,4 +51,4 @@ databases.files = data/timezone.db
 
 TRANSLATIONS = translations/dde-control-center.ts
 
-INSTALLS = binary desktop service qm_files docs databases
+INSTALLS += binary desktop service qm_files docs databases
