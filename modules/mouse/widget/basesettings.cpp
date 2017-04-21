@@ -22,19 +22,15 @@ BaseSettings::BaseSettings(QWidget *parent)
     m_mainLayout = new QVBoxLayout;
     m_mainGroup  = new SettingsGroup;
     m_leftHand   = new SwitchWidget;
-    m_naturalScroll = new SwitchWidget;
     m_isTyping   = new SwitchWidget;
     m_baseSettings = new MouseModelBaseSettings;
     m_leftHand->setTitle(tr("Left Hand"));
-    m_naturalScroll->setTitle(tr("Natural Scrolling"));
     m_isTyping->setTitle(tr("Disable the touchpad while typing"));
 
     m_leftHand->setAccessibleName("Left Hand");
-    m_naturalScroll->setAccessibleName("Natural Scrolling");
     m_isTyping->setAccessibleName("Disable the touchpad while typing");
 
     m_mainGroup->appendItem(m_leftHand);
-    m_mainGroup->appendItem(m_naturalScroll);
     m_mainGroup->appendItem(m_isTyping);
 
 
@@ -60,7 +56,6 @@ BaseSettings::BaseSettings(QWidget *parent)
     setLayout(m_mainLayout);
     connect(m_leftHand, &SwitchWidget::checkedChanged, this, &BaseSettings::requestSetLeftHand);
     connect(m_isTyping, &SwitchWidget::checkedChanged, this, &BaseSettings::requestSetDisTyping);
-    connect(m_naturalScroll, &SwitchWidget::checkedChanged, this, &BaseSettings::requestSetNaturalScroll);
 
     QSlider *slider = douSlider->slider();
     connect(slider, &QSlider::valueChanged, this, &BaseSettings::requestSetSliderValue);
@@ -82,13 +77,11 @@ void BaseSettings::setModel(MouseModelBaseSettings *const baseSettings)
     m_baseSettings = baseSettings;
 
     connect(m_baseSettings, &MouseModelBaseSettings::leftHandStateChanged, m_leftHand, &SwitchWidget::setChecked);
-    connect(m_baseSettings, &MouseModelBaseSettings::naturalScrollChanged, m_naturalScroll, &SwitchWidget::setChecked);
     connect(m_baseSettings, &MouseModelBaseSettings::disIfTypingStateChanged, m_isTyping, &SwitchWidget::setChecked);
     connect(m_baseSettings, &MouseModelBaseSettings::sliderValueChanged, this, &BaseSettings::setSliderValue);
 
     setSliderValue(m_baseSettings->getSliderValue());
     m_leftHand->setChecked(m_baseSettings->getLeftHandState());
-    m_naturalScroll->setChecked(m_baseSettings->getNaturalScroll());
     m_isTyping->setChecked(m_baseSettings->getDisIfTyping());
 }
 

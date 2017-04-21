@@ -41,7 +41,8 @@ ModuleWidget *MouseModule::moduleWidget()
         m_mouseWidget = new MouseWidget;
         m_mouseWidget->setModel(m_model);
         connect(m_mouseWidget, &MouseWidget::requestSetLeftHand, m_worker, &MouseWorker::onLeftHandStateChanged);
-        connect(m_mouseWidget, &MouseWidget::requestSetNaturalScroll, m_worker, &MouseWorker::onNaturalScrollStateChanged);
+        connect(m_mouseWidget, &MouseWidget::requestSetMouseNaturalScroll, m_worker, &MouseWorker::onMouseNaturalScrollStateChanged);
+        connect(m_mouseWidget, &MouseWidget::requestSetTouchNaturalScroll, m_worker, &MouseWorker::onTouchNaturalScrollStateChanged);
         connect(m_mouseWidget, &MouseWidget::requestSetDisTyping, m_worker, &MouseWorker::onDisTypingChanged);
         connect(m_mouseWidget, &MouseWidget::requestSetDisTouchPad, m_worker, &MouseWorker::onDisTouchPadChanged);
         connect(m_mouseWidget, &MouseWidget::requestSetTapClick, m_worker, &MouseWorker::onTapClick);

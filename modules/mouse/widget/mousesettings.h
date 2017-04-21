@@ -32,6 +32,7 @@ signals:
     void setDefault();
     void requestSetSwitch(const bool state);
     void requestSetSliderValue(const int &value);
+    void requestSetNaturalScroll(const bool state);
 
 public slots:
     void setSwitchTitle(const QString &title);
@@ -44,6 +45,7 @@ private:
     MouseModelMouseSettings *m_baseSettings;
     widgets::TitledSliderItem *m_speedSlider;
     widgets::SwitchWidget *m_switchWidget;
+    widgets::SwitchWidget *m_naturalWidget;
 };
 }
 }

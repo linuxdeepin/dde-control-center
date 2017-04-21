@@ -1067,32 +1067,27 @@
 <context>
     <name>dcc::mouse::BaseSettings</name>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="27"/>
         <source>Left Hand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="29"/>
-        <source>Natural Scrolling</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="30"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
         <source>Disable the touchpad while typing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="38"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="38"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="44"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="40"/>
         <source>Double-click Speed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1108,17 +1103,22 @@
 <context>
     <name>dcc::mouse::MouseSettings</name>
     <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="25"/>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="29"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="29"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="27"/>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="30"/>
         <source>Pointer Speed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1147,7 +1147,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <source>Mouse and Touchpad</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1395,45 +1395,45 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="65"/>
+        <location filename="../modules/network/proxypage.cpp" line="66"/>
         <source>Http Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="67"/>
-        <location filename="../modules/network/proxypage.cpp" line="72"/>
-        <location filename="../modules/network/proxypage.cpp" line="77"/>
-        <location filename="../modules/network/proxypage.cpp" line="82"/>
+        <location filename="../modules/network/proxypage.cpp" line="68"/>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="70"/>
+        <location filename="../modules/network/proxypage.cpp" line="71"/>
         <source>Https Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="75"/>
+        <location filename="../modules/network/proxypage.cpp" line="76"/>
         <source>Ftp Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="80"/>
+        <location filename="../modules/network/proxypage.cpp" line="81"/>
         <source>Socks Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="89"/>
+        <location filename="../modules/network/proxypage.cpp" line="90"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="92"/>
+        <location filename="../modules/network/proxypage.cpp" line="93"/>
         <source>Configuration URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="149"/>
+        <location filename="../modules/network/proxypage.cpp" line="150"/>
         <source>System Proxy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1733,22 +1733,22 @@
 <context>
     <name>dcc::systeminfo::BootWidget</name>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="33"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="34"/>
         <source>Updating...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="44"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="45"/>
         <source>Startup Delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="47"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="48"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="49"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="50"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
         <translation type="unfinished"></translation>
     </message>

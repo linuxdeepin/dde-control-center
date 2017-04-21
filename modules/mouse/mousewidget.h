@@ -29,7 +29,8 @@ public:
 signals:
     void setDefault();
     void requestSetLeftHand(const bool state);
-    void requestSetNaturalScroll(const bool state);
+    void requestSetMouseNaturalScroll(const bool state);
+    void requestSetTouchNaturalScroll(const bool state);
     void requestSetDisTyping(const bool state);
     void requestSetDisTouchPad(const bool state);
     void requestSetTapClick(const bool state);

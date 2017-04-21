@@ -15,14 +15,6 @@ void MouseModelBaseSettings::setLeftHandState(const bool state)
     }
 }
 
-void MouseModelBaseSettings::setNaturalScroll(const bool state)
-{
-    if (m_naturalScroll != state) {
-        m_naturalScroll = state;
-        emit naturalScrollChanged(state);
-    }
-}
-
 void MouseModelBaseSettings::setDisIfTyping(const bool state)
 {
     if (m_disIfTyping != state) {

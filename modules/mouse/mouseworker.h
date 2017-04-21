@@ -32,7 +32,8 @@ public:
 
 public slots:
     void setLeftHandState(const bool state);
-    void setNaturalScrollState(const bool state);
+    void setMouseNaturalScrollState(const bool state);
+    void setTouchNaturalScrollState(const bool state);
     void setDisTyping(const bool state);
     void setDisTouchPad(const bool state);
     void setTapClick(const bool state);
@@ -42,7 +43,8 @@ public slots:
     void setTrackPointMotionAcceleration(const double &value);
     void onDefaultReset();
     void onLeftHandStateChanged(const bool state);
-    void onNaturalScrollStateChanged(const bool state);
+    void onMouseNaturalScrollStateChanged(const bool state);
+    void onTouchNaturalScrollStateChanged(const bool state);
     void onDisTypingChanged(const bool state);
     void onDisTouchPadChanged(const bool state);
     void onTapClick(const bool state);

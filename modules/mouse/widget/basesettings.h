@@ -26,7 +26,6 @@ public:
 signals:
     void Reset();
     void requestSetLeftHand(const bool state);
-    void requestSetNaturalScroll(const bool state);
     void requestSetDisTyping(const bool state);
     void requestSetSliderValue(const int &value);
 
@@ -38,7 +37,6 @@ private:
     QVBoxLayout   *m_mainLayout;
     widgets::SettingsGroup *m_mainGroup;
     widgets::SwitchWidget  *m_leftHand;
-    widgets::SwitchWidget  *m_naturalScroll;
     widgets::SwitchWidget  *m_isTyping;
     widgets::TitledSliderItem *douSlider;
     MouseModelBaseSettings *m_baseSettings;

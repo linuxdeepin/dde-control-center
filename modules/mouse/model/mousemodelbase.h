@@ -18,13 +18,18 @@ public:
     void setExist(bool state);
     inline bool getExist(){return m_isExist;}
 
+    bool getNaturalScroll() const;
+    void setNaturalScroll(bool naturalScroll);
+
 signals:
     void sliderValueChanged(const int &value);
     void existChanged(bool state);
+    void naturalScrollChanged(bool state);
 
 private:
     int m_sliderValue;
     bool m_isExist;
+    bool m_naturalScroll;
 };
 }
 }

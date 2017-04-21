@@ -22,3 +22,16 @@ void MouseModelBase::setExist(bool state)
         emit existChanged(state);
     }
 }
+
+bool MouseModelBase::getNaturalScroll() const
+{
+    return m_naturalScroll;
+}
+
+void MouseModelBase::setNaturalScroll(bool naturalScroll)
+{
+    if (m_naturalScroll != naturalScroll) {
+        m_naturalScroll = naturalScroll;
+        emit naturalScrollChanged(naturalScroll);
+    }
+}

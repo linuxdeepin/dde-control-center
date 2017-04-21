@@ -22,6 +22,9 @@ MouseSettings::MouseSettings(const QString &title, QWidget *parent)
     m_title->setTitle(title);
     m_title->setEditEnable(false);
 
+    m_naturalWidget = new SwitchWidget(tr("Natural Scrolling"));
+    m_naturalWidget->setAccessibleName("Natural Scrolling");
+
     QStringList list;
     list << tr("Slow") << "" << "" << "" << "" << "" << tr("Fast");
     m_speedSlider = new TitledSliderItem(tr("Pointer Speed"));
@@ -38,11 +41,13 @@ MouseSettings::MouseSettings(const QString &title, QWidget *parent)
 
     m_switchWidget = new SwitchWidget;
     m_mainGroup->appendItem(m_switchWidget);
+    m_mainGroup->appendItem(m_naturalWidget);
 
     m_mainLayout->addWidget(m_mainGroup);
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
     connect(m_switchWidget, &SwitchWidget::checkedChanged, this, &MouseSettings::requestSetSwitch);
+    connect(m_naturalWidget, &SwitchWidget::checkedChanged, this, &MouseSettings::requestSetNaturalScroll);
 
     QSlider *spSlider;
     spSlider = m_speedSlider->slider();
@@ -57,7 +62,9 @@ void MouseSettings::setModel(MouseModelMouseSettings *const baseSettings)
     connect(m_baseSettings, &MouseModelMouseSettings::switchChanged, m_switchWidget, &SwitchWidget::setChecked);
     connect(m_baseSettings, &MouseModelMouseSettings::sliderValueChanged, this, &MouseSettings::setSliderValue);
     connect(m_baseSettings, &MouseModelMouseSettings::existChanged, this, &MouseSettings::setVisible);
+    connect(m_baseSettings, &MouseModelMouseSettings::naturalScrollChanged, m_naturalWidget, &SwitchWidget::setChecked);
 
+    m_naturalWidget->setChecked(m_baseSettings->getNaturalScroll());
     m_switchWidget->setChecked(m_baseSettings->getSwitchState());
     setSliderValue(m_baseSettings->getSliderValue());
     setVisible(baseSettings->getExist());

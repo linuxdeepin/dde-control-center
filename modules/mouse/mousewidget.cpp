@@ -37,7 +37,6 @@ MouseWidget::MouseWidget()
     m_centralLayout->addWidget(m_ThinkapdSettings);
 
     connect(m_baseSettings, &BaseSettings::requestSetLeftHand, this, &MouseWidget::requestSetLeftHand);
-    connect(m_baseSettings, &BaseSettings::requestSetNaturalScroll, this, &MouseWidget::requestSetNaturalScroll);
     connect(m_baseSettings, &BaseSettings::requestSetDisTyping, this, &MouseWidget::requestSetDisTyping);
     connect(m_mouseSettings, &MouseSettings::requestSetSwitch, this, &MouseWidget::requestSetDisTouchPad);
     connect(m_touchSettings, &MouseSettings::requestSetSwitch, this, &MouseWidget::requestSetTapClick);
@@ -46,6 +45,9 @@ MouseWidget::MouseWidget()
     connect(m_mouseSettings, &MouseSettings::requestSetSliderValue, this, &MouseWidget::requestSetMouseMotionAcceleration);
     connect(m_touchSettings, &MouseSettings::requestSetSliderValue, this, &MouseWidget::requestSetTouchpadMotionAcceleration);
     connect(m_ThinkapdSettings, &ThinkpadSettings::requestSetSliderValue, this, &MouseWidget::requestSetTrackPointMotionAcceleration);
+
+    connect(m_mouseSettings, &MouseSettings::requestSetNaturalScroll, this, &MouseWidget::requestSetMouseNaturalScroll);
+    connect(m_touchSettings, &MouseSettings::requestSetNaturalScroll, this, &MouseWidget::requestSetTouchNaturalScroll);
 
     setTitle(tr("Mouse and Touchpad"));
 }

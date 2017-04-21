@@ -11,8 +11,8 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
     m_model(model)
 {
     connect(m_dbusMouse, &Mouse::LeftHandedChanged, this, &MouseWorker::setLeftHandState);
-    connect(m_dbusMouse, &Mouse::NaturalScrollChanged, this, &MouseWorker::setNaturalScrollState);
-    connect(m_dbusTouchPad, &TouchPad::NaturalScrollChanged, this, &MouseWorker::setNaturalScrollState);
+    connect(m_dbusMouse, &Mouse::NaturalScrollChanged, this, &MouseWorker::setMouseNaturalScrollState);
+    connect(m_dbusTouchPad, &TouchPad::NaturalScrollChanged, this, &MouseWorker::setTouchNaturalScrollState);
     connect(m_dbusTouchPad, &TouchPad::DisableIfTypingChanged, this, &MouseWorker::setDisTyping);
     connect(m_dbusMouse, &Mouse::DoubleClickChanged, this, &MouseWorker::setDouClick);
     connect(m_dbusTouchPad, &TouchPad::DoubleClickChanged, this, &MouseWorker::setDouClick);
@@ -65,7 +65,8 @@ void MouseWorker::init()
     modelTrack->setExist(m_dbusTrackPoint->exist());
 
     setLeftHandState(m_dbusMouse->leftHanded());
-    setNaturalScrollState(m_dbusMouse->naturalScroll());
+    setMouseNaturalScrollState(m_dbusMouse->naturalScroll());
+    setTouchNaturalScrollState(m_dbusTouchPad->naturalScroll());
     setDisTyping(m_dbusTouchPad->disableIfTyping());
     setDisTouchPad(m_dbusMouse->disableTpad());
     setTapClick(m_dbusTouchPad->tapClick());
@@ -81,10 +82,16 @@ void MouseWorker::setLeftHandState(const bool state)
     modelBase->setLeftHandState(state);
 }
 
-void MouseWorker::setNaturalScrollState(const bool state)
+void MouseWorker::setMouseNaturalScrollState(const bool state)
 {
-    MouseModelBaseSettings *modelBase = m_model->getBaseSettings();
-    modelBase->setNaturalScroll(state);
+    MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
+    modelMouse->setNaturalScroll(state);
+}
+
+void MouseWorker::setTouchNaturalScrollState(const bool state)
+{
+    MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
+    modelTouch->setNaturalScroll(state);
 }
 
 void MouseWorker::setDisTyping(const bool state)
@@ -144,9 +151,13 @@ void MouseWorker::onLeftHandStateChanged(const bool state)
     m_dbusTrackPoint->setLeftHanded(state);
 }
 
-void MouseWorker::onNaturalScrollStateChanged(const bool state)
+void MouseWorker::onMouseNaturalScrollStateChanged(const bool state)
 {
     m_dbusMouse->setNaturalScroll(state);
+}
+
+void MouseWorker::onTouchNaturalScrollStateChanged(const bool state)
+{
     m_dbusTouchPad->setNaturalScroll(state);
 }
 
