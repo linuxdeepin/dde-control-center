@@ -15,13 +15,14 @@ void miracastControlDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     const bool isHoverd = index.data(MiracastControlModel::MiracastItemHoverRole).toBool();
     const bool isNext = index.data(MiracastControlModel::MiracastItemNextRole).toBool();
     const bool isHeader = !info.m_sink && info.m_link;
+    const bool isTips = !index.row();
 
     painter->setRenderHints(QPainter::Antialiasing);
 
-    if (isHoverd && !isHeader)
+    if (isHoverd && !isHeader && !isTips)
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.1 * 255));
 
-    if (isHeader)
+    if (isHeader && !isTips)
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.15 * 255));
 
     if (index.row())
@@ -43,22 +44,28 @@ void miracastControlDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     f.setWeight(isHeader ? 500 : 300);
     painter->setFont(f);
 
-    const QRect r = option.rect.marginsRemoved(QMargins(24, 0, 0, 0));
+    if (isTips)
+    {
+        painter->drawText(option.rect, Qt::AlignCenter, index.data(MiracastControlModel::MiracastDisplayRole).toString());
+    } else {
 
-    const int x = option.rect.right() - 24;
-    const int y = option.rect.top() + (option.rect.height() - 16) / 2;
+        const QRect r = option.rect.marginsRemoved(QMargins(24, 0, 0, 0));
 
-    painter->drawText(r, Qt::AlignLeft | Qt::AlignVCenter, index.data(MiracastControlModel::MiracastDisplayRole).toString());
-    if (info.m_sink) {
-        const bool connectState = index.data(MiracastControlModel::MiracastItemConnectRole).toBool();
-        if (connectState) {
-            if (isHoverd)
-                painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/disconnect.png"));
-            else
-                painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
-        }
-    } else
-        painter->drawText(QRect(option.rect.left(), option.rect.top(), option.rect.width() - 10, option.rect.height()), Qt::AlignVCenter | Qt::AlignRight, info.m_link->m_managed ? tr("Active") : tr("Inactive"));
+        const int x = option.rect.right() - 24;
+        const int y = option.rect.top() + (option.rect.height() - 16) / 2;
+
+        painter->drawText(r, Qt::AlignLeft | Qt::AlignVCenter, index.data(MiracastControlModel::MiracastDisplayRole).toString());
+        if (info.m_sink) {
+            const bool connectState = index.data(MiracastControlModel::MiracastItemConnectRole).toBool();
+            if (connectState) {
+                if (isHoverd)
+                    painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/disconnect.png"));
+                else
+                    painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
+            }
+        } else
+            painter->drawText(QRect(option.rect.left(), option.rect.top(), option.rect.width() - 10, option.rect.height()), Qt::AlignVCenter | Qt::AlignRight, info.m_link->m_managed ? tr("Active") : tr("Inactive"));
+    }
 }
 
 QSize miracastControlDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

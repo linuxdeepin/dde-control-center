@@ -10,6 +10,7 @@ MiracastControlModel::MiracastControlModel(MiracastModel *model, QObject *parent
     connect(m_miracastModel, &MiracastModel::peerAdded, this, &MiracastControlModel::onSinkAdded);
     connect(m_miracastModel, &MiracastModel::peerRemoved, this, &MiracastControlModel::onSinkRemoved);
     connect(m_miracastModel, &MiracastModel::sinkConnectedChanged, this, &MiracastControlModel::onSinkConnectedChanged);
+    connect(m_miracastModel, &MiracastModel::linkInfoChanged, this, [this] { emit dataChanged(QModelIndex(), QModelIndex()); });
 
     qRegisterMetaType<MiracastInfo>("MiracastInfo");
 }
@@ -18,7 +19,7 @@ int MiracastControlModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
 
-    int count = 0;
+    int count = 1;
     for (const auto &link : m_miracastModel->links())
         count += m_datas[link.m_dbusPath.path()].size() + 1;
 
@@ -34,15 +35,20 @@ void MiracastControlModel::setCurrentHovered(const QModelIndex &index)
 
 QVariant MiracastControlModel::data(const QModelIndex &index, int role) const
 {
-    const MiracastInfo info = itemInfo(index.row());
+    const MiracastInfo info = itemInfo(index.row() ? index.row() - 1 : 0);
 
     switch (role)
     {
     case MiracastDisplayRole:
-        if (info.m_sink)
-            return info.m_sink->m_name;
-        else
-            return info.m_link->m_name;
+        if (index.row())
+        {
+            if (info.m_sink)
+                return info.m_sink->m_name;
+            else
+                return info.m_link->m_name;
+        } else {
+            return tr("WIFI will be disconnected when enable screen projection");
+        }
     case MiracastActiveRole:
         if (info.m_sink)
             return info.m_sink->m_connected;

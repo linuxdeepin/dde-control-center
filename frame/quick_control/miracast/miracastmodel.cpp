@@ -95,9 +95,11 @@ void MiracastModel::onMiracastEvent(const uchar type, const QDBusObjectPath &pat
     case LinkManaged:
         linkByPath(path).m_managed = true;
         emit requestLinkScanning(path, true);
+        emit linkInfoChanged();
         break;
     case LinkUnmanaged:
         linkByPath(path).m_managed = false;
+        emit linkInfoChanged();
         break;
     case SinkConnected:
         emit sinkConnectedChanged(path, true);

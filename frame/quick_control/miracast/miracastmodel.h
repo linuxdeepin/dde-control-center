@@ -31,6 +31,7 @@ signals:
     void peerAdded(const SinkInfo &peer) const;
     void peerRemoved(const SinkInfo &peer) const;
     void requestLinkScanning(const QDBusObjectPath &path, const bool scanning) const;
+    void linkInfoChanged() const;
     void sinkConnectedChanged(const QDBusObjectPath &sinkPath, const bool connected) const;
 
 private:
