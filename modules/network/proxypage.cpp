@@ -34,7 +34,8 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_proxyType->addSegmented(tr("None"));
     m_proxyType->addSegmented(tr("Manual"));
     m_proxyType->addSegmented(tr("Auto"));
-    m_proxyType->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    m_proxyType->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_proxyType->setFixedHeight(30);
     m_proxyType->setStyleSheet("Dtk--Widget--DSegmentedControl {"
                                "background: transparent;"
                                "border: 1px solid #28a9f7;"
