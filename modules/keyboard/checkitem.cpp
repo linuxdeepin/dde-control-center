@@ -57,8 +57,6 @@ void CheckItem::setChecked(bool checked)
     }
     else
         m_checkBtn->hide();
-
-    emit checkedChanged(m_checked);
 }
 
 void CheckItem::onEditMode(bool value)
@@ -86,7 +84,6 @@ void CheckItem::onClick()
     if(!m_checked)
     {
         emit destroySelf(this);
-        this->deleteLater();
     }
 }
 
@@ -110,6 +107,8 @@ void CheckItem::mouseReleaseEvent(QMouseEvent *)
 
     setChecked(true);
     m_circle = 0;
+
+    emit checkedChanged(m_title->text());
 }
 }
 }

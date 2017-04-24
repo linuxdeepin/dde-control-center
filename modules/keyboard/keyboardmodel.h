@@ -30,13 +30,12 @@ public:
     explicit KeyboardModel(QObject *parent = 0);
 
     void setLayoutLists(QMap<QString, QString> lists);
-
-    QString layoutByValue(const QString& value);
     QString langByKey(const QString& key) const;
 
     QString curLayout() const;
     QString curLang() const;
-    QStringList userLayout() const;
+    QMap<QString, QString> userLayout() const;
+    QMap<QString, QString> kbLayout() const;
     QList<MetaData> langLists() const;
     bool capsLock() const;
     QMap<QStringList,int> allShortcut() const;
@@ -57,13 +56,13 @@ signals:
     void numLockChanged(bool value);
     void repeatDelayChanged(const uint value);
     void repeatIntervalChanged(const uint value);
+    void userLayoutChanged(const QString &id, const QString &value);
+    void langChanged(const QList<MetaData> &data);
 
 public slots:
     void setLayout(const QString& value);
     void setLang(const QString& value);
-    void setUserLayout(const QStringList& list);
-    void addUserLayout(const QString& value);
-    void delUserLayout(const QString& value);
+    void addUserLayout(const QString& id, const QString& value);
     void setLocaleList(const QList<MetaData>& langs);
     void setCapsLock(bool value);
     void setAllShortcut(const QMap<QStringList,int> &map);
@@ -75,7 +74,7 @@ private:
     uint m_repeatDelay;
     QString m_layout;
     QString m_lang;
-    QStringList m_userLayout;
+    QMap<QString, QString> m_userLayout;
     QMap<QString, QString> m_layouts;
     QList<MetaData> m_langs;
     QMap<QStringList,int> m_shortcutMap;

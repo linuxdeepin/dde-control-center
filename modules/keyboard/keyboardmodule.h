@@ -44,11 +44,7 @@ public slots:
     void onPushLanguage();
     void onPushShortcut();
     void onPushCustomShortcut();
-
-    void onKeyboardLayoutSelected();
-
     void setCurrentLayout(const QString &value);
-    void setCurrentLang();
     void setCapsLock(bool value);
 
     void onSetLocale(const QModelIndex &index);

@@ -6,6 +6,7 @@
 #include "settingshead.h"
 #include "checkitem.h"
 #include "indexmodel.h"
+#include "keyboardmodel.h"
 
 using namespace dcc::widgets;
 
@@ -17,27 +18,27 @@ class KeyboardDetails : public ContentWidget
 
 public:
     explicit KeyboardDetails(QWidget* parent = 0);
-    void setDefaultString(const MetaData& layout);
+    void setModel(KeyboardModel * model);
 
 signals:
     void layoutAdded();
-    void curLayout(const QString& value);
+    void requestCurLayoutAdded(const QString& value);
     void curLang(const QString& value);
     void delUserLayout(const QString& value);
 
 public slots:
-    void onAddKeyboard(const MetaData& value);
+    void onAddKeyboard(const QString &id, const QString &value);
     void onEdit(bool value);
-    void setCurrentLayout(bool value);
     void onRemoveLayout(CheckItem* item);
+    void onDefault(const QString &value);
 
 private:
     bool m_bEdit;
     SettingsGroup* m_group;
     SettingsHead* m_head;
-    CheckItem* m_default;
     QList<MetaData> m_datas;
-    QMap<QString, QString> m_maps;
+    QMap<QString, CheckItem*> m_maps;
+    KeyboardModel *m_model;
 };
 }
 }

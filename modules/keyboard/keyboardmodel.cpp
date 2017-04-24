@@ -13,11 +13,6 @@ void KeyboardModel::setLayoutLists(QMap<QString, QString> lists)
     m_layouts = lists;
 }
 
-QString KeyboardModel::layoutByValue(const QString &value)
-{
-    return m_layouts.value(value);
-}
-
 QString KeyboardModel::langByKey(const QString &key) const
 {
     QList<MetaData>::const_iterator it = m_langs.begin();
@@ -37,11 +32,11 @@ void KeyboardModel::setLayout(const QString &key)
     if (key.isEmpty())
         return;
 
-    QString value = m_layouts.value(key);
-    if(m_layout == value)
+    if(m_layout == key)
         return ;
 
-    m_layout = value;
+    m_layout = key;
+
     emit curLayoutChanged(m_layout);
 }
 
@@ -54,23 +49,16 @@ void KeyboardModel::setLang(const QString &value)
 {
     if (m_lang != value && !value.isEmpty()) {
         m_lang = value;
-        emit curLangChanged(langByKey(m_lang));
+
+        emit curLangChanged(langByKey(value));
     }
-}
-
-void KeyboardModel::addUserLayout(const QString &value)
-{
-    m_userLayout.append(value);
-}
-
-void KeyboardModel::delUserLayout(const QString &value)
-{
-    m_userLayout.removeOne(value);
 }
 
 void KeyboardModel::setLocaleList(const QList<MetaData> &langs)
 {
     m_langs = langs;
+
+    emit langChanged(langs);
 }
 
 void KeyboardModel::setCapsLock(bool value)
@@ -130,14 +118,22 @@ QString KeyboardModel::curLang() const
     return langByKey(m_lang);
 }
 
-void KeyboardModel::setUserLayout(const QStringList &list)
-{
-    m_userLayout = list;
-}
-
-QStringList KeyboardModel::userLayout() const
+QMap<QString, QString> KeyboardModel::userLayout() const
 {
     return m_userLayout;
+}
+
+QMap<QString, QString> KeyboardModel::kbLayout() const
+{
+    return m_layouts;
+}
+
+void KeyboardModel::addUserLayout(const QString &id, const QString &value)
+{
+    if (!m_userLayout.contains(id)) {
+        m_userLayout.insert(id, value);
+        emit userLayoutChanged(id, value);
+    }
 }
 
 QList<MetaData> KeyboardModel::langLists() const

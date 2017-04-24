@@ -53,31 +53,35 @@ LangWidget::LangWidget(KeyboardModel *model, QWidget *parent)
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
     connect(m_view, SIGNAL(clicked(QModelIndex)), this, SIGNAL(click(QModelIndex)));
 
-    setCurLang(m_keyboardModel->curLang());
+    connect(m_keyboardModel, &KeyboardModel::langChanged, this, &LangWidget::setModelData);
+    connect(m_keyboardModel, &KeyboardModel::curLangChanged, this, &LangWidget::setCurLang);
+
     setModelData(m_keyboardModel->langLists());
+    setCurLang(m_keyboardModel->curLang());
 }
 
 void LangWidget::setModelData(const QList<MetaData> &datas)
 {
-    QList<MetaData>::const_iterator it = datas.begin();
+    m_datas = datas;
+    m_model->setMetaData(datas);
+    m_view->setModel(m_model);
+    m_view->setItemDelegate(m_delegate);
+}
+
+void LangWidget::setCurLang(const QString &lang)
+{
+    QList<MetaData>::const_iterator it = m_datas.begin();
     int index = 0;
-    for(; it != datas.end(); ++it)
+    for(; it != m_datas.end(); ++it)
     {
-        if((*it).text() == m_curLang)
+        if((*it).text() == lang)
         {
             break;
         }
         index++;
     }
-    m_model->setMetaData(datas);
-    m_view->setModel(m_model);
-    m_view->setItemDelegate(m_delegate);
 
-    m_view->setCurrentIndex(m_model->index(index));}
-
-void LangWidget::setCurLang(const QString &lang)
-{
-    m_curLang = lang;
+    m_view->setCurrentIndex(m_model->index(index));
 }
 
 void LangWidget::onSearch(const QString &text)

@@ -24,20 +24,19 @@ class LangWidget : public ContentWidget
 
 public:
     explicit LangWidget(KeyboardModel *model, QWidget *parent = 0);
-    void setModelData(const QList<MetaData>& datas);
-    void setCurLang(const QString& lang);
 
 signals:
     void click(const QModelIndex& index);
 
 public slots:
     void onSearch(const QString& text);
+    void setCurLang(const QString& lang);
+    void setModelData(const QList<MetaData>& datas);
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    QString m_curLang;
     SearchInput* m_search;
     IndexDelegate* m_delegate;
     IndexView* m_view;
@@ -46,6 +45,7 @@ private:
     KeyboardModel *m_keyboardModel;
     DGraphicsClipEffect *m_clipEffectWidget;
     TranslucentFrame* m_contentWidget;
+    QList<MetaData> m_datas;
 };
 }
 }

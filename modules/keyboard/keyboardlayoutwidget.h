@@ -28,13 +28,12 @@ public:
 
     void setMetaData(const QList<MetaData>& datas);
     void setLetters(QList<QString> letters);
-    QList<MetaData> selectData() const;
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
 signals:
-    void layoutSelected();
+    void layoutSelected(const QString &value);
 
 public slots:
     void onSearch(const QString& text);

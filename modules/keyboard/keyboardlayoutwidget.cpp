@@ -86,21 +86,6 @@ void KeyboardLayoutWidget::setLetters(QList<QString> letters)
     m_indexframe->setLetters(letters);
 }
 
-QList<MetaData> KeyboardLayoutWidget::selectData() const
-{
-    QModelIndex index = m_view->currentIndex();
-    QList<MetaData> datas;
-
-    if(index.isValid())
-    {
-        QVariant var = index.data();
-        MetaData md = var.value<MetaData>();
-        datas.append(md);
-    }
-
-    return datas;
-}
-
 void KeyboardLayoutWidget::onSearch(const QString &text)
 {
     if(text.length() == 0)
@@ -126,9 +111,12 @@ void KeyboardLayoutWidget::onSearch(const QString &text)
     }
 }
 
-void KeyboardLayoutWidget::onItemClicked(const QModelIndex &)
+void KeyboardLayoutWidget::onItemClicked(const QModelIndex &index)
 {
-    emit layoutSelected();
+    QVariant var = index.data();
+    MetaData md = var.value<MetaData>();
+
+    emit layoutSelected(md.text());
     emit back();
 }
 

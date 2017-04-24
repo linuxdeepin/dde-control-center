@@ -22,7 +22,7 @@ public:
     void setChecked(bool checked);
 
 signals:
-    void checkedChanged(bool checked);
+    void checkedChanged(const QString &title);
     void destroySelf(CheckItem* item);
 
 public slots:

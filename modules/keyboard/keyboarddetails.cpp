@@ -11,8 +11,7 @@ namespace dcc {
 namespace keyboard{
 KeyboardDetails::KeyboardDetails(QWidget *parent)
     :ContentWidget(parent),
-      m_bEdit(false),
-      m_default(nullptr)
+      m_bEdit(false)
 {
     TranslucentFrame* content = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
@@ -41,37 +40,39 @@ KeyboardDetails::KeyboardDetails(QWidget *parent)
     connect(m_head, SIGNAL(editChanged(bool)), this ,SLOT(onEdit(bool)));
 }
 
-void KeyboardDetails::setDefaultString(const MetaData &layout)
+void KeyboardDetails::setModel(KeyboardModel *model)
 {
-    if(m_default)
-    {
-        m_default->setTitle(layout.text());
-        m_default->setChecked(true);
+    m_model = model;
+
+    connect(model, &KeyboardModel::userLayoutChanged, this, &KeyboardDetails::onAddKeyboard);
+    connect(model, &KeyboardModel::curLayoutChanged, this, &KeyboardDetails::onDefault);
+
+    QMap<QString, QString> map = model->userLayout();
+
+    for (auto i(map.begin()); i != map.end(); ++i) {
+        onAddKeyboard(i.key(), i.value());
     }
 }
 
-void KeyboardDetails::onAddKeyboard(const MetaData &value)
+void KeyboardDetails::onAddKeyboard(const QString &id, const QString &value)
 {
-    if(m_maps.contains(value.key()))
+    if(m_maps.contains(id))
         return;
 
     CheckItem* checkItem = new CheckItem();
     connect(m_head, SIGNAL(editChanged(bool)), checkItem, SLOT(onEditMode(bool)));
-    connect(checkItem, SIGNAL(checkedChanged(bool)), this, SLOT(setCurrentLayout(bool)));
+    connect(checkItem, &CheckItem::checkedChanged, this, &KeyboardDetails::requestCurLayoutAdded);
     connect(checkItem, SIGNAL(destroySelf(CheckItem*)), this, SLOT(onRemoveLayout(CheckItem*)));
 
-    checkItem->setTitle(value.text());
+    checkItem->setTitle(value);
     checkItem->onEditMode(m_bEdit);
 
     m_group->appendItem(checkItem);
-    m_maps[value.key()] = value.text();
-    if(value.selected())
-    {
-        m_default = checkItem;
-        m_default->setChecked(true);
-    }
+    m_maps[id] = checkItem;
 
     m_head->setEditEnable(m_maps.size() > 1);
+
+    onDefault(m_model->curLayout());
 }
 
 void KeyboardDetails::onEdit(bool value)
@@ -79,34 +80,27 @@ void KeyboardDetails::onEdit(bool value)
     m_bEdit = value;
 }
 
-void KeyboardDetails::setCurrentLayout(bool value)
-{
-    CheckItem* item = qobject_cast<CheckItem*>(this->sender());
-    if(m_default == item)
-        return;
-
-    if(value && item)
-    {
-        m_default->setChecked(false);
-        item->setChecked(true);
-        m_default = item;
-
-        emit curLayout(m_maps.key(item->title()));
-    }
-}
-
 void KeyboardDetails::onRemoveLayout(CheckItem *item)
 {
     if(item)
     {
         m_group->removeItem(item);
-        emit delUserLayout(m_maps.key(item->title()));
-        m_maps.remove(m_maps.key(item->title()));
+        emit delUserLayout(item->title());
+        m_maps.remove(item->title());
+        item->deleteLater();
     }
 
     if (m_maps.size() < 2)
     {
         m_head->setEditEnable(false);
+    }
+}
+
+void KeyboardDetails::onDefault(const QString &value)
+{
+    for (auto i(m_maps.begin()); i != m_maps.end(); ++i) {
+       CheckItem *item = i.value();
+       item->setChecked(item->title() == value);
     }
 }
 

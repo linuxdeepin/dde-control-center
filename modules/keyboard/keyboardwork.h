@@ -28,14 +28,9 @@ public:
         alt = 4,
         shift = 8
     };
-    void getProperty();
     inline QList<MetaData> getDatas() {return m_metaDatas;}
     inline QList<QString> getLetters() {return m_letters;}
 
-    QString curLang() const;
-    QString curLayout() const;
-    QStringList userLayout() const;
-    KeyboardLayoutList layoutLists() const;
     void modifyShortcut(ShortcutInfo* info, const QString& key, bool clear = false);
     void modifyShortcutEdit(ShortcutInfo* info);
     void addCustomShortcut(const QString& name, const QString& command, const QString& accels, bool &result);
@@ -55,6 +50,8 @@ public:
     void deactive();
     bool keyOccupy(const QStringList &list);
 
+    void onRefreshKBLayout();
+
 signals:
     void shortcutInfo(const QString& info);
     void customInfo(const QString& info);
@@ -71,6 +68,13 @@ public slots:
     void onAdded(const QString&in0, int in1);
     void onDisableShortcut(ShortcutInfo* info);
     void onAddedFinished(QDBusPendingCallWatcher *watch);
+    void onLayoutListsFinished(QDBusPendingCallWatcher *watch);
+    void onLocalListsFinished(QDBusPendingCallWatcher *watch);
+    void onUserLayout(const QStringList &list);
+    void onUserLayoutFinished(QDBusPendingCallWatcher *watch);
+    void onCurrentLayout(const QString &value);
+    void onCurrentLayoutFinished(QDBusPendingCallWatcher *watch);
+    void onPinyin();
 
 private:
     void append(const MetaData& md);

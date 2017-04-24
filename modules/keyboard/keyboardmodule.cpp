@@ -195,35 +195,26 @@ void KeyboardModule::onPushKeyboard()
 {
     if(!m_kbLayoutWidget)
     {
+        m_work->onPinyin();
         m_kbLayoutWidget = new KeyboardLayoutWidget();
         m_kbLayoutWidget->setMetaData(m_work->getDatas());
         m_kbLayoutWidget->setLetters(m_work->getLetters());
 
-        connect(m_kbLayoutWidget, SIGNAL(layoutSelected()), this, SLOT(onKeyboardLayoutSelected()));
+        connect(m_kbLayoutWidget, &KeyboardLayoutWidget::layoutSelected, m_work, &KeyboardWork::addUserLayout);
     }
     m_frameProxy->pushWidget(this, m_kbLayoutWidget);
 }
 
 void KeyboardModule::onPushKBDetails()
 {
+    m_work->onRefreshKBLayout();
+
     if(!m_kbDetails)
     {
         m_kbDetails = new KeyboardDetails();
-        QStringList userlayout = m_model->userLayout();
-        QString cur = m_model->curLayout();
-        for(int i = 0; i<userlayout.count(); i++)
-        {
-            MetaData md;
-            QString key = userlayout.at(i);
-            QString text = m_model->layoutByValue(key);
-
-            md.setKey(key);
-            md.setText(text);
-            md.setSelected(text == cur);
-            m_kbDetails->onAddKeyboard(md);
-        }
+        m_kbDetails->setModel(m_model);
         connect(m_kbDetails, SIGNAL(layoutAdded()), this, SLOT(onPushKeyboard()));
-        connect(m_kbDetails, SIGNAL(curLayout(QString)), this, SLOT(setCurrentLayout(QString)));
+        connect(m_kbDetails, SIGNAL(requestCurLayoutAdded(QString)), this, SLOT(setCurrentLayout(QString)));
         connect(m_kbDetails, SIGNAL(delUserLayout(QString)), m_work, SLOT(delUserLayout(QString)));
     }
 
@@ -269,31 +260,9 @@ void KeyboardModule::onPushCustomShortcut()
     m_frameProxy->pushWidget(this, m_customContent);
 }
 
-void KeyboardModule::onKeyboardLayoutSelected()
-{
-    if(m_kbLayoutWidget)
-    {
-        QList<MetaData> datas = m_kbLayoutWidget->selectData();
-        for(int i = 0; i<datas.count(); i++)
-        {
-            if(m_kbDetails)
-            {
-                MetaData data = datas.at(i);
-                m_kbDetails->onAddKeyboard(data);
-                m_work->addUserLayout(data.key());
-            }
-        }
-    }
-}
-
 void KeyboardModule::setCurrentLayout(const QString& value)
 {
-    m_work->setLayout(value);
-}
-
-void KeyboardModule::setCurrentLang()
-{
-
+    m_work->setLayout(m_model->userLayout().key(value));
 }
 
 void KeyboardModule::onSetLocale(const QModelIndex &index)
