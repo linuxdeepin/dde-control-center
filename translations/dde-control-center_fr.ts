@@ -40,7 +40,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="75"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nouveaux paramètres personnalisés</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
@@ -65,6 +65,14 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="92"/>
         <source>Click to enter Display Module</source>
+        <translation>Cliquez pour entrer dans le module d&apos;affichage</translation>
+    </message>
+</context>
+<context>
+    <name>MiracastControlModel</name>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontrolmodel.cpp" line="50"/>
+        <source>WIFI will be disconnected when enable screen projection</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -73,7 +81,7 @@
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="131"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navigation</translation>
     </message>
 </context>
 <context>
@@ -175,7 +183,7 @@
         <translation>Cliquez sur l&apos;icône pour activer le WIFI</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="183"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="185"/>
         <source>Wireless Card %1</source>
         <translation>Carte réseau sans-fil %1</translation>
     </message>
@@ -359,7 +367,7 @@
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="100"/>
-        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="101"/>
+        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="98"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -774,7 +782,7 @@
     <name>dcc::keyboard::CustomEdit</name>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="30"/>
-        <location filename="../modules/keyboard/customedit.cpp" line="79"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="78"/>
         <source>Shortcuts</source>
         <translation>Raccourcis </translation>
     </message>
@@ -794,32 +802,32 @@
         <translation>Sauvegarder</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="83"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="82"/>
         <source>Name</source>
         <translation>Nom</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="84"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="83"/>
         <source>Command</source>
         <translation>Commande</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="104"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="103"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Ce raccourci est en conflit avec %1, cliquez sur Ajouter pour le rendre effectif</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="116"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="115"/>
         <source>Choose File</source>
         <translation>Choisir fichier</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="116"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="115"/>
         <source>/usr/bin</source>
         <translation>/usr/bin </translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="125"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="124"/>
         <source>null</source>
         <translation>Invalide</translation>
     </message>
@@ -851,15 +859,15 @@
         <translation>Raccourci </translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="111"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="136"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="141"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="103"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="128"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="133"/>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Entrez un raccourci</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="166"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="197"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="158"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="189"/>
         <source>Conflict</source>
         <translation>Conflit </translation>
     </message>
@@ -1065,32 +1073,27 @@
 <context>
     <name>dcc::mouse::BaseSettings</name>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="27"/>
         <source>Left Hand</source>
         <translation>Main gauche</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="29"/>
-        <source>Natural Scrolling</source>
-        <translation>Défilement naturel</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="30"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
         <source>Disable the touchpad while typing</source>
         <translation>Désactiver le pavé tactile pendant l&apos;écriture</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="38"/>
         <source>Slow</source>
         <translation>Lent</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="38"/>
         <source>Fast</source>
         <translation>Rapide</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="44"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="40"/>
         <source>Double-click Speed</source>
         <translation>Vitesse du double clic</translation>
     </message>
@@ -1106,17 +1109,22 @@
 <context>
     <name>dcc::mouse::MouseSettings</name>
     <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="25"/>
+        <source>Natural Scrolling</source>
+        <translation>Défilement naturel</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="29"/>
         <source>Slow</source>
         <translation>Lent</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="29"/>
         <source>Fast</source>
         <translation>Rapide</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="27"/>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="30"/>
         <source>Pointer Speed</source>
         <translation>Vitesse du curseur</translation>
     </message>
@@ -1145,7 +1153,7 @@
         <translation>Tapoter pour cliquer</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <source>Mouse and Touchpad</source>
         <translation>Souris et Touchpad</translation>
     </message>
@@ -1202,7 +1210,7 @@
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="308"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="389"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="390"/>
         <source>Required</source>
         <translation>Requis</translation>
     </message>
@@ -1393,45 +1401,45 @@
         <translation>Automatique</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="65"/>
+        <location filename="../modules/network/proxypage.cpp" line="66"/>
         <source>Http Proxy</source>
         <translation>Proxy http</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="67"/>
-        <location filename="../modules/network/proxypage.cpp" line="72"/>
-        <location filename="../modules/network/proxypage.cpp" line="77"/>
-        <location filename="../modules/network/proxypage.cpp" line="82"/>
+        <location filename="../modules/network/proxypage.cpp" line="68"/>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="70"/>
+        <location filename="../modules/network/proxypage.cpp" line="71"/>
         <source>Https Proxy</source>
         <translation>Proxy https</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="75"/>
+        <location filename="../modules/network/proxypage.cpp" line="76"/>
         <source>Ftp Proxy</source>
         <translation>Proxy ftp</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="80"/>
+        <location filename="../modules/network/proxypage.cpp" line="81"/>
         <source>Socks Proxy</source>
         <translation>Socks Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="89"/>
+        <location filename="../modules/network/proxypage.cpp" line="90"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Ignorer la configuration de proxy pour les hôtes et les domaines</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="92"/>
+        <location filename="../modules/network/proxypage.cpp" line="93"/>
         <source>Configuration URL</source>
         <translation>URL de configuration</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="149"/>
+        <location filename="../modules/network/proxypage.cpp" line="150"/>
         <source>System Proxy</source>
         <translation>Proxy système</translation>
     </message>
@@ -1731,22 +1739,22 @@
 <context>
     <name>dcc::systeminfo::BootWidget</name>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="33"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="34"/>
         <source>Updating...</source>
         <translation>Mise à jour...</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="44"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="45"/>
         <source>Startup Delay</source>
         <translation>Délai au démarrage</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="47"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="48"/>
         <source>Theme</source>
         <translation>Thème</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="49"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="50"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
         <translation>L&apos;image de démarrage peut être remplacée par un glisser-déposer, et l&apos;ordre de démarrage peut être modifié en séléctionnant avec la surbrillance</translation>
     </message>
@@ -1793,6 +1801,11 @@
         <translation>Type : </translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <source>Boot Menu</source>
+        <translation>Démarrage</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="118"/>
         <source>%1Bit</source>
         <translation>%1Bit </translation>
@@ -1816,11 +1829,6 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
         <source>License</source>
         <translation>Licence </translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <source>Startup Menu</source>
-        <translation>Menu de démarrage</translation>
     </message>
 </context>
 <context>
@@ -1884,7 +1892,7 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 téléchargés (Cliquer pour pause)</translation>
     </message>
@@ -1908,23 +1916,28 @@
         <source>Your system is up to date</source>
         <translation>Votre système est à jour.</translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
-        <source>New system edition and %1 application updates detected</source>
-        <translation>Nouvelle édition du système et %1 mises à jour d&apos;applications disponibles</translation>
+        <source>%n application update(s) detected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="175"/>
+        <source>New system edition and %n application update(s) detected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="180"/>
         <source>Update size: %1</source>
         <translation>Taille de la mise à jour: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="194"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Votre batterie est faible à plus de 50%, veuillez vous branchez pour continuer</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Assurez-vous d&apos;avoir votre batterie suffisamment remplie pour redémarrer, et veuillez ne pas éteindre ou débrancher votre appareil</translation>
     </message>
@@ -2038,14 +2051,14 @@
 <context>
     <name>miracastControlDelegate</name>
     <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
         <source>Inactive</source>
-        <translation type="unfinished"/>
+        <translation>Inactif</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
         <source>Active</source>
-        <translation type="unfinished"/>
+        <translation>Actif</translation>
     </message>
 </context>
 </TS>

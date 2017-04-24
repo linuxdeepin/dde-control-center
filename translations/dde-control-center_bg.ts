@@ -40,7 +40,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="75"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>Нови потребителски настройки</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
@@ -65,6 +65,14 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="92"/>
         <source>Click to enter Display Module</source>
+        <translation>Кликнете за да влезете в модула на дисплея</translation>
+    </message>
+</context>
+<context>
+    <name>MiracastControlModel</name>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontrolmodel.cpp" line="50"/>
+        <source>WIFI will be disconnected when enable screen projection</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -73,7 +81,7 @@
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="131"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Навигация</translation>
     </message>
 </context>
 <context>
@@ -128,12 +136,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="12"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Актуализации</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="13"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Засечени са актуализации, кликнете за да ги видите</translation>
     </message>
 </context>
 <context>
@@ -175,7 +183,7 @@
         <translation>Кликнете върху иконата за да включите WIFI устройството </translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="183"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="185"/>
         <source>Wireless Card %1</source>
         <translation>Безжична карта %1</translation>
     </message>
@@ -319,7 +327,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>За да изтриете акаунта са необходими администраторски права</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
@@ -359,7 +367,7 @@
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="100"/>
-        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="101"/>
+        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="98"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -603,7 +611,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="18"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Промяна</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="20"/>
@@ -613,12 +621,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="23"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>Моля, преминете на текущия режим, преди да промените настройките</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="25"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>Моля, преминете на друг режим, преди да изтриете настройките</translation>
     </message>
 </context>
 <context>
@@ -631,7 +639,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="26"/>
         <source>New custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Нови потребителски настройки</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="28"/>
@@ -655,7 +663,7 @@
     <message>
         <location filename="../modules/display/displayworker.cpp" line="115"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>Моите настройки %1</translation>
     </message>
 </context>
 <context>
@@ -774,7 +782,7 @@
     <name>dcc::keyboard::CustomEdit</name>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="30"/>
-        <location filename="../modules/keyboard/customedit.cpp" line="79"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="78"/>
         <source>Shortcuts</source>
         <translation>Кратки пътища</translation>
     </message>
@@ -794,32 +802,32 @@
         <translation>Запазване</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="83"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="82"/>
         <source>Name</source>
         <translation>Име</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="84"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="83"/>
         <source>Command</source>
         <translation>Команда</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="104"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="103"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Този кратък път е в конфликт с %1, щракнете на Добави, за да го активирате</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="116"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="115"/>
         <source>Choose File</source>
         <translation>Изберете файл</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="116"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="115"/>
         <source>/usr/bin</source>
         <translation>/usr/bin</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="125"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="124"/>
         <source>null</source>
         <translation>null</translation>
     </message>
@@ -851,15 +859,15 @@
         <translation> Кратък път</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="111"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="136"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="141"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="103"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="128"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="133"/>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Моля, въведете клавишна комбинация</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="166"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="197"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="158"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="189"/>
         <source>Conflict</source>
         <translation>Конфликт</translation>
     </message>
@@ -980,7 +988,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Моля, нулирайте клавишната комбинация</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
@@ -1065,32 +1073,27 @@
 <context>
     <name>dcc::mouse::BaseSettings</name>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="27"/>
         <source>Left Hand</source>
         <translation>лява ръка</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="29"/>
-        <source>Natural Scrolling</source>
-        <translation>Нормално превъртане</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="30"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
         <source>Disable the touchpad while typing</source>
         <translation>Изключване на тъчпада по време на писане</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="38"/>
         <source>Slow</source>
         <translation>Бавно</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="38"/>
         <source>Fast</source>
         <translation>Бързо</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="44"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="40"/>
         <source>Double-click Speed</source>
         <translation>Скорост при двойно кликване</translation>
     </message>
@@ -1106,17 +1109,22 @@
 <context>
     <name>dcc::mouse::MouseSettings</name>
     <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="25"/>
+        <source>Natural Scrolling</source>
+        <translation>Нормално превъртане</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="29"/>
         <source>Slow</source>
         <translation>Бавно</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="29"/>
         <source>Fast</source>
         <translation>Бързо</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="27"/>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="30"/>
         <source>Pointer Speed</source>
         <translation>Скорост на показалеца</translation>
     </message>
@@ -1145,7 +1153,7 @@
         <translation>Натиск за щракване</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <source>Mouse and Touchpad</source>
         <translation>Мишка и Тъчпад</translation>
     </message>
@@ -1202,7 +1210,7 @@
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="308"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="389"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="390"/>
         <source>Required</source>
         <translation>Задължителен </translation>
     </message>
@@ -1265,7 +1273,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Удостоверяване</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1393,45 +1401,45 @@
         <translation>Автоматично</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="65"/>
+        <location filename="../modules/network/proxypage.cpp" line="66"/>
         <source>Http Proxy</source>
         <translation>Http Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="67"/>
-        <location filename="../modules/network/proxypage.cpp" line="72"/>
-        <location filename="../modules/network/proxypage.cpp" line="77"/>
-        <location filename="../modules/network/proxypage.cpp" line="82"/>
+        <location filename="../modules/network/proxypage.cpp" line="68"/>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>Port</source>
         <translation>Порт</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="70"/>
+        <location filename="../modules/network/proxypage.cpp" line="71"/>
         <source>Https Proxy</source>
         <translation>Https Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="75"/>
+        <location filename="../modules/network/proxypage.cpp" line="76"/>
         <source>Ftp Proxy</source>
         <translation>Ftp Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="80"/>
+        <location filename="../modules/network/proxypage.cpp" line="81"/>
         <source>Socks Proxy</source>
         <translation>Socks Прокси</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="89"/>
+        <location filename="../modules/network/proxypage.cpp" line="90"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Не използвай прокси за горните хостове и домейни</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="92"/>
+        <location filename="../modules/network/proxypage.cpp" line="93"/>
         <source>Configuration URL</source>
         <translation>Конфигуриране на URL</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="149"/>
+        <location filename="../modules/network/proxypage.cpp" line="150"/>
         <source>System Proxy</source>
         <translation>Системен прокси сървър</translation>
     </message>
@@ -1731,22 +1739,22 @@
 <context>
     <name>dcc::systeminfo::BootWidget</name>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="33"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="34"/>
         <source>Updating...</source>
         <translation>Актуализиране...</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="44"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="45"/>
         <source>Startup Delay</source>
         <translation>Отсрочка преди стартиране</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="47"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="48"/>
         <source>Theme</source>
         <translation>Тема</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="49"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="50"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
         <translation>Изображението при зареждане може да бъде заменено с изтегляне на друго върху него него, и последователността на зареждане може да се променя чрез преместване на маркера</translation>
     </message>
@@ -1785,12 +1793,17 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
         <source>Edition License:</source>
-        <translation type="unfinished"/>
+        <translation>Лиценз на изданието:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Type:</source>
         <translation>Тип:</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <source>Boot Menu</source>
+        <translation>Boot Меню</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="118"/>
@@ -1816,11 +1829,6 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
         <source>License</source>
         <translation>Лиценз</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <source>Startup Menu</source>
-        <translation>Стартово меню</translation>
     </message>
 </context>
 <context>
@@ -1884,7 +1892,7 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 свалени (Кликнете за пауза)</translation>
     </message>
@@ -1908,23 +1916,28 @@
         <source>Your system is up to date</source>
         <translation>Вашата система  е актуализирана</translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
-        <source>New system edition and %1 application updates detected</source>
-        <translation>Нова версия на системата и %1 обновления на приложенията са засечени</translation>
+        <source>%n application update(s) detected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="175"/>
+        <source>New system edition and %n application update(s) detected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="180"/>
         <source>Update size: %1</source>
         <translation>Размер на обновленията: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="194"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Вашата батерия е заредена под 50%, моля, включете за да продължите</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Моля, осигурете достатъчно мощност, за рестартиране - не изключвайте захранването и не изваждайте захранващия кабел от вашата машина</translation>
     </message>
@@ -2038,14 +2051,14 @@
 <context>
     <name>miracastControlDelegate</name>
     <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
         <source>Inactive</source>
-        <translation type="unfinished"/>
+        <translation>Неактивно</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
         <source>Active</source>
-        <translation type="unfinished"/>
+        <translation>Активно</translation>
     </message>
 </context>
 </TS>

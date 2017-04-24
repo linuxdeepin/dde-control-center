@@ -69,6 +69,14 @@
     </message>
 </context>
 <context>
+    <name>MiracastControlModel</name>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontrolmodel.cpp" line="50"/>
+        <source>WIFI will be disconnected when enable screen projection</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>NavWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="131"/>
@@ -175,7 +183,7 @@
         <translation>Kliknite na ikono, da vklopite WiFi</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="183"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="185"/>
         <source>Wireless Card %1</source>
         <translation>Brezžična kartica %1</translation>
     </message>
@@ -359,7 +367,7 @@
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="100"/>
-        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="101"/>
+        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="98"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -774,7 +782,7 @@
     <name>dcc::keyboard::CustomEdit</name>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="30"/>
-        <location filename="../modules/keyboard/customedit.cpp" line="79"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="78"/>
         <source>Shortcuts</source>
         <translation>Bližnjice</translation>
     </message>
@@ -794,32 +802,32 @@
         <translation>Shrani</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="83"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="82"/>
         <source>Name</source>
         <translation>Ime</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="84"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="83"/>
         <source>Command</source>
         <translation>Ukaz</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="104"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="103"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Ta bližnjica se križa z/s %1. Lahko jo takoj omogočite s klikom na Dodaj</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="116"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="115"/>
         <source>Choose File</source>
         <translation>Izberi datoteko</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="116"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="115"/>
         <source>/usr/bin</source>
         <translation>/usr/bin</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="125"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="124"/>
         <source>null</source>
         <translation>nič</translation>
     </message>
@@ -851,15 +859,15 @@
         <translation>Bližnjica</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="111"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="136"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="141"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="103"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="128"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="133"/>
         <source>Please enter a shortcut</source>
         <translation>Prosim, vnesite bližnjico</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="166"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="197"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="158"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="189"/>
         <source>Conflict</source>
         <translation>Sporno</translation>
     </message>
@@ -1065,32 +1073,27 @@
 <context>
     <name>dcc::mouse::BaseSettings</name>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="27"/>
         <source>Left Hand</source>
         <translation>Leva roka</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="29"/>
-        <source>Natural Scrolling</source>
-        <translation>Naravni drsnik</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="30"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
         <source>Disable the touchpad while typing</source>
         <translation>Med tipkanjem izklopi drsno ploščico</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="38"/>
         <source>Slow</source>
         <translation>Počasi</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="42"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="38"/>
         <source>Fast</source>
         <translation>Hitro</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="44"/>
+        <location filename="../modules/mouse/widget/basesettings.cpp" line="40"/>
         <source>Double-click Speed</source>
         <translation>Hitrost dvoklika</translation>
     </message>
@@ -1106,17 +1109,22 @@
 <context>
     <name>dcc::mouse::MouseSettings</name>
     <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="25"/>
+        <source>Natural Scrolling</source>
+        <translation>Naravni drsnik</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="29"/>
         <source>Slow</source>
         <translation>Počasi</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="26"/>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="29"/>
         <source>Fast</source>
         <translation>Hitro</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="27"/>
+        <location filename="../modules/mouse/widget/mousesettings.cpp" line="30"/>
         <source>Pointer Speed</source>
         <translation>Hitrost kazalca</translation>
     </message>
@@ -1145,7 +1153,7 @@
         <translation>Dotakni se za klik</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <source>Mouse and Touchpad</source>
         <translation>Miška in drsna ploščica</translation>
     </message>
@@ -1202,7 +1210,7 @@
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="308"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="389"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="390"/>
         <source>Required</source>
         <translation>Zahtevano</translation>
     </message>
@@ -1393,45 +1401,45 @@
         <translation>Samodejno</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="65"/>
+        <location filename="../modules/network/proxypage.cpp" line="66"/>
         <source>Http Proxy</source>
         <translation>Http Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="67"/>
-        <location filename="../modules/network/proxypage.cpp" line="72"/>
-        <location filename="../modules/network/proxypage.cpp" line="77"/>
-        <location filename="../modules/network/proxypage.cpp" line="82"/>
+        <location filename="../modules/network/proxypage.cpp" line="68"/>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>Port</source>
         <translation>Vrata</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="70"/>
+        <location filename="../modules/network/proxypage.cpp" line="71"/>
         <source>Https Proxy</source>
         <translation>Https Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="75"/>
+        <location filename="../modules/network/proxypage.cpp" line="76"/>
         <source>Ftp Proxy</source>
         <translation>Ftp Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="80"/>
+        <location filename="../modules/network/proxypage.cpp" line="81"/>
         <source>Socks Proxy</source>
         <translation>Proxy vodila</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="89"/>
+        <location filename="../modules/network/proxypage.cpp" line="90"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Prezri proxy nastavitve za zgornje gostitelje in domene</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="92"/>
+        <location filename="../modules/network/proxypage.cpp" line="93"/>
         <source>Configuration URL</source>
         <translation>Konfiguracija URL-ja</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="149"/>
+        <location filename="../modules/network/proxypage.cpp" line="150"/>
         <source>System Proxy</source>
         <translation>Sistemski proxy</translation>
     </message>
@@ -1731,22 +1739,22 @@
 <context>
     <name>dcc::systeminfo::BootWidget</name>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="33"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="34"/>
         <source>Updating...</source>
         <translation>Posodabljanje...</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="44"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="45"/>
         <source>Startup Delay</source>
         <translation>Zamik ob zagonu</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="47"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="48"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="49"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="50"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
         <translation>Sliko ob zagonu lahko zamenjate tako, da povlečete k njej drugo, in zaporedje ob zagonu lahko spremenite tako, da povlečete izbor</translation>
     </message>
@@ -1793,6 +1801,11 @@
         <translation>Vrsta:</translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <source>Boot Menu</source>
+        <translation>Meni zagona</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="118"/>
         <source>%1Bit</source>
         <translation>%1Bit</translation>
@@ -1816,11 +1829,6 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
         <source>License</source>
         <translation>Licenca</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <source>Startup Menu</source>
-        <translation>Začetni meni</translation>
     </message>
 </context>
 <context>
@@ -1884,7 +1892,7 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 prenesenega (Kliknite za premor)</translation>
     </message>
@@ -1908,23 +1916,28 @@
         <source>Your system is up to date</source>
         <translation>Tvoj sistem je posodobljen</translation>
     </message>
-    <message>
+    <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
-        <source>New system edition and %1 application updates detected</source>
-        <translation>Zaznane nova različica sistema in %1 programskih posodobitev</translation>
+        <source>%n application update(s) detected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="175"/>
+        <source>New system edition and %n application update(s) detected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="180"/>
         <source>Update size: %1</source>
         <translation>Velikost posodobitve: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="194"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Baterija je na manj kot 50%, za nadaljevanje priključite v napajanje</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Prosim, prepričajte se, da je za ponoven zagon dovolj energije, in ne ugasnite ali odklopite naprave iz napajanja</translation>
     </message>
@@ -2038,12 +2051,12 @@
 <context>
     <name>miracastControlDelegate</name>
     <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
         <source>Inactive</source>
         <translation>Neaktivno</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
         <source>Active</source>
         <translation>Aktivno</translation>
     </message>
