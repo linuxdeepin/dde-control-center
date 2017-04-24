@@ -153,7 +153,7 @@ MainWidget::MainWidget(Frame *parent)
     centralLayout->setMargin(0);
 
     connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded, Qt::QueuedConnection);
-    connect(m_pluginsController, &PluginsController::requestModulePage, this, &MainWidget::showSettingPage);
+    connect(m_pluginsController, &PluginsController::requestModulePage, this, &MainWidget::showSettingPage, Qt::QueuedConnection);
     connect(m_indicatorWidget, &IndicatorWidget::requestNext, this, &MainWidget::showPrevPlugin);
     connect(m_indicatorWidget, &IndicatorWidget::requestPrevious, this, &MainWidget::showNextPlugin);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestDetailConfig, this, &MainWidget::showAllSettings);

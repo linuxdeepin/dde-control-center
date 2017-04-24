@@ -37,6 +37,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *e);
 
 private slots:
+    void loadModules();
     void loadModule(ModuleInterface * const module);
     void onModuleInitFinished(ModuleInterface * const inter);
     void ensureModuleVisible(const QString &moduleName);

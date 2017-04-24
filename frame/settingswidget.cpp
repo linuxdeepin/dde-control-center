@@ -54,23 +54,6 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
     m_navModel = new NavgationModel;
 
-    loadModule(new accounts::AccountsModule(this));
-    loadModule(new display::DisplayModule(this));
-    loadModule(new defapp::DefaultAppsModule(this));
-    loadModule(new personalization::PersonalizationModule(this));
-    loadModule(new network::NetworkModule(this));
-    loadModule(new bluetooth::BluetoothModule(this));
-    loadModule(new sound::SoundModule(this));
-    loadModule(new DatetimeModule(this));
-    loadModule(new power::PowerModule(this));
-    loadModule(new mouse::MouseModule(this));
-    loadModule(new KeyboardModule(this));
-    loadModule(new wacom::WacomModule(this));
-#ifndef DISABLE_SYS_UPDATE
-    loadModule(new UpdateModule(this));
-#endif
-    loadModule(new SystemInfoModule(this));
-
     m_settingsWidget->setLayout(m_settingsLayout);
 
     m_navTips = new NormalLabel;
@@ -117,6 +100,8 @@ SettingsWidget::SettingsWidget(Frame *frame)
     connect(m_resetBtn, &QPushButton::clicked, this, &SettingsWidget::resetAllSettings);
     connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, m_refershModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_refershModuleActivableTimer, &QTimer::timeout, this, &SettingsWidget::refershModuleActivable);
+
+    QMetaObject::invokeMethod(this, "loadModules", Qt::QueuedConnection);
 }
 
 void SettingsWidget::contentPopuped(ContentWidget *const w)
@@ -162,12 +147,33 @@ void SettingsWidget::mouseReleaseEvent(QMouseEvent *e)
         emit back();
 }
 
+void SettingsWidget::loadModules()
+{
+    loadModule(new accounts::AccountsModule(this));
+    loadModule(new display::DisplayModule(this));
+    loadModule(new defapp::DefaultAppsModule(this));
+    loadModule(new personalization::PersonalizationModule(this));
+    loadModule(new network::NetworkModule(this));
+    loadModule(new bluetooth::BluetoothModule(this));
+    loadModule(new sound::SoundModule(this));
+    loadModule(new DatetimeModule(this));
+    loadModule(new power::PowerModule(this));
+    loadModule(new mouse::MouseModule(this));
+    loadModule(new KeyboardModule(this));
+    loadModule(new wacom::WacomModule(this));
+#ifndef DISABLE_SYS_UPDATE
+    loadModule(new UpdateModule(this));
+#endif
+    loadModule(new SystemInfoModule(this));
+}
+
 void SettingsWidget::loadModule(ModuleInterface *const module)
 {
     Q_ASSERT(!m_moduleInterfaces.contains(module));
     Q_ASSERT(!m_moduleWidgets.contains(module));
 
     m_moduleInterfaces.append(module);
+
     m_moduleWidgets.insert(module, QList<ContentWidget *>());
     m_navModel->appendAvailableItem(module->name());
     m_navModel->insertItem(module->name());
@@ -175,6 +181,10 @@ void SettingsWidget::loadModule(ModuleInterface *const module)
     ModuleInitThread *thrd = new ModuleInitThread(module, this);
     connect(thrd, &ModuleInitThread::moduleInitFinished, this, &SettingsWidget::onModuleInitFinished, Qt::QueuedConnection);
     connect(thrd, &ModuleInitThread::finished, thrd, &ModuleInitThread::deleteLater, Qt::QueuedConnection);
+
+    if (module->name() == m_ensureVisibleModule)
+        return thrd->start(QThread::HighestPriority);
+
     QTimer::singleShot(m_moduleLoadDelay, thrd, [=] { thrd->start(QThread::LowestPriority); });
 
     m_moduleLoadDelay += 50;
@@ -213,7 +223,7 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
     }
 
     // show page
-    if (m_ensureVisibleModule == module->name() && !m_ensureVisiblePage.isEmpty())
+    if (m_ensureVisibleModule == module->name())
         QTimer::singleShot(10, this, [=] { showModulePage(m_ensureVisibleModule, m_ensureVisiblePage); });
 }
 

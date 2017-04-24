@@ -40,6 +40,10 @@ Frame::Frame(QWidget *parent)
     connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hide);
 
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
+
+#ifdef DCC_KEEP_SETTINGS_LIVE
+    initAllSettings();
+#endif
 }
 
 void Frame::startup()
@@ -54,6 +58,7 @@ void Frame::pushWidget(ContentWidget *const w)
     FrameWidget *fw = new FrameWidget(this);
     fw->setContent(w);
     fw->show();
+    w->setVisible(true);
 
     m_frameWidgetStack.last()->hide();
     m_frameWidgetStack.push(fw);
@@ -110,6 +115,7 @@ void Frame::initAllSettings()
 {
     if (!m_allSettingsPage) {
         m_allSettingsPage = new SettingsWidget(this);
+        m_allSettingsPage->setVisible(false);
 
         connect(m_allSettingsPage, &SettingsWidget::requestAutohide, this, &Frame::setAutoHide);
     }
@@ -138,7 +144,8 @@ void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
         showAllSettings();
 
     // show specificed page
-    m_allSettingsPage->showModulePage(moduleName, pageName);
+//    m_allSettingsPage->showModulePage(moduleName, pageName);
+    QMetaObject::invokeMethod(m_allSettingsPage, "showModulePage", Qt::QueuedConnection, Q_ARG(QString, moduleName), Q_ARG(QString, pageName));
 
     if (m_appearAnimation.startValue().toRect().width() != 0)
         show();
@@ -165,8 +172,10 @@ void Frame::contentDetached(QWidget *const c)
     }
 
     // delete all settings panel
+#ifndef DCC_KEEP_SETTINGS_LIVE
     m_allSettingsPage->deleteLater();
     m_allSettingsPage = nullptr;
+#endif
 }
 
 void Frame::onScreenRectChanged(const QRect &primaryRect)
