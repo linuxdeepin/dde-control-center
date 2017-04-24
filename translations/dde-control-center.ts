@@ -71,6 +71,14 @@
     </message>
 </context>
 <context>
+    <name>MiracastControlModel</name>
+    <message>
+        <location filename="../frame/quick_control/miracast/miracastcontrolmodel.cpp" line="50"/>
+        <source>WIFI will be disconnected when enable screen projection</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NavWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="131"/>
@@ -2049,12 +2057,12 @@
 <context>
     <name>miracastControlDelegate</name>
     <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
         <source>Inactive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="61"/>
+        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
         <source>Active</source>
         <translation type="unfinished"></translation>
     </message>
