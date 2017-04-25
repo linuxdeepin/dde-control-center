@@ -8,15 +8,15 @@ DEB_BUILD_ARCH ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
 ifeq ($(DEB_BUILD_ARCH), mips64el)
 override_dh_auto_configure:
-	qmake DCC_ENABLE_AUTOSTART=YES
+	qmake DCC_ENABLE_AUTOSTART=YES DCC_DISABLE_OPACITY_ANIMATION=YES
 endif
 
 ifeq ($(DEB_BUILD_ARCH), mipsel)
 override_dh_auto_configure:
-	qmake DCC_ENABLE_AUTOSTART=YES
+	qmake DCC_ENABLE_AUTOSTART=YES DCC_DISABLE_OPACITY_ANIMATION=YES
 endif
 
 ifeq ($(DEB_BUILD_ARCH), sw_64)
 override_dh_auto_configure:
-	qmake DCC_ENABLE_AUTOSTART=YES
+	qmake DCC_ENABLE_AUTOSTART=YES DCC_DISABLE_OPACITY_ANIMATION=YES
 endif

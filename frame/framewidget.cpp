@@ -12,11 +12,15 @@ using namespace dcc;
 FrameWidget::FrameWidget(Frame *parent)
     : TranslucentFrame(parent),
 
+#ifndef DISABLE_OPACITY_ANIMATION
       m_opacityEffect(new QGraphicsOpacityEffect(this)),
+#endif
       m_slidePosAni(new QPropertyAnimation(this, "pos")),
       m_content(nullptr)
 {
+#ifndef DISABLE_OPACITY_ANIMATION
     m_opacityEffect->setOpacity(1.0);
+#endif
     m_slidePosAni->setEasingCurve(QEasingCurve::InOutCubic);
     m_slidePosAni->setDuration(300);
 
@@ -28,6 +32,8 @@ FrameWidget::FrameWidget(Frame *parent)
     parent->installEventFilter(this);
     setFixedHeight(parent->size().height());
     setFixedWidth(FRAME_WIDTH);
+
+#ifndef DISABLE_OPACITY_ANIMATION
     setGraphicsEffect(m_opacityEffect);
 
     // change widget opacity
@@ -37,6 +43,7 @@ FrameWidget::FrameWidget(Frame *parent)
         m_opacityEffect->setEnabled(!qFuzzyCompare(opacity, 1.0));
         m_opacityEffect->setOpacity(opacity);
     });
+#endif
 }
 
 ContentWidget *FrameWidget::setContent(ContentWidget * const c)

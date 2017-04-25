@@ -48,7 +48,9 @@ private slots:
     void destroySelf();
 
 private:
+#ifndef DISABLE_OPACITY_ANIMATION
     QGraphicsOpacityEffect *m_opacityEffect;
+#endif
     QPropertyAnimation *m_slidePosAni;
 
     dcc::ContentWidget *m_content;
