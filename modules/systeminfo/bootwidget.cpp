@@ -50,6 +50,7 @@ BootWidget::BootWidget(QWidget *parent)
     TipsLabel *label = new TipsLabel(tr("The boot image can be replaced by dragging one to it, "
                                         "and the boot order can be changed by dragging the highlight"));
     label->setWordWrap(true);
+    label->setContentsMargins(20, 0, 20, 0);
 
     group->appendItem(m_background);
     group->appendItem(m_boot);
