@@ -24,9 +24,6 @@ public:
     void setLicenseBody(const QString& body);
 
 private:
-    QString getLicense(const QString& filePath, const QString& type) const;
-
-private:
     TipsLabel* m_title;
     TipsLabel* m_body;
 };
