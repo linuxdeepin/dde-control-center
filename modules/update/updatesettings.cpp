@@ -33,11 +33,16 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     label->setWordWrap(true);
     label->setContentsMargins(20, 0, 20, 0);
 
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
     m_updateMirrors = new NextPageWidget;
     m_updateMirrors->setTitle(tr("Switch Mirror"));
+#endif
 
     ug->appendItem(m_autoDownloadSwitch);
+
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
     mg->appendItem(m_updateMirrors);
+#endif
 
     layout->addWidget(ug);
     layout->addSpacing(8);
@@ -50,7 +55,10 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 
     setContent(widget);
 
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
     connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
+#endif
+
     connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoUpdate);
 
     setModel(model);
@@ -65,15 +73,23 @@ void UpdateSettings::setModel(UpdateModel *model)
             m_autoDownloadSwitch->setChecked(autoDownload);
         };
 
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
         auto setDefaultMirror = [this] (const MirrorInfo &mirror) {
             m_updateMirrors->setValue(mirror.m_name);
         };
+#endif
 
         setAutoDownload(model->autoDownloadUpdates());
+
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
         setDefaultMirror(model->defaultMirror());
+#endif
 
         connect(model, &UpdateModel::autoDownloadUpdatesChanged, this, setAutoDownload);
+
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
         connect(model, &UpdateModel::defaultMirrorChanged, this, setDefaultMirror);
+#endif
     }
 }
 

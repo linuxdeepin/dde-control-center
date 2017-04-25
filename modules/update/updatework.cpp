@@ -52,6 +52,7 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
 
 void UpdateWork::activate()
 {
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
     QDBusPendingCall call = m_updateInter->ListMirrorSources(QLocale::system().name());
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
@@ -64,8 +65,10 @@ void UpdateWork::activate()
         }
     });
 
-    m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
     m_model->setDefaultMirror(m_updateInter->mirrorSource());
+#endif
+
+    m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
     setOnBattery(m_powerInter->onBattery());
     setBatteryPercentage(m_powerInter->batteryPercentage());
 }
