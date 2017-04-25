@@ -73,7 +73,7 @@
     <message>
         <location filename="../frame/quick_control/miracast/miracastcontrolmodel.cpp" line="50"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation type="unfinished"/>
+        <translation>Wifi zal worden uitgeschakeld als schermprojectie wordt ingeschakeld</translation>
     </message>
 </context>
 <context>
@@ -92,9 +92,52 @@
         <translation>Wis alles</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="106"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="110"/>
+        <source>Yesterday</source>
+        <translation>Gisteren</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
+        <source>%n day(s) ago</source>
+        <translation><numerusform>%n dag(en) geleden</numerusform><numerusform>%n dag(en) geleden</numerusform></translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
+        <source>The day before yesterday</source>
+        <translation>Eergisteren</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifymanager.cpp" line="163"/>
         <source>No system notifications</source>
         <translation>Geen systeemmeldingen</translation>
+    </message>
+</context>
+<context>
+    <name>ReminderDialog</name>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
+        <source>Updates installed, need to restart, restart now?</source>
+        <translation>Updates zijn geïnstalleerd, herstarten noodzakelijk, nu herstarten?</translation>
+    </message>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
+        <source>Please make sure all data have been saved firstly</source>
+        <translation>Verzeker u ervan dat alle gegevens opgeslagen zijn</translation>
+    </message>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
+        <source>Cancel</source>
+        <translation>Annuleren</translation>
+    </message>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
+        <source>Shut down</source>
+        <translation>Afsluiten</translation>
+    </message>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
+        <source>Reboot</source>
+        <translation>Herstarten</translation>
     </message>
 </context>
 <context>
@@ -126,7 +169,7 @@
         <translation>Alle instellingen herstellen</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="107"/>
+        <location filename="../frame/settingswidget.cpp" line="91"/>
         <source>All Settings</source>
         <translation>Alle Instellingen</translation>
     </message>
@@ -460,28 +503,28 @@
         <translation>Automatisch synchroniseren</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="25"/>
+        <location filename="../modules/datetime/datetime.cpp" line="26"/>
         <source>Add Timezone</source>
         <translation>Tijdzone toevoegen</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="102"/>
-        <location filename="../modules/datetime/datetime.cpp" line="31"/>
+        <location filename="../modules/datetime/datetime.cpp" line="33"/>
         <source>Time and Date</source>
         <translation>Tijd en Datum</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="35"/>
+        <location filename="../modules/datetime/datetime.cpp" line="37"/>
         <source>Change System Timezone</source>
         <translation>Tijdzone Systeem wijzigen</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="42"/>
+        <location filename="../modules/datetime/datetime.cpp" line="45"/>
         <source>Time Settings</source>
         <translation>Tijdinstellingen</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="46"/>
+        <location filename="../modules/datetime/datetime.cpp" line="50"/>
         <source>Timezone List</source>
         <translation>Tijdzone lijst</translation>
     </message>
@@ -948,17 +991,17 @@
         <translation>Caps Lock-melding</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="73"/>
         <source>Keyboard Layout</source>
         <translation>Indeling Toetsenbord</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="78"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="81"/>
         <source>System Language</source>
         <translation>Systeemtaal</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="83"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="87"/>
         <source>Shortcut</source>
         <translation>Sneltoets</translation>
     </message>
@@ -966,11 +1009,11 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="169"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="181"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="199"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="208"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="345"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="136"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="148"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="166"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="175"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="308"/>
         <source>None</source>
         <translation>Geen</translation>
     </message>
@@ -1705,33 +1748,33 @@
         <translation>Ingangsvolume</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="31"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="32"/>
         <source>Feedback Volume</source>
         <translation>Terugkoppeling Volume</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="101"/>
-        <location filename="../modules/sound/soundwidget.cpp" line="39"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="41"/>
         <source>Sound</source>
         <translation>Geluid</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="41"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="43"/>
         <source>Speaker</source>
         <translation>Luidspreker</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="60"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="62"/>
         <source>Microphone</source>
         <translation>Microfoon</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="78"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="85"/>
         <source>Advanced</source>
         <translation>Geavanceerd</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="81"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="88"/>
         <source>Sound Effects</source>
         <translation>Geluidseffecten</translation>
     </message>
@@ -1762,7 +1805,7 @@
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
-        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="37"/>
+        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="61"/>
         <source>License</source>
         <translation>Licentie</translation>
     </message>
@@ -1801,12 +1844,12 @@
         <translation>Type:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="71"/>
         <source>Boot Menu</source>
         <translation>Opstartmenu</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="118"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
         <source>%1Bit</source>
         <translation>%1Bit</translation>
     </message>
@@ -1872,72 +1915,99 @@
     </message>
 </context>
 <context>
+    <name>dcc::update::ResultItem</name>
+    <message>
+        <location filename="../modules/update/resultitem.cpp" line="36"/>
+        <source>Update successfully</source>
+        <translation>Update succesvol</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/resultitem.cpp" line="37"/>
+        <source>Failed to update</source>
+        <translation>Update mislukt</translation>
+    </message>
+</context>
+<context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="107"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="25"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="28"/>
         <source>Update</source>
         <translation>Bijwerken</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="113"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
         <source>Checking for updates, please wait...</source>
         <translation>Controleren op beschikbare updates, even geduld alstublieft...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="119"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
-        <source>Download Updates</source>
-        <translation>Updates downloaden</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 gedownload (klik om te pauzeren)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="133"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="153"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>%1 gedownload (klik om verder te gaan)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="140"/>
-        <source>Restart to install updates</source>
-        <translation>Herstart om de updates te installeren</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="141"/>
-        <source>Download completed</source>
-        <translation>Download voltooid</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="148"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
         <source>Your system is up to date</source>
         <translation>Uw systeem is bijgewerkt</translation>
     </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
-        <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="175"/>
-        <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
+        <source>Please restart to use the system and applications properly after updated</source>
+        <translation>Herstart a.u.b. om het geüpdatete systeem en applicaties te gebruiken</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="180"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="135"/>
+        <source>Download and install updates</source>
+        <translation>Download en installeer updates</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="162"/>
+        <source>Install updates</source>
+        <translation>Installeer updates</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
+        <source>Updating, please wait...</source>
+        <translation>Aan het updaten, even geduld a.u.b...</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
+        <source>The newest system installed, restart to take effect</source>
+        <translation>Het nieuwste systeem is geïnstalleerd, en wordt in gebruik genomen na heropstarten</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="228"/>
+        <source>%n update(s) detected</source>
+        <translation><numerusform>%n update(s) gevonden</numerusform><numerusform>%n update(s) gevonden</numerusform></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="233"/>
+        <source>New system edition detected</source>
+        <translation>Nieuwe systeemversie gevonden</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="235"/>
+        <source>New system edition and %n update(s) detected</source>
+        <translation><numerusform>Nieuwe systeemversie en %n update(s) gevonden</numerusform><numerusform>Nieuwe systeemversie en %n update(s) gevonden</numerusform></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="241"/>
         <source>Update size: %1</source>
         <translation>Update grootte: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="194"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Uw batterij is lager dan 50%, sluit aan op het stroomnet om door te gaan</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Zorg ervoor dat er voldoende vermogen is om opnieuw op te starten. Daarnaast moet u uw systeem ook niet uitschakelen of loskoppelen.</translation>
     </message>
@@ -1968,7 +2038,7 @@
         <translation>In een draadloos of bekabeld netwerk worden updates automatisch gedownload</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="37"/>
+        <location filename="../modules/update/updatesettings.cpp" line="38"/>
         <source>Switch Mirror</source>
         <translation>Van spiegelserver wisselen</translation>
     </message>
@@ -1990,12 +2060,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="352"/>
+        <location filename="../modules/update/updatework.cpp" line="341"/>
         <source>Patches</source>
         <translation>Patches</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="354"/>
+        <location filename="../modules/update/updatework.cpp" line="344"/>
         <source>System patches.</source>
         <translation>Systeem patches.</translation>
     </message>

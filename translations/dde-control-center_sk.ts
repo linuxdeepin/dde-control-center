@@ -73,7 +73,7 @@
     <message>
         <location filename="../frame/quick_control/miracast/miracastcontrolmodel.cpp" line="50"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation type="unfinished"/>
+        <translation>Keď sa aktivuje premietanie obrazovky, WIFI sa odpojí</translation>
     </message>
 </context>
 <context>
@@ -92,9 +92,52 @@
         <translation>Zmazať všetko</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="106"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="110"/>
+        <source>Yesterday</source>
+        <translation>Včera</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
+        <source>%n day(s) ago</source>
+        <translation><numerusform>pred %1 dňom</numerusform><numerusform>pred %1 dňami</numerusform><numerusform>pred %1 dňami</numerusform></translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
+        <source>The day before yesterday</source>
+        <translation>Deň pred včerajškom</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifymanager.cpp" line="163"/>
         <source>No system notifications</source>
         <translation>Žiadne systémové upozornenia</translation>
+    </message>
+</context>
+<context>
+    <name>ReminderDialog</name>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
+        <source>Updates installed, need to restart, restart now?</source>
+        <translation>Aktualizácie nainštalované, je potrebný reštart, reštartovať teraz?</translation>
+    </message>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
+        <source>Please make sure all data have been saved firstly</source>
+        <translation>Uistite sa, že ste všetky údaje najprv uložili</translation>
+    </message>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
+        <source>Cancel</source>
+        <translation>Zrušiť</translation>
+    </message>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
+        <source>Shut down</source>
+        <translation>Vypnúť</translation>
+    </message>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
+        <source>Reboot</source>
+        <translation>Reštart</translation>
     </message>
 </context>
 <context>
@@ -126,7 +169,7 @@
         <translation>Resetovať všetky nastavenia</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="107"/>
+        <location filename="../frame/settingswidget.cpp" line="91"/>
         <source>All Settings</source>
         <translation>Všetky nastavenia</translation>
     </message>
@@ -460,28 +503,28 @@
         <translation>Automatická synchronizácia</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="25"/>
+        <location filename="../modules/datetime/datetime.cpp" line="26"/>
         <source>Add Timezone</source>
         <translation>Pridať časovú zónu</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="102"/>
-        <location filename="../modules/datetime/datetime.cpp" line="31"/>
+        <location filename="../modules/datetime/datetime.cpp" line="33"/>
         <source>Time and Date</source>
         <translation>Čas a dátum</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="35"/>
+        <location filename="../modules/datetime/datetime.cpp" line="37"/>
         <source>Change System Timezone</source>
         <translation>Zmeniť časovú zónu systému</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="42"/>
+        <location filename="../modules/datetime/datetime.cpp" line="45"/>
         <source>Time Settings</source>
         <translation>Nastavenia času</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="46"/>
+        <location filename="../modules/datetime/datetime.cpp" line="50"/>
         <source>Timezone List</source>
         <translation>Zoznam časových zón</translation>
     </message>
@@ -948,17 +991,17 @@
         <translation>Režim Caps Lock</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="73"/>
         <source>Keyboard Layout</source>
         <translation>Rozloženie klávesnice</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="78"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="81"/>
         <source>System Language</source>
         <translation>Jazyk systému</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="83"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="87"/>
         <source>Shortcut</source>
         <translation>Odkaz</translation>
     </message>
@@ -966,11 +1009,11 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="169"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="181"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="199"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="208"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="345"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="136"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="148"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="166"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="175"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="308"/>
         <source>None</source>
         <translation>Žiadne</translation>
     </message>
@@ -1705,33 +1748,33 @@
         <translation>Vstupná hlasitosť</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="31"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="32"/>
         <source>Feedback Volume</source>
         <translation>Objem spätnej väzby</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="101"/>
-        <location filename="../modules/sound/soundwidget.cpp" line="39"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="41"/>
         <source>Sound</source>
         <translation>Zvuk</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="41"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="43"/>
         <source>Speaker</source>
         <translation>Reproduktor</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="60"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="62"/>
         <source>Microphone</source>
         <translation>Mikrofón</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="78"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="85"/>
         <source>Advanced</source>
         <translation>Pokročilé</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="81"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="88"/>
         <source>Sound Effects</source>
         <translation>Zvukové efekty</translation>
     </message>
@@ -1762,7 +1805,7 @@
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
-        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="37"/>
+        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="61"/>
         <source>License</source>
         <translation>Licencia</translation>
     </message>
@@ -1801,12 +1844,12 @@
         <translation>Typ:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="71"/>
         <source>Boot Menu</source>
         <translation>Bootovacie menu</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="118"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
         <source>%1Bit</source>
         <translation>%1Bit</translation>
     </message>
@@ -1872,72 +1915,99 @@
     </message>
 </context>
 <context>
+    <name>dcc::update::ResultItem</name>
+    <message>
+        <location filename="../modules/update/resultitem.cpp" line="36"/>
+        <source>Update successfully</source>
+        <translation>Úspešná aktualizácia</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/resultitem.cpp" line="37"/>
+        <source>Failed to update</source>
+        <translation>Nepodarilo sa zaktualizovať</translation>
+    </message>
+</context>
+<context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="107"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="25"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="28"/>
         <source>Update</source>
         <translation>Aktualizácia</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="113"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
         <source>Checking for updates, please wait...</source>
         <translation>Kontrola aktualizácií, čakajte prosím...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="119"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
-        <source>Download Updates</source>
-        <translation>Stiahnuť aktualizácie</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 stiahnuté (Kliknite pre pozastavenie)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="133"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="153"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>%1 stiahnuté (Kliknite pre pokračovanie)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="140"/>
-        <source>Restart to install updates</source>
-        <translation>Reštartovať pre nainštalovanie aktualizácií</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="141"/>
-        <source>Download completed</source>
-        <translation>Sťahovanie dokončené</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="148"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
         <source>Your system is up to date</source>
         <translation>Váš systém je aktuálny</translation>
     </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
-        <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="175"/>
-        <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
+        <source>Please restart to use the system and applications properly after updated</source>
+        <translation>Prosím reštartujte pre správne fungovanie systému a aplikácií po aktualizáciách</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="180"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="135"/>
+        <source>Download and install updates</source>
+        <translation>Stiahnuť a nainštalovať aktualizácie</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="162"/>
+        <source>Install updates</source>
+        <translation>Inštalovať aktualizácie</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
+        <source>Updating, please wait...</source>
+        <translation>Aktualizujem, čakajte prosím...</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
+        <source>The newest system installed, restart to take effect</source>
+        <translation>Najnovší systém nainštalovaný, zmeny sa prejavia po reštarte</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="228"/>
+        <source>%n update(s) detected</source>
+        <translation><numerusform>%n zistená aktualizácia</numerusform><numerusform>%n zistené aktualizácie</numerusform><numerusform>%n zistené aktualizácie</numerusform></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="233"/>
+        <source>New system edition detected</source>
+        <translation>Zistené nové systémové vydanie</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="235"/>
+        <source>New system edition and %n update(s) detected</source>
+        <translation><numerusform>Zistené nové systémové vydanie a %n aktualizácia</numerusform><numerusform>Zistené nové systémové vydanie a %n aktualizácie</numerusform><numerusform>Zistené nové systémové vydanie a %n aktualizácie</numerusform></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="241"/>
         <source>Update size: %1</source>
         <translation>Veľkosť aktualizácie: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="194"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Vaša batéria klesla pod 50%, prosím, pripojte nabíjačku a pokračujte</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Prosím, zabezpečte napájanie pre reštartovanie a nevypínajte ani neodpájajte zariadenie</translation>
     </message>
@@ -1968,7 +2038,7 @@
         <translation>Aktualizácie budú automaticky stiahnuté na bezdrôtovej alebo káblovej sieti</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="37"/>
+        <location filename="../modules/update/updatesettings.cpp" line="38"/>
         <source>Switch Mirror</source>
         <translation>Prepnúť zrkadlo</translation>
     </message>
@@ -1990,12 +2060,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="352"/>
+        <location filename="../modules/update/updatework.cpp" line="341"/>
         <source>Patches</source>
         <translation>Opravné balíčky</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="354"/>
+        <location filename="../modules/update/updatework.cpp" line="344"/>
         <source>System patches.</source>
         <translation>Systémové opravné balíčky.</translation>
     </message>
