@@ -2,10 +2,9 @@
 #define DEFAPPWORKER_H
 
 #include <com_deepin_daemon_mime.h>
-#include <com_deepin_daemon_mime_media.h>
 #include <QObject>
 using com::deepin::daemon::Mime;
-using com::deepin::daemon::mime::Media;
+
 namespace dcc
 {
 namespace defapp
@@ -25,7 +24,6 @@ public slots:
     void onGetDefaultApp();
     void onGetListApps();
     void onResetTriggered();
-    void onAutoOpenChanged(const bool state);
     void onDelUserApp(const QString &mine, const QJsonObject &item);
     void onCreateFile(const QString &mime, const QFileInfo &info);
 
@@ -40,7 +38,6 @@ private slots:
 private:
     DefAppModel *m_defAppModel;
     Mime     *m_dbusManager;
-    Media       *m_dbusMedia;
 
     enum DefaultAppsCategory {
         Browser, Mail, Text, Music, Video, Picture, Terminal

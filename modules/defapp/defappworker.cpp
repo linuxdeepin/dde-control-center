@@ -11,12 +11,10 @@ using namespace dcc::defapp;
 DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     QObject(parent),
     m_defAppModel(model),
-    m_dbusManager(new Mime(ManagerService, "/com/deepin/daemon/Mime", QDBusConnection::sessionBus(), this)),
-    m_dbusMedia(new Media(ManagerService, "/com/deepin/daemon/Mime/Media", QDBusConnection::sessionBus(), this))
+    m_dbusManager(new Mime(ManagerService, "/com/deepin/daemon/Mime", QDBusConnection::sessionBus(), this))
 {
 
     m_dbusManager->setSync(false);
-    m_dbusMedia->setSync(false);
 
     m_stringToCategory.insert("Browser",     Browser);
     m_stringToCategory.insert("Mail",        Mail);
@@ -28,7 +26,6 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
 
     connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetDefaultApp);
     connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetListApps);
-    connect(m_dbusMedia, &Media::AutoOpenChanged, m_defAppModel, static_cast<void (DefAppModel::*)(const bool)>(&DefAppModel::setAutoOpen));
 
     m_userLocalPath = QDir::homePath()+ "/.local/share/applications/";
 }
@@ -36,17 +33,14 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
 void DefAppWorker::active()
 {
     m_dbusManager->blockSignals(false);
-    m_dbusMedia->blockSignals(false);
 
     onGetListApps();
     onGetDefaultApp();
-    m_defAppModel->setAutoOpen(m_dbusMedia->autoOpen());
 }
 
 void DefAppWorker::deactive()
 {
     m_dbusManager->blockSignals(true);
-    m_dbusMedia->blockSignals(true);
 }
 
 void DefAppWorker::onSetDefaultApp(const QString &category, const QJsonObject &item)
@@ -90,12 +84,6 @@ void DefAppWorker::onGetListApps()
 void DefAppWorker::onResetTriggered()
 {
     m_dbusManager->Reset();
-    m_dbusMedia->Reset();
-}
-
-void DefAppWorker::onAutoOpenChanged(const bool state)
-{
-    m_dbusMedia->EnableAutoOpen(state);
 }
 
 void DefAppWorker::onDelUserApp(const QString &mime, const QJsonObject &item)
