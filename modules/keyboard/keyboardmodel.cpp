@@ -8,10 +8,12 @@ KeyboardModel::KeyboardModel(QObject *parent)
 {
 }
 
+#ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardModel::setLayoutLists(QMap<QString, QString> lists)
 {
     m_layouts = lists;
 }
+#endif
 
 QString KeyboardModel::langByKey(const QString &key) const
 {
@@ -27,6 +29,7 @@ QString KeyboardModel::langByKey(const QString &key) const
     return QString();
 }
 
+#ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardModel::setLayout(const QString &key)
 {
     if (key.isEmpty())
@@ -39,6 +42,7 @@ void KeyboardModel::setLayout(const QString &key)
 
     emit curLayoutChanged(m_layout);
 }
+#endif
 
 QString KeyboardModel::curLayout() const
 {

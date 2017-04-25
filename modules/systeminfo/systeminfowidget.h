@@ -49,7 +49,9 @@ private:
     widgets::TitleValueItem* m_disk;
 
     widgets::NextPageWidget* m_copyright;
+#ifndef DCC_DISABLE_GRUB
     widgets::NextPageWidget* m_boot;
+#endif
     SystemInfoModel* m_model;
 };
 

@@ -48,6 +48,7 @@ ModuleWidget *DatetimeModule::moduleWidget()
 
         connect(m_datetimeWidget, &Datetime::requestSetNtp, m_work, &DatetimeWork::setNTP);
         connect(m_datetimeWidget, &Datetime::requestTimeSettings, this, &DatetimeModule::showTimeSettingsPage);
+#ifndef DCC_DISABLE_TIMEZONE
         connect(m_datetimeWidget, &Datetime::requestRemoveUserTimeZone, m_work, &DatetimeWork::removeUserTimeZone);
         connect(m_datetimeWidget, &Datetime::requestAddUserTimeZone, m_work, &DatetimeWork::addUserTimeZone);
         connect(m_datetimeWidget, &Datetime::requestSetTimeZone, m_work, &DatetimeWork::setTimezone);
@@ -58,6 +59,7 @@ ModuleWidget *DatetimeModule::moduleWidget()
         connect(m_datetimeWidget, &Datetime::requestUnhold, this, [this] {
             m_frameProxy->setFrameAutoHide(this, true);
         });
+#endif
     }
 
     return m_datetimeWidget;

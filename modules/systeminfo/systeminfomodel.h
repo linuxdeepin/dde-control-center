@@ -12,10 +12,12 @@ class SystemInfoModel : public QObject
 public:
     explicit SystemInfoModel(QObject *parent = 0);
 
+#ifndef DCC_DISABLE_GRUB
     void setEntryLists(const QStringList& list);
     QStringList entryLists() const { return m_entryLists;}
-
     QString defaultEntry() const { return m_defaultEntry;}
+#endif
+
     QString distroid() const { return m_distroid;}
     QString distrover() const { return m_distrover;}
     QString version() const { return m_version;}
@@ -24,13 +26,20 @@ public:
     QString memory() const { return m_memory;}
     QString disk() const { return m_disk;}
 
+#ifndef DCC_DISABLE_GRUB
     bool bootDelay() const;
     bool themeEnabled() const { return m_themeEnabled; }
     bool updating() const { return m_updating; }
+#endif
 
 signals:
+#ifndef DCC_DISABLE_GRUB
     void bootDelayChanged(const int timeout) const;
     void themeEnabledChanged(const bool enabled) const;
+    void entryListsChanged(const QStringList &list);
+    void defaultEntryChanged(const QString& entry);
+    void updatingChanged(const bool &updating);
+#endif
     void distroidChanged(const QString& distroid);
     void distroverChanged(const QString& distrover);
     void versionChanged(const QString& version);
@@ -38,13 +47,14 @@ signals:
     void processorChanged(const QString& processor);
     void memoryChanged(const QString& memory);
     void diskChanged(const QString& disk);
-    void entryListsChanged(const QStringList &list);
-    void defaultEntryChanged(const QString& entry);
-    void updatingChanged(const bool &updating);
 
 public slots:
+#ifndef DCC_DISABLE_GRUB
     void setBootDelay(bool bootDelay);
     void setThemeEnabled(const bool enabled);
+    void setDefaultEntry(const QString& entry);
+    void setUpdating(bool updating);
+#endif
     void setDistroID(const QString& distroid);
     void setDistroVer(const QString& distrover);
     void setVersion(const QString& version);
@@ -52,15 +62,15 @@ public slots:
     void setProcessor(const QString& processor);
     void setMemory(qulonglong memory);
     void setDisk(qulonglong disk);
-    void setDefaultEntry(const QString& entry);
-    void setUpdating(bool updating);
 
 private:
+#ifndef DCC_DISABLE_GRUB
     bool m_bootDelay;
     bool m_themeEnabled;
     bool m_updating;
     QStringList m_entryLists;
     QString m_defaultEntry;
+#endif
 
     QString m_distroid;
     QString m_distrover;

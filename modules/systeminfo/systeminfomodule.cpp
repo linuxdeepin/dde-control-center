@@ -8,7 +8,9 @@ namespace systeminfo{
 SystemInfoModule::SystemInfoModule(FrameProxyInterface *frame, QObject *parent)
     :QObject(parent),
       ModuleInterface(frame),
+#ifndef DCC_DISABLE_GRUB
       m_bootWidget(nullptr),
+#endif
       m_mainWidget(nullptr),
       m_copyrightWidget(nullptr)
 
@@ -54,7 +56,9 @@ ModuleWidget *SystemInfoModule::moduleWidget()
     {
         m_mainWidget = new SystemInfoWidget(m_model);
         connect(m_mainWidget, SIGNAL(copyright()), this, SLOT(onPushCopyright()));
+#ifndef DCC_DISABLE_GRUB
         connect(m_mainWidget, SIGNAL(boot()), this, SLOT(onPushBoot()));
+#endif
     }
 
     return m_mainWidget;
@@ -67,10 +71,12 @@ const QString SystemInfoModule::name() const
 
 void SystemInfoModule::contentPopped(ContentWidget * const w)
 {
-    if(w == m_bootWidget)
-        m_bootWidget = nullptr;
-    else if(w == m_copyrightWidget)
+    if(w == m_copyrightWidget)
         m_copyrightWidget = nullptr;
+#ifndef DCC_DISABLE_GRUB
+    else if(w == m_bootWidget)
+        m_bootWidget = nullptr;
+#endif
 
     w->deleteLater();
 }
@@ -85,6 +91,7 @@ void SystemInfoModule::onPushCopyright()
     m_frameProxy->pushWidget(this, m_copyrightWidget);
 }
 
+#ifndef DCC_DISABLE_GRUB
 void SystemInfoModule::onPushBoot()
 {
     m_work->loadGrubSettings();
@@ -101,6 +108,7 @@ void SystemInfoModule::onPushBoot()
 
     m_frameProxy->pushWidget(this, m_bootWidget);
 }
+#endif
 
 }
 }

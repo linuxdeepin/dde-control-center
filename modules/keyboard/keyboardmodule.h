@@ -9,10 +9,13 @@
 #include "keyboardwork.h"
 #include "langwidget.h"
 #include "shortcutwidget.h"
-#include "keyboarddetails.h"
 #include "keyboardcontrol.h"
 #include "shortcutcontent.h"
 #include "customcontent.h"
+
+#ifndef DCC_DISABLE_KBLAYOUT
+#include "keyboarddetails.h"
+#endif
 
 namespace dcc {
 namespace keyboard{
@@ -39,8 +42,10 @@ public:
     QString converKey(const QString &key);
 
 public slots:
+#ifndef DCC_DISABLE_KBLAYOUT
     void onPushKeyboard();
     void onPushKBDetails();
+#endif
     void onPushLanguage();
     void onPushShortcut();
     void onPushCustomShortcut();
@@ -70,8 +75,10 @@ private:
     ShortcutModel* m_shortcutModel;
     KeyboardModel* m_model;
     KeyboardWidget* m_keyboardWidget;
+#ifndef DCC_DISABLE_KBLAYOUT
     KeyboardDetails* m_kbDetails;
     KeyboardLayoutWidget* m_kbLayoutWidget;
+#endif
     ShortcutWidget* m_shortcutWidget;
     LangWidget* m_langWidget;
     ShortcutContent* m_scContent;

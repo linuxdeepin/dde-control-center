@@ -50,7 +50,9 @@ public:
     void deactive();
     bool keyOccupy(const QStringList &list);
 
+#ifndef DCC_DISABLE_KBLAYOUT
     void onRefreshKBLayout();
+#endif
 
 signals:
     void shortcutInfo(const QString& info);
@@ -68,16 +70,18 @@ public slots:
     void onAdded(const QString&in0, int in1);
     void onDisableShortcut(ShortcutInfo* info);
     void onAddedFinished(QDBusPendingCallWatcher *watch);
-    void onLayoutListsFinished(QDBusPendingCallWatcher *watch);
     void onLocalListsFinished(QDBusPendingCallWatcher *watch);
+#ifndef DCC_DISABLE_KBLAYOUT
+    void onLayoutListsFinished(QDBusPendingCallWatcher *watch);
     void onUserLayout(const QStringList &list);
     void onUserLayoutFinished(QDBusPendingCallWatcher *watch);
     void onCurrentLayout(const QString &value);
     void onCurrentLayoutFinished(QDBusPendingCallWatcher *watch);
     void onPinyin();
+    void append(const MetaData& md);
+#endif
 
 private:
-    void append(const MetaData& md);
     int converToDBusDelay(int value);
     int converToModelDelay(int value);
     int converToDBusInterval(int value);

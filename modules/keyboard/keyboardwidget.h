@@ -38,7 +38,9 @@ private:
     bool m_bDelay;
     DCCSlider* m_delaySlider;
     DCCSlider* m_speedSlider;
+#ifndef DCC_DISABLE_KBLAYOUT
     NextPageWidget* m_keyItem;
+#endif
     NextPageWidget* m_langItem;
     NextPageWidget* m_scItem;
     SwitchWidget* m_upper;

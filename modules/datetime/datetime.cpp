@@ -20,10 +20,12 @@ Datetime::Datetime()
       m_timeSettingsGroup(new SettingsGroup),
       m_ntpSwitch(new SwitchWidget(tr("Auto-Sync"))),
       m_timePageButton(new NextPageWidget),
+#ifndef DCC_DISABLE_TIMEZONE
       m_timezoneGroup(new SettingsGroup),
       m_headItem(new SettingsHead),
       m_addTimezoneButton(new QPushButton(tr("Add Timezone"))),
       m_timezoneItem(new NextPageWidget),
+#endif
       m_addTimeZone(false),
       m_dialog(new TimeZoneChooser)
 {
@@ -31,27 +33,36 @@ Datetime::Datetime()
     setTitle(tr("Time and Date"));
 
     this->installEventFilter(parent());
-
+#ifndef DCC_DISABLE_TIMEZONE
     m_timezoneItem->setTitle(tr("Change System Timezone"));
-
+#endif
     SettingsGroup *clockGroup = new SettingsGroup;
     ClockItem *clock = new ClockItem;
     clockGroup->appendItem(clock);
+#ifndef DCC_DISABLE_TIMEZONE
     clockGroup->appendItem(m_timezoneItem);
-
+#endif
     m_timePageButton->setTitle(tr("Time Settings"));
     m_timeSettingsGroup->appendItem(m_ntpSwitch);
     m_timeSettingsGroup->appendItem(m_timePageButton);
 
+#ifndef DCC_DISABLE_TIMEZONE
     m_headItem->setTitle(tr("Timezone List"));
     m_headItem->setVisible(false);
-
     m_timezoneGroup->appendItem(m_headItem);
+#endif
+
     m_centralLayout->addWidget(clockGroup);
     m_centralLayout->addWidget(m_timeSettingsGroup);
+#ifndef DCC_DISABLE_TIMEZONE
     m_centralLayout->addWidget(m_timezoneGroup);
     m_centralLayout->addWidget(m_addTimezoneButton);
+#endif
 
+    connect(m_ntpSwitch, &SwitchWidget::checkedChanged, this, &Datetime::requestSetNtp);
+    connect(m_timePageButton, &NextPageWidget::clicked, this, &Datetime::requestTimeSettings);
+
+#ifndef DCC_DISABLE_TIMEZONE
     connect(m_dialog, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
         if (m_addTimeZone) {
             emit requestAddUserTimeZone(timezone);
@@ -65,8 +76,6 @@ Datetime::Datetime()
         emit requestUnhold();
     });
 
-    connect(m_ntpSwitch, &SwitchWidget::checkedChanged, this, &Datetime::requestSetNtp);
-    connect(m_timePageButton, &NextPageWidget::clicked, this, &Datetime::requestTimeSettings);
 
     connect(m_addTimezoneButton, &QPushButton::clicked, this, [this] {
         m_addTimeZone = true;
@@ -83,6 +92,7 @@ Datetime::Datetime()
     });
 
     connect(m_headItem, &SettingsHead::editChanged, this, &Datetime::onEditClicked);
+#endif
 }
 
 Datetime::~Datetime()
@@ -93,8 +103,10 @@ void Datetime::setModel(const DatetimeModel *model)
 {
     m_model = model;
 
+#ifndef DCC_DISABLE_TIMEZONE
     connect(model, &DatetimeModel::userTimeZoneAdded, this, &Datetime::addTimezone);
     connect(model, &DatetimeModel::userTimeZoneRemoved, this, &Datetime::removeTimezone);
+#endif
 
     // we need to update all the timezone items after the system time has changed.
     connect(model, &DatetimeModel::NTPChanged, [this] (const bool &ntp){
@@ -105,14 +117,17 @@ void Datetime::setModel(const DatetimeModel *model)
         updateTimezoneItems();
     });
 
+#ifndef DCC_DISABLE_TIMEZONE
     connect(model, &DatetimeModel::systemTimeZoneIdChanged,
             this, &Datetime::updateSystemTimezone);
 
     addTimezones(model->userTimeZones());
-    m_ntpSwitch->setChecked(model->nTP());
     updateSystemTimezone(model->systemTimeZoneId());
+#endif
+    m_ntpSwitch->setChecked(model->nTP());
 }
 
+#ifndef DCC_DISABLE_TIMEZONE
 void Datetime::addTimezone(const ZoneInfo &zone)
 {
     qDebug() << "user time zone added: " << zone;
@@ -168,6 +183,7 @@ void Datetime::removeTimezone(const ZoneInfo &zone)
 
     m_headItem->setEditEnable(items.length() > 1);
 }
+#endif
 
 void Datetime::updateTimezoneItems()
 {
@@ -177,6 +193,7 @@ void Datetime::updateTimezoneItems()
     }
 }
 
+#ifndef DCC_DISABLE_TIMEZONE
 void Datetime::updateSystemTimezone(const QString &timezone)
 {
     if (timezone.isEmpty()) return;
@@ -197,6 +214,7 @@ void Datetime::onEditClicked(const bool &edit)
         }
     }
 }
+#endif
 
 }
 }

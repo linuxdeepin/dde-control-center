@@ -29,7 +29,9 @@ class KeyboardModel : public QObject
 public:
     explicit KeyboardModel(QObject *parent = 0);
 
+#ifndef DCC_DISABLE_KBLAYOUT
     void setLayoutLists(QMap<QString, QString> lists);
+#endif
     QString langByKey(const QString& key) const;
 
     QString curLayout() const;
@@ -50,7 +52,9 @@ public:
     void setNumLock(bool numLock);
 
 signals:
+#ifndef DCC_DISABLE_KBLAYOUT
     void curLayoutChanged(const QString& layout);
+#endif
     void curLangChanged(const QString& lang);
     void capsLockChanged(bool value);
     void numLockChanged(bool value);
@@ -60,7 +64,9 @@ signals:
     void langChanged(const QList<MetaData> &data);
 
 public slots:
+#ifndef DCC_DISABLE_KBLAYOUT
     void setLayout(const QString& value);
+#endif
     void setLang(const QString& value);
     void addUserLayout(const QString& id, const QString& value);
     void setLocaleList(const QList<MetaData>& langs);

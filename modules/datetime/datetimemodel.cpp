@@ -21,6 +21,7 @@ void DatetimeModel::setNTP(bool ntp)
     }
 }
 
+#ifndef DCC_DISABLE_TIMEZONE
 QString DatetimeModel::systemTimeZoneId() const
 {
     return m_systemTimeZoneId;
@@ -33,6 +34,7 @@ void DatetimeModel::setSystemTimeZoneId(const QString &systemTimeZoneId)
         emit systemTimeZoneIdChanged(systemTimeZoneId);
     }
 }
+#endif
 
 QList<ZoneInfo> DatetimeModel::userTimeZones() const
 {

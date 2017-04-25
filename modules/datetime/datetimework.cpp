@@ -23,10 +23,12 @@ static Timedate *timedateInter(QObject *parent = nullptr)
     return TimedateInter;
 }
 
+#ifndef DCC_DISABLE_TIMEZONE
 static ZoneInfo GetZoneInfo (const QString &zoneId)
 {
     return timedateInter()->GetZoneInfo(zoneId);
 }
+#endif
 
 DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     : QObject(parent),
@@ -35,8 +37,10 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
 {
     m_timedateInter->setSync(false);
 
+#ifndef DCC_DISABLE_TIMEZONE
     connect(m_timedateInter, &__Timedate::UserTimezonesChanged, this, &DatetimeWork::onTimezoneListChanged);
     connect(m_timedateInter, &__Timedate::TimezoneChanged, m_model, &DatetimeModel::setSystemTimeZoneId);
+#endif
     connect(m_timedateInter, &__Timedate::NTPChanged, m_model, &DatetimeModel::setNTP);
 }
 
@@ -50,8 +54,10 @@ DatetimeWork::~DatetimeWork()
 void DatetimeWork::activate()
 {
     m_model->setNTP(m_timedateInter->nTP());
-    onTimezoneListChanged(m_timedateInter->userTimezones());
+#ifndef DCC_DISABLE_TIMEZONE
     m_model->setSystemTimeZoneId(m_timedateInter->timezone());
+    onTimezoneListChanged(m_timedateInter->userTimezones());
+#endif
 }
 
 void DatetimeWork::deactivate()
@@ -59,9 +65,16 @@ void DatetimeWork::deactivate()
 
 }
 
-void DatetimeWork::setTimezone(const QString &timezone)
+void DatetimeWork::setNTP(bool ntp)
 {
-    m_timedateInter->SetTimezone(timezone);
+    QDBusPendingCall call = m_timedateInter->SetNTP(ntp);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        // If the call failed, revert the UI change.
+        if (call.isError()) {
+            emit m_model->NTPChanged(m_model->nTP());
+        }
+    });
 }
 
 void DatetimeWork::setDatetime(const QDateTime &datetime)
@@ -86,16 +99,10 @@ void DatetimeWork::setDatetime(const QDateTime &datetime)
     });
 }
 
-void DatetimeWork::setNTP(bool ntp)
+#ifndef DCC_DISABLE_TIMEZONE
+void DatetimeWork::setTimezone(const QString &timezone)
 {
-    QDBusPendingCall call = m_timedateInter->SetNTP(ntp);
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
-        // If the call failed, revert the UI change.
-        if (call.isError()) {
-            emit m_model->NTPChanged(m_model->nTP());
-        }
-    });
+    m_timedateInter->SetTimezone(timezone);
 }
 
 void DatetimeWork::removeUserTimeZone(const ZoneInfo &info)
@@ -133,6 +140,7 @@ void DatetimeWork::onTimezoneListChanged(const QStringList &timezones)
     QFuture<ZoneInfo> future = QtConcurrent::mapped(timezones, GetZoneInfo);
     watcher->setFuture(future);
 }
+#endif
 
 }
 }

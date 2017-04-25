@@ -22,14 +22,18 @@ public:
     void deactivate();
 
 public slots:
-    void setTimezone(const QString& timezone);
-    void setDatetime(const QDateTime &time);
     void setNTP(bool ntp);
+    void setDatetime(const QDateTime &time);
+#ifndef DCC_DISABLE_TIMEZONE
+    void setTimezone(const QString& timezone);
     void removeUserTimeZone(const ZoneInfo &info);
     void addUserTimeZone(const QString &zone);
+#endif
 
 private slots:
+#ifndef DCC_DISABLE_TIMEZONE
     void onTimezoneListChanged(const QStringList &timezones);
+#endif
 
 private:
     DatetimeModel* m_model;

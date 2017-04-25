@@ -5,7 +5,9 @@
 #include <QStackedLayout>
 #include <QPushButton>
 
+#ifndef DCC_DISABLE_MIRACAST
 class MiracastModel;
+#endif
 
 namespace dcc {
 
@@ -59,13 +61,15 @@ private slots:
     void onBluetoothButtonClicked(const bool checked);
     void onBluetoothDeviceListChanged();
     void onIndexChanged(const int index);
+#ifndef DCC_DISABLE_MIRACAST
     void onMiracastLinkListChanged();
+#endif
 
 private:
     QStackedLayout *m_itemStack;
-
+#ifndef DCC_DISABLE_MIRACAST
     MiracastModel *m_miracastModel;
-
+#endif
     dcc::network::NetworkModel *m_networkModel;
     dcc::network::NetworkWorker *m_networkWorker;
     dcc::display::DisplayModel *m_displayModel;
@@ -76,7 +80,9 @@ private:
     dcc::QuickSwitchButton *m_wifiSwitch;
     dcc::QuickSwitchButton *m_btSwitch;
     dcc::QuickSwitchButton *m_vpnSwitch;
+#ifndef DCC_DISABLE_MIRACAST
     dcc::QuickSwitchButton *m_miracastSwitch;
+#endif
     dcc::QuickSwitchButton *m_detailSwitch;
     QList<dcc::QuickSwitchButton *> m_switchs;
 };

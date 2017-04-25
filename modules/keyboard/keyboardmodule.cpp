@@ -11,8 +11,10 @@ KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
       ModuleInterface(frame),
       m_loaded(false),
       m_keyboardWidget(nullptr),
+#ifndef DCC_DISABLE_KBLAYOUT
       m_kbDetails(nullptr),
       m_kbLayoutWidget(nullptr),
+#endif
       m_shortcutWidget(nullptr),
       m_langWidget(nullptr),
       m_scContent(nullptr),
@@ -56,7 +58,9 @@ ModuleWidget *KeyboardModule::moduleWidget()
     {
         m_keyboardWidget = new KeyboardWidget(m_model);
 
+#ifndef DCC_DISABLE_KBLAYOUT
         connect(m_keyboardWidget, SIGNAL(keyoard()), this, SLOT(onPushKBDetails()));
+#endif
         connect(m_keyboardWidget, SIGNAL(language()), this, SLOT(onPushLanguage()));
         connect(m_keyboardWidget, SIGNAL(shortcut()), this, SLOT(onPushShortcut()));
         connect(m_keyboardWidget, &KeyboardWidget::delayChanged, m_work, &KeyboardWork::setRepeatDelay);
@@ -75,12 +79,14 @@ const QString KeyboardModule::name() const
 
 void KeyboardModule::contentPopped(ContentWidget * const w)
 {
-    if(w == m_kbDetails)
+    if(w == m_shortcutWidget)
+        m_shortcutWidget = nullptr;
+#ifndef DCC_DISABLE_KBLAYOUT
+    else if(w == m_kbDetails)
         m_kbDetails = nullptr;
     else if(w == m_kbLayoutWidget)
         m_kbLayoutWidget = nullptr;
-    else if(w == m_shortcutWidget)
-        m_shortcutWidget = nullptr;
+#endif
     else if(w == m_langWidget)
         m_langWidget = nullptr;
     else if(w == m_scContent)
@@ -191,6 +197,7 @@ QString KeyboardModule::converKey(const QString &key)
          return converkey;
 }
 
+#ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardModule::onPushKeyboard()
 {
     if(!m_kbLayoutWidget)
@@ -220,6 +227,7 @@ void KeyboardModule::onPushKBDetails()
 
     m_frameProxy->pushWidget(this, m_kbDetails);
 }
+#endif
 
 void KeyboardModule::onPushLanguage()
 {

@@ -21,10 +21,10 @@ public:
     QList<ZoneInfo> userTimeZones() const;
     void addUserTimeZone(const ZoneInfo &zone);
     void removeUserTimeZone(const ZoneInfo &zone);
-
+#ifndef DCC_DISABLE_TIMEZONE
     QString systemTimeZoneId() const;
     void setSystemTimeZoneId(const QString &systemTimeZoneId);
-
+#endif
 signals:
     void NTPChanged(bool value);
     void userTimeZoneAdded(const ZoneInfo &zone);
@@ -34,9 +34,10 @@ signals:
 
 private:
     bool m_ntp;
-
     QStringList m_userZoneIds;
+#ifndef DCC_DISABLE_TIMEZONE
     QString m_systemTimeZoneId;
+#endif
     QList<ZoneInfo> m_userTimeZones;
 };
 

@@ -28,6 +28,7 @@ SystemInfoModel::SystemInfoModel(QObject *parent)
 
 }
 
+#ifndef DCC_DISABLE_GRUB
 void SystemInfoModel::setEntryLists(const QStringList &list)
 {
     if (list != m_entryLists) {
@@ -73,6 +74,7 @@ void SystemInfoModel::setBootDelay(bool bootDelay)
     }
     emit bootDelayChanged(bootDelay);
 }
+#endif
 
 void SystemInfoModel::setDistroID(const QString &distroid)
 {

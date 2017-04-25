@@ -11,13 +11,13 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     m_systemInfoInter = new SystemInfoInter("com.deepin.daemon.SystemInfo",
                                             "/com/deepin/daemon/SystemInfo",
                                             QDBusConnection::sessionBus(),this);
-
+    m_systemInfoInter->setSync(false);
+#ifndef DCC_DISABLE_GRUB
     m_dbusGrub = new GrubDbus("com.deepin.daemon.Grub2",
                               "/com/deepin/daemon/Grub2",
                               QDBusConnection::systemBus(),
                               this);
 
-    m_systemInfoInter->setSync(false);
 
     connect(m_dbusGrub, &GrubDbus::DefaultEntryChanged, m_model, &SystemInfoModel::setDefaultEntry);
     connect(m_dbusGrub, &GrubDbus::EnableThemeChanged, m_model, &SystemInfoModel::setThemeEnabled);
@@ -25,6 +25,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
         m_model->setBootDelay(value > 1);
     });
     connect(m_dbusGrub, &__Grub2::UpdatingChanged, m_model, &SystemInfoModel::setUpdating);
+#endif
 
     connect(m_systemInfoInter, &__SystemInfo::DistroIDChanged, m_model, &SystemInfoModel::setDistroID);
     connect(m_systemInfoInter, &__SystemInfo::DistroVerChanged, m_model, &SystemInfoModel::setDistroVer);
@@ -51,6 +52,7 @@ void SystemInfoWork::deactivate()
 
 }
 
+#ifndef DCC_DISABLE_GRUB
 void SystemInfoWork::loadGrubSettings()
 {
     // NOTE(hualet): DO NOT move below lines to the constructor, it will start
@@ -100,6 +102,7 @@ void SystemInfoWork::getEntryTitles()
         }
     });
 }
+#endif
 
 }
 }

@@ -86,6 +86,7 @@ void BootWidget::setDefaultEntry(const QString &value)
     blockSignals(false);
 }
 
+#ifndef DCC_DISABLE_GRUB
 void BootWidget::setModel(SystemInfoModel *model)
 {
     connect(model, &SystemInfoModel::bootDelayChanged, m_boot, &SwitchWidget::setChecked);
@@ -101,6 +102,7 @@ void BootWidget::setModel(SystemInfoModel *model)
     setEntryList(model->entryLists());
     setDefaultEntry(model->defaultEntry());
 }
+#endif
 
 void BootWidget::setEntryList(const QStringList &list)
 {

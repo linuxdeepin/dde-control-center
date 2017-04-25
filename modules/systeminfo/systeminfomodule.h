@@ -34,12 +34,16 @@ public:
 
 public slots:
     void onPushCopyright();
+#ifndef DCC_DISABLE_GRUB
     void onPushBoot();
+#endif
 
 private:
     SystemInfoWork* m_work;
     SystemInfoModel* m_model;
+#ifndef DCC_DISABLE_GRUB
     BootWidget* m_bootWidget;
+#endif
     SystemInfoWidget* m_mainWidget;
     CopyrightWidget* m_copyrightWidget;
 };

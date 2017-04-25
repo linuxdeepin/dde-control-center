@@ -44,8 +44,10 @@ void KeyboardDetails::setModel(KeyboardModel *model)
 {
     m_model = model;
 
+#ifndef DCC_DISABLE_KBLAYOUT
     connect(model, &KeyboardModel::userLayoutChanged, this, &KeyboardDetails::onAddKeyboard);
     connect(model, &KeyboardModel::curLayoutChanged, this, &KeyboardDetails::onDefault);
+#endif
 
     QMap<QString, QString> map = model->userLayout();
 

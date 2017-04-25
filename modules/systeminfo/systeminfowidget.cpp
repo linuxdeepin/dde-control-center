@@ -66,18 +66,23 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     m_copyright = new NextPageWidget();
     m_copyright->setTitle(tr("License"));
 
+#ifndef DCC_DISABLE_GRUB
     m_boot = new NextPageWidget();
     m_boot->setTitle(tr("Boot Menu"));
+#endif
 
     crGroup->appendItem(m_copyright);
+#ifndef DCC_DISABLE_GRUB
     bootGroup->appendItem(m_boot);
-
+#endif
     m_centralLayout->addWidget(infoGroup);
     m_centralLayout->addWidget(crGroup);
     m_centralLayout->addWidget(bootGroup);
 
     connect(m_copyright, SIGNAL(clicked()), this, SIGNAL(copyright()));
+#ifndef DCC_DISABLE_GRUB
     connect(m_boot, SIGNAL(clicked()), this, SIGNAL(boot()));
+#endif
     connect(m_model, SIGNAL(distroidChanged(QString)), this, SLOT(setDistroID(QString)));
     connect(m_model, SIGNAL(distroverChanged(QString)), this, SLOT(setDistroVer(QString)));
     connect(m_model, SIGNAL(versionChanged(QString)), this, SLOT(setEdition(QString)));

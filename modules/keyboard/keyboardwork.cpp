@@ -28,8 +28,10 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
 {
     connect(m_keybindInter, SIGNAL(Added(QString,int)), this,SLOT(onAdded(QString,int)));
     connect(m_keybindInter, &KeybingdingInter::Deleted, this, &KeyboardWork::removed);
+#ifndef DCC_DISABLE_KBLAYOUT
     connect(m_keyboardInter, &KeyboardInter::UserLayoutListChanged, this, &KeyboardWork::onUserLayout);
     connect(m_keyboardInter, &KeyboardInter::CurrentLayoutChanged, this, &KeyboardWork::onCurrentLayout);
+#endif
     connect(m_keyboardInter, SIGNAL(CapslockToggleChanged(bool)), m_model, SLOT(setCapsLock(bool)));
     connect(m_keybindInter, &KeybingdingInter::NumLockStateChanged, m_model, &KeyboardModel::setNumLock);
     connect(m_keybindInter, &KeybingdingInter::KeyEvent, this, &KeyboardWork::KeyEvent);
@@ -102,11 +104,13 @@ bool KeyboardWork::keyOccupy(const QStringList &list)
     return true;
 }
 
+#ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardWork::onRefreshKBLayout()
 {
     QDBusPendingCallWatcher *layoutResult = new QDBusPendingCallWatcher(m_keyboardInter->LayoutList(), this);
     connect(layoutResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWork::onLayoutListsFinished);
 }
+#endif
 
 void KeyboardWork::modifyShortcut(ShortcutInfo *info, const QString &key, bool clear)
 {
@@ -297,6 +301,7 @@ void KeyboardWork::onAddedFinished(QDBusPendingCallWatcher *watch)
     watch->deleteLater();
 }
 
+#ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardWork::onLayoutListsFinished(QDBusPendingCallWatcher *watch)
 {
     QDBusPendingReply<KeyboardLayoutList> reply = *watch;
@@ -306,6 +311,7 @@ void KeyboardWork::onLayoutListsFinished(QDBusPendingCallWatcher *watch)
 
     watch->deleteLater();
 }
+#endif
 
 void KeyboardWork::onLocalListsFinished(QDBusPendingCallWatcher *watch)
 {
@@ -329,6 +335,7 @@ void KeyboardWork::onLocalListsFinished(QDBusPendingCallWatcher *watch)
     watch->deleteLater();
 }
 
+#ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardWork::onUserLayout(const QStringList &list)
 {
     m_model->userLayout().clear();
@@ -421,6 +428,7 @@ void KeyboardWork::append(const MetaData &md)
 
     m_metaDatas.append(md);
 }
+#endif
 
 int KeyboardWork::converToDBusDelay(int value)
 {

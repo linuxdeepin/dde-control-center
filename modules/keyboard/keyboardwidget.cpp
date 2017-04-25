@@ -67,11 +67,13 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     m_upper->setTitle(tr("Caps Lock Prompt"));
     keyTest->appendItem(m_upper);
 
+#ifndef DCC_DISABLE_KBLAYOUT
     SettingsGroup* keyGroup = new SettingsGroup();
     m_keyItem = new NextPageWidget();
     m_keyItem->setTitle(tr("Keyboard Layout"));
     m_keyItem->setValue(tr(""));
     keyGroup->appendItem(m_keyItem);
+#endif
 
     SettingsGroup* langGroup = new SettingsGroup();
     m_langItem = new NextPageWidget();
@@ -84,11 +86,15 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     scGroup->appendItem(m_scItem);
 
     m_centralLayout->addWidget(keyTest);
+#ifndef DCC_DISABLE_KBLAYOUT
     m_centralLayout->addWidget(keyGroup);
+#endif
     m_centralLayout->addWidget(langGroup);
     m_centralLayout->addWidget(scGroup);
 
+#ifndef DCC_DISABLE_KBLAYOUT
     connect(m_keyItem,SIGNAL(clicked()), this, SIGNAL(keyoard()));
+#endif
     connect(m_langItem, SIGNAL(clicked()), this, SIGNAL(language()));
     connect(m_scItem, SIGNAL(clicked()), this, SIGNAL(shortcut()));
     connect(m_delaySlider, &DCCSlider::valueChanged, this, &KeyboardWidget::delayChanged);
@@ -101,14 +107,18 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     connect(m_model, &KeyboardModel::repeatIntervalChanged, this, &KeyboardWidget::setSpeedValue);
     connect(m_model, &KeyboardModel::capsLockChanged,m_upper, &SwitchWidget::setChecked);
     connect(m_model, &KeyboardModel::numLockChanged, m_numLock, &SwitchWidget::setChecked);
+#ifndef DCC_DISABLE_KBLAYOUT
     connect(m_model, &KeyboardModel::curLayoutChanged, m_keyItem, &NextPageWidget::setValue);
+#endif
     connect(m_model, &KeyboardModel::curLangChanged, m_langItem, &NextPageWidget::setValue);
 
     setDelayValue(m_model->repeatDelay());
     setSpeedValue(m_model->repeatInterval());
     m_upper->setChecked(m_model->capsLock());
     m_numLock->setChecked(m_model->numLock());
+#ifndef DCC_DISABLE_KBLAYOUT
     m_keyItem->setValue(m_model->curLayout());
+#endif
     m_langItem->setValue(m_model->curLang());
 }
 

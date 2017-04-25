@@ -6,7 +6,10 @@
 #include <com_deepin_daemon_grub2.h>
 
 using SystemInfoInter=com::deepin::daemon::SystemInfo;
+
+#ifndef DCC_DISABLE_GRUB
 using GrubDbus=com::deepin::daemon::Grub2;
+#endif
 
 namespace dcc{
 namespace systeminfo{
@@ -23,6 +26,7 @@ public:
     void activate();
     void deactivate();
 
+#ifndef DCC_DISABLE_GRUB
     void loadGrubSettings();
 
 public slots:
@@ -33,10 +37,14 @@ public slots:
 private:
     void getEntryTitles();
 
+#endif
+
 private:
     SystemInfoModel* m_model;
     SystemInfoInter* m_systemInfoInter;
+#ifndef DCC_DISABLE_GRUB
     GrubDbus* m_dbusGrub;
+#endif
 };
 
 }
