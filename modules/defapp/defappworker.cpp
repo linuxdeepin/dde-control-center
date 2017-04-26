@@ -33,9 +33,6 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
 void DefAppWorker::active()
 {
     m_dbusManager->blockSignals(false);
-
-    onGetListApps();
-    onGetDefaultApp();
 }
 
 void DefAppWorker::deactive()

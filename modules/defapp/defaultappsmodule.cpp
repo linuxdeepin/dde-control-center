@@ -74,6 +74,8 @@ const QString DefaultAppsModule::name() const
 void DefaultAppsModule::showDefaultAppsDetail()
 {
     if (!m_defaultAppsDetail) {
+        m_defAppWorker->onGetListApps();
+        m_defAppWorker->onGetDefaultApp();
         m_defaultAppsDetail = new DefAppViewer();
         m_defaultAppsDetail->setModel(m_defAppModel);
         connect(this, &DefaultAppsModule::requestReset,              m_defAppWorker, &DefAppWorker::onResetTriggered);  //恢复默认
