@@ -45,12 +45,12 @@ public slots:
 private slots:
     void setCheckUpdatesJob(const QString &jobPath);
     void setDownloadJob(const QString &jobPath);
+    void onAppUpdateInfoFinished(QDBusPendingCallWatcher *w);
 
-    DownloadInfo *calculateDownloadInfo();
+    DownloadInfo *calculateDownloadInfo(const AppUpdateInfoList &list);
 
 private:
     AppUpdateInfo getInfo(const QString& packageName, const QString& currentVersion, const QString& lastVersion) const;
-    QList<AppUpdateInfo> getInfoList();
 
 private:
     UpdateModel* m_model;

@@ -176,27 +176,8 @@ void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
             m_checkUpdateJob->deleteLater();
             m_checkUpdateJob = nullptr;
 
-            QFutureWatcher<DownloadInfo*> *watcher = new QFutureWatcher<DownloadInfo*>(this);
-            connect(watcher, &QFutureWatcher<DownloadInfo*>::finished, [this, watcher] {
-                DownloadInfo *result = watcher->result();
-
-                qDebug() << "updatable packages:" <<  m_updatablePackages << result->appInfos();
-                qDebug() << "total download size:" << formatCap(result->downloadSize());
-
-                if (result->appInfos().length() == 0) {
-                    m_model->setStatus(UpdatesStatus::Updated);
-                } else {
-                    if (result->downloadSize()) {
-                        m_model->setStatus(UpdatesStatus::UpdatesAvailable);
-                        m_model->setDownloadInfo(result);
-                    } else {
-                        m_model->setStatus(UpdatesStatus::Downloaded);
-                    }
-                }
-            });
-
-            QFuture<DownloadInfo*> future = QtConcurrent::run(this, &UpdateWork::calculateDownloadInfo);
-            watcher->setFuture(future);
+            QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()), this);
+            connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWork::onAppUpdateInfoFinished);
         }
     });
 }
@@ -233,7 +214,69 @@ void UpdateWork::setDownloadJob(const QString &jobPath)
     });
 }
 
-DownloadInfo *UpdateWork::calculateDownloadInfo()
+void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<AppUpdateInfoList> reply = *w;
+
+    if (reply.isError()) {
+        qDebug() << "check for updates job success, but infolist failed." << reply.error();
+        m_model->setStatus(UpdatesStatus::Updated);
+        w->deleteLater();
+        return;
+    }
+
+    AppUpdateInfoList value = reply.value();
+    AppUpdateInfoList infos;
+
+    int pkgCount = value.count();
+    int appCount = 0;
+    bool foundDDEChangelog = false;
+
+    for (AppUpdateInfo val : reply.value()) {
+        const QString currentVer = val.m_currentVersion;
+        const QString lastVer = val.m_avilableVersion;
+        AppUpdateInfo info = getInfo(val.m_packageId, currentVer, lastVer);
+        if (val.m_packageId == "dde" && !info.m_changelog.isEmpty()) {
+            infos.prepend(info);
+            foundDDEChangelog = true;
+        } else {
+            infos << info;
+            appCount++;
+        }
+    }
+
+    if (pkgCount > appCount && !foundDDEChangelog) {
+        // If there's no actual package dde update, but there're system patches available,
+        // then fake one dde update item.
+        AppUpdateInfo ddeUpdateInfo = getInfo("dde", "", "");
+        ddeUpdateInfo.m_name = "Deepin";
+        ddeUpdateInfo.m_packageId = "dde";
+        ddeUpdateInfo.m_avilableVersion = tr("Patches");
+        if(ddeUpdateInfo.m_changelog.isEmpty())
+            ddeUpdateInfo.m_changelog = tr("System patches.");
+        infos.prepend(ddeUpdateInfo);
+    }
+
+    DownloadInfo *result = calculateDownloadInfo(infos);
+
+    qDebug() << "updatable packages:" <<  m_updatablePackages << result->appInfos();
+    qDebug() << "total download size:" << formatCap(result->downloadSize());
+
+    if (result->appInfos().length() == 0) {
+        m_model->setStatus(UpdatesStatus::Updated);
+    } else {
+        if (result->downloadSize()) {
+            m_model->setStatus(UpdatesStatus::UpdatesAvailable);
+            m_model->setDownloadInfo(result);
+        } else {
+            m_model->setStatus(UpdatesStatus::Downloaded);
+        }
+    }
+
+    w->deleteLater();
+}
+
+DownloadInfo *UpdateWork::calculateDownloadInfo(const AppUpdateInfoList &list)
 {
     // to work around a bug of lastore-daemon that update_infos.json is
     // usually generated late than the update job's done.
@@ -245,13 +288,12 @@ DownloadInfo *UpdateWork::calculateDownloadInfo()
     m_updatableApps = m_updateInter->updatableApps();
     m_updatablePackages = m_updateInter->updatablePackages();
 
-    QList<AppUpdateInfo> infos = getInfoList();
     const qlonglong size = m_managerInter->PackagesDownloadSize(m_updatablePackages);
 
     m_updateInter->setSync(false);
     m_managerInter->setSync(false);
 
-    DownloadInfo *ret = new DownloadInfo(size, infos);
+    DownloadInfo *ret = new DownloadInfo(size, list);
     return ret;
 }
 
@@ -312,54 +354,6 @@ AppUpdateInfo UpdateWork::getInfo(const QString &packageName, const QString &cur
     }
 
     return info;
-}
-
-QList<AppUpdateInfo> UpdateWork::getInfoList()
-{
-    QList<AppUpdateInfo> infos;
-    QFile updateInfos("/var/lib/lastore/update_infos.json");
-    if (updateInfos.open(QFile::ReadOnly)) {
-        QByteArray data = updateInfos.readAll();
-        QJsonDocument doc = QJsonDocument::fromJson(data);
-        QJsonArray packages = doc.array();
-
-        int pkgCount = packages.count();
-        int appCount = 0;
-        bool foundDDEChangelog = false;
-
-        for (QJsonValue val : packages) {
-            QJsonObject pack = val.toObject();
-            QString packageName = pack["Package"].toString();
-            QString metadataDir = "/lastore/metadata/" + packageName;
-
-            if (QFile::exists(metadataDir)) {
-                const QString currentVer = pack["CurrentVersion"].toString();
-                const QString lastVer = pack["LastVersion"].toString();
-                AppUpdateInfo info = getInfo(packageName, currentVer, lastVer);
-                if (packageName == "dde" && !info.m_changelog.isEmpty()) {
-                    infos.prepend(info);
-                    foundDDEChangelog = true;
-                } else {
-                    infos << info;
-                    appCount++;
-                }
-            }
-        }
-
-        if (pkgCount > appCount && !foundDDEChangelog) {
-            // If there's no actual package dde update, but there're system patches available,
-            // then fake one dde update item.
-            AppUpdateInfo ddeUpdateInfo = getInfo("dde", "", "");
-            ddeUpdateInfo.m_name = "Deepin";
-            ddeUpdateInfo.m_packageId = "dde";
-            ddeUpdateInfo.m_avilableVersion = tr("Patches");
-            if(ddeUpdateInfo.m_changelog.isEmpty())
-                ddeUpdateInfo.m_changelog = tr("System patches.");
-            infos.prepend(ddeUpdateInfo);
-        }
-    }
-
-    return infos;
 }
 
 void UpdateWork::setBatteryPercentage(const BatteryPercentageInfo &info)
