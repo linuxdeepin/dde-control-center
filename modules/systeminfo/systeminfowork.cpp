@@ -67,20 +67,35 @@ void SystemInfoWork::loadGrubSettings()
 
 void SystemInfoWork::setBootDelay(bool value)
 {
-    m_dbusGrub->SetTimeout(value ? 5 : 1).waitForFinished();
+    QDBusPendingCall call = m_dbusGrub->SetTimeout(value ? 5 : 1);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        if (call.isError()) {
+            emit m_model->bootDelayChanged(m_model->bootDelay());
+        }
+    });
 }
 
 void SystemInfoWork::setEnableTheme(bool value)
 {
-    m_dbusGrub->SetEnableTheme(value).waitForFinished();
+    QDBusPendingCall call = m_dbusGrub->SetEnableTheme(value);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        if (call.isError()) {
+            emit m_model->themeEnabledChanged(m_model->themeEnabled());
+        }
+    });
 }
 
 void SystemInfoWork::setDefaultEntry(const QString &entry)
 {
-    m_dbusGrub->SetDefaultEntry(entry).waitForFinished();
-
-    if (m_dbusGrub->defaultEntry() != entry)
-        getEntryTitles();
+    QDBusPendingCall call = m_dbusGrub->SetDefaultEntry(entry);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        if (call.isError()) {
+            emit m_model->defaultEntryChanged(m_model->defaultEntry());
+        }
+    });
 }
 
 void SystemInfoWork::grubServerFinished()
