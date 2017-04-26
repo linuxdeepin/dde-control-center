@@ -37,6 +37,7 @@ public slots:
     void setDefault();
     void onDefaultAppSet(const QJsonObject &json);
     void slotEditMode(bool edit);
+    void setCategoryName(const QString &name);
 
 private:
     void AppsItemChanged(const QList<QJsonObject> &list);

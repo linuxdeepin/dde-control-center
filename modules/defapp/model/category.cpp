@@ -32,6 +32,15 @@ void Category::setDefault(const QJsonObject &def)
     }
 }
 
+void Category::setCategory(const QString &category)
+{
+    if (m_category == category)
+        return;
+
+    m_category = category;
+    emit categoryNameChanged(category);
+}
+
 void Category::addUserItem(const QJsonObject &value)
 {
     if(!m_userlist.contains(value)) {

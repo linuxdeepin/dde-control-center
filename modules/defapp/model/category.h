@@ -18,8 +18,8 @@ public:
     void setuserList(const QList<QJsonObject> &list);
     void setDefault(const QJsonObject &def);
 
-    inline const QString getName() const { return m_category;}
-    inline void setCategory(const QString &category) { m_category = category;}
+    const QString getName() const { return m_category;}
+    void setCategory(const QString &category);
     inline const QList<QJsonObject> getappItem() const { return m_applist;}
     inline const QList<QJsonObject> getuserItem() const { return m_userlist;}
     inline const QJsonObject getDefault() { return m_default;}
@@ -31,6 +31,7 @@ signals:
     void userItemChanged(const QList<QJsonObject> &list);
     void defaultChanged(const QJsonObject &id);
     void AdduserItem(const QJsonObject &json);
+    void categoryNameChanged(const QString &name);
 
 private:
     QList<QJsonObject> m_applist;

@@ -46,6 +46,7 @@ void DefCategoryWidget::setCategory(Category *const category)
     connect(category, &Category::userItemChanged, this, &DefCategoryWidget::UserItemChanged);
     connect(category, &Category::defaultChanged, this, &DefCategoryWidget::onDefaultAppSet);
     connect(category, &Category::AdduserItem, this, &DefCategoryWidget::addUserItem);
+    connect(category, &Category::categoryNameChanged, this, &DefCategoryWidget::setCategoryName);
 
     QList<QJsonObject> it = category->getappItem();
     for (const QJsonObject list : it) {
@@ -56,8 +57,7 @@ void DefCategoryWidget::setCategory(Category *const category)
         addUserItem(list);
     }
     onDefaultAppSet(category->getDefault());
-    m_categoryName = category->getName();
-    m_addWidget->setCategory(m_categoryName);
+    setCategoryName(category->getName());
 
     if(m_userMap.empty()) {
         m_headWidget->setEditEnable(false);
@@ -130,6 +130,12 @@ void DefCategoryWidget::slotEditMode(bool edit)
             item->setDelete(edit);
         }
     }
+}
+
+void DefCategoryWidget::setCategoryName(const QString &name)
+{
+    m_categoryName = name;
+    m_addWidget->setCategory(name);
 }
 
 void DefCategoryWidget::AppsItemChanged(const QList<QJsonObject> &list)
