@@ -107,8 +107,8 @@ void Monitor::setModeList(const ResolutionList &modeList)
 {
     m_modeList.clear();
 
-    // NOTE: ignore resolution if below 800x600
+    // NOTE: ignore resolution less than 1024x768
     for (auto m : modeList)
-        if (m.width() >= 800 && m.height() >= 600)
+        if (m.width() >= 1024 && m.height() >= 768)
             m_modeList.append(m);
 }
