@@ -32,7 +32,7 @@ Frame::Frame(QWidget *parent)
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
     setMaximumWidth(FRAME_WIDTH);
-    setMaskColor(Qt::black);
+    setMaskColor(DBlurEffectWidget::DarkColor);
 
     resize(0, height());
 
