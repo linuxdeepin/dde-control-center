@@ -92,6 +92,9 @@ SettingsWidget::SettingsWidget(Frame *frame)
     m_refershModuleActivableTimer->setSingleShot(true);
     m_refershModuleActivableTimer->setInterval(500);
 
+#ifdef  DCC_KEEP_SETTINGS_LIVE
+    connect(this, &SettingsWidget::back, this, &SettingsWidget::hideNavgation);
+#endif
     connect(m_navView, &NavgationView::clicked, this, &SettingsWidget::toggleView);
     connect(m_navView, &NavgationView::entered, this, &SettingsWidget::onNavItemEntered);
     connect(m_navView, &NavgationView::entered, m_navModel, &NavgationModel::setCurrentItem);
@@ -376,4 +379,10 @@ SettingsWidget::~SettingsWidget()
     for (auto v : m_moduleWidgets)
         qDeleteAll(v);
     qDeleteAll(m_moduleInterfaces);
+}
+
+void SettingsWidget::hideNavgation()
+{
+    if (m_settingsWidget->isVisible())
+        toggleView();
 }

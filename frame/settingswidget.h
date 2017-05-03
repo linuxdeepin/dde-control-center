@@ -44,6 +44,7 @@ private slots:
     void toggleView();
     void refershModuleActivable();
     void resetAllSettings();
+    void hideNavgation();
     void onNavItemClicked(const QModelIndex &index);
     void onNavItemEntered(const QModelIndex &index);
 
