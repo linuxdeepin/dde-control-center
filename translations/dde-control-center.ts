@@ -94,22 +94,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="111"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="110"/>
         <source>yesterday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="114"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
         <source>The day before yesterday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="120"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
         <source>%1 days ago</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="164"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="163"/>
         <source>No system notifications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1909,7 +1909,7 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="186"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1937,28 +1937,33 @@
         <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
         <source>%n application update(s) detected</source>
         <translation type="unfinished">
-            <numerusform></numerusform><numerusform></numerusform>
-        </translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="175"/>
-        <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished">
-            <numerusform></numerusform><numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="180"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
+        <source>New system edition update detected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <source>New system edition and %n application update(s) detected</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>Update size: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="194"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="200"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2011,12 +2016,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="355"/>
+        <location filename="../modules/update/updatework.cpp" line="254"/>
         <source>Patches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="357"/>
+        <location filename="../modules/update/updatework.cpp" line="256"/>
         <source>System patches.</source>
         <translation type="unfinished"></translation>
     </message>
