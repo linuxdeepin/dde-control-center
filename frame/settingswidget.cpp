@@ -383,6 +383,6 @@ SettingsWidget::~SettingsWidget()
 
 void SettingsWidget::hideNavgation()
 {
-    if (m_settingsWidget->isVisible())
+    if (!m_settingsWidget->isVisible())
         toggleView();
 }
