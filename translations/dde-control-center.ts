@@ -1937,14 +1937,14 @@
         <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
         <source>%n application update(s) detected</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="175"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
+            <numerusform></numerusform><numerusform></numerusform>
         </translation>
     </message>
     <message>
