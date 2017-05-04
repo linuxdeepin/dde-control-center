@@ -53,7 +53,7 @@ private slots:
     DownloadInfo *calculateDownloadInfo(const AppUpdateInfoList &list);
 
 private:
-    AppUpdateInfo getInfo(const QString& packageName, const QString& currentVersion, const QString& lastVersion) const;
+    AppUpdateInfo getInfo(const AppUpdateInfo &packageInfo, const QString& currentVersion, const QString& lastVersion) const;
 
     void distUpgradeDownloadUpdates();
     void distUpgradeInstallUpdates();

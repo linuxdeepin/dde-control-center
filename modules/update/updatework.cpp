@@ -303,10 +303,11 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
     int appCount = value.count();
     bool foundDDEChangelog = false;
 
-    for (AppUpdateInfo val : reply.value()) {
+    for (AppUpdateInfo &val : reply.value()) {
         const QString currentVer = val.m_currentVersion;
         const QString lastVer = val.m_avilableVersion;
-        AppUpdateInfo info = getInfo(val.m_packageId, currentVer, lastVer);
+        AppUpdateInfo info = getInfo(val, currentVer, lastVer);
+
         if (val.m_packageId == "dde" && !info.m_changelog.isEmpty()) {
             infos.prepend(info);
             foundDDEChangelog = true;
@@ -320,7 +321,8 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
     if (pkgCount > appCount && !foundDDEChangelog) {
         // If there's no actual package dde update, but there're system patches available,
         // then fake one dde update item.
-        AppUpdateInfo ddeUpdateInfo = getInfo("dde", "", "");
+        AppUpdateInfo dde;
+        AppUpdateInfo ddeUpdateInfo = getInfo(dde, "", "");
         ddeUpdateInfo.m_name = "Deepin";
         ddeUpdateInfo.m_packageId = "dde";
         ddeUpdateInfo.m_avilableVersion = tr("Patches");
@@ -356,7 +358,7 @@ DownloadInfo *UpdateWork::calculateDownloadInfo(const AppUpdateInfoList &list)
     return ret;
 }
 
-AppUpdateInfo UpdateWork::getInfo(const QString &packageName, const QString &currentVersion, const QString &lastVersion) const
+AppUpdateInfo UpdateWork::getInfo(const AppUpdateInfo &packageInfo, const QString &currentVersion, const QString &lastVersion) const
 {
 
     auto compareVersion = [](QString version1, QString version2) {
@@ -384,13 +386,14 @@ AppUpdateInfo UpdateWork::getInfo(const QString &packageName, const QString &cur
         return result;
     };
 
-    QString metadataDir = "/lastore/metadata/" + packageName;
+    QString metadataDir = "/lastore/metadata/" + packageInfo.m_packageId;
 
     AppUpdateInfo info;
-    info.m_packageId = packageName;
+    info.m_packageId = packageInfo.m_packageId;
+    info.m_name = packageInfo.m_name;
     info.m_currentVersion = currentVersion;
     info.m_avilableVersion = lastVersion;
-    info.m_icon = metadataDir + "/meta/icons/" + packageName + ".svg";
+    info.m_icon = metadataDir + "/meta/icons/" + packageInfo.m_packageId + ".svg";
 
     QFile manifest(metadataDir + "/meta/manifest.json");
     if (manifest.open(QFile::ReadOnly)) {
@@ -398,7 +401,6 @@ AppUpdateInfo UpdateWork::getInfo(const QString &packageName, const QString &cur
         QJsonDocument doc = QJsonDocument::fromJson(data);
         QJsonObject object = doc.object();
 
-        info.m_name = object["name"].toString();
         info.m_changelog = fetchVersionedChangelog(object["changelog"].toObject(), info.m_currentVersion);
 
         QJsonObject locales = object["locales"].toObject();
@@ -406,8 +408,6 @@ AppUpdateInfo UpdateWork::getInfo(const QString &packageName, const QString &cur
         QJsonObject changelog = locale["changelog"].toObject();
         QString versionedChangelog = fetchVersionedChangelog(changelog, info.m_currentVersion);
 
-        if (!locale["name"].toString().isEmpty())
-            info.m_name = locale["name"].toString();
         if (!versionedChangelog.isEmpty())
             info.m_changelog = versionedChangelog;
     }
