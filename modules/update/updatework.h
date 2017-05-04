@@ -33,9 +33,10 @@ public:
 
 public slots:
     void checkForUpdates();
-    void downloadUpdates();
     void pauseDownload();
     void resumeDownload();
+    void distUpgrade();
+    void downloadAndDistUpgrade();
 
     void setAutoDownloadUpdates(const bool &autoDownload);
     void setMirrorSource(const MirrorInfo &mirror);
@@ -45,6 +46,8 @@ public slots:
 private slots:
     void setCheckUpdatesJob(const QString &jobPath);
     void setDownloadJob(const QString &jobPath);
+    void setDistUpgradeJob(const QString &jobPath);
+
     void onAppUpdateInfoFinished(QDBusPendingCallWatcher *w);
 
     DownloadInfo *calculateDownloadInfo(const AppUpdateInfoList &list);
@@ -52,16 +55,22 @@ private slots:
 private:
     AppUpdateInfo getInfo(const QString& packageName, const QString& currentVersion, const QString& lastVersion) const;
 
+    void distUpgradeDownloadUpdates();
+    void distUpgradeInstallUpdates();
+
 private:
     UpdateModel* m_model;
     JobInter* m_downloadJob;
     JobInter* m_checkUpdateJob;
+    JobInter* m_distUpgradeJob;
     UpdateInter* m_updateInter;
     ManagerInter* m_managerInter;
     PowerInter *m_powerInter;
 
     bool m_onBattery;
     double m_batteryPercentage;
+
+    double m_baseProgress;
 
     QList<QString> m_updatableApps;
     QList<QString> m_updatablePackages;

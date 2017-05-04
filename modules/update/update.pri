@@ -15,7 +15,8 @@ HEADERS += \
     $$PWD/downloadprogressbar.h \
     $$PWD/summaryitem.h \
     $$PWD/common.h \
-    $$PWD/loadingitem.h
+    $$PWD/loadingitem.h \
+    $$PWD/resultitem.h
 
 SOURCES += \
     $$PWD/updatemodule.cpp \
@@ -29,7 +30,8 @@ SOURCES += \
     $$PWD/updateitem.cpp \
     $$PWD/downloadprogressbar.cpp \
     $$PWD/summaryitem.cpp \
-    $$PWD/loadingitem.cpp
+    $$PWD/loadingitem.cpp \
+    $$PWD/resultitem.cpp
 
 RESOURCES += \
     $$PWD/update.qrc

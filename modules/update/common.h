@@ -19,7 +19,10 @@ enum UpdatesStatus {
     UpdatesAvailable,
     Downloading,
     DownloadPaused,
-    Downloaded
+    Downloaded,
+    Installing,
+    UpdateSucceeded,
+    UpdateFailed
 };
 
 static inline QString formatCap(qulonglong cap, const int size = 1024)

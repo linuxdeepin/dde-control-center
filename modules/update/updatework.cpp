@@ -33,11 +33,13 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
       m_model(model),
       m_downloadJob(nullptr),
       m_checkUpdateJob(nullptr),
+      m_distUpgradeJob(nullptr),
       m_updateInter(new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
       m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
       m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
       m_onBattery(true),
-      m_batteryPercentage(0)
+      m_batteryPercentage(0),
+      m_baseProgress(0)
 {
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
@@ -94,7 +96,7 @@ void UpdateWork::checkForUpdates()
     });
 }
 
-void UpdateWork::downloadUpdates()
+void UpdateWork::distUpgradeDownloadUpdates()
 {
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_managerInter->PrepareDistUpgrade(), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
@@ -102,7 +104,22 @@ void UpdateWork::downloadUpdates()
             QDBusReply<QDBusObjectPath> reply = watcher->reply();
             setDownloadJob(reply.value().path());
         } else {
+            m_model->setStatus(UpdatesStatus::UpdateFailed);
             qWarning() << "download updates error: " << watcher->error().message();
+        }
+    });
+}
+
+void UpdateWork::distUpgradeInstallUpdates()
+{
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_managerInter->DistUpgrade(), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
+        if (!watcher->isError()) {
+            QDBusReply<QDBusObjectPath> reply = watcher->reply();
+            setDistUpgradeJob(reply.value().path());
+        } else {
+            m_model->setStatus(UpdatesStatus::UpdateFailed);
+            qWarning() << "install updates error: " << watcher->error().message();
         }
     });
 }
@@ -121,6 +138,18 @@ void UpdateWork::resumeDownload()
         m_managerInter->StartJob(m_downloadJob->id());
         m_model->setStatus(UpdatesStatus::Downloading);
     }
+}
+
+void UpdateWork::distUpgrade()
+{
+    m_baseProgress = 0;
+    distUpgradeInstallUpdates();
+}
+
+void UpdateWork::downloadAndDistUpgrade()
+{
+    m_baseProgress = 0.5;
+    distUpgradeDownloadUpdates();
 }
 
 void UpdateWork::setAutoDownloadUpdates(const bool &autoDownload)
@@ -197,19 +226,52 @@ void UpdateWork::setDownloadJob(const QString &jobPath)
     connect(m_downloadJob, &__Job::ProgressChanged, [this] (double value){
         DownloadInfo *info = m_model->downloadInfo();
         if (info) {
-            info->setDownloadProgress(value);
+            info->setDownloadProgress(value * 0.5);
         }
     });
 
     connect(m_downloadJob, &__Job::StatusChanged, [this] (const QString &status) {
         if (status == "failed")  {
-            m_model->setStatus(UpdatesStatus::UpdatesAvailable);
+            m_model->setStatus(UpdatesStatus::UpdateFailed);
             qWarning() << "download updates job failed";
         } else if (status == "success" || status == "succeed") {
             m_downloadJob->deleteLater();
             m_downloadJob = nullptr;
 
-            m_model->setStatus(UpdatesStatus::Downloaded);
+            // install the updates immediately.
+            distUpgradeInstallUpdates();
+        }
+    });
+}
+
+void UpdateWork::setDistUpgradeJob(const QString &jobPath)
+{
+    if (m_distUpgradeJob) {
+        m_distUpgradeJob->deleteLater();
+        m_distUpgradeJob = nullptr;
+    }
+
+    m_distUpgradeJob = new JobInter("com.deepin.lastore",
+                                 jobPath,
+                                 QDBusConnection::systemBus(), this);
+    m_model->setStatus(UpdatesStatus::Installing);
+
+    connect(m_distUpgradeJob, &__Job::ProgressChanged, [this] (double value){
+        DownloadInfo *info = m_model->downloadInfo();
+        if (info) {
+            info->setDownloadProgress(m_baseProgress + value * (1 - m_baseProgress));
+        }
+    });
+
+    connect(m_distUpgradeJob, &__Job::StatusChanged, [this] (const QString &status) {
+        if (status == "failed")  {
+            m_model->setStatus(UpdatesStatus::UpdateFailed);
+            qWarning() << "install updates job failed";
+        } else if (status == "success" || status == "succeed") {
+            m_distUpgradeJob->deleteLater();
+            m_distUpgradeJob = nullptr;
+
+            m_model->setStatus(UpdatesStatus::UpdateSucceeded);
         }
     });
 }
@@ -225,11 +287,20 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
         return;
     }
 
+    m_updateInter->setSync(true);
+    m_managerInter->setSync(true);
+
+    m_updatableApps = m_updateInter->updatableApps();
+    m_updatablePackages = m_updateInter->updatablePackages();
+
+    m_updateInter->setSync(false);
+    m_managerInter->setSync(false);
+
     AppUpdateInfoList value = reply.value();
     AppUpdateInfoList infos;
 
-    int pkgCount = value.count();
-    int appCount = 0;
+    int pkgCount = m_updatablePackages.count();
+    int appCount = value.count();
     bool foundDDEChangelog = false;
 
     for (AppUpdateInfo val : reply.value()) {
@@ -245,6 +316,7 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
         }
     }
 
+    qDebug() << pkgCount << appCount << foundDDEChangelog;
     if (pkgCount > appCount && !foundDDEChangelog) {
         // If there's no actual package dde update, but there're system patches available,
         // then fake one dde update item.
@@ -258,6 +330,7 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
     }
 
     DownloadInfo *result = calculateDownloadInfo(infos);
+    m_model->setDownloadInfo(result);
 
     qDebug() << "updatable packages:" <<  m_updatablePackages << result->appInfos();
     qDebug() << "total download size:" << formatCap(result->downloadSize());
@@ -267,7 +340,6 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
     } else {
         if (result->downloadSize()) {
             m_model->setStatus(UpdatesStatus::UpdatesAvailable);
-            m_model->setDownloadInfo(result);
         } else {
             m_model->setStatus(UpdatesStatus::Downloaded);
         }
@@ -278,20 +350,7 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
 
 DownloadInfo *UpdateWork::calculateDownloadInfo(const AppUpdateInfoList &list)
 {
-    // to work around a bug of lastore-daemon that update_infos.json is
-    // usually generated late than the update job's done.
-    QThread::sleep(5);
-
-    m_updateInter->setSync(true);
-    m_managerInter->setSync(true);
-
-    m_updatableApps = m_updateInter->updatableApps();
-    m_updatablePackages = m_updateInter->updatablePackages();
-
     const qlonglong size = m_managerInter->PackagesDownloadSize(m_updatablePackages);
-
-    m_updateInter->setSync(false);
-    m_managerInter->setSync(false);
 
     DownloadInfo *ret = new DownloadInfo(size, list);
     return ret;

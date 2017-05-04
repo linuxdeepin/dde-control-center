@@ -93,16 +93,10 @@ void UpdateModule::onPushUpdate()
         m_updatePage = new UpdateCtrlWidget(m_model);
         m_work->checkForUpdates();
 
-        connect(m_updatePage, &UpdateCtrlWidget::requestDownloadUpdates, m_work, &UpdateWork::downloadUpdates);
+        connect(m_updatePage, &UpdateCtrlWidget::requestDownloadUpdates, m_work, &UpdateWork::downloadAndDistUpgrade);
         connect(m_updatePage, &UpdateCtrlWidget::requestPauseDownload, m_work, &UpdateWork::pauseDownload);
         connect(m_updatePage, &UpdateCtrlWidget::requestResumeDownload, m_work, &UpdateWork::resumeDownload);
-        connect(m_updatePage, &UpdateCtrlWidget::requestInstallUpdates, [this] {
-            QDBusConnection::sessionBus().unregisterService(OfflineUpgraderService);
-
-            QTimer::singleShot(0, this, [] {
-                QProcess::startDetached("/usr/lib/deepin-daemon/dde-offline-upgrader");
-            });
-        });
+        connect(m_updatePage, &UpdateCtrlWidget::requestInstallUpdates, m_work, &UpdateWork::distUpgrade);
     }
 
     m_frameProxy->pushWidget(this, m_updatePage);

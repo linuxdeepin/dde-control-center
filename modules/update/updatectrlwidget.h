@@ -5,6 +5,7 @@
 #include "settingsgroup.h"
 #include "summaryitem.h"
 #include "downloadprogressbar.h"
+#include "resultitem.h"
 
 #include <types/appupdateinfolist.h>
 
@@ -52,10 +53,13 @@ private:
 
     SettingsGroup* m_checkGroup;
     LoadingItem* m_checkUpdateItem;
+    SettingsGroup *m_resultGroup;
+    ResultItem *m_resultItem;
     DownloadProgressBar* m_progress;
     SettingsGroup* m_summaryGroup;
     SummaryItem* m_summary;
     TipsLabel *m_powerTip;
+    TipsLabel *m_reminderTip;
 };
 
 }

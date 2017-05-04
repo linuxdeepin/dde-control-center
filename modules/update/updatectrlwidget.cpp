@@ -17,10 +17,13 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
       m_status(UpdatesStatus::Updated),
       m_checkGroup(new SettingsGroup),
       m_checkUpdateItem(new LoadingItem),
+      m_resultGroup(new SettingsGroup),
+      m_resultItem(new ResultItem),
       m_progress(new DownloadProgressBar),
       m_summaryGroup(new SettingsGroup),
       m_summary(new SummaryItem),
-      m_powerTip(new TipsLabel)
+      m_powerTip(new TipsLabel),
+      m_reminderTip(new TipsLabel(tr("Please restart to use the system and applications properly after updated")))
 {
     setTitle(tr("Update"));
 
@@ -32,6 +35,9 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_checkGroup->setVisible(false);
     m_checkGroup->appendItem(m_checkUpdateItem);
 
+    m_resultGroup->setVisible(false);
+    m_resultGroup->appendItem(m_resultItem);
+
     m_progress->setVisible(false);
 
     m_summaryGroup->setVisible(false);
@@ -41,12 +47,16 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_powerTip->setAlignment(Qt::AlignHCenter);
     m_powerTip->setVisible(false);
 
+    m_reminderTip->setVisible(false);
+
     layout->addSpacing(10);
     layout->addWidget(m_checkGroup);
+    layout->addWidget(m_resultGroup);
     layout->addWidget(m_progress);
     layout->addSpacing(10);
     layout->addWidget(m_summaryGroup);
     layout->addWidget(m_powerTip);
+    layout->addWidget(m_reminderTip);
     layout->addStretch();
 
     widget->setLayout(layout);
@@ -64,6 +74,7 @@ UpdateCtrlWidget::~UpdateCtrlWidget()
 
 void UpdateCtrlWidget::loadAppList(const QList<AppUpdateInfo>& infos)
 {
+    qDebug() << infos.count();
     QLayoutItem *item;
     while((item = m_summaryGroup->layout()->takeAt(1)) != NULL) {
         item->widget()->deleteLater();
@@ -107,46 +118,81 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     switch (status) {
     case UpdatesStatus::Checking:
         m_checkGroup->setVisible(true);
+        m_resultGroup->setVisible(false);
         m_progress->setVisible(false);
         m_summaryGroup->setVisible(false);
         m_checkUpdateItem->setIndicatorVisible(true);
         m_checkUpdateItem->setMessage(tr("Checking for updates, please wait..."));
+        m_reminderTip->setVisible(false);
         break;
     case UpdatesStatus::UpdatesAvailable:
         m_checkGroup->setVisible(false);
+        m_resultGroup->setVisible(false);
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
-        m_progress->setMessage(tr("Download Updates"));
+        m_progress->setMessage(tr("Download and install updates"));
         setDownloadInfo(m_model->downloadInfo());
+        m_reminderTip->setVisible(false);
         break;
     case UpdatesStatus::Downloading:
         m_checkGroup->setVisible(false);
+        m_resultGroup->setVisible(false);
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
         m_progress->setValue(m_progress->minimum());
         m_progress->setMessage(tr("%1 downloaded (Click to pause)").arg(m_progress->text()));
+        m_reminderTip->setVisible(false);
         break;
     case UpdatesStatus::DownloadPaused:
         m_checkGroup->setVisible(false);
+        m_resultGroup->setVisible(false);
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
         m_progress->setMessage(tr("%1 downloaded (Click to continue)").arg(m_progress->text()));
+        m_reminderTip->setVisible(false);
         break;
     case UpdatesStatus::Downloaded:
         m_checkGroup->setVisible(false);
+        m_resultGroup->setVisible(false);
         m_progress->setVisible(true);
-        m_summaryGroup->setVisible(false);
+        m_summaryGroup->setVisible(true);
         m_progress->setValue(m_progress->maximum());
-        m_progress->setMessage(tr("Restart to install updates"));
-        m_summary->setTitle(tr("Download completed"));
+        m_progress->setMessage(tr("Install updates"));
+        setDownloadInfo(m_model->downloadInfo());
         setLowBattery(m_model->lowBattery());
+        m_reminderTip->setVisible(false);
         break;
     case UpdatesStatus::Updated:
         m_checkGroup->setVisible(true);
+        m_resultGroup->setVisible(false);
         m_progress->setVisible(false);
         m_summaryGroup->setVisible(false);
         m_checkUpdateItem->setMessage(tr("Your system is up to date"));
         m_checkUpdateItem->setIndicatorVisible(false);
+        m_reminderTip->setVisible(false);
+        break;
+    case UpdatesStatus::Installing:
+        m_checkGroup->setVisible(false);
+        m_resultGroup->setVisible(false);
+        m_progress->setVisible(true);
+        m_summaryGroup->setVisible(true);
+        m_progress->setMessage(tr("Updating, please wait..."));
+        m_reminderTip->setVisible(false);
+    case UpdatesStatus::UpdateSucceeded:
+        m_checkGroup->setVisible(false);
+        m_resultItem->setSuccess(true);
+        m_resultGroup->setVisible(true);
+        m_progress->setVisible(false);
+        m_summaryGroup->setVisible(false);
+        m_reminderTip->setVisible(true);
+        break;
+    case UpdatesStatus::UpdateFailed:
+        m_checkGroup->setVisible(false);
+        m_resultItem->setSuccess(false);
+        m_resultGroup->setVisible(true);
+        m_progress->setVisible(false);
+        m_summaryGroup->setVisible(false);
+        m_reminderTip->setVisible(false);
         break;
     default:
         qWarning() << "unknown status!!!";
@@ -155,7 +201,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 
 void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
 {
-    if (!downloadInfo || m_status != UpdatesStatus::UpdatesAvailable) return;
+    if (!downloadInfo || (m_status != UpdatesStatus::UpdatesAvailable && m_status != UpdatesStatus::Downloaded)) return;
 
     const QList<AppUpdateInfo> &apps = downloadInfo->appInfos();
     const qlonglong downloadSize = downloadInfo->downloadSize();
@@ -167,7 +213,6 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
         }
     }
 
-    m_progress->setMessage(tr("Download Updates"));
     m_summary->setTitle(tr("%n application update(s) detected", "", appCount));
 
     for (const AppUpdateInfo &info : apps) {

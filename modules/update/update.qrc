@@ -6,5 +6,7 @@
         <file>themes/dark/icons/nav_update.png</file>
         <file>themes/light/icons/select.png</file>
         <file>themes/light/icons/nav_update.png</file>
+        <file>themes/common/icons/update_success.png</file>
+        <file>themes/common/icons/update_failed.png</file>
     </qresource>
 </RCC>
