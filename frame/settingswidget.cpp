@@ -68,6 +68,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     m_navView = new NavgationView;
     m_navView->setItemDelegate(new NavgationDelegate);
     m_navView->setModel(m_navModel);
+    m_navView->setFixedWidth(110 * 3 + 5);
 //    m_navView->setParent(this);
 //    m_navView->move(14, 0);
 //    m_navView->setFixedSize(FRAME_WIDTH, 600);
