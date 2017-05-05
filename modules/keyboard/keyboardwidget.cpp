@@ -75,10 +75,12 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     keyGroup->appendItem(m_keyItem);
 #endif
 
+#ifndef DCC_DISABLE_LANGUAGE
     SettingsGroup* langGroup = new SettingsGroup();
     m_langItem = new NextPageWidget();
     m_langItem->setTitle(tr("System Language"));
     langGroup->appendItem(m_langItem);
+#endif
 
     SettingsGroup* scGroup = new SettingsGroup();
     m_scItem = new NextPageWidget();
@@ -89,13 +91,17 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
 #ifndef DCC_DISABLE_KBLAYOUT
     m_centralLayout->addWidget(keyGroup);
 #endif
+#ifndef DCC_DISABLE_LANGUAGE
     m_centralLayout->addWidget(langGroup);
+#endif
     m_centralLayout->addWidget(scGroup);
 
 #ifndef DCC_DISABLE_KBLAYOUT
     connect(m_keyItem,SIGNAL(clicked()), this, SIGNAL(keyoard()));
 #endif
+#ifndef DCC_DISABLE_LANGUAGE
     connect(m_langItem, SIGNAL(clicked()), this, SIGNAL(language()));
+#endif
     connect(m_scItem, SIGNAL(clicked()), this, SIGNAL(shortcut()));
     connect(m_delaySlider, &DCCSlider::valueChanged, this, &KeyboardWidget::delayChanged);
     connect(m_speedSlider, &DCCSlider::valueChanged, this, &KeyboardWidget::speedChanged);
@@ -110,7 +116,9 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
 #ifndef DCC_DISABLE_KBLAYOUT
     connect(m_model, &KeyboardModel::curLayoutChanged, m_keyItem, &NextPageWidget::setValue);
 #endif
+#ifndef DCC_DISABLE_LANGUAGE
     connect(m_model, &KeyboardModel::curLangChanged, m_langItem, &NextPageWidget::setValue);
+#endif
 
     setDelayValue(m_model->repeatDelay());
     setSpeedValue(m_model->repeatInterval());
@@ -119,7 +127,9 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
 #ifndef DCC_DISABLE_KBLAYOUT
     m_keyItem->setValue(m_model->curLayout());
 #endif
+#ifndef DCC_DISABLE_LANGUAGE
     m_langItem->setValue(m_model->curLang());
+#endif
 }
 
 void KeyboardWidget::setDelayValue(uint value)

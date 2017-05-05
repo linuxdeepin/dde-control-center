@@ -46,13 +46,15 @@ public slots:
     void onPushKeyboard();
     void onPushKBDetails();
 #endif
+#ifndef DCC_DISABLE_LANGUAGE
     void onPushLanguage();
+    void onSetLocale(const QModelIndex &index);
+#endif
     void onPushShortcut();
     void onPushCustomShortcut();
     void setCurrentLayout(const QString &value);
     void setCapsLock(bool value);
 
-    void onSetLocale(const QModelIndex &index);
     void onShortcutChecked(bool valid, ShortcutInfo *info, const QString& shortcut);
     void onShortcutSet(const QString& shortcut);
     void onShortcutKeySet(const QString& shortcut);
@@ -80,7 +82,9 @@ private:
     KeyboardLayoutWidget* m_kbLayoutWidget;
 #endif
     ShortcutWidget* m_shortcutWidget;
+#ifndef DCC_DISABLE_LANGUAGE
     LangWidget* m_langWidget;
+#endif
     ShortcutContent* m_scContent;
     CustomContent* m_customContent;
     CustomEdit    *m_customEdit;

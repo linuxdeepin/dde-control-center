@@ -41,7 +41,9 @@ private:
 #ifndef DCC_DISABLE_KBLAYOUT
     NextPageWidget* m_keyItem;
 #endif
+#ifndef DCC_DISABLE_LANGUAGE
     NextPageWidget* m_langItem;
+#endif
     NextPageWidget* m_scItem;
     SwitchWidget* m_upper;
     SwitchWidget* m_numLock;

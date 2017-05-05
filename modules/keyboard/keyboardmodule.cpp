@@ -16,7 +16,9 @@ KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
       m_kbLayoutWidget(nullptr),
 #endif
       m_shortcutWidget(nullptr),
+#ifndef DCC_DISABLE_LANGUAGE
       m_langWidget(nullptr),
+#endif
       m_scContent(nullptr),
       m_customContent(nullptr),
       m_customEdit(nullptr)
@@ -61,7 +63,9 @@ ModuleWidget *KeyboardModule::moduleWidget()
 #ifndef DCC_DISABLE_KBLAYOUT
         connect(m_keyboardWidget, SIGNAL(keyoard()), this, SLOT(onPushKBDetails()));
 #endif
+#ifndef DCC_DISABLE_LANGUAGE
         connect(m_keyboardWidget, SIGNAL(language()), this, SLOT(onPushLanguage()));
+#endif
         connect(m_keyboardWidget, SIGNAL(shortcut()), this, SLOT(onPushShortcut()));
         connect(m_keyboardWidget, &KeyboardWidget::delayChanged, m_work, &KeyboardWork::setRepeatDelay);
         connect(m_keyboardWidget, &KeyboardWidget::speedChanged, m_work, &KeyboardWork::setRepeatInterval);
@@ -87,8 +91,10 @@ void KeyboardModule::contentPopped(ContentWidget * const w)
     else if(w == m_kbLayoutWidget)
         m_kbLayoutWidget = nullptr;
 #endif
+#ifndef DCC_DISABLE_LANGUAGE
     else if(w == m_langWidget)
         m_langWidget = nullptr;
+#endif
     else if(w == m_scContent)
         m_scContent = nullptr;
     else if(w == m_customContent)
@@ -229,6 +235,7 @@ void KeyboardModule::onPushKBDetails()
 }
 #endif
 
+#ifndef DCC_DISABLE_LANGUAGE
 void KeyboardModule::onPushLanguage()
 {
     if(!m_langWidget)
@@ -239,6 +246,15 @@ void KeyboardModule::onPushLanguage()
 
     m_frameProxy->pushWidget(this, m_langWidget);
 }
+
+void KeyboardModule::onSetLocale(const QModelIndex &index)
+{
+    QVariant var = index.data();
+    MetaData md = var.value<MetaData>();
+
+    m_work->setLang(md.key());
+}
+#endif
 
 void KeyboardModule::onPushShortcut()
 {
@@ -271,14 +287,6 @@ void KeyboardModule::onPushCustomShortcut()
 void KeyboardModule::setCurrentLayout(const QString& value)
 {
     m_work->setLayout(m_model->userLayout().key(value));
-}
-
-void KeyboardModule::onSetLocale(const QModelIndex &index)
-{
-    QVariant var = index.data();
-    MetaData md = var.value<MetaData>();
-
-    m_work->setLang(md.key());
 }
 
 void KeyboardModule::onShortcutChecked(bool valid, ShortcutInfo* info, const QString &shortcut)

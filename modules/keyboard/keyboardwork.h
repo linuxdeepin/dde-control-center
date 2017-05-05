@@ -62,7 +62,9 @@ signals:
     void removed(const QString &id, int type);
 
 public slots:
+#ifndef DCC_DISABLE_LANGUAGE
     void setLang(const QString& value);
+#endif
     void setLayout(const QString& value);
     void addUserLayout(const QString& value);
     void delUserLayout(const QString& value);
@@ -95,7 +97,9 @@ private:
     int m_speedValue;
     KeyboardModel* m_model;
     KeyboardInter* m_keyboardInter;
+#ifndef DCC_DISABLE_LANGUAGE
     LangSelector* m_langSelector;
+#endif
     KeybingdingInter* m_keybindInter;
 };
 }

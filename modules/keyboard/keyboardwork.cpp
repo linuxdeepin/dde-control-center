@@ -19,9 +19,11 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
       m_keyboardInter(new KeyboardInter("com.deepin.daemon.InputDevices",
                                         "/com/deepin/daemon/InputDevice/Keyboard",
                                         QDBusConnection::sessionBus(), this)),
+#ifndef DCC_DISABLE_LANGUAGE
       m_langSelector(new LangSelector("com.deepin.daemon.LangSelector",
                                       "/com/deepin/daemon/LangSelector",
                                       QDBusConnection::sessionBus(), this)),
+#endif
       m_keybindInter(new KeybingdingInter("com.deepin.daemon.Keybinding",
                                           "/com/deepin/daemon/Keybinding",
                                           QDBusConnection::sessionBus(), this))
@@ -35,19 +37,25 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
     connect(m_keyboardInter, SIGNAL(CapslockToggleChanged(bool)), m_model, SLOT(setCapsLock(bool)));
     connect(m_keybindInter, &KeybingdingInter::NumLockStateChanged, m_model, &KeyboardModel::setNumLock);
     connect(m_keybindInter, &KeybingdingInter::KeyEvent, this, &KeyboardWork::KeyEvent);
+#ifndef DCC_DISABLE_LANGUAGE
     connect(m_langSelector, &LangSelector::CurrentLocaleChanged, m_model, &KeyboardModel::setLang);
+#endif
     connect(m_keyboardInter, &KeyboardInter::RepeatDelayChanged, this, &KeyboardWork::setModelRepeatDelay);
     connect(m_keyboardInter, &KeyboardInter::RepeatIntervalChanged, this, &KeyboardWork::setModelRepeatInterval);
 
     m_keyboardInter->setSync(false);
     m_keybindInter->setSync(false);
+#ifndef DCC_DISABLE_LANGUAGE
     m_langSelector->setSync(false);
+#endif
 }
 
 void KeyboardWork::active()
 {
     m_keyboardInter->blockSignals(false);
+#ifndef DCC_DISABLE_LANGUAGE
     m_langSelector->blockSignals(false);
+#endif
     m_keybindInter->blockSignals(false);
 
     setModelRepeatDelay(m_keyboardInter->repeatDelay());
@@ -60,20 +68,26 @@ void KeyboardWork::active()
     connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
             SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
 
+#ifndef DCC_DISABLE_LANGUAGE
     QDBusPendingCallWatcher *localResult = new QDBusPendingCallWatcher(m_langSelector->GetLocaleList(), this);
     connect(localResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWork::onLocalListsFinished);
+#endif
 
     m_model->setCapsLock(m_keyboardInter->capslockToggle());
     m_model->setNumLock(m_keybindInter->numLockState());
     m_keyboardInter->currentLayout();
+#ifndef DCC_DISABLE_LANGUAGE
     m_langSelector->currentLocale();
+#endif
     m_keyboardInter->userLayoutList();
 }
 
 void KeyboardWork::deactive()
 {
     m_keyboardInter->blockSignals(true);
+#ifndef DCC_DISABLE_LANGUAGE
     m_langSelector->blockSignals(true);
+#endif
     m_keybindInter->blockSignals(true);
 }
 
@@ -515,10 +529,12 @@ void KeyboardWork::setLayout(const QString &value)
     m_keyboardInter->setCurrentLayout(value);
 }
 
+#ifndef DCC_DISABLE_LANGUAGE
 void KeyboardWork::setLang(const QString &value)
 {
     m_langSelector->SetLocale(value);
 }
+#endif
 
 }
 }
