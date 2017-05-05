@@ -5,7 +5,8 @@
 TEMPLATE = subdirs
 SUBDIRS  = \
             plugins \
-            frame
+            frame \
+            dialogs
 
 # Automating generation .qm files from .ts files
 CONFIG(release, debug|release) {

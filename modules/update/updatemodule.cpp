@@ -97,6 +97,9 @@ void UpdateModule::onPushUpdate()
         connect(m_updatePage, &UpdateCtrlWidget::requestPauseDownload, m_work, &UpdateWork::pauseDownload);
         connect(m_updatePage, &UpdateCtrlWidget::requestResumeDownload, m_work, &UpdateWork::resumeDownload);
         connect(m_updatePage, &UpdateCtrlWidget::requestInstallUpdates, m_work, &UpdateWork::distUpgrade);
+        connect(m_updatePage, &UpdateCtrlWidget::suggestReboot, this, [this] {
+            QProcess::startDetached("/usr/lib/dde-control-center/reboot-reminder-dialog");
+        });
     }
 
     m_frameProxy->pushWidget(this, m_updatePage);

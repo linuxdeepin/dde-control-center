@@ -47,6 +47,8 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_powerTip->setAlignment(Qt::AlignHCenter);
     m_powerTip->setVisible(false);
 
+    m_reminderTip->setWordWrap(true);
+    m_reminderTip->setAlignment(Qt::AlignHCenter);
     m_reminderTip->setVisible(false);
 
     layout->addSpacing(10);
@@ -185,6 +187,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_progress->setVisible(false);
         m_summaryGroup->setVisible(false);
         m_reminderTip->setVisible(true);
+        emit suggestReboot();
         break;
     case UpdatesStatus::UpdateFailed:
         m_checkGroup->setVisible(false);
