@@ -4,6 +4,7 @@
 #include "checkitem.h"
 #include "translucentframe.h"
 #include <QVBoxLayout>
+#include <QDebug>
 
 using namespace dcc;
 
@@ -88,7 +89,7 @@ void KeyboardDetails::onRemoveLayout(CheckItem *item)
     {
         m_group->removeItem(item);
         emit delUserLayout(item->title());
-        m_maps.remove(item->title());
+        m_maps.remove(m_model->userLayout().key(item->title()));
         item->deleteLater();
     }
 

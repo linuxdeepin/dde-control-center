@@ -229,7 +229,7 @@ void KeyboardWork::addUserLayout(const QString &value)
 
 void KeyboardWork::delUserLayout(const QString &value)
 {
-    m_keyboardInter->DeleteUserLayout(value);
+    m_keyboardInter->DeleteUserLayout(m_model->userLayout().key(value));
 }
 
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2)
@@ -352,7 +352,7 @@ void KeyboardWork::onLocalListsFinished(QDBusPendingCallWatcher *watch)
 #ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardWork::onUserLayout(const QStringList &list)
 {
-    m_model->userLayout().clear();
+    m_model->cleanUserLayout();
 
     for (const QString &data : list) {
         QDBusPendingCallWatcher *layoutResult = new QDBusPendingCallWatcher(m_keyboardInter->GetLayoutDesc(data), this);

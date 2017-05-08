@@ -117,6 +117,11 @@ void KeyboardModel::setNumLock(bool numLock)
     }
 }
 
+void KeyboardModel::cleanUserLayout()
+{
+    m_userLayout.clear();
+}
+
 QString KeyboardModel::curLang() const
 {
     return langByKey(m_lang);

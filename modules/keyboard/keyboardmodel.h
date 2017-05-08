@@ -51,6 +51,8 @@ public:
     bool numLock() const;
     void setNumLock(bool numLock);
 
+    void cleanUserLayout();
+
 signals:
 #ifndef DCC_DISABLE_KBLAYOUT
     void curLayoutChanged(const QString& layout);
