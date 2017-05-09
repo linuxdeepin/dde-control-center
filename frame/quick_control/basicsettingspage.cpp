@@ -70,8 +70,14 @@ void BasicSettingsWorker::setMute(const bool &mute)
 
 void BasicSettingsWorker::setVolume(const double &volume)
 {
-    if(m_sinkInter)
+    if(m_sinkInter) {
+        if (m_sinkInter->mute()) {
+            m_sinkInter->SetVolume(volume / 100.0, false);
+            m_sinkInter->SetMute(false);
+            return;
+        }
         m_sinkInter->SetVolume(volume / 100.0, true);
+    }
 }
 
 void BasicSettingsWorker::setBrightness(const double brightness)
@@ -202,7 +208,6 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
 
     connect(m_soundSlider, &DCCSlider::valueChanged, this, [this] (const int &value) {
         m_worker->setVolume(value);
-        m_worker->setMute(false);
     });
     connect(m_lightSlider, &DCCSlider::valueChanged, m_worker, &BasicSettingsWorker::setBrightness);
 }
