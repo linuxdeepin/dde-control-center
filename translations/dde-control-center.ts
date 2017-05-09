@@ -115,6 +115,34 @@
     </message>
 </context>
 <context>
+    <name>ReminderDialog</name>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
+        <source>Updates installed, need to restart, restart now ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
+        <source>Please make sure all data have been saved firstly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
+        <source>Shut down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
+        <source>Reboot</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RotateDialog</name>
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="126"/>
@@ -143,7 +171,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="90"/>
+        <location filename="../frame/settingswidget.cpp" line="91"/>
         <source>All Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -970,12 +998,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="80"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="81"/>
         <source>System Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="85"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="87"/>
         <source>Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
@@ -983,11 +1011,11 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="122"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="134"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="152"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="161"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="294"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="136"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="148"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="166"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="175"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="308"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1722,33 +1750,33 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="31"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="32"/>
         <source>Feedback Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="101"/>
-        <location filename="../modules/sound/soundwidget.cpp" line="39"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="41"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="41"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="43"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="60"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="62"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="78"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="85"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="81"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="88"/>
         <source>Sound Effects</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1889,81 +1917,98 @@
     </message>
 </context>
 <context>
+    <name>dcc::update::ResultItem</name>
+    <message>
+        <location filename="../modules/update/resultitem.cpp" line="36"/>
+        <source>Update successfully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/resultitem.cpp" line="37"/>
+        <source>Failed to update</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="107"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="25"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="28"/>
         <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="113"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
         <source>Checking for updates, please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="119"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
-        <source>Download Updates</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="238"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="133"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="153"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="140"/>
-        <source>Restart to install updates</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="141"/>
-        <source>Download completed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="148"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
         <source>Your system is up to date</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="219"/>
         <source>%n application update(s) detected</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
         <source>New system edition update detected</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished">
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
+        <source>Please restart to use the system and applications properly after updated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="135"/>
+        <source>Download and install updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="162"/>
+        <source>Install updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
+        <source>Updating, please wait...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="232"/>
         <source>Update size: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="246"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="200"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2016,12 +2061,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="254"/>
+        <location filename="../modules/update/updatework.cpp" line="328"/>
         <source>Patches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="256"/>
+        <location filename="../modules/update/updatework.cpp" line="330"/>
         <source>System patches.</source>
         <translation type="unfinished"></translation>
     </message>

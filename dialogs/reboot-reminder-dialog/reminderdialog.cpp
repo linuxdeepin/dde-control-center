@@ -23,7 +23,7 @@ ReminderDialog::ReminderDialog(QRect screenGeometry)
     setIconPixmap(icon.pixmap(48, 48));
 
     QStringList buttons;
-    buttons << tr("Cancel") << tr("Shutdown") << tr("Reboot");
+    buttons << tr("Cancel") << tr("Shut down") << tr("Reboot");
     addButtons(buttons);
 
     setDefaultButton(2);
