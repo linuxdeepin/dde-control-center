@@ -1962,11 +1962,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
-        <source>New system edition update detected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
         <source>Please restart to use the system and applications properly after updated</source>
         <translation type="unfinished"></translation>
@@ -1993,6 +1988,11 @@
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
+        <source>New system edition detected</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>

@@ -221,7 +221,7 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
     for (const AppUpdateInfo &info : apps) {
         if (info.m_packageId == "dde") {
             if (!appCount) {
-                m_summary->setTitle(tr("New system edition update detected"));
+                m_summary->setTitle(tr("New system edition detected"));
             } else {
                 m_summary->setTitle(tr("New system edition and %n update(s) detected", "", appCount));
             }
