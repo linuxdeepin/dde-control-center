@@ -216,14 +216,14 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
         }
     }
 
-    m_summary->setTitle(tr("%n application update(s) detected", "", appCount));
+    m_summary->setTitle(tr("%n update(s) detected", "", appCount));
 
     for (const AppUpdateInfo &info : apps) {
         if (info.m_packageId == "dde") {
             if (!appCount) {
                 m_summary->setTitle(tr("New system edition update detected"));
             } else {
-                m_summary->setTitle(tr("New system edition and %n application update(s) detected", "", appCount));
+                m_summary->setTitle(tr("New system edition and %n update(s) detected", "", appCount));
             }
             break;
         }

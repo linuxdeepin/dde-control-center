@@ -107,7 +107,7 @@ void NotifyManager::onNotifyAdd(const QJsonObject &value) {
                     m_viewer->setAppTime(hour);
                     break;
                 case 1:
-                    m_viewer->setAppTime(tr("yesterday") + " " + hour);
+                    m_viewer->setAppTime(tr("Yesterday") + " " + hour);
                     break;
                 case 2:
                     m_viewer->setAppTime(tr("The day before yesterday") + " " + hour);
@@ -116,7 +116,7 @@ void NotifyManager::onNotifyAdd(const QJsonObject &value) {
                     if (time > 7) {
                         m_viewer->setAppTime(date.toString("MM/dd hh:mm"));
                     } else {
-                        m_viewer->setAppTime(tr("%1 days ago").arg(time) + " " + hour);
+                        m_viewer->setAppTime(tr("%n day(s) ago", "", time) + " " + hour);
                     }
                     break;
                 }

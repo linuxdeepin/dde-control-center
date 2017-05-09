@@ -95,17 +95,19 @@
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="110"/>
-        <source>yesterday</source>
+        <source>Yesterday</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
+        <source>%n day(s) ago</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
-        <source>%1 days ago</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -118,7 +120,7 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
-        <source>Updates installed, need to restart, restart now ?</source>
+        <source>Updates installed, need to restart, restart now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1958,24 +1960,10 @@
         <source>Your system is up to date</source>
         <translation type="unfinished"></translation>
     </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="219"/>
-        <source>%n application update(s) detected</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
-    </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
         <source>New system edition update detected</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
-        <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-        </translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
@@ -1996,6 +1984,20 @@
         <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Updating, please wait...</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="219"/>
+        <source>%n update(s) detected</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
+        <source>New system edition and %n update(s) detected</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="232"/>
