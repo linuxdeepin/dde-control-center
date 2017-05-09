@@ -28,7 +28,9 @@ SoundWidget::SoundWidget(SoundModel *model) :
     m_microphoneGroup(new SettingsGroup),
     m_microphoneSwitch(new SwitchWidget),
     m_inputVolumeSliderItem(new TitledSliderItem(tr("Input Volume"))),
+#ifndef DCC_DISABLE_FEEDBACK
     m_inputFeedbackSliderItem(new TitledSliderItem(tr("Feedback Volume"))),
+#endif
     m_advancedSettingsGroup(new SettingsGroup),
     m_advancedSettingsItem(new NextPageWidget),
     m_soundEffectGroup(new SettingsGroup),
@@ -64,16 +66,21 @@ SoundWidget::SoundWidget(SoundModel *model) :
     m_inputVolumeSlider->setOrientation(Qt::Horizontal);
     m_inputVolumeSlider->setRange(0, 150);
 
+#ifndef DCC_DISABLE_FEEDBACK
     m_inputFeedbackSliderItem->setObjectName("InputFeedbackSliderItem");
     m_inputFeedbackSlider = m_inputFeedbackSliderItem->slider();
     m_inputFeedbackSlider->setType(DCCSlider::Progress);
     m_inputFeedbackSlider->setOrientation(Qt::Horizontal);
     m_inputFeedbackSlider->setRange(0, 100);
     m_inputFeedbackSlider->installEventFilter(this);
+#endif
 
     m_microphoneGroup->appendItem(m_microphoneSwitch);
     m_microphoneGroup->appendItem(m_inputVolumeSliderItem);
+
+#ifndef DCC_DISABLE_FEEDBACK
     m_microphoneGroup->appendItem(m_inputFeedbackSliderItem);
+#endif
 
     m_advancedSettingsItem->setTitle(tr("Advanced"));
     m_advancedSettingsGroup->appendItem(m_advancedSettingsItem);
@@ -112,7 +119,9 @@ void SoundWidget::setModel(SoundModel *model)
     connect(model, &SoundModel::microphoneOnChanged, this, [this] (bool on) {
         m_microphoneSwitch->setChecked(on);
         m_inputVolumeSliderItem->setVisible(on);
+#ifndef DCC_DISABLE_FEEDBACK
         m_inputFeedbackSliderItem->setVisible(on);
+#endif
     });
     connect(model, &SoundModel::soundEffectOnChanged, m_soundEffectSwitch, &SwitchWidget::setChecked);
     connect(model, &SoundModel::speakerVolumeChanged, this, [this] (double value) {
@@ -130,9 +139,12 @@ void SoundWidget::setModel(SoundModel *model)
         m_inputVolumeSlider->setValue(value * 100);
         m_inputVolumeSlider->blockSignals(false);
     });
+
+#ifndef DCC_DISABLE_FEEDBACK
     connect(model, &SoundModel::microphoneFeedbackChanged, this, [this] (double value) {
         m_inputFeedbackSlider->setValue(value * 100);
     });
+#endif
 
     blockSignals(true);
     m_speakerSwitch->setChecked(model->speakerOn());
@@ -141,10 +153,14 @@ void SoundWidget::setModel(SoundModel *model)
     m_outputVolumeSlider->setValue(model->speakerVolume());
     m_outputBalanceSlider->setValue(model->speakerBalance());
     m_inputVolumeSlider->setValue(model->microphoneVolume());
+
+#ifndef DCC_DISABLE_FEEDBACK
     m_inputFeedbackSlider->setValue(model->microphoneFeedback());
+#endif
     blockSignals(false);
 }
 
+#ifndef DCC_DISABLE_FEEDBACK
 bool SoundWidget::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched == m_inputFeedbackSlider) {
@@ -160,6 +176,7 @@ bool SoundWidget::eventFilter(QObject *watched, QEvent *event)
 
     return false;
 }
+#endif
 
 }
 }

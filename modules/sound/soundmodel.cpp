@@ -76,7 +76,7 @@ void SoundModel::setMicrophoneVolume(double microphoneVolume)
         emit microphoneVolumeChanged(microphoneVolume);
     }
 }
-
+#ifndef DCC_DISABLE_FEEDBACK
 void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
 {
     if (microphoneFeedback != m_microphoneFeedback) {
@@ -85,6 +85,7 @@ void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
         emit microphoneFeedbackChanged(microphoneFeedback);
     }
 }
+#endif
 
 void SoundModel::addPort(Port *port)
 {

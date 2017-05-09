@@ -84,8 +84,10 @@ public:
     inline double microphoneVolume() const { return m_microphoneVolume; }
     void setMicrophoneVolume(double microphoneVolume);
 
+#ifndef DCC_DISABLE_FEEDBACK
     inline double microphoneFeedback() const { return m_microphoneFeedback; }
     void setMicrophoneFeedback(double microphoneFeedback);
+#endif
 
     void addPort(Port *port);
     void removePort(const QString &portId, const uint &cardId);
@@ -103,7 +105,10 @@ signals:
     void speakerVolumeChanged(double speakerVolume) const;
     void speakerBalanceChanged(double speakerBalance) const;
     void microphoneVolumeChanged(double microphoneVolume) const;
+
+#ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
+#endif
     void portAdded(const Port *port);
     void portRemoved(const QString & portId, const uint &cardId);
 
@@ -114,7 +119,10 @@ private:
     double m_speakerVolume;
     double m_speakerBalance;
     double m_microphoneVolume;
+
+#ifndef DCC_DISABLE_FEEDBACK
     double m_microphoneFeedback;
+#endif
     QList<Port *> m_ports;
 };
 

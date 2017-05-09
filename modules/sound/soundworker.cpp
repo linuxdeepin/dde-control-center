@@ -160,6 +160,7 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
     activeSourcePortChanged(m_defaultSource->activePort());
     onSourceCardChanged(m_defaultSource->card());
 
+#ifndef DCC_DISABLE_FEEDBACK
     QDBusPendingCall call = m_defaultSource->GetMeter();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
@@ -173,13 +174,13 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 
             m_sourceMeter = new Meter("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
             m_sourceMeter->setSync(false);
-
             connect(m_sourceMeter, &Meter::VolumeChanged, m_model, &SoundModel::setMicrophoneFeedback);
             m_model->setMicrophoneFeedback(m_sourceMeter->volume());
         } else {
             qWarning() << "get meter failed " << call.error().message();
         }
     });
+#endif
 }
 
 //void SoundWorker::sinksChanged(const QList<QDBusObjectPath> &value)

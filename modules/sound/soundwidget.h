@@ -32,9 +32,10 @@ public:
     ~SoundWidget();
 
     void setModel(SoundModel *model);
-
+#ifndef DCC_DISABLE_FEEDBACK
 protected:
     virtual bool eventFilter(QObject *watched, QEvent *event);
+#endif
 
 signals:
     void requestSwitchSpeaker(bool on) const;
@@ -57,8 +58,11 @@ private:
     SwitchWidget *m_microphoneSwitch;
     TitledSliderItem *m_inputVolumeSliderItem;
     DCCSlider *m_inputVolumeSlider;
+
+#ifndef DCC_DISABLE_FEEDBACK
     TitledSliderItem *m_inputFeedbackSliderItem;
     DCCSlider *m_inputFeedbackSlider;
+#endif
 
     SettingsGroup *m_advancedSettingsGroup;
     NextPageWidget *m_advancedSettingsItem;
