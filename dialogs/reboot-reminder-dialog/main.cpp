@@ -11,6 +11,11 @@
 
 #include <QApplication>
 #include <QTranslator>
+#include <QDBusConnection>
+
+#define Service "com.deepin.dialogs.RebootReminder"
+#define Path "/com/deepin/dialogs/RebootReminder"
+#define Interface "com.deepin.dialogs.RebootReminder"
 
 int main(int argc, char *argv[])
 {
@@ -21,8 +26,20 @@ int main(int argc, char *argv[])
     translator.load("/usr/share/dde-control-center/translations/dialogs_" + QLocale::system().name());
     a.installTranslator(&translator);
 
-    Manager manager;
-    manager.start();
+    bool res = QDBusConnection::sessionBus().registerService(Service);
+    if (res) {
+        Manager *manager = new Manager;
 
-    return a.exec();
+        QDBusConnection::sessionBus().registerObject(Path, Interface, manager, QDBusConnection::ExportAllSlots);
+
+        manager->start();
+
+        return a.exec();
+
+    } else {
+        qWarning() << "there's an instance running, invoking Show method on it.";
+        QProcess::startDetached("qdbus com.deepin.dialogs.RebootReminder"\
+                                "/com/deepin/dialogs/RebootReminder"\
+                                "com.deepin.dialogs.RebootReminder.Show");
+    }
 }

@@ -45,6 +45,9 @@ public:
 
     void start();
 
+public slots:
+    void Show();
+
 private slots:
     void setupDialog();
     void showDialog();

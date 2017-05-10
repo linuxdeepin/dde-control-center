@@ -91,5 +91,13 @@ void Manager::showDialog()
 void Manager::start()
 {
     setupDialog();
-    QTimer::singleShot(5000, this, &Manager::showDialog);
+    showDialog();
+}
+
+void Manager::Show()
+{
+    if (m_dialog->isVisible())
+        m_dialog->activateWindow();
+    else
+        start();
 }
