@@ -269,6 +269,10 @@ void SettingsWidget::toggleView()
 
 void SettingsWidget::showModulePage(const QString &moduleName, const QString &pageName)
 {
+    // hide navigation
+    if (!m_settingsWidget->isVisible())
+        toggleView();
+
     // test module is loaded
     bool founded = false;
     for (auto *module : m_moduleActivable.keys())
