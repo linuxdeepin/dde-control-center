@@ -8,3 +8,9 @@ file_filter = translations/dde-control-center_<lang>.ts
 source_file = translations/dde-control-center.ts
 source_lang = en
 type = QT
+
+[deepin-desktop-environment.dde-control-center_dialogs]
+file_filter = translations/dialogs_<lang>.ts
+source_file = translations/dialogs.ts
+source_lang = en
+type = QT
