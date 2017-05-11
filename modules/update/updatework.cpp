@@ -322,10 +322,10 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
         // If there's no actual package dde update, but there're system patches available,
         // then fake one dde update item.
         AppUpdateInfo dde;
+        dde.m_name = "Deepin";
+        dde.m_packageId = "dde";
+        dde.m_avilableVersion = tr("Patches");
         AppUpdateInfo ddeUpdateInfo = getInfo(dde, "", "");
-        ddeUpdateInfo.m_name = "Deepin";
-        ddeUpdateInfo.m_packageId = "dde";
-        ddeUpdateInfo.m_avilableVersion = tr("Patches");
         if(ddeUpdateInfo.m_changelog.isEmpty())
             ddeUpdateInfo.m_changelog = tr("System patches.");
         infos.prepend(ddeUpdateInfo);
