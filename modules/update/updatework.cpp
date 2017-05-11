@@ -272,6 +272,12 @@ void UpdateWork::setDistUpgradeJob(const QString &jobPath)
             m_distUpgradeJob = nullptr;
 
             m_model->setStatus(UpdatesStatus::UpdateSucceeded);
+
+            QFile file("/tmp/.dcc-update-successd");
+            if (file.exists())
+                return;
+            file.open(QIODevice::WriteOnly);
+            file.close();
         }
     });
 }
@@ -302,6 +308,14 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
     int pkgCount = m_updatablePackages.count();
     int appCount = value.count();
     bool foundDDEChangelog = false;
+
+    if (!pkgCount && !appCount) {
+        QFile file("/tmp/.dcc-update-successd");
+        if (file.exists()) {
+            m_model->setStatus(UpdatesStatus::NeedRestart);
+            return;
+        }
+    }
 
     for (AppUpdateInfo &val : reply.value()) {
         const QString currentVer = val.m_currentVersion;

@@ -197,6 +197,15 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_summaryGroup->setVisible(false);
         m_reminderTip->setVisible(false);
         break;
+    case UpdatesStatus::NeedRestart:
+        m_checkGroup->setVisible(true);
+        m_resultGroup->setVisible(false);
+        m_progress->setVisible(false);
+        m_summaryGroup->setVisible(false);
+        m_checkUpdateItem->setMessage(tr("The newest system installed, restart to take effect"));
+        m_checkUpdateItem->setIndicatorVisible(false);
+        m_reminderTip->setVisible(false);
+        break;
     default:
         qWarning() << "unknown status!!!";
     }

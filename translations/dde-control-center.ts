@@ -923,13 +923,13 @@
 <context>
     <name>dcc::keyboard::KeyboardDetails</name>
     <message>
-        <location filename="../modules/keyboard/keyboarddetails.cpp" line="23"/>
-        <location filename="../modules/keyboard/keyboarddetails.cpp" line="25"/>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="24"/>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="26"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboarddetails.cpp" line="32"/>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="33"/>
         <source>Add Keyboard Layout</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1947,7 +1947,7 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="238"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1981,8 +1981,13 @@
         <source>Updating, please wait...</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
+        <source>The newest system installed, restart to take effect</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="219"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="228"/>
         <source>%n update(s) detected</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -1990,12 +1995,12 @@
         </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="233"/>
         <source>New system edition detected</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="235"/>
         <source>New system edition and %n update(s) detected</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -2003,17 +2008,17 @@
         </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="232"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="241"/>
         <source>Update size: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="246"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2066,12 +2071,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="328"/>
+        <location filename="../modules/update/updatework.cpp" line="341"/>
         <source>Patches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="330"/>
+        <location filename="../modules/update/updatework.cpp" line="344"/>
         <source>System patches.</source>
         <translation type="unfinished"></translation>
     </message>
