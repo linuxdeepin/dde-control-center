@@ -138,7 +138,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     m_brightnessHigh->setFixedSize(24, 24);
 
     m_soundSlider->setOrientation(Qt::Horizontal);
-    m_soundSlider->setRange(0, 150);
+    m_soundSlider->setRange(0, 100);
     m_soundSlider->setAccessibleName("SoundSlider");
     m_soundSlider->setFocusProxy(this);
     m_lightSlider->setOrientation(Qt::Horizontal);
