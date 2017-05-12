@@ -32,10 +32,14 @@ public:
     inline bool selected() const {return m_selected;}
     void setSelected(bool state);
 
+    int speed() const;
     void setSpeed(const int speed);
+
+    void setTesting();
 
     void setMirrorName(const QString &name);
     inline QString mirrorName() const { return m_mirrorName->text(); }
+
 
 signals:
     void selectStateChanged(bool state) const;
@@ -47,6 +51,7 @@ protected:
 
 private:
     bool m_selected = false;
+    int m_speed = 0;
     MirrorInfo m_info;
 
     DImageButton *m_selectedBtn;

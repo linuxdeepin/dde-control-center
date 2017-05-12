@@ -9,7 +9,7 @@ MirrorItem::MirrorItem(QFrame *parent)
     :SettingsItem(parent),
       m_selectedBtn(new DImageButton(this)),
       m_mirrorName(new SmallLabel),
-      m_mirrorSpeed(new SmallLabel)
+      m_mirrorSpeed(new SmallLabel(tr("Untested")))
 {
     setMinimumHeight(36);
 
@@ -49,7 +49,9 @@ void MirrorItem::setSelected(bool state)
 
 void MirrorItem::setSpeed(const int time)
 {
-    if (time == -1)
+    m_speed = time;
+
+    if (time == 10000)
         m_mirrorSpeed->setText(tr("Timeout"));
     else if (time > 2000)
         m_mirrorSpeed->setText(tr("Slow"));
@@ -57,6 +59,11 @@ void MirrorItem::setSpeed(const int time)
         m_mirrorSpeed->setText(tr("Medium"));
     else
         m_mirrorSpeed->setText(tr("Fast"));
+}
+
+void MirrorItem::setTesting()
+{
+    m_mirrorSpeed->setText("...");
 }
 
 void MirrorItem::setMirrorName(const QString &name)
@@ -85,10 +92,19 @@ void MirrorItem::mouseReleaseEvent(QMouseEvent *e)
     QFrame::mouseReleaseEvent(e);
 }
 
+int MirrorItem::speed() const
+{
+    return m_speed;
+}
+
 int MirrorItem::calcSpeedTextWidth() const
 {
     QFontMetrics fm = m_mirrorSpeed->fontMetrics();
-    return qMax(fm.width(tr("Timeout")), qMax(fm.width(tr("Slow")), qMax(fm.width(tr("Medium")), fm.width(tr("Fast")))));
+    return qMax(fm.width(tr("Timeout")),
+                qMax(fm.width(tr("Slow")),
+                     qMax(fm.width(tr("Medium")),
+                          qMax(fm.width(tr("Fast")),
+                               fm.width(tr("Untested"))))));
 }
 
 }

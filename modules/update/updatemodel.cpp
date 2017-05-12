@@ -77,7 +77,8 @@ void UpdateModel::setMirrorSpeedInfo(const QMap<QString, int> &mirrorSpeedInfo)
 {
     m_mirrorSpeedInfo = mirrorSpeedInfo;
 
-    emit mirrorSpeedInfoAvaiable(mirrorSpeedInfo);
+    if (mirrorSpeedInfo.keys().length())
+        emit mirrorSpeedInfoAvaiable(mirrorSpeedInfo);
 }
 
 bool UpdateModel::lowBattery() const

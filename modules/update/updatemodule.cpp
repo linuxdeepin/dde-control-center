@@ -110,12 +110,11 @@ void UpdateModule::onPushUpdate()
 
 void UpdateModule::onPushMirrorsView()
 {
-    m_work->testMirrorSpeed();
-
     if(!m_mirrorsWidget) {
         m_mirrorsWidget = new MirrorsWidget(m_model);
 
         connect(m_mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWork::setMirrorSource);
+        connect(m_mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWork::testMirrorSpeed);
     }
 
     m_frameProxy->pushWidget(this, m_mirrorsWidget);

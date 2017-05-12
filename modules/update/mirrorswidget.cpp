@@ -1,7 +1,8 @@
 #include "mirrorswidget.h"
 #include "translucentframe.h"
 
-#include <QStackedLayout>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 #include "updatemodel.h"
 #include "loadingitem.h"
@@ -12,15 +13,12 @@ namespace update{
 MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     :ContentWidget(parent),
       m_curItem(nullptr),
-      m_loadingGroup(new SettingsGroup),
+      m_testProgress(NotStarted),
+      m_testButton(new QPushButton(tr("Test Speed"))),
       m_mirrorListGroup(new SettingsGroup),
-      m_layout(new QStackedLayout)
+      m_layout(new QVBoxLayout)
 {
     setTitle(tr("Switch Mirror"));
-
-    LoadingItem *item = new LoadingItem;
-    item->setMessage(tr("Checking speed, please wait"));
-    m_loadingGroup->appendItem(item);
 
     TranslucentFrame* widget = new TranslucentFrame();
 
@@ -31,7 +29,8 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
 
     m_layout->setMargin(0);
     m_layout->setSpacing(0);
-    m_layout->addWidget(m_loadingGroup);
+    m_layout->addWidget(m_testButton);
+    m_layout->addSpacing(5);
     m_layout->addWidget(m_mirrorListGroup);
 
     mainlayout->addLayout(m_layout);
@@ -40,6 +39,9 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     setContent(widget);
 
     setModel(model);
+
+    connect(m_testButton, &QPushButton::clicked,
+            this, &MirrorsWidget::testButtonClicked);
 }
 
 void MirrorsWidget::setModel(UpdateModel *model)
@@ -104,13 +106,47 @@ void MirrorsWidget::setCurItem(MirrorItem *item)
 
 void MirrorsWidget::onSpeedInfoAvailable(const QMap<QString, int> &info)
 {
+    m_testProgress = Done;
+    m_testButton->setText(tr("Retest"));
+
     QList<MirrorItem*> items = findChildren<MirrorItem*>();
     for (MirrorItem *item : items) {
         const QString id = item->mirrorInfo().m_id;
-        item->setSpeed(info.value(id, -1));
+
+        if (info.contains(id))
+            item->setSpeed(info.value(id, -1));
     }
 
-    m_layout->setCurrentIndex(1);
+    if (info.keys().length() == items.length()) {
+        sortMirrorsBySpeed();
+    }
+}
+
+void MirrorsWidget::testButtonClicked()
+{
+    if (m_testProgress == Running)
+        return;
+
+    emit requestTestMirrorSpeed();
+
+    m_testProgress = Running;
+
+    QList<MirrorItem*> items = findChildren<MirrorItem*>();
+    for (MirrorItem *item : items) {
+        item->setTesting();
+    }
+}
+
+void MirrorsWidget::sortMirrorsBySpeed()
+{
+    QList<MirrorItem*> items = findChildren<MirrorItem*>();
+    qSort(items.begin(), items.end(), [](const MirrorItem *one, const MirrorItem *two) {
+        return one->speed() > two->speed();
+    });
+
+    for (MirrorItem *item : items) {
+        m_mirrorListGroup->moveItem(item, 0);
+    }
 }
 
 }

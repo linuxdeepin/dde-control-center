@@ -25,7 +25,7 @@ static int TestMirrorSpeedInternal(const QString &url)
         return result.first().toInt();
     }
 
-    return -1;
+    return 10000;
 }
 
 UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
@@ -171,15 +171,16 @@ void UpdateWork::testMirrorSpeed()
         urlList << info.m_url;
     }
 
-    QFutureWatcher<int> *watcher = new QFutureWatcher<int>(this);
-    connect(watcher, &QFutureWatcher<int>::finished, [this, urlList, watcher, mirrors] {
-        QMap<QString, int> speedInfo;
+    // reset the data;
+    m_model->setMirrorSpeedInfo(QMap<QString,int>());
 
-        for (int i = 0; i < urlList.length(); i++) {
-            int result = watcher->resultAt(i);
-            QString mirrorId = mirrors.at(i).m_id;
-            speedInfo[mirrorId] = result;
-        }
+    QFutureWatcher<int> *watcher = new QFutureWatcher<int>(this);
+    connect(watcher, &QFutureWatcher<int>::resultReadyAt, [this, urlList, watcher, mirrors] (int index) {
+        QMap<QString, int> speedInfo = m_model->mirrorSpeedInfo();
+
+        int result = watcher->resultAt(index);
+        QString mirrorId = mirrors.at(index).m_id;
+        speedInfo[mirrorId] = result;
 
         m_model->setMirrorSpeedInfo(speedInfo);
     });

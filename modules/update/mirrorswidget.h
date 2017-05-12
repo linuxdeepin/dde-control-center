@@ -7,8 +7,6 @@
 
 #include <types/mirrorinfolist.h>
 
-class QStackedLayout;
-
 using namespace dcc;
 
 namespace dcc{
@@ -27,21 +25,33 @@ public:
 
 signals:
     void requestSetDefaultMirror(const MirrorInfo &mirror);
+    void requestTestMirrorSpeed();
 
 private slots:
     void setCurItem(MirrorItem* item);
     void onSpeedInfoAvailable(const QMap<QString, int> &info);
+    void testButtonClicked();
+
+    void sortMirrorsBySpeed();
 
 private:
     void setDefaultMirror(const MirrorInfo& mirror);
     void setMirrorInfoList(const MirrorInfoList& list);
 
 private:
+    enum TestProgress {
+        NotStarted,
+        Running,
+        Done
+    };
+
     MirrorItem* m_curItem;
     MirrorInfo m_defaultMirror;
-    SettingsGroup *m_loadingGroup;
+    TestProgress m_testProgress;
+
+    QPushButton *m_testButton;
     SettingsGroup *m_mirrorListGroup;
-    QStackedLayout *m_layout;
+    QVBoxLayout *m_layout;
 };
 
 }
