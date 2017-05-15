@@ -25,6 +25,7 @@ UpdateModel::UpdateModel(QObject *parent) :
     QObject(parent),
     m_status(UpdatesStatus::Checking),
     m_downloadInfo(nullptr),
+    m_upgradeProgress(0),
     m_lowBattery(false),
     m_autoDownloadUpdates(true),
     m_mirrorId("")
@@ -134,6 +135,18 @@ void UpdateModel::setStatus(const UpdatesStatus &status)
     }
 }
 
+double UpdateModel::upgradeProgress() const
+{
+    return m_upgradeProgress;
+}
+
+void UpdateModel::setUpgradeProgress(double upgradeProgress)
+{
+    if (m_upgradeProgress != upgradeProgress) {
+        m_upgradeProgress = upgradeProgress;
+        emit upgradeProgressChanged(upgradeProgress);
+    }
+}
 
 }
 }

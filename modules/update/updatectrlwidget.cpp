@@ -180,6 +180,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_summaryGroup->setVisible(true);
         m_progress->setMessage(tr("Updating, please wait..."));
         m_reminderTip->setVisible(false);
+        break;
     case UpdatesStatus::UpdateSucceeded:
         m_checkGroup->setVisible(false);
         m_resultItem->setSuccess(true);
@@ -241,11 +242,6 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
     m_summary->setDetails(QString(tr("Update size: %1").arg(formatCap(downloadSize))));
 
     loadAppList(apps);
-
-    connect(downloadInfo, &DownloadInfo::downloadProgressChanged, this, [this] (const double &value) {
-        m_progress->setValue(value * 100);
-        m_progress->setMessage(tr("%1 downloaded (Click to pause)").arg(m_progress->text()));
-    });
 }
 
 void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
@@ -269,6 +265,15 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     connect(m_model, &UpdateModel::statusChanged, this, &UpdateCtrlWidget::setStatus);
     connect(m_model, &UpdateModel::lowBatteryChanged, this, &UpdateCtrlWidget::setLowBattery);
     connect(m_model, &UpdateModel::downloadInfoChanged, this, &UpdateCtrlWidget::setDownloadInfo);
+
+    connect(m_model, &UpdateModel::upgradeProgressChanged, this, [this] (const double &value) {
+        m_progress->setValue(value * 100);
+
+        if (m_status == UpdatesStatus::Downloading) {
+            const double progress = qFloor(m_model->downloadInfo()->downloadProgress() * 100);
+            m_progress->setMessage(tr("%1% downloaded (Click to pause)").arg(progress));
+        }
+    });
 
     setStatus(m_model->status());
     setLowBattery(m_model->lowBattery());

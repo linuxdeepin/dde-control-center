@@ -227,8 +227,9 @@ void UpdateWork::setDownloadJob(const QString &jobPath)
     connect(m_downloadJob, &__Job::ProgressChanged, [this] (double value){
         DownloadInfo *info = m_model->downloadInfo();
         if (info) {
-            info->setDownloadProgress(value * 0.5);
+            info->setDownloadProgress(value);
         }
+        m_model->setUpgradeProgress(value * 0.5);
     });
 
     connect(m_downloadJob, &__Job::StatusChanged, [this] (const QString &status) {
@@ -258,10 +259,7 @@ void UpdateWork::setDistUpgradeJob(const QString &jobPath)
     m_model->setStatus(UpdatesStatus::Installing);
 
     connect(m_distUpgradeJob, &__Job::ProgressChanged, [this] (double value){
-        DownloadInfo *info = m_model->downloadInfo();
-        if (info) {
-            info->setDownloadProgress(m_baseProgress + value * (1 - m_baseProgress));
-        }
+        m_model->setUpgradeProgress(m_baseProgress + (1 - m_baseProgress) * value);
     });
 
     connect(m_distUpgradeJob, &__Job::StatusChanged, [this] (const QString &status) {

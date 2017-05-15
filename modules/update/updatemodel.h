@@ -58,6 +58,9 @@ public:
     bool autoDownloadUpdates() const;
     void setAutoDownloadUpdates(bool autoDownloadUpdates);
 
+    double upgradeProgress() const;
+    void setUpgradeProgress(double upgradeProgress);
+
 signals:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
@@ -69,9 +72,13 @@ signals:
 
     void downloadInfoChanged(DownloadInfo *downloadInfo);
 
+    void upgradeProgressChanged(const double &upgradeProgress);
+
 private:
     UpdatesStatus m_status;
     DownloadInfo *m_downloadInfo;
+
+    double m_upgradeProgress;
 
     bool m_lowBattery;
 
