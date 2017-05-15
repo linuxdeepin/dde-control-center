@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>BluetoothDelegate</name>
     <message>
@@ -99,7 +101,10 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n天前</numerusform></translation>
+        <translation>
+            <numerusform>%n天前</numerusform>
+            <numerusform>%n天前</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
@@ -1877,26 +1882,32 @@
 <context>
     <name>dcc::update::MirrorItem</name>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="53"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="12"/>
+        <location filename="../modules/update/mirroritem.cpp" line="107"/>
+        <source>Untested</source>
+        <translation>未检测</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/mirroritem.cpp" line="55"/>
+        <location filename="../modules/update/mirroritem.cpp" line="103"/>
         <source>Timeout</source>
         <translation>超时</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="55"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="57"/>
+        <location filename="../modules/update/mirroritem.cpp" line="104"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="57"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="59"/>
+        <location filename="../modules/update/mirroritem.cpp" line="105"/>
         <source>Medium</source>
         <translation>中</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="59"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="61"/>
+        <location filename="../modules/update/mirroritem.cpp" line="106"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
@@ -1904,14 +1915,19 @@
 <context>
     <name>dcc::update::MirrorsWidget</name>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="19"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
+        <source>Test Speed</source>
+        <translation>测速</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
         <source>Switch Mirror</source>
         <translation>切换镜像源</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="22"/>
-        <source>Checking speed, please wait</source>
-        <translation>检查速度中，请稍候</translation>
+        <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
+        <source>Retest</source>
+        <translation>重新测速</translation>
     </message>
 </context>
 <context>
@@ -1984,7 +2000,10 @@
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="228"/>
         <source>%n update(s) detected</source>
-        <translation><numerusform>检测到%n个应用更新</numerusform></translation>
+        <translation>
+            <numerusform>检测到%n个应用更新</numerusform>
+            <numerusform>检测到%n个应用更新</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="233"/>
@@ -1994,7 +2013,10 @@
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="235"/>
         <source>New system edition and %n update(s) detected</source>
-        <translation><numerusform>检测到新系统版本和%n个应用更新</numerusform></translation>
+        <translation>
+            <numerusform>检测到新系统版本和%n个应用更新</numerusform>
+            <numerusform>检测到新系统版本和%n个应用更新</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="241"/>
@@ -2060,12 +2082,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="341"/>
+        <location filename="../modules/update/updatework.cpp" line="342"/>
         <source>Patches</source>
         <translation>系统更新</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="344"/>
+        <location filename="../modules/update/updatework.cpp" line="345"/>
         <source>System patches.</source>
         <translation>系统补丁。</translation>
     </message>
