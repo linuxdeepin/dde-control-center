@@ -36,8 +36,9 @@ public slots:
 
 private slots:
     void onNotifyGetAllFinished(QDBusPendingCallWatcher *w);
-    void onNotifyAdd(const QJsonObject &value);
+    Viewer* onNotifyAdd(const QJsonObject &value);
     void onNotifyRemove(const QString &id);
+    void onLoadAgain();
 
 protected:
     void paintEvent(QPaintEvent *e);
@@ -46,11 +47,12 @@ private:
     void onCloseAllItem();
 
 private:
-    Viewer *m_viewer;
     DImageButton *m_clearButton;
     QMap<Viewer*, QJsonObject> m_viewerList;
     Notifications *m_dbus;
     QVBoxLayout *m_connectLayout;
+    QJsonArray m_dataJsonArray;
+    int m_checkIndex;
 };
 
 #endif // NOTIFYMANAGER_H

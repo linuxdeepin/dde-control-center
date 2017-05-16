@@ -10,6 +10,7 @@
 #include "notifymanager.h"
 #include <QDebug>
 #include <QScrollArea>
+#include <QScrollBar>
 
 NotifyManager::NotifyManager(QWidget *parent) :
     QWidget(parent),
@@ -33,6 +34,12 @@ NotifyManager::NotifyManager(QWidget *parent) :
     scrollarea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollarea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollarea->setStyleSheet("background-color:transparent;");
+
+    QScrollBar *bar = scrollarea->verticalScrollBar();
+    connect(bar, &QScrollBar::valueChanged, this, [=](int value){
+            if (m_checkIndex && value == bar->maximum())
+                onLoadAgain();
+    });
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
@@ -66,18 +73,20 @@ NotifyManager::~NotifyManager() {
 void NotifyManager::onNotifyAdded(const QString &value)
 {
     QJsonDocument jsonDocument = QJsonDocument::fromJson(value.toLocal8Bit().data());
-    onNotifyAdd(jsonDocument.object());
+    Viewer* viewer = onNotifyAdd(jsonDocument.object());
+
+    m_connectLayout->insertWidget(0, viewer);
 }
 
-void NotifyManager::onNotifyAdd(const QJsonObject &value) {
+Viewer *NotifyManager::onNotifyAdd(const QJsonObject &value) {
     m_clearButton->setVisible(true);
 
-    m_viewer = new Viewer(value, this);
+    Viewer* viewer = new Viewer(value, this);
 
-    m_viewer->setAppName(value["summary"].toString());
-    m_viewer->setAppBody(value["body"].toString());
-    m_viewer->setAppIcon(value["icon"].toString());
-    m_viewer->setAppId(value["id"].toString());
+    viewer->setAppName(value["summary"].toString());
+    viewer->setAppBody(value["body"].toString());
+    viewer->setAppIcon(value["icon"].toString());
+    viewer->setAppId(value["id"].toString());
 
     const QDateTime date = QDateTime::fromMSecsSinceEpoch(value["id"].toString().toLongLong());
 
@@ -89,7 +98,7 @@ void NotifyManager::onNotifyAdd(const QJsonObject &value) {
         uint now = QDateTime::currentDateTime().date().year();
 
         if (now > year)
-            m_viewer->setAppTime(date.toString("yyyy/MM/dd hh:mm"));
+            viewer->setAppTime(date.toString("yyyy/MM/dd hh:mm"));
         else {
             const uint notify_day = date.date().day();
             now = QDateTime::currentDateTime().date().day();
@@ -104,39 +113,40 @@ void NotifyManager::onNotifyAdd(const QJsonObject &value) {
 
                 switch (time) {
                 case 0:
-                    m_viewer->setAppTime(hour);
+                    viewer->setAppTime(hour);
                     break;
                 case 1:
-                    m_viewer->setAppTime(tr("Yesterday") + " " + hour);
+                    viewer->setAppTime(tr("Yesterday") + " " + hour);
                     break;
                 case 2:
-                    m_viewer->setAppTime(tr("The day before yesterday") + " " + hour);
+                    viewer->setAppTime(tr("The day before yesterday") + " " + hour);
                     break;
                 default:
                     if (time > 7) {
-                        m_viewer->setAppTime(date.toString("MM/dd hh:mm"));
+                        viewer->setAppTime(date.toString("MM/dd hh:mm"));
                     } else {
-                        m_viewer->setAppTime(tr("%n day(s) ago", "", time) + " " + hour);
+                        viewer->setAppTime(tr("%n day(s) ago", "", time) + " " + hour);
                     }
                     break;
                 }
             } else {
-                m_viewer->setAppTime(date.toString("MM/dd hh:mm"));
+                viewer->setAppTime(date.toString("MM/dd hh:mm"));
             }
         }
     } else {
-        m_viewer->setAppTime(date.toString("yyyy/MM/dd hh:mm"));
+        viewer->setAppTime(date.toString("yyyy/MM/dd hh:mm"));
     }
 
-    m_viewer->setFixedHeight(80);
-    m_viewer->setFixedWidth(360);
-    m_viewer->setContentsMargins(0, 0, 0, 0);
-    m_viewer->setStyleSheet("Viewer {background: transparent;}"
+    viewer->setFixedHeight(80);
+    viewer->setFixedWidth(360);
+    viewer->setContentsMargins(0, 0, 0, 0);
+    viewer->setStyleSheet("Viewer {background: transparent;}"
                             "Viewer:hover {background-color: rgba(254, 254, 254, 0.13);border-radius: 4;}");
-    m_connectLayout->insertWidget(0, m_viewer);
-    m_viewerList.insert(m_viewer, value);
-    connect(m_viewer, &Viewer::requestClose, this, &NotifyManager::onNotifyRemove);
+    m_viewerList.insert(viewer, value);
+    connect(viewer, &Viewer::requestClose, this, &NotifyManager::onNotifyRemove);
     update();
+
+    return viewer;
 }
 
 void NotifyManager::onNotifyRemove(const QString &id)
@@ -151,6 +161,20 @@ void NotifyManager::onNotifyRemove(const QString &id)
     }
 
     update();
+}
+
+void NotifyManager::onLoadAgain()
+{
+    if (m_checkIndex) {
+        for (int i = 0; i < 20; i++) {
+            if (m_checkIndex -i < 1)
+                return;
+            Viewer* viewer = onNotifyAdd(m_dataJsonArray.at(m_checkIndex - i).toObject());
+            m_connectLayout->insertWidget(m_viewerList.size(), viewer);
+        }
+
+        m_checkIndex = m_checkIndex - 20;
+    }
 }
 
 void NotifyManager::paintEvent(QPaintEvent *e)
@@ -174,19 +198,37 @@ void NotifyManager::onNotifyGetAllFinished(QDBusPendingCallWatcher *w)
 
     QJsonDocument jsonDocument = QJsonDocument::fromJson(reply.value().toLocal8Bit().data());
 
-    QJsonArray jsonArray = jsonDocument.array();
+    m_dataJsonArray = jsonDocument.array();
 
-    for (const QJsonValue &value : jsonArray) {
-        onNotifyAdd(value.toObject());
+    m_checkIndex = m_dataJsonArray.size();
+
+    if (m_checkIndex) {
+        if (m_checkIndex < 20) {
+            for (const QJsonValue &value : m_dataJsonArray) {
+                Viewer* viewer = onNotifyAdd(value.toObject());
+                m_connectLayout->insertWidget(0, viewer);
+            }
+            m_checkIndex = 0;
+        } else {
+            for (int i = 20; i > 0; --i) {
+                if (m_checkIndex - i < 1)
+                    return;
+                Viewer* viewer = onNotifyAdd(m_dataJsonArray.at(m_checkIndex - i).toObject());
+                m_connectLayout->insertWidget(0, viewer);
+            }
+            m_checkIndex = m_dataJsonArray.size() - 20;
+        }
     }
-
     w->deleteLater();
 }
-
 
 void NotifyManager::onCloseAllItem()
 {
     for (Viewer *viewer : m_viewerList.keys()) {
         viewer->onClose();
     }
+
+    m_viewerList.clear();
+    m_checkIndex = 0;
+    m_dbus->ClearRecords();
 }
