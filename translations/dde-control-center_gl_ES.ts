@@ -73,7 +73,7 @@
     <message>
         <location filename="../frame/quick_control/miracast/miracastcontrolmodel.cpp" line="50"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation type="unfinished"/>
+        <translation>O WIFI desconectarase cando se active a pantalla de proxección</translation>
     </message>
 </context>
 <context>
@@ -99,12 +99,12 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>hai %n día(s)</numerusform><numerusform>hai %n día(s)</numerusform></translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Antonte</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="163"/>
@@ -117,12 +117,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Actualizacións instaladas, necesitase reiniciar, reiniciar agora?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Por favor asegúrese de que gardou todos os datos primeiro</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Reiniciar</translation>
     </message>
 </context>
 <context>
@@ -1877,26 +1877,32 @@
 <context>
     <name>dcc::update::MirrorItem</name>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="53"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="12"/>
+        <location filename="../modules/update/mirroritem.cpp" line="107"/>
+        <source>Untested</source>
+        <translation>Sen probar</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/mirroritem.cpp" line="55"/>
+        <location filename="../modules/update/mirroritem.cpp" line="103"/>
         <source>Timeout</source>
         <translation>Tempo de espera</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="55"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="57"/>
+        <location filename="../modules/update/mirroritem.cpp" line="104"/>
         <source>Slow</source>
         <translation>Lento</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="57"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="59"/>
+        <location filename="../modules/update/mirroritem.cpp" line="105"/>
         <source>Medium</source>
         <translation>Medio</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="59"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="61"/>
+        <location filename="../modules/update/mirroritem.cpp" line="106"/>
         <source>Fast</source>
         <translation>Rápido</translation>
     </message>
@@ -1904,14 +1910,19 @@
 <context>
     <name>dcc::update::MirrorsWidget</name>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="19"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
+        <source>Test Speed</source>
+        <translation>Proba de velocidade</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
         <source>Switch Mirror</source>
         <translation>Mudar de réplica</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="22"/>
-        <source>Checking speed, please wait</source>
-        <translation>Probando velocidade, agarda por favor</translation>
+        <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
+        <source>Retest</source>
+        <translation>Volver a testar</translation>
     </message>
 </context>
 <context>
@@ -1919,12 +1930,12 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="36"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>Actualizado/a satisfactoriamente</translation>
     </message>
     <message>
         <location filename="../modules/update/resultitem.cpp" line="37"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>Non foi posible actualizar</translation>
     </message>
 </context>
 <context>
@@ -1942,7 +1953,6 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 descargado (Clic para pausar)</translation>
     </message>
@@ -1959,55 +1969,60 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation type="unfinished"/>
+        <translation>Por favor reinicie tras a actualización para usar o sistema e as aplicacións</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="135"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>Descargar e instalar as actualizacións</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="162"/>
         <source>Install updates</source>
-        <translation type="unfinished"/>
+        <translation>Instalar as actualizacións</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Actualizando, por favor agarda...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Instalouse a nova edición do sistema, reinicie para que teña efecto</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="228"/>
-        <source>%n update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
+        <source>%n application update(s) detected</source>
+        <translation><numerusform>Hai %n actualización(s) de aplicacións</numerusform><numerusform>Hai %n actualización(s) de aplicacións</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
+        <source>New system edition and %n application update(s) detected</source>
+        <translation><numerusform>Hai unha nova edición do sistema e %n actualización(s) de aplicacións</numerusform><numerusform>Hai unha nova edición do sistema e %n actualización(s) de aplicacións</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="233"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation>%1% descargado (Clic para pausar)</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>New system edition detected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="235"/>
-        <source>New system edition and %n update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation>Hai unha nova edición do sistema</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="241"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Update size: %1</source>
         <translation>Tamaño da actualización: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="251"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>A batería está a menos do 50%, por favor conecta á corrente para continuar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Por favor, asegúrate de ter batería abondo para reiniciar, e non apagues ou desconectes o computador</translation>
     </message>
@@ -2060,12 +2075,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="341"/>
+        <location filename="../modules/update/updatework.cpp" line="340"/>
         <source>Patches</source>
         <translation>Parches</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="344"/>
+        <location filename="../modules/update/updatework.cpp" line="343"/>
         <source>System patches.</source>
         <translation>Parches do sistema.</translation>
     </message>

@@ -1877,26 +1877,32 @@
 <context>
     <name>dcc::update::MirrorItem</name>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="53"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="12"/>
+        <location filename="../modules/update/mirroritem.cpp" line="107"/>
+        <source>Untested</source>
+        <translation>Непроверенно</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/mirroritem.cpp" line="55"/>
+        <location filename="../modules/update/mirroritem.cpp" line="103"/>
         <source>Timeout</source>
         <translation>Ожидает</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="55"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="57"/>
+        <location filename="../modules/update/mirroritem.cpp" line="104"/>
         <source>Slow</source>
         <translation>Медленно</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="57"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="59"/>
+        <location filename="../modules/update/mirroritem.cpp" line="105"/>
         <source>Medium</source>
         <translation>Средне</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="59"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="61"/>
+        <location filename="../modules/update/mirroritem.cpp" line="106"/>
         <source>Fast</source>
         <translation>Быстро</translation>
     </message>
@@ -1904,14 +1910,19 @@
 <context>
     <name>dcc::update::MirrorsWidget</name>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="19"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
+        <source>Test Speed</source>
+        <translation>Тест Скорости</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
         <source>Switch Mirror</source>
         <translation>Переключить Зеркало загрузки</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="22"/>
-        <source>Checking speed, please wait</source>
-        <translation>Проверка скорости, пожалуйста ждите</translation>
+        <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
+        <source>Retest</source>
+        <translation>Повтор Теста</translation>
     </message>
 </context>
 <context>
@@ -1942,7 +1953,6 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 загружено (Нажмите для приостановки)</translation>
     </message>
@@ -1977,37 +1987,42 @@
         <translation>Обновляю, пожалуйста ждите... </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Новейшая система установлена, перезагрузите для начала использования</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="228"/>
-        <source>%n update(s) detected</source>
-        <translation><numerusform>%n обновление(я) обнаружены</numerusform><numerusform>%n update(s) detected</numerusform><numerusform>%n update(s) detected</numerusform><numerusform>%n обновление(я) обнаружены</numerusform></translation>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
+        <source>%n application update(s) detected</source>
+        <translation><numerusform>Обнаружено обновление(я) приложения %n </numerusform><numerusform>Обнаружено обновление(я) приложения %n </numerusform><numerusform>Обнаружено обновление(я) приложения %n</numerusform><numerusform>обнаружены обновление(я) приложения %n </numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
+        <source>New system edition and %n application update(s) detected</source>
+        <translation><numerusform>Обнаружена новая версия системы и обнаружено %n обновление(я)</numerusform><numerusform>Обнаружена новая версия системы и обнаружено %n обновление(я)</numerusform><numerusform>Обнаружена новая версия системы и обновление(я) приложения %n</numerusform><numerusform>Обнаружена новая версия системы и  обновление(я) приложения %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="233"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation>%1% загружается (Нажмите для приостановки)</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>New system edition detected</source>
         <translation>Обнаружена новая версия системы</translation>
     </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="235"/>
-        <source>New system edition and %n update(s) detected</source>
-        <translation><numerusform>Обнаружена новая версия системы и обнаружено %n обновление(я)</numerusform><numerusform>Обнаружена новая версия системы и обнаружено %n обновление(я)</numerusform><numerusform>Обнаружена новая версия системы и обнаружено %n обновление(я)</numerusform><numerusform>Обнаружена новая версия системы и обнаружено %n обновление(я)</numerusform></translation>
-    </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="241"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Update size: %1</source>
         <translation>Размер обновления: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="251"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Ваша батарея заряжена менее чем на 50%, пожалуйста подключите для пролжения</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Пожалуйста, не выключайте питание компьютера</translation>
     </message>
@@ -2060,12 +2075,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="341"/>
+        <location filename="../modules/update/updatework.cpp" line="340"/>
         <source>Patches</source>
         <translation>Патчи</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="344"/>
+        <location filename="../modules/update/updatework.cpp" line="343"/>
         <source>System patches.</source>
         <translation>Исправления Системы</translation>
     </message>

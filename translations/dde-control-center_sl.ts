@@ -99,12 +99,12 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>pred %n dnem()</numerusform><numerusform>pred %n dnevoma()</numerusform><numerusform>pred %n dnevi()</numerusform><numerusform>pred %n dnevi()</numerusform></translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Dan pred včerajšnjim</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="163"/>
@@ -117,12 +117,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Posodobitve nameščene, potreben je ponoven zagon. Ponovno zaženem zdaj?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Prosim, prepričajte se, da ste shranili vse podatke</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Ponovni zagon</translation>
     </message>
 </context>
 <context>
@@ -1877,26 +1877,32 @@
 <context>
     <name>dcc::update::MirrorItem</name>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="53"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="12"/>
+        <location filename="../modules/update/mirroritem.cpp" line="107"/>
+        <source>Untested</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/mirroritem.cpp" line="55"/>
+        <location filename="../modules/update/mirroritem.cpp" line="103"/>
         <source>Timeout</source>
         <translation>Prekinitev</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="55"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="57"/>
+        <location filename="../modules/update/mirroritem.cpp" line="104"/>
         <source>Slow</source>
         <translation>Počasi</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="57"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="59"/>
+        <location filename="../modules/update/mirroritem.cpp" line="105"/>
         <source>Medium</source>
         <translation>Srednje</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="59"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="61"/>
+        <location filename="../modules/update/mirroritem.cpp" line="106"/>
         <source>Fast</source>
         <translation>Hitro</translation>
     </message>
@@ -1904,14 +1910,19 @@
 <context>
     <name>dcc::update::MirrorsWidget</name>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="19"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
+        <source>Test Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
         <source>Switch Mirror</source>
         <translation>Preklopi zrcalni strežnik</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="22"/>
-        <source>Checking speed, please wait</source>
-        <translation>Preverjam hitrost, počakajte</translation>
+        <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
+        <source>Retest</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1919,12 +1930,12 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="36"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>Posodobitev uspešna</translation>
     </message>
     <message>
         <location filename="../modules/update/resultitem.cpp" line="37"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>Posodobitev ni uspela</translation>
     </message>
 </context>
 <context>
@@ -1942,7 +1953,6 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 prenesenega (Kliknite za premor)</translation>
     </message>
@@ -1959,55 +1969,60 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation type="unfinished"/>
+        <translation>Prosim, ponovno zaženite računalnik, da boste lahko pravilno uporabljali posodobljeni sistem in aplikacije</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="135"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>Prenesite in namestite posodobitve</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="162"/>
         <source>Install updates</source>
-        <translation type="unfinished"/>
+        <translation>Namesti posodobitve</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Posodabljam, prosim počakajte...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Najnovejši sistem nameščen, ponovno zaženite računalnik</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="228"/>
-        <source>%n update(s) detected</source>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
+        <source>%n application update(s) detected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
+        <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="233"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>New system edition detected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="235"/>
-        <source>New system edition and %n update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation>Zaznana nova različica sistema</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="241"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Update size: %1</source>
         <translation>Velikost posodobitve: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="251"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Baterija je na manj kot 50%, za nadaljevanje priključite v napajanje</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Prosim, prepričajte se, da je za ponoven zagon dovolj energije, in ne ugasnite ali odklopite naprave iz napajanja</translation>
     </message>
@@ -2060,12 +2075,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="341"/>
+        <location filename="../modules/update/updatework.cpp" line="340"/>
         <source>Patches</source>
         <translation>Paketi popravkov</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="344"/>
+        <location filename="../modules/update/updatework.cpp" line="343"/>
         <source>System patches.</source>
         <translation>Sistemski patchi.</translation>
     </message>

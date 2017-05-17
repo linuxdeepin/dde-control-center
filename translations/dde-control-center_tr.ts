@@ -99,7 +99,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n Gün Önce</numerusform><numerusform>%n Günler Önce</numerusform></translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
@@ -752,7 +752,7 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="325"/>
         <source> (Recommended)</source>
-        <translation>(Önerildi)</translation>
+        <translation> (Önerilir)</translation>
     </message>
 </context>
 <context>
@@ -765,7 +765,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="55"/>
         <source> (Recommended)</source>
-        <translation>(Önerildi)</translation>
+        <translation> (Önerilir)</translation>
     </message>
 </context>
 <context>
@@ -1877,26 +1877,32 @@
 <context>
     <name>dcc::update::MirrorItem</name>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="53"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="12"/>
+        <location filename="../modules/update/mirroritem.cpp" line="107"/>
+        <source>Untested</source>
+        <translation>Test edilmemiş</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/mirroritem.cpp" line="55"/>
+        <location filename="../modules/update/mirroritem.cpp" line="103"/>
         <source>Timeout</source>
         <translation>Zaman aşımı</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="55"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="57"/>
+        <location filename="../modules/update/mirroritem.cpp" line="104"/>
         <source>Slow</source>
         <translation>Yavaş</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="57"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="59"/>
+        <location filename="../modules/update/mirroritem.cpp" line="105"/>
         <source>Medium</source>
         <translation>Orta</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="59"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="61"/>
+        <location filename="../modules/update/mirroritem.cpp" line="106"/>
         <source>Fast</source>
         <translation>Hızlı</translation>
     </message>
@@ -1904,14 +1910,19 @@
 <context>
     <name>dcc::update::MirrorsWidget</name>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="19"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
+        <source>Test Speed</source>
+        <translation>Hızı Test Et</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
         <source>Switch Mirror</source>
         <translation>Ekran Değiştir</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="22"/>
-        <source>Checking speed, please wait</source>
-        <translation>Hız kontrol ediliyor, lütfen bekleyin</translation>
+        <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
+        <source>Retest</source>
+        <translation>Yeniden Test</translation>
     </message>
 </context>
 <context>
@@ -1942,7 +1953,6 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 İndirildi (Duraklatmak için tıklayın)</translation>
     </message>
@@ -1977,37 +1987,42 @@
         <translation>Güncelleme yükleniyor, lütfen bekleyiniz...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>En yeni sistem yüklendi, aktif etmek için yeniden başlatın</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="228"/>
-        <source>%n update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
+        <source>%n application update(s) detected</source>
+        <translation><numerusform>%n uygulama güncelleme(leri) tespit edildi</numerusform><numerusform>%n uygulama güncelleme(leri) tespit edildi</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
+        <source>New system edition and %n application update(s) detected</source>
+        <translation><numerusform>Yeni sistem baskısı ve %n uygulama güncelleme(leri) tespit edildi</numerusform><numerusform>Yeni sistem baskısı ve %n uygulama güncelleme(leri) tespit edildi</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="233"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation>%1% indirildi (Duraklatmak için tıklayın)</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>New system edition detected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="235"/>
-        <source>New system edition and %n update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation>Yeni sistem yazılımı algılandı</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="241"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Update size: %1</source>
         <translation>Güncelleme boyutu: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="251"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Piliniz % 50&apos;den az, lütfen devam etmek için şarja takın.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Lütfen yeniden başlatmak için yeterli güce sahip olduğunuzdan emin olun ve makinenizi kapatmayın veya fişten çekmeyin</translation>
     </message>
@@ -2060,12 +2075,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="341"/>
+        <location filename="../modules/update/updatework.cpp" line="340"/>
         <source>Patches</source>
         <translation>Yamalar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="344"/>
+        <location filename="../modules/update/updatework.cpp" line="343"/>
         <source>System patches.</source>
         <translation>Sistem yamaları.</translation>
     </message>

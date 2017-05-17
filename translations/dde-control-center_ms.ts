@@ -99,7 +99,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n hari(s) yang lalu</numerusform></translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
@@ -117,7 +117,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Kemaskini dipasang, perlu dimulakan semula, mahu mulakan semula sekarang ?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
@@ -1877,26 +1877,32 @@
 <context>
     <name>dcc::update::MirrorItem</name>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="53"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="12"/>
+        <location filename="../modules/update/mirroritem.cpp" line="107"/>
+        <source>Untested</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/mirroritem.cpp" line="55"/>
+        <location filename="../modules/update/mirroritem.cpp" line="103"/>
         <source>Timeout</source>
         <translation>Had masa tamat</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="55"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="57"/>
+        <location filename="../modules/update/mirroritem.cpp" line="104"/>
         <source>Slow</source>
         <translation>Perlahan</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="57"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="59"/>
+        <location filename="../modules/update/mirroritem.cpp" line="105"/>
         <source>Medium</source>
         <translation>Sederhana</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="59"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="61"/>
+        <location filename="../modules/update/mirroritem.cpp" line="106"/>
         <source>Fast</source>
         <translation>Pantas</translation>
     </message>
@@ -1904,14 +1910,19 @@
 <context>
     <name>dcc::update::MirrorsWidget</name>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="19"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
+        <source>Test Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
         <source>Switch Mirror</source>
         <translation>Tukar Cermin</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="22"/>
-        <source>Checking speed, please wait</source>
-        <translation>Memeriksa kelajuan, tunggu sebentar</translation>
+        <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
+        <source>Retest</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1942,7 +1953,6 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 dikemaskinikan (Klik untuk dijeda)</translation>
     </message>
@@ -1977,37 +1987,42 @@
         <translation>Mengemaskini, tunggu sebentar...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Sistem terbaharu dipasang, mula semula supaya ia berkesan</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="228"/>
-        <source>%n update(s) detected</source>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
+        <source>%n application update(s) detected</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
+        <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="233"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>New system edition detected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="235"/>
-        <source>New system edition and %n update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation>Edisi sistem baharu dikesan</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="241"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Update size: %1</source>
         <translation>Saiz kemaskini: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="251"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Kuasa bateri anda lebih rendah dari 50%, sila palamkan untuk diteruskan</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Sila pastikan kuasa mencukupi untuk memulakan semula, dan matikan atau tanggalkan pemalam kuasa komputer anda.</translation>
     </message>
@@ -2060,12 +2075,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="341"/>
+        <location filename="../modules/update/updatework.cpp" line="340"/>
         <source>Patches</source>
         <translation>Tampalan</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="344"/>
+        <location filename="../modules/update/updatework.cpp" line="343"/>
         <source>System patches.</source>
         <translation>Tampakan sistem.</translation>
     </message>

@@ -45,7 +45,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="81"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>Copia&apos;l conteníu de la pantalla a una o más pantalles</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="85"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>El conteníu de la pantalla namái s&apos;amuesen en %1</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="90"/>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="131"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navegación</translation>
     </message>
 </context>
 <context>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="42"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>Llimpiar too</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="110"/>
@@ -104,7 +104,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Tresantieri</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="163"/>
@@ -122,7 +122,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Asegúrate de que guardares primero tolos datos, por favor</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Reaniciar</translation>
     </message>
 </context>
 <context>
@@ -158,7 +158,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="126"/>
         <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ciudá actual: %1</translation>
     </message>
 </context>
 <context>
@@ -179,12 +179,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="12"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Anovamientos</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="13"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Deteutáronse anovamientos, primi pa ver</translation>
     </message>
 </context>
 <context>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="39"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>Primi nel iconu p&apos;habilitar la VPN</translation>
     </message>
 </context>
 <context>
@@ -228,7 +228,7 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="185"/>
         <source>Wireless Card %1</source>
-        <translation type="unfinished"/>
+        <translation>Tarxeta inalámbrica %1</translation>
     </message>
 </context>
 <context>
@@ -273,7 +273,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="81"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Imáxenes</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="230"/>
@@ -526,7 +526,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="50"/>
         <source>Timezone List</source>
-        <translation type="unfinished"/>
+        <translation>Llistáu de fusos horarios</translation>
     </message>
 </context>
 <context>
@@ -534,7 +534,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="46"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Camudar fusu horariu</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="47"/>
@@ -706,7 +706,7 @@
     <message>
         <location filename="../modules/display/displayworker.cpp" line="115"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>Los mios axustes %1</translation>
     </message>
 </context>
 <context>
@@ -752,7 +752,7 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="325"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(Aconséyase)</translation>
     </message>
 </context>
 <context>
@@ -765,7 +765,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="55"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(Aconséyase)</translation>
     </message>
 </context>
 <context>
@@ -891,7 +891,7 @@
     <message>
         <location filename="../modules/keyboard/customedititem.cpp" line="180"/>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Introduz un atayu nuevu, por favor</translation>
     </message>
 </context>
 <context>
@@ -978,7 +978,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="54"/>
         <source>Please Test Here</source>
-        <translation type="unfinished"/>
+        <translation>Prueba equí, por favor</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
@@ -1065,7 +1065,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="233"/>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Introduz un atayu nuevu, por favor</translation>
     </message>
 </context>
 <context>
@@ -1095,7 +1095,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="31"/>
         <source>WorkSpace</source>
-        <translation type="unfinished"/>
+        <translation>Estaya de trabayu</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="52"/>
@@ -1138,7 +1138,7 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="40"/>
         <source>Double-click Speed</source>
-        <translation>Velocidá de clic doblu</translation>
+        <translation>Velocidá del clic doblu</translation>
     </message>
 </context>
 <context>
@@ -1146,7 +1146,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="19"/>
         <source>Double-click Test</source>
-        <translation type="unfinished"/>
+        <translation>Prueba del clic doblu</translation>
     </message>
 </context>
 <context>
@@ -1178,7 +1178,7 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="104"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="26"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Mur</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="27"/>
@@ -1298,7 +1298,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="108"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidá</translation>
     </message>
 </context>
 <context>
@@ -1316,7 +1316,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Autenticando</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="60"/>
@@ -1385,12 +1385,12 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="160"/>
         <source>Wireless Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Tarxeta inalámbrica de rede%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="165"/>
         <source>Wireless Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Tarxeta inalámbrica de rede</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="166"/>
@@ -1400,7 +1400,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="161"/>
         <source>Wireless Network%1</source>
-        <translation type="unfinished"/>
+        <translation>Rede inalámbrica%1</translation>
     </message>
 </context>
 <context>
@@ -1446,7 +1446,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="66"/>
         <source>Http Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy HTTP</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
@@ -1459,12 +1459,12 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="71"/>
         <source>Https Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy HTTPS</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="76"/>
         <source>Ftp Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy FTP</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="81"/>
@@ -1527,7 +1527,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="194"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="197"/>
@@ -1558,7 +1558,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="58"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation>(Fonte ensin sofitu)</translation>
     </message>
 </context>
 <context>
@@ -1571,7 +1571,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="21"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Fonte monoespaciada</translation>
     </message>
 </context>
 <context>
@@ -1600,7 +1600,7 @@
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="95"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Fonte monoespaciada</translation>
     </message>
 </context>
 <context>
@@ -1704,7 +1704,7 @@
         <location filename="../modules/power/powerwidget.cpp" line="109"/>
         <location filename="../modules/power/powerwidget.cpp" line="115"/>
         <source>%1 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>%1 minutos</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="111"/>
@@ -1722,12 +1722,12 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="22"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Entrada</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="24"/>
         <source>Advanced</source>
-        <translation>Avanzáu</translation>
+        <translation>Avanzao</translation>
     </message>
 </context>
 <context>
@@ -1776,7 +1776,7 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="88"/>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Efeutos de soníu</translation>
     </message>
 </context>
 <context>
@@ -1831,12 +1831,12 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="34"/>
         <source>Distribution Release:</source>
-        <translation type="unfinished"/>
+        <translation>Llanzamientu de distribución:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
         <source>Edition License:</source>
-        <translation type="unfinished"/>
+        <translation>Llicencia d&apos;edición:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
@@ -1851,7 +1851,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
         <source>%1Bit</source>
-        <translation type="unfinished"/>
+        <translation>%1 bits</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="46"/>
@@ -1877,26 +1877,32 @@
 <context>
     <name>dcc::update::MirrorItem</name>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="53"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="12"/>
+        <location filename="../modules/update/mirroritem.cpp" line="107"/>
+        <source>Untested</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/mirroritem.cpp" line="55"/>
+        <location filename="../modules/update/mirroritem.cpp" line="103"/>
         <source>Timeout</source>
         <translation>Tiempu escosao</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="55"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="57"/>
+        <location filename="../modules/update/mirroritem.cpp" line="104"/>
         <source>Slow</source>
         <translation>Lento</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="57"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="59"/>
+        <location filename="../modules/update/mirroritem.cpp" line="105"/>
         <source>Medium</source>
         <translation>Medio</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirroritem.cpp" line="59"/>
-        <location filename="../modules/update/mirroritem.cpp" line="91"/>
+        <location filename="../modules/update/mirroritem.cpp" line="61"/>
+        <location filename="../modules/update/mirroritem.cpp" line="106"/>
         <source>Fast</source>
         <translation>Rápido</translation>
     </message>
@@ -1904,13 +1910,18 @@
 <context>
     <name>dcc::update::MirrorsWidget</name>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="19"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
+        <source>Test Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
         <source>Switch Mirror</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="22"/>
-        <source>Checking speed, please wait</source>
+        <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
+        <source>Retest</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1938,11 +1949,10 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
         <source>Checking for updates, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Comprobando anovamientos, espera por favor...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation type="unfinished"/>
     </message>
@@ -1974,40 +1984,45 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Anovandos, espera por favor...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="228"/>
-        <source>%n update(s) detected</source>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
+        <source>%n application update(s) detected</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="233"/>
-        <source>New system edition detected</source>
-        <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="235"/>
-        <source>New system edition and %n update(s) detected</source>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
+        <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="241"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
+        <source>New system edition detected</source>
+        <translation>Deteutóse una edición nueva del sistema</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Update size: %1</source>
         <translation>Tamañu d&apos;anovamientu: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="251"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation type="unfinished"/>
     </message>
@@ -2060,12 +2075,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="341"/>
+        <location filename="../modules/update/updatework.cpp" line="340"/>
         <source>Patches</source>
         <translation>Parches</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="344"/>
+        <location filename="../modules/update/updatework.cpp" line="343"/>
         <source>System patches.</source>
         <translation>Parches del sistema.</translation>
     </message>
