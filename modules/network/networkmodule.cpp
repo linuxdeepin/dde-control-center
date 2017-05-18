@@ -168,6 +168,7 @@ void NetworkModule::showPppPage()
     connect(p, &PppoePage::requestCreateConnection, m_networkWorker, &NetworkWorker::createConnection);
     connect(p, &PppoePage::requestEditConnection, m_networkWorker, &NetworkWorker::queryConnectionSession);
     connect(p, &PppoePage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
+    connect(p, &PppoePage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     connect(p, &PppoePage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
     connect(p, &PppoePage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
     connect(p, &PppoePage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);

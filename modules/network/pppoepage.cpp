@@ -25,6 +25,7 @@ PppoePage::PppoePage(QWidget *parent)
     m_createBtn->setText(tr("Create PPPoE Connection"));
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addSpacing(10);
     mainLayout->addWidget(m_settingsGrp);
     mainLayout->addWidget(m_createBtn);
     mainLayout->setSpacing(10);
@@ -76,6 +77,7 @@ void PppoePage::onConnectionListChanged()
         w->setTitle(name);
 
         connect(w, &NextPageWidget::acceptNextPage,  this, &PppoePage::onConnectionDetailClicked);
+        connect(w, &NextPageWidget::selected, this, &PppoePage::onPPPoESelected);
 
         m_settingsGrp->appendItem(w);
         m_connUuid[w] = uuid;
@@ -111,4 +113,13 @@ void PppoePage::onConnectionSessionCreated(const QString &devicePath, const QStr
     connect(m_editPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(m_editingUuid); });
     connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
     emit requestNextPage(m_editPage);
+}
+
+void PppoePage::onPPPoESelected()
+{
+    NextPageWidget *w = static_cast<NextPageWidget *>(sender());
+    Q_ASSERT(w && m_connUuid.contains(w));
+
+    m_editingUuid = m_connUuid[w];
+    emit requestActivateConnection("/", m_editingUuid);
 }

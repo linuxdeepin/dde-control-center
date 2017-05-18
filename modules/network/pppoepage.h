@@ -38,12 +38,14 @@ signals:
     void requestDeleteConnection(const QString &uuid) const;
     void requestDisconnectConnection(const QString &uuid) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
+    void requestActivateConnection(const QString &devPath, const QString &uuid) const;
 
 private slots:
     void createPPPoEConnection();
     void onConnectionListChanged();
     void onConnectionDetailClicked();
     void onConnectionSessionCreated(const QString &devicePath, const QString &sessionPath);
+    void onPPPoESelected();
 
 private:
     NetworkModel *m_model;
