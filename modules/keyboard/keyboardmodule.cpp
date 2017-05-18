@@ -197,10 +197,7 @@ ShortcutInfo *KeyboardModule::checkConflict(const QString &shortcut, QStringList
 QString KeyboardModule::converKey(const QString &key)
 {
      QString converkey = ModelKeycode.value(key);
-     if (converkey.isEmpty())
-         return key;
-     else
-         return converkey;
+     return converkey.isEmpty() ? key.toLower() : converkey;
 }
 
 #ifndef DCC_DISABLE_KBLAYOUT
