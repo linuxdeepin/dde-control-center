@@ -1958,7 +1958,6 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1993,43 +1992,48 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="228"/>
-        <source>%n update(s) detected</source>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
+        <source>%n application update(s) detected</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
+        <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="233"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>New system edition detected</source>
         <translation type="unfinished"></translation>
     </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="235"/>
-        <source>New system edition and %n update(s) detected</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="241"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Update size: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="251"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2082,12 +2086,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="342"/>
+        <location filename="../modules/update/updatework.cpp" line="340"/>
         <source>Patches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="345"/>
+        <location filename="../modules/update/updatework.cpp" line="343"/>
         <source>System patches.</source>
         <translation type="unfinished"></translation>
     </message>
