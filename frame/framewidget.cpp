@@ -6,6 +6,7 @@
 #include <QResizeEvent>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <DWindowManagerHelper>
 
 using namespace dcc;
 
@@ -16,13 +17,13 @@ FrameWidget::FrameWidget(Frame *parent)
       m_opacityEffect(new QGraphicsOpacityEffect(this)),
 #endif
       m_slidePosAni(new QPropertyAnimation(this, "pos")),
-      m_content(nullptr)
+      m_content(nullptr),
+      m_wmHelper(DWindowManagerHelper::instance())
 {
 #ifndef DISABLE_OPACITY_ANIMATION
     m_opacityEffect->setOpacity(1.0);
 #endif
     m_slidePosAni->setEasingCurve(QEasingCurve::InOutCubic);
-    m_slidePosAni->setDuration(300);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->setSpacing(0);
@@ -44,6 +45,9 @@ FrameWidget::FrameWidget(Frame *parent)
         m_opacityEffect->setOpacity(opacity);
     });
 #endif
+    connect(m_wmHelper, &DWindowManagerHelper::hasCompositeChanged, this, &FrameWidget::onCompositeChanged);
+
+    QTimer::singleShot(1, this, &FrameWidget::onCompositeChanged);
 }
 
 ContentWidget *FrameWidget::setContent(ContentWidget * const c)
@@ -129,4 +133,9 @@ void FrameWidget::destroySelf()
     }
 
     deleteLater();
+}
+
+void FrameWidget::onCompositeChanged()
+{
+    m_slidePosAni->setDuration(m_wmHelper->hasComposite() ? 300 : 150);
 }

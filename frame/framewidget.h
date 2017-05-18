@@ -5,7 +5,11 @@
 #include <QPropertyAnimation>
 #include <QGraphicsOpacityEffect>
 
+#include <DWindowManagerHelper>
+
 #include "translucentframe.h"
+
+DWIDGET_USE_NAMESPACE
 
 ///
 /// FrameWidget can auto adjust size to fit parent Frame
@@ -46,6 +50,7 @@ protected:
 
 private slots:
     void destroySelf();
+    void onCompositeChanged();
 
 private:
 #ifndef DISABLE_OPACITY_ANIMATION
@@ -54,6 +59,8 @@ private:
     QPropertyAnimation *m_slidePosAni;
 
     dcc::ContentWidget *m_content;
+
+    DWindowManagerHelper *m_wmHelper;
 };
 
 #endif // FRAMEWIDGET_H
