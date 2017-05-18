@@ -43,10 +43,13 @@ signals:
 public slots:
     void onClose();
 
+private slots:
+    void onPlayCloseAnimation();
+    void onAnimationFinished();
+
 protected:
-    virtual void enterEvent(QEvent *event);
-    virtual void leaveEvent(QEvent *event);
-    virtual void paintEvent(QPaintEvent *event);
+    virtual void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+
 
 private:
     QLabel *m_appName, *m_time;
@@ -54,7 +57,6 @@ private:
     DImageButton *m_close;
     QLabel      *m_appIcon;
     QHBoxLayout *m_mainlayout;
-    QPropertyAnimation *m_anim1;
     QString m_id;
 };
 

@@ -20,7 +20,7 @@ Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QWidget(parent),
     m_appName(new QLabel),
     m_time(new QLabel),
     m_body(new NotifyBody),
-    m_close(new DImageButton(":/images/notify_close_normal.png", ":/images/notify_close_hover.png", ":/images/notify_close_press.png", this)),
+    m_close(new DImageButton(":/images/notify_close_normal.png", ":/images/notify_close_hover.png", ":/images/notify_close_press.png")),
     m_appIcon(new QLabel),
     m_mainlayout(new QHBoxLayout)
 {
@@ -40,17 +40,6 @@ Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QWidget(parent),
                           "font-size: 10px;"
                           "font-style: normal;"
                           "color: rgba(255, 255, 255, 0.6);");
-
-    m_appName->setAttribute(Qt::WA_TranslucentBackground, true);
-    m_appName->setAutoFillBackground(false);
-    m_appIcon->setAttribute(Qt::WA_TranslucentBackground, true);
-    m_appIcon->setAutoFillBackground(false);
-    m_close->setAttribute(Qt::WA_TranslucentBackground, true);
-    m_close->setAutoFillBackground(false);
-    m_body->setAttribute(Qt::WA_TranslucentBackground, true);
-    m_body->setAutoFillBackground(false);
-    m_time->setAttribute(Qt::WA_TranslucentBackground, true);
-    m_time->setAutoFillBackground(false);
 
     m_close->setVisible(false);
 
@@ -86,19 +75,7 @@ Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QWidget(parent),
 
     this->setLayout(m_mainlayout);
 
-    connect(m_close, &DImageButton::clicked, [=]{
-        m_anim1=new QPropertyAnimation(this, "pos",this);
-        m_anim1->setDuration(300);
-        m_anim1->setStartValue(QPoint(this->x(), this->y()));
-        m_anim1->setEndValue(QPoint(this->width(), this->y()));
-        m_anim1->setEasingCurve(QEasingCurve::InOutCubic);
-        m_anim1->start();
-
-        connect(m_anim1, &QPropertyAnimation::finished, [=]{
-            emit requestClose(m_id);
-            this->deleteLater();
-        });
-    });
+    connect(m_close, &DImageButton::clicked, this, &Viewer::onPlayCloseAnimation);
 
     setAppName(value["summary"].toString());
     setAppBody(value["body"].toString());
@@ -142,19 +119,38 @@ void Viewer::onClose()
     m_close->clicked();
 }
 
-void Viewer::enterEvent(QEvent *) {
-    m_close->setVisible(true);
-    m_time->setVisible(false);
+void Viewer::onPlayCloseAnimation()
+{
+    m_close->setDisabled(true);
+
+    if (m_close->isEnabled())
+        return;
+
+    QPropertyAnimation *anim=new QPropertyAnimation(this, "pos",this);
+    anim->setDuration(300);
+    anim->setStartValue(QPoint(this->x(), this->y()));
+    anim->setEndValue(QPoint(this->width(), this->y()));
+    anim->setEasingCurve(QEasingCurve::InOutCubic);
+    anim->start(QPropertyAnimation::DeleteWhenStopped);
+
+    connect(anim, &QPropertyAnimation::finished, this, &Viewer::onAnimationFinished);
 }
 
-void Viewer::leaveEvent(QEvent *) {
-    m_close->setVisible(false);
-    m_time->setVisible(true);
+void Viewer::onAnimationFinished()
+{
+    emit requestClose(m_id);
+    deleteLater();
 }
 
-void Viewer::paintEvent(QPaintEvent *) {
-    QStyleOption opt;
-    opt.init(this);
-    QPainter p(this);
-    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+void Viewer::paintEvent(QPaintEvent *event)
+{
+    if (geometry().contains(mapFromGlobal(QCursor::pos()))) {
+        m_close->setVisible(true);
+        m_time->setVisible(false);
+    } else {
+        m_close->setVisible(false);
+        m_time->setVisible(true);
+    }
+
+    QWidget::paintEvent(event);
 }
