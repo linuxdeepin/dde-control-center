@@ -30,6 +30,36 @@ KeyboardDetails::KeyboardDetails(QWidget *parent)
     layout->addSpacing(10);
     layout->addWidget(m_group);
 
+    m_switchKBLayout = new SettingsGroup;
+    SettingsHead *head = new SettingsHead;
+    head->setTitle(tr("Switch Layouts (Multiple)"));
+    head->setEditEnable(false);
+
+    m_switchKBLayout->appendItem(head);
+
+    layout->addSpacing(10);
+    layout->addWidget(m_switchKBLayout);
+
+    CheckItem *ctrlShift = new CheckItem;
+    ctrlShift->setTitle("Ctrl+Shift");
+    ctrlShift->setMultipleMode(true);
+
+    CheckItem *altShift = new CheckItem;
+    altShift->setTitle("Alt+Shift");
+    altShift->setMultipleMode(true);
+
+    CheckItem *superSpace = new CheckItem;
+    superSpace->setTitle("Super+Space");
+    superSpace->setMultipleMode(true);
+
+    m_switchKBLayout->appendItem(ctrlShift);
+    m_switchKBLayout->appendItem(altShift);
+    m_switchKBLayout->appendItem(superSpace);
+
+    m_switchCheckItem.insert(ctrlShift, 1);
+    m_switchCheckItem.insert(altShift, 2);
+    m_switchCheckItem.insert(superSpace, 4);
+
     QPushButton* addBtn = new QPushButton(tr("Add Keyboard Layout"));
     layout->addWidget(addBtn);
 
@@ -39,6 +69,10 @@ KeyboardDetails::KeyboardDetails(QWidget *parent)
 
     connect(addBtn, SIGNAL(clicked()), this, SIGNAL(layoutAdded()));
     connect(m_head, SIGNAL(editChanged(bool)), this ,SLOT(onEdit(bool)));
+
+    connect(ctrlShift, &CheckItem::checkedChanged, this, &KeyboardDetails::onSwitchKBChanged);
+    connect(altShift, &CheckItem::checkedChanged, this, &KeyboardDetails::onSwitchKBChanged);
+    connect(superSpace, &CheckItem::checkedChanged, this, &KeyboardDetails::onSwitchKBChanged);
 }
 
 void KeyboardDetails::setModel(KeyboardModel *model)
@@ -48,6 +82,7 @@ void KeyboardDetails::setModel(KeyboardModel *model)
 #ifndef DCC_DISABLE_KBLAYOUT
     connect(model, &KeyboardModel::userLayoutChanged, this, &KeyboardDetails::onAddKeyboard);
     connect(model, &KeyboardModel::curLayoutChanged, this, &KeyboardDetails::onDefault);
+    connect(model, &KeyboardModel::kbSwitchChanged, this, &KeyboardDetails::onSwitchKB);
 #endif
 
     QMap<QString, QString> map = model->userLayout();
@@ -55,6 +90,9 @@ void KeyboardDetails::setModel(KeyboardModel *model)
     for (auto i(map.begin()); i != map.end(); ++i) {
         onAddKeyboard(i.key(), i.value());
     }
+
+    m_switchKBLayout->setVisible(m_maps.count() > 1);
+    onSwitchKB(model->kbSwitch());
 }
 
 void KeyboardDetails::onAddKeyboard(const QString &id, const QString &value)
@@ -76,6 +114,7 @@ void KeyboardDetails::onAddKeyboard(const QString &id, const QString &value)
     m_head->setEditEnable(m_maps.size() > 1);
 
     onDefault(m_model->curLayout());
+    m_switchKBLayout->setVisible(m_maps.count() > 1);
 }
 
 void KeyboardDetails::onEdit(bool value)
@@ -97,6 +136,8 @@ void KeyboardDetails::onRemoveLayout(CheckItem *item)
     {
         m_head->setEditEnable(false);
     }
+
+    m_switchKBLayout->setVisible(m_maps.count() > 1);
 }
 
 void KeyboardDetails::onDefault(const QString &value)
@@ -104,6 +145,30 @@ void KeyboardDetails::onDefault(const QString &value)
     for (auto i(m_maps.begin()); i != m_maps.end(); ++i) {
        CheckItem *item = i.value();
        item->setChecked(item->title() == value);
+    }
+}
+
+void KeyboardDetails::onSwitchKBChanged()
+{
+    CheckItem *item = static_cast<CheckItem*>(sender());
+    Q_ASSERT(item);
+    QList<int> i;
+    for (auto it(m_switchCheckItem.begin()); it != m_switchCheckItem.end(); ++it) {
+        if (it.key()->checked()) {
+            i.append(it.value());
+        }
+    }
+    int median = 0;
+    for (int v : i) {
+        median = v|median;
+    }
+    emit requestSwitchKBLayout(median);
+}
+
+void KeyboardDetails::onSwitchKB(int kbSwitch)
+{
+    for (auto it(m_switchCheckItem.begin()); it != m_switchCheckItem.end(); ++it) {
+            it.key()->setChecked((kbSwitch & it.value()) != 0);
     }
 }
 

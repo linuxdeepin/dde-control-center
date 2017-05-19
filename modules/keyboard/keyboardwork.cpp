@@ -42,6 +42,7 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
 #endif
     connect(m_keyboardInter, &KeyboardInter::RepeatDelayChanged, this, &KeyboardWork::setModelRepeatDelay);
     connect(m_keyboardInter, &KeyboardInter::RepeatIntervalChanged, this, &KeyboardWork::setModelRepeatInterval);
+    connect(m_keybindInter, &KeybingdingInter::ShortcutSwitchLayoutChanged, m_model, &KeyboardModel::setKbSwitch);
 
     m_keyboardInter->setSync(false);
     m_keybindInter->setSync(false);
@@ -121,6 +122,8 @@ bool KeyboardWork::keyOccupy(const QStringList &list)
 #ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardWork::onRefreshKBLayout()
 {
+    m_model->setKbSwitch(m_keybindInter->shortcutSwitchLayout());
+
     QDBusPendingCallWatcher *layoutResult = new QDBusPendingCallWatcher(m_keyboardInter->LayoutList(), this);
     connect(layoutResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWork::onLayoutListsFinished);
 }
@@ -347,6 +350,11 @@ void KeyboardWork::onLocalListsFinished(QDBusPendingCallWatcher *watch)
     m_model->setLocaleList(m_datas);
 
     watch->deleteLater();
+}
+
+void KeyboardWork::onSetSwitchKBLayout(int value)
+{
+    m_keybindInter->setShortcutSwitchLayout(value);
 }
 
 #ifndef DCC_DISABLE_KBLAYOUT

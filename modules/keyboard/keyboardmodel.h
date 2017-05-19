@@ -53,6 +53,9 @@ public:
 
     void cleanUserLayout();
 
+    int kbSwitch() const;
+    void setKbSwitch(int kbSwitch);
+
 signals:
 #ifndef DCC_DISABLE_KBLAYOUT
     void curLayoutChanged(const QString& layout);
@@ -64,6 +67,7 @@ signals:
     void repeatIntervalChanged(const uint value);
     void userLayoutChanged(const QString &id, const QString &value);
     void langChanged(const QList<MetaData> &data);
+    void kbSwitchChanged(int kbSwitch);
 
 public slots:
 #ifndef DCC_DISABLE_KBLAYOUT
@@ -86,6 +90,7 @@ private:
     QMap<QString, QString> m_layouts;
     QList<MetaData> m_langs;
     QMap<QStringList,int> m_shortcutMap;
+    int m_kbSwitch;
 };
 }
 }

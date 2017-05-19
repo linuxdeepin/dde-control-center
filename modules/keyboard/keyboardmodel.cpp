@@ -104,6 +104,19 @@ void KeyboardModel::setAllShortcut(const QMap<QStringList,int> &map)
     m_shortcutMap = map;
 }
 
+int KeyboardModel::kbSwitch() const
+{
+    return m_kbSwitch;
+}
+
+void KeyboardModel::setKbSwitch(int kbSwitch)
+{
+    if (m_kbSwitch != kbSwitch) {
+        m_kbSwitch = kbSwitch;
+        emit kbSwitchChanged(kbSwitch);
+    }
+}
+
 bool KeyboardModel::numLock() const
 {
     return m_numLock;

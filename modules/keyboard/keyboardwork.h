@@ -73,6 +73,7 @@ public slots:
     void onDisableShortcut(ShortcutInfo* info);
     void onAddedFinished(QDBusPendingCallWatcher *watch);
     void onLocalListsFinished(QDBusPendingCallWatcher *watch);
+    void onSetSwitchKBLayout(int value);
 #ifndef DCC_DISABLE_KBLAYOUT
     void onLayoutListsFinished(QDBusPendingCallWatcher *watch);
     void onUserLayout(const QStringList &list);

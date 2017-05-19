@@ -20,6 +20,8 @@ public:
     QString title() const;
 
     void setChecked(bool checked);
+    void setMultipleMode(bool multiple);
+    bool checked() const;
 
 signals:
     void checkedChanged(const QString &title);
@@ -39,6 +41,7 @@ private:
     QLabel* m_title;
     DImageButton* m_checkBtn;
     int m_circle;
+    bool m_multiple;
 };
 }
 }

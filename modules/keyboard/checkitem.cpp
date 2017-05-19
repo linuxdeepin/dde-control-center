@@ -11,7 +11,8 @@ CheckItem::CheckItem(QFrame *parent)
     :SettingsItem(parent),
       m_checked(false),
       m_bEdit(false),
-      m_circle(0)
+      m_circle(0),
+      m_multiple(false)
 {
     QHBoxLayout* hlayout = new QHBoxLayout();
     hlayout->setContentsMargins(20, 0, 10, 0);
@@ -59,6 +60,16 @@ void CheckItem::setChecked(bool checked)
         m_checkBtn->hide();
 }
 
+void CheckItem::setMultipleMode(bool multiple)
+{
+    m_multiple = multiple;
+}
+
+bool CheckItem::checked() const
+{
+    return m_checked;
+}
+
 void CheckItem::onEditMode(bool value)
 {
     if(!m_checked)
@@ -85,6 +96,12 @@ void CheckItem::onClick()
     {
         emit destroySelf(this);
     }
+
+    if (m_multiple) {
+        setChecked(!m_checked);
+        emit checkedChanged(m_title->text());
+        return;
+    }
 }
 
 void CheckItem::mousePressEvent(QMouseEvent *)
@@ -98,6 +115,12 @@ void CheckItem::mouseReleaseEvent(QMouseEvent *)
 {
     if(m_bEdit)
         return;
+
+    if (m_multiple) {
+        setChecked(!m_checked);
+        emit checkedChanged(m_title->text());
+        return;
+    }
 
     if(m_circle != 1)
     {

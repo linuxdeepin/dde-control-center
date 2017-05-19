@@ -226,6 +226,7 @@ void KeyboardModule::onPushKBDetails()
         connect(m_kbDetails, SIGNAL(layoutAdded()), this, SLOT(onPushKeyboard()));
         connect(m_kbDetails, SIGNAL(requestCurLayoutAdded(QString)), this, SLOT(setCurrentLayout(QString)));
         connect(m_kbDetails, SIGNAL(delUserLayout(QString)), m_work, SLOT(delUserLayout(QString)));
+        connect(m_kbDetails, &KeyboardDetails::requestSwitchKBLayout, m_work, &KeyboardWork::onSetSwitchKBLayout);
     }
 
     m_frameProxy->pushWidget(this, m_kbDetails);

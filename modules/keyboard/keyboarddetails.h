@@ -1,4 +1,4 @@
-#ifndef KEYBOARDDETAILS_H
+﻿#ifndef KEYBOARDDETAILS_H
 #define KEYBOARDDETAILS_H
 
 #include "contentwidget.h"
@@ -25,12 +25,15 @@ signals:
     void requestCurLayoutAdded(const QString& value);
     void curLang(const QString& value);
     void delUserLayout(const QString& value);
+    void requestSwitchKBLayout(int value);
 
 public slots:
     void onAddKeyboard(const QString &id, const QString &value);
     void onEdit(bool value);
     void onRemoveLayout(CheckItem* item);
     void onDefault(const QString &value);
+    void onSwitchKBChanged();
+    void onSwitchKB(int kbSwitch);
 
 private:
     bool m_bEdit;
@@ -39,6 +42,8 @@ private:
     QList<MetaData> m_datas;
     QMap<QString, CheckItem*> m_maps;
     KeyboardModel *m_model;
+    SettingsGroup *m_switchKBLayout;
+    QMap<CheckItem*, int> m_switchCheckItem;
 };
 }
 }
