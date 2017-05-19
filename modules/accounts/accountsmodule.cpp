@@ -123,7 +123,7 @@ void AccountsModule::showCreateAccountPage()
 {
     dcc::accounts::CreatePage *createPage = new dcc::accounts::CreatePage;
 
-    User *newUser = new User(createPage);
+    User *newUser = new User(this);
     createPage->setModel(newUser);
 
     connect(createPage, &dcc::accounts::CreatePage::requestCreateUser, m_accountsWorker, &AccountsWorker::createAccount);
