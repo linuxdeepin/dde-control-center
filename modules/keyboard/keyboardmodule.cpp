@@ -217,10 +217,10 @@ void KeyboardModule::onPushKeyboard()
 
 void KeyboardModule::onPushKBDetails()
 {
-    m_work->onRefreshKBLayout();
 
     if(!m_kbDetails)
     {
+        m_work->onRefreshKBLayout();
         m_kbDetails = new KeyboardDetails();
         m_kbDetails->setModel(m_model);
         connect(m_kbDetails, SIGNAL(layoutAdded()), this, SLOT(onPushKeyboard()));

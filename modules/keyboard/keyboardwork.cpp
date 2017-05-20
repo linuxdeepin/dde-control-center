@@ -395,6 +395,8 @@ void KeyboardWork::onCurrentLayoutFinished(QDBusPendingCallWatcher *watch)
 
 void KeyboardWork::onPinyin()
 {
+    m_letters.clear();
+    m_metaDatas.clear();
     QDBusInterface dbus_pinyin("com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
                                "com.deepin.api.Pinyin");
 
