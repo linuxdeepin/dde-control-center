@@ -16,6 +16,8 @@ namespace update {
 
 class ResultItem : public dcc::widgets::SettingsItem
 {
+    Q_OBJECT
+
 public:
     explicit ResultItem(QFrame* parent = 0);
 
