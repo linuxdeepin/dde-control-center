@@ -110,8 +110,9 @@ ModuleWidget *DisplayModule::moduleWidget()
     connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
     connect(m_displayWidget, &DisplayWidget::showBrightnessPage, this, &DisplayModule::showBrightnessPage);
     connect(m_displayWidget, &DisplayWidget::requestConfigPage, this, &DisplayModule::showConfigPage);
+#ifndef DCC_DISABLE_ROTATE
     connect(m_displayWidget, &DisplayWidget::requestRotate, [=] { showRotate(m_displayModel->primaryMonitor()); });
-
+#endif
     return m_displayWidget;
 }
 
@@ -140,7 +141,9 @@ void DisplayModule::showCustomSettings(const QString &config)
 //    connect(&dialog, &MonitorSettingDialog::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorPosition, m_displayWorker, &DisplayWorker::setMonitorPosition);
     connect(&dialog, &MonitorSettingDialog::requestRecognize, this, &DisplayModule::showRecognize);
+#ifndef DCC_DISABLE_ROTATE
     connect(&dialog, &MonitorSettingDialog::requestMonitorRotate, this, &DisplayModule::showRotate);
+#endif
 
     // discard or save
     if (dialog.exec() != QDialog::Accepted)
@@ -160,7 +163,7 @@ void DisplayModule::showRecognize()
     RecognizeDialog dialog(m_displayModel);
     dialog.exec();
 }
-
+#ifndef DCC_DISABLE_ROTATE
 void DisplayModule::showRotate(Monitor *mon)
 {
     RotateDialog *dialog = nullptr;
@@ -177,3 +180,4 @@ void DisplayModule::showRotate(Monitor *mon)
     if (m_displayModel->monitorList().size() == 1)
         m_displayWorker->saveChanges();
 }
+#endif

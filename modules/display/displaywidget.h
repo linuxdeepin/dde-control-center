@@ -27,7 +27,9 @@ public:
 signals:
     void showResolutionPage() const;
     void showBrightnessPage() const;
+#ifndef DCC_DISABLE_ROTATE
     void requestRotate() const;
+#endif
     void requestNewConfig() const;
     void requestConfigPage(const QString &config) const;
     void requestSwitchConfig(const QString &config) const;
@@ -47,7 +49,9 @@ private:
     QList<widgets::NextPageWidget *> m_customSettings;
     widgets::SettingsGroup *m_customSettingsGrp;
     widgets::SettingsGroup *m_resolutionsGrp;
+#ifndef DCC_DISABLE_ROTATE
     QPushButton *m_rotate;
+#endif
     QPushButton *m_createConfig;
 
     QTimer *m_configListRefershTimer;

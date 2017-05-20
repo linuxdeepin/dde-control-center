@@ -38,7 +38,9 @@ signals:
     void requestSplit() const;
     void requestRecognize() const;
     void requestSetPrimary(const int index) const;
+#ifndef DCC_DISABLE_ROTATE
     void requestMonitorRotate(Monitor *mon) const;
+#endif
     void requestSetMonitorMode(Monitor *mon, const int mode) const;
 //    void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
     void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
@@ -61,8 +63,9 @@ private slots:
     void onMonitorModeChanged();
 //    void onMonitorBrightnessChanegd(const double brightness);
     void onMonitorModeSelected(const int index);
+#ifndef DCC_DISABLE_ROTATE
     void onRotateBtnClicked();
-
+#endif
 //    void onBrightnessSliderChanged(const int value);
 
 private:
@@ -74,7 +77,9 @@ private:
     widgets::BasicListModel *m_resolutionsModel;
 
     QLabel *m_monitorName;
+#ifndef DCC_DISABLE_ROTATE
     Dtk::Widget::DImageButton *m_rotateBtn;
+#endif
 //    dcc::widgets::DCCSlider *m_lightSlider;
 //    SettingsListWidget *m_resolutionsWidget;
     SettingsListWidget *m_primarySettingsWidget;

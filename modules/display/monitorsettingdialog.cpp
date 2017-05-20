@@ -82,10 +82,12 @@ void MonitorSettingDialog::init()
     resoLayout->setSpacing(5);
     resoLayout->setContentsMargins(10, 0, 10, 0);
 
+#ifndef DCC_DISABLE_ROTATE
     m_rotateBtn = new DImageButton;
     m_rotateBtn->setNormalPic(":/display/themes/dark/icons/rotate_normal.png");
     m_rotateBtn->setHoverPic(":/display/themes/dark/icons/rotate_hover.png");
     m_rotateBtn->setPressPic(":/display/themes/dark/icons/rotate_press.png");
+#endif
 
     m_monitorName = new QLabel;
     m_monitorName->setAlignment(Qt::AlignCenter);
@@ -113,7 +115,9 @@ void MonitorSettingDialog::init()
 //    lightLayout->setContentsMargins(10, 0, 10, 0);
 
     m_btnsLayout = new QHBoxLayout;
+#ifndef DCC_DISABLE_ROTATE
     m_btnsLayout->addWidget(m_rotateBtn);
+#endif
     m_btnsLayout->addStretch();
     m_btnsLayout->setSpacing(10);
     m_btnsLayout->setContentsMargins(10, 0, 10, 0);
@@ -135,7 +139,9 @@ void MonitorSettingDialog::init()
 
     connect(resolutionView, &BasicListView::clicked, [=](const QModelIndex &index) { onMonitorModeSelected(index.row()); });
 //    connect(m_lightSlider, &DCCSlider::valueChanged, this, &MonitorSettingDialog::onBrightnessSliderChanged);
+#ifndef DCC_DISABLE_ROTATE
     connect(m_rotateBtn, &DImageButton::clicked, this, &MonitorSettingDialog::onRotateBtnClicked);
+#endif
     connect(m_smallDelayTimer, &QTimer::timeout, this, &MonitorSettingDialog::onMonitorRectChanged);
 
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
@@ -228,8 +234,9 @@ void MonitorSettingDialog::reloadOtherScreensDialog()
         connect(dialog, &MonitorSettingDialog::requestSetPrimary, this, &MonitorSettingDialog::requestSetPrimary);
         connect(dialog, &MonitorSettingDialog::requestSetMonitorMode, this, &MonitorSettingDialog::requestSetMonitorMode);
 //        connect(dialog, &MonitorSettingDialog::requestSetMonitorBrightness, this, &MonitorSettingDialog::requestSetMonitorBrightness);
+#ifndef DCC_DISABLE_ROTATE
         connect(dialog, &MonitorSettingDialog::requestMonitorRotate, this, &MonitorSettingDialog::requestMonitorRotate);
-
+#endif
         dialog->show();
         m_otherDialogs.append(dialog);
     }
@@ -358,6 +365,7 @@ void MonitorSettingDialog::onMonitorModeSelected(const int index)
     }
 }
 
+#ifndef DCC_DISABLE_ROTATE
 void MonitorSettingDialog::onRotateBtnClicked()
 {
     const bool intersect = m_primary && m_model->monitorsIsIntersect();
@@ -367,6 +375,7 @@ void MonitorSettingDialog::onRotateBtnClicked()
     else
         emit requestMonitorRotate(m_monitor);
 }
+#endif
 
 //void MonitorSettingDialog::onBrightnessSliderChanged(const int value)
 //{

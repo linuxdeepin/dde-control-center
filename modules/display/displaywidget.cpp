@@ -15,14 +15,17 @@ DisplayWidget::DisplayWidget()
       m_resolution(new NextPageWidget),
       m_brightnessSettings(new NextPageWidget),
       m_customSettingsGrp(new SettingsGroup),
+#ifndef DCC_DISABLE_ROTATE
       m_rotate(new QPushButton),
+#endif
       m_createConfig(new QPushButton),
 
       m_configListRefershTimer(new QTimer(this))
 {
     setObjectName("Display");
-
+#ifndef DCC_DISABLE_ROTATE
     m_rotate->setText(tr("Rotate"));
+#endif
     m_createConfig->setText(tr("New custom settings"));
 
     m_resolution->setTitle(tr("Resolution"));
@@ -38,7 +41,9 @@ DisplayWidget::DisplayWidget()
 
     m_centralLayout->addWidget(m_resolutionsGrp);
     m_centralLayout->addWidget(brightnessGrp);
+#ifndef DCC_DISABLE_ROTATE
     m_centralLayout->addWidget(m_rotate);
+#endif
     m_centralLayout->addWidget(m_customSettingsGrp);
     m_centralLayout->addWidget(m_createConfig);
 
@@ -49,7 +54,9 @@ DisplayWidget::DisplayWidget()
 
     connect(m_brightnessSettings, &NextPageWidget::clicked, this, &DisplayWidget::showBrightnessPage);
     connect(m_resolution, &NextPageWidget::clicked, this, &DisplayWidget::showResolutionPage);
+#ifndef DCC_DISABLE_ROTATE
     connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
+#endif
     connect(m_createConfig, &QPushButton::clicked, this, &DisplayWidget::requestNewConfig);
     connect(m_configListRefershTimer, &QTimer::timeout, this, &DisplayWidget::onConfigListChanged);
 }
@@ -83,14 +90,18 @@ void DisplayWidget::onScreenListChanged() const
 
         m_resolutionsGrp->show();
         m_resolution->show();
+#ifndef DCC_DISABLE_ROTATE
         m_rotate->show();
+#endif
     } else {
         m_createConfig->show();
         m_customSettingsGrp->setVisible(!m_model->configList().isEmpty());
 
         m_resolutionsGrp->hide();
         m_resolution->hide();
+#ifndef DCC_DISABLE_ROTATE
         m_rotate->hide();
+#endif
     }
 }
 

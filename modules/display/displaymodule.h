@@ -26,7 +26,9 @@ private slots:
     void showCustomSettings(const QString &config);
     void showConfigPage(const QString &config);
     void showRecognize();
+#ifndef DCC_DISABLE_ROTATE
     void showRotate(Monitor *mon = nullptr);
+#endif
 
 private:
     void initialize();

@@ -27,5 +27,6 @@ override_dh_auto_configure:
 			     DCC_DISABLE_GRUB=YES \
 			     DCC_DISABLE_LANGUAGE=YES \
 			     DISABLE_SYS_UPDATE_MIRRORS=YES \
-                             DCC_DISABLE_FEEDBACK=YES
+                             DCC_DISABLE_FEEDBACK=YES \
+                             DCC_DISABLE_ROTATE=YES
 endif
