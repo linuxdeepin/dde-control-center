@@ -13,14 +13,12 @@ DWIDGET_USE_NAMESPACE
 
 using namespace dcc::widgets;
 
-const double BRIGHTNESS_MUL = 1000.;
-
 namespace dcc {
 
 namespace display {
 
 MonitorSettingDialog::MonitorSettingDialog(DisplayModel *model, QWidget *parent)
-    : QDialog(parent),
+    : DDialog(parent),
 
       m_primary(true),
 
@@ -35,7 +33,7 @@ MonitorSettingDialog::MonitorSettingDialog(DisplayModel *model, QWidget *parent)
 }
 
 MonitorSettingDialog::MonitorSettingDialog(Monitor *monitor, QWidget *parent)
-    : QDialog(parent),
+    : DDialog(parent),
 
       m_primary(false),
       m_monitor(nullptr),
@@ -53,7 +51,7 @@ MonitorSettingDialog::~MonitorSettingDialog()
 
 void MonitorSettingDialog::resizeEvent(QResizeEvent *e)
 {
-    QDialog::resizeEvent(e);
+    DDialog::resizeEvent(e);
 
     QTimer::singleShot(1, this, &MonitorSettingDialog::onMonitorRectChanged);
 }
@@ -65,19 +63,29 @@ void MonitorSettingDialog::init()
     BasicListView *resolutionView = new BasicListView;
     resolutionView->setModel(m_resolutionsModel);
     resolutionView->setItemDelegate(new BasicListDelegate);
+
+    connect(resolutionView, &BasicListView::entered, m_resolutionsModel, &BasicListModel::setHoveredIndex);
+
     if (m_primary)
     {
         resolutionView->setAutoFitHeight(false);
-        resolutionView->setFixedHeight(80);
+        resolutionView->setFixedHeight(36 * 3);
     }
-    resolutionView->setStyleSheet("border: 1px solid #ccc;");
-    resolutionView->setMinimumWidth(430);
+
+    resolutionView->setMinimumWidth(448);
 
     QLabel *resoLabel = new QLabel;
+    resoLabel->setObjectName("Resolution");
     resoLabel->setText(tr("Resolution"));
 
+    QHBoxLayout *hlayout = new QHBoxLayout;
+    hlayout->setMargin(0);
+    hlayout->setSpacing(0);
+    hlayout->addSpacing(30);
+    hlayout->addWidget(resoLabel);
+
     QVBoxLayout *resoLayout = new QVBoxLayout;
-    resoLayout->addWidget(resoLabel);
+    resoLayout->addLayout(hlayout);
     resoLayout->addWidget(resolutionView);
     resoLayout->setSpacing(5);
     resoLayout->setContentsMargins(10, 0, 10, 0);
@@ -115,6 +123,7 @@ void MonitorSettingDialog::init()
 //    lightLayout->setContentsMargins(10, 0, 10, 0);
 
     m_btnsLayout = new QHBoxLayout;
+    m_btnsLayout->addSpacing(15);
 #ifndef DCC_DISABLE_ROTATE
     m_btnsLayout->addWidget(m_rotateBtn);
 #endif
@@ -123,16 +132,21 @@ void MonitorSettingDialog::init()
     m_btnsLayout->setContentsMargins(10, 0, 10, 0);
 
     m_mainLayout = new QVBoxLayout;
+    m_mainLayout->setMargin(0);
+    m_mainLayout->setSpacing(10);
+
     m_mainLayout->addWidget(m_monitorName);
     m_mainLayout->addLayout(resoLayout);
     m_mainLayout->addSpacing(10);
-//    m_mainLayout->addLayout(lightLayout);
-//    m_mainLayout->addSpacing(10);
     m_mainLayout->addLayout(m_btnsLayout);
-    m_mainLayout->addSpacing(10);
-    m_mainLayout->setSizeConstraint(QLayout::SetFixedSize);
-    m_mainLayout->setSpacing(0);
-    m_mainLayout->setMargin(0);
+
+    QWidget *widget = new QWidget;
+    widget->setLayout(m_mainLayout);
+
+    setContentsMargins(0, 0, 0, 0);
+    setContentLayoutContentsMargins(QMargins(0, 0, 10, 12));
+
+    addContent(widget);
 
     m_smallDelayTimer->setSingleShot(true);
     m_smallDelayTimer->setInterval(1000);
@@ -143,9 +157,6 @@ void MonitorSettingDialog::init()
     connect(m_rotateBtn, &DImageButton::clicked, this, &MonitorSettingDialog::onRotateBtnClicked);
 #endif
     connect(m_smallDelayTimer, &QTimer::timeout, this, &MonitorSettingDialog::onMonitorRectChanged);
-
-    setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
-    setLayout(m_mainLayout);
 }
 
 void MonitorSettingDialog::initPrimary()
@@ -167,6 +178,7 @@ void MonitorSettingDialog::initPrimary()
 
     m_ctrlWidget = new MonitorControlWidget;
     m_ctrlWidget->setDisplayModel(m_model);
+
     m_mainLayout->insertWidget(1, m_ctrlWidget);
 
     // add primary settings
@@ -279,7 +291,7 @@ void MonitorSettingDialog::onPrimaryChanged()
 
 void MonitorSettingDialog::onMonitorRectChanged()
 {
-    QDialog::move(m_monitor->rect().center() - rect().center());
+    DDialog::move(m_monitor->rect().center() - rect().center());
 }
 
 void MonitorSettingDialog::onMonitorModeChanged()

@@ -27,8 +27,9 @@ QVariant BasicListModel::data(const QModelIndex &index, int role) const
 
     switch (role) {
     case ItemTextRole:      return m_options[index.row()];
-    case ItemSizeRole:      return QSize(0, 25);
+    case ItemSizeRole:      return QSize(0, 36);
     case ItemSelectedRole:  return m_selectedIndex == index;
+    case ItemHoverRole:     return m_hoveredIndex == index;
     default:;
     }
 
@@ -60,6 +61,13 @@ void BasicListModel::setSelectedIndex(const QModelIndex &index)
     m_selectedIndex = index;
 
     emit dataChanged(oldIndex, oldIndex);
+    emit dataChanged(index, index);
+}
+
+void BasicListModel::setHoveredIndex(const QModelIndex &index)
+{
+    m_hoveredIndex = index;
+
     emit dataChanged(index, index);
 }
 

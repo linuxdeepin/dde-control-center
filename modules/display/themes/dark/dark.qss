@@ -2,45 +2,26 @@ QLabel#ModuleHeaderIconDisplay {
     background-image: url(:/display/themes/dark/icons/nav_display.png);
 }
 
-dcc--display--MonitorSettingDialog {
-    background-color: white;
-}
-
 dcc--display--MonitorSettingDialog QLabel {
     color: black;
 }
 
-dcc--display--MonitorSettingDialog QPushButton {
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 5px 25px;
-
-    color: black;
-}
-
-dcc--display--MonitorSettingDialog QPushButton:focus {
-    border-color: #2ca7f7;
-
-    color: #2ca7f7;
-}
-
-dcc--display--MonitorSettingDialog #SettingsListWidget {
-    border: 1px solid #ccc;
-}
-
-dcc--display--MonitorSettingDialog #MonitorName {
-    font-weight: bold;
+dcc--display--MonitorSettingDialog #MonitorName{
+    font-weight: 500;
     font-size: 12px;
     padding: 5px 0 0 0;
 }
 
-dcc--display--SettingsOptionItem > QLabel {
-    font-size: 13px;
+dcc--display--MonitorSettingDialog #Resolution {
+    font-weight: 500;
 }
 
-dcc--display--MonitorControlWidget {
-    border: 1px solid transparent;
-    border-bottom-color: #ccc;
+dcc--display--SettingsListWidget #SettingsListWidgetTitle {
+    font-weight: 500;
+}
+
+dcc--display--SettingsOptionItem > QLabel {
+    font-size: 13px;
 }
 
 dcc--display--MonitorControlWidget QPushButton {
@@ -53,17 +34,73 @@ dcc--display--MonitorControlWidget QPushButton:focus {
 }
 
 dcc--display--MonitorControlWidget #Recognize {
-    qproperty-icon: url(":/display/themes/dark/icons/recognize_normal.png");
+    color: black;
+    background-image: url(":/display/themes/dark/icons/recognize_normal.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+dcc--display--MonitorControlWidget #Recognize:hover {
+    color: black;
+    background-image: url(":/display/themes/dark/icons/recognize_hover.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+dcc--display--MonitorControlWidget #Recognize:pressed {
+    color: #2ca7f8;
+    background-image: url(":/display/themes/dark/icons/recognize_press.png");
+    background-repeat: no-repeat;
+    background-position: left center;
 }
 
 dcc--display--MonitorControlWidget #Split {
-    qproperty-icon: url(":/display/themes/dark/icons/split_normal.png");
+    color: black;
+    background-image: url(":/display/themes/dark/icons/split_normal.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+dcc--display--MonitorControlWidget #Split:hover {
+    color: black;
+    background-image: url(":/display/themes/dark/icons/split_hover.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+dcc--display--MonitorControlWidget #Split:pressed {
+    color: #2ca7f8;
+    background-image: url(":/display/themes/dark/icons/split_press.png");
+    background-repeat: no-repeat;
+    background-position: left center;
 }
 
 dcc--display--MonitorControlWidget #Merge {
-    qproperty-icon: url(":/display/themes/dark/icons/union_normal.png");
+    color: black;
+    background-image: url(":/display/themes/dark/icons/union_normal.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+dcc--display--MonitorControlWidget #Merge:hover {
+    color: black;
+    background-image: url(":/display/themes/dark/icons/union_hover.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+dcc--display--MonitorControlWidget #Merge:pressed {
+    color: #2ca7f8;
+    background-image: url(":/display/themes/dark/icons/union_press.png");
+    background-repeat: no-repeat;
+    background-position: left center;
 }
 
 dcc--display--CustomConfigPage #DeleteBtn {
     color: red;
+}
+
+dcc--display--SettingsOptionItem:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
 }

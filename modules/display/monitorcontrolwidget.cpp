@@ -22,12 +22,17 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     m_recognize->setText(tr("Recognize"));
     m_recognize->setCursor(Qt::PointingHandCursor);
     m_recognize->setObjectName("Recognize");
+    m_recognize->setMinimumWidth(70);
+
     m_split->setText(tr("Split"));
     m_split->setCursor(Qt::PointingHandCursor);
     m_split->setObjectName("Split");
+    m_split->setMinimumWidth(70);
+
     m_join->setText(tr("Merge"));
     m_join->setCursor(Qt::PointingHandCursor);
     m_join->setObjectName("Merge");
+    m_join->setMinimumWidth(70);
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addStretch();
@@ -37,6 +42,8 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     btnsLayout->addStretch();
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(0);
     mainLayout->addWidget(m_screensGround);
     mainLayout->setAlignment(m_screensGround, Qt::AlignHCenter);
     mainLayout->addLayout(btnsLayout);

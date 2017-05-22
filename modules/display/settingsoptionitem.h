@@ -8,7 +8,7 @@ namespace dcc {
 
 namespace display {
 
-class SettingsOptionItem : public QWidget
+class SettingsOptionItem : public QFrame
 {
     Q_OBJECT
 
@@ -22,7 +22,7 @@ signals:
     void clicked();
 
 protected:
-    void mouseReleaseEvent(QMouseEvent *);
+    void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
 
 private:
     QLabel *m_title;

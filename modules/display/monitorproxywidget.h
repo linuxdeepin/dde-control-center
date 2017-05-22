@@ -28,10 +28,10 @@ signals:
     void requestApplyMove(MonitorProxyWidget *self) const;
 
 protected:
-    void paintEvent(QPaintEvent *);
-    void mousePressEvent(QMouseEvent *e);
-    void mouseMoveEvent(QMouseEvent *e);
-    void mouseReleaseEvent(QMouseEvent *);
+    void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
+    void mouseMoveEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
 
 private:
     Monitor *m_monitor;
@@ -40,6 +40,8 @@ private:
     int m_movedY;
 
     QPoint m_lastPos;
+
+    bool m_mouseState;
 };
 
 } // namespace display

@@ -17,8 +17,8 @@
         <file>themes/dark/icons/union_hover.png</file>
         <file>themes/dark/icons/union_normal.png</file>
         <file>themes/dark/icons/union_press.png</file>
-        <file>themes/common/icon/select.png</file>
         <file>themes/dark/icons/light_high.png</file>
         <file>themes/dark/icons/light_low.png</file>
+        <file>themes/common/icon/list_select.png</file>
     </qresource>
 </RCC>

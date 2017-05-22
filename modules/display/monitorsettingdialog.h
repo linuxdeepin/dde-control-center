@@ -7,8 +7,10 @@
 #include <QDialog>
 #include <QPushButton>
 #include <QHBoxLayout>
-
+#include <ddialog.h>
 #include <dimagebutton.h>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 
@@ -24,7 +26,7 @@ namespace display {
 class DisplayModel;
 class SettingsListWidget;
 class MonitorControlWidget;
-class MonitorSettingDialog : public QDialog
+class MonitorSettingDialog : public DDialog
 {
     Q_OBJECT
 

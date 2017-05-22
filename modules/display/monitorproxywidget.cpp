@@ -11,7 +11,8 @@ MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, QWidget *parent)
 
       m_monitor(mon),
       m_movedX(m_monitor->x()),
-      m_movedY(m_monitor->y())
+      m_movedY(m_monitor->y()),
+      m_mouseState(false)
 {
     connect(m_monitor, &Monitor::xChanged, this, &MonitorProxyWidget::setMovedX);
     connect(m_monitor, &Monitor::yChanged, this, &MonitorProxyWidget::setMovedY);
@@ -43,6 +44,13 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
     painter.setPen(Qt::darkGray);
     painter.drawRect(r);
 
+    if (m_mouseState) {
+        QPen pen(QColor("#2ca7f8"));
+        pen.setWidth(4);
+        painter.setPen(pen);
+        painter.drawRect(rect());
+    }
+
     const QFontMetrics fm(painter.font());
     const int width = fm.boundingRect(m_monitor->name()).width();
     painter.setPen(Qt::white);
@@ -67,6 +75,8 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
 void MonitorProxyWidget::mousePressEvent(QMouseEvent *e)
 {
     m_lastPos = e->globalPos();
+
+    m_mouseState = true;
 }
 
 void MonitorProxyWidget::mouseMoveEvent(QMouseEvent *e)
@@ -78,7 +88,12 @@ void MonitorProxyWidget::mouseMoveEvent(QMouseEvent *e)
     m_lastPos = e->globalPos();
 }
 
-void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *)
+void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *e)
 {
     emit requestApplyMove(this);
+
+    m_mouseState = false;
+
+    QWidget::mouseReleaseEvent(e);
 }
+

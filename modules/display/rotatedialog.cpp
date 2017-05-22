@@ -135,7 +135,7 @@ void RotateDialog::paintEvent(QPaintEvent *e)
     const int margin = 100;
 
     QPainter painter(this);
-    painter.fillRect(rect(), QColor(0, 0, 0, 255 * .4));
+    painter.fillRect(rect(), QColor(0, 0, 0, 255 * .6));
 
     // bottom
     painter.drawText((w - tw) / 2, h - margin, tips);

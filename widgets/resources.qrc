@@ -106,5 +106,6 @@
         <file>themes/dark/icons/edit_hover.png</file>
         <file>themes/dark/icons/edit_normal.png</file>
         <file>themes/dark/icons/edit_press.png</file>
+        <file>themes/dark/icons/list_select.png</file>
     </qresource>
 </RCC>
