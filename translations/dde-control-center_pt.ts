@@ -87,27 +87,27 @@
 <context>
     <name>NotifyManager</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="42"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="49"/>
         <source>Clear all</source>
         <translation>Limpar tudo</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="110"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
         <source>Yesterday</source>
         <translation>Ontem</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="128"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>%n dia(s) atrás</numerusform><numerusform>%n dia(s) atrás</numerusform></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="122"/>
         <source>The day before yesterday</source>
         <translation>Anteontem</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="163"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="187"/>
         <source>No system notifications</source>
         <translation>Sem notificações de sistema</translation>
     </message>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation>Reíniciar</translation>
+        <translation>Reiniciar</translation>
     </message>
 </context>
 <context>
@@ -924,7 +924,12 @@
         <translation>Esquema do Teclado</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboarddetails.cpp" line="33"/>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="35"/>
+        <source>Switch Layouts (Multiple)</source>
+        <translation>Alterar Disposições (Diversas)</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="63"/>
         <source>Add Keyboard Layout</source>
         <translation>Adicionar Esquema de Teclado</translation>
     </message>
@@ -1009,11 +1014,11 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="136"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="148"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="166"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="175"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="308"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="139"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="151"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="169"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="178"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="311"/>
         <source>None</source>
         <translation>Nenhum</translation>
     </message>

@@ -87,27 +87,27 @@
 <context>
     <name>NotifyManager</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="42"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="49"/>
         <source>Clear all</source>
         <translation>全部清除</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="110"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
         <source>Yesterday</source>
         <translation>昨天</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="128"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>%n天前</numerusform></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="122"/>
         <source>The day before yesterday</source>
         <translation>前天</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="163"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="187"/>
         <source>No system notifications</source>
         <translation>无系统通知</translation>
     </message>
@@ -924,7 +924,12 @@
         <translation>键盘布局</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboarddetails.cpp" line="33"/>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="35"/>
+        <source>Switch Layouts (Multiple)</source>
+        <translation>切换键盘布局(可多选)</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="63"/>
         <source>Add Keyboard Layout</source>
         <translation>添加键盘布局</translation>
     </message>
@@ -1009,11 +1014,11 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="136"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="148"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="166"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="175"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="308"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="139"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="151"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="169"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="178"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="311"/>
         <source>None</source>
         <translation>无</translation>
     </message>

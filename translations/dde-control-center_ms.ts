@@ -87,27 +87,27 @@
 <context>
     <name>NotifyManager</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="42"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="49"/>
         <source>Clear all</source>
         <translation>Kosongkan semua</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="110"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
         <source>Yesterday</source>
         <translation>Semalam</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="128"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>%n hari(s) yang lalu</numerusform></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="122"/>
         <source>The day before yesterday</source>
         <translation>Hari sebelum semalam</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="163"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="187"/>
         <source>No system notifications</source>
         <translation>Tiada pemberitahuan sistem</translation>
     </message>
@@ -924,7 +924,12 @@
         <translation>Bentangan Papan Kekunci</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboarddetails.cpp" line="33"/>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="35"/>
+        <source>Switch Layouts (Multiple)</source>
+        <translation>Tukar Bentangan (Berbilang)</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="63"/>
         <source>Add Keyboard Layout</source>
         <translation>Tambah Bentangan Papan Kekunci</translation>
     </message>
@@ -1009,11 +1014,11 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="136"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="148"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="166"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="175"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="308"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="139"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="151"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="169"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="178"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="311"/>
         <source>None</source>
         <translation>Tiada</translation>
     </message>
@@ -1880,7 +1885,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="12"/>
         <location filename="../modules/update/mirroritem.cpp" line="107"/>
         <source>Untested</source>
-        <translation type="unfinished"/>
+        <translation>Belum Diuji</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="55"/>
@@ -1912,7 +1917,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>Kelajuan Ujian</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
@@ -1922,7 +1927,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>Uji Semula</translation>
     </message>
 </context>
 <context>
@@ -1994,17 +1999,17 @@
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%s kemaskini(s) aplikasi dikesan</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>Edisi sistem baharu dan %n kemaskini aplikasi(s) dikesan</numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1 dimuat turun (Klik untuk jeda)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>

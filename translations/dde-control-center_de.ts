@@ -87,27 +87,27 @@
 <context>
     <name>NotifyManager</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="42"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="49"/>
         <source>Clear all</source>
         <translation>Alles leeren</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="110"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
         <source>Yesterday</source>
         <translation>Gestern</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifymanager.cpp" line="119"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="128"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>vor %n Tag(en)</numerusform><numerusform>vor %n Tag(en)</numerusform></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="113"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="122"/>
         <source>The day before yesterday</source>
         <translation>vorgestern</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="163"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="187"/>
         <source>No system notifications</source>
         <translation>Keine Systembenachrichtigungen</translation>
     </message>
@@ -117,7 +117,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Aktualisierungen wurden installiert. Ein Neustart ist erforderlich. Möchten Sie jetzt neu starten?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
@@ -924,7 +924,12 @@
         <translation>Tastaturbelegung</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboarddetails.cpp" line="33"/>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="35"/>
+        <source>Switch Layouts (Multiple)</source>
+        <translation>Belegung wechseln (Mehrere)</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/keyboarddetails.cpp" line="63"/>
         <source>Add Keyboard Layout</source>
         <translation>Tastaturbelegung hinzufügen</translation>
     </message>
@@ -1009,11 +1014,11 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="136"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="148"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="166"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="175"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="308"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="139"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="151"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="169"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="178"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="311"/>
         <source>None</source>
         <translation>Keine</translation>
     </message>
@@ -1880,7 +1885,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="12"/>
         <location filename="../modules/update/mirroritem.cpp" line="107"/>
         <source>Untested</source>
-        <translation type="unfinished"/>
+        <translation>Ungetestet</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="55"/>
@@ -1912,7 +1917,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>Speedtest</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
@@ -1922,7 +1927,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>Erneut testen</translation>
     </message>
 </context>
 <context>
@@ -1989,22 +1994,22 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Das neuste System wurde installiert. Zum Abschließen Neustarten.</translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n Aktualisierung entdeckt</numerusform><numerusform>%n Aktualisierungen entdeckt</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Neue Systemedition und %n Anwendungsaktualisierung erkannt</numerusform><numerusform>Neue Systemedition und %n Anwendungsaktualisierungen erkannt</numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1% heruntergeladen (Zum Pausieren klicken)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>

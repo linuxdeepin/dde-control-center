@@ -24,7 +24,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation>Reíniciar</translation>
+        <translation>Reiniciar</translation>
     </message>
 </context>
 </TS>
