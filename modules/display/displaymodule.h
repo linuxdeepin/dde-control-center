@@ -29,6 +29,7 @@ private slots:
 #ifndef DCC_DISABLE_ROTATE
     void showRotate(Monitor *mon = nullptr);
 #endif
+    void showMiracastPage();
 
 private:
     void initialize();

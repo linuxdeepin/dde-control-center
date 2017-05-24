@@ -16,7 +16,9 @@ HEADERS += \
     $$PWD/brightnesspage.h \
     $$PWD/brightnessitem.h \
     $$PWD/customconfigpage.h \
-    $$PWD/monitorindicator.h
+    $$PWD/monitorindicator.h \
+    $$PWD/miracastsettings.h \
+    $$PWD/miracastnodevicepage.h
 
 SOURCES += \
     $$PWD/displaymodule.cpp \
@@ -36,7 +38,9 @@ SOURCES += \
     $$PWD/brightnesspage.cpp \
     $$PWD/brightnessitem.cpp \
     $$PWD/customconfigpage.cpp \
-    $$PWD/monitorindicator.cpp
+    $$PWD/monitorindicator.cpp \
+    $$PWD/miracastsettings.cpp \
+    $$PWD/miracastnodevicepage.cpp
 
 #INCLUDEPATH += $$PWD/..
 

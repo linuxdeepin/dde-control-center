@@ -9,6 +9,7 @@
 #include "displayworker.h"
 #include "brightnesspage.h"
 #include "customconfigpage.h"
+#include "miracastsettings.h"
 
 using namespace dcc;
 using namespace dcc::display;
@@ -110,6 +111,7 @@ ModuleWidget *DisplayModule::moduleWidget()
     connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
     connect(m_displayWidget, &DisplayWidget::showBrightnessPage, this, &DisplayModule::showBrightnessPage);
     connect(m_displayWidget, &DisplayWidget::requestConfigPage, this, &DisplayModule::showConfigPage);
+    connect(m_displayWidget, &DisplayWidget::requestMiracastConfigPage, this, &DisplayModule::showMiracastPage);
 #ifndef DCC_DISABLE_ROTATE
     connect(m_displayWidget, &DisplayWidget::requestRotate, [=] { showRotate(m_displayModel->primaryMonitor()); });
 #endif
@@ -179,5 +181,12 @@ void DisplayModule::showRotate(Monitor *mon)
 
     if (m_displayModel->monitorList().size() == 1)
         m_displayWorker->saveChanges();
+}
+
+void DisplayModule::showMiracastPage()
+{
+    MiracastPage *miracast = new MiracastPage(tr("Wireless Screen Projection"));
+
+    m_frameProxy->pushWidget(this, miracast);
 }
 #endif
