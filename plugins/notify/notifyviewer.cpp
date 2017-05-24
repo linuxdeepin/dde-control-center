@@ -16,7 +16,7 @@
 #include <QPainter>
 #include <QTextDocument>
 
-Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QWidget(parent),
+Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QFrame(parent),
     m_appName(new QLabel),
     m_time(new QLabel),
     m_body(new NotifyBody),
@@ -144,13 +144,38 @@ void Viewer::onAnimationFinished()
 
 void Viewer::paintEvent(QPaintEvent *event)
 {
-    if (geometry().contains(mapFromGlobal(QCursor::pos()))) {
+    if (rect().contains(mapFromGlobal(QCursor::pos()))) {
         m_close->setVisible(true);
         m_time->setVisible(false);
+
+        QPainter painter(this);
+        painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
+
+        QPainterPath path;
+        path.addRoundedRect(rect(), 4, 4);
+
+        painter.save();
+        painter.fillPath(path, QColor(254, 254, 254, 0.13 * 255));
+        painter.restore();
+        painter.end();
     } else {
         m_close->setVisible(false);
         m_time->setVisible(true);
     }
 
-    QWidget::paintEvent(event);
+    QFrame::paintEvent(event);
+}
+
+void Viewer::enterEvent(QEvent *event)
+{
+    update();
+
+    QFrame::enterEvent(event);
+}
+
+void Viewer::leaveEvent(QEvent *event)
+{
+    update();
+
+    QFrame::leaveEvent(event);
 }

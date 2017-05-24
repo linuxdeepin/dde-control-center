@@ -140,8 +140,7 @@ Viewer *NotifyManager::onNotifyAdd(const QJsonObject &value) {
     viewer->setFixedHeight(80);
     viewer->setFixedWidth(360);
     viewer->setContentsMargins(0, 0, 0, 0);
-    viewer->setStyleSheet("Viewer {background: transparent;}"
-                            "Viewer:hover {background-color: rgba(254, 254, 254, 0.13);border-radius: 4;}");
+
     m_viewerList.insert(viewer, value);
     connect(viewer, &Viewer::requestClose, this, &NotifyManager::onNotifyRemove);
     update();

@@ -15,7 +15,7 @@
 #include "notifybody.h"
 
 #include <QObject>
-#include <QWidget>
+#include <QFrame>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <dimagebutton.h>
@@ -26,7 +26,7 @@
 
 class NumButton;
 DWIDGET_USE_NAMESPACE
-class Viewer : public QWidget
+class Viewer : public QFrame
 {
     Q_OBJECT
 public:
@@ -49,7 +49,8 @@ private slots:
 
 protected:
     virtual void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
-
+    virtual void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
+    virtual void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
 
 private:
     QLabel *m_appName, *m_time;
