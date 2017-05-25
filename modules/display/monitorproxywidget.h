@@ -1,7 +1,9 @@
 #ifndef MONITORPROXYWIDGET_H
 #define MONITORPROXYWIDGET_H
 
+#include "monitorindicator.h"
 #include <QWidget>
+#include <memory>
 
 namespace dcc {
 
@@ -24,6 +26,9 @@ public:
 
     const QString name() const;
 
+public slots:
+    void setIndicatorGeometry();
+
 signals:
     void requestApplyMove(MonitorProxyWidget *self) const;
 
@@ -42,6 +47,7 @@ private:
     QPoint m_lastPos;
 
     bool m_mouseState;
+    std::unique_ptr<MonitorIndicator> m_fullIndication;
 };
 
 } // namespace display
