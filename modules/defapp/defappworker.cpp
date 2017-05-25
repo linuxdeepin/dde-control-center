@@ -104,7 +104,7 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         file.copy(newfile);
         file.close();
 
-        QStringList mimelist = getTypeListByCategory(m_stringToCategory[info.path()]);
+        QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
         QJsonObject object;
         QFileInfo fileInfo(info.filePath());
         m_dbusManager->AddUserApp(mimelist, fileInfo.baseName() + ".desktop");
@@ -137,7 +137,7 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         out.flush();
         file.close();
 
-        QStringList mimelist = getTypeListByCategory(m_stringToCategory[info.path()]);
+        QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
         QJsonObject object;
         QFileInfo fileInfo(info.filePath());
         m_dbusManager->AddUserApp(mimelist, "deepin-custom-" + fileInfo.baseName() + ".desktop");
