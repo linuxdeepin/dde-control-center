@@ -35,7 +35,9 @@ signals:
     void requestSwitchConfig(const QString &config) const;
     void requestModifyConfig(const QString &config) const;
     void requestModifyConfigName(const QString &oldName, const QString &newName) const;
+#ifndef DCC_DISABLE_MIRACAST
     void requestMiracastConfigPage() const;
+#endif
 
 private slots:
     void onScreenListChanged() const;
@@ -47,11 +49,15 @@ private:
     DisplayModel *m_model;
     widgets::NextPageWidget *m_resolution;
     widgets::NextPageWidget *m_brightnessSettings;
+#ifndef DCC_DISABLE_MIRACAST
     widgets::NextPageWidget *m_miracast;
+#endif
     QList<widgets::NextPageWidget *> m_customSettings;
     widgets::SettingsGroup *m_customSettingsGrp;
     widgets::SettingsGroup *m_resolutionsGrp;
+#ifndef DCC_DISABLE_MIRACAST
     widgets::SettingsGroup *m_miracastGrp;
+#endif
 #ifndef DCC_DISABLE_ROTATE
     QPushButton *m_rotate;
 #endif

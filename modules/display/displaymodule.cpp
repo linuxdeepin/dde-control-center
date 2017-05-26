@@ -111,7 +111,9 @@ ModuleWidget *DisplayModule::moduleWidget()
     connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
     connect(m_displayWidget, &DisplayWidget::showBrightnessPage, this, &DisplayModule::showBrightnessPage);
     connect(m_displayWidget, &DisplayWidget::requestConfigPage, this, &DisplayModule::showConfigPage);
+#ifndef DCC_DISABLE_MIRACAST
     connect(m_displayWidget, &DisplayWidget::requestMiracastConfigPage, this, &DisplayModule::showMiracastPage);
+#endif
 #ifndef DCC_DISABLE_ROTATE
     connect(m_displayWidget, &DisplayWidget::requestRotate, [=] { showRotate(m_displayModel->primaryMonitor()); });
 #endif
@@ -182,7 +184,9 @@ void DisplayModule::showRotate(Monitor *mon)
     if (m_displayModel->monitorList().size() == 1)
         m_displayWorker->saveChanges();
 }
+#endif
 
+#ifndef DCC_DISABLE_MIRACAST
 void DisplayModule::showMiracastPage()
 {
     MiracastPage *miracast = new MiracastPage(tr("Wireless Screen Projection"));

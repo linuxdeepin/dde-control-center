@@ -14,7 +14,9 @@ DisplayWidget::DisplayWidget()
 
       m_resolution(new NextPageWidget),
       m_brightnessSettings(new NextPageWidget),
+#ifndef DCC_DISABLE_MIRACAST
       m_miracast(new NextPageWidget),
+#endif
       m_customSettingsGrp(new SettingsGroup),
 #ifndef DCC_DISABLE_ROTATE
       m_rotate(new QPushButton),
@@ -30,14 +32,18 @@ DisplayWidget::DisplayWidget()
     m_createConfig->setText(tr("New custom settings"));
 
     m_resolution->setTitle(tr("Resolution"));
+#ifndef DCC_DISABLE_MIRACAST
     m_miracast->setTitle(tr("Wireless Screen Projection"));
+#endif
     m_brightnessSettings->setTitle(tr("Brightness"));
 
     m_resolutionsGrp = new SettingsGroup;
     m_resolutionsGrp->appendItem(m_resolution);
 
+#ifndef DCC_DISABLE_MIRACAST
     m_miracastGrp = new SettingsGroup;
     m_miracastGrp->appendItem(m_miracast);
+#endif
 
     m_customSettingsGrp = new SettingsGroup;
 
@@ -45,7 +51,9 @@ DisplayWidget::DisplayWidget()
     brightnessGrp->appendItem(m_brightnessSettings);
 
     m_centralLayout->addWidget(m_resolutionsGrp);
+#ifndef DCC_DISABLE_MIRACAST
     m_centralLayout->addWidget(m_miracastGrp);
+#endif
     m_centralLayout->addWidget(brightnessGrp);
 #ifndef DCC_DISABLE_ROTATE
     m_centralLayout->addWidget(m_rotate);
@@ -65,7 +73,9 @@ DisplayWidget::DisplayWidget()
 #endif
     connect(m_createConfig, &QPushButton::clicked, this, &DisplayWidget::requestNewConfig);
     connect(m_configListRefershTimer, &QTimer::timeout, this, &DisplayWidget::onConfigListChanged);
+#ifndef DCC_DISABLE_MIRACAST
     connect(m_miracast, &NextPageWidget::clicked, this, &DisplayWidget::requestMiracastConfigPage);
+#endif
 }
 
 void DisplayWidget::setModel(DisplayModel *model)
