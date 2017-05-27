@@ -35,65 +35,38 @@ dcc--display--MonitorControlWidget QPushButton:focus {
 
 dcc--display--MonitorControlWidget #Recognize {
     color: black;
-    background-image: url(":/display/themes/dark/icons/recognize_normal.png");
-    background-repeat: no-repeat;
-    background-position: left center;
 }
 
 dcc--display--MonitorControlWidget #Recognize:hover {
     color: black;
-    background-image: url(":/display/themes/dark/icons/recognize_hover.png");
-    background-repeat: no-repeat;
-    background-position: left center;
 }
 
 dcc--display--MonitorControlWidget #Recognize:pressed {
     color: #2ca7f8;
-    background-image: url(":/display/themes/dark/icons/recognize_press.png");
-    background-repeat: no-repeat;
-    background-position: left center;
 }
 
 dcc--display--MonitorControlWidget #Split {
     color: black;
-    background-image: url(":/display/themes/dark/icons/split_normal.png");
-    background-repeat: no-repeat;
-    background-position: left center;
 }
 
 dcc--display--MonitorControlWidget #Split:hover {
     color: black;
-    background-image: url(":/display/themes/dark/icons/split_hover.png");
-    background-repeat: no-repeat;
-    background-position: left center;
 }
 
 dcc--display--MonitorControlWidget #Split:pressed {
     color: #2ca7f8;
-    background-image: url(":/display/themes/dark/icons/split_press.png");
-    background-repeat: no-repeat;
-    background-position: left center;
 }
 
 dcc--display--MonitorControlWidget #Merge {
     color: black;
-    background-image: url(":/display/themes/dark/icons/union_normal.png");
-    background-repeat: no-repeat;
-    background-position: left center;
 }
 
 dcc--display--MonitorControlWidget #Merge:hover {
     color: black;
-    background-image: url(":/display/themes/dark/icons/union_hover.png");
-    background-repeat: no-repeat;
-    background-position: left center;
 }
 
 dcc--display--MonitorControlWidget #Merge:pressed {
     color: #2ca7f8;
-    background-image: url(":/display/themes/dark/icons/union_press.png");
-    background-repeat: no-repeat;
-    background-position: left center;
 }
 
 dcc--display--CustomConfigPage #DeleteBtn {

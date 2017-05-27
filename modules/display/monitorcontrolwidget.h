@@ -1,8 +1,8 @@
 #ifndef MONITORCONTROLWIDGET_H
 #define MONITORCONTROLWIDGET_H
 
+#include "IconButton.h"
 #include <QFrame>
-
 class QPushButton;
 
 namespace dcc {
@@ -30,9 +30,9 @@ signals:
 
 private:
     MonitorsGround *m_screensGround;
-    QPushButton *m_recognize;
-    QPushButton *m_split;
-    QPushButton *m_join;
+    IconButton *m_recognize;
+    IconButton *m_split;
+    IconButton *m_join;
 };
 
 } // namespace display

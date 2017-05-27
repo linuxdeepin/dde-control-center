@@ -15,24 +15,30 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     : QFrame(parent),
 
       m_screensGround(new MonitorsGround),
-      m_recognize(new QPushButton),
-      m_split(new QPushButton),
-      m_join(new QPushButton)
+      m_recognize(new IconButton),
+      m_split(new IconButton),
+      m_join(new IconButton)
 {
     m_recognize->setText(tr("Recognize"));
     m_recognize->setCursor(Qt::PointingHandCursor);
     m_recognize->setObjectName("Recognize");
-    m_recognize->setMinimumWidth(70);
+    m_recognize->setHoverIcon(QIcon(":/display/themes/dark/icons/recognize_hover.png"));
+    m_recognize->setPressIcon(QIcon(":/display/themes/dark/icons/recognize_press.png"));
+    m_recognize->setNormalIcon(QIcon(":/display/themes/dark/icons/recognize_normal.png"));
 
     m_split->setText(tr("Split"));
     m_split->setCursor(Qt::PointingHandCursor);
     m_split->setObjectName("Split");
-    m_split->setMinimumWidth(70);
+    m_split->setHoverIcon(QIcon(":/display/themes/dark/icons/split_hover.png"));
+    m_split->setPressIcon(QIcon(":/display/themes/dark/icons/split_press.png"));
+    m_split->setNormalIcon(QIcon(":/display/themes/dark/icons/split_normal.png"));
 
     m_join->setText(tr("Merge"));
     m_join->setCursor(Qt::PointingHandCursor);
     m_join->setObjectName("Merge");
-    m_join->setMinimumWidth(70);
+    m_join->setHoverIcon(QIcon(":/display/themes/dark/icons/union_hover.png"));
+    m_join->setPressIcon(QIcon(":/display/themes/dark/icons/union_press.png"));
+    m_join->setNormalIcon(QIcon(":/display/themes/dark/icons/union_normal.png"));
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addStretch();

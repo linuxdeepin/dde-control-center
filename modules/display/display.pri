@@ -22,7 +22,8 @@ HEADERS += \
     $$PWD/miracastmodel.h \
     $$PWD/miracastworker.h \
     $$PWD/miracastdevicemodel.h \
-    $$PWD/miracastitem.h
+    $$PWD/miracastitem.h \
+    $$PWD/IconButton.h
 
 SOURCES += \
     $$PWD/displaymodule.cpp \
@@ -48,7 +49,8 @@ SOURCES += \
     $$PWD/miracastmodel.cpp \
     $$PWD/miracastworker.cpp \
     $$PWD/miracastdevicemodel.cpp \
-    $$PWD/miracastitem.cpp
+    $$PWD/miracastitem.cpp \
+    $$PWD/IconButton.cpp
 
 #INCLUDEPATH += $$PWD/..
 
