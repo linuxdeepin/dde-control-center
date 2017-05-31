@@ -5,6 +5,7 @@
 #include "switchwidget.h"
 #include "settingsgroup.h"
 #include "miracastnodevicepage.h"
+#include "miracastmodel.h"
 #include "QVBoxLayout"
 
 using namespace dcc::widgets;

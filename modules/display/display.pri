@@ -18,7 +18,9 @@ HEADERS += \
     $$PWD/customconfigpage.h \
     $$PWD/monitorindicator.h \
     $$PWD/miracastsettings.h \
-    $$PWD/miracastnodevicepage.h
+    $$PWD/miracastnodevicepage.h \
+    $$PWD/miracastmodel.h \
+    $$PWD/miracastworker.h
 
 SOURCES += \
     $$PWD/displaymodule.cpp \
@@ -40,7 +42,9 @@ SOURCES += \
     $$PWD/customconfigpage.cpp \
     $$PWD/monitorindicator.cpp \
     $$PWD/miracastsettings.cpp \
-    $$PWD/miracastnodevicepage.cpp
+    $$PWD/miracastnodevicepage.cpp \
+    $$PWD/miracastmodel.cpp \
+    $$PWD/miracastworker.cpp
 
 #INCLUDEPATH += $$PWD/..
 

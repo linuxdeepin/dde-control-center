@@ -10,6 +10,8 @@
 #include "brightnesspage.h"
 #include "customconfigpage.h"
 #include "miracastsettings.h"
+#include "miracastmodel.h"
+#include "miracastworker.h"
 
 using namespace dcc;
 using namespace dcc::display;
@@ -20,7 +22,9 @@ DisplayModule::DisplayModule(FrameProxyInterface *frame, QObject *parent)
 
       m_displayModel(nullptr),
       m_displayWorker(nullptr),
-      m_displayWidget(nullptr)
+      m_displayWidget(nullptr),
+      m_miracastModel(nullptr),
+      m_miracastWorker(nullptr)
 {
 
 }
@@ -29,6 +33,8 @@ DisplayModule::~DisplayModule()
 {
     m_displayModel->deleteLater();
     m_displayWorker->deleteLater();
+    m_miracastModel->deleteLater();
+    m_miracastWorker->deleteLater();
 }
 
 void DisplayModule::showBrightnessPage()
@@ -68,8 +74,13 @@ void DisplayModule::initialize()
     m_displayModel = new DisplayModel;
     m_displayWorker = new DisplayWorker(m_displayModel);
 
+    m_miracastModel = new MiracastModel;
+    m_miracastWorker = new MiracastWorker(m_miracastModel);
+
     m_displayModel->moveToThread(qApp->thread());
     m_displayWorker->moveToThread(qApp->thread());
+    m_miracastModel->moveToThread(qApp->thread());
+    m_miracastWorker->moveToThread(qApp->thread());
 }
 
 void DisplayModule::reset()

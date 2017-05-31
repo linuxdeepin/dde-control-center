@@ -12,6 +12,8 @@ class Monitor;
 class DisplayWorker;
 class DisplayModel;
 class DisplayWidget;
+class MiracastModel;
+class MiracastWorker;
 class DisplayModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -47,6 +49,8 @@ private:
     DisplayModel *m_displayModel;
     DisplayWorker *m_displayWorker;
     DisplayWidget *m_displayWidget;
+    MiracastModel *m_miracastModel;
+    MiracastWorker *m_miracastWorker;
 };
 
 } // namespace display
