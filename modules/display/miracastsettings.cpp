@@ -42,3 +42,26 @@ MiracastPage::MiracastPage(const QString &title, QWidget *parent) : ContentWidge
         tip->setVisible(!state);
     });
 }
+
+void MiracastPage::setModel(MiracastDeviceModel *model)
+{
+    m_model = model;
+
+    connect(model, &MiracastDeviceModel::addItem, this, &MiracastPage::onItemAdded);
+    connect(model, &MiracastDeviceModel::removeItem, this, &MiracastPage::onItemRemoved);
+
+    for (MiracastItem *item : model->sinkList()) {
+        m_deviceGrp->appendItem(item);
+    }
+}
+
+void MiracastPage::onItemAdded(MiracastItem *item)
+{
+    m_deviceGrp->appendItem(item);
+}
+
+void MiracastPage::onItemRemoved(MiracastItem *item)
+{
+    m_deviceGrp->removeItem(item);
+    item->deleteLater();
+}

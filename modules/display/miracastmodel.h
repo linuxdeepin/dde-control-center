@@ -2,7 +2,7 @@
 #define MIRACASTMODEL_H
 
 #include "miracastworker.h"
-
+#include "miracastdevicemodel.h"
 #include <QObject>
 
 namespace dcc {
@@ -26,15 +26,12 @@ public:
     explicit MiracastModel(QObject *parent = 0);
 
     const QList<LinkInfo> links() const { return m_links; }
+    MiracastDeviceModel* deviceModelByPath(const QString &path);
 
 signals:
     void linkAdded(const LinkInfo &link) const;
     void linkRemoved(const QDBusObjectPath &path) const;
-    void peerAdded(const SinkInfo &peer) const;
-    void peerRemoved(const SinkInfo &peer) const;
     void requestLinkScanning(const QDBusObjectPath &path, const bool scanning) const;
-    void linkInfoChanged() const;
-    void sinkConnectedChanged(const QDBusObjectPath &sinkPath, const bool connected) const;
 
 private:
     void addSink(const SinkInfo &peer);
@@ -52,6 +49,7 @@ private:
 
 private:
     QList<LinkInfo> m_links;
+    QMap<QString, MiracastDeviceModel*> m_deviceModelList;
 };
 }
 }

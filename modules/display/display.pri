@@ -20,7 +20,9 @@ HEADERS += \
     $$PWD/miracastsettings.h \
     $$PWD/miracastnodevicepage.h \
     $$PWD/miracastmodel.h \
-    $$PWD/miracastworker.h
+    $$PWD/miracastworker.h \
+    $$PWD/miracastdevicemodel.h \
+    $$PWD/miracastitem.h
 
 SOURCES += \
     $$PWD/displaymodule.cpp \
@@ -44,7 +46,9 @@ SOURCES += \
     $$PWD/miracastsettings.cpp \
     $$PWD/miracastnodevicepage.cpp \
     $$PWD/miracastmodel.cpp \
-    $$PWD/miracastworker.cpp
+    $$PWD/miracastworker.cpp \
+    $$PWD/miracastdevicemodel.cpp \
+    $$PWD/miracastitem.cpp
 
 #INCLUDEPATH += $$PWD/..
 

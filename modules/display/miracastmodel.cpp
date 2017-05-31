@@ -12,11 +12,14 @@ MiracastModel::MiracastModel(QObject *parent)
 
 }
 
+MiracastDeviceModel *MiracastModel::deviceModelByPath(const QString &path)
+{
+    return m_deviceModelList[path];
+}
+
 void MiracastModel::addSink(const SinkInfo &peer)
 {
-    qDebug() << Q_FUNC_INFO << peer;
-
-    emit peerAdded(peer);
+    m_deviceModelList[peer.m_linkPath.path()]->onSinkAdded(peer);
 }
 
 void MiracastModel::addLink(const LinkInfo &link)
@@ -25,7 +28,7 @@ void MiracastModel::addLink(const LinkInfo &link)
         return;
 
     m_links.append(link);
-
+    m_deviceModelList.insert(link.m_dbusPath.path(), new MiracastDeviceModel);
     emit linkAdded(link);
 
     if (link.m_managed && !link.m_p2pScanning)
@@ -39,6 +42,8 @@ void MiracastModel::removeLink(const QDBusObjectPath &path)
         if (m_links[i].m_dbusPath == path)
         {
             m_links.removeAt(i);
+            m_deviceModelList.value(path.path())->deleteLater();
+            m_deviceModelList.remove(path.path());
             emit linkRemoved(path);
 
             return;
@@ -52,8 +57,9 @@ void MiracastModel::removeSink(const QString &sinkInfo)
     qDebug() << "remove Sink" << sinkInfo;
 
     const QJsonObject infoObject = QJsonDocument::fromJson(sinkInfo.toUtf8()).object();
+    const SinkInfo info = SinkInfo::fromJson(infoObject);
 
-    emit peerRemoved(SinkInfo::fromJson(infoObject));
+    m_deviceModelList[info.m_linkPath.path()]->onSinkRemoved(info);
 }
 
 void MiracastModel::setLinks(const QList<LinkInfo> &links)
@@ -101,18 +107,16 @@ void MiracastModel::onMiracastEvent(const uchar type, const QDBusObjectPath &pat
     case LinkManaged:
         linkByPath(path).m_managed = true;
         emit requestLinkScanning(path, true);
-        emit linkInfoChanged();
         break;
     case LinkUnmanaged:
         linkByPath(path).m_managed = false;
-        emit linkInfoChanged();
         break;
     case SinkConnected:
-        emit sinkConnectedChanged(path, true);
+        deviceModelByPath(path.path())->onSinkConnect(path, true);
         break;
     case SinkConnectFailed:
     case SinkDisconnected:
-        emit sinkConnectedChanged(path, false);
+        deviceModelByPath(path.path())->onSinkConnect(path, false);
         scanAllLinks();
         break;
     default:;
