@@ -14,9 +14,6 @@ DisplayWidget::DisplayWidget()
 
       m_resolution(new NextPageWidget),
       m_brightnessSettings(new NextPageWidget),
-#ifndef DCC_DISABLE_MIRACAST
-      m_miracast(new NextPageWidget),
-#endif
       m_customSettingsGrp(new SettingsGroup),
 #ifndef DCC_DISABLE_ROTATE
       m_rotate(new QPushButton),
@@ -32,9 +29,7 @@ DisplayWidget::DisplayWidget()
     m_createConfig->setText(tr("New custom settings"));
 
     m_resolution->setTitle(tr("Resolution"));
-#ifndef DCC_DISABLE_MIRACAST
-    m_miracast->setTitle(tr("Wireless Screen Projection"));
-#endif
+
     m_brightnessSettings->setTitle(tr("Brightness"));
 
     m_resolutionsGrp = new SettingsGroup;
@@ -42,7 +37,6 @@ DisplayWidget::DisplayWidget()
 
 #ifndef DCC_DISABLE_MIRACAST
     m_miracastGrp = new SettingsGroup;
-    m_miracastGrp->appendItem(m_miracast);
 #endif
 
     m_customSettingsGrp = new SettingsGroup;
@@ -73,9 +67,6 @@ DisplayWidget::DisplayWidget()
 #endif
     connect(m_createConfig, &QPushButton::clicked, this, &DisplayWidget::requestNewConfig);
     connect(m_configListRefershTimer, &QTimer::timeout, this, &DisplayWidget::onConfigListChanged);
-#ifndef DCC_DISABLE_MIRACAST
-    connect(m_miracast, &NextPageWidget::clicked, this, &DisplayWidget::requestMiracastConfigPage);
-#endif
 }
 
 void DisplayWidget::setModel(DisplayModel *model)
@@ -95,6 +86,19 @@ void DisplayWidget::setModel(DisplayModel *model)
     onScreenSizeChanged();
     m_configListRefershTimer->start();
 }
+
+#ifndef DCC_DISABLE_MIRACAST
+void DisplayWidget::setMiracastModel(MiracastModel *miracastModel)
+{
+    connect(miracastModel, &MiracastModel::linkAdded, this, &DisplayWidget::onMiracastLinkAdded);
+    connect(miracastModel, &MiracastModel::linkRemoved, this, &DisplayWidget::onMiracastLinkRemoved);
+
+    m_miracastGrp->setVisible(!m_miracastList.isEmpty());
+
+    for (const LinkInfo &link : miracastModel->links())
+        onMiracastLinkAdded(link);
+}
+#endif
 
 void DisplayWidget::onScreenListChanged() const
 {
@@ -159,3 +163,33 @@ void DisplayWidget::onFirstConfigCreated(const QString &config)
     emit requestConfigPage(config);
     emit requestModifyConfig(config);
 }
+
+#ifndef DCC_DISABLE_MIRACAST
+void DisplayWidget::onMiracastLinkAdded(const LinkInfo &link)
+{
+    if (m_miracastList.contains(link.m_dbusPath))
+        return;
+
+    NextPageWidget *miracast = new NextPageWidget;
+    miracast->setTitle(tr("Wireless Screen Projection"));
+    m_miracastGrp->appendItem(miracast);
+    m_miracastList.insert(link.m_dbusPath, miracast);
+    connect(miracast, &NextPageWidget::clicked, this, [=]{
+        emit requestMiracastConfigPage(link.m_dbusPath);
+    });
+
+    m_miracastGrp->setVisible(!m_miracastList.isEmpty());
+}
+
+void DisplayWidget::onMiracastLinkRemoved(const QDBusObjectPath &path)
+{
+    NextPageWidget *button = m_miracastList[path];
+    if (button) {
+        m_miracastGrp->removeItem(button);
+        m_miracastList.remove(path);
+        button->deleteLater();
+    }
+
+    m_miracastGrp->setVisible(!m_miracastList.isEmpty());
+}
+#endif

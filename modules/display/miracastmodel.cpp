@@ -16,7 +16,6 @@ MiracastDeviceModel *MiracastModel::deviceModelByPath(const QString &path)
 {
     return m_deviceModelList[path];
 }
-
 void MiracastModel::addSink(const SinkInfo &peer)
 {
     m_deviceModelList[peer.m_linkPath.path()]->onSinkAdded(peer);
@@ -28,7 +27,7 @@ void MiracastModel::addLink(const LinkInfo &link)
         return;
 
     m_links.append(link);
-    m_deviceModelList.insert(link.m_dbusPath.path(), new MiracastDeviceModel);
+    m_deviceModelList.insert(link.m_dbusPath.path(), new MiracastDeviceModel(link.m_dbusPath));
     emit linkAdded(link);
 
     if (link.m_managed && !link.m_p2pScanning)
@@ -60,6 +59,7 @@ void MiracastModel::removeSink(const QString &sinkInfo)
     const SinkInfo info = SinkInfo::fromJson(infoObject);
 
     m_deviceModelList[info.m_linkPath.path()]->onSinkRemoved(info);
+
 }
 
 void MiracastModel::setLinks(const QList<LinkInfo> &links)
@@ -107,9 +107,11 @@ void MiracastModel::onMiracastEvent(const uchar type, const QDBusObjectPath &pat
     case LinkManaged:
         linkByPath(path).m_managed = true;
         emit requestLinkScanning(path, true);
+        emit linkEnableChanged(path, true);
         break;
     case LinkUnmanaged:
         linkByPath(path).m_managed = false;
+        emit linkEnableChanged(path, false);
         break;
     case SinkConnected:
         deviceModelByPath(path.path())->onSinkConnect(path, true);

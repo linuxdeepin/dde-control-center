@@ -37,7 +37,7 @@ MiracastPage::MiracastPage(const QString &title, QWidget *parent) : ContentWidge
 
     setContent(widget);
 
-    connect(switchWidget, &SwitchWidget::checkedChanged, this, &MiracastPage::requestSwitchDevice);
+    connect(switchWidget, &SwitchWidget::checkedChanged, this, &MiracastPage::onDeviceEnableChanged);
     connect(switchWidget, &SwitchWidget::checkedChanged, this, [=](const bool state) {
         tip->setVisible(!state);
     });
@@ -64,4 +64,9 @@ void MiracastPage::onItemRemoved(MiracastItem *item)
 {
     m_deviceGrp->removeItem(item);
     item->deleteLater();
+}
+
+void MiracastPage::onDeviceEnableChanged(const bool enable)
+{
+    emit requestDeviceEnable(m_model->linkPath(), enable);
 }

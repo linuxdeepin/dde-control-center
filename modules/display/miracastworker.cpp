@@ -6,18 +6,26 @@ using namespace dcc::display;
 
 MiracastWorker::MiracastWorker(MiracastModel *model, QObject *parent)
     : QObject(parent),
-
       m_miracastModel(model),
       m_miracastInter(new MiracastInter("com.deepin.daemon.Miracast", "/com/deepin/daemon/Miracast", QDBusConnection::sessionBus(), this))
 {
-    m_miracastInter->setSync(false);
-
     connect(m_miracastInter, &MiracastInter::Added, m_miracastModel, &MiracastModel::onPathAdded);
     connect(m_miracastInter, &MiracastInter::Removed, m_miracastModel, &MiracastModel::onPathRemoved);
     connect(m_miracastInter, &MiracastInter::Event, m_miracastModel, &MiracastModel::onMiracastEvent);
     connect(m_miracastModel, &MiracastModel::requestLinkScanning, this, &MiracastWorker::setLinkScannning);
 
-    fetchData();
+    m_miracastInter->setSync(false);
+}
+
+void MiracastWorker::active()
+{
+    m_miracastInter->blockSignals(false);
+    queryLinks();
+}
+
+void MiracastWorker::deactive()
+{
+    m_miracastInter->blockSignals(true);
 }
 
 void MiracastWorker::fetchData()

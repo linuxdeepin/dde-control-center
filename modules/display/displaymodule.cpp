@@ -19,7 +19,6 @@ using namespace dcc::display;
 DisplayModule::DisplayModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),
-
       m_displayModel(nullptr),
       m_displayWorker(nullptr),
       m_displayWidget(nullptr),
@@ -90,12 +89,12 @@ void DisplayModule::reset()
 
 void DisplayModule::moduleActive()
 {
-
+    m_miracastWorker->active();
 }
 
 void DisplayModule::moduleDeactive()
 {
-
+    m_miracastWorker->deactive();
 }
 
 void DisplayModule::contentPopped(ContentWidget * const w)
@@ -115,6 +114,9 @@ ModuleWidget *DisplayModule::moduleWidget()
 
     m_displayWidget = new DisplayWidget;
     m_displayWidget->setModel(m_displayModel);
+#ifndef DCC_DISABLE_MIRACAST
+    m_displayWidget->setMiracastModel(m_miracastModel);
+#endif
     connect(m_displayWidget, &DisplayWidget::requestNewConfig, m_displayWorker, &DisplayWorker::createConfig);
     connect(m_displayWidget, &DisplayWidget::requestSwitchConfig, m_displayWorker, &DisplayWorker::switchConfig);
     connect(m_displayWidget, &DisplayWidget::requestModifyConfigName, m_displayWorker, &DisplayWorker::modifyConfigName);
@@ -198,9 +200,12 @@ void DisplayModule::showRotate(Monitor *mon)
 #endif
 
 #ifndef DCC_DISABLE_MIRACAST
-void DisplayModule::showMiracastPage()
+void DisplayModule::showMiracastPage(const QDBusObjectPath &path)
 {
     MiracastPage *miracast = new MiracastPage(tr("Wireless Screen Projection"));
+    miracast->setModel(m_miracastModel->deviceModelByPath(path.path()));
+
+    connect(miracast, &MiracastPage::requestDeviceEnable, m_miracastWorker, &MiracastWorker::setLinkEnable);
 
     m_frameProxy->pushWidget(this, miracast);
 }

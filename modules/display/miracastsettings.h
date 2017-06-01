@@ -23,11 +23,12 @@ public:
     void setModel(MiracastDeviceModel *model);
 
 signals:
-    void requestSwitchDevice(const bool state);
+    void requestDeviceEnable(const QDBusObjectPath &path, const bool enable);
 
 private slots:
     void onItemAdded(MiracastItem *item);
     void onItemRemoved(MiracastItem *item);
+    void onDeviceEnableChanged(const bool enable);
 
 private:
     QVBoxLayout *m_mainLayout;

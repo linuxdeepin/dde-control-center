@@ -2,7 +2,7 @@
 #define DISPLAYMODULE_H
 
 #include "moduleinterface.h"
-
+#include "miracastmodel.h"
 
 namespace dcc {
 class ModuleWidget;
@@ -12,7 +12,6 @@ class Monitor;
 class DisplayWorker;
 class DisplayModel;
 class DisplayWidget;
-class MiracastModel;
 class MiracastWorker;
 class DisplayModule : public QObject, public ModuleInterface
 {
@@ -33,7 +32,7 @@ private slots:
 #endif
 
 #ifndef DCC_DISABLE_MIRACAST
-    void showMiracastPage();
+    void showMiracastPage(const QDBusObjectPath &path);
 #endif
 
 private:

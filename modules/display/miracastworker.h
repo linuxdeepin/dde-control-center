@@ -16,7 +16,8 @@ class MiracastWorker : public QObject
 
 public:
     explicit MiracastWorker(MiracastModel *model, QObject *parent = 0);
-
+    void active();
+    void deactive();
     void fetchData();
     void queryLinks();
     void querySinks();

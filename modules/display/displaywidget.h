@@ -2,7 +2,7 @@
 #define DISPLAYWIDGET_H
 
 #include "modulewidget.h"
-
+#include "miracastmodel.h"
 #include <QPushButton>
 
 namespace dcc {
@@ -23,6 +23,9 @@ public:
     explicit DisplayWidget();
 
     void setModel(DisplayModel *model);
+#ifndef DCC_DISABLE_MIRACAST
+    void setMiracastModel(MiracastModel *miracastModel);
+#endif
 
 signals:
     void showResolutionPage() const;
@@ -36,7 +39,7 @@ signals:
     void requestModifyConfig(const QString &config) const;
     void requestModifyConfigName(const QString &oldName, const QString &newName) const;
 #ifndef DCC_DISABLE_MIRACAST
-    void requestMiracastConfigPage() const;
+    void requestMiracastConfigPage(const QDBusObjectPath &path) const;
 #endif
 
 private slots:
@@ -44,14 +47,15 @@ private slots:
     void onScreenSizeChanged() const;
     void onConfigListChanged();
     void onFirstConfigCreated(const QString &config);
+#ifndef DCC_DISABLE_MIRACAST
+    void onMiracastLinkAdded(const LinkInfo &link);
+    void onMiracastLinkRemoved(const QDBusObjectPath &path);
+#endif
 
 private:
     DisplayModel *m_model;
     widgets::NextPageWidget *m_resolution;
     widgets::NextPageWidget *m_brightnessSettings;
-#ifndef DCC_DISABLE_MIRACAST
-    widgets::NextPageWidget *m_miracast;
-#endif
     QList<widgets::NextPageWidget *> m_customSettings;
     widgets::SettingsGroup *m_customSettingsGrp;
     widgets::SettingsGroup *m_resolutionsGrp;
@@ -64,6 +68,9 @@ private:
     QPushButton *m_createConfig;
 
     QTimer *m_configListRefershTimer;
+#ifndef DCC_DISABLE_MIRACAST
+    QMap<QDBusObjectPath, NextPageWidget*> m_miracastList;
+#endif
 };
 
 } // namespace display
