@@ -18,6 +18,10 @@ MiracastDeviceModel *MiracastModel::deviceModelByPath(const QString &path)
 }
 void MiracastModel::addSink(const SinkInfo &peer)
 {
+    if (m_sinks.contains(peer))
+        return;
+
+    m_sinks.append(peer);
     m_deviceModelList[peer.m_linkPath.path()]->onSinkAdded(peer);
 }
 
@@ -27,7 +31,7 @@ void MiracastModel::addLink(const LinkInfo &link)
         return;
 
     m_links.append(link);
-    m_deviceModelList.insert(link.m_dbusPath.path(), new MiracastDeviceModel(link.m_dbusPath));
+    m_deviceModelList.insert(link.m_dbusPath.path(), new MiracastDeviceModel(link));
     emit linkAdded(link);
 
     if (link.m_managed && !link.m_p2pScanning)
@@ -59,7 +63,7 @@ void MiracastModel::removeSink(const QString &sinkInfo)
     const SinkInfo info = SinkInfo::fromJson(infoObject);
 
     m_deviceModelList[info.m_linkPath.path()]->onSinkRemoved(info);
-
+    m_sinks.removeOne(sinkByPath(info.m_sinkPath.path()));
 }
 
 void MiracastModel::setLinks(const QList<LinkInfo> &links)
@@ -106,19 +110,22 @@ void MiracastModel::onMiracastEvent(const uchar type, const QDBusObjectPath &pat
     {
     case LinkManaged:
         linkByPath(path).m_managed = true;
+        deviceModelByPath(path.path())->onLinkManageChanged(true);
         emit requestLinkScanning(path, true);
-        emit linkEnableChanged(path, true);
         break;
     case LinkUnmanaged:
         linkByPath(path).m_managed = false;
-        emit linkEnableChanged(path, false);
+        deviceModelByPath(path.path())->onLinkManageChanged(false);
         break;
     case SinkConnected:
-        deviceModelByPath(path.path())->onSinkConnect(path, true);
+        deviceModelByPath(sinkByPath(path.path()).m_linkPath.path())->onSinkConnect(path, true);
         break;
     case SinkConnectFailed:
     case SinkDisconnected:
-        deviceModelByPath(path.path())->onSinkConnect(path, false);
+        for (SinkInfo &info : m_sinks)
+            if (info.m_sinkPath == path)
+                deviceModelByPath(info.m_linkPath.path())->onSinkConnect(path, false);
+
         scanAllLinks();
         break;
     default:;
@@ -138,6 +145,15 @@ LinkInfo &MiracastModel::linkByPath(const QDBusObjectPath &path)
 {
     for (auto it(m_links.begin()); it != m_links.end(); ++it)
         if (it->m_dbusPath == path)
+            return *it;
+
+    Q_UNREACHABLE();
+}
+
+SinkInfo &MiracastModel::sinkByPath(const QString &path)
+{
+    for (auto it(m_sinks.begin()); it != m_sinks.end(); ++it)
+        if (it->m_sinkPath.path() == path)
             return *it;
 
     Q_UNREACHABLE();

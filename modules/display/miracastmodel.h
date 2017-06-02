@@ -28,6 +28,8 @@ public:
     const QList<LinkInfo> links() const { return m_links; }
 
     MiracastDeviceModel* deviceModelByPath(const QString &path);
+    LinkInfo &linkByPath(const QDBusObjectPath &path);
+    SinkInfo &sinkByPath(const QString &path);
 
 signals:
     void linkAdded(const LinkInfo &link) const;
@@ -47,10 +49,9 @@ private:
     void onMiracastEvent(const uchar type, const QDBusObjectPath &path);
     void scanAllLinks();
 
-    LinkInfo &linkByPath(const QDBusObjectPath &path);
-
 private:
     QList<LinkInfo> m_links;
+    QList<SinkInfo> m_sinks;
     QMap<QString, MiracastDeviceModel*> m_deviceModelList;
 };
 }

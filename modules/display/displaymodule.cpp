@@ -206,6 +206,9 @@ void DisplayModule::showMiracastPage(const QDBusObjectPath &path)
     miracast->setModel(m_miracastModel->deviceModelByPath(path.path()));
 
     connect(miracast, &MiracastPage::requestDeviceEnable, m_miracastWorker, &MiracastWorker::setLinkEnable);
+    connect(miracast, &MiracastPage::requestDeviceEnable, m_miracastWorker, &MiracastWorker::setLinkScannning);
+    connect(miracast, &MiracastPage::requestDeviceConnect, m_miracastWorker, &MiracastWorker::connectSink);
+    connect(miracast, &MiracastPage::requestDeviceDisConnect, m_miracastWorker, &MiracastWorker::disconnectSink);
 
     m_frameProxy->pushWidget(this, miracast);
 }

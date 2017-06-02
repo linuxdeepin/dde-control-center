@@ -2,6 +2,7 @@
 #define MIRACASTITEM_H
 
 #include "settingsitem.h"
+#include "../widgets/loadingindicator.h"
 #include <types/sinkinfolist.h>
 #include <QWidget>
 #include <QLabel>
@@ -28,7 +29,8 @@ protected:
 private:
     SinkInfo m_info;
     QLabel *m_title;
-
+    QLabel *m_connect;
+    LoadingIndicator *m_loading;
 };
 }
 }

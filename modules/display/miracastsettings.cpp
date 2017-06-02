@@ -1,6 +1,7 @@
 #include "miracastsettings.h"
 #include "translucentframe.h"
 #include "labels/normallabel.h"
+#include "types/linkinfolist.h"
 
 using namespace dcc;
 using namespace dcc::display;
@@ -9,17 +10,18 @@ MiracastPage::MiracastPage(const QString &title, QWidget *parent) : ContentWidge
 {
     setTitle(title);
 
-    SwitchWidget *switchWidget = new SwitchWidget;
-    switchWidget->setTitle(title);
+    m_deviceSwBtn = new SwitchWidget;
+    m_deviceSwBtn->setTitle(title);
 
     SettingsGroup *switchGrp = new SettingsGroup;
-    switchGrp->appendItem(switchWidget);
+    switchGrp->appendItem(m_deviceSwBtn);
 
-    NormalLabel *tip = new NormalLabel(tr("WIFI will be disconnected when enable screen projection"));
-    tip->setWordWrap(true);
+    m_tip = new NormalLabel(tr("WIFI will be disconnected when enable screen projection"));
+    m_tip->setWordWrap(true);
 
     m_deviceGrp = new SettingsGroup;
     m_nodevice = new MiracastNoDevicePage;
+    m_nodevice->setVisible(false);
 
     m_mainLayout = new QVBoxLayout;
     m_mainLayout->setMargin(0);
@@ -27,7 +29,7 @@ MiracastPage::MiracastPage(const QString &title, QWidget *parent) : ContentWidge
 
     m_mainLayout->addSpacing(10);
     m_mainLayout->addWidget(switchGrp);
-    m_mainLayout->addWidget(tip);
+    m_mainLayout->addWidget(m_tip);
     m_mainLayout->addWidget(m_deviceGrp);
     m_mainLayout->addWidget(m_nodevice);
     m_mainLayout->addStretch();
@@ -37,9 +39,9 @@ MiracastPage::MiracastPage(const QString &title, QWidget *parent) : ContentWidge
 
     setContent(widget);
 
-    connect(switchWidget, &SwitchWidget::checkedChanged, this, &MiracastPage::onDeviceEnableChanged);
-    connect(switchWidget, &SwitchWidget::checkedChanged, this, [=](const bool state) {
-        tip->setVisible(!state);
+    connect(m_deviceSwBtn, &SwitchWidget::checkedChanged, this, &MiracastPage::onDeviceEnableChanged);
+    connect(m_deviceSwBtn, &SwitchWidget::checkedChanged, this, [=](const bool state) {
+        m_tip->setVisible(!state);
     });
 }
 
@@ -49,14 +51,22 @@ void MiracastPage::setModel(MiracastDeviceModel *model)
 
     connect(model, &MiracastDeviceModel::addItem, this, &MiracastPage::onItemAdded);
     connect(model, &MiracastDeviceModel::removeItem, this, &MiracastPage::onItemRemoved);
+    connect(model, &MiracastDeviceModel::linkManageChanged, m_deviceSwBtn, &SwitchWidget::setChecked);
+    connect(model, &MiracastDeviceModel::destroyed, this, &MiracastPage::back);
+
+    m_deviceSwBtn->setChecked(model->linkInfo().m_managed);
+    m_tip->setVisible(!m_deviceSwBtn->checked());
 
     for (MiracastItem *item : model->sinkList()) {
-        m_deviceGrp->appendItem(item);
+        onItemAdded(item);
     }
 }
 
 void MiracastPage::onItemAdded(MiracastItem *item)
 {
+    connect(item, &MiracastItem::requestSinkConnect, this, &MiracastPage::requestDeviceConnect);
+    connect(item, &MiracastItem::requestSinkDisConnect, this, &MiracastPage::requestDeviceDisConnect);
+
     m_deviceGrp->appendItem(item);
 }
 
@@ -68,5 +78,5 @@ void MiracastPage::onItemRemoved(MiracastItem *item)
 
 void MiracastPage::onDeviceEnableChanged(const bool enable)
 {
-    emit requestDeviceEnable(m_model->linkPath(), enable);
+    emit requestDeviceEnable(m_model->linkInfo().m_dbusPath, enable);
 }

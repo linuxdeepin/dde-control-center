@@ -73,6 +73,8 @@ void MiracastWorker::setLinkScannning(const QDBusObjectPath &path, const bool sc
     qDebug() << Q_FUNC_INFO << path.path() << scanning;
 
     m_miracastInter->Scanning(path, scanning);
+
+    m_miracastModel->deviceModelByPath(path.path())->clear();
 }
 
 void MiracastWorker::queryLinks_CB(QDBusPendingCallWatcher *w)

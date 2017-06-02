@@ -12,23 +12,28 @@ class MiracastDeviceModel : public QObject
 {
     Q_OBJECT
 public:
-    explicit MiracastDeviceModel(const QDBusObjectPath &linkpath, QObject *parent = 0);
+    explicit MiracastDeviceModel(const LinkInfo &linkinfo, QObject *parent = 0);
+    ~MiracastDeviceModel();
+
     const QList<MiracastItem*> sinkList() const;
     MiracastItem *itemByPath(const QString &path);
-    const QDBusObjectPath linkPath() const;
+    const LinkInfo linkInfo() const;
 
 signals:
     void addItem(MiracastItem *item);
     void removeItem(MiracastItem *item);
+    void linkManageChanged(const bool state);
 
 public slots:
     void onSinkAdded(const SinkInfo &sinkinfo);
     void onSinkRemoved(const SinkInfo &sinkinfo);
     void onSinkConnect(const QDBusObjectPath &sinkPath, bool connected);
+    void onLinkManageChanged(const bool state);
+    void clear();
 
 private:
     QList<MiracastItem*> m_sinkList;
-    const QDBusObjectPath m_linkPath;
+    LinkInfo m_linkInfo;
 };
 }
 }

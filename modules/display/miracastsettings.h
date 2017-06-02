@@ -7,6 +7,8 @@
 #include "miracastnodevicepage.h"
 #include "miracastdevicemodel.h"
 #include "miracastitem.h"
+#include "miracastmodel.h"
+#include "../widgets/labels/normallabel.h"
 #include "QVBoxLayout"
 
 using namespace dcc::widgets;
@@ -24,6 +26,8 @@ public:
 
 signals:
     void requestDeviceEnable(const QDBusObjectPath &path, const bool enable);
+    void requestDeviceConnect(const QDBusObjectPath &path, const QRect &rect);
+    void requestDeviceDisConnect(const QDBusObjectPath &path);
 
 private slots:
     void onItemAdded(MiracastItem *item);
@@ -35,6 +39,8 @@ private:
     MiracastNoDevicePage *m_nodevice;
     SettingsGroup *m_deviceGrp;
     MiracastDeviceModel *m_model;
+    SwitchWidget *m_deviceSwBtn;
+    NormalLabel *m_tip;
 };
 
 }

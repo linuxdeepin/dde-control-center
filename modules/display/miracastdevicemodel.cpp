@@ -1,13 +1,19 @@
 #include "miracastdevicemodel.h"
+#include <QDebug>
 
 using namespace dcc;
 using namespace dcc::display;
 
-MiracastDeviceModel::MiracastDeviceModel(const QDBusObjectPath &linkpath, QObject *parent) :
+MiracastDeviceModel::MiracastDeviceModel(const LinkInfo &linkInfo, QObject *parent) :
     QObject(parent),
-    m_linkPath(linkpath)
+    m_linkInfo(linkInfo)
 {
 
+}
+
+MiracastDeviceModel::~MiracastDeviceModel()
+{
+    qDeleteAll(m_sinkList);
 }
 
 const QList<MiracastItem*> MiracastDeviceModel::sinkList() const
@@ -17,16 +23,17 @@ const QList<MiracastItem*> MiracastDeviceModel::sinkList() const
 
 MiracastItem *MiracastDeviceModel::itemByPath(const QString &path)
 {
-    for (MiracastItem *item : m_sinkList)
-        if (item->info().m_linkPath.path() == path)
+    for (MiracastItem *item : m_sinkList) {
+        if (item->info().m_sinkPath.path() == path)
             return item;
+    }
 
     return nullptr;
 }
 
-const QDBusObjectPath MiracastDeviceModel::linkPath() const
+const LinkInfo MiracastDeviceModel::linkInfo() const
 {
-    return m_linkPath;
+    return m_linkInfo;
 }
 
 void dcc::display::MiracastDeviceModel::onSinkAdded(const SinkInfo &sinkinfo)
@@ -40,8 +47,10 @@ void dcc::display::MiracastDeviceModel::onSinkAdded(const SinkInfo &sinkinfo)
 void dcc::display::MiracastDeviceModel::onSinkRemoved(const SinkInfo &sinkinfo)
 {
     MiracastItem *item = itemByPath(sinkinfo.m_linkPath.path());
-    if (item)
+    if (item) {
+        m_sinkList.removeOne(item);
         emit removeItem(item);
+    }
 }
 
 void MiracastDeviceModel::onSinkConnect(const QDBusObjectPath &sinkPath, bool connected)
@@ -49,4 +58,21 @@ void MiracastDeviceModel::onSinkConnect(const QDBusObjectPath &sinkPath, bool co
     MiracastItem *item = itemByPath(sinkPath.path());
     if (item)
         item->onConnectState(connected);
+}
+
+void MiracastDeviceModel::onLinkManageChanged(const bool state)
+{
+    if (m_linkInfo.m_managed == state)
+        return;
+
+    m_linkInfo.m_managed = state;
+    emit linkManageChanged(state);
+}
+
+void MiracastDeviceModel::clear()
+{
+    for (MiracastItem *item : m_sinkList)
+        emit removeItem(item);
+
+    m_sinkList.clear();
 }
