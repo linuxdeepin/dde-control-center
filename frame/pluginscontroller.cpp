@@ -15,6 +15,7 @@ PluginsController::PluginsController(QObject *parent)
 void PluginsController::loadPlugins()
 {
     QDir pluginsDir(qApp->applicationDirPath());
+    pluginsDir.setSorting(QDir::Name);
 #ifdef QT_DEBUG
     pluginsDir.cd("plugins");
 #else
