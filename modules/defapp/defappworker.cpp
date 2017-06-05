@@ -109,7 +109,7 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         QFileInfo fileInfo(info.filePath());
         m_dbusManager->AddUserApp(mimelist, fileInfo.baseName() + ".desktop");
         object.insert("Id", "deepin-custom-" + fileInfo.baseName() + ".desktop");
-        object.insert("Nmae", fileInfo.baseName());
+        object.insert("Name", fileInfo.baseName());
         object.insert("DisplayName", fileInfo.baseName());
         object.insert("Icon", "application-default-icon");
         object.insert("Exec", info.filePath());
@@ -142,7 +142,7 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         QFileInfo fileInfo(info.filePath());
         m_dbusManager->AddUserApp(mimelist, "deepin-custom-" + fileInfo.baseName() + ".desktop");
         object.insert("Id", "deepin-custom-" + fileInfo.baseName() + ".desktop");
-        object.insert("Nmae", fileInfo.baseName());
+        object.insert("Name", fileInfo.baseName());
         object.insert("DisplayName", fileInfo.baseName());
         object.insert("Icon", "application-default-icon");
         object.insert("Exec", info.filePath());
