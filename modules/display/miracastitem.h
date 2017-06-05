@@ -3,6 +3,7 @@
 
 #include "settingsitem.h"
 #include "../widgets/loadingindicator.h"
+#include "connectwidget.h"
 #include <types/sinkinfolist.h>
 #include <QWidget>
 #include <QLabel>
@@ -23,6 +24,9 @@ signals:
     void requestSinkConnect(const QDBusObjectPath &path, const QRect &rect);
     void requestSinkDisConnect(const QDBusObjectPath &path);
 
+private slots:
+    void onDisConnect();
+
 protected:
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
 
@@ -30,7 +34,7 @@ private:
     SinkInfo m_info;
     QLabel *m_title;
     QLabel *m_connect;
-    LoadingIndicator *m_loading;
+    ConnectWidget *m_connectWidget;
 };
 }
 }

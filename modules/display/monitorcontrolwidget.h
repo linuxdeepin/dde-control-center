@@ -1,7 +1,7 @@
 #ifndef MONITORCONTROLWIDGET_H
 #define MONITORCONTROLWIDGET_H
 
-#include "IconButton.h"
+#include "iconbutton.h"
 #include <QFrame>
 class QPushButton;
 
