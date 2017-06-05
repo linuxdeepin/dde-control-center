@@ -49,6 +49,7 @@ signals:
 
 private:
     void resizeEvent(QResizeEvent *e);
+    void mouseMoveEvent(QMouseEvent *e);
 
     void init();
     void initPrimary();

@@ -8,6 +8,7 @@
 
 #include <QVBoxLayout>
 #include <QTimer>
+#include <QMouseEvent>
 
 DWIDGET_USE_NAMESPACE
 
@@ -56,8 +57,14 @@ void MonitorSettingDialog::resizeEvent(QResizeEvent *e)
     QTimer::singleShot(1, this, &MonitorSettingDialog::onMonitorRectChanged);
 }
 
+void MonitorSettingDialog::mouseMoveEvent(QMouseEvent *e)
+{
+    e->ignore();
+}
+
 void MonitorSettingDialog::init()
 {
+
     m_resolutionsModel = new BasicListModel;
 
     BasicListView *resolutionView = new BasicListView;
