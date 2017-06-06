@@ -74,6 +74,7 @@ void MiracastWorker::setLinkScannning(const QDBusObjectPath &path, const bool sc
 
     m_miracastInter->Scanning(path, scanning);
 
+    m_miracastModel->clearAllSinks();
     m_miracastModel->deviceModelByPath(path.path())->clear();
 }
 

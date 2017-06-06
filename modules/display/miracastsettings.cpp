@@ -2,6 +2,7 @@
 #include "translucentframe.h"
 #include "labels/normallabel.h"
 #include "types/linkinfolist.h"
+#include "settingsheaderitem.h"
 
 using namespace dcc;
 using namespace dcc::display;
@@ -19,8 +20,24 @@ MiracastPage::MiracastPage(const QString &title, QWidget *parent) : ContentWidge
     m_tip = new NormalLabel(tr("WIFI will be disconnected when enable screen projection"));
     m_tip->setWordWrap(true);
 
+    DImageButton *refreshBtn = new DImageButton;
+    refreshBtn->setText(tr("Refresh"));
+    refreshBtn->setObjectName("RefreshBtn");
+
+    QHBoxLayout *rightLayout = new QHBoxLayout;
+    rightLayout->setMargin(0);
+    rightLayout->setSpacing(0);
+    rightLayout->addWidget(refreshBtn);
+    rightLayout->addSpacing(10);
+
+    QWidget *rightWidget = new QWidget;
+    rightWidget->setLayout(rightLayout);
+
     m_deviceGrp = new SettingsGroup;
-    m_nodevice = new MiracastNoDevicePage;
+    m_deviceGrp->setHeaderVisible(true);
+    m_deviceGrp->headerItem()->setTitle(tr("Device List"));
+    m_deviceGrp->headerItem()->setRightWidget(rightWidget);
+    m_nodevice = new MiracastNoDeviceWidget;
     m_nodevice->setVisible(false);
 
     m_mainLayout = new QVBoxLayout;
@@ -40,9 +57,9 @@ MiracastPage::MiracastPage(const QString &title, QWidget *parent) : ContentWidge
     setContent(widget);
 
     connect(m_deviceSwBtn, &SwitchWidget::checkedChanged, this, &MiracastPage::onDeviceEnableChanged);
-    connect(m_deviceSwBtn, &SwitchWidget::checkedChanged, this, [=](const bool state) {
-        m_tip->setVisible(!state);
-    });
+    connect(m_deviceSwBtn, &SwitchWidget::checkedChanged, this, &MiracastPage::onDeviceStateChanged);
+    connect(m_nodevice, &MiracastNoDeviceWidget::requestRefreshed, this, &MiracastPage::onRefreshed);
+    connect(refreshBtn, &DImageButton::clicked, this, &MiracastPage::onRefreshed);
 }
 
 void MiracastPage::setModel(MiracastDeviceModel *model)
@@ -57,6 +74,9 @@ void MiracastPage::setModel(MiracastDeviceModel *model)
     m_deviceSwBtn->setChecked(model->linkInfo().m_managed);
     m_tip->setVisible(!m_deviceSwBtn->checked());
 
+    m_nodevice->setVisible(m_model->sinkList().isEmpty() && m_deviceSwBtn->checked());
+    m_deviceGrp->setVisible(!m_model->sinkList().isEmpty() && m_deviceSwBtn->checked());
+
     for (MiracastItem *item : model->sinkList()) {
         onItemAdded(item);
     }
@@ -68,15 +88,41 @@ void MiracastPage::onItemAdded(MiracastItem *item)
     connect(item, &MiracastItem::requestSinkDisConnect, this, &MiracastPage::requestDeviceDisConnect);
 
     m_deviceGrp->appendItem(item);
+
+    m_deviceGrp->setVisible(true);
+    m_nodevice->setVisible(false);
 }
 
 void MiracastPage::onItemRemoved(MiracastItem *item)
 {
     m_deviceGrp->removeItem(item);
     item->deleteLater();
+
+    if (m_model->sinkList().isEmpty()) {
+        m_deviceGrp->setVisible(false);
+        m_nodevice->setVisible(true);
+        m_nodevice->setState(MiracastNoDeviceWidget::NoDevice);
+    }
 }
 
 void MiracastPage::onDeviceEnableChanged(const bool enable)
 {
     emit requestDeviceEnable(m_model->linkInfo().m_dbusPath, enable);
+}
+
+void MiracastPage::onRefreshed()
+{
+    emit requestDeviceRefreshed(m_model->linkInfo().m_dbusPath, true);
+    m_deviceGrp->setVisible(false);
+    m_nodevice->setVisible(true);
+    m_nodevice->setState(MiracastNoDeviceWidget::Refreshed);
+}
+
+void MiracastPage::onDeviceStateChanged(const bool state)
+{
+    m_tip->setVisible(!state);
+    m_nodevice->setVisible(state);
+    m_deviceGrp->setVisible(!m_model->sinkList().isEmpty() && m_deviceSwBtn->checked());
+    if (state)
+        m_nodevice->setState(MiracastNoDeviceWidget::Refreshed);
 }

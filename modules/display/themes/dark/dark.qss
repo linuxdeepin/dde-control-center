@@ -77,3 +77,11 @@ dcc--display--SettingsOptionItem:hover {
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 6px;
 }
+
+dcc--display--MiracastNoDeviceWidget #RefreshButton {
+    color: #01bdff;
+}
+
+dcc--display--MiracastPage #RefreshBtn {
+    color: #01bdff;
+}

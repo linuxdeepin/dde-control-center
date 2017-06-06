@@ -63,7 +63,10 @@ void MiracastModel::removeSink(const QString &sinkInfo)
     const SinkInfo info = SinkInfo::fromJson(infoObject);
 
     m_deviceModelList[info.m_linkPath.path()]->onSinkRemoved(info);
-    m_sinks.removeOne(sinkByPath(info.m_sinkPath.path()));
+
+    for (SinkInfo &i : m_sinks)
+        if (i.m_sinkPath.path() == info.m_sinkPath.path())
+            m_sinks.removeOne(i);
 }
 
 void MiracastModel::setLinks(const QList<LinkInfo> &links)
@@ -157,4 +160,9 @@ SinkInfo &MiracastModel::sinkByPath(const QString &path)
             return *it;
 
     Q_UNREACHABLE();
+}
+
+void MiracastModel::clearAllSinks()
+{
+    m_sinks.clear();
 }

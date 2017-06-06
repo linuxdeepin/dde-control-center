@@ -4,7 +4,7 @@
 #include "contentwidget.h"
 #include "switchwidget.h"
 #include "settingsgroup.h"
-#include "miracastnodevicepage.h"
+#include "miracastnodevicewidget.h"
 #include "miracastdevicemodel.h"
 #include "miracastitem.h"
 #include "miracastmodel.h"
@@ -28,15 +28,18 @@ signals:
     void requestDeviceEnable(const QDBusObjectPath &path, const bool enable);
     void requestDeviceConnect(const QDBusObjectPath &path, const QRect &rect);
     void requestDeviceDisConnect(const QDBusObjectPath &path);
+    void requestDeviceRefreshed(const QDBusObjectPath &path, const bool enable);
 
 private slots:
     void onItemAdded(MiracastItem *item);
     void onItemRemoved(MiracastItem *item);
     void onDeviceEnableChanged(const bool enable);
+    void onRefreshed();
+    void onDeviceStateChanged(const bool state);
 
 private:
     QVBoxLayout *m_mainLayout;
-    MiracastNoDevicePage *m_nodevice;
+    MiracastNoDeviceWidget *m_nodevice;
     SettingsGroup *m_deviceGrp;
     MiracastDeviceModel *m_model;
     SwitchWidget *m_deviceSwBtn;
