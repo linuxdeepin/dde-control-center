@@ -5,7 +5,7 @@
 #include "basiclistmodel.h"
 #include "basiclistview.h"
 #include "basiclistdelegate.h"
-
+#include "dthememanager.h"
 #include <QVBoxLayout>
 #include <QTimer>
 #include <QMouseEvent>
@@ -19,7 +19,7 @@ namespace dcc {
 namespace display {
 
 MonitorSettingDialog::MonitorSettingDialog(DisplayModel *model, QWidget *parent)
-    : DDialog(parent),
+    : DAbstractDialog(parent),
 
       m_primary(true),
 
@@ -34,7 +34,7 @@ MonitorSettingDialog::MonitorSettingDialog(DisplayModel *model, QWidget *parent)
 }
 
 MonitorSettingDialog::MonitorSettingDialog(Monitor *monitor, QWidget *parent)
-    : DDialog(parent),
+    : DAbstractDialog(parent),
 
       m_primary(false),
       m_monitor(nullptr),
@@ -52,7 +52,7 @@ MonitorSettingDialog::~MonitorSettingDialog()
 
 void MonitorSettingDialog::resizeEvent(QResizeEvent *e)
 {
-    DDialog::resizeEvent(e);
+    DAbstractDialog::resizeEvent(e);
 
     QTimer::singleShot(1, this, &MonitorSettingDialog::onMonitorRectChanged);
 }
@@ -64,6 +64,10 @@ void MonitorSettingDialog::mouseMoveEvent(QMouseEvent *e)
 
 void MonitorSettingDialog::init()
 {
+    DThemeManager::instance()->setTheme(this, "light");
+
+    setBackgroundColor(QColor(Qt::white));
+    setBorderColor(QColor(0, 0, 0, 0.2 * 255));
 
     m_resolutionsModel = new BasicListModel;
 
@@ -146,14 +150,14 @@ void MonitorSettingDialog::init()
     m_mainLayout->addLayout(resoLayout);
     m_mainLayout->addSpacing(10);
     m_mainLayout->addLayout(m_btnsLayout);
+    m_mainLayout->addSpacing(10);
 
     QWidget *widget = new QWidget;
     widget->setLayout(m_mainLayout);
 
     setContentsMargins(0, 0, 0, 0);
-    setContentLayoutContentsMargins(QMargins(0, 0, 10, 12));
 
-    addContent(widget);
+    setLayout(m_mainLayout);
 
     m_smallDelayTimer->setSingleShot(true);
     m_smallDelayTimer->setInterval(1000);
@@ -272,6 +276,8 @@ void MonitorSettingDialog::updateScreensRelation()
         d->setVisible(!merged);
 
     onMonitorModeChanged();
+
+    adjustSize();
 }
 
 void MonitorSettingDialog::onPrimaryChanged()
@@ -298,7 +304,7 @@ void MonitorSettingDialog::onPrimaryChanged()
 
 void MonitorSettingDialog::onMonitorRectChanged()
 {
-    DDialog::move(m_monitor->rect().center() - rect().center());
+    DAbstractDialog::move(m_monitor->rect().center() - rect().center());
 }
 
 void MonitorSettingDialog::onMonitorModeChanged()

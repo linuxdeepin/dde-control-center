@@ -26,7 +26,7 @@ namespace display {
 class DisplayModel;
 class SettingsListWidget;
 class MonitorControlWidget;
-class MonitorSettingDialog : public DDialog
+class MonitorSettingDialog : public DAbstractDialog
 {
     Q_OBJECT
 
