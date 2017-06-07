@@ -33,9 +33,10 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_listGroup->appendItem(m_connectHideSSID);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addWidget(m_listGroup);
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(m_listGroup);
     mainLayout->addSpacing(10);
 
     QWidget *mainWidget = new TranslucentFrame;
