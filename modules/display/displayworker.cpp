@@ -59,24 +59,31 @@ void DisplayWorker::discardChanges()
 
 void DisplayWorker::mergeScreens()
 {
-    const auto mList = m_model->monitorList();
-    Q_ASSERT(mList.size() == 2);
+    // TODO: make asynchronous
+    const QList<Resolution> commonModes = m_displayInter.ListOutputsCommonModes();
+    Q_ASSERT(!commonModes.isEmpty());
 
+    const auto mode = commonModes.first();
     const auto rotate = m_model->primaryMonitor()->rotate();
     const auto brightness = m_model->primaryMonitor()->brightness();
-    const auto mode = m_model->monitorsSameModeList().first();
-    for (auto *mon : mList)
+
+    QList<QDBusPendingReply<>> replys;
+
+    for (auto *mon : m_model->monitorList())
     {
         auto *mInter = m_monitors[mon];
         Q_ASSERT(mInter);
 
-        m_displayInter.SetBrightness(mInter->name(), brightness);
-        mInter->SetPosition(0, 0).waitForFinished();
-        mInter->SetRotation(rotate).waitForFinished();
-        mInter->SetModeBySize(mode.width(), mode.height()).waitForFinished();
+        replys << mInter->SetPosition(0, 0);
+        replys << mInter->SetMode(mode.id());
+        replys << mInter->SetRotation(rotate);
+        replys << m_displayInter.SetBrightness(mon->name(), brightness);
     }
 
-    m_displayInter.ApplyChanges();
+    for (auto r : replys)
+        r.waitForFinished();
+
+    m_displayInter.ApplyChanges().waitForFinished();
 }
 
 void DisplayWorker::splitScreens()
