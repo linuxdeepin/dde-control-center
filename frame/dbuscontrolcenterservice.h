@@ -85,8 +85,12 @@ public Q_SLOTS: // METHODS
     void Toggle();
     void ToggleInLeft();
     bool isNetworkCanShowPassword();
+
 Q_SIGNALS: // SIGNALS
     void rectChanged(const QRect &rect);
+
+private:
+    bool m_toggleProcessed;
 };
 
 #endif

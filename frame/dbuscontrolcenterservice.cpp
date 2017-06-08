@@ -36,7 +36,8 @@
  */
 
 DBusControlCenterService::DBusControlCenterService(Frame *parent)
-    : QDBusAbstractAdaptor(parent)
+    : QDBusAbstractAdaptor(parent),
+      m_toggleProcessed(true)
 {
     // constructor
 
@@ -130,8 +131,18 @@ void DBusControlCenterService::SetAutoHide(const bool autoHide)
 void DBusControlCenterService::Toggle()
 {
     // handle method call com.deepin.dde.ControlCenter.Toggle
-//    parent()->toggle(false);
-    parent()->toggle();
+
+    // drop incoming toggle requests until the previous request
+    // has been processed.
+    if (m_toggleProcessed) {
+
+        QTimer::singleShot(0, this, [this] {
+            parent()->toggle();
+            m_toggleProcessed = true;
+        });
+
+        m_toggleProcessed = false;
+    }
 }
 
 void DBusControlCenterService::ToggleInLeft()
