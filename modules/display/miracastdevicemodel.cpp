@@ -71,8 +71,8 @@ void MiracastDeviceModel::onLinkManageChanged(const bool state)
 
 void MiracastDeviceModel::clear()
 {
-    for (MiracastItem *item : m_sinkList)
+    for (MiracastItem *item : m_sinkList) {
+        m_sinkList.removeOne(item);
         emit removeItem(item);
-
-    m_sinkList.clear();
+    }
 }

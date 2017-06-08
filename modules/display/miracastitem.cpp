@@ -63,3 +63,17 @@ void MiracastItem::mouseReleaseEvent(QMouseEvent *e)
         emit requestSinkConnect(m_info.m_sinkPath, QApplication::primaryScreen()->availableGeometry());
     }
 }
+
+void MiracastItem::enterEvent(QEvent *e)
+{
+    SettingsItem::enterEvent(e);
+
+    m_connectWidget->onMouseState(ConnectWidget::Enter);
+}
+
+void MiracastItem::leaveEvent(QEvent *e)
+{
+    SettingsItem::leaveEvent(e);
+
+    m_connectWidget->onMouseState(ConnectWidget::Leave);
+}

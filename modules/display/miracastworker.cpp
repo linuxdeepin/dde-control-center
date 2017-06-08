@@ -66,6 +66,14 @@ void MiracastWorker::setLinkEnable(const QDBusObjectPath &path, const bool enabl
     qDebug() << Q_FUNC_INFO << path.path() << enable;
 
     m_miracastInter->Enable(path, enable);
+
+    if (enable) {
+        QTimer::singleShot(5 * 60 * 1000, this, [=]{
+            m_miracastInter->Enable(path, false);
+            m_miracastModel->clearAllSinks();
+            m_miracastModel->deviceModelByPath(path.path())->clear();
+        });
+    }
 }
 
 void MiracastWorker::setLinkScannning(const QDBusObjectPath &path, const bool scanning)

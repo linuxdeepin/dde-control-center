@@ -36,6 +36,8 @@ private slots:
     void onDeviceEnableChanged(const bool enable);
     void onRefreshed();
     void onDeviceStateChanged(const bool state);
+    void onDeviceTurnoff(const bool state);
+    void onTimeOut();
 
 private:
     QVBoxLayout *m_mainLayout;
@@ -44,6 +46,7 @@ private:
     MiracastDeviceModel *m_model;
     SwitchWidget *m_deviceSwBtn;
     NormalLabel *m_tip;
+    QTimer *m_timer;
 };
 
 }

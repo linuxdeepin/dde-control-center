@@ -14,10 +14,16 @@ class ConnectWidget : public QFrame
     Q_OBJECT
 public:
     explicit ConnectWidget(QWidget *parent = 0);
-    enum ConnectState{
+
+    enum ConnectState {
         Connected,
         Connecting,
         ConnectFaild
+    };
+
+    enum MouseState {
+        Enter,
+        Leave
     };
 
 signals:
@@ -25,15 +31,13 @@ signals:
 
 public slots:
     void onConnectChanged(ConnectState state);
-
-protected:
-    void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
-    void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void onMouseState(MouseState state);
 
 private:
     ConnectState m_state;
-    DImageButton *m_connectStateBtn;
+    DImageButton *m_disconnectBtn;
     LoadingIndicator *m_loading;
+    DImageButton *m_connectedBtn;
 };
 
 }

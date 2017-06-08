@@ -95,7 +95,6 @@
         <source>%n day(s) ago</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -714,20 +713,25 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="115"/>
+        <location filename="../modules/display/displayworker.cpp" line="122"/>
         <source>My Settings %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dcc::display::MiracastNoDevicePage</name>
+    <name>dcc::display::MiracastNoDeviceWidget</name>
     <message>
-        <location filename="../modules/display/miracastnodevicepage.cpp" line="19"/>
+        <location filename="../modules/display/miracastnodevicewidget.cpp" line="18"/>
+        <source>Scanning devices, please wait...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/miracastnodevicewidget.cpp" line="19"/>
         <source>No available device found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/display/miracastnodevicepage.cpp" line="22"/>
+        <location filename="../modules/display/miracastnodevicewidget.cpp" line="22"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
@@ -735,8 +739,18 @@
 <context>
     <name>dcc::display::MiracastPage</name>
     <message>
-        <location filename="../modules/display/miracastsettings.cpp" line="19"/>
+        <location filename="../modules/display/miracastsettings.cpp" line="25"/>
         <source>WIFI will be disconnected when enable screen projection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/miracastsettings.cpp" line="29"/>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/miracastsettings.cpp" line="43"/>
+        <source>Device List</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2032,14 +2046,12 @@
         <source>%n application update(s) detected</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -2151,6 +2163,14 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="106"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="28"/>
         <source>Wacom</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dcc::widgets::ConnectWidget</name>
+    <message>
+        <location filename="../modules/display/connectwidget.cpp" line="13"/>
+        <source>Connected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

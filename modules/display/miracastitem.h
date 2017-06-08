@@ -29,6 +29,8 @@ private slots:
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
+    void enterEvent(QEvent *e) Q_DECL_OVERRIDE;
+    void leaveEvent(QEvent *e) Q_DECL_OVERRIDE;
 
 private:
     SinkInfo m_info;
