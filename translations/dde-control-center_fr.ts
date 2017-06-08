@@ -69,14 +69,6 @@
     </message>
 </context>
 <context>
-    <name>MiracastControlModel</name>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontrolmodel.cpp" line="50"/>
-        <source>WIFI will be disconnected when enable screen projection</source>
-        <translation>Activer la projection d&apos;écran désactivera le WIFI</translation>
-    </message>
-</context>
-<context>
     <name>NavWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="131"/>
@@ -99,15 +91,15 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="128"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Il y a %n jour</numerusform><numerusform>Il y a %n jours</numerusform></translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="122"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Avant-hier</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="187"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="186"/>
         <source>No system notifications</source>
         <translation>Aucune notification système </translation>
     </message>
@@ -137,7 +129,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Redémarrer</translation>
     </message>
 </context>
 <context>
@@ -673,30 +665,43 @@
     </message>
 </context>
 <context>
+    <name>dcc::display::DisplayModule</name>
+    <message>
+        <location filename="../modules/display/displaymodule.cpp" line="205"/>
+        <source>Wireless Screen Projection</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="25"/>
+        <location filename="../modules/display/displaywidget.cpp" line="27"/>
         <source>Rotate</source>
         <translation>Pivoter</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="26"/>
+        <location filename="../modules/display/displaywidget.cpp" line="29"/>
         <source>New custom settings</source>
         <translation>Nouveaux paramètres personnels</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="28"/>
+        <location filename="../modules/display/displaywidget.cpp" line="31"/>
         <source>Resolution</source>
         <translation>Résolution</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="29"/>
+        <location filename="../modules/display/displaywidget.cpp" line="33"/>
         <source>Brightness</source>
         <translation>Luminosité</translation>
     </message>
     <message>
+        <location filename="../modules/display/displaywidget.cpp" line="174"/>
+        <source>Wireless Screen Projection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="96"/>
-        <location filename="../modules/display/displaywidget.cpp" line="48"/>
+        <location filename="../modules/display/displaywidget.cpp" line="61"/>
         <source>Display</source>
         <translation>Affichage</translation>
     </message>
@@ -710,6 +715,27 @@
     </message>
 </context>
 <context>
+    <name>dcc::display::MiracastNoDevicePage</name>
+    <message>
+        <location filename="../modules/display/miracastnodevicepage.cpp" line="19"/>
+        <source>No available device found</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/display/miracastnodevicepage.cpp" line="22"/>
+        <source>Refresh</source>
+        <translation>Actualiser</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::display::MiracastPage</name>
+    <message>
+        <location filename="../modules/display/miracastsettings.cpp" line="19"/>
+        <source>WIFI will be disconnected when enable screen projection</source>
+        <translation>Activer la projection d&apos;écran désactivera le WIFI</translation>
+    </message>
+</context>
+<context>
     <name>dcc::display::MonitorControlWidget</name>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="22"/>
@@ -717,12 +743,12 @@
         <translation>Reconnaissance</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorcontrolwidget.cpp" line="25"/>
+        <location filename="../modules/display/monitorcontrolwidget.cpp" line="29"/>
         <source>Split</source>
         <translation>Diviser</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorcontrolwidget.cpp" line="28"/>
+        <location filename="../modules/display/monitorcontrolwidget.cpp" line="36"/>
         <source>Merge</source>
         <translation>Fusionner</translation>
     </message>
@@ -730,27 +756,27 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="77"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="86"/>
         <source>Resolution</source>
         <translation>Résolution</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="150"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="174"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="152"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="176"/>
         <source>Apply</source>
         <translation>Appliquer</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="159"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="183"/>
         <source>Primary</source>
         <translation>Primaire</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="325"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="351"/>
         <source> (Recommended)</source>
         <translation>(Recommandée)</translation>
     </message>
@@ -1416,7 +1442,7 @@
         <translation>Créer une connection PPPoE</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="38"/>
+        <location filename="../modules/network/pppoepage.cpp" line="39"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1885,7 +1911,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="12"/>
         <location filename="../modules/update/mirroritem.cpp" line="107"/>
         <source>Untested</source>
-        <translation type="unfinished"/>
+        <translation>Non testé</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="55"/>
@@ -1927,7 +1953,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>Retester</translation>
     </message>
 </context>
 <context>
@@ -1935,12 +1961,12 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="36"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>Mise à jour réussie</translation>
     </message>
     <message>
         <location filename="../modules/update/resultitem.cpp" line="37"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>Échec de la mise à jour</translation>
     </message>
 </context>
 <context>
@@ -1979,17 +2005,17 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="135"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>Télécharger et installer les mises à jour</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="162"/>
         <source>Install updates</source>
-        <translation type="unfinished"/>
+        <translation>Installer les mises à jour</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Mise à jour, veuillez patientez...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
@@ -2009,7 +2035,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1% téléchargés (Cliquez pour mettre en pause)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
@@ -2136,19 +2162,6 @@
         <location filename="../widgets/settingshead.cpp" line="27"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
-    </message>
-</context>
-<context>
-    <name>miracastControlDelegate</name>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
-        <source>Inactive</source>
-        <translation>Inactif</translation>
-    </message>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
-        <source>Active</source>
-        <translation>Actif</translation>
     </message>
 </context>
 </TS>

@@ -69,14 +69,6 @@
     </message>
 </context>
 <context>
-    <name>MiracastControlModel</name>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontrolmodel.cpp" line="50"/>
-        <source>WIFI will be disconnected when enable screen projection</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>NavWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="131"/>
@@ -99,15 +91,15 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="128"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 天之前</numerusform></translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="122"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>前天</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="187"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="186"/>
         <source>No system notifications</source>
         <translation>沒有系統通知</translation>
     </message>
@@ -117,12 +109,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>安裝更新後需重新啟動，是否立刻動作？</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>優先確保所有資料已儲存</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -137,7 +129,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>重新啟動</translation>
     </message>
 </context>
 <context>
@@ -673,30 +665,43 @@
     </message>
 </context>
 <context>
+    <name>dcc::display::DisplayModule</name>
+    <message>
+        <location filename="../modules/display/displaymodule.cpp" line="205"/>
+        <source>Wireless Screen Projection</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="25"/>
+        <location filename="../modules/display/displaywidget.cpp" line="27"/>
         <source>Rotate</source>
         <translation>旋轉方向</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="26"/>
+        <location filename="../modules/display/displaywidget.cpp" line="29"/>
         <source>New custom settings</source>
         <translation>新增設定值</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="28"/>
+        <location filename="../modules/display/displaywidget.cpp" line="31"/>
         <source>Resolution</source>
         <translation>解析度</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="29"/>
+        <location filename="../modules/display/displaywidget.cpp" line="33"/>
         <source>Brightness</source>
         <translation>螢幕亮度</translation>
     </message>
     <message>
+        <location filename="../modules/display/displaywidget.cpp" line="174"/>
+        <source>Wireless Screen Projection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="96"/>
-        <location filename="../modules/display/displaywidget.cpp" line="48"/>
+        <location filename="../modules/display/displaywidget.cpp" line="61"/>
         <source>Display</source>
         <translation>螢幕</translation>
     </message>
@@ -710,6 +715,27 @@
     </message>
 </context>
 <context>
+    <name>dcc::display::MiracastNoDevicePage</name>
+    <message>
+        <location filename="../modules/display/miracastnodevicepage.cpp" line="19"/>
+        <source>No available device found</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/display/miracastnodevicepage.cpp" line="22"/>
+        <source>Refresh</source>
+        <translation>重新整理</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::display::MiracastPage</name>
+    <message>
+        <location filename="../modules/display/miracastsettings.cpp" line="19"/>
+        <source>WIFI will be disconnected when enable screen projection</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::display::MonitorControlWidget</name>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="22"/>
@@ -717,12 +743,12 @@
         <translation>分辨螢幕</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorcontrolwidget.cpp" line="25"/>
+        <location filename="../modules/display/monitorcontrolwidget.cpp" line="29"/>
         <source>Split</source>
         <translation>分割</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorcontrolwidget.cpp" line="28"/>
+        <location filename="../modules/display/monitorcontrolwidget.cpp" line="36"/>
         <source>Merge</source>
         <translation>合併</translation>
     </message>
@@ -730,27 +756,27 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="77"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="86"/>
         <source>Resolution</source>
         <translation>解析度</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="150"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="174"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="152"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="176"/>
         <source>Apply</source>
         <translation>套用</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="159"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="183"/>
         <source>Primary</source>
         <translation>主要螢幕</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="325"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="351"/>
         <source> (Recommended)</source>
         <translation>（建議）</translation>
     </message>
@@ -926,7 +952,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="35"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>切換鍵盤佈局（多語種）</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="63"/>
@@ -1416,7 +1442,7 @@
         <translation>建立 PPPoE 連線</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="38"/>
+        <location filename="../modules/network/pppoepage.cpp" line="39"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1871,7 +1897,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="54"/>
         <source>Disk:</source>
-        <translation>硬碟容量：</translation>
+        <translation>磁碟機容量：</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
@@ -1885,7 +1911,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="12"/>
         <location filename="../modules/update/mirroritem.cpp" line="107"/>
         <source>Untested</source>
-        <translation type="unfinished"/>
+        <translation>未測試</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="55"/>
@@ -1917,7 +1943,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>測試速度</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
@@ -1927,7 +1953,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>重新測試</translation>
     </message>
 </context>
 <context>
@@ -1935,12 +1961,12 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="36"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>更新成功</translation>
     </message>
     <message>
         <location filename="../modules/update/resultitem.cpp" line="37"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>更新失敗</translation>
     </message>
 </context>
 <context>
@@ -1974,47 +2000,47 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation type="unfinished"/>
+        <translation>請在更新後重開機以正確地使用系統和程式</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="135"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>下載與安裝更新</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="162"/>
         <source>Install updates</source>
-        <translation type="unfinished"/>
+        <translation>安裝更新</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>正在更新，請稍候…</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>重新啟動以套用安裝的更新</translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>偵測到 %1 個應用程式更新</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>偵測到新版本系統與 %1 個應用程式更新</numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>已下載 %1%（點擊暫停）</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>New system edition detected</source>
-        <translation type="unfinished"/>
+        <translation>偵測到新版本系統</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
@@ -2136,19 +2162,6 @@
         <location filename="../widgets/settingshead.cpp" line="27"/>
         <source>Cancel</source>
         <translation>完成</translation>
-    </message>
-</context>
-<context>
-    <name>miracastControlDelegate</name>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
-        <source>Inactive</source>
-        <translation>無法使用</translation>
-    </message>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
-        <source>Active</source>
-        <translation>可以使用</translation>
     </message>
 </context>
 </TS>

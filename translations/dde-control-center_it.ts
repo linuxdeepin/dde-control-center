@@ -69,14 +69,6 @@
     </message>
 </context>
 <context>
-    <name>MiracastControlModel</name>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontrolmodel.cpp" line="50"/>
-        <source>WIFI will be disconnected when enable screen projection</source>
-        <translation>La rete WiFi sarà disconnessa quando viene abilitata la proiezione dello schermo</translation>
-    </message>
-</context>
-<context>
     <name>NavWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="131"/>
@@ -107,7 +99,7 @@
         <translation>L&apos;altro ieri</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="187"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="186"/>
         <source>No system notifications</source>
         <translation>Nessuna notifica di sistema</translation>
     </message>
@@ -673,30 +665,43 @@
     </message>
 </context>
 <context>
+    <name>dcc::display::DisplayModule</name>
+    <message>
+        <location filename="../modules/display/displaymodule.cpp" line="205"/>
+        <source>Wireless Screen Projection</source>
+        <translation>Trasmissione WiFi dello schermo</translation>
+    </message>
+</context>
+<context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="25"/>
+        <location filename="../modules/display/displaywidget.cpp" line="27"/>
         <source>Rotate</source>
         <translation>Ruota</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="26"/>
+        <location filename="../modules/display/displaywidget.cpp" line="29"/>
         <source>New custom settings</source>
         <translation>Nuove impostazioni personalizzate</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="28"/>
+        <location filename="../modules/display/displaywidget.cpp" line="31"/>
         <source>Resolution</source>
         <translation>Risoluzione</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="29"/>
+        <location filename="../modules/display/displaywidget.cpp" line="33"/>
         <source>Brightness</source>
         <translation>Luminosità</translation>
     </message>
     <message>
+        <location filename="../modules/display/displaywidget.cpp" line="174"/>
+        <source>Wireless Screen Projection</source>
+        <translation>Trasmissione WiFi dello schermo</translation>
+    </message>
+    <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="96"/>
-        <location filename="../modules/display/displaywidget.cpp" line="48"/>
+        <location filename="../modules/display/displaywidget.cpp" line="61"/>
         <source>Display</source>
         <translation>Display</translation>
     </message>
@@ -710,6 +715,27 @@
     </message>
 </context>
 <context>
+    <name>dcc::display::MiracastNoDevicePage</name>
+    <message>
+        <location filename="../modules/display/miracastnodevicepage.cpp" line="19"/>
+        <source>No available device found</source>
+        <translation>Nessun dispositivo disponibile</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/miracastnodevicepage.cpp" line="22"/>
+        <source>Refresh</source>
+        <translation>Aggiorna</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::display::MiracastPage</name>
+    <message>
+        <location filename="../modules/display/miracastsettings.cpp" line="19"/>
+        <source>WIFI will be disconnected when enable screen projection</source>
+        <translation>La rete WiFi sarà disconnessa quando viene abilitata la proiezione dello schermo</translation>
+    </message>
+</context>
+<context>
     <name>dcc::display::MonitorControlWidget</name>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="22"/>
@@ -717,12 +743,12 @@
         <translation>Identifica</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorcontrolwidget.cpp" line="25"/>
+        <location filename="../modules/display/monitorcontrolwidget.cpp" line="29"/>
         <source>Split</source>
         <translation>Dividi</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorcontrolwidget.cpp" line="28"/>
+        <location filename="../modules/display/monitorcontrolwidget.cpp" line="36"/>
         <source>Merge</source>
         <translation>Unire</translation>
     </message>
@@ -730,27 +756,27 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="77"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="86"/>
         <source>Resolution</source>
         <translation>Risoluzione</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="150"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="174"/>
         <source>Cancel</source>
         <translation>Cancella</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="152"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="176"/>
         <source>Apply</source>
         <translation>Applica</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="159"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="183"/>
         <source>Primary</source>
         <translation>Primario</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="325"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="351"/>
         <source> (Recommended)</source>
         <translation>(Raccomandato)</translation>
     </message>
@@ -926,7 +952,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="35"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>Cambia layout (Multipli)</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="63"/>
@@ -1416,7 +1442,7 @@
         <translation>Crea connessione PPPoE</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="38"/>
+        <location filename="../modules/network/pppoepage.cpp" line="39"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -2136,19 +2162,6 @@
         <location filename="../widgets/settingshead.cpp" line="27"/>
         <source>Cancel</source>
         <translation>Cancella</translation>
-    </message>
-</context>
-<context>
-    <name>miracastControlDelegate</name>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
-        <source>Inactive</source>
-        <translation>Disattivato</translation>
-    </message>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
-        <source>Active</source>
-        <translation>Attivo</translation>
     </message>
 </context>
 </TS>

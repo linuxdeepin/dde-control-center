@@ -69,14 +69,6 @@
     </message>
 </context>
 <context>
-    <name>MiracastControlModel</name>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontrolmodel.cpp" line="50"/>
-        <source>WIFI will be disconnected when enable screen projection</source>
-        <translation>WIFI будет отключен при включении проекции экрана</translation>
-    </message>
-</context>
-<context>
     <name>NavWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="131"/>
@@ -107,7 +99,7 @@
         <translation>Позавчера</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="187"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="186"/>
         <source>No system notifications</source>
         <translation>Нет системных уведомлений</translation>
     </message>
@@ -526,7 +518,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="50"/>
         <source>Timezone List</source>
-        <translation>Список Временных зон</translation>
+        <translation>Список Часовых Поясов</translation>
     </message>
 </context>
 <context>
@@ -581,7 +573,7 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="97"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="16"/>
         <source>Default Applications</source>
-        <translation>Приложения по умолчанию</translation>
+        <translation>Приложения по Умолчанию</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="30"/>
@@ -638,7 +630,7 @@
         <location filename="../modules/defapp/defappwidget.cpp" line="21"/>
         <location filename="../modules/defapp/defappwidget.cpp" line="25"/>
         <source>Default Applications</source>
-        <translation>Приложения по умолчанию</translation>
+        <translation>Приложения по Умолчанию</translation>
     </message>
 </context>
 <context>
@@ -673,30 +665,43 @@
     </message>
 </context>
 <context>
+    <name>dcc::display::DisplayModule</name>
+    <message>
+        <location filename="../modules/display/displaymodule.cpp" line="205"/>
+        <source>Wireless Screen Projection</source>
+        <translation>Беспроводной Проекционный Экран</translation>
+    </message>
+</context>
+<context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="25"/>
+        <location filename="../modules/display/displaywidget.cpp" line="27"/>
         <source>Rotate</source>
         <translation>Вращение</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="26"/>
+        <location filename="../modules/display/displaywidget.cpp" line="29"/>
         <source>New custom settings</source>
         <translation>Новые пользовательские настройки</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="28"/>
+        <location filename="../modules/display/displaywidget.cpp" line="31"/>
         <source>Resolution</source>
         <translation>Разрешение</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="29"/>
+        <location filename="../modules/display/displaywidget.cpp" line="33"/>
         <source>Brightness</source>
         <translation>Яркость</translation>
     </message>
     <message>
+        <location filename="../modules/display/displaywidget.cpp" line="174"/>
+        <source>Wireless Screen Projection</source>
+        <translation>Беспроводной Проекционный Экран</translation>
+    </message>
+    <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="96"/>
-        <location filename="../modules/display/displaywidget.cpp" line="48"/>
+        <location filename="../modules/display/displaywidget.cpp" line="61"/>
         <source>Display</source>
         <translation>Дисплей</translation>
     </message>
@@ -710,6 +715,27 @@
     </message>
 </context>
 <context>
+    <name>dcc::display::MiracastNoDevicePage</name>
+    <message>
+        <location filename="../modules/display/miracastnodevicepage.cpp" line="19"/>
+        <source>No available device found</source>
+        <translation>Доступное устройство не найдено</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/miracastnodevicepage.cpp" line="22"/>
+        <source>Refresh</source>
+        <translation>Обновить</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::display::MiracastPage</name>
+    <message>
+        <location filename="../modules/display/miracastsettings.cpp" line="19"/>
+        <source>WIFI will be disconnected when enable screen projection</source>
+        <translation>WIFI будет отключен при включении проекционного экрана</translation>
+    </message>
+</context>
+<context>
     <name>dcc::display::MonitorControlWidget</name>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="22"/>
@@ -717,12 +743,12 @@
         <translation>Распознать</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorcontrolwidget.cpp" line="25"/>
+        <location filename="../modules/display/monitorcontrolwidget.cpp" line="29"/>
         <source>Split</source>
         <translation>Распределить</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorcontrolwidget.cpp" line="28"/>
+        <location filename="../modules/display/monitorcontrolwidget.cpp" line="36"/>
         <source>Merge</source>
         <translation>Объединить</translation>
     </message>
@@ -730,29 +756,29 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="77"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="86"/>
         <source>Resolution</source>
         <translation>Разрешение</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="150"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="174"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="152"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="176"/>
         <source>Apply</source>
         <translation>Применить</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="159"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="183"/>
         <source>Primary</source>
         <translation>Основной</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="325"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="351"/>
         <source> (Recommended)</source>
-        <translation>(Рекомендуемые)</translation>
+        <translation>(Рекомендуется)</translation>
     </message>
 </context>
 <context>
@@ -765,7 +791,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="55"/>
         <source> (Recommended)</source>
-        <translation>(Рекомендуемые)</translation>
+        <translation>(Рекомендуется)</translation>
     </message>
 </context>
 <context>
@@ -827,7 +853,7 @@
         <location filename="../modules/keyboard/customedit.cpp" line="30"/>
         <location filename="../modules/keyboard/customedit.cpp" line="78"/>
         <source>Shortcuts</source>
-        <translation>Горячие Клавиши</translation>
+        <translation>Сочетание Клавиш</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="40"/>
@@ -880,7 +906,7 @@
     <message>
         <location filename="../modules/keyboard/customedititem.cpp" line="78"/>
         <source>None</source>
-        <translation>Ни один</translation>
+        <translation>Ничего</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedititem.cpp" line="120"/>
@@ -1020,7 +1046,7 @@
         <location filename="../modules/keyboard/keyboardwork.cpp" line="178"/>
         <location filename="../modules/keyboard/keyboardwork.cpp" line="311"/>
         <source>None</source>
-        <translation>Ни один</translation>
+        <translation>Ничего</translation>
     </message>
 </context>
 <context>
@@ -1082,7 +1108,7 @@
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="168"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="193"/>
         <source>None</source>
-        <translation>Ни один</translation>
+        <translation>Ничего</translation>
     </message>
 </context>
 <context>
@@ -1100,7 +1126,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="31"/>
         <source>WorkSpace</source>
-        <translation>Рабочее окружение</translation>
+        <translation>Рабочее Окружение</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="52"/>
@@ -1110,12 +1136,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="62"/>
         <source>Shortcuts</source>
-        <translation>Горячие клавиши</translation>
+        <translation>Сочетание клавиш</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="39"/>
         <source>Custom Shortcut</source>
-        <translation>Горячая клавиша</translation>
+        <translation>Пользовательское Сочетание</translation>
     </message>
 </context>
 <context>
@@ -1151,7 +1177,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="19"/>
         <source>Double-click Test</source>
-        <translation>Дважды щелкните по пустому месту</translation>
+        <translation>Дважды щелкните для Тестирования</translation>
     </message>
 </context>
 <context>
@@ -1416,7 +1442,7 @@
         <translation>Создать PPPoE Соединение</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="38"/>
+        <location filename="../modules/network/pppoepage.cpp" line="39"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1436,7 +1462,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="34"/>
         <source>None</source>
-        <translation>Ни один</translation>
+        <translation>Ничего</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="35"/>
@@ -1489,7 +1515,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="150"/>
         <source>System Proxy</source>
-        <translation>Системный прокси</translation>
+        <translation>Системный Прокси</translation>
     </message>
 </context>
 <context>
@@ -1640,7 +1666,7 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="15"/>
         <source>Window Theme</source>
-        <translation>Тема Окна</translation>
+        <translation>Тема Окон</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="16"/>
@@ -1804,7 +1830,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="50"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation>Загрузочный образ может быть заменен путем перетаскивания его к нему, а также порядок загрузки может быть изменен путем перетаскивания выделенного</translation>
+        <translation>Загрузочный образ может быть заменен путем перетаскивания его сюда, а также порядок загрузки может быть изменен путем перетаскивания выделенного</translation>
     </message>
 </context>
 <context>
@@ -1999,7 +2025,7 @@
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>Обнаружено обновление(я) приложения %n </numerusform><numerusform>Обнаружено обновление(я) приложения %n </numerusform><numerusform>Обнаружено обновление(я) приложения %n</numerusform><numerusform>обнаружены обновление(я) приложения %n </numerusform></translation>
+        <translation><numerusform>%n приложение обнаружено обновление(я)</numerusform><numerusform>%n приложение обнаружено обновление(я)</numerusform><numerusform>%n приложение обнаружено обновление(я)</numerusform><numerusform>%n приложение обнаружено обновление(я)</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
@@ -2074,7 +2100,7 @@
     <message>
         <location filename="../modules/update/updateview.cpp" line="20"/>
         <source>Update Settings</source>
-        <translation>Настройки обновления</translation>
+        <translation>Настройки Обновления</translation>
     </message>
 </context>
 <context>
@@ -2136,19 +2162,6 @@
         <location filename="../widgets/settingshead.cpp" line="27"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
-    </message>
-</context>
-<context>
-    <name>miracastControlDelegate</name>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
-        <source>Inactive</source>
-        <translation>Неактивный</translation>
-    </message>
-    <message>
-        <location filename="../frame/quick_control/miracast/miracastcontroldelegate.cpp" line="67"/>
-        <source>Active</source>
-        <translation>Активный</translation>
     </message>
 </context>
 </TS>
