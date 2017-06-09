@@ -2,7 +2,7 @@
 #define MIRACASTWORKER_H
 
 #include <QObject>
-
+#include <QTimer>
 #include <com_deepin_daemon_miracast.h>
 
 using MiracastInter = com::deepin::daemon::Miracast;
@@ -31,10 +31,12 @@ public slots:
 private slots:
     void queryLinks_CB(QDBusPendingCallWatcher *w);
     void querySinks_CB(QDBusPendingCallWatcher *w);
+    void onTimeOut();
 
 private:
     MiracastModel *m_miracastModel;
     MiracastInter *m_miracastInter;
+    QTimer *m_timer;
 };
 }
 }

@@ -7,14 +7,19 @@ using namespace dcc::display;
 MiracastWorker::MiracastWorker(MiracastModel *model, QObject *parent)
     : QObject(parent),
       m_miracastModel(model),
-      m_miracastInter(new MiracastInter("com.deepin.daemon.Miracast", "/com/deepin/daemon/Miracast", QDBusConnection::sessionBus(), this))
+      m_miracastInter(new MiracastInter("com.deepin.daemon.Miracast", "/com/deepin/daemon/Miracast", QDBusConnection::sessionBus(), this)),
+      m_timer(new QTimer(this))
 {
     connect(m_miracastInter, &MiracastInter::Added, m_miracastModel, &MiracastModel::onPathAdded);
     connect(m_miracastInter, &MiracastInter::Removed, m_miracastModel, &MiracastModel::onPathRemoved);
     connect(m_miracastInter, &MiracastInter::Event, m_miracastModel, &MiracastModel::onMiracastEvent);
     connect(m_miracastModel, &MiracastModel::requestLinkScanning, this, &MiracastWorker::setLinkScannning);
+    connect(m_miracastModel, &MiracastModel::sinkConnected, m_timer, &QTimer::stop);
 
     m_miracastInter->setSync(false);
+
+    m_timer->setInterval(5 * 60 * 1000);
+    connect(m_timer, &QTimer::timeout, this, &MiracastWorker::onTimeOut);
 }
 
 void MiracastWorker::active()
@@ -52,6 +57,8 @@ void MiracastWorker::disconnectSink(const QDBusObjectPath &sink)
     qDebug() << Q_FUNC_INFO << sink.path();
 
     m_miracastInter->Disconnect(sink);
+
+    m_timer->start();
 }
 
 void MiracastWorker::connectSink(const QDBusObjectPath &peer, const QRect area)
@@ -66,14 +73,6 @@ void MiracastWorker::setLinkEnable(const QDBusObjectPath &path, const bool enabl
     qDebug() << Q_FUNC_INFO << path.path() << enable;
 
     m_miracastInter->Enable(path, enable);
-
-    if (enable) {
-        QTimer::singleShot(5 * 60 * 1000, this, [=]{
-            m_miracastInter->Enable(path, false);
-            m_miracastModel->clearAllSinks();
-            m_miracastModel->deviceModelByPath(path.path())->clear();
-        });
-    }
 }
 
 void MiracastWorker::setLinkScannning(const QDBusObjectPath &path, const bool scanning)
@@ -84,6 +83,8 @@ void MiracastWorker::setLinkScannning(const QDBusObjectPath &path, const bool sc
 
     m_miracastModel->clearAllSinks();
     m_miracastModel->deviceModelByPath(path.path())->clear();
+
+    m_timer->start();
 }
 
 void MiracastWorker::queryLinks_CB(QDBusPendingCallWatcher *w)
@@ -105,4 +106,15 @@ void MiracastWorker::querySinks_CB(QDBusPendingCallWatcher *w)
     m_miracastModel->setSinks(reply.value());
 
     w->deleteLater();
+}
+
+void MiracastWorker::onTimeOut()
+{
+    m_timer->stop();
+    for (LinkInfo link : m_miracastModel->links()) {
+        m_miracastInter->Enable(link.m_dbusPath, false);
+        m_miracastModel->deviceModelByPath(link.m_dbusPath.path())->clear();
+    }
+
+    m_miracastModel->clearAllSinks();
 }

@@ -122,6 +122,7 @@ void MiracastModel::onMiracastEvent(const uchar type, const QDBusObjectPath &pat
         break;
     case SinkConnected:
         deviceModelByPath(sinkByPath(path.path()).m_linkPath.path())->onSinkConnect(path, true);
+        emit sinkConnected();
         break;
     case SinkConnectFailed:
     case SinkDisconnected:

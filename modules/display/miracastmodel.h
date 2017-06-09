@@ -38,6 +38,7 @@ signals:
     void linkRemoved(const QDBusObjectPath &path) const;
     void requestLinkScanning(const QDBusObjectPath &path, const bool scanning) const;
     void linkEnableChanged(const QDBusObjectPath &path, const bool enable) const;
+    void sinkConnected() const;
 
 private:
     void addSink(const SinkInfo &peer);
