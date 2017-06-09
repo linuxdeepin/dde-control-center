@@ -213,6 +213,8 @@ void ShortcutWidget::onCustomAdded(ShortcutInfo *info)
        item->setTitle(info->name);
        info->item = item;
 
+       m_searchInfos[info->name + info->accels] = info;
+
        m_head->setVisible(true);
        connect(m_head, SIGNAL(editChanged(bool)), item, SLOT(onEditMode(bool)));
        m_customGroup->appendItem(item);
