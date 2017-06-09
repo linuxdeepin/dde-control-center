@@ -30,7 +30,7 @@ private slots:
     void adjust(MonitorProxyWidget *pw);
 
 private:
-    void ensureWidgetPerfect(MonitorProxyWidget *pw);
+    bool ensureWidgetPerfect(MonitorProxyWidget *pw);
     void reloadViewPortSize();
     void applySettings();
     double screenScale() const;

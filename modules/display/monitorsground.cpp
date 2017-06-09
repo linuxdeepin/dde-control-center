@@ -58,6 +58,11 @@ void MonitorsGround::resetMonitorsView()
     reloadViewPortSize();
     for (auto pw : m_monitors.keys())
         adjust(pw);
+
+    // recheck settings
+    monitorMoved(m_monitors.firstKey());
+//    for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it)
+//        ensureWidgetPerfect(it.key());
 }
 
 void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
@@ -70,7 +75,8 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
     pw->setMovedY((pw->pos().y() - offsetY) / scale);
 
     // ensure screens is 贴合但不相交
-    ensureWidgetPerfect(pw);
+    if (!ensureWidgetPerfect(pw))
+        return;
 
     // clear global offset
     int minX = INT_MAX;
@@ -105,11 +111,11 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
     pw->setGeometry(x + offsetX, y + offsetY, w, h);
 }
 
-void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
+bool MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
 {
     // TODO: only support 2 screens
     if (m_monitors.size() != 2)
-        return;
+        return false;
 
     MonitorProxyWidget *other = nullptr;
     for (auto w : m_monitors.keys())
@@ -134,6 +140,7 @@ void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
     otherPoints.append(QPoint(other->x(), other->y() + other->h() + 1));
     otherPoints.append(QPoint(other->x() + other->w(), other->y() + other->h() + 1));
 
+    // TODO: check screen rect contains another screen and size not equal
     QPoint bestOffset;
     int min = INT_MAX;
     for (auto p1 : selfPoints)
@@ -149,8 +156,18 @@ void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
         }
     }
 
-    pw->setMovedX(pw->x() - bestOffset.x());
-    pw->setMovedY(pw->y() - bestOffset.y());
+    const int x = pw->x() - bestOffset.x();
+    const int y = pw->y() - bestOffset.y();
+
+    if (pw->x() != x || pw->y() != y)
+    {
+        pw->setMovedX(x);
+        pw->setMovedY(y);
+
+        return true;
+    }
+
+    return false;
 }
 
 void MonitorsGround::reloadViewPortSize()
