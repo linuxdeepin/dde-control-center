@@ -108,7 +108,7 @@ QString PowerWidget::delayToLiteralString(const int delay) const
     case 5:
         return tr("%1 Minutes").arg(30);
     case 6:
-        return tr("1 Hour").arg(1);
+        return tr("1 Hour");
     case 7:
         return tr("Never");
     default:
