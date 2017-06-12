@@ -68,12 +68,12 @@ void MiracastItem::enterEvent(QEvent *e)
 {
     SettingsItem::enterEvent(e);
 
-    m_connectWidget->onMouseState(ConnectWidget::Enter);
+    m_connectWidget->setMouseEnter(true);
 }
 
 void MiracastItem::leaveEvent(QEvent *e)
 {
     SettingsItem::leaveEvent(e);
 
-    m_connectWidget->onMouseState(ConnectWidget::Leave);
+    m_connectWidget->setMouseEnter(false);
 }

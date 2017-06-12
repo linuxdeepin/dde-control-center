@@ -36,6 +36,16 @@ const LinkInfo MiracastDeviceModel::linkInfo() const
     return m_linkInfo;
 }
 
+bool MiracastDeviceModel::isConnected() const
+{
+    for (MiracastItem *item : m_sinkList) {
+        if (item->info().m_connected)
+            return true;
+    }
+
+    return false;
+}
+
 void dcc::display::MiracastDeviceModel::onSinkAdded(const SinkInfo &sinkinfo)
 {
     MiracastItem *item = new MiracastItem(sinkinfo);
@@ -56,8 +66,10 @@ void dcc::display::MiracastDeviceModel::onSinkRemoved(const SinkInfo &sinkinfo)
 void MiracastDeviceModel::onSinkConnect(const QDBusObjectPath &sinkPath, bool connected)
 {
     MiracastItem *item = itemByPath(sinkPath.path());
-    if (item)
+    if (item) {
         item->onConnectState(connected);
+        emit connectStateChanged(connected);
+    }
 }
 
 void MiracastDeviceModel::onLinkManageChanged(const bool state)
@@ -71,8 +83,8 @@ void MiracastDeviceModel::onLinkManageChanged(const bool state)
 
 void MiracastDeviceModel::clear()
 {
-    for (MiracastItem *item : m_sinkList) {
-        m_sinkList.removeOne(item);
+    for (MiracastItem *item : m_sinkList)
         emit removeItem(item);
-    }
+
+    m_sinkList.clear();
 }

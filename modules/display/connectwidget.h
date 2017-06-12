@@ -21,23 +21,18 @@ public:
         ConnectFaild
     };
 
-    enum MouseState {
-        Enter,
-        Leave
-    };
-
 signals:
     void clicked();
 
 public slots:
     void onConnectChanged(ConnectState state);
-    void onMouseState(MouseState state);
+    void setMouseEnter(const bool state);
 
 private:
     ConnectState m_state;
     DImageButton *m_disconnectBtn;
-    LoadingIndicator *m_loading;
     DImageButton *m_connectedBtn;
+    LoadingIndicator *m_loading;
 };
 
 }

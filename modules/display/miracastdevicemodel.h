@@ -18,11 +18,13 @@ public:
     const QList<MiracastItem*> sinkList() const;
     MiracastItem *itemByPath(const QString &path);
     const LinkInfo linkInfo() const;
+    bool isConnected() const;
 
 signals:
     void addItem(MiracastItem *item);
     void removeItem(MiracastItem *item);
     void linkManageChanged(const bool state);
+    void connectStateChanged(const bool state);
 
 public slots:
     void onSinkAdded(const SinkInfo &sinkinfo);

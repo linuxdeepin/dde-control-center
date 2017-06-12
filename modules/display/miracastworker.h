@@ -31,12 +31,12 @@ public slots:
 private slots:
     void queryLinks_CB(QDBusPendingCallWatcher *w);
     void querySinks_CB(QDBusPendingCallWatcher *w);
-    void onTimeOut();
+    void onPowerOff();
 
 private:
     MiracastModel *m_miracastModel;
     MiracastInter *m_miracastInter;
-    QTimer *m_timer;
+    QTimer *m_timerPowerOff;
 };
 }
 }

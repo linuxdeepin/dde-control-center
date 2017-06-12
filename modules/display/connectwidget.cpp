@@ -61,20 +61,15 @@ void ConnectWidget::onConnectChanged(ConnectState state)
     }
 }
 
-void ConnectWidget::onMouseState(ConnectWidget::MouseState state)
+void ConnectWidget::setMouseEnter(const bool state)
 {
     if (m_state == Connected) {
-        switch (state) {
-        case Enter:
+        if (state) {
             m_disconnectBtn->setVisible(true);
             m_connectedBtn->setVisible(false);
-            break;
-        case Leave:
+        } else {
             m_disconnectBtn->setVisible(false);
             m_connectedBtn->setVisible(true);
-            break;
-        default:
-            break;
         }
     }
 }

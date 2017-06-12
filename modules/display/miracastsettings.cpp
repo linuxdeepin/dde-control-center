@@ -13,8 +13,8 @@ MiracastPage::MiracastPage(const QString &title, QWidget *parent) : ContentWidge
 {
     setTitle(title);
 
-    m_timer = new QTimer(this);
-    m_timer->setInterval(1 * 60 * 1000);
+    m_refreshTimer = new QTimer(this);
+    m_refreshTimer->setInterval(1 * 60 * 1000);
 
     m_deviceSwBtn = new SwitchWidget;
     m_deviceSwBtn->setTitle(title);
@@ -25,14 +25,14 @@ MiracastPage::MiracastPage(const QString &title, QWidget *parent) : ContentWidge
     m_tip = new NormalLabel(tr("WIFI will be disconnected when enable screen projection"));
     m_tip->setWordWrap(true);
 
-    DImageButton *refreshBtn = new DImageButton;
-    refreshBtn->setText(tr("Refresh"));
-    refreshBtn->setObjectName("RefreshBtn");
+    m_refreshBtn = new DImageButton;
+    m_refreshBtn->setText(tr("Refresh"));
+    m_refreshBtn->setObjectName("RefreshBtn");
 
     QHBoxLayout *rightLayout = new QHBoxLayout;
     rightLayout->setMargin(0);
     rightLayout->setSpacing(0);
-    rightLayout->addWidget(refreshBtn);
+    rightLayout->addWidget(m_refreshBtn);
     rightLayout->addSpacing(10);
 
     QWidget *rightWidget = new QWidget;
@@ -64,8 +64,8 @@ MiracastPage::MiracastPage(const QString &title, QWidget *parent) : ContentWidge
     connect(m_deviceSwBtn, &SwitchWidget::checkedChanged, this, &MiracastPage::onDeviceEnableChanged);
     connect(m_deviceSwBtn, &SwitchWidget::checkedChanged, this, &MiracastPage::onDeviceStateChanged);
     connect(m_nodevice, &MiracastNoDeviceWidget::requestRefreshed, this, &MiracastPage::onRefreshed);
-    connect(refreshBtn, &DImageButton::clicked, this, &MiracastPage::onRefreshed);
-    connect(m_timer, &QTimer::timeout, this, &MiracastPage::onTimeOut);
+    connect(m_refreshBtn, &DImageButton::clicked, this, &MiracastPage::onRefreshed);
+    connect(m_refreshTimer, &QTimer::timeout, this, &MiracastPage::onRefreshTimeout);
 }
 
 void MiracastPage::setModel(MiracastDeviceModel *model)
@@ -75,8 +75,13 @@ void MiracastPage::setModel(MiracastDeviceModel *model)
     connect(model, &MiracastDeviceModel::addItem, this, &MiracastPage::onItemAdded);
     connect(model, &MiracastDeviceModel::removeItem, this, &MiracastPage::onItemRemoved);
     connect(model, &MiracastDeviceModel::linkManageChanged, m_deviceSwBtn, &SwitchWidget::setChecked);
-    connect(model, &MiracastDeviceModel::linkManageChanged, this, &MiracastPage::onDeviceTurnoff);
+    connect(model, &MiracastDeviceModel::linkManageChanged, this, &MiracastPage::onDeviceManaged);
     connect(model, &MiracastDeviceModel::destroyed, this, &MiracastPage::back);
+    connect(model, &MiracastDeviceModel::connectStateChanged, this, [=](const bool state){
+        m_refreshBtn->setVisible(!state);
+    });
+
+    m_refreshBtn->setVisible(!model->isConnected());
 
     m_deviceSwBtn->setChecked(model->linkInfo().m_managed);
     m_tip->setVisible(!m_deviceSwBtn->checked());
@@ -123,36 +128,35 @@ void MiracastPage::onRefreshed()
     m_deviceGrp->setVisible(false);
     m_nodevice->setVisible(true);
     m_nodevice->setState(MiracastNoDeviceWidget::Refreshed);
-    m_timer->start();
+    m_refreshTimer->start();
 }
 
 void MiracastPage::onDeviceStateChanged(const bool state)
 {
     m_tip->setVisible(!state);
     m_nodevice->setVisible(state);
-    m_deviceGrp->setVisible(!m_model->sinkList().isEmpty() && m_deviceSwBtn->checked());
+    m_deviceGrp->setVisible(!m_model->sinkList().isEmpty() && state);
     if (state) {
         m_nodevice->setState(MiracastNoDeviceWidget::Refreshed);
-        m_timer->start();
+        m_refreshTimer->start();
     } else {
-        m_timer->stop();
+        m_refreshTimer->stop();
     }
 }
 
-void MiracastPage::onDeviceTurnoff(const bool state)
+void MiracastPage::onDeviceManaged(const bool managed)
 {
-    if (state)
+    if (managed)
         return;
 
-    m_tip->setVisible(!state);
+    m_tip->setVisible(!managed);
     m_deviceGrp->setVisible(false);
     m_nodevice->setVisible(false);
 }
 
-void MiracastPage::onTimeOut()
+void MiracastPage::onRefreshTimeout()
 {
     emit requestDeviceRefreshed(m_model->linkInfo().m_dbusPath, false);
-    m_timer->stop();
     m_nodevice->setVisible(m_model->sinkList().isEmpty() && m_deviceSwBtn->checked());
     m_nodevice->setState(MiracastNoDeviceWidget::NoDevice);
 }
