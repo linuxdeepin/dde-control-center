@@ -31,13 +31,17 @@ signals:
     void requestDeviceRefreshed(const QDBusObjectPath &path, const bool enable);
 
 private slots:
-    void onItemAdded(MiracastItem *item);
-    void onItemRemoved(MiracastItem *item);
+    void onItemAdded(const SinkInfo &info);
+    void onItemRemoved(const SinkInfo &info);
     void onDeviceEnableChanged(const bool enable);
     void onRefreshed();
     void onDeviceStateChanged(const bool state);
     void onDeviceManaged(const bool managed);
     void onRefreshTimeout();
+    void onSinkConnectChanged(const QDBusObjectPath &sinkPath, const bool state);
+
+private:
+    MiracastItem *itemByPath(const QString &path);
 
 private:
     QVBoxLayout *m_mainLayout;
@@ -48,6 +52,7 @@ private:
     NormalLabel *m_tip;
     QTimer *m_refreshTimer;
     DImageButton *m_refreshBtn;
+    QMap<QString, MiracastItem*> m_deviceItemList;
 };
 
 }

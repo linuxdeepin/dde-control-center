@@ -72,14 +72,12 @@ void MiracastPage::setModel(MiracastDeviceModel *model)
 {
     m_model = model;
 
-    connect(model, &MiracastDeviceModel::addItem, this, &MiracastPage::onItemAdded);
-    connect(model, &MiracastDeviceModel::removeItem, this, &MiracastPage::onItemRemoved);
+    connect(model, &MiracastDeviceModel::addSink, this, &MiracastPage::onItemAdded);
+    connect(model, &MiracastDeviceModel::removeSink, this, &MiracastPage::onItemRemoved);
     connect(model, &MiracastDeviceModel::linkManageChanged, m_deviceSwBtn, &SwitchWidget::setChecked);
     connect(model, &MiracastDeviceModel::linkManageChanged, this, &MiracastPage::onDeviceManaged);
     connect(model, &MiracastDeviceModel::destroyed, this, &MiracastPage::back);
-    connect(model, &MiracastDeviceModel::connectStateChanged, this, [=](const bool state){
-        m_refreshBtn->setVisible(!state);
-    });
+    connect(model, &MiracastDeviceModel::connectStateChanged, this, &MiracastPage::onSinkConnectChanged);
 
     m_refreshBtn->setVisible(!model->isConnected());
 
@@ -89,31 +87,40 @@ void MiracastPage::setModel(MiracastDeviceModel *model)
     m_nodevice->setVisible(m_model->sinkList().isEmpty() && m_deviceSwBtn->checked());
     m_deviceGrp->setVisible(!m_model->sinkList().isEmpty() && m_deviceSwBtn->checked());
 
-    for (MiracastItem *item : model->sinkList()) {
-        onItemAdded(item);
+    for (const SinkInfo &info : model->sinkList()) {
+        onItemAdded(info);
     }
 }
 
-void MiracastPage::onItemAdded(MiracastItem *item)
+void MiracastPage::onItemAdded(const SinkInfo &info)
 {
-    connect(item, &MiracastItem::requestSinkConnect, this, &MiracastPage::requestDeviceConnect);
-    connect(item, &MiracastItem::requestSinkDisConnect, this, &MiracastPage::requestDeviceDisConnect);
+    if (m_deviceItemList.keys().contains(info.m_sinkPath.path()))
+        return;
 
+    MiracastItem *item = new MiracastItem(info);
+    m_deviceItemList.insert(info.m_sinkPath.path(), item);
     m_deviceGrp->appendItem(item);
-
     m_deviceGrp->setVisible(true);
     m_nodevice->setVisible(false);
+
+    connect(item, &MiracastItem::requestSinkConnect, this, &MiracastPage::requestDeviceConnect);
+    connect(item, &MiracastItem::requestSinkDisConnect, this, &MiracastPage::requestDeviceDisConnect);
 }
 
-void MiracastPage::onItemRemoved(MiracastItem *item)
+void MiracastPage::onItemRemoved(const SinkInfo &info)
 {
-    m_deviceGrp->removeItem(item);
-    item->deleteLater();
+    MiracastItem *item = itemByPath(info.m_sinkPath.path());
 
-    if (m_model->sinkList().isEmpty()) {
-        m_deviceGrp->setVisible(false);
-        m_nodevice->setVisible(true);
-        m_nodevice->setState(MiracastNoDeviceWidget::NoDevice);
+    if (item) {
+        m_deviceItemList.remove(info.m_sinkPath.path());
+        m_deviceGrp->removeItem(item);
+        item->deleteLater();
+
+        if (m_model->sinkList().isEmpty()) {
+            m_deviceGrp->setVisible(false);
+            m_nodevice->setVisible(true);
+            m_nodevice->setState(MiracastNoDeviceWidget::NoDevice);
+        }
     }
 }
 
@@ -157,6 +164,26 @@ void MiracastPage::onDeviceManaged(const bool managed)
 void MiracastPage::onRefreshTimeout()
 {
     emit requestDeviceRefreshed(m_model->linkInfo().m_dbusPath, false);
+    m_deviceGrp->setVisible(!m_model->sinkList().isEmpty() && m_deviceSwBtn->checked());
     m_nodevice->setVisible(m_model->sinkList().isEmpty() && m_deviceSwBtn->checked());
     m_nodevice->setState(MiracastNoDeviceWidget::NoDevice);
+}
+
+void MiracastPage::onSinkConnectChanged(const QDBusObjectPath &sinkPath, const bool state)
+{
+    m_refreshBtn->setVisible(!state);
+
+    MiracastItem *item = itemByPath(sinkPath.path());
+    if (item)
+        item->onConnectState(state);
+}
+
+MiracastItem *MiracastPage::itemByPath(const QString &path)
+{
+    for (auto it(m_deviceItemList.begin()); it != m_deviceItemList.end(); ++it) {
+        if (it.key() == path)
+            return it.value();
+    }
+
+    return nullptr;
 }

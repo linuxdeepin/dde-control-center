@@ -15,16 +15,15 @@ public:
     explicit MiracastDeviceModel(const LinkInfo &linkinfo, QObject *parent = 0);
     ~MiracastDeviceModel();
 
-    const QList<MiracastItem*> sinkList() const;
-    MiracastItem *itemByPath(const QString &path);
+    const QList<SinkInfo> sinkList() const;
     const LinkInfo linkInfo() const;
     bool isConnected() const;
 
 signals:
-    void addItem(MiracastItem *item);
-    void removeItem(MiracastItem *item);
+    void addSink(const SinkInfo &info);
+    void removeSink(const SinkInfo &info);
     void linkManageChanged(const bool state);
-    void connectStateChanged(const bool state);
+    void connectStateChanged(const QDBusObjectPath &sinkPath, const bool state);
 
 public slots:
     void onSinkAdded(const SinkInfo &sinkinfo);
@@ -34,7 +33,7 @@ public slots:
     void clear();
 
 private:
-    QList<MiracastItem*> m_sinkList;
+    QList<SinkInfo> m_sinkList;
     LinkInfo m_linkInfo;
 };
 }
