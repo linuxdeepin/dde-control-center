@@ -122,7 +122,7 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
         item->setShortcutInfo((*it));
         item->setTitle((*it)->name);
         (*it)->item = item;
-        m_searchInfos[(*it)->name+(*it)->accels] = (*it);
+        m_searchInfos[(*it)->toString()] = (*it);
 
         if(type == ShortcutModel::System) {
             m_systemGroup->appendItem(item);
@@ -213,7 +213,7 @@ void ShortcutWidget::onCustomAdded(ShortcutInfo *info)
        item->setTitle(info->name);
        info->item = item;
 
-       m_searchInfos[info->name + info->accels] = info;
+       m_searchInfos[info->toString()] = info;
 
        m_head->setVisible(true);
        connect(m_head, SIGNAL(editChanged(bool)), item, SLOT(onEditMode(bool)));
@@ -238,7 +238,7 @@ void ShortcutWidget::onDestroyItem(QObject *obj)
         if(m_customGroup->itemCount() == 1)
             m_head->setVisible(false);
 
-        m_searchInfos.remove(item->curInfo()->name + item->curInfo()->accels);
+        m_searchInfos.remove(item->curInfo()->toString());
         m_customList.removeOne(item);
         emit delShortcutInfo(item->curInfo());
         item->deleteLater();
@@ -250,7 +250,7 @@ void ShortcutWidget::onSearchInfo(ShortcutInfo *info, const QString &key)
     if(m_searchInfos.keys().contains(key))
     {
         m_searchInfos.remove(key);
-        m_searchInfos[info->name + info->accels] = info;
+        m_searchInfos[info->toString()] = info;
     }
 }
 

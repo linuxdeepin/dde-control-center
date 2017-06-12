@@ -22,7 +22,11 @@ struct ShortcutInfo
 
     bool operator==(const ShortcutInfo &info) const
     {
-        return id == info.id;
+        return id == info.id && type == info.type;
+    }
+
+    QString toString() {
+        return name + accels + command + id + QString::number(type);
     }
 };
 
