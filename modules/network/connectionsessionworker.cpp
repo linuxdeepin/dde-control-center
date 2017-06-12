@@ -39,15 +39,16 @@ void ConnectionSessionWorker::queryAllKeys()
 
 void ConnectionSessionWorker::saveSettings()
 {
-    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_sessionInter.Save(), this);
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_sessionInter.Save(true), this);
 
     connect(w, &QDBusPendingCallWatcher::finished, this, &ConnectionSessionWorker::saveSettingsCB);
-
 }
 
 void ConnectionSessionWorker::changeSettings(const QString &section, const QString &vKey, const QString &data)
 {
+#ifdef QT_DEBUG
     qDebug() << section << vKey << data;
+#endif
 
     m_sessionInter.SetKey(section, vKey, data);
 }
