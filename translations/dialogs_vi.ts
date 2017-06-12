@@ -4,12 +4,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Đã cài đặt cập nhật, cần khởi động lại, bạn có muốn khởi động lại ngay bây giờ?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Xin hãy chắc rằng tất cả dữ liệu đã được lưu lại trước</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Khởi động lại</translation>
     </message>
 </context>
 </TS>

@@ -91,12 +91,12 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="128"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n ngày() trước</numerusform></translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="122"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Ngày trước hôm qua</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="186"/>
@@ -109,12 +109,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Đã cài đặt cập nhật, cần phải khởi động lại, bạn có muốn khởi động lại ngay bây giờ?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Xin hãy chắc rằng tất cả dữ liệu đã được lưu lại trước hết</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -129,7 +129,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Khởi động lại</translation>
     </message>
 </context>
 <context>
@@ -669,7 +669,7 @@
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="205"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Màn hình Chiếu Không dây</translation>
     </message>
 </context>
 <context>
@@ -697,7 +697,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="174"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Màn hình Chiếu Không dây</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="96"/>
@@ -709,20 +709,25 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="115"/>
+        <location filename="../modules/display/displayworker.cpp" line="122"/>
         <source>My Settings %1</source>
         <translation>Những thiết lập của tôi %1</translation>
     </message>
 </context>
 <context>
-    <name>dcc::display::MiracastNoDevicePage</name>
+    <name>dcc::display::MiracastNoDeviceWidget</name>
     <message>
-        <location filename="../modules/display/miracastnodevicepage.cpp" line="19"/>
-        <source>No available device found</source>
+        <location filename="../modules/display/miracastnodevicewidget.cpp" line="18"/>
+        <source>Scanning devices, please wait...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/display/miracastnodevicepage.cpp" line="22"/>
+        <location filename="../modules/display/miracastnodevicewidget.cpp" line="19"/>
+        <source>No available device found</source>
+        <translation>Không tìm thấy thiết bị hiện có nào</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/miracastnodevicewidget.cpp" line="22"/>
         <source>Refresh</source>
         <translation>Làm sạch lại</translation>
     </message>
@@ -730,9 +735,19 @@
 <context>
     <name>dcc::display::MiracastPage</name>
     <message>
-        <location filename="../modules/display/miracastsettings.cpp" line="19"/>
+        <location filename="../modules/display/miracastsettings.cpp" line="25"/>
         <source>WIFI will be disconnected when enable screen projection</source>
         <translation>WIFI sẽ được ngắt kết nối khi kích hoạt chiếu màn hình</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/miracastsettings.cpp" line="29"/>
+        <source>Refresh</source>
+        <translation>Làm sạch lại</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/miracastsettings.cpp" line="43"/>
+        <source>Device List</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -952,7 +967,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="35"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>Bố trí Công tắc (Nhiều phần)</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="63"/>
@@ -1911,7 +1926,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="12"/>
         <location filename="../modules/update/mirroritem.cpp" line="107"/>
         <source>Untested</source>
-        <translation type="unfinished"/>
+        <translation>Chưa được kiểm tra</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="55"/>
@@ -1943,7 +1958,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>Kiểm tra Tốc độ</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
@@ -1953,7 +1968,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>Kiểm tra lại</translation>
     </message>
 </context>
 <context>
@@ -1961,12 +1976,12 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="36"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>Cập nhật thành công</translation>
     </message>
     <message>
         <location filename="../modules/update/resultitem.cpp" line="37"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>Cập nhật đã thất bại</translation>
     </message>
 </context>
 <context>
@@ -2000,47 +2015,47 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation type="unfinished"/>
+        <translation>Xin hãy khởi động lại để sử dụng hệ thống và các ứng dụng một cách đúng đắn sau khi được cập nhật</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="135"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>Tải xuống và cài đặt những cập nhật</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="162"/>
         <source>Install updates</source>
-        <translation type="unfinished"/>
+        <translation>Cài đặt những cập nhật</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Đang cập nhật, xin hãy đợi...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Hệ thống mới nhất đã được cập nhật, khởi động lại để có hiệu lực</translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n cập nhật() ứng dụng được phát hiện</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>Phiên bản hệ thống mới và %n cập nhật() ứng dụng được phát hiện</numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1% đã được tải xuống (Nhấn chuột để tạm dừng)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>New system edition detected</source>
-        <translation type="unfinished"/>
+        <translation>Phiên bản hệ thống mới được phát hiện</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
@@ -2141,6 +2156,14 @@
         <location filename="../modules/wacom/wacomwidget.cpp" line="28"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::widgets::ConnectWidget</name>
+    <message>
+        <location filename="../modules/display/connectwidget.cpp" line="13"/>
+        <source>Connected</source>
+        <translation>Đã kết nối</translation>
     </message>
 </context>
 <context>
