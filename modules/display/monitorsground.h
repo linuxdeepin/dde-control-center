@@ -30,10 +30,12 @@ private slots:
     void adjust(MonitorProxyWidget *pw);
 
 private:
-    bool ensureWidgetPerfect(MonitorProxyWidget *pw);
+    void ensureWidgetPerfect(MonitorProxyWidget *pw);
     void reloadViewPortSize();
     void applySettings();
+    bool isScreenPerfect() const;
     double screenScale() const;
+    const QPoint bestMoveOffset(MonitorProxyWidget *pw0, MonitorProxyWidget *pw1) const;
 
 private:
     int m_viewPortWidth;

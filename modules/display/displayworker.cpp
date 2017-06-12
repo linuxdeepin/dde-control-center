@@ -252,7 +252,7 @@ void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
     Q_ASSERT(inter);
 
     inter->SetPosition(x, y).waitForFinished();
-    m_displayInter.ApplyChanges();
+    m_displayInter.ApplyChanges().waitForFinished();
 }
 
 //void DisplayWorker::loadRotations(Monitor * const mon)
