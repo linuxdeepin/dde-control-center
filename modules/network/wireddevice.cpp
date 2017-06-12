@@ -10,7 +10,12 @@ WiredDevice::WiredDevice(const QJsonObject &info, QObject *parent)
 
 }
 
-void WiredDevice::onConnectionInfoChanged(const QJsonObject &connInfo)
+void WiredDevice::setConnections(const QList<QDBusObjectPath> &connections)
 {
-    m_wiredConnection = connInfo;
+    m_connections = connections;
+}
+
+void WiredDevice::onActiveConnectionChanged(const QJsonObject &connInfo)
+{
+    m_activeConnection = connInfo;
 }

@@ -20,6 +20,7 @@ NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
     connect(&m_networkInter, &NetworkInter::AccessPointRemoved, m_networkModel, &NetworkModel::onDeviceAPRemoved);
     connect(&m_networkInter, &NetworkInter::VpnEnabledChanged, m_networkModel, &NetworkModel::onVPNEnabledChanged);
     connect(m_networkModel, &NetworkModel::requestDeviceStatus, this, &NetworkWorker::queryDeviceStatus, Qt::QueuedConnection);
+    connect(m_networkModel, &NetworkModel::connectionListChanged, this, &NetworkWorker::queryDevicesConnections, Qt::QueuedConnection);
 
     m_networkModel->onDeviceListChanged(m_networkInter.devices());
     m_networkModel->onConnectionListChanged(m_networkInter.connections());
@@ -122,6 +123,13 @@ void NetworkWorker::queryActiveConnInfo()
     connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryActiveConnInfoCB);
 }
 
+void NetworkWorker::queryDevicesConnections()
+{
+    for (auto *dev : m_networkModel->devices())
+        if (dev->type() == NetworkDevice::Wired)
+            queryDeviceConnections(dev->path());
+}
+
 void NetworkWorker::queryAccessPoints(const QString &devPath)
 {
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.GetAccessPoints(QDBusObjectPath(devPath)));
@@ -149,6 +157,15 @@ void NetworkWorker::queryDeviceStatus(const QString &devPath)
     w->setProperty("devPath", devPath);
 
     connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryDeviceStatusCB);
+}
+
+void NetworkWorker::queryDeviceConnections(const QString &devPath)
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.ListDeviceConnections(QDBusObjectPath(devPath)), this);
+
+    w->setProperty("devPath", devPath);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryDeviceConnectionsCB);
 }
 
 void NetworkWorker::deleteConnection(const QString &uuid)
@@ -252,6 +269,15 @@ void NetworkWorker::queryDeviceStatusCB(QDBusPendingCallWatcher *w)
     QDBusPendingReply<bool> reply = *w;
 
     m_networkModel->onDeviceEnableChanged(w->property("devPath").toString(), reply.value());
+
+    w->deleteLater();
+}
+
+void NetworkWorker::queryDeviceConnectionsCB(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QList<QDBusObjectPath>> reply = *w;
+
+    m_networkModel->onDeviceConnectionsChanged(w->property("devPath").toString(), reply.value());
 
     w->deleteLater();
 }

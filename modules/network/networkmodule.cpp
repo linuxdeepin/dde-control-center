@@ -14,6 +14,7 @@
 #include "pppoepage.h"
 #include "proxypage.h"
 #include "networkdetailpage.h"
+#include "wiredpage.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -109,8 +110,6 @@ ModuleWidget *NetworkModule::moduleWidget()
 
 void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
 {
-    ContentWidget *c = nullptr;
-
     if (dev->type() == NetworkDevice::Wireless)
     {
         WirelessPage *p = new WirelessPage(static_cast<WirelessDevice *>(dev));
@@ -126,21 +125,15 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         connect(p, &WirelessPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
         p->setModel(m_networkModel);
 
-        c = p;
+        m_frameProxy->pushWidget(this, p);
     }
     else if (dev->type() == NetworkDevice::Wired)
     {
-        const QJsonObject connInfo = static_cast<WiredDevice *>(dev)->connection();
-        m_editingWiredUuid = connInfo.value("Uuid").toString();
-        const QString devicePath = dev->path();
+        WiredPage *p = new WiredPage(static_cast<WiredDevice *>(dev));
+        p->setModel(m_networkModel);
 
-        m_networkWorker->queryConnectionSession(devicePath, m_editingWiredUuid);
-
-        connect(dev, &NetworkDevice::sessionCreated, this, &NetworkModule::showWiredConnectionEditPage, Qt::UniqueConnection);
+        m_frameProxy->pushWidget(this, p);
     }
-
-    if (c)
-        m_frameProxy->pushWidget(this, c);
 }
 
 void NetworkModule::showVpnPage()

@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QMap>
 #include <QTimer>
+#include <QDBusObjectPath>
 
 namespace dcc {
 
@@ -41,6 +42,8 @@ public:
     const QList<QJsonObject> activeConnInfos() const { return m_activeConnInfos; }
     const QSet<QString> activeConnections() const { return m_activeConnections; }
     const QString connectionUuidByPath(const QString &connPath) const;
+    const QString connectionNameByPath(const QString &connPath) const;
+    const QJsonObject connectionByPath(const QString &connPath) const;
     const QString connectionUuidByApInfo(const QString &hwAddr, const QString &ssid) const;
 
 signals:
@@ -72,6 +75,7 @@ private slots:
     void onDeviceAPInfoChanged(const QString &device, const QString &apInfo);
     void onDeviceAPRemoved(const QString &device, const QString &apInfo);
     void onDeviceEnableChanged(const QString &device, const bool enabled);
+    void onDeviceConnectionsChanged(const QString &devPath, const QList<QDBusObjectPath> &connections);
 
 private:
     bool containsDevice(const QString &devPath) const;
@@ -88,8 +92,6 @@ private:
     QMap<QString, QList<QJsonObject>> m_connections;
     QList<QJsonObject> m_activeConnInfos;
     QSet<QString> m_activeConnections;
-
-    QTimer *m_updateWiredInfoDelay;
 };
 
 }   // namespace network

@@ -4,6 +4,7 @@
 #include "networkdevice.h"
 
 #include <QJsonObject>
+#include <QDBusObjectPath>
 
 namespace dcc {
 
@@ -16,13 +17,16 @@ class WiredDevice : public NetworkDevice
 public:
     explicit WiredDevice(const QJsonObject &info, QObject *parent = 0);
 
-    const QJsonObject connection() const { return m_wiredConnection; }
+    void setConnections(const QList<QDBusObjectPath> &connections);
+    const QList<QDBusObjectPath> connections() const { return m_connections; }
+    const QJsonObject activeConnection() const { return m_activeConnection; }
 
 public slots:
-    void onConnectionInfoChanged(const QJsonObject &connInfo);
+    void onActiveConnectionChanged(const QJsonObject &connInfo);
 
 private:
-    QJsonObject m_wiredConnection;
+    QJsonObject m_activeConnection;
+    QList<QDBusObjectPath> m_connections;
 };
 
 }
