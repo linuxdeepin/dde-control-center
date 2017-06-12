@@ -16,13 +16,16 @@ void PluginsController::loadPlugins()
 {
     QDir pluginsDir(qApp->applicationDirPath());
     pluginsDir.setSorting(QDir::Name);
+
 #ifdef QT_DEBUG
     pluginsDir.cd("plugins");
 #else
     pluginsDir.cd("../lib/dde-control-center/plugins");
 #endif
 
-    const QStringList plugins = pluginsDir.entryList(QDir::Files);
+    QStringList plugins = pluginsDir.entryList(QDir::Files);
+    // pluginsDir.setSorting not working as expected on loongson.
+    qSort(plugins.begin(), plugins.end());
 
     for (const QString file : plugins)
     {
