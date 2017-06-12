@@ -9,9 +9,12 @@
 #include "displayworker.h"
 #include "brightnesspage.h"
 #include "customconfigpage.h"
+
+#ifndef DCC_DISABLE_MIRACAST
 #include "miracastsettings.h"
 #include "miracastmodel.h"
 #include "miracastworker.h"
+#endif
 
 using namespace dcc;
 using namespace dcc::display;
@@ -21,9 +24,12 @@ DisplayModule::DisplayModule(FrameProxyInterface *frame, QObject *parent)
       ModuleInterface(frame),
       m_displayModel(nullptr),
       m_displayWorker(nullptr),
-      m_displayWidget(nullptr),
+      m_displayWidget(nullptr)
+#ifndef DCC_DISABLE_MIRACAST
+    ,
       m_miracastModel(nullptr),
       m_miracastWorker(nullptr)
+#endif
 {
 
 }
@@ -32,8 +38,11 @@ DisplayModule::~DisplayModule()
 {
     m_displayModel->deleteLater();
     m_displayWorker->deleteLater();
+
+#ifndef DCC_DISABLE_MIRACAST
     m_miracastModel->deleteLater();
     m_miracastWorker->deleteLater();
+#endif
 }
 
 void DisplayModule::showBrightnessPage()
@@ -73,13 +82,16 @@ void DisplayModule::initialize()
     m_displayModel = new DisplayModel;
     m_displayWorker = new DisplayWorker(m_displayModel);
 
+#ifndef DCC_DISABLE_MIRACAST
     m_miracastModel = new MiracastModel;
     m_miracastWorker = new MiracastWorker(m_miracastModel);
-
+#endif
     m_displayModel->moveToThread(qApp->thread());
     m_displayWorker->moveToThread(qApp->thread());
+#ifndef DCC_DISABLE_MIRACAST
     m_miracastModel->moveToThread(qApp->thread());
     m_miracastWorker->moveToThread(qApp->thread());
+#endif
 }
 
 void DisplayModule::reset()
@@ -89,12 +101,16 @@ void DisplayModule::reset()
 
 void DisplayModule::moduleActive()
 {
+#ifndef DCC_DISABLE_MIRACAST
     m_miracastWorker->active();
+#endif
 }
 
 void DisplayModule::moduleDeactive()
 {
+#ifndef DCC_DISABLE_MIRACAST
     m_miracastWorker->deactive();
+#endif
 }
 
 void DisplayModule::contentPopped(ContentWidget * const w)

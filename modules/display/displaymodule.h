@@ -2,7 +2,10 @@
 #define DISPLAYMODULE_H
 
 #include "moduleinterface.h"
+
+#ifndef DCC_DISABLE_MIRACAST
 #include "miracastmodel.h"
+#endif
 
 namespace dcc {
 class ModuleWidget;
@@ -12,7 +15,9 @@ class Monitor;
 class DisplayWorker;
 class DisplayModel;
 class DisplayWidget;
+#ifndef DCC_DISABLE_MIRACAST
 class MiracastWorker;
+#endif
 class DisplayModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -48,8 +53,10 @@ private:
     DisplayModel *m_displayModel;
     DisplayWorker *m_displayWorker;
     DisplayWidget *m_displayWidget;
+#ifndef DCC_DISABLE_MIRACAST
     MiracastModel *m_miracastModel;
     MiracastWorker *m_miracastWorker;
+#endif
 };
 
 } // namespace display
