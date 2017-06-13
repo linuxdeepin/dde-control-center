@@ -15,6 +15,7 @@ MiracastPage::MiracastPage(const QString &title, QWidget *parent) : ContentWidge
 
     m_refreshTimer = new QTimer(this);
     m_refreshTimer->setInterval(1 * 60 * 1000);
+    m_refreshTimer->setSingleShot(true);
 
     m_deviceSwBtn = new SwitchWidget;
     m_deviceSwBtn->setTitle(title);
@@ -102,6 +103,7 @@ void MiracastPage::onItemAdded(const SinkInfo &info)
     m_deviceGrp->appendItem(item);
     m_deviceGrp->setVisible(true);
     m_nodevice->setVisible(false);
+    m_refreshTimer->stop();
 
     connect(item, &MiracastItem::requestSinkConnect, this, &MiracastPage::requestDeviceConnect);
     connect(item, &MiracastItem::requestSinkDisConnect, this, &MiracastPage::requestDeviceDisConnect);

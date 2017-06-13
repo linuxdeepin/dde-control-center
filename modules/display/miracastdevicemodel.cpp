@@ -48,7 +48,6 @@ void dcc::display::MiracastDeviceModel::onSinkAdded(const SinkInfo &sinkinfo)
 void dcc::display::MiracastDeviceModel::onSinkRemoved(const SinkInfo &sinkinfo)
 {
     m_sinkList.removeOne(sinkinfo);
-
     emit removeSink(sinkinfo);
 }
 
@@ -68,12 +67,4 @@ void MiracastDeviceModel::onLinkManageChanged(const bool state)
 
     m_linkInfo.m_managed = state;
     emit linkManageChanged(state);
-}
-
-void MiracastDeviceModel::clear()
-{
-    for (const SinkInfo &info : m_sinkList)
-        emit removeSink(info);
-
-    m_sinkList.clear();
 }

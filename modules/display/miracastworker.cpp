@@ -19,6 +19,7 @@ MiracastWorker::MiracastWorker(MiracastModel *model, QObject *parent)
     m_miracastInter->setSync(false);
     //set a timeout of 5 minutes
     m_timerPowerOff->setInterval(5 * 60 * 1000);
+    m_timerPowerOff->setSingleShot(true);
     connect(m_timerPowerOff, &QTimer::timeout, this, &MiracastWorker::onPowerOff);
 }
 
@@ -108,10 +109,6 @@ void MiracastWorker::querySinks_CB(QDBusPendingCallWatcher *w)
 void MiracastWorker::onPowerOff()
 {
     // shutdown all link
-    for (LinkInfo link : m_miracastModel->links()) {
+    for (LinkInfo link : m_miracastModel->links())
         m_miracastInter->Enable(link.m_dbusPath, false);
-        m_miracastModel->deviceModelByPath(link.m_dbusPath.path())->clear();
-    }
-
-    m_miracastModel->clearAllSinks();
 }

@@ -31,8 +31,6 @@ public:
     LinkInfo &linkByPath(const QDBusObjectPath &path);
     SinkInfo &sinkByPath(const QString &path);
 
-    void clearAllSinks();
-
 signals:
     void linkAdded(const LinkInfo &link) const;
     void linkRemoved(const QDBusObjectPath &path) const;

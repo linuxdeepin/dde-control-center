@@ -30,7 +30,6 @@ public slots:
     void onSinkRemoved(const SinkInfo &sinkinfo);
     void onSinkConnect(const QDBusObjectPath &sinkPath, bool connected);
     void onLinkManageChanged(const bool state);
-    void clear();
 
 private:
     QList<SinkInfo> m_sinkList;
