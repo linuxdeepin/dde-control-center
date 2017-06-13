@@ -72,10 +72,13 @@ public:
 private slots:
     void onMuteChanged(const bool &mute);
 
+protected:
+    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
+
 private:
     QLabel *m_volumeLow;
     QLabel *m_volumeHigh;
-    dcc::widgets::DCCSlider *m_soundSlider;
+    QSlider *m_soundSlider;
     QLabel *m_brightnessLow;
     QLabel *m_brightnessHigh;
     dcc::widgets::DCCSlider *m_lightSlider;

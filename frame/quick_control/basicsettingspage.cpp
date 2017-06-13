@@ -3,6 +3,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QMouseEvent>
 
 using namespace dcc::widgets;
 
@@ -73,10 +74,9 @@ void BasicSettingsWorker::setVolume(const double &volume)
     if(m_sinkInter) {
         if (m_sinkInter->mute()) {
             m_sinkInter->SetVolume(volume / 100.0, false);
-            m_sinkInter->SetMute(false);
             return;
         }
-        m_sinkInter->SetVolume(volume / 100.0, true);
+        m_sinkInter->SetVolume(volume / 100.0, false);
     }
 }
 
@@ -121,7 +121,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
 
       m_volumeLow(new QLabel),
       m_volumeHigh(new QLabel),
-      m_soundSlider(new DCCSlider),
+      m_soundSlider(new QSlider),
       m_brightnessLow(new QLabel),
       m_brightnessHigh(new QLabel),
       m_lightSlider(new DCCSlider),
@@ -141,6 +141,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     m_soundSlider->setRange(0, 100);
     m_soundSlider->setAccessibleName("SoundSlider");
     m_soundSlider->setFocusProxy(this);
+    m_soundSlider->installEventFilter(this);
     m_lightSlider->setOrientation(Qt::Horizontal);
     m_lightSlider->setRange(0.2 * 100, 100);
     m_lightSlider->setAccessibleName("LightSlider");
@@ -223,6 +224,17 @@ void BasicSettingsPage::onMuteChanged(const bool &mute)
         m_soundSlider->setValue(m_model->volume() * 100);
         m_soundSlider->blockSignals(false);
     }
+}
+
+bool BasicSettingsPage::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched != m_soundSlider)
+        return false;
+
+    if (event->type() == QMouseEvent::MouseButtonRelease)
+        m_worker->setMute(false);
+
+    return false;
 }
 
 }
