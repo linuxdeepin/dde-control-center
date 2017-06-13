@@ -16,9 +16,9 @@ ConnectWidget::ConnectWidget(QWidget *parent) :
     m_loading->setFixedSize(22, 22);
 
     m_disconnectBtn->setVisible(false);
-    m_disconnectBtn->setNormalPic(":/display/themes/dark/icons/list_delete_normal.png");
-    m_disconnectBtn->setHoverPic(":/display/themes/dark/icons/list_delete_hover.png");
-    m_disconnectBtn->setPressPic(":/display/themes/dark/icons/list_delete_press.png");
+    m_disconnectBtn->setNormalPic(":/display/themes/dark/icons/disconnect.png");
+    m_disconnectBtn->setHoverPic(":/display/themes/dark/icons/disconnect_hover.png");
+    m_disconnectBtn->setPressPic(":/display/themes/dark/icons/disconnect_press.png");
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setMargin(0);

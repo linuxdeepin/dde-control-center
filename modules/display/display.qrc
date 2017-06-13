@@ -20,9 +20,9 @@
         <file>themes/dark/icons/light_high.png</file>
         <file>themes/dark/icons/light_low.png</file>
         <file>themes/common/icon/list_select.png</file>
-        <file>themes/dark/icons/list_delete_hover.png</file>
-        <file>themes/dark/icons/list_delete_normal.png</file>
-        <file>themes/dark/icons/list_delete_press.png</file>
         <file>themes/dark/icons/select.png</file>
+        <file>themes/dark/icons/disconnect.png</file>
+        <file>themes/dark/icons/disconnect_hover.png</file>
+        <file>themes/dark/icons/disconnect_press.png</file>
     </qresource>
 </RCC>
