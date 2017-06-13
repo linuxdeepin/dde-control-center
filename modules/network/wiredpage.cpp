@@ -4,10 +4,14 @@
 #include "settingsgroup.h"
 #include "settingsheaderitem.h"
 #include "nextpagewidget.h"
+#include "connectionsessionmodel.h"
+#include "connectionsessionworker.h"
 
 #include <QTimer>
 #include <QDebug>
 #include <QVBoxLayout>
+#include <QPushButton>
+#include <QPointer>
 
 namespace dcc {
 
@@ -24,9 +28,13 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_settingsGrp->setHeaderVisible(true);
     m_settingsGrp->headerItem()->setTitle("Settings List");
 
+    m_createBtn = new QPushButton;
+    m_createBtn->setText(tr("New Settings"));
+
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addSpacing(10);
     centralLayout->addWidget(m_settingsGrp);
+    centralLayout->addWidget(m_createBtn);
     centralLayout->addStretch();
     centralLayout->setSpacing(10);
     centralLayout->setMargin(0);
@@ -36,6 +44,9 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 
     setContent(centralWidget);
     setTitle(tr("Choose Settings"));
+
+    connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
+    connect(m_device, &WiredDevice::sessionCreated, this, &WiredPage::onSessionCreated);
 }
 
 void WiredPage::setModel(NetworkModel *model)
@@ -75,6 +86,31 @@ void WiredPage::initUI()
 
         m_settingsGrp->appendItem(w);
     }
+}
+
+void WiredPage::createNewConnection()
+{
+    emit requestCreateConnection("wired", m_device->path());
+}
+
+void WiredPage::onSessionCreated(const QString &sessionPath)
+{
+    Q_ASSERT(m_editPage.isNull());
+
+    m_editPage = new ConnectionEditPage;
+
+    ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
+    ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
+
+    m_editPage->setModel(m_model, sessionModel);
+    connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
+    connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
+    connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
+    connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
+//    connect(m_editPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(m_editingUuid); });
+//    connect(m_editPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(m_editingUuid); });
+//    connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
+    emit requestNextPage(m_editPage);
 }
 
 }
