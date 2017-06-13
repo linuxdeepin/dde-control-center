@@ -131,6 +131,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
     {
         WiredPage *p = new WiredPage(static_cast<WiredDevice *>(dev));
         connect(p, &WiredPage::requestCreateConnection, m_networkWorker, &NetworkWorker::createConnection);
+        connect(p, &WiredPage::requestEditConnection, m_networkWorker, &NetworkWorker::queryConnectionSession);
         connect(p, &WiredPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
         p->setModel(m_networkModel);
 

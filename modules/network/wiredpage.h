@@ -10,6 +10,7 @@ namespace dcc {
 
 namespace widgets {
 class SettingsGroup;
+class NextPageWidget;
 }
 
 namespace network {
@@ -42,6 +43,7 @@ signals:
 private slots:
     void initUI();
 
+    void editConnection();
     void createNewConnection();
     void onSessionCreated(const QString &sessionPath);
 
@@ -53,6 +55,8 @@ private:
 
     QPushButton *m_createBtn;
     widgets::SettingsGroup *m_settingsGrp;
+
+    QMap<widgets::NextPageWidget *, QString> m_connectionUuid;
 };
 
 }
