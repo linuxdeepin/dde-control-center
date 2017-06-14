@@ -47,6 +47,7 @@ private slots:
     void editConnection();
     void createNewConnection();
     void activeConnection();
+    void checkActivatedConnection();
     void onSessionCreated(const QString &sessionPath);
 
 private:

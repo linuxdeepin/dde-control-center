@@ -92,6 +92,8 @@ void WiredPage::initUI()
         m_settingsGrp->appendItem(w);
         m_connectionUuid.insert(w, m_model->connectionUuidByPath(path));
     }
+
+    checkActivatedConnection();
 }
 
 void WiredPage::editConnection()
@@ -117,6 +119,21 @@ void WiredPage::activeConnection()
     const QString uuid = m_connectionUuid[w];
 
     emit requestActiveConnection(m_device->path(), uuid);
+}
+
+void WiredPage::checkActivatedConnection()
+{
+    static QPixmap selected_icon(":/network/themes/dark/icons/select.png");
+
+    const auto activedConnections = m_model->activeConnections();
+    for (auto it(m_connectionUuid.cbegin()); it != m_connectionUuid.cend(); ++it)
+    {
+        if (activedConnections.contains(it.value()))
+        {
+            it.key()->setIcon(selected_icon);
+            return;
+        }
+    }
 }
 
 void WiredPage::onSessionCreated(const QString &sessionPath)
