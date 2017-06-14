@@ -87,6 +87,7 @@ void WiredPage::initUI()
         w->setTitle(m_model->connectionNameByPath(path));
 
         connect(w, &NextPageWidget::acceptNextPage, this, &WiredPage::editConnection);
+        connect(w, &NextPageWidget::selected, this, &WiredPage::activeConnection);
 
         m_settingsGrp->appendItem(w);
         m_connectionUuid.insert(w, m_model->connectionUuidByPath(path));
@@ -106,6 +107,16 @@ void WiredPage::editConnection()
 void WiredPage::createNewConnection()
 {
     emit requestCreateConnection("wired", m_device->path());
+}
+
+void WiredPage::activeConnection()
+{
+    NextPageWidget *w = qobject_cast<NextPageWidget *>(sender());
+    Q_ASSERT(w);
+
+    const QString uuid = m_connectionUuid[w];
+
+    emit requestActiveConnection(m_device->path(), uuid);
 }
 
 void WiredPage::onSessionCreated(const QString &sessionPath)

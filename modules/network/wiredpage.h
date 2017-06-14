@@ -29,6 +29,7 @@ public:
 signals:
     void requestEditConnection(const QString &devPath, const QString &uuid) const;
     void requestCreateConnection(const QString &type, const QString &devPath) const;
+    void requestActiveConnection(const QString &devPath, const QString &uuid) const;
     void requestNextPage(ContentWidget * const w) const;
 //    void requestConnectAp(const QString &devPath, const QString &apPath, const QString &uuid) const;
 //    void requestCreateApConfig(const QString &devPath, const QString &apPath) const;
@@ -45,6 +46,7 @@ private slots:
 
     void editConnection();
     void createNewConnection();
+    void activeConnection();
     void onSessionCreated(const QString &sessionPath);
 
 private:
