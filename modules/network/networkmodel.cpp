@@ -221,6 +221,12 @@ void NetworkModel::onActiveConnInfoChanged(const QString &conns)
             WirelessDevice *d = static_cast<WirelessDevice *>(dev);
             d->setActiveApName(activeConnInfo[d->hwAddr()].value("ConnectionName").toString());
         }
+
+        if (dev->type() == NetworkDevice::Wired)
+        {
+            WiredDevice *d = static_cast<WiredDevice *>(dev);
+            d->onActiveConnectionChanged(activeConnInfo[d->hwAddr()]);
+        }
     }
 
     emit activeConnInfoChanged(m_activeConnInfos);

@@ -44,6 +44,7 @@ signals:
 private slots:
     void initUI();
 
+    void refreshConnectionList();
     void editConnection();
     void createNewConnection();
     void activeConnection();
@@ -59,7 +60,7 @@ private:
     QPushButton *m_createBtn;
     widgets::SettingsGroup *m_settingsGrp;
 
-    QMap<widgets::NextPageWidget *, QString> m_connectionUuid;
+    QMap<widgets::NextPageWidget *, QString> m_connectionPath;
 };
 
 }

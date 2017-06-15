@@ -47,6 +47,8 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
     connect(m_device, &WiredDevice::sessionCreated, this, &WiredPage::onSessionCreated);
+    connect(m_device, &WiredDevice::connectionsChanged, this, &WiredPage::refreshConnectionList);
+    connect(m_device, &WiredDevice::activeConnectionChanged, this, &WiredPage::checkActivatedConnection);
 }
 
 void WiredPage::setModel(NetworkModel *model)
@@ -77,11 +79,19 @@ void WiredPage::setModel(NetworkModel *model)
 
 void WiredPage::initUI()
 {
-    const auto conns = m_device->connections();
+    refreshConnectionList();
+}
 
+void WiredPage::refreshConnectionList()
+{
+    const auto conns = m_device->connections();
+    QSet<QString> connPaths;
     for (const auto c : conns)
     {
         const QString path = c.path();
+        connPaths << path;
+        if (m_connectionPath.values().contains(path))
+            continue;
 
         NextPageWidget *w = new NextPageWidget;
         w->setTitle(m_model->connectionNameByPath(path));
@@ -90,7 +100,19 @@ void WiredPage::initUI()
         connect(w, &NextPageWidget::selected, this, &WiredPage::activeConnection);
 
         m_settingsGrp->appendItem(w);
-        m_connectionUuid.insert(w, m_model->connectionUuidByPath(path));
+        m_connectionPath.insert(w, path);
+    }
+
+    // clear removed items
+    for (auto it(m_connectionPath.begin()); it != m_connectionPath.end();)
+    {
+        if (!connPaths.contains(it.value()))
+        {
+            it.key()->deleteLater();
+            it = m_connectionPath.erase(it);
+        } else {
+            ++it;
+        }
     }
 
     checkActivatedConnection();
@@ -101,9 +123,9 @@ void WiredPage::editConnection()
     NextPageWidget *w = qobject_cast<NextPageWidget *>(sender());
     Q_ASSERT(w);
 
-    const QString uuid = m_connectionUuid[w];
+    const QString connPath = m_connectionPath[w];
 
-    emit requestEditConnection(m_device->path(), uuid);
+    emit requestEditConnection(m_device->path(), m_model->connectionUuidByPath(connPath));
 }
 
 void WiredPage::createNewConnection()
@@ -116,23 +138,22 @@ void WiredPage::activeConnection()
     NextPageWidget *w = qobject_cast<NextPageWidget *>(sender());
     Q_ASSERT(w);
 
-    const QString uuid = m_connectionUuid[w];
+    const QString connPath = m_connectionPath[w];
 
-    emit requestActiveConnection(m_device->path(), uuid);
+    emit requestActiveConnection(m_device->path(), m_model->connectionUuidByPath(connPath));
 }
 
 void WiredPage::checkActivatedConnection()
 {
     static QPixmap selected_icon(":/network/themes/dark/icons/select.png");
 
-    const auto activedConnections = m_model->activeConnections();
-    for (auto it(m_connectionUuid.cbegin()); it != m_connectionUuid.cend(); ++it)
+    const auto activeConnection = m_device->activeConnection().value("ConnectionName").toString();
+    for (auto it(m_connectionPath.cbegin()); it != m_connectionPath.cend(); ++it)
     {
-        if (activedConnections.contains(it.value()))
-        {
+        if (it.key()->title() == activeConnection)
             it.key()->setIcon(selected_icon);
-            return;
-        }
+        else
+            it.key()->clearValue();
     }
 }
 

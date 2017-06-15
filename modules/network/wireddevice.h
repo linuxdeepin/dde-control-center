@@ -21,6 +21,10 @@ public:
     const QList<QDBusObjectPath> connections() const { return m_connections; }
     const QJsonObject activeConnection() const { return m_activeConnection; }
 
+signals:
+    void connectionsChanged(const QList<QDBusObjectPath> &connPaths) const;
+    void activeConnectionChanged(const QJsonObject &connInfo) const;
+
 public slots:
     void onActiveConnectionChanged(const QJsonObject &connInfo);
 
