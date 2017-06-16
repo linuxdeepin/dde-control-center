@@ -4,6 +4,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QMouseEvent>
+#include <QGSettings>
 
 using namespace dcc::widgets;
 
@@ -137,8 +138,11 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     m_brightnessHigh->setObjectName("HomeBrightnessHighLabel");
     m_brightnessHigh->setFixedSize(24, 24);
 
+    QGSettings *gsettings = new QGSettings("com.deepin.dde.audio", "", this);
+    int maxVolume = gsettings->get("output-volume-max").toInt();
+
     m_soundSlider->setOrientation(Qt::Horizontal);
-    m_soundSlider->setRange(0, 100);
+    m_soundSlider->setRange(0, maxVolume);
     m_soundSlider->setAccessibleName("SoundSlider");
     m_soundSlider->setFocusProxy(this);
     m_soundSlider->installEventFilter(this);

@@ -20,6 +20,7 @@ Build-Depends: debhelper (>= 9),
  libdtkwidget-dev,
  libgeoip-dev,
  libdframeworkdbus-dev,
+ libgsettings-qt-dev,
  clang [mips64el]
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
