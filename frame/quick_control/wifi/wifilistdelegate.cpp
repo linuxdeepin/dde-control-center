@@ -83,7 +83,7 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
         if (isActivating)
         {
             const quint64 index = QDateTime::currentMSecsSinceEpoch() / 20;
-            const QString pix = QString(":/frame/themes/dark/icons/dark_loading/loading_0%1.png").arg((index % 90), 2, 10, QChar('0'));
+            const QString pix = QString(":/frame/themes/light/icons/white_loading/loading_0%1.png").arg((index % 90), 2, 10, QChar('0'));
             painter->drawPixmap(icon_x, y + 1, QPixmap(pix));
         } else {
             // draw actived icon
