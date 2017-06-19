@@ -46,6 +46,7 @@ private slots:
     void onConnectionDetailClicked();
     void onConnectionSessionCreated(const QString &devicePath, const QString &sessionPath);
     void onPPPoESelected();
+    void onActivateConnectionChanged(const QSet<QString> &conns);
 
 private:
     NetworkModel *m_model;

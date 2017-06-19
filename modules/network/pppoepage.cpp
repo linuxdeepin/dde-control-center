@@ -53,6 +53,7 @@ void PppoePage::setModel(NetworkModel *model)
 
     connect(model, &NetworkModel::unhandledConnectionSessionCreated, this, &PppoePage::onConnectionSessionCreated);
     connect(model, &NetworkModel::connectionListChanged, this, &PppoePage::onConnectionListChanged);
+    connect(model, &NetworkModel::activeConnectionsChanged, this, &PppoePage::onActivateConnectionChanged);
 
     onConnectionListChanged();
 }
@@ -122,4 +123,18 @@ void PppoePage::onPPPoESelected()
 
     m_editingUuid = m_connUuid[w];
     emit requestActivateConnection("/", m_editingUuid);
+}
+
+void PppoePage::onActivateConnectionChanged(const QSet<QString> &conns)
+{
+    for (NextPageWidget *widget : m_connUuid.keys())
+        widget->setIcon(QPixmap());
+
+    for (const QString &uuid : conns) {
+        NextPageWidget *w = m_connUuid.key(uuid);
+        if (w) {
+            w->setIcon(QPixmap(":/network/themes/dark/icons/select.png"));
+            return;
+        }
+    }
 }
