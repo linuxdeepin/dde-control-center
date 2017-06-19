@@ -171,9 +171,9 @@ void WiredPage::onSessionCreated(const QString &sessionPath)
     connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
     connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
-//    connect(m_editPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(m_editingUuid); });
-//    connect(m_editPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(m_editingUuid); });
-//    connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
+    connect(m_editPage, &ConnectionEditPage::requestRemove, this, &WiredPage::requestDeleteConnection);
+    connect(m_editPage, &ConnectionEditPage::requestDisconnect, this, &WiredPage::requestDisconnectConnection);
+
     emit requestNextPage(m_editPage);
 }
 

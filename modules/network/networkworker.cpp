@@ -170,6 +170,7 @@ void NetworkWorker::queryDeviceConnections(const QString &devPath)
 
 void NetworkWorker::deleteConnection(const QString &uuid)
 {
+    qDebug() << uuid;
     m_networkInter.DeleteConnection(uuid);
 }
 

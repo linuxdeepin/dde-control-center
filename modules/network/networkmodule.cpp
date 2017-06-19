@@ -133,6 +133,8 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         connect(p, &WiredPage::requestActiveConnection, m_networkWorker, &NetworkWorker::activateConnection);
         connect(p, &WiredPage::requestCreateConnection, m_networkWorker, &NetworkWorker::createConnection);
         connect(p, &WiredPage::requestEditConnection, m_networkWorker, &NetworkWorker::queryConnectionSession);
+        connect(p, &WiredPage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
+        connect(p, &WiredPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
         connect(p, &WiredPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
         p->setModel(m_networkModel);
 

@@ -37,9 +37,9 @@ public:
 
 signals:
     void accept() const;
-    void requestDisconnect() const;
-    void requestRemove() const;
     void requestCancelSession() const;
+    void requestRemove(const QString &uuid) const;
+    void requestDisconnect(const QString &uuid) const;
     void requestChangeSettings(const QString &section, const QString &vKey, const QString &data) const;
     void requestNextPage(ContentWidget * const page) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
