@@ -38,7 +38,6 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     keyTest->appendItem(delayItem);
 
     TitledSliderItem* speedItem =  new TitledSliderItem(tr("Repeat Rate"));
-    speedItem->setFixedHeight(speedItem->height() + 30);
     m_speedSlider = speedItem->slider();
     m_speedSlider->setType(DCCSlider::Vernier);
     m_speedSlider->setOrientation(Qt::Horizontal);
@@ -49,14 +48,20 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
     QStringList speeds;
     speeds<<tr("Slow")<<""<<""<<""<<""<<""<<tr("Fast");
     speedItem->setAnnotations(speeds);
+
     SearchInput* testArea = new SearchInput();
     testArea->setFixedWidth(200);
     testArea->setSearchText(tr("Please Test Here"));
     testArea->setIconVisible(false);
     testArea->setStyleSheet("border: 0px");
-    speedItem->layout()->addWidget(testArea);
-    speedItem->layout()->setAlignment(testArea, Qt::AlignCenter);
-    speedItem->setContentsMargins(0, 0, 0, 10);
+
+    // adding extra stuff to speedItem
+    QVBoxLayout *speedItemLayout = qobject_cast<QVBoxLayout*>(speedItem->layout());
+    speedItemLayout->addWidget(testArea);
+    speedItemLayout->setAlignment(testArea, Qt::AlignHCenter);
+    speedItemLayout->addSpacing(10);
+    speedItem->setFixedHeight(speedItemLayout->sizeHint().height());
+
     keyTest->appendItem(speedItem);
 
     m_numLock = new SwitchWidget;

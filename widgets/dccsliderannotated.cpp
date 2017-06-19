@@ -62,7 +62,9 @@ void DCCSliderAnnotated::setSlider(DCCSlider *slider)
 SliderAnnotation::SliderAnnotation(QWidget *parent) :
     QWidget(parent)
 {
-    setFixedHeight(18);
+    QFont font;
+    QFontMetrics fm(font);
+    setFixedHeight(fm.height());
 }
 
 void SliderAnnotation::setContents(const QStringList &contents)
