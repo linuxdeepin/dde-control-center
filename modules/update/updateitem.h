@@ -28,8 +28,6 @@ public:
 
     void setAppInfo(const AppUpdateInfo& info);
 
-    QString elideChangelog() const;
-    int changelogLines() const;
 
 private:
     AppUpdateInfo m_info;
@@ -41,6 +39,9 @@ private:
 
     QPushButton *m_details;
     QVBoxLayout *m_iconLayout;
+
+    QString elidedChangelog() const;
+    void expandChangelog();
 };
 
 }

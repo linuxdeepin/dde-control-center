@@ -74,17 +74,10 @@ UpdateItem::UpdateItem(QFrame *parent)
     setLayout(layout);
 
     connect(m_details, &QPushButton::clicked, [this] {
-        QFontMetrics fm = m_appChangelog->fontMetrics();
-
-        const int lines = changelogLines();
-        const int expandHeight = (lines - 2) *  fm.height();
-
-        m_appChangelog->setText(m_info.m_changelog);
-        m_appChangelog->setFixedHeight(m_appChangelog->height() + std::max(expandHeight, 0));
-
-        setFixedHeight(height() + std::max(expandHeight, 0));
-
         m_details->hide();
+        // The point of this timer is that the calculation should be taken
+        // after the relayout of this item caused by the hide of details button.
+        QTimer::singleShot(0, this, &UpdateItem::expandChangelog);
      });
 }
 
@@ -109,7 +102,7 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
     if(!info.m_changelog.isEmpty()) {
         setFixedHeight(80);
         m_iconLayout->setContentsMargins(0, 10, 0, 0);
-        m_appChangelog->setText(elideChangelog());
+        m_appChangelog->setText(elidedChangelog());
     } else {
         setFixedHeight(60);
         m_iconLayout->setContentsMargins(0, 0, 0, 0);
@@ -117,7 +110,7 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
     }
 }
 
-QString UpdateItem::elideChangelog() const
+QString UpdateItem::elidedChangelog() const
 {
     const QString text = m_info.m_changelog;
 
@@ -145,27 +138,18 @@ QString UpdateItem::elideChangelog() const
     return str;
 }
 
-int UpdateItem::changelogLines() const
+void UpdateItem::expandChangelog()
 {
-    const QString text = m_info.m_changelog;
-    const QFontMetrics fm(m_appChangelog->font());
-    const int changelogLineHeight = fm.height();
-
-    // FIXME(hualet): 280 is a elaberate value which is tested for several times
-    // to ensure that there won't be much space left after showing detail changelogs.
-    QRect rect(0, 0, 280, changelogLineHeight);
     const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
 
-    while (true)
-    {
-        QRect boundingRect = fm.boundingRect(rect, textFlag, text);
-        if (rect.contains(boundingRect))
-            break;
+    QFontMetrics fm = m_appChangelog->fontMetrics();
+    QRect rect = fm.boundingRect(m_appChangelog->rect(), textFlag, m_info.m_changelog);
+    int heightDelta = rect.height() - m_appChangelog->height();
 
-        rect.setHeight(rect.height() + changelogLineHeight);
-    }
+    m_appChangelog->setText(m_info.m_changelog);
+    m_appChangelog->setFixedHeight(rect.height());
 
-    return rect.height() / changelogLineHeight;
+    setFixedHeight(height() + heightDelta);
 }
 
 }
