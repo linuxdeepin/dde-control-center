@@ -27,7 +27,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 {
     m_settingsGrp = new SettingsGroup;
     m_settingsGrp->setHeaderVisible(true);
-    m_settingsGrp->headerItem()->setTitle("Setting List");
+    m_settingsGrp->headerItem()->setTitle(tr("Setting List"));
 
     TipsItem *tips = new TipsItem;
     tips->setFixedHeight(80);
