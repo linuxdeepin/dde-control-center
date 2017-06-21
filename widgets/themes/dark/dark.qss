@@ -92,3 +92,8 @@ QLabel#ContentTitle {
     font-size: 14px;
     font-weight: 500;
 }
+
+dcc--widgets--DCCSlider {
+    padding: 0 0 10px 0;
+}
+

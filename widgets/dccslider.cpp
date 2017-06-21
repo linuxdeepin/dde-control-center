@@ -10,6 +10,8 @@ DCCSlider::DCCSlider(DCCSlider::SliderType type, QWidget *parent) :
 {
     setType(type);
     setTracking(false);
+
+    setFixedHeight(35);
 }
 
 void DCCSlider::setType(DCCSlider::SliderType type)
