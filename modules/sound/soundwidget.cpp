@@ -49,7 +49,7 @@ SoundWidget::SoundWidget(SoundModel *model) :
     m_outputVolumeSliderItem->setObjectName("OutputVolumeSliderItem");
     m_outputVolumeSlider = m_outputVolumeSliderItem->slider();
     m_outputVolumeSlider->setOrientation(Qt::Horizontal);
-    m_outputVolumeSlider->setRange(0, maxVolume);
+    m_outputVolumeSlider->setRange(0, std::min(maxVolume, 150));
 
     m_outputBalanceSliderItem->setObjectName("OutputBalanceSliderItem");
     m_outputBalanceSlider = m_outputBalanceSliderItem->slider();

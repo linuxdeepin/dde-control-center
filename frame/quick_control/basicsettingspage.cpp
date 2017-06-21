@@ -142,7 +142,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     int maxVolume = gsettings->get("output-volume-max").toInt();
 
     m_soundSlider->setOrientation(Qt::Horizontal);
-    m_soundSlider->setRange(0, maxVolume);
+    m_soundSlider->setRange(0, std::min(maxVolume, 100));
     m_soundSlider->setAccessibleName("SoundSlider");
     m_soundSlider->setFocusProxy(this);
     m_soundSlider->installEventFilter(this);
