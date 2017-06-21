@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QIcon>
 #include <QFile>
+#include <QDesktopServices>
 
 #include "labels/smalllabel.h"
 #include "translucentframe.h"
@@ -14,12 +15,34 @@ using namespace dcc::widgets;
 namespace dcc{
 namespace update{
 
+static QRegularExpression AnchorReg("<a href='(?<href>.*?)'>(?<content>.*?)</a>");
+
+bool UpdateItem::isAnchor(const QString &input)
+{
+    return AnchorReg.match(input).hasMatch();
+}
+
+QPair<QString, QString> UpdateItem::parseAnchor(const QString &input)
+{
+    QPair<QString, QString> ret;
+
+    QRegularExpressionMatch match = AnchorReg.match(input);
+    if (match.hasMatch()) {
+        ret.first = match.captured("href");
+        ret.second = match.captured("content");
+    }
+
+    return ret;
+}
+
 UpdateItem::UpdateItem(QFrame *parent)
     :SettingsItem(parent),
       m_appIcon(new SmallLabel),
       m_appName(new SmallLabel),
       m_appVersion(new SmallLabel),
-      m_appChangelog(new SmallLabel)
+      m_appChangelog(new SmallLabel),
+      m_details(new QPushButton),
+      m_openWebsite(new QPushButton)
 {
     TranslucentFrame *iconContainer = new TranslucentFrame;
     iconContainer->setFixedWidth(36);
@@ -37,14 +60,18 @@ UpdateItem::UpdateItem(QFrame *parent)
     m_appChangelog->setWordWrap(true);
     m_appChangelog->setAlignment(Qt::AlignTop);
 
-    m_details = new QPushButton;
     m_details->setFlat(true);
     m_details->setText(tr("Details"));
+
+    m_openWebsite->setFlat(true);
+    m_openWebsite->setText(tr("See official release notes"));
+    m_openWebsite->setVisible(false);
 
     QHBoxLayout* logLayout = new QHBoxLayout;
     logLayout->setMargin(0);
     logLayout->setSpacing(0);
     logLayout->addWidget(m_appChangelog, 1);
+    logLayout->addWidget(m_openWebsite, 0, Qt::AlignLeft);
     logLayout->addWidget(m_details);
 
     QHBoxLayout *nameLayout = new QHBoxLayout;
@@ -78,7 +105,12 @@ UpdateItem::UpdateItem(QFrame *parent)
         // The point of this timer is that the calculation should be taken
         // after the relayout of this item caused by the hide of details button.
         QTimer::singleShot(0, this, &UpdateItem::expandChangelog);
-     });
+    });
+
+    connect(m_openWebsite, &QPushButton::clicked, [this] {
+        qDebug() << QString("open website %1 to see release notes of %2").arg(m_anchorAddress).arg(m_anchorName);
+        QDesktopServices::openUrl(m_anchorAddress);
+    });
 }
 
 void UpdateItem::setAppInfo(const AppUpdateInfo &info)
@@ -99,14 +131,30 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
     m_appName->setText(info.m_name.trimmed());
     m_appVersion->setText(info.m_avilableVersion.trimmed());
 
-    if(!info.m_changelog.isEmpty()) {
+    const QString changelog = m_info.m_changelog;
+    if(!changelog.isEmpty()) {
         setFixedHeight(80);
         m_iconLayout->setContentsMargins(0, 10, 0, 0);
-        m_appChangelog->setText(elidedChangelog());
+
+        const bool changelogIsAnchor = isAnchor(changelog);
+
+        m_openWebsite->setVisible(changelogIsAnchor);
+        m_appChangelog->setVisible(!changelogIsAnchor);
+
+        if (!changelogIsAnchor)
+            m_appChangelog->setText(elidedChangelog());
+        else {
+            m_details->setVisible(false);
+
+            QPair<QString, QString> pair = parseAnchor(changelog);
+            m_anchorName = pair.second;
+            m_anchorAddress = pair.first;
+        }
+
     } else {
         setFixedHeight(60);
         m_iconLayout->setContentsMargins(0, 0, 0, 0);
-        m_details->hide();
+        m_details->setVisible(false);
     }
 }
 

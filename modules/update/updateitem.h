@@ -28,9 +28,14 @@ public:
 
     void setAppInfo(const AppUpdateInfo& info);
 
+    static bool isAnchor(const QString &input);
+    static QPair<QString, QString> parseAnchor(const QString &input);
 
 private:
     AppUpdateInfo m_info;
+
+    QString m_anchorName;
+    QString m_anchorAddress;
 
     dcc::widgets::SmallLabel *m_appIcon;
     dcc::widgets::SmallLabel *m_appName;
@@ -38,6 +43,7 @@ private:
     dcc::widgets::SmallLabel *m_appChangelog;
 
     QPushButton *m_details;
+    QPushButton *m_openWebsite;
     QVBoxLayout *m_iconLayout;
 
     QString elidedChangelog() const;
