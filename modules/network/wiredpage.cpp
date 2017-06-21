@@ -27,7 +27,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 {
     m_settingsGrp = new SettingsGroup;
     m_settingsGrp->setHeaderVisible(true);
-    m_settingsGrp->headerItem()->setTitle("Settings List");
+    m_settingsGrp->headerItem()->setTitle("Setting List");
 
     TipsItem *tips = new TipsItem;
     tips->setFixedHeight(80);
@@ -37,7 +37,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_tipsGrp->appendItem(tips);
 
     m_createBtn = new QPushButton;
-    m_createBtn->setText(tr("New Settings"));
+    m_createBtn->setText(tr("Add Settings"));
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addSpacing(10);
@@ -52,7 +52,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     centralWidget->setLayout(centralLayout);
 
     setContent(centralWidget);
-    setTitle(tr("Choose Settings"));
+    setTitle(tr("Select Settings"));
 
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
     connect(m_device, &WiredDevice::sessionCreated, this, &WiredPage::onSessionCreated);
