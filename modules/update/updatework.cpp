@@ -373,30 +373,15 @@ DownloadInfo *UpdateWork::calculateDownloadInfo(const AppUpdateInfoList &list)
 
 AppUpdateInfo UpdateWork::getInfo(const AppUpdateInfo &packageInfo, const QString &currentVersion, const QString &lastVersion) const
 {
-
-    auto compareVersion = [](QString version1, QString version2) {
-        if (version1.isEmpty() || version2.isEmpty()) return false;
-
-        QProcess p;
-        p.setArguments(QStringList() << "/usr/bin/dpkg" << "--compare-versions" << version1 << "gt" << version2);
-        p.waitForFinished();
-        return p.exitCode() == 0;
-    };
-
-    auto fetchVersionedChangelog = [compareVersion](QJsonObject changelog, QString & currentVersion) {
-        QString result;
+    auto fetchVersionedChangelog = [](QJsonObject changelog, QString & destVersion) {
 
         for (QString version : changelog.keys()) {
-            if (compareVersion(version, currentVersion)) {
-                if (result.isNull() || result.isEmpty()) {
-                    result = result + changelog.value(version).toString();
-                } else {
-                    result = result + '\n' + changelog.value(version).toString();
-                }
+            if (version == destVersion) {
+                return changelog.value(version).toString();
             }
         }
 
-        return result;
+        return QStringLiteral("");
     };
 
     QString metadataDir = "/lastore/metadata/" + packageInfo.m_packageId;
@@ -414,12 +399,12 @@ AppUpdateInfo UpdateWork::getInfo(const AppUpdateInfo &packageInfo, const QStrin
         QJsonDocument doc = QJsonDocument::fromJson(data);
         QJsonObject object = doc.object();
 
-        info.m_changelog = fetchVersionedChangelog(object["changelog"].toObject(), info.m_currentVersion);
+        info.m_changelog = fetchVersionedChangelog(object["changelog"].toObject(), info.m_avilableVersion);
 
         QJsonObject locales = object["locales"].toObject();
         QJsonObject locale = locales[QLocale::system().name()].toObject();
         QJsonObject changelog = locale["changelog"].toObject();
-        QString versionedChangelog = fetchVersionedChangelog(changelog, info.m_currentVersion);
+        QString versionedChangelog = fetchVersionedChangelog(changelog, info.m_avilableVersion);
 
         if (!versionedChangelog.isEmpty())
             info.m_changelog = versionedChangelog;
