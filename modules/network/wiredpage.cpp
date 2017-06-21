@@ -6,6 +6,7 @@
 #include "nextpagewidget.h"
 #include "connectionsessionmodel.h"
 #include "connectionsessionworker.h"
+#include "tipsitem.h"
 
 #include <QTimer>
 #include <QDebug>
@@ -28,12 +29,20 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_settingsGrp->setHeaderVisible(true);
     m_settingsGrp->headerItem()->setTitle("Settings List");
 
+    TipsItem *tips = new TipsItem;
+    tips->setFixedHeight(80);
+    tips->setText(tr("Please firstly plug in the network cable"));
+
+    m_tipsGrp = new SettingsGroup;
+    m_tipsGrp->appendItem(tips);
+
     m_createBtn = new QPushButton;
     m_createBtn->setText(tr("New Settings"));
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addSpacing(10);
     centralLayout->addWidget(m_settingsGrp);
+    centralLayout->addWidget(m_tipsGrp);
     centralLayout->addWidget(m_createBtn);
     centralLayout->addStretch();
     centralLayout->setSpacing(10);
@@ -49,6 +58,9 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     connect(m_device, &WiredDevice::sessionCreated, this, &WiredPage::onSessionCreated);
     connect(m_device, &WiredDevice::connectionsChanged, this, &WiredPage::refreshConnectionList);
     connect(m_device, &WiredDevice::activeConnectionChanged, this, &WiredPage::checkActivatedConnection);
+    connect(m_device, static_cast<void (WiredDevice::*)(WiredDevice::DeviceStatus) const>(&WiredDevice::statusChanged), this, &WiredPage::onDeviceStatusChanged);
+
+    onDeviceStatusChanged(m_device->status());
 }
 
 void WiredPage::setModel(NetworkModel *model)
@@ -155,6 +167,15 @@ void WiredPage::checkActivatedConnection()
         else
             it.key()->clearValue();
     }
+}
+
+void WiredPage::onDeviceStatusChanged(const NetworkDevice::DeviceStatus stat)
+{
+    const bool unavailable = stat <= NetworkDevice::Unavailable;
+
+    m_tipsGrp->setVisible(unavailable);
+    m_settingsGrp->setVisible(!unavailable);
+    m_createBtn->setVisible(!unavailable);
 }
 
 void WiredPage::onSessionCreated(const QString &sessionPath)

@@ -3,6 +3,7 @@
 
 #include "contentwidget.h"
 #include "connectioneditpage.h"
+#include "wireddevice.h"
 
 class QPushButton;
 
@@ -42,6 +43,7 @@ private slots:
     void createNewConnection();
     void activeConnection();
     void checkActivatedConnection();
+    void onDeviceStatusChanged(const WiredDevice::DeviceStatus stat);
     void onSessionCreated(const QString &sessionPath);
 
 private:
@@ -52,6 +54,7 @@ private:
 
     QPushButton *m_createBtn;
     widgets::SettingsGroup *m_settingsGrp;
+    widgets::SettingsGroup *m_tipsGrp;
 
     QMap<widgets::NextPageWidget *, QString> m_connectionPath;
 };
