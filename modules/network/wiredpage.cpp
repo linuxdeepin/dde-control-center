@@ -96,11 +96,28 @@ void WiredPage::initUI()
 
 void WiredPage::refreshConnectionList()
 {
+    // get all available wired connections path
+    const auto wiredConns = m_model->wireds();
+
+    QSet<QString> availableWiredConns;
+    availableWiredConns.reserve(wiredConns.size());
+
+    for (const auto &wiredConn : wiredConns)
+    {
+        const QString path = wiredConn.value("Path").toString();
+        if (!path.isEmpty())
+            availableWiredConns << path;
+    }
+
     const auto conns = m_device->connections();
     QSet<QString> connPaths;
     for (const auto c : conns)
     {
         const QString path = c.path();
+        // pass unavailable wired conns, like 'PPPoE'
+        if (!availableWiredConns.contains(path))
+            continue;
+
         connPaths << path;
         if (m_connectionPath.values().contains(path))
             continue;
