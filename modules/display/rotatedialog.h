@@ -35,6 +35,8 @@ private:
 private:
     Monitor *m_mon;
     DisplayModel *m_model;
+
+    bool m_mouseLeftHand;
 };
 
 } // namespace display

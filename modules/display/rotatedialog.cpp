@@ -17,15 +17,20 @@
 
 #include <DBlurEffectWidget>
 
+#include <com_deepin_daemon_inputdevice_mouse.h>
+
 DWIDGET_USE_NAMESPACE
 
 using namespace dcc::display;
+using MouseInter = com::deepin::daemon::inputdevice::Mouse;
 
 RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     : QDialog(parent),
 
       m_mon(mon),
-      m_model(nullptr)
+      m_model(nullptr),
+
+      m_mouseLeftHand(false)
 {
 
     DBlurEffectWidget *blurWidget = new DBlurEffectWidget;
@@ -56,6 +61,9 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     connect(m_mon, &Monitor::hChanged, this, &RotateDialog::setFixedHeight);
     connect(m_mon, &Monitor::xChanged, this, [=] (const int x) { move(x, y()); });
     connect(m_mon, &Monitor::yChanged, this, [=] (const int y) { move(x(), y); });
+
+    MouseInter *mInter = new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this);
+    m_mouseLeftHand = mInter->leftHanded();
 
     setLayout(centralLayout);
     setFixedWidth(m_mon->w());
@@ -101,8 +109,8 @@ void RotateDialog::mouseReleaseEvent(QMouseEvent *e)
 
     switch (e->button())
     {
-    case Qt::RightButton:   accept();       break;
-    case Qt::LeftButton:    rotate();       break;
+    case Qt::RightButton:   !m_mouseLeftHand ? accept() : rotate();       break;
+    case Qt::LeftButton:    !m_mouseLeftHand ? rotate() : accept();       break;
     default:;
     }
 }
@@ -167,10 +175,13 @@ void RotateDialog::rotate()
 
     const auto rotates = mon->rotateList();
     const auto rotate = mon->rotate();
+    const int s = rotates.size();
 
     Q_ASSERT(rotates.contains(rotate));
 
-    const quint16 nextValue = rotates[(rotates.indexOf(rotate) + 1) % rotates.size()];
+    const quint16 nextValue = m_mouseLeftHand
+            ? rotates[(rotates.indexOf(rotate) - 1 + s) % s]
+            : rotates[(rotates.indexOf(rotate) + 1) % s];
 
     if (m_mon)
     {
