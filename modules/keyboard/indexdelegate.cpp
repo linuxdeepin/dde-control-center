@@ -37,11 +37,16 @@ void IndexDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
 
     painter->setRenderHints(painter->renderHints() | QPainter::Antialiasing);
 
-    painter->setOpacity(0.2);
-
     painter->setPen(Qt::NoPen);
-    painter->setBrush(md.section() ? QColor(222, 222, 222) : QColor(238, 238, 238));
-    painter->drawRect(option.rect.adjusted(0, 0, 0, -1));
+    if (md.key().isEmpty()) {
+        painter->setOpacity(0.4);
+        painter->setBrush(QColor(222, 222, 222));
+        painter->drawRect(option.rect.adjusted(0, 0, 0, -1));
+    } else {
+        painter->setOpacity(0.2);
+        painter->setBrush(md.section() ? QColor(222, 222, 222) : QColor(238, 238, 238));
+        painter->drawRect(option.rect.adjusted(0, 0, 0, -1));
+    }
 
     if (option.state & QStyle::State_Selected) {
         painter->setOpacity(1);
@@ -52,6 +57,8 @@ void IndexDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
 
     painter->setOpacity(1);
     painter->setPen(pen);
+
+
     painter->drawText(option.rect.adjusted(20, 0, 0, 0), Qt::AlignVCenter, md.text());
 }
 }

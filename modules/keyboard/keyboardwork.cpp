@@ -419,16 +419,22 @@ void KeyboardWork::onPinyin()
         append(md);
     }
 
-    QChar ch = '\0';
-    for (int i(0); i != m_metaDatas.size(); ++i)
-    {
-        const QChar flag = m_metaDatas[i].pinyin().at(0).toUpper();
-        if (flag == ch)
-            continue;
-        ch = flag;
+    QLocale locale;
 
-        m_letters.append(ch);
-        m_metaDatas.insert(i, MetaData(ch, true));
+    if (locale.language() == QLocale::Chinese) {
+        QChar ch = '\0';
+        for (int i(0); i != m_metaDatas.size(); ++i)
+        {
+            const QChar flag = m_metaDatas[i].pinyin().at(0).toUpper();
+            if (flag == ch)
+                continue;
+            ch = flag;
+
+            m_letters.append(ch);
+            m_metaDatas.insert(i, MetaData(ch, true));
+        }
+    } else {
+        qSort(m_metaDatas.begin(), m_metaDatas.end(), caseInsensitiveLessThan);
     }
 }
 

@@ -10,6 +10,7 @@
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QEvent>
+#include <QLocale>
 
 using namespace dcc;
 
@@ -38,10 +39,15 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     m_view = new IndexView();
     m_delegate = new IndexDelegate();
 
-    m_indexframe = new IndexFrame();
 
     hlayout->addWidget(m_view);
-    hlayout->addWidget(m_indexframe);
+
+    QLocale locale;
+    if (locale.language() == QLocale::Chinese) {
+        m_indexframe = new IndexFrame();
+        hlayout->addWidget(m_indexframe);
+        connect(m_indexframe, SIGNAL(click(QString)), m_view, SLOT(onClick(QString)));
+    }
 
     m_search = new SearchInput();
     m_contentTopLayout->addSpacing(10);
@@ -60,7 +66,6 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     m_mainWidget->setAttribute(Qt::WA_TranslucentBackground);
     m_mainWidget->setFixedWidth(344);
 
-    connect(m_indexframe, SIGNAL(click(QString)), m_view, SLOT(onClick(QString)));
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
 
     connect(m_view, &IndexView::clicked, this, &KeyboardLayoutWidget::onItemClicked);
@@ -82,8 +87,11 @@ void KeyboardLayoutWidget::setMetaData(const QList<MetaData> &datas)
 
 void KeyboardLayoutWidget::setLetters(QList<QString> letters)
 {
-    m_model->setLetters(letters);
-    m_indexframe->setLetters(letters);
+    QLocale locale;
+    if (locale.language() == QLocale::Chinese) {
+        m_model->setLetters(letters);
+        m_indexframe->setLetters(letters);
+    }
 }
 
 void KeyboardLayoutWidget::onSearch(const QString &text)

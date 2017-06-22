@@ -60,6 +60,9 @@ void IndexFrame::setLetters(const QStringList &lists)
 
 void IndexFrame::paintEvent(QPaintEvent *)
 {
+    if(m_letters.isEmpty())
+        return;
+
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
     QPen pen = painter.pen();
