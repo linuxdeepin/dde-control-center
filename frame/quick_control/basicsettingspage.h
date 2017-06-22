@@ -81,7 +81,7 @@ private:
     QSlider *m_soundSlider;
     QLabel *m_brightnessLow;
     QLabel *m_brightnessHigh;
-    dcc::widgets::DCCSlider *m_lightSlider;
+    QSlider *m_lightSlider;
 
     BasicSettingsModel *m_model;
     BasicSettingsWorker *m_worker;

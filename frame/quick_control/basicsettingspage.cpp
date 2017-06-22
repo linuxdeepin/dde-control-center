@@ -125,7 +125,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
       m_soundSlider(new QSlider),
       m_brightnessLow(new QLabel),
       m_brightnessHigh(new QLabel),
-      m_lightSlider(new DCCSlider),
+      m_lightSlider(new QSlider),
       m_model(new BasicSettingsModel(this)),
       m_worker(new BasicSettingsWorker(m_model, this))
 {
@@ -150,7 +150,6 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     m_lightSlider->setRange(0.2 * 100, 100);
     m_lightSlider->setAccessibleName("LightSlider");
     m_lightSlider->setTracking(true);
-    m_lightSlider->setFocusProxy(this);
 
     m_mprisWidget = new DMPRISControl;
 
@@ -214,7 +213,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     connect(m_soundSlider, &DCCSlider::valueChanged, this, [this] (const int &value) {
         m_worker->setVolume(value);
     });
-    connect(m_lightSlider, &DCCSlider::valueChanged, m_worker, &BasicSettingsWorker::setBrightness);
+    connect(m_lightSlider, &QSlider::valueChanged, m_worker, &BasicSettingsWorker::setBrightness);
 }
 
 void BasicSettingsPage::onMuteChanged(const bool &mute)
