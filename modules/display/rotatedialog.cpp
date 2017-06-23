@@ -109,8 +109,8 @@ void RotateDialog::mouseReleaseEvent(QMouseEvent *e)
 
     switch (e->button())
     {
-    case Qt::RightButton:   !m_mouseLeftHand ? accept() : rotate();       break;
-    case Qt::LeftButton:    !m_mouseLeftHand ? rotate() : accept();       break;
+    case Qt::RightButton:   accept();       break;
+    case Qt::LeftButton:    rotate();       break;
     default:;
     }
 }
