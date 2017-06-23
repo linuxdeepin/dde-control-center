@@ -83,6 +83,8 @@ void PppoePage::onConnectionListChanged()
         m_settingsGrp->appendItem(w);
         m_connUuid[w] = uuid;
     }
+
+    onActivateConnectionChanged(m_model->activeConnections());
 }
 
 void PppoePage::onConnectionDetailClicked()
