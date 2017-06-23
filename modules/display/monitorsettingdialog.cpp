@@ -204,6 +204,7 @@ void MonitorSettingDialog::initPrimary()
     connect(m_model, &DisplayModel::primaryScreenChanged, this, &MonitorSettingDialog::onPrimaryChanged);
     connect(m_model, &DisplayModel::screenHeightChanged, this, &MonitorSettingDialog::updateScreensRelation, Qt::QueuedConnection);
     connect(m_model, &DisplayModel::screenWidthChanged, this, &MonitorSettingDialog::updateScreensRelation, Qt::QueuedConnection);
+    connect(m_model, &DisplayModel::displayModeChanged, this, &MonitorSettingDialog::reject);
     connect(cancelBtn, &QPushButton::clicked, this, &MonitorSettingDialog::reject);
     connect(applyBtn, &QPushButton::clicked, this, &MonitorSettingDialog::accept);
 
