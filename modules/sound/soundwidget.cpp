@@ -182,6 +182,7 @@ bool SoundWidget::eventFilter(QObject *watched, QEvent *event)
 
     return false;
 }
+#endif
 
 void SoundWidget::onGSettingsChanged(const QString &name)
 {
@@ -189,7 +190,6 @@ void SoundWidget::onGSettingsChanged(const QString &name)
         m_outputVolumeSlider->setRange(0, std::min(m_gsettings->get("output-volume-max").toInt(), 150));
     }
 }
-#endif
 
 }
 }
