@@ -18,6 +18,8 @@
 
 #include "titledslideritem.h"
 
+#include <QGSettings>
+
 using namespace dcc;
 using namespace dcc::widgets;
 
@@ -46,6 +48,9 @@ signals:
     void requestSetSpeakerVolume(double volume);
     void requestAdvancedPage() const;
 
+private slots:
+    void onGSettingsChanged(const QString &name);
+
 private:
     SettingsGroup *m_speakerGroup;
     SwitchWidget *m_speakerSwitch;
@@ -69,6 +74,8 @@ private:
 
     SettingsGroup *m_soundEffectGroup;
     SwitchWidget *m_soundEffectSwitch;
+
+    QGSettings *m_gsettings;
 };
 
 }

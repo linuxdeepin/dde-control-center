@@ -43,13 +43,14 @@ SoundWidget::SoundWidget(SoundModel *model) :
 
     m_speakerSwitch->setTitle(tr("Speaker"));
 
-    QGSettings *gsettings = new QGSettings("com.deepin.dde.audio", "", this);
-    int maxVolume = gsettings->get("output-volume-max").toInt();
+    m_gsettings = new QGSettings("com.deepin.dde.audio", "", this);
 
     m_outputVolumeSliderItem->setObjectName("OutputVolumeSliderItem");
     m_outputVolumeSlider = m_outputVolumeSliderItem->slider();
     m_outputVolumeSlider->setOrientation(Qt::Horizontal);
-    m_outputVolumeSlider->setRange(0, std::min(maxVolume, 150));
+
+    // set sound slider max value
+    onGSettingsChanged("outputVolumeMax");
 
     m_outputBalanceSliderItem->setObjectName("OutputBalanceSliderItem");
     m_outputBalanceSlider = m_outputBalanceSliderItem->slider();
@@ -106,6 +107,7 @@ SoundWidget::SoundWidget(SoundModel *model) :
     connect(m_inputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetMicrophoneVolume(value / 100.f); });
     connect(m_outputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetSpeakerVolume(value / 100.f);} );
     connect(m_advancedSettingsItem, &NextPageWidget::clicked, this, &SoundWidget::requestAdvancedPage);
+    connect(m_gsettings, &QGSettings::changed, this, &SoundWidget::onGSettingsChanged);
 }
 
 SoundWidget::~SoundWidget()
@@ -179,6 +181,13 @@ bool SoundWidget::eventFilter(QObject *watched, QEvent *event)
     }
 
     return false;
+}
+
+void SoundWidget::onGSettingsChanged(const QString &name)
+{
+    if (name == "outputVolumeMax") {
+        m_outputVolumeSlider->setRange(0, std::min(m_gsettings->get("output-volume-max").toInt(), 150));
+    }
 }
 #endif
 

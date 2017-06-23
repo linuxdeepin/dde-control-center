@@ -7,7 +7,7 @@
 #include <QDBusObjectPath>
 
 #include <dmpriscontrol.h>
-
+#include <QGSettings>
 #include <com_deepin_daemon_audio.h>
 #include <com_deepin_daemon_audio_sink.h>
 #include <com_deepin_daemon_display.h>
@@ -71,6 +71,7 @@ public:
 
 private slots:
     void onMuteChanged(const bool &mute);
+    void onGSettingsChanged(const QString &name);
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
@@ -87,6 +88,7 @@ private:
     BasicSettingsWorker *m_worker;
 
     Dtk::Widget::DMPRISControl *m_mprisWidget;
+    QGSettings *m_gsettings;
 };
 
 }

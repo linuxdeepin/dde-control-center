@@ -138,11 +138,12 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     m_brightnessHigh->setObjectName("HomeBrightnessHighLabel");
     m_brightnessHigh->setFixedSize(24, 24);
 
-    QGSettings *gsettings = new QGSettings("com.deepin.dde.audio", "", this);
-    int maxVolume = gsettings->get("output-volume-max").toInt();
+    m_gsettings = new QGSettings("com.deepin.dde.audio", "", this);
+
+    // set sound slider max value
+    onGSettingsChanged("outputVolumeMax");
 
     m_soundSlider->setOrientation(Qt::Horizontal);
-    m_soundSlider->setRange(0, std::min(maxVolume, 100));
     m_soundSlider->setAccessibleName("SoundSlider");
     m_soundSlider->setFocusProxy(this);
     m_soundSlider->installEventFilter(this);
@@ -204,7 +205,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     connect(m_model, &BasicSettingsModel::brightnessChanged, this, onBrightnessChanged);
     connect(m_mprisWidget, &DMPRISControl::mprisAcquired, [=] { m_mprisWidget->setVisible(m_mprisWidget->isWorking()); });
     connect(m_mprisWidget, &DMPRISControl::mprisLosted, [=] { m_mprisWidget->setVisible(m_mprisWidget->isWorking()); });
-
+    connect(m_gsettings, &QGSettings::changed, this, &BasicSettingsPage::onGSettingsChanged);
     m_mprisWidget->setVisible(m_mprisWidget->isWorking());
     onVolumeChanged(m_model->volume());
     onBrightnessChanged(m_model->brightness());
@@ -226,6 +227,13 @@ void BasicSettingsPage::onMuteChanged(const bool &mute)
         m_soundSlider->blockSignals(true);
         m_soundSlider->setValue(m_model->volume() * 100);
         m_soundSlider->blockSignals(false);
+    }
+}
+
+void BasicSettingsPage::onGSettingsChanged(const QString &name)
+{
+    if (name == "outputVolumeMax") {
+        m_soundSlider->setRange(0, std::min(m_gsettings->get("output-volume-max").toInt(), 100));
     }
 }
 
