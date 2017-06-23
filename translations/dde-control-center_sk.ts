@@ -667,7 +667,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="205"/>
+        <location filename="../modules/display/displaymodule.cpp" line="221"/>
         <source>Wireless Screen Projection</source>
         <translation>Bezdrôtové premietanie obrazovky</translation>
     </message>
@@ -719,7 +719,7 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="18"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Skenujem zariadenia, čakajte prosím...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="19"/>
@@ -735,19 +735,19 @@
 <context>
     <name>dcc::display::MiracastPage</name>
     <message>
-        <location filename="../modules/display/miracastsettings.cpp" line="25"/>
+        <location filename="../modules/display/miracastsettings.cpp" line="26"/>
         <source>WIFI will be disconnected when enable screen projection</source>
         <translation>Keď sa aktivuje premietanie obrazovky, WIFI sa odpojí</translation>
     </message>
     <message>
-        <location filename="../modules/display/miracastsettings.cpp" line="29"/>
+        <location filename="../modules/display/miracastsettings.cpp" line="30"/>
         <source>Refresh</source>
         <translation>Obnoviť</translation>
     </message>
     <message>
-        <location filename="../modules/display/miracastsettings.cpp" line="43"/>
+        <location filename="../modules/display/miracastsettings.cpp" line="44"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Zoznam zariadení</translation>
     </message>
 </context>
 <context>
@@ -771,27 +771,27 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="86"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="90"/>
         <source>Resolution</source>
         <translation>Rozlíšenie</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="174"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="178"/>
         <source>Cancel</source>
         <translation>Zrušiť</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="176"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Apply</source>
         <translation>Použiť</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="183"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="187"/>
         <source>Primary</source>
         <translation>Primárny</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="351"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="357"/>
         <source> (Recommended)</source>
         <translation>(Odporúčané)</translation>
     </message>
@@ -1012,12 +1012,12 @@
         <translation>Rýchlosť opakovania</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <source>Slow</source>
         <translation>Pomaly</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <source>Fast</source>
         <translation>Rýchlo</translation>
     </message>
@@ -1027,27 +1027,27 @@
         <translation>Prosím tu otestovať</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="68"/>
         <source>Enable Numeric Keyboard</source>
         <translation>Aktivovať numerickú klávesnicu</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
         <source>Caps Lock Prompt</source>
         <translation>Režim Caps Lock</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="73"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="78"/>
         <source>Keyboard Layout</source>
         <translation>Rozloženie klávesnice</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="81"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="86"/>
         <source>System Language</source>
         <translation>Jazyk systému</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="87"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="92"/>
         <source>Shortcut</source>
         <translation>Odkaz</translation>
     </message>
@@ -1587,6 +1587,29 @@
     </message>
 </context>
 <context>
+    <name>dcc::network::WiredPage</name>
+    <message>
+        <location filename="../modules/network/wiredpage.cpp" line="30"/>
+        <source>Setting List</source>
+        <translation>Zoznam nastavení</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wiredpage.cpp" line="34"/>
+        <source>Please firstly plug in the network cable</source>
+        <translation>Najprv pripojte sieťový kábel</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wiredpage.cpp" line="40"/>
+        <source>Add Settings</source>
+        <translation>Pridať nastavenie</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wiredpage.cpp" line="55"/>
+        <source>Select Settings</source>
+        <translation>Výber nastavenia</translation>
+    </message>
+</context>
+<context>
     <name>dcc::network::WirelessPage</name>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="30"/>
@@ -1594,7 +1617,7 @@
         <translation>Pripojiť sa k skrytej sieti</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="48"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="49"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -1779,48 +1802,48 @@
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="26"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="27"/>
         <source>Output Volume</source>
         <translation>Výstupná hlasitosť</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="27"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="28"/>
         <source>Left/Right Balance</source>
         <translation>Ľavý/Pravý vyváženie</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="30"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="31"/>
         <source>Input Volume</source>
         <translation>Vstupná hlasitosť</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="32"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="33"/>
         <source>Feedback Volume</source>
         <translation>Objem spätnej väzby</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="101"/>
-        <location filename="../modules/sound/soundwidget.cpp" line="41"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="42"/>
         <source>Sound</source>
         <translation>Zvuk</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="43"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="44"/>
         <source>Speaker</source>
         <translation>Reproduktor</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="62"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="66"/>
         <source>Microphone</source>
         <translation>Mikrofón</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="85"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="89"/>
         <source>Advanced</source>
         <translation>Pokročilé</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="88"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="92"/>
         <source>Sound Effects</source>
         <translation>Zvukové efekty</translation>
     </message>

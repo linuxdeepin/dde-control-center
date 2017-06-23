@@ -667,7 +667,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="205"/>
+        <location filename="../modules/display/displaymodule.cpp" line="221"/>
         <source>Wireless Screen Projection</source>
         <translation>Proyección de pantalla inalámbrica</translation>
     </message>
@@ -719,7 +719,7 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="18"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Buscando dispositivos, Por favor espere,</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="19"/>
@@ -735,19 +735,19 @@
 <context>
     <name>dcc::display::MiracastPage</name>
     <message>
-        <location filename="../modules/display/miracastsettings.cpp" line="25"/>
+        <location filename="../modules/display/miracastsettings.cpp" line="26"/>
         <source>WIFI will be disconnected when enable screen projection</source>
         <translation>El WIFI se desconectará cuando se active la proyección de pantalla</translation>
     </message>
     <message>
-        <location filename="../modules/display/miracastsettings.cpp" line="29"/>
+        <location filename="../modules/display/miracastsettings.cpp" line="30"/>
         <source>Refresh</source>
         <translation>Actualizar</translation>
     </message>
     <message>
-        <location filename="../modules/display/miracastsettings.cpp" line="43"/>
+        <location filename="../modules/display/miracastsettings.cpp" line="44"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Lista de Dispositivos</translation>
     </message>
 </context>
 <context>
@@ -771,27 +771,27 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="86"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="90"/>
         <source>Resolution</source>
         <translation>Resolución</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="174"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="178"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="176"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Apply</source>
         <translation>Aplicar</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="183"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="187"/>
         <source>Primary</source>
         <translation>Primaria</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="351"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="357"/>
         <source> (Recommended)</source>
         <translation>(Recomendada)</translation>
     </message>
@@ -1012,12 +1012,12 @@
         <translation>Índice de repeticiones</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <source>Slow</source>
         <translation>Lento</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <source>Fast</source>
         <translation>Rápido</translation>
     </message>
@@ -1027,27 +1027,27 @@
         <translation>Por Favor Pruebe Aqui</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="68"/>
         <source>Enable Numeric Keyboard</source>
         <translation>Habilitar Teclado Numérico </translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
         <source>Caps Lock Prompt</source>
         <translation>Bloqueo de mayúsculas</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="73"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="78"/>
         <source>Keyboard Layout</source>
         <translation>Distribución del teclado</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="81"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="86"/>
         <source>System Language</source>
         <translation>Idioma </translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="87"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="92"/>
         <source>Shortcut</source>
         <translation>Acceso Directo</translation>
     </message>
@@ -1587,6 +1587,29 @@
     </message>
 </context>
 <context>
+    <name>dcc::network::WiredPage</name>
+    <message>
+        <location filename="../modules/network/wiredpage.cpp" line="30"/>
+        <source>Setting List</source>
+        <translation>Lista de Configuración</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wiredpage.cpp" line="34"/>
+        <source>Please firstly plug in the network cable</source>
+        <translation>Por favor primero enchufe el cable de red</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wiredpage.cpp" line="40"/>
+        <source>Add Settings</source>
+        <translation>Añadir Configuraciones </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wiredpage.cpp" line="55"/>
+        <source>Select Settings</source>
+        <translation>Seleccionar Configuraciones</translation>
+    </message>
+</context>
+<context>
     <name>dcc::network::WirelessPage</name>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="30"/>
@@ -1594,7 +1617,7 @@
         <translation>Conectarse a una red oculta</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="48"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="49"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -1779,48 +1802,48 @@
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="26"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="27"/>
         <source>Output Volume</source>
         <translation>Volúmen de salida</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="27"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="28"/>
         <source>Left/Right Balance</source>
         <translation>Balance Izquierda/Derecha</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="30"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="31"/>
         <source>Input Volume</source>
         <translation>Volumen de entrada</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="32"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="33"/>
         <source>Feedback Volume</source>
         <translation>Volúmen de retorno</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="101"/>
-        <location filename="../modules/sound/soundwidget.cpp" line="41"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="42"/>
         <source>Sound</source>
         <translation>Sonido</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="43"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="44"/>
         <source>Speaker</source>
         <translation>Parlante</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="62"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="66"/>
         <source>Microphone</source>
         <translation>Micrófono</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="85"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="89"/>
         <source>Advanced</source>
         <translation>Avanzada</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="88"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="92"/>
         <source>Sound Effects</source>
         <translation>Efectos de sonido</translation>
     </message>

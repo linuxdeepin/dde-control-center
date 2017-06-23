@@ -91,7 +91,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="128"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>Il y a %n jour</numerusform><numerusform>Il y a %n jours</numerusform></translation>
+        <translation><numerusform>Il y a %n jour(s)</numerusform><numerusform>Il y a %n jour(s)</numerusform></translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="122"/>
@@ -109,12 +109,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Mises à jour installées, redémarrer maintenant ?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez vérifier que toutes les données ont été sauvegardées</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -667,9 +667,9 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="205"/>
+        <location filename="../modules/display/displaymodule.cpp" line="221"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Projection d&apos;écran sans fil</translation>
     </message>
 </context>
 <context>
@@ -697,7 +697,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="174"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Projection d&apos;écran sans fil</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="96"/>
@@ -719,12 +719,12 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="18"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Détection des périphériques, veuillez patienter</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="19"/>
         <source>No available device found</source>
-        <translation type="unfinished"/>
+        <translation>Aucun périphérique disponible trouvé</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="22"/>
@@ -735,19 +735,19 @@
 <context>
     <name>dcc::display::MiracastPage</name>
     <message>
-        <location filename="../modules/display/miracastsettings.cpp" line="25"/>
+        <location filename="../modules/display/miracastsettings.cpp" line="26"/>
         <source>WIFI will be disconnected when enable screen projection</source>
         <translation>Activer la projection d&apos;écran désactivera le WIFI</translation>
     </message>
     <message>
-        <location filename="../modules/display/miracastsettings.cpp" line="29"/>
+        <location filename="../modules/display/miracastsettings.cpp" line="30"/>
         <source>Refresh</source>
         <translation>Actualiser</translation>
     </message>
     <message>
-        <location filename="../modules/display/miracastsettings.cpp" line="43"/>
+        <location filename="../modules/display/miracastsettings.cpp" line="44"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Liste des périphériques</translation>
     </message>
 </context>
 <context>
@@ -771,27 +771,27 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="86"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="90"/>
         <source>Resolution</source>
         <translation>Résolution</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="174"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="178"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="176"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Apply</source>
         <translation>Appliquer</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="183"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="187"/>
         <source>Primary</source>
         <translation>Primaire</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="351"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="357"/>
         <source> (Recommended)</source>
         <translation>(Recommandée)</translation>
     </message>
@@ -967,7 +967,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="35"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>Changer de configuration (multiples)</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="63"/>
@@ -1012,12 +1012,12 @@
         <translation>Taux de répétition</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <source>Slow</source>
         <translation>Lent</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="50"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <source>Fast</source>
         <translation>Rapide</translation>
     </message>
@@ -1027,27 +1027,27 @@
         <translation>Veuillez tester ici</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="63"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="68"/>
         <source>Enable Numeric Keyboard</source>
         <translation>Activer le pavé numérique</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="67"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
         <source>Caps Lock Prompt</source>
         <translation>Affichage touche majuscules</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="73"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="78"/>
         <source>Keyboard Layout</source>
         <translation>Disposition du clavier</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="81"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="86"/>
         <source>System Language</source>
         <translation>Langage du système</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/keyboardwidget.cpp" line="87"/>
+        <location filename="../modules/keyboard/keyboardwidget.cpp" line="92"/>
         <source>Shortcut</source>
         <translation>Raccourci </translation>
     </message>
@@ -1587,6 +1587,29 @@
     </message>
 </context>
 <context>
+    <name>dcc::network::WiredPage</name>
+    <message>
+        <location filename="../modules/network/wiredpage.cpp" line="30"/>
+        <source>Setting List</source>
+        <translation>Liste des paramètres</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wiredpage.cpp" line="34"/>
+        <source>Please firstly plug in the network cable</source>
+        <translation>Veuillez avant tout connecter un câble réseau</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wiredpage.cpp" line="40"/>
+        <source>Add Settings</source>
+        <translation>Ajouter des paramètres</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/wiredpage.cpp" line="55"/>
+        <source>Select Settings</source>
+        <translation>Sélectionner les paramètre</translation>
+    </message>
+</context>
+<context>
     <name>dcc::network::WirelessPage</name>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="30"/>
@@ -1594,7 +1617,7 @@
         <translation>Se connecter à un réseau caché </translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="48"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="49"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -1779,48 +1802,48 @@
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="26"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="27"/>
         <source>Output Volume</source>
         <translation>Volume de sortie</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="27"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="28"/>
         <source>Left/Right Balance</source>
         <translation>Gauche/Droite</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="30"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="31"/>
         <source>Input Volume</source>
         <translation>Volume d&apos;entrée</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="32"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="33"/>
         <source>Feedback Volume</source>
         <translation>Volume des effets</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="101"/>
-        <location filename="../modules/sound/soundwidget.cpp" line="41"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="42"/>
         <source>Sound</source>
         <translation>Son</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="43"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="44"/>
         <source>Speaker</source>
         <translation>Haut-parleur</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="62"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="66"/>
         <source>Microphone</source>
         <translation>Micro</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="85"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="89"/>
         <source>Advanced</source>
         <translation>Avancé</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="88"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="92"/>
         <source>Sound Effects</source>
         <translation>Effets audios</translation>
     </message>
@@ -1958,7 +1981,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>Tester la vitesse</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
@@ -2015,7 +2038,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez redémarrer pour utiliser le système et les applications correctement après une mise à jour</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="135"/>
@@ -2035,27 +2058,27 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>La version la plus récente du système est installée, veuillez redémarrer pour appliquer.</translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n mise à jour d&apos;application détectée</numerusform><numerusform>%n mise à jour d&apos;applications détectées</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Nouvelle version système et %n mise à jour d&apos;application détectée</numerusform><numerusform>Nouvelle version système et %n mises à jour d&apos;applications détectées</numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation>%1% téléchargés (Cliquez pour mettre en pause)</translation>
+        <translation>%1% téléchargés (Cliquez pour suspendre)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>New system edition detected</source>
-        <translation type="unfinished"/>
+        <translation>Nouvelle version du système détectée</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
