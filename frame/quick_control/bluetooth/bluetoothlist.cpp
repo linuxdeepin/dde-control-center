@@ -12,7 +12,9 @@
 #include "bluetooth/bluetoothmodel.h"
 #include "bluetooth/device.h"
 #include "bluetooth/adapter.h"
+
 #include <QVBoxLayout>
+#include <QEvent>
 
 BluetoothList::BluetoothList(BluetoothModel *model, QWidget *parent)
     : QWidget(parent),
@@ -21,6 +23,7 @@ BluetoothList::BluetoothList(BluetoothModel *model, QWidget *parent)
 {
     BasicListView *listView = new BasicListView;
     listView->setModel(m_model);
+    listView->installEventFilter(this);
 
     BluetoothDelegate *delegate = new BluetoothDelegate;
     listView->setItemDelegate(delegate);
@@ -34,6 +37,16 @@ BluetoothList::BluetoothList(BluetoothModel *model, QWidget *parent)
 
     connect(listView, &BasicListView::entered, m_model, &BluetoothListModel::setCurrentHovered);
     connect(listView, &BasicListView::clicked, this, &BluetoothList::onItemClicked);
+}
+
+bool BluetoothList::eventFilter(QObject *watched, QEvent *event)
+{
+    Q_UNUSED(watched);
+
+    if (event->type() == QEvent::Leave)
+        emit mouseLeaveView();
+
+    return false;
 }
 
 void BluetoothList::onItemClicked(const QModelIndex &index) const

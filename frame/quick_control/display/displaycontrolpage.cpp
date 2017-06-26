@@ -4,6 +4,7 @@
 #include "basiclistview.h"
 
 #include <QVBoxLayout>
+#include <QEvent>
 
 using dcc::widgets::BasicListView;
 using namespace dcc::display;
@@ -17,6 +18,7 @@ DisplayControlPage::DisplayControlPage(DisplayModel *model, QWidget *parent)
     BasicListView *listView = new BasicListView;
     listView->setModel(listModel);
     listView->setItemDelegate(delegate);
+    listView->installEventFilter(this);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addStretch();
@@ -26,6 +28,16 @@ DisplayControlPage::DisplayControlPage(DisplayModel *model, QWidget *parent)
     setLayout(mainLayout);
 
     connect(listView, &BasicListView::clicked, this, &DisplayControlPage::onItemClicked);
+}
+
+bool DisplayControlPage::eventFilter(QObject *watched, QEvent *event)
+{
+    Q_UNUSED(watched);
+
+    if (event->type() == QEvent::Leave)
+        emit mouseLeaveView();
+
+    return false;
 }
 
 void DisplayControlPage::onItemClicked(const QModelIndex &index) const

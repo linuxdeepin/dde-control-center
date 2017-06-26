@@ -25,10 +25,14 @@ public:
     explicit BluetoothList(BluetoothModel *model, QWidget *parent = 0);
 
 signals:
+    void mouseLeaveView() const;
     void requestConnect(const Device *device) const;
     void requestDisConnect(const Device *device) const;
     void requestConnectOther(const QString &module, const QString &page) const;
     void requestAdapterDiscoverable(const QString &id) const;
+
+private:
+    bool eventFilter(QObject *watched, QEvent *event);
 
 private slots:
     void onItemClicked(const QModelIndex &index) const;

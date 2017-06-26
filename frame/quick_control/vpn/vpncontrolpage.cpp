@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QListView>
 #include <QVBoxLayout>
+#include <QEvent>
 
 using dcc::widgets::BasicListView;
 using dcc::network::NetworkModel;
@@ -19,6 +20,7 @@ VpnControlPage::VpnControlPage(NetworkModel *model, QWidget *parent)
 
     listView->setModel(m_listModel);
     listView->setItemDelegate(listDelegate);
+    listView->installEventFilter(this);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addStretch();
@@ -29,6 +31,16 @@ VpnControlPage::VpnControlPage(NetworkModel *model, QWidget *parent)
 
     connect(listView, &BasicListView::entered, m_listModel, &VpnListModel::setHoveredIndex);
     connect(listView, &BasicListView::clicked, this, &VpnControlPage::onItemClicked);
+}
+
+bool VpnControlPage::eventFilter(QObject *watched, QEvent *event)
+{
+    Q_UNUSED(watched);
+
+    if (event->type() == QEvent::Leave)
+        emit mouseLeaveView();
+
+    return false;
 }
 
 void VpnControlPage::onItemClicked(const QModelIndex &index) const

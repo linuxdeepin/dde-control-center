@@ -5,6 +5,7 @@
 
 #include <QVBoxLayout>
 #include <QDebug>
+#include <QEvent>
 
 using dcc::network::NetworkModel;
 using dcc::widgets::BasicListView;
@@ -20,6 +21,7 @@ WifiPage::WifiPage(NetworkModel *model, QWidget *parent)
     BasicListView *listView = new BasicListView;
     listView->setModel(listModel);
     listView->setItemDelegate(delegate);
+    listView->installEventFilter(this);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addStretch();
@@ -32,6 +34,16 @@ WifiPage::WifiPage(NetworkModel *model, QWidget *parent)
     connect(listView, &BasicListView::entered, listModel, &WifiListModel::setCurrentHovered);
     connect(listView, &BasicListView::clicked, listModel, &WifiListModel::setCurrentActivating);
     connect(listView, &BasicListView::clicked, this, &WifiPage::onItemClicked);
+}
+
+bool WifiPage::eventFilter(QObject *watched, QEvent *event)
+{
+    Q_UNUSED(watched);
+
+    if (event->type() == QEvent::Leave)
+        emit mouseLeaveView();
+
+    return false;
 }
 
 void WifiPage::onItemClicked(const QModelIndex &index)
