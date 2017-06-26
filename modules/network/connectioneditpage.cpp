@@ -21,6 +21,7 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QComboBox>
+#include <QApplication>
 
 #include <cstring>
 
@@ -153,6 +154,8 @@ void ConnectionEditPage::refershUI()
     const QString name = m_sessionModel->keysInfo("vs-general", "id").value("Value").toString();
     setTitle(name);
 
+    QWidget *fw = qApp->focusWidget();
+
     // hide all widgets
     for (auto *grp : m_sectionWidgets)
         grp->clear();
@@ -176,6 +179,9 @@ void ConnectionEditPage::refershUI()
         m_sectionsLayout->addWidget(grp);
         grp->setVisible(true);
     }
+
+    if (fw)
+        fw->setFocus();
 }
 
 void ConnectionEditPage::saveFinished(const bool ret)
