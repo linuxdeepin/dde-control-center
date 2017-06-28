@@ -166,13 +166,11 @@ void NotifyManager::onLoadAgain()
 {
     if (m_checkIndex) {
         for (int i = 0; i < 20; i++) {
-            if (m_checkIndex -i < 1)
+            if (--m_checkIndex < 1)
                 return;
-            Viewer* viewer = onNotifyAdd(m_dataJsonArray.at(m_checkIndex - i).toObject());
+            Viewer* viewer = onNotifyAdd(m_dataJsonArray.at(m_checkIndex).toObject());
             m_connectLayout->insertWidget(m_viewerList.size(), viewer);
         }
-
-        m_checkIndex = m_checkIndex - 20;
     }
 }
 
