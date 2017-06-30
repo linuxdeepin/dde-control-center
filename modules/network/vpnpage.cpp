@@ -71,7 +71,6 @@ void VpnPage::setModel(NetworkModel *model)
     m_vpnSwitch->setChecked(m_model->vpnEnabled());
 
     refershVpnList(m_model->vpns());
-    onActiveConnsInfoChanged(m_model->activeConnInfos());
 }
 
 void VpnPage::refershVpnList(const QList<QJsonObject> &vpnList)
@@ -95,6 +94,8 @@ void VpnPage::refershVpnList(const QList<QJsonObject> &vpnList)
         m_vpns[w] = vpn;
         m_vpnGroup->appendItem(w);
     }
+
+    onActiveConnsInfoChanged(m_model->activeConnInfos());
 }
 
 void VpnPage::onVpnDetailClicked()
