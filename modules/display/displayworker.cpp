@@ -49,16 +49,22 @@ DisplayWorker::~DisplayWorker()
 
 void DisplayWorker::saveChanges()
 {
-    m_displayInter.Save();
+    qDebug() << Q_FUNC_INFO;
+
+    m_displayInter.Save().waitForFinished();
 }
 
 void DisplayWorker::discardChanges()
 {
+    qDebug() << Q_FUNC_INFO;
+
     m_displayInter.ResetChanges().waitForFinished();
 }
 
 void DisplayWorker::mergeScreens()
 {
+    qDebug() << Q_FUNC_INFO;
+
     // TODO: make asynchronous
     const QList<Resolution> commonModes = m_displayInter.ListOutputsCommonModes();
     Q_ASSERT(!commonModes.isEmpty());
@@ -88,6 +94,8 @@ void DisplayWorker::mergeScreens()
 
 void DisplayWorker::splitScreens()
 {
+    qDebug() << Q_FUNC_INFO;
+
     const auto mList = m_model->monitorList();
     Q_ASSERT(mList.size() == 2);
 

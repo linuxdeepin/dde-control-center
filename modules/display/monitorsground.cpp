@@ -55,6 +55,8 @@ void MonitorsGround::setDisplayModel(DisplayModel *model)
 
 void MonitorsGround::resetMonitorsView()
 {
+    qDebug() << Q_FUNC_INFO;
+
     reloadViewPortSize();
     for (auto pw : m_monitors.keys())
         adjust(pw);
@@ -66,6 +68,8 @@ void MonitorsGround::resetMonitorsView()
 
 void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
 {
+    qDebug() << Q_FUNC_INFO << pw->name();
+
     const double scale = screenScale();
     const int offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
     const int offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
@@ -97,6 +101,8 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
 
 void MonitorsGround::adjust(MonitorProxyWidget *pw)
 {
+    qDebug() << "adjust" << pw->name();
+
     const double scale = screenScale();
 
     const int offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
@@ -112,6 +118,8 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
 
 void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
 {
+    qDebug() << Q_FUNC_INFO << pw->name();
+
     // TODO: only support 2 screens
     if (m_monitors.size() != 2)
         return;
