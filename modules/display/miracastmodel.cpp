@@ -118,12 +118,12 @@ void MiracastModel::onMiracastEvent(const uchar type, const QDBusObjectPath &pat
         deviceModelByPath(path.path())->onLinkManageChanged(false);
         break;
     case SinkConnected:
-        deviceModelByPath(sinkByPath(path.path()).m_linkPath.path())->onSinkConnect(path, true);
+        sinkStateChanged(path, true);
         emit sinkConnected();
         break;
     case SinkConnectFailed:
     case SinkDisconnected:
-        deviceModelByPath(sinkByPath(path.path()).m_linkPath.path())->onSinkConnect(path, false);
+        sinkStateChanged(path, false);
 
         scanAllLinks();
         break;
@@ -140,19 +140,20 @@ void MiracastModel::scanAllLinks()
     }
 }
 
+void MiracastModel::sinkStateChanged(const QDBusObjectPath &path, bool state)
+{
+    for (auto it(m_sinks.begin()); it != m_sinks.end(); ++it) {
+        if (it->m_sinkPath == path) {
+            deviceModelByPath(it->m_linkPath.path())->onSinkConnect(path, state);
+            return;
+        }
+    }
+}
+
 LinkInfo &MiracastModel::linkByPath(const QDBusObjectPath &path)
 {
     for (auto it(m_links.begin()); it != m_links.end(); ++it)
         if (it->m_dbusPath == path)
-            return *it;
-
-    Q_UNREACHABLE();
-}
-
-SinkInfo &MiracastModel::sinkByPath(const QString &path)
-{
-    for (auto it(m_sinks.begin()); it != m_sinks.end(); ++it)
-        if (it->m_sinkPath.path() == path)
             return *it;
 
     Q_UNREACHABLE();

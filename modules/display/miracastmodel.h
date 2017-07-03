@@ -29,7 +29,6 @@ public:
 
     MiracastDeviceModel* deviceModelByPath(const QString &path);
     LinkInfo &linkByPath(const QDBusObjectPath &path);
-    SinkInfo &sinkByPath(const QString &path);
 
 signals:
     void linkAdded(const LinkInfo &link) const;
@@ -49,6 +48,7 @@ private:
     void onPathRemoved(const QDBusObjectPath &path, const QString &info);
     void onMiracastEvent(const uchar type, const QDBusObjectPath &path);
     void scanAllLinks();
+    void sinkStateChanged(const QDBusObjectPath &path, bool state);
 
 private:
     QList<LinkInfo> m_links;
