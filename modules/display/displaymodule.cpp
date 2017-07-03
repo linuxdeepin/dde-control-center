@@ -206,6 +206,7 @@ void DisplayModule::showRotate(Monitor *mon)
         dialog = new RotateDialog(m_displayModel);
 
     connect(dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
+    connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker, &DisplayWorker::setMonitorRotateAll);
 
     dialog->exec();
     dialog->deleteLater();

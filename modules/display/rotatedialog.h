@@ -19,6 +19,7 @@ public:
     ~RotateDialog();
 
 signals:
+    void requestRotateAll(const quint16 rotate) const;
     void requestRotate(Monitor *mon, const quint16 rotate) const;
 
 protected:

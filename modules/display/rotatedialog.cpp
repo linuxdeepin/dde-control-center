@@ -184,12 +184,7 @@ void RotateDialog::rotate()
             : rotates[(rotates.indexOf(rotate) + 1) % s];
 
     if (m_mon)
-    {
         emit requestRotate(m_mon, nextValue);
-    }
     else
-    {
-        for (auto *m : m_model->monitorList())
-            emit requestRotate(m, nextValue);
-    }
+        emit requestRotateAll(nextValue);
 }

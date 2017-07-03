@@ -215,6 +215,7 @@ void DisplayWorker::createConfigFinshed(QDBusPendingCallWatcher *w)
 
     w->deleteLater();
 }
+
 #ifndef DCC_DISABLE_ROTATE
 void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 {
@@ -222,6 +223,14 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
     Q_ASSERT(inter);
 
     inter->SetRotation(rotate).waitForFinished();
+    m_displayInter.ApplyChanges();
+}
+
+void DisplayWorker::setMonitorRotateAll(const quint16 rotate)
+{
+    for (auto *mi : m_monitors)
+        mi->SetRotation(rotate).waitForFinished();
+
     m_displayInter.ApplyChanges();
 }
 #endif

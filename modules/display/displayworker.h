@@ -41,6 +41,7 @@ public slots:
     void setPrimary(const int index);
     void setMonitorEnable(Monitor *mon, const bool enabled);
 #ifndef DCC_DISABLE_ROTATE
+    void setMonitorRotateAll(const quint16 rotate);
     void setMonitorRotate(Monitor *mon, const quint16 rotate);
 #endif
     void setMonitorResolution(Monitor *mon, const int mode);
