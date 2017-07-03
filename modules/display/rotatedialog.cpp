@@ -29,6 +29,8 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
 
       m_mon(mon),
       m_model(nullptr),
+      m_adjustDelayTimer(new QTimer(this)),
+      m_wmHelper(DWindowManagerHelper::instance()),
 
       m_mouseLeftHand(false)
 {
@@ -57,18 +59,15 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     centralLayout->setMargin(0);
     centralLayout->setSpacing(0);
 
-    connect(m_mon, &Monitor::wChanged, this, &RotateDialog::setFixedWidth);
-    connect(m_mon, &Monitor::hChanged, this, &RotateDialog::setFixedHeight);
-    connect(m_mon, &Monitor::xChanged, this, [=] (const int x) { move(x, y()); });
-    connect(m_mon, &Monitor::yChanged, this, [=] (const int y) { move(x(), y); });
+    connect(m_mon, &Monitor::wChanged, m_adjustDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_mon, &Monitor::hChanged, m_adjustDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_mon, &Monitor::xChanged, m_adjustDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_mon, &Monitor::yChanged, m_adjustDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
 
     MouseInter *mInter = new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this);
     m_mouseLeftHand = mInter->leftHanded();
 
     setLayout(centralLayout);
-    setFixedWidth(m_mon->w());
-    setFixedHeight(m_mon->h());
-    move(m_mon->x(), m_mon->y());
 
     init();
 }
@@ -77,14 +76,12 @@ RotateDialog::RotateDialog(DisplayModel *model, QWidget *parent)
     : QDialog(parent),
 
       m_mon(nullptr),
-      m_model(model)
+      m_model(model),
+      m_adjustDelayTimer(new QTimer(this)),
+      m_wmHelper(DWindowManagerHelper::instance())
 {
-    connect(m_model, &DisplayModel::screenWidthChanged, this, &RotateDialog::setFixedWidth);
-    connect(m_model, &DisplayModel::screenHeightChanged, this, &RotateDialog::setFixedHeight);
-
-    setFixedWidth(m_model->screenWidth());
-    setFixedHeight(m_model->screenHeight());
-    move(0, 0);
+    connect(m_model, &DisplayModel::screenWidthChanged, m_adjustDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_model, &DisplayModel::screenHeightChanged, m_adjustDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
 
     init();
 }
@@ -95,7 +92,13 @@ void RotateDialog::init()
     setAttribute(Qt::WA_TranslucentBackground);
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
 
+    connect(m_adjustDelayTimer, &QTimer::timeout, this, &RotateDialog::adjustGemotry);
+
     qApp->setOverrideCursor(Qt::BlankCursor);
+
+    m_adjustDelayTimer->setSingleShot(true);
+    m_adjustDelayTimer->setInterval(100);
+    m_adjustDelayTimer->start();
 }
 
 RotateDialog::~RotateDialog()
@@ -140,10 +143,21 @@ void RotateDialog::paintEvent(QPaintEvent *e)
     const int tw = fm.width(tips);
     const int w = width();
     const int h = height();
-    const int margin = 100;
+    int margin = 100;
 
     QPainter painter(this);
-    painter.fillRect(rect(), QColor(0, 0, 0, 255 * .6));
+    if (m_wmHelper->hasComposite())
+    {
+        painter.fillRect(rect(), QColor(0, 0, 0, 255 * .6));
+        painter.setPen(Qt::white);
+    }
+    else
+    {
+        margin = 60;
+
+        painter.fillRect(rect(), Qt::white);
+        painter.setPen(Qt::black);
+    }
 
     // bottom
     painter.drawText((w - tw) / 2, h - margin, tips);
@@ -187,4 +201,33 @@ void RotateDialog::rotate()
         emit requestRotate(m_mon, nextValue);
     else
         emit requestRotateAll(nextValue);
+}
+
+void RotateDialog::adjustGemotry()
+{
+    const bool composite = m_wmHelper->hasComposite();
+
+    if (composite)
+    {
+        if (m_mon)
+        {
+            setFixedWidth(m_mon->w());
+            setFixedHeight(m_mon->h());
+            move(m_mon->x(), m_mon->y());
+        } else {
+            setFixedWidth(m_model->screenWidth());
+            setFixedHeight(m_model->screenHeight());
+            move(0, 0);
+        }
+    } else {
+        setFixedWidth(500);
+        setFixedHeight(500);
+
+        if (m_mon)
+            move(m_mon->rect().center() - rect().center());
+        else
+            move((m_model->screenWidth() - width()) / 2, m_model->screenHeight() - height() / 2);
+    }
+
+    QCursor::setPos(geometry().center());
 }

@@ -2,6 +2,9 @@
 #define ROTATEDIALOG_H
 
 #include <QDialog>
+#include <QTimer>
+
+#include "DWindowManagerHelper"
 
 namespace dcc {
 
@@ -29,6 +32,9 @@ protected:
     void paintEvent(QPaintEvent *e);
     void showEvent(QShowEvent *e);
 
+private slots:
+    void adjustGemotry();
+
 private:
     void init();
     void rotate();
@@ -36,6 +42,8 @@ private:
 private:
     Monitor *m_mon;
     DisplayModel *m_model;
+    QTimer *m_adjustDelayTimer;
+    Dtk::Widget::DWindowManagerHelper *m_wmHelper;
 
     bool m_mouseLeftHand;
 };
