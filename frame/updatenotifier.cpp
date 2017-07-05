@@ -26,6 +26,8 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
     m_icon->setFixedSize(48, 48);
     m_icon->setPixmap(icon.pixmap(m_icon->size()));
 
+    m_closeButton->setFixedSize(14, 14);
+
     m_closeButton->setObjectName("NotifyCloseButton");
     m_closeButton->move(x() + width() - 14 - 10, y() + 10);
     m_closeButton->setVisible(false);
