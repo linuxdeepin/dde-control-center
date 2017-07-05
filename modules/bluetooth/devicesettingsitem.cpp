@@ -111,6 +111,7 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state)
     }
     case Device::StateUnavailable:
         tip = tr("Not connected");
+        setLoading(false);
         break;
     default:;
     }
