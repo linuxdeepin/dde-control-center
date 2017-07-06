@@ -60,7 +60,8 @@ private slots:
     void adjustShadowMask();
     void setAutoHide(const bool autoHide);
 
-    void initAllSettings();
+    void prepareAllSettingsPage();
+    void freeAllSettingsPage();
     void showAllSettings();
     void contentDetached(QWidget * const c);
 
@@ -76,7 +77,8 @@ private:
     void toggle();
 
 private:
-    SettingsWidget *m_allSettingsPage;
+    QPointer<SettingsWidget> m_allSettingsPage;
+    QTimer *m_allSettingsPageKiller;
 
     XMouseArea *m_mouseAreaInter;
     DBusDisplay *m_displayInter;

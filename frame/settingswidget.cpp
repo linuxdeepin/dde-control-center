@@ -43,6 +43,8 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
       m_moduleLoadDelay(0)
 {
+    qDebug() << Q_FUNC_INFO << "I'm born!!!!";
+
     m_resetBtn->setText(tr("Reset all settings"));
     m_navgationBtn->setVisible(true);
 
@@ -384,6 +386,8 @@ SettingsWidget::~SettingsWidget()
     for (auto v : m_moduleWidgets)
         qDeleteAll(v);
     qDeleteAll(m_moduleInterfaces);
+
+    qDebug() << Q_FUNC_INFO << "I'm gone!!!";
 }
 
 void SettingsWidget::hideNavgation()

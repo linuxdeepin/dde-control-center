@@ -11,6 +11,7 @@ Frame::Frame(QWidget *parent)
     : DBlurEffectWidget(parent),
 
       m_allSettingsPage(nullptr),
+      m_allSettingsPageKiller(new QTimer(this)),
 
       m_mouseAreaInter(new XMouseArea("com.deepin.api.XMouseArea", "/com/deepin/api/XMouseArea", QDBusConnection::sessionBus(), this)),
       m_displayInter(new DBusDisplay("com.deepin.daemon.Display", "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)),
@@ -40,6 +41,9 @@ Frame::Frame(QWidget *parent)
     m_platformWindowHandle.setShadowColor(QColor(0, 0, 0, 255 * 0.5));
 //    m_platformWindowHandle.setShadowColor(Qt::red);
 
+    m_allSettingsPageKiller->setSingleShot(true);
+    m_allSettingsPageKiller->setInterval(60 * 1000);
+
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
     setMaximumWidth(FRAME_WIDTH);
@@ -47,6 +51,7 @@ Frame::Frame(QWidget *parent)
 
     resize(0, height());
 
+    connect(m_allSettingsPageKiller, &QTimer::timeout, this, &Frame::freeAllSettingsPage);
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
     connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hide);
     connect(m_wmHelper, &DWindowManagerHelper::hasCompositeChanged, this, &Frame::adjustShadowMask);
@@ -146,21 +151,31 @@ void Frame::setAutoHide(const bool autoHide)
     }
 }
 
-void Frame::initAllSettings()
+void Frame::prepareAllSettingsPage()
 {
-    if (!m_allSettingsPage) {
-        m_allSettingsPage = new SettingsWidget(this);
-        m_allSettingsPage->setVisible(false);
+    if (!m_allSettingsPage.isNull())
+        return;
 
-        connect(m_allSettingsPage, &SettingsWidget::requestAutohide, this, &Frame::setAutoHide);
-    }
+    m_allSettingsPage = new SettingsWidget(this);
+    m_allSettingsPage->setVisible(false);
+
+    connect(m_allSettingsPage, &SettingsWidget::requestAutohide, this, &Frame::setAutoHide);
+}
+
+void Frame::freeAllSettingsPage()
+{
+#ifndef DCC_KEEP_SETTINGS_LIVE
+    Q_ASSERT(!m_allSettingsPage.isNull());
+
+    m_allSettingsPage->deleteLater();
+#endif
 }
 
 void Frame::showAllSettings()
 {
     Q_ASSERT(m_frameWidgetStack.size() == 1);
 
-    initAllSettings();
+    prepareAllSettingsPage();
 
     pushWidget(m_allSettingsPage);
 }
@@ -173,7 +188,7 @@ void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
 
     // current is main page
     if (m_frameWidgetStack.size() == 1)
-        initAllSettings();
+        prepareAllSettingsPage();
 
     if (pageName.isEmpty() && m_frameWidgetStack.size() == 1)
         showAllSettings();
@@ -205,12 +220,6 @@ void Frame::contentDetached(QWidget *const c)
     if (cw != m_allSettingsPage) {
         return m_allSettingsPage->contentPopuped(cw);
     }
-
-    // delete all settings panel
-#ifndef DCC_KEEP_SETTINGS_LIVE
-    m_allSettingsPage->deleteLater();
-    m_allSettingsPage = nullptr;
-#endif
 }
 
 void Frame::onScreenRectChanged(const QRect &primaryRect)
@@ -313,6 +322,10 @@ void Frame::show()
 
     // connect signal
     connect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased, Qt::UniqueConnection);
+
+    // prepare all settings page
+    m_allSettingsPageKiller->stop();
+    QTimer::singleShot(m_frameWidgetStack.last()->animationDuration(), this, &Frame::prepareAllSettingsPage);
 }
 
 void Frame::hide()
@@ -351,6 +364,9 @@ void Frame::hide()
 
     // disconnect signal
     disconnect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased);
+
+    // free all settings page
+    m_allSettingsPageKiller->start();
 }
 
 void Frame::toggle()
