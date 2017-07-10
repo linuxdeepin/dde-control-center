@@ -40,7 +40,7 @@ void FontListWidget::setList(const QList<QJsonObject> &list)
         OptionItem *w = new OptionItem;
         w->setContentsMargins(10, 0, 10, 0);
         w->setAccessibleName("FontListWidget");
-        FontItem   *font = new FontItem(item["Id"].toString());
+        FontItem   *font = new FontItem(item["Name"].toString());
         w->setTitleWidget(font);
         m_mainGroup->appendItem(w);
         m_valueMap.insert(w, item);
