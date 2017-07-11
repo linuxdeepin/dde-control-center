@@ -38,16 +38,16 @@ dcc--QuickSwitchButton#QuickSwitchBluetooth, dcc--QuickSwitchButton#QuickSwitchV
 /* previous button & next button */
 IndicatorWidget > #PrevBtn
 {
-    qproperty-normalPic: url(:/frame/themes/dark/icons/back_normal.png);
-    qproperty-hoverPic: url(:/frame/themes/dark/icons/back_hover.png);
-    qproperty-pressPic: url(:/frame/themes/dark/icons/back_press.png);
+    qproperty-normalPic: url(:/frame/themes/dark/icons/dark_previous_normal.png);
+    qproperty-hoverPic: url(:/frame/themes/dark/icons/dark_previous_hover.png);
+    qproperty-pressPic: url(:/frame/themes/dark/icons/dark_previous_press.png);
 }
 
 IndicatorWidget > #NextBtn
 {
-    qproperty-normalPic: url(:/frame/themes/dark/icons/next_normal.png);
-    qproperty-hoverPic: url(:/frame/themes/dark/icons/next_hover.png);
-    qproperty-pressPic: url(:/frame/themes/dark/icons/next_press.png);
+    qproperty-normalPic: url(:/frame/themes/dark/icons/dark_next_normal.png);
+    qproperty-hoverPic: url(:/frame/themes/dark/icons/dark_next_hover.png);
+    qproperty-pressPic: url(:/frame/themes/dark/icons/dark_next_press.png);
 }
 
 IndicatorWidget > #DPIndicator {

@@ -15,12 +15,6 @@
         <file>themes/dark/icons/all_settings_off.png</file>
         <file>themes/dark/icons/bluetooth_on.png</file>
         <file>themes/dark/icons/bluetooth_off.png</file>
-        <file>themes/dark/icons/back_hover.png</file>
-        <file>themes/dark/icons/back_normal.png</file>
-        <file>themes/dark/icons/back_press.png</file>
-        <file>themes/dark/icons/next_press.png</file>
-        <file>themes/dark/icons/next_normal.png</file>
-        <file>themes/dark/icons/next_hover.png</file>
         <file>themes/dark/icons/select.png</file>
         <file>quick_control/wifi/wireless/security.svg</file>
         <file>quick_control/wifi/wireless/wireless-0-symbolic.svg</file>
@@ -236,5 +230,13 @@
         <file>themes/dark/icons/notify_close_press.png</file>
         <file>themes/dark/icons/miracast_on.png</file>
         <file>themes/dark/icons/miracast_off.png</file>
+        <file>themes/dark/icons/dark_next_disabled.png</file>
+        <file>themes/dark/icons/dark_next_hover.png</file>
+        <file>themes/dark/icons/dark_next_normal.png</file>
+        <file>themes/dark/icons/dark_next_press.png</file>
+        <file>themes/dark/icons/dark_previous_disabled.png</file>
+        <file>themes/dark/icons/dark_previous_hover.png</file>
+        <file>themes/dark/icons/dark_previous_normal.png</file>
+        <file>themes/dark/icons/dark_previous_press.png</file>
     </qresource>
 </RCC>

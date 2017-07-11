@@ -20,11 +20,14 @@ signals:
 private:
     void enterEvent(QEvent *e);
     void leaveEvent(QEvent *e);
+    void wheelEvent(QWheelEvent *e);
 
 private:
     Dtk::Widget::DPageIndicator *m_pluginsIndicator;
     Dtk::Widget::DImageButton *m_prevPluginBtn;
     Dtk::Widget::DImageButton *m_nextPluginBtn;
+
+    QTimer *m_ignoreWheelRepeat;
 };
 
 #endif // INDICATORWIDGET_H
