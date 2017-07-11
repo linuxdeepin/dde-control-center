@@ -87,7 +87,7 @@ static void onFontSizeChanged(const float pointSizeF) {
     };
 
     QFont font(qApp->font());
-    if (pointSizeF == 8.2) {
+    if (pointSizeF <= 8.2) {
         font.setPointSizeF(PxToPt(10));
         qApp->setFont(font, "dcc::widgets::SmallLabel");
         font.setPointSizeF(PxToPt(11));
@@ -115,7 +115,7 @@ static void onFontSizeChanged(const float pointSizeF) {
         qApp->setFont(font, "dcc::widgets::NormalLabel");
         font.setPointSizeF(PxToPt(18));
         qApp->setFont(font, "dcc::widgets::LargeLabel");
-    } else if (pointSizeF == 12) {
+    } else if (pointSizeF >= 12) {
         font.setPointSizeF(PxToPt(14));
         qApp->setFont(font, "dcc::widgets::SmallLabel");
         font.setPointSizeF(PxToPt(16));
