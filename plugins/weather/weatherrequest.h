@@ -65,6 +65,7 @@ private:
 private:
     City m_city;
     QString m_preferredWeatherService;
+    bool m_isFahrenheitDegree;
     LoaderCity* m_loader;
     QSettings *m_settings;
 
@@ -77,6 +78,8 @@ private:
 
     void saveCityInfo();
     void restoreCityInfo();
+
+    void restoreTemperatureFormat();
 
     void saveExtraInfo();
     void restoreExtraInfo();

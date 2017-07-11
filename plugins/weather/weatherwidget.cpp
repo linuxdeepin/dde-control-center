@@ -129,7 +129,13 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
             painter.setPen(pen);
             painter.setFont(font);
 
-            text = QString("%1°C").arg(int(item.temperature().first));
+            const int temperature = int(item.temperature().first);
+
+            if (item.isFahrenheit())
+                text = QString("%1°F").arg(32 + temperature * 1.8);
+            else
+                text = QString("%1°C").arg(temperature);
+
             QRect textRect(iconRect.right()+10,rect.y(),fm.width(text)+2, rect.height());
             painter.drawText(textRect,Qt::AlignLeft|Qt::AlignVCenter, text);
             font.setPointSize(curFont.pointSize()*0.65);

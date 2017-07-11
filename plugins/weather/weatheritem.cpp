@@ -10,7 +10,8 @@ WeatherItem::WeatherItem(const WeatherItem &item) :
     QObject(),
     m_name(item.name()),
     m_date(item.date()),
-    m_temperature(item.temperature())
+    m_temperature(item.temperature()),
+    m_fahrenheit(item.m_fahrenheit)
 {
 
 }
@@ -28,6 +29,16 @@ QString WeatherItem::name() const
 void WeatherItem::setName(const QString &name)
 {
     m_name = name;
+}
+
+void WeatherItem::setFahrenheitDegree(const bool fahrenheit)
+{
+    m_fahrenheit = fahrenheit;
+}
+
+bool WeatherItem::isFahrenheit() const
+{
+    return m_fahrenheit;
 }
 
 QPair<int, int> WeatherItem::temperature() const
@@ -67,6 +78,7 @@ WeatherItem &WeatherItem::operator=(const WeatherItem &rhs)
         m_date = rhs.date();
         m_description = rhs.description();
         m_temperature = rhs.temperature();
+        m_fahrenheit  = rhs.isFahrenheit();
     }
 
     return *this;

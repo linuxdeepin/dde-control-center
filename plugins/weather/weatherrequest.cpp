@@ -21,6 +21,7 @@ static const QString KeyLatitude = "Latitude";
 static const QString KeyLongitude = "Longitude";
 static const QString KeyLocalizedName = "LocalizedName";
 static const QString KeyPreferredService = "PreferredService";
+static const QString KeyTemperatureFormat = "TemperatureFormat";
 
 WeatherRequest::WeatherRequest(QObject *parent) :
     QObject(parent),
@@ -32,6 +33,7 @@ WeatherRequest::WeatherRequest(QObject *parent) :
     m_settings = new QSettings("deepin", "dcc-weather-plugin");
     restoreCityInfo();
     restoreExtraInfo();
+    restoreTemperatureFormat();
 
     m_loader = new LoaderCity(this);
     m_manager = new QNetworkAccessManager(this);
@@ -91,6 +93,7 @@ void WeatherRequest::processWeatherServiceReply()
         WeatherItem item;
         item.setName(obj["name"].toString().toLower());
         item.setDescription(obj["description"].toString());
+        item.setFahrenheitDegree(m_isFahrenheitDegree);
         QDateTime dt; dt.setTime_t(obj["date"].toInt());
         item.setDate(dt.date());
         item.setTemperature(obj["temperatureMin"].toInt(), obj["temperatureMax"].toInt());
@@ -217,6 +220,13 @@ void WeatherRequest::restoreCityInfo()
     m_city.latitude = m_settings->value(KeyLatitude, "0").toDouble();
     m_city.longitude = m_settings->value(KeyLongitude, "0").toDouble();
     m_city.localizedName = m_settings->value(KeyLocalizedName, "").toString();
+    m_settings->endGroup();
+}
+
+void WeatherRequest::restoreTemperatureFormat()
+{
+    m_settings->beginGroup(GroupLocation);
+    m_isFahrenheitDegree = m_settings->value(KeyTemperatureFormat).toBool();
     m_settings->endGroup();
 }
 
