@@ -167,6 +167,10 @@ void Frame::freeAllSettingsPage()
 #ifndef DCC_KEEP_SETTINGS_LIVE
     Q_ASSERT(!m_allSettingsPage.isNull());
 
+    // pass if not in main page
+    if (m_frameWidgetStack.size() > 1)
+        return;
+
     m_allSettingsPage->deleteLater();
 #endif
 }
