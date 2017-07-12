@@ -124,6 +124,9 @@ void KeyboardLayoutWidget::onItemClicked(const QModelIndex &index)
     QVariant var = index.data();
     MetaData md = var.value<MetaData>();
 
+    if (m_model->letters().contains(md.text()))
+        return;
+
     emit layoutSelected(md.text());
     emit back();
 }
