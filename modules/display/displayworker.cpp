@@ -81,7 +81,7 @@ void DisplayWorker::mergeScreens()
         Q_ASSERT(mInter);
 
         replys << mInter->SetPosition(0, 0);
-        replys << mInter->SetMode(mode.id());
+        replys << mInter->SetModeBySize(mode.width(), mode.height());
         replys << mInter->SetRotation(rotate);
         replys << m_displayInter.SetBrightness(mon->name(), brightness);
     }
