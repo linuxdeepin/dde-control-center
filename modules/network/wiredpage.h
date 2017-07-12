@@ -45,6 +45,7 @@ private slots:
     void checkActivatedConnection();
     void onDeviceStatusChanged(const WiredDevice::DeviceStatus stat);
     void onSessionCreated(const QString &sessionPath);
+    void onDeviceRemoved();
 
 private:
     WiredDevice *m_device;

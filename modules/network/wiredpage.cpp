@@ -58,6 +58,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     connect(m_device, &WiredDevice::sessionCreated, this, &WiredPage::onSessionCreated);
     connect(m_device, &WiredDevice::connectionsChanged, this, &WiredPage::refreshConnectionList);
     connect(m_device, &WiredDevice::activeConnectionChanged, this, &WiredPage::checkActivatedConnection);
+    connect(m_device, &WiredDevice::removed, this, &WiredPage::onDeviceRemoved);
     connect(m_device, static_cast<void (WiredDevice::*)(WiredDevice::DeviceStatus) const>(&WiredDevice::statusChanged), this, &WiredPage::onDeviceStatusChanged);
 
     onDeviceStatusChanged(m_device->status());
@@ -213,6 +214,14 @@ void WiredPage::onSessionCreated(const QString &sessionPath)
     connect(m_editPage, &ConnectionEditPage::requestDisconnect, this, &WiredPage::requestDisconnectConnection);
 
     emit requestNextPage(m_editPage);
+}
+
+void WiredPage::onDeviceRemoved()
+{
+    if (!m_editPage.isNull())
+        emit m_editPage->back();
+
+    emit back();
 }
 
 }
