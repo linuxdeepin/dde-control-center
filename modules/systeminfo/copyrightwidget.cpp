@@ -38,7 +38,7 @@ QPair<QString, QString> loadLicenses()
     const QString title = getLicense(":/systeminfo/gpl/gpl-3.0-%1-%2.txt", "title");
     const QString body = getLicense(":/systeminfo/gpl/gpl-3.0-%1-%2.txt", "body");
 
-    return std::move(QPair<QString, QString>(title, body));
+    return QPair<QString, QString>(title, body);
 }
 
 CopyrightWidget::CopyrightWidget(QWidget *parent)

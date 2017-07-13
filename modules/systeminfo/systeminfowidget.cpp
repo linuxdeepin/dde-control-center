@@ -5,6 +5,32 @@
 #include "nextpagewidget.h"
 
 #include <QVBoxLayout>
+#include <QSettings>
+#include <QDebug>
+#include <QApplication>
+
+const QString systemCopyright()
+{
+    const QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
+    const QString oem_copyright = settings.value("system_info_vendor_name").toString();
+
+    if (oem_copyright.isEmpty())
+        return QApplication::translate("SystemInfoWidget", "Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.");
+    else
+        return oem_copyright;
+}
+
+const QString systemLogo()
+{
+    const QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
+    const QString logo_path = settings.value("system_info_vendor_logo").toString();
+    const QPixmap oem_logo(logo_path);
+
+    if (oem_logo.isNull())
+        return ":/systeminfo/themes/dark/icons/logo.png";
+    else
+        return logo_path;
+}
 
 namespace dcc{
 namespace systeminfo{
@@ -23,7 +49,8 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     SettingsGroup* bootGroup = new SettingsGroup();
 
     LogoItem* logo = new LogoItem;
-    logo->setDescription(tr("Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd."));
+    logo->setDescription(systemCopyright());
+    logo->setLogo(systemLogo());
 
     m_distroid = new TitleValueItem();
     m_distroid->setTitle(tr("Distribution:"));
