@@ -142,7 +142,10 @@ void NetworkModel::onDeviceListChanged(const QString &devices)
             const auto info = l.toObject();
             const QString path = info.value("Path").toString();
 
-            devSet << path;
+            if (devSet.contains(path))
+                continue;
+            else
+                devSet << path;
 
             NetworkDevice *d = device(path);
             if (!d)

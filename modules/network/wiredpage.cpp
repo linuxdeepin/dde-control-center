@@ -92,7 +92,7 @@ void WiredPage::setModel(NetworkModel *model)
 
 void WiredPage::initUI()
 {
-    refreshConnectionList();
+    emit requestConnectionsList(m_device->path());
 }
 
 void WiredPage::refreshConnectionList()
@@ -189,6 +189,10 @@ void WiredPage::checkActivatedConnection()
 
 void WiredPage::onDeviceStatusChanged(const NetworkDevice::DeviceStatus stat)
 {
+    // FIXME: when device not ready, ListDeviceConncections of deepin-daemon will return a empty list,
+    // we need to refetch data when device is ready.
+    emit requestConnectionsList(m_device->path());
+
     const bool unavailable = stat <= NetworkDevice::Unavailable;
 
     m_tipsGrp->setVisible(unavailable);

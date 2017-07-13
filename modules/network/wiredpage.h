@@ -28,6 +28,7 @@ public:
     void setModel(NetworkModel *model);
 
 signals:
+    void requestConnectionsList(const QString &devPath);
     void requestEditConnection(const QString &devPath, const QString &uuid) const;
     void requestCreateConnection(const QString &type, const QString &devPath) const;
     void requestActiveConnection(const QString &devPath, const QString &uuid) const;
