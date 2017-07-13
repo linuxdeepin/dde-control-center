@@ -99,7 +99,7 @@
         <translation>Anteontem</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="186"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="184"/>
         <source>No system notifications</source>
         <translation>Sem notificações de sistema</translation>
     </message>
@@ -114,7 +114,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation>Certifique-se que todos os seus dados estão devidamente guardados</translation>
+        <translation>Primeiro certifique-se que todos os dados foram guardados</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -135,7 +135,7 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../modules/display/rotatedialog.cpp" line="126"/>
+        <location filename="../modules/display/rotatedialog.cpp" line="137"/>
         <source>Left click to rotate and right click to exit</source>
         <translation>Clique esquerdo para rodar e clique direito para sair</translation>
     </message>
@@ -156,12 +156,12 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="46"/>
+        <location filename="../frame/settingswidget.cpp" line="48"/>
         <source>Reset all settings</source>
         <translation>Repor todas as definições</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="91"/>
+        <location filename="../frame/settingswidget.cpp" line="93"/>
         <source>All Settings</source>
         <translation>Todas as definições</translation>
     </message>
@@ -200,7 +200,7 @@
         <translation>A carregar meteorologia...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="153"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="159"/>
         <source>Just updated</source>
         <translation>Agora</translation>
     </message>
@@ -667,9 +667,9 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="221"/>
+        <location filename="../modules/display/displaymodule.cpp" line="222"/>
         <source>Wireless Screen Projection</source>
-        <translation>Projeção em Ecrã Sem Fios</translation>
+        <translation>Projeção de Ecrã Sem Fios</translation>
     </message>
 </context>
 <context>
@@ -697,7 +697,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="174"/>
         <source>Wireless Screen Projection</source>
-        <translation>Projeção em Ecrã Sem Fios</translation>
+        <translation>Projeção de Ecrã Sem Fios</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="96"/>
@@ -709,7 +709,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="122"/>
+        <location filename="../modules/display/displayworker.cpp" line="130"/>
         <source>My Settings %1</source>
         <translation>Minhas Definições %1</translation>
     </message>
@@ -719,7 +719,7 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="18"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>A pesquisar por dispositivos, por favor aguarde...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="19"/>
@@ -747,7 +747,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="44"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Lista de Dispositivos</translation>
     </message>
 </context>
 <context>
@@ -791,7 +791,7 @@
         <translation>Primário</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="357"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="358"/>
         <source> (Recommended)</source>
         <translation>(Recomendado)</translation>
     </message>
@@ -967,7 +967,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="35"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation>Alterar Disposições (Diversas)</translation>
+        <translation>Alterar Disposições (Múltiplas)</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="63"/>
@@ -978,7 +978,7 @@
 <context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
-        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="24"/>
+        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="25"/>
         <source>Add Keyboard Layout</source>
         <translation>Adicionar Esquema de Teclado</translation>
     </message>
@@ -1278,28 +1278,28 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="56"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="57"/>
         <source>Disconnect</source>
         <translation>Desligar</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="58"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="59"/>
         <source>Delete</source>
         <translation>Eliminar</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="66"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="67"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="67"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="68"/>
         <source>Save</source>
         <translation>Guardar</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="308"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="390"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="314"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="396"/>
         <source>Required</source>
         <translation>Obrigatório</translation>
     </message>
@@ -1350,32 +1350,32 @@
 <context>
     <name>dcc::network::NetworkDevice</name>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="55"/>
+        <location filename="../modules/network/networkdevice.cpp" line="56"/>
         <source>Disconnected</source>
         <translation>Desligado</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="57"/>
+        <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Connecting</source>
         <translation>A conectar</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="58"/>
+        <location filename="../modules/network/networkdevice.cpp" line="59"/>
         <source>Authenticating</source>
         <translation>A autenticar</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="60"/>
+        <location filename="../modules/network/networkdevice.cpp" line="61"/>
         <source>Obtaining Address</source>
         <translation>A Obter Endereço</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="61"/>
+        <location filename="../modules/network/networkdevice.cpp" line="62"/>
         <source>Connected</source>
         <translation>Ligado</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="63"/>
+        <location filename="../modules/network/networkdevice.cpp" line="64"/>
         <source>Failed</source>
         <translation>Falhou</translation>
     </message>
@@ -1551,37 +1551,37 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="182"/>
+        <location filename="../modules/network/vpnpage.cpp" line="183"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="185"/>
+        <location filename="../modules/network/vpnpage.cpp" line="186"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="188"/>
+        <location filename="../modules/network/vpnpage.cpp" line="189"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="191"/>
+        <location filename="../modules/network/vpnpage.cpp" line="192"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="194"/>
+        <location filename="../modules/network/vpnpage.cpp" line="195"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="197"/>
+        <location filename="../modules/network/vpnpage.cpp" line="198"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="222"/>
+        <location filename="../modules/network/vpnpage.cpp" line="223"/>
         <source>New VPN</source>
         <translation>Nova VPN</translation>
     </message>
@@ -1591,22 +1591,22 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="30"/>
         <source>Setting List</source>
-        <translation type="unfinished"/>
+        <translation>Lista de Definições</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="34"/>
         <source>Please firstly plug in the network cable</source>
-        <translation type="unfinished"/>
+        <translation>Por favor ligue primeiro o cabo de rede</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="40"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar Definições</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="55"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar Definições</translation>
     </message>
 </context>
 <context>
@@ -1662,12 +1662,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="86"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="88"/>
         <source>Standard Font</source>
         <translation>Tipo de Letra Padrão</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="95"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="97"/>
         <source>Monospaced Font</source>
         <translation>Tipo de Letra Mono Espaçada</translation>
     </message>
@@ -1676,17 +1676,22 @@
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
+        <source>Enable window effect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="30"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="29"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="31"/>
         <source>Font</source>
         <translation>Tipo de letra</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="98"/>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="34"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="37"/>
         <source>Personalization</source>
         <translation>Personalização</translation>
     </message>
@@ -1833,17 +1838,17 @@
         <translation>Altifalantes</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="66"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="67"/>
         <source>Microphone</source>
         <translation>Microfone</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="89"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="90"/>
         <source>Advanced</source>
         <translation>Avançado</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="92"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="93"/>
         <source>Sound Effects</source>
         <translation>Efeitos de Som</translation>
     </message>
@@ -1883,62 +1888,62 @@
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="108"/>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="19"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="45"/>
         <source>System Information</source>
         <translation>Informações do Sistema</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="26"/>
-        <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Direitos de Cópia © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="29"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="56"/>
         <source>Distribution:</source>
         <translation>Distribuição:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="34"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="61"/>
         <source>Distribution Release:</source>
         <translation>Data de Lançamento da Distribuição:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
         <source>Edition License:</source>
         <translation>Licença de Edição:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Type:</source>
         <translation>Tipo:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="71"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Boot Menu</source>
         <translation>Menu de Arranque</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="150"/>
         <source>%1Bit</source>
         <translation>%1Bit</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="46"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="73"/>
         <source>Processor:</source>
         <translation>Processador:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="50"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="18"/>
+        <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>Direitos de Cópia © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Memory:</source>
         <translation>Memória:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="54"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Disk:</source>
         <translation>Disco:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
         <source>License</source>
         <translation>Licença</translation>
     </message>
@@ -2038,7 +2043,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation>Por favor reinicie para usar devidamente o sistema e as suas aplicações depois da atualização</translation>
+        <translation>Por favor reinicie para usar devidamente o sistema e aplicações depois da atualização</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="135"/>
@@ -2058,17 +2063,17 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation>A versão mais recente do sistema foi instalada, reinicie para concluir a instalação da mesma</translation>
+        <translation>A versão mais recente do sistema foi instalada, reinicie para produzir efeito</translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>%n atualização de aplicações detetada</numerusform><numerusform>%n atualizações de aplicações detetadas</numerusform></translation>
+        <translation><numerusform>detetada atualização para %n aplicação(ões)</numerusform><numerusform>detetadas atualizações para %n aplicação(ões)</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Nova edição de sistema e %n atualização de aplicações detetada</numerusform><numerusform>Nova edição de sistema e %n atualizações de aplicações detetadas</numerusform></translation>
+        <translation><numerusform>Detetada atualização para %n aplicação(ões) e nova edição de sistema</numerusform><numerusform>Detetadas atualizações para %n aplicação(ões) e nova edição de sistema</numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
@@ -2078,7 +2083,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>New system edition detected</source>
-        <translation>Nova versão de sistema detetada</translation>
+        <translation>Detetada nova versão de sistema</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>

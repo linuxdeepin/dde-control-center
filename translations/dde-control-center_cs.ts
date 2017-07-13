@@ -99,7 +99,7 @@
         <translation>Předevčírem</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="186"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="184"/>
         <source>No system notifications</source>
         <translation>Žádná systémová upozornění</translation>
     </message>
@@ -135,7 +135,7 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../modules/display/rotatedialog.cpp" line="126"/>
+        <location filename="../modules/display/rotatedialog.cpp" line="137"/>
         <source>Left click to rotate and right click to exit</source>
         <translation>Klepnutí levým tlačítkem myši pro otočení a klepnutí pravým tlačítkem pro ukončení</translation>
     </message>
@@ -156,12 +156,12 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="46"/>
+        <location filename="../frame/settingswidget.cpp" line="48"/>
         <source>Reset all settings</source>
         <translation>Vrátit všechna nastavení znovu na výchozí</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="91"/>
+        <location filename="../frame/settingswidget.cpp" line="93"/>
         <source>All Settings</source>
         <translation>Všechna nastavení</translation>
     </message>
@@ -200,7 +200,7 @@
         <translation>Nahrává se počasí...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="153"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="159"/>
         <source>Just updated</source>
         <translation>Právě aktualizováno</translation>
     </message>
@@ -667,9 +667,9 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="221"/>
+        <location filename="../modules/display/displaymodule.cpp" line="222"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Bezdrátové promítání na plátno</translation>
     </message>
 </context>
 <context>
@@ -697,7 +697,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="174"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Bezdrátové promítání na plátno</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="96"/>
@@ -709,7 +709,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="122"/>
+        <location filename="../modules/display/displayworker.cpp" line="130"/>
         <source>My Settings %1</source>
         <translation>Moje nastavení %1</translation>
     </message>
@@ -719,12 +719,12 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="18"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Hledají se zařízení. Počkejte, prosím...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="19"/>
         <source>No available device found</source>
-        <translation type="unfinished"/>
+        <translation>Nenalezeno žádné dostupné zařízení</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="22"/>
@@ -747,7 +747,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="44"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Seznam zařízení</translation>
     </message>
 </context>
 <context>
@@ -791,7 +791,7 @@
         <translation>Primární</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="357"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="358"/>
         <source> (Recommended)</source>
         <translation>(doporučeno)</translation>
     </message>
@@ -978,7 +978,7 @@
 <context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
-        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="24"/>
+        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="25"/>
         <source>Add Keyboard Layout</source>
         <translation>Přidat rozvržení klávesnice</translation>
     </message>
@@ -1278,28 +1278,28 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="56"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="57"/>
         <source>Disconnect</source>
         <translation>Odpojit</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="58"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="59"/>
         <source>Delete</source>
         <translation>Smazat</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="66"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="67"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="67"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="68"/>
         <source>Save</source>
         <translation>Uložit</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="308"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="390"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="314"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="396"/>
         <source>Required</source>
         <translation>Požadováno</translation>
     </message>
@@ -1350,32 +1350,32 @@
 <context>
     <name>dcc::network::NetworkDevice</name>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="55"/>
+        <location filename="../modules/network/networkdevice.cpp" line="56"/>
         <source>Disconnected</source>
         <translation>Odpojeno</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="57"/>
+        <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Connecting</source>
         <translation>Připojuje se</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="58"/>
+        <location filename="../modules/network/networkdevice.cpp" line="59"/>
         <source>Authenticating</source>
         <translation>Ověřování</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="60"/>
+        <location filename="../modules/network/networkdevice.cpp" line="61"/>
         <source>Obtaining Address</source>
         <translation>Získání adresy</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="61"/>
+        <location filename="../modules/network/networkdevice.cpp" line="62"/>
         <source>Connected</source>
         <translation>Připojeno</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="63"/>
+        <location filename="../modules/network/networkdevice.cpp" line="64"/>
         <source>Failed</source>
         <translation>Nepodařilo se</translation>
     </message>
@@ -1551,37 +1551,37 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="182"/>
+        <location filename="../modules/network/vpnpage.cpp" line="183"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="185"/>
+        <location filename="../modules/network/vpnpage.cpp" line="186"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="188"/>
+        <location filename="../modules/network/vpnpage.cpp" line="189"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="191"/>
+        <location filename="../modules/network/vpnpage.cpp" line="192"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="194"/>
+        <location filename="../modules/network/vpnpage.cpp" line="195"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="197"/>
+        <location filename="../modules/network/vpnpage.cpp" line="198"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="222"/>
+        <location filename="../modules/network/vpnpage.cpp" line="223"/>
         <source>New VPN</source>
         <translation>Nová VPN</translation>
     </message>
@@ -1591,22 +1591,22 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="30"/>
         <source>Setting List</source>
-        <translation type="unfinished"/>
+        <translation>Nastavuje se seznam</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="34"/>
         <source>Please firstly plug in the network cable</source>
-        <translation type="unfinished"/>
+        <translation>Nejprve, prosím, zastrčte síťový kabel</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="40"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>Přidat nastavení</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="55"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>Vybrat nastavení</translation>
     </message>
 </context>
 <context>
@@ -1662,12 +1662,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="86"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="88"/>
         <source>Standard Font</source>
         <translation>Obvyklé písmo</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="95"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="97"/>
         <source>Monospaced Font</source>
         <translation>Písmo s pevnou šířkou</translation>
     </message>
@@ -1676,17 +1676,22 @@
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
+        <source>Enable window effect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="30"/>
         <source>Theme</source>
         <translation>Vzhled</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="29"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="31"/>
         <source>Font</source>
         <translation>Písmo</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="98"/>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="34"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="37"/>
         <source>Personalization</source>
         <translation>Přizpůsobení</translation>
     </message>
@@ -1833,17 +1838,17 @@
         <translation>Reproduktor</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="66"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="67"/>
         <source>Microphone</source>
         <translation>Mikrofon</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="89"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="90"/>
         <source>Advanced</source>
         <translation>Pokročilé</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="92"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="93"/>
         <source>Sound Effects</source>
         <translation>Zvukové efekty</translation>
     </message>
@@ -1883,62 +1888,62 @@
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="108"/>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="19"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="45"/>
         <source>System Information</source>
         <translation>Systémové informace</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="26"/>
-        <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Autorské právo (c) 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="29"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="56"/>
         <source>Distribution:</source>
         <translation>Distribuce:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="34"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="61"/>
         <source>Distribution Release:</source>
         <translation>Vydání distribuce:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
         <source>Edition License:</source>
         <translation>Licence vydání:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Type:</source>
         <translation>Typ:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="71"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Boot Menu</source>
         <translation>Nabídka pro zavedení</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="150"/>
         <source>%1Bit</source>
         <translation>%1bitový</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="46"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="73"/>
         <source>Processor:</source>
         <translation>Procesor:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="50"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="18"/>
+        <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>Autorské právo (c) 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Memory:</source>
         <translation>Paměť:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="54"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Disk:</source>
         <translation>Disk:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
         <source>License</source>
         <translation>Povolení</translation>
     </message>

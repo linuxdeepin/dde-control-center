@@ -65,7 +65,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="92"/>
         <source>Click to enter Display Module</source>
-        <translation>Klik om Display Module in te voeren</translation>
+        <translation>Klik om Weergave Module in te voeren</translation>
     </message>
 </context>
 <context>
@@ -99,7 +99,7 @@
         <translation>Eergisteren</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="186"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="184"/>
         <source>No system notifications</source>
         <translation>Geen systeemmeldingen</translation>
     </message>
@@ -135,7 +135,7 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../modules/display/rotatedialog.cpp" line="126"/>
+        <location filename="../modules/display/rotatedialog.cpp" line="137"/>
         <source>Left click to rotate and right click to exit</source>
         <translation>Linker muisknop klikken om te draaien en rechter muisknop klikken om te verlaten</translation>
     </message>
@@ -156,12 +156,12 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="46"/>
+        <location filename="../frame/settingswidget.cpp" line="48"/>
         <source>Reset all settings</source>
         <translation>Alle instellingen herstellen</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="91"/>
+        <location filename="../frame/settingswidget.cpp" line="93"/>
         <source>All Settings</source>
         <translation>Alle Instellingen</translation>
     </message>
@@ -200,7 +200,7 @@
         <translation>Bezig met laden van het weer...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="153"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="159"/>
         <source>Just updated</source>
         <translation>Zojuist bijgewerkt</translation>
     </message>
@@ -278,7 +278,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="50"/>
         <source>Create</source>
-        <translation>Creëren</translation>
+        <translation>Aanmaken</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="49"/>
@@ -667,7 +667,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="221"/>
+        <location filename="../modules/display/displaymodule.cpp" line="222"/>
         <source>Wireless Screen Projection</source>
         <translation>Draadloze Schermprojectie</translation>
     </message>
@@ -709,7 +709,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="122"/>
+        <location filename="../modules/display/displayworker.cpp" line="130"/>
         <source>My Settings %1</source>
         <translation>Mijn instellingen %1</translation>
     </message>
@@ -719,7 +719,7 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="18"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Scannen naar apparaten, even geduld aub ...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="19"/>
@@ -747,7 +747,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="44"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Apparaat lijst</translation>
     </message>
 </context>
 <context>
@@ -791,7 +791,7 @@
         <translation>Primair</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="357"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="358"/>
         <source> (Recommended)</source>
         <translation>(Aanbevolen)</translation>
     </message>
@@ -972,15 +972,15 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="63"/>
         <source>Add Keyboard Layout</source>
-        <translation>Voeg Lay-out van Toetsenbord Toe</translation>
+        <translation>Lay-out van Toetsenbord Toevoegen</translation>
     </message>
 </context>
 <context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
-        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="24"/>
+        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="25"/>
         <source>Add Keyboard Layout</source>
-        <translation>Voeg Toetsenbord Lay-out toe</translation>
+        <translation>Toetsenbord Lay-out toevoegen</translation>
     </message>
 </context>
 <context>
@@ -1278,28 +1278,28 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="56"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="57"/>
         <source>Disconnect</source>
         <translation>Verbinding verbreken</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="58"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="59"/>
         <source>Delete</source>
         <translation>Verwijderen</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="66"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="67"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="67"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="68"/>
         <source>Save</source>
         <translation>Opslaan</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="308"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="390"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="314"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="396"/>
         <source>Required</source>
         <translation>Verplicht</translation>
     </message>
@@ -1350,32 +1350,32 @@
 <context>
     <name>dcc::network::NetworkDevice</name>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="55"/>
+        <location filename="../modules/network/networkdevice.cpp" line="56"/>
         <source>Disconnected</source>
         <translation>Ontkoppeld</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="57"/>
+        <location filename="../modules/network/networkdevice.cpp" line="58"/>
         <source>Connecting</source>
         <translation>Bezig met verbinden</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="58"/>
+        <location filename="../modules/network/networkdevice.cpp" line="59"/>
         <source>Authenticating</source>
         <translation>Aan het authenticeren</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="60"/>
+        <location filename="../modules/network/networkdevice.cpp" line="61"/>
         <source>Obtaining Address</source>
         <translation>Adres Verkrijgen</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="61"/>
+        <location filename="../modules/network/networkdevice.cpp" line="62"/>
         <source>Connected</source>
         <translation>Verbonden</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="63"/>
+        <location filename="../modules/network/networkdevice.cpp" line="64"/>
         <source>Failed</source>
         <translation>Mislukt</translation>
     </message>
@@ -1551,37 +1551,37 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="182"/>
+        <location filename="../modules/network/vpnpage.cpp" line="183"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="185"/>
+        <location filename="../modules/network/vpnpage.cpp" line="186"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="188"/>
+        <location filename="../modules/network/vpnpage.cpp" line="189"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="191"/>
+        <location filename="../modules/network/vpnpage.cpp" line="192"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="194"/>
+        <location filename="../modules/network/vpnpage.cpp" line="195"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="197"/>
+        <location filename="../modules/network/vpnpage.cpp" line="198"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="222"/>
+        <location filename="../modules/network/vpnpage.cpp" line="223"/>
         <source>New VPN</source>
         <translation>Nieuwe VPN</translation>
     </message>
@@ -1591,22 +1591,22 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="30"/>
         <source>Setting List</source>
-        <translation type="unfinished"/>
+        <translation>Instellingen Lijst</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="34"/>
         <source>Please firstly plug in the network cable</source>
-        <translation type="unfinished"/>
+        <translation>Sluit eerst de netwerkkabel aan</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="40"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>Instellingen Toevoegen</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="55"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>Selecteer Instellingen</translation>
     </message>
 </context>
 <context>
@@ -1662,12 +1662,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="86"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="88"/>
         <source>Standard Font</source>
         <translation>Standaard Lettertype</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="95"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="97"/>
         <source>Monospaced Font</source>
         <translation>Monospaced Lettertype</translation>
     </message>
@@ -1676,17 +1676,22 @@
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
+        <source>Enable window effect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="30"/>
         <source>Theme</source>
         <translation>Thema</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="29"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="31"/>
         <source>Font</source>
         <translation>Lettertype</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="98"/>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="34"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="37"/>
         <source>Personalization</source>
         <translation>Personalisatie</translation>
     </message>
@@ -1833,17 +1838,17 @@
         <translation>Luidspreker</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="66"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="67"/>
         <source>Microphone</source>
         <translation>Microfoon</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="89"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="90"/>
         <source>Advanced</source>
         <translation>Geavanceerd</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="92"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="93"/>
         <source>Sound Effects</source>
         <translation>Geluidseffecten</translation>
     </message>
@@ -1883,62 +1888,62 @@
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="108"/>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="19"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="45"/>
         <source>System Information</source>
         <translation>Systeeminformatie</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="26"/>
-        <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="29"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="56"/>
         <source>Distribution:</source>
         <translation>Distributie:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="34"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="61"/>
         <source>Distribution Release:</source>
         <translation>Distributie Release:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
         <source>Edition License:</source>
         <translation>Editielicentie:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Type:</source>
-        <translation>Type:</translation>
+        <translation>Soort:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="71"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Boot Menu</source>
         <translation>Opstartmenu</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="150"/>
         <source>%1Bit</source>
         <translation>%1Bit</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="46"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="73"/>
         <source>Processor:</source>
         <translation>Processor:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="50"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="18"/>
+        <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Memory:</source>
         <translation>Geheugen:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="54"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Disk:</source>
         <translation>Schijf:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
         <source>License</source>
         <translation>Licentie</translation>
     </message>

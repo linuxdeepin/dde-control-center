@@ -99,7 +99,7 @@
         <translation>ئۈلۈشكۈن</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="186"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="184"/>
         <source>No system notifications</source>
         <translation>ھېچقانداق سىستېما ئۇقتۇرۇشى يوق</translation>
     </message>
@@ -135,7 +135,7 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../modules/display/rotatedialog.cpp" line="126"/>
+        <location filename="../modules/display/rotatedialog.cpp" line="137"/>
         <source>Left click to rotate and right click to exit</source>
         <translation>سول كۇنۇپكىنى چېكىپ ئايلاندۇرۇڭ ھەمدە ئوڭ كۇنۇپكىنى چېكىپ چىكىنىڭ</translation>
     </message>
@@ -156,12 +156,12 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="46"/>
+        <location filename="../frame/settingswidget.cpp" line="48"/>
         <source>Reset all settings</source>
         <translation>بارلىق تەڭشەكلەرنى قايتىدىن بېكىتىش</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="91"/>
+        <location filename="../frame/settingswidget.cpp" line="93"/>
         <source>All Settings</source>
         <translation>بارلىق تەڭشەكلەر</translation>
     </message>
@@ -200,7 +200,7 @@
         <translation>ھاۋارايى ئۇچۇرىغا ئېرىشىۋاتىدۇ...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="153"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="159"/>
         <source>Just updated</source>
         <translation>پەقەت يېڭىلاندى</translation>
     </message>
@@ -438,7 +438,7 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="25"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>بۇبۇ پارول ئۇلىنىۋاتقان ئۈسكۈنە:</translation>
+        <translation>بۇ پارول ئۇلىنىۋاتقان ئۈسكۈنە:</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="33"/>
@@ -667,7 +667,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="221"/>
+        <location filename="../modules/display/displaymodule.cpp" line="222"/>
         <source>Wireless Screen Projection</source>
         <translation>سىمسىز ئېكران تەسۋىرى چۈشۈرۈش</translation>
     </message>
@@ -709,7 +709,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="122"/>
+        <location filename="../modules/display/displayworker.cpp" line="130"/>
         <source>My Settings %1</source>
         <translation>تەڭشىكىم %1</translation>
     </message>
@@ -755,7 +755,7 @@
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="22"/>
         <source>Recognize</source>
-        <translation type="unfinished"/>
+        <translation>تونۇش</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="29"/>
@@ -791,7 +791,7 @@
         <translation>ھالقىلىق</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="357"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="358"/>
         <source> (Recommended)</source>
         <translation>(تەۋسىيە قىلىنىدۇ)</translation>
     </message>
@@ -978,7 +978,7 @@
 <context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
-        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="24"/>
+        <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="25"/>
         <source>Add Keyboard Layout</source>
         <translation>كۇنۇپكا تاختىسى ئورۇنلاشتۇرۇلۇشى قوشۇش</translation>
     </message>
@@ -1077,7 +1077,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>تىزلەتمە كۇنۇپكىنى قايتا تەڭشەڭ</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
@@ -1156,7 +1156,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="39"/>
         <source>Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>سۈكۈتتىكى تىزلەتمە كۇنۇپكا</translation>
     </message>
 </context>
 <context>
@@ -1164,12 +1164,12 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="27"/>
         <source>Left Hand</source>
-        <translation type="unfinished"/>
+        <translation>سول ئىسترېلكا</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>خەت يېزىۋاتقاندا سېزىمچان تاختا ئىشلىمىسۇن</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="38"/>
@@ -1179,12 +1179,12 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="38"/>
         <source>Fast</source>
-        <translation>تىز</translation>
+        <translation>تېز</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="40"/>
         <source>Double-click Speed</source>
-        <translation type="unfinished"/>
+        <translation>قوش چېكىش تېزلىكى</translation>
     </message>
 </context>
 <context>
@@ -1192,7 +1192,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="19"/>
         <source>Double-click Test</source>
-        <translation type="unfinished"/>
+        <translation>قوش چېكىش سىنىقى</translation>
     </message>
 </context>
 <context>
@@ -1200,7 +1200,7 @@
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="25"/>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>مائۇس غالتىكىنى سىيرىلىش</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="29"/>
@@ -1210,12 +1210,12 @@
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="29"/>
         <source>Fast</source>
-        <translation>تىز</translation>
+        <translation>تېز</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="30"/>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>ئىسترېلكا تېزلىكى</translation>
     </message>
 </context>
 <context>
@@ -1224,27 +1224,27 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="104"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="26"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>مائۇس</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="27"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation type="unfinished"/>
+        <translation>مائۇس ئۇلىسىڭىز سېزىمچان تاختا توختىتىلىدۇ</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="31"/>
         <source>TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>سېزىمچان تاختا</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="32"/>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>چېكىپ بىلىۋېلىڭ</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <source>Mouse and Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>مائۇس ۋە سېزىمچان تاختا</translation>
     </message>
 </context>
 <context>
@@ -1252,17 +1252,17 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="18"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>ئىز قوغلىغۇچ تېزلىكى</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="21"/>
         <source>Thinkpad Track Point</source>
-        <translation type="unfinished"/>
+        <translation>Thinkpad ئىز قوغلىغۇچ تېزلىكى</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="24"/>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>ئىسترېلكا تېزلىكى</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="32"/>
@@ -1278,28 +1278,28 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="56"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="57"/>
         <source>Disconnect</source>
         <translation>ئۈزۈش</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="58"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="59"/>
         <source>Delete</source>
         <translation>ئۆچۈرۈش</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="66"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="67"/>
         <source>Cancel</source>
         <translation>بىكار قىلىش</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="67"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="68"/>
         <source>Save</source>
         <translation>ساقلاش</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="308"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="390"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="314"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="396"/>
         <source>Required</source>
         <translation>زۆرۈر</translation>
     </message>
@@ -1309,75 +1309,75 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="28"/>
         <source>Network Details</source>
-        <translation type="unfinished"/>
+        <translation>تور تەپسىلاتى</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="73"/>
         <source>MAC</source>
-        <translation type="unfinished"/>
+        <translation>MAC</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="82"/>
         <source>IPv4 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv4 ئادرېسى</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="87"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>قېچىپ كېتىش</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Primary DNS</source>
-        <translation type="unfinished"/>
+        <translation>شەخسىي DNS</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="97"/>
         <source>Netmask</source>
-        <translation type="unfinished"/>
+        <translation>تور قەۋىتى</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="103"/>
         <source>Interface</source>
-        <translation type="unfinished"/>
+        <translation>ئۇلىنىش ئېغىزى</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="108"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>تېزلىكى</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::NetworkDevice</name>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="55"/>
+        <location filename="../modules/network/networkdevice.cpp" line="56"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="57"/>
-        <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>ئۇلانمىدى</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="58"/>
-        <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <source>Connecting</source>
+        <translation>ئۇلىنىۋاتىدۇ</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="60"/>
-        <source>Obtaining Address</source>
-        <translation type="unfinished"/>
+        <location filename="../modules/network/networkdevice.cpp" line="59"/>
+        <source>Authenticating</source>
+        <translation>دەلىللەۋاتىدۇ</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="61"/>
+        <source>Obtaining Address</source>
+        <translation>ئادرېسىغا ئېرىشىۋاتىدۇ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdevice.cpp" line="62"/>
         <source>Connected</source>
         <translation>ئۇلاندى</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdevice.cpp" line="63"/>
+        <location filename="../modules/network/networkdevice.cpp" line="64"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation>ئوڭۇشلۇق بولمىدى</translation>
     </message>
 </context>
 <context>
@@ -1385,68 +1385,68 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="26"/>
         <source>DSL</source>
-        <translation type="unfinished"/>
+        <translation>DSL</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="27"/>
         <source>VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="28"/>
         <source>Proxy</source>
-        <translation type="unfinished"/>
+        <translation>ۋاكالەتچىلىك</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="30"/>
         <source>Network Details</source>
-        <translation type="unfinished"/>
+        <translation>تور تەپسىلاتى</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="99"/>
         <location filename="../modules/network/networkmodulewidget.cpp" line="47"/>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>تور</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
         <source>Wired Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>ئۇلانغان تور كارتا %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="152"/>
         <source>Wired Network Card</source>
-        <translation type="unfinished"/>
+        <translation>ئۇلانغان تور كارتا</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="153"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>سىملىق تور</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="148"/>
         <source>Wired Network%1</source>
-        <translation type="unfinished"/>
+        <translation>سىملىق تور %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="160"/>
         <source>Wireless Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>ئۇلانغان سىمسىز تور كارتا %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="165"/>
         <source>Wireless Network Card</source>
-        <translation type="unfinished"/>
+        <translation>ئۇلانغان سىمسىز تور كارتا</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="166"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>سىمسىز تور</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="161"/>
         <source>Wireless Network%1</source>
-        <translation type="unfinished"/>
+        <translation>سىمسىز تور %1</translation>
     </message>
 </context>
 <context>
@@ -1454,12 +1454,12 @@
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="25"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <translation>PPPoE ئۇلىنىشى قۇرۇش</translation>
     </message>
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="39"/>
         <source>PPP</source>
-        <translation type="unfinished"/>
+        <translation>PPP</translation>
     </message>
 </context>
 <context>
@@ -1482,17 +1482,17 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="35"/>
         <source>Manual</source>
-        <translation type="unfinished"/>
+        <translation>قولدا</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="36"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>ئاپتوماتىك</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="66"/>
         <source>Http Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Http ۋاكالەتچىلىكى</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
@@ -1500,37 +1500,37 @@
         <location filename="../modules/network/proxypage.cpp" line="78"/>
         <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>ئېغىز</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="71"/>
         <source>Https Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Https ۋاكالەتچىلىكى</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="76"/>
         <source>Ftp Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Ftp ۋاكالەتچىلىكى</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="81"/>
         <source>Socks Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Socks ۋاكالەتچىلىكى</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="90"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>نۆۋەتتىكى ۋاكالەتچى سەپلىمىلىرىدە ئاۋۋالقى كومپيۇتېر ۋە دائىرە تەڭشەكلىرىگە ئېتىبارسىز قاراش</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="93"/>
         <source>Configuration URL</source>
-        <translation type="unfinished"/>
+        <translation>سەپلىمە ئادرېسى</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="150"/>
         <source>System Proxy</source>
-        <translation type="unfinished"/>
+        <translation>سىستېما ۋاكالەتچىلىكى</translation>
     </message>
 </context>
 <context>
@@ -1538,52 +1538,52 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="27"/>
         <source>VPN Status</source>
-        <translation type="unfinished"/>
+        <translation>VPN ھالىتى</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="30"/>
         <source>Create VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN قۇرۇش</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="48"/>
         <source>VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="182"/>
+        <location filename="../modules/network/vpnpage.cpp" line="183"/>
         <source>L2TP</source>
-        <translation type="unfinished"/>
+        <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="185"/>
+        <location filename="../modules/network/vpnpage.cpp" line="186"/>
         <source>PPTP</source>
-        <translation type="unfinished"/>
+        <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="188"/>
+        <location filename="../modules/network/vpnpage.cpp" line="189"/>
         <source>VPNC</source>
-        <translation type="unfinished"/>
+        <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="191"/>
+        <location filename="../modules/network/vpnpage.cpp" line="192"/>
         <source>OpenVPN</source>
-        <translation type="unfinished"/>
+        <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="194"/>
+        <location filename="../modules/network/vpnpage.cpp" line="195"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="197"/>
+        <location filename="../modules/network/vpnpage.cpp" line="198"/>
         <source>OpenConnect</source>
-        <translation type="unfinished"/>
+        <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="222"/>
+        <location filename="../modules/network/vpnpage.cpp" line="223"/>
         <source>New VPN</source>
-        <translation type="unfinished"/>
+        <translation>يېڭى VPN</translation>
     </message>
 </context>
 <context>
@@ -1591,22 +1591,22 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="30"/>
         <source>Setting List</source>
-        <translation type="unfinished"/>
+        <translation>تەڭشەك تىزىملىكى</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="34"/>
         <source>Please firstly plug in the network cable</source>
-        <translation type="unfinished"/>
+        <translation>ئاۋۋال تور سىمىنى ئۇلاڭ</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="40"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>تەڭشەك قوشۇش</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="55"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>تەڭشەك تاللاش</translation>
     </message>
 </context>
 <context>
@@ -1619,7 +1619,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="49"/>
         <source>WLAN</source>
-        <translation type="unfinished"/>
+        <translation>سىمسىز تور</translation>
     </message>
 </context>
 <context>
@@ -1627,7 +1627,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="58"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation>(قوللىمايدىغان خەت نۇسخىسى)</translation>
     </message>
 </context>
 <context>
@@ -1635,12 +1635,12 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="20"/>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>ئۆلچەملىك خەت نۇسخىسى</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="21"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Monospaced خەت نۇسخىسى</translation>
     </message>
 </context>
 <context>
@@ -1648,7 +1648,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsizewidget.cpp" line="16"/>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>چوڭلۇقى</translation>
     </message>
 </context>
 <context>
@@ -1656,39 +1656,44 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="27"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>خەت نۇسخىسى</translation>
     </message>
 </context>
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="86"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="88"/>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>ئۆلچەملىك خەت نۇسخىسى</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="95"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="97"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Monospaced خەت نۇسخىسى</translation>
     </message>
 </context>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
-        <source>Theme</source>
+        <source>Enable window effect</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="29"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="30"/>
+        <source>Theme</source>
+        <translation>ئۇسلۇب</translation>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="31"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>خەت نۇسخىسى</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="98"/>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="34"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="37"/>
         <source>Personalization</source>
-        <translation type="unfinished"/>
+        <translation>خاسلاشتۇرۇش</translation>
     </message>
 </context>
 <context>
@@ -1696,7 +1701,7 @@
     <message>
         <location filename="../modules/personalization/widget/themeitem.cpp" line="54"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>سۈكۈتتىكى</translation>
     </message>
 </context>
 <context>
@@ -1704,22 +1709,22 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="15"/>
         <source>Window Theme</source>
-        <translation type="unfinished"/>
+        <translation>كۆزنەك ئۇسلۇبى</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="16"/>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>سىن بەلگە ئۇسلۇبى</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="17"/>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>ئىسترېلكا ئۇسلۇبى</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="29"/>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>ئۇسلۇب</translation>
     </message>
 </context>
 <context>
@@ -1727,44 +1732,44 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="19"/>
         <source>Monitor will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>كۆرسەتكۈچ ئېكران ۋاقىتلىق توختىغاندىن كىيىن</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="20"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>كومپيۇتېر ۋاقىتلىق توختىغاندىن كىيىن</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="30"/>
         <location filename="../modules/power/powerwidget.cpp" line="113"/>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>ھېچقايسىسى ئەمەس</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="49"/>
         <source>Password required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>ئېكران ئويغانغاندا پارول تەلەپ قىلسۇن</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="52"/>
         <source>Password required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>كومپيۇتېر ئويغانغاندا پارول تەلەپ قىلسۇن</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="55"/>
         <source>Suspend on lid close</source>
-        <translation type="unfinished"/>
+        <translation>ۋاقىتلىق توختىتىش</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="103"/>
         <location filename="../modules/power/powerwidget.cpp" line="62"/>
         <source>Power Management</source>
-        <translation type="unfinished"/>
+        <translation>توك مەنبە باشقۇرۇش</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="101"/>
         <source>1 Minute</source>
-        <translation type="unfinished"/>
+        <translation>1 مىنۇت</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="103"/>
@@ -1773,12 +1778,12 @@
         <location filename="../modules/power/powerwidget.cpp" line="109"/>
         <location filename="../modules/power/powerwidget.cpp" line="115"/>
         <source>%1 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>%1 مىنۇت</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="111"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 سائەت</translation>
     </message>
 </context>
 <context>
@@ -1786,17 +1791,17 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="21"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>چىقىرىش</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="22"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>كىرگۈزۈش</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="24"/>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>ئالىي</translation>
     </message>
 </context>
 <context>
@@ -1804,48 +1809,48 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="27"/>
         <source>Output Volume</source>
-        <translation type="unfinished"/>
+        <translation>ياڭراتقۇ ئاۋاز مىقدارى</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="28"/>
         <source>Left/Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>ئوڭ سول ئاۋاز تەڭپۇڭلۇقى</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="31"/>
         <source>Input Volume</source>
-        <translation type="unfinished"/>
+        <translation>مىكروفون ئاۋاز مىقدارى</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="33"/>
         <source>Feedback Volume</source>
-        <translation type="unfinished"/>
+        <translation>ئەكس سادا ئاۋاز مىقدارى</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="101"/>
         <location filename="../modules/sound/soundwidget.cpp" line="42"/>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>ئاۋاز</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="44"/>
         <source>Speaker</source>
-        <translation type="unfinished"/>
+        <translation>كاناي</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="66"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="67"/>
         <source>Microphone</source>
-        <translation type="unfinished"/>
+        <translation>مىكروفون</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="89"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="90"/>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>ئالىي</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="92"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="93"/>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>ئاۋاز ئۈنۈملىرى</translation>
     </message>
 </context>
 <context>
@@ -1853,22 +1858,22 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="34"/>
         <source>Updating...</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلاۋاتىدۇ...</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="45"/>
         <source>Startup Delay</source>
-        <translation type="unfinished"/>
+        <translation>قوزغىلىشنى ساقلاش</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="48"/>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>ئۇسلۇب</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="50"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation type="unfinished"/>
+        <translation>باشقا قوزغىتىش تەسۋىرىنى مائۇس بىلەن سۆرەپ تاشلاپ بۇ قوزغىلىش تەسۋىرىگە ئالماشتۇرالايسىز ھەمدە بۇ قوزغىلىش تىزىملىكىنى سۆرەپ خالىغانچە تەرتىپلىيەلەيسىز</translation>
     </message>
 </context>
 <context>
@@ -1876,71 +1881,71 @@
     <message>
         <location filename="../modules/systeminfo/copyrightwidget.cpp" line="61"/>
         <source>License</source>
-        <translation type="unfinished"/>
+        <translation>ئىجازەتنامە</translation>
     </message>
 </context>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="108"/>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="19"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="45"/>
         <source>System Information</source>
-        <translation type="unfinished"/>
+        <translation>سىستېما تەپسىلاتلىرى</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="26"/>
-        <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="29"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="56"/>
         <source>Distribution:</source>
-        <translation type="unfinished"/>
+        <translation>جايلىشىشى: </translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="34"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="61"/>
         <source>Distribution Release:</source>
-        <translation type="unfinished"/>
+        <translation>تارقىتىشى: </translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="39"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
         <source>Edition License:</source>
-        <translation type="unfinished"/>
+        <translation>نەشىر ئىجازەتنامىسى: </translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Type:</source>
-        <translation type="unfinished"/>
+        <translation>تىپى: </translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="71"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>قوزغىلىش تىزىملىكى</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="150"/>
         <source>%1Bit</source>
-        <translation type="unfinished"/>
+        <translation>%1 بىت</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="46"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="73"/>
         <source>Processor:</source>
-        <translation type="unfinished"/>
+        <translation>بىر تەرەپ قىلغۇچ: </translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="50"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="18"/>
+        <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>بارلىق ھوقۇق © 2011-2017 ۋۇخەن Deepin  پەن-تېخنىكا چەكلىك شىركىتىگە تەۋە</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Memory:</source>
-        <translation type="unfinished"/>
+        <translation>ئىچكى ساقلىغۇچ: </translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="54"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Disk:</source>
-        <translation type="unfinished"/>
+        <translation>دىسكا: </translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="67"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
         <source>License</source>
-        <translation type="unfinished"/>
+        <translation>ئىجازەتنامە</translation>
     </message>
 </context>
 <context>
@@ -1949,13 +1954,13 @@
         <location filename="../modules/update/mirroritem.cpp" line="12"/>
         <location filename="../modules/update/mirroritem.cpp" line="107"/>
         <source>Untested</source>
-        <translation type="unfinished"/>
+        <translation>سىناق قىلىنمىغان</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="55"/>
         <location filename="../modules/update/mirroritem.cpp" line="103"/>
         <source>Timeout</source>
-        <translation type="unfinished"/>
+        <translation>ۋاقىت ئېشىپ كەتتى</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="57"/>
@@ -1967,7 +1972,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="59"/>
         <location filename="../modules/update/mirroritem.cpp" line="105"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>ئوتتۇرىدا</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="61"/>
@@ -1981,17 +1986,17 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>تېزلىكنى سىناش</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
         <source>Switch Mirror</source>
-        <translation type="unfinished"/>
+        <translation>مەنبەنى ئالماشتۇرۇش</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>قايتا سىناش</translation>
     </message>
 </context>
 <context>
@@ -1999,12 +2004,12 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="36"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلاش ئوڭۇشلۇق بولدى </translation>
     </message>
     <message>
         <location filename="../modules/update/resultitem.cpp" line="37"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلاش مەغلۇپ بولدى</translation>
     </message>
 </context>
 <context>
@@ -2013,87 +2018,87 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="107"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="28"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلاش</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
         <source>Checking for updates, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلانما تەكشۈرۈۋاتىدۇ... سەل كۈتۈپ تۇرۇڭ...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
         <source>%1 downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1 چۈشۈرۈلۈپ بولدى(چېكىپ ۋاقىتلىق توختىتالايسىز)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="153"/>
         <source>%1 downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1 چۈشۈرۈلۈپ بولدى(چېكىپ داۋاملاشتۇرالايسىز)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>سىستېمىڭىزنىڭ نەشرى ئەڭ يېڭىسى ئىكەن</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلانغاندىن كىيىن كومپيۇتېرنى قايتا قوزغىتىپ ئىشلىتىشىڭىزنى تەۋسىيە قىلىمىز</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="135"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلانمىلارنى چۈشۈرۈش ۋە قاچىلاش</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="162"/>
         <source>Install updates</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلانمىلارنى قاچىلاش</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلىنىۋاتىدۇ... سەل كۈتۈپ تۇرۇڭ...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلانمىلار قاچىلاندى، قايتا قوزغاتسىڭىز كۈچكە ئىگە بولىدۇ</translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n ئەپنىڭ يېڭى نەشرى تىپىلدى</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>سىستېمىنىڭ يېڭى نۇسخىسى ۋە %n ئەپنىڭ يېڭى نەشرى تىپىلدى</numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1% چۈشۈرۈلدى(چېكىپ ۋاقىتلىق توختىتالايسىز)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>New system edition detected</source>
-        <translation type="unfinished"/>
+        <translation>سىستېمىنىڭ يېڭى نۇسخىسى تىپىلدى</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Update size: %1</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلانما چوڭلۇقى: %1</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="251"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation type="unfinished"/>
+        <translation>باتارېيە توك مىقدارىڭىز 50% دىن تۆۋەن، توكقا ئۇلاپ داۋاملاشتۇرۇڭ</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"/>
+        <translation>كومپيۇتېرنىڭ يېتەرلىك توك مىقدارىنى ساقلاڭ، توكتىن ئۈزۋەتمەڭ، ئۆچۈرمەڭ ياكى قايتا قوزغاتماڭ</translation>
     </message>
 </context>
 <context>
@@ -2101,7 +2106,7 @@
     <message>
         <location filename="../modules/update/updateitem.cpp" line="42"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>تەپسىلاتى</translation>
     </message>
 </context>
 <context>
@@ -2109,22 +2114,22 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="17"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلانما تەڭشىكى</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="30"/>
         <source>Auto-download Updates</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلانمىنى ئاپتوماتىك چۈشۈرۈش</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="32"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation type="unfinished"/>
+        <translation>سىمسىز ياكى سىملىق توردا يېڭىلانمىلار ئاپتوماتىك چۈشىدۇ</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="38"/>
         <source>Switch Mirror</source>
-        <translation type="unfinished"/>
+        <translation>مەنبەنى ئالماشتۇرۇش</translation>
     </message>
 </context>
 <context>
@@ -2133,12 +2138,12 @@
         <location filename="../modules/update/updateview.cpp" line="15"/>
         <location filename="../modules/update/updateview.cpp" line="27"/>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلاش</translation>
     </message>
     <message>
         <location filename="../modules/update/updateview.cpp" line="20"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلانما تەڭشىكى</translation>
     </message>
 </context>
 <context>
@@ -2146,12 +2151,12 @@
     <message>
         <location filename="../modules/update/updatework.cpp" line="340"/>
         <source>Patches</source>
-        <translation type="unfinished"/>
+        <translation>ياماقلار</translation>
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="343"/>
         <source>System patches.</source>
-        <translation type="unfinished"/>
+        <translation>سىستېما يامىقى</translation>
     </message>
 </context>
 <context>
@@ -2159,17 +2164,17 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="19"/>
         <source>Pressure Sensitive</source>
-        <translation type="unfinished"/>
+        <translation>جىددىي</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>
         <source>light</source>
-        <translation type="unfinished"/>
+        <translation>يورۇش</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>
         <source>heavy</source>
-        <translation type="unfinished"/>
+        <translation>كۆپ مىقداردىكى</translation>
     </message>
 </context>
 <context>
@@ -2178,7 +2183,7 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="106"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="28"/>
         <source>Wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
 </context>
 <context>
@@ -2194,7 +2199,7 @@
     <message>
         <location filename="../widgets/searchinput.cpp" line="14"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>ئىزدەش</translation>
     </message>
 </context>
 <context>
@@ -2202,7 +2207,7 @@
     <message>
         <location filename="../widgets/settingshead.cpp" line="24"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>تەھرىرلەش</translation>
     </message>
     <message>
         <location filename="../widgets/settingshead.cpp" line="27"/>
