@@ -54,13 +54,18 @@ void KeyboardModel::setLang(const QString &value)
     if (m_lang != value && !value.isEmpty()) {
         m_lang = value;
 
-        emit curLangChanged(langByKey(value));
+        const QString &key = langByKey(value);
+        if (!key.isEmpty())
+            emit curLangChanged(key);
     }
 }
 
 void KeyboardModel::setLocaleList(const QList<MetaData> &langs)
 {
     m_langs = langs;
+
+    if (!m_lang.isEmpty())
+        emit curLangChanged(langByKey(m_lang));
 
     emit langChanged(langs);
 }
