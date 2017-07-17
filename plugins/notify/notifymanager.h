@@ -31,7 +31,6 @@ public:
     ~NotifyManager();
 
 public slots:
-    void checkNotify();
     void onNotifyAdded(const QString &value);
 
 private slots:

@@ -46,8 +46,6 @@ signals:
     void searchCityDone(QList<City> &cities);
 
 private slots:
-    void replyFinished(QNetworkReply* reply);
-    void slotTimeout();
 
     void requestWeatherForecast(double latitude, double longitude);
     void requestGeoNameInfo(const QString &geonameId);
