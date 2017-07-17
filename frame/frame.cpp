@@ -59,10 +59,6 @@ Frame::Frame(QWidget *parent)
     connect(&m_appearAnimation, &QPropertyAnimation::finished, this, &Frame::adjustShadowMask, Qt::QueuedConnection);
 
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
-
-#ifdef DCC_KEEP_SETTINGS_LIVE
-    initAllSettings();
-#endif
 }
 
 void Frame::startup()
@@ -115,6 +111,10 @@ void Frame::init()
 
 #ifdef QT_DEBUG
 //    showSettingsPage("network", QString());
+#endif
+
+#ifdef DCC_KEEP_SETTINGS_LIVE
+    prepareAllSettingsPage();
 #endif
 }
 
