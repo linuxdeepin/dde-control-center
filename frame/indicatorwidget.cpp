@@ -24,6 +24,7 @@ IndicatorWidget::IndicatorWidget(QWidget *parent)
     centralLayout->addSpacing(15);
     centralLayout->addWidget(m_nextPluginBtn);
     centralLayout->addStretch();
+    centralLayout->setMargin(0);
 
     m_prevPluginBtn->setObjectName("PrevBtn");
     m_prevPluginBtn->setAccessibleName("PrevBtn");
@@ -34,7 +35,7 @@ IndicatorWidget::IndicatorWidget(QWidget *parent)
     m_prevPluginBtn->setVisible(false);
     m_nextPluginBtn->setVisible(false);
 
-    m_pluginsIndicator->setFixedHeight(22);
+    m_pluginsIndicator->setFixedHeight(40);
     m_pluginsIndicator->setPageCount(3);
 
     m_pluginsIndicator->setCurrentPage(0);
