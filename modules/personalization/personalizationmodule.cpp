@@ -49,8 +49,10 @@ ModuleWidget *PersonalizationModule::moduleWidget()
 {
     if (!m_personalizationWidget) {
         m_personalizationWidget = new PersonalizationWidget;
+        m_personalizationWidget->setModel(m_model);
         connect(m_personalizationWidget, &PersonalizationWidget::showThemeWidget, this, &PersonalizationModule::showThemeWidget);
         connect(m_personalizationWidget, &PersonalizationWidget::showFontsWidget, this, &PersonalizationModule::showFontsWidget);
+        connect(m_personalizationWidget, &PersonalizationWidget::requestSwitchWM, m_work, &PersonalizationWork::switchWM);
     }
     return m_personalizationWidget;
 }

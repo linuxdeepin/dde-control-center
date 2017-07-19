@@ -24,6 +24,11 @@ public:
     inline FontModel     *getStandFontModel() const {return m_standFontModel;}
     inline FontModel     *getMonoFontModel()  const {return m_monoFontModel;}
     inline FontSizeModel *getFontSizeModel()  const {return m_fontSizeModel;}
+    void setIs3DWm(const bool is3d);
+    bool is3DWm() const;
+
+signals:
+    void wmChanged(const bool is3d);
 
 private:
     ThemeModel    *m_windowModel;
@@ -32,6 +37,7 @@ private:
     FontModel     *m_standFontModel;
     FontModel     *m_monoFontModel;
     FontSizeModel *m_fontSizeModel;
+    bool m_is3DWm;
 };
 }
 }

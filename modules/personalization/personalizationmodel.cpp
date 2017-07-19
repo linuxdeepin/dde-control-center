@@ -21,3 +21,16 @@ PersonalizationModel::~PersonalizationModel()
 {
 
 }
+
+void PersonalizationModel::setIs3DWm(const bool is3d)
+{
+    if (is3d != m_is3DWm) {
+        m_is3DWm = is3d;
+        emit wmChanged(is3d);
+    }
+}
+
+bool PersonalizationModel::is3DWm() const
+{
+    return m_is3DWm;
+}

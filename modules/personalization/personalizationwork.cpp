@@ -12,7 +12,8 @@ const QString Path    = "/com/deepin/daemon/Appearance";
 PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *parent)
     : QObject(parent),
       m_model(model),
-      m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus(), this))
+      m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus(), this)),
+      m_wmSwitcher(new wm_switcher("com.deepin.wm_switcher", "/com/deepin/wm_switcher", QDBusConnection::sessionBus(), this))
 {
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();
@@ -28,19 +29,25 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     connect(m_dbus, &Appearance::FontSizeChanged, this, &PersonalizationWork::FontSizeChanged);
     connect(m_dbus, &Appearance::Refreshed, this, &PersonalizationWork::onRefreshedChanged);
 
+    connect(m_wmSwitcher, &wm_switcher::toggleWM, this, &PersonalizationWork::onToggleWM);
+
     m_dbus->setSync(false);
+    m_wmSwitcher->setSync(false);
 }
 
 void PersonalizationWork::active()
 {
     m_dbus->blockSignals(false);
+    m_wmSwitcher->blockSignals(false);
 
     onGetList();
+    onToggleWM();
 }
 
 void PersonalizationWork::deactive()
 {
     m_dbus->blockSignals(true);
+    m_wmSwitcher->blockSignals(true);
 }
 
 QList<QJsonObject> PersonalizationWork::converToList(const QString &type, QJsonArray &array)
@@ -170,6 +177,21 @@ void PersonalizationWork::onRefreshedChanged(const QString &type)
     }
 }
 
+void PersonalizationWork::onToggleWM()
+{
+  QDBusPendingCallWatcher *wmWatcher = new QDBusPendingCallWatcher(m_wmSwitcher->currentWM(), this);
+  connect(wmWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetCurrentWMFinished);
+}
+
+void PersonalizationWork::onGetCurrentWMFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QString> reply = w->reply();
+
+    m_model->setIs3DWm(reply.value() == "deepin wm");
+
+    w->deleteLater();
+}
+
 void PersonalizationWork::onGetList()
 {
     QDBusPendingReply<QString> standardFont = m_dbus->List("standardfont");
@@ -258,4 +280,9 @@ void PersonalizationWork::setDefault(const QJsonObject &value)
 void PersonalizationWork::setFontSize(const int value)
 {
     m_dbus->setFontSize(sliderValueToSize(value));
+}
+
+void PersonalizationWork::switchWM()
+{
+    m_wmSwitcher->requestSwitchWM();
 }
