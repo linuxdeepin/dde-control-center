@@ -15,7 +15,7 @@ const QString systemCopyright()
     const QString oem_copyright = settings.value("system_info_vendor_name").toString();
 
     if (oem_copyright.isEmpty())
-        return QApplication::translate("SystemInfoWidget", "Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.");
+        return QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.");
     else
         return oem_copyright;
 }
