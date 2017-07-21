@@ -7,17 +7,21 @@ DDE Control Center is the control panel of Deepin Desktop Environment.
 ### Build dependencies
 
 * qmake (>= 5.3)
-* [libdui](https://github.com/linuxdeepin/libdui) (developer package)
+* [deepin-tool-kit](https://github.com/linuxdeepin/deepin-tool-kit) (developer package)
 * [dde-dock](https://github.com/linuxdeepin/dde-dock) (developer package)
 
 ### Runtime dependencies
 
-* [libdui](https://github.com/linuxdeepin/libdui)
+* [deepin-tool-kit](https://github.com/linuxdeepin/deepin-tool-kit)
 * [dde-dock](https://github.com/linuxdeepin/dde-dock)
 * [dde-account-faces](https://github.com/linuxdeepin/dde-account-faces)
 * [dde-api](https://github.com/linuxdeepin/dde-api)
 * [dde-daemon](https://github.com/linuxdeepin/dde-daemon)
+* [startdde](https://github.com/linuxdeepin/startdde)
+* [dde-qt-dbus-factory](https://github.com/linuxdeepin/dde-qt-dbus-factory)
+* [deepin-qt5integration](https://github.com/linuxdeepin/deepin-qt5integration)
 * [deepin-artwork-themes](https://github.com/linuxdeepin/deepin-artwork-themes)
+* geoip-database
 * Qt5 (>= 5.3)
   * Qt5-DBus
   * Qt5-Multimedia
