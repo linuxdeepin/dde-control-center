@@ -39,6 +39,7 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     m_view = new IndexView();
     m_delegate = new IndexDelegate();
 
+    m_indexframe = nullptr;
 
     hlayout->addWidget(m_view);
 
@@ -99,7 +100,8 @@ void KeyboardLayoutWidget::onSearch(const QString &text)
     if(text.length() == 0)
     {
         m_view->setModel(m_model);
-        m_indexframe->show();
+        if (m_indexframe)
+            m_indexframe->show();
     }
     else
     {
@@ -115,7 +117,8 @@ void KeyboardLayoutWidget::onSearch(const QString &text)
         }
         m_searchModel->setMetaData(sdatas);
         m_view->setModel(m_searchModel);
-        m_indexframe->hide();
+        if (m_indexframe)
+            m_indexframe->hide();
     }
 }
 
