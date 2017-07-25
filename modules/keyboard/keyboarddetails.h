@@ -21,7 +21,7 @@ public:
     void setModel(KeyboardModel * model);
 
 signals:
-    void layoutAdded();
+    void layoutAdded(const QStringList &kblist);
     void requestCurLayoutAdded(const QString& value);
     void curLang(const QString& value);
     void delUserLayout(const QString& value);
@@ -34,6 +34,7 @@ public slots:
     void onDefault(const QString &value);
     void onSwitchKBChanged();
     void onSwitchKB(int kbSwitch);
+    void onLayoutAdded();
 
 private:
     bool m_bEdit;

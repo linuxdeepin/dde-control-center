@@ -43,7 +43,7 @@ public:
 
 public slots:
 #ifndef DCC_DISABLE_KBLAYOUT
-    void onPushKeyboard();
+    void onPushKeyboard(const QStringList &kblist);
     void onPushKBDetails();
 #endif
 #ifndef DCC_DISABLE_LANGUAGE

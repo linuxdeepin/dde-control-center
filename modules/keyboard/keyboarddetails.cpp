@@ -67,7 +67,7 @@ KeyboardDetails::KeyboardDetails(QWidget *parent)
 
     setContent(content);
 
-    connect(addBtn, SIGNAL(clicked()), this, SIGNAL(layoutAdded()));
+    connect(addBtn, &QPushButton::clicked, this, &KeyboardDetails::onLayoutAdded);
     connect(m_head, SIGNAL(editChanged(bool)), this ,SLOT(onEdit(bool)));
 
     connect(ctrlShift, &CheckItem::checkedChanged, this, &KeyboardDetails::onSwitchKBChanged);
@@ -170,6 +170,11 @@ void KeyboardDetails::onSwitchKB(int kbSwitch)
     for (auto it(m_switchCheckItem.begin()); it != m_switchCheckItem.end(); ++it) {
             it.key()->setChecked((kbSwitch & it.value()) != 0);
     }
+}
+
+void KeyboardDetails::onLayoutAdded()
+{
+    emit layoutAdded(m_maps.keys());
 }
 
 }

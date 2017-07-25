@@ -201,13 +201,24 @@ QString KeyboardModule::converKey(const QString &key)
 }
 
 #ifndef DCC_DISABLE_KBLAYOUT
-void KeyboardModule::onPushKeyboard()
+void KeyboardModule::onPushKeyboard(const QStringList &kblist)
 {
     if(!m_kbLayoutWidget)
     {
         m_work->onPinyin();
         m_kbLayoutWidget = new KeyboardLayoutWidget();
-        m_kbLayoutWidget->setMetaData(m_work->getDatas());
+
+        QList<MetaData> datas = m_work->getDatas();
+
+        for (auto it(datas.begin()); it != datas.end();) {
+            const MetaData &data = *it;
+            if (kblist.contains(data.key()))
+                it = datas.erase(it);
+            else
+                ++it;
+        }
+
+        m_kbLayoutWidget->setMetaData(datas);
         m_kbLayoutWidget->setLetters(m_work->getLetters());
 
         connect(m_kbLayoutWidget, &KeyboardLayoutWidget::layoutSelected, m_work, &KeyboardWork::addUserLayout);
@@ -223,7 +234,7 @@ void KeyboardModule::onPushKBDetails()
         m_work->onRefreshKBLayout();
         m_kbDetails = new KeyboardDetails();
         m_kbDetails->setModel(m_model);
-        connect(m_kbDetails, SIGNAL(layoutAdded()), this, SLOT(onPushKeyboard()));
+        connect(m_kbDetails, &KeyboardDetails::layoutAdded, this, &KeyboardModule::onPushKeyboard);
         connect(m_kbDetails, SIGNAL(requestCurLayoutAdded(QString)), this, SLOT(setCurrentLayout(QString)));
         connect(m_kbDetails, SIGNAL(delUserLayout(QString)), m_work, SLOT(delUserLayout(QString)));
         connect(m_kbDetails, &KeyboardDetails::requestSwitchKBLayout, m_work, &KeyboardWork::onSetSwitchKBLayout);
