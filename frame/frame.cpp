@@ -44,9 +44,11 @@ Frame::Frame(QWidget *parent)
     m_allSettingsPageKiller->setSingleShot(true);
     m_allSettingsPageKiller->setInterval(60 * 1000);
 
+    const qreal ratio = qApp->primaryScreen()->devicePixelRatio();
+
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
-    setMaximumWidth(FRAME_WIDTH);
+    setMaximumWidth(FRAME_WIDTH * ratio);
     setMaskColor(DBlurEffectWidget::DarkColor);
 
     resize(0, height());
@@ -236,7 +238,9 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
     m_primaryRect = primaryRect;
 
     setFixedHeight(m_primaryRect.height());
-    DBlurEffectWidget::move(m_primaryRect.right() - width() + 1, m_primaryRect.y());
+
+    const qreal ratio = qApp->primaryScreen()->devicePixelRatio();
+    DBlurEffectWidget::move(m_primaryRect.right() - width() * ratio + 1, m_primaryRect.y());
 }
 
 void Frame::onMouseButtonReleased(const int button, const int x, const int y, const QString &key)
@@ -258,8 +262,15 @@ void Frame::onMouseButtonReleased(const int button, const int x, const int y, co
         return;
     }
 
-    const QPoint p(pos());
-    if (rect().contains(x - p.x(), y - p.y())) {
+    const qreal ratio = qApp->primaryScreen()->devicePixelRatio();
+    const bool visible = isVisible();
+    const QPoint p = QPoint(visible ? m_primaryRect.right() - width() * ratio : m_primaryRect.right(), 0);
+
+    QRect r(rect());
+    r.setWidth(r.width() * ratio);
+    r.setHeight(r.height() * ratio);
+
+    if (r.contains(QPoint(x, y) - p)) {
         return;
     }
 
@@ -301,11 +312,13 @@ void Frame::show()
 
     Q_ASSERT(m_mouseAreaKey.isEmpty());
 
+    const qreal ratio = qApp->primaryScreen()->devicePixelRatio();
+
     // animation
     QRect r = m_primaryRect;
     r.setLeft(m_primaryRect.x() + m_primaryRect.width());
     m_appearAnimation.setStartValue(r);
-    r.setLeft(m_primaryRect.x() + m_primaryRect.width() - FRAME_WIDTH);
+    r.setLeft(m_primaryRect.x() + m_primaryRect.width() - FRAME_WIDTH * ratio);
     m_appearAnimation.setEndValue(r);
     m_appearAnimation.start();
 
