@@ -15,7 +15,7 @@
 #include <QStyle>
 
 DWIDGET_USE_NAMESPACE
-DUTIL_USE_NAMESPACE
+DCORE_USE_NAMESPACE
 
 static const QString getQssFromFile(const QString &name)
 {
@@ -224,7 +224,7 @@ int main(int argc, char *argv[])
 
 //#include <DLog>
 
-//DUTIL_USE_NAMESPACE
+//DCORE_USE_NAMESPACE
 //DWIDGET_USE_NAMESPACE
 
 //QString getQssFromFile(const QString &name)

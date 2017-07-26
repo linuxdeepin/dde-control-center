@@ -12,7 +12,7 @@ DESTDIR    = $$_PRO_FILE_PWD_/../
 TEMPLATE   = app
 CONFIG += c++11 link_pkgconfig
 LIBS += -L../widgets
-PKGCONFIG      += dtkwidget dtkbase dtkutil dframeworkdbus xcb xext gsettings-qt
+PKGCONFIG      += dtkwidget dframeworkdbus xcb xext gsettings-qt
 
 HEADERS    += \
     frame.h \
