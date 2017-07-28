@@ -45,11 +45,15 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
     m_updateInter->setSync(false);
     m_powerInter->setSync(false);
 
+    connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWork::onJobListChanged);
+
     connect(m_updateInter, &__Updater::AutoDownloadUpdatesChanged, m_model, &UpdateModel::setAutoDownloadUpdates);
     connect(m_updateInter, &__Updater::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
 
     connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWork::setOnBattery);
     connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWork::setBatteryPercentage);
+
+    onJobListChanged(m_managerInter->jobList());
 }
 
 void UpdateWork::activate()
@@ -80,9 +84,11 @@ void UpdateWork::deactivate()
 
 }
 
-
 void UpdateWork::checkForUpdates()
 {
+    if (m_checkUpdateJob || m_downloadJob || m_distUpgradeJob)
+        return;
+
     QDBusPendingCall call = m_managerInter->UpdateSource();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
@@ -191,12 +197,10 @@ void UpdateWork::testMirrorSpeed()
 
 void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
 {
-    m_model->setStatus(UpdatesStatus::Checking);
+    if (m_checkUpdateJob)
+        return;
 
-    if(m_checkUpdateJob) {
-        m_checkUpdateJob->deleteLater();
-        m_checkUpdateJob = nullptr;
-    }
+    m_model->setStatus(UpdatesStatus::Checking);
 
     m_checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
     connect(m_checkUpdateJob, &__Job::StatusChanged, [this] (const QString & status) {
@@ -214,15 +218,15 @@ void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
 
 void UpdateWork::setDownloadJob(const QString &jobPath)
 {
-    if (m_downloadJob) {
-        m_downloadJob->deleteLater();
-        m_downloadJob = nullptr;
-    }
+    if (m_downloadJob)
+        return;
+
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()), this);
+    connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWork::onAppUpdateInfoFinished);
 
     m_downloadJob = new JobInter("com.deepin.lastore",
                                  jobPath,
                                  QDBusConnection::systemBus(), this);
-    m_model->setStatus(UpdatesStatus::Downloading);
 
     connect(m_downloadJob, &__Job::ProgressChanged, [this] (double value){
         DownloadInfo *info = m_model->downloadInfo();
@@ -244,19 +248,23 @@ void UpdateWork::setDownloadJob(const QString &jobPath)
             distUpgradeInstallUpdates();
         }
     });
+
+    m_model->setStatus(UpdatesStatus::Downloading);
+    m_downloadJob->ProgressChanged(m_downloadJob->progress());
+    m_downloadJob->StatusChanged(m_downloadJob->status());
 }
 
 void UpdateWork::setDistUpgradeJob(const QString &jobPath)
 {
-    if (m_distUpgradeJob) {
-        m_distUpgradeJob->deleteLater();
-        m_distUpgradeJob = nullptr;
-    }
+    if (m_distUpgradeJob)
+        return;
+
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()), this);
+    connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWork::onAppUpdateInfoFinished);
 
     m_distUpgradeJob = new JobInter("com.deepin.lastore",
                                  jobPath,
                                  QDBusConnection::systemBus(), this);
-    m_model->setStatus(UpdatesStatus::Installing);
 
     connect(m_distUpgradeJob, &__Job::ProgressChanged, [this] (double value){
         m_model->setUpgradeProgress(m_baseProgress + (1 - m_baseProgress) * value);
@@ -279,6 +287,26 @@ void UpdateWork::setDistUpgradeJob(const QString &jobPath)
             file.close();
         }
     });
+
+    m_model->setStatus(UpdatesStatus::Installing);
+    m_distUpgradeJob->ProgressChanged(m_distUpgradeJob->progress());
+    m_distUpgradeJob->StatusChanged(m_distUpgradeJob->status());
+}
+
+void UpdateWork::onJobListChanged(const QList<QDBusObjectPath> & jobs)
+{
+    for (const auto &job : jobs)
+    {
+        const QString &path = job.path();
+        qDebug() << path;
+
+        if (path.contains("update"))
+            setCheckUpdatesJob(path);
+        else if (path.contains("upgrade"))
+            setDistUpgradeJob(path);
+        else if (path.contains("down"))
+            setDownloadJob(path);
+    }
 }
 
 void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)

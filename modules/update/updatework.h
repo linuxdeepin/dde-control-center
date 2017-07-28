@@ -48,6 +48,7 @@ private slots:
     void setDownloadJob(const QString &jobPath);
     void setDistUpgradeJob(const QString &jobPath);
 
+    void onJobListChanged(const QList<QDBusObjectPath> &jobs);
     void onAppUpdateInfoFinished(QDBusPendingCallWatcher *w);
 
     DownloadInfo *calculateDownloadInfo(const AppUpdateInfoList &list);
