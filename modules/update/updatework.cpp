@@ -431,6 +431,8 @@ AppUpdateInfo UpdateWork::getInfo(const AppUpdateInfo &packageInfo, const QStrin
 
         QJsonObject locales = object["locales"].toObject();
         QJsonObject locale = locales[QLocale::system().name()].toObject();
+        if (locale.isEmpty())
+            locale = locales["en_US"].toObject();
         QJsonObject changelog = locale["changelog"].toObject();
         QString versionedChangelog = fetchVersionedChangelog(changelog, info.m_avilableVersion);
 
