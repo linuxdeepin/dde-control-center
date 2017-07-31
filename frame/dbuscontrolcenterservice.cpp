@@ -115,12 +115,15 @@ void DBusControlCenterService::ShowHome()
     parent()->backToHome();
 }
 
-void DBusControlCenterService::ShowModule(const QString &name)
+void DBusControlCenterService::ShowModule(const QString &module)
+{
+    ShowPage(module, QString());
+}
+
+void DBusControlCenterService::ShowPage(const QString &module, const QString &page)
 {
     // handle method call com.deepin.dde.ControlCenter.ShowModule
-    //parent()->ShowModule(name);
-//    parent()->selectModule(name);
-    parent()->showSettingsPage(name, QString());
+    parent()->showSettingsPage(module, page);
 }
 
 void DBusControlCenterService::SetAutoHide(const bool autoHide)

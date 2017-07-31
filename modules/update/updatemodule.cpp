@@ -82,9 +82,8 @@ const QString UpdateModule::name() const
 
 void UpdateModule::showPage(const QString &pageName)
 {
-    if (pageName == "available-updates") {
+    if (pageName == "available-updates")
         onPushUpdate();
-    }
 }
 
 void UpdateModule::onPushUpdate()
