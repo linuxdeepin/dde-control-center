@@ -1677,7 +1677,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
         <source>Enable window effect</source>
-        <translation type="unfinished"/>
+        <translation>Fenstereffekte aktivieren</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="30"/>
@@ -1732,12 +1732,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="19"/>
         <source>Monitor will suspend after</source>
-        <translation>Monitor wird in den Ruhezustand versetzt nach</translation>
+        <translation>Ruhezustand des Monitors nach</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="20"/>
         <source>Computer will suspend after</source>
-        <translation>Computer wird in den Ruhezustand versetzt nach</translation>
+        <translation>Ruhezustand des Computers nach</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="30"/>
@@ -1758,7 +1758,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="55"/>
         <source>Suspend on lid close</source>
-        <translation>Beim Schließen des Deckels in den Ruhezustand versetzen</translation>
+        <translation>Ruhezustand wenn Deckel geschlossen</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="103"/>
@@ -1903,14 +1903,14 @@
         <translation>Distribution Release:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
-        <source>Edition License:</source>
-        <translation>Editionslizenz:</translation>
-    </message>
-    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Type:</source>
         <translation>Typ:</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
+        <source>Edition License</source>
+        <translation>Version</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
@@ -1933,6 +1933,11 @@
         <translation>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
+        <source>Edition:</source>
+        <translation>Edition:</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Memory:</source>
         <translation>Speicher:</translation>
@@ -1941,11 +1946,6 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Disk:</source>
         <translation>Festplatte:</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
-        <source>License</source>
-        <translation>Lizenz</translation>
     </message>
 </context>
 <context>
@@ -2149,12 +2149,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="340"/>
+        <location filename="../modules/update/updatework.cpp" line="368"/>
         <source>Patches</source>
         <translation>Korrekturen</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="343"/>
+        <location filename="../modules/update/updatework.cpp" line="371"/>
         <source>System patches.</source>
         <translation>Systemkorrekturen.</translation>
     </message>

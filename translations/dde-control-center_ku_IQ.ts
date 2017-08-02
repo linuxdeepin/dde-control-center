@@ -1903,13 +1903,13 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
-        <source>Edition License:</source>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <source>Type:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <source>Type:</source>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
+        <source>Edition License</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1933,6 +1933,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
+        <source>Edition:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Memory:</source>
         <translation type="unfinished"/>
@@ -1940,11 +1945,6 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Disk:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
-        <source>License</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2149,12 +2149,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="340"/>
+        <location filename="../modules/update/updatework.cpp" line="368"/>
         <source>Patches</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="343"/>
+        <location filename="../modules/update/updatework.cpp" line="371"/>
         <source>System patches.</source>
         <translation type="unfinished"/>
     </message>

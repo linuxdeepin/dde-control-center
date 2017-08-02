@@ -747,7 +747,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="44"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Danh sách Thiết bị</translation>
     </message>
 </context>
 <context>
@@ -1591,22 +1591,22 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="30"/>
         <source>Setting List</source>
-        <translation type="unfinished"/>
+        <translation>Danh sách Thiết lập</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="34"/>
         <source>Please firstly plug in the network cable</source>
-        <translation type="unfinished"/>
+        <translation>Đầu tiên xin hãy gắn dây cáp mạng vào</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="40"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>Thêm thiết lập</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="55"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>Lực chọn Thiết lập</translation>
     </message>
 </context>
 <context>
@@ -1677,7 +1677,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
         <source>Enable window effect</source>
-        <translation type="unfinished"/>
+        <translation>Cho phép hiệu ứng cửa sổ</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="30"/>
@@ -1903,14 +1903,14 @@
         <translation>Phát hành Phân phối:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
-        <source>Edition License:</source>
-        <translation>Giấy phép Phiên bản:</translation>
-    </message>
-    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Type:</source>
         <translation>Loại:</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
+        <source>Edition License</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
@@ -1933,6 +1933,11 @@
         <translation>Bản quyền © Cty TNHH Công nghệ 2011-2017 Wuhan Deepin</translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
+        <source>Edition:</source>
+        <translation>Phiên bản:</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Memory:</source>
         <translation>Bộ nhớ:</translation>
@@ -1941,11 +1946,6 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Disk:</source>
         <translation>Đĩa:</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
-        <source>License</source>
-        <translation>Giấy phép</translation>
     </message>
 </context>
 <context>
@@ -2149,12 +2149,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="340"/>
+        <location filename="../modules/update/updatework.cpp" line="368"/>
         <source>Patches</source>
         <translation>Các bản vá</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="343"/>
+        <location filename="../modules/update/updatework.cpp" line="371"/>
         <source>System patches.</source>
         <translation>Các bản vá Hệ thống.</translation>
     </message>

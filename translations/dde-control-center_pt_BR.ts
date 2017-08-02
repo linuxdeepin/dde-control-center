@@ -30,7 +30,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="66"/>
         <source>Extend</source>
-        <translation>Extender</translation>
+        <translation>Estender</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="68"/>
@@ -60,7 +60,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="90"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
-        <translation>Insira o modo de visualização para definir se você quer mudar as configurações personalizadas</translation>
+        <translation>Insira o modo de visualização para definir se você deseja mudar as configurações personalizadas</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="92"/>
@@ -101,7 +101,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="184"/>
         <source>No system notifications</source>
-        <translation>Sem notificações do sistema</translation>
+        <translation>Não há notificações novas</translation>
     </message>
 </context>
 <context>
@@ -109,7 +109,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation>Atualizações instaladas e será necessário uma reinicialização, deseja fazer isso agora?</translation>
+        <translation>Atualizações instaladas, será necessário uma reinicialização, deseja fazer isso agora?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
@@ -184,7 +184,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="39"/>
         <source>Click icon to enable VPN</source>
-        <translation>Clique para habilitar o VPN</translation>
+        <translation>Clique para habilitar a VPN</translation>
     </message>
 </context>
 <context>
@@ -228,7 +228,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="23"/>
         <source>Modify Avatar</source>
-        <translation>Trocar de avatar</translation>
+        <translation>Trocar avatar</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="26"/>
@@ -243,7 +243,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="33"/>
         <source>Delete Account</source>
-        <translation>Excluir Conta</translation>
+        <translation>Excluir conta</translation>
     </message>
 </context>
 <context>
@@ -305,12 +305,12 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="40"/>
         <source>Repeat password</source>
-        <translation>Confirma a senha</translation>
+        <translation>Confirmar a senha</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="69"/>
         <source>New Account</source>
-        <translation>Nova Conta</translation>
+        <translation>Nova conta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="124"/>
@@ -333,7 +333,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="25"/>
         <source>Repeat Password</source>
-        <translation>Confirma a Senha</translation>
+        <translation>Confirma a senha</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="27"/>
@@ -362,7 +362,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="42"/>
         <source>Administrator permission required to delete account</source>
-        <translation>Necessária autorização de Administrador para excluir a conta</translation>
+        <translation>Necessário autorização do Administrador para excluir a conta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
@@ -395,7 +395,7 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="45"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Ative o bluetooth para encontrar dispositivos próximos (alto falante, teclado, mouse)</translation>
+        <translation>Ative o bluetooth para encontrar dispositivos próximos (teclado, mouse, fone de ouvido)</translation>
     </message>
 </context>
 <context>
@@ -466,7 +466,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="38"/>
         <source>Change Time Settings</source>
-        <translation>Mudar configurações de hora</translation>
+        <translation>Configurações de data e hora</translation>
     </message>
 </context>
 <context>
@@ -497,13 +497,13 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="26"/>
         <source>Add Timezone</source>
-        <translation>Adicionar Fuso Horário</translation>
+        <translation>Adicionar fuso horário</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="102"/>
         <location filename="../modules/datetime/datetime.cpp" line="33"/>
         <source>Time and Date</source>
-        <translation>Hora e Data</translation>
+        <translation>Data e Hora</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="37"/>
@@ -669,7 +669,7 @@
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="222"/>
         <source>Wireless Screen Projection</source>
-        <translation>Projeção de Tela Sem Fio</translation>
+        <translation>Projeção de Tela WIFI</translation>
     </message>
 </context>
 <context>
@@ -697,7 +697,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="174"/>
         <source>Wireless Screen Projection</source>
-        <translation>Projeção de Tela Sem Fio</translation>
+        <translation>Projeção de Tela WIFI</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="96"/>
@@ -719,7 +719,7 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="18"/>
         <source>Scanning devices, please wait...</source>
-        <translation>Procurando dispositivos, por favor aguarde...</translation>
+        <translation>Procurando dispositivos, aguarde...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="19"/>
@@ -747,7 +747,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="44"/>
         <source>Device List</source>
-        <translation>Lista de Dispositivos</translation>
+        <translation>Lista de dispositivos</translation>
     </message>
 </context>
 <context>
@@ -947,7 +947,7 @@
         <location filename="../modules/keyboard/customitem.cpp" line="128"/>
         <location filename="../modules/keyboard/customitem.cpp" line="133"/>
         <source>Please enter a shortcut</source>
-        <translation>Por favor digite um atalho</translation>
+        <translation>Por favor, digite o atalho</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="158"/>
@@ -994,7 +994,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="27"/>
         <source>Repeat Delay</source>
-        <translation>Atraso de Repetição</translation>
+        <translation>Atraso de repetição</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="36"/>
@@ -1009,7 +1009,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="40"/>
         <source>Repeat Rate</source>
-        <translation>Taxa de Repetição</translation>
+        <translation>Taxa de repetição</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
@@ -1146,7 +1146,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="52"/>
         <source>Add Custom Shortcut</source>
-        <translation>Adicionar Atalho Personalizado</translation>
+        <translation>Adicionar atalho personalizado</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="62"/>
@@ -1156,7 +1156,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="39"/>
         <source>Custom Shortcut</source>
-        <translation>Atalhos Personalizados</translation>
+        <translation>Atalhos personalizados</translation>
     </message>
 </context>
 <context>
@@ -1309,7 +1309,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="28"/>
         <source>Network Details</source>
-        <translation>Detalhes da Rede</translation>
+        <translation>Detalhes da rede</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="73"/>
@@ -1334,7 +1334,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="97"/>
         <source>Netmask</source>
-        <translation>Máscara de Rede </translation>
+        <translation>Máscara de sub-rede</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="103"/>
@@ -1367,7 +1367,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="61"/>
         <source>Obtaining Address</source>
-        <translation>Obtendo Endereço</translation>
+        <translation>Obtendo endereço</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="62"/>
@@ -1400,7 +1400,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="30"/>
         <source>Network Details</source>
-        <translation>Detalhes da Rede</translation>
+        <translation>Detalhes da rede</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="99"/>
@@ -1411,22 +1411,22 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="147"/>
         <source>Wired Network Card%1</source>
-        <translation>Placa de Rede com Fio %1</translation>
+        <translation>Placa de rede cabeada %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="152"/>
         <source>Wired Network Card</source>
-        <translation>Placa de Rede com Fio</translation>
+        <translation>Placa de rede cabeada </translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="153"/>
         <source>Wired Network</source>
-        <translation>Rede com fio</translation>
+        <translation>Rede cabeada</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="148"/>
         <source>Wired Network%1</source>
-        <translation>Rede com Fio %1</translation>
+        <translation>Rede cabeada %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="160"/>
@@ -1525,12 +1525,12 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="93"/>
         <source>Configuration URL</source>
-        <translation>URL de Configuração</translation>
+        <translation>URL de configuração</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="150"/>
         <source>System Proxy</source>
-        <translation>Proxy do Sistema</translation>
+        <translation>Proxy do sistema</translation>
     </message>
 </context>
 <context>
@@ -1578,7 +1578,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="198"/>
         <source>OpenConnect</source>
-        <translation>Conexão Aberta</translation>
+        <translation>OpenConnect</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="223"/>
@@ -1591,7 +1591,7 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="30"/>
         <source>Setting List</source>
-        <translation>Lista de Configuração</translation>
+        <translation>Lista de configuração</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="34"/>
@@ -1601,12 +1601,12 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="40"/>
         <source>Add Settings</source>
-        <translation>Adicionar Configurações</translation>
+        <translation>Adicionar configurações</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="55"/>
         <source>Select Settings</source>
-        <translation>Selecione as Configurações</translation>
+        <translation>Selecione as configurações</translation>
     </message>
 </context>
 <context>
@@ -1619,7 +1619,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="49"/>
         <source>WLAN</source>
-        <translation>Wi-Fi</translation>
+        <translation>WLAN</translation>
     </message>
 </context>
 <context>
@@ -1669,7 +1669,7 @@
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="97"/>
         <source>Monospaced Font</source>
-        <translation>Fonte Mono-espaçada</translation>
+        <translation>Fonte mono-espaçada</translation>
     </message>
 </context>
 <context>
@@ -1677,7 +1677,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
         <source>Enable window effect</source>
-        <translation type="unfinished"/>
+        <translation>Ativar efeito na janela</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="30"/>
@@ -1732,7 +1732,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="19"/>
         <source>Monitor will suspend after</source>
-        <translation>O monitor será suspenso após</translation>
+        <translation>O monitor será suspensa após</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="20"/>
@@ -1764,12 +1764,12 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="103"/>
         <location filename="../modules/power/powerwidget.cpp" line="62"/>
         <source>Power Management</source>
-        <translation>Configurações de Energia</translation>
+        <translation>Configurações de energia</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="101"/>
         <source>1 Minute</source>
-        <translation>1 Minuto</translation>
+        <translation>1 minuto</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="103"/>
@@ -1778,12 +1778,12 @@
         <location filename="../modules/power/powerwidget.cpp" line="109"/>
         <location filename="../modules/power/powerwidget.cpp" line="115"/>
         <source>%1 Minutes</source>
-        <translation>%1 Minutos</translation>
+        <translation>%1 minutos</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="111"/>
         <source>1 Hour</source>
-        <translation>1 Hora</translation>
+        <translation>1 hora</translation>
     </message>
 </context>
 <context>
@@ -1873,7 +1873,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="50"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation>A imagem de inicialização pode ser substituída arrastando outra imagem sobre ela, e a ordem de inicialização pode ser alterada modificando o realce</translation>
+        <translation>A imagem de inicialização pode ser substituída arrastando outra imagem sobre ela, e a ordem de inicialização pode ser alterada clicando sobre o sistema desejado</translation>
     </message>
 </context>
 <context>
@@ -1903,19 +1903,19 @@
         <translation>Distribuição Release:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
-        <source>Edition License:</source>
-        <translation>Licença de edição</translation>
-    </message>
-    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Type:</source>
         <translation>Tipo:</translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
+        <source>Edition License</source>
+        <translation>Licença de edição</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Boot Menu</source>
-        <translation>Menu de Boot</translation>
+        <translation>Menu de boot</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="150"/>
@@ -1933,6 +1933,11 @@
         <translation>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
+        <source>Edition:</source>
+        <translation>Edição:</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Memory:</source>
         <translation>Memória:</translation>
@@ -1942,11 +1947,6 @@
         <source>Disk:</source>
         <translation>Disco:</translation>
     </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
-        <source>License</source>
-        <translation>Licença</translation>
-    </message>
 </context>
 <context>
     <name>dcc::update::MirrorItem</name>
@@ -1954,7 +1954,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="12"/>
         <location filename="../modules/update/mirroritem.cpp" line="107"/>
         <source>Untested</source>
-        <translation>Não Testado</translation>
+        <translation>Não testado</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="55"/>
@@ -1986,12 +1986,12 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="17"/>
         <source>Test Speed</source>
-        <translation>Teste de Velocidade</translation>
+        <translation>Teste de velocidade</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
         <source>Switch Mirror</source>
-        <translation>Alterar Espelhos</translation>
+        <translation>Alterar mirror</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
@@ -2009,7 +2009,7 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="37"/>
         <source>Failed to update</source>
-        <translation>Falha ao atualizar</translation>
+        <translation>Falha na atualização</translation>
     </message>
 </context>
 <context>
@@ -2018,22 +2018,22 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="107"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="28"/>
         <source>Update</source>
-        <translation>Atualizar</translation>
+        <translation>Atualização</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Conferindo atualizações, por favor, aguarde</translation>
+        <translation>Verificando se há atualizações...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
         <source>%1 downloaded (Click to pause)</source>
-        <translation>%1 baixado (Clique para pausar)</translation>
+        <translation>%1 baixado (clique para pausar)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="153"/>
         <source>%1 downloaded (Click to continue)</source>
-        <translation>%1 baixado (Clique para continuar)</translation>
+        <translation>%1 baixado (clique para continuar)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
@@ -2063,7 +2063,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation>Novas atualizações instaladas, entretanto, a reinicialização é necessária para terem efeito.</translation>
+        <translation>Novas atualizações instaladas, reinicie para terem efeito.</translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="229"/>
@@ -2093,7 +2093,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="251"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>A bateria está com menos de 50%, por favor conecte o carregador para continuar</translation>
+        <translation>A bateria está com menos de 50%, conecte o carregador para continuar</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
@@ -2124,12 +2124,12 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="32"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation>As atualizações serão baixadas automaticamente em redes cabeadas ou wireless</translation>
+        <translation>As atualizações serão baixadas automaticamente em redes cabeadas ou WI-FI</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="38"/>
         <source>Switch Mirror</source>
-        <translation>Alterar Espelho</translation>
+        <translation>Alterar mirror</translation>
     </message>
 </context>
 <context>
@@ -2138,23 +2138,23 @@
         <location filename="../modules/update/updateview.cpp" line="15"/>
         <location filename="../modules/update/updateview.cpp" line="27"/>
         <source>Update</source>
-        <translation>Atualizar</translation>
+        <translation>Atualização</translation>
     </message>
     <message>
         <location filename="../modules/update/updateview.cpp" line="20"/>
         <source>Update Settings</source>
-        <translation>Alterar Configurações</translation>
+        <translation>Alterar configurações</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="340"/>
+        <location filename="../modules/update/updatework.cpp" line="368"/>
         <source>Patches</source>
         <translation>Patches</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="343"/>
+        <location filename="../modules/update/updatework.cpp" line="371"/>
         <source>System patches.</source>
         <translation>Correções do sistema.</translation>
     </message>

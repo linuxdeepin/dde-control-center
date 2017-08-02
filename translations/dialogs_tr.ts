@@ -4,12 +4,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation>Güncelleme yüklendi, yeniden başlatılmalı, yeniden başlatılsınmı?</translation>
+        <translation>Güncellemeler yüklendi, yeniden başlatılması gerekiyor, yeniden başlatılsın mı?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation>Lütfen tüm verilerin kaydedildiğinden emin olun</translation>
+        <translation>Lütfen tüm verilerinizin kaydedildiğinden emin olun</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>

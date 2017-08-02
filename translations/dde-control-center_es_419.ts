@@ -96,7 +96,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="122"/>
         <source>The day before yesterday</source>
-        <translation>El día antes ayer</translation>
+        <translation>Anteayer</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="184"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="137"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation>Click Izquierdo para rotar y Derecho para salir</translation>
+        <translation>Clic izquierdo para rotar y derecho para salir</translation>
     </message>
 </context>
 <context>
@@ -158,7 +158,7 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="48"/>
         <source>Reset all settings</source>
-        <translation>Restablecer Configuraciones</translation>
+        <translation>Restablecer configuraciones</translation>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="93"/>
@@ -192,17 +192,17 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="85"/>
         <source>Sorry, unable to get weather!</source>
-        <translation> Imposible Cargar Clima</translation>
+        <translation>¡Disculpe, imposible recibir el clima!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="92"/>
         <source>Loading weather...</source>
-        <translation>Cargando Clima</translation>
+        <translation>Cargando clima...</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="159"/>
         <source>Just updated</source>
-        <translation>Clima Actualizado</translation>
+        <translation>Clima actualizado</translation>
     </message>
 </context>
 <context>
@@ -220,7 +220,7 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="185"/>
         <source>Wireless Card %1</source>
-        <translation>Placa de Red %1</translation>
+        <translation>Tarjeta de red %1</translation>
     </message>
 </context>
 <context>
@@ -228,12 +228,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="23"/>
         <source>Modify Avatar</source>
-        <translation>Cambiar imagen</translation>
+        <translation>Modificar avatar</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="26"/>
         <source>Modify Password</source>
-        <translation>Cambiar Contraseña</translation>
+        <translation>Cambiar contraseña</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="29"/>
@@ -243,7 +243,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="33"/>
         <source>Delete Account</source>
-        <translation>Eliminar Cuenta</translation>
+        <translation>Eliminar cuenta</translation>
     </message>
 </context>
 <context>
@@ -251,7 +251,7 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="19"/>
         <source>Create Account</source>
-        <translation>Crear Cuenta</translation>
+        <translation>Crear cuenta</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="95"/>
@@ -265,12 +265,12 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="81"/>
         <source>Images</source>
-        <translation>Imagenes</translation>
+        <translation>Imágenes</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="230"/>
         <source>Password not match.</source>
-        <translation>Contraseña Incorrecta</translation>
+        <translation>Contraseña incorrecta.</translation>
     </message>
 </context>
 <context>
@@ -305,12 +305,12 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="40"/>
         <source>Repeat password</source>
-        <translation>Repetir Contraseña</translation>
+        <translation>Repetir contraseña</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="69"/>
         <source>New Account</source>
-        <translation>Nueva Cuenta</translation>
+        <translation>Cuenta nueva</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="124"/>
@@ -466,7 +466,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="38"/>
         <source>Change Time Settings</source>
-        <translation>Configurar </translation>
+        <translation>Cambiar ajustes del tiempo</translation>
     </message>
 </context>
 <context>
@@ -492,18 +492,18 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="21"/>
         <source>Auto-Sync</source>
-        <translation>Sincronización Automatica</translation>
+        <translation>Sincronización automática</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="26"/>
         <source>Add Timezone</source>
-        <translation>Añadir Zona Horaria</translation>
+        <translation>Añadir zona horaria</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="102"/>
         <location filename="../modules/datetime/datetime.cpp" line="33"/>
         <source>Time and Date</source>
-        <translation>Fecha y Hora</translation>
+        <translation>Fecha y hora</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="37"/>
@@ -573,7 +573,7 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="97"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="16"/>
         <source>Default Applications</source>
-        <translation>Aplicaciones Predeterminadas</translation>
+        <translation>Aplicaciones predeterminadas</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="30"/>
@@ -630,7 +630,7 @@
         <location filename="../modules/defapp/defappwidget.cpp" line="21"/>
         <location filename="../modules/defapp/defappwidget.cpp" line="25"/>
         <source>Default Applications</source>
-        <translation>Aplicaciones Predeterminadas</translation>
+        <translation>Aplicaciones predeterminadas</translation>
     </message>
 </context>
 <context>
@@ -677,7 +677,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="27"/>
         <source>Rotate</source>
-        <translation>Rotar Pantalla</translation>
+        <translation>Rotar pantalla</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="29"/>
@@ -747,7 +747,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="44"/>
         <source>Device List</source>
-        <translation>Lista de Dispositivos</translation>
+        <translation>Lista de dispositivos</translation>
     </message>
 </context>
 <context>
@@ -854,7 +854,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="113"/>
         <source>Choose File</source>
-        <translation>Remplazar Archivo</translation>
+        <translation>Remplazar archivo</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="113"/>
@@ -903,7 +903,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="115"/>
         <source>Choose File</source>
-        <translation>Remplazar Archivo</translation>
+        <translation>Remplazar archivo</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="115"/>
@@ -940,14 +940,14 @@
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="25"/>
         <source>Shortcut</source>
-        <translation>Acceso Directo</translation>
+        <translation>Atajo</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="103"/>
         <location filename="../modules/keyboard/customitem.cpp" line="128"/>
         <location filename="../modules/keyboard/customitem.cpp" line="133"/>
         <source>Please enter a shortcut</source>
-        <translation>Introduzca un acceso directo</translation>
+        <translation>Por favor, añada un atajo</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="158"/>
@@ -972,7 +972,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="63"/>
         <source>Add Keyboard Layout</source>
-        <translation>Agregar Distribución de Teclado</translation>
+        <translation>Agregar distribución de teclado</translation>
     </message>
 </context>
 <context>
@@ -980,7 +980,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="25"/>
         <source>Add Keyboard Layout</source>
-        <translation>Agregar Distribución de Teclado</translation>
+        <translation>Agregar distribución de teclado</translation>
     </message>
 </context>
 <context>
@@ -989,7 +989,7 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="105"/>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="24"/>
         <source>Keyboard and Language</source>
-        <translation>Teclado e Idioma</translation>
+        <translation>Teclado e idioma</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="27"/>
@@ -1024,12 +1024,12 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="54"/>
         <source>Please Test Here</source>
-        <translation>Por Favor Pruebe Aqui</translation>
+        <translation>Por favor pruebe aquí</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="68"/>
         <source>Enable Numeric Keyboard</source>
-        <translation>Habilitar Teclado Numérico </translation>
+        <translation>Habilitar teclado numérico </translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
@@ -1049,7 +1049,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="92"/>
         <source>Shortcut</source>
-        <translation>Acceso Directo</translation>
+        <translation>Acceso directo</translation>
     </message>
 </context>
 <context>
@@ -1141,12 +1141,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="31"/>
         <source>WorkSpace</source>
-        <translation>Espacio de Trabajo</translation>
+        <translation>Espacio de trabajo</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="52"/>
         <source>Add Custom Shortcut</source>
-        <translation>Agregar Atajo Personalizado</translation>
+        <translation>Agregar atajo personalizado</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="62"/>
@@ -1169,7 +1169,7 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="28"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Deshabilitar el touchpad al escribir</translation>
+        <translation>Deshabilitar el panel táctil al escribir</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="38"/>
@@ -1192,7 +1192,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="19"/>
         <source>Double-click Test</source>
-        <translation>Haga doble clic en Texto</translation>
+        <translation>Prueba de doble clic</translation>
     </message>
 </context>
 <context>
@@ -1224,7 +1224,7 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="104"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="26"/>
         <source>Mouse</source>
-        <translation>Raton</translation>
+        <translation>Ratón</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="27"/>
@@ -1234,17 +1234,17 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="31"/>
         <source>TouchPad</source>
-        <translation>TouchPad</translation>
+        <translation>Panel táctil</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="32"/>
         <source>Tap to Click</source>
-        <translation>Toque para hacer click</translation>
+        <translation>Toque para hacer clic</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <source>Mouse and Touchpad</source>
-        <translation>Mouse y Touchpad</translation>
+        <translation>Ratón y panel táctil</translation>
     </message>
 </context>
 <context>
@@ -1367,7 +1367,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="61"/>
         <source>Obtaining Address</source>
-        <translation>Obteniendo Dirección</translation>
+        <translation>Obteniendo dirección</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="62"/>
@@ -1591,7 +1591,7 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="30"/>
         <source>Setting List</source>
-        <translation>Lista de Configuración</translation>
+        <translation>Lista de configuración</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="34"/>
@@ -1601,12 +1601,12 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="40"/>
         <source>Add Settings</source>
-        <translation>Añadir Configuraciones </translation>
+        <translation>Añadir configuraciones </translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="55"/>
         <source>Select Settings</source>
-        <translation>Seleccionar Configuraciones</translation>
+        <translation>Seleccionar configuraciones</translation>
     </message>
 </context>
 <context>
@@ -1640,7 +1640,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="21"/>
         <source>Monospaced Font</source>
-        <translation>Fuente Monospacio</translation>
+        <translation>Fuente monospaciada</translation>
     </message>
 </context>
 <context>
@@ -1677,7 +1677,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
         <source>Enable window effect</source>
-        <translation type="unfinished"/>
+        <translation>Efectos de ventana activados</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="30"/>
@@ -1724,7 +1724,7 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="29"/>
         <source>Theme</source>
-        <translation>Tema/ Estilo</translation>
+        <translation>Tema</translation>
     </message>
 </context>
 <context>
@@ -1732,12 +1732,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="19"/>
         <source>Monitor will suspend after</source>
-        <translation>El monitor suspenderá después de</translation>
+        <translation>Se suspenderá el monitor después de</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="20"/>
         <source>Computer will suspend after</source>
-        <translation>El equipo se suspenderá después de</translation>
+        <translation>Se suspenderá el equipo después de</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="30"/>
@@ -1764,7 +1764,7 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="103"/>
         <location filename="../modules/power/powerwidget.cpp" line="62"/>
         <source>Power Management</source>
-        <translation>Ajustes de Energía</translation>
+        <translation>Ajustes de energía</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="101"/>
@@ -1903,14 +1903,14 @@
         <translation>Distribución lanzada:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
-        <source>Edition License:</source>
-        <translation>Edición Licencia:</translation>
-    </message>
-    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Type:</source>
         <translation>Tipo:</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
+        <source>Edition License</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
@@ -1925,7 +1925,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="73"/>
         <source>Processor:</source>
-        <translation>Procesador</translation>
+        <translation>Procesador:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="18"/>
@@ -1933,19 +1933,19 @@
         <translation>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
+        <source>Edition:</source>
+        <translation>Edición </translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Memory:</source>
-        <translation>Memoria</translation>
+        <translation>Memoria:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Disk:</source>
-        <translation>Disco</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
-        <source>License</source>
-        <translation>Licencia</translation>
+        <translation>Disco:</translation>
     </message>
 </context>
 <context>
@@ -1991,7 +1991,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="21"/>
         <source>Switch Mirror</source>
-        <translation>Cambiar Repositorio</translation>
+        <translation>Cambiar espejo</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="110"/>
@@ -2023,22 +2023,22 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="127"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Buscando Actualizaciones</translation>
+        <translation>Comprobando actualizaciones, un momento...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
         <source>%1 downloaded (Click to pause)</source>
-        <translation>%1 Click (Para pausar la descarga)</translation>
+        <translation>%1 Clic (Para pausar la descarga)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="153"/>
         <source>%1 downloaded (Click to continue)</source>
-        <translation>%1 Click (Para continuar la descarga)</translation>
+        <translation>%1 Clic (Para continuar la descarga)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
         <source>Your system is up to date</source>
-        <translation>Su sistema está actualizado</translation>
+        <translation>Su sistema está al día</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>
@@ -2058,7 +2058,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Updating, please wait...</source>
-        <translation>Actualización, por favor espere...</translation>
+        <translation>Actualizando, por favor espere...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="206"/>
@@ -2119,7 +2119,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="30"/>
         <source>Auto-download Updates</source>
-        <translation>Actualizar Automáticamente </translation>
+        <translation>Bajar actualizaciones automáticamente</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="32"/>
@@ -2129,7 +2129,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="38"/>
         <source>Switch Mirror</source>
-        <translation>Cambiar Repositorio</translation>
+        <translation>Establecer espejo</translation>
     </message>
 </context>
 <context>
@@ -2149,12 +2149,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="340"/>
+        <location filename="../modules/update/updatework.cpp" line="368"/>
         <source>Patches</source>
         <translation>Parches</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="343"/>
+        <location filename="../modules/update/updatework.cpp" line="371"/>
         <source>System patches.</source>
         <translation>Parches de sistema</translation>
     </message>

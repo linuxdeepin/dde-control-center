@@ -4,12 +4,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation>Frissítések letöltve, újraindítható a számítógép?</translation>
+        <translation>Frissítések telepítve, újraindítás szükséges. Újraindítja most a számítógépet?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation>Kérem bizonyosodjon meg afelől hogy minden adatot mentett</translation>
+        <translation>Kérem ellenőrizze, hogy minden adatot elmentett</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
