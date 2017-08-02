@@ -17,9 +17,37 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
       m_spinBox(new DSpinBox)
 {
     m_spinBox->setContextMenuPolicy(Qt::NoContextMenu);
+    m_spinBox->setStyleSheet("DSpinBox {"
+                             "background-color: transparent;"
+                             "}"
+                             ""
+                             "QWidget {"
+                             "border: none;"
+                             "background-color: transparent;"
+                             "}"
+                             ""
+                             "QAbstractSpinBox::up-button {"
+                             "border: none;"
+                             "background: transparent;"
+                             "}"
+                             ""
+                             "QAbstractSpinBox::up-arrow {"
+                             "border: none;"
+                             "background: transparent;"
+                             "}"
+                             ""
+                             "QAbstractSpinBox::down-button {"
+                             "border: none;"
+                             "background: transparent;"
+                             "}"
+                             ""
+                             "QAbstractSpinBox::down-arrow {"
+                             "border: none;"
+                             "background: transparent;"
+                             "}");
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->setContentsMargins(20, 0, 10, 0);
+    mainLayout->setContentsMargins(20, 7, 10, 7);
     mainLayout->setSpacing(0);
     mainLayout->addWidget(m_title);
     mainLayout->addWidget(m_spinBox);
