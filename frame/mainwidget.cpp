@@ -7,7 +7,7 @@
 
 #include <com_deepin_daemon_accounts.h>
 #include <com_deepin_daemon_accounts_user.h>
-
+#include <QSettings>
 #include <unistd.h>
 
 using namespace dcc::accounts;
@@ -223,6 +223,10 @@ void MainWidget::refershTimedate()
 {
     const QDateTime tm = QDateTime::currentDateTime();
 
-    m_currentTimeLbl->setText(tm.time().toString("HH:mm"));
+    QSettings dateSetting("deepin", "dde-dock-datetime", this);
+    if (dateSetting.value("24HourFormat").toBool())
+        m_currentTimeLbl->setText(tm.time().toString("HH:mm"));
+    else
+        m_currentTimeLbl->setText(tm.time().toString("hh:mm A"));
     m_currentDateLbl->setText(tm.date().toString(Qt::SystemLocaleLongDate));
 }
