@@ -41,6 +41,7 @@ public slots:
 
     void addNewAvatar(User *user);
     void setAvatar(User *user, const QString &iconPath);
+    void setFullname(User *user, const QString &fullname);
     void deleteAccount(User *user, const bool deleteHome);
     void setAutoLogin(User *user, const bool autoLogin);
     void onUserListChanged(const QStringList &userList);

@@ -103,6 +103,14 @@ void AccountsWorker::setAvatar(User *user, const QString &iconPath)
     ui->SetIconFile(iconPath);
 }
 
+void AccountsWorker::setFullname(User *user, const QString &fullname)
+{
+    AccountsUser *ui = m_userInters[user];
+    Q_ASSERT(ui);
+
+    ui->SetFullName(fullname);
+}
+
 void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
 {
     emit requestFrameAutoHide(false);
@@ -163,8 +171,10 @@ void AccountsWorker::addUser(const QString &userPath)
     connect(userInter, &AccountsUser::AutomaticLoginChanged, user, &User::setAutoLogin);
     connect(userInter, &AccountsUser::IconListChanged, user, &User::setAvatars);
     connect(userInter, &AccountsUser::IconFileChanged, user, &User::setCurrentAvatar);
+    connect(userInter, &AccountsUser::FullNameChanged, user, &User::setFullname);
 
     user->setName(userInter->userName());
+    user->setFullname(userInter->fullName());
     user->setAutoLogin(userInter->automaticLogin());
     user->setAvatars(userInter->iconList());
     user->setCurrentAvatar(userInter->iconFile());

@@ -33,6 +33,7 @@ private:
     ~AccountsModule();
 
     void showAvatarPage(User *account);
+    void showFullnamePage(User *account);
     void showPasswordPage(User *account);
     void showAccountsDetail(User *account);
     void showCreateAccountPage();

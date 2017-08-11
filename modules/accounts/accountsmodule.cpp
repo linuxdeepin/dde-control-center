@@ -2,6 +2,7 @@
 #include "accountsdetailwidget.h"
 #include "modifypasswordpage.h"
 #include "modifyavatarpage.h"
+#include "modifyfullnamepage.h"
 #include "createpage.h"
 
 using namespace dcc;
@@ -94,6 +95,15 @@ void AccountsModule::showAvatarPage(User *account)
     m_frameProxy->pushWidget(this, w);
 }
 
+void AccountsModule::showFullnamePage(User *account)
+{
+    ModifyFullNamePage *p = new ModifyFullNamePage(account);
+
+    connect(p, &ModifyFullNamePage::requestSetFullname, m_accountsWorker, &AccountsWorker::setFullname);
+
+    m_frameProxy->pushWidget(this, p);
+}
+
 void AccountsModule::showPasswordPage(User *account)
 {
     ModifyPasswordPage *w = new ModifyPasswordPage(account);
@@ -111,6 +121,7 @@ void AccountsModule::showAccountsDetail(User *account)
     connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
     connect(w, &AccountsDetailWidget::showPwdSettings, this, &AccountsModule::showPasswordPage);
     connect(w, &AccountsDetailWidget::showAvatarSettings, this, &AccountsModule::showAvatarPage);
+    connect(w, &AccountsDetailWidget::showFullnameSettings, this, &AccountsModule::showFullnamePage);
 
     connect(w, &AccountsDetailWidget::requestChangeFrameAutoHide, this, [this] (const bool autoHide) {
         m_frameProxy->setFrameAutoHide(this, autoHide);

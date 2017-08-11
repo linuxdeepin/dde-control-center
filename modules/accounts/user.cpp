@@ -22,6 +22,16 @@ void User::setName(const QString &name)
     }
 }
 
+void User::setFullname(const QString &fullname)
+{
+    if (fullname != m_fullname)
+    {
+        m_fullname = fullname;
+
+        emit fullnameChanged(m_fullname);
+    }
+}
+
 void User::setAutoLogin(const bool autoLogin)
 {
     m_autoLogin = autoLogin;

@@ -31,7 +31,7 @@ static const QString getQssFromFile(const QString &name)
         f.close();
     }
 
-    return std::move(qss);
+    return qss;
 }
 
 static const QString getStyleSheetFromDir(QDir dir)
@@ -44,7 +44,7 @@ static const QString getStyleSheetFromDir(QDir dir)
         }
     }
 
-    return std::move(ret);
+    return ret;
 }
 
 static const QString styleSheetFromTheme(const QString &theme)
@@ -63,7 +63,7 @@ static const QString styleSheetFromTheme(const QString &theme)
         ret.append(getStyleSheetFromDir(dir));
     }
 
-    return std::move(ret);
+    return ret;
 }
 
 static void onThemeChange(const QString &theme)

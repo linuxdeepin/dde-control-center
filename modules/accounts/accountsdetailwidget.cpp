@@ -16,12 +16,16 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 
       m_accountSettings(new SettingsGroup),
       m_modifyAvatar(new NextPageWidget),
+      m_modifyFullname(new NextPageWidget),
       m_modifyPassword(new NextPageWidget),
       m_autoLogin(new SwitchWidget),
       m_deleteAccount(new QPushButton)
 {
     m_modifyAvatar->setTitle(tr("Modify Avatar"));
     m_accountSettings->appendItem(m_modifyAvatar);
+
+    m_modifyFullname->setTitle(tr("Modify Fullname"));
+    m_accountSettings->appendItem(m_modifyFullname);
 
     m_modifyPassword->setTitle(tr("Modify Password"));
     m_accountSettings->appendItem(m_modifyPassword);
@@ -49,6 +53,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     connect(m_autoLogin, &SwitchWidget::checkedChanged, [=] (const bool autoLogin) { emit requestSetAutoLogin(user, autoLogin); });
     connect(m_modifyPassword, &NextPageWidget::clicked, [=] { emit showPwdSettings(user); });
     connect(m_modifyAvatar, &NextPageWidget::clicked, [=] { emit showAvatarSettings(user); });
+    connect(m_modifyFullname, &NextPageWidget::clicked, [=] { emit showFullnameSettings(user); });
 
     setContent(mainWidget);
     setTitle(user->name());
