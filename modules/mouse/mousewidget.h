@@ -50,6 +50,8 @@ private:
     MouseSettings *m_touchSettings;
     ThinkpadSettings *m_ThinkapdSettings;
     MouseModelMouseSettings *m_touchpadModel;
+    MouseModel *m_mouseModel;
+
 };
 }
 }
