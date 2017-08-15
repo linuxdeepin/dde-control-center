@@ -54,6 +54,8 @@ MouseWidget::MouseWidget()
 
 void MouseWidget::setModel(MouseModel *const model)
 {
+    m_mouseModel = model;
+
     m_baseSettings->setModel(model->getBaseSettings());
     m_mouseSettings->setModel(model->getMouseSettings());
     m_touchSettings->setModel(model->getTouchSettings());
@@ -68,6 +70,7 @@ void MouseWidget::setModel(MouseModel *const model)
 
     MouseModelMouseSettings *mouseModel = model->getMouseSettings();
     connect(mouseModel, &MouseModelMouseSettings::switchChanged, this, &MouseWidget::onTouchpadHideChanged);
+    connect(mouseModel, &MouseModelMouseSettings::existChanged, this, &MouseWidget::onTouchpadHideChanged);
 
     onTouchpadHideChanged(mouseModel->getSwitchState());
 }
@@ -80,6 +83,12 @@ void MouseWidget::onTouchpadVisibleChanged(const bool visible)
 
 void MouseWidget::onTouchpadHideChanged(const bool visible)
 {
-    if (m_touchpadModel->getExist())
+    MouseModelMouseSettings *mouseModel = m_mouseModel->getMouseSettings();
+    if (m_touchpadModel->getExist() && mouseModel->getExist()) {
         m_touchSettings->setVisible(!visible);
+        return;
+    }
+
+    m_touchSettings->setVisible(m_touchpadModel->getExist());
+
 }
