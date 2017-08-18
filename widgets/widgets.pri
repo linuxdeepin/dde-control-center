@@ -2,7 +2,7 @@ DEFINES += QT_MESSAGELOGCONTEXT
 INCLUDEPATH += $$PWD
 
 QT += widgets
-PKGCONFIG   += dtkwidget
+PKGCONFIG   += dtkwidget1
 
 HEADERS += \
     $$PWD/settingsgroup.h \
