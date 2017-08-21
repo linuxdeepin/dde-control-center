@@ -25,11 +25,10 @@ Clock::~Clock()
 
 void Clock::paintEvent(QPaintEvent *)
 {
-    QDateTime datetime( QDateTime::currentDateTimeUtc() );
-    datetime = datetime.addSecs(m_timeZone.offsetFromUtc(datetime));
+    const QDateTime datetime = QDateTime::currentDateTime();
 
-    const QTime time( datetime.time() );
-    const QRect rct( rect() );
+    const QTime time(datetime.time());
+    const QRect rct(rect());
     const int rWidth = 30;
     const int rHeight = 30;
 
