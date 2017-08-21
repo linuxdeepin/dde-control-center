@@ -222,11 +222,6 @@ void MainWidget::showPrevPlugin()
 void MainWidget::refershTimedate()
 {
     const QDateTime tm = QDateTime::currentDateTime();
-
-    QSettings dateSetting("deepin", "dde-dock-datetime", this);
-    if (dateSetting.value("24HourFormat").toBool())
-        m_currentTimeLbl->setText(tm.time().toString("HH:mm"));
-    else
-        m_currentTimeLbl->setText(tm.time().toString("hh:mm A"));
+    m_currentTimeLbl->setText(tm.time().toString("HH:mm"));
     m_currentDateLbl->setText(tm.date().toString(Qt::SystemLocaleLongDate));
 }
