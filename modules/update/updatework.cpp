@@ -272,6 +272,8 @@ void UpdateWork::setDistUpgradeJob(const QString &jobPath)
 
     connect(m_distUpgradeJob, &__Job::StatusChanged, [this] (const QString &status) {
         if (status == "failed")  {
+            // cleanup failed job
+            m_managerInter->CleanJob(m_distUpgradeJob->id());
             m_model->setStatus(UpdatesStatus::UpdateFailed);
             qWarning() << "install updates job failed";
         } else if (status == "success" || status == "succeed") {
