@@ -28,6 +28,8 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetListApps);
 
     m_userLocalPath = QDir::homePath()+ "/.local/share/applications/";
+    QDir dir(m_userLocalPath);
+    dir.mkpath(m_userLocalPath);
 }
 
 void DefAppWorker::active()
