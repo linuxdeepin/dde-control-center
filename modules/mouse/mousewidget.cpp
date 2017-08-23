@@ -83,9 +83,11 @@ void MouseWidget::onTouchpadVisibleChanged(const bool visible)
 
 void MouseWidget::onTouchpadHideChanged(const bool visible)
 {
+    Q_UNUSED(visible);
+
     MouseModelMouseSettings *mouseModel = m_mouseModel->getMouseSettings();
     if (m_touchpadModel->getExist() && mouseModel->getExist()) {
-        m_touchSettings->setVisible(!visible);
+        m_touchSettings->setVisible(!mouseModel->getSwitchState());
         return;
     }
 
