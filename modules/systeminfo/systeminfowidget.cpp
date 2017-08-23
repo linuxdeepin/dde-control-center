@@ -63,7 +63,7 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     m_distrover->setVisible(false);
 
     m_version = new TitleValueItem();
-    m_version->setTitle(tr("Edition License:"));
+    m_version->setTitle(tr("Edition:"));
     m_version->setValue(m_model->version());
 
     m_type = new TitleValueItem();
@@ -91,7 +91,7 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     infoGroup->appendItem(m_disk);
 
     m_copyright = new NextPageWidget();
-    m_copyright->setTitle(tr("License"));
+    m_copyright->setTitle(tr("Edition License"));
 
 #ifndef DCC_DISABLE_GRUB
     m_boot = new NextPageWidget();

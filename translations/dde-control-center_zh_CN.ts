@@ -1732,12 +1732,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="19"/>
         <source>Monitor will suspend after</source>
-        <translation>显示器进入睡眠</translation>
+        <translation>关闭显示器于</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="20"/>
         <source>Computer will suspend after</source>
-        <translation>电脑进入睡眠</translation>
+        <translation>电脑进入睡眠模式</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="30"/>
@@ -1758,7 +1758,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="55"/>
         <source>Suspend on lid close</source>
-        <translation>关闭盖子时待机</translation>
+        <translation>合上盖子时进入睡眠模式</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="103"/>
@@ -1903,14 +1903,14 @@
         <translation>发行版</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
-        <source>Edition License:</source>
-        <translation>版本协议：</translation>
-    </message>
-    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>Type:</source>
         <translation>类型：</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
+        <source>Edition License</source>
+        <translation>版本协议</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
@@ -1933,6 +1933,11 @@
         <translation>Copyright © 2011-2017 武汉深之度科技有限公司</translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
+        <source>Edition:</source>
+        <translation>版本：</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Memory:</source>
         <translation>内存：</translation>
@@ -1941,11 +1946,6 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Disk:</source>
         <translation>磁盘：</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
-        <source>License</source>
-        <translation>协议</translation>
     </message>
 </context>
 <context>
@@ -2149,12 +2149,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="340"/>
+        <location filename="../modules/update/updatework.cpp" line="368"/>
         <source>Patches</source>
         <translation>系统更新</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="343"/>
+        <location filename="../modules/update/updatework.cpp" line="371"/>
         <source>System patches.</source>
         <translation>系统补丁。</translation>
     </message>

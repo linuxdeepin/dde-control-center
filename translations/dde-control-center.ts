@@ -1908,13 +1908,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
-        <source>Edition License:</source>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <source>Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <source>Type:</source>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
+        <source>Edition License</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1938,6 +1938,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
+        <source>Edition:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Memory:</source>
         <translation type="unfinished"></translation>
@@ -1945,11 +1950,6 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Disk:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
-        <source>License</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
