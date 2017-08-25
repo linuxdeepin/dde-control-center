@@ -159,8 +159,9 @@ void MonitorSettingDialog::init()
 
     setLayout(m_mainLayout);
 
-    m_smallDelayTimer->setSingleShot(true);
+    m_smallDelayTimer->setSingleShot(false);
     m_smallDelayTimer->setInterval(1000);
+    m_smallDelayTimer->start();
 
     connect(resolutionView, &BasicListView::clicked, [=](const QModelIndex &index) { onMonitorModeSelected(index.row()); });
 //    connect(m_lightSlider, &DCCSlider::valueChanged, this, &MonitorSettingDialog::onBrightnessSliderChanged);
@@ -305,6 +306,9 @@ void MonitorSettingDialog::onPrimaryChanged()
 
 void MonitorSettingDialog::onMonitorRectChanged()
 {
+    if (!m_monitor)
+        return;
+
     DAbstractDialog::move(m_monitor->rect().center() - rect().center());
 }
 
