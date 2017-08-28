@@ -126,6 +126,7 @@ void UpdateModule::onPushSettings()
 
         connect(m_settingsPage, &UpdateSettings::requestSetAutoUpdate, m_work, &UpdateWork::setAutoDownloadUpdates);
         connect(m_settingsPage, &UpdateSettings::requestShowMirrorsView, this, &UpdateModule::onPushMirrorsView);
+        connect(m_settingsPage, &UpdateSettings::requestSetAutoCleanCache, m_work, &UpdateWork::setAutoCleanCache);
     }
 
     m_frameProxy->pushWidget(this, m_settingsPage);

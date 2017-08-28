@@ -61,6 +61,9 @@ public:
     double upgradeProgress() const;
     void setUpgradeProgress(double upgradeProgress);
 
+    bool autoCleanCache() const;
+    void setAutoCleanCache(bool autoCleanCache);
+
 signals:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
@@ -73,6 +76,7 @@ signals:
     void downloadInfoChanged(DownloadInfo *downloadInfo);
 
     void upgradeProgressChanged(const double &upgradeProgress);
+    void autoCleanCacheChanged(const bool autoCleanCache);
 
 private:
     UpdatesStatus m_status;
@@ -82,6 +86,7 @@ private:
 
     bool m_lowBattery;
 
+    bool m_autoCleanCache;
     bool m_autoDownloadUpdates;
     QString m_mirrorId;
     MirrorInfoList m_mirrorList;

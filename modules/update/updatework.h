@@ -38,6 +38,7 @@ public slots:
     void distUpgrade();
     void downloadAndDistUpgrade();
 
+    void setAutoCleanCache(const bool autoCleanCache);
     void setAutoDownloadUpdates(const bool &autoDownload);
     void setMirrorSource(const MirrorInfo &mirror);
 

@@ -148,5 +148,19 @@ void UpdateModel::setUpgradeProgress(double upgradeProgress)
     }
 }
 
+bool UpdateModel::autoCleanCache() const
+{
+    return m_autoCleanCache;
+}
+
+void UpdateModel::setAutoCleanCache(bool autoCleanCache)
+{
+    if (m_autoCleanCache == autoCleanCache)
+        return;
+
+    m_autoCleanCache = autoCleanCache;
+    emit autoCleanCacheChanged(autoCleanCache);
+}
+
 }
 }

@@ -46,6 +46,7 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
     m_powerInter->setSync(false);
 
     connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWork::onJobListChanged);
+    connect(m_managerInter, &ManagerInter::AutoCleanChanged, m_model, &UpdateModel::setAutoCleanCache);
 
     connect(m_updateInter, &__Updater::AutoDownloadUpdatesChanged, m_model, &UpdateModel::setAutoDownloadUpdates);
     connect(m_updateInter, &__Updater::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
@@ -74,6 +75,7 @@ void UpdateWork::activate()
     m_model->setDefaultMirror(m_updateInter->mirrorSource());
 #endif
 
+    m_model->setAutoCleanCache(m_managerInter->autoClean());
     m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
     setOnBattery(m_powerInter->onBattery());
     setBatteryPercentage(m_powerInter->batteryPercentage());
@@ -293,6 +295,11 @@ void UpdateWork::setDistUpgradeJob(const QString &jobPath)
     m_model->setStatus(UpdatesStatus::Installing);
     m_distUpgradeJob->ProgressChanged(m_distUpgradeJob->progress());
     m_distUpgradeJob->StatusChanged(m_distUpgradeJob->status());
+}
+
+void UpdateWork::setAutoCleanCache(const bool autoCleanCache)
+{
+    m_managerInter->SetAutoClean(autoCleanCache);
 }
 
 void UpdateWork::onJobListChanged(const QList<QDBusObjectPath> & jobs)

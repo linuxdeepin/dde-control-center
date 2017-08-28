@@ -26,6 +26,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     SettingsGroup* ug = new SettingsGroup;
     SettingsGroup* mg = new SettingsGroup;
 
+    m_autoCleanCache = new SwitchWidget;
+    m_autoCleanCache->setTitle(tr("Auto clear package cache"));
+
     m_autoDownloadSwitch = new SwitchWidget;
     m_autoDownloadSwitch->setTitle(tr("Auto-download Updates"));
 
@@ -38,6 +41,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_updateMirrors->setTitle(tr("Switch Mirror"));
 #endif
 
+    ug->appendItem(m_autoCleanCache);
     ug->appendItem(m_autoDownloadSwitch);
 
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
@@ -59,6 +63,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
 #endif
 
+    connect(m_autoCleanCache, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCleanCache);
     connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoUpdate);
 
     setModel(model);
@@ -86,6 +91,9 @@ void UpdateSettings::setModel(UpdateModel *model)
 #endif
 
         connect(model, &UpdateModel::autoDownloadUpdatesChanged, this, setAutoDownload);
+        connect(model, &UpdateModel::autoCleanCacheChanged, m_autoCleanCache, &SwitchWidget::setChecked);
+
+        m_autoCleanCache->setChecked(m_model->autoCleanCache());
 
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
         connect(model, &UpdateModel::defaultMirrorChanged, this, setDefaultMirror);
