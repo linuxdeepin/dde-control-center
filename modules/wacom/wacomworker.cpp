@@ -14,6 +14,7 @@ WacomWorker::WacomWorker(WacomModel *model, QObject *parent) :
 {
     connect(m_dbusWacom, &Wacom::StylusPressureSensitiveChanged, this, &WacomWorker::setPressureSensitive);
     connect(m_dbusWacom, &Wacom::ExistChanged, m_model, &WacomModel::setExist);
+    connect(m_dbusWacom, &Wacom::CursorModeChanged, this, &WacomWorker::onCursorModeChanged);
 
     //get real data
     m_model->setExist(m_dbusWacom->exist());
@@ -27,6 +28,7 @@ void WacomWorker::active()
     WacomModelBase *ModelBase = m_model->getWacomModelBase();
     ModelBase->setPressureValue(m_dbusWacom->stylusPressureSensitive());
     m_model->setExist(m_dbusWacom->exist());
+    m_model->setCursorMode(m_dbusWacom->cursorMode());
 }
 
 void WacomWorker::deactive()
@@ -40,10 +42,20 @@ void WacomWorker::setPressureSensitive(const int value)
     ModelBase->setPressureValue(value);
 }
 
+void WacomWorker::setCursorMode(const bool value)
+{
+    m_dbusWacom->setCursorMode(value);
+}
+
 void WacomWorker::onPressureSensitiveChanged(const int value)
 {
     m_dbusWacom->setStylusPressureSensitive(value);
     m_dbusWacom->setEraserPressureSensitive(value);
+}
+
+void WacomWorker::onCursorModeChanged(const bool value)
+{
+    m_model->setCursorMode(value);
 }
 
 bool WacomWorker::exist()

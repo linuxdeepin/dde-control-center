@@ -35,3 +35,18 @@ void WacomModel::setExist(bool exist)
         emit existChanged(exist);
     }
 }
+
+bool WacomModel::getCursorMode() const
+{
+    return m_cursorMode;
+}
+
+void WacomModel::setCursorMode(bool cursorMode)
+{
+    if (m_cursorMode == cursorMode)
+        return;
+
+    m_cursorMode = cursorMode;
+
+    emit cursorModeChanged(cursorMode);
+}

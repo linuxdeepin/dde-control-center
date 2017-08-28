@@ -20,12 +20,17 @@ public:
     bool exist() const;
     void setExist(bool exist);
 
+    bool getCursorMode() const;
+    void setCursorMode(bool cursorMode);
+
 signals:
     void existChanged(bool exist);
+    void cursorModeChanged(const bool cursorMode);
 
 private:
     WacomModelBase *m_wacomModelBase;
     bool m_exist;
+    bool m_cursorMode;
 };
 }
 }
