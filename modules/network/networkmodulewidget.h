@@ -12,6 +12,7 @@ class SettingsGroup;
 namespace network {
 
 class NetworkDevice;
+class WirelessDevice;
 class NetworkModel;
 class NetworkModuleWidget : public dcc::ModuleWidget
 {
@@ -27,6 +28,7 @@ signals:
     void requestShowPppPage() const;
     void requestShowProxyPage() const;
     void requestShowInfomation() const;
+    void requestHotspotPage(WirelessDevice *wdev) const;
     void requestShowDeviceDetail(NetworkDevice *device) const;
     void requestDeviceEnable(const QString &devPath, const bool enable) const;
 

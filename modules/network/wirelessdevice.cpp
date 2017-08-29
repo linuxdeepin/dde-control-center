@@ -14,6 +14,11 @@ WirelessDevice::WirelessDevice(const QJsonObject &info, QObject *parent)
 
 }
 
+bool WirelessDevice::supportHotspot() const
+{
+    return info()["SupportHotspot"].toBool();
+}
+
 void WirelessDevice::setAPList(const QString &apList)
 {
     QSet<QString> ssidList = m_aps;

@@ -16,6 +16,7 @@ class WirelessDevice : public NetworkDevice
 public:
     explicit WirelessDevice(const QJsonObject &info, QObject *parent = 0);
 
+    bool supportHotspot() const;
     const QString activeApName() const { return m_activeAp; }
 
 signals:

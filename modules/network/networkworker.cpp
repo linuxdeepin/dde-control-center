@@ -75,6 +75,11 @@ void NetworkWorker::setProxy(const QString &type, const QString &addr, const QSt
     connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
 }
 
+void NetworkWorker::enableWirelessHotspot(const QString &devPath)
+{
+    m_networkInter.EnableWirelessHotspotMode(QDBusObjectPath(devPath));
+}
+
 void NetworkWorker::queryProxy(const QString &type)
 {
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.asyncCall(QStringLiteral("GetProxy"), type), this);
@@ -170,7 +175,6 @@ void NetworkWorker::queryDeviceConnections(const QString &devPath)
 
 void NetworkWorker::deleteConnection(const QString &uuid)
 {
-    qDebug() << uuid;
     m_networkInter.DeleteConnection(uuid);
 }
 

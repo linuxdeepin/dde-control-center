@@ -1,5 +1,6 @@
 #include "networkmodulewidget.h"
 #include "networkdevice.h"
+#include "wirelessdevice.h"
 #include "networkmodel.h"
 #include "nextpagewidget.h"
 #include "settingsgroup.h"
@@ -130,15 +131,22 @@ void NetworkModuleWidget::onNextPageClicked()
 
 void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number, const bool multiple)
 {
-    SettingsGroup *g = new SettingsGroup;
     SwitchWidget *s = new SwitchWidget;
     NextPageWidget *w = new NextPageWidget;
+    SettingsGroup *g = new SettingsGroup;
+    g->appendItem(s);
+    g->appendItem(w);
 
     connect(s, &SwitchWidget::checkedChanged, [=](const bool checked) { emit requestDeviceEnable(dev->path(), checked); });
     connect(w, &NextPageWidget::clicked, this, &NetworkModuleWidget::onNextPageClicked);
     connect(dev, &NetworkDevice::enableChanged, s, &SwitchWidget::setChecked);
     connect(dev, &NetworkDevice::enableChanged, w, &NextPageWidget::setVisible);
     connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), w, &NextPageWidget::setValue, Qt::QueuedConnection);
+
+    const bool devEnabled = dev->enabled();
+    s->setChecked(devEnabled);
+    w->setVisible(devEnabled);
+    w->setValue(dev->statusString());
 
     if (dev->type() == NetworkDevice::Wired)
     {
@@ -155,6 +163,19 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
     }
     else if (dev->type() == NetworkDevice::Wireless)
     {
+        WirelessDevice *wdev = static_cast<WirelessDevice *>(dev);
+        if (wdev->supportHotspot())
+        {
+            NextPageWidget *hotspot = new NextPageWidget;
+            hotspot->setTitle(tr("Hotspot"));
+            g->appendItem(hotspot);
+
+            connect(dev, &NetworkDevice::enableChanged, hotspot, &NextPageWidget::setVisible);
+            connect(hotspot, &NextPageWidget::clicked, this, [=] { emit requestHotspotPage(wdev); });
+
+            hotspot->setVisible(devEnabled);
+        }
+
         if (multiple)
         {
             s->setTitle(tr("Wireless Network Card%1").arg(number));
@@ -166,14 +187,6 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
             w->setTitle(tr("Wireless Network"));
         }
     }
-
-    const bool devEnabled = dev->enabled();
-    s->setChecked(devEnabled);
-    w->setVisible(devEnabled);
-    w->setValue(dev->statusString());
-
-    g->appendItem(s);
-    g->appendItem(w);
 
     m_devices[w] = dev;
     m_devicesLayout->addWidget(g);
