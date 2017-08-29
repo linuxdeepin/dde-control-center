@@ -33,13 +33,23 @@ void ConnectionSessionModel::setDeletable(const bool deletable)
     }
 }
 
+void ConnectionSessionModel::setType(const QString &type)
+{
+    if (m_type != type)
+    {
+        m_type = type;
+
+        emit typeChanged(m_type);
+    }
+}
+
 void ConnectionSessionModel::setConnUuid(const QString &connUuid)
 {
-    if (m_connUuid != connUuid)
+    if (m_uuid != connUuid)
     {
-        m_connUuid = connUuid;
+        m_uuid = connUuid;
 
-        emit connectionUuidChanged(m_connUuid);
+        emit uuidChanged(m_uuid);
     }
 }
 

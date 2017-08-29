@@ -50,10 +50,14 @@ public slots:
 private slots:
     void recreateUI();
     void refershUI();
-    void onActiveStateChanged();
+
+    void exportConnConfig();
     void saveFinished(const bool ret);
     void initPlaceholderText(const NetworkErrors &errors);
+
+    void onActiveStateChanged();
     void onErrorsChanged(const NetworkErrors &errors);
+    void onTypeChanged(const QString &type);
 
 private:
     widgets::SettingsItem *optionWidgets(const QString &section, const QJsonObject &keyObject);
@@ -71,6 +75,7 @@ private:
 
     QPushButton *m_disconnectBtn;
     QPushButton *m_removeBtn;
+    QPushButton *m_exportBtn;
     dcc::widgets::ButtonTuple *m_buttonTuple;
     QVBoxLayout *m_sectionsLayout;
 

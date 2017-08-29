@@ -29,6 +29,9 @@ VpnPage::VpnPage(QWidget *parent)
     QPushButton *createVpnBtn = new QPushButton;
     createVpnBtn->setText(tr("Create VPN"));
 
+    QPushButton *importVpnBtn = new QPushButton;
+    importVpnBtn->setText(tr("Import VPN"));
+
     SettingsGroup *switchGrp = new SettingsGroup;
     switchGrp->appendItem(m_vpnSwitch);
 
@@ -37,6 +40,7 @@ VpnPage::VpnPage(QWidget *parent)
     mainLayout->addWidget(switchGrp);
     mainLayout->addWidget(m_vpnGroup);
     mainLayout->addWidget(createVpnBtn);
+    mainLayout->addWidget(importVpnBtn);
     mainLayout->setSpacing(10);
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->addSpacing(10);
@@ -49,6 +53,7 @@ VpnPage::VpnPage(QWidget *parent)
 
     connect(m_vpnSwitch, &SwitchWidget::checkedChanged, this, &VpnPage::requestVpnEnabled);
     connect(createVpnBtn, &QPushButton::clicked, this, &VpnPage::createVPNSession);
+    connect(importVpnBtn, &QPushButton::clicked, this, &VpnPage::importVPN);
 }
 
 VpnPage::~VpnPage()
@@ -170,6 +175,11 @@ void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
         else
             it.key()->clearValue();
     }
+}
+
+void VpnPage::importVPN()
+{
+    qDebug() << "ccc";
 }
 
 void VpnPage::createVPNSession()

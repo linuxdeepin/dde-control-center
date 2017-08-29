@@ -47,6 +47,7 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
 
       m_disconnectBtn(new QPushButton),
       m_removeBtn(new QPushButton),
+      m_exportBtn(new QPushButton),
       m_buttonTuple(new ButtonTuple),
       m_sectionsLayout(new QVBoxLayout),
 
@@ -58,6 +59,8 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     m_disconnectBtn->setVisible(false);
     m_removeBtn->setText(tr("Delete"));
     m_removeBtn->setVisible(false);
+    m_exportBtn->setText(tr("Export"));
+    m_exportBtn->setVisible(false);
 
     m_recreateUITimer->setSingleShot(true);
     m_recreateUITimer->setInterval(100);
@@ -71,6 +74,7 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     mainLayout->addSpacing(10);
     mainLayout->addWidget(m_disconnectBtn);
     mainLayout->addWidget(m_removeBtn);
+    mainLayout->addWidget(m_exportBtn);
     mainLayout->addLayout(m_sectionsLayout);
     mainLayout->addWidget(m_buttonTuple);
     mainLayout->setSpacing(10);
@@ -84,8 +88,9 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     connect(m_recreateUITimer, &QTimer::timeout, this, &ConnectionEditPage::recreateUI);
     connect(cancelBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
     connect(acceptBtn, &QPushButton::clicked, this, &ConnectionEditPage::accept);
-    connect(m_disconnectBtn, &QPushButton::clicked, this, [this] { emit requestDisconnect(m_sessionModel->connectionUuid()); });
-    connect(m_removeBtn, &QPushButton::clicked, this, [this] { emit requestRemove(m_sessionModel->connectionUuid()); });
+    connect(m_exportBtn, &QPushButton::clicked, this, &ConnectionEditPage::exportConnConfig);
+    connect(m_disconnectBtn, &QPushButton::clicked, this, [this] { emit requestDisconnect(m_sessionModel->uuid()); });
+    connect(m_removeBtn, &QPushButton::clicked, this, [this] { emit requestRemove(m_sessionModel->uuid()); });
     connect(m_removeBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
     connect(this, &ConnectionEditPage::requestNextPage, [=](ContentWidget *w) { m_nextPage = w; });
 }
@@ -114,7 +119,8 @@ void ConnectionEditPage::setModel(NetworkModel *networkModel, ConnectionSessionM
     connect(m_sessionModel, &ConnectionSessionModel::visibleItemsChanged, this, &ConnectionEditPage::refershUI);
     connect(m_sessionModel, &ConnectionSessionModel::errorsChanged, this, &ConnectionEditPage::onErrorsChanged);
     connect(m_sessionModel, &ConnectionSessionModel::saveFinished, this, &ConnectionEditPage::saveFinished);
-    connect(m_sessionModel, &ConnectionSessionModel::connectionUuidChanged, this, &ConnectionEditPage::onActiveStateChanged);
+    connect(m_sessionModel, &ConnectionSessionModel::uuidChanged, this, &ConnectionEditPage::onActiveStateChanged);
+    connect(m_sessionModel, &ConnectionSessionModel::typeChanged, this, &ConnectionEditPage::onTypeChanged);
 
     m_removeBtn->setVisible(m_sessionModel->deletable());
     onActiveStateChanged();
@@ -184,6 +190,14 @@ void ConnectionEditPage::refershUI()
         fw->setFocus();
 }
 
+void ConnectionEditPage::exportConnConfig()
+{
+    Q_ASSERT_X(m_sessionModel->type().startsWith("vpn"), Q_FUNC_INFO, "only vpn connection export is supported.");
+
+    const QString uuid = m_sessionModel->uuid();
+    qDebug() << uuid;
+}
+
 void ConnectionEditPage::saveFinished(const bool ret)
 {
     if (ret)
@@ -227,9 +241,24 @@ void ConnectionEditPage::onErrorsChanged(const NetworkErrors &errors)
     }
 }
 
+///
+/// \brief ConnectionEditPage::onTypeChanged
+/// \param type VPN type
+///
+/// if editing connection is VPN connection. Need to
+/// add export button.
+///
+void ConnectionEditPage::onTypeChanged(const QString &type)
+{
+    if (!type.startsWith("vpn"))
+        return;
+
+    m_exportBtn->setVisible(true);
+}
+
 void ConnectionEditPage::onActiveStateChanged()
 {
-    const bool connected = m_networkModel->activeConnections().contains(m_sessionModel->connectionUuid());
+    const bool connected = m_networkModel->activeConnections().contains(m_sessionModel->uuid());
 
 //    qDebug() << m_networkModel->activeConnections() << m_sessionModel->connectionUuid();
 

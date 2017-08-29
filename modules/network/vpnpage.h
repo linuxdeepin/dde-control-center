@@ -50,6 +50,8 @@ private slots:
     void onSessionPageFinished();
     void onVpnSessionCreated(const QString &device, const QString &sessionPath);
     void onActiveConnsInfoChanged(const QList<QJsonObject> &infos);
+
+    void importVPN();
     void createVPNSession();
     void createVPN(const QString &type);
 
