@@ -22,6 +22,8 @@
 #include <QJsonArray>
 #include <QComboBox>
 #include <QApplication>
+#include <QFileDialog>
+#include <QProcess>
 
 #include <cstring>
 
@@ -195,7 +197,17 @@ void ConnectionEditPage::exportConnConfig()
     Q_ASSERT_X(m_sessionModel->type().startsWith("vpn"), Q_FUNC_INFO, "only vpn connection export is supported.");
 
     const QString uuid = m_sessionModel->uuid();
-    qDebug() << uuid;
+    const QUrl u = QFileDialog::getSaveFileUrl(nullptr);
+    if (u.isEmpty())
+        return;
+
+    const auto args = QStringList() << "connection" << "export" << uuid << u.path();
+    qDebug() << Q_FUNC_INFO << args;
+
+    QProcess p;
+    p.startDetached("nmcli", args);
+    p.waitForFinished();
+    qDebug() << p.readAll();
 }
 
 void ConnectionEditPage::saveFinished(const bool ret)

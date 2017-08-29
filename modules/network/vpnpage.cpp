@@ -13,9 +13,22 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QJsonObject>
+#include <QFileDialog>
 
 using namespace dcc::widgets;
 using namespace dcc::network;
+
+QString vpnConfigType(const QString &path)
+{
+    QFile f(path);
+    f.open(QIODevice::ReadOnly);
+    const QString content = f.readAll();
+
+    if (content.contains("l2tp"))
+        return "l2tp";
+
+    return "openvpn";
+}
 
 VpnPage::VpnPage(QWidget *parent)
     : ContentWidget(parent),
@@ -179,7 +192,16 @@ void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
 
 void VpnPage::importVPN()
 {
-    qDebug() << "ccc";
+    const auto file = QFileDialog::getOpenFileUrl(nullptr);
+    if (file.isEmpty())
+        return;
+
+    const auto args = QStringList { "connection", "import", "type", vpnConfigType(file.path()), "file", file.path() };
+
+    QProcess p;
+    p.startDetached("nmcli", args);
+    p.waitForFinished();
+    qDebug() << p.readAll();
 }
 
 void VpnPage::createVPNSession()
