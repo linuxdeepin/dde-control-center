@@ -6,6 +6,7 @@
 namespace dcc {
 namespace network {
 
+class WirelessDevice;
 class NetworkDevice;
 class NetworkModuleWidget;
 class NetworkWorker;
@@ -33,6 +34,7 @@ private slots:
     void showPppPage();
     void showProxyPage();
     void showDetailPage();
+    void showHotspotPage(WirelessDevice *wdev);
     void showDeviceDetailPage(NetworkDevice *dev);
     void showWiredConnectionEditPage(const QString &session);
     void onSetFrameAutoHide(const bool autoHide);

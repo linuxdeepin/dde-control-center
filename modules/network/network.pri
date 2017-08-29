@@ -18,7 +18,8 @@ HEADERS += \
     $$PWD/pppoepage.h \
     $$PWD/networkdetailpage.h \
     $$PWD/proxypage.h \
-    $$PWD/wiredpage.h
+    $$PWD/wiredpage.h \
+    $$PWD/hotspotpage.h
 
 SOURCES += \
     $$PWD/networkmodule.cpp \
@@ -37,7 +38,8 @@ SOURCES += \
     $$PWD/pppoepage.cpp \
     $$PWD/networkdetailpage.cpp \
     $$PWD/proxypage.cpp \
-    $$PWD/wiredpage.cpp
+    $$PWD/wiredpage.cpp \
+    $$PWD/hotspotpage.cpp
 
 RESOURCES += \
     $$PWD/network.qrc
