@@ -1677,7 +1677,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
         <source>Enable window effect</source>
-        <translation type="unfinished"/>
+        <translation>Venstereffect inschakelen</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="30"/>
@@ -1910,7 +1910,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>Editielicentie</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>

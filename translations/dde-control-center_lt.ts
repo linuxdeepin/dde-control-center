@@ -2073,7 +2073,7 @@
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="236"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Aptikta nauja sistemos laida bei %1 programų atnaujinimas</numerusform><numerusform>Aptikta nauja sistemos laida bei %1 programų atnaujinimai</numerusform><numerusform>Aptikta nauja sistemos laida bei %1 programų atnaujinimų</numerusform></translation>
+        <translation><numerusform>Aptikta nauja sistemos laida bei %n programų atnaujinimas</numerusform><numerusform>Aptikta nauja sistemos laida bei %n programų atnaujinimai</numerusform><numerusform>Aptikta nauja sistemos laida bei %n programų atnaujinimų</numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>

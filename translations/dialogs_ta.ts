@@ -4,12 +4,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>நிறுவப்பட்ட மேம்படுத்தல்கள், மறுதொடக்கம் செய்ய வேண்டும், மறுதொடக்கம் செய்யலாமா?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>எல்லா தரவும் முதலில் சேமிக்கப்பட்டிருப்பதை உறுதி செய்து கொள்ளுங்கள்</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>மறுதொடக்கம்</translation>
     </message>
 </context>
 </TS>

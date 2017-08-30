@@ -17,7 +17,7 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="68"/>
         <source>Click icon to enable bluetooth</source>
-        <translation>انقر الأيقونة لتمكين بلوتوث</translation>
+        <translation>انقر على الأيقونة لتمكين بلوتوث</translation>
     </message>
 </context>
 <context>
@@ -35,7 +35,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="68"/>
         <source>Only Displayed on %1</source>
-        <translation>تعرض فقط على %1 </translation>
+        <translation>العرض فقط على %1 </translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="75"/>
@@ -101,7 +101,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="184"/>
         <source>No system notifications</source>
-        <translation>لا يوجد نظام تنبيه</translation>
+        <translation>لا إشعارات  للنظام</translation>
     </message>
 </context>
 <context>
@@ -367,7 +367,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="48"/>
         <source>Delete account directory</source>
-        <translation>حذف ملف الحساب</translation>
+        <translation>حذف دليل الحساب</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="54"/>
@@ -438,7 +438,7 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="25"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>الرمز السري للربط مع جهاز البلوتوث هو:</translation>
+        <translation>رمز PIN للتوصيل مع جهاز البلوتوث هو:</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="33"/>
@@ -711,7 +711,7 @@
     <message>
         <location filename="../modules/display/displayworker.cpp" line="130"/>
         <source>My Settings %1</source>
-        <translation>اعداداتي %1</translation>
+        <translation>إعداداتي %1</translation>
     </message>
 </context>
 <context>
@@ -849,12 +849,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="100"/>
         <source>null</source>
-        <translation>باطل</translation>
+        <translation>فارغ</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="113"/>
         <source>Choose File</source>
-        <translation>اختر ملف</translation>
+        <translation>اختيار ملف</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="113"/>
@@ -913,7 +913,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="124"/>
         <source>null</source>
-        <translation>باطل</translation>
+        <translation>فارغ</translation>
     </message>
 </context>
 <context>
@@ -972,7 +972,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="63"/>
         <source>Add Keyboard Layout</source>
-        <translation>إضافة لغة كتابة</translation>
+        <translation>إضافة تخطيط لوحة مفاتيح</translation>
     </message>
 </context>
 <context>
@@ -980,7 +980,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="25"/>
         <source>Add Keyboard Layout</source>
-        <translation>إضافة لغة كتابة</translation>
+        <translation>إضافة تخطيط لوحة مفاتيح</translation>
     </message>
 </context>
 <context>
@@ -994,7 +994,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="27"/>
         <source>Repeat Delay</source>
-        <translation>مهلة التأحير</translation>
+        <translation>مهلة التأخير</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="36"/>
@@ -1077,7 +1077,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="26"/>
         <source>Please Reset Shortcut</source>
-        <translation>من فضلك اعد تعيين الاختصار</translation>
+        <translation>الرجاء إعادة تعيين الاختصار</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="35"/>
@@ -1097,7 +1097,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="98"/>
         <source>null</source>
-        <translation>باطل</translation>
+        <translation>فارغ</translation>
     </message>
 </context>
 <context>
@@ -1224,7 +1224,7 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="104"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="26"/>
         <source>Mouse</source>
-        <translation>الفأر</translation>
+        <translation>الفأرة</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="27"/>
@@ -1252,12 +1252,12 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="18"/>
         <source>TrackPoint</source>
-        <translation>نقطة التتبع</translation>
+        <translation>TrackPoint</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="21"/>
         <source>Thinkpad Track Point</source>
-        <translation>ثينك باد تراكبوينت</translation>
+        <translation>Thinkpad Track Point</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="24"/>
@@ -1385,7 +1385,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="26"/>
         <source>DSL</source>
-        <translation>دي اس ال</translation>
+        <translation>DSL</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="27"/>
@@ -1459,7 +1459,7 @@
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="39"/>
         <source>PPP</source>
-        <translation>البروتوكول التناظري</translation>
+        <translation>PPP</translation>
     </message>
 </context>
 <context>
@@ -1635,12 +1635,12 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="20"/>
         <source>Standard Font</source>
-        <translation>معيار الخط</translation>
+        <translation>خط قياسي</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="21"/>
         <source>Monospaced Font</source>
-        <translation>خط أحادي المساحة</translation>
+        <translation>خط أحادي المسافة</translation>
     </message>
 </context>
 <context>
@@ -1664,12 +1664,12 @@
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="88"/>
         <source>Standard Font</source>
-        <translation>معيار الخط</translation>
+        <translation>خط قياسي</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="97"/>
         <source>Monospaced Font</source>
-        <translation>خط أحادي المساحة</translation>
+        <translation>خط أحادي المسافة</translation>
     </message>
 </context>
 <context>
@@ -1709,17 +1709,17 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="15"/>
         <source>Window Theme</source>
-        <translation>مظهر النافذة</translation>
+        <translation>سمة النوافذ</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="16"/>
         <source>Icon Theme</source>
-        <translation>مظهر الأيقونة</translation>
+        <translation>سمة الأيقونات</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="17"/>
         <source>Cursor Theme</source>
-        <translation>مظهر المؤشر</translation>
+        <translation>سمة المؤشر</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="29"/>
@@ -1796,7 +1796,7 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="22"/>
         <source>Input</source>
-        <translation>إدخال</translation>
+        <translation>الإدخال</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="24"/>
@@ -1881,7 +1881,7 @@
     <message>
         <location filename="../modules/systeminfo/copyrightwidget.cpp" line="61"/>
         <source>License</source>
-        <translation>رخصة</translation>
+        <translation>الرخصة</translation>
     </message>
 </context>
 <context>
@@ -1930,7 +1930,8 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="18"/>
         <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>حقوق التأليف والنشر © 2011-2017 وهان ديبين للتكنولوجيا المحدودة</translation>
+        <translation>حقوق النشر © 2011-2017 
+وهان ديبين للتكنولوجيا المحدودة</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="66"/>
@@ -2038,7 +2039,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
         <source>Your system is up to date</source>
-        <translation>حالة نظامك حتى اﻵن</translation>
+        <translation>نظامك محدث حتى الآن</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="26"/>

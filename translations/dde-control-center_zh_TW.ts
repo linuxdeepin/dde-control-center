@@ -2212,7 +2212,7 @@
     <message>
         <location filename="../widgets/settingshead.cpp" line="27"/>
         <source>Cancel</source>
-        <translation>完成</translation>
+        <translation>取消</translation>
     </message>
 </context>
 </TS>

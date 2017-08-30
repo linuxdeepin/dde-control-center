@@ -737,7 +737,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="26"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation>开启屏幕投射功能会断开WIFI连接</translation>
+        <translation>开启无线投屏会断开WIFI连接</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="30"/>
@@ -2183,7 +2183,7 @@
         <location filename="../plugins/navgation/navwidget.cpp" line="106"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="28"/>
         <source>Wacom</source>
-        <translation>数位板</translation>
+        <translation>Wacom 数位板</translation>
     </message>
 </context>
 <context>

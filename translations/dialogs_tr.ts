@@ -9,7 +9,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation>Lütfen tüm verilerinizin kaydedildiğinden emin olun</translation>
+        <translation>Lütfen tüm verilerinizin kaydedildiğinden emin olunuz</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>

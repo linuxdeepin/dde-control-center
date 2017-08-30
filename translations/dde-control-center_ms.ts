@@ -1591,22 +1591,22 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="30"/>
         <source>Setting List</source>
-        <translation type="unfinished"/>
+        <translation>Senarai Tetapan</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="34"/>
         <source>Please firstly plug in the network cable</source>
-        <translation type="unfinished"/>
+        <translation>Mula-mula palamkan dahulu kabel rangkaian</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="40"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tambah Tetapan</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="55"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>Pilih Tetapan</translation>
     </message>
 </context>
 <context>
@@ -1677,7 +1677,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="28"/>
         <source>Enable window effect</source>
-        <translation type="unfinished"/>
+        <translation>Benarkan kesan tetingkap</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="30"/>
@@ -1910,7 +1910,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="94"/>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>Lesen Edisi</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>

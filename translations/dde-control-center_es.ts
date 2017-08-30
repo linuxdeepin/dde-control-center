@@ -4,7 +4,7 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="71"/>
         <source>Refresh</source>
-        <translation>Actualizar</translation>
+        <translation>Recargar</translation>
     </message>
 </context>
 <context>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="85"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Lo sentimos, no se puede obtener el tiempo!</translation>
+        <translation>¡Lo sentimos, no se puede obtener el tiempo!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="92"/>
@@ -466,7 +466,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="38"/>
         <source>Change Time Settings</source>
-        <translation>Cambiar ajustes hora</translation>
+        <translation>Cambiar ajustes del tiempo</translation>
     </message>
 </context>
 <context>
@@ -508,7 +508,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="37"/>
         <source>Change System Timezone</source>
-        <translation>Cambiar zona horaria</translation>
+        <translation>Cambiar huso horario</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="45"/>
@@ -630,7 +630,7 @@
         <location filename="../modules/defapp/defappwidget.cpp" line="21"/>
         <location filename="../modules/defapp/defappwidget.cpp" line="25"/>
         <source>Default Applications</source>
-        <translation>Aplicaciones por Defecto</translation>
+        <translation>Aplicaciones predeterminadas</translation>
     </message>
 </context>
 <context>
@@ -737,7 +737,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="26"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation>El wifi se desconectará cuando se habilite la proyección de pantalla</translation>
+        <translation>El WiFi se desconectará cuando se habilite la proyección de pantalla</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="30"/>
@@ -844,7 +844,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="81"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Este atajo de teclado esta en conflicto con %1, haga click en Añadir para que sea efectivo inmediatamente</translation>
+        <translation>Este atajo de teclado esta en conflicto con %1, haga clic en Añadir para que sea efectivo inmediatamente</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="100"/>
@@ -898,7 +898,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="103"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Este atajo de teclado esta en conflicto con %1, haga click en Añadir para que sea efectivo inmediatamente</translation>
+        <translation>Este atajo de teclado esta en conflicto con %1, haga clic en Añadir para que sea efectivo inmediatamente</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="115"/>
@@ -962,7 +962,7 @@
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="24"/>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="26"/>
         <source>Keyboard Layout</source>
-        <translation>Distribución del Teclado</translation>
+        <translation>Distribución del teclado</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="35"/>
@@ -1029,7 +1029,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="68"/>
         <source>Enable Numeric Keyboard</source>
-        <translation>Activar Teclado Numérico</translation>
+        <translation>Activar el teclado numérico</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="72"/>
@@ -1039,7 +1039,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="78"/>
         <source>Keyboard Layout</source>
-        <translation>Distribución del Teclado</translation>
+        <translation>Distribución del teclado</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="86"/>
@@ -1092,7 +1092,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Este atajo de teclado esta en conflicto con %1, haga click en Añadir para que sea efectivo inmediatamente</translation>
+        <translation>Este atajo de teclado esta en conflicto con %1, haga clic en Añadir para que sea efectivo inmediatamente</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="98"/>
@@ -1192,7 +1192,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="19"/>
         <source>Double-click Test</source>
-        <translation>Doble-click para probar</translation>
+        <translation>Doble clic para probar</translation>
     </message>
 </context>
 <context>
@@ -1215,7 +1215,7 @@
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="30"/>
         <source>Pointer Speed</source>
-        <translation>Velocidad del Puntero</translation>
+        <translation>Velocidad del puntero</translation>
     </message>
 </context>
 <context>
@@ -1239,12 +1239,12 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="32"/>
         <source>Tap to Click</source>
-        <translation>Toque para hacer click</translation>
+        <translation>Toque para hacer clic</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <source>Mouse and Touchpad</source>
-        <translation>Ratón y Panel táctil</translation>
+        <translation>Ratón y panel táctil</translation>
     </message>
 </context>
 <context>
@@ -1262,7 +1262,7 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="24"/>
         <source>Pointer Speed</source>
-        <translation>Velocidad del Puntero</translation>
+        <translation>Velocidad del puntero</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="32"/>
@@ -1377,7 +1377,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="64"/>
         <source>Failed</source>
-        <translation>No se pudo</translation>
+        <translation>Falló</translation>
     </message>
 </context>
 <context>
@@ -1635,12 +1635,12 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="20"/>
         <source>Standard Font</source>
-        <translation>Fuente standard</translation>
+        <translation>Fuente estándar</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="21"/>
         <source>Monospaced Font</source>
-        <translation>Fuente Monoespaciado</translation>
+        <translation>Fuente monoespaciado</translation>
     </message>
 </context>
 <context>
@@ -1664,12 +1664,12 @@
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="88"/>
         <source>Standard Font</source>
-        <translation>Fuente standard</translation>
+        <translation>Fuente estándar</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="97"/>
         <source>Monospaced Font</source>
-        <translation>Fuente Monoespaciado</translation>
+        <translation>Fuente monoespaciado</translation>
     </message>
 </context>
 <context>
@@ -1925,7 +1925,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="73"/>
         <source>Processor:</source>
-        <translation>Procesador</translation>
+        <translation>Procesador:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="18"/>
@@ -1940,12 +1940,12 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="77"/>
         <source>Memory:</source>
-        <translation>Memoria</translation>
+        <translation>Memoria:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Disk:</source>
-        <translation>Disco</translation>
+        <translation>Disco:</translation>
     </message>
 </context>
 <context>
@@ -2028,12 +2028,12 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="145"/>
         <source>%1 downloaded (Click to pause)</source>
-        <translation>%1 descargado (click para pausar)</translation>
+        <translation>%1 descargado (Clic para pausar)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="153"/>
         <source>%1 downloaded (Click to continue)</source>
-        <translation>%1 descargado (Click para continuar)</translation>
+        <translation>%1 descargado (Clic para continuar)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="172"/>
@@ -2119,7 +2119,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="30"/>
         <source>Auto-download Updates</source>
-        <translation>Auto-descarga actualizaciones</translation>
+        <translation>Auto-descargar actualizaciones</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="32"/>
@@ -2169,7 +2169,7 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>
         <source>light</source>
-        <translation>Claro</translation>
+        <translation>claro</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="27"/>

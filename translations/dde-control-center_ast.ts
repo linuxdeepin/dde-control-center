@@ -50,7 +50,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="83"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Estiende los conteníos de la pantalla p&apos;amosar conteníos en pantalles diferentes</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="85"/>
@@ -430,7 +430,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="113"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Nun se coneutó</translation>
     </message>
 </context>
 <context>
@@ -646,7 +646,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="18"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Modificar</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="20"/>
@@ -669,7 +669,7 @@
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="222"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Proyeición de pantalla inalámbrica</translation>
     </message>
 </context>
 <context>
@@ -697,7 +697,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="174"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Proyeición de pantalla inalámbrica</translation>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="96"/>
@@ -737,7 +737,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="26"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation type="unfinished"/>
+        <translation>El WiFi desconeutaráse al activar la proyeición de pantalla</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="30"/>
@@ -1873,7 +1873,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="50"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation type="unfinished"/>
+        <translation>La imaxe d&apos;arranque pue trocase arrastrando una a ella, y l&apos;orde d&apos;arranque pue camudase arrastrando les opciones</translation>
     </message>
 </context>
 <context>
