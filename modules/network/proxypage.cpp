@@ -202,6 +202,8 @@ void ProxyPage::onProxyToggled(const int index)
     // refersh ui
     m_manualWidget->setVisible(index == 1);
     m_autoWidget->setVisible(index == 2);
+
+    setFocus();
 }
 
 void ProxyPage::applySettings() const
