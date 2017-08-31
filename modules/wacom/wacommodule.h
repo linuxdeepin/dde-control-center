@@ -24,6 +24,9 @@ public:
 
     const QString name() const;
 
+private slots:
+    void showModePage();
+
 private:
     ~WacomModule();
 

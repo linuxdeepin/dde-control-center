@@ -13,7 +13,7 @@
 #include "sound/soundmodule.h"
 #include "update/updatemodule.h"
 #include "mouse/mousemodule.h"
-#include "wacom/wacomemodule.h"
+#include "wacom/wacommodule.h"
 #include "display/displaymodule.h"
 #include "personalization/personalizationmodule.h"
 #include "systeminfo/systeminfomodule.h"

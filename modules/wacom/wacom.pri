@@ -1,10 +1,11 @@
 HEADERS += \
-    $$PWD/wacomemodule.h \
     $$PWD/wacommodel.h \
     $$PWD/wacomwidget.h \
     $$PWD/wacomworker.h \
     $$PWD/model/wacommodelbase.h \
-    $$PWD/widget/wacomsettings.h
+    $$PWD/widget/wacomsettings.h \
+    $$PWD/wacommodepage.h \
+    $$PWD/wacommodule.h
 
 SOURCES += \
     $$PWD/wacommodule.cpp \
@@ -12,7 +13,8 @@ SOURCES += \
     $$PWD/wacomwidget.cpp \
     $$PWD/wacomworker.cpp \
     $$PWD/model/wacommodelbase.cpp \
-    $$PWD/widget/wacomsettings.cpp
+    $$PWD/widget/wacomsettings.cpp \
+    $$PWD/wacommodepage.cpp
 
 #INCLUDEPATH += $$PWD/..
 

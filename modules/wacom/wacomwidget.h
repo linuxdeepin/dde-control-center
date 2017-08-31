@@ -8,7 +8,7 @@
 
 namespace dcc{
 namespace widgets {
-class SettingsGroup;
+class NextPageWidget;
 }
 namespace wacom
 {
@@ -24,10 +24,17 @@ public:
 
 signals:
     void requestSetPressureValue(const int value);
+    void requestShowMode();
 
 private:
-    dcc::widgets::SettingsGroup *m_userGroup;
+    const QString getValue(const bool mode);
+
+private slots:
+    void onCursorModeChanged(const bool modeChanged);
+
+private:
     WacomSettings      *m_wacomSettings;
+    dcc::widgets::NextPageWidget *m_selectMode;
 };
 }
 }

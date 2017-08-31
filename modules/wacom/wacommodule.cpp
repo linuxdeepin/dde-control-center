@@ -1,8 +1,10 @@
-#include "wacomemodule.h"
+#include "wacommodule.h"
 #include "contentwidget.h"
 #include "wacommodel.h"
 #include "wacomwidget.h"
 #include "wacomworker.h"
+#include "wacommodepage.h"
+
 using namespace dcc;
 using namespace dcc::wacom;
 WacomModule::WacomModule(FrameProxyInterface *frame, QObject *parent)
@@ -43,6 +45,7 @@ ModuleWidget *WacomModule::moduleWidget()
 
         connect(m_wacomWidget, &WacomWidget::requestSetPressureValue, m_worker, &WacomWorker::onPressureSensitiveChanged);
         connect(m_model, &WacomModel::existChanged, [this](const bool exist) { m_frameProxy->setModuleVisible(this, exist); });
+        connect(m_wacomWidget, &WacomWidget::requestShowMode, this, &WacomModule::showModePage);
 
         m_wacomWidget->setModel(m_model);
         m_frameProxy->setModuleVisible(this, m_model->exist());
@@ -54,6 +57,16 @@ ModuleWidget *WacomModule::moduleWidget()
 const QString WacomModule::name() const
 {
     return QStringLiteral("wacom");
+}
+
+void WacomModule::showModePage()
+{
+    WacomModePage *page = new WacomModePage;
+    page->setMode(m_model->getCursorMode());
+
+    connect(page, &WacomModePage::requestSetMode, m_worker, &WacomWorker::setCursorMode);
+
+    m_frameProxy->pushWidget(this, page);
 }
 
 WacomModule::~WacomModule()
