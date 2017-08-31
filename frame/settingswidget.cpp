@@ -155,21 +155,58 @@ void SettingsWidget::mouseReleaseEvent(QMouseEvent *e)
 
 void SettingsWidget::loadModules()
 {
+#ifndef DISABLE_ACCOUNT
     loadModule(new accounts::AccountsModule(this));
+#endif
+
+#ifndef DISABLE_DISPALY
     loadModule(new display::DisplayModule(this));
+#endif
+
+#ifndef DISABLE_DEFAULT_APPLICATIONS
     loadModule(new defapp::DefaultAppsModule(this));
+#endif
+
+#ifndef DISABLE_PERSONALIZATION
     loadModule(new personalization::PersonalizationModule(this));
+#endif
+
+#ifndef DISABLE_NETWORK
     loadModule(new network::NetworkModule(this));
+#endif
+
+#ifndef DISABLE_BLUETOOTH
     loadModule(new bluetooth::BluetoothModule(this));
+#endif
+
+#ifndef DISABLE_SOUND
     loadModule(new sound::SoundModule(this));
+#endif
+
+#ifndef DISABLE_DATETIME
     loadModule(new DatetimeModule(this));
+#endif
+
+#ifndef DISABLE_POWER
     loadModule(new power::PowerModule(this));
+#endif
+
+#ifndef DISABLE_MOUSE
     loadModule(new mouse::MouseModule(this));
+#endif
+
+#ifndef DISABLE_KAYBOARD
     loadModule(new KeyboardModule(this));
+#endif
+
+#ifndef DISABLE_WACOM
     loadModule(new wacom::WacomModule(this));
+#endif
+
 #ifndef DISABLE_SYS_UPDATE
     loadModule(new UpdateModule(this));
 #endif
+
     loadModule(new SystemInfoModule(this));
 }
 

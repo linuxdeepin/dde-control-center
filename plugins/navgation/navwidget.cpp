@@ -3,7 +3,9 @@
 
 #include <QTimer>
 
-const QStringList MODULES = { "accounts", "display", "defapp", "personalization", "network", "bluetooth", "sound", "datetime", "power", "mouse", "keyboard", "wacom", "update", "systeminfo" };
+const QStringList MODULES = { "accounts", "display", "defapp", "personalization", "network",
+                              "bluetooth", "sound", "datetime", "power", "mouse", "keyboard",
+                              "wacom", "update", "systeminfo" };
 
 NavWidget::NavWidget(QWidget *parent)
     : QWidget(parent),
@@ -47,10 +49,58 @@ void NavWidget::onDevicesChanged()
 
     m_moduleList = MODULES;
 
+#ifdef DISABLE_ACCOUNT
+    m_moduleList.removeOne("accounts");
+#endif
+
+#ifdef DISABLE_DISPALY
+    m_moduleList.removeOne("display");
+#endif
+
+#ifdef DISABLE_DEFAULT_APPLICATIONS
+    m_moduleList.removeOne("defapp");
+#endif
+
+#ifdef DISABLE_PERSONALIZATION
+    m_moduleList.removeOne("personalization");
+#endif
+
+#ifdef DISABLE_NETWORK
+    m_moduleList.removeOne("network");
+#endif
+
+#ifdef DISABLE_SOUND
+    m_moduleList.removeOne("sound");
+#endif
+
+#ifdef DISABLE_DATETIME
+    m_moduleList.removeOne("datetime");
+#endif
+
+#ifdef DISABLE_POWER
+    m_moduleList.removeOne("power");
+#endif
+
+#ifdef DISABLE_MOUSE
+    m_moduleList.removeOne("mouse");
+#endif
+
+#ifdef DISABLE_KAYBOARD
+    m_moduleList.removeOne("keyboard");
+#endif
+
+#ifdef DISABLE_SYS_UPDATE
+    m_moduleList.removeOne("update");
+#endif
+
+#ifndef DISABLE_BLUETOOTH
     if (!m_bluetoothInter->state())
+#endif
         m_moduleList.removeOne("bluetooth");
 
+#ifndef DISABLE_WACOM
     if (!m_wacomInter->exist())
+#endif
         m_moduleList.removeOne("wacom");
 
     QTimer::singleShot(1, this, &NavWidget::refershGridLayout);
