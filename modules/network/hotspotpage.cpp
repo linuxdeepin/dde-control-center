@@ -3,8 +3,10 @@
 #include "switchwidget.h"
 #include "settingsgroup.h"
 #include "wirelessdevice.h"
+#include "networkmodel.h"
 
 #include <QVBoxLayout>
+#include <QDebug>
 
 namespace dcc {
 
@@ -38,11 +40,47 @@ HotspotPage::HotspotPage(WirelessDevice *wdev, QWidget *parent)
 
     setContent(centralWidget);
     setTitle(tr("Hotspot"));
+
+    connect(m_hotspotSwitch, &SwitchWidget::checkedChanged, this, &HotspotPage::onSwitchToggled);
 }
 
 void HotspotPage::setModel(NetworkModel *model)
 {
     m_model = model;
+
+    connect(model, &NetworkModel::connectionListChanged, this, &HotspotPage::onConnectionsChanged);
+
+    QTimer::singleShot(1, this, &HotspotPage::onConnectionsChanged);
+}
+
+void HotspotPage::onSwitchToggled(const bool checked)
+{
+}
+
+void HotspotPage::onConnectionsChanged()
+{
+    m_hotspotInfo = QJsonObject();
+    for (const auto &hotspot : m_model->hotspots())
+    {
+        if (hotspot.value("HwAddress").toString() == m_wdev->hwAddr())
+        {
+            m_hotspotInfo = hotspot;
+            break;
+        }
+    }
+
+    const QString ssid = m_hotspotInfo.value("Ssid").toString();
+    m_hotspotSwitch->setTitle(ssid.isEmpty() ? "ssid" : ssid);
+
+    QTimer::singleShot(1, this, &HotspotPage::onActiveConnsChanged);
+}
+
+void HotspotPage::onActiveConnsChanged()
+{
+    if (m_hotspotInfo.isEmpty())
+        return m_hotspotSwitch->setChecked(false);
+
+    m_hotspotSwitch->setChecked(m_model->activeConnections().contains(m_hotspotInfo.value("Uuid").toString()));
 }
 
 }

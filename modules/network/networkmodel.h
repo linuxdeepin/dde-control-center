@@ -39,6 +39,7 @@ public:
     const QList<QJsonObject> vpns() const { return m_connections.value("vpn"); }
     const QList<QJsonObject> wireds() const { return m_connections.value("wired"); }
     const QList<QJsonObject> pppoes() const { return m_connections.value("pppoe"); }
+    const QList<QJsonObject> hotspots() const { return m_connections.value("wireless-hotspot"); }
     const QList<QJsonObject> activeConnInfos() const { return m_activeConnInfos; }
     const QSet<QString> activeConnections() const { return m_activeConnections; }
     const QString connectionUuidByPath(const QString &connPath) const;

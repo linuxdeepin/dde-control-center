@@ -206,6 +206,8 @@ void NetworkModule::showHotspotPage(WirelessDevice *wdev)
 {
     HotspotPage *p = new HotspotPage(wdev);
 
+    p->setModel(m_networkModel);
+
     m_frameProxy->pushWidget(this, p);
 }
 

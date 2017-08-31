@@ -3,6 +3,8 @@
 
 #include "contentwidget.h"
 
+#include <QJsonObject>
+
 namespace dcc {
 
 namespace widgets {
@@ -26,10 +28,17 @@ public:
     void setModel(NetworkModel *model);
 
 private:
+    void onSwitchToggled(const bool checked);
+    void onConnectionsChanged();
+    void onActiveConnsChanged();
+
+private:
     WirelessDevice * const m_wdev;
     NetworkModel *m_model;
     widgets::SwitchWidget *m_hotspotSwitch;
     widgets::NextPageWidget *m_configureWidget;
+
+    QJsonObject m_hotspotInfo;
 };
 
 }
