@@ -27,10 +27,21 @@ public:
 
     void setModel(NetworkModel *model);
 
+signals:
+    void requestNewHotspot(const QString &debPath);
+    void requestActivateConnection(const QString &devPath, const QString &uuid);
+    void requestDisconnectConnection(const QString &uuid);
+
 private:
     void onSwitchToggled(const bool checked);
     void onConnectionsChanged();
     void onActiveConnsChanged();
+
+    void closeHotspot();
+    void openHotspot();
+
+    inline const QString hotspotUuid() const
+    { return m_hotspotInfo.value("Uuid").toString(); }
 
 private:
     WirelessDevice * const m_wdev;

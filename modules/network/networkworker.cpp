@@ -75,7 +75,7 @@ void NetworkWorker::setProxy(const QString &type, const QString &addr, const QSt
     connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
 }
 
-void NetworkWorker::enableWirelessHotspot(const QString &devPath)
+void NetworkWorker::initWirelessHotspot(const QString &devPath)
 {
     m_networkInter.EnableWirelessHotspotMode(QDBusObjectPath(devPath));
 }

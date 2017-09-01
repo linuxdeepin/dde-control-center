@@ -55,6 +55,10 @@ void HotspotPage::setModel(NetworkModel *model)
 
 void HotspotPage::onSwitchToggled(const bool checked)
 {
+    if (checked)
+        openHotspot();
+    else
+        closeHotspot();
 }
 
 void HotspotPage::onConnectionsChanged()
@@ -80,7 +84,25 @@ void HotspotPage::onActiveConnsChanged()
     if (m_hotspotInfo.isEmpty())
         return m_hotspotSwitch->setChecked(false);
 
-    m_hotspotSwitch->setChecked(m_model->activeConnections().contains(m_hotspotInfo.value("Uuid").toString()));
+    m_hotspotSwitch->setChecked(m_model->activeConnections().contains(hotspotUuid()));
+}
+
+void HotspotPage::closeHotspot()
+{
+    const QString uuid = hotspotUuid();
+    Q_ASSERT(!uuid.isEmpty());
+
+    emit requestDisconnectConnection(uuid);
+}
+
+void HotspotPage::openHotspot()
+{
+    const QString uuid = hotspotUuid();
+
+    if (uuid.isEmpty())
+        emit requestNewHotspot(m_wdev->path());
+    else
+        requestActivateConnection(m_wdev->path(), uuid);
 }
 
 }

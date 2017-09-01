@@ -26,7 +26,7 @@ public slots:
     void setProxyIgnoreHosts(const QString &hosts);
     void setAutoProxy(const QString &proxy);
     void setProxy(const QString &type, const QString &addr, const QString &port);
-    void enableWirelessHotspot(const QString &devPath);
+    void initWirelessHotspot(const QString &devPath);
     void queryProxy(const QString &type);
     void queryAutoProxy();
     void queryProxyData();
