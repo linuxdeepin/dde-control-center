@@ -10,11 +10,18 @@
 #include <QVBoxLayout>
 #include <QDebug>
 
+#include <unistd.h>
+
 namespace dcc {
 
 using namespace widgets;
 
 namespace network {
+
+const QString defaultHotspotName()
+{
+    return getlogin();
+}
 
 HotspotPage::HotspotPage(WirelessDevice *wdev, QWidget *parent)
     : ContentWidget(parent),
@@ -86,7 +93,8 @@ void HotspotPage::onConnectionsChanged()
     }
 
     const QString ssid = m_hotspotInfo.value("Ssid").toString();
-    m_hotspotSwitch->setTitle(ssid.isEmpty() ? "ssid" : ssid);
+    m_hotspotSwitch->setTitle(ssid.isEmpty() ? defaultHotspotName() : ssid);
+    m_configureWidget->setVisible(!m_hotspotInfo.isEmpty());
 
     QTimer::singleShot(1, this, &HotspotPage::onActiveConnsChanged);
 }
