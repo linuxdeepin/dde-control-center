@@ -1,13 +1,11 @@
 #include "networkworker.h"
-#include "networkmodel.h"
 
 using namespace dcc::network;
 
 NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
     : QObject(parent),
-
       m_networkInter("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this),
-
+      m_chainsInter(new ProxyChains("com.deepin.daemon.Network", "/com/deepin/daemon/Network/ProxyChains", QDBusConnection::sessionBus(), this)),
       m_networkModel(model)
 {
     connect(&m_networkInter, &NetworkInter::ActiveConnectionsChanged, this, &NetworkWorker::queryActiveConnInfo);
@@ -22,12 +20,21 @@ NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
     connect(m_networkModel, &NetworkModel::requestDeviceStatus, this, &NetworkWorker::queryDeviceStatus, Qt::QueuedConnection);
     connect(m_networkModel, &NetworkModel::connectionListChanged, this, &NetworkWorker::queryDevicesConnections, Qt::QueuedConnection);
 
+    connect(m_chainsInter, &ProxyChains::IPChanged, model, &NetworkModel::onChainsAddrChanged);
+    connect(m_chainsInter, &ProxyChains::PasswordChanged, model, &NetworkModel::onChainsPasswdChanged);
+    connect(m_chainsInter, &ProxyChains::TypeChanged, model, &NetworkModel::onChainsTypeChanged);
+    connect(m_chainsInter, &ProxyChains::UserChanged, model, &NetworkModel::onChainsUserChanged);
+    connect(m_chainsInter, &ProxyChains::PortChanged, this, [=] (uint port) {
+        model->onChainsPortChanged(QString::number(port));
+    });
+
     m_networkModel->onDeviceListChanged(m_networkInter.devices());
     m_networkModel->onConnectionListChanged(m_networkInter.connections());
     m_networkModel->onVPNEnabledChanged(m_networkInter.vpnEnabled());
     m_networkModel->onActiveConnectionsChanged(m_networkInter.activeConnections());
 
     m_networkInter.setSync(false);
+    m_chainsInter->setSync(false);
 
     queryActiveConnInfo();
 }
@@ -75,6 +82,11 @@ void NetworkWorker::setProxy(const QString &type, const QString &addr, const QSt
     connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
 }
 
+void NetworkWorker::setChainsProxy(const ProxyConfig &config)
+{
+    m_chainsInter->Set(config.type, config.url, config.port.toUInt(), config.username, config.password);
+}
+
 void NetworkWorker::initWirelessHotspot(const QString &devPath)
 {
     m_networkInter.EnableWirelessHotspotMode(QDBusObjectPath(devPath));
@@ -87,6 +99,15 @@ void NetworkWorker::queryProxy(const QString &type)
     w->setProperty("proxyType", type);
 
     connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryProxyCB);
+}
+
+void NetworkWorker::queryChains()
+{
+    m_networkModel->onChainsTypeChanged(m_chainsInter->type());
+    m_networkModel->onChainsAddrChanged(m_chainsInter->iP());
+    m_networkModel->onChainsPortChanged(QString::number(m_chainsInter->port()));
+    m_networkModel->onChainsUserChanged(m_chainsInter->user());
+    m_networkModel->onChainsPasswdChanged(m_chainsInter->password());
 }
 
 void NetworkWorker::queryAutoProxy()

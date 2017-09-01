@@ -1,17 +1,20 @@
 #ifndef NETWORKWORKER_H
 #define NETWORKWORKER_H
 
+#include "networkmodel.h"
+
 #include <QObject>
 
 #include <com_deepin_daemon_network.h>
+#include <com_deepin_daemon_network_proxychains.h>
 
 namespace dcc {
 
 namespace network {
 
 using NetworkInter = com::deepin::daemon::Network;
+using ProxyChains = com::deepin::daemon::network::ProxyChains;
 
-class NetworkModel;
 class NetworkWorker : public QObject
 {
     Q_OBJECT
@@ -26,8 +29,10 @@ public slots:
     void setProxyIgnoreHosts(const QString &hosts);
     void setAutoProxy(const QString &proxy);
     void setProxy(const QString &type, const QString &addr, const QString &port);
+    void setChainsProxy(const ProxyConfig &config);
     void initWirelessHotspot(const QString &devPath);
     void queryProxy(const QString &type);
+    void queryChains();
     void queryAutoProxy();
     void queryProxyData();
     void queryProxyMethod();
@@ -58,7 +63,7 @@ private slots:
 
 private:
     NetworkInter m_networkInter;
-
+    ProxyChains *m_chainsInter;
     NetworkModel *m_networkModel;
 };
 

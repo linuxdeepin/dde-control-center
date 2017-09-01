@@ -323,6 +323,46 @@ void NetworkModel::onDeviceConnectionsChanged(const QString &devPath, const QLis
     dev->setConnections(connections);
 }
 
+void NetworkModel::onChainsTypeChanged(const QString &type)
+{
+    if (type != m_chainsProxy.type) {
+        m_chainsProxy.type = type;
+        emit chainsTypeChanged(type);
+    }
+}
+
+void NetworkModel::onChainsAddrChanged(const QString &addr)
+{
+    if (addr != m_chainsProxy.url) {
+        m_chainsProxy.url = addr;
+        emit chainsAddrChanged(addr);
+    }
+}
+
+void NetworkModel::onChainsPortChanged(const QString &port)
+{
+    if (port != m_chainsProxy.port) {
+        m_chainsProxy.port = port;
+        emit chainsPortChanged(port);
+    }
+}
+
+void NetworkModel::onChainsUserChanged(const QString &user)
+{
+    if (user != m_chainsProxy.username) {
+        m_chainsProxy.username = user;
+        emit chainsUsernameChanged(user);
+    }
+}
+
+void NetworkModel::onChainsPasswdChanged(const QString &passwd)
+{
+    if (passwd != m_chainsProxy.password) {
+        m_chainsProxy.password = passwd;
+        emit chainsPasswdChanged(passwd);
+    }
+}
+
 bool NetworkModel::containsDevice(const QString &devPath) const
 {
     return device(devPath) != nullptr;

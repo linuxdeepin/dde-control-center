@@ -24,6 +24,7 @@ public:
     void setIcon(const QPixmap &icon);
 
     void clearValue() { m_value->clear(); }
+    inline QString value() { return m_value->text();}
 //    void setDisplay(bool display);
 //    bool display() const;
 

@@ -16,6 +16,7 @@
 #include "networkdetailpage.h"
 #include "wiredpage.h"
 #include "hotspotpage.h"
+#include "chainsproxypage.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -102,6 +103,7 @@ ModuleWidget *NetworkModule::moduleWidget()
     connect(m_networkWidget, &NetworkModuleWidget::requestShowDeviceDetail, this, &NetworkModule::showDeviceDetailPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowVpnPage, this, &NetworkModule::showVpnPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowPppPage, this, &NetworkModule::showPppPage);
+    connect(m_networkWidget, &NetworkModuleWidget::requestShowChainsPage, this, &NetworkModule::showChainsProxyPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowProxyPage, this, &NetworkModule::showProxyPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestHotspotPage, this, &NetworkModule::showHotspotPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowInfomation, this, &NetworkModule::showDetailPage);
@@ -177,6 +179,18 @@ void NetworkModule::showPppPage()
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);
+}
+
+void NetworkModule::showChainsProxyPage()
+{
+    m_networkWorker->queryChains();
+
+    ChainsProxyPage *chains = new ChainsProxyPage;
+    chains->setModel(m_networkModel);
+
+    connect(chains, &ChainsProxyPage::requestSet, m_networkWorker, &NetworkWorker::setChainsProxy);
+
+    m_frameProxy->pushWidget(this, chains);
 }
 
 void NetworkModule::showProxyPage()

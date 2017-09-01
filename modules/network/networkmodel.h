@@ -2,7 +2,6 @@
 #define NETWORKMODEL_H
 
 #include "networkdevice.h"
-
 #include <QObject>
 #include <QMap>
 #include <QTimer>
@@ -14,8 +13,11 @@ namespace network {
 
 struct ProxyConfig
 {
+    QString type;
     QString url;
     QString port;
+    QString username;
+    QString password;
 };
 
 class NetworkDevice;
@@ -29,6 +31,7 @@ class NetworkModel : public QObject
 public:
     explicit NetworkModel(QObject *parent = 0);
     ~NetworkModel();
+    ProxyConfig getChainsProxy() { return m_chainsProxy;}
 
     bool vpnEnabled() const { return m_vpnEnabled; }
     const ProxyConfig proxy(const QString &type) const { return m_proxies[type]; }
@@ -60,6 +63,11 @@ signals:
     void vpnEnabledChanged(const bool enabled) const;
     void deviceListChanged(const QList<NetworkDevice *> devices) const;
     void unhandledConnectionSessionCreated(const QString &device, const QString &sessionPath) const;
+    void chainsTypeChanged(const QString &type) const;
+    void chainsAddrChanged(const QString &addr) const;
+    void chainsPortChanged(const QString& port) const;
+    void chainsUsernameChanged(const QString &username) const;
+    void chainsPasswdChanged(const QString &passwd) const;
 
 private slots:
     void onVPNEnabledChanged(const bool enabled);
@@ -77,6 +85,11 @@ private slots:
     void onDeviceAPRemoved(const QString &device, const QString &apInfo);
     void onDeviceEnableChanged(const QString &device, const bool enabled);
     void onDeviceConnectionsChanged(const QString &devPath, const QList<QDBusObjectPath> &connections);
+    void onChainsTypeChanged(const QString &type);
+    void onChainsAddrChanged(const QString &addr);
+    void onChainsPortChanged(const QString &port);
+    void onChainsUserChanged(const QString &user);
+    void onChainsPasswdChanged(const QString &passwd);
 
 private:
     bool containsDevice(const QString &devPath) const;
@@ -93,6 +106,7 @@ private:
     QMap<QString, QList<QJsonObject>> m_connections;
     QList<QJsonObject> m_activeConnInfos;
     QSet<QString> m_activeConnections;
+    ProxyConfig m_chainsProxy;
 };
 
 }   // namespace network

@@ -28,6 +28,9 @@ NetworkModuleWidget::NetworkModuleWidget()
     m_vpnBtn->setTitle(tr("VPN"));
     m_proxyBtn->setTitle(tr("Proxy"));
 
+    NextPageWidget *appProxy = new NextPageWidget;
+    appProxy->setTitle(tr("Apply proxy"));
+
     m_detailBtn->setTitle(tr("Network Details"));
 
     m_devicesLayout->setMargin(0);
@@ -36,6 +39,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     SettingsGroup *connGroup = new SettingsGroup;
     connGroup->appendItem(m_pppBtn);
     connGroup->appendItem(m_vpnBtn);
+    connGroup->appendItem(appProxy);
     connGroup->appendItem(m_proxyBtn);
 
     SettingsGroup *detailGroup = new SettingsGroup;
@@ -51,6 +55,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     connect(m_vpnBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowVpnPage);
     connect(m_pppBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowPppPage);
     connect(m_proxyBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowProxyPage);
+    connect(appProxy, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowChainsPage);
 }
 
 void NetworkModuleWidget::setModel(NetworkModel *model)
