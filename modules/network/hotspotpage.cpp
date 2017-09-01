@@ -4,6 +4,8 @@
 #include "settingsgroup.h"
 #include "wirelessdevice.h"
 #include "networkmodel.h"
+#include "connectionsessionmodel.h"
+#include "connectionsessionworker.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -42,6 +44,8 @@ HotspotPage::HotspotPage(WirelessDevice *wdev, QWidget *parent)
     setTitle(tr("Hotspot"));
 
     connect(m_hotspotSwitch, &SwitchWidget::checkedChanged, this, &HotspotPage::onSwitchToggled);
+    connect(m_configureWidget, &NextPageWidget::clicked, this, &HotspotPage::onConfigWidgetClicked);
+    connect(m_wdev, &WirelessDevice::sessionCreated, this, &HotspotPage::onConnectionSessionCreated);
 }
 
 void HotspotPage::setModel(NetworkModel *model)
@@ -59,6 +63,14 @@ void HotspotPage::onSwitchToggled(const bool checked)
         openHotspot();
     else
         closeHotspot();
+}
+
+void HotspotPage::onConfigWidgetClicked()
+{
+    const QString uuid = hotspotUuid();
+    Q_ASSERT(!uuid.isEmpty());
+
+    emit requestEditConnection(m_wdev->path(), uuid);
 }
 
 void HotspotPage::onConnectionsChanged()
@@ -85,6 +97,28 @@ void HotspotPage::onActiveConnsChanged()
         return m_hotspotSwitch->setChecked(false);
 
     m_hotspotSwitch->setChecked(m_model->activeConnections().contains(hotspotUuid()));
+}
+
+void HotspotPage::onConnectionSessionCreated(const QString &sessionPath)
+{
+    // ensure edit page is empty
+    Q_ASSERT(m_editPage.isNull());
+
+    m_editPage = new ConnectionEditPage;
+
+    ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
+    ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
+
+    m_editPage->setModel(m_model, sessionModel);
+    connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
+    connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
+    connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
+    connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &HotspotPage::requestNextPage);
+    connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &HotspotPage::requestFrameKeepAutoHide);
+    connect(m_editPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(hotspotUuid()); });
+    connect(m_editPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(hotspotUuid()); });
+
+    emit requestNextPage(m_editPage);
 }
 
 void HotspotPage::closeHotspot()
