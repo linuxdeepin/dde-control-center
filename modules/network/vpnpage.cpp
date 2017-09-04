@@ -199,9 +199,24 @@ void VpnPage::importVPN()
     const auto args = QStringList { "connection", "import", "type", vpnConfigType(file.path()), "file", file.path() };
 
     QProcess p;
-    p.startDetached("nmcli", args);
+    p.start("nmcli", args);
     p.waitForFinished();
-    qDebug() << p.readAll();
+    const auto stat = p.exitCode();
+    const QString output = p.readAll();
+
+    qDebug() << stat << output;
+
+    if (stat)
+        return;
+
+    const QRegularExpression regexp("\\(([-\\w]+)\\)");
+    const auto match = regexp.match(output);
+
+    if (match.hasMatch())
+    {
+        m_editingConnUuid = match.captured(1);
+        emit requestEditVpn("/", m_editingConnUuid);
+    }
 }
 
 void VpnPage::createVPNSession()

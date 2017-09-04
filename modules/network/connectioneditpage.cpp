@@ -32,15 +32,12 @@ using namespace dcc::network;
 
 DWIDGET_USE_NAMESPACE
 
-void processConfigCA(const QString &src, const QString &dst)
+void processConfigCA(const QString &file)
 {
-    QFile in(src);
-    in.open(QIODevice::ReadOnly);
-    const QString data = in.readAll();
-    in.close();
-
-    QFile out(dst);
-    out.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    QFile f(file);
+    f.open(QIODevice::ReadWrite);
+    const QString data = f.readAll();
+    f.seek(0);
 
     const QRegularExpression regex("^ca\\s'(.+)'\\s*$");
     QStringList ca_list;
@@ -51,24 +48,24 @@ void processConfigCA(const QString &src, const QString &dst)
         {
             ca_list << match.captured(1);
         } else {
-            out.write(line.toStdString().c_str());
-            out.write("\n");
+            f.write(line.toStdString().c_str());
+            f.write("\n");
         }
     }
-    out.write("\n");
+    f.write("\n");
 
     // write ca
-    out.write("<ca>\n");
+    f.write("<ca>\n");
     for (const auto ca : ca_list)
     {
         QFile caf(ca);
         caf.open(QIODevice::ReadOnly);
-        out.write(caf.readAll());
-        out.write("\n");
+        f.write(caf.readAll());
+        f.write("\n");
     }
-    out.write("</ca>\n");
-    out.flush();
-    out.close();
+    f.write("</ca>\n");
+    f.flush();
+    f.close();
 }
 
 const QString JsonEncoding(const QString &str)
@@ -240,18 +237,17 @@ void ConnectionEditPage::exportConnConfig()
     if (u.isEmpty())
         return;
 
-    const QString tmp = "/tmp/tmp.conf";
-    const auto args = QStringList() << "connection" << "export" << uuid << tmp;
+    const auto args = QStringList() << "connection" << "export" << uuid << u.path();
     qDebug() << Q_FUNC_INFO << args;
 
     QProcess p;
-    p.startDetached("nmcli", args);
+    p.start("nmcli", args);
     p.waitForFinished();
     qDebug() << p.readAllStandardOutput();
     qDebug() << p.readAllStandardError();
 
     // process ca
-    processConfigCA(tmp, u.path());
+    processConfigCA(u.path());
 }
 
 void ConnectionEditPage::saveFinished(const bool ret)
