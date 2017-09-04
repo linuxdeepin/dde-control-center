@@ -12,9 +12,6 @@
 #include "networkmodel.h"
 #include "buttontuple.h"
 
-#include <dspinbox.h>
-
-#include <QDebug>
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -24,13 +21,55 @@
 #include <QApplication>
 #include <QFileDialog>
 #include <QProcess>
+#include <QDebug>
 
 #include <cstring>
+
+#include <dspinbox.h>
 
 using namespace dcc::widgets;
 using namespace dcc::network;
 
 DWIDGET_USE_NAMESPACE
+
+void processConfigCA(const QString &src, const QString &dst)
+{
+    QFile in(src);
+    in.open(QIODevice::ReadOnly);
+    const QString data = in.readAll();
+    in.close();
+
+    QFile out(dst);
+    out.open(QIODevice::WriteOnly | QIODevice::Truncate);
+
+    const QRegularExpression regex("^ca\\s'(.+)'\\s*$");
+    QStringList ca_list;
+    for (const auto &line : data.split('\n'))
+    {
+        const auto match = regex.match(line);
+        if (match.hasMatch())
+        {
+            ca_list << match.captured(1);
+        } else {
+            out.write(line.toStdString().c_str());
+            out.write("\n");
+        }
+    }
+    out.write("\n");
+
+    // write ca
+    out.write("<ca>\n");
+    for (const auto ca : ca_list)
+    {
+        QFile caf(ca);
+        caf.open(QIODevice::ReadOnly);
+        out.write(caf.readAll());
+        out.write("\n");
+    }
+    out.write("</ca>\n");
+    out.flush();
+    out.close();
+}
 
 const QString JsonEncoding(const QString &str)
 {
@@ -201,13 +240,18 @@ void ConnectionEditPage::exportConnConfig()
     if (u.isEmpty())
         return;
 
-    const auto args = QStringList() << "connection" << "export" << uuid << u.path();
+    const QString tmp = "/tmp/tmp.conf";
+    const auto args = QStringList() << "connection" << "export" << uuid << tmp;
     qDebug() << Q_FUNC_INFO << args;
 
     QProcess p;
     p.startDetached("nmcli", args);
     p.waitForFinished();
-    qDebug() << p.readAll();
+    qDebug() << p.readAllStandardOutput();
+    qDebug() << p.readAllStandardError();
+
+    // process ca
+    processConfigCA(tmp, u.path());
 }
 
 void ConnectionEditPage::saveFinished(const bool ret)
