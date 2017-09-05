@@ -37,10 +37,13 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     m_deleteAccount->setText(tr("Delete Account"));
     m_deleteAccount->setObjectName("DeleteAccountButton");
 
+    QLabel *tip = new QLabel(tr("Unable to delete, current user logged in"));
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addSpacing(10);
     mainLayout->addWidget(m_accountSettings);
     mainLayout->addWidget(m_deleteAccount);
+    mainLayout->addWidget(tip);
     mainLayout->setMargin(0);
     mainLayout->setSpacing(10);
 
@@ -48,7 +51,10 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     mainWidget->setLayout(mainLayout);
 
     connect(user, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
-    connect(user, &User::onlineChanged, this, [this] (const bool online) { m_deleteAccount->setVisible(!online); });
+    connect(user, &User::onlineChanged, this, [=] (const bool online) {
+        m_deleteAccount->setDisabled(online);
+        tip->setVisible(online);
+    });
     connect(m_deleteAccount, &QPushButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
     connect(m_autoLogin, &SwitchWidget::checkedChanged, [=] (const bool autoLogin) { emit requestSetAutoLogin(user, autoLogin); });
     connect(m_modifyPassword, &NextPageWidget::clicked, [=] { emit showPwdSettings(user); });
@@ -57,7 +63,11 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 
     setContent(mainWidget);
     setTitle(user->name());
-    m_deleteAccount->setVisible(!user->online());
+
+    const bool isOnline = user->online();
+
+    m_deleteAccount->setDisabled(isOnline);
+    tip->setVisible(isOnline);
 }
 
 void AccountsDetailWidget::deleteUserClicked()

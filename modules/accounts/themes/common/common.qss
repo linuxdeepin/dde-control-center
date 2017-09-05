@@ -1,5 +1,9 @@
 /* accounts module common style */
 QPushButton#DeleteAccountButton
 {
-    color: red;
+    color: #FF5A5A;
+}
+
+QPushButton#DeleteAccountButton:disabled {
+    color: rgba(255, 90, 90, 0.4);
 }
