@@ -34,6 +34,7 @@ private slots:
     void showPppPage();
     void showChainsProxyPage();
     void showProxyPage();
+    void showChainsProxyTypePage();
     void showDetailPage();
     void showHotspotPage(WirelessDevice *wdev);
     void showDeviceDetailPage(NetworkDevice *dev);

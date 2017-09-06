@@ -14,6 +14,8 @@ using namespace dcc::widgets;
 
 ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 {
+    setTitle(tr("Application proxy"));
+
     m_proxyType = new NextPageWidget;
     m_proxyType->setTitle(tr("Proxy Type"));
 
@@ -67,6 +69,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 
     connect(btns->leftButton(), &QPushButton::clicked, this, &ChainsProxyPage::back);
     connect(btns->rightButton(), &QPushButton::clicked, this, &ChainsProxyPage::onCheckValue);
+    connect(m_proxyType, &NextPageWidget::clicked, this, &ChainsProxyPage::requestShowTypePage);
 }
 
 void ChainsProxyPage::setModel(NetworkModel *model)
@@ -124,4 +127,5 @@ void ChainsProxyPage::onCheckValue()
     config.password = password;
 
     emit requestSet(config);
+    emit back();
 }

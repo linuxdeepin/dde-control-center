@@ -24,6 +24,7 @@ public:
 
 signals:
     void requestSet(const ProxyConfig &config) const;
+    void requestShowTypePage() const;
 
 private slots:
     void onCheckValue();

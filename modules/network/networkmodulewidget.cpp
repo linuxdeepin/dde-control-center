@@ -29,7 +29,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     m_proxyBtn->setTitle(tr("Proxy"));
 
     NextPageWidget *appProxy = new NextPageWidget;
-    appProxy->setTitle(tr("Apply proxy"));
+    appProxy->setTitle(tr("Application proxy"));
 
     m_detailBtn->setTitle(tr("Network Details"));
 

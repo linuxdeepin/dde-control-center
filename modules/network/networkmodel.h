@@ -1,7 +1,9 @@
 #ifndef NETWORKMODEL_H
 #define NETWORKMODEL_H
 
+#include "networkmodule.h"
 #include "networkdevice.h"
+
 #include <QObject>
 #include <QMap>
 #include <QTimer>
@@ -27,6 +29,7 @@ class NetworkModel : public QObject
     Q_OBJECT
 
     friend class NetworkWorker;
+    friend class NetworkModule;
 
 public:
     explicit NetworkModel(QObject *parent = 0);

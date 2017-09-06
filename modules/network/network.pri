@@ -20,7 +20,8 @@ HEADERS += \
     $$PWD/proxypage.h \
     $$PWD/wiredpage.h \
     $$PWD/hotspotpage.h \
-    $$PWD/chainsproxypage.h
+    $$PWD/chainsproxypage.h \
+    $$PWD/chainstypepage.h
 
 SOURCES += \
     $$PWD/networkmodule.cpp \
@@ -41,7 +42,8 @@ SOURCES += \
     $$PWD/proxypage.cpp \
     $$PWD/wiredpage.cpp \
     $$PWD/hotspotpage.cpp \
-    $$PWD/chainsproxypage.cpp
+    $$PWD/chainsproxypage.cpp \
+    $$PWD/chainstypepage.cpp
 
 RESOURCES += \
     $$PWD/network.qrc

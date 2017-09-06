@@ -17,6 +17,7 @@
 #include "wiredpage.h"
 #include "hotspotpage.h"
 #include "chainsproxypage.h"
+#include "chainstypepage.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -189,6 +190,7 @@ void NetworkModule::showChainsProxyPage()
     chains->setModel(m_networkModel);
 
     connect(chains, &ChainsProxyPage::requestSet, m_networkWorker, &NetworkWorker::setChainsProxy);
+    connect(chains, &ChainsProxyPage::requestShowTypePage, this, &NetworkModule::showChainsProxyTypePage);
 
     m_frameProxy->pushWidget(this, chains);
 }
@@ -202,9 +204,20 @@ void NetworkModule::showProxyPage()
     connect(p, &ProxyPage::requestSetIgnoreHosts, m_networkWorker, &NetworkWorker::setProxyIgnoreHosts);
     connect(p, &ProxyPage::requestSetProxy, m_networkWorker, &NetworkWorker::setProxy);
     connect(p, &ProxyPage::requestSetAutoProxy, m_networkWorker, &NetworkWorker::setAutoProxy);
+
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);
+}
+
+void NetworkModule::showChainsProxyTypePage()
+{
+    ChainsTypePage *page = new ChainsTypePage;
+    page->setDefault(m_networkModel->getChainsProxy().type);
+
+    connect(page, &ChainsTypePage::requestTypeChanged, m_networkModel, &NetworkModel::onChainsTypeChanged);
+
+    m_frameProxy->pushWidget(this, page);
 }
 
 void NetworkModule::showDetailPage()
