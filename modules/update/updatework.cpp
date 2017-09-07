@@ -3,6 +3,8 @@
 #include <QtConcurrent>
 #include <QFuture>
 #include <QFutureWatcher>
+#include <QJsonArray>
+#include <QJsonDocument>
 
 namespace dcc{
 namespace update{
@@ -343,7 +345,6 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
 
     int pkgCount = m_updatablePackages.count();
     int appCount = value.count();
-    bool foundDDEChangelog = false;
 
     if (!pkgCount && !appCount) {
         QFile file("/tmp/.dcc-update-successd");
@@ -358,26 +359,21 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
         const QString lastVer = val.m_avilableVersion;
         AppUpdateInfo info = getInfo(val, currentVer, lastVer);
 
-        if (val.m_packageId == "dde" && !info.m_changelog.isEmpty()) {
-            infos.prepend(info);
-            foundDDEChangelog = true;
-        } else {
-            infos << info;
-            appCount++;
-        }
+        infos << info;
     }
 
-    qDebug() << pkgCount << appCount << foundDDEChangelog;
-    if (pkgCount > appCount && !foundDDEChangelog) {
+    qDebug() << pkgCount << appCount;
+    if (pkgCount > appCount) {
         // If there's no actual package dde update, but there're system patches available,
         // then fake one dde update item.
-        AppUpdateInfo dde;
-        dde.m_name = "Deepin";
-        dde.m_packageId = "dde";
-        dde.m_avilableVersion = tr("Patches");
-        AppUpdateInfo ddeUpdateInfo = getInfo(dde, "", "");
-        if(ddeUpdateInfo.m_changelog.isEmpty())
+
+        AppUpdateInfo dde = getDDEInfo();
+
+        AppUpdateInfo ddeUpdateInfo = getInfo(dde, dde.m_currentVersion, dde.m_avilableVersion);
+        if(ddeUpdateInfo.m_changelog.isEmpty()) {
+            ddeUpdateInfo.m_avilableVersion = tr("Patches");
             ddeUpdateInfo.m_changelog = tr("System patches.");
+        }
         infos.prepend(ddeUpdateInfo);
     }
 
@@ -450,6 +446,30 @@ AppUpdateInfo UpdateWork::getInfo(const AppUpdateInfo &packageInfo, const QStrin
     }
 
     return info;
+}
+
+AppUpdateInfo UpdateWork::getDDEInfo()
+{
+    AppUpdateInfo dde;
+    dde.m_name = "Deepin";
+    dde.m_packageId = "dde";
+
+    QFile file("/var/lib/lastore/update_infos.json");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        const QJsonArray array = QJsonDocument::fromJson(file.readAll()).array();
+        for (const QJsonValue &json : array) {
+            const QJsonObject &obj = json.toObject();
+            if (obj["Package"].toString() == "dde") {
+
+                dde.m_currentVersion = obj["CurrentVersion"].toString();
+                dde.m_avilableVersion = obj["LastVersion"].toString();
+
+                return dde;
+            }
+        }
+    }
+
+    return dde;
 }
 
 void UpdateWork::setBatteryPercentage(const BatteryPercentageInfo &info)
