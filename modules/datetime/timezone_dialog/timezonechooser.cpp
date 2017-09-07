@@ -43,7 +43,7 @@ TimeZoneChooser::TimeZoneChooser()
       m_blurEffect(new DBlurEffectWidget(this)),
       m_map(new installer::TimezoneMap(this)),
       m_searchInput(new SearchInput),
-      m_title(new QLabel(tr("Change Timezone"))),
+      m_title(new QLabel),
       m_cancelBtn(new QPushButton(tr("Cancel"))),
       m_confirmBtn(new QPushButton(tr("Confirm")))
 {
@@ -150,6 +150,14 @@ TimeZoneChooser::TimeZoneChooser()
 
         blurEffect->lower();
     });
+}
+
+void TimeZoneChooser::setIsAddZone(const bool isAdd)
+{
+    if (isAdd)
+        m_title->setText(tr("Add Timezone"));
+    else
+        m_title->setText(tr("Change Timezone"));
 }
 
 void TimeZoneChooser::resizeEvent(QResizeEvent *event)

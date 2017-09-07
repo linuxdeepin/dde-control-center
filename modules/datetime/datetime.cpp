@@ -81,6 +81,7 @@ Datetime::Datetime()
         m_addTimeZone = true;
 
         emit requestHold();
+        m_dialog->setIsAddZone(true);
         m_dialog->show();
     });
 
@@ -88,6 +89,7 @@ Datetime::Datetime()
         m_addTimeZone = false;
 
         emit requestHold();
+        m_dialog->setIsAddZone(false);
         m_dialog->show();
     });
 

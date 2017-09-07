@@ -40,6 +40,7 @@ class TimeZoneChooser : public QFrame
     Q_OBJECT
 public:
     explicit TimeZoneChooser();
+    void setIsAddZone(const bool isAdd);
 
 signals:
     void confirmed(const QString &zone);
