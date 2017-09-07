@@ -54,7 +54,7 @@ private slots:
 
 private:
     AppUpdateInfo getInfo(const AppUpdateInfo &packageInfo, const QString& currentVersion, const QString& lastVersion) const;
-
+    AppUpdateInfo getDDEInfo();
     void distUpgradeDownloadUpdates();
     void distUpgradeInstallUpdates();
 
