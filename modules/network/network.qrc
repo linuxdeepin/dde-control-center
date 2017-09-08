@@ -2,6 +2,7 @@
     <qresource prefix="/network">
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_network.png</file>
+        <file>themes/dark/icons/nav_network@2x.png</file>
         <file>themes/dark/icons/wireless/security.svg</file>
         <file>themes/dark/icons/wireless/wireless-0-symbolic.svg</file>
         <file>themes/dark/icons/wireless/wireless-2-symbolic.svg</file>

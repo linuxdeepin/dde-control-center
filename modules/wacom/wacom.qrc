@@ -3,6 +3,7 @@
         <file>themes/common/common.qss</file>
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_wacom.png</file>
+        <file>themes/dark/icons/nav_wacom@2x.png</file>
         <file>themes/light/light.qss</file>
     </qresource>
 </RCC>

@@ -2,6 +2,7 @@
     <qresource prefix="/datetime">
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_datetime.png</file>
+        <file>themes/dark/icons/nav_datetime@2x.png</file>
         <file>themes/light/light.qss</file>
         <file>themes/dark/icons/add_disabled.png</file>
         <file>themes/dark/icons/add_hover.png</file>

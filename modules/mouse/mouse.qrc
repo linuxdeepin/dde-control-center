@@ -2,6 +2,7 @@
     <qresource prefix="/mouse">
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_mouse.png</file>
+        <file>themes/dark/icons/nav_mouse@2x.png</file>
         <file>themes/light/light.qss</file>
         <file>themes/common/double_test/bow_head/bow_head_00001.png</file>
         <file>themes/common/double_test/bow_head/bow_head_00002.png</file>

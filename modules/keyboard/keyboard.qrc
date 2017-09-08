@@ -2,6 +2,7 @@
     <qresource prefix="/keyboard">
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_keyboard.png</file>
+        <file>themes/dark/icons/nav_keyboard@2x.png</file>
         <file>themes/light/light.qss</file>
         <file>themes/dark/icons/list_delete_hover.png</file>
         <file>themes/dark/icons/list_delete_normal.png</file>

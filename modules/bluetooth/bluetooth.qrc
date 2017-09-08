@@ -2,6 +2,7 @@
     <qresource prefix="/bluetooth">
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_bluetooth.png</file>
+        <file>themes/dark/icons/nav_bluetooth@2x.png</file>
         <file>themes/dark/icons/edit_hover.png</file>
         <file>themes/dark/icons/edit_normal.png</file>
         <file>themes/dark/icons/edit_press.png</file>
