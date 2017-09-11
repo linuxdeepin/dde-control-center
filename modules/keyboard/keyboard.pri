@@ -21,7 +21,9 @@ HEADERS += \
     $$PWD/titlebuttonItem.h \
     $$PWD/customedit.h \
     $$PWD/customedititem.h \
-    $$PWD/customitem.h
+    $$PWD/customitem.h \
+    $$PWD/keylabel.h \
+    $$PWD/shortcutkey.h
 
 SOURCES += \
     $$PWD/keyboardmodule.cpp \
@@ -46,7 +48,9 @@ SOURCES += \
     $$PWD/titlebuttonItem.cpp \
     $$PWD/customedit.cpp \
     $$PWD/customedititem.cpp \
-    $$PWD/customitem.cpp
+    $$PWD/customitem.cpp \
+    $$PWD/keylabel.cpp \
+    $$PWD/shortcutkey.cpp
 
 RESOURCES += \
     $$PWD/keyboard.qrc

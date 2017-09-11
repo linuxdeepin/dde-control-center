@@ -6,6 +6,8 @@
 #include <QApplication>
 #include <QPainter>
 
+#include "keylabel.h"
+
 using namespace dcc;
 
 namespace dcc {
@@ -25,6 +27,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     m_title = new QLabel();
     m_title->setText("");
     m_title->setAlignment(Qt::AlignCenter);
+    m_title->setWordWrap(true);
 
     layout->addWidget(m_title);
     layout->setAlignment(m_title, Qt::AlignLeft);
@@ -36,10 +39,6 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     m_editBtn->hide();
     layout->addWidget(m_editBtn, 1, Qt::AlignLeft);
 
-    m_shortcutEdit = new QLineEdit(this);
-    m_shortcutEdit->setReadOnly(true);
-    m_shortcutEdit->hide();
-
     m_checkBtn = new DImageButton();
     m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/list_delete_normal.png");
     m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.png");
@@ -49,6 +48,14 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     layout->addWidget(m_checkBtn);
     layout->setAlignment(m_checkBtn, Qt::AlignVCenter);
     m_checkBtn->hide();
+
+    m_key = new ShortcutKey;
+    layout->addWidget(m_key);
+
+    m_shortcutEdit = new QLineEdit;
+    m_shortcutEdit->setReadOnly(true);
+    layout->addWidget(m_shortcutEdit);
+    m_shortcutEdit->hide();
 
     setLayout(layout);
     setFixedHeight(36);
@@ -61,11 +68,14 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     connect(m_checkBtn, SIGNAL(clicked()), this, SLOT(onChecked()));
     connect(qApp, SIGNAL(focusChanged(QWidget*,QWidget*)), this, SLOT(onFocusChanged(QWidget*,QWidget*)));
     connect(m_editBtn, &DImageButton::clicked, this, &ShortcutItem::onShortcutEdit);
+    connect(m_inter, &KeybingdingInter::Changed, this, &ShortcutItem::updateShortcutKeys);
 }
 
 void ShortcutItem::setShortcutInfo(ShortcutInfo *info)
 {
     m_info = info;
+
+    updateShortcutKeys();
 }
 
 void ShortcutItem::displayConflict(bool display)
@@ -118,7 +128,9 @@ void ShortcutItem::onKeyEvent(bool press, QString shortcut)
         if(shortcut.isEmpty())
             m_shortcutEdit->hide();
     }
-    update();
+
+    // update shortcut keys
+    updateShortcutKeys();
 }
 
 void ShortcutItem::onEditMode(bool value)
@@ -127,11 +139,13 @@ void ShortcutItem::onEditMode(bool value)
     {
         m_checkBtn->show();
         m_editBtn->show();
+        m_key->hide();
     }
     else
     {
         m_checkBtn->hide();
         m_editBtn->hide();
+        m_key->show();
     }
     update();
 }
@@ -146,19 +160,10 @@ void ShortcutItem::onShortcutEdit()
     emit shortcutEditChanged(m_info);
 }
 
-void ShortcutItem::paintEvent(QPaintEvent *e)
+void ShortcutItem::updateShortcutKeys()
 {
-    SettingsItem::paintEvent(e);
-    if(m_shortcutEdit->isVisible() || m_checkBtn->isVisible())
-    {
-       return;
-    }
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
-
-    QFont font = qApp->font();
-    QFontMetrics fm(font);
     QString accels;
+
     accels = m_info->accels;
     accels = accels.replace("Control", "Ctrl");
     accels = accels.replace("<", "");
@@ -170,62 +175,90 @@ void ShortcutItem::paintEvent(QPaintEvent *e)
     accels = accels.replace("Left", "←");
     accels = accels.replace("Right", "→");
 
-    QString conflict(tr("Conflict"));
-    QStringList splits = accels.split("-");
-    int right = this->rect().right() - 10;
-    for(int i = splits.count() - 1; i>=0; --i)
-    {
-
-        QString str = splits.at(i);
-        int w;
-        if (str == "null" && m_display) {
-            w = fm.width(conflict);
-        } else {
-            w = fm.width(str);
-        }
-        int h = (height() - fm.height()-6)/2;
-        QRect r(0,0,w+8,height());
-        r.moveRight(right);
-        right = right - w - 12;
-        painter.setBrush(palette().color(QPalette::Window));
-        painter.save();
-        painter.setPen(Qt::NoPen);
-        painter.drawRoundRect(r.adjusted(0,h,0,-h));
-        painter.restore();
-        painter.save();
-        painter.setRenderHint(QPainter::Antialiasing);
-        painter.setOpacity(m_contain ? 1.0 : 0.85);
-        if(str == "null" && m_display)
-        {
-            QPen pen = painter.pen();
-            QColor col = pen.color();
-            pen.setColor(Qt::red);
-            painter.setPen(pen);
-            painter.drawText(r,Qt::AlignCenter,tr("Conflict"));
-            pen.setColor(col);
-            painter.setPen(pen);
-        }
-        else
-            painter.drawText(r,Qt::AlignCenter,str);
-
-        painter.restore();
-        if(i == 0)
-        {
-            m_rect = QRect(r.topLeft(),this->rect().bottomRight());
-            m_rect = m_rect.adjusted(0,h,0,-h);
-        }
-    }
+    m_key->show();
+    m_key->setTextList(accels.split("-"));
 }
+
+//void ShortcutItem::paintEvent(QPaintEvent *e)
+//{
+//    SettingsItem::paintEvent(e);
+//    if(m_shortcutEdit->isVisible() || m_checkBtn->isVisible())
+//    {
+//       return;
+//    }
+
+//    QPainter painter(this);
+//    painter.setRenderHint(QPainter::Antialiasing);
+
+//    QFont font = qApp->font();
+//    QFontMetrics fm(font);
+//    QString accels;
+//    accels = m_info->accels;
+//    accels = accels.replace("Control", "Ctrl");
+//    accels = accels.replace("<", "");
+//    accels = accels.replace(">", "-");
+//    accels = accels.replace("Above_Tab", "`");
+//    accels = accels.replace("Super_L", "Super");
+//    accels = accels.replace("Up", "↑");
+//    accels = accels.replace("Down", "↓");
+//    accels = accels.replace("Left", "←");
+//    accels = accels.replace("Right", "→");
+
+//    QString conflict(tr("Conflict"));
+//    QStringList splits = accels.split("-");
+//    int right = this->rect().right() - 10;
+//    for(int i = splits.count() - 1; i>=0; --i)
+//    {
+
+//        QString str = splits.at(i);
+//        int w;
+//        if (str == "null" && m_display) {
+//            w = fm.width(conflict);
+//        } else {
+//            w = fm.width(str);
+//        }
+//        int h = (height() - fm.height()-6)/2;
+//        QRect r(0,0,w+8,height());
+//        r.moveRight(right);
+
+//        right = right - w - 12;
+//        painter.setBrush(palette().color(QPalette::Window));
+//        painter.save();
+//        painter.setPen(Qt::NoPen);
+//        painter.drawRoundRect(r.adjusted(0,h,0,-h));
+//        painter.restore();
+//        painter.save();
+//        painter.setRenderHint(QPainter::Antialiasing);
+//        painter.setOpacity(m_contain ? 1.0 : 0.85);
+//        if(str == "null" && m_display)
+//        {
+//            QPen pen = painter.pen();
+//            QColor col = pen.color();
+//            pen.setColor(Qt::red);
+//            painter.setPen(pen);
+//            painter.drawText(r,Qt::AlignCenter,tr("Conflict"));
+//            pen.setColor(col);
+//            painter.setPen(pen);
+//        }
+//        else
+//            painter.drawText(r,Qt::AlignCenter,str);
+
+//        painter.restore();
+//        if(i == 0)
+//        {
+//            m_rect = QRect(r.topLeft(),this->rect().bottomRight());
+//            m_rect = m_rect.adjusted(0,h,0,-h);
+//        }
+//    }
+//}
 
 void ShortcutItem::mousePressEvent(QMouseEvent *e)
 {
     Q_UNUSED(e);
 
-    if(!m_shortcutEdit->isVisible() && m_rect.contains(e->pos()))
+    if(!m_shortcutEdit->isVisible() && m_key->rect().contains(m_key->mapFromParent(e->pos())))
     {
-        QRect r = QRect(0,m_rect.y(),width()/2,m_rect.height());
-        r.moveRight(m_rect.right());
-        m_shortcutEdit->setGeometry(r);
+        m_key->hide();
         m_shortcutEdit->clear();
         m_inter->GrabScreen();
         m_shortcutEdit->setFocus();
@@ -236,21 +269,9 @@ void ShortcutItem::mousePressEvent(QMouseEvent *e)
     else
     {
         m_shortcutEdit->hide();
+        m_key->show();
     }
-    update();
 }
 
-void ShortcutItem::mouseMoveEvent(QMouseEvent *e)
-{
-    m_contain = m_rect.contains(e->pos());
-    update();
-}
-
-void ShortcutItem::leaveEvent(QEvent *)
-{
-    m_contain = false;
-
-    update();
-}
 }
 }

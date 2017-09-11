@@ -2,6 +2,8 @@
 #define SHORTCUTITEM_H
 
 #include "settingsitem.h"
+#include "shortcutkey.h"
+
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -45,11 +47,12 @@ public slots:
 private:
     void onShortcutEdit();
 
+private slots:
+    void updateShortcutKeys();
+
 protected:
-    void paintEvent(QPaintEvent *);
+//    void paintEvent(QPaintEvent *);
     void mousePressEvent(QMouseEvent *e);
-    void mouseMoveEvent(QMouseEvent *e);
-    void leaveEvent(QEvent *);
 
 private:
     QLineEdit* m_shortcutEdit;
@@ -62,6 +65,7 @@ private:
     KeybingdingInter* m_inter;
     DImageButton* m_checkBtn;
     DImageButton* m_editBtn;
+    ShortcutKey *m_key;
 };
 }
 }
