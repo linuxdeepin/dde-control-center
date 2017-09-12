@@ -24,8 +24,12 @@ QString vpnConfigType(const QString &path)
     f.open(QIODevice::ReadOnly);
     const QString content = f.readAll();
 
+    if (content.contains("openconnect"))
+        return "openconnect";
     if (content.contains("l2tp"))
         return "l2tp";
+    if (content.startsWith("[main]"))
+        return "vpnc";
 
     return "openvpn";
 }
@@ -197,14 +201,15 @@ void VpnPage::importVPN()
         return;
 
     const auto args = QStringList { "connection", "import", "type", vpnConfigType(file.path()), "file", file.path() };
+    qDebug() << args;
 
     QProcess p;
     p.start("nmcli", args);
     p.waitForFinished();
     const auto stat = p.exitCode();
-    const QString output = p.readAll();
+    const QString output = p.readAllStandardOutput();
 
-    qDebug() << stat << output;
+    qDebug() << stat << output << p.readAllStandardError();
 
     if (stat)
         return;

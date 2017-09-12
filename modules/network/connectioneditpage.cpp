@@ -39,14 +39,21 @@ void processConfigCA(const QString &file)
     const QString data = f.readAll();
     f.seek(0);
 
-    const QRegularExpression regex("^ca\\s'(.+)'\\s*$");
+    const QRegularExpression regex("^(?:ca\\s'(.+)'\\s*)$");
+//    const QRegularExpression regex("^(?:ca\\s'(.+)'\\s*|CACert=(.+)|UserCertificate=(.+))$");
     QStringList ca_list;
     for (const auto &line : data.split('\n'))
     {
         const auto match = regex.match(line);
         if (match.hasMatch())
         {
-            ca_list << match.captured(1);
+            for (int i(1); i != match.capturedLength(); ++i)
+            {
+                const auto cap = match.captured(i);
+                if (cap.isNull() || cap.isEmpty())
+                    continue;
+                ca_list << cap;
+            }
         } else {
             f.write(line.toStdString().c_str());
             f.write("\n");
@@ -54,16 +61,20 @@ void processConfigCA(const QString &file)
     }
     f.write("\n");
 
-    // write ca
-    f.write("<ca>\n");
-    for (const auto ca : ca_list)
+    if (!ca_list.isEmpty())
     {
-        QFile caf(ca);
-        caf.open(QIODevice::ReadOnly);
-        f.write(caf.readAll());
-        f.write("\n");
+        // write ca
+        f.write("<ca>\n");
+        for (const auto ca : ca_list)
+        {
+            QFile caf(ca);
+            caf.open(QIODevice::ReadOnly);
+            f.write(caf.readAll());
+            f.write("\n");
+        }
+        f.write("</ca>\n");
     }
-    f.write("</ca>\n");
+
     f.flush();
     f.close();
 }
