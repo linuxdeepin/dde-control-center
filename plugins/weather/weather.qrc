@@ -114,5 +114,8 @@
         <file>icon/location_normal.png</file>
         <file>icon/location_press.png</file>
         <file>supported_cities.txt</file>
+        <file>icon/location_hover@2x.png</file>
+        <file>icon/location_normal@2x.png</file>
+        <file>icon/location_press@2x.png</file>
     </qresource>
 </RCC>

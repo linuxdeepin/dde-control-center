@@ -14,5 +14,19 @@
         <file>icons/nav_systeminfo.png</file>
         <file>icons/nav_update.png</file>
         <file>icons/nav_wacom.png</file>
+        <file>icons/nav_accounts@2x.png</file>
+        <file>icons/nav_bluetooth@2x.png</file>
+        <file>icons/nav_datetime@2x.png</file>
+        <file>icons/nav_display@2x.png</file>
+        <file>icons/nav_keyboard@2x.png</file>
+        <file>icons/nav_mouse@2x.png</file>
+        <file>icons/nav_network@2x.png</file>
+        <file>icons/nav_personalization@2x.png</file>
+        <file>icons/nav_power@2x.png</file>
+        <file>icons/nav_sound@2x.png</file>
+        <file>icons/nav_systeminfo@2x.png</file>
+        <file>icons/nav_wacom@2x.png</file>
+        <file>icons/nav_update@2x.png</file>
+        <file>icons/nav_defapp@2x.png</file>
     </qresource>
 </RCC>

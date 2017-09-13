@@ -1,4 +1,6 @@
 #include "logoitem.h"
+#include "navgationdelegate.h"
+
 #include <QHBoxLayout>
 
 #include "labels/tipslabel.h"
@@ -33,7 +35,7 @@ void LogoItem::setDescription(const QString &des)
 
 void LogoItem::setLogo(const QString &logo)
 {
-    m_logo->setPixmap(QPixmap(logo));
+    m_logo->setPixmap(getPixmap(logo));
 }
 
 }

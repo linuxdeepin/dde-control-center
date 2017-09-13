@@ -15,6 +15,7 @@
 #include <QEvent>
 #include <QPainter>
 #include <QTextDocument>
+#include <QApplication>
 
 Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QFrame(parent),
     m_appName(new QLabel),
@@ -24,11 +25,13 @@ Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QFrame(parent),
     m_appIcon(new QLabel),
     m_mainlayout(new QHBoxLayout)
 {
+    const qreal ratio = qApp->devicePixelRatio();
+
     m_appIcon->setMargin(0);
     m_close->setMargin(0);
     m_appName->setMargin(0);
     m_appIcon->setFixedSize(ICON_SIZE,ICON_SIZE);
-    m_close->setFixedSize(14,14);
+    m_close->setFixedSize(14 * ratio,14 * ratio);
     m_time->setFixedHeight(10);
 //    m_body->setFixedSize(272, 50);
 

@@ -83,12 +83,20 @@ void NavgationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         return;
 
     const QString picFile = QString(":/%1/themes/dark/icons/nav_%2.png").arg(module).arg(module);
-    QPixmap pix = QPixmap(picFile);
 
-    QRect pixRect = pix.rect();
+    QRect pixRect;
+    QPixmap pixmap(getPixmap(picFile));
+    const qreal devicePixelRatio = qApp->devicePixelRatio();
+
+    if (devicePixelRatio > 1.0) {
+        pixRect = QRect(0, 0, pixmap.width() / devicePixelRatio, pixmap.height() / devicePixelRatio);
+    } else {
+        pixRect = pixmap.rect();
+    }
+
     pixRect.moveCenter(option.rect.center());
 
-    painter->drawPixmap(pixRect, pix);
+    painter->drawPixmap(pixRect, pixmap);
 }
 
 QSize NavgationDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

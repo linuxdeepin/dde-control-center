@@ -1,6 +1,8 @@
 #include "navitemwidget.h"
 
 #include <QPainter>
+#include <QApplication>
+#include <QIcon>
 
 NavItemWidget::NavItemWidget(const QString &id, QWidget *parent)
     : QWidget(parent),
@@ -18,7 +20,26 @@ void NavItemWidget::paintEvent(QPaintEvent *e)
     QPainter painter(this);
 
     painter.fillRect(rect(), QColor(255, 255, 255, 255 * (m_hover ? 0.1 : 0.03)));
-    const QPixmap pixmap = QPixmap(QString(":/icons/nav_%1.png").arg(m_id));
+
+    const QString &file = QString(":/icons/nav_%1.png").arg(m_id);
+
+    qreal ratio = 1.0;
+
+    const qreal devicePixelRatio = qApp->devicePixelRatio();
+
+    QPixmap pixmap;
+
+    if (devicePixelRatio > ratio) {
+        pixmap.load(qt_findAtNxFile(file, devicePixelRatio, &ratio));
+
+        pixmap = pixmap.scaled(devicePixelRatio / ratio * pixmap.width(),
+                               devicePixelRatio / ratio * pixmap.height(),
+                               Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+        pixmap.setDevicePixelRatio(devicePixelRatio);
+    } else {
+        pixmap.load(file);
+    }
+
     painter.drawPixmap(rect().center() - pixmap.rect().center(), pixmap);
 }
 

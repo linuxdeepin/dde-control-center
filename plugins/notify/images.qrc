@@ -14,5 +14,11 @@
         <file>images/notify_close_hover.png</file>
         <file>images/notify_close_normal.png</file>
         <file>images/notify_close_press.png</file>
+        <file>images/notify_close_hover.svg</file>
+        <file>images/notify_close_hover@2x.png</file>
+        <file>images/notify_close_normal.svg</file>
+        <file>images/notify_close_normal@2x.png</file>
+        <file>images/notify_close_press.svg</file>
+        <file>images/notify_close_press@2x.png</file>
     </qresource>
 </RCC>

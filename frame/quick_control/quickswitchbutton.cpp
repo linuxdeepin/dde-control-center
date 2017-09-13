@@ -1,4 +1,5 @@
 #include "quickswitchbutton.h"
+#include "navgationdelegate.h"
 
 #include <QDebug>
 #include <QPainter>
@@ -77,7 +78,7 @@ void QuickSwitchButton::paintEvent(QPaintEvent *e)
 QPixmap QuickSwitchButton::normalPixmap() const
 {
     QString checkedStr = m_checked ? "_on" : "_off";
-    return QString(":/frame/themes/%1/icons/%2%3.png").arg(m_themeName).arg(m_iconName).arg(checkedStr);
+    return getPixmap(QString(":/frame/themes/%1/icons/%2%3.png").arg(m_themeName).arg(m_iconName).arg(checkedStr));
 }
 
 QPixmap QuickSwitchButton::hoverPixmap() const
