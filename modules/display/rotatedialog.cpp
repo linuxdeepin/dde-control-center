@@ -2,6 +2,7 @@
 #include "displayworker.h"
 #include "monitor.h"
 #include "displaymodel.h"
+#include "basiclistdelegate.h"
 
 #include <QDebug>
 #include <QMouseEvent>
@@ -34,18 +35,19 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
 
       m_mouseLeftHand(false)
 {
+    const qreal ratio = devicePixelRatioF();
 
     DBlurEffectWidget *blurWidget = new DBlurEffectWidget;
     blurWidget->setFixedSize(140, 140);
     blurWidget->setBlurRectXRadius(10);
     blurWidget->setBlurRectYRadius(10);
-    blurWidget->setMaskColor(Qt::white);
+    blurWidget->setMaskColor(DBlurEffectWidget::LightColor);
     blurWidget->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
 
-    QPixmap rotatePixmap(":/display/themes/common/icon/rotate.png");
+    QPixmap rotatePixmap = loadPixmap(":/display/themes/common/icon/rotate.png");
     QLabel *osd = new QLabel;
     osd->setPixmap(rotatePixmap);
-    osd->setFixedSize(rotatePixmap.size());
+    osd->setFixedSize(rotatePixmap.width() / ratio, rotatePixmap.height() / ratio);
 
     QVBoxLayout *l = new QVBoxLayout(blurWidget);
     l->setMargin(0);
@@ -211,8 +213,9 @@ void RotateDialog::adjustGemotry()
     {
         if (m_mon)
         {
-            setFixedWidth(m_mon->w());
-            setFixedHeight(m_mon->h());
+            const qreal ratio = devicePixelRatioF();
+            setFixedWidth(m_mon->w() / ratio);
+            setFixedHeight(m_mon->h() / ratio);
             move(m_mon->x(), m_mon->y());
         } else {
             setFixedWidth(m_model->screenWidth());

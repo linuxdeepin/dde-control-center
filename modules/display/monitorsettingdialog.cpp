@@ -119,10 +119,10 @@ void MonitorSettingDialog::init()
 //    m_lightSlider->setMinimumWidth(430);
 //    m_lightSlider->setTracking(true);
 
-    QLabel *minLight = new QLabel;
-    minLight->setPixmap(QPixmap(":/display/themes/dark/icons/brightness_low.png"));
-    QLabel *maxLight = new QLabel;
-    maxLight->setPixmap(QPixmap(":/display/themes/dark/icons/brightness_high.png"));
+//    QLabel *minLight = new QLabel;
+//    minLight->setPixmap(QPixmap(":/display/themes/dark/icons/brightness_low.png"));
+//    QLabel *maxLight = new QLabel;
+//    maxLight->setPixmap(QPixmap(":/display/themes/dark/icons/brightness_high.png"));
 
 //    QHBoxLayout *lightLayout = new QHBoxLayout;
 //    lightLayout->addStretch();
