@@ -10,5 +10,11 @@
         <file>themes/dark/volume-high.png</file>
         <file>themes/dark/volume-feedback-high.png</file>
         <file>themes/dark/volume-feedback-low.png</file>
+        <file>themes/dark/balance-right@2x.png</file>
+        <file>themes/dark/volume-feedback-high@2x.png</file>
+        <file>themes/dark/volume-feedback-low@2x.png</file>
+        <file>themes/dark/volume-high@2x.png</file>
+        <file>themes/dark/volume-low@2x.png</file>
+        <file>themes/dark/balance-left@2x.png</file>
     </qresource>
 </RCC>

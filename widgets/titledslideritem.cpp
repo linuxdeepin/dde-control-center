@@ -20,6 +20,7 @@
 #include "labels/normallabel.h"
 #include "dccslider.h"
 #include "dccsliderannotated.h"
+#include "basiclistdelegate.h"
 
 namespace dcc {
 namespace widgets {
@@ -86,7 +87,7 @@ void TitledSliderItem::setLeftIcon(const QString &leftIcon)
     if (leftIcon != m_leftIcon) {
         m_leftIcon = leftIcon;
 
-        QPixmap pix(m_leftIcon);
+        QPixmap pix = loadPixmap(m_leftIcon);
         m_leftIconLabel->setPixmap(pix);
         m_leftIconLabel->setVisible(!pix.isNull());
 
@@ -104,7 +105,7 @@ void TitledSliderItem::setRightIcon(const QString &rightIcon)
     if (rightIcon != m_rightIcon) {
         m_rightIcon = rightIcon;
 
-        QPixmap pix(m_rightIcon);
+        QPixmap pix = loadPixmap(m_rightIcon);
         m_rightIconLabel->setPixmap(pix);
         m_rightIconLabel->setVisible(!pix.isNull());
 
