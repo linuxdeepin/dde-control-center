@@ -3,6 +3,7 @@
 #include <QPainter>
 #include <QApplication>
 #include <QIcon>
+#include <QDebug>
 
 NavItemWidget::NavItemWidget(const QString &id, QWidget *parent)
     : QWidget(parent),
@@ -27,6 +28,7 @@ void NavItemWidget::paintEvent(QPaintEvent *e)
 
     const qreal devicePixelRatio = qApp->devicePixelRatio();
 
+    QRect pixRect;
     QPixmap pixmap;
 
     if (devicePixelRatio > ratio) {
@@ -36,11 +38,15 @@ void NavItemWidget::paintEvent(QPaintEvent *e)
                                devicePixelRatio / ratio * pixmap.height(),
                                Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
         pixmap.setDevicePixelRatio(devicePixelRatio);
+        pixRect = QRect(0, 0, pixmap.width() / devicePixelRatio, pixmap.height() / devicePixelRatio);
     } else {
         pixmap.load(file);
+        pixRect = pixmap.rect();
     }
 
-    painter.drawPixmap(rect().center() - pixmap.rect().center(), pixmap);
+    pixRect.moveCenter(rect().center());
+
+    painter.drawPixmap(pixRect, pixmap);
 }
 
 void NavItemWidget::mouseReleaseEvent(QMouseEvent *e)
