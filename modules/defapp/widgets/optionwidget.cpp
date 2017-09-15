@@ -1,5 +1,7 @@
 #include <QIcon>
 #include "optionwidget.h"
+#include "basiclistdelegate.h"
+
 using namespace dcc;
 using namespace dcc::defapp;
 using namespace dcc::widgets;
@@ -64,14 +66,19 @@ void OptionWidget::setItem(const QJsonObject &item)
     } else {
         m_displayName->setText(item["Name"].toString());
     }
-    const QIcon &icon = QIcon::fromTheme(item["Icon"].toString());
 
-    if (!icon.isNull()) {
-        m_optionIcon->setPixmap(icon.pixmap(QSize(17,17)));
-    } else {
-        const QIcon &icon = QIcon::fromTheme("application-x-desktop");
-        m_optionIcon->setPixmap(icon.pixmap(QSize(17, 17)));
-    }
+    const QIcon &icon = QIcon::fromTheme(item["Icon"].toString(), QIcon::fromTheme("application-x-desktop"));
+
+    const qreal ratio = qApp->devicePixelRatio();
+
+    QPixmap pixmap = icon.pixmap(16 * ratio, 16 * ratio).scaled(16 * ratio, 16 * ratio,
+                                                                Qt::KeepAspectRatioByExpanding,
+                                                                Qt::SmoothTransformation);
+
+    pixmap.setDevicePixelRatio(ratio);
+
+    m_optionIcon->setPixmap(pixmap);
+
     m_execPath->setText(" ("+item["Exec"].toString()+ ")");
     setAccessibleName(item["Id"].toString());
 }
@@ -134,7 +141,7 @@ void OptionWidget::setChecked(const bool checked)      //判断是否显示设�
 {
     m_checkedIconLabel->setVisible(checked);
     m_delete->setVisible(false);
-    setCheckedIcon(QPixmap(":/defapp/icons/select.png"));
+    setCheckedIcon(loadPixmap(":/defapp/icons/select.png"));
     m_checked = checked;
     emit checkedChanged(m_checked);
 }

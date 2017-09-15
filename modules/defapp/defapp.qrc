@@ -9,5 +9,9 @@
         <file>themes/dark/icons/nav_defapp.png</file>
         <file>themes/dark/icons/nav_defapp@2x.png</file>
         <file>themes/common/common.qss</file>
+        <file>icons/list_delete_hover@2x.png</file>
+        <file>icons/list_delete_normal@2x.png</file>
+        <file>icons/list_delete_press@2x.png</file>
+        <file>icons/select@2x.png</file>
     </qresource>
 </RCC>
