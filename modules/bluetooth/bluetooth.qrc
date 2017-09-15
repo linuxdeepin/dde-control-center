@@ -99,5 +99,8 @@
         <file>themes/dark/icons/Loading/loading_087.png</file>
         <file>themes/dark/icons/Loading/loading_088.png</file>
         <file>themes/dark/icons/Loading/loading_089.png</file>
+        <file>themes/dark/icons/edit_hover@2x.png</file>
+        <file>themes/dark/icons/edit_normal@2x.png</file>
+        <file>themes/dark/icons/edit_press@2x.png</file>
     </qresource>
 </RCC>
