@@ -34,7 +34,7 @@ void BasicListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         const int x = option.rect.right() - 16 - 14;
         const int y = option.rect.top() + (option.rect.height() - 16) / 2;
 
-        painter->drawPixmap(x, y, QPixmap(":/widgets/themes/dark/icons/list_select.png"));
+        painter->drawPixmap(x, y, loadPixmap(":/widgets/themes/dark/icons/list_select.png"));
     }
 }
 

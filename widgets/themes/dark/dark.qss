@@ -38,7 +38,9 @@ dcc--widgets--SettingsHead QLabel#Edit {
 
 /* FileChooseWidget */
 dcc--widgets--FileChooseWidget > Dtk--Widget--DImageButton {
-    qproperty-normalPic: url(:/widgets/themes/dark/icons/select_files.png);
+    qproperty-normalPic: url(:/widgets/themes/dark/icons/select_files_normal.png);
+    qproperty-hoverPic: url(:/widgets/themes/dark/icons/select_files_hover.png);
+    qproperty-pressPic: url(:/widgets/themes/dark/icons/select_files_press.png);
 }
 
 dcc--widgets--FileChooseWidget > QLineEdit {

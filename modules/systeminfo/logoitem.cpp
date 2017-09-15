@@ -1,5 +1,5 @@
 #include "logoitem.h"
-#include "navgationdelegate.h"
+#include "basiclistdelegate.h"
 
 #include <QHBoxLayout>
 
@@ -35,7 +35,7 @@ void LogoItem::setDescription(const QString &des)
 
 void LogoItem::setLogo(const QString &logo)
 {
-    m_logo->setPixmap(getPixmap(logo));
+    m_logo->setPixmap(loadPixmap(logo));
 }
 
 }

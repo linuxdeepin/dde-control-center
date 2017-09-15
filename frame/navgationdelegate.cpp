@@ -1,5 +1,6 @@
 #include "navgationdelegate.h"
 #include "navgationmodel.h"
+#include "basiclistdelegate.h"
 
 #include <QPainter>
 #include <QDebug>
@@ -85,7 +86,7 @@ void NavgationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     const QString picFile = QString(":/%1/themes/dark/icons/nav_%2.png").arg(module).arg(module);
 
     QRect pixRect;
-    QPixmap pixmap(getPixmap(picFile));
+    QPixmap pixmap(loadPixmap(picFile));
     const qreal devicePixelRatio = qApp->devicePixelRatio();
 
     if (devicePixelRatio > 1.0) {

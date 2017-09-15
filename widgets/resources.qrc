@@ -93,7 +93,6 @@
         <file>themes/dark/icons/Loading/loading_002.png</file>
         <file>themes/dark/icons/Loading/loading_001.png</file>
         <file>themes/dark/icons/Loading/loading_000.png</file>
-        <file>themes/dark/icons/select_files.png</file>
         <file>themes/dark/icons/back_hover.png</file>
         <file>themes/dark/icons/back_normal.png</file>
         <file>themes/dark/icons/back_press.png</file>
@@ -107,5 +106,21 @@
         <file>themes/dark/icons/edit_normal.png</file>
         <file>themes/dark/icons/edit_press.png</file>
         <file>themes/dark/icons/list_select.png</file>
+        <file>themes/dark/icons/search_dark@2x.png</file>
+        <file>themes/dark/icons/select_files_hover.png</file>
+        <file>themes/dark/icons/select_files_hover@2x.png</file>
+        <file>themes/dark/icons/select_files_normal.png</file>
+        <file>themes/dark/icons/select_files_normal@2x.png</file>
+        <file>themes/dark/icons/select_files_press@2x.png</file>
+        <file>themes/dark/icons/select_files_press.png</file>
+        <file>themes/dark/icons/back_hover@2x.png</file>
+        <file>themes/dark/icons/back_normal@2x.png</file>
+        <file>themes/dark/icons/back_press@2x.png</file>
+        <file>themes/dark/icons/edit_hover@2x.png</file>
+        <file>themes/dark/icons/edit_normal@2x.png</file>
+        <file>themes/dark/icons/edit_press@2x.png</file>
+        <file>themes/dark/icons/select@2x.png</file>
+        <file>themes/dark/icons/enter_details_hover@2x.png</file>
+        <file>themes/dark/icons/enter_details_press@2x.png</file>
     </qresource>
 </RCC>
