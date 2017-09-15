@@ -10,6 +10,7 @@
 #include <QListView>
 #include <QMouseEvent>
 #include <QVBoxLayout>
+#include "basiclistdelegate.h"
 
 #include "file_util.h"
 #include "timezone_map_util.h"
@@ -100,7 +101,7 @@ void TimezoneMap::resizeEvent(QResizeEvent* event) {
 
   QLabel *background_label = findChild<QLabel*>("background_label");
   if (background_label) {
-      QPixmap timezone_pixmap(kTimezoneMapFile);
+      QPixmap timezone_pixmap = loadPixmap(kTimezoneMapFile);
       background_label->setPixmap(timezone_pixmap.scaled(event->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
   }
 
@@ -120,7 +121,7 @@ void TimezoneMap::initConnections() {
 void TimezoneMap::initUI() {
   QLabel* background_label = new QLabel(this);
   background_label->setObjectName("background_label");
-  QPixmap timezone_pixmap(kTimezoneMapFile);
+  QPixmap timezone_pixmap = loadPixmap(kTimezoneMapFile);
   Q_ASSERT(!timezone_pixmap.isNull());
   background_label->setPixmap(timezone_pixmap);
 
