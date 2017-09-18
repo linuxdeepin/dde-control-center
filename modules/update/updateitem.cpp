@@ -14,12 +14,34 @@ using namespace dcc::widgets;
 namespace dcc{
 namespace update{
 
+const QString clearHTMLTags(const QString &text)
+{
+    const QRegularExpression regex("<(\\w+)[^>]*>([^<]*)</\\1>");
+
+    QString ret = text;
+    do
+    {
+        const auto match = regex.match(ret);
+        if (!match.isValid() || !match.hasMatch())
+            break;
+
+        const int start = match.capturedStart();
+        const int len = match.capturedLength();
+        const QString &cap = match.captured(2);
+
+        ret.replace(start, len, cap);
+    } while (true);
+
+    return ret;
+}
+
 UpdateItem::UpdateItem(QFrame *parent)
     :SettingsItem(parent),
       m_appIcon(new SmallLabel),
       m_appName(new SmallLabel),
       m_appVersion(new SmallLabel),
-      m_appChangelog(new SmallLabel)
+      m_appChangelog(new SmallLabel),
+      m_details(new QPushButton)
 {
     TranslucentFrame *iconContainer = new TranslucentFrame;
     iconContainer->setFixedWidth(36);
@@ -35,7 +57,10 @@ UpdateItem::UpdateItem(QFrame *parent)
     m_appIcon->setFixedSize(36, 36);
 
     m_appChangelog->setWordWrap(true);
-    m_appChangelog->setAlignment(Qt::AlignTop);
+    m_appChangelog->setTextFormat(Qt::RichText);
+    m_appChangelog->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    m_appChangelog->setOpenExternalLinks(true);
+    m_appChangelog->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
     m_details = new QPushButton;
     m_details->setFlat(true);
@@ -78,13 +103,12 @@ UpdateItem::UpdateItem(QFrame *parent)
         // The point of this timer is that the calculation should be taken
         // after the relayout of this item caused by the hide of details button.
         QTimer::singleShot(0, this, &UpdateItem::expandChangelog);
-     });
+    });
 }
 
 void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 {
     m_info = info;
-
     QFile file(m_info.m_icon);
     QPixmap pix;
 
@@ -112,7 +136,7 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 
 QString UpdateItem::elidedChangelog() const
 {
-    const QString text = m_info.m_changelog;
+    const QString text = clearHTMLTags(m_info.m_changelog);
 
     const QFontMetrics fm(m_appChangelog->font());
     const QRect rect(0, 0, 200, fm.height() * 2);
@@ -143,10 +167,10 @@ void UpdateItem::expandChangelog()
     const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
 
     QFontMetrics fm = m_appChangelog->fontMetrics();
-    QRect rect = fm.boundingRect(m_appChangelog->rect(), textFlag, m_info.m_changelog);
-    int heightDelta = rect.height() - m_appChangelog->height();
+    const QRect rect = fm.boundingRect(m_appChangelog->rect(), textFlag, clearHTMLTags(m_info.m_changelog));
+    const int heightDelta = rect.height() - m_appChangelog->height();
 
-    m_appChangelog->setText(m_info.m_changelog);
+    m_appChangelog->setText(m_info.m_changelog.replace('\n', "<br>"));
     m_appChangelog->setFixedHeight(rect.height());
 
     setFixedHeight(height() + heightDelta);
