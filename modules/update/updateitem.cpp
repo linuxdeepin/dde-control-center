@@ -35,14 +35,34 @@ QPair<QString, QString> UpdateItem::parseAnchor(const QString &input)
     return ret;
 }
 
+const QString clearHTMLTags(const QString &text)
+{
+    const QRegularExpression regex("<(\\w+)[^>]*>([^<]*)</\\1>");
+
+    QString ret = text;
+    do
+    {
+        const auto match = regex.match(ret);
+        if (!match.isValid() || !match.hasMatch())
+            break;
+
+        const int start = match.capturedStart();
+        const int len = match.capturedLength();
+        const QString &cap = match.captured(2);
+
+        ret.replace(start, len, cap);
+    } while (true);
+
+    return ret;
+}
+
 UpdateItem::UpdateItem(QFrame *parent)
     :SettingsItem(parent),
       m_appIcon(new SmallLabel),
       m_appName(new SmallLabel),
       m_appVersion(new SmallLabel),
       m_appChangelog(new SmallLabel),
-      m_details(new QPushButton),
-      m_openWebsite(new QPushButton)
+      m_details(new QPushButton)
 {
     TranslucentFrame *iconContainer = new TranslucentFrame;
     iconContainer->setFixedWidth(36);
@@ -58,20 +78,18 @@ UpdateItem::UpdateItem(QFrame *parent)
     m_appIcon->setFixedSize(36, 36);
 
     m_appChangelog->setWordWrap(true);
-    m_appChangelog->setAlignment(Qt::AlignTop);
+    m_appChangelog->setTextFormat(Qt::RichText);
+    m_appChangelog->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    m_appChangelog->setOpenExternalLinks(true);
+    m_appChangelog->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
     m_details->setFlat(true);
     m_details->setText(tr("Details"));
-
-    m_openWebsite->setFlat(true);
-    m_openWebsite->setText(tr("See official release notes"));
-    m_openWebsite->setVisible(false);
 
     QHBoxLayout* logLayout = new QHBoxLayout;
     logLayout->setMargin(0);
     logLayout->setSpacing(0);
     logLayout->addWidget(m_appChangelog, 1);
-    logLayout->addWidget(m_openWebsite, 0, Qt::AlignLeft);
     logLayout->addWidget(m_details);
 
     QHBoxLayout *nameLayout = new QHBoxLayout;
@@ -107,16 +125,15 @@ UpdateItem::UpdateItem(QFrame *parent)
         QTimer::singleShot(0, this, &UpdateItem::expandChangelog);
     });
 
-    connect(m_openWebsite, &QPushButton::clicked, [this] {
-        qDebug() << QString("open website %1 to see release notes of %2").arg(m_anchorAddress).arg(m_anchorName);
-        QDesktopServices::openUrl(m_anchorAddress);
-    });
+//    connect(m_openWebsite, &QPushButton::clicked, [this] {
+//        qDebug() << QString("open website %1 to see release notes of %2").arg(m_anchorAddress).arg(m_anchorName);
+//        QDesktopServices::openUrl(m_anchorAddress);
+//    });
 }
 
 void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 {
     m_info = info;
-
     QFile file(m_info.m_icon);
     QPixmap pix;
 
@@ -132,24 +149,31 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
     m_appVersion->setText(info.m_avilableVersion.trimmed());
 
     const QString changelog = m_info.m_changelog;
-    if(!changelog.isEmpty()) {
+
+    if (!changelog.isEmpty())
+    {
         setFixedHeight(80);
         m_iconLayout->setContentsMargins(0, 10, 0, 0);
+        m_appChangelog->setText(elidedChangelog());
 
-        const bool changelogIsAnchor = isAnchor(changelog);
+//    if(!changelog.isEmpty()) {
+//        setFixedHeight(80);
+//        m_iconLayout->setContentsMargins(0, 10, 0, 0);
 
-        m_openWebsite->setVisible(changelogIsAnchor);
-        m_appChangelog->setVisible(!changelogIsAnchor);
+//        const bool changelogIsAnchor = isAnchor(changelog);
 
-        if (!changelogIsAnchor)
-            m_appChangelog->setText(elidedChangelog());
-        else {
-            m_details->setVisible(false);
+//        m_openWebsite->setVisible(changelogIsAnchor);
+//        m_appChangelog->setVisible(!changelogIsAnchor);
 
-            QPair<QString, QString> pair = parseAnchor(changelog);
-            m_anchorName = pair.second;
-            m_anchorAddress = pair.first;
-        }
+//        if (!changelogIsAnchor)
+//            m_appChangelog->setText(elidedChangelog());
+//        else {
+//            m_details->setVisible(false);
+
+//            QPair<QString, QString> pair = parseAnchor(changelog);
+//            m_anchorName = pair.second;
+//            m_anchorAddress = pair.first;
+//        }
 
     } else {
         setFixedHeight(60);
@@ -160,7 +184,7 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 
 QString UpdateItem::elidedChangelog() const
 {
-    const QString text = m_info.m_changelog;
+    const QString text = clearHTMLTags(m_info.m_changelog);
 
     const QFontMetrics fm(m_appChangelog->font());
     const QRect rect(0, 0, 200, fm.height() * 2);
@@ -191,10 +215,10 @@ void UpdateItem::expandChangelog()
     const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
 
     QFontMetrics fm = m_appChangelog->fontMetrics();
-    QRect rect = fm.boundingRect(m_appChangelog->rect(), textFlag, m_info.m_changelog);
-    int heightDelta = rect.height() - m_appChangelog->height();
+    const QRect rect = fm.boundingRect(m_appChangelog->rect(), textFlag, clearHTMLTags(m_info.m_changelog));
+    const int heightDelta = rect.height() - m_appChangelog->height();
 
-    m_appChangelog->setText(m_info.m_changelog);
+    m_appChangelog->setText(m_info.m_changelog.replace('\n', "<br>"));
     m_appChangelog->setFixedHeight(rect.height());
 
     setFixedHeight(height() + heightDelta);

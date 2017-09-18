@@ -34,16 +34,12 @@ public:
 private:
     AppUpdateInfo m_info;
 
-    QString m_anchorName;
-    QString m_anchorAddress;
-
     dcc::widgets::SmallLabel *m_appIcon;
     dcc::widgets::SmallLabel *m_appName;
     dcc::widgets::SmallLabel *m_appVersion;
     dcc::widgets::SmallLabel *m_appChangelog;
 
     QPushButton *m_details;
-    QPushButton *m_openWebsite;
     QVBoxLayout *m_iconLayout;
 
     QString elidedChangelog() const;
