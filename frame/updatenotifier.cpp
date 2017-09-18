@@ -22,9 +22,17 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
     setFixedSize(360, 80);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
+    const qreal ratio = devicePixelRatioF();
     QIcon icon = QIcon::fromTheme("system-updated", QIcon::fromTheme("application-default-icon"));
     m_icon->setFixedSize(48, 48);
-    m_icon->setPixmap(icon.pixmap(m_icon->size()));
+
+    QPixmap pixmap = icon.pixmap(m_icon->width() * ratio, m_icon->height() * ratio);
+    pixmap = pixmap.scaled(m_icon->width() * ratio, m_icon->height() * ratio,
+                           Qt::KeepAspectRatioByExpanding,
+                           Qt::SmoothTransformation);
+    pixmap.setDevicePixelRatio(ratio);
+
+    m_icon->setPixmap(pixmap);
 
     m_closeButton->setFixedSize(14, 14);
 
