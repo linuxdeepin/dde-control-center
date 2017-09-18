@@ -107,6 +107,7 @@ UpdateItem::UpdateItem(QFrame *parent)
     m_appChangelog->setTextInteractionFlags(Qt::TextBrowserInteraction);
     m_appChangelog->setOpenExternalLinks(true);
     m_appChangelog->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    m_appChangelog->setFocusPolicy(Qt::NoFocus);
 
     m_details->setFlat(true);
     m_details->setText(tr("Details"));
@@ -243,10 +244,14 @@ void UpdateItem::expandChangelog()
     const QRect rect = fm.boundingRect(m_appChangelog->rect(), textFlag, clearHTMLTags(m_info.m_changelog));
     const int heightDelta = rect.height() - m_appChangelog->height();
 
-    m_appChangelog->setText(m_info.m_changelog.replace('\n', "<br>"));
-    m_appChangelog->setFixedHeight(rect.height());
+    const QString stylesheet = "<style type=\"text/css\">"
+                               "a { color: #0082FA; }"
+                               "</style> ";
 
-    setFixedHeight(height() + heightDelta);
+    m_appChangelog->setText(stylesheet + m_info.m_changelog.replace('\n', "<br>"));
+    m_appChangelog->setFixedHeight(rect.height() + 1);
+
+    setFixedHeight(height() + heightDelta + 1);
 }
 
 }
