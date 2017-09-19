@@ -39,7 +39,8 @@ UserOptionItem::UserOptionItem(QFrame *parent)
 
       m_avatarLabel(new QLabel)
 {
-    m_avatarLabel->setFixedSize(24, 24);
+    const auto ratio = devicePixelRatioF();
+    m_avatarLabel->setFixedSize(24 * ratio, 24 * ratio);
 
     QHBoxLayout *mainLayout = static_cast<QHBoxLayout *>(layout());
     mainLayout->insertWidget(0, m_avatarLabel);
@@ -48,19 +49,23 @@ UserOptionItem::UserOptionItem(QFrame *parent)
 
 void UserOptionItem::setAvatar(const QString &avatar)
 {
-    QPainterPath painterPath;
-    painterPath.addEllipse(QRect(0, 0, 24, 24));
+    const QSize s = m_avatarLabel->size();
 
     QUrl url(avatar);
-    const QPixmap pixmap = QPixmap(url.toLocalFile()).scaled(24, 24, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    QPixmap pixmap = QPixmap(url.toLocalFile()).scaled(s, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
-    QPixmap pic(24, 24);
+    QPixmap pic(s);
     pic.fill(Qt::transparent);
+
+    QPainterPath painterPath;
+    painterPath.addEllipse(QRect(0, 0, pic.width(), pic.height()));
+
     QPainter painter(&pic);
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setClipPath(painterPath);
 
-    painter.drawPixmap(QRect(0, 0, 24, 24), pixmap);
+    painter.drawPixmap(0, 0, pixmap);
+    pic.setDevicePixelRatio(devicePixelRatioF());
 
     m_avatarLabel->setPixmap(pic);
 }

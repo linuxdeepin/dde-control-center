@@ -47,7 +47,7 @@ public:
     void setSelected(const bool selected = true);
     void setDeletable(const bool deletable = true);
 
-    inline QString avatarPath() const { return m_avatarPath; }
+    const QString avatarPath() const;
     void setAvatarPath(const QString &avatar);
 
 signals:

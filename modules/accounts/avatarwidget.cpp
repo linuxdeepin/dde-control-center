@@ -77,11 +77,28 @@ void AvatarWidget::setDeletable(const bool deletable)
     update();
 }
 
+const QString AvatarWidget::avatarPath() const
+{
+    const auto ratio = devicePixelRatioF();
+
+    if (ratio > 1.0)
+        return QString(m_avatarPath).replace("icons/bigger/", "icons/");
+
+    return m_avatarPath;
+}
+
 void AvatarWidget::setAvatarPath(const QString &avatar)
 {
-    QUrl url(avatar);
-    m_avatarPath = avatar;
-    m_avatar = QPixmap(url.toLocalFile()).scaled(size().width(), size().height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    const auto ratio = devicePixelRatioF();
+
+    QString avatarPath = avatar;
+    if (ratio > 1.0)
+        avatarPath.replace("icons/", "icons/bigger/");
+
+    QUrl url(avatarPath);
+    m_avatarPath = avatarPath;
+    m_avatar = QPixmap(url.toLocalFile()).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    m_avatar.setDevicePixelRatio(ratio);
 
     setAccessibleName(m_avatarPath);
 
@@ -91,7 +108,7 @@ void AvatarWidget::setAvatarPath(const QString &avatar)
 void AvatarWidget::mouseReleaseEvent(QMouseEvent *e)
 {
     if (rect().contains(e->pos()))
-        emit clicked(m_avatarPath);
+        emit clicked(avatarPath());
 
     QWidget::mouseReleaseEvent(e);
 }
@@ -99,13 +116,13 @@ void AvatarWidget::mouseReleaseEvent(QMouseEvent *e)
 void AvatarWidget::paintEvent(QPaintEvent *e)
 {
     QPainterPath painterPath;
-    painterPath.addEllipse(rect());
+    painterPath.addEllipse(QRect(0, 0, width(), height()));
 
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setClipPath(painterPath);
 
-    painter.drawPixmap(e->rect(), m_avatar, e->rect());
+    painter.drawPixmap(e->rect(), m_avatar);
 
     if (m_selected) {
         setAccessibleDescription("selectedIcon");
@@ -138,8 +155,11 @@ void AvatarWidget::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
 
+    const auto ratio = devicePixelRatioF();
+
     QUrl url(m_avatarPath);
-    m_avatar = QPixmap(url.toLocalFile()).scaled(size().width(), size().height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    m_avatar = QPixmap(url.toLocalFile()).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    m_avatar.setDevicePixelRatio(ratio);
 
     update();
 }
