@@ -341,7 +341,10 @@ void ConnectionEditPage::onTypeChanged(const QString &type)
     if (!type.startsWith("vpn"))
         return;
 
-    m_exportBtn->setVisible(true);
+    const QStringList suppertedList = { "vpn-l2tp", "vpn-openvpn" };
+
+    if (suppertedList.contains(type))
+        m_exportBtn->setVisible(true);
 }
 
 void ConnectionEditPage::onActiveStateChanged()

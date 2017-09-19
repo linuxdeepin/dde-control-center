@@ -39,6 +39,7 @@
 #include <QPushButton>
 #include <QJsonObject>
 #include <QFileDialog>
+#include <QMessageBox>
 
 using namespace dcc::widgets;
 using namespace dcc::network;
@@ -237,7 +238,10 @@ void VpnPage::importVPN()
     qDebug() << stat << output << p.readAllStandardError();
 
     if (stat)
+    {
+        QMessageBox::warning(nullptr, tr("Import Error"), tr("Import Error"), tr("OK"));
         return;
+    }
 
     const QRegularExpression regexp("\\(([-\\w]+)\\)");
     const auto match = regexp.match(output);
