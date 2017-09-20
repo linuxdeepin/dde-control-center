@@ -28,6 +28,28 @@
 
 #include <QPainter>
 
+QPixmap loadPixmap(const QString &path)
+{
+    qreal ratio = 1.0;
+    QPixmap pixmap;
+
+    const qreal devicePixelRatio = qApp->devicePixelRatio();
+
+    if (!qFuzzyCompare(ratio, devicePixelRatio)) {
+        QImageReader reader;
+        reader.setFileName(qt_findAtNxFile(path, devicePixelRatio, &ratio));
+        if (reader.canRead()) {
+            reader.setScaledSize(reader.size() * (devicePixelRatio / ratio));
+            pixmap = QPixmap::fromImage(reader.read());
+            pixmap.setDevicePixelRatio(devicePixelRatio);
+        }
+    } else {
+        pixmap.load(path);
+    }
+
+    return pixmap;
+}
+
 namespace dcc {
 
 namespace widgets {

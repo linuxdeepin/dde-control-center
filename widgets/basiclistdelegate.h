@@ -29,26 +29,9 @@
 #include <QAbstractItemDelegate>
 #include <QIcon>
 #include <QApplication>
+#include <QImageReader>
 
-static QPixmap loadPixmap(const QString &path) {
-    qreal ratio = 1.0;
-    QPixmap pixmap;
-
-    const qreal devicePixelRatio = qApp->devicePixelRatio();
-
-    if (devicePixelRatio > ratio) {
-        pixmap.load(qt_findAtNxFile(path, devicePixelRatio, &ratio));
-
-        pixmap = pixmap.scaled(devicePixelRatio / ratio * pixmap.width(),
-                               devicePixelRatio / ratio * pixmap.height(),
-                               Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-        pixmap.setDevicePixelRatio(devicePixelRatio);
-    } else {
-        pixmap.load(path);
-    }
-
-    return pixmap;
-}
+QPixmap loadPixmap(const QString &path);
 
 namespace dcc {
 

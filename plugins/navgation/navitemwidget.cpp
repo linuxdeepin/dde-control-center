@@ -29,6 +29,8 @@
 #include <QApplication>
 #include <QIcon>
 #include <QDebug>
+#include <QImageReader>
+#include <QFile>
 
 NavItemWidget::NavItemWidget(const QString &id, QWidget *parent)
     : QWidget(parent),
@@ -56,18 +58,18 @@ void NavItemWidget::paintEvent(QPaintEvent *e)
     QRect pixRect;
     QPixmap pixmap;
 
-    if (devicePixelRatio > ratio) {
-        pixmap.load(qt_findAtNxFile(file, devicePixelRatio, &ratio));
-
-        pixmap = pixmap.scaled(devicePixelRatio / ratio * pixmap.width(),
-                               devicePixelRatio / ratio * pixmap.height(),
-                               Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-        pixmap.setDevicePixelRatio(devicePixelRatio);
-        pixRect = QRect(0, 0, pixmap.width() / devicePixelRatio, pixmap.height() / devicePixelRatio);
-    } else {
-        pixmap.load(file);
-        pixRect = pixmap.rect();
-    }
+    if (!qFuzzyCompare(ratio, devicePixelRatio)) {
+         QImageReader reader;
+         reader.setFileName(qt_findAtNxFile(file, devicePixelRatio, &ratio));
+         if (reader.canRead()) {
+             reader.setScaledSize(reader.size() * (devicePixelRatio / ratio));
+             pixmap = QPixmap::fromImage(reader.read());
+             pixmap.setDevicePixelRatio(devicePixelRatio);
+             pixRect = QRect(0, 0, pixmap.width() / devicePixelRatio, pixmap.height() / devicePixelRatio);
+         }
+     } else {
+         pixmap.load(file);
+     }
 
     pixRect.moveCenter(rect().center());
 
