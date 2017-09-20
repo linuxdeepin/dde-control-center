@@ -330,7 +330,11 @@ void MonitorSettingDialog::onPrimaryChanged()
 
 void MonitorSettingDialog::onMonitorRectChanged()
 {
-    DAbstractDialog::move(m_monitor->rect().center() - rect().center());
+    const qreal ratio = devicePixelRatioF();
+    const QRect r(m_monitor->rect().topLeft(),
+                  m_monitor->rect().size() / ratio);
+
+    DAbstractDialog::move(r.center() - rect().center());
 }
 
 void MonitorSettingDialog::onMonitorModeChanged()

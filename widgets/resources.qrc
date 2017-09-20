@@ -122,5 +122,6 @@
         <file>themes/dark/icons/select@2x.png</file>
         <file>themes/dark/icons/enter_details_hover@2x.png</file>
         <file>themes/dark/icons/enter_details_press@2x.png</file>
+        <file>themes/dark/icons/list_select@2x.png</file>
     </qresource>
 </RCC>

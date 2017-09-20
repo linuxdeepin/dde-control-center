@@ -83,8 +83,10 @@ void RecognizeDialog::paintEvent(QPaintEvent *)
 
 void RecognizeDialog::onScreenRectChanged()
 {
-    setFixedWidth(m_model->screenWidth());
-    setFixedHeight(m_model->screenHeight());
+    const qreal ratio = devicePixelRatioF();
+
+    setFixedSize(m_model->screenWidth() / ratio,
+                 m_model->screenHeight() / ratio);
     move(0, 0);
 
     update();
@@ -92,12 +94,14 @@ void RecognizeDialog::onScreenRectChanged()
 
 void RecognizeDialog::paintMonitorMark(QPainter &painter, const QRect &rect, const QString &name)
 {
-    const int fontSize = rect.height() / 5;
+    const qreal ratio = devicePixelRatioF();
+    const QRect r(rect.topLeft() / ratio, rect.size() / ratio);
+    const int fontSize = r.height() / 5;
     QFont font;
     font.setPixelSize(fontSize);
     const QFontMetrics fm(font);
-    const int x = rect.center().x() - fm.width(name) / 2;
-    const int y = rect.center().y() + fm.height() / 4;
+    const int x = r.center().x() - fm.width(name) / 2;
+    const int y = r.center().y() + fm.height() / 4;
 
     QPainterPath path;
     path.addText(x, y, font, name);

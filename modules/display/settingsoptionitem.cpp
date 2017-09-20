@@ -24,6 +24,7 @@
  */
 
 #include "settingsoptionitem.h"
+#include "basiclistdelegate.h"
 
 #include <QHBoxLayout>
 #include <QPainter>
@@ -40,7 +41,7 @@ SettingsOptionItem::SettingsOptionItem(QWidget *parent)
       m_title(new QLabel),
       m_icon(new QLabel)
 {
-    m_icon->setPixmap(QPixmap(":/display/themes/common/icon/list_select.png"));
+    m_icon->setPixmap(loadPixmap(":/display/themes/common/icon/list_select.png"));
     m_icon->setVisible(false);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
