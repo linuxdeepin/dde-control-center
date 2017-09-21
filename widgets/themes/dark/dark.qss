@@ -86,7 +86,7 @@ dcc--widgets--TipsLabel {
 }
 
 dcc--widgets--SearchInput {
-    qproperty-pixmap: url(:/widgets/themes/dark/icons/search_dark.png);
+    qproperty-icon: url(:/widgets/themes/dark/icons/search_dark.png);
 }
 
 QLabel#ContentTitle {

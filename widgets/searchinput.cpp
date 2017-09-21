@@ -24,6 +24,8 @@
  */
 
 #include "searchinput.h"
+#include "basiclistdelegate.h"
+
 #include <QPainter>
 #include <QApplication>
 
@@ -49,14 +51,16 @@ void SearchInput::setIconVisible(bool visible)
     m_iconVisible = visible;
 }
 
-QPixmap SearchInput::pixmap() const
+QString SearchInput::iconPath() const
 {
-    return m_icon;
+    return m_iconPath;
 }
 
-void SearchInput::setPixmap(const QPixmap &pixmap)
+void SearchInput::setIcon(const QString &filepath)
 {
-    m_icon = pixmap;
+    m_iconPath = filepath;
+
+    m_icon = loadPixmap(filepath);
 }
 
 void SearchInput::paintEvent(QPaintEvent *e)
@@ -76,7 +80,7 @@ void SearchInput::paintEvent(QPaintEvent *e)
             int iw = m_icon.width();
             int x = (rect.width() - w - iw -8)/2;
             QRect iconRect(x, 0, iw, rect.height());
-            QRect tmp(QPoint(0,0),m_icon.size());
+            QRect tmp(QPoint(0,0),m_icon.size() / devicePixelRatioF());
             tmp.moveCenter(iconRect.center());
             QRect searchRect(iconRect.right() + 2, 0, w, rect.height());
             painter.drawPixmap(tmp, m_icon);
