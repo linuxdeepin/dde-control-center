@@ -69,6 +69,7 @@ void NavItemWidget::paintEvent(QPaintEvent *e)
          }
      } else {
          pixmap.load(file);
+         pixRect = pixmap.rect();
      }
 
     pixRect.moveCenter(rect().center());
