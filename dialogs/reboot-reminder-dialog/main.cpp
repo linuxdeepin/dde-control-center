@@ -25,7 +25,7 @@
 
 #include "reminderdialog.h"
 
-#include <QApplication>
+#include <DApplication>
 #include <QTranslator>
 #include <QDBusConnection>
 
@@ -33,9 +33,12 @@
 #define Path "/com/deepin/dialogs/RebootReminder"
 #define Interface "com.deepin.dialogs.RebootReminder"
 
+DWIDGET_USE_NAMESPACE
+
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    DApplication::loadDXcbPlugin();
+    DApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
 
     QTranslator translator;
