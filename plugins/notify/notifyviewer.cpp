@@ -163,7 +163,7 @@ void Viewer::onAnimationFinished()
 
 void Viewer::paintEvent(QPaintEvent *event)
 {
-    if (rect().contains(mapFromGlobal(QCursor::pos()))) {
+    if (m_enter) {
         m_close->setVisible(true);
         m_time->setVisible(false);
 
@@ -187,6 +187,8 @@ void Viewer::paintEvent(QPaintEvent *event)
 
 void Viewer::enterEvent(QEvent *event)
 {
+    m_enter = true;
+
     update();
 
     QFrame::enterEvent(event);
@@ -194,6 +196,8 @@ void Viewer::enterEvent(QEvent *event)
 
 void Viewer::leaveEvent(QEvent *event)
 {
+    m_enter = false;
+
     update();
 
     QFrame::leaveEvent(event);

@@ -75,6 +75,7 @@ private:
     QLabel      *m_appIcon;
     QHBoxLayout *m_mainlayout;
     QString m_id;
+    bool m_enter = false;
 };
 
 #endif // VIEWER_H
