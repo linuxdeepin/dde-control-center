@@ -109,6 +109,15 @@ void DisplayModel::setDisplayMode(const int mode)
     }
 }
 
+void DisplayModel::setUIScale(const double scale)
+{
+    if (m_uiScale != scale)
+    {
+        m_uiScale = scale;
+        emit uiScaleChanged(m_uiScale);
+    }
+}
+
 void DisplayModel::setPrimary(const QString &primary)
 {
     if (m_primary != primary)

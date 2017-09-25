@@ -153,6 +153,8 @@ ModuleWidget *DisplayModule::moduleWidget()
     if (m_displayWidget)
         return m_displayWidget;
 
+    m_displayWorker->initGSettings();
+
     m_displayWidget = new DisplayWidget;
     m_displayWidget->setModel(m_displayModel);
 #ifndef DCC_DISABLE_MIRACAST
@@ -171,6 +173,8 @@ ModuleWidget *DisplayModule::moduleWidget()
 #ifndef DCC_DISABLE_ROTATE
     connect(m_displayWidget, &DisplayWidget::requestRotate, [=] { showRotate(m_displayModel->primaryMonitor()); });
 #endif
+    connect(m_displayWidget, &DisplayWidget::requestUiScaleChanged, m_displayWorker, &DisplayWorker::setUiScale);
+
     return m_displayWidget;
 }
 

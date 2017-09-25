@@ -32,13 +32,15 @@
 using namespace dcc;
 using namespace dcc::display;
 
+#define UI_SCALE_KEY    "scaleFactor"
+
 const QString DisplayInterface("com.deepin.daemon.Display");
 
 DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     : QObject(parent),
 
       m_model(model),
-
+      m_xsettings(nullptr),
       m_displayInter(DisplayInterface, "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)
 {
     // TODO:
@@ -70,6 +72,17 @@ DisplayWorker::~DisplayWorker()
 {
     qDeleteAll(m_monitors.keys());
     qDeleteAll(m_monitors.values());
+}
+
+void DisplayWorker::initGSettings()
+{
+    Q_ASSERT(!m_xsettings);
+
+    m_xsettings = new QGSettings("com.deepin.xsettings", QByteArray(), this);
+
+    connect(m_xsettings, &QGSettings::changed, this, &DisplayWorker::onXSettingsChanged);
+
+    m_model->setUIScale(m_xsettings->get(UI_SCALE_KEY).toDouble());
 }
 
 void DisplayWorker::saveChanges()
@@ -232,6 +245,12 @@ void DisplayWorker::onModifyConfigNameFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
+void DisplayWorker::onXSettingsChanged(const QString &key)
+{
+    if (key == UI_SCALE_KEY)
+        m_model->setUIScale(m_xsettings->get(UI_SCALE_KEY).toDouble());
+}
+
 void DisplayWorker::createConfigFinshed(QDBusPendingCallWatcher *w)
 {
     const QString name = w->property("Name").toString();
@@ -295,6 +314,11 @@ void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
 
     inter->SetPosition(x, y).waitForFinished();
     m_displayInter.ApplyChanges().waitForFinished();
+}
+
+void DisplayWorker::setUiScale(const double value)
+{
+    m_xsettings->set(UI_SCALE_KEY, value);
 }
 
 //void DisplayWorker::loadRotations(Monitor * const mon)

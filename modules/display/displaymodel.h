@@ -47,6 +47,7 @@ public:
     int screenHeight() const { return m_screenHeight; }
     int screenWidth() const { return m_screenWidth; }
     int displayMode() const { return m_mode; }
+    double uiScale() const { return m_uiScale; }
     const QString primary() const { Q_ASSERT(!m_primary.isEmpty()); return m_primary; }
     const QString config() const { return m_currentConfig; }
     const QStringList configList() const { return m_configList; }
@@ -60,6 +61,7 @@ signals:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
     void displayModeChanged(const int mode) const;
+    void uiScaleChanged(const double scale) const;
     void primaryScreenChanged(const QString &primary) const;
     void currentConfigChanged(const QString &config) const;
     void firstConfigCreated(const QString &config) const;
@@ -70,6 +72,7 @@ private slots:
     void setScreenHeight(const int h);
     void setScreenWidth(const int w);
     void setDisplayMode(const int mode);
+    void setUIScale(const double scale);
     void setPrimary(const QString &primary);
     void setCurrentConfig(const QString &config);
     void setConfigList(const QStringList &configList);
@@ -80,6 +83,7 @@ private:
     int m_screenHeight;
     int m_screenWidth;
     int m_mode;
+    double m_uiScale;
     QString m_primary;
     QString m_currentConfig;
     QStringList m_configList;

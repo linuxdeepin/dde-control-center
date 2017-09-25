@@ -31,6 +31,8 @@
 #include "displaymodel.h"
 #include "displayworker.h"
 #include "basiclistdelegate.h"
+#include "titledslideritem.h"
+#include "dccslider.h"
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -41,6 +43,7 @@ DisplayWidget::DisplayWidget()
       m_resolution(new NextPageWidget),
       m_brightnessSettings(new NextPageWidget),
       m_customSettingsGrp(new SettingsGroup),
+      m_scaleWidget(new TitledSliderItem(tr("Display scaling"))),
 #ifndef DCC_DISABLE_ROTATE
       m_rotate(new QPushButton),
 #endif
@@ -58,6 +61,22 @@ DisplayWidget::DisplayWidget()
 
     m_brightnessSettings->setTitle(tr("Brightness"));
 
+    QStringList scaleList;
+    scaleList << "1.0" << "1.25" << "1.5" << "1.75" << "2.0";
+
+    DCCSlider *slider = m_scaleWidget->slider();
+    slider->setRange(1,5);
+    slider->setType(DCCSlider::Vernier);
+    slider->setTickPosition(QSlider::TicksBelow);
+    slider->setTickInterval(1);
+    slider->setPageStep(1);
+    slider->blockSignals(true);
+    slider->blockSignals(false);
+    m_scaleWidget->setAnnotations(scaleList);
+
+    SettingsGroup *scaleGrp = new SettingsGroup;
+    scaleGrp->appendItem(m_scaleWidget);
+
     m_resolutionsGrp = new SettingsGroup;
     m_resolutionsGrp->appendItem(m_resolution);
 
@@ -70,6 +89,7 @@ DisplayWidget::DisplayWidget()
     SettingsGroup *brightnessGrp = new SettingsGroup;
     brightnessGrp->appendItem(m_brightnessSettings);
 
+    m_centralLayout->addWidget(scaleGrp);
     m_centralLayout->addWidget(m_resolutionsGrp);
 #ifndef DCC_DISABLE_MIRACAST
     m_centralLayout->addWidget(m_miracastGrp);
@@ -93,6 +113,9 @@ DisplayWidget::DisplayWidget()
 #endif
     connect(m_createConfig, &QPushButton::clicked, this, &DisplayWidget::requestNewConfig);
     connect(m_configListRefershTimer, &QTimer::timeout, this, &DisplayWidget::onConfigListChanged);
+    connect(slider, &DCCSlider::valueChanged, this, [=] (const int value) {
+        emit requestUiScaleChanged(converToScale(value));
+    });
 }
 
 void DisplayWidget::setModel(DisplayModel *model)
@@ -107,10 +130,12 @@ void DisplayWidget::setModel(DisplayModel *model)
     connect(m_model, &DisplayModel::screenHeightChanged, this, &DisplayWidget::onScreenSizeChanged, Qt::QueuedConnection);
     connect(m_model, &DisplayModel::screenWidthChanged, this, &DisplayWidget::onScreenSizeChanged, Qt::QueuedConnection);
     connect(m_model, &DisplayModel::firstConfigCreated, this, &DisplayWidget::onFirstConfigCreated, Qt::QueuedConnection);
+    connect(m_model, &DisplayModel::uiScaleChanged, this, &DisplayWidget::onUiScaleChanged);
 
     onScreenListChanged();
     onScreenSizeChanged();
     m_configListRefershTimer->start();
+    onUiScaleChanged(m_model->uiScale());
 }
 
 #ifndef DCC_DISABLE_MIRACAST
@@ -218,4 +243,56 @@ void DisplayWidget::onMiracastLinkRemoved(const QDBusObjectPath &path)
 
     m_miracastGrp->setVisible(!m_miracastList.isEmpty());
 }
+
+void DisplayWidget::onUiScaleChanged(const double scale)
+{
+    DCCSlider *slider = m_scaleWidget->slider();
+
+    slider->blockSignals(true);
+    slider->setValue(converToSlider(scale));
+    slider->blockSignals(false);
+
+    m_scaleWidget->setValueLiteral(QString::number(scale));
+}
+
+int DisplayWidget::converToSlider(const float value)
+{
+    if (value <= 1.0)
+        return 1;
+    else if (value <= 1.25)
+        return 2;
+    else if (value <= 1.5)
+        return 3;
+    else if (value <= 1.75)
+        return 4;
+    else if (value > 1.75)
+        return 5;
+    else
+        return 1;
+}
+
+float DisplayWidget::converToScale(const int value)
+{
+    switch (value) {
+    case 1:
+        return 1.0;
+        break;
+    case 2:
+        return 1.25;
+        break;
+    case 3:
+        return 1.5;
+        break;
+    case 4:
+        return 1.75;
+        break;
+    case 5:
+        return 2.0;
+        break;
+    default:
+        return 1.0;
+        break;
+    }
+}
+
 #endif

@@ -29,6 +29,7 @@
 #include "monitor.h"
 
 #include <QObject>
+#include <QGSettings>
 
 #include <com_deepin_daemon_display.h>
 
@@ -52,6 +53,9 @@ public:
     explicit DisplayWorker(DisplayModel *model, QObject *parent = 0);
     ~DisplayWorker();
 
+public:
+    void initGSettings();
+
 public slots:
     void saveChanges();
     void discardChanges();
@@ -72,11 +76,14 @@ public slots:
     void setMonitorResolution(Monitor *mon, const int mode);
     void setMonitorBrightness(Monitor *mon, const double brightness);
     void setMonitorPosition(Monitor *mon, const int x, const int y);
+    void setUiScale(const double value);
 
 private slots:
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
     void onModifyConfigNameFinished(QDBusPendingCallWatcher *w);
+
+    void onXSettingsChanged(const QString &key);
 
 private:
 //    void loadRotations(Monitor * const mon);
@@ -90,6 +97,7 @@ private:
 
 private:
     DisplayModel *m_model;
+    QGSettings *m_xsettings;
     DisplayInter m_displayInter;
     QMap<Monitor *, MonitorInter *> m_monitors;
 };

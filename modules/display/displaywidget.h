@@ -35,6 +35,7 @@ namespace dcc {
 namespace widgets {
 class SettingsGroup;
 class NextPageWidget;
+class TitledSliderItem;
 }
 
 namespace display {
@@ -66,6 +67,11 @@ signals:
 #ifndef DCC_DISABLE_MIRACAST
     void requestMiracastConfigPage(const QDBusObjectPath &path) const;
 #endif
+    void requestUiScaleChanged(const double value) const;
+
+private:
+    int converToSlider(const float value);
+    float converToScale(const int value);
 
 private slots:
     void onScreenListChanged() const;
@@ -76,6 +82,7 @@ private slots:
     void onMiracastLinkAdded(const LinkInfo &link);
     void onMiracastLinkRemoved(const QDBusObjectPath &path);
 #endif
+    void onUiScaleChanged(const double scale);
 
 private:
     DisplayModel *m_model;
@@ -84,6 +91,7 @@ private:
     QList<widgets::NextPageWidget *> m_customSettings;
     widgets::SettingsGroup *m_customSettingsGrp;
     widgets::SettingsGroup *m_resolutionsGrp;
+    widgets::TitledSliderItem *m_scaleWidget;
 #ifndef DCC_DISABLE_MIRACAST
     widgets::SettingsGroup *m_miracastGrp;
 #endif
