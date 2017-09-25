@@ -29,6 +29,7 @@
 #include <QLabel>
 
 #include "labels/normallabel.h"
+#include "basiclistdelegate.h"
 
 namespace dcc {
 namespace update {
@@ -60,7 +61,7 @@ void ResultItem::setSuccess(bool success)
                                   ":/update/themes/common/icons/update_failed.png";
     const QString message = success ? tr("Update successfully") :
                                       tr("Failed to update");
-    m_icon->setPixmap(QPixmap(pix));
+    m_icon->setPixmap(loadPixmap(pix));
     m_message->setText(message);
 }
 
