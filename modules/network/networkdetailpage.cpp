@@ -84,42 +84,30 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
 
     for (const auto &info : infos)
     {
-//        qDebug() << info;
-
         SettingsGroup *grp = new SettingsGroup;
 
-        const QString name = info.value("ConnectionName").toString();
-        if (!name.isEmpty())
-            appendInfo(grp, name, "");
-
-        // mac info
-        const QString mac = info.value("HwAddress").toString();
-        if (!mac.isEmpty())
-            appendInfo(grp, tr("MAC"), mac);
-
-        // ipv4 info
-        const auto ipv4 = info.value("Ip4").toObject();
-        if (!ipv4.isEmpty())
+        const QString type = info.value("ConnectionType").toString();
+        const bool isHotspot = type == "wireless-hotspot";
+        QJsonObject hotspotInfo;
+        if (isHotspot)
         {
-            // ipv4 address
-            const auto ip4Addr = ipv4.value("Address").toString();
-            if (!ip4Addr.isEmpty())
-                appendInfo(grp, tr("IPv4 Address"), ip4Addr);
+            grp->setHeaderVisible(true);
+            grp->headerItem()->setTitle(tr("Hotspot"));
 
-            // ipv4 gateway
-            const auto gateway = ipv4.value("Gateways").toArray();
-            if (!gateway.isEmpty())
-                appendInfo(grp, tr("Gateway"), gateway.first().toString());
+            hotspotInfo = info.value("Hotspot").toObject();
 
-            // ipv4 primary dns
-            const auto ip4PrimaryDns = ipv4.value("Dnses").toArray();
-            if (!ip4PrimaryDns.isEmpty())
-                appendInfo(grp, tr("Primary DNS"), ip4PrimaryDns.first().toString());
+            const QString ssid = hotspotInfo.value("Ssid").toString();
+            appendInfo(grp, tr("SSID"), ssid);
+        } else {
+            const QString name = info.value("ConnectionName").toString();
+            appendInfo(grp, name, "");
+        }
 
-            // ipv4 netmask
-            const auto ip4Netmask = ipv4.value("Mask").toString();
-            if (!ip4Netmask.isEmpty())
-                appendInfo(grp, tr("Netmask"), ip4Netmask);
+        // encrypt method
+        if (isHotspot)
+        {
+            const QString securityType = info.value("Security").toString();
+            appendInfo(grp, tr("Security"), securityType);
         }
 
         // device interface
@@ -127,10 +115,72 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         if (!device.isEmpty())
             appendInfo(grp, tr("Interface"), device);
 
-        // speed info
-        const QString speed = info.value("Speed").toString();
-        if (!speed.isEmpty())
-            appendInfo(grp, tr("Speed"), speed);
+        // mac info
+        const QString mac = info.value("HwAddress").toString();
+        if (!mac.isEmpty())
+            appendInfo(grp, tr("MAC"), mac);
+
+        // band
+        if (isHotspot)
+        {
+            const QString band = hotspotInfo.value("Band").toString();
+            appendInfo(grp, tr("Band"), band);
+        } else {
+            // ipv4 info
+            const auto ipv4 = info.value("Ip4").toObject();
+            if (!ipv4.isEmpty())
+            {
+                // ipv4 address
+                const auto ip4Addr = ipv4.value("Address").toString();
+                if (!ip4Addr.isEmpty())
+                    appendInfo(grp, tr("IPv4 Address"), ip4Addr);
+
+                // ipv4 gateway
+                const auto gateway = ipv4.value("Gateways").toArray();
+                if (!gateway.isEmpty())
+                    appendInfo(grp, tr("Gateway"), gateway.first().toString());
+
+                // ipv4 primary dns
+                const auto ip4PrimaryDns = ipv4.value("Dnses").toArray();
+                if (!ip4PrimaryDns.isEmpty())
+                    appendInfo(grp, tr("Primary DNS"), ip4PrimaryDns.first().toString());
+
+                // ipv4 netmask
+                const auto ip4Netmask = ipv4.value("Mask").toString();
+                if (!ip4Netmask.isEmpty())
+                    appendInfo(grp, tr("Netmask"), ip4Netmask);
+            }
+
+            // ipv6 info
+            const auto ipv6 = info.value("Ip6").toObject();
+            if (!ipv6.isEmpty())
+            {
+                // ipv6 address
+                const auto ip6Addr = ipv6.value("Address").toString();
+                if (!ip6Addr.isEmpty())
+                    appendInfo(grp, tr("IPv6 Address"), ip6Addr);
+
+                // ipv6 gateway
+                const auto gateway = ipv6.value("Gateways").toArray();
+                if (!gateway.isEmpty())
+                    appendInfo(grp, tr("Gateway"), gateway.first().toString());
+
+                // ipv6 primary dns
+                const auto ip6PrimaryDns = ipv6.value("Dnses").toArray();
+                if (!ip6PrimaryDns.isEmpty())
+                    appendInfo(grp, tr("Primary DNS"), ip6PrimaryDns.first().toString());
+
+                // ipv6 netmask
+                const auto ip6Prefix = ipv6.value("Prefix").toString();
+                if (!ip6Prefix.isEmpty())
+                    appendInfo(grp, tr("Prefix"), ip6Prefix);
+            }
+
+            // speed info
+            const QString speed = info.value("Speed").toString();
+            if (!speed.isEmpty())
+                appendInfo(grp, tr("Speed"), speed);
+        }
 
         m_groupsLayout->addWidget(grp);
         m_groupsLayout->addSpacing(10);
