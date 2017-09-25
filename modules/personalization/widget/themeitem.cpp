@@ -25,6 +25,8 @@
 
 #include "themeitem.h"
 #include "themeitempic.h"
+#include "basiclistdelegate.h"
+
 #include <QHBoxLayout>
 #include <QPixmap>
 #include <QMouseEvent>
@@ -47,7 +49,7 @@ ThemeItem::ThemeItem(const QJsonObject &json):
     titleLayout->setMargin(0);
     titleLayout->setSpacing(0);
 
-    m_selectLabel->setPixmap(QPixmap(":/defapp/icons/select.png"));
+    m_selectLabel->setPixmap(loadPixmap(":/defapp/icons/select.png"));
     m_selectLabel->setVisible(false);
 
     titleLayout->addSpacing(10);
