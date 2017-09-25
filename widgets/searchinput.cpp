@@ -37,6 +37,7 @@ SearchInput::SearchInput(QWidget* parent)
     :QLineEdit(parent),
       m_iconVisible(true)
 {
+    setContextMenuPolicy(Qt::NoContextMenu);
     setFocusPolicy(Qt::ClickFocus);
     m_search = tr("Search");
 }

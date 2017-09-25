@@ -47,6 +47,7 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
 {
     setFixedHeight(36);
 
+    m_lineEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_lineEdit->setObjectName("DCC-Datetime-QLineEdit");
     m_addBtn->setObjectName("DCC-Datetime-Datewidget-Add");
     m_reducedBtn->setObjectName("DCC-Datetime-Datewidget-Reduce");
@@ -186,6 +187,9 @@ TimeWidget::TimeWidget(QFrame *parent)
     QFont font;
     font.setPointSizeF(18);
     QTime time = QTime::currentTime();
+
+    m_hourEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_minuteEdit->setContextMenuPolicy(Qt::NoContextMenu);
 
     m_hourEdit->setFont(font);
     m_hourEdit->setAlignment(Qt::AlignCenter);
