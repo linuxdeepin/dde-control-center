@@ -70,7 +70,7 @@ private slots:
 private:
     void setStatus(const UpdatesStatus &status);
     void setDownloadInfo(DownloadInfo *downloadInfo);
-
+    void setProgressValue(const double value);
     void setLowBattery(const bool &lowBattery);
 
 private:

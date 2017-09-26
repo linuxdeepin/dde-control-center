@@ -159,6 +159,71 @@ void UpdateWork::distUpgradeInstallUpdates()
     });
 }
 
+void UpdateWork::setAppUpdateInfo(const AppUpdateInfoList &list)
+{
+    m_updateInter->setSync(true);
+    m_managerInter->setSync(true);
+
+    m_updatableApps = m_updateInter->updatableApps();
+    m_updatablePackages = m_updateInter->updatablePackages();
+
+    m_updateInter->setSync(false);
+    m_managerInter->setSync(false);
+
+    AppUpdateInfoList value = list;
+    AppUpdateInfoList infos;
+
+    int pkgCount = m_updatablePackages.count();
+    int appCount = value.count();
+
+    if (!pkgCount && !appCount) {
+        QFile file("/tmp/.dcc-update-successd");
+        if (file.exists()) {
+            m_model->setStatus(UpdatesStatus::NeedRestart);
+            return;
+        }
+    }
+
+    for (AppUpdateInfo &val : value) {
+        const QString currentVer = val.m_currentVersion;
+        const QString lastVer = val.m_avilableVersion;
+        AppUpdateInfo info = getInfo(val, currentVer, lastVer);
+
+        infos << info;
+    }
+
+    qDebug() << pkgCount << appCount;
+    if (pkgCount > appCount) {
+        // If there's no actual package dde update, but there're system patches available,
+        // then fake one dde update item.
+
+        AppUpdateInfo dde = getDDEInfo();
+
+        AppUpdateInfo ddeUpdateInfo = getInfo(dde, dde.m_currentVersion, dde.m_avilableVersion);
+        if(ddeUpdateInfo.m_changelog.isEmpty()) {
+            ddeUpdateInfo.m_avilableVersion = tr("Patches");
+            ddeUpdateInfo.m_changelog = tr("System patches.");
+        }
+        infos.prepend(ddeUpdateInfo);
+    }
+
+    DownloadInfo *result = calculateDownloadInfo(infos);
+    m_model->setDownloadInfo(result);
+
+    qDebug() << "updatable packages:" <<  m_updatablePackages << result->appInfos();
+    qDebug() << "total download size:" << formatCap(result->downloadSize());
+
+    if (result->appInfos().length() == 0) {
+        m_model->setStatus(UpdatesStatus::Updated);
+    } else {
+        if (result->downloadSize()) {
+            m_model->setStatus(UpdatesStatus::UpdatesAvailable);
+        } else {
+            m_model->setStatus(UpdatesStatus::Downloaded);
+        }
+    }
+}
+
 void UpdateWork::pauseDownload()
 {
     if (m_downloadJob) {
@@ -235,6 +300,7 @@ void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
     connect(m_checkUpdateJob, &__Job::StatusChanged, [this] (const QString & status) {
         if (status == "failed") {
             qWarning() << "check for updates job failed";
+            m_managerInter->CleanJob(m_checkUpdateJob->id());
         } else if (status == "success" || status == "succeed"){
             m_checkUpdateJob->deleteLater();
             m_checkUpdateJob = nullptr;
@@ -250,8 +316,7 @@ void UpdateWork::setDownloadJob(const QString &jobPath)
     if (m_downloadJob)
         return;
 
-    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()), this);
-    connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWork::onAppUpdateInfoFinished);
+    setAppUpdateInfo(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()));
 
     m_downloadJob = new JobInter("com.deepin.lastore",
                                  jobPath,
@@ -259,26 +324,13 @@ void UpdateWork::setDownloadJob(const QString &jobPath)
 
     connect(m_downloadJob, &__Job::ProgressChanged, [this] (double value){
         DownloadInfo *info = m_model->downloadInfo();
-        if (info) {
-            info->setDownloadProgress(value);
-        }
-        m_model->setUpgradeProgress(value * 0.5);
+        info->setDownloadProgress(value);
+        m_model->setUpgradeProgress(value);
     });
 
-    connect(m_downloadJob, &__Job::StatusChanged, [this] (const QString &status) {
-        if (status == "failed")  {
-            m_model->setStatus(UpdatesStatus::UpdateFailed);
-            qWarning() << "download updates job failed";
-        } else if (status == "success" || status == "succeed") {
-            m_downloadJob->deleteLater();
-            m_downloadJob = nullptr;
+    connect(m_downloadJob, &__Job::StatusChanged, this, &UpdateWork::onDownloadStatusChanged);
 
-            // install the updates immediately.
-            distUpgradeInstallUpdates();
-        }
-    });
-
-    m_model->setStatus(UpdatesStatus::Downloading);
+    m_downloadJob->StatusChanged(m_downloadJob->status());
     m_downloadJob->ProgressChanged(m_downloadJob->progress());
     m_downloadJob->StatusChanged(m_downloadJob->status());
 }
@@ -288,8 +340,7 @@ void UpdateWork::setDistUpgradeJob(const QString &jobPath)
     if (m_distUpgradeJob)
         return;
 
-    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()), this);
-    connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWork::onAppUpdateInfoFinished);
+    setAppUpdateInfo(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()));
 
     m_distUpgradeJob = new JobInter("com.deepin.lastore",
                                  jobPath,
@@ -299,27 +350,9 @@ void UpdateWork::setDistUpgradeJob(const QString &jobPath)
         m_model->setUpgradeProgress(m_baseProgress + (1 - m_baseProgress) * value);
     });
 
-    connect(m_distUpgradeJob, &__Job::StatusChanged, [this] (const QString &status) {
-        if (status == "failed")  {
-            // cleanup failed job
-            m_managerInter->CleanJob(m_distUpgradeJob->id());
-            m_model->setStatus(UpdatesStatus::UpdateFailed);
-            qWarning() << "install updates job failed";
-        } else if (status == "success" || status == "succeed") {
-            m_distUpgradeJob->deleteLater();
-            m_distUpgradeJob = nullptr;
+    connect(m_distUpgradeJob, &__Job::StatusChanged, this, &UpdateWork::onUpgradeStatusChanged);
 
-            m_model->setStatus(UpdatesStatus::UpdateSucceeded);
-
-            QFile file("/tmp/.dcc-update-successd");
-            if (file.exists())
-                return;
-            file.open(QIODevice::WriteOnly);
-            file.close();
-        }
-    });
-
-    m_model->setStatus(UpdatesStatus::Installing);
+    m_distUpgradeJob->TypeChanged(m_distUpgradeJob->type());
     m_distUpgradeJob->ProgressChanged(m_distUpgradeJob->progress());
     m_distUpgradeJob->StatusChanged(m_distUpgradeJob->status());
 }
@@ -336,12 +369,15 @@ void UpdateWork::onJobListChanged(const QList<QDBusObjectPath> & jobs)
         const QString &path = job.path();
         qDebug() << path;
 
-        if (path.contains("update"))
+        JobInter jobInter("com.deepin.lastore", path, QDBusConnection::systemBus());
+
+        if (jobInter.type() == "update_source")
             setCheckUpdatesJob(path);
-        else if (path.contains("upgrade"))
-            setDistUpgradeJob(path);
-        else if (path.contains("down"))
+        else if (jobInter.type() == "download")
             setDownloadJob(path);
+        else
+            setDistUpgradeJob(path);
+
     }
 }
 
@@ -356,69 +392,54 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
         return;
     }
 
-    m_updateInter->setSync(true);
-    m_managerInter->setSync(true);
-
-    m_updatableApps = m_updateInter->updatableApps();
-    m_updatablePackages = m_updateInter->updatablePackages();
-
-    m_updateInter->setSync(false);
-    m_managerInter->setSync(false);
-
-    AppUpdateInfoList value = reply.value();
-    AppUpdateInfoList infos;
-
-    int pkgCount = m_updatablePackages.count();
-    int appCount = value.count();
-
-    if (!pkgCount && !appCount) {
-        QFile file("/tmp/.dcc-update-successd");
-        if (file.exists()) {
-            m_model->setStatus(UpdatesStatus::NeedRestart);
-            return;
-        }
-    }
-
-    for (AppUpdateInfo &val : reply.value()) {
-        const QString currentVer = val.m_currentVersion;
-        const QString lastVer = val.m_avilableVersion;
-        AppUpdateInfo info = getInfo(val, currentVer, lastVer);
-
-        infos << info;
-    }
-
-    qDebug() << pkgCount << appCount;
-    if (pkgCount > appCount) {
-        // If there's no actual package dde update, but there're system patches available,
-        // then fake one dde update item.
-
-        AppUpdateInfo dde = getDDEInfo();
-
-        AppUpdateInfo ddeUpdateInfo = getInfo(dde, dde.m_currentVersion, dde.m_avilableVersion);
-        if(ddeUpdateInfo.m_changelog.isEmpty()) {
-            ddeUpdateInfo.m_avilableVersion = tr("Patches");
-            ddeUpdateInfo.m_changelog = tr("System patches.");
-        }
-        infos.prepend(ddeUpdateInfo);
-    }
-
-    DownloadInfo *result = calculateDownloadInfo(infos);
-    m_model->setDownloadInfo(result);
-
-    qDebug() << "updatable packages:" <<  m_updatablePackages << result->appInfos();
-    qDebug() << "total download size:" << formatCap(result->downloadSize());
-
-    if (result->appInfos().length() == 0) {
-        m_model->setStatus(UpdatesStatus::Updated);
-    } else {
-        if (result->downloadSize()) {
-            m_model->setStatus(UpdatesStatus::UpdatesAvailable);
-        } else {
-            m_model->setStatus(UpdatesStatus::Downloaded);
-        }
-    }
+    setAppUpdateInfo(reply.value());
 
     w->deleteLater();
+}
+
+void UpdateWork::onDownloadStatusChanged(const QString &status)
+{\
+    qDebug() << "download: <<<" << status;
+    if (status == "failed")  {
+        m_model->setStatus(UpdatesStatus::UpdateFailed);
+        qWarning() << "download updates job failed";
+    } else if (status == "success" || status == "succeed") {
+        m_downloadJob->deleteLater();
+        m_downloadJob = nullptr;
+
+        // install the updates immediately.
+        distUpgradeInstallUpdates();
+    } else if (status == "paused") {
+        m_model->setStatus(UpdatesStatus::DownloadPaused);
+    } else {
+        m_model->setStatus(UpdatesStatus::Downloading);
+    }
+}
+
+void UpdateWork::onUpgradeStatusChanged(const QString &status)
+{
+    qDebug() << "upgrade: <<<" << status;
+    if (status == "failed")  {
+        // cleanup failed job
+        m_managerInter->CleanJob(m_distUpgradeJob->id());
+        m_model->setStatus(UpdatesStatus::UpdateFailed);
+        qWarning() << "install updates job failed";
+    } else if (status == "success" || status == "succeed") {
+        m_distUpgradeJob->deleteLater();
+        m_distUpgradeJob = nullptr;
+
+        m_model->setStatus(UpdatesStatus::UpdateSucceeded);
+
+        QFile file("/tmp/.dcc-update-successd");
+        if (file.exists())
+            return;
+        file.open(QIODevice::WriteOnly);
+        file.close();
+    } else if (status == "end") {
+        m_model->setStatus(UpdatesStatus::Updated);
+    } else {
+        m_model->setStatus(UpdatesStatus::Installing);
+    }
 }
 
 DownloadInfo *UpdateWork::calculateDownloadInfo(const AppUpdateInfoList &list)

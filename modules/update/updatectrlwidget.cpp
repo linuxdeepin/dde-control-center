@@ -160,6 +160,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_progress->setMessage(tr("Download and install updates"));
         setDownloadInfo(m_model->downloadInfo());
         m_reminderTip->setVisible(false);
+        m_progress->setValue(100);
         break;
     case UpdatesStatus::Downloading:
         m_checkGroup->setVisible(false);
@@ -239,7 +240,8 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 
 void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
 {
-    if (!downloadInfo || (m_status != UpdatesStatus::UpdatesAvailable && m_status != UpdatesStatus::Downloaded)) return;
+    if (!downloadInfo)
+        return;
 
     const QList<AppUpdateInfo> &apps = downloadInfo->appInfos();
     const qlonglong downloadSize = downloadInfo->downloadSize();
@@ -269,6 +271,15 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
     loadAppList(apps);
 }
 
+void UpdateCtrlWidget::setProgressValue(const double value)
+{
+    m_progress->setValue(value * 100);
+
+    if (m_status == UpdatesStatus::Downloading) {
+        m_progress->setMessage(tr("%1% downloaded (Click to pause)").arg(qFloor(value * 100)));
+    }
+}
+
 void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
 {
     if (m_status == UpdatesStatus::Downloaded) {
@@ -290,16 +301,9 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     connect(m_model, &UpdateModel::statusChanged, this, &UpdateCtrlWidget::setStatus);
     connect(m_model, &UpdateModel::lowBatteryChanged, this, &UpdateCtrlWidget::setLowBattery);
     connect(m_model, &UpdateModel::downloadInfoChanged, this, &UpdateCtrlWidget::setDownloadInfo);
+    connect(m_model, &UpdateModel::upgradeProgressChanged, this, &UpdateCtrlWidget::setProgressValue);
 
-    connect(m_model, &UpdateModel::upgradeProgressChanged, this, [this] (const double &value) {
-        m_progress->setValue(value * 100);
-
-        if (m_status == UpdatesStatus::Downloading) {
-            const double progress = qFloor(m_model->downloadInfo()->downloadProgress() * 100);
-            m_progress->setMessage(tr("%1% downloaded (Click to pause)").arg(progress));
-        }
-    });
-
+    setProgressValue(m_model->upgradeProgress());
     setStatus(m_model->status());
     setLowBattery(m_model->lowBattery());
     setDownloadInfo(m_model->downloadInfo());

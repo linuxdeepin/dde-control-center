@@ -76,6 +76,8 @@ private slots:
 
     void onJobListChanged(const QList<QDBusObjectPath> &jobs);
     void onAppUpdateInfoFinished(QDBusPendingCallWatcher *w);
+    void onDownloadStatusChanged(const QString &status);
+    void onUpgradeStatusChanged(const QString &status);
 
     DownloadInfo *calculateDownloadInfo(const AppUpdateInfoList &list);
 
@@ -84,6 +86,7 @@ private:
     AppUpdateInfo getDDEInfo();
     void distUpgradeDownloadUpdates();
     void distUpgradeInstallUpdates();
+    void setAppUpdateInfo(const AppUpdateInfoList &list);
 
 private:
     UpdateModel* m_model;
