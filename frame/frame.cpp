@@ -165,16 +165,7 @@ void Frame::adjustShadowMask()
 
 void Frame::setAutoHide(const bool autoHide)
 {
-    // XMouseArea button released is somehow lag than clicked signal,
-    // so if we restore auto-hide immediately on emission of some signals,
-    // the frame will hide too.
-    if (autoHide) {
-        QTimer::singleShot(1000, [this] {
-            m_autoHide = true;
-        });
-    } else {
-        m_autoHide = false;
-    }
+    m_autoHide = autoHide;
 }
 
 void Frame::prepareAllSettingsPage()
@@ -184,8 +175,6 @@ void Frame::prepareAllSettingsPage()
 
     m_allSettingsPage = new SettingsWidget(this);
     m_allSettingsPage->setVisible(false);
-
-    connect(m_allSettingsPage, &SettingsWidget::requestAutohide, this, &Frame::setAutoHide);
 }
 
 void Frame::freeAllSettingsPage()

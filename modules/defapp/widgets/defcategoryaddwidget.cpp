@@ -80,7 +80,7 @@ void DefCategoryAddWidget::clicked()
         emit requestCreateFile(m_category, info);
     } while(false);
 
-    QTimer::singleShot(500, this, [ = ] { emit requestFrameAutoHide(true); });
+    emit requestFrameAutoHide(true);
 }
 
 

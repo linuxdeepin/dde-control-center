@@ -103,8 +103,6 @@ TimeZoneChooser::TimeZoneChooser()
     connect(m_confirmBtn, &QPushButton::clicked, [this] {
         QString zone = m_map->getTimezone();
         emit confirmed(zone);
-
-        hide();
     });
 
     connect(closeButton, &DWindowCloseButton::clicked, this, [this] {

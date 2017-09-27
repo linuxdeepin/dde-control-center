@@ -153,7 +153,7 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
     ui->SetAutomaticLogin(autoLogin).waitForFinished();
     user->setAutoLogin(ui->automaticLogin());
     // delay 100ms because click event is coming after we reset auto hide to `true`
-    QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
+    emit requestFrameAutoHide(true);
 }
 
 void AccountsWorker::onUserListChanged(const QStringList &userList)

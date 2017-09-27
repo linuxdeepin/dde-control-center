@@ -155,7 +155,13 @@ void SettingsWidget::setFrameAutoHide(ModuleInterface *const inter, const bool a
 
     qDebug() << "setFrameAutoHide: " << inter << inter->name() << autoHide;
 
-    emit requestAutohide(autoHide);
+    if (autoHide) {
+        QTimer::singleShot(100, this, [=] {
+            m_frame->setAutoHide(autoHide);
+        });
+    } else {
+        m_frame->setAutoHide(autoHide);
+    }
 }
 
 void SettingsWidget::pushWidget(ModuleInterface *const inter, ContentWidget *const w)

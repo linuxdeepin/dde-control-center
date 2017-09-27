@@ -76,6 +76,7 @@ public slots:
     void pushWidget(ContentWidget * const w);
     void popWidget();
     void showSettingsPage(const QString &moduleName, const QString &pageName);
+    void setAutoHide(const bool autoHide);
 
 signals:
     void rectChanged(const QRect &rect);
@@ -83,7 +84,6 @@ signals:
 private slots:
     void init();
     void adjustShadowMask();
-    void setAutoHide(const bool autoHide);
 
     void prepareAllSettingsPage();
     void freeAllSettingsPage();

@@ -47,9 +47,6 @@ class SettingsWidget : public ContentWidget, public FrameProxyInterface
 public:
     explicit SettingsWidget(Frame *frame);
 
-signals:
-    void requestAutohide(const bool autoHide) const;
-
 public slots:
     void contentPopuped(ContentWidget * const w);
     void showModulePage(const QString &moduleName, const QString &pageName);

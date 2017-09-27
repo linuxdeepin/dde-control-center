@@ -94,13 +94,10 @@ Datetime::Datetime()
         } else {
             emit requestSetTimeZone(timezone);
         }
-
-        emit requestUnhold();
     });
     connect(m_dialog, &TimeZoneChooser::cancelled, this, [this] {
         emit requestUnhold();
     });
-
 
     connect(m_addTimezoneButton, &QPushButton::clicked, this, [this] {
         m_addTimeZone = true;
@@ -173,6 +170,10 @@ void Datetime::addTimezone(const ZoneInfo &zone)
 
     m_timezoneGroup->appendItem(item);
 
+    m_dialog->hide();
+
+    emit requestUnhold();
+
     m_headItem->setVisible(true);
     m_headItem->setEditEnable(true);
 }
@@ -228,6 +229,10 @@ void Datetime::updateSystemTimezone(const QString &timezone)
     const QString locale = QLocale::system().name();
     const QString name = installer::GetLocalTimezoneName(timezone, locale);
     m_timezoneItem->setValue(name);
+
+    m_dialog->hide();
+
+    emit requestUnhold();
 }
 
 void Datetime::onEditClicked(const bool &edit)
