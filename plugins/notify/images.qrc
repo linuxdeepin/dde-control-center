@@ -1,24 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/default.png</file>
-        <file>images/locate_hover.png</file>
-        <file>images/locate_normal.png</file>
-        <file>images/locate_press.png</file>
-        <file>images/next_hover.png</file>
-        <file>images/next_normal.png</file>
-        <file>images/next_press.png</file>
-        <file>images/upgrade_hover.png</file>
-        <file>images/upgrade_normal.png</file>
-        <file>images/upgrade_press.png</file>
         <file>notify.json</file>
-        <file>images/notify_close_hover.png</file>
-        <file>images/notify_close_normal.png</file>
-        <file>images/notify_close_press.png</file>
         <file>images/notify_close_hover.svg</file>
-        <file>images/notify_close_hover@2x.png</file>
         <file>images/notify_close_normal.svg</file>
-        <file>images/notify_close_normal@2x.png</file>
         <file>images/notify_close_press.svg</file>
-        <file>images/notify_close_press@2x.png</file>
     </qresource>
 </RCC>

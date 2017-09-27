@@ -37,17 +37,16 @@ Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QFrame(parent),
     m_appName(new QLabel),
     m_time(new QLabel),
     m_body(new NotifyBody),
-    m_close(new DImageButton(":/images/notify_close_normal.png", ":/images/notify_close_hover.png", ":/images/notify_close_press.png")),
+    m_close(new DImageButton(":/images/notify_close_normal.svg",
+                             ":/images/notify_close_hover.svg",
+                             ":/images/notify_close_press.svg")),
     m_appIcon(new QLabel),
     m_mainlayout(new QHBoxLayout)
 {
-    const qreal ratio = qApp->devicePixelRatio();
-
     m_appIcon->setMargin(0);
     m_close->setMargin(0);
     m_appName->setMargin(0);
     m_appIcon->setFixedSize(ICON_SIZE,ICON_SIZE);
-    m_close->setFixedSize(14 * ratio,14 * ratio);
     m_time->setFixedHeight(10);
 //    m_body->setFixedSize(272, 50);
 
@@ -116,7 +115,16 @@ void Viewer::setAppIcon(const QString &s) {
     const QIcon &icon = QIcon::fromTheme(s, QIcon::fromTheme("application-x-desktop"));
 
     if (!icon.isNull()) {
-        m_appIcon->setPixmap(icon.pixmap(ICON_SIZE,ICON_SIZE));
+        const qreal ratio = devicePixelRatioF();
+
+        QPixmap pixmap = icon.pixmap(m_appIcon->size() * ratio)
+                             .scaled(m_appIcon->size() * ratio,
+                                     Qt::KeepAspectRatio,
+                                     Qt::SmoothTransformation);
+
+        pixmap.setDevicePixelRatio(ratio);
+
+        m_appIcon->setPixmap(pixmap);
     }
 }
 
