@@ -60,6 +60,7 @@ signals:
     void requestDeleteConnection(const QString &uuid) const;
     void requestDisconnectConnection(const QString &uuid) const;
     void requestNextPage(ContentWidget * const w) const;
+    void requestFrameKeepAutoHide(const bool autoHide) const;
 
 private slots:
     void initUI();
