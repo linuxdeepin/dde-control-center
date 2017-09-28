@@ -41,6 +41,10 @@
 #include <QFileDialog>
 #include <QMessageBox>
 
+#include <ddialog.h>
+
+DWIDGET_USE_NAMESPACE
+
 using namespace dcc::widgets;
 using namespace dcc::network;
 
@@ -234,12 +238,22 @@ void VpnPage::importVPN()
     p.waitForFinished();
     const auto stat = p.exitCode();
     const QString output = p.readAllStandardOutput();
+    const QString error = p.readAllStandardError();
 
-    qDebug() << stat << output << p.readAllStandardError();
+    qDebug() << stat << output << error;
 
     if (stat)
     {
-        QMessageBox::warning(nullptr, tr("Import Error"), tr("Import Error"), tr("OK"));
+        const auto ratio = devicePixelRatioF();
+        QPixmap icon = QIcon::fromTheme("dialog-error").pixmap(QSize(48, 48) * ratio);
+        icon.setDevicePixelRatio(ratio);
+
+        DDialog dialog;
+        dialog.setMessage(tr("Import Error"));
+        dialog.addButton(tr("Ok"));
+        dialog.setIcon(icon);
+        dialog.exec();
+
         return;
     }
 
