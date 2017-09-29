@@ -129,6 +129,8 @@ void DisplayModule::moduleActive()
 #ifndef DCC_DISABLE_MIRACAST
     m_miracastWorker->active();
 #endif
+
+    m_displayWorker->active();
 }
 
 void DisplayModule::moduleDeactive()
@@ -152,8 +154,6 @@ ModuleWidget *DisplayModule::moduleWidget()
 {
     if (m_displayWidget)
         return m_displayWidget;
-
-    m_displayWorker->initGSettings();
 
     m_displayWidget = new DisplayWidget;
     m_displayWidget->setModel(m_displayModel);

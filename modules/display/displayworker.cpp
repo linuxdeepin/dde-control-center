@@ -40,13 +40,16 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     : QObject(parent),
 
       m_model(model),
-      m_xsettings(nullptr),
-      m_displayInter(DisplayInterface, "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)
+      m_displayInter(DisplayInterface, "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this),
+      m_appearanceInter(new AppearanceInter("com.deepin.daemon.Appearance",
+                                      "/com/deepin/daemon/Appearance",
+                                      QDBusConnection::sessionBus(), this))
 {
     // TODO:
     model->setPrimary(m_displayInter.primary());
 
     m_displayInter.setSync(false);
+    m_appearanceInter->setSync(false);
 
     connect(&m_displayInter, &DisplayInter::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
     connect(&m_displayInter, &DisplayInter::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
@@ -74,15 +77,10 @@ DisplayWorker::~DisplayWorker()
     qDeleteAll(m_monitors.values());
 }
 
-void DisplayWorker::initGSettings()
+void DisplayWorker::active()
 {
-    Q_ASSERT(!m_xsettings);
-
-    m_xsettings = new QGSettings("com.deepin.xsettings", QByteArray(), this);
-
-    connect(m_xsettings, &QGSettings::changed, this, &DisplayWorker::onXSettingsChanged);
-
-    m_model->setUIScale(m_xsettings->get(UI_SCALE_KEY).toDouble());
+    QDBusPendingCallWatcher *scalewatcher = new QDBusPendingCallWatcher(m_appearanceInter->GetScaleFactor());
+    connect(scalewatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScaleFinished);
 }
 
 void DisplayWorker::saveChanges()
@@ -245,10 +243,13 @@ void DisplayWorker::onModifyConfigNameFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
-void DisplayWorker::onXSettingsChanged(const QString &key)
+void DisplayWorker::onGetScaleFinished(QDBusPendingCallWatcher *w)
 {
-    if (key == UI_SCALE_KEY)
-        m_model->setUIScale(m_xsettings->get(UI_SCALE_KEY).toDouble());
+    QDBusPendingReply<double> reply = w->reply();
+
+    m_model->setUIScale(reply);
+
+    w->deleteLater();
 }
 
 void DisplayWorker::createConfigFinshed(QDBusPendingCallWatcher *w)
@@ -318,7 +319,14 @@ void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
 
 void DisplayWorker::setUiScale(const double value)
 {
-    m_xsettings->set(UI_SCALE_KEY, value);
+   QDBusPendingCall call = m_appearanceInter->SetScaleFactor(value);
+
+   QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+   connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+       if (call.isError())
+           emit m_model->setUIScale(value);
+       watcher->deleteLater();
+   });
 }
 
 //void DisplayWorker::loadRotations(Monitor * const mon)

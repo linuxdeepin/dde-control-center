@@ -115,6 +115,8 @@ DisplayWidget::DisplayWidget()
     connect(m_configListRefershTimer, &QTimer::timeout, this, &DisplayWidget::onConfigListChanged);
     connect(slider, &DCCSlider::valueChanged, this, [=] (const int value) {
         emit requestUiScaleChanged(converToScale(value));
+
+        m_scaleWidget->setValueLiteral(QString::number(converToScale(value)));
     });
 }
 

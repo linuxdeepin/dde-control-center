@@ -29,11 +29,12 @@
 #include "monitor.h"
 
 #include <QObject>
-#include <QGSettings>
 
 #include <com_deepin_daemon_display.h>
+#include <com_deepin_daemon_apperance.h>
 
 using DisplayInter = com::deepin::daemon::Display;
+using AppearanceInter = com::deepin::daemon::Appearance;
 
 #define CUSTOM_MODE     0
 #define MERGE_MODE      1
@@ -53,8 +54,7 @@ public:
     explicit DisplayWorker(DisplayModel *model, QObject *parent = 0);
     ~DisplayWorker();
 
-public:
-    void initGSettings();
+    void active();
 
 public slots:
     void saveChanges();
@@ -82,8 +82,7 @@ private slots:
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
     void onModifyConfigNameFinished(QDBusPendingCallWatcher *w);
-
-    void onXSettingsChanged(const QString &key);
+    void onGetScaleFinished(QDBusPendingCallWatcher *w);
 
 private:
 //    void loadRotations(Monitor * const mon);
@@ -97,8 +96,8 @@ private:
 
 private:
     DisplayModel *m_model;
-    QGSettings *m_xsettings;
     DisplayInter m_displayInter;
+    AppearanceInter *m_appearanceInter;
     QMap<Monitor *, MonitorInter *> m_monitors;
 };
 
