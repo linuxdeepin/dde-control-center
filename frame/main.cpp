@@ -151,6 +151,7 @@ int main(int argc, char *argv[])
     app.setApplicationVersion("4.0");
     app.loadTranslator();
     app.setQuitOnLastWindowClosed(false);
+    app.setTheme("light");
 
     DLogManager::registerConsoleAppender();
     DLogManager::registerFileAppender();

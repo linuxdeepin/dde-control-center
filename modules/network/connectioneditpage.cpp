@@ -269,11 +269,19 @@ void ConnectionEditPage::exportConnConfig()
     Q_ASSERT_X(m_sessionModel->type().startsWith("vpn"), Q_FUNC_INFO, "only vpn connection export is supported.");
 
     const QString uuid = m_sessionModel->uuid();
-    const QUrl u = QFileDialog::getSaveFileUrl(nullptr);
-    if (u.isEmpty())
+
+    emit requestFrameKeepAutoHide(false);
+    const QUrl u = QFileDialog::getSaveFileUrl(nullptr, QString(), QUrl(), "Config File (*.conf)");
+    emit requestFrameKeepAutoHide(true);
+
+    if (u.isEmpty() || !u.isLocalFile())
         return;
 
-    const auto args = QStringList() << "connection" << "export" << uuid << u.path();
+    QString file = u.path();
+    if (!file.endsWith(".conf"))
+        file.append(".conf");
+
+    const auto args = QStringList() << "connection" << "export" << uuid << file;
     qDebug() << Q_FUNC_INFO << args;
 
     QProcess p;
@@ -283,7 +291,7 @@ void ConnectionEditPage::exportConnConfig()
     qDebug() << p.readAllStandardError();
 
     // process ca
-    processConfigCA(u.path());
+    processConfigCA(file);
 }
 
 void ConnectionEditPage::saveFinished(const bool ret)
