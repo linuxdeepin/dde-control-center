@@ -126,6 +126,7 @@ void UpdateWork::checkForUpdates()
             const QString jobPath = reply.value().path();
             setCheckUpdatesJob(jobPath);
         } else {
+            m_model->setStatus(UpdatesStatus::UpdateFailed);
             qWarning() << "check for updates error: " << call.error().message();
         }
     });
