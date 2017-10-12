@@ -90,7 +90,7 @@ void KeyboardWork::active()
     m_metaDatas.clear();
     m_letters.clear();
 
-    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->List(), this);
+    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->ListAllShortcuts(), this);
     connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
             SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
 
@@ -191,18 +191,18 @@ void KeyboardWork::modifyShortcutEdit(ShortcutInfo *info)
     if (!info)
         return;
 
-    if (info->accels != tr("None"))
-        m_keybindInter->ModifyCustomShortcut(info->id, info->name, info->command, info->accels);
-    else
-        m_keybindInter->ModifyCustomShortcut(info->id, info->name, info->command, QString());
+    // check
+    const QString &result = info->accels.isEmpty() ? QString("") : m_keybindInter->LookupConflictingShortcut(info->accels);
+    if (!result.isEmpty()) {
+        m_keybindInter->DeleteShortcutKeystroke(info->id, info->type, info->accels);
+    }
+
+    m_keybindInter->AddShortcutKeystroke(info->id, info->type, info->accels);
 }
 
-void KeyboardWork::addCustomShortcut(const QString &name, const QString &command, const QString &accels, bool &result)
+void KeyboardWork::addCustomShortcut(const QString &name, const QString &command, const QString &accels)
 {
-    if (accels.isEmpty())
-        m_keybindInter->Add(name, command, tr("None"), result);
-    else
-        m_keybindInter->Add(name, command, accels, result);
+    m_keybindInter->AddCustomShortcut(name, command, accels);
 }
 
 void KeyboardWork::grabScreen()
@@ -212,12 +212,14 @@ void KeyboardWork::grabScreen()
 
 bool KeyboardWork::checkAvaliable(const QString &key)
 {
-    return m_keybindInter->CheckAvaliable(key);
+   const QString &value = m_keybindInter->LookupConflictingShortcut(key);
+
+   return value.isEmpty();
 }
 
 void KeyboardWork::delShortcut(ShortcutInfo* info)
 {
-    m_keybindInter->Delete(info->id, info->type);
+    m_keybindInter->DeleteCustomShortcut(info->id);
 }
 
 void KeyboardWork::setRepeatDelay(int value)
@@ -325,7 +327,7 @@ void KeyboardWork::onRequestShortcut(QDBusPendingCallWatcher *watch)
 
 void KeyboardWork::onAdded(const QString &in0, int in1)
 {
-    QDBusPendingReply<QString> reply = m_keybindInter->Query(in0, in1);
+    QDBusPendingReply<QString> reply = m_keybindInter->GetShortcut(in0, in1);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWork::onAddedFinished);
 }
@@ -339,7 +341,10 @@ void KeyboardWork::onDisableShortcut(ShortcutInfo *info)
 void KeyboardWork::onAddedFinished(QDBusPendingCallWatcher *watch)
 {
     QDBusPendingReply<QString> reply = *watch;
-    emit customInfo(reply.value());
+
+    if (!watch->isError())
+        emit customInfo(reply.value());
+
     watch->deleteLater();
 }
 

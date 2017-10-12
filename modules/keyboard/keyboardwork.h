@@ -58,7 +58,7 @@ public:
 
     void modifyShortcut(ShortcutInfo* info, const QString& key, bool clear = false);
     void modifyShortcutEdit(ShortcutInfo* info);
-    void addCustomShortcut(const QString& name, const QString& command, const QString& accels, bool &result);
+    void addCustomShortcut(const QString& name, const QString& command, const QString& accels);
 
     void grabScreen();
     bool checkAvaliable(const QString& key);

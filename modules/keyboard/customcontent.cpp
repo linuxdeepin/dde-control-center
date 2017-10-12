@@ -119,13 +119,12 @@ void CustomContent::setConflictString(const QStringList &list)
 
 void CustomContent::onShortcut()
 {
-    bool result = true;
     if (m_conflict) {
         QString key = m_conflict->accels;
         m_work->modifyShortcut(m_conflict, tr("null"));
-        m_work->addCustomShortcut(m_name->text(), m_command->text(), key, result);
+        m_work->addCustomShortcut(m_name->text(), m_command->text(), key);
     } else {
-        m_work->addCustomShortcut(m_name->text(), m_command->text(), m_shortcut->text(), result);
+        m_work->addCustomShortcut(m_name->text(), m_command->text(), m_shortcut->text());
     }
 
     sendBackSignal();

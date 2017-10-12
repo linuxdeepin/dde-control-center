@@ -131,20 +131,21 @@ void ShortcutItem::onKeyEvent(bool press, QString shortcut)
         if(!m_shortcutEdit->isVisible())
             return;
 
-        if(shortcut.isEmpty() || shortcut.toLower() == "escape"){
+        if(shortcut.isEmpty()){
             m_shortcutEdit->hide();
             return;
         }
 
-        if(shortcut == "BackSpace" || shortcut == "delete"){
+        if(shortcut == "BackSpace" || shortcut == "Delete"){
             m_shortcutEdit->hide();
             emit requestDisableShortcut(m_info);
         }else{
             m_shortcutEdit->hide();
             if(m_info->accels != shortcut)
             {
-                bool result = m_inter->CheckAvaliable(shortcut);
-                emit shortcutChangd(result, m_info, shortcut);
+                const QString &result = m_inter->LookupConflictingShortcut(shortcut);
+
+                emit shortcutChangd(result.isEmpty(), m_info, shortcut);
             }
         }
     }
