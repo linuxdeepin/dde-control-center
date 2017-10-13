@@ -105,7 +105,7 @@ void ShortcutModel::onParseInfo(const QString &info)
     systemFilter << "terminal" << "terminal-quake" << "screenshot" << "screenshot-delayed" << "screenshot-window" << "deepin-screen-recorder"
                  << "switch-group" << "switch-group-backward" << "preview-workspace" << "expose-windows" << "expose-all-windows"
                  << "launcher" << "switch-applications" << "switch-applications-backward" << "show-desktop" << "file-manager"
-                 << "lock-screen" << "logout" << "switch-layout" << "wm-switcher";
+                 << "lock-screen" << "logout" << "wm-switcher";
 
     QStringList windowFilter;
     windowFilter  << "maximize" << "unmaximize" << "minimize" << "begin-move" << "begin-resize" << "close";
