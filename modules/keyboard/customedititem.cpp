@@ -134,7 +134,7 @@ void CustomEditItem::paintEvent(QPaintEvent *e)
     accels = accels.replace("Super_L", "Super");
 
     QString conflict(tr("Conflict"));
-    QStringList splits = m_accels.split("-");
+    QStringList splits = accels.split("-");
     int right = this->rect().right() - 10;
     for(int i = splits.count() - 1; i>=0; --i)
     {
