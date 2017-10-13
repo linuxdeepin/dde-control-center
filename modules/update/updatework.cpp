@@ -61,6 +61,7 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
       m_downloadJob(nullptr),
       m_checkUpdateJob(nullptr),
       m_distUpgradeJob(nullptr),
+      m_otherUpdateJob(nullptr),
       m_updateInter(new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
       m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
       m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
@@ -358,6 +359,24 @@ void UpdateWork::setDistUpgradeJob(const QString &jobPath)
     m_distUpgradeJob->StatusChanged(m_distUpgradeJob->status());
 }
 
+void UpdateWork::setOtherUpdate(const QString &jobPath)
+{
+    if (m_otherUpdateJob)
+        return;
+
+    m_otherUpdateJob = new JobInter("com.deepin.lastore",
+                                 jobPath,
+                                 QDBusConnection::systemBus(), this);
+
+    connect(m_otherUpdateJob, &JobInter::StatusChanged, this, [=] (const QString &status) {
+        if (status == "succeed") {
+            checkForUpdates();
+            m_otherUpdateJob->deleteLater();
+            m_otherUpdateJob = nullptr;
+        }
+    });
+}
+
 void UpdateWork::setAutoCleanCache(const bool autoCleanCache)
 {
     m_managerInter->SetAutoClean(autoCleanCache);
@@ -372,12 +391,17 @@ void UpdateWork::onJobListChanged(const QList<QDBusObjectPath> & jobs)
 
         JobInter jobInter("com.deepin.lastore", path, QDBusConnection::systemBus());
 
-        if (jobInter.type() == "update_source")
+        // id maybe scrapped
+        const QString &id = jobInter.id();
+
+        if (id == "update_source")
             setCheckUpdatesJob(path);
-        else if (jobInter.type() == "download")
+        else if (id == "prepare_dist_upgrade")
             setDownloadJob(path);
-        else
+        else if (id == "dist_upgrade")
             setDistUpgradeJob(path);
+        else
+            setOtherUpdate(path);
 
     }
 }

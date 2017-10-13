@@ -73,6 +73,7 @@ private slots:
     void setCheckUpdatesJob(const QString &jobPath);
     void setDownloadJob(const QString &jobPath);
     void setDistUpgradeJob(const QString &jobPath);
+    void setOtherUpdate(const QString &jobPath);
 
     void onJobListChanged(const QList<QDBusObjectPath> &jobs);
     void onAppUpdateInfoFinished(QDBusPendingCallWatcher *w);
@@ -93,6 +94,7 @@ private:
     JobInter* m_downloadJob;
     JobInter* m_checkUpdateJob;
     JobInter* m_distUpgradeJob;
+    JobInter* m_otherUpdateJob;
     UpdateInter* m_updateInter;
     ManagerInter* m_managerInter;
     PowerInter *m_powerInter;
