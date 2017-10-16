@@ -76,9 +76,9 @@ void CheckItem::setChecked(bool checked)
     m_checked = checked;
     if(m_checked)
     {
-        m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/select.png");
-        m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/select.png");
-        m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/select.png");
+        m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/select.svg");
+        m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/select.svg");
+        m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/select.svg");
         m_checkBtn->show();
     }
     else

@@ -1,19 +1,19 @@
 dcc--widgets--NextButton Dtk--Widget--DImageButton {
-    qproperty-normalPic: url(:/widgets/themes/dark/icons/enter_details_normal.png);
-    qproperty-hoverPic: url(:/widgets/themes/dark/icons/enter_details_hover.png);
-    qproperty-pressPic: url(:/widgets/themes/dark/icons/enter_details_press.png);
+    qproperty-normalPic: url(:/widgets/themes/dark/icons/enter_details_normal.svg);
+    qproperty-hoverPic: url(:/widgets/themes/dark/icons/enter_details_hover.svg);
+    qproperty-pressPic: url(:/widgets/themes/dark/icons/enter_details_press.svg);
 }
 
 dcc--widgets--EditableNextPageWidget > #NextButton {
-    qproperty-normalPic: url(:/widgets/themes/dark/icons/enter_details_normal.png);
-    qproperty-hoverPic: url(:/widgets/themes/dark/icons/enter_details_hover.png);
-    qproperty-pressPic: url(:/widgets/themes/dark/icons/enter_details_press.png);
+    qproperty-normalPic: url(:/widgets/themes/dark/icons/enter_details_normal.svg);
+    qproperty-hoverPic: url(:/widgets/themes/dark/icons/enter_details_hover.svg);
+    qproperty-pressPic: url(:/widgets/themes/dark/icons/enter_details_press.svg);
 }
 
 dcc--widgets--EditableNextPageWidget > #EditButton {
-    qproperty-normalPic: url(:/widgets/themes/dark/icons/edit_normal.png);
-    qproperty-hoverPic: url(:/widgets/themes/dark/icons/edit_hover.png);
-    qproperty-pressPic: url(:/widgets/themes/dark/icons/edit_press.png);
+    qproperty-normalPic: url(:/widgets/themes/dark/icons/edit_normal.svg);
+    qproperty-hoverPic: url(:/widgets/themes/dark/icons/edit_hover.svg);
+    qproperty-pressPic: url(:/widgets/themes/dark/icons/edit_press.svg);
 }
 
 dcc--widgets--BackButton Dtk--Widget--DImageButton {

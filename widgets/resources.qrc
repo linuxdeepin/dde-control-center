@@ -99,9 +99,6 @@
         <file>themes/dark/icons/search_dark.png</file>
         <file>themes/light/light.qss</file>
         <file>themes/light/icons/search_light.png</file>
-        <file>themes/dark/icons/enter_details_hover.png</file>
-        <file>themes/dark/icons/enter_details_normal.png</file>
-        <file>themes/dark/icons/enter_details_press.png</file>
         <file>themes/dark/icons/edit_hover.png</file>
         <file>themes/dark/icons/edit_normal.png</file>
         <file>themes/dark/icons/edit_press.png</file>
@@ -120,8 +117,9 @@
         <file>themes/dark/icons/edit_normal@2x.png</file>
         <file>themes/dark/icons/edit_press@2x.png</file>
         <file>themes/dark/icons/select@2x.png</file>
-        <file>themes/dark/icons/enter_details_hover@2x.png</file>
-        <file>themes/dark/icons/enter_details_press@2x.png</file>
         <file>themes/dark/icons/list_select@2x.png</file>
+        <file>themes/dark/icons/enter_details_hover.svg</file>
+        <file>themes/dark/icons/enter_details_normal.svg</file>
+        <file>themes/dark/icons/enter_details_press.svg</file>
     </qresource>
 </RCC>

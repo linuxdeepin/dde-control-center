@@ -65,9 +65,9 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     layout->addWidget(m_editBtn, 1, Qt::AlignLeft);
 
     m_checkBtn = new DImageButton();
-    m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/list_delete_normal.png");
-    m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.png");
-    m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/list_delete_press.png");
+    m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/list_delete_normal.svg");
+    m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
+    m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/list_delete_press.svg");
 
     layout->addStretch();
     layout->addWidget(m_checkBtn);
