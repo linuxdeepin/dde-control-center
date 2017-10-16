@@ -107,8 +107,9 @@ void NetworkModel::onVPNEnabledChanged(const bool enabled)
 
 void NetworkModel::onProxiesChanged(const QString &type, const QString &url, const QString &port)
 {
-    const ProxyConfig config = { url, port };
+    const ProxyConfig config = { type, url, port, "", "" };
     const ProxyConfig old = m_proxies[type];
+
 
     if (old.url != config.url || old.port != config.port)
     {
