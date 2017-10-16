@@ -224,7 +224,6 @@
         <file>themes/dark/icons/play_previous_hover.png</file>
         <file>themes/dark/icons/play_previous_normal.png</file>
         <file>themes/dark/icons/play_previous_press.png</file>
-        <file>themes/dark/icons/disconnect.png</file>
         <file>themes/dark/icons/notify_close_hover.png</file>
         <file>themes/dark/icons/notify_close_normal.png</file>
         <file>themes/dark/icons/notify_close_press.png</file>
@@ -345,5 +344,8 @@
         <file>themes/dark/icons/VPN_on@2x.png</file>
         <file>themes/dark/icons/all_settings_on@2x.png</file>
         <file>themes/dark/icons/all_settings_off@2x.png</file>
+        <file>themes/dark/icons/disconnect.svg</file>
+        <file>themes/dark/icons/disconnect_hover.svg</file>
+        <file>themes/dark/icons/disconnect_press.svg</file>
     </qresource>
 </RCC>

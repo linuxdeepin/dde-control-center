@@ -25,6 +25,7 @@
 
 #include "wifilistdelegate.h"
 #include "wifilistmodel.h"
+#include "basiclistdelegate.h"
 
 #include <QPainter>
 #include <QDebug>
@@ -34,7 +35,7 @@
 WifiListDelegate::WifiListDelegate(QObject *parent)
     : QAbstractItemDelegate(parent),
 
-      m_securityPixmap(QPixmap(":/frame/quick_control/wifi/wireless/security.svg"))
+      m_securityPixmap(loadPixmap(":/frame/quick_control/wifi/wireless/security.svg"))
 {
 
 }
@@ -93,7 +94,7 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
         const int iconIndex = (strength / 10) & ~0x1;
         const int x = 40;
         const int y = option.rect.top() + (option.rect.height() - 16) / 2;
-        painter->drawPixmap(x, y, QPixmap(QString(":/frame/quick_control/wifi/wireless/wireless-%1-symbolic.svg").arg(iconIndex)));
+        painter->drawPixmap(x, y, loadPixmap(QString(":/frame/quick_control/wifi/wireless/wireless-%1-symbolic.svg").arg(iconIndex)));
 
         // draw secured icon
         if (isSecured)
@@ -109,16 +110,16 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
         {
             const quint64 index = QDateTime::currentMSecsSinceEpoch() / 20;
             const QString pix = QString(":/frame/themes/light/icons/white_loading/loading_0%1.png").arg((index % 90), 2, 10, QChar('0'));
-            painter->drawPixmap(icon_x, y + 1, QPixmap(pix));
+            painter->drawPixmap(icon_x, y + 1, loadPixmap(pix));
         } else {
             // draw active icon
             const bool isActive = index.data(WifiListModel::ItemIsActiveRole).toBool();
             if (isActive)
             {
                 if (isHovered)
-                    painter->drawPixmap(icon_x, y, QPixmap(":/frame/themes/dark/icons/disconnect.png"));
+                    painter->drawPixmap(icon_x, y, loadPixmap(":/frame/themes/dark/icons/disconnect.svg"));
                 else
-                    painter->drawPixmap(icon_x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
+                    painter->drawPixmap(icon_x, y, loadPixmap(":/frame/themes/dark/icons/select.png"));
             }
         }
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.05 * 255));
