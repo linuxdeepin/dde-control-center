@@ -245,6 +245,7 @@ void DisplayWidget::onMiracastLinkRemoved(const QDBusObjectPath &path)
 
     m_miracastGrp->setVisible(!m_miracastList.isEmpty());
 }
+#endif
 
 void DisplayWidget::onUiScaleChanged(const double scale)
 {
@@ -256,7 +257,6 @@ void DisplayWidget::onUiScaleChanged(const double scale)
 
     m_scaleWidget->setValueLiteral(QString::number(scale));
 }
-#endif
 
 int DisplayWidget::converToSlider(const float value)
 {
