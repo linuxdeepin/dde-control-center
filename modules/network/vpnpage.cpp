@@ -240,7 +240,7 @@ void VpnPage::importVPN()
     p.waitForFinished();
     const auto stat = p.exitCode();
     const QString output = p.readAllStandardOutput();
-    const QString error = p.readAllStandardError();
+    QString error = p.readAllStandardError();
 
     qDebug() << stat << output << error;
 
@@ -251,7 +251,8 @@ void VpnPage::importVPN()
         icon.setDevicePixelRatio(ratio);
 
         DDialog dialog;
-        dialog.setMessage(tr("Import Error"));
+        dialog.setTitle(tr("Import Error"));
+        dialog.setMessage(error.replace(QRegularExpression(":\\s+"), ":\n"));
         dialog.addButton(tr("Ok"));
         dialog.setIcon(icon);
         dialog.exec();
