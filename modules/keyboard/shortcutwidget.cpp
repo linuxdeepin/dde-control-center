@@ -88,6 +88,7 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
 
     connect(m_model, SIGNAL(addCustomInfo(ShortcutInfo*)), this, SLOT(onCustomAdded(ShortcutInfo*)));
     connect(m_model, &ShortcutModel::listChanged, this, &ShortcutWidget::addShortcut);
+    connect(m_model, &ShortcutModel::shortcutChanged, this, &ShortcutWidget::onShortcutChanged);
 
     addShortcut(m_model->systemInfo(), ShortcutModel::System);
     addShortcut(m_model->windowInfo(), ShortcutModel::Window);
@@ -136,8 +137,6 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
         m_customList.clear();
     }
 
-
-
     QList<ShortcutInfo*>::iterator it = list.begin();
     for(; it != list.end(); ++it)
     {
@@ -148,6 +147,8 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
         item->setTitle((*it)->name);
         (*it)->item = item;
         m_searchInfos[(*it)->toString()] = (*it);
+
+        m_allList << item;
 
         if(type == ShortcutModel::System) {
             m_systemGroup->appendItem(item);
@@ -348,6 +349,16 @@ void ShortcutWidget::onRemoveItem(const QString &id, int type)
             emit delShortcutInfo(it->curInfo());
             it->deleteLater();
             return;
+        }
+    }
+}
+
+void ShortcutWidget::onShortcutChanged(ShortcutInfo *info)
+{
+    for (ShortcutItem *item : m_allList) {
+        if (item->curInfo()->id == info->id) {
+            item->setShortcutInfo(info);
+            break;
         }
     }
 }

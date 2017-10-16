@@ -82,10 +82,12 @@ public:
 signals:
     void listChanged(QList<ShortcutInfo *>, InfoType);
     void addCustomInfo(ShortcutInfo* info);
+    void shortcutChanged(ShortcutInfo *info);
 
 public slots:
     void onParseInfo(const QString& info);
     void onCustomInfo(const QString& json);
+    void onKeyBindingChanged(const QString &value);
 
 private:
     QString m_info;

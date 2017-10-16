@@ -53,6 +53,9 @@ public:
         alt = 4,
         shift = 8
     };
+
+    void setShortcutModel(ShortcutModel * model);
+
     inline QList<MetaData> getDatas() {return m_metaDatas;}
     inline QList<QString> getLetters() {return m_letters;}
 
@@ -80,8 +83,6 @@ public:
 #endif
 
 signals:
-    void shortcutInfo(const QString& info);
-    void customInfo(const QString& info);
     void KeyEvent(bool in0, const QString &in1);
     void searchChangd(ShortcutInfo* info, const QString& key);
     void removed(const QString &id, int type);
@@ -108,6 +109,8 @@ public slots:
     void onPinyin();
     void append(const MetaData& md);
 #endif
+    void onShortcutChanged(const QString &id, int type);
+    void onGetShortcutFinished(QDBusPendingCallWatcher *watch);
 
 private:
     int converToDBusDelay(int value);
@@ -127,6 +130,7 @@ private:
     LangSelector* m_langSelector;
 #endif
     KeybingdingInter* m_keybindInter;
+    ShortcutModel *m_shortcutModel;
 };
 }
 }

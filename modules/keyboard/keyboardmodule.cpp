@@ -55,9 +55,7 @@ void KeyboardModule::initialize()
     m_model = new KeyboardModel();
     m_shortcutModel = new ShortcutModel();
     m_work = new KeyboardWork(m_model);
-
-    connect(m_work, SIGNAL(shortcutInfo(QString)), m_shortcutModel, SLOT(onParseInfo(QString)));
-    connect(m_work, SIGNAL(customInfo(QString)), m_shortcutModel, SLOT(onCustomInfo(QString)));
+    m_work->setShortcutModel(m_shortcutModel);
 
     m_model->moveToThread(qApp->thread());
     m_shortcutModel->moveToThread(qApp->thread());

@@ -69,11 +69,19 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
     connect(m_keyboardInter, &KeyboardInter::RepeatIntervalChanged, this, &KeyboardWork::setModelRepeatInterval);
     connect(m_keybindInter, &KeybingdingInter::ShortcutSwitchLayoutChanged, m_model, &KeyboardModel::setKbSwitch);
 
+    connect(m_keybindInter, &KeybingdingInter::Changed, this, &KeyboardWork::onShortcutChanged);
+
     m_keyboardInter->setSync(false);
     m_keybindInter->setSync(false);
 #ifndef DCC_DISABLE_LANGUAGE
     m_langSelector->setSync(false);
 #endif
+}
+
+void KeyboardWork::setShortcutModel(ShortcutModel *model)
+{
+    m_shortcutModel = model;
+
 }
 
 void KeyboardWork::active()
@@ -283,7 +291,7 @@ void KeyboardWork::onRequestShortcut(QDBusPendingCallWatcher *watch)
 
     QString info = reply.value();
 
-    emit shortcutInfo(info);
+    m_shortcutModel->onParseInfo(info);
 
     QMap<QStringList,int> map;
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
@@ -343,7 +351,7 @@ void KeyboardWork::onAddedFinished(QDBusPendingCallWatcher *watch)
     QDBusPendingReply<QString> reply = *watch;
 
     if (!watch->isError())
-        emit customInfo(reply.value());
+        m_shortcutModel->onCustomInfo(reply.value());
 
     watch->deleteLater();
 }
@@ -487,6 +495,21 @@ void KeyboardWork::append(const MetaData &md)
     }
 
     m_metaDatas.append(md);
+}
+
+void KeyboardWork::onShortcutChanged(const QString &id, int type)
+{
+    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->Query(id, type));
+    connect(result, &QDBusPendingCallWatcher::finished, this, &KeyboardWork::onGetShortcutFinished);
+}
+
+void KeyboardWork::onGetShortcutFinished(QDBusPendingCallWatcher *watch)
+{
+    QDBusPendingReply<QString> reply = *watch;
+
+    m_shortcutModel->onKeyBindingChanged(reply.value());
+
+    watch->deleteLater();
 }
 #endif
 

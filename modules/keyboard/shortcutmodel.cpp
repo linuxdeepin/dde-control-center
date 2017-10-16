@@ -227,6 +227,25 @@ void ShortcutModel::onCustomInfo(const QString &json)
     emit addCustomInfo(info);
 }
 
+void ShortcutModel::onKeyBindingChanged(const QString &value)
+{
+    const QJsonObject &obj = QJsonDocument::fromJson(value.toStdString().c_str()).object();
+    const QString &update_id = obj["Id"].toString();
+
+    for (ShortcutInfo *info : m_infos) {
+        if (info->id == update_id) {
+            QString accels = obj["Accels"].toArray().at(0).toString();
+            if (accels.isEmpty()) {
+                accels = tr("None");
+            }
+            info->accels = accels;
+
+            emit shortcutChanged(info);
+            break;
+        }
+    }
+}
+
 ShortcutInfo::ShortcutInfo()
 {
     item = NULL;

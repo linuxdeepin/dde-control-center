@@ -72,6 +72,7 @@ public slots:
     void onSearchFinish(QDBusPendingCallWatcher* watch);
     void onTimeout();
     void onRemoveItem(const QString &id, int type);
+    void onShortcutChanged(ShortcutInfo *info);
 
 private:
     QWidget* m_searchWidget;
@@ -92,6 +93,7 @@ private:
     // 预留，如果用户太快，可以等带用户输入完成后才搜索
     QTimer* m_timer;
     ShortcutModel *m_model;
+    QList<ShortcutItem *> m_allList;
     QList<ShortcutItem *> m_systemList;
     QList<ShortcutItem *> m_windowList;
     QList<ShortcutItem *> m_workspaceList;
