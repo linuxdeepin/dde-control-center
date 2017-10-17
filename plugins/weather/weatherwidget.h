@@ -51,6 +51,7 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
     void resizeEvent(QResizeEvent* e);
     QString icon(const WeatherItem& item);
+    QPixmap loadPixmap(const QString &path);
 
 public slots:
     void refreshView(QList<WeatherItem> &items);

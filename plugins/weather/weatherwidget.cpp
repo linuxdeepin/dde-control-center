@@ -28,6 +28,8 @@
 #include <QPainter>
 #include <QGraphicsPathItem>
 #include <QGuiApplication>
+#include <QImageReader>
+#include <QIcon>
 
 static const int ItemRightMargin = 30;
 
@@ -82,12 +84,14 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
 {
     QWidget::paintEvent(e);
     int count = m_request->count();
+    const qreal ratio = devicePixelRatioF();
     if(count == 0)
     {
         QPainter painter(this);
-        QPixmap pix(":/icon/load_weather/weather_loading.png");
-        QRect loadingRect(rect().center() + QPoint(-pix.width()/2, -pix.height()/2 + LoadingBaselineOffset),
-                          pix.size());
+        QPixmap pix = loadPixmap(":/icon/load_weather/weather_loading.svg");
+
+        QRect loadingRect(rect().center() + QPoint(-pix.width()/2/ratio, -pix.height()/2/ratio + LoadingBaselineOffset),
+                          pix.size() / devicePixelRatioF());
         painter.drawPixmap(loadingRect, pix);
         /*
         QString arg = QString().setNum(i);
@@ -137,10 +141,11 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
 //        painter.drawRect(rect);
         WeatherItem item = m_request->dayAt(i);
 
-        QPixmap icon = QPixmap(this->icon(item));
-        QRect iconRect(0,0,icon.width(), icon.height());
+        QPixmap icon = loadPixmap(this->icon(item));
+        QRect iconRect(0,0,icon.width() / ratio, icon.height() / ratio);
         iconRect.moveCenter(QPoint(center.x()/3, center.y()));
         painter.drawPixmap(iconRect, icon);
+
         QFont curFont = QGuiApplication::font();
         QString text;
         if(i == 0)
@@ -253,4 +258,26 @@ void WeatherWidget::refreshView(QList<WeatherItem> &items)
 
     m_locationBtn->setVisible(false);
     update();
+}
+
+QPixmap WeatherWidget::loadPixmap(const QString &path)
+{
+    qreal ratio = 1.0;
+    QPixmap pixmap;
+
+    const qreal devicePixelRatio = qApp->devicePixelRatio();
+
+    if (!qFuzzyCompare(ratio, devicePixelRatio)) {
+        QImageReader reader;
+        reader.setFileName(qt_findAtNxFile(path, devicePixelRatio, &ratio));
+        if (reader.canRead()) {
+            reader.setScaledSize(reader.size() * (devicePixelRatio / ratio));
+            pixmap = QPixmap::fromImage(reader.read());
+            pixmap.setDevicePixelRatio(devicePixelRatio);
+        }
+    } else {
+        pixmap.load(path);
+    }
+
+    return pixmap;
 }

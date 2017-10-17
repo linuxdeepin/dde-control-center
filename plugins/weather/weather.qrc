@@ -100,7 +100,6 @@
         <file>icon/load_weather/load_weather_00097.png</file>
         <file>icon/load_weather/load_weather_00098.png</file>
         <file>icon/load_weather/load_weather_00099.png</file>
-        <file>icon/load_weather/weather_loading.png</file>
         <file>themes/dark/dark.qss</file>
         <file>themes/light/light.qss</file>
         <file>icon/thunderstorm.svg</file>
@@ -117,5 +116,106 @@
         <file>icon/location_hover@2x.png</file>
         <file>icon/location_normal@2x.png</file>
         <file>icon/location_press@2x.png</file>
+        <file>icon/load_weather/load_weather_00000@2x.png</file>
+        <file>icon/load_weather/load_weather_00001@2x.png</file>
+        <file>icon/load_weather/load_weather_00002@2x.png</file>
+        <file>icon/load_weather/load_weather_00003@2x.png</file>
+        <file>icon/load_weather/load_weather_00004@2x.png</file>
+        <file>icon/load_weather/load_weather_00005@2x.png</file>
+        <file>icon/load_weather/load_weather_00006@2x.png</file>
+        <file>icon/load_weather/load_weather_00007@2x.png</file>
+        <file>icon/load_weather/load_weather_00008@2x.png</file>
+        <file>icon/load_weather/load_weather_00009@2x.png</file>
+        <file>icon/load_weather/load_weather_00010@2x.png</file>
+        <file>icon/load_weather/load_weather_00011@2x.png</file>
+        <file>icon/load_weather/load_weather_00012@2x.png</file>
+        <file>icon/load_weather/load_weather_00013@2x.png</file>
+        <file>icon/load_weather/load_weather_00014@2x.png</file>
+        <file>icon/load_weather/load_weather_00015@2x.png</file>
+        <file>icon/load_weather/load_weather_00016@2x.png</file>
+        <file>icon/load_weather/load_weather_00017@2x.png</file>
+        <file>icon/load_weather/load_weather_00018@2x.png</file>
+        <file>icon/load_weather/load_weather_00019@2x.png</file>
+        <file>icon/load_weather/load_weather_00020@2x.png</file>
+        <file>icon/load_weather/load_weather_00021@2x.png</file>
+        <file>icon/load_weather/load_weather_00022@2x.png</file>
+        <file>icon/load_weather/load_weather_00023@2x.png</file>
+        <file>icon/load_weather/load_weather_00024@2x.png</file>
+        <file>icon/load_weather/load_weather_00025@2x.png</file>
+        <file>icon/load_weather/load_weather_00026@2x.png</file>
+        <file>icon/load_weather/load_weather_00027@2x.png</file>
+        <file>icon/load_weather/load_weather_00028@2x.png</file>
+        <file>icon/load_weather/load_weather_00029@2x.png</file>
+        <file>icon/load_weather/load_weather_00030@2x.png</file>
+        <file>icon/load_weather/load_weather_00031@2x.png</file>
+        <file>icon/load_weather/load_weather_00032@2x.png</file>
+        <file>icon/load_weather/load_weather_00033@2x.png</file>
+        <file>icon/load_weather/load_weather_00034@2x.png</file>
+        <file>icon/load_weather/load_weather_00035@2x.png</file>
+        <file>icon/load_weather/load_weather_00036@2x.png</file>
+        <file>icon/load_weather/load_weather_00037@2x.png</file>
+        <file>icon/load_weather/load_weather_00038@2x.png</file>
+        <file>icon/load_weather/load_weather_00039@2x.png</file>
+        <file>icon/load_weather/load_weather_00040@2x.png</file>
+        <file>icon/load_weather/load_weather_00041@2x.png</file>
+        <file>icon/load_weather/load_weather_00042@2x.png</file>
+        <file>icon/load_weather/load_weather_00043@2x.png</file>
+        <file>icon/load_weather/load_weather_00044@2x.png</file>
+        <file>icon/load_weather/load_weather_00045@2x.png</file>
+        <file>icon/load_weather/load_weather_00046@2x.png</file>
+        <file>icon/load_weather/load_weather_00047@2x.png</file>
+        <file>icon/load_weather/load_weather_00048@2x.png</file>
+        <file>icon/load_weather/load_weather_00049@2x.png</file>
+        <file>icon/load_weather/load_weather_00050@2x.png</file>
+        <file>icon/load_weather/load_weather_00051@2x.png</file>
+        <file>icon/load_weather/load_weather_00052@2x.png</file>
+        <file>icon/load_weather/load_weather_00053@2x.png</file>
+        <file>icon/load_weather/load_weather_00054@2x.png</file>
+        <file>icon/load_weather/load_weather_00055@2x.png</file>
+        <file>icon/load_weather/load_weather_00056@2x.png</file>
+        <file>icon/load_weather/load_weather_00057@2x.png</file>
+        <file>icon/load_weather/load_weather_00058@2x.png</file>
+        <file>icon/load_weather/load_weather_00059@2x.png</file>
+        <file>icon/load_weather/load_weather_00060@2x.png</file>
+        <file>icon/load_weather/load_weather_00061@2x.png</file>
+        <file>icon/load_weather/load_weather_00062@2x.png</file>
+        <file>icon/load_weather/load_weather_00063@2x.png</file>
+        <file>icon/load_weather/load_weather_00064@2x.png</file>
+        <file>icon/load_weather/load_weather_00065@2x.png</file>
+        <file>icon/load_weather/load_weather_00066@2x.png</file>
+        <file>icon/load_weather/load_weather_00067@2x.png</file>
+        <file>icon/load_weather/load_weather_00068@2x.png</file>
+        <file>icon/load_weather/load_weather_00069@2x.png</file>
+        <file>icon/load_weather/load_weather_00070@2x.png</file>
+        <file>icon/load_weather/load_weather_00071@2x.png</file>
+        <file>icon/load_weather/load_weather_00072@2x.png</file>
+        <file>icon/load_weather/load_weather_00073@2x.png</file>
+        <file>icon/load_weather/load_weather_00074@2x.png</file>
+        <file>icon/load_weather/load_weather_00075@2x.png</file>
+        <file>icon/load_weather/load_weather_00076@2x.png</file>
+        <file>icon/load_weather/load_weather_00077@2x.png</file>
+        <file>icon/load_weather/load_weather_00078@2x.png</file>
+        <file>icon/load_weather/load_weather_00079@2x.png</file>
+        <file>icon/load_weather/load_weather_00080@2x.png</file>
+        <file>icon/load_weather/load_weather_00081@2x.png</file>
+        <file>icon/load_weather/load_weather_00082@2x.png</file>
+        <file>icon/load_weather/load_weather_00083@2x.png</file>
+        <file>icon/load_weather/load_weather_00084@2x.png</file>
+        <file>icon/load_weather/load_weather_00085@2x.png</file>
+        <file>icon/load_weather/load_weather_00086@2x.png</file>
+        <file>icon/load_weather/load_weather_00087@2x.png</file>
+        <file>icon/load_weather/load_weather_00088@2x.png</file>
+        <file>icon/load_weather/load_weather_00089@2x.png</file>
+        <file>icon/load_weather/load_weather_00090@2x.png</file>
+        <file>icon/load_weather/load_weather_00091@2x.png</file>
+        <file>icon/load_weather/load_weather_00092@2x.png</file>
+        <file>icon/load_weather/load_weather_00093@2x.png</file>
+        <file>icon/load_weather/load_weather_00094@2x.png</file>
+        <file>icon/load_weather/load_weather_00095@2x.png</file>
+        <file>icon/load_weather/load_weather_00096@2x.png</file>
+        <file>icon/load_weather/load_weather_00097@2x.png</file>
+        <file>icon/load_weather/load_weather_00098@2x.png</file>
+        <file>icon/load_weather/load_weather_00099@2x.png</file>
+        <file>icon/load_weather/weather_loading.svg</file>
     </qresource>
 </RCC>
