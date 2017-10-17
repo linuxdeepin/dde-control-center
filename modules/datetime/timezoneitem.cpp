@@ -59,7 +59,6 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     vlayout->addStretch();
 
     m_removeBtn->setObjectName("DCC-Datetime-TimezoneItem-Remove");
-    m_removeBtn->setFixedSize(18,18);
     m_removeBtn->setVisible(false);
 
     m_clock->setDrawTicks(false);
