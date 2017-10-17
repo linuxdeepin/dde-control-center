@@ -39,8 +39,7 @@ UserOptionItem::UserOptionItem(QFrame *parent)
 
       m_avatarLabel(new QLabel)
 {
-    const auto ratio = devicePixelRatioF();
-    m_avatarLabel->setFixedSize(24 * ratio, 24 * ratio);
+    m_avatarLabel->setFixedSize(24, 24);
 
     QHBoxLayout *mainLayout = static_cast<QHBoxLayout *>(layout());
     mainLayout->insertWidget(0, m_avatarLabel);
@@ -49,9 +48,9 @@ UserOptionItem::UserOptionItem(QFrame *parent)
 
 void UserOptionItem::setAvatar(const QString &avatar)
 {
-    const QSize s = m_avatarLabel->size();
+    const QSize s = m_avatarLabel->size() * devicePixelRatioF();
 
-    QUrl url(avatar);
+    const QUrl url(avatar);
     QPixmap pixmap = QPixmap(url.toLocalFile()).scaled(s, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
     QPixmap pic(s);
