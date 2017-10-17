@@ -27,10 +27,8 @@
 #define GRUBBACKGROUNDITEM_H
 
 #include "settingsitem.h"
-#include <com_deepin_daemon_grub2_theme.h>
-using namespace dcc::widgets;
 
-using GrubThemeDbus=com::deepin::daemon::grub2::Theme;
+using namespace dcc::widgets;
 
 namespace dcc{
 namespace systeminfo{
@@ -44,9 +42,11 @@ public:
 
 signals:
     void requestEnableTheme(const bool state);
+    void requestSetBackground(const QString &path);
 
 public slots:
     void setThemeEnable(const bool state);
+    void updateBackground(const QPixmap &pixmap);
 
 protected:
     void paintEvent(QPaintEvent *e);
@@ -56,11 +56,8 @@ protected:
 
 private:
     QPixmap m_background;
-    GrubThemeDbus *m_themeDbus;
     bool m_isDrop;
     bool m_themeEnable;
-    Q_SLOT bool updateBackground(const QString &filename);
-    Q_SLOT void onProperty(const QString& property, const QVariant&  variant);
 };
 
 }

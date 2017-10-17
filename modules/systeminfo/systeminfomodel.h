@@ -27,6 +27,7 @@
 #define SYSTEMINFOMODEL_H
 
 #include <QObject>
+#include <QPixmap>
 
 namespace dcc{
 namespace systeminfo{
@@ -55,6 +56,8 @@ public:
     bool bootDelay() const;
     bool themeEnabled() const { return m_themeEnabled; }
     bool updating() const { return m_updating; }
+    QPixmap background() const;
+    void setBackground(const QPixmap &background);
 #endif
 
 signals:
@@ -64,6 +67,7 @@ signals:
     void entryListsChanged(const QStringList &list);
     void defaultEntryChanged(const QString& entry);
     void updatingChanged(const bool &updating);
+    void backgroundChanged(const QPixmap &pixmap);
 #endif
     void distroidChanged(const QString& distroid);
     void distroverChanged(const QString& distrover);
@@ -95,6 +99,7 @@ private:
     bool m_updating;
     QStringList m_entryLists;
     QString m_defaultEntry;
+    QPixmap m_background;
 #endif
 
     QString m_distroid;

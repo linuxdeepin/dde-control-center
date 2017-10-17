@@ -29,11 +29,13 @@
 #include <QObject>
 #include <com_deepin_daemon_systeminfo.h>
 #include <com_deepin_daemon_grub2.h>
+#include <com_deepin_daemon_grub2_theme.h>
 
 using SystemInfoInter=com::deepin::daemon::SystemInfo;
 
 #ifndef DCC_DISABLE_GRUB
 using GrubDbus=com::deepin::daemon::Grub2;
+using GrubThemeDbus = com::deepin::daemon::grub2::Theme;
 #endif
 
 namespace dcc{
@@ -59,6 +61,8 @@ public slots:
     void setEnableTheme(bool value);
     void setDefaultEntry(const QString& entry);
     void grubServerFinished();
+    void onBackgroundChanged();
+    void setBackground(const QString &path);
 
 private:
     void getEntryTitles();
@@ -70,6 +74,7 @@ private:
     SystemInfoInter* m_systemInfoInter;
 #ifndef DCC_DISABLE_GRUB
     GrubDbus* m_dbusGrub;
+    GrubThemeDbus *m_dbusGrubTheme;
 #endif
 };
 

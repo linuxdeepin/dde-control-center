@@ -53,6 +53,7 @@ signals:
     void enableTheme(bool value);
     void bootdelay(bool value);
     void defaultEntry(const QString& item);
+    void requestSetBackground(const QString &path);
 
 public slots:
     void setEntryList(const QStringList& list);

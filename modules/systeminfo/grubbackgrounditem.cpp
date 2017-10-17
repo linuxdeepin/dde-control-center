@@ -24,11 +24,14 @@
  */
 
 #include "grubbackgrounditem.h"
+#include "basiclistdelegate.h"
+
 #include <QMimeDatabase>
 #include <QPainter>
 #include <QDragEnterEvent>
 #include <QDragLeaveEvent>
 #include <QRect>
+#include <QMimeData>
 
 namespace dcc{
 namespace systeminfo{
@@ -36,13 +39,7 @@ namespace systeminfo{
 GrubBackgroundItem::GrubBackgroundItem(QFrame *parent)
     :SettingsItem(parent)
 {
-    m_themeDbus = new GrubThemeDbus("com.deepin.daemon.Grub2",
-                                    "/com/deepin/daemon/Grub2/Theme",
-                                    QDBusConnection::systemBus(), this);
-
-    updateBackground(m_themeDbus->background());
-    connect(m_themeDbus, &GrubThemeDbus::BackgroundChanged, this, &GrubBackgroundItem::updateBackground);
-    connect(m_themeDbus, SIGNAL(propertyChanged(QString,QVariant)), this, SLOT(onProperty(QString,QVariant)));
+    setFixedSize(344, 187);
 
     setAcceptDrops(true);
 }
@@ -71,8 +68,11 @@ void GrubBackgroundItem::paintEvent(QPaintEvent *e)
         painter.save();
         painter.setClipPath(path);
 
+        QRect pixRect(m_background.rect().topLeft(), m_background.rect().size() / devicePixelRatioF());
+        pixRect.moveCenter(this->rect().center());
+
         if (m_themeEnable)
-            painter.drawPixmap(this->rect(), m_background);
+            painter.drawPixmap(pixRect, m_background);
         else
             painter.fillRect(this->rect(), Qt::black);
 
@@ -122,7 +122,7 @@ void GrubBackgroundItem::dropEvent(QDropEvent *e)
     if (!urls.isEmpty()) {
         QString path = urls[0].toLocalFile();
         if(!path.isEmpty()){
-            m_themeDbus->SetBackgroundSourceFile(path);
+            emit requestSetBackground(path);
             e->acceptProposedAction();
             m_isDrop = false;
             update();
@@ -131,23 +131,11 @@ void GrubBackgroundItem::dropEvent(QDropEvent *e)
     }
 }
 
-bool GrubBackgroundItem::updateBackground(const QString &filename)
+void GrubBackgroundItem::updateBackground(const QPixmap &pixmap)
 {
-    bool result = m_background.load(filename);
-    if(result){
-        setMinimumWidth(m_background.width());
-        setFixedHeight(m_background.height());
-        update();
-    }
+    m_background = pixmap;
 
-    return result;
-}
-
-void GrubBackgroundItem::onProperty(const QString &property, const QVariant &variant)
-{
-//    qDebug()<<Q_FUNC_INFO<<property<<variant;
-    if (property == "Background")
-        updateBackground(variant.toString());
+    update();
 }
 
 }

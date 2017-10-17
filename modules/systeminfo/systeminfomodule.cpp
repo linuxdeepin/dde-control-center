@@ -129,6 +129,7 @@ void SystemInfoModule::onPushBoot()
         connect(m_bootWidget, SIGNAL(bootdelay(bool)), m_work, SLOT(setBootDelay(bool)));
         connect(m_bootWidget, SIGNAL(enableTheme(bool)),m_work, SLOT(setEnableTheme(bool)));
         connect(m_bootWidget, SIGNAL(defaultEntry(QString)), m_work, SLOT(setDefaultEntry(QString)));
+        connect(m_bootWidget, &BootWidget::requestSetBackground, m_work, &SystemInfoWork::setBackground);
     }
 
     m_frameProxy->pushWidget(this, m_bootWidget);

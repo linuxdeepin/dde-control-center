@@ -31,6 +31,7 @@
 #include "grubbackgrounditem.h"
 #include "translucentframe.h"
 #include "systeminfomodel.h"
+#include "basiclistdelegate.h"
 
 namespace dcc{
 namespace systeminfo{
@@ -97,6 +98,7 @@ BootWidget::BootWidget(QWidget *parent)
     connect(m_boot, SIGNAL(checkedChanged(bool)), this, SIGNAL(bootdelay(bool)));
     connect(m_bootList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),this, SLOT(onCurrentItem(QListWidgetItem*,QListWidgetItem*)));
     connect(m_background, &GrubBackgroundItem::requestEnableTheme, this, &BootWidget::enableTheme);
+    connect(m_background, &GrubBackgroundItem::requestSetBackground, this, &BootWidget::requestSetBackground);
 }
 
 void BootWidget::setDefaultEntry(const QString &value)
@@ -122,6 +124,7 @@ void BootWidget::setModel(SystemInfoModel *model)
     connect(model, &SystemInfoModel::updatingChanged, m_updatingLabel, &SmallLabel::setVisible);
     connect(model, &SystemInfoModel::entryListsChanged, this, &BootWidget::setEntryList);
     connect(model, &SystemInfoModel::themeEnabledChanged, m_background, &GrubBackgroundItem::setThemeEnable);
+    connect(model, &SystemInfoModel::backgroundChanged, m_background, &GrubBackgroundItem::updateBackground);
 
     m_boot->setChecked(model->bootDelay());
     m_theme->setChecked(model->themeEnabled());
@@ -130,6 +133,8 @@ void BootWidget::setModel(SystemInfoModel *model)
 
     setEntryList(model->entryLists());
     setDefaultEntry(model->defaultEntry());
+
+    m_background->updateBackground(model->background());
 }
 #endif
 
@@ -164,8 +169,7 @@ void BootWidget::onCurrentItem(QListWidgetItem *cur, QListWidgetItem *pre)
     }
 
     if ( cur ) {
-        QPixmap pix(":/systeminfo/themes/common/icons/select.png");
-        cur->setIcon(pix);
+        cur->setIcon(loadPixmap(":/systeminfo/themes/common/icons/select.svg"));
 
         // m_defaultEntry is empty means the data is being initialized.
         if (!m_defaultEntry.isEmpty()) {

@@ -25,9 +25,13 @@
 
 #include "systeminfowork.h"
 #include "systeminfomodel.h"
+#include "basiclistdelegate.h"
 
 namespace dcc{
 namespace systeminfo{
+
+static const int ItemWidth = 344;
+static const int ItemHeight = 187;
 
 SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     :QObject(parent),
@@ -43,6 +47,11 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                               QDBusConnection::systemBus(),
                               this);
 
+    m_dbusGrubTheme = new GrubThemeDbus("com.deepin.daemon.Grub2",
+                                        "/com/deepin/daemon/Grub2/Theme",
+                                        QDBusConnection::systemBus(), this);
+
+    m_dbusGrubTheme->setSync(false);
 
     connect(m_dbusGrub, &GrubDbus::DefaultEntryChanged, m_model, &SystemInfoModel::setDefaultEntry);
     connect(m_dbusGrub, &GrubDbus::EnableThemeChanged, m_model, &SystemInfoModel::setThemeEnabled);
@@ -51,6 +60,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     });
     connect(m_dbusGrub, &__Grub2::UpdatingChanged, m_model, &SystemInfoModel::setUpdating);
     connect(m_dbusGrub, &GrubDbus::serviceStartFinished, this, &SystemInfoWork::grubServerFinished);
+    connect(m_dbusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &SystemInfoWork::onBackgroundChanged);
 #endif
 
     connect(m_systemInfoInter, &__SystemInfo::DistroIDChanged, m_model, &SystemInfoModel::setDistroID);
@@ -64,6 +74,8 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
 void SystemInfoWork::activate()
 {
+    onBackgroundChanged();
+
     m_model->setDistroID(m_systemInfoInter->distroID());
     m_model->setDistroVer(m_systemInfoInter->distroVer());
     m_model->setVersion(m_systemInfoInter->version());
@@ -129,6 +141,36 @@ void SystemInfoWork::grubServerFinished()
     m_model->setThemeEnabled(m_dbusGrub->enableTheme());
     m_model->setUpdating(m_dbusGrub->updating());;
     getEntryTitles();
+}
+
+void SystemInfoWork::onBackgroundChanged()
+{
+    // make cache
+
+    const qreal ratio = qApp->devicePixelRatio();
+
+    QPixmap pix = QPixmap("/boot/grub/themes/deepin/background.png").scaled(QSize(ItemWidth * ratio, ItemHeight * ratio),
+                                           Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+
+    const QRect r(0, 0, ItemWidth * ratio, ItemHeight * ratio);
+    const QSize size(ItemWidth * ratio, ItemHeight * ratio);
+
+    if (pix.width() > ItemWidth * ratio || pix.height() > ItemHeight * ratio)
+        pix = pix.copy(QRect(pix.rect().center() - r.center(), size));
+
+    pix.setDevicePixelRatio(ratio);
+
+    m_model->setBackground(pix);
+}
+
+void SystemInfoWork::setBackground(const QString &path)
+{
+    QDBusPendingCall call = m_dbusGrubTheme->SetBackgroundSourceFile(path);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        if (call.isError())
+            onBackgroundChanged();
+    });
 }
 
 void SystemInfoWork::getEntryTitles()
