@@ -15,7 +15,6 @@
         <file>themes/dark/icons/all_settings_off.png</file>
         <file>themes/dark/icons/bluetooth_on.png</file>
         <file>themes/dark/icons/bluetooth_off.png</file>
-        <file>themes/dark/icons/select.png</file>
         <file>quick_control/wifi/wireless/security.svg</file>
         <file>quick_control/wifi/wireless/wireless-0-symbolic.svg</file>
         <file>quick_control/wifi/wireless/wireless-2-symbolic.svg</file>
@@ -326,7 +325,6 @@
         <file>themes/dark/icons/reducedisabled.png</file>
         <file>themes/dark/icons/round_slider.png</file>
         <file>themes/dark/icons/round_slider@2x.png</file>
-        <file>themes/dark/icons/select@2x.png</file>
         <file>themes/dark/icons/switch_inner@2x.png</file>
         <file>themes/dark/icons/switch_inner_insensitive@2x.png</file>
         <file>themes/dark/icons/switch_off.png</file>
@@ -347,5 +345,6 @@
         <file>themes/dark/icons/disconnect.svg</file>
         <file>themes/dark/icons/disconnect_hover.svg</file>
         <file>themes/dark/icons/disconnect_press.svg</file>
+        <file>themes/dark/icons/select.svg</file>
     </qresource>
 </RCC>

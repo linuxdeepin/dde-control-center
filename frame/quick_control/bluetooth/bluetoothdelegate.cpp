@@ -26,6 +26,7 @@
 #include "bluetoothdelegate.h"
 #include "bluetoothlistmodel.h"
 #include "bluetooth/device.h"
+#include "basiclistdelegate.h"
 
 #include <QPainter>
 #include <QDateTime>
@@ -99,7 +100,7 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         } else {
             const quint64 index = QDateTime::currentMSecsSinceEpoch() / 20;
             const QString pix = QString(":/frame/themes/dark/icons/dark_loading/loading_0%1.png").arg((index % 90), 2, 10, QChar('0'));
-            painter->drawPixmap(x, y, QPixmap(pix));
+            painter->drawPixmap(x, y, loadPixmap(pix));
         }
     }
 
@@ -111,15 +112,15 @@ void BluetoothDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         if (connecting) {
             const quint64 index = QDateTime::currentMSecsSinceEpoch() / 20;
             const QString pix = QString(":/frame/themes/light/icons/white_loading/loading_0%1.png").arg((index % 90), 2, 10, QChar('0'));
-            painter->drawPixmap(x, y, QPixmap(pix));
+            painter->drawPixmap(x, y, loadPixmap(pix));
         } else {
             const bool state = index.data(BluetoothListModel::ItemConnectedRole).toBool();
             if (state) {
                 // draw connected icon
                 if (isHovered)
-                    painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/disconnect.png"));
+                    painter->drawPixmap(x, y, loadPixmap(":/frame/themes/dark/icons/disconnect.svg"));
                 else
-                    painter->drawPixmap(x, y, QPixmap(":/frame/themes/dark/icons/select.png"));
+                    painter->drawPixmap(x, y, loadPixmap(":/frame/themes/dark/icons/select.svg"));
             }
         }
     }
