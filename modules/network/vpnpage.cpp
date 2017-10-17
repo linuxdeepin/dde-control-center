@@ -252,8 +252,8 @@ void VpnPage::importVPN()
 
         DDialog dialog;
         dialog.setTitle(tr("Import Error"));
-        dialog.setMessage(error.replace(QRegularExpression(":\\s+"), ":\n"));
-        dialog.addButton(tr("Ok"));
+        dialog.setMessage(error.replace(QRegularExpression("[:：]\\s+"), ":\n"));
+        dialog.addButton(tr("OK"));
         dialog.setIcon(icon);
         dialog.exec();
 

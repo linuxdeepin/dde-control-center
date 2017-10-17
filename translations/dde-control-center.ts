@@ -1730,7 +1730,7 @@
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="256"/>
-        <source>Ok</source>
+        <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
