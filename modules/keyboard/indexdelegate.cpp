@@ -25,6 +25,8 @@
 
 #include "indexdelegate.h"
 #include "indexmodel.h"
+#include "basiclistdelegate.h"
+
 #include <QPainter>
 
 namespace dcc {
@@ -77,7 +79,7 @@ void IndexDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
         painter->setOpacity(1);
         const int x = option.rect.right() - 24;
         const int y = option.rect.top() + (option.rect.height() - 16) / 2;
-        painter->drawPixmap(x, y, QPixmap(":/keyboard/themes/dark/icons/select.svg"));
+        painter->drawPixmap(x, y, loadPixmap(":/keyboard/themes/dark/icons/select.svg"));
     }
 
     painter->setOpacity(1);

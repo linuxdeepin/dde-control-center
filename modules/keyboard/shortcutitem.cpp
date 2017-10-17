@@ -58,9 +58,9 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     layout->setAlignment(m_title, Qt::AlignLeft);
 
     m_editBtn = new DImageButton;
-    m_editBtn->setNormalPic(":/keyboard/themes/common/icons/edit_normal.png");
-    m_editBtn->setPressPic(":/keyboard/themes/common/icons/edit_press.png");
-    m_editBtn->setHoverPic(":/keyboard/themes/common/icons/edit_hover.png");
+    m_editBtn->setNormalPic(":/keyboard/themes/common/icons/edit_normal.svg");
+    m_editBtn->setPressPic(":/keyboard/themes/common/icons/edit_press.svg");
+    m_editBtn->setHoverPic(":/keyboard/themes/common/icons/edit_hover.svg");
     m_editBtn->hide();
     layout->addWidget(m_editBtn, 1, Qt::AlignLeft);
 

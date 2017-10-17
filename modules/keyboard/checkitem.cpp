@@ -101,9 +101,9 @@ void CheckItem::onEditMode(bool value)
     {
         if(value)
         {
-            m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/list_delete_normal.png");
-            m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.png");
-            m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/list_delete_press.png");
+            m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/list_delete_normal.svg");
+            m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
+            m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/list_delete_press.svg");
             m_checkBtn->show();
         }
         else
