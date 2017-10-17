@@ -69,7 +69,7 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     blurWidget->setMaskColor(DBlurEffectWidget::LightColor);
     blurWidget->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
 
-    QPixmap rotatePixmap = loadPixmap(":/display/themes/common/icon/rotate.png");
+    QPixmap rotatePixmap = loadPixmap(":/display/themes/common/icon/rotate.svg");
     QLabel *osd = new QLabel;
     osd->setPixmap(rotatePixmap);
     osd->setFixedSize(rotatePixmap.width() / ratio, rotatePixmap.height() / ratio);
