@@ -96,7 +96,10 @@ void AvatarWidget::setAvatarPath(const QString &avatar)
         avatarPath.replace("icons/", "icons/bigger/");
 
     QUrl url(avatarPath);
-    m_avatarPath = avatarPath;
+    if (!QFile(url.toLocalFile()).exists())
+        url = QUrl(avatar);
+
+    m_avatarPath = url.toString();
     m_avatar = QPixmap(url.toLocalFile()).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     m_avatar.setDevicePixelRatio(ratio);
 
