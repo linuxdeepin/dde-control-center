@@ -57,9 +57,12 @@ RemoveUserDialog::RemoveUserDialog(const User *user, QWidget *parent) :
 {
     setTitle(tr("Administrator permission required to delete account"));
 
+    const auto ratio = devicePixelRatioF();
     const QString iconFile = QUrl(user->currentAvatar()).toLocalFile();
-    const QPixmap pix = QPixmap(iconFile).scaled(48, 48, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-    setIconPixmap(RoundPixmap(pix));
+    const QPixmap pix = QPixmap(iconFile).scaled(48 * ratio, 48 * ratio, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    QPixmap p = RoundPixmap(pix);
+    p.setDevicePixelRatio(ratio);
+    setIconPixmap(p);
 
     QCheckBox *box = new QCheckBox(tr("Delete account directory"));
     box->setChecked(true);
