@@ -67,6 +67,9 @@ public:
     inline bool online() const { return m_online; }
     void setOnline(bool online);
 
+    bool nopasswdLogin() const;
+    void setNopasswdLogin(bool nopasswdLogin);
+
 signals:
     void nameChanged(const QString &name) const;
     void fullnameChanged(const QString &name) const;
@@ -74,10 +77,12 @@ signals:
     void autoLoginChanged(const bool autoLogin) const;
     void avatarListChanged(const QList<QString> &avatars) const;
     void onlineChanged(const bool &online) const;
+    void nopasswdLoginChanged(const bool nopasswdLogin) const;
 
 private:
     bool m_autoLogin;
     bool m_online;
+    bool m_nopasswdLogin;
     QString m_name;
     QString m_fullname;
     QString m_password;

@@ -44,6 +44,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
       m_modifyFullname(new NextPageWidget),
       m_modifyPassword(new NextPageWidget),
       m_autoLogin(new SwitchWidget),
+      m_nopasswdLogin(new SwitchWidget),
       m_deleteAccount(new QPushButton)
 {
     m_modifyAvatar->setTitle(tr("Modify Avatar"));
@@ -58,6 +59,10 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     m_autoLogin->setTitle(tr("Auto Login"));
     m_autoLogin->setChecked(user->autoLogin());
     m_accountSettings->appendItem(m_autoLogin);
+
+    m_nopasswdLogin->setTitle(tr("Login without password"));
+    m_nopasswdLogin->setChecked(user->nopasswdLogin());
+    m_accountSettings->appendItem(m_nopasswdLogin);
 
     m_deleteAccount->setText(tr("Delete Account"));
     m_deleteAccount->setObjectName("DeleteAccountButton");
@@ -75,6 +80,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(mainLayout);
 
+    connect(user, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
     connect(user, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
     connect(user, &User::onlineChanged, this, [=] (const bool online) {
         m_deleteAccount->setDisabled(online);
@@ -85,6 +91,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     connect(m_modifyPassword, &NextPageWidget::clicked, [=] { emit showPwdSettings(user); });
     connect(m_modifyAvatar, &NextPageWidget::clicked, [=] { emit showAvatarSettings(user); });
     connect(m_modifyFullname, &NextPageWidget::clicked, [=] { emit showFullnameSettings(user); });
+    connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, [=] (const bool nopasswdLogin) { emit requestNopasswdLogin(user, nopasswdLogin);});
 
     setContent(mainWidget);
     setTitle(user->name());

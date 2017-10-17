@@ -97,3 +97,18 @@ void User::setOnline(bool online)
 
     emit onlineChanged(online);
 }
+
+bool User::nopasswdLogin() const
+{
+    return m_nopasswdLogin;
+}
+
+void User::setNopasswdLogin(bool nopasswdLogin)
+{
+    if (m_nopasswdLogin == nopasswdLogin)
+        return;
+
+    m_nopasswdLogin = nopasswdLogin;
+
+    emit nopasswdLoginChanged(nopasswdLogin);
+}

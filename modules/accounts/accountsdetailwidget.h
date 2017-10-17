@@ -53,6 +53,7 @@ signals:
     void requestSetAutoLogin(User *user, const bool autoLogin) const;
 
     void requestChangeFrameAutoHide(const bool autoHide) const;
+    void requestNopasswdLogin(User *user, const bool nopasswdLogin) const;
 
 private slots:
     void deleteUserClicked();
@@ -64,6 +65,7 @@ private:
     dcc::widgets::NextPageWidget *m_modifyFullname;
     dcc::widgets::NextPageWidget *m_modifyPassword;
     dcc::widgets::SwitchWidget *m_autoLogin;
+    dcc::widgets::SwitchWidget *m_nopasswdLogin;
     QPushButton *m_deleteAccount;
 };
 
