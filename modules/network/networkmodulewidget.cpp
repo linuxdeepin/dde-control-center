@@ -51,7 +51,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 
     m_pppBtn->setTitle(tr("DSL"));
     m_vpnBtn->setTitle(tr("VPN"));
-    m_proxyBtn->setTitle(tr("Proxy"));
+    m_proxyBtn->setTitle(tr("System Proxy"));
 
     NextPageWidget *appProxy = new NextPageWidget;
     appProxy->setTitle(tr("Application proxy"));
