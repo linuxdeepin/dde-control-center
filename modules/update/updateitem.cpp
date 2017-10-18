@@ -184,35 +184,17 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
     m_appVersion->setText(info.m_avilableVersion.trimmed());
 
     const QString changelog = m_info.m_changelog;
+    const QString elidedText = elidedChangelog();
 
-    if (!changelog.isEmpty())
+    if (changelog != elidedText)
     {
         setFixedHeight(80);
         m_iconLayout->setContentsMargins(0, 10, 0, 0);
-        m_appChangelog->setText(elidedChangelog());
-
-//    if(!changelog.isEmpty()) {
-//        setFixedHeight(80);
-//        m_iconLayout->setContentsMargins(0, 10, 0, 0);
-
-//        const bool changelogIsAnchor = isAnchor(changelog);
-
-//        m_openWebsite->setVisible(changelogIsAnchor);
-//        m_appChangelog->setVisible(!changelogIsAnchor);
-
-//        if (!changelogIsAnchor)
-//            m_appChangelog->setText(elidedChangelog());
-//        else {
-//            m_details->setVisible(false);
-
-//            QPair<QString, QString> pair = parseAnchor(changelog);
-//            m_anchorName = pair.second;
-//            m_anchorAddress = pair.first;
-//        }
-
+        m_appChangelog->setText(elidedText);
     } else {
         setFixedHeight(60);
         m_iconLayout->setContentsMargins(0, 0, 0, 0);
+        m_appChangelog->setText(changelog);
         m_details->setVisible(false);
     }
 }
