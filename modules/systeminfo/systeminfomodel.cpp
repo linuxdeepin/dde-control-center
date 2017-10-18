@@ -98,6 +98,20 @@ void SystemInfoModel::setBootDelay(bool bootDelay)
         emit bootDelayChanged(bootDelay);
     }
 }
+
+
+QPixmap SystemInfoModel::background() const
+{
+    return m_background;
+}
+
+void SystemInfoModel::setBackground(const QPixmap &background)
+{
+    m_background = background;
+
+    emit backgroundChanged(background);
+}
+
 #endif
 
 void SystemInfoModel::setDistroID(const QString &distroid)
@@ -164,18 +178,6 @@ void SystemInfoModel::setDisk(qulonglong disk)
 
     m_disk = d;
     diskChanged(m_disk);
-}
-
-QPixmap SystemInfoModel::background() const
-{
-    return m_background;
-}
-
-void SystemInfoModel::setBackground(const QPixmap &background)
-{
-    m_background = background;
-
-    emit backgroundChanged(background);
 }
 
 }

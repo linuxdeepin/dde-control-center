@@ -74,7 +74,9 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
 void SystemInfoWork::activate()
 {
+#ifndef DCC_DISABLE_GRUB
     onBackgroundChanged();
+#endif
 
     m_model->setDistroID(m_systemInfoInter->distroID());
     m_model->setDistroVer(m_systemInfoInter->distroVer());
