@@ -2,7 +2,7 @@
 <context>
     <name>BluetoothDelegate</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="96"/>
+        <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
         <source>Refresh</source>
         <translation>Làm sạch lại</translation>
     </message>
@@ -580,27 +580,27 @@
 <context>
     <name>dcc::datetime::TimezoneItem</name>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="111"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="110"/>
         <source>Tomorrow</source>
         <translation>Ngày mai</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="113"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="112"/>
         <source>Yesterday</source>
         <translation>Hôm qua</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="115"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="114"/>
         <source>Today</source>
         <translation>Hôm nay</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="120"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="119"/>
         <source>%1 hours earlier than local</source>
         <translation>sớm hơn %1 giờ so với địa phương</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="122"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="121"/>
         <source>%1 hours late than local</source>
         <translation>trễ hơn %1 giờ so với địa phương</translation>
     </message>
@@ -1546,11 +1546,6 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="54"/>
-        <source>Proxy</source>
-        <translation>Ủy thác</translation>
-    </message>
-    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
         <translation type="unfinished"/>
@@ -1585,6 +1580,11 @@
         <location filename="../modules/network/networkmodulewidget.cpp" line="186"/>
         <source>Wired Network%1</source>
         <translation>Mạng kết nối dây%1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="54"/>
+        <source>System Proxy</source>
+        <translation>Ủy thác hệ thống</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="200"/>
@@ -2034,22 +2034,22 @@
 <context>
     <name>dcc::systeminfo::BootWidget</name>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="59"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="60"/>
         <source>Updating...</source>
         <translation>Đang cập nhật...</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="70"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="71"/>
         <source>Startup Delay</source>
         <translation>Chậm trễ Khởi động</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="73"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="74"/>
         <source>Theme</source>
         <translation>Chủ đề</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="75"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="76"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
         <translation>Hình ảnh khởi động có thể được thay thế bằng cách kéo một cái tới nó, và thứ tự khởi động có thể được thay đổi bằng cách kéo phần nổi bật</translation>
     </message>
@@ -2332,12 +2332,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="205"/>
+        <location filename="../modules/update/updatework.cpp" line="206"/>
         <source>Patches</source>
         <translation>Các bản vá</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="206"/>
+        <location filename="../modules/update/updatework.cpp" line="207"/>
         <source>System patches.</source>
         <translation>Các bản vá Hệ thống.</translation>
     </message>
