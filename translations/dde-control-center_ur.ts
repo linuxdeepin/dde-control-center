@@ -1,10 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hy" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ur" version="2.1">
 <context>
     <name>BluetoothDelegate</name>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="96"/>
         <source>Refresh</source>
-        <translation>Թարմացնել</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -119,12 +119,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Shut down</source>
-        <translation>Անջատել</translation>
+        <translation>شٹڈاون</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
@@ -298,12 +298,12 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="65"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="51"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>صارف کا نام</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="52"/>
@@ -348,7 +348,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
         <source>OK</source>
-        <translation>Լավ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
@@ -377,7 +377,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="59"/>
@@ -405,12 +405,12 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="70"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="70"/>
         <source>Delete</source>
-        <translation>Ջնջել</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -476,12 +476,12 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="51"/>
         <source>OK</source>
-        <translation>Լավ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -489,7 +489,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="68"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="69"/>
@@ -564,7 +564,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="64"/>
@@ -636,7 +636,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="59"/>
         <source>Video</source>
-        <translation>Տեսանյութ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="60"/>
@@ -654,7 +654,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="44"/>
         <source>Add</source>
-        <translation>Ավելացնել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
@@ -689,7 +689,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
         <source>Delete</source>
-        <translation>Ջնջել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="48"/>
@@ -730,7 +730,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
-        <translation>Թույլտվություն</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="62"/>
@@ -772,7 +772,7 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="47"/>
         <source>Refresh</source>
-        <translation>Թարմացնել</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -785,7 +785,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="55"/>
         <source>Refresh</source>
-        <translation>Թարմացնել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="69"/>
@@ -816,12 +816,12 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="115"/>
         <source>Resolution</source>
-        <translation>Թույլտվություն</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="203"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="205"/>
@@ -844,7 +844,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="41"/>
         <source>Resolution</source>
-        <translation>Թույլտվություն</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="80"/>
@@ -862,7 +862,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="60"/>
         <source>Name</source>
-        <translation>Անվանում</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="63"/>
@@ -877,12 +877,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="82"/>
         <source>Add</source>
-        <translation>Ավելացնել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="106"/>
@@ -921,17 +921,17 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="65"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="66"/>
         <source>Save</source>
-        <translation>Պահել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="98"/>
         <source>Name</source>
-        <translation>Անվանում</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="99"/>
@@ -1123,7 +1123,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="61"/>
@@ -1171,7 +1171,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
         <source>Window</source>
-        <translation>Պատուհան</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
@@ -1341,7 +1341,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="56"/>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>صارف کا نام</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
@@ -1362,12 +1362,12 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
         <source>OK</source>
-        <translation>Լավ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1388,7 +1388,7 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="134"/>
         <source>Delete</source>
-        <translation>Ջնջել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="136"/>
@@ -1398,12 +1398,12 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="144"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
         <source>Save</source>
-        <translation>Պահել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="442"/>
@@ -1510,7 +1510,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="83"/>
         <source>Connecting</source>
-        <translation>Միացվում է</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="84"/>
@@ -1630,7 +1630,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="56"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="57"/>
@@ -1726,7 +1726,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="256"/>
         <source>OK</source>
-        <translation>Լավ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="281"/>
@@ -1826,7 +1826,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsizewidget.cpp" line="41"/>
         <source>Size</source>
-        <translation>Չափս</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1834,7 +1834,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="52"/>
         <source>Font</source>
-        <translation>Տառատեսակ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1865,7 +1865,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="56"/>
         <source>Font</source>
-        <translation>Տառատեսակ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="173"/>
@@ -1879,7 +1879,7 @@
     <message>
         <location filename="../modules/personalization/widget/themeitem.cpp" line="72"/>
         <source>Default</source>
-        <translation>Սովորական</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1969,7 +1969,7 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="37"/>
         <source>Output</source>
-        <translation>Արտադրանք</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="38"/>
@@ -2410,7 +2410,7 @@
     <message>
         <location filename="../widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
-        <translation>Փնտրել</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2423,7 +2423,7 @@
     <message>
         <location filename="../widgets/settingshead.cpp" line="52"/>
         <source>Cancel</source>
-        <translation>Չեղարկել</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

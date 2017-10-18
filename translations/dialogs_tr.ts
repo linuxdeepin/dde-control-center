@@ -4,7 +4,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation>Güncellemeler yüklendi, yeniden başlatılması gerekiyor, yeniden başlatılsın mı?</translation>
+        <translation>Güncelleştirmeler yüklendi, yeniden başlatılması gerekiyor, yeniden başlatılsın mı?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
