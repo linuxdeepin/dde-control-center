@@ -103,9 +103,9 @@ void ModifyAvatarPage::updateAvatarList()
 
     DImageButton *btn = new DImageButton;
     btn->setAccessibleName("add_avatar");
-    btn->setNormalPic(":/accounts/themes/common/icons/add_avatar_normal.png");
-    btn->setHoverPic(":/accounts/themes/common/icons/add_avatar_hover.png");
-    btn->setPressPic(":/accounts/themes/common/icons/add_avatar_press.png");
+    btn->setNormalPic(":/accounts/themes/common/icons/add_avatar_normal.svg");
+    btn->setHoverPic(":/accounts/themes/common/icons/add_avatar_hover.svg");
+    btn->setPressPic(":/accounts/themes/common/icons/add_avatar_press.svg");
     connect(btn, &DImageButton::clicked, [=] { emit requestAddNewAvatar(m_userInter); });
     m_avatarsLayout->addWidget(btn, count / 4, count % 4, Qt::AlignCenter);
 }

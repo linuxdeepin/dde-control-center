@@ -4,11 +4,11 @@
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_accounts.png</file>
         <file>themes/dark/icons/nav_accounts@2x.png</file>
-        <file>themes/common/icons/add_avatar_hover.png</file>
-        <file>themes/common/icons/add_avatar_normal.png</file>
-        <file>themes/common/icons/add_avatar_press.png</file>
-        <file>themes/common/icons/avator_delete_hover.png</file>
-        <file>themes/common/icons/avator_delete_normal.png</file>
-        <file>themes/common/icons/avator_delete_press.png</file>
+        <file>themes/common/icons/add_avatar_hover.svg</file>
+        <file>themes/common/icons/add_avatar_normal.svg</file>
+        <file>themes/common/icons/add_avatar_press.svg</file>
+        <file>themes/common/icons/avator_delete_hover.svg</file>
+        <file>themes/common/icons/avator_delete_normal.svg</file>
+        <file>themes/common/icons/avator_delete_press.svg</file>
     </qresource>
 </RCC>

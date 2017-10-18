@@ -35,9 +35,9 @@ AvatarDel::AvatarDel(QWidget *parent) : DBlurEffectWidget(parent)
 {
     setFixedSize(PIX_SIZE, PIX_SIZE);
     DImageButton *close = new DImageButton;
-    close->setNormalPic(":/accounts/themes/common/icons/avator_delete_normal.png");
-    close->setHoverPic(":/accounts/themes/common/icons/avator_delete_hover.png");
-    close->setPressPic(":/accounts/themes/common/icons/avator_delete_press.png");
+    close->setNormalPic(":/accounts/themes/common/icons/avator_delete_normal.svg");
+    close->setHoverPic(":/accounts/themes/common/icons/avator_delete_hover.svg");
+    close->setPressPic(":/accounts/themes/common/icons/avator_delete_press.svg");
 
     QVBoxLayout *mainlayout = new QVBoxLayout;
     mainlayout->setMargin(0);
@@ -51,8 +51,10 @@ AvatarDel::AvatarDel(QWidget *parent) : DBlurEffectWidget(parent)
     setMaskColor(Qt::white);
 
     QPainterPath painterPath;
-    painterPath.moveTo(width() /2, height()/1.5);
-    painterPath.arcTo(rect(),200, 140);
+
+    painterPath.moveTo(width(), height() / 1.5);
+    painterPath.lineTo(0, height() / 1.5);
+    painterPath.arcTo(rect(), -160, 140);
 
     setMaskPath(painterPath);
 }
