@@ -26,6 +26,7 @@
 #include "vpnlistmodel.h"
 
 #include "network/networkmodel.h"
+#include "basiclistdelegate.h"
 
 #include <QDebug>
 #include <QSize>
@@ -35,8 +36,8 @@ using dcc::network::NetworkModel;
 
 VpnListModel::VpnListModel(NetworkModel *model, QObject *parent)
     : QAbstractListModel(parent),
-      m_connectedPixmap(QPixmap(":/frame/themes/dark/icons/select.png")),
-      m_cancelPixmap(QPixmap(":/frame/themes/dark/icons/disconnect.png")),
+      m_connectedPixmap(loadPixmap(":/frame/themes/dark/icons/select.svg")),
+      m_cancelPixmap(loadPixmap(":/frame/themes/dark/icons/disconnect.svg")),
       m_networkModel(model)
 {
     connect(m_networkModel, &NetworkModel::activeConnectionsChanged, this, &VpnListModel::onActivedListChanged);

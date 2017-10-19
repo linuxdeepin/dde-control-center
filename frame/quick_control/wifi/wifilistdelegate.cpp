@@ -119,7 +119,7 @@ void WifiListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
                 if (isHovered)
                     painter->drawPixmap(icon_x, y, loadPixmap(":/frame/themes/dark/icons/disconnect.svg"));
                 else
-                    painter->drawPixmap(icon_x, y, loadPixmap(":/frame/themes/dark/icons/select.png"));
+                    painter->drawPixmap(icon_x, y, loadPixmap(":/frame/themes/dark/icons/select.svg"));
             }
         }
         painter->fillRect(option.rect, QColor(255, 255, 255, 0.05 * 255));
