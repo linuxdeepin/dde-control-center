@@ -197,12 +197,14 @@ void AccountsWorker::addUser(const QString &userPath)
     connect(userInter, &AccountsUser::IconListChanged, user, &User::setAvatars);
     connect(userInter, &AccountsUser::IconFileChanged, user, &User::setCurrentAvatar);
     connect(userInter, &AccountsUser::FullNameChanged, user, &User::setFullname);
+    connect(userInter, &AccountsUser::NoPasswdLoginChanged, user, &User::setNopasswdLogin);
 
     user->setName(userInter->userName());
     user->setFullname(userInter->fullName());
     user->setAutoLogin(userInter->automaticLogin());
     user->setAvatars(userInter->iconList());
     user->setCurrentAvatar(userInter->iconFile());
+    user->setNopasswdLogin(userInter->noPasswdLogin());
 
     m_userInters[user] = userInter;
     m_userModel->addUser(userPath, user);
@@ -222,6 +224,21 @@ void AccountsWorker::removeUser(const QString &userPath)
             return;
         }
     }
+}
+
+void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin)
+{
+    AccountsUser *userInter = m_userInters[user];
+    Q_ASSERT(userInter);
+
+    QDBusPendingCall call = userInter->EnableNoPasswdLogin(nopasswdLogin);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError()) {
+            user->setNopasswdLogin(userInter->noPasswdLogin());
+        }
+        watcher->deleteLater();
+    });
 }
 
 void AccountsWorker::updateUserOnlineStatus(const QList<QDBusObjectPath> paths)

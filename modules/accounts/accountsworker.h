@@ -72,6 +72,7 @@ public slots:
     void onUserListChanged(const QStringList &userList);
     void setPassword(User *user, const QString &passwd);
     void deleteUserIcon(User *user, const QString &iconPath);
+    void setNopasswdLogin(User *user, const bool nopasswdLogin);
 
     void addUser(const QString &userPath);
     void removeUser(const QString &userPath);
