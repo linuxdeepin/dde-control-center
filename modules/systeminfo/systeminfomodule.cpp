@@ -58,6 +58,10 @@ void SystemInfoModule::initialize()
 
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
+
+#ifndef DCC_DISABLE_GRUB
+    connect(m_work, &SystemInfoWork::requestSetAutoHideDCC, this, &SystemInfoModule::onSetAutoHide);
+#endif
 }
 
 void SystemInfoModule::moduleActive()
@@ -135,6 +139,11 @@ void SystemInfoModule::onPushBoot()
     m_frameProxy->pushWidget(this, m_bootWidget);
 }
 #endif
+
+void SystemInfoModule::onSetAutoHide(const bool visiable)
+{
+    m_frameProxy->setFrameAutoHide(this, visiable);
+}
 
 }
 }

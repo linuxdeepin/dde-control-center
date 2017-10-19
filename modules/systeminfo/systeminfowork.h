@@ -56,6 +56,9 @@ public:
 #ifndef DCC_DISABLE_GRUB
     void loadGrubSettings();
 
+signals:
+    void requestSetAutoHideDCC(const bool visiable) const;
+
 public slots:
     void setBootDelay(bool value);
     void setEnableTheme(bool value);

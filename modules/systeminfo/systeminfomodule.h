@@ -63,6 +63,8 @@ public slots:
     void onPushBoot();
 #endif
 
+    void onSetAutoHide(const bool visiable);
+
 private:
     SystemInfoWork* m_work;
     SystemInfoModel* m_model;

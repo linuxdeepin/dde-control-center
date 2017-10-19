@@ -106,34 +106,49 @@ void SystemInfoWork::loadGrubSettings()
 
 void SystemInfoWork::setBootDelay(bool value)
 {
+    emit requestSetAutoHideDCC(false);
+
     QDBusPendingCall call = m_dbusGrub->SetTimeout(value ? 5 : 1);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
             emit m_model->bootDelayChanged(m_model->bootDelay());
         }
+
+        emit requestSetAutoHideDCC(true);
+        watcher->deleteLater();
     });
 }
 
 void SystemInfoWork::setEnableTheme(bool value)
 {
+    emit requestSetAutoHideDCC(false);
+
     QDBusPendingCall call = m_dbusGrub->SetEnableTheme(value);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
             emit m_model->themeEnabledChanged(m_model->themeEnabled());
         }
+
+        emit requestSetAutoHideDCC(true);
+        watcher->deleteLater();
     });
 }
 
 void SystemInfoWork::setDefaultEntry(const QString &entry)
 {
+    emit requestSetAutoHideDCC(false);
+
     QDBusPendingCall call = m_dbusGrub->SetDefaultEntry(entry);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
             emit m_model->defaultEntryChanged(m_model->defaultEntry());
         }
+
+        emit requestSetAutoHideDCC(false);
+        watcher->deleteLater();
     });
 }
 
@@ -167,11 +182,16 @@ void SystemInfoWork::onBackgroundChanged()
 
 void SystemInfoWork::setBackground(const QString &path)
 {
+    emit requestSetAutoHideDCC(true);
+
     QDBusPendingCall call = m_dbusGrubTheme->SetBackgroundSourceFile(path);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError())
             onBackgroundChanged();
+
+        emit requestSetAutoHideDCC(true);
+        watcher->deleteLater();
     });
 }
 
@@ -179,7 +199,7 @@ void SystemInfoWork::getEntryTitles()
 {
     QDBusPendingCall call = m_dbusGrub->GetSimpleEntryTitles();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (!call.isError()) {
             QDBusReply<QStringList> reply = call.reply();
             QStringList entries = reply.value();
@@ -188,6 +208,8 @@ void SystemInfoWork::getEntryTitles()
         } else {
             qWarning() << "get grub entry list failed : " << call.error().message();
         }
+
+        watcher->deleteLater();
     });
 }
 #endif
