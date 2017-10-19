@@ -116,90 +116,44 @@ void ShortcutModel::onParseInfo(const QString &info)
 
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
 
-    for (const QString i : systemFilter) {
-        foreach(QJsonValue value, array) {
-            QJsonObject obj = value.toObject();
-            int type = obj["Type"].toInt();
-            if (type != MEDIAKEY && obj["Id"].toString() == i) {
-                ShortcutInfo *info = new ShortcutInfo();
-                info->type = type;
-                QString accels = obj["Accels"].toArray().at(0).toString();
-                if (accels.isEmpty()) {
-                    accels = tr("None");
-                }
-                info->accels = accels;
 
-                info->name = obj["Name"].toString();
-                info->id = obj["Id"].toString();
-                m_infos.append(info);
-                m_systemInfos.append(info);
-                break;
-            }
-        }
-    }
-
-    for (const QString i : windowFilter) {
-        foreach(QJsonValue value, array) {
-            QJsonObject obj = value.toObject();
-            int type = obj["Type"].toInt();
-            if (type != MEDIAKEY && obj["Id"].toString() == i) {
-                ShortcutInfo *info = new ShortcutInfo();
-                info->type = type;
-                QString accels = obj["Accels"].toArray().at(0).toString();
-                if (accels.isEmpty()) {
-                    accels = tr("None");
-                }
-                info->accels = accels;
-
-                info->name = obj["Name"].toString();
-                info->id = obj["Id"].toString();
-                m_infos.append(info);
-                m_windowInfos.append(info);
-                break;
-            }
-        }
-    }
-
-    for (const QString i : workspaceFilter) {
-        foreach(QJsonValue value, array) {
-            QJsonObject obj = value.toObject();
-            int type = obj["Type"].toInt();
-            if (type != MEDIAKEY && obj["Id"].toString() == i) {
-                ShortcutInfo *info = new ShortcutInfo();
-                info->type = type;
-                QString accels = obj["Accels"].toArray().at(0).toString();
-                if (accels.isEmpty()) {
-                    accels = tr("None");
-                }
-                info->accels = accels;
-
-                info->name = obj["Name"].toString();
-                info->id = obj["Id"].toString();
-                m_infos.append(info);
-                m_workspaceInfos.append(info);
-                break;
-            }
-        }
-    }
+    // foreach all
 
     foreach(QJsonValue value, array) {
+
         QJsonObject obj = value.toObject();
         int type = obj["Type"].toInt();
-        if (type != MEDIAKEY && type == 1) {
-            ShortcutInfo *info = new ShortcutInfo();
-            info->type = type;
-            QString accels = obj["Accels"].toArray().at(0).toString();
-            if (accels.isEmpty()) {
-                accels = tr("None");
-            }
-            info->accels = accels;
 
-            info->name = obj["Name"].toString();
-            info->id = obj["Id"].toString();
-            info->command = obj["Exec"].toString();
-            m_infos.append(info);
+        QString shortcut = obj["Accels"].toArray().first().toString();
+        shortcut = shortcut.isEmpty() ? tr("None") : shortcut;
+
+        ShortcutInfo *info = new ShortcutInfo();
+        info->type = type;
+        info->accels = shortcut;
+        info->name = obj["Name"].toString();
+        info->id = obj["Id"].toString();
+
+        // foreach system
+        for (const QString i : systemFilter)
+            if (type != MEDIAKEY && info->id == i)
+                m_systemInfos.append(info);
+
+        // foreach window
+        for (const QString i : windowFilter)
+            if (type != MEDIAKEY && info->id == i)
+                m_windowInfos.append(info);
+
+        // foreach workspace
+        for (const QString i : workspaceFilter)
+            if (type != MEDIAKEY && info->id == i)
+                m_workspaceInfos.append(info);
+
+        // foreach custom
+        if (type != MEDIAKEY && type == 1)
             m_customInfos.append(info);
-        }
+
+        // add to list
+        m_infos.append(info);
     }
 
     emit listChanged(m_systemInfos, InfoType::System);

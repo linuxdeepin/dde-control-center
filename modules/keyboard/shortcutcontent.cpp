@@ -122,8 +122,12 @@ void ShortcutContent::onReplace()
     QString key = m_conflict->accels;
     m_work->modifyShortcut(m_conflict, tr("null"));
     m_work->modifyShortcut(m_curInfo, key);
-    m_conflict->item->displayConflict(true);
-    m_curInfo->item->displayConflict();
+
+    ShortcutItem * item = m_conflict->item;
+    if (item) {
+        m_conflict->item->displayConflict(true);
+        m_curInfo->item->displayConflict();
+    }
     sendBackSignal();
 }
 
