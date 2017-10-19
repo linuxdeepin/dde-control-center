@@ -3,7 +3,7 @@ QLabel#ModuleHeaderIconUpdate {
 }
 
 Dtk--Widget--DImageButton#DCC-Update-MirrorItem-SelectedBtn{
-    qproperty-normalPic: url(:/update/themes/dark/icons/select.png);
+    qproperty-normalPic: url(:/update/themes/dark/icons/select.svg);
 }
 
 dcc--update--DownloadProgressBar {
