@@ -51,6 +51,7 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device) :
     m_titleLabel->setObjectName("DeviceTitle");
     m_tipLabel->setObjectName("DeviceState");
 
+    m_loadingIndicator->setTheme("dark");
     m_loadingIndicator->setFixedSize(24, 24);
     m_loadingIndicator->hide();
 

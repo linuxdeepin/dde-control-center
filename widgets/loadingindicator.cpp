@@ -45,7 +45,7 @@ void LoadingIndicator::setTheme(const QString &theme)
             QString arg = QString().setNum(i);
             if(arg.length() == 1)
                 arg = "0"+arg;
-            QString path = QString(":/widgets/themes/%1/icons/Loading/loading_0%2").arg(theme).arg(arg);
+            QString path = QString(":/widgets/themes/%1/icons/Loading/loading_0%2.png").arg(theme).arg(arg);
             lists<<path;
         }
         setPictureSequence(lists);

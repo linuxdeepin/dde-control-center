@@ -54,7 +54,7 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     m_otherDevicesGroup->setHeaderVisible(true);
 
     LoadingIndicator *load = new LoadingIndicator;
-    load->setTheme("bluetooth");
+    load->setTheme("dark");
     m_otherDevicesGroup->headerItem()->setRightWidget(load);
     load->play();
 
