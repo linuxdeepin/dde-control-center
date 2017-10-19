@@ -191,15 +191,8 @@ void ShortcutItem::updateShortcutKeys()
     QString accels;
 
     accels = m_info->accels;
-    accels = accels.replace("Control", "Ctrl");
     accels = accels.replace("<", "");
     accels = accels.replace(">", "-");
-    accels = accels.replace("Above_Tab", "`");
-    accels = accels.replace("Super_L", "Super");
-    accels = accels.replace("Up", "↑");
-    accels = accels.replace("Down", "↓");
-    accels = accels.replace("Left", "←");
-    accels = accels.replace("Right", "→");
 
     m_key->show();
     m_key->setTextList(accels.split("-"));

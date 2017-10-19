@@ -24,6 +24,7 @@
  */
 
 #include "keylabel.h"
+#include "shortcutmodel.h"
 
 #include <QApplication>
 #include <QPainter>
@@ -38,7 +39,9 @@ KeyLabel::KeyLabel(QWidget *parent)
 KeyLabel::KeyLabel(const QString &text, QWidget *parent)
     : KeyLabel(parent)
 {
-    setText(text);
+    const QString &value = DisplaykeyMap[text];
+
+    setText(value.isEmpty() ? text : value);
 
     QFont font = qApp->font();
     QFontMetrics fm(font);
