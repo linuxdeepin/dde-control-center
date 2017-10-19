@@ -57,6 +57,9 @@ public:
 
     bool monitorsIsIntersect() const;
 
+    bool isNightMode() const;
+    void setIsNightMode(bool isNightMode);
+
 signals:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
@@ -67,6 +70,7 @@ signals:
     void firstConfigCreated(const QString &config) const;
     void configListChanged(const QStringList &configs) const;
     void monitorListChanged() const;
+    void nightModeChanged(const bool nightmode) const;
 
 private slots:
     void setScreenHeight(const int h);
@@ -88,6 +92,7 @@ private:
     QString m_currentConfig;
     QStringList m_configList;
     QList<Monitor *> m_monitors;
+    bool m_isNightMode;
 };
 
 } // namespace display

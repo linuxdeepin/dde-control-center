@@ -76,6 +76,7 @@ void DisplayModule::showBrightnessPage()
 
     page->setModel(m_displayModel);
     connect(page, &BrightnessPage::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
+    connect(page, &BrightnessPage::requestSetNightMode, m_displayWorker, &DisplayWorker::setNightMode);
 
     m_frameProxy->pushWidget(this, page);
 }

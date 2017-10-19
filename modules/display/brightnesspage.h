@@ -27,6 +27,7 @@
 #define BRIGHTNESSPAGE_H
 
 #include "contentwidget.h"
+#include "switchwidget.h"
 
 #include <QVBoxLayout>
 
@@ -47,14 +48,18 @@ public:
 
 signals:
     void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
+    void requestSetNightMode(const bool nightmode);
 
 private:
     void initUI();
+    void initConnect();
 
 private:
     DisplayModel *m_displayModel;
 
     QVBoxLayout *m_centralLayout;
+
+    dcc::widgets::SwitchWidget *m_nightMode;
 };
 
 }

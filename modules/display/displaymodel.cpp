@@ -158,3 +158,18 @@ void DisplayModel::monitorRemoved(Monitor *mon)
 
     emit monitorListChanged();
 }
+
+bool DisplayModel::isNightMode() const
+{
+    return m_isNightMode;
+}
+
+void DisplayModel::setIsNightMode(bool isNightMode)
+{
+    if (m_isNightMode == isNightMode)
+        return;
+
+    m_isNightMode = isNightMode;
+
+    emit nightModeChanged(isNightMode);
+}

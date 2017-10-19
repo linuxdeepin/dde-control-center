@@ -81,6 +81,8 @@ void DisplayWorker::active()
 {
     QDBusPendingCallWatcher *scalewatcher = new QDBusPendingCallWatcher(m_appearanceInter->GetScaleFactor());
     connect(scalewatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScaleFinished);
+
+    onNightModeChanged();
 }
 
 void DisplayWorker::saveChanges()
@@ -329,6 +331,23 @@ void DisplayWorker::setUiScale(const double value)
    });
 }
 
+void DisplayWorker::setNightMode(const bool nightmode)
+{
+    QProcess process;
+
+    QString cmd;
+    if (nightmode)
+       cmd = "start";
+    else
+       cmd = "stop";
+
+    process.execute("systemctl", QStringList() << "--user" << cmd << "redshift.service");
+    process.close();
+
+    // reload
+    onNightModeChanged();
+}
+
 //void DisplayWorker::loadRotations(Monitor * const mon)
 //{
 //    MonitorInter *inter = m_monitors.value(mon);
@@ -430,4 +449,17 @@ void DisplayWorker::updateMonitorBrightness(const QString &monName, const double
             return;
         }
     }
+}
+
+void DisplayWorker::onNightModeChanged()
+{
+    QProcess *process = new QProcess;
+
+    connect(process, &QProcess::readyRead, this, [=] {
+        m_model->setIsNightMode(process->readAll().replace("\n","") == "active");
+        process->close();
+        process->deleteLater();
+    });
+
+    process->start("systemctl", QStringList() << "--user" << "is-active" << "redshift.service");
 }

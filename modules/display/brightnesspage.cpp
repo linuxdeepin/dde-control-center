@@ -29,6 +29,7 @@
 #include "settingsheaderitem.h"
 #include "settingsgroup.h"
 #include "brightnessitem.h"
+#include "../widgets/labels/tipslabel.h"
 
 using namespace dcc::widgets;
 
@@ -56,13 +57,27 @@ void BrightnessPage::setModel(DisplayModel *model)
 {
     m_displayModel = model;
 
-    connect(model, &DisplayModel::monitorListChanged, this, &BrightnessPage::back);
-
     initUI();
+    initConnect();
+
+    m_nightMode->setChecked(model->isNightMode());
 }
 
 void BrightnessPage::initUI()
 {
+    // add auto night shift
+    m_nightMode = new SwitchWidget;
+    m_nightMode->setTitle(tr("Night Shift"));
+
+    SettingsGroup *nightGrp = new SettingsGroup;
+    nightGrp->appendItem(m_nightMode);
+
+    TipsLabel *nightTip = new TipsLabel(tr("The screen tone will be auto adjusted by help of figuring out your location to protect eyes"));
+    nightTip->setWordWrap(true);
+
+    m_centralLayout->addWidget(nightGrp);
+    m_centralLayout->addWidget(nightTip);
+
     for (auto *mon : m_displayModel->monitorList())
     {
         BrightnessItem *slider = new BrightnessItem;
@@ -78,6 +93,16 @@ void BrightnessPage::initUI()
 
         m_centralLayout->addWidget(grp);
     }
+
+    m_centralLayout->addStretch();
+}
+
+void BrightnessPage::initConnect()
+{
+    connect(m_displayModel, &DisplayModel::monitorListChanged, this, &BrightnessPage::back);
+    connect(m_displayModel, &DisplayModel::nightModeChanged, m_nightMode, &SwitchWidget::setChecked);
+
+    connect(m_nightMode, &SwitchWidget::checkedChanged, this, &BrightnessPage::requestSetNightMode);
 }
 
 }
