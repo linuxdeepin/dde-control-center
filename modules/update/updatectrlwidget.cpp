@@ -266,7 +266,10 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
         }
     }
 
-    m_summary->setDetails(QString(tr("Update size: %1").arg(formatCap(downloadSize))));
+    if (!downloadSize)
+        m_summary->setDetails(tr("Downloaded"));
+    else
+        m_summary->setDetails(QString(tr("Download size: %1").arg(formatCap(downloadSize))));
 
     loadAppList(apps);
 }
