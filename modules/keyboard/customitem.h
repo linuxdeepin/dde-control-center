@@ -36,6 +36,8 @@
 
 using namespace dcc::widgets;
 
+class ShortcutKey;
+
 namespace dcc {
 namespace keyboard {
 class CustomItem : public SettingsItem
@@ -53,10 +55,8 @@ signals:
     void shortcut(const QString& shortcut);
 
 protected:
-    void mousePressEvent(QMouseEvent *e);
-    void paintEvent(QPaintEvent *e);
-    void mouseMoveEvent(QMouseEvent *e);
-    void leaveEvent(QEvent *e);
+    void mousePressEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
+    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
 private:
     KeyboardWork* m_work;
@@ -66,6 +66,7 @@ private:
     bool m_contain;
     ShortcutInfo* m_info;
     QString m_accels;
+    ShortcutKey *m_shortKey;
 };
 }
 }
