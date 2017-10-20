@@ -231,12 +231,16 @@ void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin)
     AccountsUser *userInter = m_userInters[user];
     Q_ASSERT(userInter);
 
+    emit requestFrameAutoHide(false);
+
     QDBusPendingCall call = userInter->EnableNoPasswdLogin(nopasswdLogin);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
             user->setNopasswdLogin(userInter->noPasswdLogin());
         }
+
+        emit requestFrameAutoHide(true);
         watcher->deleteLater();
     });
 }
