@@ -92,35 +92,45 @@ void DatetimeWork::deactivate()
 
 void DatetimeWork::setNTP(bool ntp)
 {
+    emit requestSetAutoHide(false);
+
     QDBusPendingCall call = m_timedateInter->SetNTP(ntp);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         // If the call failed, revert the UI change.
         if (call.isError()) {
             emit m_model->NTPChanged(m_model->nTP());
         }
+        emit requestSetAutoHide(true);
+        watcher->deleteLater();
     });
 }
 
 void DatetimeWork::setDatetime(const QDateTime &datetime)
 {
+    emit requestSetAutoHide(false);
+
     QDBusPendingCall call = m_timedateInter->SetNTP(false);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call, datetime] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (!call.isError()) {
             const QDate date = datetime.date();
             const QTime time = datetime.time();
 
             QDBusPendingCall call1 = m_timedateInter->SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), 0, 0);
             QDBusPendingCallWatcher *watcher1 = new QDBusPendingCallWatcher(call1, this);
-            connect(watcher1, &QDBusPendingCallWatcher::finished, [this, call1] {
+            connect(watcher1, &QDBusPendingCallWatcher::finished, this, [=] {
                 if (!call1.isError()) {
                     emit m_model->systemTimeChanged();
                 }
+                watcher1->deleteLater();
             });
         } else {
             qWarning() << "disable ntp failed : " << call.error().message();
         }
+
+        emit requestSetAutoHide(true);
+        watcher->deleteLater();
     });
 }
 

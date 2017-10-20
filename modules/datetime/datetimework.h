@@ -46,6 +46,9 @@ public:
     void activate();
     void deactivate();
 
+signals:
+    void requestSetAutoHide(const bool visiable) const;
+
 public slots:
     void setNTP(bool ntp);
     void setDatetime(const QDateTime &time);

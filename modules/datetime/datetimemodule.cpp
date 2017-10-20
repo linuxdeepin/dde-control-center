@@ -47,6 +47,8 @@ void DatetimeModule::initialize()
 
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
+
+    connect(m_work, &DatetimeWork::requestSetAutoHide, this, &DatetimeModule::setFrameAutoHide);
 }
 
 void DatetimeModule::moduleActive()
@@ -112,6 +114,11 @@ void DatetimeModule::showTimeSettingsPage()
     }
 
     m_frameProxy->pushWidget(this, m_dateSettings);
+}
+
+void DatetimeModule::setFrameAutoHide(const bool visiable)
+{
+    m_frameProxy->setFrameAutoHide(this, visiable);
 }
 
 DatetimeModule::~DatetimeModule()
