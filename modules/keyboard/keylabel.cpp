@@ -40,13 +40,13 @@ KeyLabel::KeyLabel(const QString &text, QWidget *parent)
     : KeyLabel(parent)
 {
     const QString &value = DisplaykeyMap[text];
-
-    setText(value.isEmpty() ? text : value);
+    const QString &t = value.isEmpty() ? text : value;
+    setText(t);
 
     QFont font = qApp->font();
     QFontMetrics fm(font);
 
-    setMinimumWidth(fm.width(text) + 8);
+    setFixedWidth(fm.width(t) + 8);
 }
 
 void KeyLabel::setEnter(const bool enter)
@@ -70,7 +70,7 @@ void KeyLabel::paintEvent(QPaintEvent *event)
     QFont font = qApp->font();
     QFontMetrics fm(font);
 
-    int h = (height() - fm.height()) / 2;
+    int h = (height() - fm.height()) / 2 - 2;
 
-    painter.drawRoundRect(rect().adjusted(0, h, 0, -h));
+    painter.drawRoundRect(rect().marginsRemoved(QMargins(0, h, 0, h)), 30, 30);
 }
