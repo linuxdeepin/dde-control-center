@@ -187,7 +187,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="64"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="65"/>
         <source>Click icon to enable VPN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -288,7 +288,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="265"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="282"/>
         <source>Password not match.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -461,12 +461,12 @@
 <context>
     <name>dcc::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="124"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="129"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -679,8 +679,18 @@
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="51"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="52"/>
         <source>Brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="70"/>
+        <source>Night Shift</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
+        <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -710,7 +720,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="251"/>
+        <location filename="../modules/display/displaymodule.cpp" line="252"/>
         <source>Wireless Screen Projection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -757,7 +767,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="166"/>
+        <location filename="../modules/display/displayworker.cpp" line="168"/>
         <source>My Settings %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1149,7 +1159,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="292"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="285"/>
         <source>Please enter a new shortcut</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1158,11 +1168,8 @@
     <name>dcc::keyboard::ShortcutModel</name>
     <message>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="128"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="150"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="172"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="193"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="218"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="239"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
