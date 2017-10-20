@@ -182,7 +182,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="64"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="65"/>
         <source>Click icon to enable VPN</source>
         <translation>انقر الأيقونة لتمكين VPN</translation>
     </message>
@@ -190,17 +190,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="110"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
         <translation>عذرا، غير قادر على الحصول على الطقس!</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="117"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
         <source>Loading weather...</source>
         <translation>تحميل الطقس...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="184"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
         <source>Just updated</source>
         <translation>حدثت للتو</translation>
     </message>
@@ -233,7 +233,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="53"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>تعديل الاسم الكامل</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="56"/>
@@ -248,7 +248,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="63"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>تسجيل الدخول بدون كلمة المرور</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="67"/>
@@ -258,7 +258,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="70"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>تعذر الحذف، سجل المستخدم الحالي الدخول</translation>
     </message>
 </context>
 <context>
@@ -283,7 +283,7 @@
         <translation>صور</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="265"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="282"/>
         <source>Password not match.</source>
         <translation>كلمة المرور غير متطابقة.</translation>
     </message>
@@ -343,7 +343,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>الاسم الكامل:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -353,7 +353,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>إعدادات الاسم الكامل</translation>
     </message>
 </context>
 <context>
@@ -456,12 +456,12 @@
 <context>
     <name>dcc::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="124"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
         <translation>متصل</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="129"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
         <translation>غير متصل</translation>
     </message>
@@ -674,9 +674,19 @@
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="51"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="52"/>
         <source>Brightness</source>
         <translation>السطوع</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="70"/>
+        <source>Night Shift</source>
+        <translation>الوضع الليلي</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
+        <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
+        <translation>سيتم تعديل نغمة الشاشة تلقائيا بمساعدة من معرفة موقعك لحماية العينين</translation>
     </message>
 </context>
 <context>
@@ -705,7 +715,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="251"/>
+        <location filename="../modules/display/displaymodule.cpp" line="252"/>
         <source>Wireless Screen Projection</source>
         <translation>شاشة إسقاط لاسلكية</translation>
     </message>
@@ -715,7 +725,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>عرض الشاشة</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -752,7 +762,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="166"/>
+        <location filename="../modules/display/displayworker.cpp" line="168"/>
         <source>My Settings %1</source>
         <translation>إعداداتي %1</translation>
     </message>
@@ -1098,9 +1108,9 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="164"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="176"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="338"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="172"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="184"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="346"/>
         <source>None</source>
         <translation>لا شيء</translation>
     </message>
@@ -1144,7 +1154,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="292"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="285"/>
         <source>Please enter a new shortcut</source>
         <translation>يرجى إدخال اختصار جديد</translation>
     </message>
@@ -1153,10 +1163,8 @@
     <name>dcc::keyboard::ShortcutModel</name>
     <message>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="128"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="150"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="172"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="193"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="218"/>
         <source>None</source>
         <translation>لا شيء</translation>
     </message>
@@ -1315,7 +1323,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="42"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>تطبيقات البروكسي</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="45"/>
@@ -1325,7 +1333,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="48"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>عنوان الشبكة</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
@@ -1357,7 +1365,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="78"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Laucher to use after configured</source>
-        <translation type="unfinished"/>
+        <translation>تحقق من &quot;فتح بواسطة بروكسي&quot; من قائمة سياق التطبيق في المشغل لاستخدامها بعد الإعداد</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
@@ -1417,12 +1425,12 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation type="unfinished"/>
+        <translation>إعدادات نقطة الإتصال</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>نقطة الإتصال</translation>
     </message>
 </context>
 <context>
@@ -1435,7 +1443,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="95"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>نقطة الإتصال</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
@@ -1487,7 +1495,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="161"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>عنوان الشبكة الإصدار السادس</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="176"/>
@@ -1548,7 +1556,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>تطبيقات البروكسي</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
@@ -1589,7 +1597,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="200"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>نقطة الإتصال</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="211"/>
@@ -1711,7 +1719,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="80"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>إستيراد شبكة خاصة إفتراضية</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="99"/>
@@ -1721,7 +1729,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="254"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>خطأ في الإستيراد</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="256"/>
@@ -2255,7 +2263,17 @@
         <translation><numerusform>تم اكتشاف إصدار جديد للنظام و %n من تحديثات التطبيقات</numerusform><numerusform>تم اكتشاف إصدار جديد للنظام و %n من تحديثات التطبيقات</numerusform><numerusform>تم اكتشاف إصدار جديد للنظام و %n من تحديثات التطبيقات</numerusform><numerusform>تم اكتشاف إصدار جديد للنظام و %n من تحديثات التطبيقات</numerusform><numerusform>تم اكتشاف إصدار جديد للنظام و %n من تحديثات التطبيقات</numerusform><numerusform>تم اكتشاف إصدار جديد للنظام  و %n من تحديثات التطبيقات</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <source>Downloaded</source>
+        <translation>تم التنزيل</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <source>Download size: %1</source>
+        <translation>حجم التحميل: %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% تم تحميله (انقر للإيقاف)</translation>
     </message>
@@ -2265,17 +2283,12 @@
         <translation>تم اكتشاف إصدار  جديد للنظام</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
-        <source>Update size: %1</source>
-        <translation>حجم التحديث: %1</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="287"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="290"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>البطارية أقل من 50٪، يرجى التوصيل للمتابعة</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="289"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="292"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>الرجاء التأكد من أن الطاقة كافية لإعادة التشغيل، وعدم فصل الجهاز من الطاقة</translation>
     </message>
@@ -2298,7 +2311,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="55"/>
         <source>Auto clear package cache</source>
-        <translation type="unfinished"/>
+        <translation>المسح التلقائي للذاكرة المؤقتة للحزم</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="58"/>
@@ -2348,7 +2361,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>قلم</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
@@ -2395,7 +2408,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>قلم</translation>
     </message>
 </context>
 <context>

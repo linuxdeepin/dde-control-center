@@ -182,7 +182,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="64"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="65"/>
         <source>Click icon to enable VPN</source>
         <translation>Clique para habilitar a VPN</translation>
     </message>
@@ -190,17 +190,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="110"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
         <translation>Desculpe, incapaz de obter a previsão do tempo!</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="117"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
         <source>Loading weather...</source>
         <translation>Carregando previsão do tempo...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="184"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
         <source>Just updated</source>
         <translation>Apenas atualizado</translation>
     </message>
@@ -283,7 +283,7 @@
         <translation>Imagens</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="265"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="282"/>
         <source>Password not match.</source>
         <translation>As senhas não conferem.</translation>
     </message>
@@ -456,12 +456,12 @@
 <context>
     <name>dcc::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="124"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
         <translation>Conectado</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="129"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
         <translation>Não conectado</translation>
     </message>
@@ -674,9 +674,19 @@
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="51"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="52"/>
         <source>Brightness</source>
         <translation>Brilho</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="70"/>
+        <source>Night Shift</source>
+        <translation>Modo noite</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
+        <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
+        <translation>O tom da tela será ajustado automaticamente com a ajuda de descobrir sua localização para proteger os olhos</translation>
     </message>
 </context>
 <context>
@@ -705,7 +715,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="251"/>
+        <location filename="../modules/display/displaymodule.cpp" line="252"/>
         <source>Wireless Screen Projection</source>
         <translation>Projeção de Tela WIFI</translation>
     </message>
@@ -752,7 +762,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="166"/>
+        <location filename="../modules/display/displayworker.cpp" line="168"/>
         <source>My Settings %1</source>
         <translation>Minhas configurações %1</translation>
     </message>
@@ -1098,9 +1108,9 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="164"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="176"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="338"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="172"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="184"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="346"/>
         <source>None</source>
         <translation>Nenhum</translation>
     </message>
@@ -1144,7 +1154,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="292"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="285"/>
         <source>Please enter a new shortcut</source>
         <translation>Por favor, insira o novo atalho</translation>
     </message>
@@ -1153,10 +1163,8 @@
     <name>dcc::keyboard::ShortcutModel</name>
     <message>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="128"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="150"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="172"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="193"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="218"/>
         <source>None</source>
         <translation>Nenhum</translation>
     </message>
@@ -2254,7 +2262,17 @@
         <translation><numerusform>Nova versão do sistema e %n atualização de aplicativo(s) detectada</numerusform><numerusform>Nova versão do sistema e %n atualização de aplicativo(s) detectada</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <source>Downloaded</source>
+        <translation>Baixado</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <source>Download size: %1</source>
+        <translation>Tamanho do download: %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% baixado (Clique para pausar)</translation>
     </message>
@@ -2264,17 +2282,12 @@
         <translation>Nova versão do sistema detectada</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
-        <source>Update size: %1</source>
-        <translation>Tamanho da atualização: %1</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="287"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="290"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>A bateria está com menos de 50%, conecte o carregador para continuar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="289"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="292"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Verifique se há bateria suficiente para reiniciar e não desligue e nem desconecte o computador</translation>
     </message>

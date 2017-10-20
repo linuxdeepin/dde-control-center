@@ -182,7 +182,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="64"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="65"/>
         <source>Click icon to enable VPN</source>
         <translation>Haga clic en el icono para habilitar VPN</translation>
     </message>
@@ -190,17 +190,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="110"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
         <translation>¡Lo sentimos, no se puede obtener el tiempo!</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="117"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
         <source>Loading weather...</source>
         <translation>Cargando el tiempo...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="184"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
         <source>Just updated</source>
         <translation>Actualizado</translation>
     </message>
@@ -283,7 +283,7 @@
         <translation>Imágenes</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="265"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="282"/>
         <source>Password not match.</source>
         <translation>Contraseña no encontrada.</translation>
     </message>
@@ -456,12 +456,12 @@
 <context>
     <name>dcc::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="124"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
         <translation>Conectado</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="129"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
         <translation>No conectado</translation>
     </message>
@@ -674,9 +674,19 @@
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="51"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="52"/>
         <source>Brightness</source>
         <translation>Brillo</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="70"/>
+        <source>Night Shift</source>
+        <translation>Modo Turno</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
+        <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
+        <translation>El tono de la pantalla se ajustará automáticamente ayúdanos a encontrar la mejor ubicación para proteger los ojos</translation>
     </message>
 </context>
 <context>
@@ -705,7 +715,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="251"/>
+        <location filename="../modules/display/displaymodule.cpp" line="252"/>
         <source>Wireless Screen Projection</source>
         <translation>Proyector de pantalla inalámbrico</translation>
     </message>
@@ -752,7 +762,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="166"/>
+        <location filename="../modules/display/displayworker.cpp" line="168"/>
         <source>My Settings %1</source>
         <translation>Mis ajustes %1</translation>
     </message>
@@ -1098,9 +1108,9 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="164"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="176"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="338"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="172"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="184"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="346"/>
         <source>None</source>
         <translation>Ninguno</translation>
     </message>
@@ -1144,7 +1154,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="292"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="285"/>
         <source>Please enter a new shortcut</source>
         <translation>Por favor introduzca un nuevo atajo de teclado</translation>
     </message>
@@ -1153,10 +1163,8 @@
     <name>dcc::keyboard::ShortcutModel</name>
     <message>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="128"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="150"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="172"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="193"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="218"/>
         <source>None</source>
         <translation>Ninguno</translation>
     </message>
@@ -1584,7 +1592,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="54"/>
         <source>System Proxy</source>
-        <translation>Proxy de Sistema</translation>
+        <translation>Proxy del sistema</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="200"/>
@@ -2254,7 +2262,17 @@
         <translation><numerusform>Nueva edición de sistema y %n actualización de aplicación detectada</numerusform><numerusform>Nueva edición de sistema y %n aplicacione(es) por actualizar detectada(s)</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <source>Downloaded</source>
+        <translation>Descargado</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <source>Download size: %1</source>
+        <translation>Tamaño de descarga: %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% descargado (Clic para pausar)</translation>
     </message>
@@ -2264,17 +2282,12 @@
         <translation>Nueva edición del sistema detectada</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
-        <source>Update size: %1</source>
-        <translation>Tamaño de la actualización: %1</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="287"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="290"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Su bateria esta por debajo del 50%, por favor conecte a la luz para continuar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="289"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="292"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Por favor asegurese de que tiene suficiente potencia para reiniciar, y no apague o desenchufe su portátil</translation>
     </message>

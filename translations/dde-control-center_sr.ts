@@ -182,7 +182,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="64"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="65"/>
         <source>Click icon to enable VPN</source>
         <translation>Кликните на иконицу да укључите VPN</translation>
     </message>
@@ -190,17 +190,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="110"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
         <translation>Извините, нисмо успели да преузмемо временску прогнозу!</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="117"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
         <source>Loading weather...</source>
         <translation>Учитавање временске прогнозе...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="184"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
         <source>Just updated</source>
         <translation>Управо ажурирано</translation>
     </message>
@@ -283,7 +283,7 @@
         <translation>Слике</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="265"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="282"/>
         <source>Password not match.</source>
         <translation>Лозинке се не поклапају.</translation>
     </message>
@@ -456,12 +456,12 @@
 <context>
     <name>dcc::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="124"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
         <translation>Повезано</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="129"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
         <translation>Није повезано</translation>
     </message>
@@ -674,9 +674,19 @@
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="51"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="52"/>
         <source>Brightness</source>
         <translation>Осветљење</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="70"/>
+        <source>Night Shift</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
+        <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -705,7 +715,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="251"/>
+        <location filename="../modules/display/displaymodule.cpp" line="252"/>
         <source>Wireless Screen Projection</source>
         <translation>Бежична пројекција екрана</translation>
     </message>
@@ -752,7 +762,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="166"/>
+        <location filename="../modules/display/displayworker.cpp" line="168"/>
         <source>My Settings %1</source>
         <translation>Моја подешавања %1</translation>
     </message>
@@ -1098,9 +1108,9 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="164"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="176"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="338"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="172"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="184"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="346"/>
         <source>None</source>
         <translation>Ништа</translation>
     </message>
@@ -1144,7 +1154,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="292"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="285"/>
         <source>Please enter a new shortcut</source>
         <translation>Молимо вас направите нову пречицу</translation>
     </message>
@@ -1153,10 +1163,8 @@
     <name>dcc::keyboard::ShortcutModel</name>
     <message>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="128"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="150"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="172"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="193"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="218"/>
         <source>None</source>
         <translation>Ниједно</translation>
     </message>
@@ -2254,7 +2262,17 @@
         <translation><numerusform>Пронађено је ново издање система и ажурирање за %n апликацију(е)</numerusform><numerusform>Пронађено је ново издање система и ажурирање за %n апликацију(е)</numerusform><numerusform>Пронађено је ново издање система и ажурирање за %n апликацију(е)</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <source>Downloaded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <source>Download size: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% преузето (Клик за паузу)</translation>
     </message>
@@ -2264,17 +2282,12 @@
         <translation>Нова издања система су пронађена</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
-        <source>Update size: %1</source>
-        <translation>Величина Ажурирања: %1</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="287"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="290"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Пуњење ваше батерије је мање од 50%, молимо вас прикључите пуњач за наставак</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="289"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="292"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Молимо вас, обезбедите довољно електричне енергије за рестарт, и не прекидајте довод електричне енергије у вашу машину</translation>
     </message>

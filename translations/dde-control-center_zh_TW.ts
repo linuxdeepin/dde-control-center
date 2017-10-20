@@ -182,7 +182,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="64"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="65"/>
         <source>Click icon to enable VPN</source>
         <translation>點擊圖示開啟 VPN</translation>
     </message>
@@ -190,17 +190,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="110"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
         <translation>抱歉，無法取得天氣！</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="117"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
         <source>Loading weather...</source>
         <translation>正在載入天氣…</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="184"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
         <source>Just updated</source>
         <translation>剛剛更新</translation>
     </message>
@@ -283,7 +283,7 @@
         <translation>圖片檔案</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="265"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="282"/>
         <source>Password not match.</source>
         <translation>兩次輸入的密碼不相同。</translation>
     </message>
@@ -456,12 +456,12 @@
 <context>
     <name>dcc::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="124"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
         <translation>已連線</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="129"/>
+        <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
         <translation>未連線</translation>
     </message>
@@ -674,9 +674,19 @@
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="51"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="52"/>
         <source>Brightness</source>
         <translation>螢幕亮度</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="70"/>
+        <source>Night Shift</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
+        <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -705,7 +715,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="251"/>
+        <location filename="../modules/display/displaymodule.cpp" line="252"/>
         <source>Wireless Screen Projection</source>
         <translation>無線螢幕投影</translation>
     </message>
@@ -752,7 +762,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="166"/>
+        <location filename="../modules/display/displayworker.cpp" line="168"/>
         <source>My Settings %1</source>
         <translation>我的設定值 %1</translation>
     </message>
@@ -1098,9 +1108,9 @@
 <context>
     <name>dcc::keyboard::KeyboardWork</name>
     <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="164"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="176"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="338"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="172"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="184"/>
+        <location filename="../modules/keyboard/keyboardwork.cpp" line="346"/>
         <source>None</source>
         <translation>無</translation>
     </message>
@@ -1144,7 +1154,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="292"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="285"/>
         <source>Please enter a new shortcut</source>
         <translation>請輸入新快速鍵</translation>
     </message>
@@ -1153,10 +1163,8 @@
     <name>dcc::keyboard::ShortcutModel</name>
     <message>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="128"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="150"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="172"/>
         <location filename="../modules/keyboard/shortcutmodel.cpp" line="193"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="218"/>
         <source>None</source>
         <translation>無</translation>
     </message>
@@ -2254,7 +2262,17 @@
         <translation><numerusform>偵測到新版本系統與 %1 個應用程式更新</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <source>Downloaded</source>
+        <translation>已下載</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <source>Download size: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>已下載 %1%（點擊暫停）</translation>
     </message>
@@ -2264,17 +2282,12 @@
         <translation>偵測到新版本系統</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
-        <source>Update size: %1</source>
-        <translation>更新大小：%1</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="287"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="290"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>電量低於 50%，請先接上電源</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="289"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="292"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>重新啟動前請確保穩定供電，並勿關機或拔除電源</translation>
     </message>
