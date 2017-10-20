@@ -244,7 +244,7 @@ void Frame::contentDetached(QWidget *const c)
 void Frame::onScreenRectChanged(const QRect &primaryRect)
 {
     // pass invalid data
-    if (primaryRect.isEmpty()) {
+    if (primaryRect.isNull() || primaryRect.isEmpty()) {
         return;
     }
 
@@ -329,8 +329,8 @@ void Frame::show()
     const qreal ratio = devicePixelRatioF();
 
     // animation
-    QRect r = m_primaryRect;
-    r.setLeft(m_primaryRect.x() + m_primaryRect.width());
+    QRect r = QRect(m_primaryRect.topLeft(), m_primaryRect.size() / ratio);
+    r.setLeft(r.x() + r.width());
     m_appearAnimation.setStartValue(r);
     r.setLeft(m_primaryRect.x() + m_primaryRect.width() / ratio - FRAME_WIDTH);
     m_appearAnimation.setEndValue(r);
@@ -373,8 +373,9 @@ void Frame::hide()
     m_autoHide = true;
 
     // animation
-    QRect r = m_primaryRect;
-    r.setLeft(m_primaryRect.x() + m_primaryRect.width());
+    const auto ratio = devicePixelRatioF();
+    QRect r = QRect(m_primaryRect.topLeft(), m_primaryRect.size() / ratio);
+    r.setLeft(r.x() + r.width());
     m_appearAnimation.setStartValue(geometry());
     m_appearAnimation.setEndValue(r);
     m_appearAnimation.start();
