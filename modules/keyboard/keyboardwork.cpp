@@ -601,7 +601,18 @@ void KeyboardWork::setLayout(const QString &value)
 #ifndef DCC_DISABLE_LANGUAGE
 void KeyboardWork::setLang(const QString &value)
 {
-    m_langSelector->SetLocale(value);
+    emit requestSetAutoHide(false);
+
+    QDBusPendingCall call = m_langSelector->SetLocale(value);
+
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError())
+            m_model->setLang(m_langSelector->currentLocale());
+
+        emit requestSetAutoHide(true);
+        watcher->deleteLater();
+    });
 }
 #endif
 

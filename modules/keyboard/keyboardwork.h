@@ -86,6 +86,7 @@ signals:
     void KeyEvent(bool in0, const QString &in1);
     void searchChangd(ShortcutInfo* info, const QString& key);
     void removed(const QString &id, int type);
+    void requestSetAutoHide(const bool visiable);
 
 public slots:
 #ifndef DCC_DISABLE_LANGUAGE

@@ -60,6 +60,8 @@ void KeyboardModule::initialize()
     m_model->moveToThread(qApp->thread());
     m_shortcutModel->moveToThread(qApp->thread());
     m_work->moveToThread(qApp->thread());
+
+    connect(m_work, &KeyboardWork::requestSetAutoHide, this, &KeyboardModule::onSetFrameAutoHide);
 }
 
 void KeyboardModule::moduleActive()
