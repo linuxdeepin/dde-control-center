@@ -63,11 +63,41 @@ FontSettingsWidget::FontSettingsWidget(QWidget *parent)
 
 void FontSettingsWidget::setModel(PersonalizationModel * const model)
 {
+    m_model = model;
+
     FontModel *standmodel = model->getStandFontModel();
     FontModel *monomodel  = model->getMonoFontModel();
-    connect(standmodel, &FontModel::defaultFontChanged, m_standard, &NextPageWidget::setValue);
-    connect(monomodel, &FontModel::defaultFontChanged, m_mono, &NextPageWidget::setValue);
+    connect(standmodel, &FontModel::defaultFontChanged, this, &FontSettingsWidget::onStandFontChanged);
+    connect(monomodel, &FontModel::defaultFontChanged, this, &FontSettingsWidget::onMonoFontChanged);
 
-    m_standard->setValue(standmodel->getFontName());
-    m_mono->setValue(monomodel->getFontName());
+    onStandFontChanged(standmodel->getFontName());
+    onMonoFontChanged(monomodel->getFontName());
+}
+
+void FontSettingsWidget::onStandFontChanged(const QString &name)
+{
+    FontModel *standmodel = m_model->getStandFontModel();
+
+    for (const QJsonObject &obj : standmodel->getFontList()) {
+        if (obj["Id"].toString() == name) {
+            m_standard->setValue(obj["Name"].toString());
+            return;
+        }
+    }
+
+    m_standard->setValue(standmodel->getFontName() + tr(" (Unsupported font)"));
+}
+
+void FontSettingsWidget::onMonoFontChanged(const QString &name)
+{
+    FontModel *monomodel = m_model->getMonoFontModel();
+
+    for (const QJsonObject &obj : monomodel->getFontList()) {
+        if (obj["Id"].toString() == name) {
+            m_mono->setValue(obj["Name"].toString());
+            return;
+        }
+    }
+
+    m_mono->setValue(monomodel->getFontName() + tr(" (Unsupported font)"));
 }

@@ -53,11 +53,16 @@ signals:
     void showStandardFont();
     void showMonoFont();
 
+private slots:
+    void onStandFontChanged(const QString &name);
+    void onMonoFontChanged(const QString &name);
+
 private:
     QVBoxLayout    *m_mainlayout;
     widgets::SettingsGroup  *m_fontWidget;
     widgets::NextPageWidget *m_standard;
     widgets::NextPageWidget *m_mono;
+    PersonalizationModel *m_model;
 };
 }
 }
