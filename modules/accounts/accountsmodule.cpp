@@ -29,6 +29,9 @@
 #include "modifyavatarpage.h"
 #include "modifyfullnamepage.h"
 #include "createpage.h"
+#include "fingerpage.h"
+#include "addfingerpage.h"
+#include "fingermodel.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -49,6 +52,12 @@ void AccountsModule::initialize()
 
     m_accountsWorker->moveToThread(qApp->thread());
     m_userList->moveToThread(qApp->thread());
+
+    m_fingerModel = new FingerModel;
+    m_fingerWorker = new FingerWorker(m_fingerModel);
+
+    m_fingerModel->moveToThread(qApp->thread());
+    m_fingerWorker->moveToThread(qApp->thread());
 
     m_accountsWorker->active();
 
@@ -141,12 +150,14 @@ void AccountsModule::showPasswordPage(User *account)
 void AccountsModule::showAccountsDetail(User *account)
 {
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
+    w->setFingerModel(m_fingerModel);
 
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
     connect(w, &AccountsDetailWidget::showPwdSettings, this, &AccountsModule::showPasswordPage);
     connect(w, &AccountsDetailWidget::showAvatarSettings, this, &AccountsModule::showAvatarPage);
     connect(w, &AccountsDetailWidget::showFullnameSettings, this, &AccountsModule::showFullnamePage);
+    connect(w, &AccountsDetailWidget::showFingerSettings, this, &AccountsModule::showFingerPage);
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
 
     connect(w, &AccountsDetailWidget::requestChangeFrameAutoHide, this, [this] (const bool autoHide) {
@@ -168,6 +179,32 @@ void AccountsModule::showCreateAccountPage()
 
     m_accountsWorker->randomUserIcon(newUser);
     m_frameProxy->pushWidget(this, createPage);
+}
+
+void AccountsModule::showFingerPage(User *account)
+{
+    m_fingerWorker->refreshUserEnrollList(account->name());
+
+    dcc::accounts::FingerPage *page = new FingerPage(account);
+    page->setFingerModel(m_fingerModel);
+
+    connect(page, &FingerPage::requestAddThumbs, this, &AccountsModule::showAddThumb);
+    connect(page, &FingerPage::requestAddThumbs, m_fingerWorker, &FingerWorker::enrollStart);
+    connect(page, &FingerPage::requestCleanThumbs, m_fingerWorker, &FingerWorker::cleanEnroll);
+
+    m_frameProxy->pushWidget(this, page);
+}
+
+void AccountsModule::showAddThumb(const QString &name, const QString &thumb)
+{
+    AddFingerPage *page = new AddFingerPage(thumb);
+    page->setFingerModel(m_fingerModel);
+    page->setUsername(name);
+
+    connect(page, &AddFingerPage::requestSaveThumb, m_fingerWorker, &FingerWorker::saveEnroll);
+    connect(page, &AddFingerPage::requestReEnrollStart, m_fingerWorker, &FingerWorker::reEnrollStart);
+
+    m_frameProxy->pushWidget(this, page);
 }
 
 void AccountsModule::contentPopped(ContentWidget * const w)

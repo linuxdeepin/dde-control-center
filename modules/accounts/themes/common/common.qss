@@ -7,3 +7,7 @@ QPushButton#DeleteAccountButton
 QPushButton#DeleteAccountButton:disabled {
     color: rgba(255, 90, 90, 0.4);
 }
+
+QPushButton#FingerClean {
+    color: #FF5A5A;
+}

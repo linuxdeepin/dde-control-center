@@ -26,6 +26,7 @@
 #include "accountsdetailwidget.h"
 #include "nextpagewidget.h"
 #include "translucentframe.h"
+#include "fingermodel.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -45,6 +46,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
       m_modifyPassword(new NextPageWidget),
       m_autoLogin(new SwitchWidget),
       m_nopasswdLogin(new SwitchWidget),
+      m_finger(new NextPageWidget),
       m_deleteAccount(new QPushButton)
 {
     m_modifyAvatar->setTitle(tr("Modify Avatar"));
@@ -69,9 +71,15 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 
     QLabel *tip = new QLabel(tr("Unable to delete, current user logged in"));
 
+    m_finger->setTitle(tr("Fingerprint Password"));
+
+    SettingsGroup *fingerGrp = new SettingsGroup;
+    fingerGrp->appendItem(m_finger);
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addSpacing(10);
     mainLayout->addWidget(m_accountSettings);
+    mainLayout->addWidget(fingerGrp);
     mainLayout->addWidget(m_deleteAccount);
     mainLayout->addWidget(tip);
     mainLayout->setMargin(0);
@@ -92,6 +100,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     connect(m_modifyAvatar, &NextPageWidget::clicked, [=] { emit showAvatarSettings(user); });
     connect(m_modifyFullname, &NextPageWidget::clicked, [=] { emit showFullnameSettings(user); });
     connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, [=] (const bool nopasswdLogin) { emit requestNopasswdLogin(user, nopasswdLogin);});
+    connect(m_finger, &NextPageWidget::clicked, this, [=] { emit showFingerSettings(user);});
 
     setContent(mainWidget);
     setTitle(user->name());
@@ -100,6 +109,11 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 
     m_deleteAccount->setDisabled(isOnline);
     tip->setVisible(isOnline);
+}
+
+void AccountsDetailWidget::setFingerModel(FingerModel *model)
+{
+    m_finger->setVisible(model->isVaild());
 }
 
 void AccountsDetailWidget::deleteUserClicked()

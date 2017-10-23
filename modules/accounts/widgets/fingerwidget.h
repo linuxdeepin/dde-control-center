@@ -3,6 +3,7 @@
 
 #include <dpicturesequenceview.h>
 #include <QWidget>
+#include <QLabel>
 
 DWIDGET_USE_NAMESPACE
 
@@ -14,8 +15,14 @@ class FingerWidget : public QWidget
 public:
     explicit FingerWidget(QWidget *parent = nullptr);
 
+    void setFrequency(const QString &value);
+
+protected:
+    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+
 private:
     DPictureSequenceView *m_view;
+    QLabel *m_tipLbl;
 };
 }
 }

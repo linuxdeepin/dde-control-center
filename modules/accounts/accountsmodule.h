@@ -31,6 +31,8 @@
 #include "accountsworker.h"
 #include "user.h"
 #include "usermodel.h"
+#include "fingermodel.h"
+#include "fingerworker.h"
 
 #include <com_deepin_daemon_accounts.h>
 
@@ -62,6 +64,8 @@ private:
     void showPasswordPage(User *account);
     void showAccountsDetail(User *account);
     void showCreateAccountPage();
+    void showFingerPage(User *account);
+    void showAddThumb(const QString &name, const QString &thumb);
     void contentPopped(ContentWidget * const w);
 
 private slots:
@@ -72,6 +76,9 @@ private:
 
     AccountsWidget *m_accountsWidget;
     AccountsWorker *m_accountsWorker;
+
+    FingerWorker *m_fingerWorker;
+    FingerModel *m_fingerModel;
 };
 
 }   // namespace accounts

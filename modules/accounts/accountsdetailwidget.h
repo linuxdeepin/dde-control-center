@@ -32,22 +32,27 @@
 #include "nextpagewidget.h"
 #include "switchwidget.h"
 
+#include <com_deepin_daemon_fprintd_device.h>
 #include <QPushButton>
+
+using com::deepin::daemon::fprintd::Device;
 
 namespace dcc {
 namespace accounts {
-
+class FingerModel;
 class AccountsDetailWidget : public ContentWidget
 {
     Q_OBJECT
 
 public:
     explicit AccountsDetailWidget(User *user, QWidget *parent = 0);
+    void setFingerModel(FingerModel *model);
 
 signals:
     void showPwdSettings(User *user) const;
     void showAvatarSettings(User *user) const;
     void showFullnameSettings(User *user) const;
+    void showFingerSettings(User *user) const;
 
     void requestDeleteAccount(User *user, const bool deleteHome) const;
     void requestSetAutoLogin(User *user, const bool autoLogin) const;
@@ -66,6 +71,7 @@ private:
     dcc::widgets::NextPageWidget *m_modifyPassword;
     dcc::widgets::SwitchWidget *m_autoLogin;
     dcc::widgets::SwitchWidget *m_nopasswdLogin;
+    dcc::widgets::NextPageWidget *m_finger;
     QPushButton *m_deleteAccount;
 };
 

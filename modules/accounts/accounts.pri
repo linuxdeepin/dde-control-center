@@ -15,7 +15,11 @@ HEADERS += \
     $$PWD/avatardel.h \
     $$PWD/modifyfullnamepage.h \
     $$PWD/widgets/fingerwidget.h \
-    $$PWD/widgets/fingeritem.h
+    $$PWD/widgets/fingeritem.h \
+    $$PWD/fingerpage.h \
+    $$PWD/addfingerpage.h \
+    $$PWD/fingerworker.h \
+    $$PWD/fingermodel.h
 
 SOURCES += \
     $$PWD/accountsmodule.cpp \
@@ -34,7 +38,11 @@ SOURCES += \
     $$PWD/avatardel.cpp \
     $$PWD/modifyfullnamepage.cpp \
     $$PWD/widgets/fingerwidget.cpp \
-    $$PWD/widgets/fingeritem.cpp
+    $$PWD/widgets/fingeritem.cpp \
+    $$PWD/fingerpage.cpp \
+    $$PWD/addfingerpage.cpp \
+    $$PWD/fingerworker.cpp \
+    $$PWD/fingermodel.cpp
 
 #INCLUDEPATH += $$PWD/..
 
