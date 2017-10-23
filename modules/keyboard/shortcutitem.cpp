@@ -44,15 +44,20 @@ ShortcutItem::ShortcutItem(QFrame *parent)
       m_display(false),
       m_info(NULL)
 {
+    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    setMinimumHeight(36);
+    setFixedWidth(344);
+
     setMouseTracking(true);
     QHBoxLayout* layout = new QHBoxLayout();
-    layout->setContentsMargins(20,0,10,0);
+    layout->setContentsMargins(20,2,10,2);
     layout->setSpacing(2);
 
     m_title = new QLabel();
     m_title->setText("");
-    m_title->setAlignment(Qt::AlignCenter);
+    m_title->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     m_title->setWordWrap(true);
+    m_title->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
     layout->addWidget(m_title);
     layout->setAlignment(m_title, Qt::AlignLeft);
@@ -71,7 +76,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 
     layout->addStretch();
     layout->addWidget(m_checkBtn);
-    layout->setAlignment(m_checkBtn, Qt::AlignVCenter);
+    layout->setAlignment(m_checkBtn, Qt::AlignVCenter | Qt::AlignRight);
     m_checkBtn->hide();
 
     m_key = new ShortcutKey;
@@ -79,11 +84,11 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 
     m_shortcutEdit = new QLineEdit;
     m_shortcutEdit->setReadOnly(true);
-    layout->addWidget(m_shortcutEdit);
+    layout->addWidget(m_shortcutEdit, 0, Qt::AlignVCenter | Qt::AlignRight);
+    m_shortcutEdit->setPlaceholderText(tr("Please enter a new shortcut"));
     m_shortcutEdit->hide();
 
     setLayout(layout);
-    setFixedHeight(36);
 
     m_inter = new KeybingdingInter("com.deepin.daemon.Keybinding",
                                           "/com/deepin/daemon/Keybinding",
@@ -116,6 +121,12 @@ ShortcutInfo *ShortcutItem::curInfo()
 void ShortcutItem::setTitle(const QString &title)
 {
     m_title->setText(title);
+
+    m_key->adjustSize();
+
+    int v = width() - m_key->width() - 32;
+    if (m_title->fontMetrics().width(m_title->text()) > v)
+        m_title->setFixedWidth(v);
 }
 
 void ShortcutItem::onFocusChanged(QWidget *old, QWidget *now)
@@ -273,16 +284,15 @@ void ShortcutItem::updateShortcutKeys()
 
 void ShortcutItem::mousePressEvent(QMouseEvent *e)
 {
-    Q_UNUSED(e);
+    if (m_checkBtn->isVisible())
+        return;
 
     if(!m_shortcutEdit->isVisible() && m_key->rect().contains(m_key->mapFromParent(e->pos())))
     {
         m_key->hide();
-        m_shortcutEdit->clear();
         m_inter->GrabScreen();
         m_shortcutEdit->setFocus();
         m_shortcutEdit->show();
-        m_shortcutEdit->setPlaceholderText(tr("Please enter a new shortcut"));
         m_info->item = this;
     }
     else
