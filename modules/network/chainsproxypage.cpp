@@ -75,7 +75,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     layout->addWidget(grp);
 
     QLabel *tip = new QLabel;
-    tip->setText(tr("Check \"Open by proxy\" of application context menu in Laucher to use after configured"));
+    tip->setText(tr("Check \"Open by proxy\" of application context menu in Launcher to use after configured"));
     tip->setWordWrap(true);
     layout->addWidget(tip);
 
