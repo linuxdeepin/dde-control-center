@@ -47,6 +47,7 @@ public:
 
 signals:
     void clicked();
+    void notifierVisibleChanged(const bool visible);
 
 protected:
     void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;

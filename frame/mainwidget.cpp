@@ -32,7 +32,11 @@
 
 #include <com_deepin_daemon_accounts.h>
 #include <com_deepin_daemon_accounts_user.h>
+
 #include <QSettings>
+#include <QApplication>
+#include <QScreen>
+
 #include <unistd.h>
 
 using namespace dcc::accounts;
@@ -99,21 +103,6 @@ MainWidget::MainWidget(Frame *parent)
     m_currentTimeLbl->setFont(font);
     m_currentDateLbl->setObjectName("CurrentDateLabel");
 
-//    m_pluginsIndicator->setFixedHeight(20);
-//    m_pluginsIndicator->setPageCount(2);
-//    m_pluginsIndicator->setCurrentPage(0);
-//    m_pluginsIndicator->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-//    m_pluginsIndicator->setVisible(false);
-//    QHBoxLayout *indicatorLayout = new QHBoxLayout;
-//    indicatorLayout->addStretch();
-//    indicatorLayout->addWidget(m_prevPluginBtn);
-//    indicatorLayout->addSpacing(15);
-//    indicatorLayout->addWidget(m_pluginsIndicator);
-//    indicatorLayout->addSpacing(15);
-//    indicatorLayout->addWidget(m_nextPluginBtn);
-//    indicatorLayout->addStretch();
-//    indicatorLayout->setContentsMargins(10, 0, 10, 0);
-
     // Header
     TranslucentFrame *headerFrame = new TranslucentFrame;
     headerFrame->setFixedHeight(140);
@@ -163,6 +152,8 @@ MainWidget::MainWidget(Frame *parent)
 #ifndef DISABLE_SYS_UPDATE
     m_updateNotifier->setObjectName("UpdateNotifier");
     m_updateNotifier->setVisible(false);
+
+    connect(m_updateNotifier, &UpdateNotifier::notifierVisibleChanged, this, &MainWidget::updateMPRISEnable);
 #endif
 
     QVBoxLayout *centralLayout = static_cast<QVBoxLayout *>(layout());
@@ -215,6 +206,8 @@ void MainWidget::updatePluginsHeight()
 
     const int h = getPluginsHeight();
     m_pluginWrapper->setFixedHeight(h);
+
+    updateMPRISEnable();
 }
 
 void MainWidget::pluginAdded(QWidget * const w)
@@ -249,4 +242,12 @@ void MainWidget::refershTimedate()
     const QDateTime tm = QDateTime::currentDateTime();
     m_currentTimeLbl->setText(tm.time().toString("HH:mm"));
     m_currentDateLbl->setText(tm.date().toString(Qt::SystemLocaleLongDate));
+}
+
+void MainWidget::updateMPRISEnable()
+{
+    const bool update_visible = m_updateNotifier->isVisible();
+    const bool is_768 = qApp->primaryScreen()->geometry().height() == 768;
+
+    m_quickSettingsPanel->setMPRISEnable(!(update_visible && is_768));
 }

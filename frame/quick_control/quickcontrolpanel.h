@@ -33,6 +33,7 @@
 namespace dcc {
 
 class QuickSwitchButton;
+class BasicSettingsPage;
 
 namespace network {
 
@@ -65,6 +66,7 @@ public:
     explicit QuickControlPanel(QWidget *parent = 0);
 
     void setAllSettingsVisible(const bool visible);
+    void setMPRISEnable(const bool enable);
 
 signals:
     void requestDetailConfig() const;
@@ -91,6 +93,8 @@ private:
     dcc::display::DisplayWorker *m_displayWorker;
     dcc::bluetooth::BluetoothModel *m_bluetoothModel;
     dcc::bluetooth::BluetoothWorker *m_bluetoothWorker;
+
+    dcc::BasicSettingsPage *m_basicSettingsPage;
 
     dcc::QuickSwitchButton *m_wifiSwitch;
     dcc::QuickSwitchButton *m_btSwitch;

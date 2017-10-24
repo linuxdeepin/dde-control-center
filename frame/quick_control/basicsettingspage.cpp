@@ -145,6 +145,7 @@ void BasicSettingsWorker::onBrightnessChanged(const BrightnessMap value)
 BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     : QFrame(parent),
 
+      m_mprisEnable(true),
       m_volumeLow(new QLabel),
       m_volumeHigh(new QLabel),
       m_soundSlider(new QSlider),
@@ -228,10 +229,9 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     connect(m_model, &BasicSettingsModel::muteChanged, this, &BasicSettingsPage::onMuteChanged);
     connect(m_model, &BasicSettingsModel::volumeChanged, this, onVolumeChanged);
     connect(m_model, &BasicSettingsModel::brightnessChanged, this, onBrightnessChanged);
-    connect(m_mprisWidget, &DMPRISControl::mprisAcquired, [=] { m_mprisWidget->setVisible(m_mprisWidget->isWorking()); });
-    connect(m_mprisWidget, &DMPRISControl::mprisLosted, [=] { m_mprisWidget->setVisible(m_mprisWidget->isWorking()); });
+    connect(m_mprisWidget, &DMPRISControl::mprisAcquired, this, &BasicSettingsPage::onMPRISChanged);
+    connect(m_mprisWidget, &DMPRISControl::mprisLosted, this, &BasicSettingsPage::onMPRISChanged);
     connect(m_gsettings, &QGSettings::changed, this, &BasicSettingsPage::onGSettingsChanged);
-    m_mprisWidget->setVisible(m_mprisWidget->isWorking());
     onVolumeChanged(m_model->volume());
     onBrightnessChanged(m_model->brightness());
     onMuteChanged(m_model->mute());
@@ -240,6 +240,13 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
         m_worker->setVolume(value);
     });
     connect(m_lightSlider, &QSlider::valueChanged, m_worker, &BasicSettingsWorker::setBrightness);
+}
+
+void BasicSettingsPage::setMPRISEnable(const bool enable)
+{
+    m_mprisEnable = enable;
+
+    onMPRISChanged();
 }
 
 void BasicSettingsPage::onMuteChanged(const bool &mute)
@@ -260,6 +267,11 @@ void BasicSettingsPage::onGSettingsChanged(const QString &name)
     if (name == "outputVolumeMax") {
         m_soundSlider->setRange(0, std::min(m_gsettings->get("output-volume-max").toInt(), 100));
     }
+}
+
+void BasicSettingsPage::onMPRISChanged()
+{
+    m_mprisWidget->setVisible(m_mprisEnable && m_mprisWidget->isWorking());
 }
 
 bool BasicSettingsPage::eventFilter(QObject *watched, QEvent *event)

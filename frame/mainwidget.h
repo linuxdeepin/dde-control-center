@@ -68,6 +68,7 @@ private slots:
     void showNextPlugin();
     void showPrevPlugin();
     void refershTimedate();
+    void updateMPRISEnable();
 
 private:
     PluginsController *m_pluginsController;

@@ -75,7 +75,9 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     VpnControlPage *vpnPage = new VpnControlPage(m_networkModel);
 
-    m_itemStack->addWidget(new BasicSettingsPage);
+    m_basicSettingsPage = new BasicSettingsPage;
+
+    m_itemStack->addWidget(m_basicSettingsPage);
     m_itemStack->addWidget(bluetoothList);
     m_itemStack->addWidget(vpnPage);
     m_itemStack->addWidget(wifiPage);
@@ -186,6 +188,11 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 void QuickControlPanel::setAllSettingsVisible(const bool visible)
 {
     m_detailSwitch->setVisible(visible);
+}
+
+void QuickControlPanel::setMPRISEnable(const bool enable)
+{
+    m_basicSettingsPage->setMPRISEnable(enable);
 }
 
 void QuickControlPanel::leaveEvent(QEvent *e)

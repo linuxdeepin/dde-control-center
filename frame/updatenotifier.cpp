@@ -122,6 +122,7 @@ void UpdateNotifier::leaveEvent(QEvent *event)
 void UpdateNotifier::ignoreUpdates()
 {
     setVisible(false);
+    emit notifierVisibleChanged(false);
     m_settings->setValue(IgnoredPkgsKey, m_updatablePkgs);
 }
 
@@ -134,7 +135,9 @@ void UpdateNotifier::updatablePkgsChanged(const QStringList &value)
     m_updatablePkgs = value;
 
     QStringList pkgs = m_settings->value(IgnoredPkgsKey).toStringList();
-    setVisible(!comparePkgLists(pkgs, value));
+    const bool visible = !comparePkgLists(pkgs, value);
+    setVisible(visible);
+    emit notifierVisibleChanged(visible);
 }
 
 bool UpdateNotifier::comparePkgLists(QStringList val1, QStringList val2)

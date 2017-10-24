@@ -94,14 +94,19 @@ class BasicSettingsPage : public QFrame
 public:
     explicit BasicSettingsPage(QWidget *parent = 0);
 
+public slots:
+    void setMPRISEnable(const bool enable);
+
 private slots:
     void onMuteChanged(const bool &mute);
     void onGSettingsChanged(const QString &name);
+    void onMPRISChanged();
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
 private:
+    bool m_mprisEnable;
     QLabel *m_volumeLow;
     QLabel *m_volumeHigh;
     QSlider *m_soundSlider;
