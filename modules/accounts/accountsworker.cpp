@@ -37,12 +37,15 @@ using namespace dcc::accounts;
 
 const QString AccountsService("com.deepin.daemon.Accounts");
 const QString DisplayManagerService("org.freedesktop.DisplayManager");
+const QString FprintService("com.deepin.daemon.Fprintd");
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent),
       m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this)),
       m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager", QDBusConnection::systemBus(), this)),
-      m_userModel(userList)
+      m_userModel(userList),
+      m_fprintdInter(new Fprintd(FprintService, "/com/deepin/daemon/Fprintd", QDBusConnection::sessionBus(), this)),
+      m_fprDefaultInter(nullptr)
 {
     connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged);
     connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser);
@@ -53,8 +56,13 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     m_accountsInter->setSync(false);
     m_dmInter->setSync(false);
 
+    m_fprintdInter->setSync(false);
+
     onUserListChanged(m_accountsInter->userList());
     updateUserOnlineStatus(m_dmInter->sessions());
+
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_fprintdInter->GetDefaultDevice(), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &AccountsWorker::onGetFprDefaultDevFinished);
 }
 
 void AccountsWorker::active()
@@ -245,6 +253,11 @@ void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin)
     });
 }
 
+com::deepin::daemon::fprintd::Device *AccountsWorker::getFprintDevice()
+{
+    return m_fprDefaultInter;
+}
+
 void AccountsWorker::updateUserOnlineStatus(const QList<QDBusObjectPath> paths)
 {
     m_onlineUsers.clear();
@@ -258,6 +271,19 @@ void AccountsWorker::updateUserOnlineStatus(const QList<QDBusObjectPath> paths)
         const bool online = m_onlineUsers.contains(user->name());
         user->setOnline(online);
     }
+}
+
+void AccountsWorker::onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QDBusObjectPath> reply = w->reply();
+    const QDBusObjectPath &path = reply.value();
+
+    if (m_fprDefaultInter)
+        return;
+
+    m_fprDefaultInter = new Device(FprintService, path.path(), QDBusConnection::sessionBus(), this);
+
+    w->deleteLater();
 }
 
 CreationResult *AccountsWorker::createAccountInternal(const User *user)

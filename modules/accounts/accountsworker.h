@@ -32,6 +32,8 @@
 #include <com_deepin_daemon_accounts_user.h>
 #include <org_freedesktop_displaymanager.h>
 #include <org_freedesktop_displaymanager_session.h>
+#include <com_deepin_daemon_fprintd.h>
+#include <com_deepin_daemon_fprintd_device.h>
 
 #include "user.h"
 #include "usermodel.h"
@@ -43,6 +45,9 @@ using CreationResult = dcc::accounts::CreationResult;
 
 using org::freedesktop::DisplayManager;
 using org::freedesktop::displaymanager::Session;
+
+using com::deepin::daemon::Fprintd;
+using com::deepin::daemon::fprintd::Device;
 
 namespace dcc {
 namespace accounts {
@@ -73,12 +78,14 @@ public slots:
     void setPassword(User *user, const QString &passwd);
     void deleteUserIcon(User *user, const QString &iconPath);
     void setNopasswdLogin(User *user, const bool nopasswdLogin);
+    Device* getFprintDevice();
 
     void addUser(const QString &userPath);
     void removeUser(const QString &userPath);
 
 private slots:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> paths);
+    void onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w);
 
 private:
     AccountsUser *userInter(const QString &userName) const;
@@ -93,6 +100,8 @@ private:
     QStringList m_onlineUsers;
 
     UserModel *m_userModel;
+    Fprintd *m_fprintdInter;
+    Device* m_fprDefaultInter;
 };
 
 }   // namespace accounts
