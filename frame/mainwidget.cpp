@@ -246,7 +246,11 @@ void MainWidget::refershTimedate()
 
 void MainWidget::updateMPRISEnable()
 {
+#ifndef DISABLE_SYS_UPDATE
     const bool update_visible = m_updateNotifier->isVisible();
+#else
+    const bool update_visible = false;
+#endif
     const bool is_768 = qApp->primaryScreen()->geometry().height() == 768;
 
     m_quickSettingsPanel->setMPRISEnable(!(update_visible && is_768));
