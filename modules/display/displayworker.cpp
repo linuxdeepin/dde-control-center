@@ -341,6 +341,9 @@ void DisplayWorker::setNightMode(const bool nightmode)
     else
        cmd = "stop";
 
+    process.execute("systemctl", QStringList() << "--user" << "enable" << "redshift.service");
+    process.close();
+
     process.execute("systemctl", QStringList() << "--user" << cmd << "redshift.service");
     process.close();
 
