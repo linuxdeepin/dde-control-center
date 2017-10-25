@@ -75,11 +75,10 @@ void AddFingerPage::onEnrollStatusChanged(FingerModel::EnrollStatus status)
     }
 
     if (status == FingerModel::EnrollStatus::Next) {
-        QString tip(tr("Entering"));
         if (m_frequency == 1)
-            m_fingerWidget->setFrequency(tip);
+            m_fingerWidget->setFrequency(tr("Entering"));
         else
-            m_fingerWidget->setFrequency(tip + " " + QString("%1 times").arg(m_frequency));
+            m_fingerWidget->setFrequency(QString(tr("Entering %1 times")).arg(m_frequency));
 
         ++m_frequency;
 
