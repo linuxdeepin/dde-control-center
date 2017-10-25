@@ -178,7 +178,7 @@ void DisplayWorker::createConfig()
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply);
     watcher->setProperty("Name", configName);
 
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::createConfigFinshed);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onCreateConfigFinshed);
 }
 
 void DisplayWorker::switchConfig(const QString &config)
@@ -254,7 +254,7 @@ void DisplayWorker::onGetScaleFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
-void DisplayWorker::createConfigFinshed(QDBusPendingCallWatcher *w)
+void DisplayWorker::onCreateConfigFinshed(QDBusPendingCallWatcher *w)
 {
     const QString name = w->property("Name").toString();
 
