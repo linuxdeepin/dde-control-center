@@ -31,7 +31,7 @@
 #include <QObject>
 
 #include <com_deepin_daemon_display.h>
-#include <com_deepin_daemon_apperance.h>
+#include <com_deepin_daemon_appearance.h>
 
 using DisplayInter = com::deepin::daemon::Display;
 using AppearanceInter = com::deepin::daemon::Appearance;

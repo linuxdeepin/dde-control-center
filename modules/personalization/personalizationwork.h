@@ -33,7 +33,7 @@
 #include <QMap>
 #include <QString>
 #include <QJsonObject>
-#include <com_deepin_daemon_apperance.h>
+#include <com_deepin_daemon_appearance.h>
 #include <com_deepin_wm_switcher.h>
 
 using com::deepin::daemon::Appearance;
