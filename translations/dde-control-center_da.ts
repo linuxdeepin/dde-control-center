@@ -226,38 +226,43 @@
 <context>
     <name>dcc::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="50"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
         <translation>Rediger avatar</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="53"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Rediger fulde navn</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="56"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
         <translation>Rediger adgangskode</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="59"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
         <translation>Automatisk login</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="63"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Log ind uden adgangskode</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="67"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
         <source>Delete Account</source>
         <translation>Slet konto</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="70"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
+        <translation>Kan ikke slette, aktuelle bruger er logget ind</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
+        <source>Fingerprint Password</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -283,9 +288,47 @@
         <translation>Billeder</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="282"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
         <source>Password not match.</source>
         <translation>Adgangskode passer ikke.</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::accounts::AddFingerPage</name>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="29"/>
+        <source>Re-enter</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
+        <source>Done</source>
+        <translation>Færdig</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="73"/>
+        <source>Put the finger in fingerprint reader to add</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="79"/>
+        <source>Entering</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="81"/>
+        <source>Entering %1 times</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
+        <source>Add successfully</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -339,11 +382,44 @@
     </message>
 </context>
 <context>
+    <name>dcc::accounts::FingerPage</name>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
+        <source>Fingerprint List</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
+        <source>Fingerprint Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
+        <source>Clear Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
+        <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
+        <source>Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::accounts::ModifyFullNamePage</name>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Fulde navn:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -353,7 +429,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Indstillinger for fulde navn</translation>
     </message>
 </context>
 <context>
@@ -398,17 +474,17 @@
         <translation>Der kræves administratortilladelser for at kunne slette konto</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="64"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
         <translation>Slet kontomappe</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="70"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
         <translation>Annuller</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="70"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Delete</source>
         <translation>Slet</translation>
     </message>
@@ -681,7 +757,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="70"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Natteskift</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="75"/>
@@ -725,7 +801,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Skærmskalering</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -991,22 +1067,19 @@
 <context>
     <name>dcc::keyboard::CustomItem</name>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="50"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="51"/>
         <source>Shortcut</source>
         <translation>Genvej</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="128"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="153"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="158"/>
-        <source>Please enter a shortcut</source>
-        <translation>Indtast venligst en genvej</translation>
+        <location filename="../modules/keyboard/customitem.cpp" line="61"/>
+        <source>None</source>
+        <translation>Ingen</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="183"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="214"/>
-        <source>Conflict</source>
-        <translation>Konflikt</translation>
+        <location filename="../modules/keyboard/customitem.cpp" line="130"/>
+        <source>Please enter a shortcut</source>
+        <translation>Indtast venligst en genvej</translation>
     </message>
 </context>
 <context>
@@ -1154,7 +1227,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="285"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="88"/>
         <source>Please enter a new shortcut</source>
         <translation>Indtast venligst en ny genvej</translation>
     </message>
@@ -1323,7 +1396,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="42"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Programproxy</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="45"/>
@@ -1333,7 +1406,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="48"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP-adresse</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
@@ -1364,7 +1437,7 @@
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="78"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Laucher to use after configured</source>
+        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1425,12 +1498,12 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation type="unfinished"/>
+        <translation>Hotspotindstillinger</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
 </context>
 <context>
@@ -1443,7 +1516,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="95"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
@@ -1495,7 +1568,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="161"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv6-adresse</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="176"/>
@@ -1556,7 +1629,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Programproxy</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
@@ -1597,7 +1670,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="200"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="211"/>
@@ -1719,7 +1792,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="80"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>Importér VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="99"/>
@@ -1729,7 +1802,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="254"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>Fejl ved import</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="256"/>
@@ -1827,6 +1900,12 @@
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
         <translation>Skifttype med fast bredde</translation>
+    </message>
+    <message>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="88"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="102"/>
+        <source> (Unsupported font)</source>
+        <translation> (ikke-understøttet skrifttype)</translation>
     </message>
 </context>
 <context>
@@ -2269,7 +2348,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Downloadstørrelse: %1</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
@@ -2310,7 +2389,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="55"/>
         <source>Auto clear package cache</source>
-        <translation type="unfinished"/>
+        <translation>Automatisk rydning af pakkemellemlager</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="58"/>
@@ -2360,7 +2439,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Pen</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
@@ -2407,7 +2486,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Pen</translation>
     </message>
 </context>
 <context>

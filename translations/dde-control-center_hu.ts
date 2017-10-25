@@ -226,39 +226,44 @@
 <context>
     <name>dcc::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="50"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
         <translation>Profilkép módosítása</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="53"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
         <translation>Teljes név módosítása</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="56"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
         <translation>Jelszó módosítása</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="59"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
         <translation>Automatikus belépés</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="63"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
         <translation>Belépés jelszó nélkül</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="67"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
         <source>Delete Account</source>
         <translation>Felhasználói fiók törlése</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="70"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
         <translation>Nem lehet törölni az aktuális felhasználót</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
+        <source>Fingerprint Password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -283,9 +288,47 @@
         <translation>Képek</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="282"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
         <source>Password not match.</source>
         <translation>A jelszavak nem egyeznek</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::accounts::AddFingerPage</name>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="29"/>
+        <source>Re-enter</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
+        <source>Done</source>
+        <translation>Kész</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="73"/>
+        <source>Put the finger in fingerprint reader to add</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="79"/>
+        <source>Entering</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="81"/>
+        <source>Entering %1 times</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
+        <source>Add successfully</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -336,6 +379,39 @@
         <location filename="../modules/accounts/createpage.cpp" line="143"/>
         <source>Password can&apos;t be empty.</source>
         <translation>A jelszómező nem lehet üres.</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::accounts::FingerPage</name>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
+        <source>Fingerprint List</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
+        <source>Fingerprint Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
+        <source>Clear Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
+        <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
+        <source>Fingerprint</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -398,17 +474,17 @@
         <translation>A fiók törléséhez rendszer-adminisztrátori engedély szükséges</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="64"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
         <translation>Felhasználói fiók és könyvtár törlése</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="70"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
         <translation>Mégse</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="70"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Delete</source>
         <translation>Törlés</translation>
     </message>
@@ -681,12 +757,12 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="70"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Éjjeli üzemmód</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="75"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation type="unfinished"/>
+        <translation>Automatikus képernyő beállítás,  a jobb láthatóság érdekében.</translation>
     </message>
 </context>
 <context>
@@ -991,22 +1067,19 @@
 <context>
     <name>dcc::keyboard::CustomItem</name>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="50"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="51"/>
         <source>Shortcut</source>
         <translation>Gyorsbillentyű</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="128"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="153"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="158"/>
-        <source>Please enter a shortcut</source>
-        <translation>Hozzon létre egy parancsikont</translation>
+        <location filename="../modules/keyboard/customitem.cpp" line="61"/>
+        <source>None</source>
+        <translation>Nincs</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="183"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="214"/>
-        <source>Conflict</source>
-        <translation>Ütközés</translation>
+        <location filename="../modules/keyboard/customitem.cpp" line="130"/>
+        <source>Please enter a shortcut</source>
+        <translation>Hozzon létre egy parancsikont</translation>
     </message>
 </context>
 <context>
@@ -1154,7 +1227,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="285"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="88"/>
         <source>Please enter a new shortcut</source>
         <translation>Új parancsikon neve</translation>
     </message>
@@ -1364,8 +1437,8 @@
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="78"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Laucher to use after configured</source>
-        <translation>Ellenőrizze az alkalmazások helyi menüjében a &quot;Proxy megnyitása&quot; lehetőséget a konfigurálás után</translation>
+        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
@@ -1828,6 +1901,12 @@
         <source>Monospaced Font</source>
         <translation>Állandó szélességű betűtípus</translation>
     </message>
+    <message>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="88"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="102"/>
+        <source> (Unsupported font)</source>
+        <translation>(Nem használható ez a betűtípus)</translation>
+    </message>
 </context>
 <context>
     <name>dcc::personalization::FontSizeWidget</name>
@@ -2269,7 +2348,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Letöltés mérete: %1</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>

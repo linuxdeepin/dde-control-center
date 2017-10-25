@@ -226,39 +226,44 @@
 <context>
     <name>dcc::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="50"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
         <translation>修改头像</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="53"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
         <translation>修改全名</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="56"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
         <translation>修改密码</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="59"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
         <translation>自动登录</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="63"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
         <translation>无密码登录</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="67"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
         <source>Delete Account</source>
         <translation>删除帐户</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="70"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
         <translation>当前用户已登录，无法删除</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
+        <source>Fingerprint Password</source>
+        <translation>指纹密码</translation>
     </message>
 </context>
 <context>
@@ -283,9 +288,47 @@
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="282"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
         <source>Password not match.</source>
         <translation>密码不一致。</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::accounts::AddFingerPage</name>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
+        <source>Add Fingerprint</source>
+        <translation>添加指纹</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="29"/>
+        <source>Re-enter</source>
+        <translation>重新录入</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
+        <source>Done</source>
+        <translation>完成</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="73"/>
+        <source>Put the finger in fingerprint reader to add</source>
+        <translation>将要录入的手指放入到指纹录入器里即可开始录入</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="79"/>
+        <source>Entering</source>
+        <translation>正在录入</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="81"/>
+        <source>Entering %1 times</source>
+        <translation>正在录入第%1次</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
+        <source>Add successfully</source>
+        <translation>成功添加指纹</translation>
     </message>
 </context>
 <context>
@@ -336,6 +379,39 @@
         <location filename="../modules/accounts/createpage.cpp" line="143"/>
         <source>Password can&apos;t be empty.</source>
         <translation>密码不能为空</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::accounts::FingerPage</name>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
+        <source>Fingerprint List</source>
+        <translation>指纹列表</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
+        <source>Fingerprint Password</source>
+        <translation>指纹密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
+        <source>Add Fingerprint</source>
+        <translation>添加指纹</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
+        <source>Clear Fingerprint</source>
+        <translation>清除指纹</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
+        <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
+        <translation>指纹密码可用于系统登录、应用授权等地方，在需要输入密码的时候扫描指纹即可</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
+        <source>Fingerprint</source>
+        <translation>指纹</translation>
     </message>
 </context>
 <context>
@@ -398,17 +474,17 @@
         <translation>删除帐户需要管理员权限</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="64"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
         <translation>删除账户目录</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="70"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="70"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
@@ -991,22 +1067,19 @@
 <context>
     <name>dcc::keyboard::CustomItem</name>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="50"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="51"/>
         <source>Shortcut</source>
         <translation>快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="128"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="153"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="158"/>
-        <source>Please enter a shortcut</source>
-        <translation>请输入快捷键</translation>
+        <location filename="../modules/keyboard/customitem.cpp" line="61"/>
+        <source>None</source>
+        <translation>无</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="183"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="214"/>
-        <source>Conflict</source>
-        <translation>冲突</translation>
+        <location filename="../modules/keyboard/customitem.cpp" line="130"/>
+        <source>Please enter a shortcut</source>
+        <translation>请输入快捷键</translation>
     </message>
 </context>
 <context>
@@ -1154,7 +1227,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="285"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="88"/>
         <source>Please enter a new shortcut</source>
         <translation>请输入新的快捷键</translation>
     </message>
@@ -1364,7 +1437,7 @@
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="78"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Laucher to use after configured</source>
+        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
         <translation>配置好代理后，可在启动器的应用右键菜单查看“使用代理打开”选项，勾选后即可使用代理</translation>
     </message>
     <message>
@@ -1827,6 +1900,12 @@
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
         <translation>等宽字体</translation>
+    </message>
+    <message>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="88"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="102"/>
+        <source> (Unsupported font)</source>
+        <translation>(不支持的字体)</translation>
     </message>
 </context>
 <context>

@@ -226,39 +226,44 @@
 <context>
     <name>dcc::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="50"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
         <translation>Modifica Avatar</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="53"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
         <translation>Modifica il nome completo</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="56"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
         <translation>Modifica password</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="59"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
         <translation>Auto login</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="63"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
         <translation>Login senza password</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="67"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
         <source>Delete Account</source>
         <translation>Elimina account</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="70"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
         <translation>Impossibile eliminare, l&apos;utente attuale è loggato</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
+        <source>Fingerprint Password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -283,9 +288,47 @@
         <translation>Immagini</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="282"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
         <source>Password not match.</source>
         <translation>La password non corrisponde.</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::accounts::AddFingerPage</name>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="29"/>
+        <source>Re-enter</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
+        <source>Done</source>
+        <translation>Fatto</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="73"/>
+        <source>Put the finger in fingerprint reader to add</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="79"/>
+        <source>Entering</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="81"/>
+        <source>Entering %1 times</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
+        <source>Add successfully</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -336,6 +379,39 @@
         <location filename="../modules/accounts/createpage.cpp" line="143"/>
         <source>Password can&apos;t be empty.</source>
         <translation>La password non può esser vuota.</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::accounts::FingerPage</name>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
+        <source>Fingerprint List</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
+        <source>Fingerprint Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
+        <source>Clear Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
+        <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
+        <source>Fingerprint</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -398,17 +474,17 @@
         <translation>Per eliminare l&apos;account servono i permessi di amministratore</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="64"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
         <translation>Elimina directory account</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="70"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/removeuserdialog.cpp" line="70"/>
+        <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Delete</source>
         <translation>Elimina</translation>
     </message>
@@ -991,22 +1067,19 @@
 <context>
     <name>dcc::keyboard::CustomItem</name>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="50"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="51"/>
         <source>Shortcut</source>
         <translation>Scorciatoia</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="128"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="153"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="158"/>
-        <source>Please enter a shortcut</source>
-        <translation>Inserisci una scorciatoia</translation>
+        <location filename="../modules/keyboard/customitem.cpp" line="61"/>
+        <source>None</source>
+        <translation>No</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="183"/>
-        <location filename="../modules/keyboard/customitem.cpp" line="214"/>
-        <source>Conflict</source>
-        <translation>Conflitto</translation>
+        <location filename="../modules/keyboard/customitem.cpp" line="130"/>
+        <source>Please enter a shortcut</source>
+        <translation>Inserisci una scorciatoia</translation>
     </message>
 </context>
 <context>
@@ -1154,7 +1227,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="285"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="88"/>
         <source>Please enter a new shortcut</source>
         <translation>Immetti una nuova scorciatoia</translation>
     </message>
@@ -1364,8 +1437,8 @@
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="78"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Laucher to use after configured</source>
-        <translation>Controlla &quot;Apri via proxy&quot; dal menu contestuale di un&apos;app nel Launcher per configurarlo</translation>
+        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
@@ -1827,6 +1900,12 @@
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
         <translation>Font monodimensionale</translation>
+    </message>
+    <message>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="88"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="102"/>
+        <source> (Unsupported font)</source>
+        <translation>(Font non supportato)</translation>
     </message>
 </context>
 <context>
