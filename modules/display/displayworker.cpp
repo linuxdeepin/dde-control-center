@@ -336,16 +336,18 @@ void DisplayWorker::setNightMode(const bool nightmode)
     QProcess process;
 
     QString cmd;
-    if (nightmode)
+    QString serverCmd;
+    if (nightmode) {
        cmd = "start";
-    else
+       serverCmd = "enable";
+    } else {
        cmd = "stop";
+       serverCmd = "disable";
+    }
 
-    process.execute("systemctl", QStringList() << "--user" << "enable" << "redshift.service");
-    process.close();
+    process.startDetached("systemctl", QStringList() << "--user" << serverCmd << "redshift.service");
 
-    process.execute("systemctl", QStringList() << "--user" << cmd << "redshift.service");
-    process.close();
+    process.startDetached("systemctl", QStringList() << "--user" << cmd << "redshift.service");
 
     // reload
     onNightModeChanged();
