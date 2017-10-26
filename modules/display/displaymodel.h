@@ -60,6 +60,8 @@ public:
     bool isNightMode() const;
     void setIsNightMode(bool isNightMode);
 
+    bool redshiftIsValid() const;
+
 signals:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
@@ -71,6 +73,7 @@ signals:
     void configListChanged(const QStringList &configs) const;
     void monitorListChanged() const;
     void nightModeChanged(const bool nightmode) const;
+    void redshiftVaildChanged(const bool isvalid) const;
 
 private slots:
     void setScreenHeight(const int h);
@@ -80,6 +83,7 @@ private slots:
     void setPrimary(const QString &primary);
     void setCurrentConfig(const QString &config);
     void setConfigList(const QStringList &configList);
+    void setRedshiftIsValid(bool redshiftIsValid);
     void monitorAdded(Monitor *mon);
     void monitorRemoved(Monitor *mon);
 
@@ -93,6 +97,7 @@ private:
     QStringList m_configList;
     QList<Monitor *> m_monitors;
     bool m_isNightMode;
+    bool m_redshiftIsValid;
 };
 
 } // namespace display

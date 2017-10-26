@@ -60,6 +60,10 @@ void BrightnessPage::setModel(DisplayModel *model)
     initUI();
     initConnect();
 
+    const bool redshiftIsValid = model->redshiftIsValid();
+
+    m_nightMode->setVisible(redshiftIsValid);
+    m_nightTips->setVisible(redshiftIsValid);
     m_nightMode->setChecked(model->isNightMode());
 }
 
@@ -72,11 +76,11 @@ void BrightnessPage::initUI()
     SettingsGroup *nightGrp = new SettingsGroup;
     nightGrp->appendItem(m_nightMode);
 
-    TipsLabel *nightTip = new TipsLabel(tr("The screen tone will be auto adjusted by help of figuring out your location to protect eyes"));
-    nightTip->setWordWrap(true);
+    m_nightTips = new TipsLabel(tr("The screen tone will be auto adjusted by help of figuring out your location to protect eyes"));
+    m_nightTips->setWordWrap(true);
 
     m_centralLayout->addWidget(nightGrp);
-    m_centralLayout->addWidget(nightTip);
+    m_centralLayout->addWidget(m_nightTips);
 
     for (auto *mon : m_displayModel->monitorList())
     {
@@ -101,6 +105,8 @@ void BrightnessPage::initConnect()
 {
     connect(m_displayModel, &DisplayModel::monitorListChanged, this, &BrightnessPage::back);
     connect(m_displayModel, &DisplayModel::nightModeChanged, m_nightMode, &SwitchWidget::setChecked);
+    connect(m_displayModel, &DisplayModel::redshiftVaildChanged, m_nightMode, &SwitchWidget::setVisible);
+    connect(m_displayModel, &DisplayModel::redshiftVaildChanged, m_nightTips, &TipsLabel::setVisible);
 
     connect(m_nightMode, &SwitchWidget::checkedChanged, this, &BrightnessPage::requestSetNightMode);
 }

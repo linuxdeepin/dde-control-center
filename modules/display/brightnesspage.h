@@ -33,6 +33,10 @@
 
 namespace dcc {
 
+namespace widgets {
+class TipsLabel;
+}
+
 namespace display {
 
 class Monitor;
@@ -60,6 +64,7 @@ private:
     QVBoxLayout *m_centralLayout;
 
     dcc::widgets::SwitchWidget *m_nightMode;
+    widgets::TipsLabel *m_nightTips;
 };
 
 }

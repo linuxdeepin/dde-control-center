@@ -159,6 +159,21 @@ void DisplayModel::monitorRemoved(Monitor *mon)
     emit monitorListChanged();
 }
 
+bool DisplayModel::redshiftIsValid() const
+{
+    return m_redshiftIsValid;
+}
+
+void DisplayModel::setRedshiftIsValid(bool redshiftIsValid)
+{
+    if (m_redshiftIsValid == redshiftIsValid)
+        return;
+
+    m_redshiftIsValid = redshiftIsValid;
+
+    emit redshiftVaildChanged(redshiftIsValid);
+}
+
 bool DisplayModel::isNightMode() const
 {
     return m_isNightMode;

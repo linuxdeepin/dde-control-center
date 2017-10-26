@@ -69,6 +69,15 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     model->setCurrentConfig(m_displayInter.currentCustomId());
 //    model->setHasConfig(m_displayInter.hasCustomConfig());
     model->setDisplayMode(m_displayInter.displayMode());
+
+    QProcess *process = new QProcess;
+
+    const bool isRedshiftValid = process->execute("which", QStringList() << "redshift") == 0;
+
+    if (isRedshiftValid)
+        onNightModeChanged();
+
+    m_model->setRedshiftIsValid(isRedshiftValid);
 }
 
 DisplayWorker::~DisplayWorker()
@@ -81,8 +90,6 @@ void DisplayWorker::active()
 {
     QDBusPendingCallWatcher *scalewatcher = new QDBusPendingCallWatcher(m_appearanceInter->GetScaleFactor());
     connect(scalewatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScaleFinished);
-
-    onNightModeChanged();
 }
 
 void DisplayWorker::saveChanges()
