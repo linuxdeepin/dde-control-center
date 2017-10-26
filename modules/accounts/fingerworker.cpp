@@ -71,15 +71,19 @@ void FingerWorker::saveEnroll(const QString &name)
 void FingerWorker::onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QDBusObjectPath> reply = w->reply();
+
+    w->deleteLater();
+
     const QDBusObjectPath &path = reply.value();
+
+    if (path.path().isEmpty())
+        return;
 
     m_fprDefaultInter = new Device(FprintService, path.path(), QDBusConnection::sessionBus(), this);
 
     m_model->setIsVaild(m_fprDefaultInter->isValid());
 
     connect(m_fprDefaultInter, &Device::EnrollStatus, this, &FingerWorker::onEnrollStatus);
-
-    w->deleteLater();
 }
 
 void FingerWorker::onGetListEnrolledFinished(QDBusPendingCallWatcher *w)
