@@ -1,5 +1,16 @@
 <a name=""></a>
-##  (2017-10-25)
+## 4.2.5.12 (2017-10-26)
+
+
+#### Bug Fixes
+
+*   redshift not disable boot when close ([a4de37a7](https://github.com/linuxdeepin/dde-control-center/commit/a4de37a74f0b14e0db2f8c89811ed0be4f439b76))
+*   correct header filename ([889d24ab](https://github.com/linuxdeepin/dde-control-center/commit/889d24ab2f66376b81307066bba1509bf0e12c23))
+
+
+
+<a name=""></a>
+## 4.2.5.11 (2017-10-25)
 
 
 #### Bug Fixes
