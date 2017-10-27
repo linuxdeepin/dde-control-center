@@ -496,6 +496,7 @@ void KeyboardWork::append(const MetaData &md)
 
     m_metaDatas.append(md);
 }
+#endif
 
 void KeyboardWork::onShortcutChanged(const QString &id, int type)
 {
@@ -511,7 +512,6 @@ void KeyboardWork::onGetShortcutFinished(QDBusPendingCallWatcher *watch)
 
     watch->deleteLater();
 }
-#endif
 
 int KeyboardWork::converToDBusDelay(int value)
 {
