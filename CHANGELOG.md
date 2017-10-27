@@ -1,4 +1,17 @@
 <a name=""></a>
+##  4.3 (2017-10-27)
+
+
+#### Bug Fixes
+
+*   keyboard custom item key hide when lost focus ([7decabcc](https://github.com/linuxdeepin/dde-control-center/commit/7decabcc6fe0e74ec09930dcfe2dd8d418ea867e))
+*   night mode not check service is valid ([916ad375](https://github.com/linuxdeepin/dde-control-center/commit/916ad37524e2a923c8ed70911746ba9131a95d18))
+*   update redshift to suggest ([a1695d7c](https://github.com/linuxdeepin/dde-control-center/commit/a1695d7cb55303ed77c624262e1c4aa88ce8db3c))
+*   not check finger device is valid ([5abd2569](https://github.com/linuxdeepin/dde-control-center/commit/5abd2569c33f04cc9ba5f1de2d0451744a64c1a4))
+
+
+
+<a name=""></a>
 ## 4.2.5.12 (2017-10-26)
 
 
