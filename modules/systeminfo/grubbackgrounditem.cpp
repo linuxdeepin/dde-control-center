@@ -126,7 +126,6 @@ void GrubBackgroundItem::dropEvent(QDropEvent *e)
             e->acceptProposedAction();
             m_isDrop = false;
             update();
-            emit requestEnableTheme(true);
         }
     }
 }

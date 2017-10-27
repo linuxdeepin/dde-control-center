@@ -147,7 +147,7 @@ void SystemInfoWork::setDefaultEntry(const QString &entry)
             emit m_model->defaultEntryChanged(m_model->defaultEntry());
         }
 
-        emit requestSetAutoHideDCC(false);
+        emit requestSetAutoHideDCC(true);
         watcher->deleteLater();
     });
 }
@@ -182,13 +182,16 @@ void SystemInfoWork::onBackgroundChanged()
 
 void SystemInfoWork::setBackground(const QString &path)
 {
-    emit requestSetAutoHideDCC(true);
+    emit requestSetAutoHideDCC(false);
 
     QDBusPendingCall call = m_dbusGrubTheme->SetBackgroundSourceFile(path);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (call.isError())
+        if (call.isError()) {
             onBackgroundChanged();
+
+            setEnableTheme(true);
+        }
 
         emit requestSetAutoHideDCC(true);
         watcher->deleteLater();
