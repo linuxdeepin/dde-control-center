@@ -75,12 +75,12 @@ CustomItem::CustomItem(KeyboardWork *work, QWidget *parent)
 void CustomItem::setInfo(ShortcutInfo *info)
 {
     m_info = info;
-    m_accels = info->accels;
+    QString accels = info->accels;
 
-    m_accels = m_accels.replace("<", "");
-    m_accels = m_accels.replace(">", "-");
+    accels = accels.replace("<", "");
+    accels = accels.replace(">", "-");
 
-    m_shortKey->setTextList(m_accels.split("-"));
+    m_shortKey->setTextList(accels.split("-"));
     m_shortKey->show();
 }
 
@@ -104,10 +104,11 @@ void CustomItem::onKeyEvent(bool press, const QString &keylist)
             in.replace(">", "-");
             in.replace("_L", "");
             m_accels = keylist;
-            m_accels = m_accels.replace("<", "");
-            m_accels = m_accels.replace(">", "-");
+            QString list = keylist;
+            list = list.replace("<", "");
+            list = list.replace(">", "-");
 
-            m_shortKey->setTextList(m_accels.split("-"));
+            m_shortKey->setTextList(list.split("-"));
             m_shortcutEdit->hide();
             m_shortKey->show();
 
@@ -138,7 +139,7 @@ void CustomItem::mousePressEvent(QMouseEvent *e)
 
 bool CustomItem::eventFilter(QObject *watched, QEvent *event)
 {
-    if (m_shortcutEdit == watched && event->type() == QEvent::FocusOut)
+    if (m_shortcutEdit == watched && event->type() == QEvent::FocusOut && m_shortcutEdit->hasFocus())
         m_shortcutEdit->hide();
 
     return false;
