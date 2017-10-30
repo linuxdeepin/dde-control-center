@@ -87,6 +87,7 @@ signals:
     void searchChangd(ShortcutInfo* info, const QString& key);
     void removed(const QString &id, int type);
     void requestSetAutoHide(const bool visiable);
+    void requestConflict(const ShortcutInfo *info);
 
 public slots:
 #ifndef DCC_DISABLE_LANGUAGE
@@ -112,6 +113,7 @@ public slots:
 #endif
     void onShortcutChanged(const QString &id, int type);
     void onGetShortcutFinished(QDBusPendingCallWatcher *watch);
+    void updateKey(ShortcutInfo *info);
 
 private:
     int converToDBusDelay(int value);

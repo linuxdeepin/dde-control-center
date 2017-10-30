@@ -77,6 +77,7 @@ public slots:
 #endif
     void onPushShortcut();
     void onPushCustomShortcut();
+    void onPushConflict();
     void setCurrentLayout(const QString &value);
     void setCapsLock(bool value);
 

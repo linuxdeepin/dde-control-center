@@ -69,7 +69,6 @@ CustomItem::CustomItem(KeyboardWork *work, QWidget *parent)
     setLayout(layout);
     setFixedHeight(36);
 
-    connect(m_work, &KeyboardWork::KeyEvent, this, &CustomItem::onKeyEvent);
 }
 
 void CustomItem::setInfo(ShortcutInfo *info)

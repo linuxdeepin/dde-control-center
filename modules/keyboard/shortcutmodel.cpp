@@ -200,6 +200,26 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
     }
 }
 
+ShortcutInfo *ShortcutModel::currentInfo() const
+{
+    return m_currentInfo;
+}
+
+void ShortcutModel::setCurrentInfo(ShortcutInfo *currentInfo)
+{
+    m_currentInfo = currentInfo;
+}
+
+ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
+{
+    for (ShortcutInfo *info : m_infos) {
+        if (info->accels == shortcut)
+            return info;
+    }
+
+    return nullptr;
+}
+
 ShortcutInfo::ShortcutInfo()
 {
     item = NULL;

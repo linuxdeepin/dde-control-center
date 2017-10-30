@@ -61,7 +61,6 @@ KeyboardWork::KeyboardWork(KeyboardModel *model, QObject *parent)
 #endif
     connect(m_keyboardInter, SIGNAL(CapslockToggleChanged(bool)), m_model, SLOT(setCapsLock(bool)));
     connect(m_keybindInter, &KeybingdingInter::NumLockStateChanged, m_model, &KeyboardModel::setNumLock);
-    connect(m_keybindInter, &KeybingdingInter::KeyEvent, this, &KeyboardWork::KeyEvent);
 #ifndef DCC_DISABLE_LANGUAGE
     connect(m_langSelector, &LangSelector::CurrentLocaleChanged, m_model, &KeyboardModel::setLang);
 #endif
@@ -82,6 +81,16 @@ void KeyboardWork::setShortcutModel(ShortcutModel *model)
 {
     m_shortcutModel = model;
 
+    connect(m_keybindInter, &KeybingdingInter::KeyEvent, this, [=] (bool press, const QString &shortcut) {
+
+        emit model->keyEvent(shortcut);
+
+        if (!press) {
+            ShortcutInfo *info = m_shortcutModel->getInfo(shortcut);
+            if (info)
+                emit requestConflict(info);
+        }
+    });
 }
 
 void KeyboardWork::active()
@@ -511,6 +520,20 @@ void KeyboardWork::onGetShortcutFinished(QDBusPendingCallWatcher *watch)
     m_shortcutModel->onKeyBindingChanged(reply.value());
 
     watch->deleteLater();
+}
+
+void KeyboardWork::updateKey(ShortcutInfo *info)
+{
+    m_shortcutModel->setCurrentInfo(info);
+
+    QDBusPendingCall call = m_keybindInter->SelectKeystroke();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError())
+            qDebug() << call.error();
+
+        watcher->deleteLater();
+    });
 }
 
 int KeyboardWork::converToDBusDelay(int value)

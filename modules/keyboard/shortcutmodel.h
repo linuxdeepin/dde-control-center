@@ -90,10 +90,16 @@ public:
 
     void delInfo(ShortcutInfo* info);
 
+    ShortcutInfo *currentInfo() const;
+    void setCurrentInfo(ShortcutInfo *currentInfo);
+
+    ShortcutInfo * getInfo(const QString &shortcut);
+
 signals:
     void listChanged(QList<ShortcutInfo *>, InfoType);
     void addCustomInfo(ShortcutInfo* info);
     void shortcutChanged(ShortcutInfo *info);
+    void keyEvent(const QString &shortcut);
 
 public slots:
     void onParseInfo(const QString& info);
@@ -107,6 +113,7 @@ private:
     QList<ShortcutInfo*> m_windowInfos;
     QList<ShortcutInfo*> m_workspaceInfos;
     QList<ShortcutInfo*> m_customInfos;
+    ShortcutInfo *m_currentInfo;
 };
 
 }

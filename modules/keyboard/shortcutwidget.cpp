@@ -141,8 +141,10 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
     for(; it != list.end(); ++it)
     {
         ShortcutItem* item = new ShortcutItem();
+        item->setModel(m_model);
         connect(item, SIGNAL(shortcutChangd(bool, ShortcutInfo*, QString)), this, SIGNAL(shortcutChanged(bool, ShortcutInfo*, QString)));
         connect(item, &ShortcutItem::requestDisableShortcut, this, &ShortcutWidget::requestDisableShortcut);
+        connect(item, &ShortcutItem::requestUpdateKey, this, &ShortcutWidget::requestUpdateKey);
         item->setShortcutInfo((*it));
         item->setTitle((*it)->name);
         (*it)->item = item;

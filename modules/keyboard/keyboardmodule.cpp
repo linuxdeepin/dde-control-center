@@ -62,6 +62,7 @@ void KeyboardModule::initialize()
     m_work->moveToThread(qApp->thread());
 
     connect(m_work, &KeyboardWork::requestSetAutoHide, this, &KeyboardModule::onSetFrameAutoHide);
+    connect(m_work, &KeyboardWork::requestConflict, this, &KeyboardModule::onPushConflict);
 }
 
 void KeyboardModule::moduleActive()
@@ -302,6 +303,7 @@ void KeyboardModule::onPushShortcut()
         connect(m_shortcutWidget, &ShortcutWidget::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
         connect(m_shortcutWidget, &ShortcutWidget::shortcutEditChanged, this, &KeyboardModule::onShortcutEdit);
         connect(m_work, &KeyboardWork::removed, m_shortcutWidget, &ShortcutWidget::onRemoveItem);
+        connect(m_shortcutWidget, &ShortcutWidget::requestUpdateKey, m_work, &KeyboardWork::updateKey);
     }
     m_frameProxy->pushWidget(this, m_shortcutWidget);
 }
@@ -316,6 +318,15 @@ void KeyboardModule::onPushCustomShortcut()
     }
 
     m_frameProxy->pushWidget(this, m_customContent);
+}
+
+void KeyboardModule::onPushConflict()
+{
+    if (!m_scContent) {
+        m_scContent = new ShortcutContent(m_work);
+
+        m_frameProxy->pushWidget(this, m_scContent);
+    }
 }
 
 void KeyboardModule::setCurrentLayout(const QString& value)
