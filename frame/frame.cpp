@@ -138,6 +138,10 @@ void Frame::init()
 //    showSettingsPage("network", QString());
 #endif
 
+#ifdef DISABLE_MAIN_PAGE
+    showSettingsPage(QString(), QString());
+#endif
+
 #ifdef DCC_KEEP_SETTINGS_LIVE
     prepareAllSettingsPage();
 #endif

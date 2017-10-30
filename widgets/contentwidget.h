@@ -39,6 +39,10 @@ class QPropertyAnimation;
 class QPushButton;
 namespace dcc {
 
+namespace widgets {
+    class BackButton;
+}
+
 class ContentWidget : public QWidget
 {
     Q_OBJECT
@@ -69,6 +73,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *e);
 
 protected:
+    dcc::widgets::BackButton *m_backBtn;
     DImageButton *m_navgationBtn;
     QLabel *m_title;
     QVBoxLayout *m_contentTopLayout;

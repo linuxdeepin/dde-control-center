@@ -60,8 +60,8 @@ ContentWidget::ContentWidget(QWidget *parent)
       m_content(nullptr),
       m_speedTime(DEFAULT_SPEED_TIME)
 {
-    dcc::widgets::BackButton *backBtn = new dcc::widgets::BackButton;
-    backBtn->setAccessibleName("Back");
+    m_backBtn = new dcc::widgets::BackButton;
+    m_backBtn->setAccessibleName("Back");
 
     m_navgationBtn = new DImageButton;
     m_navgationBtn->setNormalPic(":/frame/themes/dark/icons/nav_icon_normal.png");
@@ -94,10 +94,10 @@ ContentWidget::ContentWidget(QWidget *parent)
 
     QWidget *navWidget = new QWidget;
     navWidget->setLayout(navLayout);
-    navWidget->setFixedWidth(backBtn->width());
+    navWidget->setFixedWidth(m_backBtn->width());
 
     QHBoxLayout *titleLayout = new QHBoxLayout;
-    titleLayout->addWidget(backBtn);
+    titleLayout->addWidget(m_backBtn);
     titleLayout->addWidget(m_title);
     titleLayout->addWidget(navWidget);
 
@@ -110,7 +110,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     centralLayout->setContentsMargins(8, 8, 8, 0);
     centralLayout->setSpacing(0);
 
-    connect(backBtn, &dcc::widgets::BackButton::clicked, this, &ContentWidget::back);
+    connect(m_backBtn, &dcc::widgets::BackButton::clicked, this, &ContentWidget::back);
 
     setLayout(centralLayout);
     setObjectName("ContentWidget");

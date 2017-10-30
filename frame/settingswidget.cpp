@@ -28,6 +28,7 @@
 #include "moduleinitthread.h"
 #include "modulewidget.h"
 #include "navgationdelegate.h"
+#include "backbutton.h"
 
 #include "accounts/accountsmodule.h"
 #include "bluetooth/bluetoothmodule.h"
@@ -69,6 +70,10 @@ SettingsWidget::SettingsWidget(Frame *frame)
       m_moduleLoadDelay(0)
 {
     qDebug() << Q_FUNC_INFO << "I'm born!!!!";
+
+#ifdef DISABLE_MAIN_PAGE
+    m_backBtn->setVisible(false);
+#endif
 
     m_resetBtn->setText(tr("Reset all settings"));
     m_navgationBtn->setVisible(true);
