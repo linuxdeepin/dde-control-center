@@ -42,11 +42,11 @@ namespace dcc
 namespace keyboard
 {
 
-CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
-    : ContentWidget(parent),
-      m_work(work),
-      m_conflict(nullptr),
-      m_buttonTuple(new ButtonTuple)
+CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
+    : ContentWidget(parent)
+    , m_conflict(nullptr)
+    , m_model(model)
+    , m_buttonTuple(new ButtonTuple)
 {
     setTitle(tr("Shortcuts"));
     TranslucentFrame *widget = new TranslucentFrame();
@@ -66,15 +66,13 @@ CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
     pushbutton->setFixedWidth(50);
     m_command->addRightWidget(pushbutton);
 
-    m_shortcut = new CustomItem(work);
+    m_shortcut = new CustomItem;
 
     m_commandGroup->appendItem(m_name);
     m_commandGroup->appendItem(m_command);
     m_commandGroup->appendItem(m_shortcut);
 
     layout->addWidget(m_commandGroup);
-    m_control = new KeyboardControl();
-//    layout->addWidget(m_control);
 
     QPushButton *cancel = m_buttonTuple->leftButton();
     cancel->setText(tr("Cancel"));
@@ -95,14 +93,15 @@ CustomContent::CustomContent(KeyboardWork *work, QWidget *parent)
     connect(cancel, SIGNAL(clicked()), this, SIGNAL(back()));
     connect(ok, SIGNAL(clicked()), this, SLOT(onShortcut()));
     connect(pushbutton, &QPushButton::clicked, this, &CustomContent::onOpenFile);
-    connect(m_shortcut, &CustomItem::shortcut, this, &CustomContent::shortcut);
+    connect(m_shortcut, &CustomItem::requestUpdateKey, this, &CustomContent::updateKey);
+    connect(model, &ShortcutModel::keyEvent, this, &CustomContent::keyEvent);
 }
 
 void CustomContent::setBottomTip(ShortcutInfo *conflict)
 {
     m_conflict = conflict;
     if (conflict) {
-        m_shortcut->setInfo(conflict);
+        m_shortcut->setShortcut(conflict->accels);
         QString str = tr("This shortcut conflicts with %1, click on Add to make this shortcut effective immediately").arg(conflict->name);
         m_bottomTip->setText(str);
         m_bottomTip->show();
@@ -112,22 +111,35 @@ void CustomContent::setBottomTip(ShortcutInfo *conflict)
     }
 }
 
-void CustomContent::setConflictString(const QStringList &list)
-{
-    m_control->setConflictString(list);
-}
-
 void CustomContent::onShortcut()
 {
-    if (m_conflict) {
-        QString key = m_conflict->accels;
-        m_work->modifyShortcut(m_conflict, tr("null"));
-        m_work->addCustomShortcut(m_name->text(), m_command->text(), key);
-    } else {
-        m_work->addCustomShortcut(m_name->text(), m_command->text(), m_shortcut->text());
-    }
+    if (m_conflict)
+        emit requestForceSubs(m_conflict);
 
-    sendBackSignal();
+    emit requestAddKey(m_name->text(), m_command->text(), m_shortcut->text());
+
+    emit back();
+}
+
+void CustomContent::keyEvent(bool press, const QString &shortcut)
+{
+    if (!press) {
+        // check conflic
+        ShortcutInfo *conflic = m_model->getInfo(shortcut);
+        setBottomTip(conflic);
+
+        if (shortcut.isEmpty() || shortcut == "BackSpace" || shortcut == "Delete") {
+            m_shortcut->setShortcut(tr("None"));
+            return;
+        }
+
+        m_shortcut->setShortcut(shortcut);
+    }
+}
+
+void CustomContent::updateKey()
+{
+    emit requestUpdateKey(nullptr);
 }
 
 void CustomContent::onOpenFile()

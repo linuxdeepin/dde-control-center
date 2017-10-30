@@ -57,23 +57,25 @@ protected:
     void modifyStatus(bool status);
 
 signals:
-    void shortcutChanged(bool valid, ShortcutInfo* info, const QString& shortcut);
     void customShortcut();
     void delShortcutInfo(ShortcutInfo* info);
     void requestDisableShortcut(ShortcutInfo* info);
     void shortcutEditChanged(ShortcutInfo* info);
     void requestUpdateKey(ShortcutInfo *info);
+    void requestShowConflict(ShortcutInfo *info, const QString &shortcut);
+    void requestSaveShortcut(ShortcutInfo *info);
 
 public slots:
     void onSearch(const QString &text);
     void onCustomAdded(ShortcutInfo* info);
-    void onDestroyItem(QObject* obj);
+    void onDestroyItem(ShortcutInfo *info);
     void onSearchInfo(ShortcutInfo* info, const QString& key);
     void getKeyFinish(QDBusPendingCallWatcher* watch);
     void onSearchFinish(QDBusPendingCallWatcher* watch);
     void onTimeout();
     void onRemoveItem(const QString &id, int type);
     void onShortcutChanged(ShortcutInfo *info);
+    void onKeyEvent(bool press, const QString &shortcut);
 
 private:
     QWidget* m_searchWidget;

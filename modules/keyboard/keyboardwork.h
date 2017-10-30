@@ -59,7 +59,6 @@ public:
     inline QList<MetaData> getDatas() {return m_metaDatas;}
     inline QList<QString> getLetters() {return m_letters;}
 
-    void modifyShortcut(ShortcutInfo* info, const QString& key, bool clear = false);
     void modifyShortcutEdit(ShortcutInfo* info);
     void addCustomShortcut(const QString& name, const QString& command, const QString& accels);
 
@@ -87,7 +86,6 @@ signals:
     void searchChangd(ShortcutInfo* info, const QString& key);
     void removed(const QString &id, int type);
     void requestSetAutoHide(const bool visiable);
-    void requestConflict(const ShortcutInfo *info);
 
 public slots:
 #ifndef DCC_DISABLE_LANGUAGE
@@ -114,6 +112,7 @@ public slots:
     void onShortcutChanged(const QString &id, int type);
     void onGetShortcutFinished(QDBusPendingCallWatcher *watch);
     void updateKey(ShortcutInfo *info);
+    void onQDBusPendingCallFinished(QDBusPendingCallWatcher *watch);
 
 private:
     int converToDBusDelay(int value);

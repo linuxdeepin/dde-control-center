@@ -25,19 +25,19 @@
 
 #include "customedit.h"
 #include "translucentframe.h"
-#include "customedititem.h"
+#include "customitem.h"
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QFileDialog>
 
-keyboard::CustomEdit::CustomEdit(keyboard::KeyboardWork *work, QWidget *parent):
+keyboard::CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
     ContentWidget(parent),
-    m_work(work),
+    m_model(model),
     m_commandGroup(new SettingsGroup),
     m_name(new LineEditWidget),
     m_command(new LineEditWidget),
-    m_short(new CustomEditItem(this)),
+    m_short(new CustomItem(this)),
     m_tip(new QLabel)
 {
     m_tip->setVisible(false);
@@ -79,12 +79,11 @@ keyboard::CustomEdit::CustomEdit(keyboard::KeyboardWork *work, QWidget *parent):
     setContent(widget);
 
     connect(cancelButton, &QPushButton::clicked, this, &CustomEdit::back);
-    connect(cancelButton, &QPushButton::clicked, this, &CustomEdit::requestEditFinished);
-    connect(okButton, &QPushButton::clicked, this, &CustomEdit::onClick);
-    connect(okButton, &QPushButton::clicked, this, &CustomEdit::requestEditFinished);
     connect(pushbutton, &QPushButton::clicked, this, &CustomEdit::onOpenFile);
-    connect(m_short, &CustomEditItem::requestShortcutList, this, &CustomEdit::requestShortcutList);
+    connect(m_short, &CustomItem::requestUpdateKey, this, &CustomEdit::onUpdateKey);
     connect(okButton, &QPushButton::clicked, this, &CustomEdit::onSaveAccels);
+
+    connect(model, &ShortcutModel::keyEvent, this, &CustomEdit::keyEvent);
 }
 
 void keyboard::CustomEdit::setShortcut(keyboard::ShortcutInfo *info)
@@ -92,24 +91,13 @@ void keyboard::CustomEdit::setShortcut(keyboard::ShortcutInfo *info)
     m_info = info;
 
     m_short->setTitle(tr("Shortcuts"));
-    m_short->setAccels(info->accels);
-    m_short->setId(info->id);
+    m_short->setShortcut(info->accels);
 
     m_name->setTitle(tr("Name"));
     m_command->setTitle(tr("Command"));
 
     m_name->setText(m_info->name);
     m_command->setText(m_info->command);
-}
-
-void keyboard::CustomEdit::onClick()
-{
-    m_info->name = m_name->text();
-    m_info->command = m_command->text();
-
-    m_info->item->setTitle(m_name->text());
-
-    sendBackSignal();
 }
 
 void keyboard::CustomEdit::setBottomTip(keyboard::ShortcutInfo *conflict)
@@ -121,6 +109,16 @@ void keyboard::CustomEdit::setBottomTip(keyboard::ShortcutInfo *conflict)
         m_tip->setVisible(true);
     } else {
         m_tip->setVisible(false);
+    }
+}
+
+void keyboard::CustomEdit::keyEvent(bool press, const QString &shortcut)
+{
+    if (!press) {
+        // check contlic
+        setBottomTip(m_model->getInfo(shortcut));
+
+        m_short->setShortcut(shortcut);
     }
 }
 
@@ -136,9 +134,10 @@ void keyboard::CustomEdit::onOpenFile()
 
 void keyboard::CustomEdit::onSaveAccels()
 {
-    if (m_tip->isVisible()) {
-        m_work->modifyShortcut(m_conflict, tr("null"));
-    }
-    m_info->accels = m_short->getAccles();
-    m_work->modifyShortcutEdit(m_info);
+    emit requestSaveShortcut(m_info);
+}
+
+void keyboard::CustomEdit::onUpdateKey()
+{
+    emit requestUpdateKey(nullptr);
 }

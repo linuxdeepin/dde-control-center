@@ -86,9 +86,10 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
     connect(m_timer, SIGNAL(timeout()), this, SLOT(onTimeout()));
     setTitle(tr("Shortcuts"));
 
-    connect(m_model, SIGNAL(addCustomInfo(ShortcutInfo*)), this, SLOT(onCustomAdded(ShortcutInfo*)));
+    connect(m_model, &ShortcutModel::addCustomInfo, this, &ShortcutWidget::onCustomAdded);
     connect(m_model, &ShortcutModel::listChanged, this, &ShortcutWidget::addShortcut);
     connect(m_model, &ShortcutModel::shortcutChanged, this, &ShortcutWidget::onShortcutChanged);
+    connect(m_model, &ShortcutModel::keyEvent, this, &ShortcutWidget::onKeyEvent);
 
     addShortcut(m_model->systemInfo(), ShortcutModel::System);
     addShortcut(m_model->windowInfo(), ShortcutModel::Window);
@@ -141,9 +142,6 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
     for(; it != list.end(); ++it)
     {
         ShortcutItem* item = new ShortcutItem();
-        item->setModel(m_model);
-        connect(item, SIGNAL(shortcutChangd(bool, ShortcutInfo*, QString)), this, SIGNAL(shortcutChanged(bool, ShortcutInfo*, QString)));
-        connect(item, &ShortcutItem::requestDisableShortcut, this, &ShortcutWidget::requestDisableShortcut);
         connect(item, &ShortcutItem::requestUpdateKey, this, &ShortcutWidget::requestUpdateKey);
         item->setShortcutInfo((*it));
         item->setTitle((*it)->name);
@@ -173,7 +171,7 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
             if(m_customGroup->itemCount() > 1)
                 m_head->setVisible(true);
 
-            connect(item, SIGNAL(destroyed(QObject*)),this, SLOT(onDestroyItem(QObject*)));
+            connect(item, &ShortcutItem::requestRemove, this, &ShortcutWidget::onDestroyItem);
             connect(item, &ShortcutItem::shortcutEditChanged, this, &ShortcutWidget::shortcutEditChanged);
         }
     }
@@ -235,8 +233,7 @@ void ShortcutWidget::onCustomAdded(ShortcutInfo *info)
    if(info)
    {
        ShortcutItem* item = new ShortcutItem();
-       connect(item, &ShortcutItem::requestDisableShortcut, this, &ShortcutWidget::requestDisableShortcut);
-       connect(item, SIGNAL(shortcutChangd(bool, ShortcutInfo*, QString)), this, SIGNAL(shortcutChanged(bool, ShortcutInfo*, QString)));
+       connect(item, &ShortcutItem::requestUpdateKey, this, &ShortcutWidget::requestUpdateKey);
        item->setShortcutInfo(info);
        item->setTitle(info->name);
        info->item = item;
@@ -248,29 +245,25 @@ void ShortcutWidget::onCustomAdded(ShortcutInfo *info)
        m_customGroup->appendItem(item);
        m_customList.append(item);
 
-       connect(item, SIGNAL(destroyed(QObject*)),this, SLOT(onDestroyItem(QObject*)));
+       connect(item, &ShortcutItem::requestRemove, this, &ShortcutWidget::onDestroyItem);
        connect(item, &ShortcutItem::shortcutEditChanged, this, &ShortcutWidget::shortcutEditChanged);
    }
 }
 
-void ShortcutWidget::onDestroyItem(QObject *obj)
+void ShortcutWidget::onDestroyItem(ShortcutInfo *info)
 {
-    Q_UNUSED(obj);
-
     m_head->toCancel();
 
-    ShortcutItem* item = qobject_cast<ShortcutItem*>(sender());
-    if(item)
-    {
-        m_customGroup->removeItem(item);
-        if(m_customGroup->itemCount() == 1)
-            m_head->setVisible(false);
+    ShortcutItem* item = info->item;
 
-        m_searchInfos.remove(item->curInfo()->toString());
-        m_customList.removeOne(item);
-        emit delShortcutInfo(item->curInfo());
-        item->deleteLater();
-    }
+    m_customGroup->removeItem(item);
+    if(m_customGroup->itemCount() == 1)
+        m_head->setVisible(false);
+
+    m_searchInfos.remove(item->curInfo()->toString());
+    m_customList.removeOne(item);
+    emit delShortcutInfo(item->curInfo());
+    item->deleteLater();
 }
 
 void ShortcutWidget::onSearchInfo(ShortcutInfo *info, const QString &key)
@@ -322,7 +315,7 @@ void ShortcutWidget::onSearchFinish(QDBusPendingCallWatcher *watch)
     {
         ShortcutInfo* info = m_searchInfos[list.at(i)];
         ShortcutItem* item = new ShortcutItem();
-        connect(item, SIGNAL(shortcutChangd(bool, ShortcutInfo*, QString)), this, SIGNAL(shortcutChanged(bool, ShortcutInfo*, QString)));
+        connect(item, &ShortcutItem::requestUpdateKey, this, &ShortcutWidget::requestUpdateKey);
         item->setShortcutInfo((info));
         item->setTitle(info->name);
         m_searchGroup->appendItem(item);
@@ -363,6 +356,45 @@ void ShortcutWidget::onShortcutChanged(ShortcutInfo *info)
             break;
         }
     }
+}
+
+void ShortcutWidget::onKeyEvent(bool press, const QString &shortcut)
+{
+    ShortcutInfo *current = m_model->currentInfo();
+
+    if (!current)
+        return;
+
+    ShortcutInfo *conflict = m_model->getInfo(shortcut);
+
+    if (conflict == current && conflict->accels == current->accels)
+        return;
+
+    if (!press) {
+        if (shortcut.isEmpty()) {
+            current->item->setShortcut(current->accels);
+            return;
+        }
+
+        if(shortcut == "BackSpace" || shortcut == "Delete"){
+            current->item->setShortcut(tr("null"));
+            emit requestDisableShortcut(current);
+        } else {
+            if (conflict) {
+                // have conflict
+                emit requestShowConflict(current, shortcut);
+                current->item->setShortcut(current->accels);
+            } else {
+                // save
+                current->accels = shortcut;
+                emit requestSaveShortcut(current);
+            }
+        }
+        return;
+    }
+
+    // update shortcut to item
+    current->item->setShortcut(shortcut);
 }
 
 }

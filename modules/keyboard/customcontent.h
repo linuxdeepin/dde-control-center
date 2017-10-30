@@ -48,17 +48,20 @@ class CustomContent  : public ContentWidget
     Q_OBJECT
 
 public:
-    explicit CustomContent(KeyboardWork* work, QWidget *parent = 0);
+    explicit CustomContent(ShortcutModel *model, QWidget *parent = 0);
 
     void setBottomTip(ShortcutInfo *conflict);
-    void setConflictString(const QStringList& list);
 
 signals:
-    void shortcut(const QString& shortcut);
+    void requestAddKey(const QString& name, const QString& command, const QString& accels);
+    void requestUpdateKey(ShortcutInfo *info);
+    void requestForceSubs(ShortcutInfo *info);
     void requestFrameAutoHide(const bool autoHide) const;
 
 public slots:
     void onShortcut();
+    void keyEvent(bool press, const QString &shortcut);
+    void updateKey();
 
 private slots:
     void onOpenFile();
@@ -69,10 +72,9 @@ private:
     LineEditWidget* m_name;
     LineEditWidget* m_command;
     CustomItem *m_shortcut;
-    KeyboardControl* m_control;
     QLabel* m_bottomTip;
     ShortcutInfo* m_conflict;
-
+    ShortcutModel *m_model;
     dcc::widgets::ButtonTuple *m_buttonTuple;
 };
 }

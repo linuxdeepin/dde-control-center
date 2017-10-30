@@ -40,8 +40,6 @@ namespace keyboard{
 
 ShortcutItem::ShortcutItem(QFrame *parent)
     :SettingsItem(parent),
-      m_contain(false),
-      m_display(false),
       m_info(NULL)
 {
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
@@ -90,27 +88,15 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 
     setLayout(layout);
 
-    connect(m_checkBtn, SIGNAL(clicked()), this, SLOT(onChecked()));
+    connect(m_checkBtn, &DImageButton::clicked, this, &ShortcutItem::onRemoveClick);
     connect(m_editBtn, &DImageButton::clicked, this, &ShortcutItem::onShortcutEdit);
-}
-
-void ShortcutItem::setModel(ShortcutModel *model)
-{
-    m_model = model;
-
-    connect(model, &ShortcutModel::keyEvent, this, &ShortcutItem::onKeyEvent);
 }
 
 void ShortcutItem::setShortcutInfo(ShortcutInfo *info)
 {
     m_info = info;
 
-    updateShortcutKeys();
-}
-
-void ShortcutItem::displayConflict(bool display)
-{
-    m_display = display;
+    setShortcut(info->accels);
 }
 
 ShortcutInfo *ShortcutItem::curInfo()
@@ -129,12 +115,10 @@ void ShortcutItem::setTitle(const QString &title)
         m_title->setFixedWidth(v);
 }
 
-void ShortcutItem::onKeyEvent(const QString &shortcut)
+void ShortcutItem::setShortcut(const QString &shortcut)
 {
-    if (m_model->currentInfo() != m_info)
-        return;
-
     m_shortcutEdit->hide();
+    m_key->show();
 
     QString accels = shortcut;
     accels = accels.replace("<", "");
@@ -142,7 +126,6 @@ void ShortcutItem::onKeyEvent(const QString &shortcut)
     accels = accels.replace("_L","");
     accels = accels.replace("_R", "");
 
-    m_key->show();
     m_key->setTextList(accels.split("-"));
 }
 
@@ -163,26 +146,14 @@ void ShortcutItem::onEditMode(bool value)
     update();
 }
 
-void ShortcutItem::onChecked()
+void ShortcutItem::onRemoveClick()
 {
-    emit destroyed();
+    emit requestRemove(m_info);
 }
 
 void ShortcutItem::onShortcutEdit()
 {
     emit shortcutEditChanged(m_info);
-}
-
-void ShortcutItem::updateShortcutKeys()
-{
-    QString accels;
-
-    accels = m_info->accels;
-    accels = accels.replace("<", "");
-    accels = accels.replace(">", "-");
-
-    m_key->show();
-    m_key->setTextList(accels.split("-"));
 }
 
 void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)

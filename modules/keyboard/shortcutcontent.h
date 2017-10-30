@@ -38,7 +38,7 @@ using namespace dcc;
 
 namespace dcc {
 namespace keyboard{
-class KeyboardWork;
+class ShortcutModel;
 struct ShortcutInfo;
 class KeyboardControl;
 
@@ -47,28 +47,28 @@ class ShortcutContent  : public ContentWidget
     Q_OBJECT
 
 public:
-    explicit ShortcutContent(KeyboardWork* work, QWidget *parent = 0);
+    explicit ShortcutContent(ShortcutModel *model, QWidget *parent = 0);
     void setBottomTip(ShortcutInfo *conflict);
-    void setCurInfo(ShortcutInfo* info);
-    void setConflictString(const QStringList& list);
+    void setInfo(ShortcutInfo *info);
+    void setShortcut(const QString &shortcut);
 
 signals:
-    void shortcut(const QString &shortcut);
+    void requestUpdateKey(ShortcutInfo *conflict);
+    void requestSaveShortcut(ShortcutInfo *conflict);
 
 public slots:
-    void onClick();
+    void keyEvent(bool press, const QString &shortcut);
     void onReplace();
-    void onKeyEvent(const bool state, const QString &keylist);
+    void onUpdateKey();
 
 private:
-    KeyboardWork* m_work;
+    ShortcutModel *m_model;
     QLabel* m_bottomTip;
-    KeyboardControl* m_control;
     ShortcutInfo* m_conflict;
-    ShortcutInfo* m_curInfo;
-
+    ShortcutInfo* m_info;
     dcc::widgets::ButtonTuple *m_buttonTuple;
     TitleButtonItem* m_item;
+    QString m_shortcut;
 };
 }
 }

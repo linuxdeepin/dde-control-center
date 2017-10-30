@@ -36,11 +36,8 @@ using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::keyboard;
 
-CustomItem::CustomItem(KeyboardWork *work, QWidget *parent)
-    :SettingsItem(parent),
-      m_work(work),
-      m_contain(false),
-      m_info(nullptr)
+CustomItem::CustomItem(QWidget *parent)
+    : SettingsItem(parent)
 {
     setMouseTracking(true);
     QHBoxLayout* layout = new QHBoxLayout();
@@ -71,15 +68,21 @@ CustomItem::CustomItem(KeyboardWork *work, QWidget *parent)
 
 }
 
-void CustomItem::setInfo(ShortcutInfo *info)
+void CustomItem::setTitle(const QString &title)
 {
-    m_info = info;
-    QString accels = info->accels;
+    m_title->setText(title);
+}
 
-    accels = accels.replace("<", "");
-    accels = accels.replace(">", "-");
+void CustomItem::setShortcut(const QString &shortcut)
+{
+    m_accels = shortcut;
 
-    m_shortKey->setTextList(accels.split("-"));
+    QString list = shortcut;
+    list = list.replace("<", "");
+    list = list.replace(">", "-");
+
+    m_shortKey->setTextList(list.split("-"));
+    m_shortcutEdit->hide();
     m_shortKey->show();
 }
 
@@ -88,58 +91,21 @@ QString CustomItem::text() const
     return m_accels;
 }
 
-void CustomItem::onKeyEvent(bool press, const QString &keylist)
-{
-    if(!press)
-    {
-        if(!m_shortcutEdit->isVisible())
-            return;
-
-        if (keylist == "BackSpace" || keylist == "escape") {
-            m_shortcutEdit->hide();
-        } else {
-            QString in = keylist;
-            in.replace("<", "");
-            in.replace(">", "-");
-            in.replace("_L", "");
-            m_accels = keylist;
-            QString list = keylist;
-            list = list.replace("<", "");
-            list = list.replace(">", "-");
-
-            m_shortKey->setTextList(list.split("-"));
-            m_shortcutEdit->hide();
-            m_shortKey->show();
-
-            if (!keylist.isEmpty()){
-                emit shortcut(keylist);
-            }
-        }
-    }
-}
-
-void CustomItem::mousePressEvent(QMouseEvent *e)
+void CustomItem::mouseReleaseEvent(QMouseEvent *e)
 {
     if(!m_shortcutEdit->isVisible() && m_shortKey->rect().contains(m_shortKey->mapFromParent(e->pos())))
     {
         m_shortKey->hide();
         m_shortcutEdit->clear();
-        m_work->grabScreen();
         m_shortcutEdit->setFocus();
         m_shortcutEdit->show();
         m_shortcutEdit->setPlaceholderText(tr("Please enter a shortcut"));
+
+        emit requestUpdateKey();
     }
     else
     {
         m_shortKey->show();
         m_shortcutEdit->hide();
     }
-}
-
-bool CustomItem::eventFilter(QObject *watched, QEvent *event)
-{
-    if (m_shortcutEdit == watched && event->type() == QEvent::FocusOut && m_shortcutEdit->hasFocus())
-        m_shortcutEdit->hide();
-
-    return false;
 }

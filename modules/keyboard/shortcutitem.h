@@ -43,7 +43,6 @@ namespace dcc {
 namespace keyboard{
 
 struct ShortcutInfo;
-class ShortcutModel;
 using KeybingdingInter = com::deepin::daemon::Keybinding;
 
 class ShortcutItem : public SettingsItem
@@ -52,30 +51,25 @@ class ShortcutItem : public SettingsItem
 
 public:
     explicit ShortcutItem(QFrame *parent = 0);
-    void setModel(ShortcutModel *model);
+
     void setShortcutInfo(ShortcutInfo* info);
-    void displayConflict(bool display = false);
     ShortcutInfo* curInfo();
 
     void setChecked(bool checked);
     void setTitle(const QString &title);
+    void setShortcut(const QString &shortcut);
 
 signals:
-    void shortcutChangd(bool valid, ShortcutInfo* info, const QString& shortcut);
-    void requestDisableShortcut(ShortcutInfo* info);
     void shortcutEditChanged(ShortcutInfo* info);
     void requestUpdateKey(ShortcutInfo *info);
+    void requestRemove(ShortcutInfo *info);
 
 public slots:
-    void onKeyEvent(const QString &shortcut);
     void onEditMode(bool value);
-    void onChecked();
+    void onRemoveClick();
 
 private:
     void onShortcutEdit();
-
-private slots:
-    void updateShortcutKeys();
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
@@ -83,15 +77,10 @@ protected:
 private:
     QLineEdit* m_shortcutEdit;
     QLabel* m_title;
-    QRect m_rect;
-    bool m_contain;
-    bool m_display;
-    bool m_checked;
     ShortcutInfo* m_info;
     DImageButton* m_checkBtn;
     DImageButton* m_editBtn;
     ShortcutKey *m_key;
-    ShortcutModel *m_model;
 };
 }
 }

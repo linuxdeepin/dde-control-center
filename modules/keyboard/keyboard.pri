@@ -20,7 +20,6 @@ HEADERS += \
     $$PWD/customcontent.h \
     $$PWD/titlebuttonItem.h \
     $$PWD/customedit.h \
-    $$PWD/customedititem.h \
     $$PWD/customitem.h \
     $$PWD/keylabel.h \
     $$PWD/shortcutkey.h
@@ -47,7 +46,6 @@ SOURCES += \
     $$PWD/customcontent.cpp \
     $$PWD/titlebuttonItem.cpp \
     $$PWD/customedit.cpp \
-    $$PWD/customedititem.cpp \
     $$PWD/customitem.cpp \
     $$PWD/keylabel.cpp \
     $$PWD/shortcutkey.cpp

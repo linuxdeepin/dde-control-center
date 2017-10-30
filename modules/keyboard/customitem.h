@@ -44,27 +44,21 @@ class CustomItem : public SettingsItem
 {
     Q_OBJECT
 public:
-    explicit CustomItem(KeyboardWork *work, QWidget *parent = 0);
-    void setInfo(ShortcutInfo * info);
+    explicit CustomItem(QWidget *parent = 0);
+
+    void setTitle(const QString &title);
+    void setShortcut(const QString &shortcut);
     QString text() const;
 
-public slots:
-    void onKeyEvent(bool press, const QString &keylist);
-
 signals:
-    void shortcut(const QString& shortcut);
+    void requestUpdateKey();
 
 protected:
-    void mousePressEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
-    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
 
 private:
-    KeyboardWork* m_work;
+    QLabel *m_title;
     QLineEdit* m_shortcutEdit;
-    QLabel* m_title;
-    QRect m_rect;
-    bool m_contain;
-    ShortcutInfo* m_info;
     QString m_accels;
     ShortcutKey *m_shortKey;
 };

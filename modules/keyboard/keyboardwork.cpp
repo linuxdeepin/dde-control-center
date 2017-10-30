@@ -81,16 +81,7 @@ void KeyboardWork::setShortcutModel(ShortcutModel *model)
 {
     m_shortcutModel = model;
 
-    connect(m_keybindInter, &KeybingdingInter::KeyEvent, this, [=] (bool press, const QString &shortcut) {
-
-        emit model->keyEvent(shortcut);
-
-        if (!press) {
-            ShortcutInfo *info = m_shortcutModel->getInfo(shortcut);
-            if (info)
-                emit requestConflict(info);
-        }
-    });
+    connect(m_keybindInter, &KeybingdingInter::KeyEvent, model, &ShortcutModel::keyEvent);
 }
 
 void KeyboardWork::active()
@@ -171,50 +162,27 @@ void KeyboardWork::onRefreshKBLayout()
 }
 #endif
 
-void KeyboardWork::modifyShortcut(ShortcutInfo *info, const QString &key, bool clear)
-{
-    if (!info) {
-        return;
-    }
-    QString str;
-    QString accels = info->accels;
-    if (info->accels != tr("None")) {
-        bool result = m_keybindInter->ModifiedAccel(info->id, info->type, info->accels, false, str).value();//remove
-        if(!result)
-        {
-            info->accels = str;
-            if(clear && info->item)
-                info->item->repaint();
-        }
-
-    }
-    if(!clear)
-    {
-        if (!key.isEmpty() && key != tr("None")) {
-            bool result = m_keybindInter->ModifiedAccel(info->id, info->type, key, true, str).value();
-            if(!result)
-            {
-                info->accels = key;
-                if(info->item)
-                    info->item->repaint();
-                emit searchChangd(info, info->name+accels);
-            }
-        }
-    }
-}
-
 void KeyboardWork::modifyShortcutEdit(ShortcutInfo *info)
 {
     if (!info)
         return;
 
-    // check
     const QString &result = info->accels.isEmpty() ? QString("") : m_keybindInter->LookupConflictingShortcut(info->accels);
+
     if (!result.isEmpty()) {
-        m_keybindInter->DeleteShortcutKeystroke(info->id, info->type, info->accels);
+        const QJsonObject obj = QJsonDocument::fromJson(result.toLatin1()).object();
+
+        QDBusPendingCall call = m_keybindInter->DeleteShortcutKeystroke(obj["Id"].toString()
+                , obj["Type"].toInt()
+                , obj["Accels"].toArray().first().toString());
+
+        QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(call, this);
+        connect(w, &QDBusPendingCallWatcher::finished, this, &KeyboardWork::onQDBusPendingCallFinished);
     }
 
-    m_keybindInter->AddShortcutKeystroke(info->id, info->type, info->accels);
+    QDBusPendingCall call = m_keybindInter->AddShortcutKeystroke(info->id, info->type, info->accels);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWork::onQDBusPendingCallFinished);
 }
 
 void KeyboardWork::addCustomShortcut(const QString &name, const QString &command, const QString &accels)
@@ -237,6 +205,7 @@ bool KeyboardWork::checkAvaliable(const QString &key)
 void KeyboardWork::delShortcut(ShortcutInfo* info)
 {
     m_keybindInter->DeleteCustomShortcut(info->id);
+    m_shortcutModel->delInfo(info);
 }
 
 void KeyboardWork::setRepeatDelay(int value)
@@ -517,7 +486,8 @@ void KeyboardWork::onGetShortcutFinished(QDBusPendingCallWatcher *watch)
 {
     QDBusPendingReply<QString> reply = *watch;
 
-    m_shortcutModel->onKeyBindingChanged(reply.value());
+    if (!watch->isError())
+        m_shortcutModel->onKeyBindingChanged(reply.value());
 
     watch->deleteLater();
 }
@@ -528,12 +498,15 @@ void KeyboardWork::updateKey(ShortcutInfo *info)
 
     QDBusPendingCall call = m_keybindInter->SelectKeystroke();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (call.isError())
-            qDebug() << call.error();
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWork::onQDBusPendingCallFinished);
+}
 
-        watcher->deleteLater();
-    });
+void KeyboardWork::onQDBusPendingCallFinished(QDBusPendingCallWatcher *watch)
+{
+    if (watch->isError())
+        qDebug() << watch->error();
+
+    watch->deleteLater();
 }
 
 int KeyboardWork::converToDBusDelay(int value)

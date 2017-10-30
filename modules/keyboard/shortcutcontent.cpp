@@ -34,12 +34,11 @@
 
 namespace dcc {
 namespace keyboard{
-ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
-    :ContentWidget(parent),
-      m_work(work),
-      m_conflict(NULL),
-      m_curInfo(NULL),
-      m_buttonTuple(new ButtonTuple)
+ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
+    : ContentWidget(parent)
+    , m_model(model)
+    , m_conflict(NULL)
+    , m_buttonTuple(new ButtonTuple)
 {
     TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
@@ -50,8 +49,6 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
     m_item = new TitleButtonItem();
     m_item->setValue(tr("Please Reset Shortcut"));
     group->appendItem(m_item);
-    m_control = new KeyboardControl();
-//    group->appendItem(m_control);
     layout->addWidget(group);
 
     QPushButton *cancel = m_buttonTuple->leftButton();
@@ -70,16 +67,16 @@ ShortcutContent::ShortcutContent(KeyboardWork *work, QWidget *parent)
 
     setContent(widget);
 
-    connect(ok, SIGNAL(clicked()), this, SLOT(onReplace()));
-    connect(cancel, SIGNAL(clicked()), this, SIGNAL(back()));
-    connect(m_item,SIGNAL(click()), this, SLOT(onClick()));
-
-    connect(m_work, &KeyboardWork::KeyEvent, this, &ShortcutContent::onKeyEvent);
+    connect(ok, &QPushButton::clicked, this, &ShortcutContent::onReplace);
+    connect(cancel, &QPushButton::clicked, this, &ShortcutContent::back);
+    connect(m_item, &TitleButtonItem::click, this, &ShortcutContent::onUpdateKey);
+    connect(model, &ShortcutModel::keyEvent, this, &ShortcutContent::keyEvent);
 }
 
-void ShortcutContent::setBottomTip(ShortcutInfo* conflict)
+void ShortcutContent::setBottomTip(ShortcutInfo *conflict)
 {
     m_conflict = conflict;
+
     if(conflict)
     {
         QString str = tr("This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately").arg(conflict->name);
@@ -93,73 +90,44 @@ void ShortcutContent::setBottomTip(ShortcutInfo* conflict)
     }
 }
 
-void ShortcutContent::setCurInfo(ShortcutInfo *info)
+void ShortcutContent::setInfo(ShortcutInfo *info)
 {
-    m_curInfo = info;
+    m_info = info;
     m_item->setTitle(info->name);
 }
 
-void ShortcutContent::setConflictString(const QStringList &list)
+void ShortcutContent::setShortcut(const QString &shortcut)
 {
-    m_control->setConflictString(list);
+    m_shortcut = shortcut;
 }
 
-void ShortcutContent::onClick()
+void ShortcutContent::keyEvent(bool press, const QString &shortcut)
 {
-    m_work->grabScreen();
-    m_control->setFocus();
-
-    m_bottomTip->clear();
-    m_bottomTip->hide();
-
-    for (int i = 0; i < ModelKeylist.count(); i++) {
-        m_control->setConflicts(ModelKeylist.at(i), false);
+    if (!press) {
+        // check conflict
+        ShortcutInfo *info = m_model->getInfo(shortcut);
+        if (info != m_info) {
+            setBottomTip(info);
+            return;
+        }
+        setBottomTip(nullptr);
+        m_shortcut = shortcut;
     }
 }
 
 void ShortcutContent::onReplace()
 {
-    QString key = m_conflict->accels;
-    m_work->modifyShortcut(m_conflict, tr("null"));
-    m_work->modifyShortcut(m_curInfo, key);
-
-    ShortcutItem * item = m_conflict->item;
-    if (item) {
-        m_conflict->item->displayConflict(true);
-        m_curInfo->item->displayConflict();
+    if (m_info->accels != m_shortcut) {
+        m_info->accels = m_shortcut;
+        emit requestSaveShortcut(m_info);
     }
-    sendBackSignal();
+
+    emit back();
 }
 
-void ShortcutContent::onKeyEvent(const bool state, const QString &keylist)
+void ShortcutContent::onUpdateKey()
 {
-    QString in = keylist;
-    in.replace("<", "");
-    in.replace(">", "-");
-    in.replace("_L", "");
-    QStringList value = in.split("-");
-    QMap<QString, bool> list;
-    for (QString key : ModelKeylist) {
-        QStringList t;
-        t << value << key;
-        list.insert(key, m_work->keyOccupy(t));
-    }
-
-    for (int i = 0; i < ModelKeylist.size(); ++i)
-        m_control->setPress(ModelKeylist.at(i), false);
-
-    for (int i = 0; i < ModelKeylist.size(); ++i) {
-        m_control->setPress(ModelKeylist.at(i), list[ModelKeylist.at(i)]);
-    }
-    if (!state && !keylist.isEmpty()){
-        bool result = m_work->checkAvaliable(keylist);
-        emit this->shortcut(keylist);
-        if(result)
-        {
-            m_work->modifyShortcut(m_curInfo, keylist);
-            sendBackSignal();
-        }
-    }
+    emit requestUpdateKey(nullptr);
 }
 
 }

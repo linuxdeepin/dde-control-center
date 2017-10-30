@@ -40,33 +40,34 @@ using namespace dcc::widgets;
 namespace dcc {
 namespace keyboard{
 struct ShortcutInfo;
-class CustomEditItem;
+class CustomItem;
 class CustomEdit : public ContentWidget
 {
     Q_OBJECT
 public:
-    explicit CustomEdit(KeyboardWork* work, QWidget *parent = 0);
+    explicit CustomEdit(ShortcutModel *model, QWidget *parent = 0);
     void setShortcut(ShortcutInfo* info);
 
 signals:
-    void requestEditFinished();
-    void requestShortcutList(const QString &shortcut);
+    void requestUpdateKey(ShortcutInfo *info);
+    void requestSaveShortcut(ShortcutInfo *info);
     void requestFrameAutoHide(const bool autoHide) const;
 
 public slots:
-    void onClick();
     void setBottomTip(ShortcutInfo *conflict);
+    void keyEvent(bool press, const QString &shortcut);
 
 private slots:
     void onOpenFile();
     void onSaveAccels();
+    void onUpdateKey();
 
 private:
-    KeyboardWork   *m_work;
+    ShortcutModel *m_model;
     SettingsGroup  *m_commandGroup;
     LineEditWidget *m_name;
     LineEditWidget *m_command;
-    CustomEditItem   *m_short;
+    CustomItem   *m_short;
     ShortcutInfo   *m_info;
     QLabel         *m_tip;
     ShortcutInfo *m_conflict;

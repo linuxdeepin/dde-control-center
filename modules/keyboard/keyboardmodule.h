@@ -77,14 +77,9 @@ public slots:
 #endif
     void onPushShortcut();
     void onPushCustomShortcut();
-    void onPushConflict();
+    void onPushConflict(ShortcutInfo *info, const QString &shortcut);
     void setCurrentLayout(const QString &value);
     void setCapsLock(bool value);
-
-    void onShortcutChecked(bool valid, ShortcutInfo *info, const QString& shortcut);
-    void onShortcutSet(const QString& shortcut);
-    void onShortcutKeySet(const QString& shortcut);
-    void onDelShortcut(ShortcutInfo* info);
 
     void onDelay(int value);
     void onSpeed(int value);

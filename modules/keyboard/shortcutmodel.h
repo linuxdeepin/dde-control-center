@@ -99,7 +99,7 @@ signals:
     void listChanged(QList<ShortcutInfo *>, InfoType);
     void addCustomInfo(ShortcutInfo* info);
     void shortcutChanged(ShortcutInfo *info);
-    void keyEvent(const QString &shortcut);
+    void keyEvent(bool press, const QString &shortcut);
 
 public slots:
     void onParseInfo(const QString& info);
