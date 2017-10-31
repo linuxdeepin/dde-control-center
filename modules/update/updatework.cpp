@@ -303,6 +303,9 @@ void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
         if (status == "failed") {
             qWarning() << "check for updates job failed";
             m_managerInter->CleanJob(m_checkUpdateJob->id());
+            m_model->setStatus(UpdatesStatus::UpdateFailed);
+            m_checkUpdateJob->deleteLater();
+            m_checkUpdateJob = nullptr;
         } else if (status == "success" || status == "succeed"){
             m_checkUpdateJob->deleteLater();
             m_checkUpdateJob = nullptr;
@@ -428,6 +431,8 @@ void UpdateWork::onDownloadStatusChanged(const QString &status)
     if (status == "failed")  {
         m_model->setStatus(UpdatesStatus::UpdateFailed);
         qWarning() << "download updates job failed";
+        m_downloadJob->deleteLater();
+        m_downloadJob = nullptr;
     } else if (status == "success" || status == "succeed") {
         m_downloadJob->deleteLater();
         m_downloadJob = nullptr;
@@ -449,6 +454,8 @@ void UpdateWork::onUpgradeStatusChanged(const QString &status)
         m_managerInter->CleanJob(m_distUpgradeJob->id());
         m_model->setStatus(UpdatesStatus::UpdateFailed);
         qWarning() << "install updates job failed";
+        m_distUpgradeJob->deleteLater();
+        m_distUpgradeJob = nullptr;
     } else if (status == "success" || status == "succeed") {
         m_distUpgradeJob->deleteLater();
         m_distUpgradeJob = nullptr;
