@@ -111,9 +111,12 @@ const QString NetworkDevice::path() const
     return m_deviceInfo.value("Path").toString();
 }
 
-const QString NetworkDevice::hwAddr() const
+const QString NetworkDevice::usingHwAdr() const
 {
-    return m_deviceInfo.value("HwAddress").toString();
+    const auto &hwAdr = m_deviceInfo.value("HwAddress").toString();
+    const auto &clonedAdr = m_deviceInfo.value("ClonedAddress").toString();
+
+    return clonedAdr.isEmpty() ? hwAdr : clonedAdr;
 }
 
 void NetworkDevice::updateDeviceInfo(const QJsonObject &devInfo)

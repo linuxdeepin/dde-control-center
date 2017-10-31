@@ -110,7 +110,7 @@ void HotspotPage::onConnectionsChanged()
     m_hotspotInfo = QJsonObject();
     for (const auto &hotspot : m_model->hotspots())
     {
-        if (hotspot.value("HwAddress").toString() == m_wdev->hwAddr())
+        if (hotspot.value("HwAddress").toString() == m_wdev->usingHwAdr())
         {
             m_hotspotInfo = hotspot;
             break;

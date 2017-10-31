@@ -254,7 +254,7 @@ void NetworkModel::onActiveConnInfoChanged(const QString &conns)
     // update device active connection info
     for (auto *dev : m_devices)
     {
-        const auto &hwAdr = dev->hwAddr();
+        const auto &hwAdr = dev->usingHwAdr();
 
         switch (dev->type())
         {
