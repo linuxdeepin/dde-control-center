@@ -1,4 +1,5 @@
 
+include(../config.pri)
 include(../interfaces/interfaces.pri)
 include(../widgets/widgets.pri)
 

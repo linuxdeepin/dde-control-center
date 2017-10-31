@@ -1,11 +1,12 @@
 #include(./common.pri)
+include(./config.pri)
 #include(./modules/modules.pri)
 #include(./interfaces/interfaces.pri)
 
 TEMPLATE = subdirs
 SUBDIRS  = \
-            plugins \
             frame \
+            plugins \
             dialogs
 
 # Automating generation .qm files from .ts files
