@@ -133,6 +133,7 @@ private:
     QList<NetworkDevice *> m_devices;
     QMap<QString, QList<QJsonObject>> m_connections;
     QList<QJsonObject> m_activeConnInfos;
+    QList<QJsonObject> m_activeHotspotInfos;
     QSet<QString> m_activeConnections;
     ProxyConfig m_chainsProxy;
 };

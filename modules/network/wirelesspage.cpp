@@ -33,9 +33,11 @@
 #include "connectioneditpage.h"
 #include "connectionsessionworker.h"
 #include "connectionsessionmodel.h"
+#include "tipsitem.h"
 
 #include <QDebug>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 using namespace dcc::widgets;
 using namespace dcc::network;
@@ -46,8 +48,11 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
       m_device(dev),
 
       m_listGroup(new SettingsGroup),
+      m_tipsGroup(new SettingsGroup),
 
-      m_connectHideSSID(new AccessPointWidget(this))
+      m_connectHideSSID(new AccessPointWidget(this)),
+
+      m_closeHotspotBtn(new QPushButton)
 {
     m_sortDelayTimer.setInterval(100);
     m_sortDelayTimer.setSingleShot(true);
@@ -55,6 +60,12 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_connectHideSSID->setAPName(tr("Connect to hidden network"));
     m_connectHideSSID->setStrength(-1);
 
+    m_closeHotspotBtn->setText(tr("Close hotspot"));
+
+    TipsItem *tips = new TipsItem;
+    tips->setText(tr("Please firstly disabled hotspot sharing if you want to connect and use wireless network fucntion"));
+
+    m_tipsGroup->appendItem(tips);
     m_listGroup->appendItem(m_connectHideSSID);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -62,6 +73,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->addSpacing(10);
     mainLayout->addWidget(m_listGroup);
+    mainLayout->addWidget(m_tipsGroup);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(m_closeHotspotBtn);
     mainLayout->addSpacing(10);
 
     QWidget *mainWidget = new TranslucentFrame;
@@ -76,12 +90,14 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     connect(&m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
     connect(m_connectHideSSID, &AccessPointWidget::requestEdit, this, &WirelessPage::showConnectHidePage);
+    connect(m_closeHotspotBtn, &QPushButton::clicked, this, &WirelessPage::onCloseHotspotClicked);
     connect(dev, &WirelessDevice::apAdded, this, &WirelessPage::onAPAdded);
     connect(dev, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
     connect(dev, &WirelessDevice::apRemoved, this, &WirelessPage::onAPRemoved);
     connect(dev, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
     connect(dev, &WirelessDevice::sessionCreated, this, &WirelessPage::showAPEditPage);
     connect(dev, &WirelessDevice::activeApChanged, this, &WirelessPage::updateActiveAp);
+    connect(dev, &WirelessDevice::hotspotEnabledChanged, this, &WirelessPage::onHotspotEnableChanged);
 
     // init data
     QTimer::singleShot(0, this, [=] {
@@ -104,6 +120,8 @@ void WirelessPage::setModel(NetworkModel *model)
 //    connect(m_model, &NetworkModel::activeConnInfoChanged, this, &WirelessPage::onActiveConnInfoChanged);
 
 //    onActiveConnInfoChanged(m_model->activeConnInfos());
+
+    onHotspotEnableChanged(m_device->hotspotEnabled());
 }
 
 void WirelessPage::onAPAdded(const QJsonObject &apInfo)
@@ -160,6 +178,20 @@ void WirelessPage::onAPRemoved(const QString &ssid)
     m_apItems.remove(ssid);
     m_listGroup->removeItem(w);
     w->deleteLater();
+}
+
+void WirelessPage::onHotspotEnableChanged(const bool enabled)
+{
+    m_closeHotspotBtn->setVisible(enabled);
+    m_tipsGroup->setVisible(enabled);
+    m_listGroup->setVisible(!enabled);
+}
+
+void WirelessPage::onCloseHotspotClicked()
+{
+    const QString &uuid = m_device->hotspotUuid();
+
+    emit requestDisconnectConnection(uuid);
 }
 
 void WirelessPage::onDeviceRemoved()

@@ -57,11 +57,6 @@ public:
 
     void setModel(NetworkModel *model);
 
-public slots:
-    void onAPAdded(const QJsonObject &apInfo);
-    void onAPChanged(const QJsonObject &apInfo);
-    void onAPRemoved(const QString &ssid);
-
 signals:
     void requestEditAP(const QString &devPath, const QString &uuid) const;
     void requestConnectAp(const QString &devPath, const QString &apPath, const QString &uuid) const;
@@ -73,6 +68,13 @@ signals:
     void requestDeviceAPList(const QString &devPath) const;
     void requestDeviceEnabled(const QString &devPath, const bool enabled) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
+
+public slots:
+    void onAPAdded(const QJsonObject &apInfo);
+    void onAPChanged(const QJsonObject &apInfo);
+    void onAPRemoved(const QString &ssid);
+    void onHotspotEnableChanged(const bool enabled);
+    void onCloseHotspotClicked();
 
 private slots:
     void onDeviceRemoved();
@@ -90,7 +92,9 @@ private:
     NetworkModel *m_model;
 
     dcc::widgets::SettingsGroup *m_listGroup;
+    dcc::widgets::SettingsGroup *m_tipsGroup;
     AccessPointWidget *m_connectHideSSID;
+    QPushButton *m_closeHotspotBtn;
 
     QPointer<ConnectionEditPage> m_apEditPage;
 

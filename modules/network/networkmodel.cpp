@@ -229,32 +229,49 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
 void NetworkModel::onActiveConnInfoChanged(const QString &conns)
 {
     m_activeConnInfos.clear();
+    m_activeHotspotInfos.clear();
 
     QMap<QString, QJsonObject> activeConnInfo;
+    QMap<QString, QJsonObject> activeHotspotInfo;
 
     QJsonArray activeConns = QJsonDocument::fromJson(conns.toUtf8()).array();
     for (const auto &info : activeConns)
     {
-        const auto connInfo = info.toObject();
+        const auto &connInfo = info.toObject();
+        const auto &type = connInfo.value("ConnectionType").toString();
+        const auto &macAddr = connInfo.value("HwAddress").toString();
 
-        activeConnInfo[connInfo.value("HwAddress").toString()] = connInfo;
-
-        m_activeConnInfos.append(connInfo);
+        if (type != "wireless-hotspot")
+        {
+            activeConnInfo[macAddr] = connInfo;
+            m_activeConnInfos << connInfo;
+        } else {
+            activeHotspotInfo[macAddr] = connInfo;
+            m_activeHotspotInfos << connInfo;
+        }
     }
 
     // update device active connection info
     for (auto *dev : m_devices)
     {
-        if (dev->type() == NetworkDevice::Wireless)
-        {
-            WirelessDevice *d = static_cast<WirelessDevice *>(dev);
-            d->setActiveApName(activeConnInfo[d->hwAddr()].value("ConnectionName").toString());
-        }
+        const auto &hwAdr = dev->hwAddr();
 
-        if (dev->type() == NetworkDevice::Wired)
+        switch (dev->type())
+        {
+        case NetworkDevice::Wired:
         {
             WiredDevice *d = static_cast<WiredDevice *>(dev);
-            d->onActiveConnectionChanged(activeConnInfo[d->hwAddr()]);
+            d->onActiveConnectionChanged(activeConnInfo[hwAdr]);
+            break;
+        }
+        case NetworkDevice::Wireless:
+        {
+            WirelessDevice *d = static_cast<WirelessDevice *>(dev);
+            d->setActiveApName(activeConnInfo[hwAdr].value("ConnectionName").toString());
+            d->setHotspotInfo(activeHotspotInfo.value(hwAdr));
+            break;
+        }
+        default:;
         }
     }
 

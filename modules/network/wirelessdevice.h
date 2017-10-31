@@ -42,23 +42,28 @@ public:
     explicit WirelessDevice(const QJsonObject &info, QObject *parent = 0);
 
     bool supportHotspot() const;
-    const QString activeApName() const { return m_activeAp; }
+    const QString hotspotUuid() const;
+    inline bool hotspotEnabled() const { return supportHotspot() && !m_hotspotInfo.isEmpty(); }
+    inline const QString activeApName() const { return m_activeAp; }
 
 signals:
     void apAdded(const QJsonObject &apInfo) const;
     void apInfoChanged(const QJsonObject &apInfo) const;
     void apRemoved(const QString &ssid) const;
     void activeApChanged(const QString &oldName, const QString &newName) const;
+    void hotspotEnabledChanged(const bool enabled) const;
 
 public slots:
     void setAPList(const QString &apList);
     void updateAPInfo(const QString &apInfo);
     void deleteAP(const QString &apInfo);
     void setActiveApName(const QString &name);
+    void setHotspotInfo(const QJsonObject &hotspotInfo);
 
 private:
     QSet<QString> m_aps;
     QString m_activeAp;
+    QJsonObject m_hotspotInfo;
 };
 
 }

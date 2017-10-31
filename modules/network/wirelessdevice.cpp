@@ -44,6 +44,13 @@ bool WirelessDevice::supportHotspot() const
     return info()["SupportHotspot"].toBool();
 }
 
+const QString WirelessDevice::hotspotUuid() const
+{
+    Q_ASSERT(hotspotEnabled());
+
+    return m_hotspotInfo.value("ConnectionUuid").toString();
+}
+
 void WirelessDevice::setAPList(const QString &apList)
 {
     QSet<QString> ssidList = m_aps;
@@ -100,5 +107,17 @@ void WirelessDevice::setActiveApName(const QString &name)
         m_activeAp = name;
 
         emit activeApChanged(oldName, m_activeAp);
+    }
+}
+
+void WirelessDevice::setHotspotInfo(const QJsonObject &hotspotInfo)
+{
+    Q_ASSERT(supportHotspot());
+
+    if (m_hotspotInfo != hotspotInfo)
+    {
+        m_hotspotInfo = hotspotInfo;
+
+        emit hotspotEnabledChanged(!hotspotInfo.isEmpty());
     }
 }
