@@ -124,12 +124,9 @@ void ShortcutModel::onParseInfo(const QString &info)
         QJsonObject obj = value.toObject();
         int type = obj["Type"].toInt();
 
-        QString shortcut = obj["Accels"].toArray().first().toString();
-        shortcut = shortcut.isEmpty() ? tr("None") : shortcut;
-
         ShortcutInfo *info = new ShortcutInfo();
         info->type = type;
-        info->accels = shortcut;
+        info->accels = obj["Accels"].toArray().first().toString();;
         info->name = obj["Name"].toString();
         info->id = obj["Id"].toString();
 
@@ -168,9 +165,7 @@ void ShortcutModel::onCustomInfo(const QString &json)
     ShortcutInfo *info = new ShortcutInfo();
     info->type = obj["Type"].toInt();
     QString accels = obj["Accels"].toArray().at(0).toString();
-    if (accels.isEmpty()) {
-        accels = tr("None");
-    }
+
     info->accels = accels;
 
     info->name = obj["Name"].toString();
@@ -189,9 +184,6 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
     for (ShortcutInfo *info : m_infos) {
         if (info->id == update_id) {
             QString accels = obj["Accels"].toArray().at(0).toString();
-            if (accels.isEmpty()) {
-                accels = tr("None");
-            }
             info->accels = accels;
 
             emit shortcutChanged(info);

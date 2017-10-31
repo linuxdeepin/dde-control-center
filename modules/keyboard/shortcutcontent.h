@@ -54,7 +54,8 @@ public:
 
 signals:
     void requestUpdateKey(ShortcutInfo *conflict);
-    void requestSaveShortcut(ShortcutInfo *conflict);
+    void requestSaveShortcut(ShortcutInfo *info);
+    void requestDisableShortcut(ShortcutInfo *info);
 
 public slots:
     void keyEvent(bool press, const QString &shortcut);

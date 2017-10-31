@@ -112,7 +112,10 @@ public slots:
     void onShortcutChanged(const QString &id, int type);
     void onGetShortcutFinished(QDBusPendingCallWatcher *watch);
     void updateKey(ShortcutInfo *info);
-    void onQDBusPendingCallFinished(QDBusPendingCallWatcher *watch);
+
+    void cleanShortcutSlef(const QString &id, const int type, const QString &shortcut);
+    void onConflictShortcutCleanFinished(QDBusPendingCallWatcher *watch);
+    void onShortcutCleanFinished(QDBusPendingCallWatcher *watch);
 
 private:
     int converToDBusDelay(int value);

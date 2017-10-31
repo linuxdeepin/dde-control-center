@@ -58,6 +58,7 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     m_commandGroup = new SettingsGroup();
     m_name = new LineEditWidget();
     m_name->setTitle(tr("Name"));
+    m_name->setPlaceholderText(tr("Required"));
 
     m_command = new LineEditWidget();
     m_command->setTitle(tr("Command"));
@@ -67,6 +68,7 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     m_command->addRightWidget(pushbutton);
 
     m_shortcut = new CustomItem;
+    m_shortcut->setShortcut("");
 
     m_commandGroup->appendItem(m_name);
     m_commandGroup->appendItem(m_command);
@@ -101,7 +103,6 @@ void CustomContent::setBottomTip(ShortcutInfo *conflict)
 {
     m_conflict = conflict;
     if (conflict) {
-        m_shortcut->setShortcut(conflict->accels);
         QString str = tr("This shortcut conflicts with %1, click on Add to make this shortcut effective immediately").arg(conflict->name);
         m_bottomTip->setText(str);
         m_bottomTip->show();
@@ -113,6 +114,15 @@ void CustomContent::setBottomTip(ShortcutInfo *conflict)
 
 void CustomContent::onShortcut()
 {
+    if (m_name->text().isEmpty())
+        m_name->setIsErr(true);
+
+    if (m_command->text().isEmpty())
+        m_command->setIsErr(true);
+
+    if (m_name->text().isEmpty() || m_command->text().isEmpty() || m_shortcut->text().isEmpty())
+        return;
+
     if (m_conflict)
         emit requestForceSubs(m_conflict);
 
@@ -124,17 +134,18 @@ void CustomContent::onShortcut()
 void CustomContent::keyEvent(bool press, const QString &shortcut)
 {
     if (!press) {
-        // check conflic
-        ShortcutInfo *conflic = m_model->getInfo(shortcut);
-        setBottomTip(conflic);
-
         if (shortcut.isEmpty() || shortcut == "BackSpace" || shortcut == "Delete") {
-            m_shortcut->setShortcut(tr("None"));
+            m_shortcut->setShortcut("");
+            setBottomTip(nullptr);
             return;
         }
 
-        m_shortcut->setShortcut(shortcut);
+        // check conflict
+        ShortcutInfo *conflict = m_model->getInfo(shortcut);
+        setBottomTip(conflict);
     }
+
+    m_shortcut->setShortcut(shortcut);
 }
 
 void CustomContent::updateKey()
@@ -146,7 +157,7 @@ void CustomContent::onOpenFile()
 {
     emit requestFrameAutoHide(false);
 
-    QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), tr("/usr/bin"));
+    QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), "/usr/bin");
     m_command->setText(file);
 
     emit requestFrameAutoHide(true);

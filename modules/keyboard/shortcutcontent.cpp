@@ -104,9 +104,21 @@ void ShortcutContent::setShortcut(const QString &shortcut)
 void ShortcutContent::keyEvent(bool press, const QString &shortcut)
 {
     if (!press) {
+
+        if (shortcut.isEmpty()) {
+            setBottomTip(nullptr);
+            return;
+        }
+
+        if(shortcut == "BackSpace" || shortcut == "Delete") {
+            m_shortcut.clear();
+            setBottomTip(nullptr);
+            return;
+        }
+
         // check conflict
         ShortcutInfo *info = m_model->getInfo(shortcut);
-        if (info != m_info) {
+        if (info && info != m_info && info->accels != m_info->accels) {
             setBottomTip(info);
             return;
         }
@@ -118,8 +130,12 @@ void ShortcutContent::keyEvent(bool press, const QString &shortcut)
 void ShortcutContent::onReplace()
 {
     if (m_info->accels != m_shortcut) {
-        m_info->accels = m_shortcut;
-        emit requestSaveShortcut(m_info);
+        if (m_shortcut.isEmpty()) {
+            emit requestDisableShortcut(m_info);
+        } else {
+            m_info->accels = m_shortcut;
+            emit requestSaveShortcut(m_info);
+        }
     }
 
     emit back();

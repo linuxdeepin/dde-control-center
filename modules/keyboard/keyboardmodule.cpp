@@ -241,6 +241,7 @@ void KeyboardModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
 
         connect(m_scContent, &ShortcutContent::requestSaveShortcut, m_work, &KeyboardWork::modifyShortcutEdit);
         connect(m_scContent, &ShortcutContent::requestUpdateKey, m_work, &KeyboardWork::updateKey);
+        connect(m_scContent, &ShortcutContent::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
 
         m_frameProxy->pushWidget(this, m_scContent);
     }
@@ -269,11 +270,12 @@ void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
     ShortcutWidget *shortcutWidget = static_cast<ShortcutWidget*>(sender());
     SettingsHead *head = shortcutWidget->getHead();
 
-    connect(m_customEdit, &CustomEdit::requestSaveShortcut, head, &SettingsHead::toCancel);
     connect(m_customEdit, &CustomEdit::requestFrameAutoHide, this, &KeyboardModule::onSetFrameAutoHide);
     connect(m_customEdit, &CustomEdit::requestUpdateKey, m_work, &KeyboardWork::updateKey);
+    connect(m_customEdit, &CustomEdit::requestSaveShortcut, head, &SettingsHead::toCancel);
     connect(m_customEdit, &CustomEdit::requestSaveShortcut, m_work, &KeyboardWork::modifyShortcutEdit);
-
+    connect(m_customEdit, &CustomEdit::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
+    connect(m_customEdit, &CustomEdit::requestDisableShortcut, head, &SettingsHead::toCancel);
 
     m_frameProxy->pushWidget(this, m_customEdit);
 }

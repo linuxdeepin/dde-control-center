@@ -115,18 +115,36 @@ void keyboard::CustomEdit::setBottomTip(keyboard::ShortcutInfo *conflict)
 void keyboard::CustomEdit::keyEvent(bool press, const QString &shortcut)
 {
     if (!press) {
-        // check contlic
-        setBottomTip(m_model->getInfo(shortcut));
 
-        m_short->setShortcut(shortcut);
+        if (shortcut.isEmpty()) {
+            m_short->setShortcut(m_info->accels);
+            setBottomTip(nullptr);
+            return;
+        }
+
+        if (shortcut == "BackSpace" || shortcut == "Delete") {
+            m_short->setShortcut("");
+            setBottomTip(nullptr);
+            return;
+        }
+
+        // check conflict
+        ShortcutInfo *info = m_model->getInfo(shortcut);
+        if (info && info != m_info && info->accels != m_info->accels) {
+            setBottomTip(info);
+            return;
+        }
+        setBottomTip(nullptr);
     }
+
+    m_short->setShortcut(shortcut);
 }
 
 void keyboard::CustomEdit::onOpenFile()
 {
     emit requestFrameAutoHide(false);
 
-    QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), tr("/usr/bin"));
+    QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), "/usr/bin");
     m_command->setText(file);
 
     emit requestFrameAutoHide(true);
@@ -134,7 +152,17 @@ void keyboard::CustomEdit::onOpenFile()
 
 void keyboard::CustomEdit::onSaveAccels()
 {
-    emit requestSaveShortcut(m_info);
+    const QString &shortcut = m_short->text();
+    if (m_info->accels != shortcut) {
+        if (shortcut.isEmpty()) {
+            emit requestDisableShortcut(m_info);
+        } else {
+            m_info->accels = shortcut;
+            emit requestSaveShortcut(m_info);
+        }
+    }
+
+    emit back();
 }
 
 void keyboard::CustomEdit::onUpdateKey()

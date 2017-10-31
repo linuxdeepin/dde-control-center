@@ -39,8 +39,15 @@ KeyLabel::KeyLabel(QWidget *parent)
 KeyLabel::KeyLabel(const QString &text, QWidget *parent)
     : KeyLabel(parent)
 {
-    const QString &value = DisplaykeyMap[text];
-    const QString &t = value.isEmpty() ? text : value;
+    QString t;
+
+    if (text.isEmpty()) {
+        t = tr("None");
+    } else {
+        const QString &value = DisplaykeyMap[text];
+        t = value.isEmpty() ? text : value;
+    }
+
     setText(t);
 
     QFont font = qApp->font();

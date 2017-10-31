@@ -51,6 +51,7 @@ public:
 signals:
     void requestUpdateKey(ShortcutInfo *info);
     void requestSaveShortcut(ShortcutInfo *info);
+    void requestDisableShortcut(ShortcutInfo *info);
     void requestFrameAutoHide(const bool autoHide) const;
 
 public slots:

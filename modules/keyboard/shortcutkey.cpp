@@ -27,6 +27,7 @@
 #include "keylabel.h"
 
 #include <QMouseEvent>
+#include <QDebug>
 
 ShortcutKey::ShortcutKey(QWidget *parent) : QWidget(parent)
 {

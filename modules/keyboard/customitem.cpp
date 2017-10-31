@@ -55,7 +55,7 @@ CustomItem::CustomItem(QWidget *parent)
 
     m_shortKey = new ShortcutKey;
     layout->addWidget(m_shortKey);
-    m_shortKey->setTextList(QStringList() << tr("None"));
+    m_shortKey->setTextList(QStringList());
 
     m_shortcutEdit = new QLineEdit(this);
     m_shortcutEdit->setReadOnly(true);

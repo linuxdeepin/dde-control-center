@@ -138,6 +138,8 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
         m_customList.clear();
     }
 
+    m_allList.clear();
+
     QList<ShortcutInfo*>::iterator it = list.begin();
     for(; it != list.end(); ++it)
     {
@@ -240,6 +242,8 @@ void ShortcutWidget::onCustomAdded(ShortcutInfo *info)
 
        m_searchInfos[info->toString()] = info;
 
+       m_allList << item;
+
        m_head->setVisible(true);
        connect(m_head, SIGNAL(editChanged(bool)), item, SLOT(onEditMode(bool)));
        m_customGroup->appendItem(item);
@@ -262,6 +266,8 @@ void ShortcutWidget::onDestroyItem(ShortcutInfo *info)
 
     m_searchInfos.remove(item->curInfo()->toString());
     m_customList.removeOne(item);
+    m_allList.removeOne(item);
+
     emit delShortcutInfo(item->curInfo());
     item->deleteLater();
 }
@@ -341,7 +347,7 @@ void ShortcutWidget::onRemoveItem(const QString &id, int type)
         if (it->curInfo()->id == id) {
             m_customGroup->removeItem(it);
             m_customList.removeOne(it);
-            emit delShortcutInfo(it->curInfo());
+            m_allList.removeOne(it);
             it->deleteLater();
             return;
         }
@@ -367,8 +373,10 @@ void ShortcutWidget::onKeyEvent(bool press, const QString &shortcut)
 
     ShortcutInfo *conflict = m_model->getInfo(shortcut);
 
-    if (conflict == current && conflict->accels == current->accels)
+    if (conflict == current && conflict->accels == current->accels) {
+        current->item->setShortcut(current->accels);
         return;
+    }
 
     if (!press) {
         if (shortcut.isEmpty()) {
@@ -377,7 +385,7 @@ void ShortcutWidget::onKeyEvent(bool press, const QString &shortcut)
         }
 
         if(shortcut == "BackSpace" || shortcut == "Delete"){
-            current->item->setShortcut(tr("null"));
+            current->item->setShortcut("");
             emit requestDisableShortcut(current);
         } else {
             if (conflict) {
