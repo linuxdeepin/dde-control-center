@@ -33,6 +33,16 @@
 #include <QDBusInterface>
 #include <QDebug>
 
+static const QStringList systemFilter = { "terminal" , "terminal-quake" , "screenshot" , "screenshot-delayed" , "screenshot-window" , "deepin-screen-recorder"
+                                          , "switch-group" , "switch-group-backward" , "preview-workspace" , "expose-windows" , "expose-all-windows"
+                                          , "launcher" , "switch-applications" , "switch-applications-backward" , "show-desktop" , "file-manager"
+                                          , "lock-screen" , "logout" , "wm-switcher"};
+
+QStringList windowFilter = {"maximize" , "unmaximize" , "minimize" , "begin-move" , "begin-resize" , "close"};
+
+QStringList workspaceFilter ={ "switch-to-workspace-left" , "switch-to-workspace-right"
+                               , "move-to-workspace-left" , "move-to-workspace-right"};
+
 namespace dcc
 {
 namespace keyboard
@@ -101,26 +111,9 @@ void ShortcutModel::onParseInfo(const QString &info)
     m_workspaceInfos.clear();
     m_customInfos.clear();
 
-    QStringList systemFilter;
-    systemFilter << "terminal" << "terminal-quake" << "screenshot" << "screenshot-delayed" << "screenshot-window" << "deepin-screen-recorder"
-                 << "switch-group" << "switch-group-backward" << "preview-workspace" << "expose-windows" << "expose-all-windows"
-                 << "launcher" << "switch-applications" << "switch-applications-backward" << "show-desktop" << "file-manager"
-                 << "lock-screen" << "logout" << "wm-switcher";
-
-    QStringList windowFilter;
-    windowFilter  << "maximize" << "unmaximize" << "minimize" << "begin-move" << "begin-resize" << "close";
-
-    QStringList workspaceFilter;
-    workspaceFilter << "switch-to-workspace-left" << "switch-to-workspace-right"
-                    << "move-to-workspace-left" << "move-to-workspace-right";
-
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
 
-
-    // foreach all
-
     foreach(QJsonValue value, array) {
-
         QJsonObject obj = value.toObject();
         int type = obj["Type"].toInt();
 
@@ -130,28 +123,40 @@ void ShortcutModel::onParseInfo(const QString &info)
         info->name = obj["Name"].toString();
         info->id = obj["Id"].toString();
 
-        // foreach system
-        for (const QString i : systemFilter)
-            if (type != MEDIAKEY && info->id == i)
-                m_systemInfos.append(info);
+        m_infos << info;
 
-        // foreach window
-        for (const QString i : windowFilter)
-            if (type != MEDIAKEY && info->id == i)
-                m_windowInfos.append(info);
+        if (type != MEDIAKEY) {
+            if (systemFilter.contains(info->id)) {
+                m_systemInfos << info;
+                continue;
+            }
 
-        // foreach workspace
-        for (const QString i : workspaceFilter)
-            if (type != MEDIAKEY && info->id == i)
-                m_workspaceInfos.append(info);
+            if (windowFilter.contains(info->id)) {
+                m_windowInfos << info;
+                continue;
+            }
 
-        // foreach custom
-        if (type != MEDIAKEY && type == 1)
-            m_customInfos.append(info);
+            if (workspaceFilter.contains(info->id)) {
+                m_workspaceInfos << info;
+                continue;
+            }
 
-        // add to list
-        m_infos.append(info);
+            if (type == 1)
+                m_customInfos << info;
+        }
     }
+
+    qSort(m_systemInfos.begin(), m_systemInfos.end(), [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
+        return systemFilter.indexOf(s1->id) < systemFilter.indexOf(s2->id);
+    });
+
+    qSort(m_windowInfos.begin(), m_windowInfos.end(), [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
+        return windowFilter.indexOf(s1->id) < windowFilter.indexOf(s2->id);
+    });
+
+    qSort(m_workspaceInfos.begin(), m_workspaceInfos.end(), [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
+        return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
+    });
 
     emit listChanged(m_systemInfos, InfoType::System);
     emit listChanged(m_windowInfos, InfoType::Window);
