@@ -138,10 +138,6 @@ void Frame::init()
 //    showSettingsPage("network", QString());
 #endif
 
-#ifdef DISABLE_MAIN_PAGE
-    showSettingsPage(QString(), QString());
-#endif
-
 #ifdef DCC_KEEP_SETTINGS_LIVE
     prepareAllSettingsPage();
 #endif
@@ -412,7 +408,12 @@ void Frame::toggle()
         return;
 
     if (m_appearAnimation.startValue().toRect().width() != 0)
+    {
         show();
-    else
+#ifdef DISABLE_MAIN_PAGE
+        showAllSettings();
+#endif
+    } else {
         hide();
+    }
 }

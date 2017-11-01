@@ -117,13 +117,21 @@ void DBusControlCenterService::HideImmediately()
 void DBusControlCenterService::Show()
 {
     // handle method call com.deepin.dde.ControlCenter.Show
+#ifdef DISABLE_MAIN_PAGE
+    parent()->showSettingsPage(QString(), QString());
+#else
     parent()->show();
+#endif
 }
 
 void DBusControlCenterService::ShowImmediately()
 {
     // handle method call com.deepin.dde.ControlCenter.ShowImmediately
+#ifdef DISABLE_MAIN_PAGE
+    parent()->showSettingsPage(QString(), QString());
+#else
     parent()->show();
+#endif
 }
 
 void DBusControlCenterService::ShowHome()
