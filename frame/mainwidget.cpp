@@ -200,7 +200,7 @@ int MainWidget::getPluginsHeight()
 
 void MainWidget::updatePluginsHeight()
 {
-    const bool b = height() > 600;
+    const bool b = height() > 650;
     m_pluginWidget->setVisible(b);
     m_quickSettingsPanel->setAllSettingsVisible(!b);
 
