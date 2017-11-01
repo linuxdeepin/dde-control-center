@@ -14,11 +14,15 @@ using com::deepin::daemon::fprintd::Device;
 
 namespace dcc {
 namespace accounts {
+
 class FingerWorker : public QObject
 {
     Q_OBJECT
 public:
     explicit FingerWorker(FingerModel *model, QObject *parent = nullptr);
+
+signals:
+    void requestShowAddThumb(const QString &name, const QString &thumb);
 
 public slots:
     void refreshUserEnrollList(const QString &name);
@@ -31,6 +35,9 @@ private slots:
     void onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w);
     void onGetListEnrolledFinished(QDBusPendingCallWatcher *w);
     void onEnrollStatus(const QString &value, const bool status);
+    bool recordFinger(const QString &name, const QString &thumb);
+    bool reRecordFinger(const QString &thumb);
+    bool saveFinger();
 
 private:
     FingerModel *m_model;

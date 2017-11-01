@@ -62,6 +62,7 @@ void AccountsModule::initialize()
     m_accountsWorker->active();
 
     connect(m_accountsWorker, &AccountsWorker::requestFrameAutoHide, this, &AccountsModule::setFrameAutoHide);
+    connect(m_fingerWorker, &FingerWorker::requestShowAddThumb, this, &AccountsModule::showAddThumb);
 }
 
 void AccountsModule::moduleActive()
@@ -188,7 +189,6 @@ void AccountsModule::showFingerPage(User *account)
     dcc::accounts::FingerPage *page = new FingerPage(account);
     page->setFingerModel(m_fingerModel);
 
-    connect(page, &FingerPage::requestAddThumbs, this, &AccountsModule::showAddThumb);
     connect(page, &FingerPage::requestAddThumbs, m_fingerWorker, &FingerWorker::enrollStart);
     connect(page, &FingerPage::requestCleanThumbs, m_fingerWorker, &FingerWorker::cleanEnroll);
 

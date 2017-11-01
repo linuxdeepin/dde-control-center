@@ -1,5 +1,8 @@
 #include "fingerworker.h"
 
+#include <QFutureWatcher>
+#include <QtConcurrent>
+
 using namespace dcc;
 using namespace dcc::accounts;
 
@@ -26,28 +29,33 @@ void FingerWorker::refreshUserEnrollList(const QString &name)
 
 void FingerWorker::enrollStart(const QString &name, const QString &thumb)
 {
-    // clean
-    m_fprDefaultInter->EnrollStop();
+    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
+    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher, name, thumb] {
+        if (watcher->result()) {
+            m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
+            emit requestShowAddThumb(name, thumb);
+        }
 
-    QTimer::singleShot(100, this, [=] { m_fprDefaultInter->Release();});
+        watcher->deleteLater();
+    });
 
-    QTimer::singleShot(200, this, [=] {
-        m_fprDefaultInter->Claim(name);
-    });
-    QTimer::singleShot(300, this, [=] {
-        m_fprDefaultInter->EnrollStart(thumb);
-        m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
-    });
+    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::recordFinger, name, thumb);
+    watcher->setFuture(future);
 }
 
 void FingerWorker::reEnrollStart(const QString &thumb)
 {
-    m_fprDefaultInter->EnrollStop();
+    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
+    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher] {
+        if (watcher->result()) {
+            m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
+        }
 
-    QTimer::singleShot(100, this, [=] {
-        m_fprDefaultInter->EnrollStart(thumb);
-        m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
+        watcher->deleteLater();
     });
+
+    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::reRecordFinger, thumb);
+    watcher->setFuture(future);
 }
 
 void FingerWorker::cleanEnroll(User *user)
@@ -60,12 +68,18 @@ void FingerWorker::cleanEnroll(User *user)
 
 void FingerWorker::saveEnroll(const QString &name)
 {
-    m_fprDefaultInter->EnrollStop();
+    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
+    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher, name] {
+        if (watcher->result()) {
+            refreshUserEnrollList(name);
+            m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
+        }
 
-    QTimer::singleShot(100, this, [=] {
-        refreshUserEnrollList(name);
+        watcher->deleteLater();
     });
-    m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
+
+    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::saveFinger);
+    watcher->setFuture(future);
 }
 
 void FingerWorker::onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w)
@@ -110,4 +124,73 @@ void FingerWorker::onEnrollStatus(const QString &value, const bool status)
     }
 
     m_model->setEnrollStatus(FingerModel::EnrollStatus::Next);
+}
+
+bool FingerWorker::recordFinger(const QString &name, const QString &thumb)
+{
+    QDBusPendingCall call = m_fprDefaultInter->EnrollStop();
+    call.waitForFinished();
+
+    call = m_fprDefaultInter->Release();
+    call.waitForFinished();
+
+    call = m_fprDefaultInter->Claim(name);
+    call.waitForFinished();
+
+    if (call.isError()) {
+        qDebug() << call.error();
+        return false;
+    }
+
+    call = m_fprDefaultInter->EnrollStart(thumb);
+    call.waitForFinished();
+
+    if (call.isError()) {
+        qDebug() << call.error();
+        return false;
+    }
+
+    return true;
+}
+
+bool FingerWorker::reRecordFinger(const QString &thumb)
+{
+    QDBusPendingCall call = m_fprDefaultInter->EnrollStop();
+    call.waitForFinished();
+
+    if (call.isError()) {
+        qDebug() << call.error();
+        return false;
+    }
+
+    call = m_fprDefaultInter->EnrollStart(thumb);
+    call.waitForFinished();
+
+    if (call.isError()) {
+        qDebug() << call.error();
+        return false;
+    }
+
+    return true;
+}
+
+bool FingerWorker::saveFinger()
+{
+    QDBusPendingCall call = m_fprDefaultInter->EnrollStop();
+    call.waitForFinished();
+
+    if (call.isError()) {
+        qDebug() << call.error();
+        return false;
+    }
+
+    call = m_fprDefaultInter->Release();
+    call.waitForFinished();
+
+    if (call.isError()) {
+        qDebug() << call.error();
+        return false;
+    }
+
+    return true;
 }

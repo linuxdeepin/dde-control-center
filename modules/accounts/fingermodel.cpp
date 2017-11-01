@@ -35,18 +35,17 @@ void FingerModel::setEnrollStatus(const EnrollStatus &enrollStatus)
     emit enrollStatusChanged(enrollStatus);
 }
 
-void FingerModel::addUserThumbs(const FingerModel::UserThumbs &thubs)
+void FingerModel::addUserThumbs(const FingerModel::UserThumbs &thumbs)
 {
-    if (m_thumbsList.contains(thubs)) {
-        for (int i(0); i != m_thumbsList.size(); ++i) {
-            if (m_thumbsList.at(i).username == thubs.username) {
-                m_thumbsList.removeAt(i);
-                break;
-            }
+    for (int i(0); i != m_thumbsList.size(); ++i) {
+        if (m_thumbsList.at(i).username == thumbs.username) {
+            m_thumbsList.removeAt(i);
+            break;
         }
     }
 
-    m_thumbsList << thubs;
+    m_thumbsList << thumbs;
+
     emit thumbsListChanged(m_thumbsList);
 }
 

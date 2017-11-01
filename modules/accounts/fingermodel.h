@@ -37,7 +37,7 @@ public:
     EnrollStatus enrollStatus() const;
     void setEnrollStatus(const EnrollStatus &enrollStatus);
 
-    void addUserThumbs(const UserThumbs &thubs);
+    void addUserThumbs(const UserThumbs &thumbs);
     void cleanUserThumbs(const QString &user);
     QList<UserThumbs> thumbsList() const;
 
