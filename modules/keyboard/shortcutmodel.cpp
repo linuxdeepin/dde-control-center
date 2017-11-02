@@ -122,6 +122,7 @@ void ShortcutModel::onParseInfo(const QString &info)
         info->accels = obj["Accels"].toArray().first().toString();;
         info->name = obj["Name"].toString();
         info->id = obj["Id"].toString();
+        info->command = obj["Exec"].toString();
 
         m_infos << info;
 
@@ -188,8 +189,10 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
 
     for (ShortcutInfo *info : m_infos) {
         if (info->id == update_id) {
-            QString accels = obj["Accels"].toArray().at(0).toString();
-            info->accels = accels;
+            info->type = obj["Type"].toInt();;
+            info->accels = obj["Accels"].toArray().first().toString();
+            info->name = obj["Name"].toString();
+            info->command = obj["Exec"].toString();
 
             emit shortcutChanged(info);
             break;
@@ -210,7 +213,7 @@ void ShortcutModel::setCurrentInfo(ShortcutInfo *currentInfo)
 ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
 {
     for (ShortcutInfo *info : m_infos) {
-        if (info->accels == shortcut)
+        if (QString::compare(info->accels, shortcut, Qt::CaseInsensitive) == 0)
             return info;
     }
 

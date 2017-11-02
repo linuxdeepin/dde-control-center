@@ -190,6 +190,26 @@ void KeyboardWork::addCustomShortcut(const QString &name, const QString &command
     m_keybindInter->AddCustomShortcut(name, command, accels);
 }
 
+void KeyboardWork::modifyCustomShortcut(const QString &id, const QString &name, const QString &command, const QString &accles)
+{
+    const QString &result = m_keybindInter->LookupConflictingShortcut(accles);
+
+    if (!result.isEmpty()) {
+        const QJsonObject obj = QJsonDocument::fromJson(result.toLatin1()).object();
+        QDBusPendingCall call = m_keybindInter->ClearShortcutKeystrokes(obj["Id"].toString(), obj["Type"].toInt());
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+
+        watcher->setProperty("id", id);
+        watcher->setProperty("name", name);
+        watcher->setProperty("command", command);
+        watcher->setProperty("shortcut", accles);
+
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWork::onCustomConflictCleanFinished);
+    } else {
+        m_keybindInter->ModifyCustomShortcut(id, name, command, accles);
+    }
+}
+
 void KeyboardWork::grabScreen()
 {
     m_keybindInter->GrabScreen();
@@ -511,6 +531,11 @@ void KeyboardWork::cleanShortcutSlef(const QString &id, const int type, const QS
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWork::onShortcutCleanFinished);
 }
 
+void KeyboardWork::setNewCustomShortcut(const QString &id, const QString &name, const QString &command, const QString &accles)
+{
+    m_keybindInter->ModifyCustomShortcut(id, name, command, accles);
+}
+
 void KeyboardWork::onConflictShortcutCleanFinished(QDBusPendingCallWatcher *watch)
 {
     if (!watch->isError()) {
@@ -537,6 +562,20 @@ void KeyboardWork::onShortcutCleanFinished(QDBusPendingCallWatcher *watch)
     }
 
     watch->deleteLater();
+}
+
+void KeyboardWork::onCustomConflictCleanFinished(QDBusPendingCallWatcher *w)
+{
+    if (!w->isError()) {
+        const QString &id = w->property("id").toString();
+        const QString name = w->property("name").toString();
+        const QString &command = w->property("command").toString();
+        const QString &accles = w->property("shortcut").toString();
+
+        setNewCustomShortcut(id, name, command, accles);
+    }
+
+    w->deleteLater();
 }
 
 int KeyboardWork::converToDBusDelay(int value)

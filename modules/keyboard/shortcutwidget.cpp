@@ -138,8 +138,6 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
         m_customList.clear();
     }
 
-    m_allList.clear();
-
     QList<ShortcutInfo*>::iterator it = list.begin();
     for(; it != list.end(); ++it)
     {

@@ -61,6 +61,7 @@ public:
 
     void modifyShortcutEdit(ShortcutInfo* info);
     void addCustomShortcut(const QString& name, const QString& command, const QString& accels);
+    void modifyCustomShortcut(const QString &id, const QString &name, const QString &command, const QString &accles);
 
     void grabScreen();
     bool checkAvaliable(const QString& key);
@@ -114,8 +115,10 @@ public slots:
     void updateKey(ShortcutInfo *info);
 
     void cleanShortcutSlef(const QString &id, const int type, const QString &shortcut);
+    void setNewCustomShortcut(const QString &id, const QString &name, const QString &command, const QString &accles);
     void onConflictShortcutCleanFinished(QDBusPendingCallWatcher *watch);
     void onShortcutCleanFinished(QDBusPendingCallWatcher *watch);
+    void onCustomConflictCleanFinished(QDBusPendingCallWatcher *w);
 
 private:
     int converToDBusDelay(int value);

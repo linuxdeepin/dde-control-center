@@ -38,7 +38,8 @@ keyboard::CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
     m_name(new LineEditWidget),
     m_command(new LineEditWidget),
     m_short(new CustomItem(this)),
-    m_tip(new QLabel)
+    m_tip(new QLabel),
+    m_conflict(nullptr)
 {
     m_tip->setVisible(false);
     m_tip->setWordWrap(true);
@@ -152,15 +153,20 @@ void keyboard::CustomEdit::onOpenFile()
 
 void keyboard::CustomEdit::onSaveAccels()
 {
-    const QString &shortcut = m_short->text();
-    if (m_info->accels != shortcut) {
-        if (shortcut.isEmpty()) {
-            emit requestDisableShortcut(m_info);
-        } else {
-            m_info->accels = shortcut;
-            emit requestSaveShortcut(m_info);
-        }
-    }
+    if (m_name->text().isEmpty())
+        m_name->setIsErr(true);
+
+    if (m_command->text().isEmpty())
+        m_command->setIsErr(true);
+
+    if (m_name->text().isEmpty() || m_command->text().isEmpty() || m_short->text().isEmpty())
+        return;
+
+    if (m_conflict)
+        emit requestDisableShortcut(m_conflict);
+
+    emit requestSaveShortcut(m_info->id, m_name->text(), m_command->text(), m_short->text());
+
 
     emit back();
 }
