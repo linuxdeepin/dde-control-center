@@ -243,7 +243,9 @@ void SettingsWidget::loadModules()
     loadModule(new UpdateModule(this));
 #endif
 
+#ifndef DISABLE_SYSINFO
     loadModule(new SystemInfoModule(this));
+#endif
 }
 
 void SettingsWidget::loadModule(ModuleInterface *const module)

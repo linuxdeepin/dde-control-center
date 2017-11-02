@@ -60,18 +60,25 @@ NetworkModuleWidget::NetworkModuleWidget()
 
     m_devicesLayout->setMargin(0);
     m_devicesLayout->setSpacing(10);
+    m_centralLayout->addLayout(m_devicesLayout);
 
+#if !defined(DISABLE_NETWORK_PROXY) || !defined(DISABLE_NETWORK_VPN) || !defined(DISABLE_NETWORK_PPPOE)
     SettingsGroup *connGroup = new SettingsGroup;
+#ifndef DISABLE_NETWORK_PPPOE
     connGroup->appendItem(m_pppBtn);
+#endif
+#ifndef DISABLE_NETWORK_VPN
     connGroup->appendItem(m_vpnBtn);
+#endif
+#ifndef DISABLE_NETWORK_PROXY
     connGroup->appendItem(appProxy);
     connGroup->appendItem(m_proxyBtn);
+#endif
+    m_centralLayout->addWidget(connGroup);
+#endif
 
     SettingsGroup *detailGroup = new SettingsGroup;
     detailGroup->appendItem(m_detailBtn);
-
-    m_centralLayout->addLayout(m_devicesLayout);
-    m_centralLayout->addWidget(connGroup);
     m_centralLayout->addWidget(detailGroup);
 
     setTitle(tr("Network"));
