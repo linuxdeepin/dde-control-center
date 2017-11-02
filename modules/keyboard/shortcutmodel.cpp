@@ -36,7 +36,7 @@
 static const QStringList systemFilter = { "terminal" , "terminal-quake" , "screenshot" , "screenshot-delayed" , "screenshot-window" , "deepin-screen-recorder"
                                           , "switch-group" , "switch-group-backward" , "preview-workspace" , "expose-windows" , "expose-all-windows"
                                           , "launcher" , "switch-applications" , "switch-applications-backward" , "show-desktop" , "file-manager"
-                                          , "lock-screen" , "logout" , "wm-switcher"};
+                                          , "lock-screen" , "logout" , "wm-switcher" , "system-monitor" , "color-picker"};
 
 QStringList windowFilter = {"maximize" , "unmaximize" , "minimize" , "begin-move" , "begin-resize" , "close"};
 
