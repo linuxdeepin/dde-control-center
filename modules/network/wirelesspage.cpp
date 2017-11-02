@@ -77,6 +77,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     mainLayout->addSpacing(10);
     mainLayout->addWidget(m_closeHotspotBtn);
     mainLayout->addSpacing(10);
+    mainLayout->addStretch();
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(mainLayout);

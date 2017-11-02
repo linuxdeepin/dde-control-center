@@ -38,9 +38,11 @@ TipsItem::TipsItem(QWidget *parent)
       m_tipsLabel(new NormalLabel)
 {
     m_tipsLabel->setAlignment(Qt::AlignCenter);
+    m_tipsLabel->setWordWrap(true);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addWidget(m_tipsLabel);
+    centralLayout->setContentsMargins(15, 0, 15, 0);
 
     setLayout(centralLayout);
 }
