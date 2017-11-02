@@ -126,10 +126,14 @@ void HotspotPage::onConnectionsChanged()
 
 void HotspotPage::onActiveConnsChanged()
 {
-    if (m_hotspotInfo.isEmpty())
-        return m_hotspotSwitch->setChecked(false);
+    m_hotspotSwitch->blockSignals(true);
 
-    m_hotspotSwitch->setChecked(m_model->activeConnections().contains(hotspotUuid()));
+    if (m_hotspotInfo.isEmpty())
+        m_hotspotSwitch->setChecked(false);
+    else
+        m_hotspotSwitch->setChecked(m_model->activeConnections().contains(hotspotUuid()));
+
+    m_hotspotSwitch->blockSignals(false);
 }
 
 void HotspotPage::onConnectionSessionCreated(const QString &sessionPath)
