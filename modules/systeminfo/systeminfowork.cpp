@@ -162,22 +162,29 @@ void SystemInfoWork::grubServerFinished()
 
 void SystemInfoWork::onBackgroundChanged()
 {
-    // make cache
+    QDBusPendingCall call = m_dbusGrubTheme->GetBackground();
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(call, this);
 
-    const qreal ratio = qApp->devicePixelRatio();
+    connect(w, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (!w->isError()) {
+            QDBusPendingReply<QString> reply = w->reply();
+            const qreal ratio = qApp->devicePixelRatio();
 
-    QPixmap pix = QPixmap("/boot/grub/themes/deepin/background.png").scaled(QSize(ItemWidth * ratio, ItemHeight * ratio),
-                                           Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+            QPixmap pix = QPixmap(reply.value()).scaled(QSize(ItemWidth * ratio, ItemHeight * ratio),
+                                                                                    Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
 
-    const QRect r(0, 0, ItemWidth * ratio, ItemHeight * ratio);
-    const QSize size(ItemWidth * ratio, ItemHeight * ratio);
+            const QRect r(0, 0, ItemWidth * ratio, ItemHeight * ratio);
+            const QSize size(ItemWidth * ratio, ItemHeight * ratio);
 
-    if (pix.width() > ItemWidth * ratio || pix.height() > ItemHeight * ratio)
-        pix = pix.copy(QRect(pix.rect().center() - r.center(), size));
+            if (pix.width() > ItemWidth * ratio || pix.height() > ItemHeight * ratio)
+                pix = pix.copy(QRect(pix.rect().center() - r.center(), size));
 
-    pix.setDevicePixelRatio(ratio);
+            pix.setDevicePixelRatio(ratio);
 
-    m_model->setBackground(pix);
+            m_model->setBackground(pix);
+        }
+        w->deleteLater();
+    });
 }
 
 void SystemInfoWork::setBackground(const QString &path)
