@@ -149,6 +149,7 @@ int main(int argc, char *argv[])
     app.setOrganizationName("deepin");
     app.setApplicationName("dde-control-center");
     app.setApplicationVersion("4.0");
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps);
     app.loadTranslator();
     app.setQuitOnLastWindowClosed(false);
     app.setTheme("light");
