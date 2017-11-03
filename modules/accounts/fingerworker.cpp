@@ -84,13 +84,10 @@ void FingerWorker::saveEnroll(const QString &name)
 
 void FingerWorker::stopEnroll()
 {
-    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
-    connect(watcher, &QFutureWatcher<bool>::finished, this, [=] {
-        watcher->deleteLater();
-    });
+    QFutureWatcher<bool> watcher(this);
 
     QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::saveFinger);
-    watcher->setFuture(future);
+    watcher.setFuture(future);
 }
 
 void FingerWorker::onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w)
