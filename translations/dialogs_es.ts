@@ -4,7 +4,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation>Actualizaciones instaladas, es necesario reiniciar, ¿reiniciará ahora?</translation>
+        <translation>Actualizaciones instaladas, es necesario reiniciar, ¿desea reiniciar?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>

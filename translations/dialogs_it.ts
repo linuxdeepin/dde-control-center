@@ -9,7 +9,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation>Assicurati di aver eventualmente salvato e chiuso le applicazioni ed i documenti in uso</translation>
+        <translation>Assicurati di aver salvato e chiuso le applicazioni ed i documenti in uso</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>

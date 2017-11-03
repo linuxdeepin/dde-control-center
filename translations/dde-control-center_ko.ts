@@ -69,6 +69,14 @@
     </message>
 </context>
 <context>
+    <name>KeyLabel</name>
+    <message>
+        <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
+        <source>None</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>NavWidget</name>
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="206"/>
@@ -156,12 +164,12 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="73"/>
+        <location filename="../frame/settingswidget.cpp" line="78"/>
         <source>Reset all settings</source>
         <translation>모든 설정 초기화</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="118"/>
+        <location filename="../frame/settingswidget.cpp" line="123"/>
         <source>All Settings</source>
         <translation>모든 설정</translation>
     </message>
@@ -274,8 +282,8 @@
         <translation>계정 추가</translation>
     </message>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
         <location filename="../modules/accounts/accountswidget.cpp" line="51"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
         <translation>계정</translation>
     </message>
@@ -301,32 +309,32 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="29"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
         <source>Re-enter</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
         <source>Done</source>
         <translation>완료</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="73"/>
-        <source>Put the finger in fingerprint reader to add</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="79"/>
-        <source>Entering</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="81"/>
-        <source>Entering %1 times</source>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
+        <source>Identifying fingerprint</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
+        <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
+        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
         <source>Add successfully</source>
         <translation type="unfinished"/>
     </message>
@@ -510,8 +518,8 @@
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="175"/>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="123"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="175"/>
         <source>Bluetooth</source>
         <translation>블루투스</translation>
     </message>
@@ -609,8 +617,8 @@
         <translation>시간대 추가</translation>
     </message>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="177"/>
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="177"/>
         <source>Time and Date</source>
         <translation>시간과 날짜</translation>
     </message>
@@ -684,8 +692,8 @@
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="172"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="172"/>
         <source>Default Applications</source>
         <translation>기본 응용프로그램</translation>
     </message>
@@ -755,12 +763,12 @@
         <translation>밝기</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="70"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
         <translation type="unfinished"/>
     </message>
@@ -829,8 +837,8 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="171"/>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="171"/>
         <source>Display</source>
         <translation>디스플레이</translation>
     </message>
@@ -838,7 +846,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="168"/>
+        <location filename="../modules/display/displayworker.cpp" line="175"/>
         <source>My Settings %1</source>
         <translation type="unfinished"/>
     </message>
@@ -951,12 +959,13 @@
         <translation>이름</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="63"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
         <source>Command</source>
         <translation>명령</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
         <translation>필요</translation>
     </message>
@@ -976,108 +985,64 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="124"/>
-        <source>null</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="137"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="160"/>
         <source>Choose File</source>
         <translation>파일 선택</translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="137"/>
-        <source>/usr/bin</source>
-        <translation>/usr/bin</translation>
     </message>
 </context>
 <context>
     <name>dcc::keyboard::CustomEdit</name>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="46"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="47"/>
         <location filename="../modules/keyboard/customedit.cpp" line="94"/>
         <source>Shortcuts</source>
         <translation>단축키</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="56"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="57"/>
         <source>Required</source>
         <translation>필요</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="65"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="66"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="66"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="67"/>
         <source>Save</source>
         <translation>저장</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="98"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="97"/>
         <source>Name</source>
         <translation>이름</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="99"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="98"/>
         <source>Command</source>
         <translation>명령</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="119"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="108"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="131"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="148"/>
         <source>Choose File</source>
         <translation>파일 선택</translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="131"/>
-        <source>/usr/bin</source>
-        <translation>/usr/bin</translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="140"/>
-        <source>null</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dcc::keyboard::CustomEditItem</name>
-    <message>
-        <location filename="../modules/keyboard/customedititem.cpp" line="94"/>
-        <source>None</source>
-        <translation>없음</translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customedititem.cpp" line="136"/>
-        <location filename="../modules/keyboard/customedititem.cpp" line="167"/>
-        <source>Conflict</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customedititem.cpp" line="196"/>
-        <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dcc::keyboard::CustomItem</name>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="51"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcut</source>
         <translation>단축키</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="61"/>
-        <source>None</source>
-        <translation>없음</translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="130"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="102"/>
         <source>Please enter a shortcut</source>
         <translation type="unfinished"/>
     </message>
@@ -1112,8 +1077,8 @@
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="180"/>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="180"/>
         <source>Keyboard and Language</source>
         <translation>키보드와 언어</translation>
     </message>
@@ -1179,16 +1144,6 @@
     </message>
 </context>
 <context>
-    <name>dcc::keyboard::KeyboardWork</name>
-    <message>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="172"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="184"/>
-        <location filename="../modules/keyboard/keyboardwork.cpp" line="346"/>
-        <source>None</source>
-        <translation>없음</translation>
-    </message>
-</context>
-<context>
     <name>dcc::keyboard::LangWidget</name>
     <message>
         <location filename="../modules/keyboard/langwidget.cpp" line="48"/>
@@ -1199,47 +1154,32 @@
 <context>
     <name>dcc::keyboard::ShortcutContent</name>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="51"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="50"/>
         <source>Please Reset Shortcut</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="60"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="57"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="61"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="58"/>
         <source>Replace</source>
         <translation>바꾸기</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="85"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="82"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="123"/>
-        <source>null</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="88"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="86"/>
         <source>Please enter a new shortcut</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dcc::keyboard::ShortcutModel</name>
-    <message>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="128"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="172"/>
-        <location filename="../modules/keyboard/shortcutmodel.cpp" line="193"/>
-        <source>None</source>
-        <translation>없음</translation>
     </message>
 </context>
 <context>
@@ -1337,8 +1277,8 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>마우스</translation>
     </message>
@@ -1637,28 +1577,28 @@
         <translation>네트워크 세부정보</translation>
     </message>
     <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="84"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="174"/>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="77"/>
         <source>Network</source>
         <translation>네트워크</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="185"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="192"/>
         <source>Wired Network Card%1</source>
         <translation>유선 네트워크 카드 %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="190"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="197"/>
         <source>Wired Network Card</source>
         <translation>유선 네트워크 카드</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="191"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="198"/>
         <source>Wired Network</source>
         <translation>유선 네트워크</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="186"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="193"/>
         <source>Wired Network%1</source>
         <translation>유선 네트워크 %1</translation>
     </message>
@@ -1668,27 +1608,27 @@
         <translation>시스템 프록시</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="200"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="207"/>
         <source>Hotspot</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="211"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="218"/>
         <source>Wireless Network Card%1</source>
         <translation>무선 네트워크 카드 %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="216"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="223"/>
         <source>Wireless Network Card</source>
         <translation>무선 네트워크 카드</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="217"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="224"/>
         <source>Wireless Network</source>
         <translation>무선 네트워크</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="212"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="219"/>
         <source>Wireless Network%1</source>
         <translation>무선 네트워크 %1</translation>
     </message>
@@ -1871,12 +1811,22 @@
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="55"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="60"/>
         <source>Connect to hidden network</source>
         <translation>숨겨진 네트워크에 연결</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="74"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="63"/>
+        <source>Close hotspot</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/wirelesspage.cpp" line="66"/>
+        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network fucntion</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/wirelesspage.cpp" line="89"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -1955,8 +1905,8 @@
         <translation>폰트</translation>
     </message>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="173"/>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="173"/>
         <source>Personalization</source>
         <translation>개인 설정</translation>
     </message>
@@ -2026,8 +1976,8 @@
         <translation>덮개를 닫을 때 절전</translation>
     </message>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="178"/>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="178"/>
         <source>Power Management</source>
         <translation>전원 관리</translation>
     </message>
@@ -2092,8 +2042,8 @@
         <translation>피드백 음량</translation>
     </message>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="176"/>
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="176"/>
         <source>Sound</source>
         <translation>소리</translation>
     </message>
@@ -2152,8 +2102,8 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="183"/>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="183"/>
         <source>System Information</source>
         <translation>시스템 정보</translation>
     </message>
@@ -2280,8 +2230,8 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
         <source>Update</source>
         <translation>업데이트</translation>
     </message>
@@ -2468,8 +2418,8 @@
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="181"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
+        <location filename="../plugins/navgation/navwidget.cpp" line="181"/>
         <source>Wacom</source>
         <translation>와콤 </translation>
     </message>
