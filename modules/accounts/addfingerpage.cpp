@@ -25,6 +25,7 @@ AddFingerPage::AddFingerPage(const QString &thumb, QWidget *parent)
     layout->addWidget(m_fingerWidget);
     layout->addSpacing(10);
     layout->addWidget(m_buttonTuple);
+    layout->addStretch();
 
     m_buttonTuple->leftButton()->setText(tr("Re-enter"));
     m_buttonTuple->rightButton()->setText(tr("Done"));
@@ -38,6 +39,7 @@ AddFingerPage::AddFingerPage(const QString &thumb, QWidget *parent)
 
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &AddFingerPage::reEnrollStart);
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &AddFingerPage::saveThumb);
+    connect(m_fingerWidget, &FingerWidget::playEnd, this, &AddFingerPage::onViewPlayEnd);
 }
 
 void AddFingerPage::setFingerModel(FingerModel *model)
@@ -65,31 +67,34 @@ void AddFingerPage::reEnrollStart()
     m_buttonTuple->setVisible(false);
 
     emit requestReEnrollStart(m_thumb);
+
+    m_fingerWidget->reEnter();
 }
 
 void AddFingerPage::onEnrollStatusChanged(FingerModel::EnrollStatus status)
 {
     if (status == FingerModel::EnrollStatus::Ready) {
-        m_fingerWidget->setFrequency(tr("Put the finger in fingerprint reader to add"));
+        onViewPlayEnd();
         return;
     }
 
     if (status == FingerModel::EnrollStatus::Next) {
-        if (m_frequency == 1)
-            m_fingerWidget->setFrequency(tr("Entering"));
-        else
-            m_fingerWidget->setFrequency(tr("Entering %1 times").arg(m_frequency));
-
-        ++m_frequency;
-
+        m_fingerWidget->next();
+        m_fingerWidget->setFrequency(tr("Identifying fingerprint"));
         return;
     }
 
     if (status == FingerModel::EnrollStatus::Finished) {
+        m_fingerWidget->finished();
         m_fingerWidget->setFrequency(tr("Add successfully"));
         m_buttonTuple->setVisible(true);
 
         m_frequency = 1;
         return;
     }
+}
+
+void AddFingerPage::onViewPlayEnd()
+{
+    m_fingerWidget->setFrequency(tr("Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps"));
 }

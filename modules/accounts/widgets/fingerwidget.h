@@ -17,12 +17,22 @@ public:
 
     void setFrequency(const QString &value);
 
+    void reEnter();
+    void next();
+    void finished();
+
+signals:
+    void playEnd();
+
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 private:
     DPictureSequenceView *m_view;
     QLabel *m_tipLbl;
+    QStringList m_enteringList;
+    QStringList m_finishedList;
+    bool m_isFinished;
 };
 }
 }

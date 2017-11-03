@@ -27,6 +27,7 @@ private slots:
     void saveThumb();
     void reEnrollStart();
     void onEnrollStatusChanged(FingerModel::EnrollStatus status);
+    void onViewPlayEnd();
 
 private:
     FingerModel *m_model;

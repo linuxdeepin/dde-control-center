@@ -13,16 +13,24 @@ FingerWidget::FingerWidget(QWidget *parent)
     : QWidget(parent)
     , m_view(new DPictureSequenceView)
     , m_tipLbl(new QLabel(this))
+    , m_isFinished(false)
 {
-    QStringList lists;
-    for(uint i = 0; i != 40; i++)
+    for(uint i = 0; i != 58; i++)
     {
-        QString path = QString(":/accounts/themes/dark/icons/finger/fingerprint_%2.png").arg(i, 2, 10, QChar('0'));
-        lists << path;
+        QString path = QString(":/accounts/themes/dark/icons/finger/entering/fingerprint_%2.png").arg(i, 2, 10, QChar('0'));
+        m_enteringList << path;
     }
 
-    m_view->setPictureSequence(lists);
-    m_view->play();
+    for(uint i = 0; i != 30; i++)
+    {
+        QString path = QString(":/accounts/themes/dark/icons/finger/finished/success_%2.png").arg(i, 2, 10, QChar('0'));
+        m_finishedList << path;
+    }
+
+    m_view->setPictureSequence(m_enteringList);
+    m_view->setSingleShot(true);
+
+    m_tipLbl->setWordWrap(true);
 
     QVBoxLayout *layout = new QVBoxLayout;
 
@@ -30,11 +38,38 @@ FingerWidget::FingerWidget(QWidget *parent)
     layout->addWidget(m_tipLbl, 0, Qt::AlignHCenter);
 
     setLayout(layout);
+
+    connect(m_view, &DPictureSequenceView::playEnd, this, [=] {
+        if (m_isFinished)
+            m_view->setPictureSequence(QStringList() << ":/accounts/themes/dark/icons/finger/finished/success_30.png");
+        else
+            emit playEnd();
+    });
 }
 
 void FingerWidget::setFrequency(const QString &value)
 {
     m_tipLbl->setText(value);
+}
+
+void FingerWidget::reEnter()
+{
+    m_isFinished = false;
+    m_view->setPictureSequence(m_enteringList);
+}
+
+void FingerWidget::next()
+{
+    m_isFinished = false;
+    m_view->setPictureSequence(m_enteringList);
+    m_view->play();
+}
+
+void FingerWidget::finished()
+{
+    m_isFinished = true;
+    m_view->setPictureSequence(m_finishedList);
+    m_view->play();
 }
 
 void FingerWidget::paintEvent(QPaintEvent *event)

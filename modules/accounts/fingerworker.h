@@ -30,6 +30,7 @@ public slots:
     void reEnrollStart(const QString &thumb);
     void cleanEnroll(User *user);
     void saveEnroll(const QString &name);
+    void stopEnroll();
 
 private slots:
     void onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w);

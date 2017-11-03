@@ -191,6 +191,7 @@ void AccountsModule::showFingerPage(User *account)
 
     connect(page, &FingerPage::requestAddThumbs, m_fingerWorker, &FingerWorker::enrollStart);
     connect(page, &FingerPage::requestCleanThumbs, m_fingerWorker, &FingerWorker::cleanEnroll);
+    connect(page, &FingerPage::back, m_fingerWorker, &FingerWorker::stopEnroll);
 
     m_frameProxy->pushWidget(this, page);
 }
@@ -203,6 +204,7 @@ void AccountsModule::showAddThumb(const QString &name, const QString &thumb)
 
     connect(page, &AddFingerPage::requestSaveThumb, m_fingerWorker, &FingerWorker::saveEnroll);
     connect(page, &AddFingerPage::requestReEnrollStart, m_fingerWorker, &FingerWorker::reEnrollStart);
+    connect(page, &AddFingerPage::back, m_fingerWorker, &FingerWorker::stopEnroll);
 
     m_frameProxy->pushWidget(this, page);
 }
