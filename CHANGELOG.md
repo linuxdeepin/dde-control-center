@@ -1,3 +1,42 @@
+<a name="4.3.1"></a>
+### 4.3.1 (2017-11-03)
+
+
+#### Features
+
+*   support hide Index page ([c4ab64fa](https://github.com/linuxdeepin/dde-control-center/commit/c4ab64faa85fcf007771bb6f6b3287f7973120b3))
+* **fprint:**
+  *  add retry when scan failed ([96721b63](https://github.com/linuxdeepin/dde-control-center/commit/96721b638b44a3caa227514e4eb721948347a93f))
+  *  use new animation ([f5d496c2](https://github.com/linuxdeepin/dde-control-center/commit/f5d496c2cea0325c8698f1a4b8f5a071a410ac64))
+* **grub:**  getbackground use new dbus interface for grub theme ([6c317115](https://github.com/linuxdeepin/dde-control-center/commit/6c317115f1c243945e6155eddece0d5d1977ae4a))
+* **network:**
+  *  add new compilers condition ([0bec67c3](https://github.com/linuxdeepin/dde-control-center/commit/0bec67c3f393ccfc13acb8de093719eda90c7a65))
+  *  support display info with cloned MAC addr ([16ce3b7f](https://github.com/linuxdeepin/dde-control-center/commit/16ce3b7f7cf0f6113e3252a927fed9847206ee7b))
+  *  hide ap list when device in AP mode ([22b536f7](https://github.com/linuxdeepin/dde-control-center/commit/22b536f7790a41ffd31b84e965613bc4b4159df2))
+* **shortcut:**  add system-monitor and color-picker ([1fa2940a](https://github.com/linuxdeepin/dde-control-center/commit/1fa2940a9f5941c243b06dda7706d146ea48fdc1))
+
+#### Bug Fixes
+
+*   change redshift to forced dependency ([a57fee9b](https://github.com/linuxdeepin/dde-control-center/commit/a57fee9b5262d2b8fb9b9cac8d36853abd584c9a))
+*   error setting auto hide ([b52c334c](https://github.com/linuxdeepin/dde-control-center/commit/b52c334c3c396207fb22f8b0a4edba52d0d2b948))
+* **TipsItem:**  support multiple lines ([095cde5b](https://github.com/linuxdeepin/dde-control-center/commit/095cde5b80d056be3ec1ae9ed5e74cfef58ec90e))
+* **finger:**  cannot add finger ([cbc6e3cb](https://github.com/linuxdeepin/dde-control-center/commit/cbc6e3cbcd5a3aeeab2f74c8a3e676038873a5d1))
+* **fprint:**  remove useless labmda ([5a040006](https://github.com/linuxdeepin/dde-control-center/commit/5a0400060611ec32f1369ee719454457ee727fe8))
+* **hidpi:**  widget overlap ([5036a6a8](https://github.com/linuxdeepin/dde-control-center/commit/5036a6a836c741840c787aa60498d9e537b59757))
+* **keyboard:**  linker error when set DISABLE_KEYBOARD=YES ([85a482f3](https://github.com/linuxdeepin/dde-control-center/commit/85a482f3a1d4f064e15765756a141937070b3a9b))
+* **network:**  hotspot switch state error ([1c76bdb6](https://github.com/linuxdeepin/dde-control-center/commit/1c76bdb685d33ff1bcb86e6555c7c4c77a06fc0a))
+* **shortcut:**
+  *  not save custom shortcut info ([fff33e4f](https://github.com/linuxdeepin/dde-control-center/commit/fff33e4f20762306c494753b0bc3606f56ee6f13))
+  *  shortcut list keep the order ([6845eb00](https://github.com/linuxdeepin/dde-control-center/commit/6845eb0084af9a93b364b4c163ac68e1aacb86cb))
+  *  remove old's shortcutkey ([2de0543e](https://github.com/linuxdeepin/dde-control-center/commit/2de0543ead0cf857989201c78fab865c31dbdbe0))
+  *  remove customitem's operation on DBus ([cd72e6e7](https://github.com/linuxdeepin/dde-control-center/commit/cd72e6e779eeca6217d29baeceda014f76c0241b))
+  *  remove shortcutitem's operation on DBus ([d08760e4](https://github.com/linuxdeepin/dde-control-center/commit/d08760e4201965c3cf5d1b278b246bc10a06a75d))
+* **sysinfo:**  boot menu icon error on hidpi ([c745d4c0](https://github.com/linuxdeepin/dde-control-center/commit/c745d4c021a4088ef48c1393536b0dc336e6eadb))
+* **update:**  not set failed when refresh failed ([3717c340](https://github.com/linuxdeepin/dde-control-center/commit/3717c34098bfb2a94fc75be68ebef912e45d3375))
+* **widgets:**  rename for edit icon ([d8939ffa](https://github.com/linuxdeepin/dde-control-center/commit/d8939ffa25df75a8dea1b11df05775e920ea9914))
+
+
+
 <a name=""></a>
 ##  4.3 (2017-10-27)
 
