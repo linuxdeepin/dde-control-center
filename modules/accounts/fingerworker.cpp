@@ -131,6 +131,11 @@ void FingerWorker::onEnrollStatus(const QString &value, const bool status)
         return;
     }
 
+    if (value == "enroll-retry-scan") {
+        m_model->setEnrollStatus(FingerModel::EnrollStatus::Retry);
+        return;
+    }
+
     m_model->setEnrollStatus(FingerModel::EnrollStatus::Next);
 }
 

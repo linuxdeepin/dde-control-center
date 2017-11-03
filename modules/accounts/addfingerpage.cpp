@@ -81,6 +81,12 @@ void AddFingerPage::onEnrollStatusChanged(FingerModel::EnrollStatus status)
     if (status == FingerModel::EnrollStatus::Next) {
         m_fingerWidget->next();
         m_fingerWidget->setFrequency(tr("Identifying fingerprint"));
+        ++m_frequency;
+        return;
+    }
+
+    if (status == FingerModel::EnrollStatus::Retry) {
+        m_fingerWidget->setFrequency(tr("Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench"));
         return;
     }
 

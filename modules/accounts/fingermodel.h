@@ -28,6 +28,7 @@ public:
     enum EnrollStatus{
         Ready,
         Next,
+        Retry,
         Finished
     };
 
