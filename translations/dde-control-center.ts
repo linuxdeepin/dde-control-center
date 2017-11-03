@@ -329,12 +329,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="99"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
+        <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
         <source>Add successfully</source>
         <translation type="unfinished"></translation>
     </message>
