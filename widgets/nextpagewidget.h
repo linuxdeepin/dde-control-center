@@ -50,8 +50,6 @@ public:
 
     void clearValue() { m_value->clear(); }
     inline QString value() { return m_value->text();}
-//    void setDisplay(bool display);
-//    bool display() const;
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
@@ -61,7 +59,7 @@ signals:
     void selected() const;
     void acceptNextPage() const;
 
-private:
+protected:
     NormalLabel *m_title;
     TipsLabel *m_value;
     NextButton *m_nextPageBtn;

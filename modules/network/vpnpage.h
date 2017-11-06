@@ -40,6 +40,7 @@ namespace widgets {
 class SettingsGroup;
 class SwitchWidget;
 class NextPageWidget;
+class LoadingNextPageWidget;
 
 }
 
@@ -90,7 +91,7 @@ private:
     QString m_editingConnUuid;
     ContentWidget *m_vpnTypePage;
 
-    QMap<widgets::NextPageWidget *, QJsonObject> m_vpns;
+    QMap<widgets::LoadingNextPageWidget *, QJsonObject> m_vpns;
 };
 
 }

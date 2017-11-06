@@ -82,33 +82,5 @@ void NextPageWidget::mouseReleaseEvent(QMouseEvent *e)
     emit clicked();
 }
 
-/*
-void NextPageWidget::setDisplay(bool display)
-{
-    if(m_display == display)
-        return ;
-
-    QBoxLayout* layout = (QBoxLayout*)this->layout();
-    if(!layout)
-        return;
-
-    if(display)
-    {
-        layout->insertWidget(layout->indexOf(m_nextPageBtn), m_value);
-    }
-    else
-    {
-        layout->removeWidget(m_value);
-        m_value->setParent(NULL);
-    }
-    m_display = display;
-}
-
-bool NextPageWidget::display() const
-{
-    return m_display;
-}
-*/
-
 }
 }

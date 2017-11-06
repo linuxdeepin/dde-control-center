@@ -30,6 +30,7 @@
 #include "networkmodel.h"
 #include "optionitem.h"
 #include "nextpagewidget.h"
+#include "loadingnextpagewidget.h"
 #include "connectioneditpage.h"
 #include "connectionsessionworker.h"
 #include "connectionsessionmodel.h"
@@ -137,7 +138,7 @@ void VpnPage::refershVpnList(const QList<QJsonObject> &vpnList)
 
     for (const auto &vpn : vpnList)
     {
-        NextPageWidget *w = new NextPageWidget;
+        LoadingNextPageWidget *w = new LoadingNextPageWidget;
         w->setTitle(vpn.value("Id").toString());
 
         connect(w, &NextPageWidget::acceptNextPage, this, &VpnPage::onVpnDetailClicked);
@@ -152,7 +153,7 @@ void VpnPage::refershVpnList(const QList<QJsonObject> &vpnList)
 
 void VpnPage::onVpnDetailClicked()
 {
-    NextPageWidget *w = static_cast<NextPageWidget *>(sender());
+    LoadingNextPageWidget *w = static_cast<LoadingNextPageWidget *>(sender());
     Q_ASSERT(w && m_vpns.contains(w));
 
     m_editingConnUuid = m_vpns[w].value("Uuid").toString();
@@ -162,7 +163,7 @@ void VpnPage::onVpnDetailClicked()
 
 void VpnPage::onVpnSelected()
 {
-    NextPageWidget *w = static_cast<NextPageWidget *>(sender());
+    LoadingNextPageWidget *w = static_cast<LoadingNextPageWidget *>(sender());
     Q_ASSERT(w && m_vpns.contains(w));
 
     const auto info = m_vpns[w];
@@ -201,26 +202,32 @@ void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionP
 
 void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
 {
-    QList<QString> activeVpnTitles;
+    QMap<QString, int> activeVpnStates;
 
     for (const auto &info : infos)
     {
-        const QString type = info.value("ConnectionType").toString();
+        const QString &type = info.value("ConnectionType").toString();
         if (!type.startsWith("vpn"))
             continue;
 
-        const QString name = info.value("ConnectionName").toString();
-        activeVpnTitles << name;
+        const QString &name = info.value("ConnectionName").toString();
+        const QString &uuid = info.value("ConnectionUuid").toString();
+        const int state = m_model->activeConnObjectByUuid(uuid).value("State").toInt();
+
+        activeVpnStates.insert(name, state);
     }
 
     for (auto it(m_vpns.cbegin()); it != m_vpns.cend(); ++it)
     {
-        const QString t = it.key()->title();
+        const QString &t = it.key()->title();
+        const bool exist = activeVpnStates.contains(t);
+        const bool loading = exist ? activeVpnStates[t] != 2 : false;
 
-        if (activeVpnTitles.contains(t))
+        if (exist && !loading)
             it.key()->setIcon(QPixmap(":/network/themes/dark/icons/select.png"));
         else
             it.key()->clearValue();
+        it.key()->setLoading(loading);
     }
 }
 

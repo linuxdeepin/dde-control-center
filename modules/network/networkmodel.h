@@ -75,8 +75,10 @@ public:
     const QSet<QString> activeConnections() const { return m_activeConnections; }
     const QString connectionUuidByPath(const QString &connPath) const;
     const QString connectionNameByPath(const QString &connPath) const;
-    const QJsonObject connectionByPath(const QString &connPath) const;
     const QString connectionUuidByApInfo(const QString &hwAddr, const QString &ssid) const;
+    const QJsonObject connectionByUuid(const QString &uuid) const;
+    const QJsonObject connectionByPath(const QString &connPath) const;
+    const QJsonObject activeConnObjectByUuid(const QString &uuid) const;
 
 signals:
     void connectionListChanged() const;
@@ -134,6 +136,7 @@ private:
     QMap<QString, QList<QJsonObject>> m_connections;
     QList<QJsonObject> m_activeConnInfos;
     QList<QJsonObject> m_activeHotspotInfos;
+    QList<QJsonObject> m_activeConnObjects;
     QSet<QString> m_activeConnections;
     ProxyConfig m_chainsProxy;
 };

@@ -11,7 +11,7 @@ QT += widgets dbus svg sql x11extras concurrent
 TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../
 TEMPLATE   = app
-CONFIG += c++11 link_pkgconfig
+CONFIG += c++14 link_pkgconfig
 LIBS += -L../widgets
 PKGCONFIG      += dtkwidget dframeworkdbus xcb xext gsettings-qt
 

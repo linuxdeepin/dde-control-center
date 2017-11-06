@@ -81,6 +81,17 @@ const QJsonObject NetworkModel::connectionByPath(const QString &connPath) const
     return QJsonObject();
 }
 
+const QJsonObject NetworkModel::activeConnObjectByUuid(const QString &uuid) const
+{
+    for (const auto &info : m_activeConnObjects)
+    {
+        if (info.value("Uuid").toString() == uuid)
+            return info;
+    }
+
+    return QJsonObject();
+}
+
 const QString NetworkModel::connectionUuidByApInfo(const QString &hwAddr, const QString &ssid) const
 {
     for (const auto &list : m_connections)
@@ -93,6 +104,20 @@ const QString NetworkModel::connectionUuidByApInfo(const QString &hwAddr, const 
     }
 
     return QString();
+}
+
+const QJsonObject NetworkModel::connectionByUuid(const QString &uuid) const
+{
+    for (const auto &list : m_connections)
+    {
+        for (const auto &cfg : list)
+        {
+            if (cfg.value("Uuid").toString() == uuid)
+                return cfg;
+        }
+    }
+
+    return QJsonObject();
 }
 
 void NetworkModel::onVPNEnabledChanged(const bool enabled)
@@ -281,14 +306,18 @@ void NetworkModel::onActiveConnInfoChanged(const QString &conns)
 void NetworkModel::onActiveConnectionsChanged(const QString &conns)
 {
     m_activeConnections.clear();
+    m_activeConnObjects.clear();
 
     const QJsonObject activeConns = QJsonDocument::fromJson(conns.toUtf8()).object();
     for (auto it(activeConns.constBegin()); it != activeConns.constEnd(); ++it)
     {
-        const QJsonObject info = it.value().toObject();
-        const auto uuid = info.value("Uuid").toString();
-        if (!uuid.isEmpty())
-            m_activeConnections << uuid;
+        const QJsonObject &info = it.value().toObject();
+        const auto &uuid = info.value("Uuid").toString();
+        if (uuid.isEmpty())
+            continue;
+
+        m_activeConnections << uuid;
+        m_activeConnObjects << info;
     }
 
     emit activeConnectionsChanged(m_activeConnections);
