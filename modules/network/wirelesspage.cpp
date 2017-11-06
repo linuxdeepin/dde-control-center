@@ -63,7 +63,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_closeHotspotBtn->setText(tr("Close hotspot"));
 
     TipsItem *tips = new TipsItem;
-    tips->setText(tr("Please firstly disabled hotspot sharing if you want to connect and use wireless network fucntion"));
+    tips->setText(tr("Please firstly disabled hotspot sharing if you want to connect and use wireless network function"));
 
     m_tipsGroup->appendItem(tips);
     m_listGroup->appendItem(m_connectHideSSID);
