@@ -392,6 +392,9 @@ void SettingsWidget::setModuleVisible(ModuleInterface * const inter, const bool 
 
 void SettingsWidget::refershModuleActivable()
 {
+    if (!isVisible())
+        return;
+
     stopScroll();
 
     QScroller *scroller = QScroller::scroller(m_contentArea);
