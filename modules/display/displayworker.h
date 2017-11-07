@@ -78,6 +78,7 @@ public slots:
     void setMonitorPosition(Monitor *mon, const int x, const int y);
     void setUiScale(const double value);
     void setNightMode(const bool nightmode);
+    void updateNightModeStatus();
 
 private slots:
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
@@ -94,7 +95,6 @@ private:
     void monitorAdded(const QString &path);
     void monitorRemoved(const QString &path);
     void updateMonitorBrightness(const QString &monName, const double brightness);
-    void onNightModeChanged();
 
 private:
     DisplayModel *m_model;

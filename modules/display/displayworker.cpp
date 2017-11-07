@@ -75,7 +75,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     const bool isRedshiftValid = process->execute("which", QStringList() << "redshift") == 0;
 
     if (isRedshiftValid)
-        onNightModeChanged();
+        updateNightModeStatus();
 
     m_model->setRedshiftIsValid(isRedshiftValid);
 }
@@ -357,7 +357,7 @@ void DisplayWorker::setNightMode(const bool nightmode)
     process.startDetached("systemctl", QStringList() << "--user" << cmd << "redshift.service");
 
     // reload
-    onNightModeChanged();
+    updateNightModeStatus();
 }
 
 //void DisplayWorker::loadRotations(Monitor * const mon)
@@ -463,7 +463,7 @@ void DisplayWorker::updateMonitorBrightness(const QString &monName, const double
     }
 }
 
-void DisplayWorker::onNightModeChanged()
+void DisplayWorker::updateNightModeStatus()
 {
     QProcess *process = new QProcess;
 

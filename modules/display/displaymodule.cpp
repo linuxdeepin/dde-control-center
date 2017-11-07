@@ -72,6 +72,8 @@ DisplayModule::~DisplayModule()
 
 void DisplayModule::showBrightnessPage()
 {
+    m_displayWorker->updateNightModeStatus();
+
     BrightnessPage *page = new BrightnessPage;
 
     page->setModel(m_displayModel);
