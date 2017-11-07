@@ -38,7 +38,7 @@ private slots:
     void onEnrollStatus(const QString &value, const bool status);
     bool recordFinger(const QString &name, const QString &thumb);
     bool reRecordFinger(const QString &thumb);
-    bool saveFinger();
+    void saveFinger();
 
 private:
     FingerModel *m_model;

@@ -68,25 +68,23 @@ void FingerWorker::cleanEnroll(User *user)
 
 void FingerWorker::saveEnroll(const QString &name)
 {
-    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
-    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher, name] {
-        if (watcher->result()) {
-            refreshUserEnrollList(name);
-            m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
-        }
+    QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
+    connect(watcher, &QFutureWatcher<void>::finished, [this, watcher, name] {
+        refreshUserEnrollList(name);
+        m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
 
         watcher->deleteLater();
     });
 
-    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::saveFinger);
+    QFuture<void> future = QtConcurrent::run(this, &FingerWorker::saveFinger);
     watcher->setFuture(future);
 }
 
 void FingerWorker::stopEnroll()
 {
-    QFutureWatcher<bool> watcher(this);
+    QFutureWatcher<void> watcher(this);
 
-    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::saveFinger);
+    QFuture<void> future = QtConcurrent::run(this, &FingerWorker::saveFinger);
     watcher.setFuture(future);
 }
 
@@ -187,14 +185,13 @@ bool FingerWorker::reRecordFinger(const QString &thumb)
     return true;
 }
 
-bool FingerWorker::saveFinger()
+void FingerWorker::saveFinger()
 {
     QDBusPendingCall call = m_fprDefaultInter->EnrollStop();
     call.waitForFinished();
 
     if (call.isError()) {
         qDebug() << call.error();
-        return false;
     }
 
     call = m_fprDefaultInter->Release();
@@ -202,8 +199,5 @@ bool FingerWorker::saveFinger()
 
     if (call.isError()) {
         qDebug() << call.error();
-        return false;
     }
-
-    return true;
 }
