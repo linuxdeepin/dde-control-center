@@ -128,6 +128,7 @@ void UpdateWork::checkForUpdates()
             setCheckUpdatesJob(jobPath);
         } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed);
+            m_managerInter->CleanJob(m_checkUpdateJob->id());
             qWarning() << "check for updates error: " << call.error().message();
         }
     });
@@ -142,6 +143,7 @@ void UpdateWork::distUpgradeDownloadUpdates()
             setDownloadJob(reply.value().path());
         } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed);
+            m_managerInter->CleanJob(m_distUpgradeJob->id());
             qWarning() << "download updates error: " << watcher->error().message();
         }
     });
@@ -156,6 +158,7 @@ void UpdateWork::distUpgradeInstallUpdates()
             setDistUpgradeJob(reply.value().path());
         } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed);
+            m_managerInter->CleanJob(m_distUpgradeJob->id());
             qWarning() << "install updates error: " << watcher->error().message();
         }
     });
@@ -337,7 +340,6 @@ void UpdateWork::setDownloadJob(const QString &jobPath)
 
     m_downloadJob->StatusChanged(m_downloadJob->status());
     m_downloadJob->ProgressChanged(m_downloadJob->progress());
-    m_downloadJob->StatusChanged(m_downloadJob->status());
 }
 
 void UpdateWork::setDistUpgradeJob(const QString &jobPath)
@@ -357,7 +359,6 @@ void UpdateWork::setDistUpgradeJob(const QString &jobPath)
 
     connect(m_distUpgradeJob, &__Job::StatusChanged, this, &UpdateWork::onUpgradeStatusChanged);
 
-    m_distUpgradeJob->TypeChanged(m_distUpgradeJob->type());
     m_distUpgradeJob->ProgressChanged(m_distUpgradeJob->progress());
     m_distUpgradeJob->StatusChanged(m_distUpgradeJob->status());
 }
@@ -394,6 +395,9 @@ void UpdateWork::onJobListChanged(const QList<QDBusObjectPath> & jobs)
 
         JobInter jobInter("com.deepin.lastore", path, QDBusConnection::systemBus());
 
+        if (!jobInter.isValid())
+            continue;
+
         // id maybe scrapped
         const QString &id = jobInter.id();
 
@@ -426,9 +430,10 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
 }
 
 void UpdateWork::onDownloadStatusChanged(const QString &status)
-{\
+{
     qDebug() << "download: <<<" << status;
     if (status == "failed")  {
+        m_managerInter->CleanJob(m_downloadJob->id());
         m_model->setStatus(UpdatesStatus::UpdateFailed);
         qWarning() << "download updates job failed";
         m_downloadJob->deleteLater();
