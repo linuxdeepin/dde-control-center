@@ -138,6 +138,8 @@ void UpdateNotifier::updatablePkgsChanged(const QStringList &value)
     const bool visible = !comparePkgLists(pkgs, value);
     setVisible(visible);
     emit notifierVisibleChanged(visible);
+
+    qDebug() << Q_FUNC_INFO << "setVisible: " << visible;
 }
 
 bool UpdateNotifier::comparePkgLists(QStringList val1, QStringList val2)

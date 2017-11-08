@@ -271,6 +271,8 @@ void BasicSettingsPage::onGSettingsChanged(const QString &name)
 
 void BasicSettingsPage::onMPRISChanged()
 {
+    qDebug() << Q_FUNC_INFO << "mprisEnable: " << m_mprisEnable << "mprisWorking: " << m_mprisWidget->isWorking();
+
     m_mprisWidget->setVisible(m_mprisEnable && m_mprisWidget->isWorking());
 }
 
