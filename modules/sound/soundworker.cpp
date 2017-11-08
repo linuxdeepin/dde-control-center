@@ -48,7 +48,7 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent) :
     m_audioInter->setSync(false);
     //    m_soundEffectInter->setSync(false);
 
-    m_pingTimer->setInterval(500);
+    m_pingTimer->setInterval(5000);
     m_pingTimer->setSingleShot(false);
 
     connect(m_audioInter, &Audio::DefaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
