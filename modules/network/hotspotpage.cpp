@@ -85,6 +85,7 @@ void HotspotPage::setModel(NetworkModel *model)
     m_model = model;
 
     connect(model, &NetworkModel::connectionListChanged, this, &HotspotPage::onConnectionsChanged);
+    connect(model, &NetworkModel::activeConnectionsChanged, this, &HotspotPage::onActiveConnsChanged);
 
     QTimer::singleShot(1, this, &HotspotPage::onConnectionsChanged);
 }
