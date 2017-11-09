@@ -153,8 +153,8 @@ void HotspotPage::onConnectionSessionCreated(const QString &sessionPath)
     connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &HotspotPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &HotspotPage::requestFrameKeepAutoHide);
+    connect(m_editPage, &ConnectionEditPage::requestDisconnect, this, &HotspotPage::closeHotspot);
     connect(m_editPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(hotspotUuid()); });
-    connect(m_editPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(hotspotUuid()); });
 
     emit requestNextPage(m_editPage);
 }
@@ -165,6 +165,7 @@ void HotspotPage::closeHotspot()
     Q_ASSERT(!uuid.isEmpty());
 
     emit requestDisconnectConnection(uuid);
+    emit requestDeviceRemanage(m_wdev->path());
 }
 
 void HotspotPage::openHotspot()

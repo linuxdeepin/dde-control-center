@@ -219,6 +219,14 @@ void NetworkWorker::queryDeviceConnections(const QString &devPath)
     connect(w, &QDBusPendingCallWatcher::finished, this, &NetworkWorker::queryDeviceConnectionsCB);
 }
 
+void NetworkWorker::remanageDevice(const QString &devPath)
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter.SetDeviceManaged(devPath, false));
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, [=] { m_networkInter.SetDeviceManaged(devPath, true); });
+    connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
+}
+
 void NetworkWorker::deleteConnection(const QString &uuid)
 {
     m_networkInter.DeleteConnection(uuid);

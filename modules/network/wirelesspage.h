@@ -65,6 +65,7 @@ signals:
     void requestDeleteConnection(const QString &uuid);
     void requestDisconnectConnection(const QString &uuid);
     void requestNextPage(ContentWidget * const w) const;
+    void requestDeviceRemanage(const QString &devPath) const;
     void requestDeviceAPList(const QString &devPath) const;
     void requestDeviceEnabled(const QString &devPath, const bool enabled) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;

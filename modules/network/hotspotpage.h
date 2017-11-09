@@ -55,7 +55,8 @@ public:
 
 signals:
     void requestNextPage(ContentWidget * const w) const;
-    void requestNewHotspot(const QString &debPath) const;
+    void requestNewHotspot(const QString &devPath) const;
+    void requestDeviceRemanage(const QString &devPath) const;
     void requestDisconnectConnection(const QString &uuid) const;
     void requestDeleteConnection(const QString &uuid);
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;

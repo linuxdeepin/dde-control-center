@@ -190,9 +190,8 @@ void WirelessPage::onHotspotEnableChanged(const bool enabled)
 
 void WirelessPage::onCloseHotspotClicked()
 {
-    const QString &uuid = m_device->hotspotUuid();
-
-    emit requestDisconnectConnection(uuid);
+    emit requestDisconnectConnection(m_device->hotspotUuid());
+    emit requestDeviceRemanage(m_device->path());
 }
 
 void WirelessPage::onDeviceRemoved()

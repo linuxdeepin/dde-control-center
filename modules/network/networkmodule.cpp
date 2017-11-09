@@ -151,6 +151,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         connect(p, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
         connect(p, &WirelessPage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
         connect(p, &WirelessPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
+        connect(p, &WirelessPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
         connect(p, &WirelessPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
         connect(p, &WirelessPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
         p->setModel(m_networkModel);
@@ -263,6 +264,7 @@ void NetworkModule::showHotspotPage(WirelessDevice *wdev)
     connect(p, &HotspotPage::requestNewHotspot, m_networkWorker, &NetworkWorker::initWirelessHotspot);
     connect(p, &HotspotPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     connect(p, &HotspotPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
+    connect(p, &HotspotPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
     connect(p, &HotspotPage::requestEditConnection, m_networkWorker, &NetworkWorker::queryConnectionSession);
     connect(p, &HotspotPage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
     connect(p, &HotspotPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });

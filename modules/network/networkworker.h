@@ -48,15 +48,13 @@ public:
     explicit NetworkWorker(NetworkModel *model, QObject *parent = 0);
 
 public slots:
-    void setVpnEnable(const bool enable);
-    void setDeviceEnable(const QString &devPath, const bool enable);
-    void setProxyMethod(const QString &proxyMethod);
-    void setProxyIgnoreHosts(const QString &hosts);
-    void setAutoProxy(const QString &proxy);
-    void setProxy(const QString &type, const QString &addr, const QString &port);
-    void setChainsProxy(const ProxyConfig &config);
+    void activateConnection(const QString &devPath, const QString &uuid);
+    void activateAccessPoint(const QString &devPath, const QString &apPath, const QString &uuid);
+    void createApConfig(const QString &devPath, const QString &apPath);
+    void createConnection(const QString &type, const QString &devPath);
+    void deleteConnection(const QString &uuid);
+    void deactiveConnection(const QString &uuid);
     void initWirelessHotspot(const QString &devPath);
-    void queryProxy(const QString &type);
     void queryChains();
     void queryAutoProxy();
     void queryProxyData();
@@ -64,16 +62,19 @@ public slots:
     void queryProxyIgnoreHosts();
     void queryActiveConnInfo();
     void queryDevicesConnections();
+    void queryProxy(const QString &type);
     void queryAccessPoints(const QString &devPath);
     void queryConnectionSession(const QString &devPath, const QString &uuid);
     void queryDeviceStatus(const QString &devPath);
     void queryDeviceConnections(const QString &devPath);
-    void deleteConnection(const QString &uuid);
-    void deactiveConnection(const QString &uuid);
-    void createApConfig(const QString &devPath, const QString &apPath);
-    void createConnection(const QString &type, const QString &devPath);
-    void activateConnection(const QString &devPath, const QString &uuid);
-    void activateAccessPoint(const QString &devPath, const QString &apPath, const QString &uuid);
+    void remanageDevice(const QString &devPath);
+    void setVpnEnable(const bool enable);
+    void setDeviceEnable(const QString &devPath, const bool enable);
+    void setProxyMethod(const QString &proxyMethod);
+    void setProxyIgnoreHosts(const QString &hosts);
+    void setAutoProxy(const QString &proxy);
+    void setProxy(const QString &type, const QString &addr, const QString &port);
+    void setChainsProxy(const ProxyConfig &config);
 
 private slots:
     void queryAutoProxyCB(QDBusPendingCallWatcher *w);
