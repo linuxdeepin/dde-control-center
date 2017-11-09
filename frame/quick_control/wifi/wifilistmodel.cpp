@@ -38,12 +38,12 @@ WifiListModel::WifiListModel(NetworkModel *model, QObject *parent)
     : QAbstractListModel(parent),
 
       m_networkModel(model),
-      m_refershTimer(new QTimer(this))
+      m_refreshTimer(new QTimer(this))
 {
-    m_refershTimer->setSingleShot(false);
-    m_refershTimer->setInterval(1000 / 60);
+    m_refreshTimer->setSingleShot(false);
+    m_refreshTimer->setInterval(1000 / 60);
 
-    connect(m_refershTimer, &QTimer::timeout, this, &WifiListModel::refershActivatingIndex);
+    connect(m_refreshTimer, &QTimer::timeout, this, &WifiListModel::refershActivatingIndex);
     connect(m_networkModel, &NetworkModel::connectionListChanged, [this] { emit layoutChanged(); });
     connect(m_networkModel, &NetworkModel::deviceEnableChanged, [this] { emit layoutChanged(); });
     connect(m_networkModel, &NetworkModel::deviceListChanged, this, &WifiListModel::onDeviceListChanged);
@@ -103,7 +103,7 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
     case ItemIsActiveRole:
         return info.info && static_cast<const WirelessDevice *>(info.device)->activeApName() == info.info->value("Ssid").toString();
     case ItemIsActivatingRole:
-        return m_refershTimer->isActive() && index == m_activatingIndex;
+        return m_refreshTimer->isActive() && index == m_activatingIndex;
     case ItemDevicePathRole:
         return info.device->path();
     case ItemApPathRole:
@@ -284,9 +284,9 @@ void WifiListModel::onDeviceStateChanged(const NetworkDevice::DeviceStatus &stat
 {
 //    WirelessDevice *dev = static_cast<WirelessDevice *>(sender());
     if (stat >= NetworkDevice::Prepare && stat < NetworkDevice::Activated)
-        m_refershTimer->start();
+        m_refreshTimer->start();
     else
-        m_refershTimer->stop();
+        m_refreshTimer->stop();
 }
 
 void WifiListModel::onDeviceActiveApChanged(const QString &oldName, const QString &newName)

@@ -95,7 +95,7 @@ private:
     QModelIndex m_currentIndex;
     QModelIndex m_activatingIndex;
 
-    QTimer *m_refershTimer;
+    QTimer *m_refreshTimer;
 
     QMap<dcc::network::WirelessDevice *, QList<QJsonObject>> m_apInfoList;
 };

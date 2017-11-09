@@ -38,13 +38,18 @@ VpnListModel::VpnListModel(NetworkModel *model, QObject *parent)
     : QAbstractListModel(parent),
       m_connectedPixmap(loadPixmap(":/frame/themes/dark/icons/select.svg")),
       m_cancelPixmap(loadPixmap(":/frame/themes/dark/icons/disconnect.svg")),
-      m_networkModel(model)
+      m_networkModel(model),
+      m_refreshTimer(new QTimer(this))
 {
-    connect(m_networkModel, &NetworkModel::activeConnectionsChanged, this, &VpnListModel::onActivedListChanged);
+    m_refreshTimer->setSingleShot(false);
+    m_refreshTimer->setInterval(1000 / 60);
+
+    connect(m_refreshTimer, &QTimer::timeout, this, &VpnListModel::refreshActivedIndex);
+    connect(m_networkModel, &NetworkModel::activeConnInfoChanged, this, &VpnListModel::onActiveConnInfoChanged);
     connect(m_networkModel, &NetworkModel::connectionListChanged, [this] { emit layoutChanged(); });
     connect(m_networkModel, &NetworkModel::vpnEnabledChanged, [this] { emit layoutChanged(); });
 
-    onActivedListChanged(m_networkModel->activeConnections());
+    onActiveConnInfoChanged(m_networkModel->activeConnInfos());
 }
 
 int VpnListModel::rowCount(const QModelIndex &parent) const
@@ -60,15 +65,16 @@ int VpnListModel::rowCount(const QModelIndex &parent) const
 QVariant VpnListModel::data(const QModelIndex &index, int role) const
 {
     switch (role) {
-    case VpnNameRole: {
+    case VpnNameRole:
+    {
         if (!m_networkModel->vpnEnabled())
             return tr("Click icon to enable VPN");
 
         return m_networkModel->vpns()[index.row()].value("Id").toString();
     }
     case VpnUuidRole:           return m_networkModel->vpns()[index.row()].value("Uuid").toString();
-    case VpnShowIconRole:       return m_activedVpns.contains(m_networkModel->vpns()[index.row()].value("Uuid").toString());
     case VpnIconRole:           return m_hoveredIndex == index ? m_cancelPixmap : m_connectedPixmap;
+    case VpnStateRole:          return QVariant::fromValue(vpnState(index.data(VpnUuidRole).toString()));
     case VpnItemHoveredRole:    return m_hoveredIndex == index;
     case Qt::SizeHintRole:      return QSize(0, 36);
     case VpnIsFirstLineRole:    return !index.row();
@@ -78,6 +84,32 @@ QVariant VpnListModel::data(const QModelIndex &index, int role) const
     }
 
     return QVariant();
+}
+
+void VpnListModel::refreshActivedIndex()
+{
+    const auto vpns = m_networkModel->vpns();
+
+    auto vpnIndex = [&](const QString &uuid)
+    {
+        for (int i(0); i != vpns.size(); ++i)
+            if (vpns[i].value("Uuid").toString() == uuid)
+                return index(i, 0);
+        return QModelIndex();
+    };
+
+    for (const auto &info : m_activeVpns)
+    {
+        if (info.value("State").toInt() == 2)
+            continue;
+
+        const QString &connUuid = info.value("Uuid").toString();
+        const auto idx = vpnIndex(connUuid);
+
+        emit dataChanged(idx, idx);
+    }
+
+    emit layoutChanged();
 }
 
 void VpnListModel::setHoveredIndex(const QModelIndex &index)
@@ -90,10 +122,52 @@ void VpnListModel::setHoveredIndex(const QModelIndex &index)
     emit dataChanged(m_hoveredIndex, m_hoveredIndex);
 }
 
-void VpnListModel::onActivedListChanged(const QSet<QString> &activeConnections)
+void VpnListModel::onActiveConnInfoChanged(const QList<QJsonObject> &infoList)
 {
-    m_activedVpns.clear();
-    m_activedVpns = activeConnections.toList();
+    m_activeVpns.clear();
+    for (const auto &info : infoList)
+    {
+        const QString &type = info.value("ConnectionType").toString();
+        if (!type.startsWith("vpn"))
+            continue;
+
+        const QString &uuid = info.value("ConnectionUuid").toString();
+        m_activeVpns << m_networkModel->activeConnObjectByUuid(uuid);
+    }
+
+    if (needRefresh())
+        m_refreshTimer->start();
+    else
+        m_refreshTimer->stop();
 
     emit layoutChanged();
+}
+
+bool VpnListModel::needRefresh() const
+{
+    for (const auto &info : m_activeVpns)
+    {
+        if (info.value("State").toInt() != 2)
+            return true;
+    }
+
+    return false;
+}
+
+VpnListModel::VpnState VpnListModel::vpnState(const QString &uuid) const
+{
+    if (!m_networkModel->activeConnections().contains(uuid))
+        return VpnState::NotActive;
+
+    for (const auto &info : m_activeVpns)
+    {
+        const QString &connUuid = info.value("Uuid").toString();
+        if (connUuid != uuid)
+            continue;
+
+        const int state = info.value("State").toInt();
+        return state == 2 ? VpnListModel::Actived : VpnListModel::Activing;
+    }
+
+    return VpnState::NotActive;
 }

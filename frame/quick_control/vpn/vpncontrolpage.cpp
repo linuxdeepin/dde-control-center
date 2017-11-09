@@ -73,7 +73,9 @@ void VpnControlPage::onItemClicked(const QModelIndex &index) const
     if (index.data(VpnListModel::VpnDisableRole).toBool())
         return;
 
-    if (!index.data(VpnListModel::VpnShowIconRole).toBool())
+    const VpnListModel::VpnState state = index.data(VpnListModel::VpnStateRole).value<VpnListModel::VpnState>();
+
+    if (state == VpnListModel::NotActive)
         emit requestActivateConnection("/", index.data(VpnListModel::VpnUuidRole).toString());
     else
         emit requestDisconnect(index.data(VpnListModel::VpnUuidRole).toString());

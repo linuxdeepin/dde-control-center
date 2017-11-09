@@ -28,6 +28,7 @@
 
 #include <QAbstractListModel>
 #include <QPixmap>
+#include <QJsonObject>
 
 namespace dcc {
 
@@ -44,12 +45,19 @@ class VpnListModel : public QAbstractListModel
     Q_OBJECT
 
 public:
+    enum VpnState
+    {
+        NotActive,
+        Activing,
+        Actived,
+    };
+
     enum VpnItmeRole
     {
         VpnNameRole = Qt::DisplayRole,
         UnusedRole = Qt::UserRole,
-        VpnShowIconRole,
         VpnIconRole,
+        VpnStateRole,
         VpnItemHoveredRole,
         VpnUuidRole,
         VpnIsFirstLineRole,
@@ -63,17 +71,27 @@ public:
     QVariant data(const QModelIndex &index, int role) const;
 
 public slots:
+    void refreshActivedIndex();
     void setHoveredIndex(const QModelIndex &index);
-    void onActivedListChanged(const QSet<QString> &activeConnections);
+    void onActiveConnInfoChanged(const QList<QJsonObject> &infoList);
+
+private:
+    bool needRefresh() const;
+
+private:
+    VpnState vpnState(const QString &uuid) const;
 
 private:
     const QPixmap m_connectedPixmap;
     const QPixmap m_cancelPixmap;
     QModelIndex m_hoveredIndex;
 
-    QList<QString> m_activedVpns;
+    QList<QJsonObject> m_activeVpns;
 
     dcc::network::NetworkModel *m_networkModel;
+    QTimer *m_refreshTimer;
 };
+
+Q_DECLARE_METATYPE(VpnListModel::VpnState)
 
 #endif // VPNLISTMODEL_H

@@ -25,9 +25,11 @@
 
 #include "vpnlistdelegate.h"
 #include "vpnlistmodel.h"
+#include "basiclistdelegate.h"
 
 #include <QPainter>
 #include <QDebug>
+#include <QDateTime>
 
 VpnListDelegate::VpnListDelegate(QObject *parent)
     : QAbstractItemDelegate(parent)
@@ -67,12 +69,20 @@ void VpnListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         painter->drawLine(QPoint(0, option.rect.top()), QPoint(option.rect.right(), option.rect.top()));
     }
 
-    if (index.data(VpnListModel::VpnShowIconRole).toBool())
+    // draw icon
+    const int l = 16;
+    const int x = option.rect.right() - l - 25;
+    const int y = option.rect.top() + (option.rect.height() - l) / 2;
+
+    const VpnListModel::VpnState state = index.data(VpnListModel::VpnStateRole).value<VpnListModel::VpnState>();
+    if (state == VpnListModel::Activing)
     {
+        const quint64 index = QDateTime::currentMSecsSinceEpoch() / 20;
+        const QString pix = QString(":/frame/themes/light/icons/white_loading/loading_0%1.png").arg((index % 90), 2, 10, QChar('0'));
+
+        painter->drawPixmap(x, y, loadPixmap(pix));
+    } else if (state == VpnListModel::Actived) {
         const QPixmap pixmap = index.data(VpnListModel::VpnIconRole).value<QPixmap>();
-        const int l = 16;
-        const int x = option.rect.right() - l - 25;
-        const int y = option.rect.top() + (option.rect.height() - l) / 2;
 
         painter->drawPixmap(x, y, pixmap);
     }
