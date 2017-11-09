@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Nič</translation>
     </message>
 </context>
 <context>
@@ -271,7 +271,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Heslo odtlačkov prstov</translation>
     </message>
 </context>
 <context>
@@ -306,12 +306,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Pridať odtlačok prsta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Znova zadať</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
@@ -321,22 +321,22 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Identifikácia odtlačku prsta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>Nepodarilo sa identifikovať odtlačok prsta, položte prst na skener odtlačkov prstov a posuňte zo spodu hore</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>Položte prst na skener odtlačkov prstov, posuňte zo spodu hore a potom zopakujte rovnaký krok</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>Pridanie úspešné</translation>
     </message>
 </context>
 <context>
@@ -394,32 +394,32 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Zoznam odtlačkov prstov</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Heslo odtlačku prsta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Pridať odtlačok prsta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Vyčistiť odtlačky prstov</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>Heslo odtlačkov prstov sa používa pri prihlasovaní do systému, autorizácii aplikácie a iných spôsoboch. Oskenujte odtlačok prsta, keď je potrebné heslo.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Odtlačok prsta</translation>
     </message>
 </context>
 <context>
@@ -799,7 +799,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="252"/>
+        <location filename="../modules/display/displaymodule.cpp" line="254"/>
         <source>Wireless Screen Projection</source>
         <translation>Bezdrôtové premietanie obrazovky</translation>
     </message>
@@ -1378,7 +1378,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="78"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation type="unfinished"/>
+        <translation>Začiarknite políčko &quot;Otvoriť pomocou servera proxy&quot; v kontextovej ponuke aplikácie v programe Spúšťač, ktorá sa použije po nakonfigurovaní</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
@@ -1720,67 +1720,67 @@
 <context>
     <name>dcc::network::VpnPage</name>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="74"/>
+        <location filename="../modules/network/vpnpage.cpp" line="75"/>
         <source>VPN Status</source>
         <translation>VPN status</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="77"/>
+        <location filename="../modules/network/vpnpage.cpp" line="78"/>
         <source>Create VPN</source>
         <translation>Vytvoriť VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="80"/>
+        <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
         <translation>Importovať VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="99"/>
+        <location filename="../modules/network/vpnpage.cpp" line="100"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="254"/>
+        <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
         <translation>Importovať chybu</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="256"/>
+        <location filename="../modules/network/vpnpage.cpp" line="263"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="281"/>
+        <location filename="../modules/network/vpnpage.cpp" line="288"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="284"/>
+        <location filename="../modules/network/vpnpage.cpp" line="291"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="287"/>
+        <location filename="../modules/network/vpnpage.cpp" line="294"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="290"/>
+        <location filename="../modules/network/vpnpage.cpp" line="297"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="293"/>
+        <location filename="../modules/network/vpnpage.cpp" line="300"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
+        <location filename="../modules/network/vpnpage.cpp" line="303"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="321"/>
+        <location filename="../modules/network/vpnpage.cpp" line="328"/>
         <source>New VPN</source>
         <translation>Nová VPN</translation>
     </message>
@@ -1818,11 +1818,11 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Zatvoriť hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
-        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network fucntion</source>
+        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2374,12 +2374,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="206"/>
+        <location filename="../modules/update/updatework.cpp" line="209"/>
         <source>Patches</source>
         <translation>Opravné balíčky</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="207"/>
+        <location filename="../modules/update/updatework.cpp" line="210"/>
         <source>System patches.</source>
         <translation>Systémové opravné balíčky.</translation>
     </message>

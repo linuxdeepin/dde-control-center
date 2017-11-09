@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>無</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>編輯全名</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
@@ -256,7 +256,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>無密碼登入</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -266,12 +266,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>無法移除，此使用者已登入</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>指紋密碼</translation>
     </message>
 </context>
 <context>
@@ -306,12 +306,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>加入指紋</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>重新輸入</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
@@ -321,7 +321,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>辨識指紋</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
@@ -336,7 +336,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>加入成功</translation>
     </message>
 </context>
 <context>
@@ -394,22 +394,22 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>指紋清單</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>指紋密碼</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>加入指紋</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>清除指紋</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
@@ -419,7 +419,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>指紋</translation>
     </message>
 </context>
 <context>
@@ -427,7 +427,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>全名：</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -799,7 +799,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="252"/>
+        <location filename="../modules/display/displaymodule.cpp" line="254"/>
         <source>Wireless Screen Projection</source>
         <translation>無線螢幕投影</translation>
     </message>
@@ -809,7 +809,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>畫面縮放</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -1346,7 +1346,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="48"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP 位址</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
@@ -1720,67 +1720,67 @@
 <context>
     <name>dcc::network::VpnPage</name>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="74"/>
+        <location filename="../modules/network/vpnpage.cpp" line="75"/>
         <source>VPN Status</source>
         <translation>VPN 狀態</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="77"/>
+        <location filename="../modules/network/vpnpage.cpp" line="78"/>
         <source>Create VPN</source>
         <translation>建立 VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="80"/>
+        <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
         <translation>加入 VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="99"/>
+        <location filename="../modules/network/vpnpage.cpp" line="100"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="254"/>
+        <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
         <translation>加入錯誤</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="256"/>
+        <location filename="../modules/network/vpnpage.cpp" line="263"/>
         <source>OK</source>
         <translation>確定</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="281"/>
+        <location filename="../modules/network/vpnpage.cpp" line="288"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="284"/>
+        <location filename="../modules/network/vpnpage.cpp" line="291"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="287"/>
+        <location filename="../modules/network/vpnpage.cpp" line="294"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="290"/>
+        <location filename="../modules/network/vpnpage.cpp" line="297"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="293"/>
+        <location filename="../modules/network/vpnpage.cpp" line="300"/>
         <source>StrongSwan</source>
         <translation>strongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
+        <location filename="../modules/network/vpnpage.cpp" line="303"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="321"/>
+        <location filename="../modules/network/vpnpage.cpp" line="328"/>
         <source>New VPN</source>
         <translation>新增 VPN</translation>
     </message>
@@ -1822,7 +1822,7 @@
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
-        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network fucntion</source>
+        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2374,12 +2374,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="206"/>
+        <location filename="../modules/update/updatework.cpp" line="209"/>
         <source>Patches</source>
         <translation>修補程式</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="207"/>
+        <location filename="../modules/update/updatework.cpp" line="210"/>
         <source>System patches.</source>
         <translation>系統修補程式。</translation>
     </message>

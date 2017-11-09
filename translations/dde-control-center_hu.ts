@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Nincs</translation>
     </message>
 </context>
 <context>
@@ -271,7 +271,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Ujjlenyomat olvasó jelszó</translation>
     </message>
 </context>
 <context>
@@ -306,12 +306,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ujjlenyomat hozzáadása</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Újra</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
@@ -399,12 +399,12 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Ujjlenyomat olvasó jelszó</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ujjlenyomat hozzáadása</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
@@ -799,7 +799,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="252"/>
+        <location filename="../modules/display/displaymodule.cpp" line="254"/>
         <source>Wireless Screen Projection</source>
         <translation>Vezeték nélküli kivetítés</translation>
     </message>
@@ -1720,67 +1720,67 @@
 <context>
     <name>dcc::network::VpnPage</name>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="74"/>
+        <location filename="../modules/network/vpnpage.cpp" line="75"/>
         <source>VPN Status</source>
         <translation>VPN állapot</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="77"/>
+        <location filename="../modules/network/vpnpage.cpp" line="78"/>
         <source>Create VPN</source>
         <translation>VPN létrehozás</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="80"/>
+        <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
         <translation>VPN beállítások betöltése</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="99"/>
+        <location filename="../modules/network/vpnpage.cpp" line="100"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="254"/>
+        <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
         <translation>Importálási hiba</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="256"/>
+        <location filename="../modules/network/vpnpage.cpp" line="263"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="281"/>
+        <location filename="../modules/network/vpnpage.cpp" line="288"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="284"/>
+        <location filename="../modules/network/vpnpage.cpp" line="291"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="287"/>
+        <location filename="../modules/network/vpnpage.cpp" line="294"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="290"/>
+        <location filename="../modules/network/vpnpage.cpp" line="297"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="293"/>
+        <location filename="../modules/network/vpnpage.cpp" line="300"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
+        <location filename="../modules/network/vpnpage.cpp" line="303"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="321"/>
+        <location filename="../modules/network/vpnpage.cpp" line="328"/>
         <source>New VPN</source>
         <translation>Új VPN</translation>
     </message>
@@ -1822,7 +1822,7 @@
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
-        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network fucntion</source>
+        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2374,12 +2374,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="206"/>
+        <location filename="../modules/update/updatework.cpp" line="209"/>
         <source>Patches</source>
         <translation>Javítások</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="207"/>
+        <location filename="../modules/update/updatework.cpp" line="210"/>
         <source>System patches.</source>
         <translation>Rendszer javítások.</translation>
     </message>
@@ -2389,7 +2389,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation>Pen</translation>
+        <translation>Toll</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
@@ -2436,7 +2436,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation>Pen</translation>
+        <translation>Toll</translation>
     </message>
 </context>
 <context>

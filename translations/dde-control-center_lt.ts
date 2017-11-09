@@ -256,7 +256,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Prisijungti be slaptažodžio</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -266,12 +266,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Nepavyksta ištrinti, esamas naudotojas yra prisijungęs</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Piršto atspaudo slaptažodis</translation>
     </message>
 </context>
 <context>
@@ -306,7 +306,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Pridėti piršto atspaudą</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
@@ -321,7 +321,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Atpažįstamas piršto atspaudas</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
@@ -394,22 +394,22 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Piršto atspaudų sąrašas</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Piršto atspaudo slaptažodis</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Pridėti piršto atspaudą</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Išvalyti piršto atspaudą</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
@@ -765,12 +765,12 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Naktinė pamaina</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation type="unfinished"/>
+        <translation>Nustačius jūsų buvimo vietą, ekrano tonas bus automatiškai reguliuojamas, kad būtų apsaugotos jūsų akys</translation>
     </message>
 </context>
 <context>
@@ -799,7 +799,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="252"/>
+        <location filename="../modules/display/displaymodule.cpp" line="254"/>
         <source>Wireless Screen Projection</source>
         <translation type="unfinished"/>
     </message>
@@ -1336,7 +1336,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="42"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Programos įgaliotasis serveris</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="45"/>
@@ -1438,12 +1438,12 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation type="unfinished"/>
+        <translation>Prieigos taško nustatymai</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Prieigos taškas</translation>
     </message>
 </context>
 <context>
@@ -1456,7 +1456,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="95"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Prieigos taškas</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
@@ -1508,7 +1508,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="161"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv6 adresas</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="176"/>
@@ -1569,7 +1569,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Programos įgaliotasis serveris</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
@@ -1610,7 +1610,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="207"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Prieigos taškas</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="218"/>
@@ -1720,67 +1720,67 @@
 <context>
     <name>dcc::network::VpnPage</name>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="74"/>
+        <location filename="../modules/network/vpnpage.cpp" line="75"/>
         <source>VPN Status</source>
         <translation>VPN būsena</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="77"/>
+        <location filename="../modules/network/vpnpage.cpp" line="78"/>
         <source>Create VPN</source>
         <translation>Sukurti VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="80"/>
+        <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="99"/>
+        <location filename="../modules/network/vpnpage.cpp" line="100"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="254"/>
+        <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>Importavimo klaida</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="256"/>
+        <location filename="../modules/network/vpnpage.cpp" line="263"/>
         <source>OK</source>
         <translation>Gerai</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="281"/>
+        <location filename="../modules/network/vpnpage.cpp" line="288"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="284"/>
+        <location filename="../modules/network/vpnpage.cpp" line="291"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="287"/>
+        <location filename="../modules/network/vpnpage.cpp" line="294"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="290"/>
+        <location filename="../modules/network/vpnpage.cpp" line="297"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="293"/>
+        <location filename="../modules/network/vpnpage.cpp" line="300"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
+        <location filename="../modules/network/vpnpage.cpp" line="303"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="321"/>
+        <location filename="../modules/network/vpnpage.cpp" line="328"/>
         <source>New VPN</source>
         <translation>Naujas VPN</translation>
     </message>
@@ -1822,7 +1822,7 @@
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
-        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network fucntion</source>
+        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2298,7 +2298,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Atsiuntimo dydis: %1</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
@@ -2339,7 +2339,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="55"/>
         <source>Auto clear package cache</source>
-        <translation type="unfinished"/>
+        <translation>Automatiškai išvalyti paketų podėlį</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="58"/>
@@ -2374,12 +2374,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="206"/>
+        <location filename="../modules/update/updatework.cpp" line="209"/>
         <source>Patches</source>
         <translation>Pataisos</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="207"/>
+        <location filename="../modules/update/updatework.cpp" line="210"/>
         <source>System patches.</source>
         <translation>Sistemos pataisos.</translation>
     </message>

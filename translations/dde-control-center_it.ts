@@ -326,7 +326,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>Riconoscimento impronta fallito, posiziona il dito sul sensore, muovilo dal basso verso l&apos;alto e poi allontanalo</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
@@ -799,7 +799,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="252"/>
+        <location filename="../modules/display/displaymodule.cpp" line="254"/>
         <source>Wireless Screen Projection</source>
         <translation>Trasmissione WiFi dello schermo</translation>
     </message>
@@ -930,7 +930,7 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="387"/>
         <source> (Recommended)</source>
-        <translation>(Raccomandato)</translation>
+        <translation> (Raccomandato)</translation>
     </message>
 </context>
 <context>
@@ -943,7 +943,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="80"/>
         <source> (Recommended)</source>
-        <translation>(Raccomandato)</translation>
+        <translation> (Raccomandato)</translation>
     </message>
 </context>
 <context>
@@ -1720,67 +1720,67 @@
 <context>
     <name>dcc::network::VpnPage</name>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="74"/>
+        <location filename="../modules/network/vpnpage.cpp" line="75"/>
         <source>VPN Status</source>
         <translation>Stato VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="77"/>
+        <location filename="../modules/network/vpnpage.cpp" line="78"/>
         <source>Create VPN</source>
         <translation>Crea VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="80"/>
+        <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
         <translation>Importa VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="99"/>
+        <location filename="../modules/network/vpnpage.cpp" line="100"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="254"/>
+        <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
         <translation>Errori di import</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="256"/>
+        <location filename="../modules/network/vpnpage.cpp" line="263"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="281"/>
+        <location filename="../modules/network/vpnpage.cpp" line="288"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="284"/>
+        <location filename="../modules/network/vpnpage.cpp" line="291"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="287"/>
+        <location filename="../modules/network/vpnpage.cpp" line="294"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="290"/>
+        <location filename="../modules/network/vpnpage.cpp" line="297"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="293"/>
+        <location filename="../modules/network/vpnpage.cpp" line="300"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
+        <location filename="../modules/network/vpnpage.cpp" line="303"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="321"/>
+        <location filename="../modules/network/vpnpage.cpp" line="328"/>
         <source>New VPN</source>
         <translation>Nuova VPN</translation>
     </message>
@@ -1822,8 +1822,8 @@
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
-        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network fucntion</source>
-        <translation>Per cortesia, spegni l&apos;hotspot se desideri riconnetterti alla rete wireless</translation>
+        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
@@ -2374,12 +2374,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="206"/>
+        <location filename="../modules/update/updatework.cpp" line="209"/>
         <source>Patches</source>
         <translation>Patches</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="207"/>
+        <location filename="../modules/update/updatework.cpp" line="210"/>
         <source>System patches.</source>
         <translation>Patch di sistema.</translation>
     </message>
