@@ -37,8 +37,7 @@ Frame::Frame(QWidget *parent)
 
       m_allSettingsPage(nullptr),
       m_allSettingsPageKiller(new QTimer(this)),
-
-      m_mouseAreaInter(new XMouseArea("com.deepin.api.XMouseArea", "/com/deepin/api/XMouseArea", QDBusConnection::sessionBus(), this)),
+      m_mouseAreaInter(new DRegionMonitor(this)),
       m_displayInter(new DBusDisplay("com.deepin.daemon.Display", "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)),
       m_launcherInter(new LauncherInter("com.deepin.dde.Launcher", "/com/deepin/dde/Launcher", QDBusConnection::sessionBus(), this)),
 
@@ -257,9 +256,9 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
     DBlurEffectWidget::move(m_primaryRect.right() - width() * ratio + 1, m_primaryRect.y());
 }
 
-void Frame::onMouseButtonReleased(const int button, const int x, const int y, const QString &key)
+void Frame::onMouseButtonReleased(const QPoint &p, const int flag)
 {
-    if (button != BUTTON_LEFT && button != BUTTON_RIGHT) {
+    if (flag != BUTTON_LEFT && flag != BUTTON_RIGHT) {
         return;
     }
 
@@ -269,23 +268,8 @@ void Frame::onMouseButtonReleased(const int button, const int x, const int y, co
         return;
     }
 
-    if (key != m_mouseAreaKey) {
-        qWarning() << "forbid hide by m_mouseAreaKey" << key << m_mouseAreaKey;
-
+    if (isVisible() && geometry().contains(p))
         return;
-    }
-
-    const qreal ratio = devicePixelRatioF();
-    const bool visible = isVisible();
-    const QPoint p = QPoint(visible ? m_primaryRect.right() - width() * ratio : m_primaryRect.right(), 0);
-
-    QRect r(rect());
-    r.setWidth(r.width() * ratio);
-    r.setHeight(r.height() * ratio);
-
-    if (r.contains(QPoint(x, y) - p)) {
-        return;
-    }
 
     // ready to hide frame
     hide();
@@ -323,8 +307,6 @@ void Frame::show()
     if (m_appearAnimation.state() == QPropertyAnimation::Running)
         return;
 
-    Q_ASSERT(m_mouseAreaKey.isEmpty());
-
     const qreal ratio = devicePixelRatioF();
 
     // animation
@@ -348,11 +330,10 @@ void Frame::show()
     }
 
     // register global mouse area
-    if (m_mouseAreaKey.isEmpty())
-        m_mouseAreaKey = m_mouseAreaInter->RegisterFullScreen();
+    m_mouseAreaInter->registerRegion();
 
     // connect signal
-    connect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased, Qt::UniqueConnection);
+    connect(m_mouseAreaInter, &DRegionMonitor::buttonRelease, this, &Frame::onMouseButtonReleased, Qt::UniqueConnection);
 
     // prepare all settings page
     m_allSettingsPageKiller->stop();
@@ -362,10 +343,6 @@ void Frame::show()
 void Frame::hide()
 {
     if (m_appearAnimation.state() == QPropertyAnimation::Running)
-        return;
-
-    // pass if already hided
-    if (m_mouseAreaKey.isEmpty())
         return;
 
     // reset auto-hide
@@ -389,13 +366,10 @@ void Frame::hide()
     if (m_frameWidgetStack.last() && m_frameWidgetStack.last()->content())
         emit m_frameWidgetStack.last()->content()->disappear();
 
-    // unregister global mouse area
-    if (!m_mouseAreaKey.isEmpty())
-        m_mouseAreaInter->UnregisterArea(m_mouseAreaKey);
-    m_mouseAreaKey.clear();
+    m_mouseAreaInter->unregisterRegion();
 
     // disconnect signal
-    disconnect(m_mouseAreaInter, &XMouseArea::ButtonRelease, this, &Frame::onMouseButtonReleased);
+    disconnect(m_mouseAreaInter, &DRegionMonitor::buttonRelease, this, &Frame::onMouseButtonReleased);
 
     // free all settings page
     m_allSettingsPageKiller->start();

@@ -27,7 +27,6 @@
 #define FRAME_H
 
 #include <com_deepin_daemon_display.h>
-#include <com_deepin_api_xmousearea.h>
 #include <com_deepin_dde_launcher.h>
 
 #include <QStack>
@@ -36,12 +35,12 @@
 #include <DBlurEffectWidget>
 #include <DPlatformWindowHandle>
 #include <DWindowManagerHelper>
+#include <dregionmonitor.h>
 
 #define BUTTON_LEFT     1
 #define BUTTON_RIGHT    3
 #define FRAME_WIDTH     360
 
-using XMouseArea = com::deepin::api::XMouseArea;
 using DBusDisplay = com::deepin::daemon::Display;
 using LauncherInter = com::deepin::dde::Launcher;
 
@@ -92,7 +91,7 @@ private slots:
     void contentDetached(QWidget * const c);
 
     void onScreenRectChanged(const QRect &primaryRect);
-    void onMouseButtonReleased(const int button, const int x, const int y, const QString &key);
+    void onMouseButtonReleased(const QPoint &p, const int flag);
 
 private:
     void keyPressEvent(QKeyEvent *e);
@@ -106,11 +105,10 @@ private:
     QPointer<SettingsWidget> m_allSettingsPage;
     QTimer *m_allSettingsPageKiller;
 
-    XMouseArea *m_mouseAreaInter;
+    DRegionMonitor *m_mouseAreaInter;
     DBusDisplay *m_displayInter;
     LauncherInter *m_launcherInter;
 
-    QString m_mouseAreaKey;
     QStack<FrameWidget *> m_frameWidgetStack;
 
     QRect m_primaryRect;
