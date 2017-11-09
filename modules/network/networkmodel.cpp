@@ -254,7 +254,6 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
 void NetworkModel::onActiveConnInfoChanged(const QString &conns)
 {
     m_activeConnInfos.clear();
-    m_activeHotspotInfos.clear();
 
     QMap<QString, QJsonObject> activeConnInfo;
     QMap<QString, QJsonObject> activeHotspotInfo;
@@ -266,14 +265,11 @@ void NetworkModel::onActiveConnInfoChanged(const QString &conns)
         const auto &type = connInfo.value("ConnectionType").toString();
         const auto &macAddr = connInfo.value("HwAddress").toString();
 
-        if (type != "wireless-hotspot")
-        {
-            activeConnInfo[macAddr] = connInfo;
-            m_activeConnInfos << connInfo;
-        } else {
+        activeConnInfo[macAddr] = connInfo;
+        m_activeConnInfos << connInfo;
+
+        if (type == "wireless-hotspot")
             activeHotspotInfo[macAddr] = connInfo;
-            m_activeHotspotInfos << connInfo;
-        }
     }
 
     // update device active connection info
