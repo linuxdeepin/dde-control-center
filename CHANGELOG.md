@@ -1,3 +1,25 @@
+<a name="4.3.2"></a>
+### 4.3.2 (2017-11-09)
+
+
+#### Bug Fixes
+
+*   hotspot switch state error ([1db9d590](https://github.com/linuxdeepin/dde-control-center/commit/1db9d590aa66899b7482ca95f2d5b52294d41f6e))
+* **display:**  not refresh night mode status ([2f636efd](https://github.com/linuxdeepin/dde-control-center/commit/2f636efd92cb51da3ef9bc720b1b8fadf34d2ed5))
+* **fprint:**  advance stop enrollstop ([b71ecf1e](https://github.com/linuxdeepin/dde-control-center/commit/b71ecf1e1578ccfdc0e8af9a7e4f8ad841285161))
+* **frame:**  use DRegionMonitor ([78d237b3](https://github.com/linuxdeepin/dde-control-center/commit/78d237b32884142c5936e131f9ecf13f96c7d02f))
+* **module:**  return that settings page are not show ([b84a5c3b](https://github.com/linuxdeepin/dde-control-center/commit/b84a5c3b505c22f9a978a587871ac6dea295713d))
+* **network:**  wireless typo ([7674fb13](https://github.com/linuxdeepin/dde-control-center/commit/7674fb1337fb41907abaa7139902b932b406fe23))
+* **sound:**  modify the frequency of calling tick ([e083848f](https://github.com/linuxdeepin/dde-control-center/commit/e083848f1aed7c3d3c93ab41955c5d96c9d2d1b7))
+* **update:**  not clean failed jobs ([3cac1162](https://github.com/linuxdeepin/dde-control-center/commit/3cac116201a03e05369e8290dc58a94bd61d689b))
+* **weather:**  null pointer check ([a62c40dd](https://github.com/linuxdeepin/dde-control-center/commit/a62c40dd7ccd5974d7cad3df7d6cd63c53834003))
+
+#### Features
+
+* **network:**  add vpn connecting animation ([fea78421](https://github.com/linuxdeepin/dde-control-center/commit/fea78421cbfccfd19964605e6fed492d59636444))
+
+
+
 <a name="4.3.1"></a>
 ### 4.3.1 (2017-11-03)
 
