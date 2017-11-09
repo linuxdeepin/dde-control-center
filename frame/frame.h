@@ -37,8 +37,9 @@
 #include <DPlatformWindowHandle>
 #include <DWindowManagerHelper>
 
-#define BUTTON_LEFT 1
-#define FRAME_WIDTH 360
+#define BUTTON_LEFT     1
+#define BUTTON_RIGHT    3
+#define FRAME_WIDTH     360
 
 using XMouseArea = com::deepin::api::XMouseArea;
 using DBusDisplay = com::deepin::daemon::Display;

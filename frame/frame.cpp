@@ -259,10 +259,9 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
 
 void Frame::onMouseButtonReleased(const int button, const int x, const int y, const QString &key)
 {
-    Q_UNUSED(button);
-//    if (button != BUTTON_LEFT) {
-//        return;
-//    }
+    if (button != BUTTON_LEFT && button != BUTTON_RIGHT) {
+        return;
+    }
 
     if (!m_autoHide || !m_debugAutoHide) {
         qDebug() << "forbid hide by m_autoHide" << m_autoHide << m_debugAutoHide;
