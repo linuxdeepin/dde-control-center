@@ -1823,7 +1823,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>Por favor desative primeiro a partilha de hotspot se quer ligar e usar a funcionalidade de rede sem fios</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>

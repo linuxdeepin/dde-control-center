@@ -271,7 +271,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation>Ujjlenyomat olvasó jelszó</translation>
+        <translation>Ujjlenyomathoz tartozó jelszó</translation>
     </message>
 </context>
 <context>
@@ -399,7 +399,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation>Ujjlenyomat olvasó jelszó</translation>
+        <translation>Ujjlenyomathoz tartozó jelszó</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>

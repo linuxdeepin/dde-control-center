@@ -437,7 +437,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>全名設定</translation>
     </message>
 </context>
 <context>
@@ -1240,7 +1240,7 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="65"/>
         <source>Double-click Speed</source>
-        <translation>滑鼠連按兩下速度</translation>
+        <translation>滑鼠連擊速度</translation>
     </message>
 </context>
 <context>
@@ -1271,7 +1271,7 @@
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="55"/>
         <source>Pointer Speed</source>
-        <translation>指標移動速度</translation>
+        <translation>游標移動速度</translation>
     </message>
 </context>
 <context>
@@ -1318,7 +1318,7 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="49"/>
         <source>Pointer Speed</source>
-        <translation>指標移動速度</translation>
+        <translation>游標移動速度</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="57"/>

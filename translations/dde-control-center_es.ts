@@ -60,7 +60,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
-        <translation>Por favor, entre al modo de visualización para establecer si desea cambios en la configuración personalizada</translation>
+        <translation>Por favor, ingrese al modo Pantalla si deseas cambiar los ajustes personalizados</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
@@ -184,7 +184,7 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
-        <translation>Actualizaciones detectadas, haz clic para ver</translation>
+        <translation>Actualizaciones detectadas, clic para verlas</translation>
     </message>
 </context>
 <context>
@@ -200,7 +200,7 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>¡Lo sentimos, no se puede obtener el tiempo!</translation>
+        <translation>¡Lo sentimos, no es posible obtener el clima!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
@@ -1823,7 +1823,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, deshabilite primero &quot;Conexión compartida&quot; si quiere conectarse y usar la función de conexión inalámbrica</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
@@ -1947,12 +1947,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="44"/>
         <source>Monitor will suspend after</source>
-        <translation>Monitor suspenderá después de</translation>
+        <translation>Suspender el monitor después de</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="45"/>
         <source>Computer will suspend after</source>
-        <translation>El ordenador se suspenderá después de</translation>
+        <translation>El equipo se suspenderá después de</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="55"/>
@@ -1968,7 +1968,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="77"/>
         <source>Password required to wake up the computer</source>
-        <translation>Contraseña requerida para encender el ordenador</translation>
+        <translation>Contraseña requerida para encender el equipo</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="80"/>
@@ -2125,7 +2125,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="119"/>
         <source>Edition License</source>
-        <translation>Licencia:</translation>
+        <translation>Edición licenciada:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
@@ -2233,7 +2233,7 @@
         <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
         <source>Update</source>
-        <translation>Actualizar</translation>
+        <translation>Actualización</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="152"/>
@@ -2339,7 +2339,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="55"/>
         <source>Auto clear package cache</source>
-        <translation>Auto borrar  la caché de paquetes</translation>
+        <translation>Auto borrar la caché de paquetes</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="58"/>

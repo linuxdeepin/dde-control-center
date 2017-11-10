@@ -1823,7 +1823,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>Če se želite povezati in uporabljati brezžično omrežje, morate najprej onemogočiti deljenje vroče točke</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>

@@ -840,7 +840,7 @@
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="171"/>
         <source>Display</source>
-        <translation>Göster</translation>
+        <translation>Ekran</translation>
     </message>
 </context>
 <context>
@@ -1336,7 +1336,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="42"/>
         <source>Application proxy</source>
-        <translation>Uygulama vekili</translation>
+        <translation>Uygulama Vekili</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="45"/>
@@ -1569,7 +1569,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
-        <translation>Uygulama vekili</translation>
+        <translation>Uygulama Vekili</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
@@ -1605,7 +1605,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="54"/>
         <source>System Proxy</source>
-        <translation>Sistem Vekili</translation>
+        <translation>Sistem Vekil</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="207"/>
@@ -1676,7 +1676,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="91"/>
         <source>Http Proxy</source>
-        <translation>HTTP Vekil</translation>
+        <translation>HTTP Vekili</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="93"/>
@@ -1689,17 +1689,17 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="96"/>
         <source>Https Proxy</source>
-        <translation>HTTP Vekil</translation>
+        <translation>HTTP Vekili</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="101"/>
         <source>Ftp Proxy</source>
-        <translation>HTTP Vekil</translation>
+        <translation>Ftp Vekili</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="106"/>
         <source>Socks Proxy</source>
-        <translation>Socks Vekil</translation>
+        <translation>Socks Vekili</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="115"/>
@@ -1714,7 +1714,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="175"/>
         <source>System Proxy</source>
-        <translation>Sistem Vekil</translation>
+        <translation>Sistem Vekili</translation>
     </message>
 </context>
 <context>
@@ -1823,7 +1823,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>Kablosuz ağ işlevini bağlamak ve kullanmak istiyorsanız öncelikle hotspot devre dışı bırakınız</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
