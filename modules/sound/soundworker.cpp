@@ -43,13 +43,17 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent) :
     m_defaultSink(nullptr),
     m_defaultSource(nullptr),
     m_sourceMeter(nullptr),
-    m_pingTimer(new QTimer(this))
+    m_pingTimer(new QTimer(this)),
+    m_activeTimer(new QTimer(this))
 {
     m_audioInter->setSync(false);
     //    m_soundEffectInter->setSync(false);
 
     m_pingTimer->setInterval(5000);
     m_pingTimer->setSingleShot(false);
+
+    m_activeTimer->setInterval(100);
+    m_activeTimer->setSingleShot(true);
 
     connect(m_audioInter, &Audio::DefaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
     connect(m_audioInter, &Audio::DefaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
@@ -58,6 +62,7 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent) :
     connect(m_audioInter, &Audio::CardsChanged, this, &SoundWorker::cardsChanged);
 
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_sourceMeter) m_sourceMeter->Tick(); });
+    connect(m_activeTimer, &QTimer::timeout, this, &SoundWorker::updatePortActivity);
 }
 
 void SoundWorker::activate()
@@ -274,7 +279,7 @@ void SoundWorker::activeSinkPortChanged(const AudioPort &activeSinkPort)
     qDebug() << "active sink port changed to: " << activeSinkPort.name;
     m_activeSinkPort = activeSinkPort.name;
 
-    updatePortActivity();
+    m_activeTimer->start();
 }
 
 void SoundWorker::activeSourcePortChanged(const AudioPort &activeSourcePort)
@@ -282,25 +287,28 @@ void SoundWorker::activeSourcePortChanged(const AudioPort &activeSourcePort)
     qDebug() << "active source port changed to: " << activeSourcePort.name;
     m_activeSourcePort = activeSourcePort.name;
 
-    updatePortActivity();
+    m_activeTimer->start();
 }
 
 void SoundWorker::onSinkCardChanged(const uint &cardId)
 {
     m_activeOutputCard = cardId;
 
-    updatePortActivity();
+    m_activeTimer->start();
 }
 
 void SoundWorker::onSourceCardChanged(const uint &cardId)
 {
     m_activeInputCard = cardId;
 
-    updatePortActivity();
+    m_activeTimer->start();
 }
 
 void SoundWorker::updatePortActivity()
 {
+    if (m_activeSinkPort.isEmpty() || m_activeSourcePort.isEmpty())
+        return;
+
     for (Port *port : m_model->ports()) {
         const bool isActiveOuputPort = port->id() == m_activeSinkPort && port->cardId() == m_activeOutputCard;
         const bool isActiveInputPort = port->id() == m_activeSourcePort && port->cardId() == m_activeInputCard;

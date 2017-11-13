@@ -98,6 +98,7 @@ private:
     QList<Source*> m_sources;
 
     QTimer *m_pingTimer;
+    QTimer *m_activeTimer;
 };
 
 }
