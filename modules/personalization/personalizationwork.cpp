@@ -75,7 +75,7 @@ void PersonalizationWork::deactive()
     m_wmSwitcher->blockSignals(true);
 }
 
-QList<QJsonObject> PersonalizationWork::converToList(const QString &type, QJsonArray &array)
+QList<QJsonObject> PersonalizationWork::converToList(const QString &type, const QJsonArray &array)
 {
     QList<QJsonObject> list;
     for (int i = 0; i != array.size(); i++) {
@@ -119,8 +119,9 @@ void PersonalizationWork::onStandardFontFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = *w;
     FontModel *fontStand = m_model->getStandFontModel();
-    QJsonArray array = QJsonDocument::fromJson(reply.value().toLocal8Bit().data()).array();
-    fontStand->setFontList(converToList("standardfont", array));
+
+    setFontList(fontStand, "standardfont", reply.value());
+
     fontStand->setFontName(m_dbus->standardFont());
     w->deleteLater();
 }
@@ -129,8 +130,9 @@ void PersonalizationWork::onMonoFontFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = *w;
     FontModel *fontMono = m_model->getMonoFontModel();
-    QJsonArray array = QJsonDocument::fromJson(reply.value().toLocal8Bit().data()).array();
-    fontMono->setFontList(converToList("monospacefont", array));
+
+    setFontList(fontMono, "monospacefont", reply.value());
+
     fontMono->setFontName(m_dbus->monospaceFont());
     w->deleteLater();
 }
@@ -215,6 +217,28 @@ void PersonalizationWork::onGetCurrentWMFinished(QDBusPendingCallWatcher *w)
     m_model->setIs3DWm(reply.value() == "deepin wm");
 
     w->deleteLater();
+}
+
+void PersonalizationWork::setFontList(FontModel *model, const QString &type, const QString &list)
+{
+    QJsonArray array = QJsonDocument::fromJson(list.toLocal8Bit().data()).array();
+
+    QStringList l;
+
+    for (int i = 0; i != array.size(); i++)
+        l << array.at(i).toString();
+
+    QDBusPendingCallWatcher *watcher  = new QDBusPendingCallWatcher(m_dbus->Show(type, l), this);
+
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        QDBusPendingReply<QString> r = watcher->reply();
+
+        QJsonArray array = QJsonDocument::fromJson(r.value().toLocal8Bit().data()).array();
+
+        model->setFontList(converToList(type, array));
+
+        watcher->deleteLater();
+    });
 }
 
 void PersonalizationWork::onGetList()

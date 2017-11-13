@@ -67,11 +67,12 @@ private slots:
     void onRefreshedChanged(const QString &type);
     void onToggleWM();
     void onGetCurrentWMFinished(QDBusPendingCallWatcher *w);
+    void setFontList(FontModel* model, const QString &type, const QString &list);
 
 private:
     int sizeToSliderValue(const double value) const;
     float sliderValueToSize(const int value) const;
-    QList<QJsonObject> converToList(const QString &type, QJsonArray &array);
+    QList<QJsonObject> converToList(const QString &type, const QJsonArray &array);
     void addList(ThemeModel *model, const QString &type, QJsonArray &array);
 
 private:
