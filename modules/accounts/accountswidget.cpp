@@ -59,11 +59,16 @@ void AccountsWidget::addUser(User *user)
 
     m_userGroup->appendItem(w);
 
-    connect(user, &User::nameChanged, w, &NextPageWidget::setTitle);
+    auto setName = [=] {
+        w->setTitle(user->displayName());
+    };
+
+    connect(user, &User::nameChanged, setName);
+    connect(user, &User::fullnameChanged, w, &NextPageWidget::setTitle);
     connect(user, &User::currentAvatarChanged, w, &UserOptionItem::setAvatar);
     connect(w, &NextPageWidget::clicked, [=] { emit showAccountsDetail(user); });
 
-    w->setTitle(user->name());
+    setName();
     w->setAvatar(user->currentAvatar());
 }
 

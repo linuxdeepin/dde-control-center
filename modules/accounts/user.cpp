@@ -112,3 +112,8 @@ void User::setNopasswdLogin(bool nopasswdLogin)
 
     emit nopasswdLoginChanged(nopasswdLogin);
 }
+
+const QString User::displayName() const
+{
+    return m_fullname.isEmpty() ? m_name : m_fullname;
+}

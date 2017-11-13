@@ -70,6 +70,8 @@ public:
     bool nopasswdLogin() const;
     void setNopasswdLogin(bool nopasswdLogin);
 
+    const QString displayName() const;
+
 signals:
     void nameChanged(const QString &name) const;
     void fullnameChanged(const QString &name) const;

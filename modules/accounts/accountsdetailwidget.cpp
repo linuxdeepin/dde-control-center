@@ -94,6 +94,9 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
         m_deleteAccount->setDisabled(online);
         tip->setVisible(online);
     });
+    connect(user, &User::fullnameChanged, this, [=] {
+        setTitle(user->displayName());
+    });
     connect(m_deleteAccount, &QPushButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
     connect(m_autoLogin, &SwitchWidget::checkedChanged, [=] (const bool autoLogin) { emit requestSetAutoLogin(user, autoLogin); });
     connect(m_modifyPassword, &NextPageWidget::clicked, [=] { emit showPwdSettings(user); });
@@ -103,7 +106,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     connect(m_finger, &NextPageWidget::clicked, this, [=] { emit showFingerSettings(user);});
 
     setContent(mainWidget);
-    setTitle(user->name());
+    setTitle(user->displayName());
 
     const bool isOnline = user->online();
 
