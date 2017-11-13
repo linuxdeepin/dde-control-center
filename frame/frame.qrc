@@ -28,9 +28,6 @@
         <file>themes/dark/icons/only1.png</file>
         <file>themes/dark/icons/only2.png</file>
         <file>themes/dark/icons/custom.png</file>
-        <file>themes/dark/icons/nav_icon_hover.png</file>
-        <file>themes/dark/icons/nav_icon_normal.png</file>
-        <file>themes/dark/icons/nav_icon_pressed.png</file>
         <file>themes/dark/icons/dark_loading/loading_000.png</file>
         <file>themes/dark/icons/dark_loading/loading_001.png</file>
         <file>themes/dark/icons/dark_loading/loading_002.png</file>
@@ -259,9 +256,6 @@
         <file>themes/dark/icons/bluetooth_off@2x.png</file>
         <file>themes/dark/icons/display_off@2x.png</file>
         <file>themes/dark/icons/display_on@2x.png</file>
-        <file>themes/dark/icons/nav_icon_hover@2x.png</file>
-        <file>themes/dark/icons/nav_icon_normal@2x.png</file>
-        <file>themes/dark/icons/nav_icon_pressed@2x.png</file>
         <file>themes/dark/icons/home_light_high@2x.png</file>
         <file>themes/dark/icons/home_light_low@2x.png</file>
         <file>themes/dark/icons/home_volume_high@2x.png</file>
@@ -336,9 +330,7 @@
         <file>themes/dark/icons/notify_close_press@2x.png</file>
         <file>themes/dark/icons/nav_icon_hover.svg</file>
         <file>themes/dark/icons/nav_icon_normal.svg</file>
-        <file>themes/dark/icons/nav_icon_press.png</file>
         <file>themes/dark/icons/nav_icon_press.svg</file>
-        <file>themes/dark/icons/nav_icon_press@2x.png</file>
         <file>themes/dark/icons/VPN_on@2x.png</file>
         <file>themes/dark/icons/all_settings_on@2x.png</file>
         <file>themes/dark/icons/all_settings_off@2x.png</file>

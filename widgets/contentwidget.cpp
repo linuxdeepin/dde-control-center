@@ -64,9 +64,9 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_backBtn->setAccessibleName("Back");
 
     m_navgationBtn = new DImageButton;
-    m_navgationBtn->setNormalPic(":/frame/themes/dark/icons/nav_icon_normal.png");
-    m_navgationBtn->setHoverPic(":/frame/themes/dark/icons/nav_icon_hover.png");
-    m_navgationBtn->setPressPic(":/frame/themes/dark/icons/nav_icon_pressed.png");
+    m_navgationBtn->setNormalPic(":/frame/themes/dark/icons/nav_icon_normal.svg");
+    m_navgationBtn->setHoverPic(":/frame/themes/dark/icons/nav_icon_hover.svg");
+    m_navgationBtn->setPressPic(":/frame/themes/dark/icons/nav_icon_pressed.svg");
     m_navgationBtn->setVisible(false);
 
     m_title = new QLabel;
