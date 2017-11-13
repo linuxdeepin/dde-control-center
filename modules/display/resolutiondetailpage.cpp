@@ -89,7 +89,9 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
         m_resolutions->appendItem(item);
     }
 
-    Q_ASSERT(m_currentItem);
+    if (!m_currentItem)
+        return;
+
     m_currentItem->blockSignals(true);
     m_currentItem->setSelected(true);
     m_currentItem->blockSignals(false);
@@ -103,10 +105,12 @@ void ResolutionDetailPage::onItemClicked()
     if (item == m_currentItem)
         return;
 
-    Q_ASSERT(m_currentItem);
-    m_currentItem->blockSignals(true);
-    m_currentItem->setSelected(false);
-    m_currentItem->blockSignals(false);
+    if (m_currentItem) {
+        m_currentItem->blockSignals(true);
+        m_currentItem->setSelected(false);
+        m_currentItem->blockSignals(false);
+    }
+
     m_currentItem = item;
 
     emit requestSetResolution(m_model->monitorList().first(), m_options[item]);
