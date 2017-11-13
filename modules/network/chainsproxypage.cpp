@@ -32,6 +32,7 @@
 
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QRegularExpression>
 
 using namespace dcc;
 using namespace dcc::network;
@@ -124,7 +125,7 @@ void ChainsProxyPage::onCheckValue()
     m_password->setIsErr(false);
 
     const QString &addr = m_addr->text();
-    if (addr.isEmpty()) {
+    if (addr.isEmpty() || !isIPV4(addr)) {
         m_addr->setIsErr();
         return;
     }
@@ -153,4 +154,23 @@ void ChainsProxyPage::onCheckValue()
 
     emit requestSet(config);
     emit back();
+}
+
+bool ChainsProxyPage::isIPV4(const QString &ipv4)
+{
+    QRegularExpression reg("(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)");
+    QRegularExpressionMatch match = reg.match(ipv4);
+    bool hasMatch = match.hasMatch();
+
+    if (!hasMatch)
+        return false;
+
+    for (int i(1); i != 5; i++) {
+        const int n = match.captured(i).toInt();
+
+        if (n < 0 || n > 255)
+            return false;
+    }
+
+    return true;
 }

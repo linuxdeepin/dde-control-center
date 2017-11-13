@@ -53,6 +53,7 @@ signals:
 
 private slots:
     void onCheckValue();
+    bool isIPV4(const QString &ipv4);
 
 private:
     NetworkModel *m_model;
