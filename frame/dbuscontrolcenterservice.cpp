@@ -111,7 +111,7 @@ void DBusControlCenterService::Hide()
 void DBusControlCenterService::HideImmediately()
 {
     // handle method call com.deepin.dde.ControlCenter.HideImmediately
-    parent()->hide();
+    parent()->hideImmediately();
 }
 
 void DBusControlCenterService::Show()

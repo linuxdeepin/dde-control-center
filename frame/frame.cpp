@@ -77,7 +77,7 @@ Frame::Frame(QWidget *parent)
 
     connect(m_allSettingsPageKiller, &QTimer::timeout, this, &Frame::freeAllSettingsPage);
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
-    connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hide);
+    connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hideImmediately);
     connect(m_wmHelper, &DWindowManagerHelper::hasCompositeChanged, this, &Frame::adjustShadowMask);
     connect(&m_appearAnimation, &QPropertyAnimation::start, this, &Frame::adjustShadowMask);
     connect(&m_appearAnimation, &QPropertyAnimation::finished, this, &Frame::adjustShadowMask, Qt::QueuedConnection);
@@ -351,8 +351,9 @@ void Frame::hide()
     // animation
     const auto ratio = devicePixelRatioF();
     QRect r = QRect(m_primaryRect.topLeft(), m_primaryRect.size() / ratio);
+    r.setLeft(m_primaryRect.x() + m_primaryRect.width() / ratio - FRAME_WIDTH);
+    m_appearAnimation.setStartValue(r);
     r.setLeft(r.x() + r.width());
-    m_appearAnimation.setStartValue(geometry());
     m_appearAnimation.setEndValue(r);
     m_appearAnimation.start();
 
@@ -389,4 +390,24 @@ void Frame::toggle()
     } else {
         hide();
     }
+}
+
+void Frame::hideImmediately()
+{
+    // reset auto-hide
+    m_autoHide = true;
+
+    DBlurEffectWidget::hide();
+
+    // notify top widget disappear
+    if (m_frameWidgetStack.last() && m_frameWidgetStack.last()->content())
+        emit m_frameWidgetStack.last()->content()->disappear();
+
+    m_mouseAreaInter->unregisterRegion();
+
+    // disconnect signal
+    disconnect(m_mouseAreaInter, &DRegionMonitor::buttonRelease, this, &Frame::onMouseButtonReleased);
+
+    // free all settings page
+    m_allSettingsPageKiller->start();
 }

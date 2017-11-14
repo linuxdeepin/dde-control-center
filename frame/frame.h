@@ -100,6 +100,7 @@ private:
     void show();
     void hide();
     void toggle();
+    void hideImmediately();
 
 private:
     QPointer<SettingsWidget> m_allSettingsPage;
