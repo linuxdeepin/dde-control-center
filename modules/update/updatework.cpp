@@ -443,7 +443,8 @@ void UpdateWork::onDownloadStatusChanged(const QString &status)
         m_downloadJob = nullptr;
 
         // install the updates immediately.
-        distUpgradeInstallUpdates();
+        if (!m_model->autoDownloadUpdates())
+            distUpgradeInstallUpdates();
     } else if (status == "paused") {
         m_model->setStatus(UpdatesStatus::DownloadPaused);
     } else {
