@@ -307,13 +307,19 @@ void Frame::show()
     if (m_appearAnimation.state() == QPropertyAnimation::Running)
         return;
 
-    const qreal ratio = devicePixelRatioF();
+    QRect r = qApp->primaryScreen()->geometry();
+
+    const QScreen *screen = screenForGeometry(r);
+    if (screen) {
+        const qreal dpr = screen->devicePixelRatio();
+        const QRect screenGeo = screen->geometry();
+        r.moveTopLeft(screenGeo.topLeft() + (r.topLeft() - screenGeo.topLeft()) / dpr);
+    }
 
     // animation
-    QRect r = QRect(m_primaryRect.topLeft(), m_primaryRect.size() / ratio);
     r.setLeft(r.x() + r.width());
     m_appearAnimation.setStartValue(r);
-    r.setLeft(m_primaryRect.x() + m_primaryRect.width() / ratio - FRAME_WIDTH);
+    r.setLeft(r.x() + r.width() - FRAME_WIDTH);
     m_appearAnimation.setEndValue(r);
     m_appearAnimation.start();
 
@@ -348,10 +354,17 @@ void Frame::hide()
     // reset auto-hide
     m_autoHide = true;
 
+    QRect r = qApp->primaryScreen()->geometry();
+
+    const QScreen *screen = screenForGeometry(r);
+    if (screen) {
+        const qreal dpr = screen->devicePixelRatio();
+        const QRect screenGeo = screen->geometry();
+        r.moveTopLeft(screenGeo.topLeft() + (r.topLeft() - screenGeo.topLeft()) / dpr);
+    }
+
     // animation
-    const auto ratio = devicePixelRatioF();
-    QRect r = QRect(m_primaryRect.topLeft(), m_primaryRect.size() / ratio);
-    r.setLeft(m_primaryRect.x() + m_primaryRect.width() / ratio - FRAME_WIDTH);
+    r.setLeft(r.x() + r.width() - FRAME_WIDTH);
     m_appearAnimation.setStartValue(r);
     r.setLeft(r.x() + r.width());
     m_appearAnimation.setEndValue(r);
@@ -410,4 +423,20 @@ void Frame::hideImmediately()
 
     // free all settings page
     m_allSettingsPageKiller->start();
+}
+
+const QScreen *Frame::screenForGeometry(const QRect &rect) const
+{
+    const qreal ratio = qApp->devicePixelRatio();
+
+    for (const auto *s : qApp->screens())
+    {
+        const QRect &g(s->geometry());
+        const QRect realRect(g.topLeft() / ratio, g.size());
+
+        if (realRect.contains(rect.center()))
+            return s;
+    }
+
+    return nullptr;
 }

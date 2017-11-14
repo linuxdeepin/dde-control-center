@@ -101,6 +101,7 @@ private:
     void hide();
     void toggle();
     void hideImmediately();
+    const QScreen *screenForGeometry(const QRect &rect) const;
 
 private:
     QPointer<SettingsWidget> m_allSettingsPage;
