@@ -196,6 +196,9 @@ void Frame::showAllSettings()
     prepareAllSettingsPage();
 
     pushWidget(m_allSettingsPage);
+
+    // scroll to first module, otherwise it will not initialize the data
+    QMetaObject::invokeMethod(m_allSettingsPage, "showModulePage", Qt::QueuedConnection, Q_ARG(QString, QString("accounts")), Q_ARG(QString, QString()));
 }
 
 void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
