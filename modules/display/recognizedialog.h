@@ -49,6 +49,7 @@ private slots:
 
 private:
     void paintMonitorMark(QPainter &painter, const QRect &rect, const QString &name);
+    const QScreen *screenForGeometry(const QRect &rect) const;
 
 private:
     DisplayModel *m_model;

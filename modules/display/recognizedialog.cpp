@@ -28,6 +28,8 @@
 
 #include <QTimer>
 #include <QPainter>
+#include <QScreen>
+#include <QApplication>
 
 using namespace dcc::display;
 
@@ -83,11 +85,18 @@ void RecognizeDialog::paintEvent(QPaintEvent *)
 
 void RecognizeDialog::onScreenRectChanged()
 {
-    const qreal ratio = devicePixelRatioF();
+    const auto ratio = devicePixelRatioF();
 
-    setFixedSize(m_model->screenWidth() / ratio,
-                 m_model->screenHeight() / ratio);
-    move(0, 0);
+    QRect r(0, 0, m_model->screenWidth(), m_model->screenHeight());
+
+    const QScreen *screen = screenForGeometry(r);
+
+    if (screen) {
+        const QRect screenGeo = screen->geometry();
+        r.moveTopLeft(screenGeo.topLeft() + (r.topLeft() - screenGeo.topLeft()) / ratio);
+    }
+
+    setGeometry(r);
 
     update();
 }
@@ -106,4 +115,20 @@ void RecognizeDialog::paintMonitorMark(QPainter &painter, const QRect &rect, con
     QPainterPath path;
     path.addText(x, y, font, name);
     painter.drawPath(path);
+}
+
+const QScreen *RecognizeDialog::screenForGeometry(const QRect &rect) const
+{
+    const qreal ratio = qApp->devicePixelRatio();
+
+    for (const auto *s : qApp->screens())
+    {
+        const QRect &g(s->geometry());
+        const QRect realRect(g.topLeft() / ratio, g.size());
+
+        if (realRect.contains(rect.center()))
+            return s;
+    }
+
+    return nullptr;
 }
