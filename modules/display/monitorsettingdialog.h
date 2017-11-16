@@ -73,7 +73,7 @@ signals:
     void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
 
 private:
-    void resizeEvent(QResizeEvent *e);
+//    void resizeEvent(QResizeEvent *e);
     void mouseMoveEvent(QMouseEvent *e);
 
     void init();
@@ -115,7 +115,7 @@ private:
     QHBoxLayout *m_btnsLayout;
     QVBoxLayout *m_mainLayout;
 
-    QTimer *m_smallDelayTimer;
+    QTimer *m_positionWatcher;
 
     QList<MonitorSettingDialog *> m_otherDialogs;
 };

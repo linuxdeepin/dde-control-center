@@ -51,7 +51,7 @@ MonitorSettingDialog::MonitorSettingDialog(DisplayModel *model, QWidget *parent)
       m_model(model),
       m_monitor(nullptr),
 
-      m_smallDelayTimer(new QTimer(this))
+      m_positionWatcher(new QTimer(this))
 {
     init();
     reloadMonitorObject(model->primaryMonitor());
@@ -64,7 +64,7 @@ MonitorSettingDialog::MonitorSettingDialog(Monitor *monitor, QWidget *parent)
       m_primary(false),
       m_monitor(nullptr),
 
-      m_smallDelayTimer(new QTimer(this))
+      m_positionWatcher(new QTimer(this))
 {
     init();
     reloadMonitorObject(monitor);
@@ -75,12 +75,12 @@ MonitorSettingDialog::~MonitorSettingDialog()
     qDeleteAll(m_otherDialogs);
 }
 
-void MonitorSettingDialog::resizeEvent(QResizeEvent *e)
-{
-    DAbstractDialog::resizeEvent(e);
+//void MonitorSettingDialog::resizeEvent(QResizeEvent *e)
+//{
+//    DAbstractDialog::resizeEvent(e);
 
-    QTimer::singleShot(1, this, &MonitorSettingDialog::onMonitorRectChanged);
-}
+//    QTimer::singleShot(1, this, &MonitorSettingDialog::onMonitorRectChanged);
+//}
 
 void MonitorSettingDialog::mouseMoveEvent(QMouseEvent *e)
 {
@@ -184,15 +184,16 @@ void MonitorSettingDialog::init()
 
     setLayout(m_mainLayout);
 
-    m_smallDelayTimer->setSingleShot(true);
-    m_smallDelayTimer->setInterval(1000);
+    m_positionWatcher->setSingleShot(false);
+    m_positionWatcher->setInterval(1000);
+    m_positionWatcher->start();
 
     connect(resolutionView, &BasicListView::clicked, [=](const QModelIndex &index) { onMonitorModeSelected(index.row()); });
 //    connect(m_lightSlider, &DCCSlider::valueChanged, this, &MonitorSettingDialog::onBrightnessSliderChanged);
 #ifndef DCC_DISABLE_ROTATE
     connect(m_rotateBtn, &DImageButton::clicked, this, &MonitorSettingDialog::onRotateBtnClicked);
 #endif
-    connect(m_smallDelayTimer, &QTimer::timeout, this, &MonitorSettingDialog::onMonitorRectChanged);
+    connect(m_positionWatcher, &QTimer::timeout, this, &MonitorSettingDialog::onMonitorRectChanged);
 }
 
 void MonitorSettingDialog::initPrimary()
@@ -251,14 +252,14 @@ void MonitorSettingDialog::reloadMonitorObject(Monitor *monitor)
     {
         disconnect(m_monitor, &Monitor::currentModeChanged, this, &MonitorSettingDialog::onMonitorModeChanged);
 //        disconnect(m_monitor, &Monitor::brightnessChanged, this, &MonitorSettingDialog::onMonitorBrightnessChanegd);
-        disconnect(m_monitor, &Monitor::geometryChanged, m_smallDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+        disconnect(m_monitor, &Monitor::geometryChanged, m_positionWatcher, static_cast<void (QTimer::*)()>(&QTimer::start));
     }
 
     m_monitor = monitor;
 
     connect(m_monitor, &Monitor::currentModeChanged, this, &MonitorSettingDialog::onMonitorModeChanged, Qt::QueuedConnection);
 //    connect(m_monitor, &Monitor::brightnessChanged, this, &MonitorSettingDialog::onMonitorBrightnessChanegd);
-    connect(m_monitor, &Monitor::geometryChanged, m_smallDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_monitor, &Monitor::geometryChanged, m_positionWatcher, static_cast<void (QTimer::*)()>(&QTimer::start));
 
     m_monitorName->setText(m_monitor->name());
     setWindowTitle(m_monitor->name());
@@ -330,6 +331,9 @@ void MonitorSettingDialog::onPrimaryChanged()
 
 void MonitorSettingDialog::onMonitorRectChanged()
 {
+    if (!m_monitor)
+        return;
+
     const qreal ratio = devicePixelRatioF();
     const QRect r(m_monitor->rect().topLeft(),
                   m_monitor->rect().size() / ratio);
