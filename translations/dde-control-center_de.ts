@@ -1378,7 +1378,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="78"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation type="unfinished"/>
+        <translation>Wählen Sie &quot;Mit Proxy öffnen&quot; im Anwendungs-Kontextmenü des Starters, um das Programm mit der Proxy-Konfiguration auszuführen.</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="83"/>

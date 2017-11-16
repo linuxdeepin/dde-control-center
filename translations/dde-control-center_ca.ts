@@ -361,7 +361,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="54"/>
         <location filename="../modules/accounts/createpage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necessari</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="53"/>
@@ -456,7 +456,7 @@
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necessari</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
@@ -951,7 +951,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="51"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Dreceres</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="60"/>
@@ -967,7 +967,7 @@
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necessari</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
@@ -996,12 +996,12 @@
         <location filename="../modules/keyboard/customedit.cpp" line="47"/>
         <location filename="../modules/keyboard/customedit.cpp" line="94"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Dreceres</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necessari</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="66"/>
@@ -1179,7 +1179,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="86"/>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Introduïu una drecera nova</translation>
     </message>
 </context>
 <context>
@@ -1207,7 +1207,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="87"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Dreceres</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="64"/>
@@ -1352,7 +1352,7 @@
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necessari</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="52"/>
@@ -1368,7 +1368,7 @@
         <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Opcional</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="60"/>
@@ -1430,7 +1430,7 @@
         <location filename="../modules/network/connectioneditpage.cpp" line="442"/>
         <location filename="../modules/network/connectioneditpage.cpp" line="524"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necessari</translation>
     </message>
 </context>
 <context>
@@ -1871,7 +1871,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="52"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>Lletra</translation>
     </message>
 </context>
 <context>
@@ -1902,7 +1902,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="56"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>Lletra</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
@@ -1916,7 +1916,7 @@
     <message>
         <location filename="../modules/personalization/widget/themeitem.cpp" line="72"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Per defecte</translation>
     </message>
 </context>
 <context>
@@ -2016,7 +2016,7 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="40"/>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Avançat</translation>
     </message>
 </context>
 <context>
@@ -2060,7 +2060,7 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="106"/>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Avançat</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="109"/>
@@ -2293,7 +2293,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
         <source>Downloaded</source>
-        <translation type="unfinished"/>
+        <translation>Baixat</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
@@ -2452,7 +2452,7 @@
     <message>
         <location filename="../widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Cerca</translation>
     </message>
 </context>
 <context>

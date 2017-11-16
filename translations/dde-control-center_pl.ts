@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Brak</translation>
     </message>
 </context>
 <context>
@@ -266,12 +266,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Nie mona usunąć, obecny użytkownik jest zalogowany</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Odcisk palca jako hasło</translation>
     </message>
 </context>
 <context>
@@ -306,12 +306,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj odcisk palca</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Wprowadź ponownie</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
@@ -321,7 +321,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Identyfikacja odcisku palca</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
@@ -336,7 +336,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>Pomyślnie dodano</translation>
     </message>
 </context>
 <context>
@@ -394,22 +394,22 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Lista odcisków palca</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Odcisk palca jako hasło</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj odcisk palca</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Wyczyść odcisk palca</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
@@ -419,7 +419,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Odcisk palca</translation>
     </message>
 </context>
 <context>
@@ -427,7 +427,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Imię i nazwisko:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -437,7 +437,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia imienia i nazwiska</translation>
     </message>
 </context>
 <context>
@@ -765,7 +765,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Nocne podświetlenie</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
@@ -809,7 +809,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Skalowanie ekranu</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -1336,7 +1336,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="42"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Pośrednik sieciowy programu</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="45"/>
@@ -1346,7 +1346,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="48"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>Adres IP</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
@@ -1438,12 +1438,12 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia hotspotu</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
 </context>
 <context>
@@ -1456,7 +1456,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="95"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
@@ -1508,7 +1508,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="161"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>Adres IPv6</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="176"/>
@@ -1569,7 +1569,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Pośrednik sieciowy programu</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
@@ -1610,7 +1610,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="207"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="218"/>
@@ -1732,7 +1732,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>Importuj VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="100"/>
@@ -1742,7 +1742,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>Błąd importu</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="263"/>
@@ -1818,7 +1818,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Zamknij hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
@@ -2298,7 +2298,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Rozmiar do pobrania: %1</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
@@ -2339,7 +2339,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="55"/>
         <source>Auto clear package cache</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczne czyszczenie pamięci podręcznej pakietów</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="58"/>
@@ -2389,7 +2389,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Pióro</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
@@ -2436,7 +2436,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Pióro</translation>
     </message>
 </context>
 <context>

@@ -326,12 +326,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>Kunne ikke identificere fingeraftryk. Sæt din finger på fingeraftryksoptageren og flyt op fra bunden og giv slip</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>Sæt din finger på fingeraftryksoptageren og flyt op fra bunden og giv slip. Gentag herefter trinnene</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
@@ -1823,7 +1823,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>Deaktivér venligst først hotspot-deling hvis du vil oprette forbindelse og bruger trådløst netværk-funktionen</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>

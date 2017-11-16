@@ -414,7 +414,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation>La contraseña de huella dactilar se utiliza en el inicio de sesión del sistema, la autorización de la aplicación y otras escenas. Escanee la huella digital cuando se necesita una contraseña.</translation>
+        <translation>La contraseña de huella dactilar se utiliza en la sesión del sistema, autorización de aplicaciones y otros casos. Escanee la huella digital cuando se necesita una contraseña.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>

@@ -9,7 +9,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation>Убедитесь, что все данные были сохранены в первую очередь.</translation>
+        <translation>Прежде всего убедитесь, что все данные были сохранены</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>

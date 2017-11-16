@@ -228,7 +228,7 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="210"/>
         <source>Wireless Card %1</source>
-        <translation>無線網路 %1</translation>
+        <translation>Wi-Fi %1</translation>
     </message>
 </context>
 <context>
@@ -271,7 +271,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation>指紋密碼</translation>
+        <translation>指紋 ID</translation>
     </message>
 </context>
 <context>
@@ -326,12 +326,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>指紋辨識失敗，將手指置於指紋辨識器由上而下移動再鬆開</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>將手指置於指紋辨識器由上而下移動再鬆開並重複此動作</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
@@ -394,12 +394,12 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
         <source>Fingerprint List</source>
-        <translation>指紋清單</translation>
+        <translation>指紋列表</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation>指紋密碼</translation>
+        <translation>指紋 ID</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
@@ -414,7 +414,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>指紋 ID 可用於登入系統、應用程式授權等場合，輸入碼密碼時只需掃瞄指紋即可。</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
@@ -765,12 +765,12 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>夜間模式</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation type="unfinished"/>
+        <translation>夜間模式會根據當地時間自動調整螢幕色溫保護視力</translation>
     </message>
 </context>
 <context>
@@ -801,7 +801,7 @@
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="254"/>
         <source>Wireless Screen Projection</source>
-        <translation>無線螢幕投影</translation>
+        <translation>Miracast</translation>
     </message>
 </context>
 <context>
@@ -834,7 +834,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="227"/>
         <source>Wireless Screen Projection</source>
-        <translation>無線螢幕投影</translation>
+        <translation>Miracast</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
@@ -874,7 +874,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation>當啟用螢幕投影時 WIFI 將會斷線</translation>
+        <translation>Miracast 開啟時無法使用 Wi-Fi</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="55"/>
@@ -892,7 +892,7 @@
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="48"/>
         <source>Recognize</source>
-        <translation>分辨螢幕</translation>
+        <translation>辨識螢幕</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="55"/>
@@ -1438,12 +1438,12 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation type="unfinished"/>
+        <translation>熱點設定</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>無線熱點</translation>
     </message>
 </context>
 <context>
@@ -1456,7 +1456,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="95"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>無線熱點</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
@@ -1610,27 +1610,27 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="207"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>無線熱點</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="218"/>
         <source>Wireless Network Card%1</source>
-        <translation>無線網路 %1</translation>
+        <translation>Wi-Fi %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="223"/>
         <source>Wireless Network Card</source>
-        <translation>無線網路</translation>
+        <translation>Wi-Fi</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="224"/>
         <source>Wireless Network</source>
-        <translation>無線網路</translation>
+        <translation>Wi-Fi</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="219"/>
         <source>Wireless Network%1</source>
-        <translation>無線網路 %1</translation>
+        <translation>Wi-Fi %1</translation>
     </message>
 </context>
 <context>
@@ -1818,17 +1818,17 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation type="unfinished"/>
+        <translation>關閉熱點</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>使用 Wi-Fi 前請先關閉無線熱點功能</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
         <source>WLAN</source>
-        <translation>無線網路</translation>
+        <translation>Wi-Fi</translation>
     </message>
 </context>
 <context>
@@ -1934,7 +1934,7 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
         <source>Cursor Theme</source>
-        <translation>游標主題</translation>
+        <translation>滑鼠主題</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
@@ -2029,7 +2029,7 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="44"/>
         <source>Left/Right Balance</source>
-        <translation>左／右平衡</translation>
+        <translation>左/右平衡</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="47"/>
@@ -2115,7 +2115,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="86"/>
         <source>Distribution Release:</source>
-        <translation>發行方式：</translation>
+        <translation>發行版：</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="95"/>
@@ -2145,7 +2145,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>版權所有 ©2011-2017 武漢深之度科技有限公司</translation>
+        <translation>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
@@ -2339,7 +2339,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="55"/>
         <source>Auto clear package cache</source>
-        <translation type="unfinished"/>
+        <translation>自動清理軟體套件快取</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="58"/>
@@ -2349,7 +2349,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="60"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation>處在無線或有線網路時自動下載更新</translation>
+        <translation>使用 Wi-Fi 或有線網路時自動下載更新</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="66"/>
@@ -2389,7 +2389,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>數位筆</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
@@ -2436,7 +2436,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>數位筆</translation>
     </message>
 </context>
 <context>
