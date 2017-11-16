@@ -1,3 +1,30 @@
+<a name="4.3.3"></a>
+### 4.3.3 (2017-11-16)
+
+
+#### Bug Fixes
+
+* **display:**
+  *  recognize dialog position error ([1d873ddd](https://github.com/linuxdeepin/dde-control-center/commit/1d873ddd525b8aa67d07f0dcdb44d8720a7a216c))
+  *  crash when resolution not in support list ([5d01fcac](https://github.com/linuxdeepin/dde-control-center/commit/5d01fcacb598ce5b0e6ed8b6afb7bfaa50230c0e))
+* **frame:**
+  *  not refresh allsettings page ([e6de74e4](https://github.com/linuxdeepin/dde-control-center/commit/e6de74e486f2337aee5ae83d988fca2bff79623a))
+  *  topleft pos error ([08485872](https://github.com/linuxdeepin/dde-control-center/commit/08485872d8ea391e60e2202c4ce0f84ccbd3ff6b))
+  *  update nav icon file ([847cdc7c](https://github.com/linuxdeepin/dde-control-center/commit/847cdc7ca29f8c9915cb90216935d576557823f3))
+  *  can not show again when call hideimmediately ([b4befc98](https://github.com/linuxdeepin/dde-control-center/commit/b4befc980f41f7a87b107aaed3b2a11894fcd32d))
+* **proxy:**  application proxy check ip address legal ([890b33f8](https://github.com/linuxdeepin/dde-control-center/commit/890b33f8e37c8efd063819494aa44d53f7b31b73))
+* **sound:**  repeat select active port ([fc192c3f](https://github.com/linuxdeepin/dde-control-center/commit/fc192c3fa147c0351ded5798cfa935b884ab4303))
+* **update:**
+  *  check updates when downloaded ([e4ee2877](https://github.com/linuxdeepin/dde-control-center/commit/e4ee2877581b85cf7de09310cac2b54795951534))
+  *  error install when auto download open ([043656b4](https://github.com/linuxdeepin/dde-control-center/commit/043656b4b55d3c0a31919ea4248a8eb5d59f829f))
+
+#### Features
+
+* **accounts:**  show fullname ([b92008a7](https://github.com/linuxdeepin/dde-control-center/commit/b92008a793c77b178eeae81fe60567200e86564a))
+* **personalization:**  update font dbus interface ([9fa3f23d](https://github.com/linuxdeepin/dde-control-center/commit/9fa3f23df99bf134d2e6fdec0a1578a936772bda))
+
+
+
 <a name="4.3.2"></a>
 ### 4.3.2 (2017-11-09)
 
