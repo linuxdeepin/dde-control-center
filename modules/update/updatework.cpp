@@ -445,6 +445,8 @@ void UpdateWork::onDownloadStatusChanged(const QString &status)
         // install the updates immediately.
         if (!m_model->autoDownloadUpdates())
             distUpgradeInstallUpdates();
+        else
+            checkForUpdates();
     } else if (status == "paused") {
         m_model->setStatus(UpdatesStatus::DownloadPaused);
     } else {
