@@ -46,7 +46,7 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
                                     "/com/deepin/daemon/Search",
                                     QDBusConnection::sessionBus(), this);
     m_timer = new QTimer(this);
-    m_timer->setInterval(150);
+    m_timer->setInterval(300);
 
     m_widget = new TranslucentFrame();
     m_searchText = QString();
@@ -224,7 +224,7 @@ void ShortcutWidget::onSearch(const QString &text)
 
     if(text.length() > 0)
     {
-        onTimeout();
+        m_timer->start();
     }
 }
 
@@ -307,13 +307,8 @@ void ShortcutWidget::onSearchFinish(QDBusPendingCallWatcher *watch)
         return;
     }
 
-    QLayoutItem *child;
-    while ((child = m_searchGroup->layout()->takeAt(0)) != 0) {
-      ShortcutItem* item =  qobject_cast<ShortcutItem*>(child->widget());
-      if(item)
-          item->deleteLater();
-      delete child;
-    }
+    m_searchGroup->clear();
+
     QStringList list = reply.value();
     for(int i = 0; i<list.count(); i++)
     {
