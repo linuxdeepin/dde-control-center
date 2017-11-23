@@ -30,6 +30,10 @@ namespace dcc {
 namespace keyboard{
 KeyboardModel::KeyboardModel(QObject *parent)
     : QObject(parent)
+    , m_capsLock(true)
+    , m_numLock(true)
+    , m_repeatInterval(1)
+    , m_repeatDelay(1)
 {
 }
 

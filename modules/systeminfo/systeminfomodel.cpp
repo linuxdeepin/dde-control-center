@@ -49,6 +49,7 @@ static QString formatCap(qulonglong cap, const int size = 1024)
 
 SystemInfoModel::SystemInfoModel(QObject *parent)
     : QObject(parent)
+    , m_type(64)
 {
 
 }

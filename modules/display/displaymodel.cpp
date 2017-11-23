@@ -39,6 +39,7 @@ bool contains(const QList<Resolution> &container, const Resolution &item)
 
 DisplayModel::DisplayModel(QObject *parent)
     : QObject(parent)
+    , m_uiScale(1)
 {
 
 }

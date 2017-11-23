@@ -33,7 +33,7 @@ namespace datetime {
 
 DatetimeModel::DatetimeModel(QObject *parent)
     :QObject(parent),
-      m_ntp(2)
+      m_ntp(true)
 {
 
 }

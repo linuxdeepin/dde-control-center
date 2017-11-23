@@ -201,7 +201,7 @@ void DisplayWidget::onConfigListChanged()
         EditableNextPageWidget *w = new EditableNextPageWidget;
         w->setTitle(config);
         if (mode == CUSTOM_MODE && config == current)
-            w->setIcon(loadPixmap(":/widgets/themes/dark/icons/select.png"));
+            w->setIcon(loadPixmap(":/widgets/themes/dark/icons/select.svg"));
 
         connect(w, &EditableNextPageWidget::textChanged, this, &DisplayWidget::requestModifyConfigName);
         connect(w, &EditableNextPageWidget::acceptNextPage, this, [=] { emit requestConfigPage(config); });

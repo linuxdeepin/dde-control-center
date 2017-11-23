@@ -40,6 +40,7 @@ PersonalizationModel::PersonalizationModel(QObject *parent)
     m_standFontModel = new FontModel(this);
     m_monoFontModel  = new FontModel(this);
     m_fontSizeModel  = new FontSizeModel(this);
+    m_is3DWm = true;
 }
 
 PersonalizationModel::~PersonalizationModel()

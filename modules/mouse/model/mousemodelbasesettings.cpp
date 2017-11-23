@@ -27,7 +27,9 @@
 using namespace dcc;
 using namespace dcc::mouse;
 MouseModelBaseSettings::MouseModelBaseSettings(QObject *parent)
-    :MouseModelBase(parent)
+    : MouseModelBase(parent)
+    , m_leftHandState(false)
+    , m_disIfTyping(false)
 {
 
 }
