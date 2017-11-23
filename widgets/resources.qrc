@@ -211,5 +211,11 @@
         <file>themes/dark/icons/Loading/loading_087@2x.png</file>
         <file>themes/dark/icons/Loading/loading_088@2x.png</file>
         <file>themes/dark/icons/Loading/loading_089@2x.png</file>
+        <file>themes/dark/icons/password_hide_hover.svg</file>
+        <file>themes/dark/icons/password_hide_normal.svg</file>
+        <file>themes/dark/icons/password_hide_press.svg</file>
+        <file>themes/dark/icons/password_show_hover.svg</file>
+        <file>themes/dark/icons/password_show_normal.svg</file>
+        <file>themes/dark/icons/password_show_press.svg</file>
     </qresource>
 </RCC>

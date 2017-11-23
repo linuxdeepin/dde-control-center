@@ -56,10 +56,12 @@ public slots:
 protected:
     void mousePressEvent(QMouseEvent *e);
 
+protected:
+    QHBoxLayout *m_mainLayout;
+
 private:
     QLabel *m_title;
     QLineEdit *m_edit;
-    QHBoxLayout *m_mainLayout;
 };
 
 }
