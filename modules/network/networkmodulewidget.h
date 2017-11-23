@@ -60,6 +60,7 @@ signals:
 
 private slots:
     void onDeviceListChanged(const QList<NetworkDevice *> &devices);
+    void onDevStatusChanged(const QString &statString);
     void onNextPageClicked();
 
 private:
@@ -72,7 +73,7 @@ private:
     dcc::widgets::NextPageWidget *m_proxyBtn;
     dcc::widgets::NextPageWidget *m_detailBtn;
 
-    QMap<dcc::widgets::NextPageWidget *, NetworkDevice *> m_devices;
+    QMap<dcc::widgets::NextPageWidget *, NetworkDevice *> m_devicesWidgets;
 };
 
 }   // namespace network

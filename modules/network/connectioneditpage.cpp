@@ -415,7 +415,7 @@ SettingsItem *ConnectionEditPage::createSwitchWidget(const QJsonObject &keyObjec
 
     const QString section = keyObject.value("Section").toString();
     const QString vKey = keyObject.value("Key").toString();
-    connect(w, &SwitchWidget::checkedChanged, [=](const bool checked) {
+    connect(w, &SwitchWidget::checkedChanged, this, [=](const bool checked) {
         emit requestChangeSettings(section, vKey, checked ? "true" : "false");
     });
 
@@ -443,7 +443,7 @@ SettingsItem *ConnectionEditPage::createEditWidget(const QJsonObject &keyObject,
 
     const QString section = keyObject.value("Section").toString();
     const QString vKey = keyObject.value("Key").toString();
-    connect(e, &QLineEdit::editingFinished, [=] {
+    connect(e, &QLineEdit::editingFinished, this, [=] {
         emit requestChangeSettings(section, vKey, JsonEncoding(e->text()));
     });
 
@@ -471,7 +471,7 @@ SettingsItem *ConnectionEditPage::createComboWidget(const QJsonObject &keyObject
     const QString section = keyObject.value("Section").toString();
     const QString vKey = keyObject.value("Key").toString();
     connect(w, &ComboBoxWidget::requestPage, this, &ConnectionEditPage::requestNextPage);
-    connect(w, &ComboBoxWidget::dataChanged, [=](const QVariant &data) {
+    connect(w, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         if (!std::strcmp(data.typeName(), "double"))
             emit requestChangeSettings(section, vKey, data.toString());
         else
@@ -512,7 +512,7 @@ SettingsItem *ConnectionEditPage::createSpinBoxWidget(const QJsonObject &keyObje
 
     const QString section = keyObject.value("Section").toString();
     const QString vKey = keyObject.value("Key").toString();
-    connect(w->spinBox(), static_cast<void (DSpinBox::*)(int)>(&DSpinBox::valueChanged), [=](const int value) {
+    connect(w->spinBox(), static_cast<void (DSpinBox::*)(int)>(&DSpinBox::valueChanged), this, [=](const int value) {
         emit requestChangeSettings(section, vKey, QString::number(value));
     });
 

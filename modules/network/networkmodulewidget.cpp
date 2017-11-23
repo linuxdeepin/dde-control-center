@@ -100,7 +100,7 @@ void NetworkModuleWidget::setModel(NetworkModel *model)
 void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devices)
 {
     bool recreate = false;
-    const auto devs = m_devices.values().toSet();
+    const auto devs = m_devicesWidgets.values().toSet();
 
     if (devs.size() != devices.size())
     {
@@ -122,7 +122,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         item->widget()->deleteLater();
         delete item;
     }
-    m_devices.clear();
+    m_devicesWidgets.clear();
 
     int wiredDevice = 0;
     int wirelessDevice = 0;
@@ -155,12 +155,30 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     }
 }
 
+void NetworkModuleWidget::onDevStatusChanged(const QString &statString)
+{
+    NetworkDevice *dev = static_cast<NetworkDevice *>(sender());
+    NextPageWidget *w = m_devicesWidgets.key(dev);
+    if (!w || !dev)
+        return;
+
+    if (dev->type() == NetworkDevice::Wireless)
+    {
+        WirelessDevice *wdev = static_cast<WirelessDevice *>(dev);
+
+        if (wdev->hotspotEnabled())
+            return w->setValue(QString());
+    }
+
+    w->setValue(statString);
+}
+
 void NetworkModuleWidget::onNextPageClicked()
 {
     NextPageWidget *w = qobject_cast<NextPageWidget *>(sender());
     Q_ASSERT(w);
 
-    NetworkDevice *dev = m_devices[w];
+    NetworkDevice *dev = m_devicesWidgets[w];
     Q_ASSERT(dev);
 
     emit requestShowDeviceDetail(dev);
@@ -178,12 +196,12 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
     connect(w, &NextPageWidget::clicked, this, &NetworkModuleWidget::onNextPageClicked);
     connect(dev, &NetworkDevice::enableChanged, s, &SwitchWidget::setChecked);
     connect(dev, &NetworkDevice::enableChanged, w, &NextPageWidget::setVisible);
-    connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), w, &NextPageWidget::setValue, Qt::QueuedConnection);
+    connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), this, &NetworkModuleWidget::onDevStatusChanged, Qt::QueuedConnection);
 
     const bool devEnabled = dev->enabled();
     s->setChecked(devEnabled);
     w->setVisible(devEnabled);
-    w->setValue(dev->statusString());
+    emit dev->statusChanged(dev->statusString());
 
     if (dev->type() == NetworkDevice::Wired)
     {
@@ -208,9 +226,11 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
             g->appendItem(hotspot);
 
             connect(dev, &NetworkDevice::enableChanged, hotspot, &NextPageWidget::setVisible);
+            connect(wdev, &WirelessDevice::hotspotEnabledChanged, this, [=] (const bool enabled) { hotspot->setValue(enabled ? tr("Shared") : QString()); });
             connect(hotspot, &NextPageWidget::clicked, this, [=] { emit requestHotspotPage(wdev); });
 
             hotspot->setVisible(devEnabled);
+            emit wdev->hotspotEnabledChanged(wdev->hotspotEnabled());
         }
 
         if (multiple)
@@ -225,6 +245,6 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
         }
     }
 
-    m_devices[w] = dev;
+    m_devicesWidgets[w] = dev;
     m_devicesLayout->addWidget(g);
 }
