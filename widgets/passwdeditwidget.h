@@ -33,7 +33,6 @@ class PasswdEditWidget : public LineEditWidget
 public:
     explicit PasswdEditWidget(QFrame *parent = nullptr);
 
-private:
     void setSwitchBtnVisible(bool visible);
 
 private slots:

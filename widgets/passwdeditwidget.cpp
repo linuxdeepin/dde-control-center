@@ -45,7 +45,7 @@ void PasswdEditWidget::switchMode()
 
     updateBtnPic();
 
-    textEdit()->setEchoMode(isPasswdMode ? QLineEdit::Password : QLineEdit::Normal);
+    textEdit()->setEchoMode(isPasswdMode ? QLineEdit::Normal : QLineEdit::Password);
 }
 
 void PasswdEditWidget::updateBtnPic()

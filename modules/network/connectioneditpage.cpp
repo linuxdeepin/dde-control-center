@@ -36,6 +36,7 @@
 #include "spinboxwidget.h"
 #include "networkmodel.h"
 #include "buttontuple.h"
+#include "passwdeditwidget.h"
 
 #include <QTimer>
 #include <QVBoxLayout>
@@ -423,7 +424,8 @@ SettingsItem *ConnectionEditPage::createSwitchWidget(const QJsonObject &keyObjec
 
 SettingsItem *ConnectionEditPage::createEditWidget(const QJsonObject &keyObject, const QJsonObject &infoObject, const bool password)
 {
-    LineEditWidget *w = new LineEditWidget;
+    PasswdEditWidget *w = new PasswdEditWidget;
+
     QLineEdit *e = w->textEdit();
 
     w->setTitle(keyObject.value("Name").toString());
@@ -431,6 +433,13 @@ SettingsItem *ConnectionEditPage::createEditWidget(const QJsonObject &keyObject,
     e->setReadOnly(keyObject.value("Readonly").toBool());
     if (password)
         e->setEchoMode(QLineEdit::Password);
+
+    const bool isHostapd = m_sessionModel->type() == "wireless-hotspot";
+
+    if (isHostapd && password)
+        w->setSwitchBtnVisible(true);
+    else
+        w->setSwitchBtnVisible(false);
 
     const QString section = keyObject.value("Section").toString();
     const QString vKey = keyObject.value("Key").toString();
