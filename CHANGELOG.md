@@ -1,3 +1,19 @@
+<a name="4.3.4"></a>
+### 4.3.4 (2017-11-23)
+
+
+#### Features
+
+* **network:**  add show password button ([6918a66f](https://github.com/linuxdeepin/dde-control-center/commit/6918a66fb31cfe84aa8261f57715e421410d21f6))
+* **widget:**  add passwdeditwidget ([ae6fdb6b](https://github.com/linuxdeepin/dde-control-center/commit/ae6fdb6bdee3b7f65b235188b9b772463ec226cb))
+
+#### Bug Fixes
+
+* **file:**  pics permission error ([1abe5dae](https://github.com/linuxdeepin/dde-control-center/commit/1abe5dae812a2d9421dc1d6539d3d86b257a7d39))
+* **key:**  search key disordered layout ([5d1677d4](https://github.com/linuxdeepin/dde-control-center/commit/5d1677d449e9b55975a9b9f0f498558d13d574e7))
+
+
+
 <a name="4.3.3"></a>
 ### 4.3.3 (2017-11-16)
 
