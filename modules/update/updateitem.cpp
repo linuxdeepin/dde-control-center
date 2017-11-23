@@ -103,6 +103,10 @@ UpdateItem::UpdateItem(QFrame *parent)
 
     m_appIcon->setFixedSize(36, 36);
 
+    QFont changelogFont("Noto Mono");
+    changelogFont.setPointSize(10);
+
+    m_appChangelog->setFont(changelogFont);
     m_appChangelog->setWordWrap(true);
     m_appChangelog->setTextFormat(Qt::RichText);
     m_appChangelog->setTextInteractionFlags(Qt::TextBrowserInteraction);
