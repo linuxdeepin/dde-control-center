@@ -1,3 +1,14 @@
+<a name="4.3.5"></a>
+### 4.3.5 (2017-11-24)
+
+
+#### Bug Fixes
+
+* **account:**  user name is empty when display name changed ([bbfd9d1d](https://github.com/linuxdeepin/dde-control-center/commit/bbfd9d1d182e5fd96b3ed86e0492eaef0639545f))
+* **display:**  replace DImageButton to QLabel of brightnessitem ([32d4f50e](https://github.com/linuxdeepin/dde-control-center/commit/32d4f50e68e40116d70321f8df23fa52512d22df))
+
+
+
 <a name="4.3.4"></a>
 ### 4.3.4 (2017-11-23)
 
