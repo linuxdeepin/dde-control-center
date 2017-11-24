@@ -42,14 +42,9 @@ void KeyboardModel::setLayoutLists(QMap<QString, QString> lists)
 
 QString KeyboardModel::langByKey(const QString &key) const
 {
-    QList<MetaData>::const_iterator it = m_langs.begin();
-    for(; it != m_langs.end(); ++it)
-    {
-        if((*it).key() == key)
-        {
-            return (*it).text();
-        }
-    }
+    for (const auto &lang : m_langList)
+        if (lang.key() == key)
+            return lang.text();
 
     return QString();
 }
@@ -76,23 +71,27 @@ QString KeyboardModel::curLayout() const
 
 void KeyboardModel::setLang(const QString &value)
 {
-    if (m_lang != value && !value.isEmpty()) {
-        m_lang = value;
+    if (m_currentLangKey != value && !value.isEmpty())
+    {
+        m_currentLangKey = value;
 
-        const QString &key = langByKey(value);
-        if (!key.isEmpty())
-            emit curLangChanged(key);
+        const QString &langName = langByKey(value);
+        if (!langName.isEmpty())
+            emit curLangChanged(langName);
     }
 }
 
-void KeyboardModel::setLocaleList(const QList<MetaData> &langs)
+void KeyboardModel::setLocaleList(const QList<MetaData> &langList)
 {
-    m_langs = langs;
+    if (langList.isEmpty())
+        return;
 
-    if (!m_lang.isEmpty())
-        emit curLangChanged(langByKey(m_lang));
+    m_langList = langList;
+    emit langChanged(langList);
 
-    emit langChanged(langs);
+    const QString &currentLang = langByKey(m_currentLangKey);
+    if (!currentLang.isEmpty())
+        emit curLangChanged(currentLang);
 }
 
 void KeyboardModel::setCapsLock(bool value)
@@ -167,7 +166,7 @@ void KeyboardModel::cleanUserLayout()
 
 QString KeyboardModel::curLang() const
 {
-    return langByKey(m_lang);
+    return langByKey(m_currentLangKey);
 }
 
 QMap<QString, QString> KeyboardModel::userLayout() const
@@ -190,7 +189,7 @@ void KeyboardModel::addUserLayout(const QString &id, const QString &value)
 
 QList<MetaData> KeyboardModel::langLists() const
 {
-    return m_langs;
+    return m_langList;
 }
 
 bool KeyboardModel::capsLock() const

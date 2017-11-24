@@ -110,10 +110,10 @@ private:
     uint m_repeatInterval;
     uint m_repeatDelay;
     QString m_layout;
-    QString m_lang;
+    QString m_currentLangKey;
     QMap<QString, QString> m_userLayout;
     QMap<QString, QString> m_layouts;
-    QList<MetaData> m_langs;
+    QList<MetaData> m_langList;
     QMap<QStringList,int> m_shortcutMap;
     int m_kbSwitch;
 };
