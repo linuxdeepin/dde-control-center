@@ -63,8 +63,8 @@ void AccountsWidget::addUser(User *user)
         w->setTitle(user->displayName());
     };
 
-    connect(user, &User::nameChanged, setName);
-    connect(user, &User::fullnameChanged, w, &NextPageWidget::setTitle);
+    connect(user, &User::nameChanged, this, setName);
+    connect(user, &User::fullnameChanged, this, setName);
     connect(user, &User::currentAvatarChanged, w, &UserOptionItem::setAvatar);
     connect(w, &NextPageWidget::clicked, [=] { emit showAccountsDetail(user); });
 
