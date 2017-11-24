@@ -190,7 +190,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="65"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
         <translation>Kliknij ikonę, aby włączyć VPN</translation>
     </message>
@@ -913,22 +913,22 @@
         <translation>Rozdzielczość</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="203"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="204"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="205"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="206"/>
         <source>Apply</source>
         <translation>Zatwierdź</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="212"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="213"/>
         <source>Primary</source>
         <translation>Podstawowy</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="387"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="391"/>
         <source> (Recommended)</source>
         <translation>(Polecany)</translation>
     </message>
@@ -1334,59 +1334,59 @@
 <context>
     <name>dcc::network::ChainsProxyPage</name>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="42"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="43"/>
         <source>Application proxy</source>
         <translation>Pośrednik sieciowy programu</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="45"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
         <source>Proxy Type</source>
         <translation>Rodzaj pośrednika sieciowego</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="48"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>IP address</source>
         <translation>Adres IP</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
-        <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="54"/>
         <source>Required</source>
         <translation>Wymagane</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="52"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="56"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
         <source>Username</source>
         <translation>Nazwa użytkownika</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
-        <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="58"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="62"/>
         <source>Optional</source>
         <translation>Opcjonalne</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="60"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
         <source>Password</source>
         <translation>Hasło</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="78"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -1402,33 +1402,33 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="132"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="133"/>
         <source>Disconnect</source>
         <translation>Rozłącz</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="134"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="135"/>
         <source>Delete</source>
         <translation>Usuń</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="136"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="137"/>
         <source>Export</source>
         <translation>Eksportuj</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="144"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="146"/>
         <source>Save</source>
         <translation>Zapisz</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="442"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="524"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="451"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="533"/>
         <source>Required</source>
         <translation>Wymagane</translation>
     </message>
@@ -1583,22 +1583,22 @@
         <translation>Sieć</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="192"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="210"/>
         <source>Wired Network Card%1</source>
         <translation>Karta sieci przewodowej %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="197"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
         <source>Wired Network Card</source>
         <translation>Karta sieci przewodowej</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="198"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="216"/>
         <source>Wired Network</source>
         <translation>Sieć przewodowa</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="193"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="211"/>
         <source>Wired Network%1</source>
         <translation>Sieć przewodowa %1</translation>
     </message>
@@ -1608,27 +1608,32 @@
         <translation>Systemowy serwer pośredniczący</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="207"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
         <source>Hotspot</source>
         <translation>Hotspot</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="218"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
+        <source>Shared</source>
+        <translation>Udostępnione</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wireless Network Card%1</source>
         <translation>Karta sieci bezprzewodowej %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="223"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wireless Network Card</source>
         <translation>Karta sieci bezprzewodowej</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="224"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="244"/>
         <source>Wireless Network</source>
         <translation>Sieć bezprzewodowa</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="219"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="239"/>
         <source>Wireless Network%1</source>
         <translation>Sieć bezprzewodowa %1</translation>
     </message>
@@ -2324,7 +2329,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="114"/>
+        <location filename="../modules/update/updateitem.cpp" line="118"/>
         <source>Details</source>
         <translation>Szczegóły</translation>
     </message>

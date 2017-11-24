@@ -190,7 +190,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="65"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
         <translation>Spustelėkite piktogramą, norėdami įjungti VPN</translation>
     </message>
@@ -913,22 +913,22 @@
         <translation>Raiška</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="203"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="204"/>
         <source>Cancel</source>
         <translation>Atsisakyti</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="205"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="206"/>
         <source>Apply</source>
         <translation>Taikyti</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="212"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="213"/>
         <source>Primary</source>
         <translation>Pirminis</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="387"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="391"/>
         <source> (Recommended)</source>
         <translation> (Rekomenduojama)</translation>
     </message>
@@ -1334,59 +1334,59 @@
 <context>
     <name>dcc::network::ChainsProxyPage</name>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="42"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="43"/>
         <source>Application proxy</source>
         <translation>Programos įgaliotasis serveris</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="45"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
         <source>Proxy Type</source>
         <translation>Įgaliotojo serverio tipas</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="48"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>IP address</source>
         <translation>IP adresas</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
-        <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="54"/>
         <source>Required</source>
         <translation>Būtina</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="52"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
         <source>Port</source>
         <translation>Prievadas</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="56"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
         <source>Username</source>
         <translation>Naudotojo vardas</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
-        <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="58"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="62"/>
         <source>Optional</source>
         <translation>Nebūtina</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="60"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
         <source>Password</source>
         <translation>Slaptažodis</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="78"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
         <source>Cancel</source>
         <translation>Atsisakyti</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
         <source>OK</source>
         <translation>Gerai</translation>
     </message>
@@ -1402,33 +1402,33 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="132"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="133"/>
         <source>Disconnect</source>
         <translation>Atsijungti</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="134"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="135"/>
         <source>Delete</source>
         <translation>Ištrinti</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="136"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="137"/>
         <source>Export</source>
         <translation>Eksportuoti</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="144"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
         <source>Cancel</source>
         <translation>Atsisakyti</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="146"/>
         <source>Save</source>
         <translation>Įrašyti</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="442"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="524"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="451"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="533"/>
         <source>Required</source>
         <translation>Būtina</translation>
     </message>
@@ -1583,22 +1583,22 @@
         <translation>Tinklas</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="192"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="210"/>
         <source>Wired Network Card%1</source>
         <translation>Laidinio tinklo plokštė %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="197"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
         <source>Wired Network Card</source>
         <translation>Laidinio tinklo plokštė</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="198"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="216"/>
         <source>Wired Network</source>
         <translation>Laidinis tinklas</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="193"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="211"/>
         <source>Wired Network%1</source>
         <translation>Laidinis tinklas %1</translation>
     </message>
@@ -1608,27 +1608,32 @@
         <translation>Sistemos įgaliotasis serveris</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="207"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
         <source>Hotspot</source>
         <translation>Prieigos taškas</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="218"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
+        <source>Shared</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wireless Network Card%1</source>
         <translation>Belaidžio tinklo plokštė %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="223"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wireless Network Card</source>
         <translation>Belaidžio tinklo plokštė</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="224"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="244"/>
         <source>Wireless Network</source>
         <translation>Belaidis tinklas</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="219"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="239"/>
         <source>Wireless Network%1</source>
         <translation>Belaidis tinklas %1</translation>
     </message>
@@ -2324,7 +2329,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="114"/>
+        <location filename="../modules/update/updateitem.cpp" line="118"/>
         <source>Details</source>
         <translation>Išsamiau</translation>
     </message>

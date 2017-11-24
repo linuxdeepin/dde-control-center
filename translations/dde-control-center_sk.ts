@@ -190,7 +190,7 @@
 <context>
     <name>VpnListModel</name>
     <message>
-        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="65"/>
+        <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
         <translation>Kliknite na ikonu pre povolenie VPN</translation>
     </message>
@@ -913,22 +913,22 @@
         <translation>Rozlíšenie</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="203"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="204"/>
         <source>Cancel</source>
         <translation>Zrušiť</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="205"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="206"/>
         <source>Apply</source>
         <translation>Použiť</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="212"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="213"/>
         <source>Primary</source>
         <translation>Primárny</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="387"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="391"/>
         <source> (Recommended)</source>
         <translation>(Odporúčané)</translation>
     </message>
@@ -1334,59 +1334,59 @@
 <context>
     <name>dcc::network::ChainsProxyPage</name>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="42"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="43"/>
         <source>Application proxy</source>
         <translation>Aplikácia proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="45"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
         <source>Proxy Type</source>
         <translation>Typ proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="48"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>IP address</source>
         <translation>IP adresa</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
-        <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="54"/>
         <source>Required</source>
         <translation>Požadované</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="52"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="56"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
         <source>Username</source>
         <translation>Meno používateľa</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
-        <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="58"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="62"/>
         <source>Optional</source>
         <translation>Voliteľné</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="60"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
         <source>Password</source>
         <translation>Heslo</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="78"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
         <translation>Začiarknite políčko &quot;Otvoriť pomocou servera proxy&quot; v kontextovej ponuke aplikácie v programe Spúšťač, ktorá sa použije po nakonfigurovaní</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
         <source>Cancel</source>
         <translation>Zrušiť</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -1402,33 +1402,33 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="132"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="133"/>
         <source>Disconnect</source>
         <translation>Odpojiť</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="134"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="135"/>
         <source>Delete</source>
         <translation>Vymazať</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="136"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="137"/>
         <source>Export</source>
         <translation>Exportovať</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="144"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
         <source>Cancel</source>
         <translation>Zrušiť</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="146"/>
         <source>Save</source>
         <translation>Uložiť</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="442"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="524"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="451"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="533"/>
         <source>Required</source>
         <translation>Požadované</translation>
     </message>
@@ -1583,22 +1583,22 @@
         <translation>Sieť</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="192"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="210"/>
         <source>Wired Network Card%1</source>
         <translation>Káblová sieťová karta%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="197"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
         <source>Wired Network Card</source>
         <translation>Káblová sieťová karta</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="198"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="216"/>
         <source>Wired Network</source>
         <translation>Drôtová sieť</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="193"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="211"/>
         <source>Wired Network%1</source>
         <translation>Káblova sieť%1</translation>
     </message>
@@ -1608,27 +1608,32 @@
         <translation>Systém Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="207"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
         <source>Hotspot</source>
         <translation>Hotspot</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="218"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
+        <source>Shared</source>
+        <translation>Zdieľané</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wireless Network Card%1</source>
         <translation>Bezdrôtová sieťová karta%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="223"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wireless Network Card</source>
         <translation>Bezdrôtová sieťová karta</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="224"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="244"/>
         <source>Wireless Network</source>
         <translation>Bezdrôtová sieť</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="219"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="239"/>
         <source>Wireless Network%1</source>
         <translation>Bezdrôtová sieť%1</translation>
     </message>
@@ -2324,7 +2329,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="114"/>
+        <location filename="../modules/update/updateitem.cpp" line="118"/>
         <source>Details</source>
         <translation>Detaily</translation>
     </message>
