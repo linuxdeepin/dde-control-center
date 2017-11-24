@@ -29,8 +29,7 @@
 #include "settingsitem.h"
 
 #include <QSlider>
-
-#include <dimagebutton.h>
+#include <QLabel>
 
 namespace dcc {
 
@@ -52,8 +51,8 @@ public slots:
     void setMonitor(Monitor * const mon);
 
 private:
-    Dtk::Widget::DImageButton *m_leftIcon;
-    Dtk::Widget::DImageButton *m_rightIcon;
+    QLabel *m_leftIcon;
+    QLabel *m_rightIcon;
     QSlider *m_brightnessSlider;
 
     Monitor *m_monitor;

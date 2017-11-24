@@ -27,6 +27,7 @@
 #include "dccslider.h"
 
 #include <QHBoxLayout>
+#include <DHiDPIHelper>
 
 using namespace dcc::widgets;
 
@@ -41,12 +42,12 @@ namespace display {
 BrightnessItem::BrightnessItem(QWidget *parent)
     : SettingsItem(parent),
 
-      m_leftIcon(new DImageButton),
-      m_rightIcon(new DImageButton),
+      m_leftIcon(new QLabel),
+      m_rightIcon(new QLabel),
       m_brightnessSlider(new DCCSlider(DCCSlider::Normal))
 {
-    m_leftIcon->setNormalPic(":/display/themes/dark/icons/light_low.png");
-    m_rightIcon->setNormalPic(":/display/themes/dark/icons/light_high.png");
+    m_leftIcon->setPixmap(DHiDPIHelper::loadNxPixmap(":/display/themes/dark/icons/light_low.png"));
+    m_rightIcon->setPixmap(DHiDPIHelper::loadNxPixmap(":/display/themes/dark/icons/light_high.png"));
     m_brightnessSlider->setOrientation(Qt::Horizontal);
     m_brightnessSlider->setMaximum(BRIGHTNESS_MUL);
     m_brightnessSlider->setMinimum(0.2 * BRIGHTNESS_MUL);
