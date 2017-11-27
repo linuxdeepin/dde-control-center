@@ -47,6 +47,7 @@ Frame::Frame(QWidget *parent)
       m_platformWindowHandle(this),
       m_wmHelper(DWindowManagerHelper::instance()),
 
+      m_shown(false),
       m_autoHide(true),
       m_debugAutoHide(true)
 {
@@ -54,7 +55,6 @@ Frame::Frame(QWidget *parent)
     m_displayInter->setSync(false);
 
     // set init data
-    m_appearAnimation.setStartValue(QRect(1, 1, 1, 1));
     m_appearAnimation.setEasingCurve(QEasingCurve::OutCubic);
 
     m_platformWindowHandle.setEnableBlurWindow(false);
@@ -145,7 +145,7 @@ void Frame::init()
 void Frame::adjustShadowMask()
 {
     if (!m_wmHelper->hasComposite() ||
-        m_appearAnimation.endValue().toRect().width() == 0 ||
+        !m_shown ||
         m_appearAnimation.state() == QPropertyAnimation::Running)
     {
         m_platformWindowHandle.setShadowRadius(0);
@@ -218,7 +218,7 @@ void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
 //    m_allSettingsPage->showModulePage(moduleName, pageName);
     QMetaObject::invokeMethod(m_allSettingsPage, "showModulePage", Qt::QueuedConnection, Q_ARG(QString, moduleName), Q_ARG(QString, pageName));
 
-    if (m_appearAnimation.startValue().toRect().width() != 0)
+    if (!m_shown)
         show();
 }
 
@@ -310,6 +310,9 @@ void Frame::show()
     if (m_appearAnimation.state() == QPropertyAnimation::Running)
         return;
 
+    // show
+    m_shown = true;
+
     QRect r = qApp->primaryScreen()->geometry();
 
     const QScreen *screen = screenForGeometry(r);
@@ -354,6 +357,9 @@ void Frame::hide()
     if (m_appearAnimation.state() == QPropertyAnimation::Running)
         return;
 
+    // set shown to false
+    m_shown = false;
+
     // reset auto-hide
     m_autoHide = true;
 
@@ -397,7 +403,7 @@ void Frame::toggle()
     if (m_appearAnimation.state() == QPropertyAnimation::Running)
         return;
 
-    if (m_appearAnimation.startValue().toRect().width() != 0)
+    if (!m_shown)
     {
         show();
 #ifdef DISABLE_MAIN_PAGE
@@ -410,6 +416,9 @@ void Frame::toggle()
 
 void Frame::hideImmediately()
 {
+    // reset shown
+    m_shown = false;
+
     // reset auto-hide
     m_autoHide = true;
 

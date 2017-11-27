@@ -119,6 +119,7 @@ private:
     DPlatformWindowHandle m_platformWindowHandle;
     DWindowManagerHelper *m_wmHelper;
 
+    bool m_shown;
     bool m_autoHide;
     bool m_debugAutoHide;
 };
