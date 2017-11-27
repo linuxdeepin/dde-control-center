@@ -38,6 +38,9 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QPointer>
+#include <DHiDPIHelper>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 
@@ -200,13 +203,11 @@ void WiredPage::activeConnection()
 
 void WiredPage::checkActivatedConnection()
 {
-    static QPixmap selected_icon(":/network/themes/dark/icons/select.png");
-
     const auto activeConnection = m_device->activeConnection().value("ConnectionName").toString();
     for (auto it(m_connectionPath.cbegin()); it != m_connectionPath.cend(); ++it)
     {
         if (it.key()->title() == activeConnection)
-            it.key()->setIcon(selected_icon);
+            it.key()->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
         else
             it.key()->clearValue();
     }

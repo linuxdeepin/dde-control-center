@@ -41,7 +41,7 @@
 #include <QJsonObject>
 #include <QFileDialog>
 #include <QMessageBox>
-
+#include <DHiDPIHelper>
 #include <ddialog.h>
 
 DWIDGET_USE_NAMESPACE
@@ -224,7 +224,7 @@ void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
         const bool loading = exist ? activeVpnStates[t] != 2 : false;
 
         if (exist && !loading)
-            it.key()->setIcon(QPixmap(":/network/themes/dark/icons/select.png"));
+            it.key()->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
         else
             it.key()->clearValue();
         it.key()->setLoading(loading);

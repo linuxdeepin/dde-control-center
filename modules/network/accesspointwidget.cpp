@@ -55,7 +55,7 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
     m_strengthIcon->setFixedSize(16, 16);
     m_activeIcon->setFixedSize(16, 16);
     m_activeIcon->setVisible(false);
-    m_activeIcon->setNormalPic(":/network/themes/dark/icons/select.png");
+    m_activeIcon->setNormalPic(":/network/themes/dark/icons/select.svg");
     m_detailBtn->setObjectName("DetailButton");
 
     QHBoxLayout *basicInfoLayout = new QHBoxLayout;

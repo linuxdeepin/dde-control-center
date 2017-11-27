@@ -35,9 +35,12 @@
 #include "connectionsessionmodel.h"
 #include "connectioneditpage.h"
 
+#include <DHiDPIHelper>
 #include <QPushButton>
 #include <QDebug>
 #include <QVBoxLayout>
+
+DWIDGET_USE_NAMESPACE
 
 using namespace dcc::widgets;
 using namespace dcc::network;
@@ -160,7 +163,7 @@ void PppoePage::onActivateConnectionChanged(const QSet<QString> &conns)
     for (const QString &uuid : conns) {
         NextPageWidget *w = m_connUuid.key(uuid);
         if (w) {
-            w->setIcon(QPixmap(":/network/themes/dark/icons/select.png"));
+            w->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
             return;
         }
     }

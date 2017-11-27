@@ -55,7 +55,7 @@ dcc--widgets--NormalLabel#OptionItemTitle {
 }
 
 QLabel#OptionItemSelectedIcon {
-    background: url(:/widgets/themes/dark/icons/select.png);
+    background: url(:/widgets/themes/dark/icons/select.svg);
 }
 
 dcc--widgets--LoadingIndicator {
