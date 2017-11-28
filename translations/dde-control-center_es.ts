@@ -200,7 +200,7 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>¡Lo sentimos, no es posible obtener el clima!</translation>
+        <translation>Lo sentimos, ¡no es posible obtener el clima!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
@@ -1378,7 +1378,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>Marque &quot;Abrir por proxy&quot; del menú contextual de la aplicación en el Iniciador para usarlo después de configurado</translation>
+        <translation>Marque &quot;Abrir por proxy&quot; del menú contextual de la aplicación en el Lanzador para usarlo después de configurado</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
@@ -1823,7 +1823,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation>Cerrar «hotspot»</translation>
+        <translation>Cerrar «Con. compartida»</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
@@ -1957,7 +1957,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="45"/>
         <source>Computer will suspend after</source>
-        <translation>El equipo se suspenderá después de</translation>
+        <translation>Suspender el equipo después de</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="55"/>
