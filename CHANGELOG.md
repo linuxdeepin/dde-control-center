@@ -1,3 +1,14 @@
+<a name="4.3.6"></a>
+### 4.3.6 (2017-11-28)
+
+
+#### Bug Fixes
+
+* **display:**  initializing value ([85fd606b](https://github.com/linuxdeepin/dde-control-center/commit/85fd606bb35fea1c992ed573f537f4a4fb9a071d))
+* **network:**  update select svg ([40bd3033](https://github.com/linuxdeepin/dde-control-center/commit/40bd30331ef953fd49d4f964ebf08b645d4854d5))
+
+
+
 <a name="4.3.5"></a>
 ### 4.3.5 (2017-11-24)
 
