@@ -117,12 +117,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Actualitzacions instal·lades, cal reiniciar. Reinicio ara?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, assegureu-vos que primer s&apos;han desat totes les dades.</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Reinicia</translation>
     </message>
 </context>
 <context>
@@ -153,7 +153,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="50"/>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>No hi ha resultats de la cerca.</translation>
     </message>
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
@@ -534,7 +534,7 @@
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="43"/>
         <source>Disconnect</source>
-        <translation>Desconecta</translation>
+        <translation>Desconnecta</translation>
     </message>
 </context>
 <context>
@@ -676,7 +676,7 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="114"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Avui</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="119"/>
@@ -1404,7 +1404,7 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="133"/>
         <source>Disconnect</source>
-        <translation>Desconecta</translation>
+        <translation>Desconnecta</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="135"/>
