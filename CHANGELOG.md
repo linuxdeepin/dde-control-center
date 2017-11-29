@@ -1,3 +1,13 @@
+<a name="4.3.7"></a>
+### 4.3.7 (2017-11-29)
+
+
+#### Bug Fixes
+
+* **update:**  not update checkupdate status ([b24d20e2](https://github.com/linuxdeepin/dde-control-center/commit/b24d20e26f895c1a71c7dcda1af37cf5477c8c37))
+
+
+
 <a name="4.3.6"></a>
 ### 4.3.6 (2017-11-28)
 
