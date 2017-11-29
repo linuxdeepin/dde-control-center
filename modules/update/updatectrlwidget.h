@@ -61,7 +61,6 @@ signals:
     void requestPauseDownload();
     void requestResumeDownload();
     void requestInstallUpdates();
-    void suggestReboot();
 
 private slots:
     void onProgressBarClicked();

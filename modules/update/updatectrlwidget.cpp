@@ -204,7 +204,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_resultItem->setSuccess(true);
         m_resultGroup->setVisible(true);
         m_reminderTip->setVisible(true);
-        emit suggestReboot();
         break;
     case UpdatesStatus::UpdateFailed:
         m_resultGroup->setVisible(true);
