@@ -317,6 +317,8 @@ void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
             connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWork::onAppUpdateInfoFinished);
         }
     });
+
+    m_checkUpdateJob->StatusChanged(m_checkUpdateJob->status());
 }
 
 void UpdateWork::setDownloadJob(const QString &jobPath)
@@ -379,6 +381,8 @@ void UpdateWork::setOtherUpdate(const QString &jobPath)
             m_otherUpdateJob = nullptr;
         }
     });
+
+    m_otherUpdateJob->StatusChanged(m_otherUpdateJob->status());
 }
 
 void UpdateWork::setAutoCleanCache(const bool autoCleanCache)
