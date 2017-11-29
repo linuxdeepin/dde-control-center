@@ -33,6 +33,7 @@
 #include <com_deepin_lastore_job.h>
 #include <com_deepin_lastore_jobmanager.h>
 #include <com_deepin_daemon_power.h>
+#include <com_deepin_daemon_network.h>
 
 #include "common.h"
 
@@ -40,6 +41,7 @@ using UpdateInter=com::deepin::lastore::Updater;
 using JobInter=com::deepin::lastore::Job;
 using ManagerInter=com::deepin::lastore::Manager;
 using PowerInter=com::deepin::daemon::Power;
+using Network=com::deepin::daemon::Network;
 
 namespace dcc{
 namespace update{
@@ -98,7 +100,7 @@ private:
     UpdateInter* m_updateInter;
     ManagerInter* m_managerInter;
     PowerInter *m_powerInter;
-
+    Network *m_networkInter;
     bool m_onBattery;
     double m_batteryPercentage;
 

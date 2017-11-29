@@ -31,6 +31,8 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
+#define MIN_NM_ACTIVE 50
+
 namespace dcc{
 namespace update{
 
@@ -65,6 +67,7 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
       m_updateInter(new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
       m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
       m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
+      m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this)),
       m_onBattery(true),
       m_batteryPercentage(0),
       m_baseProgress(0)
@@ -118,6 +121,12 @@ void UpdateWork::checkForUpdates()
 {
     if (m_checkUpdateJob || m_downloadJob || m_distUpgradeJob)
         return;
+
+    if (m_networkInter->state() <= MIN_NM_ACTIVE) {
+        qWarning() << "no network, please check network connect.";
+        m_model->setStatus(UpdatesStatus::NoNetwork);
+        return;
+    }
 
     QDBusPendingCall call = m_managerInter->UpdateSource();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);

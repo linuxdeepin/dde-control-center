@@ -86,6 +86,7 @@ private:
     SummaryItem* m_summary;
     TipsLabel *m_powerTip;
     TipsLabel *m_reminderTip;
+    TipsLabel *m_noNetworkTip;
 };
 
 }

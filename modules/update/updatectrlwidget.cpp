@@ -48,7 +48,8 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
       m_summaryGroup(new SettingsGroup),
       m_summary(new SummaryItem),
       m_powerTip(new TipsLabel),
-      m_reminderTip(new TipsLabel(tr("Please restart to use the system and applications properly after updated")))
+      m_reminderTip(new TipsLabel(tr("Please restart to use the system and applications properly after updated"))),
+      m_noNetworkTip(new TipsLabel(tr("Network disconnected, please retry after connected")))
 {
     setTitle(tr("Update"));
 
@@ -76,6 +77,10 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_reminderTip->setAlignment(Qt::AlignHCenter);
     m_reminderTip->setVisible(false);
 
+    m_noNetworkTip->setWordWrap(true);
+    m_noNetworkTip->setAlignment(Qt::AlignHCenter);
+    m_noNetworkTip->setVisible(false);
+
     layout->addSpacing(10);
     layout->addWidget(m_checkGroup);
     layout->addWidget(m_resultGroup);
@@ -84,6 +89,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     layout->addWidget(m_summaryGroup);
     layout->addWidget(m_powerTip);
     layout->addWidget(m_reminderTip);
+    layout->addWidget(m_noNetworkTip);
     layout->addStretch();
 
     widget->setLayout(layout);
@@ -142,96 +148,76 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 {
     m_status = status;
 
+    m_noNetworkTip->setVisible(false);
+    m_resultGroup->setVisible(false);
+    m_progress->setVisible(false);
+    m_summaryGroup->setVisible(false);
+    m_reminderTip->setVisible(false);
+    m_checkGroup->setVisible(false);
+    m_checkUpdateItem->setVisible(false);
+    m_checkUpdateItem->setIndicatorVisible(false);
+
     switch (status) {
     case UpdatesStatus::Checking:
         m_checkGroup->setVisible(true);
-        m_resultGroup->setVisible(false);
-        m_progress->setVisible(false);
-        m_summaryGroup->setVisible(false);
+        m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setIndicatorVisible(true);
         m_checkUpdateItem->setMessage(tr("Checking for updates, please wait..."));
-        m_reminderTip->setVisible(false);
         break;
     case UpdatesStatus::UpdatesAvailable:
-        m_checkGroup->setVisible(false);
-        m_resultGroup->setVisible(false);
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
         m_progress->setMessage(tr("Download and install updates"));
         setDownloadInfo(m_model->downloadInfo());
-        m_reminderTip->setVisible(false);
         m_progress->setValue(100);
         break;
     case UpdatesStatus::Downloading:
-        m_checkGroup->setVisible(false);
-        m_resultGroup->setVisible(false);
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
         m_progress->setValue(m_progress->minimum());
         m_progress->setMessage(tr("%1 downloaded (Click to pause)").arg(m_progress->text()));
-        m_reminderTip->setVisible(false);
         break;
     case UpdatesStatus::DownloadPaused:
-        m_checkGroup->setVisible(false);
-        m_resultGroup->setVisible(false);
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
         m_progress->setMessage(tr("%1 downloaded (Click to continue)").arg(m_progress->text()));
-        m_reminderTip->setVisible(false);
         break;
     case UpdatesStatus::Downloaded:
-        m_checkGroup->setVisible(false);
-        m_resultGroup->setVisible(false);
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
         m_progress->setValue(m_progress->maximum());
         m_progress->setMessage(tr("Install updates"));
         setDownloadInfo(m_model->downloadInfo());
         setLowBattery(m_model->lowBattery());
-        m_reminderTip->setVisible(false);
         break;
     case UpdatesStatus::Updated:
         m_checkGroup->setVisible(true);
-        m_resultGroup->setVisible(false);
-        m_progress->setVisible(false);
-        m_summaryGroup->setVisible(false);
+        m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setMessage(tr("Your system is up to date"));
-        m_checkUpdateItem->setIndicatorVisible(false);
-        m_reminderTip->setVisible(false);
         break;
     case UpdatesStatus::Installing:
-        m_checkGroup->setVisible(false);
-        m_resultGroup->setVisible(false);
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
         m_progress->setMessage(tr("Updating, please wait..."));
-        m_reminderTip->setVisible(false);
         break;
     case UpdatesStatus::UpdateSucceeded:
-        m_checkGroup->setVisible(false);
         m_resultItem->setSuccess(true);
         m_resultGroup->setVisible(true);
-        m_progress->setVisible(false);
-        m_summaryGroup->setVisible(false);
         m_reminderTip->setVisible(true);
         emit suggestReboot();
         break;
     case UpdatesStatus::UpdateFailed:
-        m_checkGroup->setVisible(false);
-        m_resultItem->setSuccess(false);
         m_resultGroup->setVisible(true);
-        m_progress->setVisible(false);
-        m_summaryGroup->setVisible(false);
-        m_reminderTip->setVisible(false);
+        m_resultItem->setSuccess(false);
         break;
     case UpdatesStatus::NeedRestart:
         m_checkGroup->setVisible(true);
-        m_resultGroup->setVisible(false);
-        m_progress->setVisible(false);
-        m_summaryGroup->setVisible(false);
         m_checkUpdateItem->setMessage(tr("The newest system installed, restart to take effect"));
-        m_checkUpdateItem->setIndicatorVisible(false);
-        m_reminderTip->setVisible(false);
+        break;
+    case UpdatesStatus::NoNetwork:
+        m_resultGroup->setVisible(true);
+        m_resultItem->setSuccess(false);
+        m_noNetworkTip->setVisible(true);
         break;
     default:
         qWarning() << "unknown status!!!";
