@@ -370,6 +370,8 @@ void UpdateWork::setDistUpgradeJob(const QString &jobPath)
 
     connect(m_distUpgradeJob, &__Job::StatusChanged, this, &UpdateWork::onUpgradeStatusChanged);
 
+    m_model->setStatus(UpdatesStatus::Installing);
+
     m_distUpgradeJob->ProgressChanged(m_distUpgradeJob->progress());
     m_distUpgradeJob->StatusChanged(m_distUpgradeJob->status());
 }
@@ -490,10 +492,6 @@ void UpdateWork::onUpgradeStatusChanged(const QString &status)
             return;
         file.open(QIODevice::WriteOnly);
         file.close();
-    } else if (status == "end") {
-        m_model->setStatus(UpdatesStatus::Updated);
-    } else {
-        m_model->setStatus(UpdatesStatus::Installing);
     }
 }
 

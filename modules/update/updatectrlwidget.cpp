@@ -211,6 +211,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::NeedRestart:
         m_checkGroup->setVisible(true);
+        m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setMessage(tr("The newest system installed, restart to take effect"));
         break;
     case UpdatesStatus::NoNetwork:
