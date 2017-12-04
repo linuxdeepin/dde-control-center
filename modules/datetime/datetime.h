@@ -35,6 +35,7 @@
 #include "settingshead.h"
 #include "nextpagewidget.h"
 #include "switchwidget.h"
+#include "timezoneitem.h"
 
 #include <QSettings>
 
@@ -100,7 +101,7 @@ private:
     QPushButton *m_addTimezoneButton;
     NextPageWidget *m_timezoneItem;
 #endif
-
+    QList<TimezoneItem*> m_zoneList;
     bool m_addTimeZone;
     TimeZoneChooser *m_dialog;
 };

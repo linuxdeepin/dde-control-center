@@ -50,7 +50,8 @@ Clock::~Clock()
 
 void Clock::paintEvent(QPaintEvent *)
 {
-    const QDateTime datetime = QDateTime::currentDateTime();
+    QDateTime datetime( QDateTime::currentDateTimeUtc() );
+    datetime = datetime.addSecs(m_timeZone.offsetFromUtc(datetime));
 
     const QTime time(datetime.time());
     const QRect rct(rect());
