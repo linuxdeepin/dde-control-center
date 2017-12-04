@@ -31,15 +31,15 @@ namespace dcc {
 namespace sound {
 
 SoundModel::SoundModel(QObject *parent)
-    : QObject(parent),
-      m_speakerOn(true),
-      m_microphoneOn(true),
-      m_soundEffectOn(true),
-      m_speakerVolume(75),
-      m_speakerBalance(0),
-      m_microphoneVolume(75),
+    : QObject(parent)
+    , m_speakerOn(true)
+    , m_microphoneOn(true)
+    , m_soundEffectOn(true)
+    , m_speakerVolume(75)
+    , m_speakerBalance(0)
+    , m_microphoneVolume(75)
 #ifndef DCC_DISABLE_FEEDBACK
-      m_microphoneFeedback(50)
+    , m_microphoneFeedback(50)
 #endif
 {
 
