@@ -205,7 +205,7 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 
 QString UpdateItem::elidedChangelog() const
 {
-    const QString text = clearHTMLTags(m_info.m_changelog);
+    const QString text = QString(clearHTMLTags(m_info.m_changelog)).replace("\n", "<br>");
 
     const QFontMetrics fm(m_appChangelog->font());
     const QRect rect(0, 0, 200, fm.height() * 2);
