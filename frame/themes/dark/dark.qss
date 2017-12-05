@@ -72,9 +72,9 @@ Dtk--Widget--DMPRISControl #PauseBtn {
 }
 
 Dtk--Widget--DMPRISControl #PlayBtn {
-    qproperty-normalPic: url(:/frame/themes/dark/icons/play__start_normal.png);
-    qproperty-hoverPic: url(:/frame/themes/dark/icons/play__start_hover.png);
-    qproperty-pressPic: url(:/frame/themes/dark/icons/play__start_press.png);
+    qproperty-normalPic: url(:/frame/themes/dark/icons/play_start_normal.png);
+    qproperty-hoverPic: url(:/frame/themes/dark/icons/play_start_hover.png);
+    qproperty-pressPic: url(:/frame/themes/dark/icons/play_start_press.png);
 }
 
 Dtk--Widget--DMPRISControl #NextBtn {

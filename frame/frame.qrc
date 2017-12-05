@@ -208,9 +208,9 @@
         <file>themes/light/icons/white_loading/loading_087.png</file>
         <file>themes/light/icons/white_loading/loading_088.png</file>
         <file>themes/light/icons/white_loading/loading_089.png</file>
-        <file>themes/dark/icons/play__start_hover.png</file>
-        <file>themes/dark/icons/play__start_normal.png</file>
-        <file>themes/dark/icons/play__start_press.png</file>
+        <file>themes/dark/icons/play_start_hover.png</file>
+        <file>themes/dark/icons/play_start_normal.png</file>
+        <file>themes/dark/icons/play_start_press.png</file>
         <file>themes/dark/icons/play_next_hover.png</file>
         <file>themes/dark/icons/play_next_normal.png</file>
         <file>themes/dark/icons/play_next_press.png</file>
