@@ -33,6 +33,7 @@
 #include "widget/thinkpadsettings.h"
 #include "mousemodel.h"
 #include "mouse/model/mousemodelmousesettings.h"
+#include "widget/palmdetectsetting.h"
 
 #include <QPushButton>
 #include <QDebug>
@@ -57,6 +58,8 @@ MouseWidget::MouseWidget()
     m_touchSettings->setSwitchTitle(QString(tr("Tap to Click")));
     m_centralLayout->addWidget(m_touchSettings);
 
+    m_palmDetectSetting = new PalmDetectSetting;
+    m_centralLayout->addWidget(m_palmDetectSetting);
 
     m_ThinkapdSettings = new ThinkpadSettings;
     m_centralLayout->addWidget(m_ThinkapdSettings);
@@ -74,6 +77,10 @@ MouseWidget::MouseWidget()
     connect(m_mouseSettings, &MouseSettings::requestSetNaturalScroll, this, &MouseWidget::requestSetMouseNaturalScroll);
     connect(m_touchSettings, &MouseSettings::requestSetNaturalScroll, this, &MouseWidget::requestSetTouchNaturalScroll);
 
+    connect(m_palmDetectSetting, &PalmDetectSetting::requestDetectState, this, &MouseWidget::requestDetectState);
+    connect(m_palmDetectSetting, &PalmDetectSetting::requestContact, this, &MouseWidget::requestContact);
+    connect(m_palmDetectSetting, &PalmDetectSetting::requestPressure, this, &MouseWidget::requestPressure);
+
     setTitle(tr("Mouse and Touchpad"));
 }
 
@@ -85,6 +92,7 @@ void MouseWidget::setModel(MouseModel *const model)
     m_mouseSettings->setModel(model->getMouseSettings());
     m_touchSettings->setModel(model->getTouchSettings());
     m_ThinkapdSettings->setModel(model->getTrackSettings());
+    m_palmDetectSetting->setModel(model);
 
     m_touchpadModel = model->getTouchSettings();
 

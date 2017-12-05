@@ -40,6 +40,7 @@ namespace mouse
 {
 class BaseSettings;
 class MouseSettings;
+class PalmDetectSetting;
 class ThinkpadSettings;
 class MouseModel;
 class MouseModelMouseSettings;
@@ -63,6 +64,9 @@ signals:
     void requestSetMouseMotionAcceleration(const int &value);
     void requestSetTouchpadMotionAcceleration(const int &value);
     void requestSetTrackPointMotionAcceleration(const int &value);
+    void requestDetectState(bool enable);
+    void requestContact(int value);
+    void requestPressure(int value);
 
 private slots:
     void onTouchpadVisibleChanged(const bool visible);
@@ -73,6 +77,7 @@ private:
     BaseSettings *m_baseSettings;
     MouseSettings *m_mouseSettings;
     MouseSettings *m_touchSettings;
+    PalmDetectSetting *m_palmDetectSetting;
     ThinkpadSettings *m_ThinkapdSettings;
     MouseModelMouseSettings *m_touchpadModel;
     MouseModel *m_mouseModel;

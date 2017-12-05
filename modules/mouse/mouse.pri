@@ -10,7 +10,8 @@ HEADERS += \
     $$PWD/model/mousemodelbase.h \
     $$PWD/model/mousemodelbasesettings.h \
     $$PWD/model/mousemodelmousesettings.h \
-    $$PWD/model/mousemodelthinkpadsettings.h
+    $$PWD/model/mousemodelthinkpadsettings.h \
+    $$PWD/widget/palmdetectsetting.h
 
 SOURCES += \
     $$PWD/mousemodule.cpp \
@@ -24,7 +25,8 @@ SOURCES += \
     $$PWD/model/mousemodelbase.cpp \
     $$PWD/model/mousemodelbasesettings.cpp \
     $$PWD/model/mousemodelmousesettings.cpp \
-    $$PWD/model/mousemodelthinkpadsettings.cpp
+    $$PWD/model/mousemodelthinkpadsettings.cpp \
+    $$PWD/widget/palmdetectsetting.cpp
 
 #INCLUDEPATH += $$PWD/..
 
