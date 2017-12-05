@@ -43,6 +43,8 @@ class BrightnessItem : public widgets::SettingsItem
 public:
     explicit BrightnessItem(QWidget *parent = 0);
 
+    void setMinimumBrightnessScale(const double scale);
+
 signals:
     void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
 

@@ -86,6 +86,7 @@ void BrightnessPage::initUI()
     {
         BrightnessItem *slider = new BrightnessItem;
         connect(mon, &Monitor::brightnessChanged, slider, &BrightnessItem::setValue);
+        connect(m_displayModel, &DisplayModel::minimumBrightnessScaleChanged, slider, &BrightnessItem::setMinimumBrightnessScale);
         connect(slider, &BrightnessItem::requestSetMonitorBrightness, this, &BrightnessPage::requestSetMonitorBrightness);
         slider->setMonitor(mon);
         slider->setValue(mon->brightness());

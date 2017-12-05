@@ -119,6 +119,15 @@ void DisplayModel::setUIScale(const double scale)
     }
 }
 
+void DisplayModel::setMinimumBrightnessScale(const double scale)
+{
+    if (m_minimumBrightnessScale != scale)
+    {
+        m_minimumBrightnessScale = scale;
+        emit minimumBrightnessScaleChanged(m_minimumBrightnessScale);
+    }
+}
+
 void DisplayModel::setPrimary(const QString &primary)
 {
     if (m_primary != primary)

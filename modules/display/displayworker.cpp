@@ -33,6 +33,7 @@ using namespace dcc;
 using namespace dcc::display;
 
 #define UI_SCALE_KEY    "scaleFactor"
+#define GSETTINGS_MINIMUM_BRIGHTNESS    "brightness-minimum"
 
 const QString DisplayInterface("com.deepin.daemon.Display");
 
@@ -41,6 +42,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
 
       m_model(model),
       m_displayInter(DisplayInterface, "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this),
+      m_dccSettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this)),
       m_appearanceInter(new AppearanceInter("com.deepin.daemon.Appearance",
                                       "/com/deepin/daemon/Appearance",
                                       QDBusConnection::sessionBus(), this))
@@ -78,6 +80,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
         updateNightModeStatus();
 
     m_model->setRedshiftIsValid(isRedshiftValid);
+    m_model->setMinimumBrightnessScale(m_dccSettings->get(GSETTINGS_MINIMUM_BRIGHTNESS).toDouble());
 }
 
 DisplayWorker::~DisplayWorker()
@@ -314,7 +317,7 @@ void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 
 void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
 {
-    m_displayInter.SetAndSaveBrightness(mon->name(), std::max(brightness, 0.2)).waitForFinished();
+    m_displayInter.SetAndSaveBrightness(mon->name(), std::max(brightness, m_model->minimumBrightnessScale())).waitForFinished();
 }
 
 void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
@@ -474,4 +477,12 @@ void DisplayWorker::updateNightModeStatus()
     });
 
     process->start("systemctl", QStringList() << "--user" << "is-active" << "redshift.service");
+}
+
+void DisplayWorker::onGSettingsChanged(const QString &key)
+{
+    const QVariant &value = m_dccSettings->get(key);
+
+    if (key == GSETTINGS_MINIMUM_BRIGHTNESS)
+        m_model->setMinimumBrightnessScale(value.toDouble());
 }

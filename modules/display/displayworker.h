@@ -33,6 +33,8 @@
 #include <com_deepin_daemon_display.h>
 #include <com_deepin_daemon_appearance.h>
 
+#include <QGSettings>
+
 using DisplayInter = com::deepin::daemon::Display;
 using AppearanceInter = com::deepin::daemon::Appearance;
 
@@ -81,6 +83,7 @@ public slots:
     void updateNightModeStatus();
 
 private slots:
+    void onGSettingsChanged(const QString &key);
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
     void onModifyConfigNameFinished(QDBusPendingCallWatcher *w);
@@ -99,6 +102,7 @@ private:
 private:
     DisplayModel *m_model;
     DisplayInter m_displayInter;
+    QGSettings *m_dccSettings;
     AppearanceInter *m_appearanceInter;
     QMap<Monitor *, MonitorInter *> m_monitors;
 };

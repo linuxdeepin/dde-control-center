@@ -44,14 +44,15 @@ class DisplayModel : public QObject
 public:
     explicit DisplayModel(QObject *parent = 0);
 
-    int screenHeight() const { return m_screenHeight; }
-    int screenWidth() const { return m_screenWidth; }
-    int displayMode() const { return m_mode; }
-    double uiScale() const { return m_uiScale; }
-    const QString primary() const { Q_ASSERT(!m_primary.isEmpty()); return m_primary; }
-    const QString config() const { return m_currentConfig; }
-    const QStringList configList() const { return m_configList; }
-    const QList<Monitor *> monitorList() const { return m_monitors; }
+    inline int screenHeight() const { return m_screenHeight; }
+    inline int screenWidth() const { return m_screenWidth; }
+    inline int displayMode() const { return m_mode; }
+    inline double uiScale() const { return m_uiScale; }
+    inline double minimumBrightnessScale() const { return m_minimumBrightnessScale; }
+    inline const QString primary() const { Q_ASSERT(!m_primary.isEmpty()); return m_primary; }
+    inline const QString config() const { return m_currentConfig; }
+    inline const QStringList configList() const { return m_configList; }
+    inline const QList<Monitor *> monitorList() const { return m_monitors; }
     const QList<Resolution> monitorsSameModeList() const;
     Monitor *primaryMonitor() const;
 
@@ -67,6 +68,7 @@ signals:
     void screenWidthChanged(const int w) const;
     void displayModeChanged(const int mode) const;
     void uiScaleChanged(const double scale) const;
+    void minimumBrightnessScaleChanged(const double) const;
     void primaryScreenChanged(const QString &primary) const;
     void currentConfigChanged(const QString &config) const;
     void firstConfigCreated(const QString &config) const;
@@ -80,6 +82,7 @@ private slots:
     void setScreenWidth(const int w);
     void setDisplayMode(const int mode);
     void setUIScale(const double scale);
+    void setMinimumBrightnessScale(const double scale);
     void setPrimary(const QString &primary);
     void setCurrentConfig(const QString &config);
     void setConfigList(const QStringList &configList);
@@ -92,6 +95,7 @@ private:
     int m_screenWidth;
     int m_mode;
     double m_uiScale;
+    double m_minimumBrightnessScale;
     QString m_primary;
     QString m_currentConfig;
     QStringList m_configList;
