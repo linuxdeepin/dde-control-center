@@ -46,6 +46,9 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
     connect(m_dbusTouchPad, &TouchPad::MotionAccelerationChanged, this, &MouseWorker::setTouchpadMotionAcceleration);
     connect(m_dbusTouchPad, &TouchPad::TapClickChanged, this, &MouseWorker::setTapClick);
     connect(m_dbusTrackPoint, &TrackPoint::MotionAccelerationChanged, this, &MouseWorker::setTrackPointMotionAcceleration);
+    connect(m_dbusTouchPad, &TouchPad::PalmDetectChanged, m_model, &MouseModel::setPalmDetect);
+    connect(m_dbusTouchPad, &TouchPad::PalmMinWidthChanged, m_model, &MouseModel::setPalmMinWidth);
+    connect(m_dbusTouchPad, &TouchPad::PalmMinZChanged, m_model, &MouseModel::setPalmMinz);
 
     MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
     connect(m_dbusMouse, &Mouse::ExistChanged, modelMouse, &MouseModelMouseSettings::setExist);
@@ -99,6 +102,9 @@ void MouseWorker::init()
     setMouseMotionAcceleration(m_dbusMouse->motionAcceleration());
     setTouchpadMotionAcceleration(m_dbusTouchPad->motionAcceleration());
     setTrackPointMotionAcceleration(m_dbusTrackPoint->motionAcceleration());
+    m_model->setPalmDetect(m_dbusTouchPad->palmDetect());
+    m_model->setPalmMinWidth(m_dbusTouchPad->palmMinWidth());
+    m_model->setPalmMinz(m_dbusTouchPad->palmMinZ());
 }
 
 void MouseWorker::setLeftHandState(const bool state)
@@ -160,6 +166,21 @@ void MouseWorker::setTrackPointMotionAcceleration(const double &value)
 {
     MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
     modelTrack->setSliderValue(converToModelMotionAcceleration(value));
+}
+
+void MouseWorker::setPalmDetect(bool palmDetect)
+{
+    m_dbusTouchPad->setPalmDetect(palmDetect);
+}
+
+void MouseWorker::setPalmMinWidth(int palmMinWidth)
+{
+    m_dbusTouchPad->setPalmMinWidth(palmMinWidth);
+}
+
+void MouseWorker::setPalmMinz(int palmMinz)
+{
+    m_dbusTouchPad->setPalmMinZ(palmMinz);
 }
 
 void MouseWorker::onDefaultReset()

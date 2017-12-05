@@ -86,6 +86,12 @@ public:
     inline bool palmDetect() const { return m_palmDetect; }
     void setPalmDetect(bool palmDetect);
 
+    inline int palmMinWidth() const { return m_palmMinWidth; }
+    void setPalmMinWidth(int palmMinWidth);
+
+    inline int palmMinz() const { return m_palmMinz; }
+    void setPalmMinz(int palmMinz);
+
 signals:
     void leftHandStateChanged(bool state);
     void disIfTypingStateChanged(bool state);
@@ -100,6 +106,8 @@ signals:
     void redPointMoveSpeedChanged(int speed);
     void disTpadChanged(bool disable);
     void palmDetectChanged(bool detect);
+    void palmMinWidthChanged(int palmMinWidth);
+    void palmMinzChanged(int palmMinz);
 
 private:
     MouseModelBaseSettings     *m_baseSettings;
@@ -119,6 +127,8 @@ private:
     int  m_mouseMoveSpeed;
     int  m_tpadMoveSpeed;
     int  m_redPointMoveSpeed;
+    int  m_palmMinWidth;
+    int  m_palmMinz;
 };
 }
 }

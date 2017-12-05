@@ -193,3 +193,23 @@ void MouseModel::setPalmDetect(bool palmDetect)
 
     emit palmDetectChanged(palmDetect);
 }
+
+void MouseModel::setPalmMinWidth(int palmMinWidth)
+{
+    if (m_palmMinWidth == palmMinWidth)
+        return;
+
+    m_palmMinWidth = palmMinWidth;
+
+    emit palmMinWidthChanged(palmMinWidth);
+}
+
+void MouseModel::setPalmMinz(int palmMinz)
+{
+    if (m_palmMinz == palmMinz)
+        return;
+
+    m_palmMinz = palmMinz;
+
+    emit palmMinzChanged(palmMinz);
+}

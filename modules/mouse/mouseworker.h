@@ -66,6 +66,10 @@ public slots:
     void setMouseMotionAcceleration(const double &value);
     void setTouchpadMotionAcceleration(const double &value);
     void setTrackPointMotionAcceleration(const double &value);
+    void setPalmDetect(bool palmDetect);
+    void setPalmMinWidth(int palmMinWidth);
+    void setPalmMinz(int palmMinz);
+
     void onDefaultReset();
     void onLeftHandStateChanged(const bool state);
     void onMouseNaturalScrollStateChanged(const bool state);
