@@ -6,8 +6,11 @@ include(./config.pri)
 TEMPLATE = subdirs
 SUBDIRS  = \
             frame \
-            plugins \
             dialogs
+
+!isEqual(DISABLE_MAIN_PAGE, YES) {
+    SUBDIRS += plugins
+}
 
 # Automating generation .qm files from .ts files
 CONFIG(release, debug|release) {
