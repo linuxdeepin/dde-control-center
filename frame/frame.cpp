@@ -422,6 +422,18 @@ void Frame::hideImmediately()
     // reset auto-hide
     m_autoHide = true;
 
+    // reset position
+    QRect r = qApp->primaryScreen()->geometry();
+
+    const QScreen *screen = screenForGeometry(r);
+    if (screen) {
+        const qreal dpr = screen->devicePixelRatio();
+        const QRect screenGeo = screen->geometry();
+        r.moveTopLeft(screenGeo.topLeft() + (r.topLeft() - screenGeo.topLeft()) / dpr);
+    }
+    r.setLeft(r.x() + r.width());
+    move(r.topLeft());
+
     DBlurEffectWidget::hide();
 
     // notify top widget disappear
