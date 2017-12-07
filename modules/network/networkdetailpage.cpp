@@ -36,6 +36,45 @@
 
 using namespace dcc::widgets;
 
+const QString compressedIpv6Addr(const QString &ipv6Adr)
+{
+    if (ipv6Adr.contains("::"))
+        return ipv6Adr;
+
+    // NOTE(sbw): Calculate longest zero sequence, ensure
+    int start = 0, len = 0;
+    int maxStart = 0, maxLen = 0;
+    const auto &sequence = ipv6Adr.split(':');
+    for (int i(0); i != sequence.size(); ++i)
+    {
+        Q_ASSERT(sequence[i].size() == 4);
+
+        if (sequence[i] == "0000")
+        {
+            len += 5;
+        } else {
+            if (len > maxLen)
+            {
+                maxStart = start;
+                maxLen = len;
+            }
+
+            start = (i + 1) * 5;
+            len = 0;
+        }
+    }
+
+    if (maxLen)
+        return QString(ipv6Adr).replace(maxStart, maxLen, ':');
+    else if (len > maxLen)
+        if (start)
+            return QString(ipv6Adr).replace(start, len, ':');
+        else
+            return QString("::");
+    else
+        return ipv6Adr;
+}
+
 namespace dcc {
 
 namespace network {
@@ -158,17 +197,17 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
                 // ipv6 address
                 const auto ip6Addr = ipv6.value("Address").toString();
                 if (!ip6Addr.isEmpty())
-                    appendInfo(grp, tr("IPv6 Address"), ip6Addr);
+                    appendInfo(grp, tr("IPv6 Address"), compressedIpv6Addr(ip6Addr));
 
                 // ipv6 gateway
                 const auto gateway = ipv6.value("Gateways").toArray();
                 if (!gateway.isEmpty())
-                    appendInfo(grp, tr("Gateway"), gateway.first().toString());
+                    appendInfo(grp, tr("Gateway"), compressedIpv6Addr(gateway.first().toString()));
 
                 // ipv6 primary dns
                 const auto ip6PrimaryDns = ipv6.value("Dnses").toArray();
                 if (!ip6PrimaryDns.isEmpty())
-                    appendInfo(grp, tr("Primary DNS"), ip6PrimaryDns.first().toString());
+                    appendInfo(grp, tr("Primary DNS"), compressedIpv6Addr(ip6PrimaryDns.first().toString()));
 
                 // ipv6 netmask
                 const auto ip6Prefix = ipv6.value("Prefix").toString();
