@@ -73,6 +73,7 @@ void MonitorsGround::setDisplayModel(DisplayModel *model)
 
         connect(pw, &MonitorProxyWidget::requestApplyMove, this, &MonitorsGround::monitorMoved);
         connect(mon, &Monitor::geometryChanged, m_refershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+        connect(model, &DisplayModel::primaryScreenChanged, pw, static_cast<void (MonitorProxyWidget::*)()>(&MonitorProxyWidget::update), Qt::QueuedConnection);
     }
 
     QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
@@ -139,6 +140,7 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
     const int y = scale * pw->y();
 
     pw->setGeometry(x + offsetX, y + offsetY, w, h);
+    pw->update();
 }
 
 void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
