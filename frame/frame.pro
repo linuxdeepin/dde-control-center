@@ -15,6 +15,10 @@ CONFIG += c++14 link_pkgconfig
 LIBS += -L../widgets
 PKGCONFIG      += dtkwidget dframeworkdbus xcb xext gsettings-qt
 
+# for gperftools
+#LIBS += -lprofiler
+#INCLUDEPATH += /usr/include/gperftools
+
 HEADERS    += \
     frame.h \
     pluginscontroller.h \

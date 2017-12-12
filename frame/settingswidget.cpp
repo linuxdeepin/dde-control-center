@@ -373,6 +373,8 @@ void SettingsWidget::showModulePage(const QString &moduleName, const QString &pa
     for (auto *inter : m_moduleInterfaces)
         if (inter->name() == moduleName)
             inter->showPage(pageName);
+
+    m_refershModuleActivableTimer->start();
 }
 
 void SettingsWidget::setModuleVisible(ModuleInterface * const inter, const bool visible)

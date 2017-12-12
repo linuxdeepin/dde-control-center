@@ -74,6 +74,8 @@ private:
     ~SettingsWidget();
 
 private:
+    int m_moduleLoadDelay;
+
     Frame *m_frame;
 
     QPushButton *m_resetBtn;
@@ -89,8 +91,6 @@ private:
     QMap<ModuleInterface *, QList<ContentWidget *>> m_moduleWidgets;
 
     QTimer *m_refershModuleActivableTimer;
-
-    int m_moduleLoadDelay;
 
     QString m_ensureVisibleModule;
     QString m_ensureVisiblePage;
