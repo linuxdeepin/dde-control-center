@@ -846,7 +846,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="175"/>
+        <location filename="../modules/display/displayworker.cpp" line="178"/>
         <source>My Settings %1</source>
         <translation>Mano nustatymai %1</translation>
     </message>
@@ -1277,30 +1277,53 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>Pelė</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Prijungus pelę, išjungti jutiklinį kilimėlį</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="56"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
         <source>TouchPad</source>
         <translation>Jutiklinis kilimėlis</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
         <source>Tap to Click</source>
         <translation>Bakstelėti, norint spustelėti</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="77"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
         <source>Mouse and Touchpad</source>
         <translation>Pelė ir jutiklinis kilimėlis</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::mouse::PalmDetectSetting</name>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
+        <source>Palm Detect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
+        <source>Minimum contact surface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
+        <source>Minimum pressure value</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
+        <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1449,74 +1472,74 @@
 <context>
     <name>dcc::network::NetworkDetailPage</name>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="53"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
         <translation>Išsamesnė tinklo informacija</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="95"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
         <source>Hotspot</source>
         <translation>Prieigos taškas</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="110"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="149"/>
         <source>Security</source>
         <translation>Saugumas</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="121"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="127"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
         <source>Band</source>
         <translation>Juosta</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
         <source>IPv4 Address</source>
         <translation>IPv4 adresas</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
         <source>Gateway</source>
         <translation>Tinklų sietuvas</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="146"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="171"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
         <source>Primary DNS</source>
         <translation>Pirminis DNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
         <source>Netmask</source>
         <translation>Tinklo kaukė</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="116"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="155"/>
         <source>Interface</source>
         <translation>Sąsaja</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="161"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
         <translation>IPv6 adresas</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="176"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Prefix</source>
         <translation>Priešdelis</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
         <source>Speed</source>
         <translation>Greitis</translation>
     </message>
@@ -1641,12 +1664,12 @@
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="50"/>
+        <location filename="../modules/network/pppoepage.cpp" line="53"/>
         <source>Create PPPoE Connection</source>
         <translation>Sukurti PPPoE ryšį</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="64"/>
+        <location filename="../modules/network/pppoepage.cpp" line="67"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1793,22 +1816,22 @@
 <context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="55"/>
+        <location filename="../modules/network/wiredpage.cpp" line="58"/>
         <source>Setting List</source>
         <translation>Nustatymų sąrašas</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="59"/>
+        <location filename="../modules/network/wiredpage.cpp" line="62"/>
         <source>Please firstly plug in the network cable</source>
         <translation>Prašome, iš pradžių, prijungti tinklo laidą</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="65"/>
+        <location filename="../modules/network/wiredpage.cpp" line="68"/>
         <source>Add Settings</source>
         <translation>Pridėti nustatymus</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="80"/>
+        <location filename="../modules/network/wiredpage.cpp" line="83"/>
         <source>Select Settings</source>
         <translation>Pasirinkti nustatymus</translation>
     </message>
@@ -2235,28 +2258,28 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
         <source>Update</source>
         <translation>Atnaujinimas</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="152"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
         <source>Checking for updates, please wait...</source>
         <translation>Tikrinami atnaujinimai, prašome palaukti...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 atsisiųsta (Spustelėkite, norėdami pristabdyti)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="183"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>%1 atsisiųsta (Spustelėkite, norėdami tęsti)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
         <source>Your system is up to date</source>
         <translation>Jūsų sistemoje yra įdiegti visi atnaujinimai</translation>
     </message>
@@ -2266,62 +2289,67 @@
         <translation>Norint tinkamai naudotis sistema ir programomis, po atnaujinimo prašome paleisti kompiuterį iš naujo</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="160"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
         <translation>Atsisiųsti ir įdiegti atnaujinimus</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="189"/>
         <source>Install updates</source>
         <translation>Įdiegti atnaujinimus</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="207"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Updating, please wait...</source>
         <translation>Atnaujinama, prašome palaukti...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="232"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="215"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Naujausia sistema įdiegta, paleiskite iš naujo, kad įsigaliotų pakeitimai</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>Aptiktas %n programų atnaujinimas</numerusform><numerusform>Aptikti %n programų atnaujinimai</numerusform><numerusform>Aptikta %n programų atnaujinimų</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Aptikta nauja sistemos laida bei %n programų atnaujinimas</numerusform><numerusform>Aptikta nauja sistemos laida bei %n programų atnaujinimai</numerusform><numerusform>Aptikta nauja sistemos laida bei %n programų atnaujinimų</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>Downloaded</source>
         <translation>Atsisiųsta</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
         <source>Download size: %1</source>
         <translation>Atsiuntimo dydis: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% atsisiųsta (Spustelėkite, norėdami pristabdyti)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>New system edition detected</source>
         <translation>Aptikta nauja sistemos laida</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="290"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="276"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Jūsų baterijos įkrova yra žemiau 50%, norėdami tęsti prijunkite prie maitinimo šaltinio</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="292"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Prašome užtikrinti, kad pakaks energijos kompiuterio paleidimui iš naujo bei neišjungti kompiuterio ir neištraukti kištuko</translation>
     </message>
@@ -2379,12 +2407,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="209"/>
+        <location filename="../modules/update/updatework.cpp" line="218"/>
         <source>Patches</source>
         <translation>Pataisos</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="210"/>
+        <location filename="../modules/update/updatework.cpp" line="219"/>
         <source>System patches.</source>
         <translation>Sistemos pataisos.</translation>
     </message>

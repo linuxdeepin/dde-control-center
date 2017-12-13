@@ -266,7 +266,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation>Incapaz de apagar, o utilizador atual está logado</translation>
+        <translation>Impossível eliminar, o utilizador atual está com a sessão iniciada</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
@@ -331,7 +331,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation>Coloque o seu dedo no gravador de impressões digitais, mova-o de baixo para cima e retire-o, depois repita os passos</translation>
+        <translation>Coloque o seu dedo no leitor de impressões digitais, mova-o de baixo para cima e retire-o, depois repita os passos</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
@@ -765,12 +765,12 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation>Turno da Noite</translation>
+        <translation>Modo Noite</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation>O tom do ecrã será ajustado automaticamente através da ajuda da descoberta da sua localização para proteger os seus olhos</translation>
+        <translation>O tom do ecrã será ajustado automaticamente através da ajuda da sua localização a fim de proteger os seus olhos</translation>
     </message>
 </context>
 <context>
@@ -846,7 +846,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="175"/>
+        <location filename="../modules/display/displayworker.cpp" line="178"/>
         <source>My Settings %1</source>
         <translation>Minhas Definições %1</translation>
     </message>
@@ -1277,30 +1277,53 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>Rato</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Desativar o touchpad ao inserir o rato</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="56"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
         <source>TouchPad</source>
         <translation>TouchPad</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
         <source>Tap to Click</source>
         <translation>Tocar para Clicar</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="77"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
         <source>Mouse and Touchpad</source>
         <translation>Rato e Touchpad</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::mouse::PalmDetectSetting</name>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
+        <source>Palm Detect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
+        <source>Minimum contact surface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
+        <source>Minimum pressure value</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
+        <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1449,74 +1472,74 @@
 <context>
     <name>dcc::network::NetworkDetailPage</name>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="53"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
         <translation>Detalhes de Rede</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="95"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
         <source>Hotspot</source>
         <translation>Hotspot</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="110"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="149"/>
         <source>Security</source>
         <translation>Segurança</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="121"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="127"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
         <source>Band</source>
         <translation>Banda</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
         <source>IPv4 Address</source>
         <translation>Endereço IPv4</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
         <source>Gateway</source>
         <translation>Gateway</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="146"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="171"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
         <source>Primary DNS</source>
         <translation>DNS Primário</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
         <source>Netmask</source>
         <translation>Máscara de Rede</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="116"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="155"/>
         <source>Interface</source>
         <translation>Interface</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="161"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
         <translation>Endereço de IPv6</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="176"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Prefix</source>
         <translation>Prefixo</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
         <source>Speed</source>
         <translation>Velocidade</translation>
     </message>
@@ -1641,12 +1664,12 @@
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="50"/>
+        <location filename="../modules/network/pppoepage.cpp" line="53"/>
         <source>Create PPPoE Connection</source>
         <translation>Criar Ligação PPPoE</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="64"/>
+        <location filename="../modules/network/pppoepage.cpp" line="67"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1793,22 +1816,22 @@
 <context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="55"/>
+        <location filename="../modules/network/wiredpage.cpp" line="58"/>
         <source>Setting List</source>
         <translation>Lista de Definições</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="59"/>
+        <location filename="../modules/network/wiredpage.cpp" line="62"/>
         <source>Please firstly plug in the network cable</source>
         <translation>Por favor ligue primeiro o cabo de rede</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="65"/>
+        <location filename="../modules/network/wiredpage.cpp" line="68"/>
         <source>Add Settings</source>
         <translation>Adicionar Definições</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="80"/>
+        <location filename="../modules/network/wiredpage.cpp" line="83"/>
         <source>Select Settings</source>
         <translation>Selecionar Definições</translation>
     </message>
@@ -1968,12 +1991,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="74"/>
         <source>Password required to wake up the monitor</source>
-        <translation>Palavra-passe necessá. para acordar monitor</translation>
+        <translation>Palavra-passe necessária para acordar monitor</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="77"/>
         <source>Password required to wake up the computer</source>
-        <translation>Palavra-passe necessá. ao acordar o computador</translation>
+        <translation>Palavra-passe necessária ao acordar o computador</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="80"/>
@@ -2070,7 +2093,7 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="109"/>
         <source>Sound Effects</source>
-        <translation>Efeitos de Som</translation>
+        <translation>Efeitos Sonoros</translation>
     </message>
 </context>
 <context>
@@ -2180,7 +2203,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="80"/>
         <location filename="../modules/update/mirroritem.cpp" line="128"/>
         <source>Timeout</source>
-        <translation>Intervalo</translation>
+        <translation>Tempo expirado</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="82"/>
@@ -2235,28 +2258,28 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
         <source>Update</source>
         <translation>Atualizar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="152"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
         <source>Checking for updates, please wait...</source>
         <translation>A verificar atualizações, por favor aguarde...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 transferido (Clique para pausar)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="183"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>%1 transferido (Clique para continuar)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
         <source>Your system is up to date</source>
         <translation>O seu sistema está atualizado</translation>
     </message>
@@ -2266,62 +2289,67 @@
         <translation>Por favor reinicie para usar devidamente o sistema e aplicações depois da atualização</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="160"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
         <translation>Transferir e instalar atualizações</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="189"/>
         <source>Install updates</source>
         <translation>Instalar atualizações</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="207"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Updating, please wait...</source>
         <translation>A atualizar, por favor aguarde...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="232"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="215"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>A versão mais recente do sistema foi instalada, reinicie para produzir efeito</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>detetada atualização para %n aplicação(ões)</numerusform><numerusform>detetadas atualizações para %n aplicação(ões)</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Detetada atualização para %n aplicação(ões) e nova edição de sistema</numerusform><numerusform>Detetadas atualizações para %n aplicação(ões) e nova edição de sistema</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>Downloaded</source>
         <translation>Descarregado</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
         <source>Download size: %1</source>
         <translation>Tamanho da transferência: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% transferido (Clique para pausar)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>New system edition detected</source>
         <translation>Detetada nova versão de sistema</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="290"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="276"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>A sua bateria está abaixo dos 50%, por favor ligue à corrente para continuar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="292"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Por favor certifique-se que tem carga suficiente para reiniciar, e não encerre nem desligue a sua máquina</translation>
     </message>
@@ -2379,12 +2407,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="209"/>
+        <location filename="../modules/update/updatework.cpp" line="218"/>
         <source>Patches</source>
         <translation>Correções</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="210"/>
+        <location filename="../modules/update/updatework.cpp" line="219"/>
         <source>System patches.</source>
         <translation>Correções de Sistema.</translation>
     </message>

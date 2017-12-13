@@ -4,7 +4,7 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Reŝarĝi</translation>
     </message>
 </context>
 <context>
@@ -12,12 +12,12 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation type="unfinished"/>
+        <translation>Konekti al aliaj aparatoj</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Klaku sur la piktogramo por ŝalti bludenton</translation>
     </message>
 </context>
 <context>
@@ -40,22 +40,22 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>Novaj propraj agordoj</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>Kopii la ekranan enhavon al unu aŭ pliaj ekranoj</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Etendi la ekranan enhavon por montri malsamajn enhavojn per malsamaj ekranoj</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Ekranaj enhavoj estas nur montritaj per %1</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
@@ -94,22 +94,22 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="135"/>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Hieraŭ</translation>
     </message>
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="144"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Antaŭ %n tago(j)</numerusform><numerusform>Antaŭ %n tago(j)</numerusform></translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="138"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Antaŭhieraŭ</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="200"/>
         <source>No system notifications</source>
-        <translation type="unfinished"/>
+        <translation>Neniu sistema sciigo</translation>
     </message>
 </context>
 <context>
@@ -117,12 +117,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Ĝisdatigoj instalitaj, restartigo estas bezonata, ĉu restartigi nun?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Bv. certiĝi pri tio ke ĉiuj datumoj estis unue konservitaj</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Restartigi</translation>
     </message>
 </context>
 <context>
@@ -145,7 +145,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation type="unfinished"/>
+        <translation>Maldekstra klako por turni kaj dekstra por eliri</translation>
     </message>
 </context>
 <context>
@@ -158,7 +158,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
         <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nuna urbo: %1</translation>
     </message>
 </context>
 <context>
@@ -166,12 +166,12 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="78"/>
         <source>Reset all settings</source>
-        <translation type="unfinished"/>
+        <translation>Restarigi ĉiujn agordojn</translation>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="123"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ĉiuj agordoj</translation>
     </message>
 </context>
 <context>
@@ -179,12 +179,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Ĝisdatigoj</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Ĝisdatigoj trovitaj, klaku por vidi</translation>
     </message>
 </context>
 <context>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>Klaki sur piktogramo por ŝalti VPR</translation>
     </message>
 </context>
 <context>
@@ -200,17 +200,17 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
-        <translation type="unfinished"/>
+        <translation>Bedaŭrinde ne estis eble akiri veteron!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
         <source>Loading weather...</source>
-        <translation type="unfinished"/>
+        <translation>Ŝarĝante veteron...</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
         <source>Just updated</source>
-        <translation type="unfinished"/>
+        <translation>Ĵus ĝisdatigita</translation>
     </message>
 </context>
 <context>
@@ -218,17 +218,17 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>Konekti al kaŝita reto</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="81"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>Klaki sur piktogramo por ŝalti vifion</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="210"/>
         <source>Wireless Card %1</source>
-        <translation type="unfinished"/>
+        <translation>Vifia karto %1</translation>
     </message>
 </context>
 <context>
@@ -236,27 +236,27 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
-        <translation type="unfinished"/>
+        <translation>Ŝanĝi avataron</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Modifi nomon</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
-        <translation type="unfinished"/>
+        <translation>Modifi pasvorton</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Aŭtomata ensaluto</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Ensaluto sen pasvorto</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -266,12 +266,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Ne eblis forigi ĝin, nuna uzulo ensalutita</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Fingrospura pasvorto</translation>
     </message>
 </context>
 <context>
@@ -279,13 +279,13 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="44"/>
         <source>Create Account</source>
-        <translation type="unfinished"/>
+        <translation>Krei konton</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="51"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Kontoj</translation>
     </message>
 </context>
 <context>
@@ -293,12 +293,12 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="106"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Bildoj</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
         <source>Password not match.</source>
-        <translation type="unfinished"/>
+        <translation>Pasvorto ne koincidas</translation>
     </message>
 </context>
 <context>
@@ -306,12 +306,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Aldoni fingrospuron</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Re-enigi</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
@@ -321,22 +321,22 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Identigante fingrospuron</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>Identigo de fingrospuro malsukcesis, metu vian fingron sur la fingroregistrilo, movu ĝi supren el la subo kaj malpremu</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>Metu vian fingron sur la figroregistrilo, movu ĝin supren el la subo kaj malpremu, tiam ripetu la paŝojn</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>Sukcese aldonita</translation>
     </message>
 </context>
 <context>
@@ -344,7 +344,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="66"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Krei</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="65"/>
@@ -361,7 +361,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="54"/>
         <location filename="../modules/accounts/createpage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Nepra</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="53"/>
@@ -371,22 +371,22 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>Ripetu pasvorton</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="85"/>
         <source>New Account</source>
-        <translation type="unfinished"/>
+        <translation>Nova konto</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="140"/>
         <source>Username can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Uzulnomo ne povas esti senenhava</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="143"/>
         <source>Password can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Pasvorto ne povas esti senenhava</translation>
     </message>
 </context>
 <context>
@@ -394,32 +394,32 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Fingrospura listo</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Fingrospura pasvorto</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Aldoni fingrospuron</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Forigi fingrospuron</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>Fingrospura pasvorto estas uzata en la sistema ensaluto, aplikaĵ-rajtigo kaj aliaj situacioj. Skanu la fingrospuron kiam la pasvorto estas bezonata.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Fingrospuro</translation>
     </message>
 </context>
 <context>
@@ -427,7 +427,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Plennomo:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -437,7 +437,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Plennomaj agordoj</translation>
     </message>
 </context>
 <context>
@@ -456,7 +456,7 @@
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Nepra</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
@@ -466,7 +466,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="59"/>
         <source>Accept</source>
-        <translation type="unfinished"/>
+        <translation>Akcepti</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="77"/>
@@ -479,12 +479,12 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Mastrumantaj rajtoj bezonataj por forigi konton</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Forigi kontan dosierujon</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -512,7 +512,7 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="61"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>Ŝaltu bludenton por trovi proksimajn aparatojn (laŭtparolilojn, klavaron, muson)</translation>
     </message>
 </context>
 <context>
@@ -547,7 +547,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Ne konektita</translation>
     </message>
 </context>
 <context>
@@ -555,7 +555,7 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation type="unfinished"/>
+        <translation>La kodo por konekti al bludenta aparato estas:</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -583,7 +583,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="63"/>
         <source>Change Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ŝanĝi horo-agordojn</translation>
     </message>
 </context>
 <context>
@@ -591,17 +591,17 @@
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="56"/>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Jaro</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="59"/>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Monato</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Tago</translation>
     </message>
 </context>
 <context>
@@ -609,7 +609,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation type="unfinished"/>
+        <translation>Aŭtomata sinkronigo</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
@@ -620,22 +620,22 @@
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="177"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Horo kaj dato</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
         <source>Change System Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Ŝanĝi sisteman horzonon</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="70"/>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Hor-agordoj</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="75"/>
         <source>Timezone List</source>
-        <translation type="unfinished"/>
+        <translation>Horzona listo</translation>
     </message>
 </context>
 <context>
@@ -643,7 +643,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Ŝanĝi horzonon</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
@@ -666,12 +666,12 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="110"/>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>Morgaŭ</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="112"/>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Hieraŭ</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="114"/>
@@ -681,12 +681,12 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="119"/>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 horojn plifrue ol loka horo</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="121"/>
         <source>%1 hours late than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 horojn plimalfrue ol loka horo</translation>
     </message>
 </context>
 <context>
@@ -743,7 +743,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>Malfermi labortablan dosieron</translation>
     </message>
 </context>
 <context>
@@ -765,12 +765,12 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Nokta reĝimo</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation type="unfinished"/>
+        <translation>La ekran-tono estos aŭtomate agordigita depende de via loko por protekti viajn okulojn</translation>
     </message>
 </context>
 <context>
@@ -778,7 +778,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Modifi</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
@@ -788,12 +788,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="48"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>Bv. ŝanĝi al tiu reĝimo antaŭ ol modifi la agordojn</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="50"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>Bv. ŝanĝi al alia reĝimo antaŭ ol forigi la agordojn</translation>
     </message>
 </context>
 <context>
@@ -801,7 +801,7 @@
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="254"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Vifia ekran-projekcio</translation>
     </message>
 </context>
 <context>
@@ -809,17 +809,17 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Ekran-skalado</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
         <source>Rotate</source>
-        <translation type="unfinished"/>
+        <translation>Turni</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="58"/>
         <source>New custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Novaj propraj agordoj</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="60"/>
@@ -834,7 +834,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="227"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Vifia ekran-projekcio</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
@@ -846,9 +846,9 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="175"/>
+        <location filename="../modules/display/displayworker.cpp" line="178"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>Miaj agordoj %1</translation>
     </message>
 </context>
 <context>
@@ -856,17 +856,17 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Trovante aparatojn, bv. atendi...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="44"/>
         <source>No available device found</source>
-        <translation type="unfinished"/>
+        <translation>Neniu trovebla aparato</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="47"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Reŝarĝi</translation>
     </message>
 </context>
 <context>
@@ -874,17 +874,17 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation type="unfinished"/>
+        <translation>Vifio estos malŝaltita dum la funkciado de la ekran-projekcio</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="55"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Reŝarĝi</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Aparata listo</translation>
     </message>
 </context>
 <context>
@@ -930,7 +930,7 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="391"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(Rekomendita)</translation>
     </message>
 </context>
 <context>
@@ -943,7 +943,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="80"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(Rekomendita)</translation>
     </message>
 </context>
 <context>
@@ -951,7 +951,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="51"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Fulmoklavoj</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="60"/>
@@ -967,7 +967,7 @@
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Nepra</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
@@ -982,12 +982,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="106"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>La fulmoklavo kaŭzas konflikton kun %1, klaku sur Aldoni por efektivigi ĉi tiun fulmoklavon tuje</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="160"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Elektu dosieron</translation>
     </message>
 </context>
 <context>
@@ -996,12 +996,12 @@
         <location filename="../modules/keyboard/customedit.cpp" line="47"/>
         <location filename="../modules/keyboard/customedit.cpp" line="94"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Fulmoklavoj</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Nepra</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="66"/>
@@ -1026,12 +1026,12 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="108"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>La fulmoklavo kaŭzas konflikton kun %1, klaku sur Aldoni por efektivigi ĉi tiun fulmoklavon tuje</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="148"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Elektu dosieron</translation>
     </message>
 </context>
 <context>
@@ -1039,12 +1039,12 @@
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Fulmoklavo</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="102"/>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Bv. enigi fulmoklavon</translation>
     </message>
 </context>
 <context>
@@ -1140,7 +1140,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Fulmoklavo</translation>
     </message>
 </context>
 <context>
@@ -1207,7 +1207,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="87"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Fulmoklavoj</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="64"/>
@@ -1277,30 +1277,53 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Malŝalti la tuŝplaton kiam al la kunligo de la muso</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="56"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
         <source>TouchPad</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
         <source>Tap to Click</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="77"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
         <source>Mouse and Touchpad</source>
         <translation>Muso kaj tuŝbloko</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::mouse::PalmDetectSetting</name>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
+        <source>Palm Detect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
+        <source>Minimum contact surface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
+        <source>Minimum pressure value</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
+        <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1352,7 +1375,7 @@
         <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="54"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Nepra</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
@@ -1430,7 +1453,7 @@
         <location filename="../modules/network/connectioneditpage.cpp" line="451"/>
         <location filename="../modules/network/connectioneditpage.cpp" line="533"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Nepra</translation>
     </message>
 </context>
 <context>
@@ -1449,74 +1472,74 @@
 <context>
     <name>dcc::network::NetworkDetailPage</name>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="53"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="95"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
         <source>Hotspot</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="110"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="149"/>
         <source>Security</source>
         <translation>Sekureco</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="121"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>MAC</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="127"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
         <source>Band</source>
         <translation>Bendo</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
         <source>IPv4 Address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
         <source>Gateway</source>
         <translation>Gateway</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="146"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="171"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
         <source>Primary DNS</source>
         <translation>Primara DNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
         <source>Netmask</source>
         <translation>Retmasko</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="116"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="155"/>
         <source>Interface</source>
         <translation>Interfaco</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="161"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="176"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Prefix</source>
         <translation>Prefikso</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
         <source>Speed</source>
         <translation type="unfinished"/>
     </message>
@@ -1641,12 +1664,12 @@
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="50"/>
+        <location filename="../modules/network/pppoepage.cpp" line="53"/>
         <source>Create PPPoE Connection</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="64"/>
+        <location filename="../modules/network/pppoepage.cpp" line="67"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1793,22 +1816,22 @@
 <context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="55"/>
+        <location filename="../modules/network/wiredpage.cpp" line="58"/>
         <source>Setting List</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="59"/>
+        <location filename="../modules/network/wiredpage.cpp" line="62"/>
         <source>Please firstly plug in the network cable</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="65"/>
+        <location filename="../modules/network/wiredpage.cpp" line="68"/>
         <source>Add Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="80"/>
+        <location filename="../modules/network/wiredpage.cpp" line="83"/>
         <source>Select Settings</source>
         <translation type="unfinished"/>
     </message>
@@ -1818,7 +1841,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="60"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>Konekti al kaŝita reto</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
@@ -2235,28 +2258,28 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
         <source>Update</source>
         <translation>Ĝisdatigi</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="152"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
         <source>Checking for updates, please wait...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="183"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
         <source>Your system is up to date</source>
         <translation>Via sistemo estas ĝisdatigita</translation>
     </message>
@@ -2266,62 +2289,67 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="160"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="189"/>
         <source>Install updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="207"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Updating, please wait...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="232"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="215"/>
         <source>The newest system installed, restart to take effect</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>%n application update(s) detected</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>Downloaded</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
         <source>Download size: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>New system edition detected</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="290"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="276"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="292"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation type="unfinished"/>
     </message>
@@ -2379,12 +2407,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="209"/>
+        <location filename="../modules/update/updatework.cpp" line="218"/>
         <source>Patches</source>
         <translation>Flikoj</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="210"/>
+        <location filename="../modules/update/updatework.cpp" line="219"/>
         <source>System patches.</source>
         <translation type="unfinished"/>
     </message>

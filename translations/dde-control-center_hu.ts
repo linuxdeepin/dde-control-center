@@ -846,7 +846,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="175"/>
+        <location filename="../modules/display/displayworker.cpp" line="178"/>
         <source>My Settings %1</source>
         <translation>Saját beállítások %1</translation>
     </message>
@@ -1277,30 +1277,53 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>Egér</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Az egér használatánál érintőpad kikapcsolása</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="56"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
         <source>TouchPad</source>
         <translation>Érintőpad</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
         <source>Tap to Click</source>
         <translation>Érintésre kattintás</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="77"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
         <source>Mouse and Touchpad</source>
         <translation>Egér és érintőtábla</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::mouse::PalmDetectSetting</name>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
+        <source>Palm Detect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
+        <source>Minimum contact surface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
+        <source>Minimum pressure value</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
+        <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1449,74 +1472,74 @@
 <context>
     <name>dcc::network::NetworkDetailPage</name>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="53"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
         <translation>Hálózati adatok</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="95"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
         <source>Hotspot</source>
         <translation>Hotspot</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="110"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="149"/>
         <source>Security</source>
         <translation>Biztonság</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="121"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>MAC</source>
         <translation>MAC cím</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="127"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
         <source>Band</source>
         <translation>Sáv</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
         <source>IPv4 Address</source>
         <translation>IPv4 cím</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
         <source>Gateway</source>
         <translation>Átjáró</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="146"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="171"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
         <source>Primary DNS</source>
         <translation>Elsődleges DNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
         <source>Netmask</source>
         <translation>Hálózati maszk</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="116"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="155"/>
         <source>Interface</source>
         <translation>Felület</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="161"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
         <translation>IPv6 cím</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="176"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Prefix</source>
         <translation>Előtag</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
         <source>Speed</source>
         <translation>Sebesség</translation>
     </message>
@@ -1641,12 +1664,12 @@
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="50"/>
+        <location filename="../modules/network/pppoepage.cpp" line="53"/>
         <source>Create PPPoE Connection</source>
         <translation>PPPoE kapcsolat létrehozása</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="64"/>
+        <location filename="../modules/network/pppoepage.cpp" line="67"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1793,22 +1816,22 @@
 <context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="55"/>
+        <location filename="../modules/network/wiredpage.cpp" line="58"/>
         <source>Setting List</source>
         <translation>Beállítások</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="59"/>
+        <location filename="../modules/network/wiredpage.cpp" line="62"/>
         <source>Please firstly plug in the network cable</source>
         <translation>Kérem először csatlakoztassa a hálózati kábelt</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="65"/>
+        <location filename="../modules/network/wiredpage.cpp" line="68"/>
         <source>Add Settings</source>
         <translation>Beállítások hozzáadása</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="80"/>
+        <location filename="../modules/network/wiredpage.cpp" line="83"/>
         <source>Select Settings</source>
         <translation>Beállítások kiválasztása</translation>
     </message>
@@ -2235,28 +2258,28 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
         <source>Update</source>
         <translation>Frissítés</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="152"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
         <source>Checking for updates, please wait...</source>
         <translation>Frissítések keresése, várjunk...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 letöltve (Kattintás a megállításhoz)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="183"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>%1 letöltve (Kattintás a folytatáshoz)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
         <source>Your system is up to date</source>
         <translation>A rendszer frissítésre került</translation>
     </message>
@@ -2266,62 +2289,67 @@
         <translation>Frissítés után újraindítás szükséges az alkalmazások és a rendszer problémamentes használatához.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="160"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
         <translation>Frissítések letöltése és telepítése</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="189"/>
         <source>Install updates</source>
         <translation>Frissítések telepítése</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="207"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Updating, please wait...</source>
         <translation>Frissítés, kérjük várjon...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="232"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="215"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>A legfrissebb rendszer telepítve, újraindítás szükséges a befejezéshez</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>%n alkalmazás frissítés elérhető</numerusform><numerusform>%n alkalmazás frissítés elérhető</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Új rendszer kiadás és %n alkalmazás frissítés elérhető</numerusform><numerusform>Új rendszer kiadás és %n alkalmazás frissítés elérhető</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>Downloaded</source>
         <translation>Letöltve</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
         <source>Download size: %1</source>
         <translation>Letöltés mérete: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% letöltve (Kattintson a megállításhoz)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>New system edition detected</source>
         <translation>Új rendszer verzió érhető el</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="290"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="276"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Az akkumulátor töltöttsége 50% alatt van, dugjuk hálózatra a készüléket.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="292"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Ellenőrizzük az akummulátor töltöttségét és ne húzzuk ki a hálózatból a dugót.</translation>
     </message>
@@ -2379,12 +2407,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="209"/>
+        <location filename="../modules/update/updatework.cpp" line="218"/>
         <source>Patches</source>
         <translation>Javítások</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="210"/>
+        <location filename="../modules/update/updatework.cpp" line="219"/>
         <source>System patches.</source>
         <translation>Rendszer javítások.</translation>
     </message>

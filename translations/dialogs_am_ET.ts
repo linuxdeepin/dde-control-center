@@ -4,12 +4,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>ማሻሻያ ተገጥሟል: እንደገና ማስጀመር ያስፈልጋል: እንደገና ላስጀምር?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>እባክዎን በ መጀመሪያ እርግጠኛ ይሁኑ ሁሉም ዳታ መቀመጡን</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>እንደገና ማስነሻ</translation>
     </message>
 </context>
 </TS>

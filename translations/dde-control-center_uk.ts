@@ -40,17 +40,17 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>Нові Користувацькі Налаштування</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>Скопіюйте вміст екрану на один або кілька екранів</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Розширюйте вміст екрану, щоб відобразити різний вміст на різних екранах</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
@@ -60,12 +60,12 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter display mode to set if you want to change the custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Увійдіть в режим відображення, щоб встановити, чи хочете ви змінити призначені для користувача налаштування</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation type="unfinished"/>
+        <translation>Натисніть, щоб увійти в модуль відображення</translation>
     </message>
 </context>
 <context>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Нічого</translation>
     </message>
 </context>
 <context>
@@ -104,7 +104,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="138"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Позавчора</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="200"/>
@@ -122,7 +122,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Переконайтеся спочатку, що всі дані були збережені</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Перезавантажити</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Змінити повне ім&apos;я</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
@@ -266,12 +266,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося видалити, поточний користувач увійшов до системи</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Пароль відбитку пальців</translation>
     </message>
 </context>
 <context>
@@ -306,12 +306,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Додати відбиток пальця</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Повторно введіть</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
@@ -321,22 +321,22 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Identifying fingerprint</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося ідентифікувати відбиток пальців, покладіть палець на реєстратор відбитків пальців, змістити його від низу до верху і розблокувати</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>Покладіть свій палець на реєстратор відбитків пальців, рухайтеся вгору і зніміть, потім повторіть кроки</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>Успішно додано</translation>
     </message>
 </context>
 <context>
@@ -394,32 +394,32 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Список відбитків пальців</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Пароль відбитку пальців</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Додати відбиток пальця</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Очистити відбиток пальців</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>Пароль для відбитка пальців використовується для входу, авторизації програм та інших сцен. Сканування ваших відбитків пальців, коли вам потрібен пароль.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Відбиток пальця</translation>
     </message>
 </context>
 <context>
@@ -427,7 +427,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Повне ім&apos;я:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -437,7 +437,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Налаштування повного імені</translation>
     </message>
 </context>
 <context>
@@ -765,12 +765,12 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Нічна зміна</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation type="unfinished"/>
+        <translation>Тон екрану буде автоматично налаштовуватися, допомагаючи з&apos;ясувати ваше місце розташування, щоб захистити очі</translation>
     </message>
 </context>
 <context>
@@ -788,12 +788,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="48"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>Перш ніж змінювати параметри, перейдіть до поточного режиму</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="50"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>Перш ніж видалити налаштування, перейдіть в інший режим</translation>
     </message>
 </context>
 <context>
@@ -801,7 +801,7 @@
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="254"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Бездротова проекція екрану</translation>
     </message>
 </context>
 <context>
@@ -809,7 +809,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Маштабування дисплею</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -819,7 +819,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="58"/>
         <source>New custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Нові користувацькі налаштування</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="60"/>
@@ -834,7 +834,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="227"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Бездротова проекція екрану</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
@@ -846,7 +846,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="175"/>
+        <location filename="../modules/display/displayworker.cpp" line="178"/>
         <source>My Settings %1</source>
         <translation>Мої налаштування %1</translation>
     </message>
@@ -856,12 +856,12 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Сканування пристроїв, будь ласка, зачекайте...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="44"/>
         <source>No available device found</source>
-        <translation type="unfinished"/>
+        <translation>Не знайдено доступного пристрою</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="47"/>
@@ -874,7 +874,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation type="unfinished"/>
+        <translation>WIFI буде відключено при включенні проекції екрана</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="55"/>
@@ -884,7 +884,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Список пристроїв</translation>
     </message>
 </context>
 <context>
@@ -982,7 +982,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="106"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Цей ярлик конфліктує з %1, натисніть «Додати», щоб негайно активувати цей ярлик</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="160"/>
@@ -1026,7 +1026,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="108"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Цей ярлик конфліктує з %1, натисніть «Додати», щоб негайно активувати цей ярлик</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="148"/>
@@ -1058,7 +1058,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>Switch Layouts (Multiple)</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="88"/>
@@ -1156,7 +1156,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="50"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Скидання ярлика</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="57"/>
@@ -1171,7 +1171,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="82"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Цей ярлик конфліктує з %1, натисніть «Замінити», щоб негайно активувати цей ярлик</translation>
     </message>
 </context>
 <context>
@@ -1277,30 +1277,53 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>Мишка</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Відключати сенсорну панель при вставці миші</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="56"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
         <source>TouchPad</source>
         <translation>Сенсорна панель</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
         <source>Tap to Click</source>
         <translation>Торкніться для Кліку</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="77"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
         <source>Mouse and Touchpad</source>
         <translation>Миша та сенсорна панель</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::mouse::PalmDetectSetting</name>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
+        <source>Palm Detect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
+        <source>Minimum contact surface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
+        <source>Minimum pressure value</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
+        <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1308,12 +1331,12 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="43"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>Контрольна точка</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="46"/>
         <source>Thinkpad Track Point</source>
-        <translation type="unfinished"/>
+        <translation>Thinkpad Track Point</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="49"/>
@@ -1336,7 +1359,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="43"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Проксі програма</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
@@ -1346,7 +1369,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP-адреса</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
@@ -1368,7 +1391,7 @@
         <location filename="../modules/network/chainsproxypage.cpp" line="58"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="62"/>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Необов&apos;язково</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
@@ -1378,7 +1401,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation type="unfinished"/>
+        <translation>Встановіть прапорець «Відкрити через проксі» контекстного меню програми в Launcher для використання після налаштування</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
@@ -1438,85 +1461,85 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation type="unfinished"/>
+        <translation>Налаштування точки доступу</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Точка доступу</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::NetworkDetailPage</name>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="53"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
         <translation>Деталі Мережі</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="95"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Точка доступу</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="110"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="149"/>
         <source>Security</source>
         <translation>Безпека</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="121"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>MAC</source>
         <translation>МАС</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="127"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
         <source>Band</source>
         <translation>Група</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
         <source>IPv4 Address</source>
         <translation>IPv4 адреса</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
         <source>Gateway</source>
         <translation>Шлюз</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="146"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="171"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
         <source>Primary DNS</source>
         <translation>ОсновнийDNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
         <source>Netmask</source>
         <translation>Маска мережі</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="116"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="155"/>
         <source>Interface</source>
         <translation>Інтерфейс</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="161"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv6 Адреса</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="176"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Prefix</source>
         <translation>Префікс</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
         <source>Speed</source>
         <translation>Швидкість</translation>
     </message>
@@ -1569,7 +1592,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Проксі програма</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
@@ -1610,7 +1633,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Точка доступу</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
@@ -1641,12 +1664,12 @@
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="50"/>
+        <location filename="../modules/network/pppoepage.cpp" line="53"/>
         <source>Create PPPoE Connection</source>
         <translation>Створити PPPoE з&apos;єднання</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="64"/>
+        <location filename="../modules/network/pppoepage.cpp" line="67"/>
         <source>PPP</source>
         <translation>Протокол PPP</translation>
     </message>
@@ -1709,7 +1732,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="115"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>Ігнорувати конфігурації проксі для зазначених вище вузлів і доменів</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="118"/>
@@ -1737,7 +1760,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>Імпортувати VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="100"/>
@@ -1747,7 +1770,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>Помилка імпорту</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="263"/>
@@ -1777,7 +1800,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="300"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="303"/>
@@ -1793,24 +1816,24 @@
 <context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="55"/>
+        <location filename="../modules/network/wiredpage.cpp" line="58"/>
         <source>Setting List</source>
-        <translation type="unfinished"/>
+        <translation>Список налаштувань</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="59"/>
+        <location filename="../modules/network/wiredpage.cpp" line="62"/>
         <source>Please firstly plug in the network cable</source>
-        <translation type="unfinished"/>
+        <translation>По-перше, підключіть мережний кабель</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="65"/>
+        <location filename="../modules/network/wiredpage.cpp" line="68"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>Додати налаштування</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="80"/>
+        <location filename="../modules/network/wiredpage.cpp" line="83"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>Обрати Налаштування</translation>
     </message>
 </context>
 <context>
@@ -1823,12 +1846,12 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Закрити точку доступу</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка, спочатку скасуйте доступ до мережі, якщо ви хочете підключитися та використовувати функцію бездротової мережі</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
@@ -1854,7 +1877,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Моноширинний шрифт</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="88"/>
@@ -1889,7 +1912,7 @@
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="122"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Моноширинний шрифт</translation>
     </message>
 </context>
 <context>
@@ -1897,7 +1920,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="53"/>
         <source>Enable window effect</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути ефект вікна</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="55"/>
@@ -1978,7 +2001,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="80"/>
         <source>Suspend on lid close</source>
-        <translation type="unfinished"/>
+        <translation>Suspend on lid close</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
@@ -2093,7 +2116,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="76"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation type="unfinished"/>
+        <translation>Завантажувальний образ можна замінити, перетягнувши його на нього, і порядок завантаження можна змінити, перетягнувши виділення</translation>
     </message>
 </context>
 <context>
@@ -2130,7 +2153,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="119"/>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>Ліцензія на випуск</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
@@ -2174,7 +2197,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="37"/>
         <location filename="../modules/update/mirroritem.cpp" line="132"/>
         <source>Untested</source>
-        <translation type="unfinished"/>
+        <translation>Неперевірено</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="80"/>
@@ -2206,7 +2229,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>Тест швидкості</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="46"/>
@@ -2216,7 +2239,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="135"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>Повторне тестування</translation>
     </message>
 </context>
 <context>
@@ -2224,106 +2247,111 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="62"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>Успішно оновлено!</translation>
     </message>
     <message>
         <location filename="../modules/update/resultitem.cpp" line="63"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося оновити.</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
         <source>Update</source>
         <translation>Оновити</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="152"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
         <source>Checking for updates, please wait...</source>
         <translation>Перевірка оновлень, будь ласка зачекайте...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 завантажено(Клік для паузи)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="183"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>%1 завантажено(Клік для продовження)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
         <source>Your system is up to date</source>
         <translation>Ваша система оновлена</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="51"/>
         <source>Please restart to use the system and applications properly after updated</source>
+        <translation>Будь ласка, перезавантажте, щоб правильно використовувати систему та програми після оновлення</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
+        <source>Network disconnected, please retry after connected</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="160"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>Завантажити та встановіть оновлення</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="189"/>
         <source>Install updates</source>
-        <translation type="unfinished"/>
+        <translation>Встановити оновлення</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="207"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Оновлення, будь ласка, зачекайте...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="232"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="215"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Найновіша система встановлена, перезавантажити, щоб зміни вступити в силу</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n application update(s) detected</numerusform><numerusform>%n application update(s) detected</numerusform><numerusform>%n оновлення програм(и) виявлено</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Нова версія системи і %1 додатків оновлень знайдено</numerusform><numerusform>Нова версія системи і %n оновлення програм(и) виявлено</numerusform><numerusform>Нова версія системи і %n оновлення програм(и) виявлено</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>Downloaded</source>
         <translation>Завантажено</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Розмір завантаження: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1% завантажено(Клік для паузи)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>New system edition detected</source>
-        <translation type="unfinished"/>
+        <translation>Виявлена нова системна версія</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="290"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="276"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Рівень заряду менше 50%, будь ласка підключіть зарядний пристрій для продовження</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="292"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"/>
+        <translation>Переконайтеся, що живлення достатно для перезавантаження  і не вимикайте та не відключайте П-К</translation>
     </message>
 </context>
 <context>
@@ -2344,7 +2372,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="55"/>
         <source>Auto clear package cache</source>
-        <translation type="unfinished"/>
+        <translation>Авто-очистити кеш-пам&apos;ять пакету</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="58"/>
@@ -2379,12 +2407,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="209"/>
+        <location filename="../modules/update/updatework.cpp" line="218"/>
         <source>Patches</source>
         <translation>Виправлення</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="210"/>
+        <location filename="../modules/update/updatework.cpp" line="219"/>
         <source>System patches.</source>
         <translation>Системні Виправлення</translation>
     </message>
@@ -2394,7 +2422,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Перо</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
@@ -2407,7 +2435,7 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitive</source>
-        <translation type="unfinished"/>
+        <translation>Чутливий до натиску</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="52"/>
@@ -2441,7 +2469,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Перо</translation>
     </message>
 </context>
 <context>

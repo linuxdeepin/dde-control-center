@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Không</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Sửa đổi Tên đầy đủ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
@@ -256,7 +256,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Đăng nhập không cần mật mã</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -266,12 +266,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Không thể xóa, người dùng hiện tại đã đăng nhập</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Mật mã Dấu vân tay</translation>
     </message>
 </context>
 <context>
@@ -306,12 +306,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Thêm Dấu vân tay</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Nhập lại</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
@@ -321,22 +321,22 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Đang xác nhận dấu vân tay</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>Xác nhận dấu vân tay thất bại, hãy đặt ngón tay của bạn lên máy đọc dấu vân tay, di chuyển lên từ dưới và giơ ra</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>Hãy đặt ngón tay của bạn lên máy đọc dấu vân tay, di chuyển lên từ dưới và giơ ra, sau đó lặp lại các bước</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>Thêm thành công</translation>
     </message>
 </context>
 <context>
@@ -394,32 +394,32 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Danh sách Dấu vân tay</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Mật mã Dấu tay</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Thêm Dấu vân tay</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Xóa Dấu vân tay</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>Mật mã dấu vân tay được sử dụng trong đăng nhập hệ thống, ủy quyền ứng dụng và những bối cảnh khác. Quét dấu vân tay khi cần có mật mã.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Dấu vân tay</translation>
     </message>
 </context>
 <context>
@@ -846,7 +846,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="175"/>
+        <location filename="../modules/display/displayworker.cpp" line="178"/>
         <source>My Settings %1</source>
         <translation>Những thiết lập của tôi %1</translation>
     </message>
@@ -1277,30 +1277,53 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>Chuột</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Vô hiệu hóa miếng cảm ứng khi gắn chuột vào</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="56"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
         <source>TouchPad</source>
         <translation>Bản Cảm ứng</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
         <source>Tap to Click</source>
         <translation>Chạm vào để Nhấn</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="77"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
         <source>Mouse and Touchpad</source>
         <translation>Chuột và Miếng cảm ứng</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::mouse::PalmDetectSetting</name>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
+        <source>Palm Detect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
+        <source>Minimum contact surface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
+        <source>Minimum pressure value</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
+        <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1449,74 +1472,74 @@
 <context>
     <name>dcc::network::NetworkDetailPage</name>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="53"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
         <translation>Chi tiết mạng</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="95"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
         <source>Hotspot</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="110"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="149"/>
         <source>Security</source>
         <translation>Bảo mật</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="121"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="127"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
         <source>Band</source>
         <translation>Băng tần</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
         <source>IPv4 Address</source>
         <translation>Địa chỉ IPv4</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
         <source>Gateway</source>
         <translation>Cổng vào</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="146"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="171"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
         <source>Primary DNS</source>
         <translation>DNS Đầu</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
         <source>Netmask</source>
         <translation>Mặt nạ mạng</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="116"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="155"/>
         <source>Interface</source>
         <translation>Giao diện</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="161"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="176"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Prefix</source>
         <translation>Tiền tố</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
         <source>Speed</source>
         <translation>Tốt độ</translation>
     </message>
@@ -1641,12 +1664,12 @@
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="50"/>
+        <location filename="../modules/network/pppoepage.cpp" line="53"/>
         <source>Create PPPoE Connection</source>
         <translation>Tạo Kết nối PPPoE</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="64"/>
+        <location filename="../modules/network/pppoepage.cpp" line="67"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1793,22 +1816,22 @@
 <context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="55"/>
+        <location filename="../modules/network/wiredpage.cpp" line="58"/>
         <source>Setting List</source>
         <translation>Danh sách Thiết lập</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="59"/>
+        <location filename="../modules/network/wiredpage.cpp" line="62"/>
         <source>Please firstly plug in the network cable</source>
         <translation>Đầu tiên xin hãy gắn dây cáp mạng vào</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="65"/>
+        <location filename="../modules/network/wiredpage.cpp" line="68"/>
         <source>Add Settings</source>
         <translation>Thêm thiết lập</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="80"/>
+        <location filename="../modules/network/wiredpage.cpp" line="83"/>
         <source>Select Settings</source>
         <translation>Lực chọn Thiết lập</translation>
     </message>
@@ -2235,28 +2258,28 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
         <source>Update</source>
         <translation>Cập nhật</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="152"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
         <source>Checking for updates, please wait...</source>
         <translation>Đang kiểm tra cập nhật, xin hãy đợi...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>đã tải xuống %1 (Nhấn dể dừng)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="183"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>đã tải xuống %1 (Nhấn để tiếp tục)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
         <source>Your system is up to date</source>
         <translation>Hệ thống của bạn thì đã cập nhật</translation>
     </message>
@@ -2266,62 +2289,67 @@
         <translation>Xin hãy khởi động lại để sử dụng hệ thống và các ứng dụng một cách đúng đắn sau khi được cập nhật</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="160"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
         <translation>Tải xuống và cài đặt những cập nhật</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="189"/>
         <source>Install updates</source>
         <translation>Cài đặt những cập nhật</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="207"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Updating, please wait...</source>
         <translation>Đang cập nhật, xin hãy đợi...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="232"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="215"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Hệ thống mới nhất đã được cập nhật, khởi động lại để có hiệu lực</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>%n cập nhật() ứng dụng được phát hiện</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Phiên bản hệ thống mới và %n cập nhật() ứng dụng được phát hiện</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>Downloaded</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
         <source>Download size: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% đã được tải xuống (Nhấn chuột để tạm dừng)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>New system edition detected</source>
         <translation>Phiên bản hệ thống mới được phát hiện</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="290"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="276"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Pin của bạn thấp hơn 50%, xin hãy cắm điện vào để tiếp tục</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="292"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Xin hãy bảo đảm đủ năng lượng để khởi động lại, và không tắt điện hay rút dây máy của bạn</translation>
     </message>
@@ -2379,12 +2407,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="209"/>
+        <location filename="../modules/update/updatework.cpp" line="218"/>
         <source>Patches</source>
         <translation>Các bản vá</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="210"/>
+        <location filename="../modules/update/updatework.cpp" line="219"/>
         <source>System patches.</source>
         <translation>Các bản vá Hệ thống.</translation>
     </message>

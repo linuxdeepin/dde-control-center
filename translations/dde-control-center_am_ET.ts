@@ -12,12 +12,12 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation type="unfinished"/>
+        <translation>ከ ሌሎች አካሎች ጋር መገናኛ</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>ይጫኑ ምልክቱ ላይ ብሉቱዝ ለ ማስቻል</translation>
     </message>
 </context>
 <context>
@@ -40,7 +40,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>አዲስ ማስተካከያ ማሰናጃ</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation type="unfinished"/>
+        <translation>ይጫኑ ወደ ማሳያ ክፍል ለ መግባት</translation>
     </message>
 </context>
 <context>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>ምንም</translation>
     </message>
 </context>
 <context>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="206"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>መቃኛ</translation>
     </message>
 </context>
 <context>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="65"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>ሁሉንም ማጽጃ</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="135"/>
@@ -99,12 +99,12 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="144"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n ቀን(ኖች) በፊት</numerusform><numerusform>%n ቀን(ኖች) በፊት</numerusform></translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="138"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>ከ ትናንትና በፊት</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="200"/>
@@ -117,12 +117,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>ማሻሻያ ተገጥሟል: እንደገና ማስጀመር ያስፈልጋል: እንደገና ላስጀምር?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>እባክዎን በ መጀመሪያ እርግጠኛ ይሁኑ ሁሉም ዳታ መቀመጡን</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>እንደገና ማስነሻ</translation>
     </message>
 </context>
 <context>
@@ -158,7 +158,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
         <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>የ አሁኑ ከተማ: %1</translation>
     </message>
 </context>
 <context>
@@ -179,12 +179,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>ማሻሻያ</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>ማሻሻያ ተገኝቷል: ይጫኑ ለ መመልከት</translation>
     </message>
 </context>
 <context>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>ይጫኑ ምልክቱን ለ ማስቻል VPN</translation>
     </message>
 </context>
 <context>
@@ -223,7 +223,7 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="81"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>ይጫኑ ምልክቱን ለ ማስቻል ዋይፋይ</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="210"/>
@@ -241,7 +241,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>ሙሉ ስም ማሻሻያ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
@@ -256,7 +256,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>የለ መግቢያ ቃል መግቢያ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -266,12 +266,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>ማጥፋት አልተቻለም: የ አሁኑ ተጠቃሚ ገብቷል</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>የ ጣት አሻራ የ መግቢያ ቃል</translation>
     </message>
 </context>
 <context>
@@ -293,7 +293,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="106"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>ምስሎች</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
@@ -306,12 +306,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>የ ጣት አሻራ መጨመሪያ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>እንደገና-ማስገቢያ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
@@ -321,22 +321,22 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>የ ጣት አሻራ መለያ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>የ ጣት አሻራውን መለየት አልተቻለም: እባክዎን የ እርስዎን ጣት በ ጣት አሻራ መቅረጫ ላይ ያድርጉ: እና ወደ ላይ ያንቀሳቅሱ ከ ታች ጀምረው እና ይልቀቁት</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>የ ጣት አሻራውን መለየት አልተቻለም: እባክዎን የ እርስዎን ጣት በ ጣት አሻራ መቅረጫ ላይ ያድርጉ: እና ወደ ላይ ያንቀሳቅሱ ከ ታች ጀምረው እና ይልቀቁት እና ደረጃውን ይደጋግሙ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>ተሳክቶ ተጨምሯል</translation>
     </message>
 </context>
 <context>
@@ -381,7 +381,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="140"/>
         <source>Username can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>የ ተጠቃሚ ስም ባዶ መሆን የለበትም</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="143"/>
@@ -394,22 +394,22 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>የ ጣት አሻራ ዝርዝር</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>የ ጣት አሻራ የ መግቢያ ቃል</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>የ ጣት አሻራ መጨመሪያ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>የ ጣት አሻራ ማጽጃ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
@@ -419,7 +419,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>የ ጣት አሻራ</translation>
     </message>
 </context>
 <context>
@@ -427,7 +427,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>ሙሉ ስም:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -437,7 +437,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>ሙሉ ስም ማሰናጃ</translation>
     </message>
 </context>
 <context>
@@ -479,7 +479,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>መግለጫ ለ ማጥፋት የ አስተዳዳሪ ፍቃድ ያስፈልጋል</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
@@ -547,7 +547,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>አልተገናኘም</translation>
     </message>
 </context>
 <context>
@@ -555,7 +555,7 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>ፒን ከ ብሉቱዝ አካል ግሃር ለ መገናኘት</translation>
+        <translation>ፒን ከ ብሉቱዝ አካል ጋር ለ መገናኘት:</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -643,7 +643,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>የ ሰአት ክልል መቀየሪያ</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
@@ -778,7 +778,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>ማሻሻያ</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
@@ -788,12 +788,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="48"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>እባክዎን ወደ አሁኑ ሁኔታ ይቀይሩ ማሰናጃውን ከ መቀየርዎት በፊት</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="50"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>እባክዎን ወደ ሌላ ሁኔታ ይቀይሩ ማሰናጃውን ከ ማጥፋትዎ በፊት</translation>
     </message>
 </context>
 <context>
@@ -801,7 +801,7 @@
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="254"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>ሽቦ አልባ የ መመልከቻ ማሳያ</translation>
     </message>
 </context>
 <context>
@@ -809,7 +809,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>መጠን ማሳያ</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -819,7 +819,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="58"/>
         <source>New custom settings</source>
-        <translation type="unfinished"/>
+        <translation>አዲስ ማስተካከያ ማሰናጃ</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="60"/>
@@ -834,7 +834,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="227"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>ሽቦ አልባ የ መመልከቻ ማሳያ</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
@@ -846,9 +846,9 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="175"/>
+        <location filename="../modules/display/displayworker.cpp" line="178"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>የ እኔ ማሰናጃ %1</translation>
     </message>
 </context>
 <context>
@@ -856,12 +856,12 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>እባክዎን ይቆዩ: አካሎችን በ ማሰስ ላይ ነው...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="44"/>
         <source>No available device found</source>
-        <translation type="unfinished"/>
+        <translation>ምንም ዝግጁ አካል አልተገኘም</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="47"/>
@@ -874,7 +874,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation type="unfinished"/>
+        <translation>ዋይ-ፋይ ይቋረጣል የ መመልከቻ ማሳያ በሚያስችሉ ጊዜ</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="55"/>
@@ -884,7 +884,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>የ አካል ዝርዝር</translation>
     </message>
 </context>
 <context>
@@ -1044,7 +1044,7 @@
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="102"/>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"/>
+        <translation>እባክዎን አቋራጭ ያስገቡ</translation>
     </message>
 </context>
 <context>
@@ -1058,7 +1058,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>እቅድ መቀየሪያ (ወደ በርካታ)</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="88"/>
@@ -1156,7 +1156,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="50"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>እባክዎን አቋራጭ እንደ ነበር ይመልሱ  </translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="57"/>
@@ -1277,30 +1277,53 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>አይጥ</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>ተችፓድ ማሰናከያ አይጥ በሚኖር ጊዜ</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="56"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
         <source>TouchPad</source>
         <translation>ተችፓድ</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
         <source>Tap to Click</source>
         <translation>መታ ያድርጉ ለ መጫን</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="77"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
         <source>Mouse and Touchpad</source>
         <translation>አይጥ እና ተችፓድ</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::mouse::PalmDetectSetting</name>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
+        <source>Palm Detect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
+        <source>Minimum contact surface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
+        <source>Minimum pressure value</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
+        <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1336,7 +1359,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="43"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>የ መተግበሪያ ወኪል</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
@@ -1346,7 +1369,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP address</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
@@ -1438,85 +1461,85 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation type="unfinished"/>
+        <translation>ትኩስ ቦታ ማሰናጃ</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>ትኩስ ቦታ</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::NetworkDetailPage</name>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="53"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
         <translation>የ ኔትዎርክ ዝርዝር</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="95"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>ትኩስ ቦታ</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="100"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="110"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="149"/>
         <source>Security</source>
         <translation>ደህንነት</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="121"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="127"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
         <source>Band</source>
         <translation>ባንድ</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
         <source>IPv4 Address</source>
         <translation>IPv4 Address</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
         <source>Gateway</source>
         <translation>Gateway</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="146"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="171"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
         <source>Primary DNS</source>
         <translation>Primary DNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
         <source>Netmask</source>
         <translation>Netmask</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="116"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="155"/>
         <source>Interface</source>
         <translation>ገጽታ</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="161"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv6 Address</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="176"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Prefix</source>
         <translation>መነሻ</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
         <source>Speed</source>
         <translation>ፍጥነት</translation>
     </message>
@@ -1536,7 +1559,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="84"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>በ ማረጋገጥ ላይ</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="86"/>
@@ -1569,7 +1592,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>የ መተግበሪያ ወኪል</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
@@ -1610,7 +1633,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>ትኩስ ቦታ</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
@@ -1641,12 +1664,12 @@
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="50"/>
+        <location filename="../modules/network/pppoepage.cpp" line="53"/>
         <source>Create PPPoE Connection</source>
         <translation>የ PPPoE ግንኙነት መፍጠሪያ</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="64"/>
+        <location filename="../modules/network/pppoepage.cpp" line="67"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1737,7 +1760,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN ማምጫ</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="100"/>
@@ -1747,7 +1770,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>ስህተት ማምጫ</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="263"/>
@@ -1793,24 +1816,24 @@
 <context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="55"/>
+        <location filename="../modules/network/wiredpage.cpp" line="58"/>
         <source>Setting List</source>
-        <translation type="unfinished"/>
+        <translation>የ ማሰናጃ ዝርዝር</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="59"/>
+        <location filename="../modules/network/wiredpage.cpp" line="62"/>
         <source>Please firstly plug in the network cable</source>
-        <translation type="unfinished"/>
+        <translation>እባክዎን በ መጀመሪያ የ ኔትዎርክ ገመድ ይሰኩ</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="65"/>
+        <location filename="../modules/network/wiredpage.cpp" line="68"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>ማሰናጃ መጨመሪያ</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="80"/>
+        <location filename="../modules/network/wiredpage.cpp" line="83"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>ማሰናጃ ይምረጡ</translation>
     </message>
 </context>
 <context>
@@ -1823,7 +1846,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation type="unfinished"/>
+        <translation>ትኩስ ቦታ መዝጊያ</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
@@ -1897,7 +1920,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="53"/>
         <source>Enable window effect</source>
-        <translation type="unfinished"/>
+        <translation>የ መስኮት ውጤት ማስቻያ</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="55"/>
@@ -2130,7 +2153,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="119"/>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>የ ፍቃድ እትም</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
@@ -2174,7 +2197,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="37"/>
         <location filename="../modules/update/mirroritem.cpp" line="132"/>
         <source>Untested</source>
-        <translation type="unfinished"/>
+        <translation>ያልተሞከረ</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="80"/>
@@ -2206,7 +2229,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>ፍጥነት መለኪያ</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="46"/>
@@ -2216,7 +2239,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="135"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>እንደገና መሞከሪያ</translation>
     </message>
 </context>
 <context>
@@ -2224,39 +2247,39 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="62"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>ተሳክቶ ተሻሽሏል </translation>
     </message>
     <message>
         <location filename="../modules/update/resultitem.cpp" line="63"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>ማሻሻል አልተቻለም</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
         <source>Update</source>
         <translation>ማሻሻያ</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="152"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
         <source>Checking for updates, please wait...</source>
         <translation>ማሻሻያ በ መመርመር ላይ: እባክዎን ይቆዩ...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="171"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 ወርዷል (ይጫኑ ለማስቆም)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="183"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>%1 ወርዷል (ይጫኑ ለ መቀጠል)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
         <source>Your system is up to date</source>
         <translation>የ እርስዎ ስርአት ዘመናዊ ነው</translation>
     </message>
@@ -2266,62 +2289,67 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="160"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>ማሻሻያ ማወረጃ እና መግጠሚያ</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="188"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="189"/>
         <source>Install updates</source>
-        <translation type="unfinished"/>
+        <translation>ማሻሻያ መግጠሚያ</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="207"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>እባክዎን ይቆዩ በ ማሻሻል ላይ ነው...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="232"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="215"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>አዲሱ ስርአት ተገጥሟል: እንደገና ያስነሱ ተግባራዊ እንዲሆን</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>አዲስ የ ስርአት እትም እና %n የ መተግባሪያ ማሻሻያ(ዎች) ተገኝቷል </numerusform><numerusform>አዲስ የ ስርአት እትም እና %n የ መተግባሪያ ማሻሻያ(ዎች) ተገኝቷል </numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform> አዲስ የ ስርአት እትም እና %n የ መተግባሪያ ማሻሻያ(ዎች) ተገኝቷል</numerusform><numerusform>አዲስ የ ስርአት እትም እና %n የ መተግባሪያ ማሻሻያ(ዎች) ተገኝቷል </numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>Downloaded</source>
         <translation>ወርዷል</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>የሚወርደው መጠን: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1 ወርዷል (ይጫኑ ለማስቆም)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
         <source>New system edition detected</source>
-        <translation type="unfinished"/>
+        <translation>አዲስ የ ስርአት እትም ተገኝቷል</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="290"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="276"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>የ እርስዎ ባትሪ ከ 50%, በታች ነው: እባክዎን ለ መሙላት ይሰኩት</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="292"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>እባክዎን እርግጠኛ ይሁኑ እንደገና ማስነሻ በቂ ሀይልክ እንዳለ: ወይንም የ ኮምፒዩተሩን ሀይል አይንቀሉ</translation>
     </message>
@@ -2344,7 +2372,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="55"/>
         <source>Auto clear package cache</source>
-        <translation type="unfinished"/>
+        <translation>በራሱ የ ጥቅል cache ማጽጃ</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="58"/>
@@ -2379,12 +2407,12 @@
 <context>
     <name>dcc::update::UpdateWork</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="209"/>
+        <location filename="../modules/update/updatework.cpp" line="218"/>
         <source>Patches</source>
         <translation>መጠገኛ</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="210"/>
+        <location filename="../modules/update/updatework.cpp" line="219"/>
         <source>System patches.</source>
         <translation>የ ስርአት መጠገኛ:</translation>
     </message>
@@ -2394,7 +2422,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>ብዕር</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
@@ -2441,7 +2469,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>ብዕር</translation>
     </message>
 </context>
 <context>
