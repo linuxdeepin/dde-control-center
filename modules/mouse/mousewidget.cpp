@@ -35,6 +35,8 @@
 #include "mouse/model/mousemodelmousesettings.h"
 #include "widget/palmdetectsetting.h"
 
+#include "widget/doutestwidget.h"
+
 #include <QPushButton>
 #include <QDebug>
 
@@ -84,9 +86,39 @@ MouseWidget::MouseWidget()
     setTitle(tr("Mouse and Touchpad"));
 
     m_baseSettingsGrp = new SettingsGroup;
-    m_mouseSettingsGrp = new SettingsGroup;
-    m_touchSettingsGrp = new SettingsGroup;
-    m_ThinkapdSettingsGrp = new SettingsGroup;
+    m_mouseSettingsGrp = new SettingsGroup(tr("Mouse"));
+    m_touchSettingsGrp = new SettingsGroup(tr("TouchPad"));
+    m_ThinkapdSettingsGrp = new SettingsGroup(tr("TrackPoint"));
+
+    m_leftHand = new SwitchWidget(tr("Left Hand"));
+    m_disInTyping = new SwitchWidget(tr("Disable the touchpad while typing"));
+    m_doubleSlider = new TitledSliderItem(tr("Double-click Speed"));
+    m_doubleTest = new DouTestWidget;
+
+    m_mouseMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
+    m_disTchStn = new SwitchWidget(tr("Disable the touchpad when inserting the mouse"));
+    m_mouseNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
+
+    m_touchMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
+    m_touchClickStn = new SwitchWidget(tr("Tap to Click"));
+    m_touchNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
+
+    m_trackMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
+
+    m_baseSettingsGrp->appendItem(m_leftHand);
+    m_baseSettingsGrp->appendItem(m_disInTyping);
+    m_baseSettingsGrp->appendItem(m_doubleSlider);
+    m_baseSettingsGrp->appendItem(m_doubleTest);
+
+    m_mouseSettingsGrp->appendItem(m_mouseMoveSlider);
+    m_mouseSettingsGrp->appendItem(m_disTchStn);
+    m_mouseSettingsGrp->appendItem(m_mouseNaturalScroll);
+
+    m_touchSettingsGrp->appendItem(m_touchMoveSlider);
+    m_touchSettingsGrp->appendItem(m_touchClickStn);
+    m_touchSettingsGrp->appendItem(m_touchNaturalScroll);
+
+    m_ThinkapdSettingsGrp->appendItem(m_trackMoveSlider);
 }
 
 void MouseWidget::setModel(MouseModel *const model)

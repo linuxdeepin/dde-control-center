@@ -35,6 +35,8 @@ namespace dcc
 {
 namespace widgets{
 class SettingsGroup;
+class SwitchWidget;
+class TitledSliderItem;
 }
 namespace mouse
 {
@@ -44,6 +46,7 @@ class PalmDetectSetting;
 class ThinkpadSettings;
 class MouseModel;
 class MouseModelMouseSettings;
+class DouTestWidget;
 class MouseWidget : public ModuleWidget
 {
     Q_OBJECT
@@ -79,7 +82,6 @@ private:
     BaseSettings *m_baseSettings;
     MouseSettings *m_mouseSettings;
     MouseSettings *m_touchSettings;
-    PalmDetectSetting *m_palmDetectSetting;
     ThinkpadSettings *m_ThinkapdSettings;
     MouseModelMouseSettings *m_touchpadModel;
     MouseModel *m_mouseModel;
@@ -88,6 +90,22 @@ private:
     widgets::SettingsGroup *m_touchSettingsGrp;
     widgets::SettingsGroup *m_ThinkapdSettingsGrp;
 
+    widgets::SwitchWidget *m_leftHand;
+    widgets::SwitchWidget *m_disInTyping;
+    widgets::TitledSliderItem *m_doubleSlider;
+    DouTestWidget *m_doubleTest;
+
+    widgets::TitledSliderItem *m_mouseMoveSlider;
+    widgets::SwitchWidget *m_disTchStn;
+    widgets::SwitchWidget *m_mouseNaturalScroll;
+
+    widgets::TitledSliderItem *m_touchMoveSlider;
+    widgets::SwitchWidget *m_touchClickStn;
+    widgets::SwitchWidget *m_touchNaturalScroll;
+
+    PalmDetectSetting *m_palmDetectSetting;
+
+    widgets::TitledSliderItem *m_trackMoveSlider;
 };
 }
 }
