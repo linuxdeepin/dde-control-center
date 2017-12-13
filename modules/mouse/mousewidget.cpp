@@ -82,6 +82,11 @@ MouseWidget::MouseWidget()
     connect(m_palmDetectSetting, &PalmDetectSetting::requestPressure, this, &MouseWidget::requestPressure);
 
     setTitle(tr("Mouse and Touchpad"));
+
+    m_baseSettingsGrp = new SettingsGroup;
+    m_mouseSettingsGrp = new SettingsGroup;
+    m_touchSettingsGrp = new SettingsGroup;
+    m_ThinkapdSettingsGrp = new SettingsGroup;
 }
 
 void MouseWidget::setModel(MouseModel *const model)
@@ -112,6 +117,7 @@ void MouseWidget::onTouchpadVisibleChanged(const bool visible)
 {
     m_baseSettings->setIsTypingVisible(visible);
     m_mouseSettings->setSwitchVisible(visible);
+    m_touchSettingsGrp->setVisible(visible);
 }
 
 void MouseWidget::onTouchpadHideChanged(const bool visible)
@@ -126,4 +132,9 @@ void MouseWidget::onTouchpadHideChanged(const bool visible)
 
     m_touchSettings->setVisible(m_touchpadModel->getExist());
 
+}
+
+void MouseWidget::onThinkapdVisibleChanged(const bool visible)
+{
+    m_ThinkapdSettingsGrp->setVisible(visible);
 }

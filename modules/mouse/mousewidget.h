@@ -72,6 +72,8 @@ private slots:
     void onTouchpadVisibleChanged(const bool visible);
     void onTouchpadHideChanged(const bool visiable);
 
+    void onThinkapdVisibleChanged(const bool visible);
+
 private:
     QPushButton *m_nextPage;
     BaseSettings *m_baseSettings;
@@ -81,6 +83,10 @@ private:
     ThinkpadSettings *m_ThinkapdSettings;
     MouseModelMouseSettings *m_touchpadModel;
     MouseModel *m_mouseModel;
+    widgets::SettingsGroup *m_baseSettingsGrp;
+    widgets::SettingsGroup *m_mouseSettingsGrp;
+    widgets::SettingsGroup *m_touchSettingsGrp;
+    widgets::SettingsGroup *m_ThinkapdSettingsGrp;
 
 };
 }
