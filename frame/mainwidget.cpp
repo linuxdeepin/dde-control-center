@@ -148,6 +148,7 @@ MainWidget::MainWidget(Frame *parent)
 
     m_pluginWidget = new TranslucentFrame;
     m_pluginWidget->setLayout(pluginWidgetLayout);
+    m_indicatorWidget->setVisible(false);
 
 #ifndef DISABLE_SYS_UPDATE
     m_updateNotifier->setObjectName("UpdateNotifier");
@@ -215,6 +216,8 @@ void MainWidget::pluginAdded(QWidget * const w)
     w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     const int idx = m_pluginsLayout->addWidget(w);
     m_pluginsLayout->setCurrentIndex(idx);
+    m_indicatorWidget->setVisible(true);
+    m_indicatorWidget->setPageCount(m_pluginsLayout->count());
 }
 
 void MainWidget::showNextPlugin()

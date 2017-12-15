@@ -38,6 +38,9 @@ class IndicatorWidget : public QWidget
 public:
     explicit IndicatorWidget(QWidget *parent = 0);
 
+    void setPageCount(const int count) { m_pluginsIndicator->setPageCount(count); }
+    void setCurrentPage(const int page) { m_pluginsIndicator->setCurrentPage(page); }
+
 signals:
     void requestPrevious();
     void requestNext();
