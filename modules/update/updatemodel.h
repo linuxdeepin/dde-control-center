@@ -89,6 +89,9 @@ public:
     bool autoCleanCache() const;
     void setAutoCleanCache(bool autoCleanCache);
 
+    double updateProgress() const;
+    void setUpdateProgress(double updateProgress);
+
 signals:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
@@ -99,7 +102,7 @@ signals:
     void mirrorSpeedInfoAvaiable(const QMap<QString, int> &mirrorSpeedInfo);
 
     void downloadInfoChanged(DownloadInfo *downloadInfo);
-
+    void updateProgressChanged(const double &updateProgress);
     void upgradeProgressChanged(const double &upgradeProgress);
     void autoCleanCacheChanged(const bool autoCleanCache);
 
@@ -107,6 +110,7 @@ private:
     UpdatesStatus m_status;
     DownloadInfo *m_downloadInfo;
 
+    double m_updateProgress;
     double m_upgradeProgress;
 
     bool m_lowBattery;

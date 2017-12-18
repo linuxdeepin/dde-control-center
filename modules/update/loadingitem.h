@@ -27,6 +27,7 @@
 #define LOADINGITEM_H
 
 #include "settingsitem.h"
+#include <QProgressBar>
 
 namespace dcc {
 namespace widgets {
@@ -44,13 +45,13 @@ class LoadingItem : public dcc::widgets::SettingsItem
 
 public:
     explicit LoadingItem(QFrame* parent = 0);
-
-    void setIndicatorVisible(bool visible);
+    void setProgressValue(int value);
+    void setProgressBarVisible(bool visible);
     void setMessage(const QString& message);
 
 private:
     dcc::widgets::NormalLabel* m_messageLabel;
-    dcc::widgets::LoadingIndicator* m_indicator;
+    QProgressBar *m_progress;
 };
 
 } // namespace widgets

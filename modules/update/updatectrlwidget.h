@@ -71,6 +71,7 @@ private:
     void setDownloadInfo(DownloadInfo *downloadInfo);
     void setProgressValue(const double value);
     void setLowBattery(const bool &lowBattery);
+    void setUpdateProgress(const double value);
 
 private:
     UpdateModel *m_model;

@@ -26,9 +26,7 @@
 #include "loadingitem.h"
 
 #include <QVBoxLayout>
-#include <QTimer>
 
-#include "loadingindicator.h"
 #include "labels/normallabel.h"
 
 using namespace dcc::widgets;
@@ -37,28 +35,36 @@ namespace dcc {
 namespace update {
 
 LoadingItem::LoadingItem(QFrame *parent)
-    : SettingsItem(parent),
-      m_messageLabel(new NormalLabel),
-      m_indicator(new LoadingIndicator)
+    : SettingsItem(parent)
+    , m_messageLabel(new NormalLabel)
+    , m_progress(new QProgressBar(this))
 {
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
-    layout->setSpacing(0);
+    layout->setSpacing(10);
+
+    m_progress->setRange(0, 100);
+    m_progress->setFixedWidth(200);
+    m_progress->setFixedHeight(7);
+    m_progress->setTextVisible(false);
 
     layout->addStretch();
-    layout->addWidget(m_indicator, 0, Qt::AlignHCenter);
+    layout->addWidget(m_progress, 0, Qt::AlignHCenter);
     layout->addWidget(m_messageLabel, 0, Qt::AlignHCenter);
     layout->addStretch();
 
     setLayout(layout);
     setFixedHeight(100);
-
-    QTimer::singleShot(0, m_indicator, &LoadingIndicator::play);
 }
 
-void LoadingItem::setIndicatorVisible(bool visible)
+void LoadingItem::setProgressValue(int value)
 {
-    m_indicator->setVisible(visible);
+    m_progress->setValue(value);
+}
+
+void LoadingItem::setProgressBarVisible(bool visible)
+{
+    m_progress->setVisible(visible);
 }
 
 void LoadingItem::setMessage(const QString &message)

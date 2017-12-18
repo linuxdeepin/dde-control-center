@@ -327,6 +327,9 @@ void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
         }
     });
 
+    connect(m_checkUpdateJob, &__Job::ProgressChanged, m_model, &UpdateModel::setUpdateProgress);
+
+    m_checkUpdateJob->ProgressChanged(m_checkUpdateJob->progress());
     m_checkUpdateJob->StatusChanged(m_checkUpdateJob->status());
 }
 

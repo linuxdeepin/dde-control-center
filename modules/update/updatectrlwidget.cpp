@@ -155,13 +155,13 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_reminderTip->setVisible(false);
     m_checkGroup->setVisible(false);
     m_checkUpdateItem->setVisible(false);
-    m_checkUpdateItem->setIndicatorVisible(false);
+    m_checkUpdateItem->setProgressBarVisible(false);
 
     switch (status) {
     case UpdatesStatus::Checking:
         m_checkGroup->setVisible(true);
         m_checkUpdateItem->setVisible(true);
-        m_checkUpdateItem->setIndicatorVisible(true);
+        m_checkUpdateItem->setProgressBarVisible(true);
         m_checkUpdateItem->setMessage(tr("Checking for updates, please wait..."));
         break;
     case UpdatesStatus::UpdatesAvailable:
@@ -283,6 +283,11 @@ void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
     }
 }
 
+void UpdateCtrlWidget::setUpdateProgress(const double value)
+{
+    m_checkUpdateItem->setProgressValue(value * 100);
+}
+
 void UpdateCtrlWidget::setModel(UpdateModel *model)
 {
     m_model = model;
@@ -291,7 +296,9 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     connect(m_model, &UpdateModel::lowBatteryChanged, this, &UpdateCtrlWidget::setLowBattery);
     connect(m_model, &UpdateModel::downloadInfoChanged, this, &UpdateCtrlWidget::setDownloadInfo);
     connect(m_model, &UpdateModel::upgradeProgressChanged, this, &UpdateCtrlWidget::setProgressValue);
+    connect(m_model, &UpdateModel::updateProgressChanged, this, &UpdateCtrlWidget::setUpdateProgress);
 
+    setUpdateProgress(m_model->updateProgress());
     setProgressValue(m_model->upgradeProgress());
     setStatus(m_model->status());
     setLowBattery(m_model->lowBattery());

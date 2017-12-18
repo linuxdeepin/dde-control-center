@@ -187,5 +187,18 @@ void UpdateModel::setAutoCleanCache(bool autoCleanCache)
     emit autoCleanCacheChanged(autoCleanCache);
 }
 
+double UpdateModel::updateProgress() const
+{
+    return m_updateProgress;
+}
+
+void UpdateModel::setUpdateProgress(double updateProgress)
+{
+    if (m_updateProgress != updateProgress) {
+        m_updateProgress = updateProgress;
+        emit updateProgressChanged(updateProgress);
+    }
+}
+
 }
 }
