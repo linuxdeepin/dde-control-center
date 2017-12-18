@@ -66,6 +66,7 @@ signals:
     void requestDetectState(bool enable);
     void requestContact(int value);
     void requestPressure(int value);
+    void requestScrollSpeed(int speed);
 
 private slots:
     void onTouchpadHideChanged(const bool visiable);
@@ -73,6 +74,7 @@ private slots:
     void onTouchMoveSpeedChanged(int speed);
     void onRedPointMoveSpeedChanged(int speed);
     void onDoubleClickSpeedChanged(int speed);
+    void onScrollSpeedChanged(int speed);
 
 private:
     MouseModel *m_mouseModel;
@@ -87,6 +89,7 @@ private:
     DouTestWidget *m_doubleTest;
 
     widgets::TitledSliderItem *m_mouseMoveSlider;
+    widgets::TitledSliderItem *m_scrollSpeedSlider;
     widgets::SwitchWidget *m_disTchStn;
     widgets::SwitchWidget *m_mouseNaturalScroll;
 

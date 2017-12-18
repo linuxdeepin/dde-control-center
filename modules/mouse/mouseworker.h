@@ -32,12 +32,14 @@
 #include <com_deepin_daemon_inputdevice_mouse.h>
 #include <com_deepin_daemon_inputdevice_touchpad.h>
 #include <com_deepin_daemon_inputdevice_trackpoint.h>
+#include <com_deepin_daemon_inputdevices.h>
 
 #include <QObject>
 
-using com::deepin::daemon::inputdevice::Mouse;
-using com::deepin::daemon::inputdevice::TouchPad;
-using com::deepin::daemon::inputdevice::TrackPoint;
+using Mouse = com::deepin::daemon::inputdevice::Mouse;
+using TouchPad = com::deepin::daemon::inputdevice::TouchPad;
+using TrackPoint = com::deepin::daemon::inputdevice::TrackPoint;
+using InputDevices = com::deepin::daemon::InputDevices;
 
 namespace dcc {
 namespace mouse {
@@ -64,6 +66,7 @@ public slots:
     void setPalmDetect(bool palmDetect);
     void setPalmMinWidth(int palmMinWidth);
     void setPalmMinz(int palmMinz);
+    void setScrollSpeed(int speed);
 
     void onDefaultReset();
     void onLeftHandStateChanged(const bool state);
@@ -87,6 +90,7 @@ private:
     Mouse      *m_dbusMouse;
     TouchPad   *m_dbusTouchPad;
     TrackPoint *m_dbusTrackPoint;
+    InputDevices *m_dbusDevices;
     MouseModel *m_model;
 };
 }

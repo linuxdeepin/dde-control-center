@@ -51,7 +51,7 @@ public:
     void setLeftHandState(const bool state);
 
     void setDisIfTyping(const bool state);
-    inline bool getDisIfTyping()   const { return m_disIfTyping; }
+    inline bool disIfTyping()   const { return m_disIfTyping; }
 
     inline bool tpadExist() const { return m_tpadExist; }
     void setTpadExist(bool tpadExist);
@@ -92,8 +92,11 @@ public:
     inline int palmMinz() const { return m_palmMinz; }
     void setPalmMinz(int palmMinz);
 
-    bool getTapclick() const { return m_tapclick; }
+    bool tapclick() const { return m_tapclick; }
     void setTapClick(bool tapclick);
+
+    int scrollSpeed() const { return m_scrollSpeed; }
+    void setScrollSpeed(int speed);
 
 signals:
     void leftHandStateChanged(bool state);
@@ -112,6 +115,7 @@ signals:
     void palmMinWidthChanged(int palmMinWidth);
     void palmMinzChanged(int palmMinz);
     void tapClickChanged(bool tapclick);
+    void scrollSpeedChanged(int speed);
 
 private:
     MouseModelBaseSettings     *m_baseSettings;
@@ -134,6 +138,7 @@ private:
     int  m_redPointMoveSpeed;
     int  m_palmMinWidth;
     int  m_palmMinz;
+    int  m_scrollSpeed;
 };
 }
 }

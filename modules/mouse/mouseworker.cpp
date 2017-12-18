@@ -28,12 +28,13 @@ using namespace dcc;
 using namespace dcc::mouse;
 const QString Service = "com.deepin.daemon.InputDevices";
 
-MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
-    QObject(parent),
-    m_dbusMouse(new Mouse(Service, "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this)),
-    m_dbusTouchPad(new TouchPad(Service, "/com/deepin/daemon/InputDevice/TouchPad", QDBusConnection::sessionBus(), this)),
-    m_dbusTrackPoint(new TrackPoint(Service, "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this)),
-    m_model(model)
+MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
+    : QObject(parent)
+    , m_dbusMouse(new Mouse(Service, "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
+    , m_dbusTouchPad(new TouchPad(Service, "/com/deepin/daemon/InputDevice/TouchPad", QDBusConnection::sessionBus(), this))
+    , m_dbusTrackPoint(new TrackPoint(Service, "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
+    , m_dbusDevices(new InputDevices(Service, "/com/deepin/daemon/InputDevices", QDBusConnection::sessionBus(), this))
+    , m_model(model)
 {
     connect(m_dbusMouse, &Mouse::ExistChanged, m_model, &MouseModel::setMouseExist);
     connect(m_dbusMouse, &Mouse::LeftHandedChanged, this, &MouseWorker::setLeftHandState);
@@ -55,10 +56,12 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
     connect(m_dbusTrackPoint, &TrackPoint::ExistChanged, m_model, &MouseModel::setRedPointExist);
     connect(m_dbusTrackPoint, &TrackPoint::MotionAccelerationChanged, this, &MouseWorker::setTrackPointMotionAcceleration);
 
+    connect(m_dbusDevices, &InputDevices::WheelSpeedChanged, m_model, &MouseModel::setScrollSpeed);
+
     m_dbusMouse->setSync(false);
     m_dbusTouchPad->setSync(false);
     m_dbusTouchPad->setSync(false);
-
+    m_dbusDevices->setSync(false);
 }
 
 void MouseWorker::active()
@@ -97,6 +100,8 @@ void MouseWorker::init()
     m_model->setPalmDetect(m_dbusTouchPad->palmDetect());
     m_model->setPalmMinWidth(m_dbusTouchPad->palmMinWidth());
     m_model->setPalmMinz(m_dbusTouchPad->palmMinZ());
+
+    m_model->setScrollSpeed(m_dbusDevices->wheelSpeed());
 }
 
 void MouseWorker::setLeftHandState(const bool state)
@@ -162,6 +167,11 @@ void MouseWorker::setPalmMinWidth(int palmMinWidth)
 void MouseWorker::setPalmMinz(int palmMinz)
 {
     m_dbusTouchPad->setPalmMinZ(palmMinz);
+}
+
+void MouseWorker::setScrollSpeed(int speed)
+{
+    m_dbusDevices->setWheelSpeed(speed);
 }
 
 void MouseWorker::onDefaultReset()

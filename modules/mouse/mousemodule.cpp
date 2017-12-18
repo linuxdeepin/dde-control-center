@@ -79,6 +79,7 @@ ModuleWidget *MouseModule::moduleWidget()
         connect(m_mouseWidget, &MouseWidget::requestDetectState, m_worker, &MouseWorker::setPalmDetect);
         connect(m_mouseWidget, &MouseWidget::requestContact, m_worker, &MouseWorker::setPalmMinWidth);
         connect(m_mouseWidget, &MouseWidget::requestPressure, m_worker, &MouseWorker::setPalmMinz);
+        connect(m_mouseWidget, &MouseWidget::requestScrollSpeed, m_worker, &MouseWorker::setScrollSpeed);
     }
     return m_mouseWidget;
 }

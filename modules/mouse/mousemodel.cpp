@@ -31,12 +31,30 @@
 using namespace dcc;
 using namespace dcc::mouse;
 MouseModel::MouseModel(QObject *parent)
-    :QObject(parent)
+    : QObject(parent)
+    , m_leftHandState(false)
+    , m_disIfTyping(false)
+    , m_tpadExist(false)
+    , m_mouseExist(true)
+    , m_redPointExist(false)
+    , m_mouseNaturalScroll(false)
+    , m_tpadNaturalScroll(false)
+    , m_disTpad(false)
+    , m_palmDetect(false)
+    , m_tapclick(false)
+    , m_doubleSpeed(1)
+    , m_mouseMoveSpeed(1)
+    , m_tpadMoveSpeed(1)
+    , m_redPointMoveSpeed(1)
+    , m_palmMinWidth(1)
+    , m_palmMinz(100)
+    , m_scrollSpeed(1)
 {
     m_baseSettings  = new MouseModelBaseSettings(this);
     m_mouseSettings = new MouseModelMouseSettings(this);
     m_touchSettings = new MouseModelMouseSettings(this);
     m_trackSettings = new MouseModelThinkpadSettings(this);
+
 }
 
 MouseModel::~MouseModel()
@@ -222,4 +240,14 @@ void MouseModel::setTapClick(bool tapclick)
     m_tapclick = tapclick;
 
     emit tapClickChanged(tapclick);
+}
+
+void MouseModel::setScrollSpeed(int speed)
+{
+    if (m_scrollSpeed == speed)
+        return;
+
+    m_scrollSpeed = speed;
+
+    emit scrollSpeedChanged(speed);
 }

@@ -56,6 +56,7 @@ MouseWidget::MouseWidget()
     m_doubleTest = new DouTestWidget;
 
     m_mouseMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
+    m_scrollSpeedSlider = new TitledSliderItem(tr("Scroll speed"));
     m_disTchStn = new SwitchWidget(tr("Disable the touchpad when inserting the mouse"));
     m_mouseNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
 
@@ -83,8 +84,23 @@ MouseWidget::MouseWidget()
         item->setAnnotations(doublelist);
     }
 
+    DCCSlider *slider = m_scrollSpeedSlider->slider();
+    slider->setType(DCCSlider::Vernier);
+    slider->setTickPosition(QSlider::TicksBelow);
+    slider->setRange(1, 10);
+    slider->setTickInterval(1);
+    slider->setPageStep(1);
+
+    QStringList list;
+    for (int i(1); i <= 10; i++) {
+        list << QString::number(i);
+    }
+
+    m_scrollSpeedSlider->setAnnotations(list);
+
     m_baseSettingsGrp->appendItem(m_leftHand);
     m_baseSettingsGrp->appendItem(m_disInTyping);
+    m_baseSettingsGrp->appendItem(m_scrollSpeedSlider);
     m_baseSettingsGrp->appendItem(m_doubleSlider);
     m_baseSettingsGrp->appendItem(m_doubleTest);
 
@@ -121,6 +137,8 @@ MouseWidget::MouseWidget()
     connect(m_palmDetectSetting, &PalmDetectSetting::requestContact, this, &MouseWidget::requestContact);
     connect(m_palmDetectSetting, &PalmDetectSetting::requestDetectState, this, &MouseWidget::requestDetectState);
     connect(m_palmDetectSetting, &PalmDetectSetting::requestPressure, this, &MouseWidget::requestPressure);
+
+    connect(m_scrollSpeedSlider->slider(), &DCCSlider::valueChanged, this, &MouseWidget::requestScrollSpeed);
 }
 
 void MouseWidget::setModel(MouseModel *const model)
@@ -132,6 +150,8 @@ void MouseWidget::setModel(MouseModel *const model)
     connect(model, &MouseModel::mouseExistChanged, m_mouseSettingsGrp, &SettingsGroup::setVisible);
     connect(model, &MouseModel::tpadExistChanged, this, &MouseWidget::onTouchpadHideChanged);
     connect(model, &MouseModel::redPointExistChanged, m_thinkapdSettingsGrp, &SettingsGroup::setVisible);
+
+    connect(model, &MouseModel::scrollSpeedChanged, this, &MouseWidget::onScrollSpeedChanged);
 
     connect(model, &MouseModel::doubleSpeedChanged, this, &MouseWidget::onDoubleClickSpeedChanged);
     connect(model, &MouseModel::mouseMoveSpeedChanged, this, &MouseWidget::onMouseMoveSpeedChanged);
@@ -156,11 +176,12 @@ void MouseWidget::setModel(MouseModel *const model)
 
     onRedPointMoveSpeedChanged(model->redPointMoveSpeed());
     onDoubleClickSpeedChanged(model->doubleSpeed());
+    onScrollSpeedChanged(model->scrollSpeed());
 
     m_mouseNaturalScroll->setChecked(model->mouseNaturalScroll());
     m_touchNaturalScroll->setChecked(model->tpadNaturalScroll());
     m_disTchStn->setChecked(model->disTpad());
-    m_touchClickStn->setChecked(model->getTapclick());
+    m_touchClickStn->setChecked(model->tapclick());
 }
 
 void MouseWidget::onTouchpadHideChanged(const bool visible)
@@ -203,4 +224,11 @@ void MouseWidget::onDoubleClickSpeedChanged(int speed)
     m_doubleSlider->slider()->blockSignals(true);
     m_doubleSlider->slider()->setValue(speed);
     m_doubleSlider->slider()->blockSignals(false);
+}
+
+void MouseWidget::onScrollSpeedChanged(int speed)
+{
+    m_scrollSpeedSlider->slider()->blockSignals(true);
+    m_scrollSpeedSlider->slider()->setValue(speed);
+    m_scrollSpeedSlider->slider()->blockSignals(false);
 }
