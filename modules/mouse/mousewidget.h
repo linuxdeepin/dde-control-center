@@ -40,13 +40,9 @@ class TitledSliderItem;
 }
 namespace mouse
 {
-class BaseSettings;
-class MouseSettings;
-class PalmDetectSetting;
-class ThinkpadSettings;
 class MouseModel;
-class MouseModelMouseSettings;
 class DouTestWidget;
+class PalmDetectSetting;
 class MouseWidget : public ModuleWidget
 {
     Q_OBJECT
@@ -72,23 +68,18 @@ signals:
     void requestPressure(int value);
 
 private slots:
-    void onTouchpadVisibleChanged(const bool visible);
     void onTouchpadHideChanged(const bool visiable);
-
-    void onThinkapdVisibleChanged(const bool visible);
+    void onMouseMoveSpeedChanged(int speed);
+    void onTouchMoveSpeedChanged(int speed);
+    void onRedPointMoveSpeedChanged(int speed);
+    void onDoubleClickSpeedChanged(int speed);
 
 private:
-    QPushButton *m_nextPage;
-    BaseSettings *m_baseSettings;
-    MouseSettings *m_mouseSettings;
-    MouseSettings *m_touchSettings;
-    ThinkpadSettings *m_ThinkapdSettings;
-    MouseModelMouseSettings *m_touchpadModel;
     MouseModel *m_mouseModel;
     widgets::SettingsGroup *m_baseSettingsGrp;
     widgets::SettingsGroup *m_mouseSettingsGrp;
     widgets::SettingsGroup *m_touchSettingsGrp;
-    widgets::SettingsGroup *m_ThinkapdSettingsGrp;
+    widgets::SettingsGroup *m_thinkapdSettingsGrp;
 
     widgets::SwitchWidget *m_leftHand;
     widgets::SwitchWidget *m_disInTyping;

@@ -27,14 +27,9 @@
 #include "switchwidget.h"
 #include "contentwidget.h"
 #include "settingsgroup.h"
-#include "nextpagewidget.h"
-#include "widget/basesettings.h"
-#include  "widget/mousesettings.h"
-#include "widget/thinkpadsettings.h"
 #include "mousemodel.h"
-#include "mouse/model/mousemodelmousesettings.h"
 #include "widget/palmdetectsetting.h"
-
+#include "dccslider.h"
 #include "widget/doutestwidget.h"
 
 #include <QPushButton>
@@ -48,47 +43,12 @@ MouseWidget::MouseWidget()
 {
     setObjectName("Mouse");
 
-    m_baseSettings = new BaseSettings;
-    m_centralLayout->addWidget(m_baseSettings);
-
-    m_mouseSettings = new MouseSettings(tr("Mouse"));
-    m_mouseSettings->setSwitchTitle(QString(tr("Disable the touchpad when inserting the mouse")));
-    m_centralLayout->addWidget(m_mouseSettings);
-
-
-    m_touchSettings = new MouseSettings(tr("TouchPad"));
-    m_touchSettings->setSwitchTitle(QString(tr("Tap to Click")));
-    m_centralLayout->addWidget(m_touchSettings);
-
-    m_palmDetectSetting = new PalmDetectSetting;
-    m_centralLayout->addWidget(m_palmDetectSetting);
-
-    m_ThinkapdSettings = new ThinkpadSettings;
-    m_centralLayout->addWidget(m_ThinkapdSettings);
-
-    connect(m_baseSettings, &BaseSettings::requestSetLeftHand, this, &MouseWidget::requestSetLeftHand);
-    connect(m_baseSettings, &BaseSettings::requestSetDisTyping, this, &MouseWidget::requestSetDisTyping);
-    connect(m_mouseSettings, &MouseSettings::requestSetSwitch, this, &MouseWidget::requestSetDisTouchPad);
-    connect(m_touchSettings, &MouseSettings::requestSetSwitch, this, &MouseWidget::requestSetTapClick);
-
-    connect(m_baseSettings, &BaseSettings::requestSetSliderValue, this, &MouseWidget::requestSetDouClick);
-    connect(m_mouseSettings, &MouseSettings::requestSetSliderValue, this, &MouseWidget::requestSetMouseMotionAcceleration);
-    connect(m_touchSettings, &MouseSettings::requestSetSliderValue, this, &MouseWidget::requestSetTouchpadMotionAcceleration);
-    connect(m_ThinkapdSettings, &ThinkpadSettings::requestSetSliderValue, this, &MouseWidget::requestSetTrackPointMotionAcceleration);
-
-    connect(m_mouseSettings, &MouseSettings::requestSetNaturalScroll, this, &MouseWidget::requestSetMouseNaturalScroll);
-    connect(m_touchSettings, &MouseSettings::requestSetNaturalScroll, this, &MouseWidget::requestSetTouchNaturalScroll);
-
-    connect(m_palmDetectSetting, &PalmDetectSetting::requestDetectState, this, &MouseWidget::requestDetectState);
-    connect(m_palmDetectSetting, &PalmDetectSetting::requestContact, this, &MouseWidget::requestContact);
-    connect(m_palmDetectSetting, &PalmDetectSetting::requestPressure, this, &MouseWidget::requestPressure);
-
     setTitle(tr("Mouse and Touchpad"));
 
     m_baseSettingsGrp = new SettingsGroup;
     m_mouseSettingsGrp = new SettingsGroup(tr("Mouse"));
     m_touchSettingsGrp = new SettingsGroup(tr("TouchPad"));
-    m_ThinkapdSettingsGrp = new SettingsGroup(tr("TrackPoint"));
+    m_thinkapdSettingsGrp = new SettingsGroup(tr("TrackPoint"));
 
     m_leftHand = new SwitchWidget(tr("Left Hand"));
     m_disInTyping = new SwitchWidget(tr("Disable the touchpad while typing"));
@@ -105,6 +65,22 @@ MouseWidget::MouseWidget()
 
     m_trackMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
 
+    QStringList doublelist;
+    doublelist << tr("Slow") << "" << "" << "" << "" << "" << tr("Fast");
+
+    QList<TitledSliderItem*> tmpList;
+    tmpList <<  m_doubleSlider << m_mouseMoveSlider << m_touchMoveSlider << m_trackMoveSlider;
+
+    for (TitledSliderItem* item : tmpList) {
+        DCCSlider *slider = item->slider();
+        slider->setType(DCCSlider::Vernier);
+        slider->setTickPosition(QSlider::TicksBelow);
+        slider->setRange(0, 6);
+        slider->setTickInterval(1);
+        slider->setPageStep(1);
+        item->setAnnotations(doublelist);
+    }
+
     m_baseSettingsGrp->appendItem(m_leftHand);
     m_baseSettingsGrp->appendItem(m_disInTyping);
     m_baseSettingsGrp->appendItem(m_doubleSlider);
@@ -118,55 +94,102 @@ MouseWidget::MouseWidget()
     m_touchSettingsGrp->appendItem(m_touchClickStn);
     m_touchSettingsGrp->appendItem(m_touchNaturalScroll);
 
-    m_ThinkapdSettingsGrp->appendItem(m_trackMoveSlider);
+    m_thinkapdSettingsGrp->appendItem(m_trackMoveSlider);
+
+    m_centralLayout->addWidget(m_baseSettingsGrp);
+    m_centralLayout->addWidget(m_mouseSettingsGrp);
+    m_centralLayout->addWidget(m_touchSettingsGrp);
+    m_centralLayout->addWidget(m_thinkapdSettingsGrp);
+
+    connect(m_leftHand, &SwitchWidget::checkedChanged, this, &MouseWidget::requestSetLeftHand);
+    connect(m_disInTyping, &SwitchWidget::checkedChanged, this, &MouseWidget::requestSetDisTyping);
+    connect(m_disTchStn, &SwitchWidget::checkedChanged, this, &MouseWidget::requestSetDisTouchPad);
+
+    connect(m_touchClickStn, &SwitchWidget::checkedChanged, this, &MouseWidget::requestSetTapClick);
+
+    connect(m_mouseNaturalScroll, &SwitchWidget::checkedChanged, this, &MouseWidget::requestSetMouseNaturalScroll);
+    connect(m_touchNaturalScroll, &SwitchWidget::checkedChanged, this, &MouseWidget::requestSetTouchNaturalScroll);
+
+    connect(m_doubleSlider->slider(), &DCCSlider::valueChanged, this, &MouseWidget::requestSetDouClick);
+    connect(m_mouseMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseWidget::requestSetMouseMotionAcceleration);
+    connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseWidget::requestSetTouchpadMotionAcceleration);
+    connect(m_trackMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseWidget::requestSetTrackPointMotionAcceleration);
 }
 
 void MouseWidget::setModel(MouseModel *const model)
 {
     m_mouseModel = model;
 
-    m_baseSettings->setModel(model->getBaseSettings());
-    m_mouseSettings->setModel(model->getMouseSettings());
-    m_touchSettings->setModel(model->getTouchSettings());
-    m_ThinkapdSettings->setModel(model->getTrackSettings());
-    m_palmDetectSetting->setModel(model);
+    connect(model, &MouseModel::mouseExistChanged, m_mouseSettingsGrp, &SettingsGroup::setVisible);
+    connect(model, &MouseModel::tpadExistChanged, this, &MouseWidget::onTouchpadHideChanged);
+    connect(model, &MouseModel::redPointExistChanged, m_thinkapdSettingsGrp, &SettingsGroup::setVisible);
 
-    m_touchpadModel = model->getTouchSettings();
+    connect(model, &MouseModel::doubleSpeedChanged, this, &MouseWidget::onDoubleClickSpeedChanged);
+    connect(model, &MouseModel::mouseMoveSpeedChanged, this, &MouseWidget::onMouseMoveSpeedChanged);
+    connect(model, &MouseModel::tpadMoveSpeedChanged, this, &MouseWidget::onTouchMoveSpeedChanged);
+    connect(model, &MouseModel::redPointMoveSpeedChanged, this, &MouseWidget::onRedPointMoveSpeedChanged);
 
-    MouseModelMouseSettings *baseSettings = model->getTouchSettings();
-    connect(baseSettings, &MouseModelMouseSettings::existChanged, this, &MouseWidget::onTouchpadVisibleChanged);
+    connect(model, &MouseModel::mouseNaturalScrollChanged, m_mouseNaturalScroll, &SwitchWidget::setChecked);
+    connect(model, &MouseModel::tpadNaturalScrollChanged, m_touchNaturalScroll, &SwitchWidget::setChecked);
 
-    onTouchpadVisibleChanged(baseSettings->getExist());
+    connect(model, &MouseModel::disTpadChanged, m_disTchStn, &SwitchWidget::setChecked);
+    connect(model, &MouseModel::disTpadChanged, this, &MouseWidget::onTouchpadHideChanged);
 
-    MouseModelMouseSettings *mouseModel = model->getMouseSettings();
-    connect(mouseModel, &MouseModelMouseSettings::switchChanged, this, &MouseWidget::onTouchpadHideChanged);
-    connect(mouseModel, &MouseModelMouseSettings::existChanged, this, &MouseWidget::onTouchpadHideChanged);
+    connect(model, &MouseModel::disIfTypingStateChanged, m_disInTyping, &SwitchWidget::setChecked);
+    connect(model, &MouseModel::tapClickChanged, m_touchClickStn, &SwitchWidget::setChecked);
 
-    onTouchpadHideChanged(mouseModel->getSwitchState());
-}
+    m_mouseSettingsGrp->setVisible(model->mouseExist());
+    m_thinkapdSettingsGrp->setVisible(model->redPointExist());
 
-void MouseWidget::onTouchpadVisibleChanged(const bool visible)
-{
-    m_baseSettings->setIsTypingVisible(visible);
-    m_mouseSettings->setSwitchVisible(visible);
-    m_touchSettingsGrp->setVisible(visible);
+    onMouseMoveSpeedChanged(model->mouseMoveSpeed());
+    onTouchMoveSpeedChanged(model->tpadMoveSpeed());
+    onTouchpadHideChanged(model->tpadExist());
+
+    onRedPointMoveSpeedChanged(model->redPointMoveSpeed());
+    onDoubleClickSpeedChanged(model->doubleSpeed());
+
+    m_mouseNaturalScroll->setChecked(model->mouseNaturalScroll());
+    m_touchNaturalScroll->setChecked(model->tpadNaturalScroll());
+    m_disTchStn->setChecked(model->disTpad());
+    m_touchClickStn->setChecked(model->getTapclick());
 }
 
 void MouseWidget::onTouchpadHideChanged(const bool visible)
 {
     Q_UNUSED(visible);
 
-    MouseModelMouseSettings *mouseModel = m_mouseModel->getMouseSettings();
-    if (m_touchpadModel->getExist() && mouseModel->getExist()) {
-        m_touchSettings->setVisible(!mouseModel->getSwitchState());
+    if (m_mouseModel->tpadExist() && m_mouseModel->mouseExist()) {
+        m_touchSettingsGrp->setVisible(!m_mouseModel->disTpad());
         return;
     }
 
-    m_touchSettings->setVisible(m_touchpadModel->getExist());
-
+    m_touchSettingsGrp->setVisible(m_mouseModel->disTpad());
 }
 
-void MouseWidget::onThinkapdVisibleChanged(const bool visible)
+void MouseWidget::onMouseMoveSpeedChanged(int speed)
 {
-    m_ThinkapdSettingsGrp->setVisible(visible);
+    m_mouseMoveSlider->slider()->blockSignals(true);
+    m_mouseMoveSlider->slider()->setValue(speed);
+    m_mouseMoveSlider->slider()->blockSignals(false);
+}
+
+void MouseWidget::onTouchMoveSpeedChanged(int speed)
+{
+    m_touchMoveSlider->slider()->blockSignals(true);
+    m_touchMoveSlider->slider()->setValue(speed);
+    m_touchMoveSlider->slider()->blockSignals(false);
+}
+
+void MouseWidget::onRedPointMoveSpeedChanged(int speed)
+{
+    m_trackMoveSlider->slider()->blockSignals(true);
+    m_trackMoveSlider->slider()->setValue(speed);
+    m_trackMoveSlider->slider()->blockSignals(false);
+}
+
+void MouseWidget::onDoubleClickSpeedChanged(int speed)
+{
+    m_doubleSlider->slider()->blockSignals(true);
+    m_doubleSlider->slider()->setValue(speed);
+    m_doubleSlider->slider()->blockSignals(false);
 }

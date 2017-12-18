@@ -35,29 +35,25 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent) :
     m_dbusTrackPoint(new TrackPoint(Service, "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this)),
     m_model(model)
 {
+    connect(m_dbusMouse, &Mouse::ExistChanged, m_model, &MouseModel::setMouseExist);
     connect(m_dbusMouse, &Mouse::LeftHandedChanged, this, &MouseWorker::setLeftHandState);
     connect(m_dbusMouse, &Mouse::NaturalScrollChanged, this, &MouseWorker::setMouseNaturalScrollState);
+    connect(m_dbusMouse, &Mouse::DoubleClickChanged, this, &MouseWorker::setDouClick);
+    connect(m_dbusMouse, &Mouse::DisableTpadChanged, this, &MouseWorker::setDisTouchPad);
+    connect(m_dbusMouse, &Mouse::MotionAccelerationChanged, this, &MouseWorker::setMouseMotionAcceleration);
+
+    connect(m_dbusTouchPad, &TouchPad::ExistChanged, m_model, &MouseModel::setTpadExist);
     connect(m_dbusTouchPad, &TouchPad::NaturalScrollChanged, this, &MouseWorker::setTouchNaturalScrollState);
     connect(m_dbusTouchPad, &TouchPad::DisableIfTypingChanged, this, &MouseWorker::setDisTyping);
-    connect(m_dbusMouse, &Mouse::DoubleClickChanged, this, &MouseWorker::setDouClick);
     connect(m_dbusTouchPad, &TouchPad::DoubleClickChanged, this, &MouseWorker::setDouClick);
-    connect(m_dbusMouse, &Mouse::MotionAccelerationChanged, this, &MouseWorker::setMouseMotionAcceleration);
-    connect(m_dbusMouse, &Mouse::DisableTpadChanged, this, &MouseWorker::setDisTouchPad);
     connect(m_dbusTouchPad, &TouchPad::MotionAccelerationChanged, this, &MouseWorker::setTouchpadMotionAcceleration);
     connect(m_dbusTouchPad, &TouchPad::TapClickChanged, this, &MouseWorker::setTapClick);
-    connect(m_dbusTrackPoint, &TrackPoint::MotionAccelerationChanged, this, &MouseWorker::setTrackPointMotionAcceleration);
     connect(m_dbusTouchPad, &TouchPad::PalmDetectChanged, m_model, &MouseModel::setPalmDetect);
     connect(m_dbusTouchPad, &TouchPad::PalmMinWidthChanged, m_model, &MouseModel::setPalmMinWidth);
     connect(m_dbusTouchPad, &TouchPad::PalmMinZChanged, m_model, &MouseModel::setPalmMinz);
 
-    MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
-    connect(m_dbusMouse, &Mouse::ExistChanged, modelMouse, &MouseModelMouseSettings::setExist);
-
-    MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
-    connect(m_dbusTouchPad, &TouchPad::ExistChanged, modelTouch, &MouseModelMouseSettings::setExist);
-
-    MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
-    connect(m_dbusTrackPoint, &TrackPoint::ExistChanged, modelTrack, &MouseModelThinkpadSettings::setExist);
+    connect(m_dbusTrackPoint, &TrackPoint::ExistChanged, m_model, &MouseModel::setRedPointExist);
+    connect(m_dbusTrackPoint, &TrackPoint::MotionAccelerationChanged, this, &MouseWorker::setTrackPointMotionAcceleration);
 
     m_dbusMouse->setSync(false);
     m_dbusTouchPad->setSync(false);

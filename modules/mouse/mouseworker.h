@@ -33,11 +33,6 @@
 #include <com_deepin_daemon_inputdevice_touchpad.h>
 #include <com_deepin_daemon_inputdevice_trackpoint.h>
 
-#include "model/mousemodelbase.h"
-#include "model/mousemodelbasesettings.h"
-#include "model/mousemodelmousesettings.h"
-#include "model/mousemodelthinkpadsettings.h"
-
 #include <QObject>
 
 using com::deepin::daemon::inputdevice::Mouse;
