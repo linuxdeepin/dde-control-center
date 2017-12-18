@@ -63,6 +63,8 @@ MouseWidget::MouseWidget()
     m_touchClickStn = new SwitchWidget(tr("Tap to Click"));
     m_touchNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
 
+    m_palmDetectSetting = new PalmDetectSetting;
+
     m_trackMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
 
     QStringList doublelist;
@@ -99,6 +101,7 @@ MouseWidget::MouseWidget()
     m_centralLayout->addWidget(m_baseSettingsGrp);
     m_centralLayout->addWidget(m_mouseSettingsGrp);
     m_centralLayout->addWidget(m_touchSettingsGrp);
+    m_centralLayout->addWidget(m_palmDetectSetting);
     m_centralLayout->addWidget(m_thinkapdSettingsGrp);
 
     connect(m_leftHand, &SwitchWidget::checkedChanged, this, &MouseWidget::requestSetLeftHand);
@@ -114,11 +117,17 @@ MouseWidget::MouseWidget()
     connect(m_mouseMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseWidget::requestSetMouseMotionAcceleration);
     connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseWidget::requestSetTouchpadMotionAcceleration);
     connect(m_trackMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseWidget::requestSetTrackPointMotionAcceleration);
+
+    connect(m_palmDetectSetting, &PalmDetectSetting::requestContact, this, &MouseWidget::requestContact);
+    connect(m_palmDetectSetting, &PalmDetectSetting::requestDetectState, this, &MouseWidget::requestDetectState);
+    connect(m_palmDetectSetting, &PalmDetectSetting::requestPressure, this, &MouseWidget::requestPressure);
 }
 
 void MouseWidget::setModel(MouseModel *const model)
 {
     m_mouseModel = model;
+
+    m_palmDetectSetting->setModel(model);
 
     connect(model, &MouseModel::mouseExistChanged, m_mouseSettingsGrp, &SettingsGroup::setVisible);
     connect(model, &MouseModel::tpadExistChanged, this, &MouseWidget::onTouchpadHideChanged);
@@ -160,10 +169,12 @@ void MouseWidget::onTouchpadHideChanged(const bool visible)
 
     if (m_mouseModel->tpadExist() && m_mouseModel->mouseExist()) {
         m_touchSettingsGrp->setVisible(!m_mouseModel->disTpad());
+        m_palmDetectSetting->setVisible(!m_mouseModel->disTpad());
         return;
     }
 
     m_touchSettingsGrp->setVisible(m_mouseModel->disTpad());
+    m_palmDetectSetting->setVisible(m_mouseModel->disTpad());
 }
 
 void MouseWidget::onMouseMoveSpeedChanged(int speed)
