@@ -83,15 +83,6 @@ void MouseWorker::deactive()
 
 void MouseWorker::init()
 {
-    MouseModelBaseSettings *modelBase = m_model->getBaseSettings();
-    modelBase->setExist(m_dbusMouse->exist());
-
-    MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
-    modelTouch->setExist(m_dbusTouchPad->exist());
-
-    MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
-    modelTrack->setExist(m_dbusTrackPoint->exist());
-
     setLeftHandState(m_dbusMouse->leftHanded());
     setMouseNaturalScrollState(m_dbusMouse->naturalScroll());
     setTouchNaturalScrollState(m_dbusTouchPad->naturalScroll());
@@ -102,6 +93,11 @@ void MouseWorker::init()
     setMouseMotionAcceleration(m_dbusMouse->motionAcceleration());
     setTouchpadMotionAcceleration(m_dbusTouchPad->motionAcceleration());
     setTrackPointMotionAcceleration(m_dbusTrackPoint->motionAcceleration());
+
+    m_model->setMouseExist(m_dbusMouse->exist());
+    m_model->setTpadExist(m_dbusTouchPad->exist());
+    m_model->setRedPointExist(m_dbusTrackPoint->exist());
+
     m_model->setPalmDetect(m_dbusTouchPad->palmDetect());
     m_model->setPalmMinWidth(m_dbusTouchPad->palmMinWidth());
     m_model->setPalmMinz(m_dbusTouchPad->palmMinZ());
@@ -109,63 +105,52 @@ void MouseWorker::init()
 
 void MouseWorker::setLeftHandState(const bool state)
 {
-    MouseModelBaseSettings *modelBase = m_model->getBaseSettings();
-    modelBase->setLeftHandState(state);
+    m_model->setLeftHandState(state);
 }
 
 void MouseWorker::setMouseNaturalScrollState(const bool state)
 {
-    MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
-    modelMouse->setNaturalScroll(state);
+    m_model->setMouseNaturalScroll(state);
 }
 
 void MouseWorker::setTouchNaturalScrollState(const bool state)
 {
-    MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
-    modelTouch->setNaturalScroll(state);
+    m_model->setTpadNaturalScroll(state);
 }
 
 void MouseWorker::setDisTyping(const bool state)
 {
-    MouseModelBaseSettings *modelBase = m_model->getBaseSettings();
-    modelBase->setDisIfTyping(state);
+    m_model->setDisIfTyping(state);
 }
 
 void MouseWorker::setDisTouchPad(const bool state)
 {
-
-    MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
-    modelMouse->setSwitchState(state);
+    m_model->setDisTpad(state);
 }
 
 void MouseWorker::setTapClick(const bool state)
 {
-    MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
-    modelTouch->setSwitchState(state);
+    m_model->setTapClick(state);
 }
 
 void MouseWorker::setDouClick(const int &value)
 {
-    MouseModelBaseSettings *modelBase = m_model->getBaseSettings();
-    modelBase->setSliderValue(converToDoubleModel(value));
+    m_model->setDoubleSpeed(converToDoubleModel(value));
 }
 
 void MouseWorker::setMouseMotionAcceleration(const double &value)
 {
-    MouseModelMouseSettings *modelMouse = m_model->getMouseSettings();
-    modelMouse->setSliderValue(converToModelMotionAcceleration(value));
+    m_model->setMouseMoveSpeed(converToModelMotionAcceleration(value));
 }
 
 void MouseWorker::setTouchpadMotionAcceleration(const double &value)
 {
-    MouseModelMouseSettings *modelTouch = m_model->getTouchSettings();
-    modelTouch->setSliderValue(converToModelMotionAcceleration(value));
+    m_model->setTpadMoveSpeed(converToModelMotionAcceleration(value));
 }
 
 void MouseWorker::setTrackPointMotionAcceleration(const double &value)
 {
-    MouseModelThinkpadSettings *modelTrack = m_model->getTrackSettings();
-    modelTrack->setSliderValue(converToModelMotionAcceleration(value));
+    m_model->setRedPointMoveSpeed(converToModelMotionAcceleration(value));
 }
 
 void MouseWorker::setPalmDetect(bool palmDetect)

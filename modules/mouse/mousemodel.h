@@ -92,6 +92,9 @@ public:
     inline int palmMinz() const { return m_palmMinz; }
     void setPalmMinz(int palmMinz);
 
+    bool getTapclick() const { return m_tapclick; }
+    void setTapClick(bool tapclick);
+
 signals:
     void leftHandStateChanged(bool state);
     void disIfTypingStateChanged(bool state);
@@ -108,6 +111,7 @@ signals:
     void palmDetectChanged(bool detect);
     void palmMinWidthChanged(int palmMinWidth);
     void palmMinzChanged(int palmMinz);
+    void tapClickChanged(bool tapclick);
 
 private:
     MouseModelBaseSettings     *m_baseSettings;
@@ -123,6 +127,7 @@ private:
     bool m_tpadNaturalScroll;
     bool m_disTpad;
     bool m_palmDetect;
+    bool m_tapclick;
     int  m_doubleSpeed;
     int  m_mouseMoveSpeed;
     int  m_tpadMoveSpeed;

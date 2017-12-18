@@ -213,3 +213,13 @@ void MouseModel::setPalmMinz(int palmMinz)
 
     emit palmMinzChanged(palmMinz);
 }
+
+void MouseModel::setTapClick(bool tapclick)
+{
+    if (m_tapclick == tapclick)
+        return;
+
+    m_tapclick = tapclick;
+
+    emit tapClickChanged(tapclick);
+}
