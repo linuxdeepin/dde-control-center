@@ -26,9 +26,9 @@
 #ifndef NAVITEMWIDGET_H
 #define NAVITEMWIDGET_H
 
-#include <QWidget>
+#include <QFrame>
 
-class NavItemWidget : public QWidget
+class NavItemWidget : public QFrame
 {
     Q_OBJECT
 
@@ -39,15 +39,16 @@ signals:
     void itemClicked(const QString &id) const;
     void itemEntered(const QString &id) const;
 
+public slots:
+    void recheckHoverState();
+
 protected:
     void paintEvent(QPaintEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
     void enterEvent(QEvent *e);
-    void leaveEvent(QEvent *e);
 
 private:
     const QString m_id;
-    bool m_hover;
 };
 
 #endif // NAVITEMWIDGET_H

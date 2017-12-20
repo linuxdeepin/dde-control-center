@@ -33,12 +33,19 @@
 #include <QFile>
 
 NavItemWidget::NavItemWidget(const QString &id, QWidget *parent)
-    : QWidget(parent),
+    : QFrame(parent),
 
-      m_id(id),
-      m_hover(false)
+      m_id(id)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    setObjectName("NavItemWidget");
+    setStyleSheet("QFrame#NavItemWidget {"
+                  "background-color: rgba(255, 255, 255, .03);"
+                  "}"
+                  ""
+                  "QFrame#NavItemWidget:hover {"
+                  "background-color: rgba(255, 255, 255, .1);"
+                  "}");
 }
 
 void NavItemWidget::paintEvent(QPaintEvent *e)
@@ -46,13 +53,9 @@ void NavItemWidget::paintEvent(QPaintEvent *e)
     QWidget::paintEvent(e);
 
     QPainter painter(this);
-
-    painter.fillRect(rect(), QColor(255, 255, 255, 255 * (m_hover ? 0.1 : 0.03)));
-
     const QString &file = QString(":/icons/nav_%1.png").arg(m_id);
 
     qreal ratio = 1.0;
-
     const qreal devicePixelRatio = qApp->devicePixelRatio();
 
     QRect pixRect;
@@ -86,20 +89,9 @@ void NavItemWidget::mouseReleaseEvent(QMouseEvent *e)
 
 void NavItemWidget::enterEvent(QEvent *e)
 {
-    m_hover = true;
-
     QWidget::enterEvent(e);
 
     emit itemEntered(m_id);
-
-    update();
-}
-
-void NavItemWidget::leaveEvent(QEvent *e)
-{
-    m_hover = false;
-
-    QWidget::leaveEvent(e);
 
     update();
 }
