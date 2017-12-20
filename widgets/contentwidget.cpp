@@ -86,7 +86,7 @@ ContentWidget::ContentWidget(QWidget *parent)
 
     // Supporting flick gestures and make wheel scrolling more smooth.
     m_contentArea->viewport()->installEventFilter(this);
-//    QScroller::grabGesture(m_contentArea, QScroller::LeftMouseButtonGesture);
+    QScroller::grabGesture(m_contentArea, QScroller::LeftMouseButtonGesture);
 
     QHBoxLayout *navLayout = new QHBoxLayout;
     navLayout->addWidget(m_navgationBtn);
