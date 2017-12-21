@@ -170,6 +170,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_progress->setMessage(tr("Download and install updates"));
         setDownloadInfo(m_model->downloadInfo());
         m_progress->setValue(100);
+        setLowBattery(m_model->lowBattery());
         break;
     case UpdatesStatus::Downloading:
         m_progress->setVisible(true);
@@ -271,7 +272,7 @@ void UpdateCtrlWidget::setProgressValue(const double value)
 
 void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
 {
-    if (m_status == UpdatesStatus::Downloaded) {
+    if (m_status == UpdatesStatus::Downloaded || m_status == UpdatesStatus::UpdatesAvailable) {
         if(lowBattery) {
             m_powerTip->setText(tr("Your battery is lower than 50%, please plug in to continue"));
         } else {

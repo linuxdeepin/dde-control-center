@@ -116,6 +116,7 @@ void UpdateModule::onPushUpdate()
     if (!m_updatePage) {
         m_updatePage = new UpdateCtrlWidget(m_model);
         m_work->checkForUpdates();
+        m_work->activate();
 
         connect(m_updatePage, &UpdateCtrlWidget::requestDownloadUpdates, m_work, &UpdateWork::downloadAndDistUpgrade);
         connect(m_updatePage, &UpdateCtrlWidget::requestPauseDownload, m_work, &UpdateWork::pauseDownload);

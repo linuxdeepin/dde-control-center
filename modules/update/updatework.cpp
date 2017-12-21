@@ -587,14 +587,14 @@ AppUpdateInfo UpdateWork::getDDEInfo()
 void UpdateWork::setBatteryPercentage(const BatteryPercentageInfo &info)
 {
     m_batteryPercentage = info.value("Display", 0);
-    const bool low = m_onBattery ? false : m_batteryPercentage < 50;
+    const bool low = m_onBattery ? m_batteryPercentage < 50 : false;
     m_model->setLowBattery(low);
 }
 
 void UpdateWork::setOnBattery(bool onBattery)
 {
     m_onBattery = onBattery;
-    const bool low = m_onBattery ? false : m_batteryPercentage < 50;
+    const bool low = m_onBattery ? m_batteryPercentage < 50 : false;
     m_model->setLowBattery(low);
 }
 
